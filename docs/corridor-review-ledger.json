@@ -286,5 +286,1389 @@
     "continuityStatus": "verified",
     "nextReview": "2026-09-15",
     "notes": "Approved the bounded 6.5-mile Crofton public landing to Palmyra public landing Rivanna River planning float using Virginia DWR's exact public-landings map, current maintained-access inventory, official Palmyra coordinate, direct downstream USGS 02034000 context, and the approved public-domain Crofton/Union Mills image. Preserve the no-numeric-threshold planning posture, 250 ft access-anchor uncertainty, Class I-II drop, bridge/wood/rapid-rise/cold-water/water-quality hazards, day-use/no-camping posture, and hard Palmyra take-out."
+  },
+  {
+    "corridorId": "md-patapsco-woodstock-daniels",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Patapsco Woodstock Road to Daniels planning card using Maryland DNR high-water guidance, the DNR Daniels soft-launch map, American Whitewater’s common Woodstock put-in and Hollofield flow context, and a clearly labeled near-water bridge/access anchor. Preserve the high-water-only posture and hard Daniels Dam boundary; do not imply bridge-shoulder or railroad access."
+  },
+  {
+    "corridorId": "md-monocacy-section-1",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved Maryland expansion card for the NPS and Frederick County Monocacy Scenic Water Trail Section 1 from Maryland Route 77/Rocky Ridge to Devilbiss Bridge. Preserve the bounded section because its 2.1 ft planning threshold, shallow-water logistics, and upstream access conditions differ from the downstream sections."
+  },
+  {
+    "corridorId": "md-monocacy-section-2",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved Maryland expansion card for Monocacy Scenic Water Trail Section 2 from Devilbiss Bridge to Gambrill Mill. The NPS below-Devilbiss 1.7 ft planning threshold, battlefield access rules, and hard take-out are recorded in the route package."
+  },
+  {
+    "corridorId": "md-monocacy-section-3",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved Maryland expansion card for Monocacy Scenic Water Trail Section 3 from Gambrill Mill to the Monocacy Boat Ramp at the Potomac confluence. The route is bounded at the signed ramp and is not implicitly extended into the Potomac."
+  },
+  {
+    "corridorId": "md-potomac-oldtown-paw-paw",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland C&O Potomac reach from Oldtown Toll Bridge to Paw Paw Tunnel Campground using American Whitewater reach evidence, NPS boating/access guidance, a direct Paw Paw USGS gauge, and three ordered public access anchors. Youghiogheny and other Maryland corridors remain documented holds pending equally defensible endpoint and flow packages."
+  },
+  {
+    "corridorId": "md-potomac-fifteen-mile-creek-hancock",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland C&O Potomac reach from the NPS-designated Fifteen Mile Creek launch at Little Orleans to the NPS Little Tonoloway ramp at Hancock. American Whitewater supplies the 16.8-mile Class I reach, direct Hancock gauge context, low-runnable planning stage, intermediate access/camping sequence, and boundary-river safety posture."
+  },
+  {
+    "corridorId": "md-potomac-hancock-big-pool",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Hancock to Big Pool/Fort Frederick Potomac reach using the NPS Little Tonoloway launch, Maryland DNR Potomac carry evidence, direct Hancock gauge context, and American Whitewater’s explicit Williamsport power-plant dam/portage warning. The Big Pool lake ramp is intentionally not substituted for the Potomac endpoint."
+  },
+  {
+    "corridorId": "md-potomac-big-pool-williamsport",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Big Pool/Fort Frederick to Williamsport Potomac planning card using American Whitewater’s Class I reach, exact endpoint and intermediate access anchors, direct Hancock gauge with 2.22 ft low-runnable context, NPS Dam 5 and Williamsport dam warnings, and C&O River Bottom Park ramp evidence. Preserve mandatory portage and hard Williamsport take-out boundaries."
+  },
+  {
+    "corridorId": "md-middle-potomac-williamsport-big-slackwater",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Williamsport to Big Slackwater Potomac planning card using American Whitewater’s Class I 14.4-mile reach, direct Hancock gauge with 2.785 ft low-runnable correlation, C&O/NPS public endpoint ramps, Cumberland Valley/Opequon camping context, mandatory Williamsport power-plant portage, and hard Big Slackwater take-out above Dam 4."
+  },
+  {
+    "corridorId": "md-middle-potomac-dam-four-shepherdstown",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Dam 4 downstream to Shepherdstown Potomac planning card and consolidated its verified C&O access chain with the contained Taylors Landing to Snyders Landing option. The family uses American Whitewater’s Class I 11.6-mile parent route, direct USGS 01618000 at Shepherdstown, the C&O/NPS access sequence, civic Princess Street public take-out, and C&O camping context. Preserve both route URLs and their distinct 11.6-mile versus 4.3-mile gauge, hazard, camping, shuttle, and hard-endpoint guidance; no route was deleted, merged, or silently rewritten."
+  },
+  {
+    "corridorId": "md-middle-potomac-shepherdstown-dargan",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Shepherdstown-to-Dargan Bend Potomac reach using American Whitewater’s Class I 7.9-mile route, direct USGS 01618000 at Shepherdstown with approximately 2.05 ft low-runnable context, the civic Princess Street launch, NPS/DNR Dargan public ramp, Antietam camping context, and the hard Dargan endpoint before Dam 3 and the Needles."
+  },
+  {
+    "corridorId": "md-patapsco-orange-grove-avalon",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Patapsco Orange Grove to Avalon planning card using American Whitewater’s route-specific 175 cfs float guidance and Orange Grove/Avalon take-out context, Maryland DNR public park-area and paddling guidance, a near-water Orange Grove anchor, and the DNR Avalon area GPS. Preserve the area-anchor and lower-reach boundary posture; do not imply an exact Avalon landing or extend into the tidal/industrial corridor."
+  },
+  {
+    "corridorId": "md-antietam-md34-potomac",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Antietam Creek MD 34 to Potomac planning card using Maryland DNR Water Trail guidance, American Whitewater’s 5.8-mile Class I–II route and approximately 2.8 ft scrape-free planning context, direct USGS 01619500, official Porterstown Bridge and C&O campground anchors, and explicit Burnside no-landing, weir, wood, and Potomac paddle-back boundaries."
+  },
+  {
+    "corridorId": "md-antietam-devils-backbone-md34",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Middle Antietam Devil’s Backbone Park to MD 34 reach using American Whitewater’s 7.9-mile Class I–II route, direct USGS 01619500 context, Washington County’s public seasonal canoe access and park rules, the Porterstown Bridge endpoint anchor, and explicit below-dam, wood, bridge, private-bank, and lower-route boundary controls."
+  },
+  {
+    "corridorId": "md-big-pipe-hapes-mill-double-pipe-park",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Big Pipe Creek Hapes Mill to Double Pipe Creek Park planning card using Carroll County designated water-trail access, American Whitewater corridor and hazard evidence, and clearly labeled proxy context from USGS 01639500 on Big Pipe near Bruceville. Preserve shallow, wood, beaver-dam, railroad-trestle, and private-bank cautions."
+  },
+  {
+    "corridorId": "md-little-pipe-union-bridge-double-pipe-park",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Little Pipe Creek Union Bridge to Double Pipe Creek Park planning card using Carroll County water-trail access guidance and American Whitewater’s 9-mile Class I–II reach. The Big Pipe Bruceville station is proxy evidence, not a direct Little Pipe gauge; preserve conservative low-water and railroad-trestle carry posture."
+  },
+  {
+    "corridorId": "md-catoctin-doubs-meadow-catoctin-park",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the upper Catoctin Creek Doub’s Meadow to Catoctin Creek Park section using American Whitewater park access and Class I–II evidence, Frederick County’s Water Access map, direct USGS 01637500 context, and a conservative 2.4 ft planning floor. Preserve shallow riffle, bridge, wood, private-bank, and daylight boundaries."
+  },
+  {
+    "corridorId": "md-catoctin-catoctin-park-lander",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the lower Catoctin Creek Park to C&O Lander/Potomac section using county water access, NPS Lander ramp documentation, American Whitewater hazards and endpoint evidence, and direct USGS 01637500 context. Preserve aqueduct blockage risk and hard Lander take-out; do not imply an unqualified creek-mouth landing."
+  },
+  {
+    "corridorId": "md-deer-creek-sandy-hook-md136",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Deer Creek Sandy Hook Road/Conservation Area to MD 136 reach using American Whitewater endpoint and Class I–II evidence, Maryland DNR Rocks/Palmer safety guidance, direct USGS 01580000 at Rocks, and conservative 2.5 ft planning context. Preserve Palmer Class II, muddy/gravel access, traffic, fallen-tree, and private-bank cautions."
+  },
+  {
+    "corridorId": "md-gunpowder-gorge-prettyboy-falls-road",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Gunpowder Gorge downstream Prettyboy access trail to Falls Road reach using Maryland DNR Hereford Area river rules, American Whitewater Class I–III and 72.5–900 cfs Parkton correlation, direct USGS 01581920, designated Falls Road parking, and explicit cold-water, helmet/PFD, strainer, carry, and hard-take-out posture. Preserve the non-dam access trail and do not imply reservoir launch permission."
+  },
+  {
+    "corridorId": "md-gunpowder-masemore-monkton",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the 7.8-mile Gunpowder Falls Masemore Road to Monkton Road corridor using the Maryland public recreation access chain, Maryland DNR Hereford Area rules, American Whitewater Class I–II and 72.5–1230 cfs Parkton correlation, and direct USGS 01581920. Preserve the quarry/shallow-water, strainer, private-bank, limited-parking, and designated-access posture."
+  },
+  {
+    "corridorId": "md-gunpowder-monkton-phoenix",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the 7.1-mile Gunpowder Falls Monkton Road to Phoenix Road corridor using Maryland DNR public park/NCR facilities, American Whitewater’s named access chain and 105.49–1300 cfs Glencoe correlation, direct USGS 01582500, and an explicit Phoenix last-take-out boundary before Baltimore City property. Preserve parking, muddy/steep carry, cold-water, wood, and hard-endpoint cautions."
+  },
+  {
+    "corridorId": "md-conococheague-kemps-mill-williamsport",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded lower Conococheague Creek Kemps Mill Park to Williamsport River Bottom Park reach using Maryland DNR’s public walk-in and lower-creek access description, C&O Canal Trust and Maryland public water-access ramp evidence, American Whitewater Class I and 2.0–9.0 ft Fairview guidance, and direct USGS 01614500. Preserve the excluded private Kemps Mill Dam boundary, shallow/vegetation/wood hazards, and hard River Bottom/Dam 5 endpoint posture."
+  },
+  {
+    "corridorId": "md-patuxent-governor-bridge-queen-anne",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Patuxent Water Trail Governor Bridge to Queen Anne reach using the official mid-river map and launch directory, public Governor Bridge/Davidsonville/Queen Anne anchors, NPS broad/shallow river context, and clearly labeled upstream USGS 01594440 proxy evidence. Preserve tide/wind/depth, carry, permit, seasonal, and daylight controls."
+  },
+  {
+    "corridorId": "md-patuxent-queen-anne-wootons",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Patuxent Water Trail Queen Anne to Wootons Landing reach using the official map, Queen Anne launch anchor, Anne Arundel County’s Wootons floating canoe/kayak launch, NPS tidal-freshwater context, and clearly labeled upstream USGS 01594440 proxy evidence. Preserve the long Wootons carry, tide/wind/depth, permit, water-quality, and daylight controls."
+  },
+  {
+    "corridorId": "md-patuxent-wootons-jacksons-landing",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Patuxent Water Trail Wootons Landing to Jackson’s Landing reach using county and water-trail launch records, Patuxent Wetlands/Mount Calvert/Jackson access sequence, NPS context, and clearly labeled upstream USGS 01594440 proxy evidence. Preserve reservation, seasonal, tide/wind, mud, water-quality, and daylight controls."
+  },
+  {
+    "corridorId": "md-patuxent-jacksons-selbys-landing",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the compact Jug Bay Patuxent Water Trail Jackson’s Landing to Selby’s Landing reach using the two official M-NCPPC launch records, NPS broad/shallow context, and clearly labeled upstream USGS 01594440 proxy evidence. Preserve January–March closure, sunset, permit, reservation, camping, tide/wind, and depth controls."
+  },
+  {
+    "corridorId": "md-patuxent-selbys-clyde-watson",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded lower Patuxent Water Trail Selby’s Landing to Clyde Watson reach using the official map, public launch sequence, water-access-only White Oak and reservation Spice Creek campsites, NPS Clyde Watson access context, and clearly labeled upstream USGS 01594440 proxy evidence. Preserve camping reservations, intermediate-site restrictions, tide/wind/depth, water-quality, and daylight controls."
+  },
+  {
+    "corridorId": "md-pocomoke-snow-hill-shad",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Pocomoke River Byrd Park Snow Hill to Shad Landing reach using the Town of Snow Hill public floating launch, Maryland DNR Shad Landing ramp/soft launch and campground, same-river upstream USGS 01485000 proxy evidence, and dark-water/vegetation/depth controls."
+  },
+  {
+    "corridorId": "md-pocomoke-shad-milburn",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-named 4.5-mile Pocomoke River State Park Shad Landing to Milburn Landing water-trail segment using public state-park launches, seasonal Milburn operations, campground context, same-river upstream USGS 01485000 proxy evidence, and blackwater depth/vegetation/weather controls."
+  },
+  {
+    "corridorId": "md-pocomoke-mattaponi-milburn",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Pocomoke River Mattaponi Soft Launch to Milburn Landing alternate section using DNR-managed forest soft-launch and state-park ramp evidence, small-carry and seasonal controls, same-river upstream USGS 01485000 proxy evidence, and dark-water/vegetation/depth safety posture."
+  },
+  {
+    "corridorId": "md-north-branch-potomac-black-oak-fairgrounds",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the North Branch Potomac Black Oak/Gary Yoder to Allegany Fairgrounds reach using American Whitewater’s Class I Pinto Cliffs route, Black Oak non-motorized soft-launch description, Maryland’s county-managed Fairgrounds ramp record, USGS 01598500 upstream proxy, and 391-cfs low-runnable context. Preserve the active railroad crossing, muddy carry, shallow/rocky water, strainer, cold-water, long-route, and Cumberland dam boundary controls."
+  },
+  {
+    "corridorId": "md-janes-island-short-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Short Trail as an official approximately 1.25-mile marked round-trip water trail beginning and ending at the DNR-documented marina soft launch. Preserve the nearby Crisfield tidal-stage station as proxy context and the tide, wind, shallow-channel, marked-sign, and daylight controls."
+  },
+  {
+    "corridorId": "md-janes-island-yellow-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Yellow Trail as an official approximately 2.5-mile marked round-trip water trail through Daugherty Creek Canal and Ward Creek. Preserve the marina soft launch, tide/wind/depth checks, island-dock boundary, and nearby Crisfield tidal proxy posture."
+  },
+  {
+    "corridorId": "md-janes-island-blue-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Blue Trail as an official approximately 2.5-mile marked round-trip route to the Little Annemessex headwater cove. Preserve the DNR low-tide warning, marina start/finish, Crisfield tidal proxy, and no-improvised-marsh-access boundary."
+  },
+  {
+    "corridorId": "md-janes-island-black-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Black Trail as an official approximately 3.5-mile marked round-trip route through Back Creek and Little Annemessex River. Preserve the marina start/finish, route-finding, tide/wind/depth, and nearby Crisfield tidal proxy controls."
+  },
+  {
+    "corridorId": "md-janes-island-red-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Red Trail as an official approximately 4-mile marked round-trip route through the northern marshes, Acre Creek, and Big Annemessex River. Preserve the intersecting-creek navigation, wind/wave, tide, marina-return, and Crisfield proxy controls."
+  },
+  {
+    "corridorId": "md-janes-island-green-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Green Trail as an official approximately 6.25-mile experienced-only open-water route through Tangier Sound, Rock Hole, and Big Annemessex River. Preserve the marine forecast, wave/current, hard-turnaround, daylight, rescue-plan, and marina-return controls."
+  },
+  {
+    "corridorId": "md-janes-island-brown-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Janes Island State Park Brown Trail as the official approximately 12.5-mile experienced-only full-island circumnavigation. Preserve the open-water exposure, full-day fatigue, tide/wind/weather cutoff, backcountry permit posture, nearby Crisfield tidal proxy, and documented marina start/finish."
+  },
+  {
+    "corridorId": "md-blackwater-green-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the USFWS Blackwater National Wildlife Refuge Green Trail as an approximately 8-mile round trip from the Route 335 soft launch. Preserve the federal designated-launch rule, dawn-to-dusk and hunting controls, shallow/muddy tidal navigation, historical Little Blackwater stage-only proxy, no-refuge-camping posture, and same-launch return boundary."
+  },
+  {
+    "corridorId": "md-blackwater-purple-trail-shorters",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the USFWS Blackwater National Wildlife Refuge Purple Trail as an approximately 7.5-mile one-way Route 335-to-Shorters Wharf route. Preserve the October 1–March 31 seasonal closure, designated federal soft launch, county public-ramp take-out, high-tide road flooding, shallow/muddy tidal navigation, historical stage-only proxy, and no-refuge-camping posture."
+  },
+  {
+    "corridorId": "md-blackwater-orange-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the USFWS Blackwater National Wildlife Refuge Orange Trail as an approximately 8-mile round trip from Shorters Wharf through the central Blackwater River and Coles Creek. Preserve the county ramp, high-tide road flooding, shallow/muddy tidal navigation, dawn-to-dusk and refuge-closure controls, historical stage-only proxy, and no-refuge-camping posture."
+  },
+  {
+    "corridorId": "md-corsica-mill-stream-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland DNR Corsica River Water Trails Mill Stream Trail as an approximately 1.25-mile one-way route from the Town of Centreville Wharf soft launch to the public Millstream Park non-motorized access. Preserve the shallow sheltered channel, Route 304 bridge, documented carry, tide/wind/debris checks, nearby Choptank proxy, and day-use-only posture."
+  },
+  {
+    "corridorId": "md-corsica-yellow-bank-stream-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland DNR Corsica River Water Trails Yellow Bank Stream Trail as an approximately 3-mile round trip from Centreville Wharf to the navigable headwater extent and back. Preserve the Watson Road bridge clearance, low-tide mud-flat warning, fishing-line and marsh hazards, Town launch controls, nearby Choptank proxy, and no-improvised-shoreline-access boundary."
+  },
+  {
+    "corridorId": "md-corsica-alder-branch-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland DNR Corsica River Water Trails Alder Branch Trail as an approximately 2.5-mile round trip from Centreville Wharf through an open Corsica River reach into Alder Branch. Preserve the intermediate/experienced posture, wind/tide/current controls, shallow branch turnaround, private Grey Fox Farm shoreline boundary, nearby Choptank proxy, and day-use-only posture."
+  },
+  {
+    "corridorId": "md-kent-island-chesapeake-bay-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Island Chesapeake Bay Trail as an approximately 3.25-mile experienced-only one-way route from the Terrapin Nature Area hand-carry beach to the Matapeake public ramp. Preserve the open Chesapeake/Bay Bridge exposure, private shoreline, long Terrapin carry, wind/wave/current limits, named take-out, and nearby Choptank proxy posture."
+  },
+  {
+    "corridorId": "md-kent-island-eastern-bay-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Island Eastern Bay Trail as an approximately 3.6-mile experienced-only one-way route from Shipping Creek Landing to Romancoke Pier. Preserve the Cox Creek/Eastern Bay wind and surf exposure, Philpots Islands navigation, private shoreline, permit-controlled endpoints, and nearby Choptank proxy posture."
+  },
+  {
+    "corridorId": "md-kent-island-thompson-warehouse-creek-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Island Thompson Creek Trail as an approximately 3.6-mile one-way route from Thompson Creek Landing through exposed Cox Creek to the Warehouse Creek hand landing. Preserve the open-water wind, popular-season parking, small soft-take-out, private-shore, permit, tide, and nearby Choptank proxy controls."
+  },
+  {
+    "corridorId": "md-kent-island-kent-narrows-jackson-creek-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Narrows North Trail Jackson Creek option as an approximately 2.5-mile one-way route from the public Kent Narrows ramps to the small Jackson Creek hand landing. Preserve bridge/current/motor-traffic hazards, Chester River exposure, Ferry Point rest context, small-lot capacity, private shoreline, and nearby Choptank proxy posture."
+  },
+  {
+    "corridorId": "md-kent-island-kent-narrows-goodhands-creek-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Narrows South Trail as an approximately 1.7-mile one-way route from Kent Narrows Landing to Goodhands Creek Landing, with the optional Hog Island loop kept explicit. Preserve Route 50/bridge current and motor-traffic hazards, sheltered-but-tidal Goodhands endpoint, optional-loop distinction, and nearby Choptank proxy posture."
+  },
+  {
+    "corridorId": "md-kent-island-cabin-creek-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Queen Anne’s County/Maryland DNR Kent Island Cabin Creek Trail as an approximately 1.25-mile protected-cove loop from the public hand launch, with the CBEC/Prospect Bay extension kept optional. Preserve shallow/tidal water, private shoreline, oyster-sanctuary, small-lot, permit, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-tilghman-claiborne-tilghman-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Maryland DNR/Talbot County Tilghman Island and Bay Hundred Eastern Bay and Tilghman Point route as an approximately 5.2-mile experienced one-way Claiborne Landing to Tilghman Creek Landing corridor. Preserve Eastern Bay/Miles River wind, waves, wakes, tide, current, private-shore, shallow bulkhead, permit, and hard take-out controls; the Choptank USGS station is watershed-context proxy evidence only."
+  },
+  {
+    "corridorId": "md-tilghman-claiborne-wades-point-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 3.5-mile Claiborne to Wade’s Point shoreline loop as a distinct shorter option. Preserve experienced-paddler posture, Eastern Bay exposure, waves/wakes/tide, private shoreline, legal public return at Claiborne, and no unsanctioned bailout."
+  },
+  {
+    "corridorId": "md-tilghman-bayshore-lowes-wharf",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 3.33-mile Bayshore Road to Lowes Wharf Chesapeake Bay Trail route. Preserve the sandy-beach carry, limited parking, open-Bay wind/waves/tide, private shoreline, shallow Lowes bulkhead, permit, and hard take-out controls."
+  },
+  {
+    "corridorId": "md-tilghman-lowes-cabin-cove-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 1.82-mile Lowes Wharf to Cabin Cove sheltered loop as a distinct alternative to the open Bayshore route. Preserve shallow tidal water, bulkhead lowering, private shorelines, permit, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-tilghman-pwec-front-creek-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 3-mile Phillips Wharf Environmental Center to Front Creek loop. Preserve Knapps Narrows drawbridge and working-waterfront traffic, open-Bay exposure, Front Creek shallows, PWEC operating-hour/parking controls, and hard same-launch return."
+  },
+  {
+    "corridorId": "md-tilghman-pwec-back-creek-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 2.5-mile Phillips Wharf Environmental Center to Back Creek loop as the more sheltered Three Creeks option. Preserve tidal/shallow marsh, working-waterfront traffic, no-support-facility, private-shore, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-tilghman-black-walnut-cove-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 3.5-mile Black Walnut Cove Trail loop from the public bulkhead/ladder. Preserve cove-mouth Choptank exposure, extremely limited parking, permit, bulkhead condition, private shorelines, and no-camping controls; Bar Neck remains a separate alternative."
+  },
+  {
+    "corridorId": "md-tilghman-balls-creek-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 3-mile Balls Creek Trail loop from Neavitt Landing. Preserve Choptank/Broad Creek mouth exposure, shallow water, limited parking, bulkhead access, private residential/agricultural shoreline, permit, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-monie-bay-orange-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 2.7-mile Monie Bay Orange Trail round trip on Dames Quarter Creek from the no-fee year-round Dames Quarter ramp. Preserve the bridge/water-control boundary, shallow tidal marsh, marked-sign navigation, WMA hunting, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-monie-bay-yellow-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 2.3-mile Monie Bay Yellow Trail Fanney’s Gut loop from Dames Quarter. Preserve the narrow marsh navigation, open-water crossing wind exposure, directional signs, private shore, and same-ramp return."
+  },
+  {
+    "corridorId": "md-monie-bay-white-marsh-gut-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official intermediate/advanced approximately 5.56-mile White Trail Marsh Gut option from Dames Quarter. Preserve the all-day wilderness posture, map/compass requirement, open-water wind/tide, rest-beach/no-take-out distinction, and hard same-ramp return."
+  },
+  {
+    "corridorId": "md-monie-bay-white-bay-point-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official experienced-paddler approximately 8.64-mile White Trail Bay Point option from Dames Quarter. Preserve the all-day navigation, open Monie Bay exposure, no-intermediate-take-out, tide/wind, hunting, fatigue, and same-ramp return controls."
+  },
+  {
+    "corridorId": "md-fishing-bay-transquaking-river-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 5-mile Fishing Bay Transquaking River Loop from Bestpitch. Preserve the unmarked/unpatrolled wilderness, canal fork, strong current/high wind, deceptive mud, hunting, private-shore, no-public-camping, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-fishing-bay-island-creek-out-and-back",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded approximately 3-mile Fishing Bay Island Creek out-and-back from the primitive launch toward Great Marsh Point. Preserve the guide’s variable-distance warning, creek-mouth exposure, primitive access, soft-marsh, navigation, hunting, private-shore, no-public-camping, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-eastern-neck-island-water-trail-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 10-mile Eastern Neck Island Water Trail loop from year-round non-motorized Bogles Wharf. Preserve Chesapeake Bay/Chester River open-water exposure, wind/weather/current/tide, dawn-to-dusk and hunt closures, Kent County trailer permit, and hard same-launch return."
+  },
+  {
+    "corridorId": "md-marshyhope-federalsburg-town-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately one-mile Federalsburg Marshyhope Creek Water Trail between Marina Park and the VFW/Marshyhope Greenway South access. Preserve the active Delaware Marshyhope station as clearly labeled proxy evidence, recent-rain/debris checks, municipal access verification, private-bank boundary, and hard take-out."
+  },
+  {
+    "corridorId": "md-ea-vaughn-taylors-3-mile",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-published approximately 3-mile E.A. Vaughn option from Taylor Landing. Preserve remote tidal-marsh navigation, hunting, insects, shallow mud, current/weather, designated primitive-camping confirmation, and same-ramp return controls."
+  },
+  {
+    "corridorId": "md-ea-vaughn-george-island-4-mile",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-published approximately 4-mile E.A. Vaughn option from George Island Landing as a repair-dependent route. The July 2026 Worcester County rehabilitation closure is a hard access control; do not bypass barriers or imply reopening."
+  },
+  {
+    "corridorId": "md-ea-vaughn-taylors-6-mile",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-published approximately 6-mile E.A. Vaughn option from Taylor Landing. Preserve full-day tide/wind/navigation/daylight margin, hunting, remote marsh, designated primitive-camping confirmation, and no unmarked shoreline take-outs."
+  },
+  {
+    "corridorId": "md-corkers-creek-blackwater-canoe-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the official approximately 2-mile self-guided Corker’s Creek Blackwater Canoe Trail from Shad Landing. Preserve flat-water but dark-water, shallow, strainer, vegetation, park-hours, and endpoint-campground controls."
+  },
+  {
+    "corridorId": "md-nassawango-red-house-pocomoke",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR approximately 2.5-mile Red House Road to Pocomoke confluence Nassawango route. Preserve the public Red House launch, confluence as a water boundary rather than an assumed landing, blackwater strainers, Nature Conservancy/private shoreline, and proxy gauge labeling."
+  },
+  {
+    "corridorId": "md-nassawango-red-house-road-short",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR approximately 1.5-mile Red House Road to Nassawango Road short option. Preserve the road endpoint as access-uncertain pending current legal carry/parking verification and retain the Red House launch as the authoritative start."
+  },
+  {
+    "corridorId": "md-sinepuxent-old-ferry-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-named Old Ferry Landing Loop around Little Egging Island. Preserve NPS designated launch controls, weather/tidal-current exposure, wildlife closures, sensitive marsh/island landing restrictions, and no invented mileage."
+  },
+  {
+    "corridorId": "md-sinepuxent-bayside-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR-named Bayside Loop around Little Egging Island. Preserve NPS designated Bayside access, marine forecast/tide requirements, seasonal wildlife restrictions, sensitive shoreline, and no invented mileage."
+  },
+  {
+    "corridorId": "md-point-lookout-creek-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR Point Lookout Creek water-trail setting from the state-park launch. Preserve the official warning that trails are not regularly marked or patrolled, plus tide, wind, shallow-water, park-hours, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-point-lookout-lake-conoy-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR Lake Conoy water-trail setting from the state-park launch. Preserve unmarked/unpatrolled navigation, water-level, shallow-margin, weather, park-access, and no-fabricated-mileage posture."
+  },
+  {
+    "corridorId": "md-point-lookout-bay-point-water-trail",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the DNR around-the-Point Chesapeake Bay water-trail setting. Preserve Potomac/Chesapeake exposure, wind/waves/current/cold-water hazards, marine forecast, unmarked/unpatrolled route, and hard state-park return."
+  },
+  {
+    "corridorId": "md-mattawoman-mattlingy-smallwood",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Charles County Mattlingy Park to Smallwood State Park approximately 4.5-mile Mattawoman Creek route. Preserve the $5/no-wake Mattlingy launch controls, upstream same-creek USGS proxy labeling, tidal/shallow/wood hazards, park hours, and current endpoint verification."
+  },
+  {
+    "corridorId": "md-lower-potomac-purse-mallows",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Charles County Purse State Park to Mallows Bay approximately 3-mile lower-Potomac route. Preserve the quarter-mile Purse carry, tide/wind/open-water exposure, Mallows paddle-in day-use boundary, proxy gauge posture, and no-implied-camping or vehicle-ramp access."
+  },
+  {
+    "corridorId": "md-nanjemoy-friendship-farm-park",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Charles County Friendship Farm Park Nanjemoy Creek bounded route. Preserve the same-launch boundary, protected-cove/creek option posture, primitive-camping controls, private-bank and tidal/wind hazards, and no-fabricated mileage."
+  },
+  {
+    "corridorId": "md-port-tobacco-chapel-point",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Charles County Chapel Point to Port Tobacco Marina approximately 2.5-mile route. Preserve the public sand/gravel launch, high-tide beach limitation, private marina fee/permission requirement, Potomac proxy labeling, and exposed tidal-water hazards."
+  },
+  {
+    "corridorId": "md-calvert-kings-cocktown",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County approximately 3-mile Kings Landing to Cocktown Creek loop. Preserve the 170-yard park carry, shallow/narrow creek, duck-blind and marsh hazards, tide/weather controls, and same-launch return."
+  },
+  {
+    "corridorId": "md-calvert-hallowing-caney-benedict",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County Hallowing Point to Caney Creek/Benedict bounded route using the guide’s approximately 4-mile creek option and just-over-one-mile crossing context. Preserve bridge/current, fishing-line, private-pier, limited-parking, and public-beach controls."
+  },
+  {
+    "corridorId": "md-calvert-nans-cove-rock-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County Nan’s Cove bounded route with official 1-, 2-, and 5-mile round-trip options. Preserve the small floating launch, daylight parking, sandbar/revetment, open Patuxent, tide/wind, and private-shoreline boundaries."
+  },
+  {
+    "corridorId": "md-calvert-jefferson-patterson-st-leonard",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County Jefferson Patterson Park south-access St. Leonard Creek bounded route. Preserve the non-motorized beach carry, vehicle parking restrictions, shipping/private-shoreline boundary, open-water extension exclusion, and no-fabricated-mileage posture."
+  },
+  {
+    "corridorId": "md-calvert-solomons-island-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County approximately 2-mile Solomons Island same-launch route. Preserve 24-hour ramp/fee controls, intense powerboat/wake exposure, bridge/fishing-pier hazards, marine forecast requirement, and hard return."
+  },
+  {
+    "corridorId": "md-calvert-fishing-creek-kellams",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Calvert County approximately 5.5-mile Marina West at Kellam’s Park Fishing Creek loop. Preserve honor-box launch fee, sheltered-but-tidal creek posture, marina/working-waterfront traffic, shallow turns, and same-launch return."
+  },
+  {
+    "corridorId": "md-st-marys-wicomico-shores-bushwood",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 8-mile Wicomico Shores to Bushwood Wharf route with Chaptico intermediate access. Preserve open-water wind/tide/powerboat exposure, limited landing logistics, private shoreline, and county no-overnight rules."
+  },
+  {
+    "corridorId": "md-st-marys-mcintosh-abells",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 6-mile McIntosh Run/Breton Bay route from Port of Leonardtown to Abell’s Wharf. Preserve the public access chain, lower-Breton Bay wind/current exposure, limited parking, private shoreline, and no-camping rules."
+  },
+  {
+    "corridorId": "md-st-marys-upper-st-marys",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 7-mile Great Mills to St. Mary’s City Upper St. Mary’s River route. Preserve shallow/sand-portage and post-rain strainer hazards, Route 5 crossing, private island, small college landing, and daylight shuttle controls."
+  },
+  {
+    "corridorId": "md-st-marys-herring-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County Tall Timbers Herring Creek bounded route. Preserve the guide’s route-choice/no-fabricated-mileage posture, sandy minimal-parking launch, marina traffic, Potomac-jetties exposure, private shoreline, and same-launch return."
+  },
+  {
+    "corridorId": "md-st-marys-piney-point-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 5.5-mile Piney Point Creek loop. Preserve museum-hours access, limited parking, protected-lagoon recommendation, shipping/private-property boundaries, and separate experienced-only open-water extension."
+  },
+  {
+    "corridorId": "md-st-marys-st-inigoes-smith",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 4.75-mile St. Inigoes Smith Creek loop. Preserve shallow-water, state-forest/private-shoreline, limited-lot, county no-overnight, and same-launch controls."
+  },
+  {
+    "corridorId": "md-st-marys-st-inigoes-jutland",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County approximately 6.75-mile St. Inigoes Jutland Creek loop. Preserve shallow-basin, tide/wind, lower-river exposure, limited public exit, county no-camping, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-st-marys-st-inigoes-kitts",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the St. Mary’s County experienced-only approximately 4.5-mile Kitts Point loop. Preserve open Potomac/St. Mary’s exposure, wind/waves/current/cold-water hazards, marine forecast/rescue plan, private shoreline, and hard same-launch return."
+  },
+  {
+    "corridorId": "md-smith-island-tylerton-ewell-back",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Back Route between the public Tylerton and Ewell water entries. Preserve the guide-controlled mileage, ferry and kayak-carriage logistics, narrow-gut navigation, working-waterfront traffic, tide/wind exposure, and no-road-shuttle posture."
+  },
+  {
+    "corridorId": "md-smith-island-tylerton-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Tylerton Loop through Merlin’s Gut. Preserve the public Tylerton wood-ramp/soft-launch anchor, shallow winding channel, working-waterfront traffic, ferry logistics, tide/wind controls, and no-implied-marsh-landing posture."
+  },
+  {
+    "corridorId": "md-smith-island-ewell-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Ewell Loop around Goat Island. Preserve the public Ewell sand-ramp/soft-access anchor, no-vehicle-parking logistics, shallow tidal channel, private/refuge shoreline boundaries, and same-launch return."
+  },
+  {
+    "corridorId": "md-smith-island-doctors-gut",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Doctor’s Gut route through the Ewell, Rhodes Point, and Tylerton waterfront settings. Preserve the same-launch bounded posture, loading-only Rhodes Point dock limitation, narrow-gut and working-waterfront hazards, and ferry/weather controls."
+  },
+  {
+    "corridorId": "md-smith-island-jugglins-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Jugglin’s Creek wildlife route from Tylerton. Preserve the guide-controlled mileage, narrow marsh turns, hummock/wildlife no-landing boundary, tide/wind/daylight controls, and ferry logistics."
+  },
+  {
+    "corridorId": "md-smith-island-fishing-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Fishing Creek wilderness route from Tylerton. Preserve the Maryland–Virginia border-water caveat, remote/open-water exposure, wildlife-distance rules, marine forecast, communications, and same-launch return."
+  },
+  {
+    "corridorId": "md-smith-island-swan-island",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Smith Island marked Swan Island route from Ewell. Preserve the channel-marker departure, Martin National Wildlife Refuge no-landing boundary, boat traffic, shallow-water/tide/wind controls, and same-launch return."
+  },
+  {
+    "corridorId": "md-nanticoke-vienna-cherry",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Nanticoke River Water Trail Vienna-to-Cherry Beach reach using NPS/DNR water-trail evidence and current DNR access-layer anchors. Preserve the map-controlled mileage, Vienna County Hall parking, Cherry Beach soft-launch distinction, shallow bars, tide/wind/wakes, private shoreline, and daylight shuttle controls."
+  },
+  {
+    "corridorId": "md-nanticoke-vienna-chicone",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the NPS-suggested Vienna-to-Chicone Creek same-launch itinerary. Preserve the no-fabricated-mileage posture, Vienna ramp/parking controls, shallow creek and current hazards, private-bank boundaries, and early-turnaround return plan."
+  },
+  {
+    "corridorId": "md-barren-creek-mardela",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Mardela Springs Barren Creek same-launch exploration using the current DNR access record, including the approximately 6.5-mile westbound Nanticoke connection context. Preserve limited parking, ramp/soft-access distinction, bridge/debris/shallow-water hazards, and no-assumed one-way take-out posture."
+  },
+  {
+    "corridorId": "md-nanticoke-wetipquin-tyaskin",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the compact Wetipquin Park to Tyaskin Park public-access reach using DNR access-layer anchors. Preserve Wetipquin’s small dawn-to-dusk facility, Tyaskin’s non-motorized beach and old-bulkhead hazard, shallow mud/tide controls, limited parking, and hard named endpoint chain."
+  },
+  {
+    "corridorId": "md-nanticoke-cedar-hill-harbor",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the lower Nanticoke Cedar Hill soft access to Nanticoke Harbor sand-beach reach using DNR harbor and park access records. Preserve the non-motorized beach entries, commercial/recreational traffic, wind/wave/tide exposure, private/industrial shoreline boundaries, and shuttle controls."
+  },
+  {
+    "corridorId": "md-nanticoke-cove-roaring-point",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the lower Nanticoke Cove Road Beach to Roaring Point beach reach using two current DNR public soft-access records. Preserve limited parking, early-arrival and wooded-carry controls, exposed lower-river wind/wave/tide hazards, private-shoreline boundaries, and hard beach endpoints."
+  },
+  {
+    "corridorId": "md-elk-neck-rogues-harbor",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Elk Neck State Park Rogues Harbor same-launch Elk River/Big Elk Creek setting using the current DNR park page and public-access layer. Preserve the current facility/construction check, launch fees, active ramp and fishing traffic, proxy-gauge posture, tide/wind/cold-water hazards, and no-implied-private-shore access."
+  },
+  {
+    "corridorId": "md-elk-neck-northeast-beach",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Elk Neck State Park North East Beach same-launch Northeast River/Susquehanna Flats setting using the current DNR park page and access-layer record. Preserve the non-motorized-only rule, approximately 500-foot carry, swim-area separation, seasonal hours/fees, exposed-water conditions, proxy-gauge limitation, and no-beach-camping posture."
+  },
+  {
+    "corridorId": "md-deer-creek-walters-benjamins",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Deer Creek Walters Mill to Benjamin’s Bridge reach using current Maryland DNR access records that place the public soft launches approximately six miles apart. Preserve the direct Rocks gauge context, developing-water-trail posture, shallow rock, fallen-tree/strainer, cold-water, private-bank, limited-parking, and hard-endpoint controls."
+  },
+  {
+    "corridorId": "md-deer-creek-rocks-ma-pa",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the short Deer Creek Rocks Rapids to Ma & Pa section as an advanced portage-controlled card. Preserve DNR’s 150-yard Class III warning and portage recommendation, approximately 0.7-mile endpoint relationship, direct gauge limitation, cold-water/fallen-tree hazards, and no-implied extension beyond Ma & Pa."
+  },
+  {
+    "corridorId": "md-susquehanna-lapidum-shuresville",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Lower Susquehanna Lapidum-to-Shuresville reach using DNR public access records, NPS water-trail context, and direct regulated-flow evidence from USGS 01578310 at Conowingo. Preserve Lapidum fee/sunrise-to-sunset controls, Shuresville’s 400-yard Conowingo Dam and 50-yard wing-wall exclusions, flashing-red-light/siren rising-water warning, cold/open-water/wake hazards, and the hard endpoint boundary."
+  },
+  {
+    "corridorId": "md-susquehanna-hutchins-lapidum",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Frank J. Hutchins Memorial Park to Lapidum reach using the DNR floating canoe/kayak launch, Lapidum public ramp, NPS 53-mile Lower Susquehanna Water Trail context, and direct regulated-flow evidence from USGS 01578310. Preserve the downstream Conowingo approach, dam/wing-wall exclusion controls, wake/boat traffic, cold water, current, shuttle, and hard Lapidum endpoint."
+  },
+  {
+    "corridorId": "md-broad-creek-harford",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Broad Creek Harford Public Landing same-launch loop using DNR Public Water Access 2020 feature 426, with the adjacent shallow cartop feature retained as context. Preserve the floating-pier/ADA access, shallow creek, mud, submerged obstruction, private-shoreline, wind/wake, daylight, and no-implied-camping controls; Conowingo is direct lower-Susquehanna context rather than a local Broad Creek threshold."
+  },
+  {
+    "corridorId": "md-anacostia-bladensburg-anacostia-park",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately nine-mile Anacostia Water Trail from Bladensburg Waterfront Park to the NPS Anacostia Park ramp using the Anacostia Watershed Society trail description, Maryland DNR access layer, NPS launch/tide guidance, and direct USGS 01651007 context. Preserve the dedicated non-motorized Bladensburg launch, free Anacostia Park ramp, three-foot freshwater-tidal rise/fall warning, mud, wind, wakes, bridges, urban traffic, water-quality, District-rule, daylight, and hard-endpoint controls."
+  },
+  {
+    "corridorId": "md-bohemia-bridge-great-bohemia",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Great Bohemia Creek carry-in setting using DNR Public Water Access 2020 feature 513, the current Bohemia River State Park page, and the ranger-paddle FAQ. Preserve the small-vessel-only bridge access, approximately half-mile Oak Point foot carry, no vehicular waterfront access, limited parking/fee, shallow wet entry, tidal-water, mud, wood, private-bank, hunting, and same-launch return controls; the Bohemia Mills station is proxy context only."
+  },
+  {
+    "corridorId": "md-cbec-marshy-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately one-mile CBEC Marshy Creek water-trail setting using Maryland DNR's Upper Eastern Shore inventory, current CBEC kayak/dock and guided-tour pages, the USACE CBEC water-location notice, and the clearly labeled Choptank proxy. Preserve weather-dependent center access, dock/carry and reservation/member controls, tidal shallow-marsh turns, restoration/research exclusions, wildlife/private-shoreline boundaries, and same-launch return."
+  },
+  {
+    "corridorId": "md-cbec-prospect-bay",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 2.8-mile CBEC Prospect Bay water-trail setting using Maryland DNR's Upper Eastern Shore inventory, current CBEC kayak/dock and weather policy, the USACE CBEC water-location notice, and the clearly labeled Choptank proxy. Preserve exposed tidal-water, small-craft/thunderstorm, oyster-sanctuary, restoration, private-shoreline, dock-access, and same-launch return controls."
+  },
+  {
+    "corridorId": "md-middle-potomac-edwards-violettes",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 8.7-mile Edwards Ferry to Violettes Lock Middle Potomac reach using the NPS/C&O ramp chain, C&O Canal Trust endpoint coordinates, Maryland DNR Violettes access warning, American Whitewater 1.25-foot nearby low-runnable context, and direct USGS/NWS Point of Rocks evidence. Preserve conditional Sycamore/Rileys bailouts, Violettes/Dam 2 mandatory upstream take-out, Great Falls boundary, cold-water, wind, strainer, and private-bank controls."
+  },
+  {
+    "corridorId": "md-middle-potomac-brunswick-point-of-rocks",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 6.8-mile Brunswick to Point of Rocks Middle Potomac reach using American Whitewater's named access chain and 1.25-foot planning context, NPS/C&O public ramps, C&O Canal Trust coordinates, and direct USGS 01638500/NWS Point of Rocks conditions. Preserve flood-sensitive ramp parking, town/railroad traffic, wind/wake/cold-water, strainer, private-shoreline, and hard Point of Rocks take-out controls."
+  },
+  {
+    "corridorId": "md-middle-potomac-big-slackwater-taylors",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 3.4-mile Big Slackwater to Taylors Landing Middle Potomac reach as an advanced, portage-required card using NPS/C&O public-ramp evidence, C&O Canal Trust coordinates, the explicit NPS Dam 4 Maryland-side portage warning, nearby C&O camping context, and clearly labeled downstream USGS 01638500 proxy/NWS boating screens. Preserve the Dam 4 landing/scout/carry gate, minimum-wake launch, flood/debris, cold-water, wind, private-bank, and hard endpoint controls."
+  },
+  {
+    "corridorId": "md-middle-potomac-point-of-rocks-monocacy",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the 6.2-mile Point of Rocks to Mouth of Monocacy Middle Potomac reach using American Whitewater's Class I named corridor, direct USGS 01638500 at Point of Rocks with 1.25-foot low-runnable context, NPS/C&O public ramps at Point of Rocks, Nolands Ferry, and Monocacy Aqueduct, and explicit channel/landing/camping controls. Preserve Nolands' left-channel and angled-ramp warning, Calico Rocks/Indian Flats camping as separate logistics, and the hard Monocacy Aqueduct take-out before extending into the Monocacy River."
+  },
+  {
+    "corridorId": "md-middle-potomac-monocacy-edwards",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 11.7-mile Mouth of Monocacy to Edwards Ferry Potomac Islands WMA reach using American Whitewater Class I route evidence, the direct-named-but-downstream USGS 01646500 Little Falls Pump Station proxy, C&O/NPS public ramps at Monocacy Aqueduct, Whites Ferry, and Edwards Ferry, island/shoal/strainer guidance, and nearby C&O camping context. Preserve the Whites Ferry closed-ferry limitation, wrong-island-channel warning, cold-water/wind/debris/private-bank controls, and hard Edwards take-out before the separate Edwards-to-Violettes route."
+  },
+  {
+    "corridorId": "md-north-branch-potomac-westernport-mccoole",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 4.3-mile Westernport to McCoole North Branch Potomac reach using Maryland DNR public non-motorized access records, Allegany County's named access sequence and distance, American Whitewater's Class II Westernport/Keyser section, and the North Branch 400-2,400 cfs planning envelope. Preserve the limited Westernport carry/parking, bridge and railroad setting, McCoole gate, muddy shoreline, poison ivy, cold-water, shallow-rock, release, and hard McCoole take-out controls."
+  },
+  {
+    "corridorId": "md-north-branch-potomac-mccoole-black-oak",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 6-mile McCoole to Gary Yoder / Black Oak North Branch Potomac reach using Maryland DNR public access records, Allegany County's named access sequence and distance, the distinct Class I McCoole FMA-to-Gary Yoder FMA planning section, and the North Branch 400-2,400 cfs proxy-gauge envelope. Preserve McCoole's gate and unimproved carry, shallow rocky and strainer hazards, Black Oak's hard take-out, muddy carry, active railroad crossing, poison ivy, and downstream Cumberland dam boundary."
+  },
+  {
+    "corridorId": "md-potomac-paw-paw-bonds",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 12-mile Paw Paw Tunnel to Bond’s Landing Paw Paw Bends leg using Maryland DNR Green Ridge Class I route guidance, NPS C&O Paw Paw access, the Maryland DNR Bond’s Landing public-access feature at 39.580290546,-78.412500447, American Whitewater’s Paw Paw Bends gauge context, direct USGS 01610000, and Bond’s first-come canoe campsite. Preserve the remote road/stream-ford, small gravel carry, cold-water/current, private-bank, and hard Bond’s Landing boundary controls."
+  },
+  {
+    "corridorId": "md-potomac-bonds-fifteen-mile-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 9-mile Bond’s Landing to Fifteen Mile Creek Paw Paw Bends leg using Maryland DNR Green Ridge Class I route guidance, the DNR Bond’s Landing public-access feature and campsite, NPS/American Whitewater Fifteen Mile Creek access, direct USGS 01610000 with American Whitewater’s 4.62-foot low-runnable context, and a hard Fifteen Mile Creek boundary before the existing Hancock card. Preserve remote shuttle, small-lot, cold-water/current, private-bank, and flood/debris controls."
+  },
+  {
+    "corridorId": "md-north-branch-potomac-mason-spring-gap",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 10.8-mile Mason Sports Complex to Spring Gap North Branch Potomac short run using Maryland DNR City of Cumberland and NPS public access records, American Whitewater Wiley’s Ford Section access distances and Class I–II moving/flat-water guidance, direct USGS 01603000 correlation of 642–5,600 cfs, Spring Gap campground context, and hard Spring Gap boundary controls."
+  },
+  {
+    "corridorId": "md-north-branch-potomac-spring-gap-oldtown",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 6.2-mile Spring Gap to Oldtown North Branch Potomac short run using the NPS/DNR Spring Gap ramp, existing C&O/Oldtown access package, American Whitewater Wiley’s Ford Section distances and Class I–II moving/flat-water guidance, direct USGS 01603000 correlation of 642–5,600 cfs, Spring Gap campground context, and hard Oldtown boundary before the separate Oldtown-to-Paw Paw reach."
+  },
+  {
+    "corridorId": "md-antietam-oak-ridge-devils-backbone",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed American Whitewater's Oak Ridge/Wagaman Road to Devil’s Backbone Class I–II candidate and Maryland DNR access context. Held: AW identifies landowner/bridge-crossing access issues at the upper end, while DNR says access apart from Devil’s Backbone and Antietam Battlefield is limited; no authoritative general-public endpoint chain and route-specific shuttle package was established."
+  },
+  {
+    "corridorId": "md-middle-potomac-dargan-needles",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed the Dargan Bend/Potoma Wayside Needles Class II+ candidate using NPS/C&O and American Whitewater evidence. Held: the Maryland-side Dargan ramp is verified, but the downstream/upstream access alternatives cross jurisdictional boundaries, Weverton landing posture is limited, and the Needles hazard/Point of Rocks gauge package requires a separate expert-only review before a public route card."
+  },
+  {
+    "corridorId": "md-octoraro-lower-horseshoe-moore",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed the American Whitewater lower Octoraro candidate and Maryland fishing/water-trail context. Held: AW's Horseshoe Road/Moore Road endpoints and the bridge/landowner access chain are not supported by a complete authoritative public-access record; Conowingo Park is a different lower-creek/Susquehanna launch and cannot substitute for the proposed upper pair."
+  },
+  {
+    "corridorId": "md-gunpowder-middle-notchcliff-route1",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed American Whitewater's approximately 5.4-mile Notchcliff to Route 1 Middle Gunpowder reach against Maryland public-access and park rules. Held: Notchcliff is informal/parking-uncertain, and AW records prohibited paddling/access conditions near Loch Raven; an authoritative public put-in and current permission package are not established."
+  },
+  {
+    "corridorId": "md-gunpowder-lower-route1-mariner",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed the Route 1 to US 40/Mariner Point Lower Gunpowder candidate. Held: the lower reach has tidal/urban conditions and endpoint/season/permission constraints that are not covered by the existing upper Gunpowder access and gauge package; no stable public endpoint pair with route-specific current/wind/tide guidance was established."
+  },
+  {
+    "corridorId": "md-beaver-creek-upper",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed American Whitewater's Park-and-Ride/I-70 to Alternate 40 Beaver Creek candidate. Held: the listed upper access is an old abandoned bridge/informal setting rather than a verified public launch, so the route lacks a defensible access-control record and safe shuttle posture."
+  },
+  {
+    "corridorId": "md-big-elk-pa841-elkton",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed American Whitewater's approximately 13-mile PA 841 to Elkton Road Big Elk Creek candidate and the direct Big Elk gauge context. Held: PA 841 and Elkton Road do not yet form a complete authoritative Maryland/public endpoint chain with parking, carry, permissions, and hard take-out evidence."
+  },
+  {
+    "corridorId": "md-anacostia-northwest-us29-riggs",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed American Whitewater's US 29 to Riggs Road Northwest Branch Anacostia candidate. Held: Montgomery County park rules prohibit paddling without a permit, and no current general-public permit/access mechanism was established; the reach is therefore not promotable as a normal PaddleToday trip."
+  },
+  {
+    "corridorId": "md-youghiogheny-maryland-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed the Maryland Youghiogheny family against Maryland DNR and public-access sources. Held: DNR describes it as difficult, rugged, mostly primitive, and largely private; a defensible general-paddling endpoint pair, access continuity, and route-specific flow/safety package were not established."
+  },
+  {
+    "corridorId": "md-savage-river-tailwater-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed the Savage River tailwater as a distinct release-dependent corridor. Held: dam-release timing, cold water, whitewater skill requirements, mandatory-portage boundaries, and access logistics require a dedicated expert package and release-calendar verification before promotion."
+  },
+  {
+    "corridorId": "md-broad-creek-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed Broad Creek as an American Whitewater/indexed candidate family. Held: no complete authoritative public endpoint chain and route-specific moving-water flow/safety package were established; nearby access or scenic-water evidence is insufficient for promotion."
+  },
+  {
+    "corridorId": "md-bennett-creek-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed Bennett Creek as an American Whitewater/indexed candidate family. Held: public access continuity, on-water endpoint certainty, and a route-specific flow/safety package remain unverified; do not infer a route from nearby park or road access."
+  },
+  {
+    "corridorId": "md-double-pipe-creek-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed Double Pipe Creek as a distinct moving-water candidate. Held: the available evidence does not establish a maintained public put-in/take-out pair and route-specific gauge/rapid guidance sufficient for a complete trip record."
+  },
+  {
+    "corridorId": "md-little-gunpowder-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Reviewed Little Gunpowder Falls as a distinct candidate family. Held: public access, water-entry coordinates, and a route-specific flow/safety package are not sufficiently authoritative or continuous for promotion; preserve as a future source-review item."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-inner-harbor-heritage",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 2-mile Inner Harbor Heritage Water Trail using the current Baltimore Blueway trail and launch directory, public Rash Field and Fells Point launch anchors, NPS Blueway overview, same-estuary USGS 01589035 proxy, NOAA Baltimore tide context, and Blueway heavy-rain water-quality/working-waterfront guidance. Preserve commercial-traffic, channel, wake, bridge, water-quality, parking, and hard-launch-boundary controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-canton",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 1.3-mile Canton Water Trail using the current Baltimore Blueway trail and launch directory, Canton Waterfront Park and Fells Point public launch anchors, same-estuary USGS 01589035 proxy, NOAA Baltimore tide context, and route-specific marina/wake/traffic guidance. Preserve day-use, parking, private-dock, and hard Fells Point take-out controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-domino-sugar",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 1.6-mile Domino Sugar Water Trail as a same-launch Inner Harbor perimeter using the current Blueway trail page, public Rash Field launch anchor, NPS Blueway overview, same-estuary USGS 01589035 proxy, NOAA tide context, and route-specific shipping/channel and 48-hour heavy-rain water-quality controls. Hull Street Pier remains connected landmark context, not an assumed public take-out."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-middle-branch",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 2.4-mile Middle Branch Water Trail loop using the current Blueway trail and launch directory, Middle Branch Park public floating-dock/DNR access anchor, same-estuary USGS 01589035 proxy, NOAA tide context, and sheltered-wetland/rowing/wake guidance. Preserve same-launch, park-hours, carry, private-bank, debris, and water-quality controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-fort-mchenry",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the advanced approximately 4.5-mile Fort McHenry Water Trail using the current Blueway trail and launch directory, public Canton and Broening ramps, NPS Blueway overview, same-estuary USGS 01589035 proxy, NOAA Baltimore tide/marine context, and explicit shipping-channel/open-water/boat-traffic guidance. Preserve the advanced-skill, channel, commercial-vessel, weather, and hard Broening endpoint controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-baltimore-peninsula",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 1.5-mile Baltimore Peninsula Water Trail perimeter using the current Blueway trail and launch directory, public Rye Street Park dock anchor, same-estuary USGS 01589035 proxy, NOAA tide context, and route-specific Port Covington marina/construction/wake guidance. Preserve same-launch, parking, private-shoreline, and connected-trail boundary controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-masonville-cove",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 2.5-mile Masonville Cove Water Trail using the current Blueway trail/launch directory, Broening public ramp, Masonville Cove’s current water-arrival beach rule and visitor check-in, same-estuary USGS 01589035 proxy, NOAA tide context, and Blueway heavy-rain guidance. Preserve campus hours, seasonal eagle restrictions, industrial/restoration shoreline, and hard authorized-beach boundary controls."
+  },
+  {
+    "corridorId": "md-baltimore-blueway-patapsco-river",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the advanced approximately 5-mile Patapsco River Water Trail upstream paddle using the current Blueway trail/launch directory, public Broening and Southwest Area Park ramps, NPS Blueway overview, same-estuary USGS 01589035 proxy, NOAA tide context, and route-specific bridge/rail/industrial and upstream-current guidance. Preserve advanced-skill, bridge, strainer, construction, private-bank, and hard Southwest endpoint controls."
+  },
+  {
+    "corridorId": "de-brandywine-smith-thompsons",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "verified",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the initial Delaware Brandywine Creek planning reach from Smith Bridge Picnic Area to Thompson’s Bridge using NPS public access-area coordinates, hours/fees, 1–2 hour float guidance, NPS and Brandywine Conservancy safety guidance, clearly labeled same-river USGS 01481000 proxy context, a nearby-basecamp-only camping posture, and CC0 same-river imagery. Preserve official access-area anchors as requiring current wetted-edge, carry, landing, parking, and closure verification."
+  },
+  {
+    "corridorId": "de-blackbird-reserve-rocks",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the Blackbird Creek Reserve to The Rocks planning reach using DNREC’s public canoe/kayak launch, the DNERR management plan’s downstream Fish & Wildlife boat-launch reference, NOAA Taylors Bridge tide station 8553069, clearly labeled same-creek USGS 01483200 proxy context, documented shallow-marsh/erosion/hunting/property controls, nearby-basecamp-only camping, and CC0 same-river imagery. Preserve endpoint anchors as requiring current carry, wetted-edge, gate, parking, CAP, landing, tide, and closure verification."
+  },
+  {
+    "corridorId": "de-st-jones-lebanon-scotton",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Lebanon Landing to Scotton Landing St. Jones River tidal planning reach using the current Delaware tidal-access inventory, DNERR’s canoe/kayak access plan and endpoint monitoring stations, DNREC’s reconstructed Scotton ramp notice, clearly labeled same-river USGS 01483700 proxy telemetry, tide-dependent guided-trip guidance, documented shallow-mud/wind/current/urban-water-quality controls, nearby-basecamp-only camping, and CC BY-SA 4.0 same-river imagery. Preserve endpoint coordinates as public access/monitoring anchors requiring current carry, wetted-edge, parking, ramp-sharing, tide, weather, daylight, and closure verification."
+  },
+  {
+    "corridorId": "de-christina-newport-7th-street",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Newport Boat Ramp to 7th Street Wilmington Christina River urban-tidal planning reach using the current Delaware tidal-access inventory, DNREC’s 7th Street Christina/Brandywine permit record, direct USGS 01480120 tidal telemetry at Wilmington, documented traffic/confluence/bridge/debris/urban-water-quality controls, nearby-basecamp-only camping, and CC BY-SA 2.5 same-river imagery. Preserve public access-area coordinates as anchors requiring current ramp, paddlecraft landing, parking, security, traffic, tide, waterline, and closure verification; do not extend into the Brandywine, Delaware River, or port without a separate review."
+  },
+  {
+    "corridorId": "de-broad-creek-fisher-phillips",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 8-mile Roger C. Fisher Laurel River Park to Phillips Landing Broad Creek water-trail reach using the NPS Nanticoke itinerary, current Delaware tidal-access inventory, DNREC’s reconstructed Phillips three-ramp/dedicated canoe-kayak launch record, clearly labeled USGS 01487000 Nanticoke proxy context, tide/wind/shallow-water guidance, nearby-basecamp-only camping, and CC BY-SA 4.0 same-estuary imagery. Preserve Fisher and Phillips as access-area anchors requiring current launch, carry, parking, waterline, ramp-sharing, tide, daylight, and closure verification; do not extend into the open Nanticoke or Bay without a separate review."
+  },
+  {
+    "corridorId": "de-mispillion-front-street-cedar-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 10-mile Front Street Milford to Cedar Creek public ramp Mispillion River tidal planning reach using the City of Milford public-ramp listing, current Delaware tidal-access guide, DNREC Cedar Creek facility record, NOAA Mispillion River Entrance station 8556198, clearly labeled USGS 01484100 Beaverdam Branch headwater proxy, local 5–6 hour tide-linked planning guidance, documented shallow-mud/wind/current/harbor/water-quality controls, nearby-basecamp-only camping, and public-domain NPS HAER imagery. Preserve Cedar Creek as an explicitly connected-waterbody endpoint at Mispillion Harbor and do not extend into Delaware Bay without a separate review."
+  },
+  {
+    "corridorId": "de-christina-churchmans-newport",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 4-mile Churchmans Road to Newport Christina River urban-tidal planning reach using the current Delaware tidal-access guide, Newcastle County’s Christina River guide identifying both paved public ramps, DNREC’s Churchmans closure/cooperative-management notice, direct USGS 01480120 same-river telemetry, documented traffic/bridge/debris/urban-water-quality controls, nearby-basecamp-only camping, and the approved CC BY-SA 2.5 Christina River image. Preserve Churchmans and Newport as public-facility anchors requiring current paddlecraft access, carry, parking, security, waterline, tide, traffic, and closure verification; do not extend downstream into the existing Newport-to-7th-Street package without a separate review."
+  },
+  {
+    "corridorId": "de-appoquinimink-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Blocked the Appoquinimink route package for now: the current Delaware tidal-access inventory establishes Odessa as an access lead, but the DNREC watershed/public-access review did not establish a second lawful paddle endpoint with on/near-water coordinates and a complete tide/safety/logistics package. Reopen only when an independent public endpoint and route-specific operating evidence are documented; do not infer access from road crossings, private banks, or Delaware River facilities."
+  },
+  {
+    "corridorId": "de-duck-creek-woodland-beach",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Woodland Beach Creekside same-launch Duck Creek tidal exploration after current access reconciliation: the official Delaware tidal-access guide identifies a public two-lane ramp with kayak/canoe courtesy-dock support, DNREC’s wildlife-area map identifies the Duck Creek ramp and no-camping/no-open-fire rules, and FirstMap supplies the facility coordinate. Historical USGS 01483335 is retained only as clearly labeled same-creek stage proxy context with NOAA 8553501 tide predictions. The same facility is the required return boundary; do not infer access from Smyrna Landing Road, the bayside pier, private banks, or Delaware Bay."
+  },
+  {
+    "corridorId": "de-broadkill-milton-mccabe",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 2-mile Milton Memorial Park to Edward H. McCabe Preserve Broadkill River tidal-freshwater canoe-trail planning reach using the Town of Milton public launch, TNC’s public non-motorized floating dock and route-specific rules, the current Delaware tidal-access guide, clearly labeled USGS 01484272 legacy-flow/water-quality proxy context, local tide-aware guidance, documented shallow-water/private-dock/current/no-camping controls, nearby-basecamp-only posture, CC BY-SA 4.0 same-river imagery, and generated canonical geometry. Preserve the McCabe take-out as an approximate river-side anchor because TNC publishes overland parking coordinates; exact dock/wetted-edge, current landing, preserve-hours, and no-parking verification remain mandatory. Do not extend to Oyster Rocks or Delaware Bay without a separate review."
+  },
+  {
+    "corridorId": "de-nanticoke-seaford-woodland-wharf",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the approximately 5-mile Seaford public ramp to Woodland Wharf canoe/kayak dock lower-Nanticoke tidal-freshwater planning reach using the current Delaware tidal-access guide, DNREC’s Woodland Wharf facility announcement and Seaford waterfront record, DelDOT’s active Woodland Ferry operations, clearly labeled USGS 01487000 same-river proxy context, route-specific tide/wind/current/ferry-cable guidance, nearby-basecamp-only camping, CC BY-SA 4.0 same-estuary imagery, and generated canonical geometry. Preserve Seaford and Woodland Wharf as public-facility/near-water anchors requiring current paddlecraft, carry, waterline, parking, ferry, strong-current, and closure verification; do not extend into Maryland, Broad Creek, or the open Nanticoke without separate review."
+  },
+  {
+    "corridorId": "de-c-and-d-canal-frontier",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Blocked the C&D Canal package after formal access reconciliation: the current Delaware tidal-access inventory lists Canal Wildlife Area/C&D Canal as fishing-pier-only with no boat ramp, and DNREC’s conservation-area material identifies trailheads and a 14-mile U.S. Army Corps commercial shipping route rather than paddle launches. No two lawful Delaware paddle endpoints with on/near-water coordinates or route-specific traffic/lock/current guidance were established. Reopen only with a documented paddle-appropriate endpoint pair and complete safety, logistics, camping, imagery, coordinate, and geometry evidence; do not infer access from trailheads, the fishing pier, or Maryland-side docks."
+  },
+  {
+    "corridorId": "de-delaware-river-shoreline-frontier",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Fort DuPont Branch Canal to Augustine Beach Delaware-only planning reach after current access reconciliation: Delaware’s tidal-access inventory and FirstMap access layer identify both facilities as public boat ramps with near-water coordinates; DNREC establishes Fort DuPont as a Branch Canal launch context and Augustine Beach as a managed boating-access area, with periodic dredging/maintenance closure history. The route package preserves advanced tidal/open-water controls for commercial traffic, wakes, wind against tide, cold water, visibility, difficult shoreline, hard Augustine take-out, nearby-basecamp-only camping, USGS 01482170 clearly labeled proxy context, NOAA Delaware City tide/water-level guidance, approved same-river imagery, and canonical geometry. It does not claim Delaware Bay, an interstate landing, or direct main-stem launch at Fort DuPont."
+  },
+  {
+    "corridorId": "de-indian-river-masseys-rosedale",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Delaware Seashore State Park Savages Ditch Road to New Road Rehoboth Bay water-trail package after current route-source reconciliation: the official Delaware State Parks map names the approximately four-mile experienced-kayaker course, identifies both park access points, permits a loop or out-and-back from either end, and documents heat, wind, tide, nesting/private-property, and October–February waterfowl controls. Preserve the park access anchors as requiring current carry, waterline, parking, fee, closure, and posted-restriction verification; this package does not claim Masseys Landing, Rosedale Beach, Indian River Inlet, the Atlantic Ocean, or an ordinary flatwater route."
+  },
+  {
+    "corridorId": "de-little-river-little-creek",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Little Creek Wildlife Area to Little Creek Boating & Fishing Access Little River planning reach after current access reconciliation: FirstMap identifies multiple public Wildlife Area boat-ramp features and a separate public concrete ramp with kayak/dock access; DNREC’s current Little Creek map and regulations establish seasonal managed-water, CAP/signage, carry-in/carry-out, no-camping, parking, and wildlife-area controls. The package carries shallow-marsh/tide/wind/low-water/water-quality controls, clearly labeled nearby St. Jones proxy evidence, nearby-basecamp-only camping, public-domain nearby tidal-marsh imagery, authoritative near-water anchors, and a hard town-ramp boundary. Do not extend to Port Mahon, Woodland Beach, impoundments, or Delaware Bay without a separate review."
+  },
+  {
+    "corridorId": "de-pepper-vines-piney-point",
+    "status": "review",
+    "owner": "route-data-team",
+    "continuityStatus": "held",
+    "nextReview": "2026-09-15",
+    "notes": "Blocked the Pepper/Vines Creeks package for now: Piney Point is listed as walk-in shoreline access without a boat ramp. No two-endpoint paddle package was established; do not infer a route from shoreline fishing access or private frontage."
+  },
+  {
+    "corridorId": "de-miller-creek-strawberry-sassafras",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Strawberry Landing to Sassafras Landing Miller Creek tidal route after current access-baseline reconciliation: the official FirstMap Delaware layer identifies both public canoe/boat access facilities, and the DNREC Assawoman Canal Trail Concept Plan explicitly places both landings on Miller Creek. The route uses direct USGS 01484701 Little Assawoman Bay water-level evidence with NOAA tide context and carries route-specific outgoing-tide, shallow-water, wind, open-water traffic, wildlife-area, private-bank, hard-take-out, and no-camping controls. Mulberry/Dirickson Creek, the Assawoman Canal, open bay, and interstate waters are not claimed."
+  },
+  {
+    "corridorId": "de-lewes-rehoboth-canal-lewes-grove",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Lewes Canalfront Park to Grove Park Canal Dock Lewes & Rehoboth Canal tidal planning reach using official City of Lewes launch guidance, City of Rehoboth Beach canal-dock rules and current Grove Park closure/condition notices, NOAA Lewes tide predictions, clearly labeled USGS 01484670 Rehoboth Bay same-estuary proxy context, route-specific tide/wind/traffic/cold-water/private-bank controls, nearby-basecamp-only camping, CC BY 2.0 same-canal imagery, and generated canonical geometry. Preserve both endpoints as practical near-water anchors requiring current wetted-edge, carry, parking, dock, loading, and closure verification; Grove Park is a short-term loading/unloading finish, and no Rehoboth Bay or Delaware Bay extension is implied."
+  },
+  {
+    "corridorId": "de-prime-hook-creek-foord-waples",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded westward Foord’s Landing to Waples Mill Pond / Brumbley Family Park Prime Hook Creek planning reach using current FWS refuge closure guidance, the official FWS canoe-trail brochure and map, DNREC Prime Hook Wildlife Area map context, clearly labeled nearby USGS 01484272 proxy context, route-specific westward-only/shallow-channel/compass/obstruction/wildlife/seasonal-closure guidance, nearby-basecamp-only camping, CC BY 2.0 refuge imagery, and generated canonical geometry. Preserve both endpoints as approximate near-water anchors requiring current refuge status, closed-sign, carry, waterline, channel, private-launch permission, fee, parking, and landing verification; the silted eastern channel and refuge headquarters ramp are not part of this route."
+  },
+  {
+    "corridorId": "de-murderkill-bowers-beach-loop",
+    "status": "approved",
+    "owner": "route-data-team",
+    "continuityStatus": "partial",
+    "nextReview": "2026-09-15",
+    "notes": "Approved the bounded Bowers Beach same-launch Murderkill River tidal exploration after current access-baseline reconciliation: the official FirstMap Delaware layer identifies Bowers Beach as a public concrete five-ramp facility with large parking, the Town of Bowers identifies the surrounding Murderkill River as a kayaking setting, and USGS 01484085 is colocated at the public pier beside the ramps. The route uses direct gage evidence and carries route-specific commercial/emergency-navigation, shoaling, tide, wind, cold-water, jetty, private-bank, and Delaware Bay controls. Because no independent upstream public paddle endpoint was established, Bowers is intentionally both the launch and required return boundary; no unsupported upstream or open-Bay route is claimed."
   }
 ]

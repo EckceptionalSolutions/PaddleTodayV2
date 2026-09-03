@@ -45,3 +45,9 @@ The ten-record Little Fork family is two verified official map-sheet corridors r
 The registry records `mn-little-fork-fiedler-lofgren` for the six Map 2 cards and `mn-little-fork-map-1` for the four Map 1 cards. All ten route cards remain distinct: the cards use different endpoint pairs, two direct gauge reaches (`mn-dnr-294` / `mn-dnr-81` on Map 2 and `mn-dnr-88` / `mn-dnr-295` on Map 1), distances from 4.1 to about 21.8 miles, campground/bailout availability, Flat Rock/Highway 217/Hannine Falls context, and shuttle or Rainy River logistics.
 
 Coordinate and access audits confirm the shared endpoint identities. Dentaybow is on the named Little Fork waterbody but retains the existing `review` severity because its stored point is about 55 ft from the matched waterbody and 111 ft from the named flowline; no coordinate was corrected. The safety audit reports zero issues, and canonical geometry coverage remains present for every card. No route was deleted, merged, retired, or silently rewritten.
+
+## 2026-09-03 Follow-up: Maryland Potomac Dam 4 / Taylors-Snyders
+
+The overlap auditor identified the 4.3-mile Taylors Landing to Snyders Landing card as a contained connector within the 11.6-mile Dam 4 downstream to Shepherdstown card. This is an intentional selectable access-chain variant, not a duplicate: the parent card starts below Dam 4 and finishes at Shepherdstown, while the shorter card avoids the Dam 4 launch commitment and carries its own endpoint, camping, shuttle, flow, and hazard guidance.
+
+The corridor registry now models one verified `md-middle-potomac-dam-four-shepherdstown` family with ordered edges Dam 4 downstream → Taylors Landing → Snyders Landing → Shepherdstown. Both route slugs, trip-detail records, canonical geometries, and access evidence remain published. No route was deleted, merged, retired, or silently rewritten; the family model is the consolidation boundary and route-specific differences remain visible.

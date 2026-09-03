@@ -1,0 +1,208 @@
+{
+  "state": "Delaware",
+  "updatedAt": "2026-09-03T12:05:00Z",
+  "status": "seventeen_route_packages_implemented_inventory_reconciled_with_blockers",
+  "implementedThisPass": {
+    "routeId": "brandywine-creek-smith-bridge-thompsons-bridge",
+    "corridor": "Brandywine Creek",
+    "route": "Smith Bridge Picnic Area to Thompson’s Bridge",
+    "gauge": "USGS 01481000 Brandywine Creek at Chadds Ford, PA (clearly labeled same-river proxy)",
+    "accessPosture": "NPS-published public access-area/parking anchors; current wetted-edge, carry, landing, parking, hours, fees, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "CC0 same-river Brandywine Creek image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/brandywine-creek-smith-bridge-thompsons-bridge.json."
+  },
+  "secondImplementedThisPass": {
+    "routeId": "blackbird-creek-reserve-the-rocks",
+    "corridor": "Blackbird Creek",
+    "route": "Blackbird Creek Reserve to The Rocks boat launch",
+    "gauge": "USGS 01483200 Blackbird Creek at Blackbird, DE (clearly labeled same-creek proxy for the tidal reach)",
+    "accessPosture": "DNREC-published Reserve canoe/kayak launch plus DNERR management-plan Fish & Wildlife boat-launch reference at The Rocks; current carry, wetted-edge, gate, parking, CAP, landing, hours, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "CC0 same-river Blackbird Creek image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/blackbird-creek-reserve-the-rocks.json."
+  },
+  "thirdImplementedThisPass": {
+    "routeId": "christina-river-newport-7th-street",
+    "corridor": "Christina River / Christina Basin",
+    "route": "Newport Boat Ramp to 7th Street Wilmington",
+    "gauge": "USGS 01480120 Christina River at Wilmington, DE (same-reach tidal telemetry)",
+    "accessPosture": "Current Delaware tidal-access inventory lists Newport and 7th Street Fish & Wildlife ramps; DNREC places 7th Street on the Christina River adjacent to Brandywine Creek. Current paddlecraft landing, traffic, security, parking, construction, waterline, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no on-route, urban-park, dock, or public-ramp camping entitlement claimed.",
+    "imagery": "CC BY-SA 2.5 same-river Christina River image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/christina-river-newport-7th-street.json."
+  },
+  "fourthImplementedThisPass": {
+    "routeId": "st-jones-river-lebanon-scotton",
+    "corridor": "St. Jones River",
+    "route": "Lebanon Landing to Scotton Landing",
+    "gauge": "USGS 01483700 St. Jones River at Dover, DE (clearly labeled same-river tidal proxy)",
+    "accessPosture": "Current Delaware tidal-access inventory, DNERR management materials, and DNREC monitoring records support public Lebanon and Scotton endpoints. Current carry, wetted-edge, tide, wind, parking, hours, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "CC BY-SA 4.0 same-river Saint Jones image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/st-jones-river-lebanon-scotton.json."
+  },
+  "fifthImplementedThisPass": {
+    "routeId": "broad-creek-fisher-phillips",
+    "corridor": "Broad Creek / Nanticoke River",
+    "route": "Roger C. Fisher Laurel River Park to Phillips Landing",
+    "gauge": "USGS 01487000 Nanticoke River near Bridgeville, DE (clearly labeled proxy for lower Broad Creek)",
+    "accessPosture": "NPS names the Fisher-to-Phillips 8-mile Broad Creek water-trail itinerary; the current Delaware inventory and DNREC facility record support Phillips as a public three-ramp/canoe-launch endpoint. Current Fisher launch, carry, parking, waterline, tide, wind, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "CC BY-SA 4.0 same-estuary Nanticoke River image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/broad-creek-fisher-phillips.json."
+  },
+  "sixthImplementedThisPass": {
+    "routeId": "mispillion-river-front-street-cedar-creek",
+    "corridor": "Mispillion River / Mispillion Harbor connection",
+    "route": "Front Street Milford to Cedar Creek public boating access area",
+    "gauge": "USGS 01484100 Beaverdam Branch at Houston, DE (clearly labeled headwater proxy for Mispillion River)",
+    "accessPosture": "City of Milford identifies the Front Street public boat ramp; Delaware’s current tidal-access guide and DNREC identify the Cedar Creek public ramp near the Mispillion Harbor connection. Both coordinates are practical facility anchors requiring current carry, wetted-edge, parking, tide, daylight, and closure checks; Cedar Creek is explicitly a connected-waterbody endpoint, not an open-bay extension.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "Public-domain NPS HAER Mispillion Lighthouse / river-mouth image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/mispillion-river-front-street-cedar-creek.json."
+  },
+  "seventhImplementedThisPass": {
+    "routeId": "christina-river-churchmans-newport",
+    "corridor": "Christina River / Christina Basin",
+    "route": "Churchmans Road to Newport Boat Ramp",
+    "gauge": "USGS 01480120 Christina River at Wilmington, DE (direct same-river tidal telemetry)",
+    "accessPosture": "Current Delaware tidal-access inventory lists Churchmans Road and Newport ramps; Newcastle County identifies both as paved public boat ramps, and DNREC documents cooperative management plus closure history at Churchmans. Coordinates are public-facility anchors requiring current paddlecraft access, carry, parking, security, waterline, tide, traffic, and closure checks.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp camping entitlement claimed.",
+    "imagery": "CC BY-SA 2.5 same-river Christina River image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/christina-river-churchmans-newport.json."
+  },
+  "eighthImplementedThisPass": {
+    "routeId": "broadkill-river-milton-mccabe",
+    "corridor": "Broadkill River / Milton-McCabe",
+    "route": "Milton Memorial Park to Edward H. McCabe Preserve canoe dock",
+    "gauge": "USGS 01484272 Broadkill River near Milton, DE (clearly labeled same-river legacy-flow/water-quality proxy; no numeric paddling cutoff transferred)",
+    "accessPosture": "Town of Milton and The Nature Conservancy identify the public Memorial Park canoe-trail launch and McCabe Preserve non-motorized floating dock. The McCabe coordinate is a conservative approximate river-side anchor because TNC publishes overland preserve parking coordinates; exact dock/wetted-edge/current landing verification remains mandatory.",
+    "camping": "Nearby basecamp only; TNC preserve rules prohibit camping, fires, and cookouts.",
+    "imagery": "CC BY-SA 4.0 same-river Broadkill River image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/broadkill-river-milton-mccabe.json."
+  },
+  "ninthImplementedThisPass": {
+    "routeId": "nanticoke-river-seaford-woodland-wharf",
+    "corridor": "Nanticoke River / Seaford-Woodland Wharf",
+    "route": "Seaford public boat ramp to Woodland Wharf kayak launch",
+    "gauge": "USGS 01487000 Nanticoke River near Bridgeville, DE (clearly labeled same-river upstream proxy)",
+    "accessPosture": "Current Delaware tidal-access guidance and DNREC establish Seaford and Woodland Wharf as public Nanticoke access areas; DNREC documents the Woodland canoe/kayak dock, parking, bulkhead, and management. Woodland Wharf is adjacent to the active cable ferry, so ferry/cable, strong-current, exact dock, waterline, carry, and closure checks remain mandatory.",
+    "camping": "Nearby basecamp only; no on-route or public-ramp/dock/ferry-property camping entitlement claimed.",
+    "imagery": "CC BY-SA 4.0 same-estuary Nanticoke River image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/nanticoke-river-seaford-woodland-wharf.json."
+  },
+  "tenthImplementedThisPass": {
+    "routeId": "lewes-rehoboth-canal-lewes-grove-park",
+    "corridor": "Lewes & Rehoboth Canal",
+    "route": "Lewes Canalfront Park to Grove Park Canal Dock",
+    "gauge": "USGS 01484670 Rehoboth Bay at Dewey Beach, DE (clearly labeled same-estuary proxy; no numeric paddling cutoff transferred)",
+    "accessPosture": "City of Lewes identifies a kayak/canoe and small-craft launch at Canalfront Park; City of Rehoboth Beach identifies the Grove Park Canal Dock behind the museum with short-term loading/unloading rules. Current Grove Park reopening, dock condition, parking, carry, and wetted-edge verification remain mandatory after recent closure and safety notices.",
+    "camping": "Nearby basecamp only; no on-route, public-park, dock, bank, or loading-slip camping entitlement claimed.",
+    "imagery": "CC BY 2.0 same-canal Lewes-Rehoboth Canal image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/lewes-rehoboth-canal-lewes-grove-park.json."
+  },
+  "eleventhImplementedThisPass": {
+    "routeId": "prime-hook-creek-foords-waples",
+    "corridor": "Prime Hook Creek",
+    "route": "Foord’s Landing to Waples Mill Pond / Brumbley Family Park launch",
+    "gauge": "USGS 01484272 Broadkill River near Milton, DE (clearly labeled nearby coastal-plain proxy; no numeric Prime Hook cutoff transferred)",
+    "accessPosture": "Current FWS refuge guidance directs paddlers west from Foord’s Landing because the eastern channel is heavily silted and not recommended; the official FWS canoe-trail materials identify the western Brumbley Family Park/Waples Mill Pond launch and note a small fee and only six parking spaces. Both stored coordinates are approximate near-water anchors requiring current refuge/WMA closure, carry, channel, permission, fee, parking, and wetted-edge verification.",
+    "camping": "Nearby basecamp only; no refuge, creek, wildlife-area, or launch-property camping entitlement claimed.",
+    "imagery": "CC BY 2.0 Prime Hook National Wildlife Refuge aerial image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/prime-hook-creek-foords-waples.json."
+  },
+  "twelfthImplementedThisPass": {
+    "routeId": "delaware-river-fort-dupont-augustine-beach",
+    "corridor": "Delaware River Delaware shoreline",
+    "route": "Fort DuPont Branch Canal to Augustine Beach",
+    "gauge": "USGS 01482170 Delaware River at New Castle, DE (clearly labeled nearby tidal gage-height proxy; NOAA Delaware City tide/water-level context controls)",
+    "accessPosture": "The current Delaware tidal-access inventory and official FirstMap access layer establish Fort DuPont and Augustine Beach as separate public boat-ramp facilities with on/near-water coordinates. DNREC identifies Fort DuPont as a Branch Canal launch context, and Augustine Beach is closure-sensitive because of periodic dredging/maintenance.",
+    "camping": "Nearby basecamp only; no on-route, ramp, wildlife-area, private-waterfront, or industrial-shoreline camping or mooring entitlement claimed.",
+    "imagery": "U.S. Geological Survey same-river Delaware River station image mapped in the approved route gallery.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/delaware-river-fort-dupont-augustine-beach.json."
+  },
+  "thirteenthImplementedThisPass": {
+    "routeId": "little-river-delaware-wildlife-town",
+    "corridor": "Little River / Little Creek",
+    "route": "Little Creek Wildlife Area to Little Creek Boating & Fishing Access",
+    "gauge": "USGS 01483700 St. Jones River at Dover, DE (clearly labeled nearby tidal proxy; no Little River cutoff transferred)",
+    "accessPosture": "FirstMap Delaware identifies multiple public Little Creek Wildlife Area boat-ramp features and a separate public Little Creek Boating & Fishing Access concrete ramp with kayak/dock access. DNREC’s current map and regulations impose seasonal managed-water, CAP/signage, carry-in/carry-out, no-camping, parking, and posted-access controls.",
+    "camping": "Nearby basecamp only; DNREC wildlife-area rules prohibit camping and fires.",
+    "imagery": "Public-domain Woodland Beach Wildlife Area aerial photograph mapped as nearby tidal-marsh context.",
+    "geometry": "Canonical route geometry generated at public/data/canonical-river-geometries/routes/little-river-delaware-wildlife-town.json."
+  },
+  "fourteenthImplementedThisPass": {
+    "routeId": "rehoboth-bay-new-road-savages-ditch",
+    "corridor": "Rehoboth Bay",
+    "route": "Savages Ditch Road to New Road water trail",
+    "gauge": "USGS 01484670 Rehoboth Bay at Dewey Beach, DE (clearly labeled same-bay tidal proxy; NOAA Indian River Inlet tide context)",
+    "accessPosture": "Delaware State Parks’ official approximately four-mile water-trail map identifies Savages Ditch Road and New Road as the bounded course endpoints and supports a loop/out-and-back option. Both are approximate near-water facility anchors requiring current carry, wetted-edge, parking, fee, tide, wind, and closure verification; no broader Masseys Landing, Rosedale Beach, inlet, ocean, or open-bay route claim is made.",
+    "camping": "Nearby basecamp only; no on-route, marsh, public-access-area, or launch-property camping entitlement claimed.",
+    "imagery": "State of Delaware public-agency Paddlefest salt-marsh paddling image mapped in the approved route gallery.",
+    "geometry": "Canonical curated-access-fallback geometry generated at public/data/canonical-river-geometries/routes/rehoboth-bay-new-road-savages-ditch.json."
+  },
+  "fifteenthImplementedThisPass": {
+    "routeId": "murderkill-river-bowers-beach-loop",
+    "corridor": "Murderkill River",
+    "route": "Bowers Beach public ramp same-launch tidal exploration",
+    "gauge": "USGS 01484085 Murderkill River at Bowers, DE (direct colocated tidal gage-height evidence; NOAA 8555388 entrance tide context)",
+    "accessPosture": "Delaware's current FirstMap access layer identifies Bowers Beach as a public concrete five-ramp facility with substantial parking, and the Town of Bowers identifies the surrounding Murderkill River as a kayaking setting. The public ramp and gage are colocated, so this package uses the facility as both launch and return; no unsupported upstream or open-Bay endpoint is inferred. Current carry, wetted-edge, parking, ramp-sharing, navigation, shoaling, and closure checks remain required.",
+    "camping": "Nearby basecamp only; no ramp, beach, marsh, private-bank, or navigation-facility camping or overnight mooring entitlement claimed.",
+    "imagery": "Official Town of Bowers Beach public-agency Murderkill River context image mapped in the approved route gallery.",
+    "geometry": "Canonical curated same-launch exploration geometry generated at public/data/canonical-river-geometries/routes/murderkill-river-bowers-beach-loop.json."
+  },
+  "sixteenthImplementedThisPass": {
+    "routeId": "miller-creek-strawberry-sassafras",
+    "corridor": "Miller Creek / Little Assawoman Bay",
+    "route": "Strawberry Landing to Sassafras Landing",
+    "gauge": "USGS 01484701 Little Assawoman Bay at Fenwick Island, DE (direct tidal water-level evidence; no discharge determination)",
+    "accessPosture": "The current official FirstMap Delaware access layer identifies public Strawberry and Sassafras Landing canoe/boat facilities, and DNREC’s Assawoman Canal Trail Concept Plan explicitly places both landings on Miller Creek. Coordinates are official facility anchors rather than surveyed wetted-edge points; current carry, waterline, parking, wildlife-area, habitat, hunting, tide, and closure checks remain required.",
+    "camping": "Nearby basecamp only; DNREC wildlife-area rules prohibit camping and open fires, and no public-ramp, marsh, private-shore, or overnight-moorage entitlement is claimed.",
+    "imagery": "Official Southern Delaware Tourism / Visit Southern Delaware Assawoman Wildlife Area waterway image mapped in the approved route gallery.",
+    "geometry": "Canonical curated access-anchor geometry generated at public/data/canonical-river-geometries/routes/miller-creek-strawberry-sassafras.json."
+  },
+  "seventeenthImplementedThisPass": {
+    "routeId": "duck-creek-woodland-beach-loop",
+    "corridor": "Duck Creek / Woodland Beach",
+    "route": "Woodland Beach Creekside same-launch tidal exploration",
+    "gauge": "USGS 01483335 Duck Creek at Smyrna, DE (clearly labeled historical/discontinued same-creek stage proxy; NOAA 8553501 tide predictions required)",
+    "accessPosture": "The current Delaware tidal-access guide identifies Woodland Beach (Creekside) on Duck Creek as a public two-lane ramp with kayak/canoe courtesy-dock support, DNREC’s wildlife-area map identifies the Duck Creek ramp, and FirstMap supplies the official facility coordinate. The same facility is used as both launch and required return because no independent Duck Creek public paddle endpoint was established; current carry, wetted-edge, parking, CAP, hours, wildlife-area, hunting, and closure checks remain required.",
+    "camping": "Nearby basecamp only; DNREC’s Woodland Beach Wildlife Area map prohibits camping and open fires, and no public-ramp, marsh, private-shore, or overnight-moorage entitlement is claimed.",
+    "imagery": "Official Delaware Tourism Woodland Beach marsh-paddling image mapped in the approved route gallery.",
+    "geometry": "Canonical curated same-launch exploration geometry generated at public/data/canonical-river-geometries/routes/duck-creek-woodland-beach-loop.json."
+  },
+  "inventory": {
+    "prioritizedCorridors": 20,
+    "implementedCorridors": 16,
+    "implementedRoutePackages": 17,
+    "routeCandidates": 0,
+    "blockedCorridors": 4,
+    "inventoryArtifact": "docs/operations/delaware-statewide-inventory.json",
+    "completionRule": "Continue until each prioritized Delaware corridor is implemented or explicitly blocked/screened out with retryable evidence conditions and the authoritative access baseline is reconciled against the route catalog."
+  },
+  "validation": {
+    "routeTypecheck": "passed",
+    "routeDataAudit": "passed: 1166 routes",
+    "corridorAudit": "passed: 214 definitions, 423 covered routes",
+    "accessRegistry": "passed: generated 3001 canonical entries with 0 conflicts (1160 authoritative access matches; 555 authoritative water-entry matches; 1735 derived water-entry matches; 1 area-anchor-only entry); Fort DuPont, Augustine Beach, both Little River endpoints, both Rehoboth Bay endpoints, both Murderkill endpoints, both Miller Creek endpoints, and both Duck Creek same-launch endpoints included as authoritative water-entry controls",
+    "authoritativeEvidence": "passed: regenerated 472 authoritative sources covering 257346 endpoint-source pairs; all seventeen Delaware route packages have official control records",
+    "geometryAudit": "passed: 1578/1686 routes matched; 26 state assets; Delaware state and all seventeen route assets present",
+    "coordinateRiverAudit": "passed for Delaware: 4099 endpoints across 1758 routes; repository-wide severity counts ok 1313, review 2427, suspicious 186, failure 27, unknown 146; no Delaware failure",
+    "galleryAudit": "passed: 336 images; Duck Creek, Miller Creek, Murderkill, Fort DuPont, Augustine Beach, Little River, Prime Hook, Lewes & Rehoboth Canal, Broadkill, and lower-Nanticoke route mappings independently verified against approved imagery",
+    "focusedTests": "passed: Delaware expansion and route-safety tests, 2 files and 31 tests",
+    "productionBuild": "passed: 1991 static pages generated, including the Duck Creek, Miller Creek, Murderkill River, Fort DuPont to Augustine Beach, Little River, and Rehoboth Bay route detail pages, all prior Delaware route pages, and the Delaware state page",
+    "rootTestSuite": {
+      "status": "failed_on_pre_existing_shared_worktree_failures",
+      "passed": "87 files, 815 tests",
+      "failed": "2 files, 2 tests",
+      "preExistingFailures": [
+        "src/lib/route-coordinate-review-artifact.test.ts > generated route coordinate review dashboard > keeps differently named nearby official locations out of autonomous corrections: nearbyAuthoritativeCandidates is undefined for the existing Big Fork River fixture.",
+        "src/lib/operations.test.ts > operations snapshot > exposes the route implementation WIP limit and control-plane activity: existing operations task snapshot contains mojibake and fails the encoding assertion."
+      ],
+      "delawareImpact": "Neither failure imports, names, or depends on the Delaware route package."
+    },
+    "apiContractSuite": "passed: 9 files, 23 tests"
+  },
+  "nextPass": "Statewide Delaware candidate reconciliation remains active: seventeen route packages are implemented across sixteen prioritized corridors, and the remaining four corridors are explicitly blocked/held. The bounded Duck Creek Woodland Beach package uses the current official two-lane Creekside ramp and kayak/canoe courtesy-dock classification, DNREC wildlife-area restrictions, FirstMap coordinates, historical USGS 01483335 same-creek stage context clearly labeled as proxy, NOAA 8553501 tide predictions, route-specific shallow-channel/strainer/mud/wind/wildlife-area controls, nearby-basecamp-only camping, approved Delaware Tourism Woodland Beach imagery, and a hard same-launch return boundary; it does not promote Smyrna Landing Road, the bayside pier, private banks, or Delaware Bay. The bounded Miller Creek package remains a two-facility public tidal reach with direct USGS 01484701 water-level evidence and a hard Assawoman/open-water boundary. The bounded Murderkill package remains a direct-gage same-launch tidal exploration with commercial/emergency navigation, shoaling, tide, wind, cold-water, jetty, private-bank, and Delaware Bay controls. Reopen C&D Canal, Appoquinimink, Pepper/Vines, or White Clay/Red Clay only when the ledger’s independent endpoint and route-specific operating evidence gaps are cleared; refresh the official access baseline before any new promotion. Recheck Duck Creek’s current ramp/courtesy-dock, CAP, wildlife-area, tide, waterline, and return posture alongside the prior Delaware packages before treating routes as field-ready. Absolute completeness still requires another statewide source reconciliation and disposition review."
+}

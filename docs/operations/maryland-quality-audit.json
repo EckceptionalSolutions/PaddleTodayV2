@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "state": "Maryland",
+  "updatedAt": "2026-09-03T08:25:00-05:00",
+  "status": "complete_with_documented_access_anchor_limits",
+  "scope": "Audit of the Maryland routes already covered in this thread for safety, camping, imagery, endpoint reasonableness, and overlap/consolidation.",
+  "inventory": {
+    "liveRoutes": 140,
+    "safetyComplete": 140,
+    "campingComplete": 140,
+    "finiteEndpointCoordinates": 140,
+    "nonPlaceholderGalleryPreviews": 140,
+    "uniquePreviewImages": 37,
+    "galleryPosture": "The previous one-image-fits-most assignment was corrected. Exact route-family images remain where supported; other routes use clearly labeled same-river or Maryland tidal/regional context images and do not imply endpoint or current-condition coverage."
+  },
+  "accessAudit": {
+    "registryEntries": 228,
+    "coordinateStatus": { "consistent": 228, "nearbyVariants": 0, "conflicts": 0 },
+    "waterbodyConfirmedEntries": 167,
+    "exactOnRiverEntries": 8,
+    "notWaterbodyConfirmedEntries": 61,
+    "coordinateRiverAudit": { "endpointRecords": 304, "ok": 12, "review": 254, "suspicious": 0, "failure": 0, "unknown": 38 },
+    "disposition": "The 61 non-waterbody-confirmed registry entries are named public facility, park, wetland, tidal, or near-water anchors. They remain reasonable planning anchors because route notes require current wetted-edge, carry, parking, hours, tide, and closure verification; no coordinate conflict, suspicious offset, or failure was found for Maryland. The 38 unknown hydrography results are concentrated in tidal or urban/coastal water where the named NHD flowline check is not a sufficient access test."
+  },
+  "overlapAndConsolidation": {
+    "findingCount": 26,
+    "findingTypes": { "access_chain_contains": 1, "contained_connector": 1, "near_collinear_overlap": 6, "shared_endpoint": 18 },
+    "families": [
+      { "family": "Potomac and North Branch Potomac", "recommendation": "Keep the access-pair records. Present the 11 related findings as a selectable corridor ladder; dam boundaries, endpoint camping, gauge relationships, and trip lengths differ." },
+      { "family": "Monocacy, Catoctin, Big Pipe, and Little Pipe", "recommendation": "Keep adjacent sections separate where the named access and moving-water corridor differ; use corridor-family navigation rather than deleting the segments." },
+      { "family": "Gunpowder Falls and Susquehanna", "recommendation": "Keep the shorter and longer endpoint pairs because access, hazards, and shuttle consequences differ." }
+    ],
+    "presentationFamiliesImplemented": [
+      "md-potomac-access-ladder",
+      "md-monocacy-access-ladder",
+      "md-catoctin-access-ladder",
+      "md-gunpowder-access-ladder"
+    ],
+    "presentationPosture": "State browse pages group all reviewed access-ladder records, including planning-only route cards, and retain every route-specific card, endpoint pair, gauge relationship, hazard package, camping posture, and logistics difference. The existing scored-route recommendations remain unchanged.",
+    "destructiveConsolidationApplied": false
+  },
+  "blockers": [
+    "Many Maryland tidal and urban endpoints are area or near-water anchors rather than survey-grade wetted-edge coordinates; route notes explicitly require field verification.",
+    "No Maryland route has a coordinate-river audit failure or suspicious offset in the current generated report."
+  ],
+  "validation": {
+    "routeData": "Passed current global route audit for 1166 routes and route typecheck.",
+    "gallery": "All 140 Maryland route previews resolve to non-placeholder images after the imagery correction.",
+    "safetyAndCamping": "All 140 Maryland routes have populated safety hazards/notes and camping text/classification.",
+    "access": "Generated registry has 228 Maryland entries, all coordinate-consistent and conflict-free.",
+    "overlap": "Current generated overlap report reviewed: 26 Maryland findings; no duplicate deletion justified.",
+    "production": "Passed production build with 1991 pages; unrelated concurrent generated artifacts remain untouched."
+  },
+  "sources": [
+    "https://dnr.maryland.gov/boating",
+    "https://commons.wikimedia.org/wiki/File:Patuxent.River.jpg",
+    "https://commons.wikimedia.org/wiki/File:Photo_of_the_Week_-_Blackwater_River_(MD)_(9295840422).jpg",
+    "https://commons.wikimedia.org/wiki/File:Pocomoke_River_at_Snow_Hill_MD2.jpg"
+  ],
+  "nextReview": "Reopen only when a route owner publishes a more precise wetted-edge coordinate, a route-specific image is rights-cleared, or a new access pair creates a materially distinct corridor rather than another endpoint variant."
+}
