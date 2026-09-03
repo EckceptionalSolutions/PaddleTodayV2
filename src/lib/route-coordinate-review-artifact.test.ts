@@ -113,12 +113,12 @@ describe('generated route coordinate review dashboard', () => {
   });
 
   it('keeps differently named nearby official locations out of autonomous corrections', () => {
-    const campsite = payload.endpoints.find((endpoint) =>
-      endpoint.routeId === 'big-fork-river-highway-1-highway-6-south'
+    const landing = payload.endpoints.find((endpoint) =>
+      endpoint.routeId === 'fox-river-princeton-white-river-locks'
       && endpoint.endpoint === 'accessPoint');
-    expect(campsite?.nearbyAuthoritativeCandidates?.map((candidate) => candidate.name))
-      .toContain('Big Fork River, State Hwy 1 Public Water Access Site');
-    expect(campsite?.suggestion?.autoApplyEligible ?? false).toBe(false);
+    expect(landing?.nearbyAuthoritativeCandidates?.map((candidate) => candidate.name))
+      .toContain('Fox River Access');
+    expect(landing?.suggestion?.autoApplyEligible ?? false).toBe(false);
   });
 
   it('distinguishes an app alias from the official published access label', () => {
