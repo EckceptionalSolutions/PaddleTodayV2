@@ -47,7 +47,7 @@ interface EndpointAudit {
   nearestWaterbodyLongitude: number | null;
   endpointOnWaterbody: boolean;
   matchedHydrographyMode: 'named-flowline' | 'connected-network' | null;
-  coordinateEvidenceRole: 'authoritative-area-anchor' | 'authoritative-water-entry' | null;
+  coordinateEvidenceRole: 'authoritative-area-anchor' | 'authoritative-water-entry' | 'authoritative-access-anchor' | null;
   coordinateEvidenceSourceUrl: string | null;
   coordinateEvidenceDetail: string | null;
   severity: Severity;
@@ -189,6 +189,11 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   'north-raccoon-river-squirrel-hollow-adkins': 7500,
   'north-raccoon-river-eureka-henderson': 6000,
   'north-raccoon-river-henderson-squirrel-hollow': 6000,
+  // Franklin County's Waid Park and Lynch Park coordinates are official
+  // facility/access-area pins. Waid's park pin is offset from the generalized
+  // NHD flowline, so retain the documented anchor as review evidence rather
+  // than forcing a false water-edge precision.
+  'pigg-river-waid-lynch': 800,
   // Iowa DNR and Linn County identify Chain Lakes/Palo and Ellis Harbor as
   // Cedar River boat/canoe access points; these are park/harbor anchors.
   'cedar-river-chain-lakes-ellis-harbor': 5500,
@@ -543,7 +548,6 @@ function buildNhdQuery(bounds: ReturnType<typeof routeBounds>, where: string, qu
     outFields: 'GNIS_NAME,FTYPE,FCODE',
     returnGeometry: 'true',
     geometryPrecision: '6',
-    resultRecordCount: '2000',
   });
   return `${queryUrl}?${params.toString()}`;
 }
@@ -763,14 +767,26 @@ async function queryRouteFlowlines(route: River, points: RiverAccessPoint[], add
     const bounds = routeBounds(points, margin);
     const keyBase = cacheKey([route.id, bboxKey(bounds)]);
     const namedUrl = buildNhdQuery(bounds, where);
-    const named = await fetchJsonWithCache(`${keyBase}__named-variants-v2`, namedUrl);
-    if (named.error?.message) throw new Error(named.error.message);
+    let named: ArcGisResponse;
+    try {
+      named = await fetchJsonWithCache(`${keyBase}__named-variants-v2`, namedUrl);
+    } catch {
+      // A single NHD request failure must not prevent the remaining routes
+      // from receiving an auditable unknown result.
+      continue;
+    }
+    if (named.error?.message) continue;
     const matchedFeatures = (named.features ?? []).filter((feature) => waterwayNameMatchesRoute(route.id, route.name, featureName(feature), additionalAlternates));
 
     if (matchedFeatures.length > 0 || margin === margins.at(-1)) {
       const allUrl = buildNhdQuery(bounds, "GNIS_NAME IS NOT NULL AND GNIS_NAME <> ''");
-      const all = await fetchJsonWithCache(`${keyBase}__all-named`, allUrl);
-      if (all.error?.message) throw new Error(all.error.message);
+      let all: ArcGisResponse;
+      try {
+        all = await fetchJsonWithCache(`${keyBase}__all-named`, allUrl);
+      } catch {
+        return { matchedFeatures, allNamedFeatures: [], margin };
+      }
+      if (all.error?.message) return { matchedFeatures, allNamedFeatures: [], margin };
       return {
         matchedFeatures,
         allNamedFeatures: all.features ?? [],
@@ -785,13 +801,33 @@ async function queryRouteFlowlines(route: River, points: RiverAccessPoint[], add
 async function queryRouteWaterbodies(route: River, points: RiverAccessPoint[]) {
   const bounds = routeBounds(points, 0.04);
   const keyBase = cacheKey([route.id, bboxKey(bounds), 'waterbodies']);
-  const [waterbody, area] = await Promise.all([
+  const [waterbody, area] = await Promise.allSettled([
     fetchJsonWithCache(`${keyBase}__waterbody`, buildNhdQuery(bounds, '1=1', nhdWaterbodyQueryUrl)),
     fetchJsonWithCache(`${keyBase}__area`, buildNhdQuery(bounds, '1=1', nhdAreaQueryUrl)),
   ]);
-  if (waterbody.error?.message) throw new Error(waterbody.error.message);
-  if (area.error?.message) throw new Error(area.error.message);
-  return [...(waterbody.features ?? []), ...(area.features ?? [])];
+  // The NHD waterbody/area layers occasionally reject otherwise valid small
+  // bounding-box requests while the named flowline layer remains available.
+  // Treat these polygon layers as corroborating evidence rather than making
+  // them a hard blocker for the primary named-flowline/access-control audit.
+  return [waterbody, area].flatMap((result) => (
+    result.status === 'fulfilled' && !result.value.error?.message
+      ? (result.value.features ?? [])
+      : []
+  ));
+}
+
+function officialAccessAnchorFor(point: RiverAccessPoint, route: River, controls: OfficialWaterEntryControl[]) {
+  return controls.find((control) => {
+    const routeWaterbodyAgrees = normalizeName(control.waterbody) === normalizeName(route.name);
+    const declaredRouteConnection = control.terminalAlternateWaterbody;
+    const connectedRouteWaterbodyAgrees = Boolean(declaredRouteConnection?.sourceUrl
+      && normalizeName(declaredRouteConnection.routeWaterbody) === normalizeName(route.name));
+    return control.state === route.state
+      && (routeWaterbodyAgrees || connectedRouteWaterbodyAgrees)
+      && (accessNamesAgree(point.name, control.name)
+        || control.aliases.some((alias) => accessNamesAgree(point.name, alias)))
+      && distanceMiles(point, control) * feetPerMile <= Math.max(25, control.uncertaintyFeet);
+  });
 }
 
 function featureType(feature: ArcGisFeature) {
@@ -810,12 +846,18 @@ async function queryRouteNetwork(route: River, putIn: RiverAccessPoint, takeOut:
   const bounds = routeBounds([putIn, takeOut], 0.025);
   const bbox = `${bounds.minLon.toFixed(4)}-${bounds.minLat.toFixed(4)}-${bounds.maxLon.toFixed(4)}-${bounds.maxLat.toFixed(4)}`;
   const key = `${route.id}__${bbox}__route-network-v1`;
-  const response = await fetchJsonWithCache(
-    key,
-    buildNhdQuery(bounds, 'FTYPE IN (334,336,460,558)'),
-  );
-  if (response.error?.message) throw new Error(response.error.message);
-  return response.features ?? [];
+  try {
+    const response = await fetchJsonWithCache(
+      key,
+      buildNhdQuery(bounds, 'FTYPE IN (334,336,460,558)'),
+    );
+    if (response.error?.message) return [];
+    return response.features ?? [];
+  } catch {
+    // NHD network traces are optional corroboration; named flowlines and
+    // official access controls remain the primary coordinate-audit evidence.
+    return [];
+  }
 }
 
 function connectedRouteTrace(route: River, putIn: RiverAccessPoint, takeOut: RiverAccessPoint, features: ArcGisFeature[], additionalAlternates: string[] = []) {
@@ -855,6 +897,7 @@ async function auditRoute(
   route: River,
   areaAnchorControls: AreaAnchorControl[],
   officialWaterEntryControls: OfficialWaterEntryControl[],
+  officialAccessAnchorControls: OfficialWaterEntryControl[],
   officialAlternateControls: OfficialAlternateWaterwayControl[],
 ): Promise<EndpointAudit[]> {
   const enriched = getEnrichedRoute(route);
@@ -914,6 +957,7 @@ async function auditRoute(
       const endpointOnWaterbody = (waterbody?.distanceFeet ?? Infinity) <= 150;
       const areaAnchor = areaAnchorFor(point, route.state, areaAnchorControls);
       const officialWaterEntry = officialWaterEntryFor(point, route, officialWaterEntryControls);
+      const officialAccessAnchor = officialAccessAnchorFor(point, route, officialAccessAnchorControls);
       const flowlineSeverity = severityFor(route.id, matched?.distanceFeet ?? null, matchedRiverName, nearestWaterwayName, nearest?.distanceFeet ?? null, waterbody?.distanceFeet ?? null, officialAlternates);
       const connectedNetworkNamedConflict = useConnectedNetwork
         && nearestWaterwayName !== null
@@ -927,6 +971,8 @@ async function auditRoute(
         ? 'failure'
         : officialWaterEntry
         ? flowlineSeverity === 'ok' ? 'ok' : 'review'
+        : officialAccessAnchor
+        ? 'review'
         : connectedNetworkNamedConflict && flowlineSeverity === 'ok'
         ? 'review'
         : endpointOnWaterbody && flowlineSeverity !== 'ok'
@@ -959,12 +1005,15 @@ async function auditRoute(
           : null,
         coordinateEvidenceRole: areaAnchor
           ? 'authoritative-area-anchor'
-          : officialWaterEntry ? 'authoritative-water-entry' : null,
-        coordinateEvidenceSourceUrl: areaAnchor?.sourceUrl ?? officialWaterEntry?.sourceUrl ?? null,
+          : officialWaterEntry ? 'authoritative-water-entry'
+            : officialAccessAnchor ? 'authoritative-access-anchor' : null,
+        coordinateEvidenceSourceUrl: areaAnchor?.sourceUrl ?? officialWaterEntry?.sourceUrl ?? officialAccessAnchor?.sourceUrl ?? null,
         coordinateEvidenceDetail: areaAnchor
           ? `${areaAnchor.provider} ${areaAnchor.featureId}: ${areaAnchor.method}`
           : officialWaterEntry
             ? `${officialWaterEntry.provider} ${officialWaterEntry.featureId}: ${officialWaterEntry.method}`
+            : officialAccessAnchor
+              ? `${officialAccessAnchor.provider} ${officialAccessAnchor.featureId}: ${officialAccessAnchor.method}`
             : null,
         severity,
         note: '',
@@ -973,6 +1022,8 @@ async function auditRoute(
         ? `Stored coordinate matches an official WMA/property or fishing-area representative point (${areaAnchor.featureId}); it is not a verified access, parking, or water-entry coordinate.`
         : officialWaterEntry
         ? `Stored coordinate matches the exact named authoritative water-entry control (${officialWaterEntry.provider} ${officialWaterEntry.featureId}) on ${officialWaterEntry.waterbody}; the ${Math.round(matched?.distanceFeet ?? 0)} ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move.`
+        : officialAccessAnchor
+        ? `Stored coordinate matches the named authoritative access-area control (${officialAccessAnchor.provider} ${officialAccessAnchor.featureId}) on ${officialAccessAnchor.waterbody}; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch.`
         : endpointOnWaterbody
         ? `Endpoint is within ${Math.round(waterbody?.distanceFeet ?? 0)} ft of NHD waterbody${waterbodyName ? ` ${waterbodyName}` : ''}; flowline distance is informational.`
         : connectedNetworkNamedConflict
@@ -1035,6 +1086,25 @@ async function run() {
         terminalAlternateWaterbody: control.terminalAlternateWaterbody,
       }];
     }));
+  const officialAccessAnchorControls: OfficialWaterEntryControl[] = (officialMapControls.providers ?? [])
+    .filter((provider) => provider.coordinateRole === 'authoritative-access-anchor')
+    .flatMap((provider) => (provider.controls ?? []).flatMap((control) => {
+      if (!control.waterbody) return [];
+      return [{
+        state: provider.state,
+        provider: provider.id,
+        featureId: control.featureId,
+        name: control.name,
+        aliases: control.aliases ?? [],
+        waterbody: control.waterbody,
+        latitude: control.latitude,
+        longitude: control.longitude,
+        uncertaintyFeet: control.uncertaintyFeet ?? 25,
+        sourceUrl: provider.sourceUrl,
+        method: provider.method,
+        terminalAlternateWaterbody: control.terminalAlternateWaterbody,
+      }];
+    }));
   const routesToAudit = routeFilter
     ? routeInventory.filter((route) => route.id === routeFilter)
     : routeInventory;
@@ -1051,7 +1121,7 @@ async function run() {
       cursor += 1;
       const route = routesToAudit[index];
       console.error(`[${index + 1}/${routesToAudit.length}] ${route.id}`);
-      endpointResults.push(...await auditRoute(route, areaAnchorControls, officialWaterEntryControls, officialAlternateControls));
+      endpointResults.push(...await auditRoute(route, areaAnchorControls, officialWaterEntryControls, officialAccessAnchorControls, officialAlternateControls));
     }
   }));
 

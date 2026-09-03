@@ -22,6 +22,7 @@ const stateBounds: Record<string, { lat: [number, number]; lon: [number, number]
   Michigan: { lat: [41.6, 48.4], lon: [-90.5, -82.0] },
   Minnesota: { lat: [43.4, 49.4], lon: [-97.5, -89.0] },
   Missouri: { lat: [35.8, 40.8], lon: [-95.9, -89.0] },
+  Maryland: { lat: [37.8, 39.8], lon: [-79.6, -75.0] },
   'South Dakota': { lat: [42.2, 46.0], lon: [-104.2, -96.3] },
   Wisconsin: { lat: [42.3, 47.4], lon: [-93.0, -86.2] },
 };

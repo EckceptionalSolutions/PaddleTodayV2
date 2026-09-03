@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-09-01T19:52:30.000Z",
+  "state": "Minnesota",
+  "status": "complete_with_deferred_candidates",
+  "decision": "completed_coverage_with_no_publishable_additions",
+  "scope": {
+    "workflow": "Strict route qualification and bounded discovery workflow",
+    "preservedUnrelatedWorktreeChanges": true,
+    "frontierOutcome": "Viable Minnesota corridors reviewed; remaining candidates are documented as covered, duplicate, proxy-planning, unavailable-direct, blocked, access-constrained, or deferred."
+  },
+  "inventory": {
+    "sourceRouteRecords": 265,
+    "activeRouteOrderRecords": 258,
+    "directGaugeScoredRoutes": 145,
+    "planningRoutes": 113,
+    "proxyPlanningRoutes": 107,
+    "unavailableDirectGaugeRoutes": 6,
+    "intentionallyInactiveSourceRecords": 7,
+    "newRoutesAddedInFinalPass": 0
+  },
+  "qualityCoverage": {
+    "tripDetailRecords": "265/265",
+    "endpointCoordinates": "265/265",
+    "campingAndLogisticsPosture": "265/265",
+    "routeSafetyProfiles": "265/265",
+    "approvedPhotoAudit": {
+      "publishedRoutes": 233,
+      "routePhotoPreviews": 56,
+      "riverGroupFallbacks": 177,
+      "placeholders": 0,
+      "riverGroupHeroes": "42/42",
+      "missingMobileFallbacks": 0,
+      "missingMinnesotaImagery": 0
+    },
+    "accessControlsAdded": [
+      "mn_dnr_cedar_orchard_creek_access_anchor",
+      "baxter_mississippi_overlook_access_anchor"
+    ],
+    "imageChanges": [
+      "Cottonwood River Flandrau Commons hero and mobile fallback reused an existing approved local route asset."
+    ]
+  },
+  "disposition": {
+    "promotionDecision": "No new Minnesota route cleared every evidence gate in the final bounded review.",
+    "deferredFrontier": [
+      {
+        "candidate": "Red Lake River High Landing / Smiley Bridge",
+        "gauge": "usgs:05075000",
+        "reason": "Public reach and live telemetry exist, but no accepted station-specific paddling threshold or complete permitted endpoint/camping package was established."
+      }
+    ],
+    "inactiveSourceRecords": [
+      "root-river-lanesboro-peterson",
+      "root-river-peterson-rushford",
+      "sauk-river-spring-hill-frogtown",
+      "sauk-river-st-martin-frogtown",
+      "sauk-river-st-martin-rockville",
+      "sauk-river-st-martin-eagle-park",
+      "south-fork-zumbro-lake-zumbro"
+    ]
+  },
+  "audits": {
+    "routeData": "passed: 1084 routes",
+    "coordinateRiver": "passed with no Minnesota failures; Minnesota results 267 ok, 343 review, 16 suspicious, 3 unknown",
+    "accessRegistry": "passed: 2622 entries, 0 conflicts",
+    "corridors": "passed: 149 definitions, 309 covered routes",
+    "canonicalGeometries": "passed: 1484/1487 routes matched; 24 state assets present",
+    "safety": "passed for Minnesota; 0 Minnesota issues; 2 unrelated pre-existing West Virginia issues remain",
+    "photos": "passed for Minnesota: 0 placeholders and no missing Minnesota imagery",
+    "saturation": "complete_with_deferred_candidates"
+  },
+  "validation": {
+    "typecheck": "passed",
+    "scoringSensitivity": "passed: 1011 routes, 21479 scenarios, 0 invariant failures",
+    "apiContractTests": "passed: 9 files, 23 tests",
+    "productionBuild": "passed: 1759 pages",
+    "fullTestCommand": {
+      "status": "failed_on_unrelated_pre_existing_or_concurrent_assertions",
+      "passedBeforeFailures": "84 files, 674 tests",
+      "failures": [
+        "src/lib/new-york-expansion.test.ts: expected 185 New York routes, received 186",
+        "src/lib/new-york-expansion.test.ts: one New York route preview remained a placeholder",
+        "src/lib/operations.test.ts: operations snapshot contains pre-existing mojibake text"
+      ],
+      "MinnesotaFailures": 0
+    }
+  },
+  "authoritativeReferences": [
+    "https://www.dnr.state.mn.us/river_levels/index.html",
+    "https://www.dnr.state.mn.us/state-water-trails/interactive-map/index.html",
+    "https://www.dnr.state.mn.us/state-water-trails/watercraft-campsites.html",
+    "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf",
+    "https://www.baxtermn.gov/i-want-to/facility-directory-table-list"
+  ]
+}

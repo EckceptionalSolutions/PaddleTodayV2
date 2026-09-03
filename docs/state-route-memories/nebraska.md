@@ -2,6 +2,15 @@
 
 Created 2026-06-08 for the `nebraska-route-additions` automation.
 
+## 2026-09-01 Nebraska completion pass
+
+- Reviewed the current Nebraska source inventory as 14 route records across six distinct moving-water families: Logan Creek, Elkhorn River, Platte River, North Loup River, Loup River, and Niobrara River. All 14 have matching trip-detail records and reviewed route safety profiles.
+- Repaired the missing river-group keys on all 14 Nebraska route records. This makes the existing approved river imagery resolvable by family instead of falling back to generic placeholders.
+- Added six local, rights-cleared river-group assets for the Nebraska families and registered the matching mobile fallbacks. The assets are used as clearly labeled river-level context, never as claims that the image is an exact endpoint photograph.
+- The five non-implemented candidate families remain dispositioned in the candidate/lead ledgers: Niobrara family and Elkhorn family are threshold-weak; Calamus is threshold-weak with stale provider data and no selected short public reach; Missouri National Recreational River is research-later; and Kearney Water Trail is blocked by the unsupported Nebraska DWEE live-gauge dependency. No speculative route was added solely to increase the count.
+- The coordinate review still withholds four source routes from public route pages: the three George D. Syas WMA starts because the official point is an area/property anchor rather than a verified water-entry coordinate, and the Niobrara Nichols Landing take-out because the stored park anchor is not close enough to the mapped flowline. The official sources confirm public use/access, but do not publish a defensible exact launch coordinate for either issue.
+- Nebraska is complete as a systematically reviewed, bounded inventory with deferred/blocked candidates documented. It is not saturated: publish the withheld routes only after manager-grade water-entry coordinates and regenerated route-scoped geometries clear the coordinate audit.
+
 ## Current Inventory
 
 - Current live Nebraska routes in `src/data/rivers.ts`: 9 as of 2026-07-06 after the latest Loup continuation pass (`platte-river-schramm-louisville`, `platte-river-schramm-platte-river-state-park`, `platte-river-platte-river-state-park-louisville`, `loup-river-george-syas-monroe`, `loup-river-george-syas-columbus`, `loup-river-monroe-columbus`, `loup-river-columbus-adm-access`, `loup-river-monroe-adm-access`, and `loup-river-george-syas-adm-access`).

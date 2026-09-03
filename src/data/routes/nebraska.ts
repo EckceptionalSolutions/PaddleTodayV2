@@ -6,6 +6,7 @@ export const nebraskaRoutes: River[] = [
     "id": "logan-creek-pender-oakland",
     "slug": "logan-creek-pender-oakland",
     "name": "Logan Creek",
+    "riverId": "logan-creek",
     "reach": "Pender canoe access to Oakland canoe access",
     "aliases": [
       "Logan Creek Water Trail - Pender to Oakland",
@@ -57,7 +58,7 @@ export const nebraskaRoutes: River[] = [
       {"label":"Direct live gauge","value":"USGS 06799445 at Wakefield","note":"USGS provides continuous discharge telemetry and station coordinates. The gauge is direct live context, not a guarantee of every reach condition.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/06799445"},
       {"label":"Flow guidance","value":"55 cfs conservative minimum-only reference","note":"Nebraska DNR Logan Creek hydrology modeling reports a modeled baseflow minimum near 55 cfs. This is a derived conservative reference, not a station-specific paddling certification; no high-water cutoff is claimed.","sourceUrl":"https://dnr.nebraska.gov/groundwater/modeling"},
       {"label":"Camping and logistics","value":"Daylight shuttle; no on-route camping assumed","note":"Use named town endpoints and confirm current parking, access, and any endpoint lodging/camping separately. Do not treat private banks, sandbars, or the stream bed as campsites without permission."},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses linked official and public access sources only; no unlicensed promotional image is copied into the product."}
+      {"label":"Image decision","value":"Approved Logan Creek river-group context image","note":"The Pender Logan Creek bridge image is bundled as river-level context with public-domain attribution; it is not presented as a survey or endpoint photograph."}
     ],
     "sourceLinks": [
       {"label":"Nebraska Game and Parks water trails","url":"https://outdoornebraska.gov/parks/explore-trails/water-trails/","provider":"local"},
@@ -71,6 +72,7 @@ export const nebraskaRoutes: River[] = [
     "id": "platte-river-north-bend-valley",
     "slug": "platte-river-north-bend-valley",
     "name": "Platte River",
+    "riverId": "platte-river",
     "reach": "Nebraska 79 bridge south of North Bend to Platte River Landing",
     "aliases": [
       "Lower Platte Canoe Trail - North Bend to Platte River Landing",
@@ -121,7 +123,7 @@ export const nebraskaRoutes: River[] = [
       {"label":"Direct live gauge","value":"USGS 06796000 at North Bend","note":"USGS provides long-running discharge and gage-height telemetry at the route start.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/06796000"},
       {"label":"Flow guidance","value":"5,000 cfs conservative minimum-only reference","note":"Nebraska Game and Parks/Nebraskaland publishes lower-Platte flow guidance; this is regional guidance rather than a station-specific North Bend certification, and no high-water threshold is claimed.","sourceUrl":"https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/"},
       {"label":"Intermediate closure","value":"Hormel Park ramp currently closed","note":"Lower Platte North NRD reports the Hormel Park boat ramp was destroyed and has no reopening timeline; it is retained only as a route landmark.","sourceUrl":"https://www.nrdnet.org/rec-area/fremont-hormel-park-boat-ramp-currently-closed"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses public agency and NRD sources without copying an unlicensed promotional image."}
+      {"label":"Image decision","value":"Approved Platte River river-group context image","note":"A rights-cleared Platte River image near Grand Island is bundled as river-level context; it is not presented as a route-specific endpoint photograph."}
     ],
     "sourceLinks": [
       {"label":"Nebraska Game and Parks Platte River Canoe Trail","url":"https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Platte_River.pdf","provider":"local"},
@@ -134,6 +136,7 @@ export const nebraskaRoutes: River[] = [
     "id": "north-loup-river-burwell-ord",
     "slug": "north-loup-river-burwell-ord",
     "name": "North Loup River",
+    "riverId": "north-loup-river",
     "reach": "Riverside Park, Burwell to Anderson Island, Ord",
     "aliases": [
       "North Loup River Canoe Trail - Burwell to Ord",
@@ -183,7 +186,7 @@ export const nebraskaRoutes: River[] = [
       {"label":"Public endpoint and camping","value":"Riverside Park start; Anderson Island public finish and camping","note":"Burwell is the published trail start. Ord identifies Anderson Island as public river access with camping, canoeing, and tubing; no on-route camping is assumed.","sourceUrl":"https://ordnebraska.com/play/come-visit/camping/"},
       {"label":"Direct live gauge","value":"USGS 06790500 near Saint Paul","note":"USGS provides current discharge and gage-height telemetry. The station is near the downstream portion of the route and does not eliminate upstream seasonal variation.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/06790500/"},
       {"label":"Flow guidance","value":"275 cfs conservative minimum-only reference","note":"Nebraska water-trail guidance says to check USGS flow and notes lower summer levels; the Loup system article provides a conservative baseflow reference. This is not an official station-specific safety certification and no high-water threshold is claimed.","sourceUrl":"https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses linked public agency and municipal sources only; no unlicensed promotional image is copied into the product."}
+      {"label":"Image decision","value":"Approved Loup River river-group context image","note":"The public-domain Loup River near Genoa image is bundled as river-level context; it is not presented as a George Syas, Monroe, Columbus, or ADM endpoint photograph."}
     ],
     "sourceLinks": [
       {"label":"Nebraska Game and Parks North Loup canoe trail","url":"https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_North_Loup_River.pdf","provider":"local"},
@@ -196,6 +199,7 @@ export const nebraskaRoutes: River[] = [
     "id": "elkhorn-river-wisner-west-point",
     "slug": "elkhorn-river-wisner-west-point",
     "name": "Elkhorn River",
+    "riverId": "elkhorn-river",
     "reach": "Wisner River Park to Neligh Park, West Point",
     "aliases": [
       "Lower Elkhorn River Canoe Trail - Wisner to West Point",
@@ -241,7 +245,7 @@ export const nebraskaRoutes: River[] = [
       {"label":"Public take-out and camping","value":"Neligh Park, 530 W Bridge St, West Point","note":"The City of West Point documents tent and RV camping, showers, reservations, and the park trail/parking context. The endpoint coordinate is a practical public-park anchor, not a survey-grade water-edge point.","sourceUrl":"https://www.ci.west-point.ne.us/parks-and-recreation/page/neligh-park"},
       {"label":"Direct live gauge","value":"USGS 06799350 at West Point","note":"USGS provides continuous discharge and gage-height telemetry and survey-grade station coordinates near the West Point reach.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-06799350"},
       {"label":"Flow guidance","value":"575 cfs minimum-only; 575-1,700 cfs community optimal band","note":"RiverScout publishes a lower-Elkhorn optimal range of 575-1,700 cfs tied to USGS 06799350. Treat it as community guidance, not an official safety certification; the app does not infer a high-water limit.","sourceUrl":"https://riverscout.app/rivers/nebraska/lower-elkhorn-river"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses rights-clean linked official access and water-trail sources only; no unlicensed promotional image is copied into the product."}
+      {"label":"Image decision","value":"Approved Elkhorn River river-group context image","note":"A rights-cleared Elkhorn River image near Neligh is bundled as river-level context; it is not presented as a Wisner or West Point endpoint photograph."}
     ],
     "sourceLinks": [
       {"label":"Nebraska Game and Parks water trails","url":"https://outdoornebraska.gov/parks/explore-trails/water-trails/","provider":"local"},
@@ -255,6 +259,7 @@ export const nebraskaRoutes: River[] = [
     "id": "platte-river-schramm-louisville",
     "slug": "platte-river-schramm-louisville",
     "name": "Platte River",
+    "riverId": "platte-river",
     "reach": "Schramm Park SRA to Louisville SRA",
     "aliases": [
       "Platte River Water Trail - Schramm to Louisville",
@@ -388,6 +393,7 @@ export const nebraskaRoutes: River[] = [
     "id": "platte-river-schramm-platte-river-state-park",
     "slug": "platte-river-schramm-platte-river-state-park",
     "name": "Platte River",
+    "riverId": "platte-river",
     "reach": "Schramm Park SRA to Platte River State Park",
     "aliases": [
       "Platte River Water Trail - Schramm to Platte River State Park",
@@ -516,6 +522,7 @@ export const nebraskaRoutes: River[] = [
     "id": "platte-river-platte-river-state-park-louisville",
     "slug": "platte-river-platte-river-state-park-louisville",
     "name": "Platte River",
+    "riverId": "platte-river",
     "reach": "Platte River State Park to Louisville SRA",
     "aliases": [
       "Platte River Water Trail - Platte River State Park to Louisville",
@@ -644,6 +651,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-george-syas-monroe",
     "slug": "loup-river-george-syas-monroe",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "George D. Syas WMA to Monroe county access",
     "aliases": [
       "Loup River Water Trail - George D. Syas WMA to Monroe",
@@ -763,6 +771,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-monroe-columbus",
     "slug": "loup-river-monroe-columbus",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "Monroe county access to Columbus",
     "aliases": [
       "Loup River Water Trail - Monroe to Columbus",
@@ -876,6 +885,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-george-syas-columbus",
     "slug": "loup-river-george-syas-columbus",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "George D. Syas WMA to Columbus",
     "aliases": [
       "Loup River Water Trail - George D. Syas WMA to Columbus",
@@ -989,6 +999,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-monroe-adm-access",
     "slug": "loup-river-monroe-adm-access",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "Monroe county access to ADM access site",
     "aliases": [
       "Loup River Water Trail - Monroe to ADM",
@@ -1107,6 +1118,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-columbus-adm-access",
     "slug": "loup-river-columbus-adm-access",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "Columbus hotel-side access to ADM access site",
     "aliases": [
       "Loup River Water Trail - Columbus to ADM",
@@ -1220,6 +1232,7 @@ export const nebraskaRoutes: River[] = [
     "id": "loup-river-george-syas-adm-access",
     "slug": "loup-river-george-syas-adm-access",
     "name": "Loup River",
+    "riverId": "loup-river",
     "reach": "George D. Syas WMA to ADM access site",
     "aliases": [
       "Loup River Water Trail - George D. Syas WMA to ADM",
@@ -1338,6 +1351,7 @@ export const nebraskaRoutes: River[] = [
     "id": "niobrara-river-fort-niobrara-smith-falls",
     "slug": "niobrara-river-fort-niobrara-smith-falls",
     "name": "Niobrara River",
+    "riverId": "niobrara-river",
     "reach": "Fort Niobrara NWR launch to Nichols Landing, Smith Falls State Park",
     "aliases": [
       "Niobrara National Scenic River - Cornell Bridge to Smith Falls",
@@ -1383,7 +1397,7 @@ export const nebraskaRoutes: River[] = [
       {"label":"Public take-out and camping","value":"Nichols Landing, Smith Falls State Park","note":"NPS identifies Nichols Landing as a public canoe/kayak/tube launch and landing; the state park provides camping, parking, restrooms, and a pass requirement.","sourceUrl":"https://www.nps.gov/places/nichols-landing.htm"},
       {"label":"Direct live gauge","value":"USGS 06461500 near Sparks","note":"USGS provides continuous discharge and gage-height telemetry for the Niobrara reach near the route.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/USGS-06461500"},
       {"label":"Official flow guidance","value":"340 cfs too-low; 460–1,200 cfs acceptable; 600–900 cfs optimal; above 1,200 cfs high","note":"Nebraska’s official flow/recreation study calibrates these bands to the Sparks gauge and emphasizes boatability, safety, and trip quality.","sourceUrl":"https://govdocs.nebraska.gov/epubs/G1000/B141-2008.pdf"},
-      {"label":"Image decision","value":"No third-party image bundled","note":"The route uses linked official NPS, USFWS, Nebraska Game and Parks, and USGS sources only; no unlicensed promotional image is copied into the product."}
+      {"label":"Image decision","value":"Approved Niobrara River river-group context image","note":"A rights-cleared Niobrara River image near Spencer is bundled as river-level context; it is not presented as a Cornell or Nichols Landing endpoint photograph."}
     ],
     "sourceLinks": [
       {"label":"NPS Niobrara trip ideas","url":"https://www.nps.gov/niob/planyourvisit/tripideas.htm","provider":"nps"},

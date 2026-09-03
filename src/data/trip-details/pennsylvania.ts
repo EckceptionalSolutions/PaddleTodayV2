@@ -746,6 +746,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Stage the take-out plan around Bruner Run and Old Mitchell Place before launching. DCNR says the Bruner gate is open weekdays, while American Whitewater notes that during weekend permit season boaters commonly take out at Bruner Run and use the park shuttle to Old Mitchell Place. Confirm the current launch-ticket, shuttle, gate, and parking setup with Ohiopyle State Park before leaving vehicles.",
       "permits": "DCNR says Lower Yough boaters must obtain a launch ticket between the second weekend in April and Columbus Day. PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR, PFBC, park, PFD, helmet, and whitewater rules.",
       "camping": "Treat this as a managed daylight whitewater day run inside Ohiopyle State Park. Do not camp, stage, or park outside posted state-park areas, and leave enough daylight for the take-out shuttle or road access plan.",
+      "campingClassification": "nearby_basecamp",
       "summary": "Launch below Ohiopyle Falls at the state-park Lower Yough launch and take out at Bruner Run for the classic Lower Yough whitewater run. Use the Ohiopyle USGS stage gauge and current park rules, and skip the route when the water, weather, access status, or group skill is not clearly right.",
       "accessCaveats": [
         "This route starts below Ohiopyle Falls; running the falls has separate DCNR access rules and is not part of the normal route recommendation.",
@@ -1302,6 +1303,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Stage the take-out at Rockport, then drive back to the White Haven access. DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko, so confirm current Lehigh Gorge State Park alerts, posted signs, and access routing before leaving vehicles.",
       "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR/PFBC rules, posted Lehigh Gorge access rules, and whitewater equipment requirements.",
       "camping": "Treat this as a managed daylight state-park whitewater day. Do not camp, stage, or park outside posted Lehigh Gorge State Park areas, and leave enough daylight for the shuttle and any release-day traffic delays.",
+      "campingClassification": "nearby_basecamp",
       "summary": "Launch at White Haven and take out at Rockport for the upper Lehigh Gorge whitewater section. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and skip the route when water, weather, access status, or group skill is not clearly right.",
       "accessCaveats": [
         "DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.",
@@ -1412,6 +1414,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Choose a put-in and take-out from the planner, stage the downstream vehicle first, and inspect both landings.",
       "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
       "camping": "Treat this as a day-trip corridor unless separate legal camping arrangements are confirmed.",
+      "campingClassification": "none",
       "summary": "Use this as the Newport-area lower Juniata access-planner corridor from Greenwood to Amity Hall, with Newport, Howe Township, and Green Valley options.",
       "accessCaveats": [
         "Newport is the practical hub for shorter lower-Juniata plans.",

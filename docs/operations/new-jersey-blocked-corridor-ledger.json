@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "state": "New Jersey",
+  "generatedAt": "2026-09-03T04:54:00Z",
+  "inventorySource": "docs/operations/new-jersey-statewide-inventory.json",
+  "statusDefinition": "Blocked means the family was identified in the statewide source inventory but did not clear the strict two-endpoint, access, flow/tide, safety, logistics, camping, coordinate, imagery, and geometry gates. Screened out means the family is intentionally outside the moving-freshwater route product scope until a bounded navigation package exists.",
+  "candidates": [
+    {
+      "id": "nj-blocked-stony-brook",
+      "corridor": "Stony Brook",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a distinct moving-water family, but the reviewed access records are not enough to infer a public paddle route or a defensible endpoint package.",
+      "retryCondition": "Reopen only with two current lawful public water entries, on/near-water coordinates, route-specific flow and safety guidance, and independent verification."
+    },
+    {
+      "id": "nj-blocked-crosswicks-creek",
+      "corridor": "Crosswicks Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a distinct moving-water family, but current public water-entry, tidal-transition, and route-specific safety controls remain unresolved.",
+      "retryCondition": "Reopen when a current point-to-point Crosswicks route has lawful endpoints, tidal/flow controls, hazards, and exact access-area coordinates."
+    },
+    {
+      "id": "nj-blocked-abbott-marshlands-tidal-water-trail",
+      "corridor": "Abbott Marshlands Tidal Water Trail",
+      "disposition": "blocked_tidal_marsh_route_package",
+      "reason": "DRBC indexes the Abbott Marshlands Tidal Water Trail, and the Friends of the Abbott Marshlands identifies canoe access at Watson Woods, Bordentown Beach, and the Trenton Boat Launch with dangerous tidal-current warnings. The reviewed material does not establish one named moving-water corridor with same-waterway endpoints, canonical route continuity, current launch controls, or a route-specific gauge/tide package; retain as a distinct tidal-marsh lead rather than silently treating it as a river route.",
+      "retryCondition": "Reopen with a bounded tidal route, current launch permissions, same-waterway endpoints, tide/current guidance, and canonical geometry."
+    },
+    {
+      "id": "nj-blocked-cooper-creek",
+      "corridor": "Cooper Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS and NJDEP access records identify an urban/tidal family, but no current point-to-point paddle package with water-quality, traffic, and endpoint controls was verified.",
+      "retryCondition": "Reopen with a current urban/tidal access pair, water-quality and navigation controls, and route-specific geometry."
+    },
+    {
+      "id": "nj-blocked-assunpink-creek",
+      "corridor": "Assunpink Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a distinct moving-water family, but the reviewed access records did not establish two public water entries and route-specific flow/safety guidance.",
+      "retryCondition": "Reopen with two lawful public entries and route-specific flow, safety, camping, coordinate, image, and geometry evidence."
+    },
+    {
+      "id": "nj-blocked-delaware-raritan-canal",
+      "corridor": "Delaware and Raritan Canal",
+      "disposition": "blocked_nonriver_canal_gauge_package",
+      "reason": "NJDEP confirms canoe/kayak use and several boat launches, but this managed canal requires a distinct lock/permit/current-management package and lacks a directly linked river-gauge control in this pass.",
+      "retryCondition": "Reopen as a separate managed-canal product only after lock operations, permits, water levels, access, safety, camping, and geometry are documented."
+    },
+    {
+      "id": "nj-blocked-hackensack-river",
+      "corridor": "Hackensack River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a major urban/tidal river family, but the reviewed NJDEP baseline did not establish a continuous public paddle reach with current water-entry, traffic, and water-quality controls.",
+      "retryCondition": "Reopen with a continuous public blueway reach and current urban-navigation and water-quality evidence."
+    },
+    {
+      "id": "nj-blocked-rahway-river",
+      "corridor": "Rahway River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS and NJDEP access records identify a developed river family, but no current two-endpoint paddle package with local flow and urban hazard controls cleared review.",
+      "retryCondition": "Reopen with current municipal launch/take-out permissions, local flow guidance, and urban hazard controls."
+    },
+    {
+      "id": "nj-blocked-pompton-river",
+      "corridor": "Pompton River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies multiple Pompton reaches, but dams, impoundments, urban access, and the reviewed endpoint sources prevent a single defensible route package.",
+      "retryCondition": "Reopen only as a bounded reach below a verified dam/impoundment boundary with two current public endpoints and route-specific hazards."
+    },
+    {
+      "id": "nj-blocked-whippany-river",
+      "corridor": "Whippany River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a distinct moving-water family, but current public water entries and route-specific safety/water-quality controls were not verified.",
+      "retryCondition": "Reopen with current public endpoint evidence, local flow guidance, and water-quality and urban-hazard controls."
+    },
+    {
+      "id": "nj-blocked-wanaque-river",
+      "corridor": "Wanaque River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a reservoir and tributary family, but reservoir/intake segmentation and public paddle access remain unresolved.",
+      "retryCondition": "Reopen only after reservoir, intake, dam, and tributary boundaries and current public paddle access are independently verified."
+    },
+    {
+      "id": "nj-blocked-lockatong-creek",
+      "corridor": "Lockatong Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a Delaware tributary family, but the reviewed source set did not establish two lawful public paddle endpoints with local flow and hazard guidance.",
+      "retryCondition": "Reopen with two lawful public access areas, local flow context, route-specific hazards, and exact coordinates."
+    },
+    {
+      "id": "nj-blocked-pohatcong-creek",
+      "corridor": "Pohatcong Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies a Delaware tributary family, but no named current public paddle endpoint pair or route-specific controls cleared review.",
+      "retryCondition": "Reopen with a named public endpoint pair and complete flow, safety, camping, coordinate, imagery, and geometry package."
+    },
+    {
+      "id": "nj-blocked-mantua-creek",
+      "corridor": "Mantua Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS and NJDEP access records identify an urban/tidal creek family, but no bounded route with current launch, tide, water-quality, and traffic controls was verified.",
+      "retryCondition": "Reopen with a bounded tidal reach and current launch, tide, water-quality, traffic, and landing controls."
+    },
+    {
+      "id": "nj-blocked-metedeconk-river",
+      "corridor": "Metedeconk River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS and NJDEP access records identify a tidal/urban river family, but no single defensible moving-water route with current endpoint and navigation controls cleared review.",
+      "retryCondition": "Reopen with a specific North or South Branch or tidal reach, current endpoints, navigation controls, and route-specific imagery and geometry."
+    },
+    {
+      "id": "nj-blocked-raritan-river",
+      "corridor": "Raritan River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "The access baseline contains tidal visual/fishing points and the river has multiple urban/tidal reaches; no single defensible route package was inferred.",
+      "retryCondition": "Reopen with a bounded river reach whose public launches, navigation/water-quality controls, gauge scope, and endpoint coordinates are independently verified."
+    },
+    {
+      "id": "nj-blocked-rockaway-river",
+      "corridor": "Rockaway River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "NJDEP’s current trout-water access listing names several public Rockaway River fishing/access locations, and USGS 01379845 provides current Dover telemetry, but the reviewed access source does not establish independent paddle launch rights or one bounded route package; the Boonton Gorge whitewater reach also requires separate Class IV–V and legal/access review.",
+      "evidenceSources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01379845/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1202/main"
+      ],
+      "retryCondition": "Reopen only with a current lawful endpoint pair and a bounded reach; the Boonton Gorge whitewater segment requires separate expert-level access and hazard verification."
+    },
+    {
+      "id": "nj-blocked-ramapo-river",
+      "corridor": "Ramapo River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "NJDEP’s current trout-water access listing names public Ramapo River fishing/access locations in Mahwah, Oakland, and Wayne, and USGS 01387500 provides current route-context telemetry near Mahwah, but the reviewed sources do not establish independent canoe/kayak launch rights or a continuous New Jersey endpoint pair; the available Tuxedo-to-Suffern whitewater description does not supply New Jersey-specific authorization.",
+      "evidenceSources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01387500/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1384/main"
+      ],
+      "retryCondition": "Reopen with two current public access areas, local flow guidance, and route-specific safety and landing controls."
+    },
+    {
+      "id": "nj-blocked-pequannock-river",
+      "corridor": "Pequannock River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "Gauge coverage exists, but reservoir/intake/dam segmentation and public endpoint controls remain unresolved.",
+      "retryCondition": "Reopen only after resolving the reservoir, intake, dam, and public endpoint boundaries for one bounded reach."
+    },
+    {
+      "id": "nj-blocked-wallkill-river",
+      "corridor": "Wallkill River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "Gauge coverage exists, but the NJ reach needs a distinct access and boundary package rather than inference from crossings.",
+      "retryCondition": "Reopen with current New Jersey access-owner evidence, named boundaries, and route-specific flow/safety controls."
+    },
+    {
+      "id": "nj-blocked-rockaway-creek",
+      "corridor": "Rockaway Creek",
+      "disposition": "blocked_whitewater_access_package",
+      "reason": "American Whitewater identifies a distinct 3.9-mile Mountainville-to-McCrea Mills reach at Class II–IV with short-duration storm flow, strainers, low bridges, and no developed or standard put-ins/take-outs. NJDEP’s current access list is an angling-access baseline rather than paddle-launch authorization, while USGS provides same-creek monitoring context.",
+      "evidenceSources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2860/main",
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01399670/"
+      ],
+      "retryCondition": "Reopen only with current lawful put-in and take-out authorization, expert whitewater classification, current gauge thresholds, and exact access-area coordinates."
+    },
+    {
+      "id": "nj-blocked-spruce-run-creek",
+      "corridor": "Spruce Run Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "NJDEP’s current trout-water access list names School Street and Van Syckel’s Corner Road fishing-access settings, and American Whitewater lists an Upper Spruce Run Class II reach with USGS gauge context. The reviewed sources do not establish a current lawful canoe/kayak endpoint pair independent of fishing access, and the downstream reservoir transition requires separate controls.",
+      "evidenceSources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NJR",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01396582/",
+        "https://dep.nj.gov/parksandforests/state-park/spruce-run-recreation-area/"
+      ],
+      "retryCondition": "Reopen only with two current public paddle endpoints, confirmation of the creek/reservoir boundary, route-specific flow and hazard guidance, and exact coordinates."
+    },
+    {
+      "id": "nj-blocked-wickecheoke-creek",
+      "corridor": "Wickecheoke Creek",
+      "disposition": "blocked_whitewater_access_package",
+      "reason": "American Whitewater identifies a distinct Class III–IV Upper Creek Road-to-Covered Bridge reach, but the available flow listing is stale and NJDEP’s current access listing is a fishing/roadside setting rather than a verified paddle launch. No current two-endpoint package with route-specific hazard and access authorization cleared review.",
+      "evidenceSources": [
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NJR",
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01461200/"
+      ],
+      "retryCondition": "Reopen only with current gauge/flow evidence, expert hazard review, and independent lawful access authorization at both named boundaries."
+    },
+    {
+      "id": "nj-blocked-raccoon-creek",
+      "corridor": "Raccoon Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "USGS identifies Raccoon Creek at Wrights Mill as a current monitored stream and NJDEP identifies Raccoon Creek WMA and fishing-access holdings, but the reviewed official sources do not establish two lawful paddle endpoints or a route-specific safety and landing package. County canoe/kayak facilities found in this pass are on Wilson Lake/Scotland Run, not the moving Raccoon Creek channel.",
+      "evidenceSources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01477070/",
+        "https://dep.nj.gov/njfw/conservation/wildlife-management-areas/",
+        "https://www.gloucestercountynj.gov/facilities/facility/details/Scotland-Run-Park-4"
+      ],
+      "retryCondition": "Reopen only with a current lawful paddle endpoint pair on Raccoon Creek, route-specific flow/safety guidance, and exact on-water coordinates; do not substitute Wilson Lake access."
+    },
+    {
+      "id": "nj-blocked-saddle-river",
+      "corridor": "Saddle River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "reason": "Bergen County and NJDEP identify Saddle River County Park and its Wild Duck Pond car-top access setting, but the reviewed material is oriented to fishing and park recreation, notes a waterfall, and does not establish a continuous public moving-water paddle reach with route-specific flow thresholds. USGS has direct Saddle River station context, but not a verified recreational threshold package.",
+      "evidenceSources": [
+        "https://bergencountynj.gov/bergen-county-department-of-parks/saddle-river-county-park/",
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-alphabetical/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01390450/"
+      ],
+      "retryCondition": "Reopen only with two current lawful paddle endpoints, route-specific flow and waterfall/urban hazard guidance, exact coordinates, and a complete imagery/camping/logistics package."
+    },
+    {
+      "id": "nj-blocked-oldmans-creek",
+      "corridor": "Oldmans Creek",
+      "disposition": "blocked_tidal_endpoint_package",
+      "reason": "South Jersey Land & Water Trust authorizes canoe/kayak use at the Oldmans Creek Preserve landing but requires hand-portage from the parking area, prohibits camping, and describes the creek as tidal with flow reversing or stopping at tide change. The reviewed municipal planning material reports no designated launch sites in the broader Woolwich reach, and USGS provides only historical or non-continuous context; no independent second endpoint or complete tidal package cleared review.",
+      "evidenceSources": [
+        "https://www.sjlandwater.org/rules-and-regulations",
+        "https://www.sjlandwater.org/ocp-things-to-do",
+        "https://www.dvrpc.org/reports/04017.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01477440/"
+      ],
+      "retryCondition": "Reopen only with a second current lawful Oldmans Creek endpoint, tide/current guidance, landing and bridge hazards, exact coordinates, and complete imagery/camping/logistics evidence."
+    },
+    {
+      "id": "nj-screened-tidal-bays-creeks-marshes",
+      "corridor": "Tidal bays, creeks, and marsh routes",
+      "disposition": "screened_out_tidal_open_water",
+      "reason": "The NJDEP baseline contains many tidal visual, beach, and fishing points. They remain a separate tide/navigation inventory and are not counted as freshwater moving-water corridors without a bounded route package.",
+      "retryCondition": "Reopen individual candidates only when a bounded tidal navigation route has named public endpoints, tide/current guidance, safety, landing, camping posture, coordinates, imagery, and geometry."
+    }
+  ]
+}

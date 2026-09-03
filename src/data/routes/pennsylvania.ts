@@ -2562,6 +2562,17 @@ export const pennsylvaniaRoutes: River[] = [
     "statusText": "Use the Susquehanna River at Danville gauge. The current guide says about 2 ft is the lower limit, around 4 ft is the better planning level, and novice paddlers should stay off when Danville rises above about 7 ft.",
     "latitude": 40.948317,
     "longitude": -76.631473,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["fast_rise", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "This is a broad mainstem river, not flatwater: wear a PFD, keep the group together, and plan for headwind, current, and floating wood.",
+        "Use only the named PFBC Danville ramp and Wray's Riverfront Campground endpoint. Wray's is managed private campground property, so confirm permission, parking, and take-out expectations before launch.",
+        "Use the Danville stage gauge and the published 2 ft lower limit, 4 ft planning level, and 7 ft novice ceiling; stand down for thunderstorms, rising water, or a take-out that cannot be reached lawfully.",
+        "No informal bank or island landing is implied between the endpoints; carry a shuttle and emergency-exit plan for the committed mainstem reach."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-01540500",
       "provider": "usgs",
@@ -4108,6 +4119,17 @@ export const pennsylvaniaRoutes: River[] = [
     "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a scrape-prone day and treat the route as below the county floor.",
     "latitude": 40.2567096,
     "longitude": -77.0411725,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Cumberland County says boating should be above 1.7 ft at the Hogestown gauge; near that floor expect scraping, shallow bridge lines, and slower progress rather than a normal float.",
+        "Willow Mill is an improved launch, while Good Hope is a shallower PFBC launch with limited parking and permit/registration obligations. Inspect both carries and do not block local access.",
+        "Thunderstorms can raise the creek quickly and move wood. Scout bridge approaches, overhanging limbs, and any channel that has changed since the last trip.",
+        "Stay with the named public launches and do not use private banks or unlisted roadside pull-offs as bailout points."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-01570000",
       "provider": "usgs",
@@ -4343,6 +4365,17 @@ export const pennsylvaniaRoutes: River[] = [
     "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was 1.69 ft at 2026-07-13 15:30 EDT, so expect a slow scrape-prone run and treat the route as below the county floor.",
     "latitude": 40.2561,
     "longitude": -77.0192,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Cumberland County's 1.7 ft Hogestown floor is a conservative access screen; inspect actual depth, current, and wood before committing to the longer creek day.",
+        "The Vincent DiFilippo launch is a named public access, but Acri Meadow is an unimproved municipal-park slope. Confirm parking, carry footing, and current conditions before launch.",
+        "Bridge current, overhanging limbs, fresh wood, and muddy banks become more consequential after rain; wear a PFD and keep a daylight shuttle plan.",
+        "Do not infer legal landings away from the named public launches or treat private banks as emergency exits."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-01570000",
       "provider": "usgs",
@@ -4573,6 +4606,17 @@ export const pennsylvaniaRoutes: River[] = [
     "statusText": "Use the Conodoguinet Creek near Hogestown gauge. Cumberland County says boating should be above 1.7 ft there; the gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so this 17.4-mile route should be treated as a marginal low-water day rather than a casual green-light recommendation.",
     "latitude": 40.2567096,
     "longitude": -77.0411725,
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": ["low_water", "fast_rise", "strainers", "cold_water", "private_banks"],
+      "safetyNotes": [
+        "Treat the 17.4-mile full corridor as a committed day: the 1.7 ft Hogestown floor can still leave repeated scraping and slow mileage.",
+        "Willow Mill is an improved public launch and Acri Meadow is a more basic municipal-park finish. Inspect the lower carry and shuttle staging before committing.",
+        "Expect bridge current, wood, shallow lines, muddy banks, and faster floodplain current after thunderstorms; reassess the route if the gauge is rising toward action stage.",
+        "Use only the named public endpoints and do not rely on private banks or improvised pull-offs for bailout or camping."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "gaugeSource": {
       "id": "usgs-01570000",
       "provider": "usgs",

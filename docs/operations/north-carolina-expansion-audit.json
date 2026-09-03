@@ -2,9 +2,9 @@
   "version": 1,
   "stateId": "NC",
   "stateName": "North Carolina",
-  "updatedAt": "2026-08-28T03:29:00.000Z",
-  "phase": "independent_access_first_discovery",
-  "executionStatus": "completed_access_first_window_10_nc_complete_with_deferred_candidates",
+  "updatedAt": "2026-09-02T12:00:00.000Z",
+  "phase": "independent_access_first_continuation",
+  "executionStatus": "completed_continuation_windows_11_12_13_14_with_explicit_remaining_blockers",
   "selection": {
     "rank": 2,
     "score": 89,
@@ -83,6 +83,26 @@
         "id": "nc-access-first-window-10",
         "gaugeKeys": ["usgs:03161000", "usgs:02134500"],
         "outcome": "Completed the final New River/Lumber access-first audit. Confirmed official endpoint networks, route mileage, park status, direct gauges, and independent paddling context, but did not publish either route because neither candidate had a defensible station-tied paddling threshold and complete operating band. Both gauges received durable deferred dispositions with explicit retry conditions; no additional NC route cleared the publication bar in this methodology window."
+      },
+      {
+        "id": "nc-continuation-window-11",
+        "gaugeKeys": ["usgs:03161000"],
+        "outcome": "Published new-river-todd-wagoner after independently verifying Todd Island Park and Wagoner public canoe-access anchors, the seven-mile Class II section, an informational 100–2,500 cfs same-river proxy band, park camping posture, safety caveats, approved context imagery, access controls, and canonical geometry."
+      },
+      {
+        "id": "nc-continuation-window-12",
+        "gaugeKeys": ["usgs:02102500"],
+        "outcome": "Published cape-fear-river-raven-rock-lillington after verifying NCWRC public access anchors, the Raven Rock park no-kayak/canoe-launch caveat, the Cape Fear Class I–II hazard package, an informational 200–5,000 cfs band tied to direct Lillington telemetry, separate Canoe Camp posture, rights-clean same-river imagery, access controls, and canonical geometry. The source’s eight-mile label conflicts with a 9.1-mile straight-line endpoint separation, so the app uses an explicit conservative approximately ten-mile planning label."
+      },
+      {
+        "id": "nc-continuation-window-13",
+        "gaugeKeys": ["usgs:03510577"],
+        "outcome": "Published tuckasegee-river-dillsboro-barkers-creek after verifying the five-mile Class II section, NCWRC C.J. Harris and Barker’s Creek public accesses, direct Barker’s Creek telemetry, an informational 500–2,500 cfs band, regulated-release and Dillsboro dam hazards, no endpoint camping claim, rights-clean same-river imagery, access controls, and canonical geometry."
+      },
+      {
+        "id": "nc-continuation-window-14",
+        "gaugeKeys": ["usgs:03550000"],
+        "outcome": "Published valley-river-andrews-tomotla after verifying NCWRC Andrews/Valley River canoe access, the named Class I Andrews-to-Tomotla/Murphy section, direct Tomotla telemetry, an informational 60–1,000 cfs band, explicit low-water/strainer/wire and lower-landing caveats, no endpoint camping claim, rights-clean same-river imagery, access controls, and canonical geometry. The source’s eight-mile label conflicts with a 10.5-mile straight-line endpoint separation, so the app uses an explicit conservative approximately eleven-mile planning label."
       }
     ]
   },
@@ -90,13 +110,13 @@
     "status": "completed_with_deferred_candidates",
     "candidateCount": 7,
     "publishedCount": 5,
-    "routes": ["roanoke-river-gaston-weldon-outtake", "yadkin-river-ronda-crater-park", "yadkin-river-kerr-scott-smoot-park", "haw-river-saxapahaw-union-bridge", "mayo-river-anglin-business-220", "dan-river-hanging-rock-moratock", "french-broad-river-pisgah-forest-penrose", "neuse-river-falls-dam-thornton"],
+    "routes": ["roanoke-river-gaston-weldon-outtake", "yadkin-river-ronda-crater-park", "yadkin-river-kerr-scott-smoot-park", "haw-river-saxapahaw-union-bridge", "mayo-river-anglin-business-220", "dan-river-hanging-rock-moratock", "french-broad-river-pisgah-forest-penrose", "neuse-river-falls-dam-thornton", "new-river-todd-wagoner", "cape-fear-river-raven-rock-lillington", "tuckasegee-river-dillsboro-barkers-creek", "valley-river-andrews-tomotla"],
     "nextWindow": null
   },
   "independentDiscovery": {
     "method": "Access-first regional water-trail sweep independent of the provider-baseline gauge-ledger order",
     "status": "completed_with_deferred_candidates",
-    "finding": "The statewide completion sweep was independently stress-tested with an access-first regional water-trail method. That reopened pass added Haw, Mayo, Dan, French Broad, and Neuse routes. New River State Park and Lumber River State Park were then screened to completion; both have real access networks and direct gauges but lack defensible station-tied paddling thresholds, so they remain explicit retryable deferrals rather than invented score bands.",
+    "finding": "The statewide completion sweep was independently stress-tested with an access-first regional water-trail method. That reopened pass added Haw, Mayo, Dan, French Broad, and Neuse routes. The continuation pass then added bounded New River, Cape Fear, and Tuckasegee sections with explicit proxy/access-anchor or source-distance caveats. Additional New River, Lumber, Smith, Deep, lower Neuse, and other candidates remain explicit retryable deferrals rather than invented score bands.",
     "candidates": [
       {
         "id": "nc-haw-saxapahaw-union-bridge",

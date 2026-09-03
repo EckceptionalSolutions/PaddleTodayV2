@@ -2174,6 +2174,7 @@ export const minnesotaRoutes: River[] = [
     "region": "West Central Minnesota",
     "summary": "Official MN DNR Chippewa day trip from Lentz Landing to Watson. This route finally clears the quality bar because the Watson corridor has direct MN DNR gauges on both ends of the run, not just the stale upstream Benson proxy story.",
     "statusText": "The Watson gauge is cleanest from 400 to 600 cfs. Below 200 cfs expect dragging and bony riffles, and above 800 cfs this broad prairie river stops feeling like a relaxed family run.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water"],"safetyNotes":["Below about 200 cfs, expect dragging, bony riffles, and slower progress rather than a relaxed family run.","Bridge-pier current shifts and scattered boulders still require active boat control even on this mostly flatwater route.","Open prairie bends are wind-exposed; check the weather and do not overcommit to the full day if conditions deteriorate."],"reviewStatus":"reviewed"},
     "latitude": 45.107814,
     "longitude": -95.7987081,
     "gaugeSource": {
@@ -2627,6 +2628,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Southeast Minnesota",
     "summary": "Classic Driftless day paddle with easy current and strong scenery. Flow is still the main call, but low-water scraping and post-rain debris should lower confidence before the gauge gets extreme.",
     "statusText": "Treat about 300 cfs as the lower edge of a worthwhile day, not a perfect one. This route improves with a little more water, but rising flow and fresh rain still matter.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Shallow riffles become scrape-prone near the low end of the gauge range; reassess before launch.","Fresh wood or strainers can appear on blind bends after rain, so an older clear-channel report is not a guarantee.","Use the named public endpoints and plan for cold water outside midsummer."],"reviewStatus":"reviewed"},
     "latitude": 43.7368,
     "longitude": -91.9468,
     "gaugeSource": {
@@ -2738,6 +2740,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Southeast Minnesota",
     "summary": "Longer Driftless day with mostly gentle current, wooded banks, and one main decision first: is the Houston gauge comfortably above late-low-water conditions without recent rain turning easy miles into a debris check?",
     "statusText": "Around 300 cfs at Houston is the low-water marker for this route. It may improve with more water, but there is not enough published guidance yet to name a full ideal range.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Treat about 300 cfs at Houston as a low-water marker; near or below it, expect slower riffles and a longer day.","Inspect for fresh sweepers, strainers, or storm debris before committing to this long reach.","The mileage creates fatigue and cold-water exposure; confirm the shuttle and legal public landings before launch."],"reviewStatus":"reviewed"},
     "latitude": 43.803006163099525,
     "longitude": -91.76035528027356,
     "gaugeSource": {
@@ -5951,6 +5954,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Long upper-to-central Sauk planner that links the Spring Hill county-park launch to the Cold Spring canoe landing without pushing all the way into the St. Cloud finish. It is the cleaner all-day option when you want a full same-gauge river commitment but still want the Frogtown stop rather than the longer lower corridor.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long route gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Below 14 ft, shallow riffles and vegetation can turn this long route into a slow, drag-prone commitment.","Fresh wood and strainers remain possible across the long reach; keep the Rockville bailout/campsite plan realistic.","Use the named county-park accesses and designated campsite only, and plan for cold water and weather exposure."],"reviewStatus":"reviewed"},
     "latitude": 45.529026,
     "longitude": -94.776531,
     "gaugeSource": {
@@ -6216,6 +6220,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Longer central-Sauk continuation that reaches all the way into Cold Spring without extending into the St. Cloud finish. It is the best same-gauge option when you want a full-day moving-water route but not the 30-plus-mile Eagle commitment.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long route gets scrape-prone and weedy, while above 20 ft the mileage and faster current turn it into a more serious outing.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Below 14 ft, expect shallow riffles, vegetation, and extra drag across this long central-Sauk commitment.","Check the channel for fresh wood and strainers before launch and at intermediate access points.","Use the named St. Martin and Frogtown accesses plus the designated Rockville campsite; do not substitute private shoreline."],"reviewStatus":"reviewed"},
     "latitude": 45.520241,
     "longitude": -94.67885,
     "gaugeSource": {
@@ -6341,6 +6346,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Long central-Sauk corridor that stops at the documented Rockville watercraft campsite instead of continuing into Cold Spring or Eagle Park. It is the strongest remaining same-gauge middle planner when you want a full river day with a legitimate campground finish.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long reach gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Low St. Martin readings can make shallow riffles and vegetation materially slower over the long route.","Inspect for fresh wood and strainers rather than relying on the route's easy general character.","Rockville is the planned legal campsite/finish; confirm current park rules and keep private-bank camping off the plan."],"reviewStatus":"reviewed"},
     "latitude": 45.520241,
     "longitude": -94.67885,
     "gaugeSource": {
@@ -6462,6 +6468,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Long central-Sauk corridor that turns the St. Martin gauge into a realistic same-river decision for a bigger day. It is the family choice when you want more commitment than the short lower sections without stepping into the St. Cloud rapids finish.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long reach gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["This is a long commitment; below 14 ft, shallow riffles and vegetation can make progress unexpectedly slow.","Check for fresh wood and strainers throughout the reach and keep a realistic daylight plan.","Use the named St. Martin and Eagle Park accesses plus designated Rockville camping only; do not improvise private-bank stops."],"reviewStatus":"reviewed"},
     "latitude": 45.520241,
     "longitude": -94.67885,
     "gaugeSource": {
@@ -7906,6 +7913,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Mankato Area",
     "summary": "Big-river Minnesota day with a better trust story than the old partial draft ever had. The route is not technical, but level, wind, sandbars, and open-water feel matter more here than on the smaller easy rivers.",
     "statusText": "Treat 4,550 to 17,900 cfs at Mankato as the best working band. Below 566.9 cfs gets too skinny and sandy, and above 22,500 cfs is beyond the range this route should be pitched for.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["Below the working band, exposed sandbars and shallow side channels can slow or strand boats.","Broad open bends are wind-exposed and flood debris can change landing conditions after high water; check trend and weather.","Use only the named public landings and treat private shoreland as off-limits for breaks or camping."],"reviewStatus":"reviewed"},
     "latitude": 44.2010236,
     "longitude": -94.1947673,
     "gaugeSource": {
@@ -8181,6 +8189,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Minnesota River Valley",
     "summary": "Shorter upper Minnesota River day with a cleaner beginner-friendly DNR route story than most big-river candidates. The Morton DNR gauge is upstream of the put-in, so the call is conservative, but the route itself has official access, camping, and distance support.",
     "statusText": "The Morton gauge is best from 1,330 to 3,750 cfs. Below 307 cfs gets too shallow and slow; above 10,900 cfs is too high for a general recommendation on this wooded valley reach.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["The upstream Morton proxy is conservative; below 307 cfs, expect shallow, slow water and possible dragging.","The wooded valley can collect floating debris after rain; check the trend and local landing conditions before launch.","Use the named public accesses and designated camping only, with no unscheduled private-bank stops."],"reviewStatus":"reviewed"},
     "latitude": 44.5177553,
     "longitude": -94.8845377,
     "gaugeSource": {
@@ -8333,6 +8342,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Lower Minnesota Valley",
     "summary": "Long lower Minnesota shuttle with a much better trust story than the old draft. It is not technical whitewater, but mileage, wind, and big-river pacing matter enough that a clean gauge read alone does not make it automatic.",
     "statusText": "The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["Below 4 ft, expect a slower, draggy day with shallow channels and difficult muddy landings.","Wind, flood debris, and changing sandbars can matter as much as the Jordan proxy; verify weather and trend before committing.","Use only the named public accesses and do not treat private shoreland as a bailout or campsite."],"reviewStatus":"reviewed"},
     "latitude": 44.5244176,
     "longitude": -93.8862799,
     "gaugeSource": {
@@ -8455,6 +8465,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Lower Minnesota Valley",
     "summary": "Full lower Minnesota River continuation from Henderson Station to Thompson Ferry, combining the upstream Henderson corridor with the official Jordan-gauge section north of Jordan. It is straightforward at normal levels, but the mileage and exposure make it a serious day.",
     "statusText": "The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["This nearly 28-mile commitment becomes slower and more exposed below 4 ft at Jordan.","Broad bends can build wind and flood debris; check river trend, weather, and daylight before launch.","Use the named Henderson and Thompson Ferry accesses and plan no unscheduled private-bank exits."],"reviewStatus":"reviewed"},
     "latitude": 44.5244176,
     "longitude": -93.8862799,
     "gaugeSource": {
@@ -8584,6 +8595,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Lower Minnesota Valley",
     "summary": "Compact lower Minnesota River continuation from Belle Plaine to Thompson Ferry. It keeps the same official Jordan-gauge ladder as the neighboring lower-corridor routes while trimming the commitment down to a half-day to moderate full-day shuttle.",
     "statusText": "The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["Below 4 ft at Jordan, expect slower current, shallow stretches, and muddy access conditions.","Open bends and changing sandbars require weather, trend, and wind checks even on this shorter segment.","Use only the named Belle Plaine and Thompson Ferry public accesses and keep private shoreland off the route plan."],"reviewStatus":"reviewed"},
     "latitude": 44.6340972,
     "longitude": -93.7653127,
     "gaugeSource": {
@@ -8703,6 +8715,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Lower Minnesota Valley",
     "summary": "Lower Minnesota continuation from Belle Plaine to Carver Riverfront Park. This extends the official Thompson Ferry to Carver day downstream into a still-manageable but more committed metro-edge big-river shuttle.",
     "statusText": "The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general lower-river recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["Below 4 ft at Jordan, shallow channels and muddy landings can turn the broad river into a slow day.","Flood debris and changing sandbars require a current visual check after high water, not just a favorable gauge number.","Use the named Belle Plaine and Carver accesses and do not use private shoreland for breaks or camping."],"reviewStatus":"reviewed"},
     "latitude": 44.6340972,
     "longitude": -93.7653127,
     "gaugeSource": {
@@ -8822,6 +8835,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Lower Minnesota Valley",
     "summary": "Shorter lower Minnesota River day from Thompson Ferry north of Jordan to Carver. It uses the official Jordan DNR gauge ladder and keeps the route length more approachable than the longer Henderson-to-Belle Plaine run.",
     "statusText": "The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general lower-river recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","private_banks"],"safetyNotes":["Below 4 ft at Jordan, expect slower current, shallow water, and soft landing conditions.","Wind, flood debris, and changing sandbars can change this short route quickly after rain or high water.","Use the named Thompson Ferry and Carver public accesses and avoid private-bank stops."],"reviewStatus":"reviewed"},
     "latitude": 44.692386,
     "longitude": -93.641157,
     "gaugeSource": {
@@ -8935,6 +8949,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Northwest Metro",
     "summary": "Upper split of the Two Paddles MR 20 route from Norin Landing near Otsego to Babcock. This keeps the full Norin-to-Anoka course usable in PaddleToday without duplicating the already-added Babcock-to-Peninsula Point finish leg.",
     "statusText": "Use the downstream Hwy 610 gauge conservatively. The DNR medium band is 8,670 to 28,300 cfs; below 3,060 cfs is scrapable and above 33,000 cfs is very high.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","strainers"],"safetyNotes":["Below the Hwy 610 low band, expect shallow gravel, exposed rocks, and slower current at Norin.","Islands, bridge approaches, motorboat wakes, floating debris, and bank snags require active channel selection after storms.","The gauge is a downstream mainstem proxy; make a same-day visual call at Norin and use only the named public accesses."],"reviewStatus":"reviewed"},
     "latitude": 45.3042771,
     "longitude": -93.683881,
     "gaugeSource": {
@@ -12371,6 +12386,7 @@ export const minnesotaRoutes: River[] = [
     "region": "Rochester Area",
     "summary": "Short Rochester-area river call where the sweet spot is narrow and quick rain response matters more than mileage.",
     "statusText": "Best for a straightforward day when the Rochester gauge is around 3 to 4 ft. Above that it gets pushier fast for newer paddlers.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","strainers"],"safetyNotes":["The South Fork Zumbro can rise quickly after rain; check the Rochester trend rather than relying on a single reading.","Inspect for fresh snags or wood after storms and keep the launch conservative when the narrow range is exceeded.","Wind exposure on Lake Zumbro can make the finish harder; confirm the county park landing and day-use rules."],"reviewStatus":"reviewed"},
     "latitude": 44.12967,
     "longitude": -92.46227,
     "gaugeSource": {

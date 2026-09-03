@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "stateId": "NC",
+  "stateName": "North Carolina",
+  "windowId": "nc-continuation-11-14",
+  "updatedAt": "2026-09-02T08:05:00.000Z",
+  "status": "published_with_explicit_proxy_and_access_anchor_controls",
+  "routes": [
+    {
+    "slug": "new-river-todd-wagoner",
+    "riverId": "new-river",
+    "name": "South Fork New River",
+    "reach": "Todd Island Park to Wagoner Access",
+    "distance": "approximately 7 river miles",
+    "difficulty": "Class II",
+    "scoreEligibility": "planning",
+    "scoreEligibilityReason": "proxy_gauge"
+    },
+    {
+      "slug": "cape-fear-river-raven-rock-lillington",
+      "riverId": "cape-fear-river",
+      "name": "Cape Fear River",
+      "reach": "Raven Rock State Park area to Lillington Boating Access Area",
+      "distance": "approximately 10 river miles for app planning; CanWePaddle describes about 8 miles, while authoritative endpoint anchors are 9.1 miles apart straight-line",
+      "difficulty": "Class I–II",
+      "scoreEligibility": "scored",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified_with_upper_access_caveat",
+          "putIn": { "name": "Raven Rock State Park area public access anchor", "latitude": 35.4692, "longitude": -78.9095, "source": "NCWRC; Raven Rock State Park access caveat" },
+          "takeOut": { "name": "Lillington Boating Access Area", "latitude": 35.39751617, "longitude": -78.77375061, "source": "NCWRC" }
+        },
+        "flow": {
+          "status": "qualified_direct_gauge",
+          "gauge": "USGS 02102500",
+          "relationship": "direct lower-endpoint gauge at Lillington",
+          "publishedPlanningRangeCfs": [200, 5000],
+          "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
+        },
+        "safety": ["Lanier Rapids and Fish Traps Rapids", "Northington Lock and Dam remains", "ledges and strainers", "fast rising water", "cold water", "upper access carry uncertainty"],
+        "camping": "nearby_basecamp",
+        "imagery": "approved Raven Rock Cape Fear same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "tuckasegee-river-dillsboro-barkers-creek",
+      "riverId": "tuckasegee-river",
+      "name": "Tuckasegee River",
+      "reach": "Dillsboro Access to Barker’s Creek Access",
+      "distance": "approximately 5 river miles",
+      "difficulty": "Class II",
+      "scoreEligibility": "scored",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified",
+          "putIn": { "name": "C.J. Harris / Dillsboro River Access", "latitude": 35.36368769, "longitude": -83.24683552, "source": "NCWRC" },
+          "takeOut": { "name": "Barker’s Creek Boating Access Area", "latitude": 35.38902721, "longitude": -83.29471806, "source": "NCWRC" }
+        },
+        "flow": {
+          "status": "qualified_direct_gauge",
+          "gauge": "USGS 03510577",
+          "relationship": "direct lower-endpoint gauge at Barker’s Creek",
+          "publishedPlanningRangeCfs": [500, 2500],
+          "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
+        },
+        "safety": ["Class II wave trains and small rapids", "regulated releases", "Dillsboro dam/structure portage", "shallow low water", "strainers", "cold water"],
+        "camping": "none",
+        "imagery": "approved Dillsboro Tuckasegee same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "valley-river-andrews-tomotla",
+      "riverId": "valley-river",
+      "name": "Valley River",
+      "reach": "Andrews Public Access to Tomotla Gauge / Murphy Area",
+      "distance": "approximately 11 river miles for app planning; CanWePaddle describes about 8 miles, while authoritative endpoint anchors are 10.5 miles apart straight-line",
+      "difficulty": "Class I",
+      "scoreEligibility": "scored",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified_with_lower_landing_caveat",
+          "putIn": { "name": "Valley River Public Fishing Area, Andrews", "latitude": 35.206, "longitude": -83.8158, "source": "NCWRC" },
+          "takeOut": { "name": "Valley River at Tomotla gauge / Murphy-area access anchor", "latitude": 35.13888889, "longitude": -83.9805556, "source": "USGS station; separate legal landing confirmation required" }
+        },
+        "flow": {
+          "status": "qualified_direct_gauge",
+          "gauge": "USGS 03550000",
+          "relationship": "direct lower-endpoint station at Tomotla",
+          "publishedPlanningRangeCfs": [60, 1000],
+          "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
+        },
+        "safety": ["shallow low water", "rainfall-driven rise", "strainers/logjams", "barbed wire/fence warning below Main Street in Andrews", "cold water", "private-bank and lower take-out uncertainty"],
+        "camping": "none",
+        "imagery": "approved Valley River Murphy same-river context image; no endpoint depiction implied"
+      }
+    }
+  ],
+  "evidence": {
+    "publicAccess": {
+      "status": "verified",
+      "putIn": { "name": "Todd Island Park Public Fishing Area", "latitude": 36.2784, "longitude": -81.5703, "source": "NCWRC" },
+      "takeOut": { "name": "New River State Park Wagoner Access", "latitude": 36.4165, "longitude": -81.387, "source": "NCWRC and NC State Parks" }
+    },
+    "flow": {
+      "status": "qualified_proxy",
+      "gauge": "USGS 03161000",
+      "relationship": "same-river proxy near Jefferson",
+      "publishedPlanningRangeCfs": [100, 2500],
+      "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
+    },
+    "safety": ["Class II wave trains and small rapids", "shallow/bony low water", "fast rising water", "wood and strainers", "bridge and changing-channel hazards", "cold water", "post-storm debris", "access carry and closure checks"],
+    "camping": "nearby_basecamp",
+    "imagery": "approved existing new-river context image; no endpoint depiction implied"
+  },
+  "implementation": {
+    "routeRecord": "src/data/routes/north-carolina.ts",
+    "tripDetails": "src/data/trip-details/north-carolina.ts derives from route records",
+    "routeOrder": "src/data/rivers.ts",
+    "corridor": "src/data/route-corridors.ts",
+    "corridorLedger": "docs/corridor-review-ledger.json",
+    "accessControls": "src/data/route-access-official-map-controls.json",
+    "generatedAccessRegistry": "src/data/generated/route-access-registry.json",
+    "generatedWithholding": "src/data/generated/withheld-route-slugs.ts",
+    "canonicalGeometry": "public/data/canonical-river-geometries/routes/new-river-todd-wagoner.json, public/data/canonical-river-geometries/routes/cape-fear-river-raven-rock-lillington.json, public/data/canonical-river-geometries/routes/tuckasegee-river-dillsboro-barkers-creek.json, and public/data/canonical-river-geometries/routes/valley-river-andrews-tomotla.json"
+  },
+  "validation": {
+    "typecheckRoutes": "passed",
+    "routeDataAudit": "passed for 1116 routes",
+    "corridorAudit": "passed for 170 definitions and 330 covered routes",
+    "accessRegistry": "passed with 2762 entries and 0 conflicts",
+    "canonicalGeometryGeneration": "passed; network-traced with 133 ft endpoint snap maximum",
+    "canonicalGeometryAudit": "passed for 1558/1560 routes in the shared worktree after Valley River regeneration",
+    "coordinateAudit": "Global audit completed for 1632 routes / 3830 endpoints. NC routes: 9 ok, 16 review-level, 1 suspicious; all stored anchors match their official controls, with NHD generalized-flowline offsets retained as review notes",
+    "safetyAudit": "2 shared-worktree issues remain on unrelated West Virginia route wv-guyandotte-branchland-west-hamlin",
+    "galleryAudit": "passed for 336 images / 119.16 MiB",
+    "focusedTests": "passed; 35/35 tests across route corridors, route safety, canonical geometries, access registry, and river data",
+    "fullTest": "730 Vitest tests passed; 2 pre-existing shared-worktree failures remain outside North Carolina. API contract package passed separately with 23/23 tests",
+    "productionBuild": "passed; 1844 pages generated, including the North Carolina state page and all 14 North Carolina route pages",
+    "knownSharedWorktreeCaveat": "Other state workers continue writing generated/global artifacts; preserve unrelated changes. Global coordinate audit has 27 failures and 141 unknowns outside NC, and the safety audit has 2 unrelated West Virginia issues."
+  },
+  "deferredCandidates": ["New River State Park additional access pairs", "Lumber River State Park", "Deep River sections", "Smith River", "Tuckasegee River", "lower Neuse", "other NC state-designated and public-access corridors requiring distinct threshold packages"]
+}

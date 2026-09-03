@@ -1,6 +1,6 @@
 # West Virginia Route Memory
 
-Updated: 2026-08-25
+Updated: 2026-09-02
 
 Use this memory with:
 
@@ -9,6 +9,13 @@ Use this memory with:
 - [`../route-addition-requirements.md`](../route-addition-requirements.md)
 
 ## Current Progress
+
+Continuation update: West Virginia now has 59 live routes. The Upper Cheat
+ledger review promoted `wv-cheat-hannahsville-riverview` after current Friends
+of Cheat/Swim Guide guidance and WVDNR District 1 boat-access coordinates
+resolved the Riverview access posture. Four candidates remain explicitly held:
+Pipestem/Bluestone tram carriage, Durbin–Hosterman, Riverview–Rowlesburg's
+downstream gauge-scope question, and Stonewall tailwater release controls.
 
 | Goal measure | Current | Target |
 | --- | ---: | ---: |

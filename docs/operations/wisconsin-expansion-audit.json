@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "stateId": "WI",
+  "stateName": "Wisconsin",
+  "updatedAt": "2026-09-01T19:07:32.333Z",
+  "phase": "corridor_first_statewide_completion",
+  "executionStatus": "completed_with_deferred_candidates_and_access_review",
+  "decision": "complete_with_documented_review_queue",
+  "selection": {
+    "reason": "Wisconsin already has a large, corridor-spanning inventory and a durable candidate ledger. The completion pass prioritized unresolved public-access, endpoint-coordinate, gauge, safety, camping, imagery, and duplicate-corridor gaps before considering additional route count.",
+    "stateAlreadyRegistered": true,
+    "routeOrderAlreadyRegistered": true,
+    "sources": [
+      "docs/route-candidate-ledger.json",
+      "docs/state-route-memories/wisconsin.md",
+      "src/data/routes/wisconsin.ts",
+      "src/data/trip-details/wisconsin.ts",
+      "src/data/route-corridors.ts"
+    ]
+  },
+  "inventory": {
+    "routeCount": 186,
+    "tripDetailCount": 186,
+    "routeCoordinateCount": 186,
+    "campingStatementCount": 186,
+    "routeLevelSafetyProfileCount": 186,
+    "accessRegistryEntryCount": 372,
+    "accessOccurrenceCount": 678,
+    "accessRegistryRouteCount": 185,
+    "accessRegistryMissingRouteIds": [
+      "waupaca-river-county-q-brainards-bridge"
+    ]
+  },
+  "routeQuality": {
+    "completeSourceTripDetailPackage": true,
+    "coordinatesPresent": true,
+    "campingPosturePresent": true,
+    "routeLevelSafetyProfilesPresent": true,
+    "gaugeAndFlowGuidancePresent": "all current route cards retain their existing direct, proxy, or derived gauge posture; the Waupaca discontinued-gauge route remains explicitly review-blocked",
+    "imagePosture": "reviewed_with_three_missing_dedicated_river_hero_groups",
+    "noUnverifiedExactRouteImageCopied": true
+  },
+  "corridorReview": {
+    "status": "passed",
+    "corridorDefinitionCount": 144,
+    "coveredRouteCount": 304,
+    "finding": "The Turtle Creek corridor definition was reconciled to the route's source-backed access chain. No new Wisconsin route was added because remaining leads were already represented, duplicate, or failed a strict access/threshold/safety/package gate."
+  },
+  "candidateLedger": {
+    "entryCount": 112,
+    "statusCounts": {
+      "added": 100,
+      "blocked_until_date": 3,
+      "research_later": 4,
+      "rejected": 4,
+      "duplicate_corridor": 1
+    },
+    "remainingRetryableCandidates": [
+      "wi-red-river-weed-dam-zeimers-falls",
+      "wi-eau-claire-river-bear-lake-county-n",
+      "wi-waupaca-river-county-q-brainards-bridge",
+      "wi-namekagon-river-county-road-k-landing-riverside-landing",
+      "wi-st-croix-river-osceola-landing-somerset-landing",
+      "wi-bark-river-highway-83-upper-nemahbin",
+      "wi-black-earth-creek-cross-plains-salmo-pond"
+    ],
+    "finding": "These candidates remain durable blockers or research-later items, not silently discarded opportunities. Reopen only when the ledger's missing manager-grade access, station-tied flow, obstruction, or safety evidence is available."
+  },
+  "accessReview": {
+    "status": "review_queue_documented",
+    "routesWithReviewOccurrences": 98,
+    "routesWithFailureOrSuspiciousOccurrences": 22,
+    "routeIds": [
+      "namekagon-river-big-bend-trego",
+      "menomonee-river-hoyt-park-bluemound",
+      "pine-river-richland-center-canoe-port-1-port-4",
+      "cedar-creek-cedarburg-mill-cth-t",
+      "plover-river-hwy-k-jordan-park",
+      "fox-river-landing-road-riverside-berlin",
+      "mecan-river-highway-22-germania",
+      "root-river-five-mile-horlick",
+      "sheboygan-river-dassow-river-park",
+      "la-crosse-river-veterans-holiday-heights",
+      "manitowoc-river-clark-mills-county-s",
+      "lemonweir-river-mauston-dam-19th-ave",
+      "beaver-dam-river-county-s-lowell",
+      "fox-river-princeton-white-river-locks",
+      "fox-river-princeton-locks-city-landing",
+      "black-river-wayside-reese",
+      "milwaukee-river-riverside-bruce-street",
+      "sheboygan-river-rochester-esslingen",
+      "baraboo-river-rock-springs-north-freedom",
+      "trempealeau-river-whitehall-independence",
+      "fox-river-sunset-kimberly-lutz-appleton",
+      "turtle-creek-town-of-turtle-milwaukee-road"
+    ],
+    "finding": "The registry distinguishes derived consensus from authoritative access. Many review occurrences are expected bridge, parking, or representative-point offsets; no guessed coordinate corrections were promoted. The Waupaca route is absent from the registry because its discontinued USGS 04081000 gauge/access package remains blocked."
+  },
+  "imagery": {
+    "status": "reviewed",
+    "missingDedicatedHeroAssets": [
+      "horicon-marsh-paddle-trail",
+      "south-fork-flambeau-river",
+      "tomorrow-river"
+    ],
+    "finding": "Wisconsin has river/context coverage and mobile fallbacks; no unapproved exact-route image was copied. The three missing dedicated river groups remain an explicit gallery backlog."
+  },
+  "gaugeCoverage": {
+    "uniqueRouteGaugeIds": 81,
+    "coveredGaugeRows": 66,
+    "blockedGaugeRows": 8,
+    "unmatchedOrDerivedIds": 7,
+    "finding": "Coverage counts include direct and clearly labeled proxy/derived rows. Blocked rows remain visible in the existing ledger; no live threshold was invented for the discontinued Waupaca station."
+  },
+  "implementation": {
+    "newRoutesAdded": 0,
+    "routeChanges": [
+      "Promoted existing trip-detail watchFor evidence into route-level safety profiles for 16 Wisconsin cards.",
+      "Added source-backed Turtle Creek route access points already present in trip details.",
+      "Reconciled Turtle Creek corridor edges to those source-backed access points.",
+      "Regenerated the route-access registry; no Wisconsin access conflicts remain."
+    ],
+    "generatedArtifactsUpdated": [
+      "src/data/generated/route-access-registry.json",
+      "public/data/canonical-river-geometries.json",
+      "docs/operations/wisconsin-expansion-audit.json"
+    ],
+    "registrationOrOrderChangeNeeded": false,
+    "canonicalGeometryChangeNeeded": false,
+    "canonicalGeometryRegeneratedForCurrentMixedWorktree": true
+  },
+  "validation": {
+    "routesAudit": "passed",
+    "safetyAudit": "passed_with_two_preexisting_repo_wide_issues",
+    "corridorAudit": "passed_after_turtle_creek_reconciliation",
+    "accessRegistryGeneration": "passed; 2610 canonical entries; 0 conflicts",
+    "coordinateAudit": "completed_repo_wide; 31 failure findings across mixed worktree, including Wisconsin review queue",
+    "photoAudit": "completed; three Wisconsin dedicated river hero groups missing",
+    "geometryAudit": "passed_after_regeneration_at_1470_of_1473_routes; subsequent full-check reruns observed concurrent source drift (1473 vs 1474)",
+    "routeTypecheck": "passed",
+    "fullTests": "npm test preflight failed before test execution because the concurrent mixed worktree changed the route count during typecheck (canonical geometry manifest 1473 vs source 1474); independently, Vitest completed 85/86 files and 675/676 tests with one shared operations snapshot encoding failure, while the API-contract suite passed 9/9 files and 23/23 tests",
+    "productionBuild": "failed_before Astro build for the same concurrent canonical-geometry count drift",
+    "preExistingOrConcurrentIssues": [
+      "Route safety audit retains one High and one Medium West Virginia finding on wv-guyandotte-branchland-west-hamlin; Wisconsin has no safety findings.",
+      "Full test/build could not reach Vitest or Astro because active Maryland/New York work changed route data while the shared geometry manifest was being validated.",
+      "Coordinate audit completed repo-wide with 31 failure findings; Wisconsin findings remain in the documented access/coordinate review queue.",
+      "Vitest's sole failure is src/lib/operations.test.ts:62, where the shared operations snapshot contains mojibake characters; this is unrelated to Wisconsin route data."
+    ],
+    "notes": "This audit is intentionally state-scoped while the checkout contains active Maryland/New York and other work. Shared audit outputs and unrelated changes were preserved. A stable checkout is required to make the final repo-wide build/test result deterministic."
+  },
+  "evidence": [
+    "src/data/routes/wisconsin.ts",
+    "src/data/trip-details/wisconsin.ts",
+    "src/data/route-corridors.ts",
+    "src/data/generated/route-access-registry.json",
+    "docs/route-candidate-ledger.json",
+    "docs/route-coordinate-river-audit.json",
+    "docs/route-safety-audit.json",
+    "docs/state-route-memories/wisconsin.md"
+  ]
+}

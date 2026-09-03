@@ -1,12 +1,57 @@
 {
-  "generatedAt": "2026-08-20T19:09:21.684Z",
+  "generatedAt": "2026-09-02T11:12:33.833Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 1032,
-    "findings": 1026,
-    "high": 50
+    "routesReviewed": 1621,
+    "findings": 1095,
+    "high": 20
   },
   "findings": [
+    {
+      "slug": "brazos-river-hwy16-fm4-upper-middle",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "brushy-creek-chisholm-trail-red-bud",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "brazos-river-brazos-park-east-bledsoe-miller",
+      "state": "Texas",
+      "scored": false,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "brays-bayou-fonde-brays-greenway",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "big-cypress-bayou-lake-o-pines-spillway-jefferson",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
     {
       "slug": "north-raccoon-river-vogel-riverview",
       "state": "Iowa",
@@ -119,6 +164,36 @@
     },
     {
       "slug": "cedar-river-brookwood-janesville",
+      "state": "Iowa",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "cedar-river-cedar-bluff-cedar-valley",
+      "state": "Iowa",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "skunk-river-cottonwood-sycamore",
+      "state": "Iowa",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "south-skunk-river-glendale-rose-hill",
       "state": "Iowa",
       "scored": true,
       "issues": [
@@ -379,11 +454,10 @@
       "state": "Minnesota",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "otter-tail-river-wannigan-riverside",
@@ -420,11 +494,10 @@
       "state": "Minnesota",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "root-river-houston-mound-prairie",
@@ -507,6 +580,16 @@
       "severity": "medium"
     },
     {
+      "slug": "red-river-weed-dam-zeimers-falls",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "chippewa-river-county-a-highway-8",
       "state": "Wisconsin",
       "scored": true,
@@ -551,11 +634,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "namekagon-river-big-bend-trego",
@@ -959,11 +1041,10 @@
       "state": "Minnesota",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-land-of-memories-riverfront",
@@ -980,66 +1061,60 @@
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-henderson-belle-plaine",
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-henderson-station-thompson-ferry",
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-belle-plaine-thompson-ferry",
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-belle-plaine-carver",
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "minnesota-river-thompson-ferry-carver",
       "state": "Minnesota",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "mississippi-river-dayton-mississippi-gateway",
@@ -1056,11 +1131,10 @@
       "state": "Minnesota",
       "scored": false,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "mississippi-river-babcock-peninsula-point",
@@ -1295,11 +1369,10 @@
       "state": "Iowa",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "middle-river-schildberg-roseman",
@@ -1500,6 +1573,46 @@
       "severity": "medium"
     },
     {
+      "slug": "fox-river-waterford-burlington",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "fox-river-frame-park-greenway-waukesha",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "fox-river-sunset-kimberly-lutz-appleton",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "fox-river-landing-road-riverside-berlin",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "fox-river-princeton-locks-city-landing",
       "state": "Wisconsin",
       "scored": true,
@@ -1544,11 +1657,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "sugar-river-belleville-county-x",
@@ -1575,11 +1687,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "sugar-river-attica-albany",
@@ -1646,11 +1757,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "pecatonica-river-wes-block-tuttys",
@@ -1667,11 +1777,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "kickapoo-river-rockton-la-farge",
@@ -1738,11 +1847,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "milwaukee-river-lime-kiln-village-park",
@@ -1909,11 +2017,10 @@
       "state": "Iowa",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wapsipinicon-river-stone-city-anamosa",
@@ -2009,22 +2116,20 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wisconsin-river-portage-dekorra",
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "baraboo-river-wayside-kalepp",
@@ -2041,22 +2146,20 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wisconsin-river-arena-spring-green",
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wisconsin-river-spring-green-muscoda",
@@ -2073,22 +2176,20 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wisconsin-river-boscobel-bridgeport",
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wisconsin-river-millville-wyalusing-beach",
@@ -2105,11 +2206,10 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "vermilion-river-schoepfle-mill-hollow",
@@ -2222,6 +2322,16 @@
       "severity": "medium"
     },
     {
+      "slug": "la-crosse-river-hwy-bb-angelo-wayside",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "la-crosse-river-fishermans-hammer",
       "state": "Wisconsin",
       "scored": true,
@@ -2256,22 +2366,30 @@
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "black-river-melrose-north-bend",
       "state": "Wisconsin",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
+    },
+    {
+      "slug": "black-river-hwy-53-hwy-35",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
     },
     {
       "slug": "brule-river-highway-139-fr-2150",
@@ -2438,11 +2556,10 @@
       "state": "Iowa",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "volga-river-klocks-island-heron-road",
@@ -2539,11 +2656,10 @@
       "state": "Iowa",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "turkey-river-garber-millville",
@@ -2620,11 +2736,10 @@
       "state": "Iowa",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "north-fork-maquoketa-river-d61-caven",
@@ -2698,6 +2813,16 @@
     },
     {
       "slug": "boone-river-bells-mill-boone-forks",
+      "state": "Iowa",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "cedar-river-moscow-saulsbury",
       "state": "Iowa",
       "scored": true,
       "issues": [
@@ -3855,6 +3980,15 @@
       "severity": "medium"
     },
     {
+      "slug": "spearfish-creek-city-park-jorgensen",
+      "state": "South Dakota",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "vermilion-river-lowell-oglesby",
       "state": "Illinois",
       "scored": true,
@@ -3866,6 +4000,16 @@
     },
     {
       "slug": "kishwaukee-river-hickory-bills-distillery",
+      "state": "Illinois",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "kishwaukee-river-marengo-siems-hwy23",
       "state": "Illinois",
       "scored": true,
       "issues": [
@@ -3895,6 +4039,75 @@
       "severity": "medium"
     },
     {
+      "slug": "kalamazoo-river-ceresco-historic-bridge",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "kalamazoo-river-new-richmond-hacklander",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "looking-glass-riverfront-riverside-dewitt",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "kalamazoo-river-b-drive-stuarts-landing",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "kalamazoo-river-comstock-mayors-riverfront",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "jordan-river-graves-crossing-rogers-bridge",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "iron-river-mattioli-brady",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "pine-river-edgetts-lincoln",
       "state": "Michigan",
       "scored": true,
@@ -3916,6 +4129,16 @@
     },
     {
       "slug": "huron-river-argo-gallup",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "cass-river-tuscola-frankenmuth",
       "state": "Michigan",
       "scored": true,
       "issues": [
@@ -5037,6 +5260,26 @@
       "severity": "medium"
     },
     {
+      "slug": "maumee-river-kreager-moser",
+      "state": "Indiana",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "maumee-river-niagara-kreager",
+      "state": "Indiana",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "big-pine-creek-450-harrison-twin-bridges",
       "state": "Indiana",
       "scored": true,
@@ -5381,6 +5624,56 @@
     {
       "slug": "wildcat-creek-knop-lake-mis-so-lah",
       "state": "Indiana",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "iroquois-river-lairds-landing-newton-fairgrounds",
+      "state": "Indiana",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "logan-creek-pender-oakland",
+      "state": "Nebraska",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "elkhorn-river-wisner-west-point",
+      "state": "Nebraska",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "platte-river-north-bend-valley",
+      "state": "Nebraska",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "north-loup-river-burwell-ord",
+      "state": "Nebraska",
       "scored": true,
       "issues": [
         "camping-status-missing",
@@ -5765,6 +6058,25 @@
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "colorado-river-fm960-hollywood-bottom",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "colorado-river-fm580-colorado-bend",
+      "state": "Texas",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
       ],
       "severity": "medium"
     },
@@ -9720,6 +10032,16 @@
       "severity": "medium"
     },
     {
+      "slug": "yahara-river-babcock-fish-camp",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
       "slug": "yahara-river-highway-n-highway-59",
       "state": "Wisconsin",
       "scored": false,
@@ -10280,6 +10602,319 @@
       "scored": true,
       "issues": [
         "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "rock-river-centerway-afton",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "tomorrow-river-nelsonville-amherst",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "horicon-marsh-greenhead-nebraska",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "niobrara-river-fort-niobrara-smith-falls",
+      "state": "Nebraska",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "south-fork-flambeau-county-w-county-m",
+      "state": "Wisconsin",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "ontonagon-middle-branch-watersmeet-forest-road-5250",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "middle-fork-vermilion-kinneys-ford-kickapoo",
+      "state": "Illinois",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "mississippi-river-piasa-harbor-alton-riverfront",
+      "state": "Illinois",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "muskegon-river-crawford-park-evart",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "muskegon-river-croton-dam-thornapple",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "north-branch-au-sable-lovells-kelloggs",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "paw-paw-river-riverside-graham-avenue",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "pere-marquette-river-custer-scottville",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "pigeon-river-hemlock-crossing-sheldon-landing",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "platte-river-honor-upper",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "portage-river-north-fisher-three-rivers",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "prairie-river-prairie-lake-nottawa",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "red-cedar-river-roadside-msu",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "red-cedar-river-mccormick-roadside",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "sturgeon-river-trowbridge-haakwood",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "mill-creek-dexter-park-and-play",
+      "state": "Michigan",
+      "scored": true,
+      "issues": [
+        "camping-status-missing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "clear-creek-fish-creek-confluence-clear-creek-road",
+      "state": "Utah",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "french-creek-cambridge-springs-conneautee",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "french-creek-cochranton-utica",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "french-creek-union-city-dam-route-6n-19",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "redbank-creek-new-bethlehem-climax",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "slippery-rock-creek-eckert-harris",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "south-fork-tenmile-creek-beagle-club-clarksville",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "two-lick-creek-waterworks-saylor-park",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "little-pine-creek-north-park-lake-allison-park",
+      "state": "Pennsylvania",
+      "scored": false,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "loyalhanna-creek-ligonier-nature-trail-kingston",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "loyalhanna-creek-tailwater-saltsburg-rivers-edge",
+      "state": "Pennsylvania",
+      "scored": true,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
+      ],
+      "severity": "medium"
+    },
+    {
+      "slug": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+      "state": "Pennsylvania",
+      "scored": false,
+      "issues": [
+        "camping-status-missing",
+        "endpoint-package-incomplete"
       ],
       "severity": "medium"
     }

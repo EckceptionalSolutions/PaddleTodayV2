@@ -538,6 +538,12 @@ const placeholderImages = [
 
 const riverGroupImages: Record<string, string> = {
   'allen-creek': '/gallery/river-groups/allen-creek/allen-creek-wetlands.webp',
+  'logan-creek': '/gallery/river-groups/logan-creek/logan-creek-pender-bridge.jpg',
+  'platte-river': '/gallery/river-groups/platte-river/platte-river-grand-island-cr8.jpg',
+  'loup-river': '/gallery/river-groups/loup-river/loup-river-highway-39.jpg',
+  'elkhorn-river': '/gallery/river-groups/elkhorn-river/elkhorn-river-neligh.jpg',
+  'north-loup-river': '/gallery/river-groups/north-loup-river/north-loup-river-ord-aerial.jpg',
+  'niobrara-river': '/gallery/river-groups/niobrara-river/niobrara-river-spencer.jpg',
   'ashippun-river': '/gallery/river-groups/ashippun-river/ashippun-river.webp',
   'badfish-creek': '/gallery/river-groups/badfish-creek/badfish-creek-cooksville.webp',
   'badger-mill-creek': '/gallery/river-groups/badger-mill-creek/badger-mill-creek-verona.webp',
@@ -555,6 +561,7 @@ const riverGroupImages: Record<string, string> = {
   'brule-river-wisconsin-michigan': '/gallery/river-groups/brule-river/brule-river-bridge.webp',
   'blue-river': '/gallery/river-groups/blue-river/blue-river-wisconsin.webp',
   'cedar-river': '/gallery/river-groups/cedar-river/cedar-river-george-wyth.webp',
+  'cottonwood-river': '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
   'cedar-creek': '/gallery/river-groups/cedar-creek/cedar-creek-cedarburg.webp',
   'black-river': '/gallery/river-groups/black-river/falls-of-the-black-river.webp',
   'chippewa-river-wisconsin': '/gallery/river-groups/chippewa-river-wisconsin/chippewa-river-wisconsin.webp',
@@ -620,6 +627,7 @@ const riverGroupImages: Record<string, string> = {
   'south-fork-jump-river': '/gallery/river-groups/south-fork-jump-river/south-fork-jump-river-big-falls.webp',
   'south-fork-zumbro': '/gallery/river-groups/zumbro-river/south-fork-zumbro-rochester.webp',
   'south-raccoon-river': '/gallery/river-groups/south-raccoon-river/south-raccoon-river-redfield-van-meter-aerial.webp',
+  'skunk-river': '/gallery/south-skunk-river-sleepy-hollow-river-valley/skunk-river-iowa.jpg',
   'st-croix-river': '/gallery/river-groups/st-croix-river/st-croix-river-interstate-state-park-pexels.webp',
   'st-louis-river': '/gallery/river-groups/st-louis-river/st-louis-river-jay-cooke.webp',
   'straight-river': '/gallery/river-groups/straight-river/straight-river-owatonna.webp',

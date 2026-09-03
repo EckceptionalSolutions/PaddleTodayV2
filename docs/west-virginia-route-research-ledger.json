@@ -1,7 +1,7 @@
 {
   "version": 1,
   "state": "West Virginia",
-  "updatedAt": "2026-08-26T21:55:00-05:00",
+  "updatedAt": "2026-09-02T00:00:00-05:00",
   "purpose": "Gauge-first research decisions for the West Virginia route cohort and saturation waves. This is a research artifact, not live route data.",
   "progress": {
     "priority1GaugesTotal": 30,
@@ -9,7 +9,7 @@
     "boundedCandidatesScreened": 61,
     "candidatesWithNumericThresholdDecision": 61,
     "corridorsWithNumericThresholdDecision": 14,
-    "advancingCandidates": 56
+    "advancingCandidates": 57
   },
   "gaugeDecisions": [
     {
@@ -907,16 +907,21 @@
       "river": "Cheat River",
       "route": "Hannahsville Ford to Riverview Lounge",
       "corridor": "Upper Cheat River Water Trail",
-      "decision": "blocked",
-      "blocker": "Riverview Lounge is an acknowledged water-trail access but privately owned; current use terms must be verified before product implementation.",
+      "decision": "advance",
+      "blocker": null,
       "gaugeKey": "usgs:03069500",
       "gaugeRelationship": "same-river upstream gauge tied directly to the containing AW reach",
       "distanceMiles": 12.78,
       "difficulty": "Class I-II",
       "routeType": "whitewater",
       "threshold": {"decision": "qualified_two_sided", "metric": "discharge_cfs", "minimum": 500, "maximum": 8000, "source": "American Whitewater reach 11739"},
-      "nextAction": "Obtain current written public-use, parking, hours, and closure terms from the private access owner.",
-      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/"]
+      "putIn": {"name": "Hannahsville Ford public access", "manager": "West Virginia Division of Highways / Upper Cheat water trail", "latitude": 39.245, "longitude": -79.708, "coordinateSource": "WVDNR District 1 Fishing Guide"},
+      "takeOut": {"name": "Riverview Lounge water-trail access", "manager": "Riverview Lounge / Upper Cheat water trail", "latitude": 39.320, "longitude": -79.684, "coordinateSource": "WVDNR District 1 Fishing Guide; current Friends of Cheat/Swim Guide access guidance"},
+      "safety": ["American Whitewater and Friends of Cheat describe Upper Cheat moving water with rocks, holes, currents, and waves; use intermediate moving-water judgment.", "Riverview is private access with current south gravel-lot parking/check-in instructions; verify day-of permission and do not trespass on private banks.", "Cold water and rapid post-rain rises require a fitted PFD, float plan, and conservative same-day decision."],
+      "camping": {"classification": "none", "note": "Friends of Cheat states that none of the Upper Cheat water-trail access points allow camping."},
+      "resolution": "Promoted after WVDNR listed both endpoints as Cheat River lot/boat-access locations and current Friends of Cheat/Swim Guide guidance documented the private Riverview parking/check-in posture. Retain day-of permission and parking verification as explicit access controls.",
+      "nextAction": "Recheck current Riverview permission, parking, weather, and gauge trend before each trip.",
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/11739/main", "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/", "https://www.theswimguide.org/beach/7979/", "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"]
     },
     {
       "id": "wv-cheat-riverview-rowlesburg",

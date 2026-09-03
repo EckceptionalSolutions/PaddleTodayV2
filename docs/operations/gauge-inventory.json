@@ -1,7 +1,7 @@
 {
   "version": 1,
   "inventoryId": "provider-baseline-202608272235",
-  "generatedAt": "2026-08-28T08:52:34.477Z",
+  "generatedAt": "2026-09-03T04:10:23.719Z",
   "scope": "provider_baseline",
   "statesBaselined": [
     "AR",
@@ -1723,6 +1723,922 @@
       "source": "provider_inventory"
     },
     {
+      "key": "usgs:01197000",
+      "provider": "usgs",
+      "siteId": "01197000",
+      "siteName": "East Branch Housatonic River at Coltsville, MA",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01302020",
+      "provider": "usgs",
+      "siteId": "01302020",
+      "siteName": "Bronx River at NY Botanical Garden at Bronx, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01304000",
+      "provider": "usgs",
+      "siteId": "01304000",
+      "siteName": "Nissequogue River near Smithtown, NY (historical USGS site)",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01304500",
+      "provider": "usgs",
+      "siteId": "01304500",
+      "siteName": "Peconic River at Riverhead, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01305000",
+      "provider": "usgs",
+      "siteId": "01305000",
+      "siteName": "Carmans River at Yaphank, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01306495",
+      "provider": "usgs",
+      "siteId": "01306495",
+      "siteName": "Connetquot River Distributary near Oakdale, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0131199050",
+      "provider": "usgs",
+      "siteId": "0131199050",
+      "siteName": "Fishing Brook (County Line Flow Outlet) near Newcomb, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01313000",
+      "provider": "usgs",
+      "siteId": "01313000",
+      "siteName": "Cedar River near Indian Lake, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01314200",
+      "provider": "usgs",
+      "siteId": "01314200",
+      "siteName": "Jessup River near Speculator, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01315000",
+      "provider": "usgs",
+      "siteId": "01315000",
+      "siteName": "Indian River Near Indian Lake, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01315500",
+      "provider": "usgs",
+      "siteId": "01315500",
+      "siteName": "Hudson River at North Creek, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01316031",
+      "provider": "usgs",
+      "siteId": "01316031",
+      "siteName": "Hudson River at The Glen, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01317000",
+      "provider": "usgs",
+      "siteId": "01317000",
+      "siteName": "Schroon River at Riverbank, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01318500",
+      "provider": "usgs",
+      "siteId": "01318500",
+      "siteName": "Hudson River at Hadley, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01318779",
+      "provider": "usgs",
+      "siteId": "01318779",
+      "siteName": "Kunjamuk River above Elm Lake near Speculator, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01321000",
+      "provider": "usgs",
+      "siteId": "01321000",
+      "siteName": "Sacandaga River near Hope, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01325000",
+      "provider": "usgs",
+      "siteId": "01325000",
+      "siteName": "Sacandaga River at Stewarts Bridge near Hadley, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01327750",
+      "provider": "usgs",
+      "siteId": "01327750",
+      "siteName": "Hudson River at Fort Edward, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01329490",
+      "provider": "usgs",
+      "siteId": "01329490",
+      "siteName": "Batten Kill below Mill at Battenville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01330500",
+      "provider": "usgs",
+      "siteId": "01330500",
+      "siteName": "Kayaderosseras Creek near West Milton, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01334500",
+      "provider": "usgs",
+      "siteId": "01334500",
+      "siteName": "Hoosic River near Eagle Bridge, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01335698",
+      "provider": "usgs",
+      "siteId": "01335698",
+      "siteName": "Anthony Kill at Coons, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01338000",
+      "provider": "usgs",
+      "siteId": "01338000",
+      "siteName": "Oriskany Creek near Oriskany, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01343060",
+      "provider": "usgs",
+      "siteId": "01343060",
+      "siteName": "West Canada Creek Near Wilmurt, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01346000",
+      "provider": "usgs",
+      "siteId": "01346000",
+      "siteName": "West Canada Creek at Kast Bridge, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01347000",
+      "provider": "usgs",
+      "siteId": "01347000",
+      "siteName": "Mohawk River near Little Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01348000",
+      "provider": "usgs",
+      "siteId": "01348000",
+      "siteName": "East Canada Creek at East Creek, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01349700",
+      "provider": "usgs",
+      "siteId": "01349700",
+      "siteName": "East Kill near Jewett Center, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01350180",
+      "provider": "usgs",
+      "siteId": "01350180",
+      "siteName": "Schoharie Creek at North Blenheim, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01350750",
+      "provider": "usgs",
+      "siteId": "01350750",
+      "siteName": "Schoharie Creek at Schoharie, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01351298",
+      "provider": "usgs",
+      "siteId": "01351298",
+      "siteName": "Cobleskill Creek at South Grand Street at Cobleskill, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01351450",
+      "provider": "usgs",
+      "siteId": "01351450",
+      "siteName": "Schoharie Creek at Esperance, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01351500",
+      "provider": "usgs",
+      "siteId": "01351500",
+      "siteName": "Schoharie Creek at Burtonsville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01354330",
+      "provider": "usgs",
+      "siteId": "01354330",
+      "siteName": "Mohawk River at Lock 8 near Schenectady, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01354500",
+      "provider": "usgs",
+      "siteId": "01354500",
+      "siteName": "Mohawk River at Freeman's Bridge at Schenectady, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01358000",
+      "provider": "usgs",
+      "siteId": "01358000",
+      "siteName": "Hudson River at Green Island, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01361000",
+      "provider": "usgs",
+      "siteId": "01361000",
+      "siteName": "Kinderhook Creek at Rossman, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01361450",
+      "provider": "usgs",
+      "siteId": "01361450",
+      "siteName": "Hudson River at Catskill, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01362090",
+      "provider": "usgs",
+      "siteId": "01362090",
+      "siteName": "Catskill Creek near Catskill, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01362500",
+      "provider": "usgs",
+      "siteId": "01362500",
+      "siteName": "Esopus Creek at Coldbrook, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01364500",
+      "provider": "usgs",
+      "siteId": "01364500",
+      "siteName": "Esopus Creek at Mount Marion, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01367500",
+      "provider": "usgs",
+      "siteId": "01367500",
+      "siteName": "Rondout Creek at Rosendale, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01371500",
+      "provider": "usgs",
+      "siteId": "01371500",
+      "siteName": "Wallkill River at Gardiner, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01372500",
+      "provider": "usgs",
+      "siteId": "01372500",
+      "siteName": "Wappinger Creek near Wappingers Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01372915",
+      "provider": "usgs",
+      "siteId": "01372915",
+      "siteName": "Fishkill Creek at Fishkill, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01375000",
+      "provider": "usgs",
+      "siteId": "01375000",
+      "siteName": "Croton R at New Croton Dam near Croton-on-Hudson, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01387420",
+      "provider": "usgs",
+      "siteId": "01387420",
+      "siteName": "Ramapo River at Suffern, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01389500",
+      "provider": "usgs",
+      "siteId": "01389500",
+      "siteName": "Passaic River at Little Falls NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01396060",
+      "provider": "usgs",
+      "siteId": "01396060",
+      "siteName": "Arthur Kill at Perth Amboy, NJ",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01397000",
+      "provider": "usgs",
+      "siteId": "01397000",
+      "siteName": "South Branch Raritan River at Stanton, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01402000",
+      "provider": "usgs",
+      "siteId": "01402000",
+      "siteName": "Millstone River at Blackwells Mills, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01408000",
+      "provider": "usgs",
+      "siteId": "01408000",
+      "siteName": "Manasquan River at Squankum, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01408500",
+      "provider": "usgs",
+      "siteId": "01408500",
+      "siteName": "Toms River near Toms River, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01409400",
+      "provider": "usgs",
+      "siteId": "01409400",
+      "siteName": "Mullica River near Batsto, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01409810",
+      "provider": "usgs",
+      "siteId": "01409810",
+      "siteName": "West Branch Wading River near Jenkins, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01410000",
+      "provider": "usgs",
+      "siteId": "01410000",
+      "siteName": "Oswego River at Harrisville, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01411110",
+      "provider": "usgs",
+      "siteId": "01411110",
+      "siteName": "Great Egg Harbor River at Weymouth, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01412150",
+      "provider": "usgs",
+      "siteId": "01412150",
+      "siteName": "Maurice River at Bivalve, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01412800",
+      "provider": "usgs",
+      "siteId": "01412800",
+      "siteName": "Cohansey River at Seeley, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01417000",
+      "provider": "usgs",
+      "siteId": "01417000",
+      "siteName": "East Branch Delaware River at Downsville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01420500",
+      "provider": "usgs",
+      "siteId": "01420500",
+      "siteName": "Beaver Kill at Cooks Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01421500",
+      "provider": "usgs",
+      "siteId": "01421500",
+      "siteName": "East Branch Delaware River at Hancock, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01421900",
+      "provider": "usgs",
+      "siteId": "01421900",
+      "siteName": "West Branch Delaware River Upstream From Delhi, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01426500",
+      "provider": "usgs",
+      "siteId": "01426500",
+      "siteName": "West Branch Delaware River at Hale Eddy, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01427000",
+      "provider": "usgs",
+      "siteId": "01427000",
+      "siteName": "West Branch Delaware River at Hancock, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01427195",
       "provider": "usgs",
       "siteId": "01427195",
@@ -1761,7 +2677,8 @@
       "siteName": "DELAWARE RIVER AT CALLICOON NY",
       "homeState": "PA",
       "coverageStates": [
-        "PA"
+        "PA",
+        "NY"
       ],
       "availableMetrics": [
         "discharge_cfs",
@@ -1931,13 +2848,28 @@
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
     },
     {
+      "key": "usgs:01433500",
+      "provider": "usgs",
+      "siteId": "01433500",
+      "siteName": "Mongaup River Near Mongaup, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01434000",
       "provider": "usgs",
       "siteId": "01434000",
       "siteName": "DELAWARE RIVER AT PORT JERVIS NY",
       "homeState": "PA",
       "coverageStates": [
-        "PA"
+        "PA",
+        "NY"
       ],
       "availableMetrics": [
         "discharge_cfs",
@@ -1945,6 +2877,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
+    },
+    {
+      "key": "usgs:01437500",
+      "provider": "usgs",
+      "siteId": "01437500",
+      "siteName": "Neversink River at Godeffroy, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01438500",
@@ -1993,6 +2939,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:45:00+00:00"
+    },
+    {
+      "key": "usgs:01440200",
+      "provider": "usgs",
+      "siteId": "01440200",
+      "siteName": "Delaware River near Delaware Water Gap, PA",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01440400",
@@ -2056,6 +3016,48 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:00:00+00:00"
+    },
+    {
+      "key": "usgs:01443500",
+      "provider": "usgs",
+      "siteId": "01443500",
+      "siteName": "Paulins Kill at Blairstown, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01445500",
+      "provider": "usgs",
+      "siteId": "01445500",
+      "siteName": "Pequest River at Pequest, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01446500",
+      "provider": "usgs",
+      "siteId": "01446500",
+      "siteName": "Delaware River at Belvidere, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01446775",
@@ -2394,6 +3396,20 @@
       "lastObservationAt": "2026-08-14T10:45:00+00:00"
     },
     {
+      "key": "usgs:01457000",
+      "provider": "usgs",
+      "siteId": "01457000",
+      "siteName": "Musconetcong River near Bloomsbury, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01459500",
       "provider": "usgs",
       "siteId": "01459500",
@@ -2408,6 +3424,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
+    },
+    {
+      "key": "usgs:01463500",
+      "provider": "usgs",
+      "siteId": "01463500",
+      "siteName": "Delaware River at Trenton, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01464645",
@@ -2552,6 +3582,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
+    },
+    {
+      "key": "usgs:01465850",
+      "provider": "usgs",
+      "siteId": "01465850",
+      "siteName": "South Branch Rancocas Creek at Vincentown, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01467042",
@@ -3492,6 +4536,132 @@
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
     },
     {
+      "key": "usgs:01482650",
+      "provider": "usgs",
+      "siteId": "01482650",
+      "siteName": "Salem River at Salem, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01483050",
+      "provider": "usgs",
+      "siteId": "01483050",
+      "siteName": "Alloway Creek at Hancocks Bridge, NJ",
+      "homeState": "NJ",
+      "coverageStates": [
+        "NJ"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01485000",
+      "provider": "usgs",
+      "siteId": "01485000",
+      "siteName": "Pocomoke River near Willards, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01485755",
+      "provider": "usgs",
+      "siteId": "01485755",
+      "siteName": "Little Annemessex River at Crisfield, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01488110",
+      "provider": "usgs",
+      "siteId": "01488110",
+      "siteName": "Nanticoke River at Sharptown, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01488500",
+      "provider": "usgs",
+      "siteId": "01488500",
+      "siteName": "Marshyhope Creek near Adamsville, DE",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01490120",
+      "provider": "usgs",
+      "siteId": "01490120",
+      "siteName": "Little Blackwater River near Cambridge, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01491000",
+      "provider": "usgs",
+      "siteId": "01491000",
+      "siteName": "Choptank River near Greensboro, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01493100",
+      "provider": "usgs",
+      "siteId": "01493100",
+      "siteName": "Chester River at Crumpton, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01494850",
       "provider": "usgs",
       "siteId": "01494850",
@@ -3508,6 +4678,245 @@
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
     },
     {
+      "key": "usgs:01495900",
+      "provider": "usgs",
+      "siteId": "01495900",
+      "siteName": "Elk River near Town Point, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01495925",
+      "provider": "usgs",
+      "siteId": "01495925",
+      "siteName": "Sandy Branch at Bohemia Mills, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01496352",
+      "provider": "usgs",
+      "siteId": "01496352",
+      "siteName": "Susquehanna River at Cooperstown, NY (historical USGS site)",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01497500",
+      "provider": "usgs",
+      "siteId": "01497500",
+      "siteName": "Susquehanna River at Colliersville, NY (historical USGS site)",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01498620",
+      "provider": "usgs",
+      "siteId": "01498620",
+      "siteName": "Susquehanna River southwest of Oneonta, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01500500",
+      "provider": "usgs",
+      "siteId": "01500500",
+      "siteName": "Susquehanna River at Unadilla, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01502500",
+      "provider": "usgs",
+      "siteId": "01502500",
+      "siteName": "Unadilla River at Rockdale, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01502632",
+      "provider": "usgs",
+      "siteId": "01502632",
+      "siteName": "Susquehanna River at Bainbridge, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01503000",
+      "provider": "usgs",
+      "siteId": "01503000",
+      "siteName": "Susquehanna River at Conklin, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01505000",
+      "provider": "usgs",
+      "siteId": "01505000",
+      "siteName": "Chenango River at Sherburne, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01507000",
+      "provider": "usgs",
+      "siteId": "01507000",
+      "siteName": "Chenango River at Greene, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01509000",
+      "provider": "usgs",
+      "siteId": "01509000",
+      "siteName": "Tioughnioga River at Cortland, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01509305",
+      "provider": "usgs",
+      "siteId": "01509305",
+      "siteName": "Tioughnioga River at Marathon, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01510000",
+      "provider": "usgs",
+      "siteId": "01510000",
+      "siteName": "Otselic River at Cincinnatus, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01512500",
+      "provider": "usgs",
+      "siteId": "01512500",
+      "siteName": "Chenango River near Chenango Forks, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01512652",
+      "provider": "usgs",
+      "siteId": "01512652",
+      "siteName": "Chenango River at Port Crane, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01513500",
+      "provider": "usgs",
+      "siteId": "01513500",
+      "siteName": "Susquehanna River at Vestal, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01513550",
       "provider": "usgs",
       "siteId": "01513550",
@@ -3522,6 +4931,34 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:45:00+00:00"
+    },
+    {
+      "key": "usgs:01513831",
+      "provider": "usgs",
+      "siteId": "01513831",
+      "siteName": "Susquehanna River at Owego, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01514000",
+      "provider": "usgs",
+      "siteId": "01514000",
+      "siteName": "Owego Creek near Owego, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01514850",
@@ -3684,6 +5121,62 @@
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
     },
     {
+      "key": "usgs:01520500",
+      "provider": "usgs",
+      "siteId": "01520500",
+      "siteName": "Tioga River at Lindley, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01525500",
+      "provider": "usgs",
+      "siteId": "01525500",
+      "siteName": "Canisteo River at West Cameron, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01529500",
+      "provider": "usgs",
+      "siteId": "01529500",
+      "siteName": "Cohocton River near Campbell, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01529950",
+      "provider": "usgs",
+      "siteId": "01529950",
+      "siteName": "Chemung River at Corning, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01530620",
       "provider": "usgs",
       "siteId": "01530620",
@@ -3698,6 +5191,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
+    },
+    {
+      "key": "usgs:01531000",
+      "provider": "usgs",
+      "siteId": "01531000",
+      "siteName": "Chemung River at Chemung, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01531250",
@@ -5623,6 +7130,119 @@
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
     },
     {
+      "key": "usgs:01578310",
+      "provider": "usgs",
+      "siteId": "01578310",
+      "siteName": "Susquehanna River at Conowingo, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01580000",
+      "provider": "usgs",
+      "siteId": "01580000",
+      "siteName": "Deer Creek at Rocks, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01581920",
+      "provider": "usgs",
+      "siteId": "01581920",
+      "siteName": "Gunpowder Falls near Parkton, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01582500",
+      "provider": "usgs",
+      "siteId": "01582500",
+      "siteName": "Gunpowder Falls at Glencoe, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01589000",
+      "provider": "usgs",
+      "siteId": "01589000",
+      "siteName": "Patapsco River at Hollofield, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01589035",
+      "provider": "usgs",
+      "siteId": "01589035",
+      "siteName": "Patapsco River near Elkridge, MD (same-estuary proxy)",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01594440",
+      "provider": "usgs",
+      "siteId": "01594440",
+      "siteName": "Patuxent River near Bowie, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01598500",
+      "provider": "usgs",
+      "siteId": "01598500",
+      "siteName": "North Branch Potomac River at Luke, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01601000",
       "provider": "usgs",
       "siteId": "01601000",
@@ -5639,6 +7259,34 @@
       "lastObservationAt": "2026-08-14T10:15:00+00:00"
     },
     {
+      "key": "usgs:01603000",
+      "provider": "usgs",
+      "siteId": "01603000",
+      "siteName": "North Branch Potomac River near Cumberland, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01610000",
+      "provider": "usgs",
+      "siteId": "01610000",
+      "siteName": "Potomac River at Paw Paw, WV / Maryland Water Science Center",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01611500",
       "provider": "usgs",
       "siteId": "01611500",
@@ -5646,6 +7294,20 @@
       "homeState": "WEST VIRGINIA",
       "coverageStates": [
         "WEST VIRGINIA"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01613000",
+      "provider": "usgs",
+      "siteId": "01613000",
+      "siteName": "Potomac River at Hancock, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
       ],
       "availableMetrics": [
         "gage_height_ft"
@@ -5685,6 +7347,20 @@
       "lastObservationAt": "2026-08-26T20:30:00+00:00"
     },
     {
+      "key": "usgs:01614500",
+      "provider": "usgs",
+      "siteId": "01614500",
+      "siteName": "Conococheague Creek at Fairview, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01615000",
       "provider": "usgs",
       "siteId": "01615000",
@@ -5715,6 +7391,34 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-26T21:15:00+00:00"
+    },
+    {
+      "key": "usgs:01618000",
+      "provider": "usgs",
+      "siteId": "01618000",
+      "siteName": "Potomac River at Shepherdstown, WV",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01619500",
+      "provider": "usgs",
+      "siteId": "01619500",
+      "siteName": "Antietam Creek near Sharpsburg, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01620500",
@@ -6037,6 +7741,20 @@
       "lastObservationAt": "2026-08-26T21:15:00+00:00"
     },
     {
+      "key": "usgs:01637500",
+      "provider": "usgs",
+      "siteId": "01637500",
+      "siteName": "Catoctin Creek near Middletown, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01638350",
       "provider": "usgs",
       "siteId": "01638350",
@@ -6083,6 +7801,48 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-26T20:30:00+00:00"
+    },
+    {
+      "key": "usgs:01638500",
+      "provider": "usgs",
+      "siteId": "01638500",
+      "siteName": "Potomac River at Point of Rocks, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01639500",
+      "provider": "usgs",
+      "siteId": "01639500",
+      "siteName": "Big Pipe Creek at Bruceville, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01643000",
+      "provider": "usgs",
+      "siteId": "01643000",
+      "siteName": "Monocacy River at Jug Bridge near Frederick, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01643590",
@@ -6277,6 +8037,34 @@
       "lastObservationAt": "2026-08-26T21:25:00+00:00"
     },
     {
+      "key": "usgs:01646500",
+      "provider": "usgs",
+      "siteId": "01646500",
+      "siteName": "Potomac River Near Washington, DC Little Falls Pump Sta, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:01651007",
+      "provider": "usgs",
+      "siteId": "01651007",
+      "siteName": "Anacostia River at Bladensburg Waterfront Park, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01652090",
       "provider": "usgs",
       "siteId": "01652090",
@@ -6437,6 +8225,20 @@
       "lastObservationAt": "2026-08-26T21:00:00+00:00"
     },
     {
+      "key": "usgs:01658000",
+      "provider": "usgs",
+      "siteId": "01658000",
+      "siteName": "Mattawoman Creek near Pomonkey, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:01658500",
       "provider": "usgs",
       "siteId": "01658500",
@@ -6467,6 +8269,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-26T20:30:00+00:00"
+    },
+    {
+      "key": "usgs:01660795",
+      "provider": "usgs",
+      "siteId": "01660795",
+      "siteName": "Potomac River near Newburg, MD",
+      "homeState": "MD",
+      "coverageStates": [
+        "MD"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:01662800",
@@ -12629,6 +14445,20 @@
       "lastObservationAt": "2026-08-14T10:45:00+00:00"
     },
     {
+      "key": "usgs:03010820",
+      "provider": "usgs",
+      "siteId": "03010820",
+      "siteName": "Allegheny River at Olean, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
       "key": "usgs:03010955",
       "provider": "usgs",
       "siteId": "03010955",
@@ -12674,6 +14504,20 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T11:00:00+00:00"
+    },
+    {
+      "key": "usgs:03014500",
+      "provider": "usgs",
+      "siteId": "03014500",
+      "siteName": "Chadakoin River at Falconer, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:03015000",
@@ -34015,6 +35859,896 @@
       ],
       "source": "provider_inventory",
       "lastObservationAt": "2026-08-14T10:30:00+00:00"
+    },
+    {
+      "key": "usgs:04213500",
+      "provider": "usgs",
+      "siteId": "04213500",
+      "siteName": "Cattaraugus Creek at Gowanda, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04215500",
+      "provider": "usgs",
+      "siteId": "04215500",
+      "siteName": "Cazenovia Creek at Ebenezer, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0421560108",
+      "provider": "usgs",
+      "siteId": "0421560108",
+      "siteName": "Buffalo River Below Cazenovia Creek at Buffalo, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0421580305",
+      "provider": "usgs",
+      "siteId": "0421580305",
+      "siteName": "Buffalo River at Mouth at Buffalo, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04218000",
+      "provider": "usgs",
+      "siteId": "04218000",
+      "siteName": "Tonawanda Creek at Rapids, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04218518",
+      "provider": "usgs",
+      "siteId": "04218518",
+      "siteName": "Ellicott Creek below Williamsville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04218700",
+      "provider": "usgs",
+      "siteId": "04218700",
+      "siteName": "Erie (Barge) Canal west of Genesee River at Rochester, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04219501",
+      "provider": "usgs",
+      "siteId": "04219501",
+      "siteName": "Niagara River at Lewiston, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04219768",
+      "provider": "usgs",
+      "siteId": "04219768",
+      "siteName": "Eighteenmile Creek at Burt, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0422018610",
+      "provider": "usgs",
+      "siteId": "0422018610",
+      "siteName": "Oak Orchard Creek at The Bridges, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04223000",
+      "provider": "usgs",
+      "siteId": "04223000",
+      "siteName": "Genesee River at Portageville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04227500",
+      "provider": "usgs",
+      "siteId": "04227500",
+      "siteName": "Genesee River near Mount Morris, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04228500",
+      "provider": "usgs",
+      "siteId": "04228500",
+      "siteName": "Genesee River at Avon, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04229500",
+      "provider": "usgs",
+      "siteId": "04229500",
+      "siteName": "Honeoye Creek at Honeoye Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04230500",
+      "provider": "usgs",
+      "siteId": "04230500",
+      "siteName": "Oatka Creek at Garbutt, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04231000",
+      "provider": "usgs",
+      "siteId": "04231000",
+      "siteName": "Black Creek at Churchville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04231600",
+      "provider": "usgs",
+      "siteId": "04231600",
+      "siteName": "Genesee River at Ford Street Bridge, Rochester, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04232030",
+      "provider": "usgs",
+      "siteId": "04232030",
+      "siteName": "Irondequoit Creek at Fishers, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04232050",
+      "provider": "usgs",
+      "siteId": "04232050",
+      "siteName": "Allen Creek near Rochester, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0423205342",
+      "provider": "usgs",
+      "siteId": "0423205342",
+      "siteName": "Lake Ontario at Ninemile Point near Webster, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04232200",
+      "provider": "usgs",
+      "siteId": "04232200",
+      "siteName": "Catharine Creek at Montour Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04232482",
+      "provider": "usgs",
+      "siteId": "04232482",
+      "siteName": "Keuka Lake Outlet at Dresden, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04232730",
+      "provider": "usgs",
+      "siteId": "04232730",
+      "siteName": "Seneca River near Seneca Falls, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04233255",
+      "provider": "usgs",
+      "siteId": "04233255",
+      "siteName": "Cayuga Inlet at Ithaca, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04234000",
+      "provider": "usgs",
+      "siteId": "04234000",
+      "siteName": "Fall Creek near Ithaca, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0423401815",
+      "provider": "usgs",
+      "siteId": "0423401815",
+      "siteName": "Salmon Creek near Ludlowville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04234254",
+      "provider": "usgs",
+      "siteId": "04234254",
+      "siteName": "Ganargua Creek at Macedon, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04234398",
+      "provider": "usgs",
+      "siteId": "04234398",
+      "siteName": "West River at Middlesex, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04235000",
+      "provider": "usgs",
+      "siteId": "04235000",
+      "siteName": "Canandaigua Outlet at Chapin, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04235250",
+      "provider": "usgs",
+      "siteId": "04235250",
+      "siteName": "Flint Creek at Phelps, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04237496",
+      "provider": "usgs",
+      "siteId": "04237496",
+      "siteName": "Seneca River near Baldwinsville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft",
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04240010",
+      "provider": "usgs",
+      "siteId": "04240010",
+      "siteName": "Onondaga Creek at Spencer Street, Syracuse, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04240180",
+      "provider": "usgs",
+      "siteId": "04240180",
+      "siteName": "Ninemile Creek near Marietta, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04240200",
+      "provider": "usgs",
+      "siteId": "04240200",
+      "siteName": "Ninemile Creek at Camillus, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04242640",
+      "provider": "usgs",
+      "siteId": "04242640",
+      "siteName": "Fish Creek at Becks Grove, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04244000",
+      "provider": "usgs",
+      "siteId": "04244000",
+      "siteName": "Chittenango Creek near Chittenango, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04249000",
+      "provider": "usgs",
+      "siteId": "04249000",
+      "siteName": "Oswego River at Lock 7, Oswego, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04250200",
+      "provider": "usgs",
+      "siteId": "04250200",
+      "siteName": "Salmon River at Pineville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04250750",
+      "provider": "usgs",
+      "siteId": "04250750",
+      "siteName": "Sandy Creek near Adams, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04252500",
+      "provider": "usgs",
+      "siteId": "04252500",
+      "siteName": "Black River Near Boonville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04254500",
+      "provider": "usgs",
+      "siteId": "04254500",
+      "siteName": "Moose River at McKeever, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04256000",
+      "provider": "usgs",
+      "siteId": "04256000",
+      "siteName": "Independence River at Donnattsburg, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04258000",
+      "provider": "usgs",
+      "siteId": "04258000",
+      "siteName": "Beaver River at Croghan, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04260500",
+      "provider": "usgs",
+      "siteId": "04260500",
+      "siteName": "Black River at Watertown, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04262000",
+      "provider": "usgs",
+      "siteId": "04262000",
+      "siteName": "Oswegatchie River near Oswegatchie, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04262500",
+      "provider": "usgs",
+      "siteId": "04262500",
+      "siteName": "West Branch Oswegatchie River near Harrisville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04263000",
+      "provider": "usgs",
+      "siteId": "04263000",
+      "siteName": "Oswegatchie River near Heuvelton, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04263350",
+      "provider": "usgs",
+      "siteId": "04263350",
+      "siteName": "Indian River at Rossie, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04264331",
+      "provider": "usgs",
+      "siteId": "04264331",
+      "siteName": "St. Lawrence River at Cornwall, Ontario near Massena, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04265432",
+      "provider": "usgs",
+      "siteId": "04265432",
+      "siteName": "Grass River at Chase Mills, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04266500",
+      "provider": "usgs",
+      "siteId": "04266500",
+      "siteName": "Raquette River at Piercefield, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs",
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04267500",
+      "provider": "usgs",
+      "siteId": "04267500",
+      "siteName": "Raquette River at South Colton, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04268000",
+      "provider": "usgs",
+      "siteId": "04268000",
+      "siteName": "Raquette River at Raymondville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:0426859505",
+      "provider": "usgs",
+      "siteId": "0426859505",
+      "siteName": "Osgood River at Mouth at Meacham Lake, NY (no current data)",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04268800",
+      "provider": "usgs",
+      "siteId": "04268800",
+      "siteName": "West Branch St. Regis River near Parishville, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04269000",
+      "provider": "usgs",
+      "siteId": "04269000",
+      "siteName": "St. Regis River at Brasher Center, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04271500",
+      "provider": "usgs",
+      "siteId": "04271500",
+      "siteName": "Great Chazy River at Perry Mills, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04272512",
+      "provider": "usgs",
+      "siteId": "04272512",
+      "siteName": "Saranac River at Saranac Lake, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04273500",
+      "provider": "usgs",
+      "siteId": "04273500",
+      "siteName": "Saranac River at Plattsburgh, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04275500",
+      "provider": "usgs",
+      "siteId": "04275500",
+      "siteName": "Ausable River near Au Sable Forks, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04276500",
+      "provider": "usgs",
+      "siteId": "04276500",
+      "siteName": "Boquet River at Willsboro, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04279015",
+      "provider": "usgs",
+      "siteId": "04279015",
+      "siteName": "La Chute at State Highway 22 at Ticonderoga, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "discharge_cfs"
+      ],
+      "source": "route_inventory"
+    },
+    {
+      "key": "usgs:04295000",
+      "provider": "usgs",
+      "siteId": "04295000",
+      "siteName": "Richelieu River (Lake Champlain) at Rouses Point, NY",
+      "homeState": "NY",
+      "coverageStates": [
+        "NY"
+      ],
+      "availableMetrics": [
+        "gage_height_ft"
+      ],
+      "source": "route_inventory"
     },
     {
       "key": "usgs:05030500",

@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-09-01T21:06:20.781Z",
+  "state": "Iowa",
+  "status": "complete_with_deferred_candidates",
+  "decision": "completed_coverage_with_no_publishable_additions",
+  "scope": {
+    "workflow": "Strict route qualification and bounded discovery workflow",
+    "preservedUnrelatedWorktreeChanges": true,
+    "frontierOutcome": "Viable Iowa moving-water corridors and the provider-baseline gauge inventory were systematically reviewed; remaining candidates are documented as covered, duplicate, blocked, screened out, stale/unsupported, or deferred rather than forced into publication."
+  },
+  "inventory": {
+    "stateAlreadyRegistered": true,
+    "routeOrderAlreadyRegistered": true,
+    "sourceRouteRecords": 135,
+    "activeRouteOrderRecords": 135,
+    "publicRouteRecords": 135,
+    "directGaugeScoredRoutes": 103,
+    "proxyGaugePlanningRoutes": 32,
+    "tripDetailRecords": 135,
+    "namedMovingWaterFamiliesReviewed": 28,
+    "newRoutesAddedInFinalPass": 0
+  },
+  "qualityCoverage": {
+    "tripDetailRecords": "135/135",
+    "endpointCoordinates": "135/135 route packages",
+    "campingAndLogisticsPosture": "135/135",
+    "routeSafetyProfiles": "135/135",
+    "approvedPhotoAudit": {
+      "publishedRoutes": 134,
+      "placeholders": 0,
+      "riverGroupHeroes": "26/26",
+      "missingMobileFallbacks": 0,
+      "missingIowaImagery": 0
+    },
+    "accessControlsAdded": [
+      "ia_dnr_winnebago_fertile_mill_access_anchor"
+    ],
+    "routeSafetyProfilesAdded": [
+      "middle-river-forest-park-schildberg",
+      "wapsipinicon-river-state-park-newport-mills",
+      "maquoketa-river-canton-royertown",
+      "turkey-river-motor-mill-garber",
+      "north-fork-maquoketa-river-ozark-caven"
+    ],
+    "imageChanges": [
+      "Added the approved existing Skunk River local asset as the Iowa Skunk River group hero and mobile fallback; no unapproved exact-route image was copied."
+    ]
+  },
+  "gaugeCoverage": {
+    "providerBaselineGaugeCount": 178,
+    "reviewedGaugeCount": 178,
+    "unreviewedGaugeCount": 0,
+    "statusCounts": {
+      "covered": 44,
+      "screened_out": 44,
+      "blocked": 71,
+      "stale_or_unsupported": 19
+    },
+    "finding": "All Iowa gauges in the provider baseline have durable ledger dispositions. No station-specific threshold or public-access package was invented for blocked, stale, unsupported, or screened-out candidates."
+  },
+  "corridorReview": {
+    "status": "passed",
+    "finding": "The existing inventory spans 28 named river families, including the Cedar, Des Moines, North Raccoon, Maquoketa, Turkey, Wapsipinicon, Skunk, Upper Iowa, Boone, Iowa, Shell Rock, Lizard Creek, Volga, Nishnabotna, and Driftless corridors. Final bounded reviews found no additional candidate with a complete stronger package than the existing cards."
+  },
+  "disposition": {
+    "promotionDecision": "No new Iowa route cleared every evidence, access, flow, safety, camping/logistics, imagery, coordinate, and geometry gate in the final pass.",
+    "resolved": [
+      "Added route-level safety profiles to five existing Iowa records that already had trip-detail safety evidence.",
+      "Added the Skunk River river-group hero/mobile fallback from an existing approved local asset.",
+      "Added the Iowa DNR Fertile Mill Park access-area control; the Winnebago route's below-dam coordinate now passes as an explicit review anchor while retaining field-verification and dam-hydraulics warnings."
+    ],
+    "reviewedNoAddOrDeferred": [
+      "Cedar Falls and Vinton Cedar River gauges: official corridor context exists, but no station-specific recreational threshold and complete dam/portage package was established.",
+      "Big Bear Creek at Ladora and Boyer River at Logan: live or broader corridor evidence exists, but no complete route-specific endpoint, threshold, access, camping, safety, coordinate, image, and geometry package cleared.",
+      "Boone/Goldfield, Little Sioux/Correctionville, Cedar Creek/Bussey, Chariton/Rathbun, South Fork Iowa/New Providence, and Wapsipinicon/Tripoli: bounded screens remain no-add because the gauge-to-route threshold or public endpoint package is incomplete.",
+      "Remaining Iowa opportunities in the candidate and gauge ledgers stay covered, duplicate, blocked, screened out, stale/unsupported, access-constrained, or deferred with retry conditions; no route was added solely to increase count."
+    ]
+  },
+  "audits": {
+    "routeData": "passed: 1092 routes",
+    "coordinateRiver": "passed with no Iowa failures; Iowa results 156 ok, 115 review, 33 suspicious",
+    "accessRegistry": "passed: 2649 canonical entries, 0 conflicts; Iowa 218 canonical access entries covering all 135 route records and 506 access occurrences",
+    "corridors": "passed: 165 definitions, 325 covered routes",
+    "canonicalGeometries": "passed: 1502/1505 routes matched; 24 state assets present",
+    "safety": "passed for Iowa; 0 Iowa issues; 1 unrelated pre-existing/concurrent West Virginia route produced one High and one Medium issue",
+    "photos": "passed for Iowa: 0 placeholders, 26/26 Iowa river-group heroes, 0 missing mobile fallbacks",
+    "overlap": "completed repo-wide; duplicate/reversed findings remain part of the shared mixed-worktree review output and were not used to force Iowa additions"
+  },
+  "validation": {
+    "routeTypecheck": "passed",
+    "fullTypecheck": "passed",
+    "scoringSensitivity": "passed: 1011 routes, 21479 scenarios, 0 invariant failures",
+    "apiContractTests": "passed: 9 files, 23 tests",
+    "productionBuild": "passed: 1780 pages",
+    "fullTestCommand": {
+      "status": "failed_on_unrelated_pre_existing_or_concurrent_assertion",
+      "passedBeforeFailure": "85 files, 680 tests",
+      "failures": [
+        "src/lib/operations.test.ts:62: shared operations snapshot contains mojibake text in concurrent task data"
+      ],
+      "IowaFailures": 0
+    }
+  },
+  "evidence": [
+    "src/data/routes/iowa.ts",
+    "src/data/trip-details/iowa.ts",
+    "src/data/route-access-official-map-controls.json",
+    "src/data/river-group-hero-photos.ts",
+    "apps/mobile/src/lib/route-photos.ts",
+    "src/data/generated/route-access-registry.json",
+    "docs/operations/gauge-inventory.json",
+    "docs/operations/gauge-review-ledger.json",
+    "docs/route-coordinate-river-audit.json",
+    "docs/route-safety-audit.json",
+    "docs/route-corridor-migration.md",
+    "docs/state-route-memories/iowa.md"
+  ],
+  "authoritativeReferences": [
+    "https://www.iowadnr.gov/things-do/fishing/where-fish/rivers-streams",
+    "https://www.iowadnr.gov/places-go/water-trails",
+    "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/275",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-05459500/",
+    "https://fertileiowa.us/visitors/parks/",
+    "https://winnebagocountyiowa.gov/conservation/parks/winnebago_river_water_trail/"
+  ]
+}

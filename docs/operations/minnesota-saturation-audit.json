@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T14:10:53.260Z",
+  "generatedAt": "2026-09-01T19:34:25.936Z",
   "state": "Minnesota",
-  "decision": "saturation_review",
+  "decision": "complete_with_deferred_candidates",
   "rule": "Only scored routes count toward saturation; planning routes are excluded.",
   "totals": {
     "inventory": 258,
@@ -10,7 +10,7 @@
     "proxyPlanning": 107,
     "unavailableDirect": 6
   },
-  "conclusion": "Discovery appears provisionally saturated, but Minnesota is not formally saturated until the planning-to-scored conversion review, demand review, and final bounded discovery sweep are complete.",
+  "conclusion": "Minnesota's viable public water-trail inventory has been systematically reviewed under the strict route gates. No additional route was publishable in the final bounded sweep; remaining planning and inactive records are explicitly retained as proxy-planning, unavailable-direct, blocked, deferred, or access-constrained candidates pending materially new authoritative evidence.",
   "riverGroups": [
     {
       "river": "Mississippi River",

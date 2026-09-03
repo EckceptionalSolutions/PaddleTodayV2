@@ -1,12 +1,37 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-21T13:36:44.066Z",
+  "generatedAt": "2026-09-03T13:30:17.399Z",
   "source": "npm run routes:audit:overlap",
   "limits": {
     "maxOpenItems": 40,
     "maxAutoCreatedTasks": 6
   },
   "items": [
+    {
+      "id": "overlap-review-8353801bd8b3",
+      "fingerprint": "8353801bd8b3",
+      "state": "New York",
+      "group": "New York · catatonk-creek-candor-owego ↔ owego-creek-lower-owego-out-and-back",
+      "category": "probable_duplicate",
+      "proposedModel": "duplicate_resolution",
+      "priority": "high",
+      "status": "new",
+      "routes": [
+        "catatonk-creek-candor-owego",
+        "owego-creek-lower-owego-out-and-back"
+      ],
+      "findingTypes": [
+        "duplicate_or_reversed"
+      ],
+      "findingCount": 1,
+      "maxSeverity": 95,
+      "recommendation": "Independent source review before merge, retirement, or suppression; preserve the strongest evidence package.",
+      "safetyAccessReview": "Compare public access, gauge applicability, distance, hazards, camping, and route-specific logistics before any consolidation.",
+      "source": "routes:audit:overlap",
+      "firstSeenAt": "2026-09-03T13:30:17.399Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
+      "taskId": "overlap-review-8353801bd8b3"
+    },
     {
       "id": "overlap-review-056e52a4e9a3",
       "fingerprint": "056e52a4e9a3",
@@ -35,7 +60,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-056e52a4e9a3"
     },
     {
@@ -71,7 +96,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-087c65e2fffa"
     },
     {
@@ -106,8 +131,48 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-12c53ec187ea"
+    },
+    {
+      "id": "overlap-review-24e49324b784",
+      "fingerprint": "24e49324b784",
+      "state": "Maryland",
+      "group": "Maryland · conococheague-creek-kemps-mill-williamsport ↔ north-branch-potomac-spring-gap-oldtown ↔ potomac-river-big-pool-williamsport +11",
+      "category": "route_family_overlap",
+      "proposedModel": "route_family_multi_endpoint",
+      "priority": "high",
+      "status": "new",
+      "routes": [
+        "conococheague-creek-kemps-mill-williamsport",
+        "north-branch-potomac-spring-gap-oldtown",
+        "potomac-river-big-pool-williamsport",
+        "potomac-river-bonds-fifteen-mile-creek",
+        "potomac-river-brunswick-point-of-rocks",
+        "potomac-river-dam-four-shepherdstown",
+        "potomac-river-fifteen-mile-creek-hancock",
+        "potomac-river-hancock-big-pool",
+        "potomac-river-oldtown-paw-paw",
+        "potomac-river-paw-paw-bonds",
+        "potomac-river-point-of-rocks-monocacy",
+        "potomac-river-shepherdstown-dargan",
+        "potomac-river-taylors-snyders",
+        "potomac-river-williamsport-big-slackwater"
+      ],
+      "findingTypes": [
+        "access_chain_contains",
+        "contained_connector",
+        "near_collinear_overlap",
+        "shared_endpoint"
+      ],
+      "findingCount": 14,
+      "maxSeverity": 88,
+      "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
+      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "source": "routes:audit:overlap",
+      "firstSeenAt": "2026-09-03T13:30:17.399Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
+      "taskId": "overlap-review-24e49324b784"
     },
     {
       "id": "overlap-review-2e5c2cc16c10",
@@ -165,7 +230,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-2e5c2cc16c10"
     },
     {
@@ -198,7 +263,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-32a77c1a0da7"
     },
     {
@@ -230,7 +295,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-3ca16cfe387a"
     },
     {
@@ -258,7 +323,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-57e5a049c099"
     },
     {
@@ -292,7 +357,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-581fa280035b"
     },
     {
@@ -325,7 +390,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-65a6197881b6"
     },
     {
@@ -355,7 +420,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-6897b69715ad"
     },
     {
@@ -387,7 +452,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-6b111537f987"
     },
     {
@@ -423,7 +488,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-7e351dd16b94"
     },
     {
@@ -460,7 +525,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-91073a0cd9d1"
     },
     {
@@ -494,7 +559,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-9f79f9e8998f"
     },
     {
@@ -540,7 +605,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-a34d78c7f515"
     },
     {
@@ -572,7 +637,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-a5b7c424422d"
     },
     {
@@ -609,7 +674,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-21T12:56:45.089Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-a60c10df80eb"
     },
     {
@@ -640,7 +705,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
+      "lastSeenAt": "2026-09-03T13:30:17.399Z"
     },
     {
       "id": "overlap-review-aa793ba1b116",
@@ -684,7 +749,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-aa793ba1b116"
     },
     {
@@ -722,7 +787,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-b40481702b1e"
     },
     {
@@ -753,7 +818,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-c9b643d4f409"
     },
     {
@@ -789,7 +854,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-cbd2cb921f88"
     },
     {
@@ -817,7 +882,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-d93e4e1d1b50"
     },
     {
@@ -848,7 +913,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-dbd5660f250f"
     },
     {
@@ -876,7 +941,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-f061be3d5b7d"
     },
     {
@@ -902,7 +967,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-0284d49cb5d9"
     },
     {
@@ -938,8 +1003,36 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-129ef46da8ae"
+    },
+    {
+      "id": "overlap-review-1ad331052f85",
+      "fingerprint": "1ad331052f85",
+      "state": "New York",
+      "group": "New York · susquehanna-river-otego-unadilla ↔ susquehanna-river-sidney-bainbridge ↔ susquehanna-river-unadilla-sidney +1",
+      "category": "localized_crossing_review",
+      "proposedModel": "geometry_review",
+      "priority": "high",
+      "status": "new",
+      "routes": [
+        "susquehanna-river-otego-unadilla",
+        "susquehanna-river-sidney-bainbridge",
+        "susquehanna-river-unadilla-sidney",
+        "unadilla-river-rockdale-sidney"
+      ],
+      "findingTypes": [
+        "crossing_segments",
+        "shared_endpoint"
+      ],
+      "findingCount": 3,
+      "maxSeverity": 85,
+      "recommendation": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model.",
+      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "source": "routes:audit:overlap",
+      "firstSeenAt": "2026-09-03T13:30:17.399Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
+      "taskId": "overlap-review-1ad331052f85"
     },
     {
       "id": "overlap-review-1b117ee62838",
@@ -970,7 +1063,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-1b117ee62838"
     },
     {
@@ -995,7 +1088,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-4442a7fcea5b"
     },
     {
@@ -1042,7 +1135,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-47a9b946e656"
     },
     {
@@ -1083,7 +1176,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-6825d8b571cd"
     },
     {
@@ -1122,7 +1215,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-94125f286c97"
     },
     {
@@ -1168,7 +1261,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-b9a08e387cd7"
     },
     {
@@ -1209,7 +1302,7 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-f573a7ada45c"
     },
     {
@@ -1234,13 +1327,13 @@
         "near_collinear_overlap",
         "shared_endpoint"
       ],
-      "findingCount": 22,
+      "findingCount": 20,
       "maxSeverity": 80,
       "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:45:31.943Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z",
       "taskId": "overlap-review-60bc069f3ee6"
     },
     {
@@ -1251,7 +1344,7 @@
       "category": "route_family_geometry",
       "proposedModel": "geometry_review",
       "priority": "medium",
-      "status": "new",
+      "status": "approved",
       "routes": [
         "tradewater-river-bellville-fishtrap",
         "tradewater-river-bellville-montezuma",
@@ -1271,125 +1364,37 @@
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
+      "lastSeenAt": "2026-09-03T13:30:17.399Z"
     },
     {
-      "id": "overlap-review-7116e0e41d3a",
-      "fingerprint": "7116e0e41d3a",
-      "state": "Iowa",
-      "group": "Iowa · upper-iowa-river-cattle-creek-malanaphy ↔ upper-iowa-river-iverson-bridge-kumpf ↔ upper-iowa-river-kendallville-bluffton +3",
-      "category": "route_family_geometry",
-      "proposedModel": "geometry_review",
-      "priority": "medium",
-      "status": "new",
-      "routes": [
-        "upper-iowa-river-cattle-creek-malanaphy",
-        "upper-iowa-river-iverson-bridge-kumpf",
-        "upper-iowa-river-kendallville-bluffton",
-        "upper-iowa-river-lower-dam-iverson-bridge",
-        "upper-iowa-river-malanaphy-trout-run",
-        "upper-iowa-river-trout-run-lower-dam"
-      ],
-      "findingTypes": [
-        "crossing_segments",
-        "near_collinear_overlap",
-        "shared_endpoint"
-      ],
-      "findingCount": 6,
-      "maxSeverity": 85,
-      "recommendation": "Review route geometry and access-chain continuity; do not delete spans solely because they are collinear.",
-      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "source": "routes:audit:overlap",
-      "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
-    },
-    {
-      "id": "overlap-review-c4e35fdb7ee6",
-      "fingerprint": "c4e35fdb7ee6",
-      "state": "Wisconsin",
-      "group": "Wisconsin · wisconsin-river-arena-spring-green ↔ wisconsin-river-blue-river-boscobel ↔ wisconsin-river-boscobel-bridgeport +7",
-      "category": "route_family_geometry",
-      "proposedModel": "geometry_review",
-      "priority": "medium",
-      "status": "new",
-      "routes": [
-        "wisconsin-river-arena-spring-green",
-        "wisconsin-river-blue-river-boscobel",
-        "wisconsin-river-boscobel-bridgeport",
-        "wisconsin-river-dekorra-camp-rest",
-        "wisconsin-river-gotham-muscoda-west",
-        "wisconsin-river-muscoda-blue-river",
-        "wisconsin-river-muscoda-woodman",
-        "wisconsin-river-portage-dekorra",
-        "wisconsin-river-sauk-city-arena",
-        "wisconsin-river-spring-green-muscoda"
-      ],
-      "findingTypes": [
-        "crossing_segments",
-        "near_collinear_overlap",
-        "shared_endpoint"
-      ],
-      "findingCount": 12,
-      "maxSeverity": 85,
-      "recommendation": "Review route geometry and access-chain continuity; do not delete spans solely because they are collinear.",
-      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "source": "routes:audit:overlap",
-      "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
-    },
-    {
-      "id": "overlap-review-0152b47fdf25",
-      "fingerprint": "0152b47fdf25",
-      "state": "Kentucky",
-      "group": "Kentucky · big-south-fork-blue-heron-alum-ford ↔ big-south-fork-blue-heron-worley ↔ big-south-fork-blue-heron-yamacraw +1",
+      "id": "overlap-review-26d1180bd782",
+      "fingerprint": "26d1180bd782",
+      "state": "Colorado",
+      "group": "Colorado · cross-creek-minturn ↔ eagle-river-camp-hale-red-cliff ↔ eagle-river-lower-edwards-eagle +3",
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "medium",
       "status": "new",
       "routes": [
-        "big-south-fork-blue-heron-alum-ford",
-        "big-south-fork-blue-heron-worley",
-        "big-south-fork-blue-heron-yamacraw",
-        "big-south-fork-yamacraw-alum-ford"
+        "cross-creek-minturn",
+        "eagle-river-camp-hale-red-cliff",
+        "eagle-river-lower-edwards-eagle",
+        "eagle-river-minturn-town-run",
+        "eagle-river-riverbend-edwards",
+        "homestake-creek-gold-park"
       ],
       "findingTypes": [
         "contained_connector",
-        "near_collinear_overlap",
+        "crossing_segments",
         "shared_endpoint"
       ],
-      "findingCount": 10,
-      "maxSeverity": 80,
+      "findingCount": 5,
+      "maxSeverity": 85,
       "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
       "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
       "source": "routes:audit:overlap",
-      "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
-    },
-    {
-      "id": "overlap-review-0ff82916c9e9",
-      "fingerprint": "0ff82916c9e9",
-      "state": "Pennsylvania",
-      "group": "Pennsylvania · juniata-river-greenwood-amity-hall ↔ juniata-river-millerstown-amity-hall",
-      "category": "route_family_overlap",
-      "proposedModel": "route_family_multi_endpoint",
-      "priority": "medium",
-      "status": "new",
-      "routes": [
-        "juniata-river-greenwood-amity-hall",
-        "juniata-river-millerstown-amity-hall"
-      ],
-      "findingTypes": [
-        "contained_connector",
-        "near_collinear_overlap",
-        "shared_endpoint"
-      ],
-      "findingCount": 3,
-      "maxSeverity": 80,
-      "recommendation": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit.",
-      "safetyAccessReview": "Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "source": "routes:audit:overlap",
-      "firstSeenAt": "2026-08-12T14:43:33.648Z",
-      "lastSeenAt": "2026-08-21T13:36:44.066Z"
+      "firstSeenAt": "2026-09-03T13:30:17.399Z",
+      "lastSeenAt": "2026-09-03T13:30:17.399Z"
     }
   ]
 }

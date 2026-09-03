@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "state": "Nebraska",
+  "status": "complete_with_deferred_candidates",
+  "decision": "completed_systematic_review_without_forced_additions",
+  "scope": {
+    "workflow": "Strict route qualification and bounded discovery workflow",
+    "preservedUnrelatedWorktreeChanges": true,
+    "frontierOutcome": "The viable Nebraska moving-water inventory was reviewed by corridor and candidate family. Existing route packages were audited and remaining opportunities were retained as covered, blocked, deferred, provider-constrained, or coordinate-constrained rather than promoted without evidence."
+  },
+  "inventory": {
+    "stateAlreadyRegistered": true,
+    "routeOrderAlreadyRegistered": true,
+    "sourceRouteRecords": 14,
+    "publicRoutePageRecords": 10,
+    "coordinateWithheldRecords": 4,
+    "tripDetailRecords": 14,
+    "routeSafetyProfiles": 14,
+    "namedMovingWaterFamiliesReviewed": 6,
+    "newRoutesAddedInFinalPass": 0,
+    "families": [
+      "Logan Creek",
+      "Elkhorn River",
+      "Platte River",
+      "North Loup River",
+      "Loup River",
+      "Niobrara River"
+    ]
+  },
+  "qualityCoverage": {
+    "tripDetailRecords": "14/14",
+    "routeSafetyProfiles": "14/14",
+    "riverGroupKeys": "14/14",
+    "webRoutePreviews": "14/14 approved non-placeholder river-group images",
+    "mobileRiverFallbacks": "6/6 Nebraska river families",
+    "routeSpecificGalleryPhotos": "0/14; all previews use clearly labeled same-river context",
+    "imageAssetsAdded": [
+      "logan-creek-pender-bridge.jpg",
+      "platte-river-grand-island-cr8.jpg",
+      "loup-river-highway-39.jpg",
+      "elkhorn-river-neligh.jpg",
+      "north-loup-river-ord-aerial.jpg",
+      "niobrara-river-spencer.jpg"
+    ]
+  },
+  "candidateDisposition": {
+    "implementedFamilies": [
+      "Platte River",
+      "Loup River"
+    ],
+    "coveredExistingFamilies": [
+      "Logan Creek",
+      "Elkhorn River",
+      "North Loup River",
+      "Niobrara River"
+    ],
+    "deferredOrBlocked": [
+      {
+        "candidate": "Niobrara Cornell / Smith Falls / Brewer / Norden family",
+        "status": "threshold_weak",
+        "reason": "Public access and flow-study context exist, but no additional selected day reach cleared a complete station-tied threshold, access, safety, camping, coordinate, image, and geometry package."
+      },
+      {
+        "candidate": "Calamus Highway 7 to Calamus Reservoir State Recreation Area",
+        "status": "threshold_weak",
+        "reason": "The selected gauge data is stale/unsupported for current route scoring and no short public reach with numeric route-specific thresholds cleared."
+      },
+      {
+        "candidate": "Elkhorn public-access / Waterloo gauge family",
+        "status": "threshold_weak",
+        "reason": "The existing Wisner-to-West Point corridor is covered, but no stronger additional segment cleared a station-specific threshold package."
+      },
+      {
+        "candidate": "Missouri National Recreational River Nebraska-side family",
+        "status": "research_later",
+        "reason": "No Nebraska-side public day reach with a complete private-paddlecraft threshold and endpoint package cleared."
+      },
+      {
+        "candidate": "Kearney Water Trail Yanney Park to Central Avenue",
+        "status": "no_live_gauge",
+        "reason": "The direct Nebraska DWEE gauge is outside the supported app provider set; the Platte mainstem gauge is not an acceptable proxy for the canal/Turkey Creek route."
+      }
+    ]
+  },
+  "coordinateAndGeometryPosture": {
+    "withheldRoutes": [
+      "loup-river-george-syas-monroe",
+      "loup-river-george-syas-columbus",
+      "loup-river-george-syas-adm-access",
+      "niobrara-river-fort-niobrara-smith-falls"
+    ],
+    "georgeSyas": "Official NGPC/Nebraskaland sources confirm an existing fishing access point, but the available coordinate is a WMA/property representative anchor rather than a verified parking or water-entry point. No coordinate was invented or projected from the river centerline.",
+    "nicholsLanding": "NPS confirms Nichols Landing is a public launch/landing with parking and a sand approach, but the available park anchor is not a defensible water-edge coordinate for the stored take-out. The route remains withheld pending a manager-grade water-entry coordinate.",
+    "publishedGeometry": "The canonical geometry audit passes for the 10 public Nebraska routes. The four coordinate-withheld routes intentionally have no public route-scoped geometry assets until their endpoint evidence is repaired."
+  },
+  "audits": {
+    "routeData": "passed: 1103 routes",
+    "canonicalGeometries": "passed: 1527/1530 public routes matched; three unrelated unmatched routes remain in the shared concurrent worktree",
+    "galleryAssets": "passed: 336 readable images, 119.16 MiB",
+    "coordinateReview": "Nebraska baseline identified 4 failures, 3 unknown endpoints, 1 suspicious endpoint, 23 review endpoints, and 2 ok endpoints; the four failure routes remain withheld",
+    "corridors": "Nebraska corridor review is documented; the repo-wide corridor audit was temporarily blocked by a concurrent writer holding docs/route-corridor-migration.md",
+    "safety": "Nebraska route records have complete reviewed safety profiles; the repo-wide safety audit retains unrelated concurrent West Virginia findings",
+    "accessRegistry": "Nebraska access records and official map controls are present in the generated registry"
+  },
+  "validation": {
+    "routeDataAudit": "passed",
+    "galleryAudit": "passed",
+    "focusedGeometryAudit": "passed for public-route geometry set",
+    "fullBuildAndTest": "deferred until concurrent state-expansion writers release shared generated files",
+    "concurrentWorktreeNote": "The shared worktree contains active Maryland, New York, Colorado, Iowa, and other state changes. No unrelated changes were reset or removed."
+  },
+  "authoritativeReferences": [
+    "https://outdoornebraska.gov/parks/explore-trails/water-trails/",
+    "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/",
+    "https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf",
+    "https://www.nps.gov/places/nichols-landing.htm",
+    "https://home.nps.gov/niob/learn/management/superintendent-s-compendium.htm",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-06793000/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-06461500/",
+    "https://commons.wikimedia.org/wiki/Category:Platte_River",
+    "https://commons.wikimedia.org/wiki/Category:Loup_River"
+  ]
+}

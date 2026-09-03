@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-30T16:00:00Z",
+  "updatedAt": "2026-09-03T13:30:17.399Z",
   "tasks": [
     {
       "id": "route-implementation-wi-usgs-04077630",
@@ -39,13 +39,12 @@
       "kind": "route_research",
       "owner": "route-research",
       "priority": "medium",
-      "summary": "No-add: USGS 10023000 is a low-flow Big Creek station near Randolph. Utah wildlife material identifies Big Creek above ranches in a managed/restricted drainage, and no lawful named paddling endpoint pair or runnable route package was found.",
+      "summary": "usgs:10023000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
       "evidence": [
         "docs/operations/gauge-review-ledger.json",
         "docs/operations/route-opportunity-queue.json",
         "gauge:usgs:10023000",
-        "https://waterdata.usgs.gov/monitoring-location/USGS-10023000/",
-        "https://wildlife.utah.gov/guidebooks/furbearer_guidebook.pdf"
+        "blocker:No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review."
       ],
       "stateId": "UT",
       "inventoryId": "provider-baseline-2026-08-14",
@@ -54,10 +53,7 @@
       ],
       "frontierTier": 5,
       "routeOpportunity": true,
-      "lastRunId": "route-worker-202608231825-ut-10023000-review",
-      "validationStatus": "passed",
-      "latestGatekeeperId": "gatekeeper-202608231825-ut-10023000-review",
-      "resultSummary": "No route added; durable blocked/no-add disposition recorded. Reopen only if materially new lawful endpoint and paddling-use evidence appears."
+      "routeOpportunityScore": 95630
     },
     {
       "id": "route-opportunity-mi-usgs-04113000",
@@ -54167,29 +54163,6 @@
       "routeOpportunityScore": 95640
     },
     {
-      "id": "route-opportunity-ut-usgs-10023000",
-      "title": "Investigate route opportunity: BIG CREEK NEAR RANDOLPH, UT",
-      "lane": "blocked",
-      "kind": "route_research",
-      "owner": "route-research",
-      "priority": "medium",
-      "summary": "usgs:10023000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
-      "evidence": [
-        "docs/operations/gauge-review-ledger.json",
-        "docs/operations/route-opportunity-queue.json",
-        "gauge:usgs:10023000",
-        "blocker:No named public endpoint, source-backed threshold, or complete access and safety evidence was established in this bounded review."
-      ],
-      "stateId": "UT",
-      "inventoryId": "provider-baseline-2026-08-14",
-      "gaugeKeys": [
-        "usgs:10023000"
-      ],
-      "frontierTier": 5,
-      "routeOpportunity": true,
-      "routeOpportunityScore": 95630
-    },
-    {
       "id": "route-opportunity-ut-usgs-10113500",
       "title": "Investigate route opportunity: BLACKSMITH FORK AB UP and L CO.'S DAM NR HYRUM, UT",
       "lane": "blocked",
@@ -77830,6 +77803,123 @@
       "validationStatus": "passed",
       "completedAt": "2026-08-31T00:00:00Z",
       "resultSummary": "No route published; five direct stations were retained as blocked route-capable candidates pending complete station-tied publication evidence. All 5,162 provider-baseline gauges now have durable dispositions; no unreviewed pointer remains."
+    },
+    {
+      "id": "overlap-review-b6068ad203e3",
+      "title": "Review route consolidation candidate: Colorado · cross-creek-minturn ↔ eagle-river-camp-hale-red-cliff ↔ eagle-river-minturn-town-run +1",
+      "lane": "completed",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Disposition: rejected as one consolidated route family. Cross Creek and Homestake Creek are separate tributary reaches ending at Eagle River/confluence boundaries; Camp Hale–Red Cliff and Minturn Town Run are distinct Eagle River reaches. The four records use separate direct gauges (09065100, 09064000, 09063000, and 09064600) with different thresholds, hazards, and mandatory take-out boundaries. Preserve all four route cards; no route data or corridor definition changed.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "cross-creek-minturn",
+        "eagle-river-camp-hale-red-cliff",
+        "eagle-river-minturn-town-run",
+        "homestake-creek-gold-park"
+      ],
+      "sourceFindingId": "overlap-review-b6068ad203e3"
+    },
+    {
+      "id": "safety-review-wv-guyandotte-branchland-west-hamlin-20260831",
+      "title": "Safety review: Guyandotte Branchland to West Hamlin access and conditions",
+      "lane": "ready",
+      "kind": "safety_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Resolve the automated audit's high Access and medium Conditions findings before treating this route as safety-cleared. Verify current public-use status, launch/parking/closure conditions at Branchland and West Hamlin, reconcile the WVDNR access inventory with the route's boat-slide/concrete-ramp claims, and confirm that USGS 03204000 telemetry is current and supports the 3.5–16 ft screen. Reassess whether the route's standard risk level should be caution. Keep the route card unchanged until the review is complete.",
+      "evidence": [
+        "docs/route-safety-audit.json",
+        "docs/route-safety-audit.md",
+        "docs/route-safety-policy.md",
+        "src/data/routes/west-virginia.ts",
+        "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf",
+        "https://wvdnr.gov/lands-waters/boating/",
+        "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03204000"
+      ],
+      "routeSlugs": [
+        "wv-guyandotte-branchland-west-hamlin"
+      ],
+      "sourceFindingIds": [
+        "wv-guyandotte-branchland-west-hamlin|Access",
+        "wv-guyandotte-branchland-west-hamlin|Conditions"
+      ]
+    },
+    {
+      "id": "overlap-review-8353801bd8b3",
+      "title": "Review route consolidation candidate: New York · catatonk-creek-candor-owego ↔ owego-creek-lower-owego-out-and-back",
+      "lane": "ready",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Independent source review before merge, retirement, or suppression; preserve the strongest evidence package. Queue status: new. Compare public access, gauge applicability, distance, hazards, camping, and route-specific logistics before any consolidation.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "catatonk-creek-candor-owego",
+        "owego-creek-lower-owego-out-and-back"
+      ],
+      "sourceFindingId": "overlap-review-8353801bd8b3"
+    },
+    {
+      "id": "overlap-review-24e49324b784",
+      "title": "Review route consolidation candidate: Maryland · conococheague-creek-kemps-mill-williamsport ↔ north-branch-potomac-spring-gap-oldtown ↔ potomac-river-big-pool-williamsport +11",
+      "lane": "ready",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "conococheague-creek-kemps-mill-williamsport",
+        "north-branch-potomac-spring-gap-oldtown",
+        "potomac-river-big-pool-williamsport",
+        "potomac-river-bonds-fifteen-mile-creek",
+        "potomac-river-brunswick-point-of-rocks",
+        "potomac-river-dam-four-shepherdstown",
+        "potomac-river-fifteen-mile-creek-hancock",
+        "potomac-river-hancock-big-pool",
+        "potomac-river-oldtown-paw-paw",
+        "potomac-river-paw-paw-bonds",
+        "potomac-river-point-of-rocks-monocacy",
+        "potomac-river-shepherdstown-dargan",
+        "potomac-river-taylors-snyders",
+        "potomac-river-williamsport-big-slackwater"
+      ],
+      "sourceFindingId": "overlap-review-24e49324b784"
+    },
+    {
+      "id": "overlap-review-1ad331052f85",
+      "title": "Review route consolidation candidate: New York · susquehanna-river-otego-unadilla ↔ susquehanna-river-sidney-bainbridge ↔ susquehanna-river-unadilla-sidney +1",
+      "lane": "ready",
+      "kind": "consolidation_review",
+      "owner": "independent-verifier",
+      "priority": "high",
+      "summary": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "evidence": [
+        "docs/operations/overlap-review-queue.json",
+        "tmp/route-overlap-audit.csv",
+        "docs/operations/overlap-consolidation-summary.md"
+      ],
+      "routeSlugs": [
+        "susquehanna-river-otego-unadilla",
+        "susquehanna-river-sidney-bainbridge",
+        "susquehanna-river-unadilla-sidney",
+        "unadilla-river-rockdale-sidney"
+      ],
+      "sourceFindingId": "overlap-review-1ad331052f85"
     }
   ]
 }

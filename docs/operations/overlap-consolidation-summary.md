@@ -6,6 +6,50 @@ Latest bounded audit: `npm run routes:audit:overlap`
 - 2,265 findings: 179 access-chain containment, 258 contained connectors, 127 crossing segments, 631 near-collinear overlaps, and 1,070 shared endpoints
 - Findings are review signals, not deletion instructions.
 
+## 2026-09-03 Follow-up: Maryland and Pennsylvania presentation families
+
+The reviewed Maryland and Pennsylvania access ladders now have an explicit presentation/control layer in `src/lib/route-family-presentation.ts`. Maryland exposes Potomac, Monocacy, Catoctin, and Gunpowder Falls families; Pennsylvania exposes the reviewed Susquehanna and Conodoguinet families. Each family links to its validated route cards and a canonical starting card, while preserving distinct access-pair records, route-specific gauges, hazards, camping posture, and logistics. No route record or geometry was deleted, merged, retired, or rewritten.
+
+The state browse pages expose these families under “By corridor” above the existing “By river” and “By region” directories. The family registry intentionally requires more than one live route and filters incomplete families out of the UI, so a future access-pair addition must pass the normal route and evidence gates before it appears as a grouped option. Planning-only records remain labeled by their route-level gauge/scoring posture elsewhere in the product; grouping them does not imply they are score-eligible.
+
+## 2026-09-03 Follow-up: Maryland Potomac Dam 4 / Taylors-Snyders
+
+The overlap auditor identified the 4.3-mile Taylors Landing to Snyders Landing card as a contained connector within the 11.6-mile Dam 4 downstream to Shepherdstown card. This is an intentional selectable access-chain variant, not a duplicate: the parent card starts below Dam 4 and finishes at Shepherdstown, while the shorter card avoids the Dam 4 launch commitment and carries its own endpoint, camping, shuttle, flow, and hazard guidance.
+
+The corridor registry now models one verified `md-middle-potomac-dam-four-shepherdstown` family with ordered edges Dam 4 downstream → Taylors Landing → Snyders Landing → Shepherdstown. Both route slugs, trip-detail records, canonical geometries, and access evidence remain published. No route was deleted, merged, retired, or silently rewritten; the family model is the consolidation boundary and route-specific differences remain visible.
+
+## 2026-08-31 Follow-up: current overlap queue
+
+The current overlap audit found 969 route spans and 2,294 findings. The five newly materialized review items were dispositioned below. These dispositions preserve route cards and geometry; they do not authorize deletion or silent merging.
+
+### Colorado · Cross Creek / Eagle River group — rejected as one family
+
+The four records are not one route family. Cross Creek and Homestake Creek are separate tributary reaches with confluence boundaries, while Camp Hale–Red Cliff and Minturn Town Run are distinct Eagle River reaches. They also use four direct gauges (09065100, 09064000, 09063000, and 09064600) with different level thresholds, hazard profiles, and mandatory take-out commitments. Keep all four route cards independent and do not add a shared corridor definition.
+
+### Tradewater River — approved as a preserved access-chain family review
+
+The six cards form adjacent selectable reaches on the same river: Bellville, Montezuma, Fishtrap, VFW Bridge, and Granger. Kentucky’s official river information lists the same ordered access chain and reach mileages, while also calling out remote access, woody debris, braided channels, and flashy conditions. [Kentucky Department of Fish & Wildlife: Tradewater River](https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx)
+
+Preserve all six route cards. Before adding a production corridor definition, backfill `accessPoints` and explicit segment edges so the access and safety package is durable.
+
+### Upper Iowa River — approved as a partial, condition-bounded family review
+
+The six cards form connected access chains, including the existing Cattle Creek–Malanaphy corridor and the Kendallville–Bluffton variant. The paddlers guide documents the relevant access sequence, but the family must retain its gauge boundaries (05387440, 05387500, and 05388250) and dam/must-take-out boundaries. [Upper Iowa River Paddlers Guide](https://northeastiowarcd.org/wp-content/uploads/2016/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf)
+
+Preserve all six route cards. Extend the existing corridor only after access packages are complete for the missing variants; do not collapse the family into one undifferentiated gauge or hazard profile.
+
+### Wisconsin River — rejected as one broad family; split follow-up
+
+The queue item mixes the lower Wisconsin Riverway chain with the upstream Portage–Dekorra reach. Wisconsin DNR’s lower-riverway guidance supports the connected Sauk City–Bridgeport access chain, while the route package still needs reach-specific access and gauge encoding. [Wisconsin DNR: Lower Wisconsin State Riverway water recreation](https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water)
+
+Split the follow-up into (1) the lower riverway family review and (2) a separate Portage–Dekorra review. Backfill `accessPoints` and explicit gauge/dam boundaries before corridor registration. Preserve all ten route cards.
+
+### Big South Fork — approved as a preserved multi-endpoint family review
+
+The four cards represent selectable public-access options between Blue Heron, Worley, Yamacraw, and Alum Ford. Kentucky and National Park Service guidance supports those public access points and the route choices, while the route cards retain distinct downstream, remote, strainer, and private-bank hazards. [Kentucky Department of Fish & Wildlife: Big South Fork](https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx), [National Park Service: Big South Fork river access points](https://www.nps.gov/biso/planyourvisit/riveraccesspoints.htm)
+
+Preserve all four route cards. Add a corridor definition only after the access-point package is finalized, with route-specific hazard and logistics differences visible.
+
 ## Village Creek, Texas
 
 The eight-record Village Creek family is a canonical corridor with five validated access points: FM 418, TX 327, Baby Galvez, US 96, and the Village Creek State Park canoe launch. The audit finds the expected atomic segments plus composite reaches containing those segments. The recommended model is one corridor family with selectable in/out pairs and explicit access-point continuity, while retaining separate route cards where distance, safety, or logistics differ materially.
@@ -45,9 +89,3 @@ The ten-record Little Fork family is two verified official map-sheet corridors r
 The registry records `mn-little-fork-fiedler-lofgren` for the six Map 2 cards and `mn-little-fork-map-1` for the four Map 1 cards. All ten route cards remain distinct: the cards use different endpoint pairs, two direct gauge reaches (`mn-dnr-294` / `mn-dnr-81` on Map 2 and `mn-dnr-88` / `mn-dnr-295` on Map 1), distances from 4.1 to about 21.8 miles, campground/bailout availability, Flat Rock/Highway 217/Hannine Falls context, and shuttle or Rainy River logistics.
 
 Coordinate and access audits confirm the shared endpoint identities. Dentaybow is on the named Little Fork waterbody but retains the existing `review` severity because its stored point is about 55 ft from the matched waterbody and 111 ft from the named flowline; no coordinate was corrected. The safety audit reports zero issues, and canonical geometry coverage remains present for every card. No route was deleted, merged, retired, or silently rewritten.
-
-## 2026-09-03 Follow-up: Maryland Potomac Dam 4 / Taylors-Snyders
-
-The overlap auditor identified the 4.3-mile Taylors Landing to Snyders Landing card as a contained connector within the 11.6-mile Dam 4 downstream to Shepherdstown card. This is an intentional selectable access-chain variant, not a duplicate: the parent card starts below Dam 4 and finishes at Shepherdstown, while the shorter card avoids the Dam 4 launch commitment and carries its own endpoint, camping, shuttle, flow, and hazard guidance.
-
-The corridor registry now models one verified `md-middle-potomac-dam-four-shepherdstown` family with ordered edges Dam 4 downstream → Taylors Landing → Snyders Landing → Shepherdstown. Both route slugs, trip-detail records, canonical geometries, and access evidence remain published. No route was deleted, merged, retired, or silently rewritten; the family model is the consolidation boundary and route-specific differences remain visible.

@@ -1,0 +1,73 @@
+{
+  "state": "West Virginia",
+  "updatedAt": "2026-09-02T09:30:00-05:00",
+  "status": "complete",
+  "scope": "Continuation review from the existing 58-route West Virginia cohort",
+  "inventory": {
+    "researchCandidates": 61,
+    "liveRoutes": 59,
+    "advancingCandidates": 57,
+    "advancingCandidatesMissingFromLive": [],
+    "blockedCandidates": [
+      {
+        "id": "wv-bluestone-pipestem-bluestone-state-park",
+        "blocker": "Current tram freight-car information does not establish private kayak/canoe booking, size, fee, weather, and operating rules."
+      },
+      {
+        "id": "wv-greenbrier-durbin-hosterman",
+        "blocker": "A current, independently authoritative public boat-access authorization for Hosterman remains unverified."
+      },
+      {
+        "id": "wv-cheat-riverview-rowlesburg",
+        "blocker": "The private Riverview put-in is documented, but this downstream route also needs a defensible gauge-range transfer below the American Whitewater reach endpoint."
+      },
+      {
+        "id": "wv-west-fork-stonewall-tailwater-bendale",
+        "blocker": "A stable current Stonewall Jackson tailwater release/warning rule or adapter is not established for a route product."
+      }
+    ],
+    "legacyLiveRoutesOutsideCandidateLedger": [
+      "wv-tygart-valley-falls-hammond",
+      "wv-cacapon-capon-bridge-wv127"
+    ]
+  },
+  "implementedThisContinuation": {
+    "routeId": "wv-cheat-hannahsville-riverview",
+    "route": "Hannahsville Ford to Riverview Lounge",
+    "corridor": "Upper Cheat River Water Trail",
+    "distanceMiles": 12.78,
+    "class": "Class I-II",
+    "gauge": "USGS 03069500 Cheat River at Parsons, WV",
+    "flowGuidance": "500–8,000 cfs American Whitewater reach 11739 screen; 600–5,000 cfs ideal product band",
+    "endpoints": {
+      "putIn": {"name": "Hannahsville Ford public access", "latitude": 39.245, "longitude": -79.708},
+      "takeOut": {"name": "Riverview Lounge water-trail access", "latitude": 39.32, "longitude": -79.684}
+    },
+    "camping": "None at Upper Cheat water-trail access points; separate lodging/basecamp only.",
+    "imagery": "Existing approved Upper Cheat/Headwaters route image reused through the route gallery map.",
+    "accessPosture": "WVDNR District 1 lists both as Cheat River lot/boat-access locations. Riverview remains private; current south-gravel-lot parking and check-in guidance is preserved as a day-of control."
+  },
+  "validation": {
+    "typecheckRoutes": "passed",
+    "typecheck": "passed",
+    "routeDataAudit": "passed: 1125 routes",
+    "corridorAudit": "passed: 176 definitions, 336 covered routes",
+    "accessRegistry": "passed: 2792 canonical entries, 0 conflicts; new route resolves to 2 canonical entries",
+    "canonicalGeometry": "passed: 1573/1575 matched, 24 state assets; new route is named-fallback geometry with 10 points",
+    "coordinateAudit": "passed with global findings: 3861 endpoints, 27 failures, 141 unknowns; West Virginia 118 endpoints, 0 failures",
+    "newRouteCoordinateReview": "passed with review severity for both access-area anchors; both endpoints are on the Cheat River waterbody and carry authoritative-water-entry evidence",
+    "newRouteSafetyReview": "passed: 0 findings",
+    "globalSafetyReview": "pure audit passed with 2 pre-existing heuristic findings on wv-guyandotte-branchland-west-hamlin; report writer was blocked by a concurrent shared-worktree file lock",
+    "galleryAudit": "passed: 336 images",
+    "focusedTests": "passed: 7 files, 42 tests",
+    "productionBuild": "passed: 1861 pages",
+    "fullTestSuite": "2 pre-existing/shared-worktree failures: route-coordinate-review-artifact.test.ts nearby-official-location fixture, and operations.test.ts encoding/control-plane snapshot"
+  },
+  "sourceUrls": [
+    "https://www.americanwhitewater.org/content/River/view/river-detail/11739/main",
+    "https://cheatriverwatertrail.org/plan-your-trip/river-access-points/",
+    "https://www.theswimguide.org/beach/7979/",
+    "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf"
+  ],
+  "nextReview": "Reopen only if current access-owner, tram, tailwater, or gauge-scope evidence changes; the viable West Virginia candidate set is systematically reviewed and the remaining work is documented as blocked."
+}

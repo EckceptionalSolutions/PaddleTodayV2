@@ -1,6 +1,6 @@
 # Corridor pilot funnel report
 
-Generated 2026-07-29T11:52:33.731Z.
+Generated 2026-09-02T05:25:19.341Z.
 No analytics export supplied; run with a JSON export path.
 
 Conversion is trip-option selections divided by river-hub views. Legacy corridor_selected events remain accepted for older exports. Use unique event/session identifiers in production exports for a true user-level funnel.

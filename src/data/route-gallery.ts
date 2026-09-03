@@ -94,6 +94,42 @@ const eagleRiverRiverbendEdwardsPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC0 1.0',
 };
 
+const eagleRiverLowerPhoto: RouteGalleryPhoto = {
+  id: 'eagle-river-lower-edwards-eagle-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Eagle_River_in_Eagle_Colorado.JPG?width=1600',
+  alt: 'Eagle River passing through Chambers Park in Eagle, Colorado, at the Lower Eagle take-out corridor.',
+  caption: 'Eagle River at Chambers Park',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const uncompahgreRidgwayPhoto: RouteGalleryPhoto = {
+  id: 'uncompahgre-river-ridgway-town-run-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Uncompahgre_River_at_Ridgway.JPG?width=1600',
+  alt: 'Uncompahgre River at Ridgway, Colorado, in the Ridgway Town Run corridor.',
+  caption: 'Uncompahgre River at Ridgway',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const sanMiguelDownValleyPhoto: RouteGalleryPhoto = {
+  id: 'san-miguel-river-down-valley-specie-creek-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/San%20Miguel%20River%20%28Colorado%29.JPG?width=1600',
+  alt: 'San Miguel River in Placerville, Colorado, within the Down Valley Park to Specie Creek corridor.',
+  caption: 'San Miguel River at Placerville',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
+const sanMiguelSpecieBeaverPhoto: RouteGalleryPhoto = {
+  id: 'san-miguel-river-specie-beaver-commons',
+  src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/San%20Miguel%20River%20%28Colorado%29.JPG?width=1600',
+  alt: 'San Miguel River in Placerville, Colorado, used as approved context imagery for the Specie Creek to Beaver Creek corridor.',
+  caption: 'San Miguel River in the lower canyon corridor',
+  credit: 'Jeffrey Beall via Wikimedia Commons',
+  takenLabel: 'Wikimedia Commons: CC BY 4.0',
+};
+
 const crossCreekMinturnPhoto: RouteGalleryPhoto = {
   id: 'cross-creek-minturn-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mountain%20of%20the%20Holy%20Cross.%20Eagle%20County,%20Colorado%20-%20NARA%20-%20517031.jpg?width=1600',
@@ -254,6 +290,15 @@ const arkansasBrownsCanyonPhoto: RouteGalleryPhoto = {
   caption: "Brown's Canyon Bridge at the Stone Bridge end of the Arkansas River reach",
   credit: 'Jeffrey Beall via Wikimedia Commons',
   takenLabel: 'Wikimedia Commons: CC BY 3.0',
+};
+
+const arkansasSalidaTownPhoto: RouteGalleryPhoto = {
+  id: 'arkansas-stone-bridge-salida-usgs',
+  src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/ArkRiver.jpg',
+  alt: 'The Arkansas River flows through Colorado between rocky banks.',
+  caption: 'Arkansas River corridor in Colorado',
+  credit: 'U.S. Geological Survey',
+  takenLabel: 'USGS: public domain',
 };
 
 const arkansasRoyalGorgePhoto: RouteGalleryPhoto = {
@@ -630,6 +675,310 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     credit: 'Delaware Tourism Office / Visit Delaware',
     takenLabel: 'Official tourism image; source page credited',
   }],
+  'musconetcong-river-waterloo-saxton-falls': [{
+    id: 'musconetcong-river-stephens-state-park-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Musconetcong_River_at_Stephens_State_Park.jpg?width=1600',
+    alt: 'The Musconetcong River at Stephens State Park in New Jersey.',
+    caption: 'Musconetcong River at Stephens State Park; same-river context',
+    credit: 'Fourpenguins via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  }],
+  'wading-river-hawkin-godfrey': [{
+    id: 'wading-river-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A Pine Barrens river channel in the New Jersey Pinelands.',
+    caption: 'Pine Barrens river context for the Wading River water trail',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'wading-river-godfrey-bodine': [{
+    id: 'wading-river-pinelands-context-lower',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A Pine Barrens river channel in the New Jersey Pinelands.',
+    caption: 'Pine Barrens river context for the lower Wading River water trail',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'oswego-river-harrisville': [{
+    id: 'oswego-river-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A Pine Barrens river channel in the New Jersey Pinelands.',
+    caption: 'Pine Barrens river context for the Oswego River water trail',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'millstone-river-lincoln-avenue-park-out-and-back': [{
+    id: 'millstone-river-removed-dam-context',
+    src: 'https://www.nj.gov/dep/fgw/images/fisheries/millstone_dam-removed.jpg',
+    alt: 'The restored Millstone River channel at the removed dam area in New Jersey.',
+    caption: 'Millstone River context at the restored former Weston Mill dam area',
+    credit: 'New Jersey Department of Environmental Protection',
+    takenLabel: 'NJDEP official fisheries article image',
+  }],
+  'south-branch-raritan-river-sunnyside-stanton-station': [{
+    id: 'south-branch-raritan-stanton-usgs-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/SBranchRaritanRiverNJ.jpeg',
+    alt: 'The South Branch Raritan River at Stanton, New Jersey, beneath a wooded river corridor.',
+    caption: 'South Branch Raritan River context at Stanton',
+    credit: 'Nicole White / U.S. Geological Survey',
+    takenLabel: 'USGS official image',
+  }],
+  'north-branch-raritan-river-burnt-mills-confluence': [{
+    id: 'north-branch-raritan-south-branch-usgs-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/SBranchRaritanRiverNJ.jpeg',
+    alt: 'The Raritan River at Stanton, New Jersey, beneath a wooded river corridor.',
+    caption: 'Raritan River-family context for the North Branch lower reach',
+    credit: 'Nicole White / U.S. Geological Survey',
+    takenLabel: 'USGS official image',
+  }],
+  'passaic-river-suchorsky-pennington-park': [{
+    id: 'passaic-river-blueway-sign-context',
+    src: 'https://www.nj.gov/pvsc/news/photos/images/20170306/Blueway%20Sign.jpg',
+    alt: 'A Passaic River Blueway canoe and kayak trail sign beside the river in New Jersey.',
+    caption: 'Lower Passaic River Blueway sign and launch context',
+    credit: 'Passaic Valley Sewerage Commission',
+    takenLabel: 'PVSC official Blueway project image',
+  }],
+  'passaic-river-dundee-garfield': [{
+    id: 'passaic-river-blueway-sign-context-dundee-garfield',
+    src: 'https://www.nj.gov/pvsc/news/photos/images/20170306/Blueway%20Sign.jpg',
+    alt: 'A Passaic River Blueway canoe and kayak trail sign beside the river in New Jersey.',
+    caption: 'Lower Passaic River Blueway sign and launch context for the Dundee Island to Garfield reach',
+    credit: 'Passaic Valley Sewerage Commission',
+    takenLabel: 'PVSC official Blueway project image',
+  }],
+  'great-egg-harbor-river-weymouth-lake-lenape': [{
+    id: 'great-egg-harbor-nps-river-context',
+    src: 'https://www.nps.gov/greg/planyourvisit/images/GREG-Palmer-5-2015.jpg',
+    alt: 'The Great Egg Harbor River winding through the New Jersey Pinelands.',
+    caption: 'Great Egg Harbor River National Wild and Scenic River context',
+    credit: 'National Park Service / Tim Palmer',
+    takenLabel: 'NPS official Great Egg Harbor River image',
+  }],
+  'pequest-river-route-46-orchard-street': [{
+    id: 'pequest-river-usgs-station-context',
+    src: 'https://usgs-nims-images.s3.amazonaws.com/overlay/NJ_Pequest_River_at_Pequest/NJ_Pequest_River_at_Pequest_newest.jpg',
+    alt: 'The Pequest River at the USGS Pequest monitoring station in New Jersey.',
+    caption: 'Pequest River station context near the selected reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Pequest River station image',
+  }],
+  'paulins-kill-garrison-route-94': [{
+    id: 'paulins-kill-usgs-station-context',
+    src: 'https://usgs-nims-images.s3.amazonaws.com/overlay/NJ_Paulins_Kill_at_Blairstown/NJ_Paulins_Kill_at_Blairstown_newest.jpg',
+    alt: 'The Paulins Kill at the USGS Blairstown monitoring station in New Jersey.',
+    caption: 'Paulins Kill station context for the East Branch planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Paulins Kill station image',
+  }],
+  'manasquan-river-hospital-brice': [{
+    id: 'manasquan-river-usgs-station-context',
+    src: 'https://usgs-nims-images.s3.amazonaws.com/overlay/NJ_Manasquan_River_near_Allenwood/NJ_Manasquan_River_near_Allenwood_newest.jpg',
+    alt: 'The Manasquan River near Allenwood, New Jersey, at a USGS monitoring station.',
+    caption: 'Manasquan River near Allenwood station context for the Hospital Road to Brice Park reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Manasquan River station image',
+  }],
+  'alloway-creek-quinton-hancocks-bridge': [{
+    id: 'alloway-creek-usgs-survey-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/Alloway1.jpeg',
+    alt: 'Alloway Creek during a USGS recon survey near the Quinton boat launch in New Jersey.',
+    caption: 'Alloway Creek same-reach survey context for the Quinton to Hancocks Bridge planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Alloway Creek survey image, public domain',
+  }],
+  'salem-river-mannington-salem': [{
+    id: 'salem-river-usgs-woodstown-context',
+    src: 'https://usgs-nims-images.s3.amazonaws.com/overlay/NJ_Salem_River_at_Woodstown/NJ_Salem_River_at_Woodstown_newest.jpg',
+    alt: 'The Salem River at a USGS monitoring station in New Jersey.',
+    caption: 'Salem River same-river context for the Mannington-to-Salem planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Salem River station image',
+  }],
+  'cohansey-river-bridgeton-back-neck': [{
+    id: 'cohansey-river-usgs-tidal-reach-context',
+    src: 'https://pubs.usgs.gov/sir/2025/5090/images/sir20255090_fig02b.png',
+    alt: 'Map of the lower tidal Cohansey River reach in Cumberland County, New Jersey.',
+    caption: 'Cohansey River tidal-reach context for the Bridgeton to Back Neck planning route',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS Scientific Investigations Report 2025-5090 figure',
+  }],
+  'toms-river-pine-beach-henley': [{
+    id: 'toms-river-usgs-channel-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/media/images/Channel1.jpg?itok=jcf40EI3',
+    alt: 'A USGS channel cross-section on the Toms River in New Jersey.',
+    caption: 'Toms River same-river channel context for the Pine Beach Municipal Boat Ramp to Henley Pier planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Toms River channel-study image',
+  }],
+  'toms-river-pine-beach-gilford': [{
+    id: 'toms-river-usgs-channel-context-gilford',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/media/images/Channel1.jpg?itok=jcf40EI3',
+    alt: 'A USGS channel cross-section on the Toms River in New Jersey.',
+    caption: 'Toms River same-river channel context for the Pine Beach to Gilford Park planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS official Toms River channel-study image',
+  }],
+  'maurice-river-ndelsea-fowser': [{
+    id: 'maurice-river-nps-wetland-context-upper',
+    src: 'https://www.nps.gov/articles/000/images/d1_1.jpg',
+    alt: 'Maurice River wetland landscape in New Jersey.',
+    caption: 'Maurice River same-river wetland context for the North Delsea Drive to Fowser planning reach',
+    credit: 'National Park Service',
+    takenLabel: 'NPS official Maurice River context image',
+  }],
+  'batsto-river-lower-forge-batsto': [{
+    id: 'batsto-river-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A river channel in New Jersey’s Pinelands National Reserve.',
+    caption: 'Pine Barrens water-trail context for the Batsto River',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'rancocas-creek-hainesport-mount-holly': [{
+    id: 'rancocas-creek-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A New Jersey Pine Barrens river channel used as regional moving-water context.',
+    caption: 'New Jersey moving-water context for the Rancocas Creek water trail',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'rancocas-creek-iron-works-hainesport': [{
+    id: 'rancocas-creek-iron-works-hainesport-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A New Jersey Pine Barrens river channel used as regional moving-water context for the Rancocas Creek route.',
+    caption: 'New Jersey moving-water context for the Iron Works Park to Hainesport Rancocas Creek reach',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'cedar-creek-ore-pond-dudley-park': [{
+    id: 'cedar-creek-ore-pond-dudley-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A New Jersey Pine Barrens river channel used as moving-water context for the Cedar Creek route.',
+    caption: 'New Jersey Pine Barrens water-trail context for the Ore Pond to Dudley Park Cedar Creek reach',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'delaware-river-belvidere-phillipsburg': [{
+    id: 'delaware-river-upper-delaware-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at the USGS Callicoon monitoring station, used as same-river context for the New Jersey Belvidere-to-Phillipsburg route.',
+    caption: 'Delaware River at Callicoon; same-river context for the Belvidere-to-Phillipsburg route',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-kittatinny-worthington': [{
+    id: 'delaware-river-kittatinny-worthington-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Kittatinny Point-to-Worthington route.',
+    caption: 'Delaware River same-river context for the Kittatinny Point-to-Worthington planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-worthington-poxono': [{
+    id: 'delaware-river-worthington-poxono-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Worthington-to-Poxono route.',
+    caption: 'Delaware River same-river context for the Worthington-to-Poxono planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-frenchtown-kingwood': [{
+    id: 'delaware-river-frenchtown-kingwood-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Frenchtown-to-Kingwood route.',
+    caption: 'Delaware River same-river context for the Frenchtown-to-Kingwood planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-kingwood-fairview': [{
+    id: 'delaware-river-kingwood-fairview-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Kingwood-to-Fairview route.',
+    caption: 'Delaware River same-river context for the Kingwood-to-Fairview planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-fairview-byram': [{
+    id: 'delaware-river-fairview-byram-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Fairview-to-Byram route.',
+    caption: 'Delaware River same-river context for the Fairview-to-Byram planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-byram-bulls-island': [{
+    id: 'delaware-river-byram-bulls-island-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Byram-to-Bull’s Island route.',
+    caption: 'Delaware River same-river context for the Byram-to-Bull’s Island planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-lambertville-firemens-eddy': [{
+    id: 'delaware-river-lambertville-firemens-eddy-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Lambertville-to-Firemen’s Eddy route.',
+    caption: 'Delaware River same-river context for the Lambertville-to-Firemen’s Eddy planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-firemens-eddy-washington-crossing': [{
+    id: 'delaware-river-firemens-eddy-washington-crossing-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Firemen’s Eddy-to-Washington Crossing route.',
+    caption: 'Delaware River same-river context for the Firemen’s Eddy-to-Washington Crossing planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-kingwood-byram': [{
+    id: 'delaware-river-kingwood-byram-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Kingwood-to-Byram route.',
+    caption: 'Delaware River same-river context for the Kingwood-to-Byram planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-bulls-island-lambertville': [{
+    id: 'delaware-river-bulls-lambertville-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Bull’s Island-to-Lambertville route.',
+    caption: 'Delaware River same-river context for the Bull’s Island-to-Lambertville planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'delaware-river-firemens-eddy-trenton': [{
+    id: 'delaware-river-firemens-trenton-usgs-context',
+    src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+    alt: 'The Delaware River at a USGS monitoring station, used as same-river context for the New Jersey Firemen’s Eddy-to-Trenton route.',
+    caption: 'Delaware River same-river context for the Firemen’s Eddy-to-Trenton planning reach',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'U.S. Geological Survey station image',
+  }],
+  'mullica-river-batsto-pleasant-mills': [{
+    id: 'mullica-river-pinelands-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/A300%2C_Mullica_River%2C_Pinelands_National_Reserve%2C_New_Jersey%2C_USA%2C_2010.jpg?width=1600',
+    alt: 'A Mullica River channel in New Jersey’s Pinelands National Reserve.',
+    caption: 'Mullica River in the Pinelands; context for the Batsto Village to Pleasant Mills planning reach',
+    credit: 'U.S. National Park Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
+  'maurice-river-fowser-matts-landing': [{
+    id: 'maurice-river-nps-wetland-context',
+    src: 'https://www.nps.gov/articles/000/images/d1_1.jpg',
+    alt: 'Wetland vista on the Maurice River in southern New Jersey.',
+    caption: 'Maurice River wetland context for the Fowser Road to Matts Landing planning reach',
+    credit: 'National Park Service',
+    takenLabel: 'National Park Service article image',
+  }],
+  'arkansas-river-parkdale-royal-gorge': [arkansasRoyalGorgePhoto],
+  'arkansas-river-granite-boat-chute-buena-vista': [arkansasGraniteBuenaVistaPhoto],
+  'arkansas-river-browns-canyon-fishermans-stone': [arkansasBrownsCanyonPhoto],
+  'arkansas-river-stone-bridge-salida': [arkansasSalidaTownPhoto],
+  'arkansas-river-salida-rincon': [arkansasSalidaTownPhoto],
+  'arkansas-river-rincon-pinnacle-rock': [arkansasSalidaTownPhoto],
+  'arkansas-river-pinnacle-rock-parkdale': [arkansasSalidaTownPhoto],
+  'arkansas-river-pueblo-whitewater-park': [puebloWhitewaterParkPhoto],
   'baltimore-blueway-inner-harbor-heritage': [patapscoMarylandPhoto],
   'baltimore-blueway-canton': [patapscoMarylandPhoto],
   'baltimore-blueway-domino-sugar': [patapscoMarylandPhoto],
@@ -770,2547 +1119,15 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'potomac-river-dam-four-shepherdstown': [potomacMarylandPhoto],
   'potomac-river-point-of-rocks-monocacy': [potomacMarylandPhoto],
   'potomac-river-monocacy-edwards': [potomacMarylandPhoto],
-'hudson-river-corning-preserve-hudson-shores': [
-    {
-      id: 'hudson-river-watervliet-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
-      alt: 'The Hudson River viewed from Watervliet, New York, near the lower-Hudson water-trail route.',
-      caption: 'Hudson River at Watervliet near Hudson Shores Park',
-      credit: 'Capital District Tourism Gnome via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
-    },
-  ],
-
-'hudson-river-north-river-riparius': [
-    {
-      id: 'hudson-river-north-river-riparius-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01315500.jpg',
-      alt: 'The Hudson River at the USGS North Creek monitoring station in New York, used as same-river context for the North River to Riparius route.',
-      caption: 'Hudson River at North Creek; North River–Riparius route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image',
-    },
-  ],
-
-'oriskany-creek-clinton': [
-    {
-      id: 'oriskany-creek-clinton-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01338000.jpg',
-      alt: 'Oriskany Creek near Oriskany, New York, used as same-river context for the Clinton Class II(III) route.',
-      caption: 'Oriskany Creek near Oriskany; Clinton route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image; same-river context',
-    },
-  ],
-
-'butternut-creek-jamesville-route-481': [
-    {
-      id: 'butternut-creek-jamesville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04244000.jpg',
-      alt: 'Chittenango Creek near Chittenango, New York, used as watershed-proxy context for the Butternut Creek Jamesville route.',
-      caption: 'Chittenango Creek near Chittenango; Butternut Creek proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image; watershed-proxy context',
-    },
-  ],
-
-'chittenango-creek-falls-chittenango': [
-    {
-      id: 'chittenango-creek-falls-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04244000.jpg',
-      alt: 'Chittenango Creek near Chittenango, New York, used as same-river context for the below-falls Chittenango Creek route.',
-      caption: 'Chittenango Creek near Chittenango; below-falls route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image',
-    },
-  ],
-
-'chautauqua-lake-chadakoin-celoron-mccrea': [
-    {
-      id: 'chautauqua-lake-chadakoin-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/03014500.jpg',
-      alt: 'The Chadakoin River at the USGS Falconer monitoring station in New York, used as downstream same-river context for the Chautauqua Lake outlet route.',
-      caption: 'Chadakoin River at Falconer; Chautauqua Lake outlet route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image; downstream same-river context',
-    },
-  ],
-
-'ellicott-creek-park-eastern-park': [
-    {
-      id: 'ellicott-creek-park-eastern-park-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218518.jpg',
-      alt: 'Ellicott Creek at the USGS below-Williamsville monitoring station in New York, used as same-creek context for the Tonawanda blueway route.',
-      caption: 'Ellicott Creek below Williamsville; Tonawanda blueway route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image; same-creek context',
-    },
-  ],
-
-'beaver-river-canoe-route-moshier-high-falls': [
-    {
-      id: 'beaver-river-canoe-route-moshier-high-falls-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04258000.jpg',
-      alt: 'The Beaver River at the USGS Croghan monitoring station in New York, used as regulated same-river context for the Moshier-to-High-Falls canoe route.',
-      caption: 'Beaver River at Croghan; Moshier-to-High-Falls canoe route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image; downstream regulated context',
-    },
-  ],
-
-'nine-mile-creek-munro-pumphouse': [
-    {
-      id: 'nine-mile-creek-munro-pumphouse-aqueduct',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Ninemile_Aqueduct_arches.jpg',
-      alt: 'The restored Nine Mile Creek Aqueduct arches at Camillus Erie Canal Park in New York.',
-      caption: 'Nine Mile Creek Aqueduct route feature near Camillus',
-      credit: 'Lvklock via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-
-'nine-mile-creek-pumphouse-onondaga-outlet': [
-    {
-      id: 'nine-mile-creek-pumphouse-onondaga-outlet-aqueduct',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Ninemile_Aqueduct_arches.jpg',
-      alt: 'The restored Nine Mile Creek Aqueduct arches at Camillus Erie Canal Park in New York, used as same-creek route context.',
-      caption: 'Nine Mile Creek Aqueduct; same-creek lower-watershed context',
-      credit: 'Lvklock via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-
-'mattituck-creek-dec-waterway-access-route-48': [
-    {
-      id: 'mattituck-creek-dec-waterway-access-route-48-inlet',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/AER%2003.06%20INLET.JPG?width=1600',
-      alt: 'Aerial Mattituck Inlet and Long Island Sound context in New York.',
-      caption: 'Mattituck Inlet; aerial route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons; license as listed on source page',
-    },
-  ],
-
-'old-place-creek-gulf-avenue-arthur-kill-out-and-back': [
-    {
-      id: 'old-place-creek-gulf-avenue-arthur-kill-out-and-back-mouth',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Old%20Place%20Creek%20%26%20AKVLB%20jeh.jpg?width=1600',
-      alt: 'Old Place Creek and the Arthur Kill Vertical Lift Bridge on Staten Island, New York.',
-      caption: 'Old Place Creek mouth and Arthur Kill bridge context',
-      credit: 'Jim.henderson via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
-  ],
-
-'lemon-creek-bayview-raritan-bay-out-and-back': [
-    {
-      id: 'lemon-creek-bayview-raritan-bay-out-and-back-channel',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Lemon%20Creek%20SI%20jeh.JPG?width=1600',
-      alt: 'Lemon Creek tidal channel on Staten Island, New York.',
-      caption: 'Lemon Creek tidal channel context',
-      credit: 'Jim.henderson via Wikimedia Commons',
-      license: 'Public domain',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-
-'braddock-bay-hand-launch-lake-ontario-marsh-out-and-back': [
-    {
-      id: 'braddock-bay-hand-launch-lake-ontario-marsh-out-and-back-aerial',
-      src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/pointcloud.PNG',
-      alt: 'USGS public-domain aerial context of Braddock Bay and the Lake Ontario shoreline in New York.',
-      caption: 'Braddock Bay and Lake Ontario aerial route context',
-      credit: 'U.S. Geological Survey',
-      license: 'Public domain',
-      takenLabel: 'USGS: public domain',
-    },
-  ],
-
-'raquette-river-forked-lake-deerland': [
-    {
-      id: 'raquette-river-forked-lake-deerland-sweeney-carry',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Raquette_River_-_at_Sweeney_Carry.jpg',
-      alt: 'Canoes being portaged at Sweeney Carry on the Raquette River in New York, used as historical same-river context for the Forked Lake to Deerland route.',
-      caption: 'Raquette River canoe portage at Sweeney Carry; historical same-river context',
-      credit: 'Seneca Ray Stoddard via Library of Congress / Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain historical photograph',
-    },
-  ],
-
-'raquette-river-piercefield-parmenter': [
-    {
-      id: 'raquette-river-piercefield-parmenter-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04266500.jpg',
-      alt: 'Raquette River at Piercefield USGS station photograph used as same-river context for the Piercefield to Parmenter whitewater route.',
-      caption: 'Raquette River at Piercefield; route and gauge context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'genesee-river-lee-landing-st-helena': [
-    {
-      id: 'genesee-river-lee-landing-st-helena-aw-banner',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/007744d3-8bdb-4edb-e9e5-37cabb5c2600/large',
-      alt: 'American Whitewater banner image for the Genesee River Letchworth Gorge reach from Lee’s Landing to St. Helena.',
-      caption: 'Letchworth Gorge; Lee’s Landing to St. Helena route context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route-specific image',
-    },
-  ],
-
-'st-regis-middle-branch-fort-jackson-buckton': [
-    {
-      id: 'st-regis-middle-branch-fort-jackson-buckton-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
-      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York.',
-      caption: 'St. Regis River near Parishville; same-watershed proxy context for Fort Jackson to Buckton',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain',
-    },
-  ],
-
-'batten-kill-eagleville-battenville': [
-    {
-      id: 'batten-kill-eagleville-battenville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01329490.jpg',
-      alt: 'The Batten Kill at the USGS monitoring station near Battenville, New York.',
-      caption: 'Batten Kill at Battenville; public-domain same-river context for the Eagleville-to-Battenville reach',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain',
-    },
-  ],
-
-'roeliff-jansen-kill-roe-jan-park-out-and-back': [
-    {
-      id: 'roeliff-jansen-kill-roe-jan-park-commons-context',
-      src: 'https://commons.wikimedia.org/wikipedia/commons/thumb/2/25/ROELIFF_JANSEN_KILL_FROM_THE_PARKWAY_NORTHBOUND_OVERPASS%2C_DUTCHESS_COUNTY_MILE_MARKER_138.0%2C_VIEW_SE._-_Taconic_State_Parkway%2C_Poughkeepsie%2C_Dutchess_County%2C_NY_HAER_NY%2C14-POKEP.V%2C1-126_%28CT%29.tif/lossy-page1-1920px-thumbnail.tif.jpg',
-      alt: 'Roeliff Jansen Kill viewed from the Taconic State Parkway in New York.',
-      caption: 'Roeliff Jansen Kill; public-domain river-system context for the Roe-Jan Kill Park out-and-back',
-      credit: 'David W. Haas / Historic American Engineering Record via Wikimedia Commons',
-      takenLabel: 'Public domain',
-    },
-  ],
-
-'ganargua-creek-swifts-landing-norsen-bridge': [
-    {
-      id: 'ganargua-creek-macedon-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04234254.jpg',
-      alt: 'Ganargua Creek at Macedon, New York, near the Swift’s Landing to Norsen Bridge blueway.',
-      caption: 'Ganargua Creek at Macedon near the lower blueway corridor',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain station image',
-    },
-  ],
-
-'irondequoit-creek-ellison-lasalles': [
-    {
-      id: 'irondequoit-creek-ellison-park-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Irondequoit_Creek_in_Ellison_Park.jpg',
-      alt: 'Irondequoit Creek winding through Ellison Park in Penfield, New York.',
-      caption: 'Irondequoit Creek at Ellison Park',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public image',
-    },
-  ],
-
-'onondaga-creek-meachem-inner-harbor': [
-    {
-      id: 'onondaga-creek-city-kayaker-context',
-      src: 'https://www.syr.gov/files/sharedassets/public/v/1/2-departments/parks-recreation/images/parks/onondaga-creekwalk/creekwalk-kayaker.jpg',
-      alt: 'Kayaker on Onondaga Creek in Syracuse, New York.',
-      caption: 'Kayaking on Onondaga Creek in Syracuse',
-      credit: 'City of Syracuse',
-      takenLabel: 'City of Syracuse Creekwalk photo',
-    },
-  ],
-
-'cayuga-inlet-treman-cass-park': [
-    {
-      id: 'cayuga-inlet-ithaca-kayakers-context',
-      src: 'https://images.squarespace-cdn.com/content/v1/68d2e97c14d9e63740433b34/3694ea8e-6348-4c6e-a961-dc66b7255f4e/Inlet-768x576.png',
-      alt: 'Kayakers paddling on the Cayuga Inlet in Ithaca, New York.',
-      caption: 'Kayakers on the Ithaca-area inlet',
-      credit: 'Ithaca Tompkins International Airport',
-      takenLabel: 'Ithaca-area paddling context photo',
-    },
-  ],
-
-'oak-orchard-creek-route-63-knowlesville': [
-    {
-      id: 'oak-orchard-creek-usgs-bridges-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/0422018610.jpg',
-      alt: 'Oak Orchard Creek at The Bridges in western New York.',
-      caption: 'Oak Orchard Creek at The Bridges',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS same-creek station context photo',
-    },
-  ],
-
-'oak-orchard-creek-medina-lake-ontario': [
-    {
-      id: 'oak-orchard-creek-medina-lake-ontario-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/0422018610.jpg',
-      alt: 'Oak Orchard Creek at The Bridges in western New York.',
-      caption: 'Oak Orchard Creek lower-corridor context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS same-creek station context photo',
-    },
-  ],
-
-'schroon-river-warrensburg-thurman-station': [
-    {
-      id: 'schroon-river-warrensburg-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
-      alt: 'Schroon River at Riverbank in Warren County, New York.',
-      caption: 'Schroon River Riverbank context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS same-river station context photo',
-    },
-  ],
-
-'schroon-river-schroon-falls-schroon-lake': [
-    {
-      id: 'schroon-river-schroon-lake-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
-      alt: 'Schroon River at Riverbank in Warren County, New York.',
-      caption: 'Schroon River downstream context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS same-river proxy station context photo',
-    },
-  ],
-
-'schroon-river-south-horicon-starbuckville': [
-    {
-      id: 'schroon-river-south-horicon-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
-      alt: 'Schroon River at Riverbank in Warren County, New York.',
-      caption: 'Schroon River downstream context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS same-river proxy station context photo',
-    },
-  ],
-
-'buffalo-river-harlem-ohio-street': [
-    {
-      id: 'buffalo-river-blueway-harlem-context',
-      src: 'https://buffaloblueway.com/wp-content/uploads/2026/04/Media-1.jpg',
-      alt: 'Public Harlem Road launch on the Buffalo River in West Seneca, New York.',
-      caption: 'Harlem Road Buffalo River launch',
-      credit: 'Buffalo Blueway',
-      takenLabel: 'Current Buffalo Blueway access photo',
-    },
-  ],
-
-'oswego-canal-lock-island-indian-point': [
-    {
-      id: 'oswego-canal-phoenix-fulton-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Erie-canal_oswego-canal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled',
-      alt: 'The Oswego Canal in New York.',
-      caption: 'Oswego Canal Phoenix-to-Fulton corridor context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: Oswego Canal context photo',
-    },
-  ],
-
-'oswego-canal-indian-point-lock-o8': [
-    {
-      id: 'oswego-canal-fulton-oswego-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Erie-canal_oswego-canal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled',
-      alt: 'The Oswego Canal in New York.',
-      caption: 'Oswego Canal Fulton-to-Oswego corridor context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: Oswego Canal context photo',
-    },
-  ],
-
-'cayuga-seneca-canal-oak-island-locks-cs2-3': [
-    {
-      id: 'cayuga-seneca-canal-seneca-falls-lock-context',
-      src: 'https://eriecanalway.org/application/files/2816/3130/6102/Cay-Sen_Paddlers_SenacaFallsCS2_569x384.jpg',
-      alt: 'Paddlers moving through the Cayuga-Seneca Canal lock in Seneca Falls, New York.',
-      caption: 'Cayuga-Seneca Canal Waterloo-to-Seneca Falls lock context',
-      credit: 'Erie Canalway National Heritage Corridor',
-      takenLabel: 'Official Erie Canalway route photograph',
-    },
-  ],
-
-'old-erie-canal-cedar-bay-chittenango-landing': [
-    {
-      id: 'old-erie-canal-chittenango-landing-context',
-      src: 'https://eriecanalway.org/application/files/7416/2931/7848/Chittenango_CanalBoatMuseum_569.jpg',
-      alt: 'Chittenango Landing Canal Boat Museum beside the Old Erie Canal in New York.',
-      caption: 'Old Erie Canal Cedar Bay-to-Chittenango Landing corridor context',
-      credit: 'Erie Canalway National Heritage Corridor',
-      takenLabel: 'Official Erie Canalway route photograph',
-    },
-  ],
-
-'erie-canal-mays-point-montezuma-aqueduct': [
-    {
-      id: 'erie-canal-richmond-aqueduct-context',
-      src: 'https://www.eriecanal.org/traces/SenecaRiverAqueduct/SenecaRiverAqueduct-2007.jpg',
-      alt: 'Richmond Aqueduct ruins over the Seneca River near Montezuma, New York.',
-      caption: 'Mays Point to Montezuma Richmond Aqueduct route context',
-      credit: 'Traces of the Erie Canal',
-      takenLabel: 'Richmond Aqueduct route-context photograph',
-    },
-  ],
-
-'erie-canal-fairport-bushnells-basin': [
-    {
-      id: 'erie-canal-bushnells-basin-docks-context',
-      src: 'https://eriecanalway.org/application/files/4916/3007/5859/BushnellsBasin_docks_JMackay12.jpg',
-      alt: 'Bushnell’s Basin docks beside the Erie Canal in Pittsford, New York.',
-      caption: 'Fairport to Bushnell’s Basin Erie Canal route context',
-      credit: 'Erie Canalway National Heritage Corridor',
-      takenLabel: 'Official Erie Canalway destination photograph',
-    },
-  ],
-
-'champlain-canal-moreau-lock-c5': [
-    {
-      id: 'champlain-canal-moreau-lock-c5-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, near the upstream Champlain Canal corridor.',
-      caption: 'Moreau to Lock C5 Champlain Canal route and upstream Hudson River context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river proxy context',
-    },
-  ],
-
-'champlain-canal-lock-c5-stillwater': [
-    {
-      id: 'champlain-canal-hudson-crossing-context',
-      src: 'https://eriecanalway.org/application/files/4814/5359/5259/Schuylerville_HudsonCrossingPark_CleanSweep.jpg',
-      alt: 'Hudson Crossing Park on Lock C5 Island beside the Champlain Canal and Hudson River in Schuylerville, New York.',
-      caption: 'Lock C5 to Stillwater Champlain Canal route context',
-      credit: 'Erie Canalway National Heritage Corridor',
-      takenLabel: 'Official Erie Canalway destination photograph',
-    },
-  ],
-
-'champlain-canal-stillwater-mechanicville': [
-    {
-      id: 'champlain-canal-stillwater-mechanicville-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Champlain Canal corridor.',
-      caption: 'Stillwater to Mechanicville Champlain Canal route and Hudson River proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river proxy context',
-    },
-  ],
-
-'champlain-canal-mechanicville-waterford': [
-    {
-      id: 'champlain-canal-mechanicville-waterford-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the lower Champlain Canal corridor.',
-      caption: 'Mechanicville to Waterford Champlain Canal route and Hudson River proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river proxy context',
-    },
-  ],
-
-'erie-canal-waterford-flight': [
-    {
-      id: 'erie-canal-waterford-flight-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
-      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Waterford Flight.',
-      caption: 'Waterford Flight Erie Canal route and Capital Region Hudson proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream proxy context',
-    },
-  ],
-
-'erie-canal-lock-e7-waterford-flight': [
-    {
-      id: 'erie-canal-lock-e7-waterford-flight-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
-      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Erie Canal near Vischer Ferry and Waterford.',
-      caption: 'Lock E7 to Waterford Flight Erie Canal route and Capital Region proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream proxy context',
-    },
-  ],
-
-'erie-canal-tonawanda-amherst': [
-    {
-      id: 'erie-canal-tonawanda-amherst-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the western Erie Canal.',
-      caption: 'Tonawanda to Amherst Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-amherst-lockport': [
-    {
-      id: 'erie-canal-amherst-lockport-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Amherst to Lockport Erie Canal.',
-      caption: 'Amherst to Lockport Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-lockport-gasport': [
-    {
-      id: 'erie-canal-lockport-gasport-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Lockport to Gasport Erie Canal.',
-      caption: 'Lockport to Gasport Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-gasport-medina': [
-    {
-      id: 'erie-canal-gasport-medina-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Gasport to Medina Erie Canal.',
-      caption: 'Gasport to Medina Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-medina-albion': [
-    {
-      id: 'erie-canal-medina-albion-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Medina to Albion Erie Canal.',
-      caption: 'Medina to Albion Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-albion-san-souci': [
-    {
-      id: 'erie-canal-albion-san-souci-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Albion to San Souci Erie Canal.',
-      caption: 'Albion to San Souci Erie Canal route and Tonawanda Creek proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; watershed proxy context',
-    },
-  ],
-
-'erie-canal-brockport-spencerport': [
-    {
-      id: 'erie-canal-brockport-spencerport-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for Brockport to Spencerport.',
-      caption: 'Brockport to Spencerport Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-spencerport-genesee-river': [
-    {
-      id: 'erie-canal-spencerport-genesee-river-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for Spencerport to Genesee River.',
-      caption: 'Spencerport to Genesee River Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-genesee-river-bushnells-basin': [
-    {
-      id: 'erie-canal-genesee-river-bushnells-basin-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Genesee River to Bushnell’s Basin section.',
-      caption: 'Genesee River to Bushnell’s Basin Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-bushnells-basin-macedon': [
-    {
-      id: 'erie-canal-bushnells-basin-macedon-context',
-      src: 'https://eriecanalway.org/application/files/4916/3007/5859/BushnellsBasin_docks_JMackay12.jpg',
-      alt: 'Bushnell’s Basin docks beside the Erie Canal in Pittsford, New York, used as endpoint context for the Bushnell’s Basin to Macedon section.',
-      caption: 'Bushnell’s Basin to Macedon Erie Canal route endpoint context',
-      credit: 'Erie Canalway National Heritage Corridor',
-      takenLabel: 'Official Erie Canalway destination photograph',
-    },
-  ],
-
-'erie-canal-macedon-newark': [
-    {
-      id: 'erie-canal-macedon-newark-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Macedon to Newark section.',
-      caption: 'Macedon to Newark Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-newark-lyons': [
-    {
-      id: 'erie-canal-newark-lyons-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Newark to Lyons section.',
-      caption: 'Newark to Lyons Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-lyons-seneca-county-line': [
-    {
-      id: 'erie-canal-lyons-seneca-county-line-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Lyons to Seneca County Line section.',
-      caption: 'Lyons to Seneca County Line Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-montezuma-nwr': [
-    {
-      id: 'erie-canal-montezuma-nwr-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Montezuma National Wildlife Refuge section.',
-      caption: 'Montezuma National Wildlife Refuge Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-seneca-river-mentz-brutus': [
-    {
-      id: 'erie-canal-seneca-river-mentz-brutus-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Mentz to Brutus Seneca River section.',
-      caption: 'Mentz to Brutus Seneca River route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-baldwinsville-three-rivers': [
-    {
-      id: 'erie-canal-baldwinsville-three-rivers-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Baldwinsville to Three Rivers section.',
-      caption: 'Baldwinsville to Three Rivers Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-three-rivers-brewerton': [
-    {
-      id: 'erie-canal-three-rivers-brewerton-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Three Rivers to Brewerton section.',
-      caption: 'Three Rivers to Brewerton Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'seneca-river-howland-island-loop': [
-    {
-      id: 'seneca-river-howland-island-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04237496.jpg',
-      alt: 'The Seneca River at the USGS monitoring station near Baldwinsville, New York, used as route-system context for the Northern Montezuma loop.',
-      caption: 'Seneca River near Baldwinsville; Northern Montezuma route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'hudson-river-tivoli-north-bay-loop': [
-    {
-      id: 'hudson-river-tivoli-north-bay-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
-      alt: 'The Hudson River at the USGS Green Island monitoring station in New York, used as same-river context for the Tivoli North Bay tidal-marsh loop.',
-      caption: 'Hudson River at Green Island; Tivoli North Bay route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'rondout-creek-kingston-eddyville-loop': [
-    {
-      id: 'rondout-creek-kingston-eddyville-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rondout%20Creek%20near%20mouth%2C%20Kingston%2C%20NY.jpg?width=1600',
-      alt: 'Rondout Creek near its mouth in Kingston, New York, used as same-route context for the Kingston-to-Eddyville loop.',
-      caption: 'Rondout Creek near Kingston; lower-creek route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-river context image',
-    },
-  ],
-
-'rondout-creek-high-falls-rosendale': [
-    {
-      id: 'rondout-creek-high-falls-rosendale-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rondout%20Creek%20near%20mouth%2C%20Kingston%2C%20NY.jpg?width=1600',
-      alt: 'Rondout Creek near Kingston, New York, used as same-river context for the High Falls Dam to Rosendale whitewater reach.',
-      caption: 'Rondout Creek near Kingston; High Falls–Rosendale route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-river context image',
-    },
-  ],
-
-'grass-river-woods-bridge-route47': [
-    {
-      id: 'grass-river-woods-bridge-route47-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
-      alt: 'Grass River at the USGS Chase Mills station in New York, used as same-river context for the Woods Bridge Road to Route 47 reach.',
-      caption: 'Grass River at Chase Mills; Woods Bridge–Route 47 route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'otselic-river-willet-landers-corners': [
-    {
-      id: 'otselic-river-cincinnatus-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01510000.jpg',
-      alt: 'Otselic River at the Cincinnatus USGS station in New York, used as same-river context for the Willet to Landers Corners route.',
-      caption: 'Otselic River at Cincinnatus; Willet-to-Landers Corners route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'chenango-river-north-norwich-greene': [
-    {
-      id: 'chenango-river-greene-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01507000.jpg',
-      alt: 'Chenango River at the Greene USGS station in New York, used as same-river context for the North Norwich to Greene route.',
-      caption: 'Chenango River at Greene; North Norwich-to-Greene route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'chenango-river-sherburne-north-norwich': [
-    {
-      id: 'chenango-river-sherburne-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01505000.jpg',
-      alt: 'Chenango River at the Sherburne USGS station in New York, used as same-river context for the Sherburne to North Norwich route.',
-      caption: 'Chenango River at Sherburne; Sherburne-to-North-Norwich route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'fishkill-creek-jean-van-pelt-sarah-taylor': [
-    {
-      id: 'fishkill-creek-van-pelt-launch',
-      src: 'https://images.squarespace-cdn.com/content/v1/66319ef6d52ccf17319148f4/e7168f0f-d60b-4b86-9478-c798f9f9b1c0/Kayak%2BVan%2BPelt%2B1.png',
-      alt: 'Kayak on Fishkill Creek at the Jean Van Pelt Park launch in New York.',
-      caption: 'Fishkill Creek at Jean Van Pelt Park; Van Pelt-to-Sarah Taylor route context',
-      credit: 'Fishkill Creek Watershed Alliance',
-      takenLabel: 'Route-specific image; source page attribution',
-    },
-  ],
-
-'catskill-creek-kiwanis-dutchmans': [
-    {
-      id: 'catskill-creek-kiwanis-canoe',
-      src: 'https://images.squarespace-cdn.com/content/v1/5cec0723a613da0001c31544/1563819990122-6I75WN6F97SFI7Q83EP6/IMG-2529.JPG?format=750w',
-      alt: 'Canoe on Catskill Creek near the Hudson River Art Trail site in Catskill, New York.',
-      caption: 'Catskill Creek near the village access; Kiwanis Park to Dutchman’s Landing route context',
-      credit: 'Hudson River School / Hudson River Art Trail',
-      takenLabel: 'Route-specific image; source page attribution',
-    },
-  ],
-
-'tioughnioga-river-itaska-chenango-forks': [
-    {
-      id: 'tioughnioga-river-itaska-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01509000.jpg',
-      alt: 'The Tioughnioga River at the USGS Cortland monitoring station in New York, used as same-river context for the Itaska to Chenango Forks section.',
-      caption: 'Tioughnioga River at Cortland; Itaska to Chenango Forks route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'south-sandy-creek-lakeview-outlet': [
-    {
-      id: 'south-sandy-creek-lakeview-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04250750.jpg',
-      alt: 'Sandy Creek near Adams, New York, used as same-system context for the Lakeview WMA South Sandy Creek paddle.',
-      caption: 'Sandy Creek near Adams; Lakeview WMA South Sandy Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-system context',
-    },
-  ],
-
-'schoharie-creek-burtonsville-fort-hunter': [
-    {
-      id: 'schoharie-creek-burtonsville-fort-hunter-nws-context',
-      src: 'https://www.weather.gov/images/nerfc/gallery/brtn6_2.jpg',
-      alt: 'Schoharie Creek flowing through Burtonsville, New York, used as same-river context for the Burtonsville to Fort Hunter route.',
-      caption: 'Schoharie Creek at Burtonsville; Burtonsville to Fort Hunter route context',
-      credit: 'National Weather Service Northeast River Forecast Center',
-      takenLabel: 'U.S. government public domain; same-river context',
-    },
-  ],
-
-'hudson-river-riparius-glen': [
-    {
-      id: 'hudson-river-riparius-glen-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01316031.jpg',
-      alt: 'Hudson River at The Glen, New York, used as same-river context for the Riparius to The Glen route.',
-      caption: 'Hudson River at The Glen; Riparius to The Glen route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'black-river-forestport-hawkinsville': [
-    {
-      id: 'black-river-forestport-hawkinsville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
-      alt: 'Black River near Boonville, New York, used as same-river context for the Forestport Reservoir to Hawkinsville route.',
-      caption: 'Black River near Boonville; Forestport to Hawkinsville route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'black-river-hawkinsville-norton-road': [
-    {
-      id: 'black-river-hawkinsville-norton-road-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
-      alt: 'Black River near Boonville, New York, used as same-river context for the Hawkinsville to Norton Road route.',
-      caption: 'Black River near Boonville; Hawkinsville to Norton Road route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'erie-canal-sylvan-beach': [
-    {
-      id: 'erie-canal-sylvan-beach-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Sylvan Beach section.',
-      caption: 'Sylvan Beach Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-rome-marcy': [
-    {
-      id: 'erie-canal-rome-marcy-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Rome to Marcy section.',
-      caption: 'Rome to Marcy Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-lock-e20-frankfort': [
-    {
-      id: 'erie-canal-lock-e20-frankfort-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Lock E20 to Frankfort section.',
-      caption: 'Lock E20 to Frankfort Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-frankfort-lock-e18': [
-    {
-      id: 'erie-canal-frankfort-lock-e18-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Frankfort to Lock E18 section.',
-      caption: 'Frankfort to Lock E18 Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-german-flatts-st-johnsville': [
-    {
-      id: 'erie-canal-german-flatts-st-johnsville-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the German Flatts to St. Johnsville section.',
-      caption: 'German Flatts to St. Johnsville Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-st-johnsville-canajoharie': [
-    {
-      id: 'erie-canal-st-johnsville-canajoharie-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the St. Johnsville to Canajoharie section.',
-      caption: 'St. Johnsville to Canajoharie Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-canajoharie-fultonville': [
-    {
-      id: 'erie-canal-canajoharie-fultonville-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Canajoharie to Fultonville section.',
-      caption: 'Canajoharie to Fultonville Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-fultonville-amsterdam': [
-    {
-      id: 'erie-canal-fultonville-amsterdam-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Fultonville to Amsterdam section.',
-      caption: 'Fultonville to Amsterdam Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-amsterdam-rotterdam-junction': [
-    {
-      id: 'erie-canal-amsterdam-rotterdam-junction-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Amsterdam to Rotterdam Junction section.',
-      caption: 'Amsterdam to Rotterdam Junction Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-rotterdam-junction-freemans-bridge': [
-    {
-      id: 'erie-canal-rotterdam-junction-freemans-bridge-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Rotterdam Junction to Freeman’s Bridge section.',
-      caption: 'Rotterdam Junction to Freeman’s Bridge Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-freemans-bridge-lock-e7': [
-    {
-      id: 'erie-canal-freemans-bridge-lock-e7-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Freeman’s Bridge to Lock E7 section.',
-      caption: 'Freeman’s Bridge to Lock E7 Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'erie-canal-lock-e7-waterford-flight-south': [
-    {
-      id: 'erie-canal-lock-e7-waterford-flight-south-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the south-side Lock E7 to Waterford Flight section.',
-      caption: 'South-side Lock E7 to Waterford Flight Erie Canal route and same-canal proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'waterford-hudson-confluence-lansingburgh': [
-    {
-      id: 'waterford-hudson-confluence-lansingburgh-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
-      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Waterford to Lansingburgh confluence crossing.',
-      caption: 'Waterford to Lansingburgh Hudson–Mohawk confluence route and regional proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; regional Hudson proxy context',
-    },
-  ],
-
-'glens-falls-feeder-canal-queensbury-hudson-falls': [
-    {
-      id: 'glens-falls-feeder-canal-queensbury-hudson-falls-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Glens Falls Feeder Canal route.',
-      caption: 'Glens Falls Feeder Canal Queensbury to Hudson Falls route and regional proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; regional Hudson/Champlain proxy context',
-    },
-  ],
-
-'nissequogue-river-paul-given-state-park': [
-    {
-      id: 'nissequogue-river-paul-given-state-park-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01304000.jpg',
-      alt: 'Nissequogue River near Smithtown, New York, used as same-river context for the Paul T. Given to Nissequogue River State Park tidal route.',
-      caption: 'Paul T. Given to Nissequogue River State Park tidal route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'carmans-river-montauk-beaverdam': [
-    {
-      id: 'carmans-river-montauk-beaverdam-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01305000.jpg',
-      alt: 'Carmans River at Yaphank, New York, used as same-river freshwater context for the lower Carmans tidal route.',
-      caption: 'Montauk Highway to Beaver Dam Road Carmans River route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'connetquot-river-great-river-heckscher': [
-    {
-      id: 'connetquot-river-great-river-heckscher-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Connetquot-River.jpg?width=1600',
-      alt: 'Connetquot River in Suffolk County, New York, used as same-river context for the lower estuary route.',
-      caption: 'Great River Ramp to Heckscher Field 7 lower Connetquot route context',
-      credit: 'Americasroof via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons image; CC BY-SA 3.0; same-river context',
-    },
-  ],
-
-'catatonk-creek-candor-owego': [
-    {
-      id: 'catatonk-creek-candor-owego-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01514000.jpg',
-      alt: 'Owego Creek near Owego, New York, used as same-river gauge context for the Catatonk Creek to Owego route.',
-      caption: 'Owego Creek near Owego; Catatonk/Owego route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'owego-creek-lower-owego-out-and-back': [
-    {
-      id: 'owego-creek-lower-owego-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01514000.jpg',
-      alt: 'Owego Creek near Owego, New York, used as same-river gauge context for the lower Owego Creek out-and-back route.',
-      caption: 'Owego Creek near Owego; lower Owego Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'canisteo-river-canisteo-addison': [
-    {
-      id: 'canisteo-river-canisteo-addison-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01525500.jpg',
-      alt: 'Canisteo River at West Cameron, New York, used as same-river gauge context for the Canisteo-to-Addison route.',
-      caption: 'Canisteo River at West Cameron; Canisteo-to-Addison route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'cazenovia-creek-west-falls-mill-road': [
-    {
-      id: 'cazenovia-creek-west-falls-mill-road-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
-      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river gauge context for the West Falls to Mill Road route.',
-      caption: 'Cazenovia Creek at Ebenezer; West Falls-to-Mill Road route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'cazenovia-creek-mill-road-cazenovia-park': [
-    {
-      id: 'cazenovia-creek-mill-road-cazenovia-park-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
-      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river context for the Mill Road Park to Cazenovia Park route.',
-      caption: 'Cazenovia Creek at Ebenezer; Mill Road-to-Cazenovia Park route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'cazenovia-creek-cazenovia-park-thomas-higgins': [
-    {
-      id: 'cazenovia-creek-cazenovia-park-thomas-higgins-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
-      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river context for the Cazenovia Park to Thomas Higgins Park route.',
-      caption: 'Cazenovia Creek at Ebenezer; lower urban blueway route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'west-branch-oswegatchie-jerden-kimballs': [
-    {
-      id: 'west-branch-oswegatchie-jerden-kimballs-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04262500.jpg',
-      alt: 'West Branch Oswegatchie River near Harrisville, New York, used as branch and proxy-gauge context for the Jerden Falls Road to Kimballs Mills route.',
-      caption: 'West Branch Oswegatchie near Harrisville; Jerden Falls-to-Kimballs Mills route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-branch proxy context',
-    },
-  ],
-
-'keuka-outlet-penn-yan-dresden': [
-    {
-      id: 'keuka-outlet-penn-yan-dresden-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04232482.jpg',
-      alt: 'Keuka Lake Outlet at Dresden, New York, used as direct-gauge context for the Penn Yan to Dresden route.',
-      caption: 'Keuka Lake Outlet at Dresden; Penn Yan-to-Dresden route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'black-river-watertown-dexter-canyon': [
-    {
-      id: 'black-river-watertown-dexter-canyon-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04260500.jpg',
-      alt: 'Black River at Watertown, New York, used as direct-gauge context for the Watertown to Dexter canyon route.',
-      caption: 'Black River at Watertown; Watertown-to-Dexter canyon route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'flint-creek-orleans-phelps': [
-    {
-      id: 'flint-creek-orleans-phelps-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04235250.jpg',
-      alt: 'Flint Creek at Phelps, New York, used as same-river gauge context for the Orleans-to-Phelps route.',
-      caption: 'Flint Creek at Phelps; Orleans-to-Phelps route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'kinderhook-creek-east-nassau-valatie': [
-    {
-      id: 'kinderhook-creek-east-nassau-valatie-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01361000.jpg',
-      alt: 'Kinderhook Creek at Rossman, New York, used as same-river gauge context for the East Nassau-to-Valatie route.',
-      caption: 'Kinderhook Creek at Rossman; East Nassau-to-Valatie route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'kayaderosseras-creek-grays-crossing-driscoll-road': [
-    {
-      id: 'kayaderosseras-creek-grays-crossing-driscoll-road-context',
-      src: 'https://kayadeross.org/wp-content/uploads/2023/05/title-grays.jpg',
-      alt: 'Kayaderosseras Creek at Gray’s Crossing, used as route context for the Gray’s Crossing to Driscoll Road blueway segment.',
-      caption: 'Gray’s Crossing on Kayaderosseras Creek; route context for the Driscoll Road segment',
-      credit: 'Friends of the Kayaderosseras',
-      takenLabel: 'Courtesy of Friends of the Kayaderosseras',
-    },
-  ],
-
-'kinderhook-creek-stuyvesant-falls-stockport': [
-    {
-      id: 'kinderhook-creek-stuyvesant-falls-stockport-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01361000.jpg',
-      alt: 'Kinderhook Creek at Rossman, New York, used as same-river gauge context for the Stuyvesant Falls to Stockport route.',
-      caption: 'Kinderhook Creek at Rossman; Stuyvesant Falls to Stockport route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'hudson-river-schodack-island-catskill': [
-    {
-      id: 'hudson-river-schodack-island-catskill-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
-      alt: 'Hudson River view used as same-river estuary context for the Schodack Island to Catskill route.',
-      caption: 'Hudson River estuary; Schodack Island to Catskill route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-river context image',
-    },
-  ],
-
-'ramshorn-livingston-sanctuary-dutchmans': [
-    {
-      id: 'ramshorn-livingston-sanctuary-dutchmans-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
-      alt: 'Hudson River view used as same-estuary context for the RamsHorn-Livingston Sanctuary to Dutchman’s Landing route.',
-      caption: 'Hudson River estuary; RamsHorn-Livingston to Dutchman’s Landing route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-estuary context image',
-    },
-  ],
-
-'independence-river-bailey-donnattsburg': [
-    {
-      id: 'independence-river-bailey-donnattsburg-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04256000.jpg',
-      alt: 'Independence River at Donnattsburg, New York, used as same-river context for the Bailey Road to Donnattsburg upper reach.',
-      caption: 'Independence River at Donnattsburg; Bailey Road to Donnattsburg route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'bog-river-flow-lower-dam-lows-lake': [
-    {
-      id: 'bog-river-flow-lower-dam-lows-lake-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
-      alt: 'Lows Lake in the Adirondacks, used as route context for the Bog River Flow Lower Dam to Lows Lake canoe route.',
-      caption: 'Lows Lake from Grass Pond Mountain; Bog River Flow route context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-route context image',
-    },
-  ],
-
-'bog-river-lower-dam-bog-river-falls': [
-    {
-      id: 'bog-river-lower-dam-bog-river-falls-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
-      alt: 'Lows Lake in the Adirondacks, used as same-water context for the advanced Bog River Lower Dam to Bog River Falls reach.',
-      caption: 'Lows Lake and Bog River Complex context; lower Bog River route begins below Lows Lower Dam',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-water context image',
-    },
-  ],
-
-'bog-river-lows-oswegatchie-inlet': [
-    {
-      id: 'bog-river-lows-oswegatchie-inlet-context',
-      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
-      alt: 'Lows Lake in the Adirondacks, used as same-water context for the Lows Lower Dam to Oswegatchie Inlet wilderness traverse.',
-      caption: 'Lows Lake from Grass Pond Mountain; Bog River–Oswegatchie traverse context',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Same-water route-context image',
-    },
-  ],
-
-'sangerfield-river-nine-mile-park-out-and-back': [
-    {
-      id: 'sangerfield-river-nine-mile-park-out-and-back-context',
-      src: 'https://live.staticflickr.com/65535/40100302831_ffb91383de.jpg',
-      alt: 'The Sangerfield River flowing through Nine Mile Swamp in Madison County, New York.',
-      caption: 'Sangerfield River in Nine Mile Swamp; 9-Mile Park route context',
-      credit: 'Will Parson / Chesapeake Bay Program via Flickr',
-      takenLabel: 'Chesapeake Bay Program photographic archive; permission and credit required',
-    },
-  ],
-
-'fish-creek-wma-route-184-pope-mills': [
-    {
-      id: 'fish-creek-wma-route-184-pope-mills-context',
-      src: 'https://dec.ny.gov/sites/default/files/styles/hero_background/public/2025-10/fishcreek.jpg?h=19f14c2c&itok=NXXmiquX&upd=1788381224',
-      alt: 'Fish Creek Wildlife Management Area in St. Lawrence County, New York, used as route context for the Route 184 to Pope Mills wetland paddle.',
-      caption: 'Fish Creek Wildlife Management Area; Route 184 to Pope Mills route context',
-      credit: 'NYSDEC',
-      takenLabel: 'Current NYSDEC Fish Creek WMA page image; route-context only',
-    },
-  ],
-
-'oswegatchie-east-branch-inlet-wanakena': [
-    {
-      id: 'oswegatchie-east-branch-inlet-wanakena-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04260910.jpg',
-      alt: 'East Branch Oswegatchie River at Wanakena, New York, used as same-river context for the Inlet to Wanakena whitewater reach.',
-      caption: 'East Branch Oswegatchie River at Wanakena; Inlet to Wanakena route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'indian-river-hall-road-rossie-falls-out-and-back': [
-    {
-      id: 'indian-river-hall-road-rossie-falls-out-and-back-context',
-      src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/LK00-BI701-Fig2.png',
-      alt: 'Indian River in New York with boulders and a railroad bridge, used as context for the Hall Road to Rossie Falls day paddle.',
-      caption: 'Indian River, New York; Hall Road to Rossie Falls route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public-domain Indian River image; route-context only',
-    },
-  ],
-
-'oswegatchie-east-branch-flat-rock-edwards': [
-    {
-      id: 'oswegatchie-east-branch-flat-rock-edwards-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04262500.jpg',
-      alt: 'West Branch Oswegatchie River near Harrisville, New York, used as same-watershed context for the East Branch Flat Rock to Edwards whitewater reach.',
-      caption: 'West Branch Oswegatchie River near Harrisville; East Branch Flat Rock to Edwards proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-watershed proxy context',
-    },
-  ],
-
-'saranac-river-union-falls-casey-road': [
-    {
-      id: 'saranac-river-union-falls-casey-road-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Union Falls to Casey Road whitewater reach.',
-      caption: 'Saranac River at Plattsburgh; Union Falls to Casey Road route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'saranac-river-kent-falls-military-turnpike': [
-    {
-      id: 'saranac-river-kent-falls-military-turnpike-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Foot of Kent Falls to Military Turnpike moving-water segment.',
-      caption: 'Saranac River at Plattsburgh; Foot of Kent Falls to Military Turnpike route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'saranac-river-military-turnpike-imperial-mill': [
-    {
-      id: 'saranac-river-military-turnpike-imperial-mill-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Military Turnpike to Imperial Mill whitewater segment.',
-      caption: 'Saranac River at Plattsburgh; Military Turnpike to Imperial Mill route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'saranac-river-imperial-mill-lake-champlain': [
-    {
-      id: 'saranac-river-imperial-mill-lake-champlain-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Imperial Mill Dam to Lake Champlain whitewater segment.',
-      caption: 'Saranac River at Plattsburgh; Imperial Mill Dam to Lake Champlain route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'peconic-river-river-road-edwards-avenue': [
-    {
-      id: 'peconic-river-river-road-edwards-avenue-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
-      alt: 'Peconic River at Riverhead, New York, used as same-river context for the River Road to Edwards Avenue upper reach.',
-      caption: 'River Road to Edwards Avenue Peconic River upper-reach context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'peconic-river-forge-pond-upper-mills': [
-    {
-      id: 'peconic-river-forge-pond-upper-mills-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
-      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Forge Pond to Upper Mills lower freshwater route.',
-      caption: 'Forge Pond to Upper Mills Peconic River lower-freshwater context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'peconic-river-upper-mills-weeping-willow': [
-    {
-      id: 'peconic-river-upper-mills-weeping-willow-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
-      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Upper Mills to Weeping Willow lower Blueway section.',
-      caption: 'Upper Mills to Weeping Willow Peconic River lower-reach context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'peconic-river-weeping-willow-indian-island': [
-    {
-      id: 'peconic-river-weeping-willow-indian-island-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
-      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Weeping Willow to Indian Island tidal route.',
-      caption: 'Weeping Willow to Indian Island Peconic River tidal reach context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'schoharie-creek-middleburgh-central-bridge': [
-    {
-      id: 'schoharie-creek-middleburgh-central-bridge-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01350750.jpg',
-      alt: 'Schoharie Creek at Schoharie, New York, used as same-river context for the Middleburgh to Central Bridge route.',
-      caption: 'Middleburgh to Central Bridge Schoharie Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'cobleskill-creek-warnerville-central-bridge': [
-    {
-      id: 'cobleskill-creek-south-grand-street-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01351298.jpg',
-      alt: 'Cobleskill Creek at South Grand Street in Cobleskill, New York, used as same-river context for the Warnerville to Central Bridge route.',
-      caption: 'Cobleskill Creek at South Grand Street; Warnerville-to-Central Bridge route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river context',
-    },
-  ],
-
-'schoharie-creek-central-bridge-esperance': [
-    {
-      id: 'schoharie-creek-central-bridge-esperance-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01351450.jpg',
-      alt: 'Schoharie Creek at Esperance, New York, used as same-river context for the Central Bridge to Esperance route.',
-      caption: 'Central Bridge to Esperance Schoharie Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'esopus-creek-phoenicia-boiceville': [
-    {
-      id: 'esopus-creek-phoenicia-boiceville-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01362500.jpg',
-      alt: 'Esopus Creek at Coldbrook, New York, used as same-river context for the Phoenicia to Boiceville route.',
-      caption: 'Phoenicia to Boiceville Esopus Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'wappinger-creek-cady-greenvale': [
-    {
-      id: 'wappinger-creek-cady-greenvale-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01372500.jpg',
-      alt: 'Wappinger Creek near Wappingers Falls, New York, used as same-river context for the Cady/Pleasant Valley to Greenvale Park route.',
-      caption: 'Cady/Pleasant Valley to Greenvale Park Wappinger Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'wallkill-river-popp-gardiner': [
-    {
-      id: 'wallkill-river-popp-gardiner-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
-      alt: 'Wallkill River at Gardiner, New York, used as same-river context for the Popp Park to Gardiner route.',
-      caption: 'Popp Park to Gardiner Wallkill River route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'wallkill-river-new-paltz-rosendale': [
-    {
-      id: 'wallkill-river-new-paltz-rosendale-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
-      alt: 'Wallkill River at Gardiner, New York, used as same-river context for the New Paltz to Rosendale route.',
-      caption: 'New Paltz to Rosendale Wallkill River route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'oswegatchie-river-heuvelton-ogdensburg': [
-    {
-      id: 'oswegatchie-river-heuvelton-ogdensburg-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04263000.jpg',
-      alt: 'Oswegatchie River near Heuvelton, New York, used as same-river context for the Heuvelton to Ogdensburg route.',
-      caption: 'Heuvelton to Ogdensburg Oswegatchie River route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'raquette-river-raymondville-massena-springs': [
-    {
-      id: 'raquette-river-raymondville-massena-springs-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04268000.jpg',
-      alt: 'Raquette River at Raymondville USGS station photograph used as same-river context for the Raymondville to Massena Springs route.',
-      caption: 'Raquette River at Raymondville; route and gauge context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'east-canada-creek-powley-place-out-and-back': [
-    {
-      id: 'east-canada-creek-powley-place-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01348000.jpg',
-      alt: 'East Canada Creek at the USGS monitoring station near East Creek, New York, used as same-river context for the Powley Place out-and-back.',
-      caption: 'East Canada Creek; route and gauge context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'sacandaga-river-speculator-duck-bay-loop': [
-    {
-      id: 'sacandaga-river-speculator-duck-bay-loop-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
-      alt: 'Sacandaga River near Hope USGS station photograph used as same-river context for the Speculator to Duck Bay flatwater loop.',
-      caption: 'Sacandaga River; route and gauge context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'kunjamuk-river-speculator-elm-lake-out-and-back': [
-    {
-      id: 'kunjamuk-river-speculator-elm-lake-out-and-back-route-context',
-      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7725/images/6e4115b52c00c5adf186d09deb5d7604.jpg?itok=kG8-7k_p',
-      alt: 'Kunjamuk River route photograph used as route-specific context for the Speculator to Elm Lake out-and-back.',
-      caption: 'Kunjamuk River to Elm Lake paddling context',
-      credit: 'Experience Our Adirondacks',
-      takenLabel: 'Route-specific trip photograph; context only',
-    },
-  ],
-
-'marion-river-blue-mountain-raquette-lake': [
-    {
-      id: 'marion-river-blue-mountain-raquette-lake-route-context',
-      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7718/images/6bfec7e46177f173a796cdbbe1a45ecd.jpg?itok=QB7Nebde',
-      alt: 'Blue Mountain Lake public beach photograph used as route-specific context for the Blue Mountain Lake to Raquette Lake Marion River linked-lake route.',
-      caption: 'Blue Mountain Lake to Raquette Lake paddling context',
-      credit: 'Experience Our Adirondacks',
-      takenLabel: 'Route-endpoint photograph; context only',
-    },
-  ],
-
-'dead-creek-route-3-headwaters-out-and-back': [
-    {
-      id: 'dead-creek-route-3-headwaters-out-and-back-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04267500.jpg',
-      alt: 'Raquette River at the USGS South Colton station photograph used as same-system context for the Dead Creek Route 3 marsh out-and-back.',
-      caption: 'Dead Creek and Raquette Boreal paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain same-system context photograph; not the Dead Creek reach',
-    },
-  ],
-
-'osgood-river-osgood-pond-out-and-back': [
-    {
-      id: 'osgood-river-osgood-pond-out-and-back-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04268600.jpg',
-      alt: 'East Branch St. Regis River at the USGS station photograph used as nearby watershed context for the Osgood Pond and Osgood River out-and-back.',
-      caption: 'Osgood Pond and Osgood River paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain nearby watershed context photograph; not the Osgood River reach',
-    },
-  ],
-
-'north-branch-saranac-river-north-branch-road-out-and-back': [
-    {
-      id: 'north-branch-saranac-river-north-branch-road-out-and-back-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at the USGS Plattsburgh station photograph used as same-river context for the North Branch Saranac River out-and-back.',
-      caption: 'North Branch Saranac River paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain same-river context photograph; not the North Branch reach',
-    },
-  ],
-
-'piseco-outlet-route-10-west-branch-out-and-back': [
-    {
-      id: 'piseco-outlet-route-10-west-branch-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
-      alt: 'Sacandaga River near Hope USGS station photograph used as same-system context for the Piseco Outlet Route 10 to West Branch Sacandaga out-and-back.',
-      caption: 'Piseco Outlet and West Branch Sacandaga paddling context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain same-system context photograph; not the Piseco Outlet reach',
-    },
-  ],
-
-'south-branch-black-river-south-lake-out-and-back': [
-    {
-      id: 'south-branch-black-river-south-lake-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
-      alt: 'Black River near Boonville USGS station photograph used as same-system context for the South Branch Black River South Lake to Black River out-and-back.',
-      caption: 'South Branch Black River paddling context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain downstream same-system context photograph; not the South Branch reach',
-    },
-  ],
-
-'mongaup-river-rio-powerhouse-delaware': [
-    {
-      id: 'mongaup-river-rio-powerhouse-delaware-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01433500.jpg',
-      alt: 'Mongaup River Near Mongaup USGS station photograph used as direct gauge context for the Rio Powerhouse to Upper Delaware release reach.',
-      caption: 'Mongaup River Rio Reach release-route context',
-      credit: 'USGS',
-      takenLabel: 'USGS public-domain direct-gauge context photograph; not a substitute for release-day conditions',
-    },
-  ],
-
-'grass-river-degrasse-pyrites': [
-    {
-      id: 'grass-river-degrasse-pyrites-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
-      alt: 'Grass River at the USGS Chase Mills station photograph used as downstream same-river context for the DeGrasse-to-Pyrites route.',
-      caption: 'Grass River DeGrasse-to-Pyrites paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain downstream same-river context photograph; not the DeGrasse-to-Pyrites reach',
-    },
-  ],
-
-'boquet-river-route-73-split-rock': [
-    {
-      id: 'boquet-river-route-73-split-rock-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Split_Rock_Falls_(Boquet_River,_eastern_Adirondack_Mountains,_New_York_State,_USA)_1_(23308130914).jpg?width=1600',
-      alt: 'Split Rock Falls on the Boquet River, used as route-specific context for the Route 73 to Split Rock Falls whitewater reach.',
-      caption: 'Split Rock Falls on the Boquet River',
-      credit: 'Wikimedia Commons',
-      takenLabel: 'Route-specific public-domain/Commons context photograph; falls are a mandatory endpoint boundary',
-    },
-  ],
-
-'boquet-river-beaver-meadow-northway': [
-    {
-      id: 'boquet-river-beaver-meadow-northway-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
-      alt: 'Boquet River at Willsboro USGS station context for the Beaver Meadow Brook to Northway route.',
-      caption: 'Boquet River at Willsboro gauge context',
-      credit: 'USGS New York Water Science Center',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'boquet-river-northway-boquet': [
-    {
-      id: 'boquet-river-northway-boquet-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
-      alt: 'Boquet River at Willsboro USGS station context for the Northway to Boquet route.',
-      caption: 'Boquet River at Willsboro gauge context',
-      credit: 'USGS New York Water Science Center',
-      takenLabel: 'USGS public-domain station photograph',
-    },
-  ],
-
-'little-river-youngs-streeter-lake-road': [
-    {
-      id: 'little-river-youngs-streeter-lake-road-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04262000.jpg',
-      alt: 'Oswegatchie River at the USGS near-Oswegatchie station, used as downstream watershed context for the Little River Youngs Road to Streeter Lake Road paddle.',
-      caption: 'Little River and Oswegatchie watershed paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain downstream watershed context photograph; not the Little River reach',
-    },
-  ],
-
-'susquehanna-river-west-oneonta-otego': [
-    {
-      id: 'susquehanna-river-west-oneonta-otego-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
-      alt: 'Susquehanna River at the USGS Bainbridge station, used as same-river context for the West Oneonta to Otego paddle.',
-      caption: 'Susquehanna River West Oneonta to Otego paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain same-river context photograph; not the West Oneonta–Otego reach',
-    },
-  ],
-
-'susquehanna-river-emmons-west-oneonta': [
-    {
-      id: 'susquehanna-river-emmons-west-oneonta-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
-      alt: 'Susquehanna River at the USGS Unadilla station, used as downstream same-river context for the Emmons to West Oneonta paddle.',
-      caption: 'Susquehanna River Emmons to West Oneonta paddling context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'Public-domain downstream same-river context photograph; not the Emmons–West Oneonta reach',
-    },
-  ],
-
-'susquehanna-river-otego-unadilla': [
-    {
-      id: 'susquehanna-river-otego-unadilla-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
-      alt: 'Susquehanna River at the USGS Unadilla station, used as same-river context for the Otego to Unadilla paddle.',
-      caption: 'Susquehanna River Otego to Unadilla paddling context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'Public-domain same-river station photograph; not a current condition or safety guarantee',
-    },
-  ],
-
-'susquehanna-river-unadilla-sidney': [
-    {
-      id: 'susquehanna-river-unadilla-sidney-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
-      alt: 'Susquehanna River at the USGS Unadilla station, used as same-river context for the Unadilla to Sidney paddle.',
-      caption: 'Susquehanna River Unadilla to Sidney paddling context',
-      credit: 'USGS',
-      takenLabel: 'Public-domain same-river station photograph; not a current condition or safety guarantee',
-    },
-  ],
-
-'jessup-river-route-30-indian-lake': [
-    {
-      id: 'jessup-river-route-30-indian-lake-context',
-      src: 'https://www.jimmuller.com/wp-content/uploads/2016/05/P1060347.jpg',
-      alt: 'Indian Lake arm near the Jessup River in the Adirondacks, used as route-specific context for the Jessup River to Indian Lake paddle.',
-      caption: 'Jessup River to Indian Lake paddling context',
-      credit: 'JimMuller.com route documentation',
-      takenLabel: 'Route-specific trip photograph; context only',
-    },
-  ],
-
-'miami-river-lewey-lake-out-and-back': [
-    {
-      id: 'miami-river-lewey-lake-out-and-back-context',
-      src: 'https://images.squarespace-cdn.com/content/v1/5592dfa8e4b08369d0200646/5e5691c6-82cd-4a71-b57f-7658ba2b1145/2023-08-paddling-07-1500px.jpg',
-      alt: 'Canoe on the Miami River near Lewey Lake in the Adirondacks, used as route-specific context for the Lewey Lake and Miami River paddle.',
-      caption: 'Lewey Lake and Miami River paddling context',
-      credit: 'Upstate Sports / Rich Macha',
-      takenLabel: 'Route-specific feature photograph; context only',
-    },
-  ],
-
-'genesee-river-waterways-center-corn-hill': [
-    {
-      id: 'genesee-river-ford-street-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04231600.jpg',
-      alt: 'Genesee River at the Ford Street Bridge in Rochester, New York.',
-      caption: 'Genesee Waterways Center to Corn Hill urban river route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'genesee-river-turning-point-port-of-rochester': [
-    {
-      id: 'genesee-river-ford-street-lower-harbor-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04231600.jpg',
-      alt: 'Genesee River at the Ford Street Bridge in Rochester, New York, used as same-river context for the lower Genesee Turning Point Park to Port of Rochester route.',
-      caption: 'Lower Genesee River harbor route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'oatka-creek-leroy-mumford': [
-    {
-      id: 'oatka-creek-garbutt-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04230500.jpg',
-      alt: 'Oatka Creek at the Garbutt USGS station in New York, used as same-river context for the Le Roy to Mumford route.',
-      caption: 'Le Roy to Mumford Oatka Creek route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'erie-canal-brockport-holley': [
-    {
-      id: 'erie-canal-brockport-holley-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
-      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Brockport to Holley route.',
-      caption: 'Brockport to Holley Erie Canal route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-canal proxy context',
-    },
-  ],
-
-'buffalo-river-canalside-red-jacket': [
-    {
-      id: 'buffalo-river-canalside-red-jacket-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/0421580305.jpg',
-      alt: 'Buffalo River at its mouth in Buffalo, New York, used as same-river context for the Canalside to Red Jacket route.',
-      caption: 'Canalside to Red Jacket Buffalo River route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river mouth proxy context',
-    },
-  ],
-
-'erie-canal-ransom-creek-lockport': [
-    {
-      id: 'erie-canal-ransom-creek-lockport-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
-      alt: 'Tonawanda Creek at Rapids, New York, used as downstream watershed context for the Ransom Creek to Lockport route.',
-      caption: 'Ransom Creek to Lockport Erie Canal route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream proxy context',
-    },
-  ],
-
-'champlain-canal-whitehall-fort-ann': [
-    {
-      id: 'champlain-canal-whitehall-fort-ann-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Whitehall to Fort Ann Champlain Canal route.',
-      caption: 'Whitehall to Fort Ann Champlain Canal route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; regional proxy context',
-    },
-  ],
-
-'champlain-canal-fort-ann-fort-edward': [
-    {
-      id: 'champlain-canal-fort-ann-fort-edward-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Fort Ann to Fort Edward Champlain Canal route.',
-      caption: 'Fort Ann to Fort Edward Champlain Canal route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; regional proxy context',
-    },
-  ],
-
-'fall-creek-route-13-flat-rock': [
-    {
-      id: 'fall-creek-route-13-flat-rock-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04234000.jpg',
-      alt: 'Fall Creek at the USGS near-Ithaca monitoring station in New York, used as same-river context for the Route 13 to Flat Rock reach.',
-      caption: 'Fall Creek near Ithaca; Route 13 to Flat Rock same-river context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'salmon-river-route-2a-black-hole': [
-    {
-      id: 'salmon-river-route-2a-black-hole-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/7674b2fa-7e54-422e-5ae0-2af825269500/large',
-      alt: 'The Salmon River Route 2A to Black Hole reach through Pulaski, New York, shown in American Whitewater route context.',
-      caption: 'Salmon River Route 2A to Black Hole; route-specific context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'salmon-river-pineville-compactor': [
-    {
-      id: 'salmon-river-pineville-compactor-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04250200.jpg',
-      alt: 'Salmon River at the USGS Pineville monitoring station in New York, used as same-river context for the Pineville to Compactor Pool section.',
-      caption: 'Salmon River at Pineville; Pineville to Compactor Pool same-river context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'west-canada-creek-route-28-middleville': [
-    {
-      id: 'west-canada-creek-route-28-middleville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
-      alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York, used as downstream same-river context for the Route 28 to Middleville section.',
-      caption: 'West Canada Creek at Kast Bridge; Route 28 to Middleville same-river context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream same-river context',
-    },
-  ],
-
-'susquehanna-river-colliersville-emmons': [
-    {
-      id: 'susquehanna-river-colliersville-emmons-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
-      alt: 'Susquehanna River at the USGS Unadilla monitoring station in New York, used as downstream same-river context for the Colliersville to Emmons section.',
-      caption: 'Susquehanna River at Unadilla; Colliersville to Emmons downstream context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream same-river context',
-    },
-  ],
-
-'unadilla-river-new-berlin-mount-upton': [
-    {
-      id: 'unadilla-river-new-berlin-mount-upton-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01502500.jpg',
-      alt: 'Unadilla River at the USGS Rockdale monitoring station in New York, used as downstream same-river context for the New Berlin to Mount Upton section.',
-      caption: 'Unadilla River at Rockdale; New Berlin to Mount Upton downstream context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; downstream same-river context',
-    },
-  ],
-
-'unadilla-river-guilford-rockdale': [
-    {
-      id: 'unadilla-river-guilford-rockdale-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01502500.jpg',
-      alt: 'Unadilla River at the USGS Rockdale monitoring station in New York, used as downstream context for the Guilford to Rockdale section.',
-      caption: 'Unadilla River at Rockdale; Guilford to Rockdale route context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; route-boundary context',
-    },
-  ],
-
-'grass-river-downerville-russell': [
-    {
-      id: 'grass-river-downerville-russell-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
-      alt: 'Grass River at the USGS Chase Mills monitoring station in New York, used as same-river context for the Downerville to Russell reach.',
-      caption: 'Grass River at Chase Mills; Downerville to Russell same-river context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'salmon-creek-ludlowville-cayuga-lake': [
-    {
-      id: 'salmon-creek-ludlowville-cayuga-lake-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/7e97304b-5d57-47c3-6069-be127a463a00/large',
-      alt: 'Salmon Creek from Ludlowville Falls to Cayuga Lake in New York, shown in American Whitewater route context.',
-      caption: 'Salmon Creek Ludlowville Falls to Cayuga Lake; route-specific context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'raquette-river-helenbrooks-hole': [
-    {
-      id: 'raquette-river-helenbrooks-hole-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/e993fa67-0c2a-4410-1827-e896fa063600/large',
-      alt: 'Raquette River Helenbrooks Hole in South Colton, New York, shown in American Whitewater route context.',
-      caption: 'Raquette River Helenbrooks Hole; route-specific context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'ausable-river-ausable-chasm-us9': [
-    {
-      id: 'ausable-river-ausable-chasm-us9-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/291816ef-c316-4671-945d-e4259be20a00/large',
-      alt: 'Ausable Chasm on the Ausable River in New York, shown in American Whitewater route context.',
-      caption: 'Ausable Chasm; route-specific Class IV+ context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'sacandaga-river-stewarts-bridge-hudson': [
-    {
-      id: 'sacandaga-river-stewarts-bridge-hudson-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/b2e3dde4-9e65-46af-4212-f0811a249100/large',
-      alt: 'The lower Sacandaga River below Stewarts Bridge in New York, shown in American Whitewater route context.',
-      caption: 'Sacandaga Stewarts Bridge to Hudson; route-specific Class II–III release context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'south-branch-west-canada-creek-fayle-nobleboro': [
-    {
-      id: 'south-branch-west-canada-creek-fayle-nobleboro-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/ccff837f-d787-4389-16f3-791b68fe0300/large',
-      alt: 'The South Branch of West Canada Creek from Fayle Road to Nobleboro in New York, shown in American Whitewater route context.',
-      caption: 'South Branch West Canada Creek Fayle to Nobleboro; route-specific Class II–III+ context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'west-branch-sacandaga-chub-lake-shaker-place': [
-    {
-      id: 'west-branch-sacandaga-chub-lake-shaker-place-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/West%20Branch%20of%20Sacandaga.jpg?width=1600',
-      alt: 'A kayaker paddles the West Branch of the Sacandaga River in the Adirondack Mountains of New York.',
-      caption: 'West Branch Sacandaga Chub Lake to Shaker Place; route-specific river context',
-      credit: 'MJPlante1 via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
-  ],
-
-'west-branch-sacandaga-whitehouse-campsite': [
-    {
-      id: 'west-branch-sacandaga-whitehouse-campsite-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/0c9188db-37c2-4cd1-ce13-214747504b00/large',
-      alt: 'The West Branch Sacandaga River Whitehouse to Sacandaga Campsite reach in New York, shown in American Whitewater route context.',
-      caption: 'West Branch Sacandaga Whitehouse to Blackbridge; route-specific Class II–III context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'east-branch-sacandaga-griffin-gorge': [
-    {
-      id: 'east-branch-sacandaga-griffin-gorge-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/392bff16-e7fa-425d-49fa-6810e1c0d400/large',
-      alt: 'Griffin Gorge on the East Branch Sacandaga River in New York, shown in American Whitewater route context.',
-      caption: 'East Branch Sacandaga Griffin Gorge; route-specific Class III+(V) context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'cedar-river-pelon-outer-gooley': [
-    {
-      id: 'cedar-river-pelon-outer-gooley-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
-      alt: 'Wakely Dam on Cedar River Flow in the Adirondack Cedar River system of New York.',
-      caption: 'Cedar River Flow; same-river Adirondack context for the Pelon to Outer Gooley route',
-      credit: 'Wildhart via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-
-'indian-river-abanakee-dam-outer-gooley': [
-    {
-      id: 'indian-river-abanakee-dam-outer-gooley-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/FMIB%2043138%20Indian%20River%20Dam%20Upper%20side.jpeg?width=1600',
-      alt: 'Historical view of the upper side of the Indian River Dam in New York.',
-      caption: 'Indian River Dam; historical dam and river context for the Abanakee to Outer Gooley route',
-      credit: 'New York State Commissioners of Fisheries, Game and Forests via Wikimedia Commons',
-      takenLabel: 'Public domain',
-    },
-  ],
-
-'black-creek-churchville-black-creek-park': [
-    {
-      id: 'black-creek-churchville-black-creek-park-nws-context',
-      src: 'https://weather.gov/images/nerfc/gallery/Black_Cr_nr_park.jpg',
-      alt: 'Black Creek near Churchville, New York, in the National Weather Service river-gauge gallery.',
-      caption: 'Black Creek at Churchville; federal gauge-area context for the Churchville Park to Black Creek Park route',
-      credit: 'National Weather Service Northeast River Forecast Center',
-      takenLabel: 'U.S. government image',
-    },
-  ],
-
-'south-branch-moose-river-rock-dam-mckeever': [
-    {
-      id: 'south-branch-moose-river-rock-dam-mckeever-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/40dc38a8-48aa-4915-f7dc-ba9a53b4a500/large',
-      alt: 'South Branch Moose River from Rock Dam to McKeever in New York, shown in American Whitewater route context.',
-      caption: 'South Branch Moose River Rock Dam to McKeever; route-specific context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'moose-river-mckeever-iron-bridge': [
-    {
-      id: 'moose-river-mckeever-iron-bridge-aw-context',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/b6f2590c-5093-4505-6991-e08eb68b2700/large',
-      alt: 'Moose River McKeever to Iron Bridge in New York, shown in American Whitewater route context.',
-      caption: 'Moose River McKeever to Iron Bridge; route-specific context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route image',
-    },
-  ],
-
-'east-branch-delaware-river-downsville-shinhopple': [
-    {
-      id: 'east-branch-delaware-river-downsville-shinhopple-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01417000.jpg',
-      alt: 'The East Branch Delaware River at the USGS Downsville monitoring station in New York, used as direct same-river context for the Downsville to Shinhopple route.',
-      caption: 'East Branch Delaware River at Downsville; Downsville to Shinhopple route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'west-river-marsh-sunnyside-out-and-back': [
-    {
-      id: 'west-river-marsh-sunnyside-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04234398.jpg',
-      alt: 'West River at Middlesex, New York, in the USGS station photograph used as direct same-river context for the Sunnyside Road marsh out-and-back.',
-      caption: 'West River at Middlesex; Sunnyside marsh route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'chemung-river-elmira-chemung': [
-    {
-      id: 'chemung-river-elmira-chemung-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01531000.jpg',
-      alt: 'Chemung River at Chemung, New York, in the USGS station photograph used as direct same-river context for the Elmira-to-Chemung route.',
-      caption: 'Chemung River at Chemung; Elmira-to-Chemung route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'susquehanna-river-bainbridge-afton': [
-    {
-      id: 'susquehanna-river-bainbridge-afton-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
-      alt: 'Susquehanna River at Bainbridge, New York, in the USGS station photograph used as direct same-river context for the Bainbridge-to-Afton route.',
-      caption: 'Susquehanna River at Bainbridge; Bainbridge-to-Afton route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; same-river context',
-    },
-  ],
-
-'susquehanna-river-afton-nineveh': [
-    {
-      id: 'susquehanna-river-afton-nineveh-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
-      alt: 'Susquehanna River at Bainbridge, New York, in the USGS station photograph used as upstream same-river context for the Afton-to-Nineveh route.',
-      caption: 'Susquehanna River at Bainbridge; Afton-to-Nineveh route and upstream proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS station photograph; upstream same-river context',
-    },
-  ],
-
-'chenango-river-chenango-forks-port-crane': [
-    {
-      id: 'chenango-river-chenango-forks-port-crane-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
-      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Chenango Forks-to-Port Crane route.',
-      caption: 'Chenango River at Court Street; Chenango Forks-to-Port Crane route context',
-      credit: 'Andre Carrotflower via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
-    },
-  ],
-
-'chenango-river-port-crane-chenango-bridge': [
-    {
-      id: 'chenango-river-port-crane-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
-      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Port Crane-to-Chenango Bridge route.',
-      caption: 'Chenango River at Court Street; Port Crane-to-Chenango Bridge route context',
-      credit: 'Andre Carrotflower via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
-    },
-  ],
-
-'chenango-river-chenango-bridge-port-dickinson': [
-    {
-      id: 'chenango-river-chenango-bridge-port-dickinson-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
-      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Chenango Bridge-to-Port Dickinson route.',
-      caption: 'Chenango River at Court Street; Chenango Bridge-to-Port Dickinson downstream route context',
-      credit: 'Andre Carrotflower via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
-    },
-  ],
-
-'genesee-river-scottsville-genesee-valley-park': [
-    {
-      id: 'genesee-river-scottsville-genesee-valley-park-avon-context',
-      src: 'https://weather.gov/images/nerfc/gallery/Genesee_Avon2.jpg',
-      alt: 'Genesee River at Avon, New York, used as upstream same-river context for the Scottsville-to-Genesee Valley Park route.',
-      caption: 'Genesee River at Avon; Scottsville-to-Genesee Valley Park upstream proxy context',
-      credit: 'Northeast River Forecast Center / National Weather Service',
-      takenLabel: 'Approved public-domain upstream same-river context',
-    },
-  ],
-
-'tioga-river-lindley-mulholland': [
-    {
-      id: 'tioga-river-lindley-mulholland-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01520500.jpg',
-      alt: 'Tioga River at Lindley, New York, in the USGS station photograph used as direct gauge and same-river context for the Lindley-to-Mulholland route.',
-      caption: 'Tioga River at Lindley; Lindley-to-Mulholland route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; direct same-river context',
-    },
-  ],
-
-'otselic-river-landers-upper-lisle': [
-    {
-      id: 'otselic-river-landers-upper-lisle-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01510000.jpg',
-      alt: 'Otselic River at Cincinnatus, New York, in the USGS station photograph used as direct same-river context for the Landers Corners to Upper Lisle route.',
-      caption: 'Otselic River at Cincinnatus; Landers Corners to Upper Lisle route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; direct same-river context',
-    },
-  ],
-
-'fish-creek-westdale-camden': [
-    {
-      id: 'fish-creek-westdale-camden-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04242640.jpg',
-      alt: 'Fish Creek at Becks Grove, New York, in the USGS station photograph used as downstream proxy context for the Westdale to Camden route.',
-      caption: 'Fish Creek at Becks Grove; Westdale-to-Camden downstream proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; downstream same-basin proxy context',
-    },
-  ],
-
-'tioughnioga-river-marathon-whitney-point': [
-    {
-      id: 'tioughnioga-river-marathon-whitney-point-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01509305.jpg',
-      alt: 'Tioughnioga River at Marathon, New York, in the USGS station photograph used as direct same-river context for the Marathon to Whitney Point route.',
-      caption: 'Tioughnioga River at Marathon; Marathon-to-Whitney Point route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; direct same-river context',
-    },
-  ],
-
-'eighteenmile-creek-burt-newfane': [
-    {
-      id: 'eighteenmile-creek-burt-newfane-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04219768.jpg',
-      alt: 'Eighteenmile Creek at Burt, New York, in the USGS station photograph used as direct same-river context for the Burt to Newfane Marina route.',
-      caption: 'Eighteenmile Creek at Burt; Burt-to-Newfane Marina route and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; direct same-river context',
-    },
-  ],
-
-'saranac-river-moose-pond-permanent-rapids': [
-    {
-      id: 'saranac-river-moose-pond-permanent-rapids-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, in the USGS station photograph used as downstream proxy context for the Moose Pond Bridge to Permanent Rapids route.',
-      caption: 'Saranac River at Plattsburgh; Moose Pond to Permanent Rapids downstream proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; downstream same-river proxy context',
-    },
-  ],
-
-'saranac-river-saranac-lake-moose-pond-footbridge': [
-    {
-      id: 'saranac-river-saranac-lake-moose-pond-footbridge-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
-      alt: 'Saranac River at Plattsburgh, New York, in the USGS station photograph used as same-river proxy context for the Saranac Lake to Moose Pond Footbridge route.',
-      caption: 'Saranac River at Plattsburgh; Saranac Lake-to-Moose Pond route proxy context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; same-river proxy context',
-    },
-  ],
-
-'bronx-river-219th-soundview': [
-    {
-      id: 'bronx-river-219th-soundview-alliance-context',
-      src: 'https://bronxriver.org/wp-content/uploads/2021/05/Flotilla-2021-Person-8.jpeg',
-      alt: 'Paddlers on the Bronx River during a Bronx River Alliance event.',
-      caption: 'Bronx River Blueway paddling context',
-      credit: 'Bronx River Alliance',
-      takenLabel: 'Official Bronx River Alliance route-context image',
-    },
-  ],
-
-'cohocton-river-campbell-kinsella': [
-    {
-      id: 'cohocton-river-campbell-kinsella-paddle607-context',
-      src: 'https://map.paddle607.com/images/locations/launch_sites/NY-Susquehanna-Basin-Water-Trail_Cohocton_Kinsella_1_Aerial.jpg',
-      alt: 'Kayakers paddle the Cohocton River near Kinsella Park in the Southern Tier of New York.',
-      caption: 'Cohocton River Campbell-to-Kinsella route context',
-      credit: 'New York Susquehanna Basin Water Trail / Paddle 607',
-      takenLabel: 'Paddle 607 route image; source page credited',
-    },
-  ],
-
-'cedar-river-flow-cedar-river-out-and-back': [
-    {
-      id: 'cedar-river-flow-cedar-river-out-and-back-commons-context',
-      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
-      alt: 'Wakely Dam on Cedar River Flow in the Adirondack Cedar River system of New York.',
-      caption: 'Cedar River Flow and Wakely Dam; same-river context for the Flow-to-Cedar-River out-and-back',
-      credit: 'Wildhart via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-
-'la-chute-river-bicentennial-fort-ticonderoga': [
-    {
-      id: 'la-chute-river-bicentennial-fort-ticonderoga-lake-champlain-region',
-      src: 'https://www.lakechamplainregion.com/f/styles/960x530/public/Listings/86122/images/f76a93d454729f5ff8484651052a3a5a.jpg?itok=X5PvhNi8',
-      alt: 'La Chute River near Ticonderoga, New York, below the falls toward Lake Champlain.',
-      caption: 'Lower La Chute River route context',
-      credit: 'Lake Champlain Region',
-      takenLabel: 'Current Lake Champlain Region route photography',
-    },
-  ],
-
-'fishing-brook-pickwickett-county-line-flow': [
-    {
-      id: 'fishing-brook-pickwickett-county-line-flow-experience-adirondacks',
-      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7821/images/fb2b52aaaf079499afe242a89c339669.jpg?itok=FHktpe1t',
-      alt: 'Fishing Brook in the Adirondacks, New York, varying from wide calm water to a narrow channel.',
-      caption: 'Fishing Brook Pickwickett-to-County-Line route context',
-      credit: 'Experience Our Adirondacks / NYSDEC',
-      takenLabel: 'Current Experience Our Adirondacks route photography',
-    },
-  ],
-
-'moose-river-nelson-lake-out-and-back': [
-    {
-      id: 'moose-river-nelson-lake-out-and-back-joe-geronimo',
-      src: 'https://adirondackjoe.wordpress.com/wp-content/uploads/2019/10/nelson-lake-minnehaha-ny-september-25th-2019_01c2a9.jpg?w=740',
-      alt: 'Nelson Lake in the Black River Wild Forest near Old Forge, New York.',
-      caption: 'Nelson Lake and Middle Branch Moose River route context',
-      credit: 'Joe Geronimo',
-      takenLabel: 'Local route photography credited to source page',
-    },
-  ],
-
-'genesee-river-petten-lower-falls-out-and-back': [
-    {
-      id: 'genesee-river-petten-lower-falls-out-and-back-aw',
-      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/87a76822-22c1-4d87-4e4a-21571560ad00/medium',
-      alt: 'Lower Falls on the Genesee River near Rochester, New York, used as the upstream hazard boundary for the Petten Street out-and-back route.',
-      caption: 'Genesee River Lower Falls boundary; Petten Street out-and-back route context',
-      credit: 'American Whitewater',
-      takenLabel: 'American Whitewater route-specific image',
-    },
-  ],
-
-'delaware-river-hancock-lordville': [
-    {
-      id: 'delaware-river-hancock-lordville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
-      alt: 'The Delaware River at the USGS Callicoon monitoring station, used as same-river proxy context for the Hancock-to-Lordville route in New York.',
-      caption: 'Upper Delaware River at Callicoon; Hancock-to-Lordville proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
-    },
-  ],
-
-'delaware-river-lordville-long-eddy': [
-    {
-      id: 'delaware-river-lordville-long-eddy-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
-      alt: 'The Delaware River at the USGS Callicoon monitoring station, used as same-river proxy context for the Lordville-to-Long Eddy route in New York.',
-      caption: 'Upper Delaware River at Callicoon; Lordville-to-Long Eddy proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
-    },
-  ],
-
-'wallkill-river-walden-popp': [
-    {
-      id: 'wallkill-river-walden-popp-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
-      alt: 'The Wallkill River at the USGS Gardiner monitoring station, used as same-river proxy context for the Walden-to-Popp route in New York.',
-      caption: 'Wallkill River at Gardiner; Walden-to-Popp proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
-    },
-  ],
-
-'batten-kill-greenwich-schuylerville': [
-    {
-      id: 'batten-kill-greenwich-schuylerville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01329490.jpg',
-      alt: 'The Batten Kill at the USGS Battenville monitoring station, used as same-river proxy context for the Greenwich-to-Schuylerville route in New York.',
-      caption: 'Batten Kill at Battenville; Greenwich-to-Schuylerville proxy-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
-    },
-  ],
-
-'allegheny-river-allegany-olean': [
-    {
-      id: 'allegheny-river-allegany-olean-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/03010820.jpg',
-      alt: 'The Allegheny River at the USGS Olean monitoring station, used as direct same-river context for the Allegany-to-Olean route in New York.',
-      caption: 'Allegheny River at Olean; Allegany-to-Olean direct-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'allegheny-river-olean-portville': [
-    {
-      id: 'allegheny-river-olean-portville-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/03010820.jpg',
-      alt: 'The Allegheny River at the USGS Olean monitoring station, used as direct same-river context for the Olean-to-Portville route in New York.',
-      caption: 'Allegheny River at Olean; Olean-to-Portville direct-gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'mohawk-river-lock-9-freemans-bridge': [
-    {
-      id: 'mohawk-river-lock-9-freemans-bridge-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01354330.jpg',
-      alt: 'The Mohawk River at USGS Lock 8 near Schenectady, used as direct same-river context for the Lock 9 to Freeman\'s Bridge route in New York.',
-      caption: 'Mohawk River at Lock 8 near Schenectady; direct stage-station context for Lock 9 to Freeman\'s Bridge',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'mohawk-river-freemans-bridge-lock-7': [
-    {
-      id: 'mohawk-river-freemans-bridge-lock-7-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01354500.jpg',
-      alt: 'The Mohawk River at USGS Freeman\'s Bridge near Schenectady, used as direct same-river context for the Freeman\'s Bridge to Lock 7 route in New York.',
-      caption: 'Mohawk River at Freeman\'s Bridge; direct stage-station context for Freeman\'s Bridge to Lock 7',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'west-branch-delaware-river-airport-hale-eddy': [
-    {
-      id: 'west-branch-delaware-river-airport-hale-eddy-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01426500.jpg',
-      alt: 'The West Branch Delaware River at USGS Hale Eddy, used as direct same-river context for the Airport Road to Hale Eddy route in New York.',
-      caption: 'West Branch Delaware River at Hale Eddy; direct stage-station context for Airport Road to Hale Eddy',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'delaware-river-balls-eddy-hancock': [
-    {
-      id: 'delaware-river-balls-eddy-hancock-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01427000.jpg',
-      alt: 'The West Branch Delaware River at USGS Hancock, used as direct same-river context for the Balls Eddy to Hancock route in New York.',
-      caption: 'West Branch Delaware River at Hancock; direct stage-station context for Balls Eddy to Hancock',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
-    },
-  ],
-
-'st-lawrence-river-louisville-massena': [
-    {
-      id: 'st-lawrence-river-louisville-massena-stlc-context',
-      src: 'https://growthzonecmsprodeastus.azureedge.net/sites/1717/2023/06/paddle-canoe-st-lawrence-county1-09360373-188a-436d-87ed-95ee1e384761.jpg',
-      alt: 'Canoeists paddling on St. Lawrence County water, used as route-context imagery for the Louisville to Massena St. Lawrence River paddle in New York.',
-      caption: 'St. Lawrence County paddling context for Louisville to Massena',
-      credit: 'Visit St. Lawrence County',
-      takenLabel: 'Approved source image; clearly labeled route-context imagery',
-    },
-  ],
-
-'niagara-river-lewiston-fort-niagara': [
-    {
-      id: 'niagara-river-lewiston-fort-niagara-youngstown-commons',
-      src: 'https://live.staticflickr.com/8447/7992643303_a494578d95_o.jpg',
-      alt: 'The Niagara River at Youngstown, New York, used as route-context imagery for the Lewiston to Fort Niagara lower Niagara River paddle.',
-      caption: 'Niagara River at Youngstown; lower Niagara route-context image',
-      credit: 'Ken Lund via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
-    },
-  ],
-
-'st-regis-middle-branch-route-458-st-regis-falls': [
-    {
-      id: 'st-regis-middle-branch-route-458-st-regis-falls-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
-      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York, used as same-watershed proxy context for the Route 458 to St. Regis Falls Middle Branch reach.',
-      caption: 'St. Regis River near Parishville; same-watershed proxy context for Route 458 to St. Regis Falls',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-watershed proxy context',
-    },
-  ],
-
-'west-branch-st-regis-five-mile-hand-launches': [
-    {
-      id: 'west-branch-st-regis-five-mile-hand-launches-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
-      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York, used as direct same-branch route context for the Five Mile Conservation Easement paddle.',
-      caption: 'West Branch St. Regis River near Parishville; Five Mile route-context image',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled route-context imagery',
-    },
-  ],
-
-'lake-champlain-rouses-point-great-chazy': [
-    {
-      id: 'lake-champlain-rouses-point-great-chazy-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04295000.jpg',
-      alt: 'Lake Champlain at Rouses Point, New York, used as route-context imagery for the Rouses Point to Great Chazy blueway.',
-      caption: 'Lake Champlain at Rouses Point; northern blueway route-context image',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled route-context imagery',
-    },
-  ],
-
-'great-chazy-river-point-au-roche': [
-    {
-      id: 'great-chazy-river-point-au-roche-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04271500.jpg',
-      alt: 'The Great Chazy River at Perry Mills, New York, used as same-river context for the Great Chazy River to Point au Roche blueway.',
-      caption: 'Great Chazy River at Perry Mills; same-river route-context image',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-river route context',
-    },
-  ],
-
-'st-regis-river-winthrop-route-92': [
-    {
-      id: 'st-regis-river-winthrop-route-92-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04269000.jpg',
-      alt: 'The St. Regis River at the USGS Brasher Center monitoring station in New York, used as same-river route-context imagery for the Winthrop to Route 92 reach.',
-      caption: 'St. Regis River at Brasher Center; same-river route-context image',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
-    },
-  ],
-
-'ausable-west-branch-adirondak-loj-route-73': [
-    {
-      id: 'ausable-west-branch-adirondak-loj-route-73-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
-      alt: 'The Ausable River near Au Sable Forks, New York, used as same-system route-context imagery for the Adirondak Loj Road to Route 73 West Branch reach.',
-      caption: 'Ausable River near Au Sable Forks; same-system route-context image for the upper West Branch',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-system route-context imagery',
-    },
-  ],
-
-'ausable-west-branch-monument-high-falls': [
-    {
-      id: 'ausable-west-branch-monument-high-falls-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
-      alt: 'The Ausable River near Au Sable Forks, New York, used as same-system route-context imagery for the Monument to High Falls West Branch reach.',
-      caption: 'Ausable River near Au Sable Forks; same-system route-context image for Monument to High Falls',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-system route-context imagery',
-    },
-  ],
-
-'hudson-river-thurman-station-hadley': [
-    {
-      id: 'hudson-river-thurman-station-hadley-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01318500.jpg',
-      alt: 'The Hudson River at Hadley, New York, used as same-river route-context imagery for the Thurman Station to Hadley paddle.',
-      caption: 'Hudson River at Hadley; same-river route-context image for Thurman Station to Hadley',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
-    },
-  ],
-
-'hudson-river-spier-falls-out-and-back': [
-    {
-      id: 'hudson-river-spier-falls-out-and-back-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
-      alt: 'The Hudson River at Fort Edward, New York, used as same-river route-context imagery for the Spier Falls same-launch outing.',
-      caption: 'Hudson River at Fort Edward; same-river route-context image for the Spier Falls outing',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
-    },
-  ],
-
-'hudson-river-fish-hatchery-thurman-station': [
-    {
-      id: 'hudson-river-fish-hatchery-thurman-station-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01318500.jpg',
-      alt: 'The Hudson River at Hadley, New York, used as same-river context for the Fish Hatchery to Thurman Station connector.',
-      caption: 'Hudson River at Hadley; same-river route context for Fish Hatchery to Thurman Station',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
-    },
-  ],
-
-'balsam-pond-carry-south-branch-grass-river': [
-    {
-      id: 'balsam-pond-carry-south-branch-grass-river-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
-      alt: 'The Grass River at Chase Mills, New York, used as downstream same-river proxy context for the Balsam Pond carry to Route 3 South Branch connector.',
-      caption: 'Grass River at Chase Mills; downstream proxy context for the Balsam Pond–Route 3 connector',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled downstream proxy-gauge context',
-    },
-  ],
-
-'catharine-creek-wma-marsh-connector': [
-    {
-      id: 'catharine-creek-wma-marsh-connector-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/04232200.jpg',
-      alt: 'Catharine Creek at Montour Falls, New York, used as direct same-creek context for the Catharine Creek WMA marsh connector.',
-      caption: 'Catharine Creek at Montour Falls; WMA marsh connector and gauge context',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain; clearly labeled direct same-creek context',
-    },
-  ],
-
-  'arkansas-river-parkdale-royal-gorge': [arkansasRoyalGorgePhoto],
-  'arkansas-river-granite-boat-chute-buena-vista': [arkansasGraniteBuenaVistaPhoto],
-  'arkansas-river-browns-canyon-fishermans-stone': [arkansasBrownsCanyonPhoto],
-  'arkansas-river-pueblo-whitewater-park': [puebloWhitewaterParkPhoto],
   'upper-colorado-pumphouse-state-bridge': [upperColoradoPumphouseStateBridgePhoto],
   'upper-colorado-state-bridge-catamount': [upperColoradoStateBridgeCatamountPhoto],
   'eagle-river-camp-hale-red-cliff': [eagleRiverCampHaleRedCliffPhoto],
   'homestake-creek-gold-park': [homestakeCreekGoldParkPhoto],
   'eagle-river-minturn-town-run': [eagleRiverMinturnTownRunPhoto],
+  'eagle-river-lower-edwards-eagle': [eagleRiverLowerPhoto],
+  'uncompahgre-river-ridgway-town-run': [uncompahgreRidgwayPhoto],
+  'san-miguel-river-down-valley-specie-creek': [sanMiguelDownValleyPhoto],
+  'san-miguel-river-specie-beaver': [sanMiguelSpecieBeaverPhoto],
   'eagle-river-riverbend-edwards': [eagleRiverRiverbendEdwardsPhoto],
   'cross-creek-minturn': [crossCreekMinturnPhoto],
   'upper-roaring-fork-weller-difficult': [upperRoaringForkWellerDifficultPhoto],
@@ -6283,6 +4100,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-cheat-rowlesburg-preston-foc': [cheatRiverRowlesburgPhoto],
   'wv-cheat-holly-meadows-st-george': [cheatRiverHeadwatersPhoto],
   'wv-cheat-st-george-hannahsville': [cheatRiverHeadwatersPhoto],
+  'wv-cheat-hannahsville-riverview': [cheatRiverHeadwatersPhoto],
   'wv-cheat-albright-jenkinsburg': [cheatRiverRowlesburgPhoto],
   'wv-greenbrier-talcott-willowwood': [greenbrierTalcottPhoto],
   'wv-greenbrier-willowwood-bellepoint': [greenbrierRiverWestVirginiaPhoto],
@@ -6295,6 +4113,2308 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'wv-cacapon-cacapon-crossing-fishers-ford': [cacaponRoute127Photo],
   'wv-cacapon-fishers-ford-power-plant': [cacaponRoute127Photo],
   'wv-new-thurmond-cunard': [newRiverGorgeContextPhoto],
+  'hudson-river-corning-preserve-hudson-shores': [
+    {
+      id: 'hudson-river-watervliet-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
+      alt: 'The Hudson River viewed from Watervliet, New York, near the lower-Hudson water-trail route.',
+      caption: 'Hudson River at Watervliet near Hudson Shores Park',
+      credit: 'Capital District Tourism Gnome via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'hudson-river-north-river-riparius': [
+    {
+      id: 'hudson-river-north-river-riparius-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01315500.jpg',
+      alt: 'The Hudson River at the USGS North Creek monitoring station in New York, used as same-river context for the North River to Riparius route.',
+      caption: 'Hudson River at North Creek; North River–Riparius route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image',
+    },
+  ],
+  'oriskany-creek-clinton': [
+    {
+      id: 'oriskany-creek-clinton-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01338000.jpg',
+      alt: 'Oriskany Creek near Oriskany, New York, used as same-river context for the Clinton Class II(III) route.',
+      caption: 'Oriskany Creek near Oriskany; Clinton route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image; same-river context',
+    },
+  ],
+  'butternut-creek-jamesville-route-481': [
+    {
+      id: 'butternut-creek-jamesville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04244000.jpg',
+      alt: 'Chittenango Creek near Chittenango, New York, used as watershed-proxy context for the Butternut Creek Jamesville route.',
+      caption: 'Chittenango Creek near Chittenango; Butternut Creek proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image; watershed-proxy context',
+    },
+  ],
+  'chittenango-creek-falls-chittenango': [
+    {
+      id: 'chittenango-creek-falls-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04244000.jpg',
+      alt: 'Chittenango Creek near Chittenango, New York, used as same-river context for the below-falls Chittenango Creek route.',
+      caption: 'Chittenango Creek near Chittenango; below-falls route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image',
+    },
+  ],
+  'chautauqua-lake-chadakoin-celoron-mccrea': [
+    {
+      id: 'chautauqua-lake-chadakoin-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/03014500.jpg',
+      alt: 'The Chadakoin River at the USGS Falconer monitoring station in New York, used as downstream same-river context for the Chautauqua Lake outlet route.',
+      caption: 'Chadakoin River at Falconer; Chautauqua Lake outlet route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image; downstream same-river context',
+    },
+  ],
+  'ellicott-creek-park-eastern-park': [
+    {
+      id: 'ellicott-creek-park-eastern-park-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218518.jpg',
+      alt: 'Ellicott Creek at the USGS below-Williamsville monitoring station in New York, used as same-creek context for the Tonawanda blueway route.',
+      caption: 'Ellicott Creek below Williamsville; Tonawanda blueway route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image; same-creek context',
+    },
+  ],
+  'beaver-river-canoe-route-moshier-high-falls': [
+    {
+      id: 'beaver-river-canoe-route-moshier-high-falls-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04258000.jpg',
+      alt: 'The Beaver River at the USGS Croghan monitoring station in New York, used as regulated same-river context for the Moshier-to-High-Falls canoe route.',
+      caption: 'Beaver River at Croghan; Moshier-to-High-Falls canoe route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image; downstream regulated context',
+    },
+  ],
+  'nine-mile-creek-munro-pumphouse': [
+    {
+      id: 'nine-mile-creek-munro-pumphouse-aqueduct',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Ninemile_Aqueduct_arches.jpg',
+      alt: 'The restored Nine Mile Creek Aqueduct arches at Camillus Erie Canal Park in New York.',
+      caption: 'Nine Mile Creek Aqueduct route feature near Camillus',
+      credit: 'Lvklock via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'nine-mile-creek-pumphouse-onondaga-outlet': [
+    {
+      id: 'nine-mile-creek-pumphouse-onondaga-outlet-aqueduct',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Ninemile_Aqueduct_arches.jpg',
+      alt: 'The restored Nine Mile Creek Aqueduct arches at Camillus Erie Canal Park in New York, used as same-creek route context.',
+      caption: 'Nine Mile Creek Aqueduct; same-creek lower-watershed context',
+      credit: 'Lvklock via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'mattituck-creek-dec-waterway-access-route-48': [
+    {
+      id: 'mattituck-creek-dec-waterway-access-route-48-inlet',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/AER%2003.06%20INLET.JPG?width=1600',
+      alt: 'Aerial Mattituck Inlet and Long Island Sound context in New York.',
+      caption: 'Mattituck Inlet; aerial route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons; license as listed on source page',
+    },
+  ],
+  'old-place-creek-gulf-avenue-arthur-kill-out-and-back': [
+    {
+      id: 'old-place-creek-gulf-avenue-arthur-kill-out-and-back-mouth',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Old%20Place%20Creek%20%26%20AKVLB%20jeh.jpg?width=1600',
+      alt: 'Old Place Creek and the Arthur Kill Vertical Lift Bridge on Staten Island, New York.',
+      caption: 'Old Place Creek mouth and Arthur Kill bridge context',
+      credit: 'Jim.henderson via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'lemon-creek-bayview-raritan-bay-out-and-back': [
+    {
+      id: 'lemon-creek-bayview-raritan-bay-out-and-back-channel',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Lemon%20Creek%20SI%20jeh.JPG?width=1600',
+      alt: 'Lemon Creek tidal channel on Staten Island, New York.',
+      caption: 'Lemon Creek tidal channel context',
+      credit: 'Jim.henderson via Wikimedia Commons',
+      license: 'Public domain',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'braddock-bay-hand-launch-lake-ontario-marsh-out-and-back': [
+    {
+      id: 'braddock-bay-hand-launch-lake-ontario-marsh-out-and-back-aerial',
+      src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/pointcloud.PNG',
+      alt: 'USGS public-domain aerial context of Braddock Bay and the Lake Ontario shoreline in New York.',
+      caption: 'Braddock Bay and Lake Ontario aerial route context',
+      credit: 'U.S. Geological Survey',
+      license: 'Public domain',
+      takenLabel: 'USGS: public domain',
+    },
+  ],
+  'raquette-river-forked-lake-deerland': [
+    {
+      id: 'raquette-river-forked-lake-deerland-sweeney-carry',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Raquette_River_-_at_Sweeney_Carry.jpg',
+      alt: 'Canoes being portaged at Sweeney Carry on the Raquette River in New York, used as historical same-river context for the Forked Lake to Deerland route.',
+      caption: 'Raquette River canoe portage at Sweeney Carry; historical same-river context',
+      credit: 'Seneca Ray Stoddard via Library of Congress / Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain historical photograph',
+    },
+  ],
+  'raquette-river-piercefield-parmenter': [
+    {
+      id: 'raquette-river-piercefield-parmenter-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04266500.jpg',
+      alt: 'Raquette River at Piercefield USGS station photograph used as same-river context for the Piercefield to Parmenter whitewater route.',
+      caption: 'Raquette River at Piercefield; route and gauge context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'genesee-river-lee-landing-st-helena': [
+    {
+      id: 'genesee-river-lee-landing-st-helena-aw-banner',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/007744d3-8bdb-4edb-e9e5-37cabb5c2600/large',
+      alt: 'American Whitewater banner image for the Genesee River Letchworth Gorge reach from Lee’s Landing to St. Helena.',
+      caption: 'Letchworth Gorge; Lee’s Landing to St. Helena route context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route-specific image',
+    },
+  ],
+  'st-regis-middle-branch-fort-jackson-buckton': [
+    {
+      id: 'st-regis-middle-branch-fort-jackson-buckton-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
+      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York.',
+      caption: 'St. Regis River near Parishville; same-watershed proxy context for Fort Jackson to Buckton',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain',
+    },
+  ],
+  'batten-kill-eagleville-battenville': [
+    {
+      id: 'batten-kill-eagleville-battenville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01329490.jpg',
+      alt: 'The Batten Kill at the USGS monitoring station near Battenville, New York.',
+      caption: 'Batten Kill at Battenville; public-domain same-river context for the Eagleville-to-Battenville reach',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain',
+    },
+  ],
+  'roeliff-jansen-kill-roe-jan-park-out-and-back': [
+    {
+      id: 'roeliff-jansen-kill-roe-jan-park-commons-context',
+      src: 'https://commons.wikimedia.org/wikipedia/commons/thumb/2/25/ROELIFF_JANSEN_KILL_FROM_THE_PARKWAY_NORTHBOUND_OVERPASS%2C_DUTCHESS_COUNTY_MILE_MARKER_138.0%2C_VIEW_SE._-_Taconic_State_Parkway%2C_Poughkeepsie%2C_Dutchess_County%2C_NY_HAER_NY%2C14-POKEP.V%2C1-126_%28CT%29.tif/lossy-page1-1920px-thumbnail.tif.jpg',
+      alt: 'Roeliff Jansen Kill viewed from the Taconic State Parkway in New York.',
+      caption: 'Roeliff Jansen Kill; public-domain river-system context for the Roe-Jan Kill Park out-and-back',
+      credit: 'David W. Haas / Historic American Engineering Record via Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'ganargua-creek-swifts-landing-norsen-bridge': [
+    {
+      id: 'ganargua-creek-macedon-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04234254.jpg',
+      alt: 'Ganargua Creek at Macedon, New York, near the Swift’s Landing to Norsen Bridge blueway.',
+      caption: 'Ganargua Creek at Macedon near the lower blueway corridor',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain station image',
+    },
+  ],
+  'irondequoit-creek-ellison-lasalles': [
+    {
+      id: 'irondequoit-creek-ellison-park-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Irondequoit_Creek_in_Ellison_Park.jpg',
+      alt: 'Irondequoit Creek winding through Ellison Park in Penfield, New York.',
+      caption: 'Irondequoit Creek at Ellison Park',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public image',
+    },
+  ],
+  'onondaga-creek-meachem-inner-harbor': [
+    {
+      id: 'onondaga-creek-city-kayaker-context',
+      src: 'https://www.syr.gov/files/sharedassets/public/v/1/2-departments/parks-recreation/images/parks/onondaga-creekwalk/creekwalk-kayaker.jpg',
+      alt: 'Kayaker on Onondaga Creek in Syracuse, New York.',
+      caption: 'Kayaking on Onondaga Creek in Syracuse',
+      credit: 'City of Syracuse',
+      takenLabel: 'City of Syracuse Creekwalk photo',
+    },
+  ],
+  'cayuga-inlet-treman-cass-park': [
+    {
+      id: 'cayuga-inlet-ithaca-kayakers-context',
+      src: 'https://images.squarespace-cdn.com/content/v1/68d2e97c14d9e63740433b34/3694ea8e-6348-4c6e-a961-dc66b7255f4e/Inlet-768x576.png',
+      alt: 'Kayakers paddling on the Cayuga Inlet in Ithaca, New York.',
+      caption: 'Kayakers on the Ithaca-area inlet',
+      credit: 'Ithaca Tompkins International Airport',
+      takenLabel: 'Ithaca-area paddling context photo',
+    },
+  ],
+  'oak-orchard-creek-route-63-knowlesville': [
+    {
+      id: 'oak-orchard-creek-usgs-bridges-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/0422018610.jpg',
+      alt: 'Oak Orchard Creek at The Bridges in western New York.',
+      caption: 'Oak Orchard Creek at The Bridges',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS same-creek station context photo',
+    },
+  ],
+  'oak-orchard-creek-medina-lake-ontario': [
+    {
+      id: 'oak-orchard-creek-medina-lake-ontario-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/0422018610.jpg',
+      alt: 'Oak Orchard Creek at The Bridges in western New York.',
+      caption: 'Oak Orchard Creek lower-corridor context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS same-creek station context photo',
+    },
+  ],
+  'schroon-river-warrensburg-thurman-station': [
+    {
+      id: 'schroon-river-warrensburg-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
+      alt: 'Schroon River at Riverbank in Warren County, New York.',
+      caption: 'Schroon River Riverbank context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS same-river station context photo',
+    },
+  ],
+  'schroon-river-schroon-falls-schroon-lake': [
+    {
+      id: 'schroon-river-schroon-lake-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
+      alt: 'Schroon River at Riverbank in Warren County, New York.',
+      caption: 'Schroon River downstream context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS same-river proxy station context photo',
+    },
+  ],
+  'schroon-river-south-horicon-starbuckville': [
+    {
+      id: 'schroon-river-south-horicon-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
+      alt: 'Schroon River at Riverbank in Warren County, New York.',
+      caption: 'Schroon River downstream context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS same-river proxy station context photo',
+    },
+  ],
+  'buffalo-river-harlem-ohio-street': [
+    {
+      id: 'buffalo-river-blueway-harlem-context',
+      src: 'https://buffaloblueway.com/wp-content/uploads/2026/04/Media-1.jpg',
+      alt: 'Public Harlem Road launch on the Buffalo River in West Seneca, New York.',
+      caption: 'Harlem Road Buffalo River launch',
+      credit: 'Buffalo Blueway',
+      takenLabel: 'Current Buffalo Blueway access photo',
+    },
+  ],
+  'oswego-canal-lock-island-indian-point': [
+    {
+      id: 'oswego-canal-phoenix-fulton-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Erie-canal_oswego-canal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled',
+      alt: 'The Oswego Canal in New York.',
+      caption: 'Oswego Canal Phoenix-to-Fulton corridor context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: Oswego Canal context photo',
+    },
+  ],
+  'oswego-canal-indian-point-lock-o8': [
+    {
+      id: 'oswego-canal-fulton-oswego-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Erie-canal_oswego-canal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled',
+      alt: 'The Oswego Canal in New York.',
+      caption: 'Oswego Canal Fulton-to-Oswego corridor context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: Oswego Canal context photo',
+    },
+  ],
+  'cayuga-seneca-canal-oak-island-locks-cs2-3': [
+    {
+      id: 'cayuga-seneca-canal-seneca-falls-lock-context',
+      src: 'https://eriecanalway.org/application/files/2816/3130/6102/Cay-Sen_Paddlers_SenacaFallsCS2_569x384.jpg',
+      alt: 'Paddlers moving through the Cayuga-Seneca Canal lock in Seneca Falls, New York.',
+      caption: 'Cayuga-Seneca Canal Waterloo-to-Seneca Falls lock context',
+      credit: 'Erie Canalway National Heritage Corridor',
+      takenLabel: 'Official Erie Canalway route photograph',
+    },
+  ],
+  'old-erie-canal-cedar-bay-chittenango-landing': [
+    {
+      id: 'old-erie-canal-chittenango-landing-context',
+      src: 'https://eriecanalway.org/application/files/7416/2931/7848/Chittenango_CanalBoatMuseum_569.jpg',
+      alt: 'Chittenango Landing Canal Boat Museum beside the Old Erie Canal in New York.',
+      caption: 'Old Erie Canal Cedar Bay-to-Chittenango Landing corridor context',
+      credit: 'Erie Canalway National Heritage Corridor',
+      takenLabel: 'Official Erie Canalway route photograph',
+    },
+  ],
+  'erie-canal-mays-point-montezuma-aqueduct': [
+    {
+      id: 'erie-canal-richmond-aqueduct-context',
+      src: 'https://www.eriecanal.org/traces/SenecaRiverAqueduct/SenecaRiverAqueduct-2007.jpg',
+      alt: 'Richmond Aqueduct ruins over the Seneca River near Montezuma, New York.',
+      caption: 'Mays Point to Montezuma Richmond Aqueduct route context',
+      credit: 'Traces of the Erie Canal',
+      takenLabel: 'Richmond Aqueduct route-context photograph',
+    },
+  ],
+  'erie-canal-fairport-bushnells-basin': [
+    {
+      id: 'erie-canal-bushnells-basin-docks-context',
+      src: 'https://eriecanalway.org/application/files/4916/3007/5859/BushnellsBasin_docks_JMackay12.jpg',
+      alt: 'Bushnell’s Basin docks beside the Erie Canal in Pittsford, New York.',
+      caption: 'Fairport to Bushnell’s Basin Erie Canal route context',
+      credit: 'Erie Canalway National Heritage Corridor',
+      takenLabel: 'Official Erie Canalway destination photograph',
+    },
+  ],
+  'champlain-canal-moreau-lock-c5': [
+    {
+      id: 'champlain-canal-moreau-lock-c5-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, near the upstream Champlain Canal corridor.',
+      caption: 'Moreau to Lock C5 Champlain Canal route and upstream Hudson River context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river proxy context',
+    },
+  ],
+  'champlain-canal-lock-c5-stillwater': [
+    {
+      id: 'champlain-canal-hudson-crossing-context',
+      src: 'https://eriecanalway.org/application/files/4814/5359/5259/Schuylerville_HudsonCrossingPark_CleanSweep.jpg',
+      alt: 'Hudson Crossing Park on Lock C5 Island beside the Champlain Canal and Hudson River in Schuylerville, New York.',
+      caption: 'Lock C5 to Stillwater Champlain Canal route context',
+      credit: 'Erie Canalway National Heritage Corridor',
+      takenLabel: 'Official Erie Canalway destination photograph',
+    },
+  ],
+  'champlain-canal-stillwater-mechanicville': [
+    {
+      id: 'champlain-canal-stillwater-mechanicville-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Champlain Canal corridor.',
+      caption: 'Stillwater to Mechanicville Champlain Canal route and Hudson River proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river proxy context',
+    },
+  ],
+  'champlain-canal-mechanicville-waterford': [
+    {
+      id: 'champlain-canal-mechanicville-waterford-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the lower Champlain Canal corridor.',
+      caption: 'Mechanicville to Waterford Champlain Canal route and Hudson River proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river proxy context',
+    },
+  ],
+  'erie-canal-waterford-flight': [
+    {
+      id: 'erie-canal-waterford-flight-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
+      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Waterford Flight.',
+      caption: 'Waterford Flight Erie Canal route and Capital Region Hudson proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream proxy context',
+    },
+  ],
+  'erie-canal-lock-e7-waterford-flight': [
+    {
+      id: 'erie-canal-lock-e7-waterford-flight-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
+      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Erie Canal near Vischer Ferry and Waterford.',
+      caption: 'Lock E7 to Waterford Flight Erie Canal route and Capital Region proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream proxy context',
+    },
+  ],
+  'erie-canal-tonawanda-amherst': [
+    {
+      id: 'erie-canal-tonawanda-amherst-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the western Erie Canal.',
+      caption: 'Tonawanda to Amherst Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-amherst-lockport': [
+    {
+      id: 'erie-canal-amherst-lockport-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Amherst to Lockport Erie Canal.',
+      caption: 'Amherst to Lockport Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-lockport-gasport': [
+    {
+      id: 'erie-canal-lockport-gasport-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Lockport to Gasport Erie Canal.',
+      caption: 'Lockport to Gasport Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-gasport-medina': [
+    {
+      id: 'erie-canal-gasport-medina-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Gasport to Medina Erie Canal.',
+      caption: 'Gasport to Medina Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-medina-albion': [
+    {
+      id: 'erie-canal-medina-albion-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Medina to Albion Erie Canal.',
+      caption: 'Medina to Albion Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-albion-san-souci': [
+    {
+      id: 'erie-canal-albion-san-souci-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as watershed proxy context for the Albion to San Souci Erie Canal.',
+      caption: 'Albion to San Souci Erie Canal route and Tonawanda Creek proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; watershed proxy context',
+    },
+  ],
+  'erie-canal-brockport-spencerport': [
+    {
+      id: 'erie-canal-brockport-spencerport-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for Brockport to Spencerport.',
+      caption: 'Brockport to Spencerport Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-spencerport-genesee-river': [
+    {
+      id: 'erie-canal-spencerport-genesee-river-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for Spencerport to Genesee River.',
+      caption: 'Spencerport to Genesee River Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-genesee-river-bushnells-basin': [
+    {
+      id: 'erie-canal-genesee-river-bushnells-basin-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Genesee River to Bushnell’s Basin section.',
+      caption: 'Genesee River to Bushnell’s Basin Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-bushnells-basin-macedon': [
+    {
+      id: 'erie-canal-bushnells-basin-macedon-context',
+      src: 'https://eriecanalway.org/application/files/4916/3007/5859/BushnellsBasin_docks_JMackay12.jpg',
+      alt: 'Bushnell’s Basin docks beside the Erie Canal in Pittsford, New York, used as endpoint context for the Bushnell’s Basin to Macedon section.',
+      caption: 'Bushnell’s Basin to Macedon Erie Canal route endpoint context',
+      credit: 'Erie Canalway National Heritage Corridor',
+      takenLabel: 'Official Erie Canalway destination photograph',
+    },
+  ],
+  'erie-canal-macedon-newark': [
+    {
+      id: 'erie-canal-macedon-newark-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Macedon to Newark section.',
+      caption: 'Macedon to Newark Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-newark-lyons': [
+    {
+      id: 'erie-canal-newark-lyons-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Newark to Lyons section.',
+      caption: 'Newark to Lyons Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-lyons-seneca-county-line': [
+    {
+      id: 'erie-canal-lyons-seneca-county-line-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Lyons to Seneca County Line section.',
+      caption: 'Lyons to Seneca County Line Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-montezuma-nwr': [
+    {
+      id: 'erie-canal-montezuma-nwr-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Montezuma National Wildlife Refuge section.',
+      caption: 'Montezuma National Wildlife Refuge Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-seneca-river-mentz-brutus': [
+    {
+      id: 'erie-canal-seneca-river-mentz-brutus-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Mentz to Brutus Seneca River section.',
+      caption: 'Mentz to Brutus Seneca River route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-baldwinsville-three-rivers': [
+    {
+      id: 'erie-canal-baldwinsville-three-rivers-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Baldwinsville to Three Rivers section.',
+      caption: 'Baldwinsville to Three Rivers Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-three-rivers-brewerton': [
+    {
+      id: 'erie-canal-three-rivers-brewerton-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Three Rivers to Brewerton section.',
+      caption: 'Three Rivers to Brewerton Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'seneca-river-howland-island-loop': [
+    {
+      id: 'seneca-river-howland-island-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04237496.jpg',
+      alt: 'The Seneca River at the USGS monitoring station near Baldwinsville, New York, used as route-system context for the Northern Montezuma loop.',
+      caption: 'Seneca River near Baldwinsville; Northern Montezuma route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'hudson-river-tivoli-north-bay-loop': [
+    {
+      id: 'hudson-river-tivoli-north-bay-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
+      alt: 'The Hudson River at the USGS Green Island monitoring station in New York, used as same-river context for the Tivoli North Bay tidal-marsh loop.',
+      caption: 'Hudson River at Green Island; Tivoli North Bay route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'rondout-creek-kingston-eddyville-loop': [
+    {
+      id: 'rondout-creek-kingston-eddyville-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rondout%20Creek%20near%20mouth%2C%20Kingston%2C%20NY.jpg?width=1600',
+      alt: 'Rondout Creek near its mouth in Kingston, New York, used as same-route context for the Kingston-to-Eddyville loop.',
+      caption: 'Rondout Creek near Kingston; lower-creek route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-river context image',
+    },
+  ],
+  'rondout-creek-high-falls-rosendale': [
+    {
+      id: 'rondout-creek-high-falls-rosendale-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rondout%20Creek%20near%20mouth%2C%20Kingston%2C%20NY.jpg?width=1600',
+      alt: 'Rondout Creek near Kingston, New York, used as same-river context for the High Falls Dam to Rosendale whitewater reach.',
+      caption: 'Rondout Creek near Kingston; High Falls–Rosendale route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-river context image',
+    },
+  ],
+  'grass-river-woods-bridge-route47': [
+    {
+      id: 'grass-river-woods-bridge-route47-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
+      alt: 'Grass River at the USGS Chase Mills station in New York, used as same-river context for the Woods Bridge Road to Route 47 reach.',
+      caption: 'Grass River at Chase Mills; Woods Bridge–Route 47 route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'otselic-river-willet-landers-corners': [
+    {
+      id: 'otselic-river-cincinnatus-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01510000.jpg',
+      alt: 'Otselic River at the Cincinnatus USGS station in New York, used as same-river context for the Willet to Landers Corners route.',
+      caption: 'Otselic River at Cincinnatus; Willet-to-Landers Corners route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'chenango-river-north-norwich-greene': [
+    {
+      id: 'chenango-river-greene-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01507000.jpg',
+      alt: 'Chenango River at the Greene USGS station in New York, used as same-river context for the North Norwich to Greene route.',
+      caption: 'Chenango River at Greene; North Norwich-to-Greene route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'chenango-river-sherburne-north-norwich': [
+    {
+      id: 'chenango-river-sherburne-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01505000.jpg',
+      alt: 'Chenango River at the Sherburne USGS station in New York, used as same-river context for the Sherburne to North Norwich route.',
+      caption: 'Chenango River at Sherburne; Sherburne-to-North-Norwich route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'fishkill-creek-jean-van-pelt-sarah-taylor': [
+    {
+      id: 'fishkill-creek-van-pelt-launch',
+      src: 'https://images.squarespace-cdn.com/content/v1/66319ef6d52ccf17319148f4/e7168f0f-d60b-4b86-9478-c798f9f9b1c0/Kayak%2BVan%2BPelt%2B1.png',
+      alt: 'Kayak on Fishkill Creek at the Jean Van Pelt Park launch in New York.',
+      caption: 'Fishkill Creek at Jean Van Pelt Park; Van Pelt-to-Sarah Taylor route context',
+      credit: 'Fishkill Creek Watershed Alliance',
+      takenLabel: 'Route-specific image; source page attribution',
+    },
+  ],
+  'catskill-creek-kiwanis-dutchmans': [
+    {
+      id: 'catskill-creek-kiwanis-canoe',
+      src: 'https://images.squarespace-cdn.com/content/v1/5cec0723a613da0001c31544/1563819990122-6I75WN6F97SFI7Q83EP6/IMG-2529.JPG?format=750w',
+      alt: 'Canoe on Catskill Creek near the Hudson River Art Trail site in Catskill, New York.',
+      caption: 'Catskill Creek near the village access; Kiwanis Park to Dutchman’s Landing route context',
+      credit: 'Hudson River School / Hudson River Art Trail',
+      takenLabel: 'Route-specific image; source page attribution',
+    },
+  ],
+  'tioughnioga-river-itaska-chenango-forks': [
+    {
+      id: 'tioughnioga-river-itaska-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01509000.jpg',
+      alt: 'The Tioughnioga River at the USGS Cortland monitoring station in New York, used as same-river context for the Itaska to Chenango Forks section.',
+      caption: 'Tioughnioga River at Cortland; Itaska to Chenango Forks route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'south-sandy-creek-lakeview-outlet': [
+    {
+      id: 'south-sandy-creek-lakeview-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04250750.jpg',
+      alt: 'Sandy Creek near Adams, New York, used as same-system context for the Lakeview WMA South Sandy Creek paddle.',
+      caption: 'Sandy Creek near Adams; Lakeview WMA South Sandy Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-system context',
+    },
+  ],
+  'schoharie-creek-burtonsville-fort-hunter': [
+    {
+      id: 'schoharie-creek-burtonsville-fort-hunter-nws-context',
+      src: 'https://www.weather.gov/images/nerfc/gallery/brtn6_2.jpg',
+      alt: 'Schoharie Creek flowing through Burtonsville, New York, used as same-river context for the Burtonsville to Fort Hunter route.',
+      caption: 'Schoharie Creek at Burtonsville; Burtonsville to Fort Hunter route context',
+      credit: 'National Weather Service Northeast River Forecast Center',
+      takenLabel: 'U.S. government public domain; same-river context',
+    },
+  ],
+  'hudson-river-riparius-glen': [
+    {
+      id: 'hudson-river-riparius-glen-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01316031.jpg',
+      alt: 'Hudson River at The Glen, New York, used as same-river context for the Riparius to The Glen route.',
+      caption: 'Hudson River at The Glen; Riparius to The Glen route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'black-river-forestport-hawkinsville': [
+    {
+      id: 'black-river-forestport-hawkinsville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
+      alt: 'Black River near Boonville, New York, used as same-river context for the Forestport Reservoir to Hawkinsville route.',
+      caption: 'Black River near Boonville; Forestport to Hawkinsville route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'black-river-hawkinsville-norton-road': [
+    {
+      id: 'black-river-hawkinsville-norton-road-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
+      alt: 'Black River near Boonville, New York, used as same-river context for the Hawkinsville to Norton Road route.',
+      caption: 'Black River near Boonville; Hawkinsville to Norton Road route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'erie-canal-sylvan-beach': [
+    {
+      id: 'erie-canal-sylvan-beach-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Sylvan Beach section.',
+      caption: 'Sylvan Beach Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-rome-marcy': [
+    {
+      id: 'erie-canal-rome-marcy-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Rome to Marcy section.',
+      caption: 'Rome to Marcy Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-lock-e20-frankfort': [
+    {
+      id: 'erie-canal-lock-e20-frankfort-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Lock E20 to Frankfort section.',
+      caption: 'Lock E20 to Frankfort Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-frankfort-lock-e18': [
+    {
+      id: 'erie-canal-frankfort-lock-e18-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Frankfort to Lock E18 section.',
+      caption: 'Frankfort to Lock E18 Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-german-flatts-st-johnsville': [
+    {
+      id: 'erie-canal-german-flatts-st-johnsville-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the German Flatts to St. Johnsville section.',
+      caption: 'German Flatts to St. Johnsville Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-st-johnsville-canajoharie': [
+    {
+      id: 'erie-canal-st-johnsville-canajoharie-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the St. Johnsville to Canajoharie section.',
+      caption: 'St. Johnsville to Canajoharie Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-canajoharie-fultonville': [
+    {
+      id: 'erie-canal-canajoharie-fultonville-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Canajoharie to Fultonville section.',
+      caption: 'Canajoharie to Fultonville Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-fultonville-amsterdam': [
+    {
+      id: 'erie-canal-fultonville-amsterdam-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Fultonville to Amsterdam section.',
+      caption: 'Fultonville to Amsterdam Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-amsterdam-rotterdam-junction': [
+    {
+      id: 'erie-canal-amsterdam-rotterdam-junction-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal west of the Genesee River at Rochester, New York, used as same-canal proxy context for the Amsterdam to Rotterdam Junction section.',
+      caption: 'Amsterdam to Rotterdam Junction Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-rotterdam-junction-freemans-bridge': [
+    {
+      id: 'erie-canal-rotterdam-junction-freemans-bridge-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Rotterdam Junction to Freeman’s Bridge section.',
+      caption: 'Rotterdam Junction to Freeman’s Bridge Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-freemans-bridge-lock-e7': [
+    {
+      id: 'erie-canal-freemans-bridge-lock-e7-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Freeman’s Bridge to Lock E7 section.',
+      caption: 'Freeman’s Bridge to Lock E7 Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'erie-canal-lock-e7-waterford-flight-south': [
+    {
+      id: 'erie-canal-lock-e7-waterford-flight-south-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the south-side Lock E7 to Waterford Flight section.',
+      caption: 'South-side Lock E7 to Waterford Flight Erie Canal route and same-canal proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'waterford-hudson-confluence-lansingburgh': [
+    {
+      id: 'waterford-hudson-confluence-lansingburgh-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01358000.jpg',
+      alt: 'Hudson River at Green Island, New York, used as regional proxy context for the Waterford to Lansingburgh confluence crossing.',
+      caption: 'Waterford to Lansingburgh Hudson–Mohawk confluence route and regional proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; regional Hudson proxy context',
+    },
+  ],
+  'glens-falls-feeder-canal-queensbury-hudson-falls': [
+    {
+      id: 'glens-falls-feeder-canal-queensbury-hudson-falls-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Glens Falls Feeder Canal route.',
+      caption: 'Glens Falls Feeder Canal Queensbury to Hudson Falls route and regional proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; regional Hudson/Champlain proxy context',
+    },
+  ],
+  'nissequogue-river-paul-given-state-park': [
+    {
+      id: 'nissequogue-river-paul-given-state-park-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01304000.jpg',
+      alt: 'Nissequogue River near Smithtown, New York, used as same-river context for the Paul T. Given to Nissequogue River State Park tidal route.',
+      caption: 'Paul T. Given to Nissequogue River State Park tidal route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'carmans-river-montauk-beaverdam': [
+    {
+      id: 'carmans-river-montauk-beaverdam-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01305000.jpg',
+      alt: 'Carmans River at Yaphank, New York, used as same-river freshwater context for the lower Carmans tidal route.',
+      caption: 'Montauk Highway to Beaver Dam Road Carmans River route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'connetquot-river-great-river-heckscher': [
+    {
+      id: 'connetquot-river-great-river-heckscher-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Connetquot-River.jpg?width=1600',
+      alt: 'Connetquot River in Suffolk County, New York, used as same-river context for the lower estuary route.',
+      caption: 'Great River Ramp to Heckscher Field 7 lower Connetquot route context',
+      credit: 'Americasroof via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons image; CC BY-SA 3.0; same-river context',
+    },
+  ],
+  'catatonk-creek-candor-owego': [
+    {
+      id: 'catatonk-creek-candor-owego-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01514000.jpg',
+      alt: 'Owego Creek near Owego, New York, used as same-river gauge context for the Catatonk Creek to Owego route.',
+      caption: 'Owego Creek near Owego; Catatonk/Owego route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'owego-creek-lower-owego-out-and-back': [
+    {
+      id: 'owego-creek-lower-owego-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01514000.jpg',
+      alt: 'Owego Creek near Owego, New York, used as same-river gauge context for the lower Owego Creek out-and-back route.',
+      caption: 'Owego Creek near Owego; lower Owego Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'canisteo-river-canisteo-addison': [
+    {
+      id: 'canisteo-river-canisteo-addison-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01525500.jpg',
+      alt: 'Canisteo River at West Cameron, New York, used as same-river gauge context for the Canisteo-to-Addison route.',
+      caption: 'Canisteo River at West Cameron; Canisteo-to-Addison route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'cazenovia-creek-west-falls-mill-road': [
+    {
+      id: 'cazenovia-creek-west-falls-mill-road-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
+      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river gauge context for the West Falls to Mill Road route.',
+      caption: 'Cazenovia Creek at Ebenezer; West Falls-to-Mill Road route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'cazenovia-creek-mill-road-cazenovia-park': [
+    {
+      id: 'cazenovia-creek-mill-road-cazenovia-park-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
+      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river context for the Mill Road Park to Cazenovia Park route.',
+      caption: 'Cazenovia Creek at Ebenezer; Mill Road-to-Cazenovia Park route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'cazenovia-creek-cazenovia-park-thomas-higgins': [
+    {
+      id: 'cazenovia-creek-cazenovia-park-thomas-higgins-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04215500.jpg',
+      alt: 'Cazenovia Creek at Ebenezer, New York, used as same-river context for the Cazenovia Park to Thomas Higgins Park route.',
+      caption: 'Cazenovia Creek at Ebenezer; lower urban blueway route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'west-branch-oswegatchie-jerden-kimballs': [
+    {
+      id: 'west-branch-oswegatchie-jerden-kimballs-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04262500.jpg',
+      alt: 'West Branch Oswegatchie River near Harrisville, New York, used as branch and proxy-gauge context for the Jerden Falls Road to Kimballs Mills route.',
+      caption: 'West Branch Oswegatchie near Harrisville; Jerden Falls-to-Kimballs Mills route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-branch proxy context',
+    },
+  ],
+  'keuka-outlet-penn-yan-dresden': [
+    {
+      id: 'keuka-outlet-penn-yan-dresden-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04232482.jpg',
+      alt: 'Keuka Lake Outlet at Dresden, New York, used as direct-gauge context for the Penn Yan to Dresden route.',
+      caption: 'Keuka Lake Outlet at Dresden; Penn Yan-to-Dresden route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'black-river-watertown-dexter-canyon': [
+    {
+      id: 'black-river-watertown-dexter-canyon-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04260500.jpg',
+      alt: 'Black River at Watertown, New York, used as direct-gauge context for the Watertown to Dexter canyon route.',
+      caption: 'Black River at Watertown; Watertown-to-Dexter canyon route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'flint-creek-orleans-phelps': [
+    {
+      id: 'flint-creek-orleans-phelps-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04235250.jpg',
+      alt: 'Flint Creek at Phelps, New York, used as same-river gauge context for the Orleans-to-Phelps route.',
+      caption: 'Flint Creek at Phelps; Orleans-to-Phelps route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'kinderhook-creek-east-nassau-valatie': [
+    {
+      id: 'kinderhook-creek-east-nassau-valatie-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01361000.jpg',
+      alt: 'Kinderhook Creek at Rossman, New York, used as same-river gauge context for the East Nassau-to-Valatie route.',
+      caption: 'Kinderhook Creek at Rossman; East Nassau-to-Valatie route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'kayaderosseras-creek-grays-crossing-driscoll-road': [
+    {
+      id: 'kayaderosseras-creek-grays-crossing-driscoll-road-context',
+      src: 'https://kayadeross.org/wp-content/uploads/2023/05/title-grays.jpg',
+      alt: 'Kayaderosseras Creek at Gray’s Crossing, used as route context for the Gray’s Crossing to Driscoll Road blueway segment.',
+      caption: 'Gray’s Crossing on Kayaderosseras Creek; route context for the Driscoll Road segment',
+      credit: 'Friends of the Kayaderosseras',
+      takenLabel: 'Courtesy of Friends of the Kayaderosseras',
+    },
+  ],
+  'kinderhook-creek-stuyvesant-falls-stockport': [
+    {
+      id: 'kinderhook-creek-stuyvesant-falls-stockport-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01361000.jpg',
+      alt: 'Kinderhook Creek at Rossman, New York, used as same-river gauge context for the Stuyvesant Falls to Stockport route.',
+      caption: 'Kinderhook Creek at Rossman; Stuyvesant Falls to Stockport route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'hudson-river-schodack-island-catskill': [
+    {
+      id: 'hudson-river-schodack-island-catskill-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
+      alt: 'Hudson River view used as same-river estuary context for the Schodack Island to Catskill route.',
+      caption: 'Hudson River estuary; Schodack Island to Catskill route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-river context image',
+    },
+  ],
+  'ramshorn-livingston-sanctuary-dutchmans': [
+    {
+      id: 'ramshorn-livingston-sanctuary-dutchmans-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Views%20of%20the%20Hudson%20River%20from%20Watervliet%2C%20NY%20%2834614186213%29.jpg?width=1600',
+      alt: 'Hudson River view used as same-estuary context for the RamsHorn-Livingston Sanctuary to Dutchman’s Landing route.',
+      caption: 'Hudson River estuary; RamsHorn-Livingston to Dutchman’s Landing route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-estuary context image',
+    },
+  ],
+  'independence-river-bailey-donnattsburg': [
+    {
+      id: 'independence-river-bailey-donnattsburg-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04256000.jpg',
+      alt: 'Independence River at Donnattsburg, New York, used as same-river context for the Bailey Road to Donnattsburg upper reach.',
+      caption: 'Independence River at Donnattsburg; Bailey Road to Donnattsburg route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'bog-river-flow-lower-dam-lows-lake': [
+    {
+      id: 'bog-river-flow-lower-dam-lows-lake-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
+      alt: 'Lows Lake in the Adirondacks, used as route context for the Bog River Flow Lower Dam to Lows Lake canoe route.',
+      caption: 'Lows Lake from Grass Pond Mountain; Bog River Flow route context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-route context image',
+    },
+  ],
+  'bog-river-lower-dam-bog-river-falls': [
+    {
+      id: 'bog-river-lower-dam-bog-river-falls-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
+      alt: 'Lows Lake in the Adirondacks, used as same-water context for the advanced Bog River Lower Dam to Bog River Falls reach.',
+      caption: 'Lows Lake and Bog River Complex context; lower Bog River route begins below Lows Lower Dam',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-water context image',
+    },
+  ],
+  'bog-river-lows-oswegatchie-inlet': [
+    {
+      id: 'bog-river-lows-oswegatchie-inlet-context',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Low%27s_Lake_from_Grass_Pond_Mountain.jpg',
+      alt: 'Lows Lake in the Adirondacks, used as same-water context for the Lows Lower Dam to Oswegatchie Inlet wilderness traverse.',
+      caption: 'Lows Lake from Grass Pond Mountain; Bog River–Oswegatchie traverse context',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Same-water route-context image',
+    },
+  ],
+  'sangerfield-river-nine-mile-park-out-and-back': [
+    {
+      id: 'sangerfield-river-nine-mile-park-out-and-back-context',
+      src: 'https://live.staticflickr.com/65535/40100302831_ffb91383de.jpg',
+      alt: 'The Sangerfield River flowing through Nine Mile Swamp in Madison County, New York.',
+      caption: 'Sangerfield River in Nine Mile Swamp; 9-Mile Park route context',
+      credit: 'Will Parson / Chesapeake Bay Program via Flickr',
+      takenLabel: 'Chesapeake Bay Program photographic archive; permission and credit required',
+    },
+  ],
+  'fish-creek-wma-route-184-pope-mills': [
+    {
+      id: 'fish-creek-wma-route-184-pope-mills-context',
+      src: 'https://dec.ny.gov/sites/default/files/styles/hero_background/public/2025-10/fishcreek.jpg?h=19f14c2c&itok=NXXmiquX&upd=1788381224',
+      alt: 'Fish Creek Wildlife Management Area in St. Lawrence County, New York, used as route context for the Route 184 to Pope Mills wetland paddle.',
+      caption: 'Fish Creek Wildlife Management Area; Route 184 to Pope Mills route context',
+      credit: 'NYSDEC',
+      takenLabel: 'Current NYSDEC Fish Creek WMA page image; route-context only',
+    },
+  ],
+  'oswegatchie-east-branch-inlet-wanakena': [
+    {
+      id: 'oswegatchie-east-branch-inlet-wanakena-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04260910.jpg',
+      alt: 'East Branch Oswegatchie River at Wanakena, New York, used as same-river context for the Inlet to Wanakena whitewater reach.',
+      caption: 'East Branch Oswegatchie River at Wanakena; Inlet to Wanakena route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'indian-river-hall-road-rossie-falls-out-and-back': [
+    {
+      id: 'indian-river-hall-road-rossie-falls-out-and-back-context',
+      src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/LK00-BI701-Fig2.png',
+      alt: 'Indian River in New York with boulders and a railroad bridge, used as context for the Hall Road to Rossie Falls day paddle.',
+      caption: 'Indian River, New York; Hall Road to Rossie Falls route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public-domain Indian River image; route-context only',
+    },
+  ],
+  'oswegatchie-east-branch-flat-rock-edwards': [
+    {
+      id: 'oswegatchie-east-branch-flat-rock-edwards-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04262500.jpg',
+      alt: 'West Branch Oswegatchie River near Harrisville, New York, used as same-watershed context for the East Branch Flat Rock to Edwards whitewater reach.',
+      caption: 'West Branch Oswegatchie River near Harrisville; East Branch Flat Rock to Edwards proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-watershed proxy context',
+    },
+  ],
+  'saranac-river-union-falls-casey-road': [
+    {
+      id: 'saranac-river-union-falls-casey-road-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Union Falls to Casey Road whitewater reach.',
+      caption: 'Saranac River at Plattsburgh; Union Falls to Casey Road route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'saranac-river-kent-falls-military-turnpike': [
+    {
+      id: 'saranac-river-kent-falls-military-turnpike-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Foot of Kent Falls to Military Turnpike moving-water segment.',
+      caption: 'Saranac River at Plattsburgh; Foot of Kent Falls to Military Turnpike route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'saranac-river-military-turnpike-imperial-mill': [
+    {
+      id: 'saranac-river-military-turnpike-imperial-mill-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Military Turnpike to Imperial Mill whitewater segment.',
+      caption: 'Saranac River at Plattsburgh; Military Turnpike to Imperial Mill route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'saranac-river-imperial-mill-lake-champlain': [
+    {
+      id: 'saranac-river-imperial-mill-lake-champlain-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, used as same-river context for the Imperial Mill Dam to Lake Champlain whitewater segment.',
+      caption: 'Saranac River at Plattsburgh; Imperial Mill Dam to Lake Champlain route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'peconic-river-river-road-edwards-avenue': [
+    {
+      id: 'peconic-river-river-road-edwards-avenue-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
+      alt: 'Peconic River at Riverhead, New York, used as same-river context for the River Road to Edwards Avenue upper reach.',
+      caption: 'River Road to Edwards Avenue Peconic River upper-reach context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'peconic-river-forge-pond-upper-mills': [
+    {
+      id: 'peconic-river-forge-pond-upper-mills-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
+      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Forge Pond to Upper Mills lower freshwater route.',
+      caption: 'Forge Pond to Upper Mills Peconic River lower-freshwater context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'peconic-river-upper-mills-weeping-willow': [
+    {
+      id: 'peconic-river-upper-mills-weeping-willow-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
+      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Upper Mills to Weeping Willow lower Blueway section.',
+      caption: 'Upper Mills to Weeping Willow Peconic River lower-reach context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'peconic-river-weeping-willow-indian-island': [
+    {
+      id: 'peconic-river-weeping-willow-indian-island-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01304500.jpg',
+      alt: 'Peconic River at Riverhead, New York, used as same-river context for the Weeping Willow to Indian Island tidal route.',
+      caption: 'Weeping Willow to Indian Island Peconic River tidal reach context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'schoharie-creek-middleburgh-central-bridge': [
+    {
+      id: 'schoharie-creek-middleburgh-central-bridge-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01350750.jpg',
+      alt: 'Schoharie Creek at Schoharie, New York, used as same-river context for the Middleburgh to Central Bridge route.',
+      caption: 'Middleburgh to Central Bridge Schoharie Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'cobleskill-creek-warnerville-central-bridge': [
+    {
+      id: 'cobleskill-creek-south-grand-street-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01351298.jpg',
+      alt: 'Cobleskill Creek at South Grand Street in Cobleskill, New York, used as same-river context for the Warnerville to Central Bridge route.',
+      caption: 'Cobleskill Creek at South Grand Street; Warnerville-to-Central Bridge route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river context',
+    },
+  ],
+  'schoharie-creek-central-bridge-esperance': [
+    {
+      id: 'schoharie-creek-central-bridge-esperance-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01351450.jpg',
+      alt: 'Schoharie Creek at Esperance, New York, used as same-river context for the Central Bridge to Esperance route.',
+      caption: 'Central Bridge to Esperance Schoharie Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'esopus-creek-phoenicia-boiceville': [
+    {
+      id: 'esopus-creek-phoenicia-boiceville-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01362500.jpg',
+      alt: 'Esopus Creek at Coldbrook, New York, used as same-river context for the Phoenicia to Boiceville route.',
+      caption: 'Phoenicia to Boiceville Esopus Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'wappinger-creek-cady-greenvale': [
+    {
+      id: 'wappinger-creek-cady-greenvale-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01372500.jpg',
+      alt: 'Wappinger Creek near Wappingers Falls, New York, used as same-river context for the Cady/Pleasant Valley to Greenvale Park route.',
+      caption: 'Cady/Pleasant Valley to Greenvale Park Wappinger Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'wallkill-river-popp-gardiner': [
+    {
+      id: 'wallkill-river-popp-gardiner-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
+      alt: 'Wallkill River at Gardiner, New York, used as same-river context for the Popp Park to Gardiner route.',
+      caption: 'Popp Park to Gardiner Wallkill River route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'wallkill-river-new-paltz-rosendale': [
+    {
+      id: 'wallkill-river-new-paltz-rosendale-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
+      alt: 'Wallkill River at Gardiner, New York, used as same-river context for the New Paltz to Rosendale route.',
+      caption: 'New Paltz to Rosendale Wallkill River route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'oswegatchie-river-heuvelton-ogdensburg': [
+    {
+      id: 'oswegatchie-river-heuvelton-ogdensburg-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04263000.jpg',
+      alt: 'Oswegatchie River near Heuvelton, New York, used as same-river context for the Heuvelton to Ogdensburg route.',
+      caption: 'Heuvelton to Ogdensburg Oswegatchie River route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'raquette-river-raymondville-massena-springs': [
+    {
+      id: 'raquette-river-raymondville-massena-springs-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04268000.jpg',
+      alt: 'Raquette River at Raymondville USGS station photograph used as same-river context for the Raymondville to Massena Springs route.',
+      caption: 'Raquette River at Raymondville; route and gauge context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'east-canada-creek-powley-place-out-and-back': [
+    {
+      id: 'east-canada-creek-powley-place-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01348000.jpg',
+      alt: 'East Canada Creek at the USGS monitoring station near East Creek, New York, used as same-river context for the Powley Place out-and-back.',
+      caption: 'East Canada Creek; route and gauge context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'sacandaga-river-speculator-duck-bay-loop': [
+    {
+      id: 'sacandaga-river-speculator-duck-bay-loop-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
+      alt: 'Sacandaga River near Hope USGS station photograph used as same-river context for the Speculator to Duck Bay flatwater loop.',
+      caption: 'Sacandaga River; route and gauge context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'kunjamuk-river-speculator-elm-lake-out-and-back': [
+    {
+      id: 'kunjamuk-river-speculator-elm-lake-out-and-back-route-context',
+      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7725/images/6e4115b52c00c5adf186d09deb5d7604.jpg?itok=kG8-7k_p',
+      alt: 'Kunjamuk River route photograph used as route-specific context for the Speculator to Elm Lake out-and-back.',
+      caption: 'Kunjamuk River to Elm Lake paddling context',
+      credit: 'Experience Our Adirondacks',
+      takenLabel: 'Route-specific trip photograph; context only',
+    },
+  ],
+  'marion-river-blue-mountain-raquette-lake': [
+    {
+      id: 'marion-river-blue-mountain-raquette-lake-route-context',
+      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7718/images/6bfec7e46177f173a796cdbbe1a45ecd.jpg?itok=QB7Nebde',
+      alt: 'Blue Mountain Lake public beach photograph used as route-specific context for the Blue Mountain Lake to Raquette Lake Marion River linked-lake route.',
+      caption: 'Blue Mountain Lake to Raquette Lake paddling context',
+      credit: 'Experience Our Adirondacks',
+      takenLabel: 'Route-endpoint photograph; context only',
+    },
+  ],
+  'dead-creek-route-3-headwaters-out-and-back': [
+    {
+      id: 'dead-creek-route-3-headwaters-out-and-back-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04267500.jpg',
+      alt: 'Raquette River at the USGS South Colton station photograph used as same-system context for the Dead Creek Route 3 marsh out-and-back.',
+      caption: 'Dead Creek and Raquette Boreal paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain same-system context photograph; not the Dead Creek reach',
+    },
+  ],
+  'osgood-river-osgood-pond-out-and-back': [
+    {
+      id: 'osgood-river-osgood-pond-out-and-back-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04268600.jpg',
+      alt: 'East Branch St. Regis River at the USGS station photograph used as nearby watershed context for the Osgood Pond and Osgood River out-and-back.',
+      caption: 'Osgood Pond and Osgood River paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain nearby watershed context photograph; not the Osgood River reach',
+    },
+  ],
+  'north-branch-saranac-river-north-branch-road-out-and-back': [
+    {
+      id: 'north-branch-saranac-river-north-branch-road-out-and-back-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at the USGS Plattsburgh station photograph used as same-river context for the North Branch Saranac River out-and-back.',
+      caption: 'North Branch Saranac River paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain same-river context photograph; not the North Branch reach',
+    },
+  ],
+  'piseco-outlet-route-10-west-branch-out-and-back': [
+    {
+      id: 'piseco-outlet-route-10-west-branch-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
+      alt: 'Sacandaga River near Hope USGS station photograph used as same-system context for the Piseco Outlet Route 10 to West Branch Sacandaga out-and-back.',
+      caption: 'Piseco Outlet and West Branch Sacandaga paddling context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain same-system context photograph; not the Piseco Outlet reach',
+    },
+  ],
+  'south-branch-black-river-south-lake-out-and-back': [
+    {
+      id: 'south-branch-black-river-south-lake-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04252500.jpg',
+      alt: 'Black River near Boonville USGS station photograph used as same-system context for the South Branch Black River South Lake to Black River out-and-back.',
+      caption: 'South Branch Black River paddling context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain downstream same-system context photograph; not the South Branch reach',
+    },
+  ],
+  'mongaup-river-rio-powerhouse-delaware': [
+    {
+      id: 'mongaup-river-rio-powerhouse-delaware-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01433500.jpg',
+      alt: 'Mongaup River Near Mongaup USGS station photograph used as direct gauge context for the Rio Powerhouse to Upper Delaware release reach.',
+      caption: 'Mongaup River Rio Reach release-route context',
+      credit: 'USGS',
+      takenLabel: 'USGS public-domain direct-gauge context photograph; not a substitute for release-day conditions',
+    },
+  ],
+  'grass-river-degrasse-pyrites': [
+    {
+      id: 'grass-river-degrasse-pyrites-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
+      alt: 'Grass River at the USGS Chase Mills station photograph used as downstream same-river context for the DeGrasse-to-Pyrites route.',
+      caption: 'Grass River DeGrasse-to-Pyrites paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain downstream same-river context photograph; not the DeGrasse-to-Pyrites reach',
+    },
+  ],
+  'boquet-river-route-73-split-rock': [
+    {
+      id: 'boquet-river-route-73-split-rock-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Split_Rock_Falls_(Boquet_River,_eastern_Adirondack_Mountains,_New_York_State,_USA)_1_(23308130914).jpg?width=1600',
+      alt: 'Split Rock Falls on the Boquet River, used as route-specific context for the Route 73 to Split Rock Falls whitewater reach.',
+      caption: 'Split Rock Falls on the Boquet River',
+      credit: 'Wikimedia Commons',
+      takenLabel: 'Route-specific public-domain/Commons context photograph; falls are a mandatory endpoint boundary',
+    },
+  ],
+  'boquet-river-beaver-meadow-northway': [
+    {
+      id: 'boquet-river-beaver-meadow-northway-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
+      alt: 'Boquet River at Willsboro USGS station context for the Beaver Meadow Brook to Northway route.',
+      caption: 'Boquet River at Willsboro gauge context',
+      credit: 'USGS New York Water Science Center',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'boquet-river-northway-boquet': [
+    {
+      id: 'boquet-river-northway-boquet-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
+      alt: 'Boquet River at Willsboro USGS station context for the Northway to Boquet route.',
+      caption: 'Boquet River at Willsboro gauge context',
+      credit: 'USGS New York Water Science Center',
+      takenLabel: 'USGS public-domain station photograph',
+    },
+  ],
+  'little-river-youngs-streeter-lake-road': [
+    {
+      id: 'little-river-youngs-streeter-lake-road-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04262000.jpg',
+      alt: 'Oswegatchie River at the USGS near-Oswegatchie station, used as downstream watershed context for the Little River Youngs Road to Streeter Lake Road paddle.',
+      caption: 'Little River and Oswegatchie watershed paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain downstream watershed context photograph; not the Little River reach',
+    },
+  ],
+  'susquehanna-river-west-oneonta-otego': [
+    {
+      id: 'susquehanna-river-west-oneonta-otego-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
+      alt: 'Susquehanna River at the USGS Bainbridge station, used as same-river context for the West Oneonta to Otego paddle.',
+      caption: 'Susquehanna River West Oneonta to Otego paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain same-river context photograph; not the West Oneonta–Otego reach',
+    },
+  ],
+  'susquehanna-river-emmons-west-oneonta': [
+    {
+      id: 'susquehanna-river-emmons-west-oneonta-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
+      alt: 'Susquehanna River at the USGS Unadilla station, used as downstream same-river context for the Emmons to West Oneonta paddle.',
+      caption: 'Susquehanna River Emmons to West Oneonta paddling context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'Public-domain downstream same-river context photograph; not the Emmons–West Oneonta reach',
+    },
+  ],
+  'susquehanna-river-otego-unadilla': [
+    {
+      id: 'susquehanna-river-otego-unadilla-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
+      alt: 'Susquehanna River at the USGS Unadilla station, used as same-river context for the Otego to Unadilla paddle.',
+      caption: 'Susquehanna River Otego to Unadilla paddling context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'Public-domain same-river station photograph; not a current condition or safety guarantee',
+    },
+  ],
+  'susquehanna-river-unadilla-sidney': [
+    {
+      id: 'susquehanna-river-unadilla-sidney-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
+      alt: 'Susquehanna River at the USGS Unadilla station, used as same-river context for the Unadilla to Sidney paddle.',
+      caption: 'Susquehanna River Unadilla to Sidney paddling context',
+      credit: 'USGS',
+      takenLabel: 'Public-domain same-river station photograph; not a current condition or safety guarantee',
+    },
+  ],
+  'jessup-river-route-30-indian-lake': [
+    {
+      id: 'jessup-river-route-30-indian-lake-context',
+      src: 'https://www.jimmuller.com/wp-content/uploads/2016/05/P1060347.jpg',
+      alt: 'Indian Lake arm near the Jessup River in the Adirondacks, used as route-specific context for the Jessup River to Indian Lake paddle.',
+      caption: 'Jessup River to Indian Lake paddling context',
+      credit: 'JimMuller.com route documentation',
+      takenLabel: 'Route-specific trip photograph; context only',
+    },
+  ],
+  'miami-river-lewey-lake-out-and-back': [
+    {
+      id: 'miami-river-lewey-lake-out-and-back-context',
+      src: 'https://images.squarespace-cdn.com/content/v1/5592dfa8e4b08369d0200646/5e5691c6-82cd-4a71-b57f-7658ba2b1145/2023-08-paddling-07-1500px.jpg',
+      alt: 'Canoe on the Miami River near Lewey Lake in the Adirondacks, used as route-specific context for the Lewey Lake and Miami River paddle.',
+      caption: 'Lewey Lake and Miami River paddling context',
+      credit: 'Upstate Sports / Rich Macha',
+      takenLabel: 'Route-specific feature photograph; context only',
+    },
+  ],
+  'genesee-river-waterways-center-corn-hill': [
+    {
+      id: 'genesee-river-ford-street-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04231600.jpg',
+      alt: 'Genesee River at the Ford Street Bridge in Rochester, New York.',
+      caption: 'Genesee Waterways Center to Corn Hill urban river route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'genesee-river-turning-point-port-of-rochester': [
+    {
+      id: 'genesee-river-ford-street-lower-harbor-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04231600.jpg',
+      alt: 'Genesee River at the Ford Street Bridge in Rochester, New York, used as same-river context for the lower Genesee Turning Point Park to Port of Rochester route.',
+      caption: 'Lower Genesee River harbor route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'oatka-creek-leroy-mumford': [
+    {
+      id: 'oatka-creek-garbutt-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04230500.jpg',
+      alt: 'Oatka Creek at the Garbutt USGS station in New York, used as same-river context for the Le Roy to Mumford route.',
+      caption: 'Le Roy to Mumford Oatka Creek route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'erie-canal-brockport-holley': [
+    {
+      id: 'erie-canal-brockport-holley-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218700.jpg',
+      alt: 'Erie Barge Canal near the USGS Rochester station, used as same-canal context for the Brockport to Holley route.',
+      caption: 'Brockport to Holley Erie Canal route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-canal proxy context',
+    },
+  ],
+  'buffalo-river-canalside-red-jacket': [
+    {
+      id: 'buffalo-river-canalside-red-jacket-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/0421580305.jpg',
+      alt: 'Buffalo River at its mouth in Buffalo, New York, used as same-river context for the Canalside to Red Jacket route.',
+      caption: 'Canalside to Red Jacket Buffalo River route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river mouth proxy context',
+    },
+  ],
+  'erie-canal-ransom-creek-lockport': [
+    {
+      id: 'erie-canal-ransom-creek-lockport-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04218000.jpg',
+      alt: 'Tonawanda Creek at Rapids, New York, used as downstream watershed context for the Ransom Creek to Lockport route.',
+      caption: 'Ransom Creek to Lockport Erie Canal route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream proxy context',
+    },
+  ],
+  'champlain-canal-whitehall-fort-ann': [
+    {
+      id: 'champlain-canal-whitehall-fort-ann-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Whitehall to Fort Ann Champlain Canal route.',
+      caption: 'Whitehall to Fort Ann Champlain Canal route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; regional proxy context',
+    },
+  ],
+  'champlain-canal-fort-ann-fort-edward': [
+    {
+      id: 'champlain-canal-fort-ann-fort-edward-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'Hudson River at Fort Edward, New York, used as regional proxy context for the Fort Ann to Fort Edward Champlain Canal route.',
+      caption: 'Fort Ann to Fort Edward Champlain Canal route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; regional proxy context',
+    },
+  ],
+  'fall-creek-route-13-flat-rock': [
+    {
+      id: 'fall-creek-route-13-flat-rock-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04234000.jpg',
+      alt: 'Fall Creek at the USGS near-Ithaca monitoring station in New York, used as same-river context for the Route 13 to Flat Rock reach.',
+      caption: 'Fall Creek near Ithaca; Route 13 to Flat Rock same-river context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'salmon-river-route-2a-black-hole': [
+    {
+      id: 'salmon-river-route-2a-black-hole-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/7674b2fa-7e54-422e-5ae0-2af825269500/large',
+      alt: 'The Salmon River Route 2A to Black Hole reach through Pulaski, New York, shown in American Whitewater route context.',
+      caption: 'Salmon River Route 2A to Black Hole; route-specific context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'salmon-river-pineville-compactor': [
+    {
+      id: 'salmon-river-pineville-compactor-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04250200.jpg',
+      alt: 'Salmon River at the USGS Pineville monitoring station in New York, used as same-river context for the Pineville to Compactor Pool section.',
+      caption: 'Salmon River at Pineville; Pineville to Compactor Pool same-river context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'west-canada-creek-route-28-middleville': [
+    {
+      id: 'west-canada-creek-route-28-middleville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
+      alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York, used as downstream same-river context for the Route 28 to Middleville section.',
+      caption: 'West Canada Creek at Kast Bridge; Route 28 to Middleville same-river context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream same-river context',
+    },
+  ],
+  'susquehanna-river-colliersville-emmons': [
+    {
+      id: 'susquehanna-river-colliersville-emmons-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01500500.jpg',
+      alt: 'Susquehanna River at the USGS Unadilla monitoring station in New York, used as downstream same-river context for the Colliersville to Emmons section.',
+      caption: 'Susquehanna River at Unadilla; Colliersville to Emmons downstream context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream same-river context',
+    },
+  ],
+  'unadilla-river-new-berlin-mount-upton': [
+    {
+      id: 'unadilla-river-new-berlin-mount-upton-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01502500.jpg',
+      alt: 'Unadilla River at the USGS Rockdale monitoring station in New York, used as downstream same-river context for the New Berlin to Mount Upton section.',
+      caption: 'Unadilla River at Rockdale; New Berlin to Mount Upton downstream context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; downstream same-river context',
+    },
+  ],
+  'unadilla-river-guilford-rockdale': [
+    {
+      id: 'unadilla-river-guilford-rockdale-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01502500.jpg',
+      alt: 'Unadilla River at the USGS Rockdale monitoring station in New York, used as downstream context for the Guilford to Rockdale section.',
+      caption: 'Unadilla River at Rockdale; Guilford to Rockdale route context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; route-boundary context',
+    },
+  ],
+  'grass-river-downerville-russell': [
+    {
+      id: 'grass-river-downerville-russell-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
+      alt: 'Grass River at the USGS Chase Mills monitoring station in New York, used as same-river context for the Downerville to Russell reach.',
+      caption: 'Grass River at Chase Mills; Downerville to Russell same-river context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'salmon-creek-ludlowville-cayuga-lake': [
+    {
+      id: 'salmon-creek-ludlowville-cayuga-lake-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/7e97304b-5d57-47c3-6069-be127a463a00/large',
+      alt: 'Salmon Creek from Ludlowville Falls to Cayuga Lake in New York, shown in American Whitewater route context.',
+      caption: 'Salmon Creek Ludlowville Falls to Cayuga Lake; route-specific context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'raquette-river-helenbrooks-hole': [
+    {
+      id: 'raquette-river-helenbrooks-hole-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/e993fa67-0c2a-4410-1827-e896fa063600/large',
+      alt: 'Raquette River Helenbrooks Hole in South Colton, New York, shown in American Whitewater route context.',
+      caption: 'Raquette River Helenbrooks Hole; route-specific context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'ausable-river-ausable-chasm-us9': [
+    {
+      id: 'ausable-river-ausable-chasm-us9-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/291816ef-c316-4671-945d-e4259be20a00/large',
+      alt: 'Ausable Chasm on the Ausable River in New York, shown in American Whitewater route context.',
+      caption: 'Ausable Chasm; route-specific Class IV+ context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'sacandaga-river-stewarts-bridge-hudson': [
+    {
+      id: 'sacandaga-river-stewarts-bridge-hudson-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/b2e3dde4-9e65-46af-4212-f0811a249100/large',
+      alt: 'The lower Sacandaga River below Stewarts Bridge in New York, shown in American Whitewater route context.',
+      caption: 'Sacandaga Stewarts Bridge to Hudson; route-specific Class II–III release context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'south-branch-west-canada-creek-fayle-nobleboro': [
+    {
+      id: 'south-branch-west-canada-creek-fayle-nobleboro-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/ccff837f-d787-4389-16f3-791b68fe0300/large',
+      alt: 'The South Branch of West Canada Creek from Fayle Road to Nobleboro in New York, shown in American Whitewater route context.',
+      caption: 'South Branch West Canada Creek Fayle to Nobleboro; route-specific Class II–III+ context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'west-branch-sacandaga-chub-lake-shaker-place': [
+    {
+      id: 'west-branch-sacandaga-chub-lake-shaker-place-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/West%20Branch%20of%20Sacandaga.jpg?width=1600',
+      alt: 'A kayaker paddles the West Branch of the Sacandaga River in the Adirondack Mountains of New York.',
+      caption: 'West Branch Sacandaga Chub Lake to Shaker Place; route-specific river context',
+      credit: 'MJPlante1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'west-branch-sacandaga-whitehouse-campsite': [
+    {
+      id: 'west-branch-sacandaga-whitehouse-campsite-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/0c9188db-37c2-4cd1-ce13-214747504b00/large',
+      alt: 'The West Branch Sacandaga River Whitehouse to Sacandaga Campsite reach in New York, shown in American Whitewater route context.',
+      caption: 'West Branch Sacandaga Whitehouse to Blackbridge; route-specific Class II–III context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'east-branch-sacandaga-griffin-gorge': [
+    {
+      id: 'east-branch-sacandaga-griffin-gorge-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/392bff16-e7fa-425d-49fa-6810e1c0d400/large',
+      alt: 'Griffin Gorge on the East Branch Sacandaga River in New York, shown in American Whitewater route context.',
+      caption: 'East Branch Sacandaga Griffin Gorge; route-specific Class III+(V) context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'cedar-river-pelon-outer-gooley': [
+    {
+      id: 'cedar-river-pelon-outer-gooley-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
+      alt: 'Wakely Dam on Cedar River Flow in the Adirondack Cedar River system of New York.',
+      caption: 'Cedar River Flow; same-river Adirondack context for the Pelon to Outer Gooley route',
+      credit: 'Wildhart via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'indian-river-abanakee-dam-outer-gooley': [
+    {
+      id: 'indian-river-abanakee-dam-outer-gooley-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/FMIB%2043138%20Indian%20River%20Dam%20Upper%20side.jpeg?width=1600',
+      alt: 'Historical view of the upper side of the Indian River Dam in New York.',
+      caption: 'Indian River Dam; historical dam and river context for the Abanakee to Outer Gooley route',
+      credit: 'New York State Commissioners of Fisheries, Game and Forests via Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'black-creek-churchville-black-creek-park': [
+    {
+      id: 'black-creek-churchville-black-creek-park-nws-context',
+      src: 'https://weather.gov/images/nerfc/gallery/Black_Cr_nr_park.jpg',
+      alt: 'Black Creek near Churchville, New York, in the National Weather Service river-gauge gallery.',
+      caption: 'Black Creek at Churchville; federal gauge-area context for the Churchville Park to Black Creek Park route',
+      credit: 'National Weather Service Northeast River Forecast Center',
+      takenLabel: 'U.S. government image',
+    },
+  ],
+  'south-branch-moose-river-rock-dam-mckeever': [
+    {
+      id: 'south-branch-moose-river-rock-dam-mckeever-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/40dc38a8-48aa-4915-f7dc-ba9a53b4a500/large',
+      alt: 'South Branch Moose River from Rock Dam to McKeever in New York, shown in American Whitewater route context.',
+      caption: 'South Branch Moose River Rock Dam to McKeever; route-specific context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'moose-river-mckeever-iron-bridge': [
+    {
+      id: 'moose-river-mckeever-iron-bridge-aw-context',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/b6f2590c-5093-4505-6991-e08eb68b2700/large',
+      alt: 'Moose River McKeever to Iron Bridge in New York, shown in American Whitewater route context.',
+      caption: 'Moose River McKeever to Iron Bridge; route-specific context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route image',
+    },
+  ],
+  'east-branch-delaware-river-downsville-shinhopple': [
+    {
+      id: 'east-branch-delaware-river-downsville-shinhopple-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01417000.jpg',
+      alt: 'The East Branch Delaware River at the USGS Downsville monitoring station in New York, used as direct same-river context for the Downsville to Shinhopple route.',
+      caption: 'East Branch Delaware River at Downsville; Downsville to Shinhopple route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'west-river-marsh-sunnyside-out-and-back': [
+    {
+      id: 'west-river-marsh-sunnyside-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04234398.jpg',
+      alt: 'West River at Middlesex, New York, in the USGS station photograph used as direct same-river context for the Sunnyside Road marsh out-and-back.',
+      caption: 'West River at Middlesex; Sunnyside marsh route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'chemung-river-elmira-chemung': [
+    {
+      id: 'chemung-river-elmira-chemung-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01531000.jpg',
+      alt: 'Chemung River at Chemung, New York, in the USGS station photograph used as direct same-river context for the Elmira-to-Chemung route.',
+      caption: 'Chemung River at Chemung; Elmira-to-Chemung route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'susquehanna-river-bainbridge-afton': [
+    {
+      id: 'susquehanna-river-bainbridge-afton-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
+      alt: 'Susquehanna River at Bainbridge, New York, in the USGS station photograph used as direct same-river context for the Bainbridge-to-Afton route.',
+      caption: 'Susquehanna River at Bainbridge; Bainbridge-to-Afton route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; same-river context',
+    },
+  ],
+  'susquehanna-river-afton-nineveh': [
+    {
+      id: 'susquehanna-river-afton-nineveh-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01502632.jpg',
+      alt: 'Susquehanna River at Bainbridge, New York, in the USGS station photograph used as upstream same-river context for the Afton-to-Nineveh route.',
+      caption: 'Susquehanna River at Bainbridge; Afton-to-Nineveh route and upstream proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS station photograph; upstream same-river context',
+    },
+  ],
+  'chenango-river-chenango-forks-port-crane': [
+    {
+      id: 'chenango-river-chenango-forks-port-crane-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
+      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Chenango Forks-to-Port Crane route.',
+      caption: 'Chenango River at Court Street; Chenango Forks-to-Port Crane route context',
+      credit: 'Andre Carrotflower via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
+    },
+  ],
+  'chenango-river-port-crane-chenango-bridge': [
+    {
+      id: 'chenango-river-port-crane-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
+      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Port Crane-to-Chenango Bridge route.',
+      caption: 'Chenango River at Court Street; Port Crane-to-Chenango Bridge route context',
+      credit: 'Andre Carrotflower via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
+    },
+  ],
+  'chenango-river-chenango-bridge-port-dickinson': [
+    {
+      id: 'chenango-river-chenango-bridge-port-dickinson-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
+      alt: 'The Chenango River beneath Court Street Bridge in Binghamton, New York, used as downstream same-river context for the Chenango Bridge-to-Port Dickinson route.',
+      caption: 'Chenango River at Court Street; Chenango Bridge-to-Port Dickinson downstream route context',
+      credit: 'Andre Carrotflower via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; downstream same-river context',
+    },
+  ],
+  'genesee-river-scottsville-genesee-valley-park': [
+    {
+      id: 'genesee-river-scottsville-genesee-valley-park-avon-context',
+      src: 'https://weather.gov/images/nerfc/gallery/Genesee_Avon2.jpg',
+      alt: 'Genesee River at Avon, New York, used as upstream same-river context for the Scottsville-to-Genesee Valley Park route.',
+      caption: 'Genesee River at Avon; Scottsville-to-Genesee Valley Park upstream proxy context',
+      credit: 'Northeast River Forecast Center / National Weather Service',
+      takenLabel: 'Approved public-domain upstream same-river context',
+    },
+  ],
+  'tioga-river-lindley-mulholland': [
+    {
+      id: 'tioga-river-lindley-mulholland-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01520500.jpg',
+      alt: 'Tioga River at Lindley, New York, in the USGS station photograph used as direct gauge and same-river context for the Lindley-to-Mulholland route.',
+      caption: 'Tioga River at Lindley; Lindley-to-Mulholland route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; direct same-river context',
+    },
+  ],
+  'otselic-river-landers-upper-lisle': [
+    {
+      id: 'otselic-river-landers-upper-lisle-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01510000.jpg',
+      alt: 'Otselic River at Cincinnatus, New York, in the USGS station photograph used as direct same-river context for the Landers Corners to Upper Lisle route.',
+      caption: 'Otselic River at Cincinnatus; Landers Corners to Upper Lisle route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; direct same-river context',
+    },
+  ],
+  'fish-creek-westdale-camden': [
+    {
+      id: 'fish-creek-westdale-camden-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04242640.jpg',
+      alt: 'Fish Creek at Becks Grove, New York, in the USGS station photograph used as downstream proxy context for the Westdale to Camden route.',
+      caption: 'Fish Creek at Becks Grove; Westdale-to-Camden downstream proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; downstream same-basin proxy context',
+    },
+  ],
+  'tioughnioga-river-marathon-whitney-point': [
+    {
+      id: 'tioughnioga-river-marathon-whitney-point-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01509305.jpg',
+      alt: 'Tioughnioga River at Marathon, New York, in the USGS station photograph used as direct same-river context for the Marathon to Whitney Point route.',
+      caption: 'Tioughnioga River at Marathon; Marathon-to-Whitney Point route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; direct same-river context',
+    },
+  ],
+  'eighteenmile-creek-burt-newfane': [
+    {
+      id: 'eighteenmile-creek-burt-newfane-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04219768.jpg',
+      alt: 'Eighteenmile Creek at Burt, New York, in the USGS station photograph used as direct same-river context for the Burt to Newfane Marina route.',
+      caption: 'Eighteenmile Creek at Burt; Burt-to-Newfane Marina route and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; direct same-river context',
+    },
+  ],
+  'saranac-river-moose-pond-permanent-rapids': [
+    {
+      id: 'saranac-river-moose-pond-permanent-rapids-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, in the USGS station photograph used as downstream proxy context for the Moose Pond Bridge to Permanent Rapids route.',
+      caption: 'Saranac River at Plattsburgh; Moose Pond to Permanent Rapids downstream proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; downstream same-river proxy context',
+    },
+  ],
+  'saranac-river-saranac-lake-moose-pond-footbridge': [
+    {
+      id: 'saranac-river-saranac-lake-moose-pond-footbridge-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04273500.jpg',
+      alt: 'Saranac River at Plattsburgh, New York, in the USGS station photograph used as same-river proxy context for the Saranac Lake to Moose Pond Footbridge route.',
+      caption: 'Saranac River at Plattsburgh; Saranac Lake-to-Moose Pond route proxy context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; same-river proxy context',
+    },
+  ],
+  'bronx-river-219th-soundview': [
+    {
+      id: 'bronx-river-219th-soundview-alliance-context',
+      src: 'https://bronxriver.org/wp-content/uploads/2021/05/Flotilla-2021-Person-8.jpeg',
+      alt: 'Paddlers on the Bronx River during a Bronx River Alliance event.',
+      caption: 'Bronx River Blueway paddling context',
+      credit: 'Bronx River Alliance',
+      takenLabel: 'Official Bronx River Alliance route-context image',
+    },
+  ],
+  'cohocton-river-campbell-kinsella': [
+    {
+      id: 'cohocton-river-campbell-kinsella-paddle607-context',
+      src: 'https://map.paddle607.com/images/locations/launch_sites/NY-Susquehanna-Basin-Water-Trail_Cohocton_Kinsella_1_Aerial.jpg',
+      alt: 'Kayakers paddle the Cohocton River near Kinsella Park in the Southern Tier of New York.',
+      caption: 'Cohocton River Campbell-to-Kinsella route context',
+      credit: 'New York Susquehanna Basin Water Trail / Paddle 607',
+      takenLabel: 'Paddle 607 route image; source page credited',
+    },
+  ],
+  'cedar-river-flow-cedar-river-out-and-back': [
+    {
+      id: 'cedar-river-flow-cedar-river-out-and-back-commons-context',
+      src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cedar%20River%20Flow%20dam.JPG?width=1600',
+      alt: 'Wakely Dam on Cedar River Flow in the Adirondack Cedar River system of New York.',
+      caption: 'Cedar River Flow and Wakely Dam; same-river context for the Flow-to-Cedar-River out-and-back',
+      credit: 'Wildhart via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'la-chute-river-bicentennial-fort-ticonderoga': [
+    {
+      id: 'la-chute-river-bicentennial-fort-ticonderoga-lake-champlain-region',
+      src: 'https://www.lakechamplainregion.com/f/styles/960x530/public/Listings/86122/images/f76a93d454729f5ff8484651052a3a5a.jpg?itok=X5PvhNi8',
+      alt: 'La Chute River near Ticonderoga, New York, below the falls toward Lake Champlain.',
+      caption: 'Lower La Chute River route context',
+      credit: 'Lake Champlain Region',
+      takenLabel: 'Current Lake Champlain Region route photography',
+    },
+  ],
+  'fishing-brook-pickwickett-county-line-flow': [
+    {
+      id: 'fishing-brook-pickwickett-county-line-flow-experience-adirondacks',
+      src: 'https://www.experienceouradirondacks.com/f/styles/swiper_desktop/public/listing/7821/images/fb2b52aaaf079499afe242a89c339669.jpg?itok=FHktpe1t',
+      alt: 'Fishing Brook in the Adirondacks, New York, varying from wide calm water to a narrow channel.',
+      caption: 'Fishing Brook Pickwickett-to-County-Line route context',
+      credit: 'Experience Our Adirondacks / NYSDEC',
+      takenLabel: 'Current Experience Our Adirondacks route photography',
+    },
+  ],
+  'moose-river-nelson-lake-out-and-back': [
+    {
+      id: 'moose-river-nelson-lake-out-and-back-joe-geronimo',
+      src: 'https://adirondackjoe.wordpress.com/wp-content/uploads/2019/10/nelson-lake-minnehaha-ny-september-25th-2019_01c2a9.jpg?w=740',
+      alt: 'Nelson Lake in the Black River Wild Forest near Old Forge, New York.',
+      caption: 'Nelson Lake and Middle Branch Moose River route context',
+      credit: 'Joe Geronimo',
+      takenLabel: 'Local route photography credited to source page',
+    },
+  ],
+  'genesee-river-petten-lower-falls-out-and-back': [
+    {
+      id: 'genesee-river-petten-lower-falls-out-and-back-aw',
+      src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/87a76822-22c1-4d87-4e4a-21571560ad00/medium',
+      alt: 'Lower Falls on the Genesee River near Rochester, New York, used as the upstream hazard boundary for the Petten Street out-and-back route.',
+      caption: 'Genesee River Lower Falls boundary; Petten Street out-and-back route context',
+      credit: 'American Whitewater',
+      takenLabel: 'American Whitewater route-specific image',
+    },
+  ],
+  'delaware-river-hancock-lordville': [
+    {
+      id: 'delaware-river-hancock-lordville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+      alt: 'The Delaware River at the USGS Callicoon monitoring station, used as same-river proxy context for the Hancock-to-Lordville route in New York.',
+      caption: 'Upper Delaware River at Callicoon; Hancock-to-Lordville proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
+    },
+  ],
+  'delaware-river-lordville-long-eddy': [
+    {
+      id: 'delaware-river-lordville-long-eddy-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
+      alt: 'The Delaware River at the USGS Callicoon monitoring station, used as same-river proxy context for the Lordville-to-Long Eddy route in New York.',
+      caption: 'Upper Delaware River at Callicoon; Lordville-to-Long Eddy proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
+    },
+  ],
+  'wallkill-river-walden-popp': [
+    {
+      id: 'wallkill-river-walden-popp-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
+      alt: 'The Wallkill River at the USGS Gardiner monitoring station, used as same-river proxy context for the Walden-to-Popp route in New York.',
+      caption: 'Wallkill River at Gardiner; Walden-to-Popp proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
+    },
+  ],
+  'batten-kill-greenwich-schuylerville': [
+    {
+      id: 'batten-kill-greenwich-schuylerville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01329490.jpg',
+      alt: 'The Batten Kill at the USGS Battenville monitoring station, used as same-river proxy context for the Greenwich-to-Schuylerville route in New York.',
+      caption: 'Batten Kill at Battenville; Greenwich-to-Schuylerville proxy-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled proxy-gauge context',
+    },
+  ],
+  'allegheny-river-allegany-olean': [
+    {
+      id: 'allegheny-river-allegany-olean-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/03010820.jpg',
+      alt: 'The Allegheny River at the USGS Olean monitoring station, used as direct same-river context for the Allegany-to-Olean route in New York.',
+      caption: 'Allegheny River at Olean; Allegany-to-Olean direct-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'allegheny-river-olean-portville': [
+    {
+      id: 'allegheny-river-olean-portville-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/03010820.jpg',
+      alt: 'The Allegheny River at the USGS Olean monitoring station, used as direct same-river context for the Olean-to-Portville route in New York.',
+      caption: 'Allegheny River at Olean; Olean-to-Portville direct-gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'mohawk-river-lock-9-freemans-bridge': [
+    {
+      id: 'mohawk-river-lock-9-freemans-bridge-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01354330.jpg',
+      alt: 'The Mohawk River at USGS Lock 8 near Schenectady, used as direct same-river context for the Lock 9 to Freeman\'s Bridge route in New York.',
+      caption: 'Mohawk River at Lock 8 near Schenectady; direct stage-station context for Lock 9 to Freeman\'s Bridge',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'mohawk-river-freemans-bridge-lock-7': [
+    {
+      id: 'mohawk-river-freemans-bridge-lock-7-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01354500.jpg',
+      alt: 'The Mohawk River at USGS Freeman\'s Bridge near Schenectady, used as direct same-river context for the Freeman\'s Bridge to Lock 7 route in New York.',
+      caption: 'Mohawk River at Freeman\'s Bridge; direct stage-station context for Freeman\'s Bridge to Lock 7',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'west-branch-delaware-river-airport-hale-eddy': [
+    {
+      id: 'west-branch-delaware-river-airport-hale-eddy-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01426500.jpg',
+      alt: 'The West Branch Delaware River at USGS Hale Eddy, used as direct same-river context for the Airport Road to Hale Eddy route in New York.',
+      caption: 'West Branch Delaware River at Hale Eddy; direct stage-station context for Airport Road to Hale Eddy',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'delaware-river-balls-eddy-hancock': [
+    {
+      id: 'delaware-river-balls-eddy-hancock-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01427000.jpg',
+      alt: 'The West Branch Delaware River at USGS Hancock, used as direct same-river context for the Balls Eddy to Hancock route in New York.',
+      caption: 'West Branch Delaware River at Hancock; direct stage-station context for Balls Eddy to Hancock',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-river context',
+    },
+  ],
+  'st-lawrence-river-louisville-massena': [
+    {
+      id: 'st-lawrence-river-louisville-massena-stlc-context',
+      src: 'https://growthzonecmsprodeastus.azureedge.net/sites/1717/2023/06/paddle-canoe-st-lawrence-county1-09360373-188a-436d-87ed-95ee1e384761.jpg',
+      alt: 'Canoeists paddling on St. Lawrence County water, used as route-context imagery for the Louisville to Massena St. Lawrence River paddle in New York.',
+      caption: 'St. Lawrence County paddling context for Louisville to Massena',
+      credit: 'Visit St. Lawrence County',
+      takenLabel: 'Approved source image; clearly labeled route-context imagery',
+    },
+  ],
+  'niagara-river-lewiston-fort-niagara': [
+    {
+      id: 'niagara-river-lewiston-fort-niagara-youngstown-commons',
+      src: 'https://live.staticflickr.com/8447/7992643303_a494578d95_o.jpg',
+      alt: 'The Niagara River at Youngstown, New York, used as route-context imagery for the Lewiston to Fort Niagara lower Niagara River paddle.',
+      caption: 'Niagara River at Youngstown; lower Niagara route-context image',
+      credit: 'Ken Lund via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'st-regis-middle-branch-route-458-st-regis-falls': [
+    {
+      id: 'st-regis-middle-branch-route-458-st-regis-falls-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
+      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York, used as same-watershed proxy context for the Route 458 to St. Regis Falls Middle Branch reach.',
+      caption: 'St. Regis River near Parishville; same-watershed proxy context for Route 458 to St. Regis Falls',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-watershed proxy context',
+    },
+  ],
+  'west-branch-st-regis-five-mile-hand-launches': [
+    {
+      id: 'west-branch-st-regis-five-mile-hand-launches-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
+      alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York, used as direct same-branch route context for the Five Mile Conservation Easement paddle.',
+      caption: 'West Branch St. Regis River near Parishville; Five Mile route-context image',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled route-context imagery',
+    },
+  ],
+  'lake-champlain-rouses-point-great-chazy': [
+    {
+      id: 'lake-champlain-rouses-point-great-chazy-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04295000.jpg',
+      alt: 'Lake Champlain at Rouses Point, New York, used as route-context imagery for the Rouses Point to Great Chazy blueway.',
+      caption: 'Lake Champlain at Rouses Point; northern blueway route-context image',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled route-context imagery',
+    },
+  ],
+  'great-chazy-river-point-au-roche': [
+    {
+      id: 'great-chazy-river-point-au-roche-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04271500.jpg',
+      alt: 'The Great Chazy River at Perry Mills, New York, used as same-river context for the Great Chazy River to Point au Roche blueway.',
+      caption: 'Great Chazy River at Perry Mills; same-river route-context image',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-river route context',
+    },
+  ],
+  'st-regis-river-winthrop-route-92': [
+    {
+      id: 'st-regis-river-winthrop-route-92-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04269000.jpg',
+      alt: 'The St. Regis River at the USGS Brasher Center monitoring station in New York, used as same-river route-context imagery for the Winthrop to Route 92 reach.',
+      caption: 'St. Regis River at Brasher Center; same-river route-context image',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
+    },
+  ],
+  'ausable-west-branch-adirondak-loj-route-73': [
+    {
+      id: 'ausable-west-branch-adirondak-loj-route-73-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
+      alt: 'The Ausable River near Au Sable Forks, New York, used as same-system route-context imagery for the Adirondak Loj Road to Route 73 West Branch reach.',
+      caption: 'Ausable River near Au Sable Forks; same-system route-context image for the upper West Branch',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-system route-context imagery',
+    },
+  ],
+  'ausable-west-branch-monument-high-falls': [
+    {
+      id: 'ausable-west-branch-monument-high-falls-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
+      alt: 'The Ausable River near Au Sable Forks, New York, used as same-system route-context imagery for the Monument to High Falls West Branch reach.',
+      caption: 'Ausable River near Au Sable Forks; same-system route-context image for Monument to High Falls',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-system route-context imagery',
+    },
+  ],
+  'hudson-river-thurman-station-hadley': [
+    {
+      id: 'hudson-river-thurman-station-hadley-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01318500.jpg',
+      alt: 'The Hudson River at Hadley, New York, used as same-river route-context imagery for the Thurman Station to Hadley paddle.',
+      caption: 'Hudson River at Hadley; same-river route-context image for Thurman Station to Hadley',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
+    },
+  ],
+  'hudson-river-spier-falls-out-and-back': [
+    {
+      id: 'hudson-river-spier-falls-out-and-back-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01327750.jpg',
+      alt: 'The Hudson River at Fort Edward, New York, used as same-river route-context imagery for the Spier Falls same-launch outing.',
+      caption: 'Hudson River at Fort Edward; same-river route-context image for the Spier Falls outing',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
+    },
+  ],
+  'hudson-river-fish-hatchery-thurman-station': [
+    {
+      id: 'hudson-river-fish-hatchery-thurman-station-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01318500.jpg',
+      alt: 'The Hudson River at Hadley, New York, used as same-river context for the Fish Hatchery to Thurman Station connector.',
+      caption: 'Hudson River at Hadley; same-river route context for Fish Hatchery to Thurman Station',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled same-river route-context imagery',
+    },
+  ],
+  'balsam-pond-carry-south-branch-grass-river': [
+    {
+      id: 'balsam-pond-carry-south-branch-grass-river-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
+      alt: 'The Grass River at Chase Mills, New York, used as downstream same-river proxy context for the Balsam Pond carry to Route 3 South Branch connector.',
+      caption: 'Grass River at Chase Mills; downstream proxy context for the Balsam Pond–Route 3 connector',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled downstream proxy-gauge context',
+    },
+  ],
+  'catharine-creek-wma-marsh-connector': [
+    {
+      id: 'catharine-creek-wma-marsh-connector-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/04232200.jpg',
+      alt: 'Catharine Creek at Montour Falls, New York, used as direct same-creek context for the Catharine Creek WMA marsh connector.',
+      caption: 'Catharine Creek at Montour Falls; WMA marsh connector and gauge context',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain; clearly labeled direct same-creek context',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
@@ -6332,7 +6452,19 @@ const approvedRiverFallbackRouteById: Record<string, string> = {
   'sauk-river': 'sauk-river-eagle-heims-mill',
   'south-fork-crow-river': 'south-fork-crow-river-rick-johnson-lake-rebecca',
   'south-skunk-river': 'south-skunk-river-ames-13th-street',
+  'juniata-river': 'juniata-river-granville-mifflin',
   'susquehanna-river': 'susquehanna-river-laceyville-west-falls',
+  'chemung-river': 'chemung-river-cohocton-street-bottchers',
+  'unadilla-river': 'unadilla-river-rockdale-sidney',
+  'west-branch-delaware-river': 'west-branch-delaware-river-hale-eddy-balls-eddy',
+  'tioughnioga-river': 'tioughnioga-river-cortland-marathon',
+  'schoharie-creek': 'schoharie-creek-esperance-burtonsville',
+  'genesee-river': 'genesee-river-avon-scottsville',
+  'wallkill-river': 'wallkill-river-gardiner-new-paltz',
+  'batten-kill': 'batten-kill-battenville-clarks-mills',
+  'esopus-creek': 'esopus-creek-mount-marion-saugerties',
+  'salmon-river': 'salmon-river-altmar-pineville',
+  'black-river': 'black-river-lyons-falls-carthage',
   'turkey-river': 'turkey-river-big-spring-elkader',
   'upper-iowa-river': 'upper-iowa-river-kendallville-bluffton',
   'village-creek': 'village-creek-fm418-sh327',
@@ -6342,11 +6474,186 @@ const approvedRiverFallbackRouteById: Record<string, string> = {
   'youghiogheny-river': 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
 };
 
+// A few small Pennsylvania tributaries have no rights-cleared same-river
+// photograph in the current library. Keep those routes visibly illustrated,
+// but label the image as regional context so it is never mistaken for an
+// endpoint, access, or conditions photograph.
+const approvedRegionalContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
+  'blacklick-creek': {
+    id: 'pennsylvania-stream-regional-context',
+    src: 'https://www.goodfreephotos.com/united-states/pennsylvania/sinnemahoning-state-park/pennsylvania-landscape.jpg',
+    alt: 'A clear Pennsylvania stream runs through a wooded state-park corridor.',
+    caption: 'Pennsylvania stream corridor; regional context only, not the Blacklick Creek reach',
+    credit: 'Good Free Photos',
+    takenLabel: 'CC0 / public domain; regional context only',
+  },
+  'south-fork-tenmile-creek': {
+    id: 'pennsylvania-stream-regional-context',
+    src: 'https://www.goodfreephotos.com/united-states/pennsylvania/sinnemahoning-state-park/pennsylvania-landscape.jpg',
+    alt: 'A clear Pennsylvania stream runs through a wooded state-park corridor.',
+    caption: 'Pennsylvania stream corridor; regional context only, not the South Fork Tenmile Creek reach',
+    credit: 'Good Free Photos',
+    takenLabel: 'CC0 / public domain; regional context only',
+  },
+  'two-lick-creek': {
+    id: 'pennsylvania-stream-regional-context',
+    src: 'https://www.goodfreephotos.com/united-states/pennsylvania/sinnemahoning-state-park/pennsylvania-landscape.jpg',
+    alt: 'A clear Pennsylvania stream runs through a wooded state-park corridor.',
+    caption: 'Pennsylvania stream corridor; regional context only, not the Two Lick Creek reach',
+    credit: 'Good Free Photos',
+    takenLabel: 'CC0 / public domain; regional context only',
+  },
+  'little-pine-creek': {
+    id: 'pennsylvania-stream-regional-context',
+    src: 'https://www.goodfreephotos.com/united-states/pennsylvania/sinnemahoning-state-park/pennsylvania-landscape.jpg',
+    alt: 'A clear Pennsylvania stream runs through a wooded state-park corridor.',
+    caption: 'Pennsylvania stream corridor; regional context only, not the Little Pine Creek reach',
+    credit: 'Good Free Photos',
+    takenLabel: 'CC0 / public domain; regional context only',
+  },
+  'laurel-hill-creek': {
+    id: 'pennsylvania-stream-regional-context',
+    src: 'https://www.goodfreephotos.com/united-states/pennsylvania/sinnemahoning-state-park/pennsylvania-landscape.jpg',
+    alt: 'A clear Pennsylvania stream runs through a wooded state-park corridor.',
+    caption: 'Pennsylvania stream corridor; regional context only, not the Laurel Hill Creek reach',
+    credit: 'Good Free Photos',
+    takenLabel: 'CC0 / public domain; regional context only',
+  },
+};
+
 // River-level context images are used only when no route-specific or dedicated
 // river-group image exists. Captions deliberately identify the image as
 // context when it was taken elsewhere on the same river.
 const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
-'chemung-river': {
+  'lehigh-river': {
+    id: 'lehigh-river-jim-thorpe-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Lehigh%20River.JPG?width=1600',
+    alt: 'The Lehigh River near Jim Thorpe, Pennsylvania, in the Lehigh Gorge corridor.',
+    caption: 'Lehigh River near Jim Thorpe; same-river context, not an endpoint or current-conditions photograph',
+    credit: 'Seth Werkheiser via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'conodoguinet-creek': {
+    id: 'conodoguinet-creek-west-shore-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/2010%20Aerial%20West%20Shore%20Conodoguinet%20Creek.jpg?width=1600',
+    alt: 'An aerial view shows Conodoguinet Creek and the West Shore in Pennsylvania.',
+    caption: 'Conodoguinet Creek West Shore; same-creek context, not an endpoint or current-conditions photograph',
+    credit: 'Doc Searls via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'french-creek': {
+    id: 'french-creek-us-19-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/French%20Creek%20Pennsylvania.jpg?width=1600',
+    alt: 'French Creek passes beneath the U.S. Route 19 corridor in Pennsylvania.',
+    caption: 'French Creek at U.S. Route 19; same-creek context, not an endpoint or current-conditions photograph',
+    credit: 'Doug Kerr via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'redbank-creek': {
+    id: 'redbank-creek-long-run-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Redbank%20Creek%20Panaramic%20.jpg?width=1600',
+    alt: 'Redbank Creek forms a broad wooded bend near the mouth of Long Run in Pennsylvania.',
+    caption: 'Redbank Creek near Long Run; same-creek context, not an endpoint or current-conditions photograph',
+    credit: 'Americaneditor23 via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
+  'slippery-rock-creek': {
+    id: 'slippery-rock-creek-mcconnells-mill-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/McConnells%20Mill%20Covered%20Bridge2.jpg?width=1600',
+    alt: 'McConnell’s Mill Covered Bridge spans Slippery Rock Creek in Lawrence County, Pennsylvania.',
+    caption: 'Slippery Rock Creek at McConnell’s Mill; same-creek context, not an endpoint or current-conditions photograph',
+    credit: 'Tim Engleman via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'loyalhanna-creek': {
+    id: 'loyalhanna-creek-latrobe-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Loyalhanna%20Creek%20-%20panoramio.jpg?width=1600',
+    alt: 'Loyalhanna Creek flows through a wooded corridor in Westmoreland County, Pennsylvania.',
+    caption: 'Loyalhanna Creek; same-creek context, not an endpoint or current-conditions photograph',
+    credit: 'R london via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'maury-river': {
+    id: 'maury-river-goshen-pass-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Maury%20River%20-%20Goshen%20Pass.jpg?width=1600',
+    alt: 'The Maury River cuts through Goshen Pass in Rockbridge County, Virginia.',
+    caption: 'Maury River at Goshen Pass; same-river context',
+    credit: 'Waldo Jaquith via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'clinch-river': {
+    id: 'clinch-river-speers-ferry-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Clinch%20River.jpg?width=1600',
+    alt: 'The Clinch River at U.S. Highway 23/58/421 near Speers Ferry in Scott County, Virginia.',
+    caption: 'Clinch River at Speers Ferry; same-river context',
+    credit: 'NOAA via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'rappahannock-river': {
+    id: 'rappahannock-river-route-3-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Crossing%20Rappahannock%20River%2C%20Virginia%20State%20Route%203%20%2814462997706%29.jpg?width=1600',
+    alt: 'The Rappahannock River viewed from Virginia State Route 3 in eastern Virginia.',
+    caption: 'Rappahannock River at Route 3; same-river context',
+    credit: 'Ken Lund via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'appomattox-river': {
+    id: 'appomattox-river-loc-boat-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Appomattox%20River%2C%20Virginia.%20Boat%20on%20the%20Appomattox%20River%20LOC%20cwpb.02061.jpg?width=1600',
+    alt: 'A historic boat scene on the Appomattox River in Virginia.',
+    caption: 'Appomattox River boat scene; same-river historical context',
+    credit: 'Library of Congress via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'north-river': {
+    id: 'north-river-wild-oak-trail-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20River%20%28South%20Fork%20Shenandoah%20River%29.jpg?width=1600',
+    alt: 'The North River, a South Fork Shenandoah River tributary, viewed from the Wild Oak Trail in Virginia.',
+    caption: 'North River from the Wild Oak Trail; same-river context',
+    credit: 'Omarcheeseboro via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'south-river': {
+    id: 'south-river-waynesboro-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/South%20River%20in%20Waynesboro%2C%20Virginia.jpg?width=1600',
+    alt: 'The South River flows through downtown Waynesboro, Virginia.',
+    caption: 'South River at Waynesboro; same-river context',
+    credit: 'Ben Schumin via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'rivanna-river': {
+    id: 'rivanna-river-crofton-union-mills-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rivanna_River_at_Union_Mills.jpg?width=1600',
+    alt: 'The Rivanna River viewed downstream from Crofton Boat Ramp near Union Mills, Virginia.',
+    caption: 'Rivanna River at Crofton/Union Mills; same-river context',
+    credit: 'Nyttend via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'logan-creek': {
+    id: 'logan-creek-pender-bridge-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Pender%2C%20Nebraska%20Logan%20Creek%20bridge%201.JPG?width=1600',
+    alt: 'Logan Creek passes beneath the Nebraska Highway 94 bridge in Pender, Nebraska.',
+    caption: 'Logan Creek at Pender; same-river context',
+    credit: 'Ammodramus via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'platte-river': {
+    id: 'platte-river-grand-island-cr8-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Platte%20River%202016-07-12%20117.jpg?width=1600',
+    alt: 'The Platte River passes beneath County Road 8 near Grand Island, Nebraska.',
+    caption: 'Platte River near Grand Island; same-river context',
+    credit: 'Chris Light via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  },
+  'loup-river': {
+    id: 'loup-river-highway-39-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Loup%20River%20at%20Nebraska%20Hwy%2039%20looking%20DS.JPG?width=1600',
+    alt: 'The Loup River flows downstream beneath Nebraska Highway 39 south of Genoa, Nebraska.',
+    caption: 'Loup River near Genoa; same-river context',
+    credit: 'Ammodramus via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'chemung-river': {
     id: 'chemung-river-corning-brisco-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chemung%20River%20as%20seen%20from%20Brisco%20Bridge%2C%20Corning%2C%20New%20York%20-%2020221012%20-%2001%20%28westward%20view%29.jpg?width=1600',
     alt: 'The Chemung River flows through downtown Corning, New York, beneath the Centerway Walking Bridge.',
@@ -6354,8 +6661,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Andre Carrotflower via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
   },
-
-'chenango-river': {
+  'chenango-river': {
     id: 'chenango-river-court-street-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chenango%20River%20as%20seen%20from%20Court%20Street%20bridge%2C%20Binghamton%2C%20New%20York%2C%20Thanksgiving%202019.jpg?width=1600',
     alt: 'The Chenango River flows beneath Court Street Bridge in Binghamton, New York.',
@@ -6363,8 +6669,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Andre Carrotflower via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
   },
-
-'unadilla-river': {
+  'unadilla-river': {
     id: 'unadilla-river-rockdale-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01502500.jpg',
     alt: 'The Unadilla River at the USGS Rockdale monitoring station in New York.',
@@ -6372,8 +6677,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'west-branch-delaware-river': {
+  'west-branch-delaware-river': {
     id: 'west-branch-delaware-hale-eddy-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Hale%20Eddy%2C%20NY%20bridge%20over%20Delaware%20River%2C%20April%202025.jpg?width=1600',
     alt: 'The Hale Eddy bridge crosses the West Branch Delaware River in New York.',
@@ -6381,8 +6685,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Mr. Matté via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
   },
-
-'east-branch-delaware-river': {
+  'east-branch-delaware-river': {
     id: 'east-branch-delaware-fishs-eddy-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01421000.jpg',
     alt: "The East Branch Delaware River at the USGS Fish's Eddy monitoring station in New York.",
@@ -6390,8 +6693,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'delaware-river': {
+  'delaware-river': {
     id: 'delaware-river-callicoon-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01427510.jpg',
     alt: 'The Delaware River at the USGS Callicoon monitoring station in the Upper Delaware corridor.',
@@ -6399,8 +6701,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'cattaraugus-creek': {
+  'cattaraugus-creek': {
     id: 'cattaraugus-creek-gowanda-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04213500.jpg',
     alt: 'Cattaraugus Creek at the USGS Gowanda monitoring station in New York.',
@@ -6408,8 +6709,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'canandaigua-outlet': {
+  'canandaigua-outlet': {
     id: 'canandaigua-outlet-chapin-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04235000.jpg',
     alt: 'The Canandaigua Outlet at the USGS Chapin monitoring station in New York.',
@@ -6417,8 +6717,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'allen-creek': {
+  'allen-creek': {
     id: 'allens-creek-corbett-glen-aw-context',
     src: 'https://imagedelivery.net/9yYWo39lGAwm3FrK9Fr0bQ/f94238d4-121f-40bf-583f-8a6c35107600/large',
     alt: 'Allens Creek flowing through the Corbett’s Glen ledge section near Rochester, New York.',
@@ -6426,8 +6725,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'American Whitewater',
     takenLabel: 'American Whitewater route image',
   },
-
-'caroga-creek': {
+  'caroga-creek': {
     id: 'caroga-creek-sacandaga-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
     alt: 'The Sacandaga River near Hope, New York, used as the American Whitewater proxy context for Caroga Creek.',
@@ -6435,8 +6733,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain; same-region proxy context',
   },
-
-'chittenango-creek': {
+  'chittenango-creek': {
     id: 'chittenango-creek-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04244000.jpg',
     alt: 'Chittenango Creek at the USGS monitoring station near Chittenango, New York.',
@@ -6444,8 +6741,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'honeoye-creek': {
+  'honeoye-creek': {
     id: 'honeoye-creek-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04229500.jpg',
     alt: 'Honeoye Creek at the USGS monitoring station at Honeoye Falls, New York.',
@@ -6453,8 +6749,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'oatka-creek': {
+  'oatka-creek': {
     id: 'oatka-creek-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04230500.jpg',
     alt: 'Oatka Creek at the USGS monitoring station at Garbutt, New York.',
@@ -6462,8 +6757,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'neversink-river': {
+  'neversink-river': {
     id: 'neversink-river-godeffroy-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01437500.jpg',
     alt: 'The Neversink River at the USGS Godeffroy monitoring station in New York.',
@@ -6471,8 +6765,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'oswegatchie-river': {
+  'oswegatchie-river': {
     id: 'oswegatchie-river-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04262000.jpg',
     alt: 'The Oswegatchie River at the USGS monitoring station near Oswegatchie, New York.',
@@ -6480,8 +6773,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'raquette-river': {
+  'raquette-river': {
     id: 'raquette-river-axton-landing-context',
     src: 'https://www.tupperlake.com/f/styles/listing_header_image/public/Listings/685063/images/fa21f6f9330b74c3c971adc2e6fbd7ce_0.jpg.webp?itok=JhAcDeyN',
     alt: 'A kayaker paddles the Raquette River at Axton Landing in the Adirondacks.',
@@ -6489,8 +6781,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Tupper Lake / regional tourism source',
     takenLabel: 'Regional tourism image; source page credited',
   },
-
-'jordan-river': {
+  'jordan-river': {
     id: 'jordan-river-raquette-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04267500.jpg',
     alt: 'The Raquette River at the USGS monitoring station near South Colton, New York, shown as watershed context for the Jordan River route.',
@@ -6498,8 +6789,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain; proxy-gauge context',
   },
-
-'anthony-kill': {
+  'anthony-kill': {
     id: 'anthony-kill-tenandeho-derby-context',
     src: 'https://www.tenandeho.org/2019/pictures/200_img_2019.jpeg',
     alt: 'Paddlers navigate moving water during the Tenandeho White Water Derby on Anthony Kill in New York.',
@@ -6507,8 +6797,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Tenandeho Canoe Association',
     takenLabel: 'Tenandeho Canoe Association race photograph; source page credited',
   },
-
-'cohocton-river': {
+  'cohocton-river': {
     id: 'cohocton-river-kinsella-paddle607-context',
     src: 'https://map.paddle607.com/images/locations/launch_sites/NY-Susquehanna-Basin-Water-Trail_Cohocton_Kinsella_1_Aerial.jpg',
     alt: 'Kayakers paddle the Cohocton River through the Southern Tier of New York.',
@@ -6516,8 +6805,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'New York Susquehanna Basin Water Trail / Paddle 607',
     takenLabel: 'Paddle 607 route image; source page credited',
   },
-
-'mohawk-river': {
+  'mohawk-river': {
     id: 'mohawk-river-little-falls-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01347000.jpg',
     alt: 'The Mohawk River near Little Falls, New York.',
@@ -6525,8 +6813,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'saranac-river': {
+  'saranac-river': {
     id: 'saranac-river-northern-forest-canoe-trail-context',
     src: 'https://www.northernforestcanoetrail.org/wp-content/uploads/2023/10/1.png',
     alt: 'Paddlers travel the Saranac River beneath autumn foliage.',
@@ -6534,8 +6821,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Northern Forest Canoe Trail',
     takenLabel: 'Northern Forest Canoe Trail image; source page credited',
   },
-
-'ausable-west-branch': {
+  'ausable-west-branch': {
     id: 'ausable-west-branch-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
     alt: 'The Ausable River near Au Sable Forks, New York.',
@@ -6543,8 +6829,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'ausable-east-branch': {
+  'ausable-east-branch': {
     id: 'ausable-east-branch-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04275500.jpg',
     alt: 'The Ausable River near Au Sable Forks, New York.',
@@ -6552,8 +6837,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'tioughnioga-river': {
+  'tioughnioga-river': {
     id: 'tioughnioga-river-cortland-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01509000.jpg',
     alt: 'The Tioughnioga River at the USGS Cortland monitoring station in New York.',
@@ -6561,8 +6845,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'schoharie-creek': {
+  'schoharie-creek': {
     id: 'schoharie-creek-burtonsville-nws-context',
     src: 'https://www.weather.gov/images/nerfc/gallery/brtn6_2.jpg',
     alt: 'Schoharie Creek flows through Burtonsville, New York, beneath wooded banks.',
@@ -6570,8 +6853,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'National Weather Service Northeast River Forecast Center',
     takenLabel: 'U.S. government public domain',
   },
-
-'genesee-river': {
+  'genesee-river': {
     id: 'genesee-river-avon-nws-context',
     src: 'https://weather.gov/images/nerfc/gallery/Genesee_Avon2.jpg',
     alt: 'The Genesee River flows near Avon, New York, beneath wooded banks.',
@@ -6579,8 +6861,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'National Weather Service Northeast River Forecast Center',
     takenLabel: 'U.S. government public domain',
   },
-
-'beaver-kill': {
+  'beaver-kill': {
     id: 'beaver-kill-cooks-falls-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01420500.jpg',
     alt: 'The Beaver Kill at the USGS Cooks Falls monitoring station in New York.',
@@ -6588,8 +6869,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'wallkill-river': {
+  'wallkill-river': {
     id: 'wallkill-river-gardiner-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01371500.jpg',
     alt: 'The Wallkill River at the USGS Gardiner monitoring station in New York.',
@@ -6597,8 +6877,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'batten-kill': {
+  'batten-kill': {
     id: 'batten-kill-battenville-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01329490.jpg',
     alt: 'The Batten Kill at the USGS Battenville monitoring station in New York.',
@@ -6606,8 +6885,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'esopus-creek': {
+  'esopus-creek': {
     id: 'esopus-creek-mount-marion-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01364500.jpg',
     alt: 'Esopus Creek at the USGS Mount Marion monitoring station in New York.',
@@ -6615,8 +6893,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'salmon-river': {
+  'salmon-river': {
     id: 'salmon-river-pineville-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04250200.jpg',
     alt: 'The Salmon River at the USGS Pineville monitoring station in New York.',
@@ -6624,8 +6901,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'black-river': {
+  'black-river': {
     id: 'black-river-watertown-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04260500.jpg',
     alt: 'The Black River at the USGS Watertown monitoring station in New York.',
@@ -6633,8 +6909,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'grass-river': {
+  'grass-river': {
     id: 'grass-river-chase-mills-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04265432.jpg',
     alt: 'The Grass River at the USGS Chase Mills monitoring station in New York.',
@@ -6642,8 +6917,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'hudson-river': {
+  'hudson-river': {
     id: 'hudson-river-hadley-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01318500.jpg',
     alt: 'The Hudson River at the USGS Hadley monitoring station in New York.',
@@ -6651,8 +6925,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'sacandaga-river': {
+  'sacandaga-river': {
     id: 'sacandaga-river-hope-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01321000.jpg',
     alt: 'The Sacandaga River at the USGS near Hope monitoring station in New York.',
@@ -6660,8 +6933,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'boquet-river': {
+  'boquet-river': {
     id: 'boquet-river-willsboro-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04276500.jpg',
     alt: 'The Boquet River at the USGS monitoring station in Willsboro, New York.',
@@ -6669,8 +6941,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'croton-river': {
+  'croton-river': {
     id: 'croton-river-new-croton-dam-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01375000.jpg',
     alt: 'The Croton River at the USGS New Croton Dam monitoring station in New York.',
@@ -6678,8 +6949,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'ramapo-river': {
+  'ramapo-river': {
     id: 'ramapo-river-suffern-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01387420.jpg',
     alt: 'The Ramapo River at the USGS Suffern monitoring station in New York.',
@@ -6687,8 +6957,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'hoosic-river': {
+  'hoosic-river': {
     id: 'hoosic-river-eagle-bridge-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01334500.jpg',
     alt: 'The Hoosic River at the USGS monitoring station near Eagle Bridge, New York.',
@@ -6696,8 +6965,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'schroon-river': {
+  'schroon-river': {
     id: 'schroon-river-riverbank-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01317000.jpg',
     alt: 'The Schroon River at the USGS Riverbank monitoring station in New York.',
@@ -6705,8 +6973,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'east-kill': {
+  'east-kill': {
     id: 'east-kill-jewett-center-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01349700.jpg',
     alt: 'East Kill at the USGS monitoring station near Jewett Center, New York.',
@@ -6714,8 +6981,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'east-canada-creek': {
+  'east-canada-creek': {
     id: 'east-canada-creek-east-creek-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01348000.jpg',
     alt: 'East Canada Creek at the USGS monitoring station near East Creek, New York.',
@@ -6723,8 +6989,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'west-canada-creek': {
+  'west-canada-creek': {
     id: 'west-canada-creek-kast-bridge-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
     alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York.',
@@ -6732,8 +6997,17 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'south-sandy-creek': {
+  'west-canada-creek-partridge-hill-route-28-overlook': [
+    {
+      id: 'west-canada-creek-partridge-hill-route-28-overlook-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
+      alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York.',
+      caption: 'West Canada Creek at Kast Bridge; same-river gauge context for the upper reach',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain',
+    },
+  ],
+  'south-sandy-creek': {
     id: 'south-sandy-creek-adams-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04250750.jpg',
     alt: 'Sandy Creek near Adams, New York, at the USGS monitoring station.',
@@ -6741,8 +7015,7 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
-'st-regis-river': {
+  'st-regis-river': {
     id: 'st-regis-river-parishville-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04268800.jpg',
     alt: 'The West Branch St. Regis River at the USGS monitoring station near Parishville, New York.',
@@ -6750,7 +7023,6 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-
   'clear-creek': {
     id: 'clear-creek-idaho-springs-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Clear_Creek_%28Idaho_Springs%2C_Colorado%2C_USA%29_1_%2821090593198%29.jpg?width=1600',
@@ -6765,6 +7037,70 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     alt: 'Canoeists paddle on the Blackwater River in Virginia.',
     caption: 'Blackwater River canoeing in Virginia; same-river context',
     credit: 'Rlevse via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'nottoway-river': {
+    id: 'nottoway-river-virginia-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Nottoway%20River.jpg?width=1600',
+    alt: 'Nottoway River in Virginia.',
+    caption: 'Nottoway River in Virginia; same-river route context, not current endpoint conditions',
+    credit: 'Kubigula via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'reed-creek': {
+    id: 'reed-creek-forest-service-logs-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Moving-logs-reed-creek-va.jpg?width=1600',
+    alt: 'Moving logs on Reed Creek in Virginia.',
+    caption: 'Reed Creek wood/debris context; not current endpoint conditions',
+    credit: 'United States Forest Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'chestnut-creek': {
+    id: 'chestnut-creek-cliffview-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chestnut%20Creek%20near%20Cliffview%20at%20New%20River%20Trail%20State%20Park%20KB%20%2826792860054%29.jpg?width=1600',
+    alt: 'Chestnut Creek near Cliffview at New River Trail State Park in Virginia.',
+    caption: 'Chestnut Creek near Cliffview; same-river route context, not current endpoint conditions',
+    credit: 'Virginia State Parks via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'pigg-river': {
+    id: 'pigg-river-historical-dam-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Power%20dam%20on%20the%20Pigg%20River%20just%20outside%20the%20Town%20of%20Rocky%20Mount%20in%20Franklin%20County%2C%20Virginia.%20Credit-%20USFWS.%20%288090024472%29.jpg?width=1600',
+    alt: 'Historical view of a power dam on the Pigg River near Rocky Mount, Virginia.',
+    caption: 'Pigg River power-dam context; historical structure image, not current endpoint conditions',
+    credit: 'U.S. Fish and Wildlife Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0',
+  },
+  'banister-river': {
+    id: 'banister-river-kings-bridge-halifax-tourism',
+    src: 'https://gohalifaxva.com/site/wp-content/uploads/2024/07/KBL-JS-Easley-Bridge-on-Banister-artphoto-medrez.jpg',
+    alt: 'A bridge crosses the Banister River near King’s Bridge in Halifax County, Virginia.',
+    caption: 'Banister River near King’s Bridge; route-level context, not current endpoint conditions',
+    credit: 'Discover Halifax / Halifax County Tourism',
+    takenLabel: 'Official tourism image; source page credited',
+  },
+  'dan-river': {
+    id: 'dan-river-danville-fso-2026-context',
+    src: 'https://www.danriver.org/content/danriver/events/large/sept-fso-2026.jpg',
+    alt: 'Dan River Basin Association Danville paddle event image for the Dan River.',
+    caption: 'Dan River at Danville; route-level context, not current endpoint conditions',
+    credit: 'Dan River Basin Association',
+    takenLabel: 'Official association event image; source page credited',
+  },
+  'north-fork-holston': {
+    id: 'north-fork-holston-weber-city-noaa-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/North%20Fork%20Holston%20River.jpg?width=1600',
+    alt: 'The North Fork Holston River near Weber City, Virginia.',
+    caption: 'North Fork Holston River near Weber City; route-level context, not current endpoint conditions',
+    credit: 'NOAA via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain U.S. government image',
+  },
+  'south-fork-holston': {
+    id: 'south-fork-holston-south-holston-dam-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/South-holston-dam-tva1.jpg?width=1600',
+    alt: 'South Holston Dam on the South Fork Holston River.',
+    caption: 'South Fork Holston / South Holston Lake context; not current route conditions',
+    credit: 'U.S. Government via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: public domain',
   },
   'cass-river': {
@@ -6847,6 +7183,22 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Mx. Granger via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC0',
   },
+  'cape-fear-river': {
+    id: 'cape-fear-raven-rock-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Raven%20Rock%20State%20Park%20Cape%20Fear%20River.jpg?width=1600',
+    alt: 'The Cape Fear River as seen from Raven Rock State Park in Harnett County, North Carolina.',
+    caption: 'Cape Fear River at Raven Rock State Park; same-river context',
+    credit: 'Sarah and Jason via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+  },
+  'tuckasegee-river': {
+    id: 'tuckasegee-river-dillsboro-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/US%2023%20and%20US%20441%20cross%20the%20Tuckasegee%20River%20in%20Dillsboro%2C%20North%20Carolina.jpg?width=1600',
+    alt: 'The Tuckasegee River at the US 23 and US 441 crossing in Dillsboro, North Carolina.',
+    caption: 'Tuckasegee River at Dillsboro; same-river context',
+    credit: 'Harrison Keely via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  },
   'looking-glass-river': {
     id: 'looking-glass-river-kayak-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/From%20kayak.jpg?width=1600',
@@ -6861,6 +7213,14 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     alt: 'The Middle Fork of the Vermilion River runs through the Middle Fork River Forest Preserve in Illinois.',
     caption: 'Middle Fork Vermilion River forest preserve context',
     credit: 'Pngdeity via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  },
+  'valley-river': {
+    id: 'valley-river-murphy-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Valley%20River%20in%20Murphy%2C%20N.C.%2C%20on%20July%203%2C%202023.jpg?width=1600',
+    alt: 'The Valley River in Murphy, North Carolina.',
+    caption: 'Valley River in Murphy; same-river context',
+    credit: 'Warren LeMay via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY 4.0',
   },
   'niobrara-river': {
@@ -6952,19 +7312,19 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: public domain',
   },
+  'smith-river': {
+    id: 'smith-river-henry-county-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Smith%20River%20in%20fog%20Henry%20County%20Virginia.JPG?width=1600',
+    alt: 'The Smith River in fog in Henry County, Virginia.',
+    caption: 'Smith River in Henry County; same-river context',
+    credit: 'MarmadukePercy via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
   'staunton-river': {
     id: 'staunton-river-brookneal-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Roanoke%20River%20by%20Brookneal.jpg?width=1600',
     alt: 'The Roanoke River near Brookneal, Virginia, looking toward Cat Rock Sluice.',
     caption: 'Roanoke River by Brookneal; same-river context for the Staunton reach',
-    credit: 'Nyttend via Wikimedia Commons',
-    takenLabel: 'Wikimedia Commons: public domain',
-  },
-  'rivanna-river': {
-    id: 'rivanna-river-crofton-union-mills-commons',
-    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Rivanna_River_at_Union_Mills.jpg?width=1600',
-    alt: 'The Rivanna River viewed downstream from Crofton Boat Ramp near Union Mills, Virginia.',
-    caption: 'Rivanna River at Crofton/Union Mills; same-river context',
     credit: 'Nyttend via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: public domain',
   },
@@ -7057,6 +7417,18 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
       ...sameRiverPhoto,
       id: `river-route-${route.riverId}-${sameRiverPhoto.id}`,
       caption: `${sameRiverPhoto.caption} river-level photo`,
+      isPlaceholder: false,
+      sourceKind: 'river',
+    };
+  }
+
+  const regionalContextPhoto = route.riverId
+    ? approvedRegionalContextPhotosByRiverId[route.riverId]
+    : undefined;
+  if (regionalContextPhoto) {
+    return {
+      ...regionalContextPhoto,
+      id: `regional-context-${route.riverId}-${regionalContextPhoto.id}`,
       isPlaceholder: false,
       sourceKind: 'river',
     };

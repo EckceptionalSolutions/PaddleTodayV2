@@ -47,6 +47,7 @@
     "gallery:optimize": "node scripts/optimize-gallery-images.mjs --write",
     "routes:leads:gather": "tsx scripts/gather-route-leads.ts",
     "routes:inventory:virginia": "tsx scripts/generate-virginia-statewide-inventory.ts",
+    "routes:inventory:new-jersey": "tsx scripts/generate-new-jersey-statewide-inventory.ts",
     "routes:control:plan": "npm run routes:leads:gather && tsx scripts/route-control-plane.ts plan",
     "routes:control:claim": "npm run routes:leads:gather && tsx scripts/route-control-plane.ts claim",
     "routes:control:complete": "tsx scripts/route-control-plane.ts complete",

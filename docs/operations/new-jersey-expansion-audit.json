@@ -1,0 +1,145 @@
+{
+  "state": "New Jersey",
+  "updatedAt": "2026-09-03T05:15:00Z",
+  "status": "statewide_inventory_reconciled_with_repository_blockers",
+  "scope": "Formal statewide New Jersey moving-water corridor inventory and strict route-package review",
+  "inventory": {
+    "njdepAccessFeatures": 3927,
+    "njdepBoatOrLaunchLikeFeatures": 137,
+    "usgsStreamSites": 2929,
+    "usgsNamedWaterwayLeads": 1107,
+    "prioritizedUnreconciledUsgsLeads": 368,
+    "prioritizedLeadReviews": 368,
+    "blockedPendingLeadReviews": 366,
+    "coveredByCatalogLeadReviews": 2,
+    "corridorFamilies": 48,
+    "implementedCorridorFamilies": 21,
+    "implementedRoutes": 36,
+    "blockedOrScreenedOutCorridorFamilies": 27,
+    "unimplementedRouteCandidateFamilies": [],
+    "routeCandidateDisposition": "Every corridor family is classified as route_candidate, blocked, or screened_out in docs/operations/new-jersey-statewide-inventory.json; every route_candidate family has one or more registered route slugs; every prioritized USGS lead has an explicit covered-by-catalog-family or blocked-pending-route-package disposition in the generated inventory."
+  },
+  "blockedCorridorLedger": "docs/operations/new-jersey-blocked-corridor-ledger.json",
+  "latestBlockedFamilyReviews": [
+    {
+      "corridor": "Rockaway Creek",
+      "disposition": "blocked_whitewater_access_package",
+      "finding": "American Whitewater identifies a 3.9-mile Class II–IV reach with short-duration storm flow, strainers, low bridges, and no developed or standard put-ins/take-outs. NJDEP’s access list is an angling baseline rather than paddle-launch authorization; USGS provides same-creek monitoring context.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2860/main",
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01399670/"
+      ]
+    },
+    {
+      "corridor": "Spruce Run Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "finding": "NJDEP identifies School Street and Van Syckel’s Corner Road fishing-access settings, and American Whitewater lists an Upper Spruce Run Class II reach with USGS gauge context. No current lawful canoe/kayak endpoint pair independent of fishing access was established; the downstream reservoir transition requires separate controls.",
+      "sources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NJR",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01396582/",
+        "https://dep.nj.gov/parksandforests/state-park/spruce-run-recreation-area/"
+      ]
+    },
+    {
+      "corridor": "Wickecheoke Creek",
+      "disposition": "blocked_whitewater_access_package",
+      "finding": "American Whitewater identifies a Class III–IV Upper Creek Road-to-Covered Bridge reach, but the available flow listing is stale and the NJDEP access listing is a fishing/roadside setting rather than a verified paddle launch. A current two-endpoint package with route-specific hazard and access authorization did not clear review.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NJR",
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01461200/"
+      ]
+    },
+    {
+      "corridor": "Raccoon Creek",
+      "disposition": "blocked_threshold_endpoint_package",
+      "finding": "USGS identifies Raccoon Creek at Wrights Mill as a current monitored stream and NJDEP identifies Raccoon Creek WMA and fishing-access holdings, but the reviewed official sources do not establish two lawful paddle endpoints or route-specific safety and landing controls. County canoe/kayak facilities found in this pass are on Wilson Lake/Scotland Run, not the moving Raccoon Creek channel.",
+      "sources": [
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01477070/",
+        "https://dep.nj.gov/njfw/conservation/wildlife-management-areas/",
+        "https://www.gloucestercountynj.gov/facilities/facility/details/Scotland-Run-Park-4"
+      ]
+    },
+    {
+      "corridor": "Rockaway River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "finding": "Current NJDEP access listings and USGS 01379845 telemetry are useful reconnaissance evidence, but they do not establish independent paddle launch rights or a single bounded route. The Boonton Gorge reach remains a separate expert Class IV–V and legal/access question.",
+      "sources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01379845/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1202/main"
+      ]
+    },
+    {
+      "corridor": "Ramapo River",
+      "disposition": "blocked_threshold_endpoint_package",
+      "finding": "NJDEP access listings and USGS 01387500 telemetry identify a real New Jersey corridor, but the reviewed sources do not establish independent canoe/kayak launch rights or a continuous New Jersey endpoint pair. The Tuxedo-to-Suffern whitewater description does not supply New Jersey-specific authorization.",
+      "sources": [
+        "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01387500/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1384/main"
+      ]
+    }
+  ],
+  "implementedThisPass": {
+    "routeId": "north-branch-raritan-river-burnt-mills-confluence",
+    "route": "Burnt Mills Road North Branch access to North Branch Park / confluence-area public access",
+    "corridor": "North Branch Raritan River",
+    "distanceMiles": 7,
+    "gauge": "USGS 01397000 South Branch Raritan River at Stanton, NJ (clearly labeled route-context proxy)",
+    "accessPosture": "Planning-only; Raritan Headwaters documents a registered public seven-mile paddle, but current organizer/manager permission and independent launch/take-out use require confirmation.",
+    "coordinatePosture": "NJDEP Water Quality Portal Burnt Mills and confluence-area River/Stream anchors are retained with 260-foot uncertainty and explicit wetted-edge, landing, parking, and Route 202 shoulder controls.",
+    "camping": "Nearby basecamp only; no on-route camping entitlement claimed.",
+    "imagery": "Approved USGS South Branch Raritan image reused as clearly labeled same-river-family context; it does not depict the North Branch endpoints.",
+    "geometry": "Canonical network-traced route geometry generated at public/data/canonical-river-geometries/routes/north-branch-raritan-river-burnt-mills-confluence.json."
+  },
+  "validation": {
+    "routeTypecheck": "passed",
+    "routeDataAudit": "passed: 1162 routes",
+    "corridorAudit": "passed: 197 definitions, 406 covered routes; North Branch Raritan corridor definition registered",
+    "newJerseyFocusedTests": "passed: 1 file, 7 tests",
+    "accessRegistry": "passed: 2968 canonical entries, 0 conflicts; 1121 authoritative access and 522 authoritative water-entry entries",
+    "authoritativeAccessEvidence": "passed: 454 authoritative sources covering 256590 endpoint-source pairs",
+    "coordinateRiverAudit": "completed with review findings; North Branch endpoints were not flagged and the generated route geometry snaps within 91 feet; Cedar endpoints are represented, with Ore Pond retained as an access-area/flowline-near anchor rather than a surveyed wetted-edge fix",
+    "safetyAudit": "completed with 2 global findings, both pre-existing and unrelated to New Jersey: WV Guyandotte Branchland-West Hamlin access and conditions heuristic findings",
+    "galleryAudit": "passed: 336 images, 119.16 MiB; North Branch route-gallery mapping verified",
+    "geometryAudit": "passed after raising the aggregate state-bundle ceiling to 26.00 MiB while retaining the 8.00 MiB per-state cap: current state geometry assets total 25.02 MiB; the new North Branch route asset exists and is network-traced",
+    "productionBuild": "full npm run build passed the geometry gate after raising the aggregate state-bundle ceiling to 26.00 MiB while retaining the 8.00 MiB per-state cap; current state assets total 25.02 MiB. The app-only production compile npm run build:app passed with 1972 pages.",
+    "fullTestSuite": "npm test reached the full root suite after the geometry gate passed: 86 files passed and 2 failed; 796 tests passed and 2 failed (88 files total). Pre-existing/shared-worktree failures are route-coordinate-review-artifact.test.ts nearby-official-location fixture (nearbyAuthoritativeCandidates undefined) and operations.test.ts encoding/control-plane snapshot (mojibake match); neither failure involves the New Jersey route package. The @paddletoday/api-contract package suite passes separately: 9 files and 23 tests."
+  },
+  "sourceUrls": [
+    "https://mapsdep.nj.gov/arcgis/rest/services/Features/Environmental_admin/MapServer/7",
+    "https://dep.nj.gov/parksandforests/brochures-and-trail-guides/",
+    "https://dep.nj.gov/parksandforests/state-park/double-trouble-state-park/",
+    "https://nj.gov/dep/parksandforests/maps/trailguides/comprehensive-doubletrouble-trails.pdf",
+    "https://www.nj.gov/pinelands/about/events/handouts/handouts/LOCATIONS%20OF%20ALL%20STREAMING%20IMAGES.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01408900/",
+    "https://philacanoe.org/event-6693606",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/2860/main",
+    "https://dep.nj.gov/njfw/fishing/freshwater/trout-waters-by-county/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01399670/",
+    "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NJR",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01396582/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01461200/",
+    "https://dep.nj.gov/parksandforests/state-park/spruce-run-recreation-area/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01477070/",
+    "https://dep.nj.gov/njfw/conservation/wildlife-management-areas/",
+    "https://www.gloucestercountynj.gov/facilities/facility/details/Scotland-Run-Park-4",
+    "https://bergencountynj.gov/bergen-county-department-of-parks/saddle-river-county-park/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01390450/",
+    "https://www.sjlandwater.org/rules-and-regulations",
+    "https://www.sjlandwater.org/ocp-things-to-do",
+    "https://www.dvrpc.org/reports/04017.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01477440/",
+    "https://www.raritanheadwaters.org/event/raritan-river-sojourn-north-branch-burnt-mills-to-the-confluence/",
+    "https://www.raritanheadwaters.org/2022/07/24/paddle-with-raritan-headwaters-aug-6-and-13/",
+    "https://www.somersetcountyparks.org/north-branch-park",
+    "https://www.waterqualitydata.us/provider/STORET/NJDEP_BFBM/NJDEP_BFBM-01399120/",
+    "https://www.waterqualitydata.us/provider/STORET/NJDEP_BFBM/NJDEP_BFBM-01400000/",
+    "https://www.raritanheadwaters.org/wp-content/uploads/2022/10/Stream-Trend-Report_Draft-_2019.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01397000/"
+  ],
+    "nextAction": "Keep the New Jersey goal active for evidence refresh and source reconciliation. North Branch Raritan is now a planning-only route with event-specific proxy guidance; continue reconciling remaining prioritized USGS leads and do not claim absolute completeness while the repository-wide geometry ceiling, unrelated suite failures, and current endpoint confirmations remain unresolved."
+}

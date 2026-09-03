@@ -1666,6 +1666,7 @@ export const wisconsinRoutes: River[] = [
     "region": "West-Central Wisconsin",
     "summary": "Easy lower Red Cedar day with mild riffles, a strong access pair, and one of the better bike shuttles in the current seed set. It still needs enough water to keep the riffles fun instead of scratchy.",
     "statusText": "Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water washes out the riffles and speeds up this long day.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["strainers","low_water","cold_water","private_banks"],"safetyNotes":["Low water can turn the riffly upper miles into a scrape-and-drag day; reassess the channel before launch.","Check the narrower final meanders for fresh deadfall and strainers because the older trip report is not a current clearance guarantee.","Use only the named Riverside Park and Dunnville Bottoms accesses; plan for fatigue, wind, and cold water over this nearly 15-mile day."],"reviewStatus":"reviewed"},
     "latitude": 44.87257917,
     "longitude": -91.94084048,
     "gaugeSource": {
@@ -3348,6 +3349,7 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Lower Baraboo day from the Highway 113 Glenville Landing to Luebke Landing on County Road W. Sauk County maps both public landings, and the direct Baraboo gauge has a route-specific Wisconsin River Trips level ladder.",
     "statusText": "Use the Baraboo River near Baraboo stage gauge. Treat 7.1 to 8.0 ft as the best broad-audience window, 8.1 to 8.7 ft as pushier but manageable, 8.8 to 9.5 ft as expert-only, and 9.6+ ft as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["strainers","fast_rise","low_water","private_banks"],"safetyNotes":["Fresh wind or rain can add strainers and logjams; inspect the channel rather than assuming the last report is current.","Higher, muddier current can push boats into wood, while low water exposes rocks and makes carries slippery.","Use only the named Glenville and Luebke landings and keep unplanned portages off private banks."],"reviewStatus":"reviewed"},
     "latitude": 43.45828,
     "longitude": -89.71452,
     "gaugeSource": {
@@ -3691,6 +3693,7 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Short lower-Sugar day from the public Highway X landing to the Attica Highway C access. It is not the most scenic Sugar River reach, but it has good public access, easy current, and a route-specific Verona gauge ladder.",
     "statusText": "Use the Sugar River near Verona gauge. Treat 21 to 130 cfs as the broad normal paddling window, 0 to 20 cfs as low but still navigable, 131 to 200 cfs as high and pushy but likely doable with care, and 201+ cfs as very high/adventurous.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","fast_rise","cold_water"],"safetyNotes":["Below the normal window, expect shallow scraping and dragging through riffles.","Rain-driven rises can create pushier current and strainers; check trend and visibility before launching.","Use the named Highway X and Attica public accesses and treat open-bank sections as day-use only."],"reviewStatus":"reviewed"},
     "latitude": 42.8000248,
     "longitude": -89.4863567,
     "gaugeSource": {
@@ -4394,6 +4397,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Driftless Wisconsin",
     "summary": "Lower Pecatonica day from Darlington through the first rural bends below town. Black Bridge Landing is the clean public put-in, Wells Landing is a named county landing, and the direct Darlington gauge has a route-specific lower-Pecatonica flow ladder.",
     "statusText": "Use the Pecatonica River at Darlington gauge. Treat 101 to 250 cfs as the best lower-Pecatonica paddling window, 251 to 350 cfs as high but usually manageable, 351 to 500 cfs as experienced-only high water, and 501+ cfs as too high and muddy for a broad recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["strainers","fast_rise","cold_water","private_banks"],"safetyNotes":["Partial logjams and strainers may occur below town; verify current wood and keep an exit plan.","High, muddy water makes shoreside strainers and fast current more consequential above the broad target band.","This 12-plus-mile outing has cold-water and shuttle exposure; use only the named Black Bridge and Wells landings."],"reviewStatus":"reviewed"},
     "latitude": 42.68601091,
     "longitude": -90.12030611,
     "gaugeSource": {
@@ -4502,6 +4506,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Driftless Wisconsin",
     "summary": "Classic Driftless day trip where low water quickly turns the route into a scrape-and-walk slog. The score should mainly answer whether the Ontario gauge is clearly above the low-water floor.",
     "statusText": "Use the Kickapoo River at Ontario gauge. Treat 70 to 100 cfs as the best scrape-free window, about 60 cfs as the practical minimum, and 200+ cfs as too high for a broad recreational recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","flash_flood","strainers","cold_water"],"safetyNotes":["Below about 60 cfs, expect frequent scraping and dragging through shallow riffles.","Storms can produce flashier, pushier current; check the Ontario trend and do not launch into a rapidly rising river.","Watch for strainers and sweepers, use the named Ontario/Rockton access chain, and treat shoulder-season water as cold-water conditions."],"reviewStatus":"reviewed"},
     "latitude": 43.72300847,
     "longitude": -90.58704745,
     "gaugeSource": {
@@ -4890,6 +4895,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Southeast Wisconsin",
     "summary": "Flow-sensitive southeast-Wisconsin day trip from Newburg through Riveredge and Waubeka to Waubedonia Park. Cedarburg is the direct Milwaukee River gauge, and community guidance now gives a usable low-to-high ladder for this shallow, riffly corridor.",
     "statusText": "Use the Milwaukee River near Cedarburg gauge. Treat 390 to 600 cfs as the preferred full-route window, 200 to 389 cfs as low and scrape-prone, 601 to 800 cfs as high but likely runnable, and 801+ cfs as too high for most casual groups.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","fast_rise","cold_water","private_banks"],"safetyNotes":["Below the preferred band, shallow riffles can become scrape-prone; above it, current speed and strainers increase.","Confirm the Cedarburg trend and recent rain because this downstream gauge can lag local conditions on the upper route.","Use only the named Fireman's Park, Riveredge/Waubeka, and Waubedonia accesses; the full route is a long, exposed day."],"reviewStatus":"reviewed"},
     "latitude": 43.43373,
     "longitude": -88.04926,
     "gaugeSource": {
@@ -7067,6 +7073,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Scenic Lower Wisconsin State Riverway day from Buena Vista Landing at Gotham to Muscoda Landing West, with big sandbars, bluff views, side-channel choices, and a direct Muscoda gauge at the take-out town.",
     "statusText": "Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Low water can make side channels and sandbar approaches shallow; high water covers sandbars and increases main-channel consequences.","The Lower Wisconsin can rise quickly after upstream rain or dam operations; check trend, weather, and daylight before committing.","Use the named public landings and do not camp on private sandbars or banks without current permission."],"reviewStatus":"reviewed"},
     "latitude": 43.20903,
     "longitude": -90.30424,
     "gaugeSource": {
@@ -7174,6 +7181,7 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Overlooked sandbar-and-side-channel Wisconsin River day between Portage and Dekorra. Wisconsin River Trips gives exact endpoints and a Dells-gauge level ladder, so this can be added as a conservative recreational route.",
     "statusText": "Use the Wisconsin Dells gauge. Treat 4,000 to 8,000 cfs as the best window, below about 2,500 cfs as too shallow, and above 13,000 cfs as beyond the normal recreational recommendation for this reach.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Low water can strand the back-channel choices; above the normal band, current, wind, and open-water exposure increase.","Motorboat wakes, sandstone rebound, hidden drop-offs, and changing islands require active boat control.","Use the named Dekorra and Portage-area accesses and treat this as a day trip unless a legal campsite is separately confirmed."],"reviewStatus":"reviewed"},
     "latitude": 43.535,
     "longitude": -89.464,
     "gaugeSource": {
@@ -7376,6 +7384,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Popular upper Lower Wisconsin State Riverway day with broad sandbars, easy current, and official DNR route support. It is best kept as its own scored route because the mileage and shuttle are different from the downstream Arena and Spring Green options.",
     "statusText": "Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Use the Muscoda trend with weather and upstream-rain awareness; the river can rise while local conditions look calm.","Low flow exposes shallow side channels and high flow covers sandbars, increases current, and reduces easy exits.","Stay with named Lower Wisconsin public landings and do not treat islands or sandbars as legal camping by default."],"reviewStatus":"reviewed"},
     "latitude": 43.2566,
     "longitude": -89.742,
     "gaugeSource": {
@@ -7482,6 +7491,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Classic Lower Wisconsin day from Arena to the Highway 23/Spring Green landing corridor, with sandbars, wide channels, and official DNR route support. It shares the Lower Wisconsin gauge ladder but has its own shuttle and route timing.",
     "statusText": "Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Changing sandbars, islands, and side channels make low water a navigation and grounding problem rather than a simple score change.","Watch upstream weather and rapid rises; broad water, wind, and hidden current can overwhelm a calm-looking reach.","Use the named Arena and Spring Green public accesses and maintain a conservative take-out plan."],"reviewStatus":"reviewed"},
     "latitude": 43.1867782,
     "longitude": -89.9016376,
     "gaugeSource": {
@@ -7682,6 +7692,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Long, scenic Lower Wisconsin day or overnight from Muscoda to Woodman, with wooded islands, bluff-lined bends, and multiple intermediate public landings. It uses the direct Muscoda gauge and Wisconsin Trail Guide LWSR3 level ladder.",
     "statusText": "Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Low flow can make the main route shallow and high flow covers sandbars while increasing current and wind exposure.","Check upstream rain, river trend, and daylight before the long Muscoda-to-Woodman commitment.","Use only the named public landings and do not assume legal overnight use on islands, sandbars, or private banks."],"reviewStatus":"reviewed"},
     "latitude": 43.198,
     "longitude": -90.44576,
     "gaugeSource": {
@@ -7790,6 +7801,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Lower Wisconsin Riverway",
     "summary": "Longer, quieter lower Lower Wisconsin route from Boscobel toward Bridgeport. It shares the same Muscoda gauge ladder, but the 23-mile length and more remote lower-river feel make it a separate full-day or overnight planning problem.",
     "statusText": "Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["This 23-mile route has fewer bailout options; confirm water trend, weather, and daylight before launch.","Low water limits channel depth while high water reduces sandbars and increases current, wind, and strainer consequences.","Use the named Boscobel and Bridgeport landings and confirm any overnight plan with current Lower Wisconsin rules."],"reviewStatus":"reviewed"},
     "latitude": 43.1492722,
     "longitude": -90.715253,
     "gaugeSource": {
@@ -8005,6 +8017,7 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Shorter lower-Portage Wisconsin River route that keeps the best back channels, sandstone outcrops, islands, and sandbars while avoiding the rough final open-water mile to James Whalen. This is the better scored variant of the Dekorra-to-Lake Wisconsin source route.",
     "statusText": "Use the Wisconsin Dells gauge. Treat 4,000 to 8,000 cfs as the best window, below about 2,500 cfs as too shallow for some back channels, and above 13,000 cfs as high-water only for very conservative paddlers.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Back channels can become shallow or disappear outside the preferred window; do not force an unfamiliar channel.","Motorboat wakes, sandstone walls, wind, and hidden drop-offs require attentive boat control.","Camp Rest is the planned finish; use the named public parks and do not extend into rough open water without a separate plan."],"reviewStatus":"reviewed"},
     "latitude": 43.46021669,
     "longitude": -89.46357252,
     "gaugeSource": {
@@ -8455,6 +8468,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Western Wisconsin",
     "summary": "Lower La Crosse River day trip from the county campground canoe landing to Holiday Heights Park, with fast easy current, sandbanks, bluff views, and a direct downstream USGS gauge tied to a route-specific Wisconsin River Trips CFS ladder.",
     "statusText": "Use the La Crosse River near La Crosse gauge. Treat 301 to 400 cfs as the best target window, 401 to 500 cfs as high but navigable, 501 to 600 cfs as very high and skilled-paddler-only, and 601+ cfs as too high for an app recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["strainers","fast_rise","cold_water","urban_water_quality","private_banks"],"safetyNotes":["Fast bends and strainers require active boat control; verify current wood because older reports may not reflect present conditions.","Higher water can make the otherwise easy current pushy, especially around bridges and covered sandbars.","Use the named Veterans and Holiday Heights accesses, keep the campground/park logistics current, and plan for cold shoulder-season water."],"reviewStatus":"reviewed"},
     "latitude": 43.891232,
     "longitude": -91.116408,
     "gaugeSource": {
@@ -8577,6 +8591,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Southwest Wisconsin",
     "summary": "Popular lower-Black River sandbar day from the public Melrose Landing to the public North Bend Landing, with easy current, sandstone outcrops, broad sandy beaches, and a route-specific Black River Falls gauge ladder.",
     "statusText": "Use the Black River at Black River Falls gauge. Treat 101 to 300 cfs as the best sandbar-and-padding window, 0 to 100 cfs as very low with some walking, 301 to 600 cfs as increasingly sandbar-covered, 601 to 800 cfs as high and less interesting, and 801+ cfs as probably too high.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","fast_rise","strainers","cold_water","private_banks"],"safetyNotes":["Very low water can require walking and exposes shallow obstacles; high water covers sandbars and increases current.","Watch for strainers and changing banks after storms, and do not assume a prior clearance report remains current.","Use the named Melrose and North Bend landings and treat broad river weather, wind, and cold water seriously."],"reviewStatus":"reviewed"},
     "latitude": 44.10863794,
     "longitude": -90.99645709,
     "gaugeSource": {
@@ -8690,6 +8705,7 @@ export const wisconsinRoutes: River[] = [
     "region": "Central Wisconsin",
     "summary": "Popular Waupaca day trip from the Cobbtown Road / County Q canoe launch to Brainard's Bridge Park, with clear water, boulder gardens, riffles, and an official county tourism route description for the 8-mile corridor.",
     "statusText": "Use the Waupaca River near Waupaca gauge. The normal runnable window is roughly 150 to 320 cfs. From 121 to 149 cfs, expect shallow, scrapey water; from 321 to 400 cfs, expect pushier high water; above 401 cfs is too high for a general recommendation.",
+    "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","fast_rise","cold_water","private_banks"],"safetyNotes":["This route is currently blocked for scoring because USGS 04081000 is discontinued; do not treat the preserved historical range as live telemetry.","If reconsidered after a product-supported gauge is available, recheck boulder gardens, fallen trees, riffles, and current access at both endpoints.","Use only the named County Q and Brainard's Bridge Park accesses and plan for cold water outside summer."],"reviewStatus":"needs_review"},
     "latitude": 44.37413,
     "longitude": -89.18548,
     "gaugeSource": {
@@ -11686,6 +11702,35 @@ export const wisconsinRoutes: River[] = [
       ],
       "reviewStatus": "reviewed"
     },
+    "accessPoints": [
+      {
+        "id": "school-section-road-turtle-creek",
+        "name": "School Section Road bridge access",
+        "latitude": 42.6829232,
+        "longitude": -88.6877302,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default put-in; Wisconsin River Trips describes good bridge access with a trail and shoulder parking."
+      },
+      {
+        "id": "highway-c-turtle-creek-bridge",
+        "name": "County Highway C bridge access",
+        "latitude": 42.6271,
+        "longitude": -88.7463,
+        "mileFromStart": 4.6,
+        "segmentKind": "creek",
+        "note": "Intermediate access; Wisconsin River Trips notes many paddlers were parked at Highway C."
+      },
+      {
+        "id": "east-creek-road-public-pull-off",
+        "name": "East Creek Road canoe launch area",
+        "latitude": 42.6113321,
+        "longitude": -88.7804249,
+        "mileFromStart": 6.9,
+        "segmentKind": "creek",
+        "note": "Default take-out and shared endpoint with the downstream Turtle Creek card; expect a muddy carry to parking."
+      }
+    ],
     "evidenceNotes": [
       {
         "label": "Route-specific guide",

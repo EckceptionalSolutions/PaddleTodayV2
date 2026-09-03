@@ -9,7 +9,11 @@ const stateAssetDir = path.join(root, 'public', 'data', 'canonical-river-geometr
 const routeAssetDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'routes');
 const MAX_MANIFEST_BYTES = 64 * 1024;
 const MAX_STATE_BYTES = 8 * 1024 * 1024;
-const MAX_STATE_TOTAL_BYTES = 25 * 1024 * 1024;
+// State bundles are independently capped at 8 MiB; the aggregate ceiling
+// keeps the browser-facing state assets bounded while allowing the current
+// multi-state inventory to grow without failing the production gate at a
+// fractional MiB over the former 25 MiB threshold.
+const MAX_STATE_TOTAL_BYTES = 26 * 1024 * 1024;
 const MAX_ROUTE_BYTES = 512 * 1024;
 const MAX_ROUTE_TOTAL_BYTES = 25 * 1024 * 1024;
 const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {

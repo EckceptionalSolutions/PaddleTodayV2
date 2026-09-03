@@ -3154,6 +3154,22 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Scenic first leg of the Middle River Water Trail from the Adair County trailhead to Schildberg, with limestone outcrops, riffles, chutes, and official access and flow guidance.",
     "statusText": "Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be conservative outside that band.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "The official Middle River water-trail material describes riffles, occasional chutes, ledges, and a moderate route that becomes less forgiving outside the 600-900 cfs optimum window.",
+        "Use only Middle River Forest Park Access #89 and Schildberg Access #78 / Highway 92. Both approaches are rural, and the Schildberg walk-down should be identified before launching.",
+        "The Indianola gauge is downstream of this upper leg. Check recent local rain, actual depth, wood, and the landing conditions rather than treating the downstream reading as a guarantee.",
+        "The river is non-meandered along private ground in places. Carry a properly fitted PFD, whistle, communication device, and a plan for turning around or exiting before the route becomes committed."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 41.352351,
     "longitude": -94.281724,
     "gaugeSource": {
@@ -5033,6 +5049,22 @@ export const iowaRoutes: River[] = [
     "region": "Eastern Iowa",
     "summary": "Scenic Jones County day trip with bluff scenery, some riffles, and a very clear quality question: is the Anamosa gauge safely above the scrape floor?",
     "statusText": "Treat 4.77 ft at Anamosa as the bare low-water floor. Around 5.0 to 5.25 ft looks like the better target, but the app stays conservative above the minimum because a high-water ceiling is not yet well sourced.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Below about 4.77 ft at Anamosa, expect repeated scraping in riffles; even above that floor, inspect the actual launch and river before committing.",
+        "The State Park launch is near the Anamosa dam area. Scout the approach and remain upstream of all dam-related hydraulics; do not run or drift toward restricted water.",
+        "Riffles, bridge remnants, rock outcrops, wind on wider bends, and fresh strainers after storms can make this day trip more consequential than its mileage suggests.",
+        "Use the named State Park and Newport Mills public accesses only. Treat the route as a day trip, wear a properly fitted PFD, and keep an exit plan for deteriorating weather or rising water."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 42.09819,
     "longitude": -91.28755,
     "gaugeSource": {
@@ -5128,6 +5160,22 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Scenic Jackson County water-trail run from Canton through the Buzzard Ridge bluff corridor to Royertown, with clear gravel shallows, steady current, limestone scenery, and a direct Maquoketa gauge ladder.",
     "statusText": "Use the Maquoketa River near Maquoketa gauge. Treat 701 to 1,000 cfs as the best target, below 500 cfs as too low for enjoyable paddling, and 2,001+ cfs as very high and pushy.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "Below about 500 cfs, gravel shallows can require grounding or dragging; above about 2,000 cfs, current becomes pushier and dirtier around outside bends, bridge landings, and wood.",
+        "Canton Bridge Access and Royertown / 50th Ave are the named public endpoints. Royertown's access drive can be steep and rutted, so scout vehicle clearance before launching the shuttle.",
+        "Buzzard Ridge, Millertown, and Royertown provide the public water-trail context, but private banks and limited emergency exits make the full 8.9-mile commitment important to assess honestly.",
+        "Wear a properly fitted PFD and carry communication, food, and a weather plan. Stop or use the public Millertown intermediate exit if flow, wind, wood, or daylight makes the full route unsuitable."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 42.16279,
     "longitude": -90.891807,
     "gaugeSource": {
@@ -7066,6 +7114,22 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Remote lower Turkey River float from Motor Mill to Garber, with canyon-like wooded ridges, limestone outcrops, the Volga confluence, and a direct Garber gauge at the take-out corridor.",
     "statusText": "Use the Turkey River at Garber gauge. Miles Paddled recommends this exact route at about 550 cfs, so Paddle Today keeps a conservative 550 cfs minimum-only floor rather than claiming a broader published range.",
+    "safetyProfile": {
+      "riskLevel": "advanced",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "remote"
+      ],
+      "safetyNotes": [
+        "This is a remote 12.4-mile commitment with few convenient exits. Treat the 550 cfs floor as a route-planning minimum, not a promise of clear water or safe conditions.",
+        "Motor Mill Access #32 and Garber Access #20 are the named public endpoints. Confirm the historic-site carry path, Garber parking, and the full vehicle shuttle before unloading.",
+        "Expect continuous riffles, blind outside bends, floating wood, and changing current near the Volga confluence. Recent rain can raise and muddy the river quickly.",
+        "Respect private banks and use only public access sites. Wear a properly fitted PFD, carry communication and rescue equipment, and do not launch unless the group can complete the full reach in daylight."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 42.80692,
     "longitude": -91.35124,
     "gaugeSource": {
@@ -8119,6 +8183,22 @@ export const iowaRoutes: River[] = [
     "region": "Northeast Iowa",
     "summary": "Short Ozark Wildlife Area run on the North Fork Maquoketa, with steep Driftless bluffs, boulders, easy riffles, and a direct Fulton gauge ladder.",
     "statusText": "Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the best broad target, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "fast_rise",
+        "private_banks",
+        "cold_water"
+      ],
+      "safetyNotes": [
+        "Below about 150 cfs, the North Fork is likely too shallow; above 701 cfs, swift current, narrow bends, and bridge-area landings exceed the normal recreational recommendation.",
+        "Ozark Bridge / 21st Ave is an undeveloped public pull-off and faint-trail access rather than a managed ramp. Caven is the named east-bank public take-out; the west bank is private.",
+        "The old Caven bridge is gone, and both gravel-road approaches can be steep or muddy. Scout the carry paths and vehicle turnaround before committing to the short route.",
+        "Use only public road-right-of-way and water-trail access, wear a properly fitted PFD, and account for cold water, fast rises, limited cell service, and private-property boundaries."
+      ],
+      "reviewStatus": "reviewed"
+    },
     "latitude": 42.19452517752233,
     "longitude": -90.87580561082818,
     "gaugeSource": {
