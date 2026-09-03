@@ -5,6 +5,7 @@ import { getRoutePreviewPhoto } from '../../data/route-gallery';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
 import { conditionZoneIdForRiver } from '../../lib/condition-zones';
+import { listRoutePresentationFamiliesForState } from '../../lib/route-family-presentation';
 import type { River } from '../../lib/types';
 
 export function getStaticPaths() {
@@ -96,6 +97,7 @@ const routeGroupsByRiver = allRiverGroups
     const countSort = right.routes.length - left.routes.length;
     return countSort === 0 ? left.name.localeCompare(right.name) : countSort;
   });
+const routePresentationFamilies = listRoutePresentationFamiliesForState(stateGroup.name, stateGroup.routes);
 const routesByRegion = stateGroup.regions.map((region) => ({
   region,
   routes: stateRoutes.filter((route) => route.region === region),
@@ -474,12 +476,35 @@ const structuredData = [
         </p>
       </div>
       <nav class="state-browse-nav" aria-label={`${stateGroup.name} browse shortcuts`}>
+        {routePresentationFamilies.length > 0 ? <a href="#state-corridors">By corridor</a> : null}
         <a href="#state-rivers">By river</a>
         <a href="#state-regions">By region</a>
         <a href="#state-all-routes-title">All routes</a>
       </nav>
       <div class="state-browse-grid">
         <section class="state-browse-column" id="state-rivers" aria-labelledby="state-rivers-title">
+          {routePresentationFamilies.length > 0 ? (
+            <div class="state-browse-subsection" id="state-corridors">
+              <h3 id="state-corridors-title">By corridor</h3>
+              <div class="state-accordion-list">
+                {routePresentationFamilies.map((family) => (
+                  <details class="state-directory-group" open>
+                    <summary>
+                      <span>{family.label}</span>
+                      <span>{family.routes.length}</span>
+                    </summary>
+                    <p class="muted state-directory-group__description">{family.description}</p>
+                    <div class="state-directory-group__links">
+                      <a class="state-directory-group__hub" href={`/rivers/${family.canonicalRoute.slug}/`}>Open canonical route</a>
+                      {family.routes.map((route) => (
+                        <a href={`/rivers/${route.slug}/`}>{route.reach}</a>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ) : null}
           <h3 id="state-rivers-title">By river</h3>
           <div class="state-accordion-list">
             {routeGroupsByRiver.map((group) => (

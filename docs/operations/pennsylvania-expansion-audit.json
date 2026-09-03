@@ -1,0 +1,175 @@
+{
+  "state": "Pennsylvania",
+  "updatedAt": "2026-09-03T08:18:12-05:00",
+  "status": "complete_with_explicit_blockers",
+  "scope": "Systematic continuation review from the existing Pennsylvania route set and candidate ledger",
+  "inventory": {
+    "liveRoutes": 63,
+    "tripDetailRecords": 63,
+    "directGaugeRoutes": 45,
+    "proxyGaugeRoutes": 18,
+    "routeCorridorDefinitions": 15,
+    "uniqueLedgerCandidates": 87,
+    "ledgerLeadsNotLive": 55,
+    "ledgerDisposition": "The 55 non-live ledger leads are historical or consolidated endpoint permutations whose access evidence is represented by the live route families and intermediate access ladders; they are not distinct missing water corridors. They remain in the ledger for traceability and should only be reopened if a future source establishes a materially distinct public reach, gauge package, or access posture.",
+    "fieldAudit": {
+      "missingTripDetails": 0,
+      "missingEndpointCoordinates": 0,
+      "missingGaugeEvidence": 0,
+      "missingThresholdEvidence": 0,
+      "missingSafetyProfiles": 0,
+      "missingLogisticsOrCampingClassification": 0,
+      "missingEvidenceNotes": 0,
+      "missingSourceLinks": 0,
+      "missingCorridorDefinitions": 0
+    }
+  },
+  "reviewedCorridors": [
+    "North Branch Susquehanna",
+    "Juniata",
+    "Conodoguinet",
+    "Yellow Breeches",
+    "Youghiogheny",
+    "Lehigh",
+    "French Creek",
+    "Redbank Creek",
+    "Loyalhanna Creek",
+    "Blacklick Creek",
+    "Two Lick Creek",
+    "Slippery Rock Creek",
+    "South Fork Tenmile Creek",
+    "Little Pine Creek",
+    "Laurel Hill Creek"
+  ],
+  "blockedOrConditional": [
+    {
+      "routeId": "three-rivers-water-trail-pittsburgh-family",
+      "status": "blocked",
+      "blocker": "Official access-network evidence is broad, but no specific public endpoint pair has been selected with a product-supported official live gauge and numeric route-specific threshold model. Do not infer thresholds from the water-trail designation alone."
+    },
+    {
+      "routeId": "little-pine-creek-north-park-lake-allison-park",
+      "status": "conditional_planning_route",
+      "blocker": "CanoeDraft and local government material identify the Allison Park ballfield/Duncan Avenue take-out context, but no authoritative exact wetted-edge water-entry coordinate is published. The approximate ballfield anchor remains labeled as such; do not substitute the nearby bridge coordinate or a guessed creek point. The route remains proxy-gauge planning-only."
+    },
+    {
+      "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+      "status": "conditional_area_anchor",
+      "blocker": "DCNR officially identifies the Beach Area canoe/kayak launch and publishes the park GPS anchor, but that coordinate is an area anchor rather than a survey-grade creek-edge point. The official area-anchor control and field-follow-signs caveat are now registered; the coordinate audit correctly retains this as a review/failure exception instead of inventing precision."
+    }
+  ],
+  "imagery": {
+    "auditSource": "docs/river-image-source-audit.csv",
+    "posture": "Every Pennsylvania route now resolves to a non-placeholder gallery image. Route-specific, same-river, dedicated river-group, and explicitly labeled regional-context imagery are kept distinct; the regional-context entries do not claim to depict an endpoint, access, or current conditions.",
+    "liveRoutes": 63,
+    "nonPlaceholderPreviews": 63,
+    "routeSpecificImages": 3,
+    "sameRiverContextImages": 17,
+    "sameRiverRouteReuseImages": 28,
+    "dedicatedRiverGroupImages": 10,
+    "regionalContextImages": 5,
+    "regionalContextRoutes": [
+      "blacklick-creek-route-259-saylor-park",
+      "south-fork-tenmile-creek-beagle-club-clarksville",
+      "two-lick-creek-waterworks-saylor-park",
+      "little-pine-creek-north-park-lake-allison-park",
+      "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"
+    ],
+    "regionalContextReason": "Commons/CC0 same-river imagery was not located for the five small or conditional route families during this bounded review. These routes use a CC0 Pennsylvania stream image with an explicit regional-only caption until a route-family image is rights-cleared."
+  },
+  "routeQualityAudit": {
+    "safetyProfiles": "63/63 have populated hazards and route-specific safety guidance",
+    "campingPosture": "63/63 have populated camping guidance and a camping classification; none is represented as open bank camping without a legal basis",
+    "endpointCoordinates": "63/63 have finite put-in and take-out coordinates",
+    "accessRegistry": {
+      "pennsylvaniaEntries": 80,
+      "consistentEntries": 79,
+      "nearbyVariantEntries": 1,
+      "waterbodyConfirmedEntries": 64,
+      "exactOnRiverEntries": 17,
+      "hardCoordinateFailures": 2,
+      "hardCoordinateFailureDisposition": "Little Pine take-out remains an approximate ballfield/Gourdhead Run anchor; Laurel Hill remains an official Beach Area/park anchor rather than a surveyed creek-edge point. Both remain withheld from coordinate-driven geometry and are not silently moved."
+    }
+  },
+  "overlapAndConsolidation": {
+    "auditSource": "tmp/route-overlap-audit.csv",
+    "pennsylvaniaFindingCounts": {
+      "access_chain_contains": 7,
+      "contained_connector": 12,
+      "crossing_segments": 4,
+      "near_collinear_overlap": 38,
+      "shared_endpoint": 57
+    },
+    "disposition": "No destructive consolidation was applied. Most findings are intentional alternate access-pair products within the same corridor family, including Susquehanna, Conodoguinet, Lehigh, and Juniata ladders. Preserve them while their endpoint pairs, gauge packages, safety notes, and camping postures differ.",
+    "presentationFamiliesImplemented": [
+      "pa-susquehanna-access-ladder",
+      "pa-conodoguinet-access-ladder"
+    ],
+    "presentationPosture": "Pennsylvania state browse pages group all reviewed Susquehanna and Conodoguinet access-ladder records, including planning-only route cards, as selectable route families. Lehigh, Juniata, and other reviewed families remain distinct in the directory because their overlap is intentional but their recommended presentation model is not yet a single shared family UI.",
+    "consolidationCandidates": [
+      {
+        "family": "Conodoguinet Creek",
+        "routes": [
+          "conodoguinet-creek-willow-mill-vincent-difilippo",
+          "conodoguinet-creek-willow-mill-good-hope",
+          "conodoguinet-creek-vincent-difilippo-good-hope",
+          "conodoguinet-creek-vincent-difilippo-acri-meadow",
+          "conodoguinet-creek-good-hope-acri-meadow",
+          "conodoguinet-creek-willow-mill-acri-meadow"
+        ],
+        "recommendation": "Keep the three public access nodes and present the shorter links as selectable segment variants; consider a future canonical Willow Mill-to-Acri Meadow parent route if product navigation needs a single default."
+      },
+      {
+        "family": "North Branch Susquehanna",
+        "routes": "23 live endpoint-pair variants",
+        "recommendation": "Keep the access ladder because PFBC/EMHR camping, dam/bridge hazards, gauge coverage, and trip lengths differ. Consolidate only at the presentation layer, not by deleting endpoint-pair records."
+      },
+      {
+        "family": "Lehigh River",
+        "routes": [
+          "lehigh-river-white-haven-rockport",
+          "lehigh-river-rockport-glen-onoko",
+          "lehigh-river-white-haven-glen-onoko"
+        ],
+        "recommendation": "Keep the two segments plus the full-day parent route; the full-day route has materially different duration and logistics guidance."
+      },
+      {
+        "family": "Juniata River",
+        "routes": [
+          "juniata-river-greenwood-amity-hall",
+          "juniata-river-millerstown-amity-hall"
+        ],
+        "recommendation": "Keep both because Greenwood and Millerstown are distinct public starts and the shorter/longer trip choices have different camping and shuttle planning."
+      }
+    ]
+  },
+  "controlPlane": {
+    "stateRegistration": "Pennsylvania is registered as PA in docs/operations/state-registry.json.",
+    "routeOrder": "All 63 live Pennsylvania slugs are present in src/data/rivers.ts routeOrder in family order.",
+    "accessControls": "Pennsylvania official access controls include PFBC North Branch, EMHR North Branch, Indiana County Waterworks, Cumberland County Conodoguinet B5, Allegheny County North Park, and the new DCNR Laurel Hill official area-anchor control.",
+    "generatedAccessRegistry": "Regenerated with zero conflicts; current global registry contains 3001 canonical access entries and one area-anchor-only entry for Laurel Hill.",
+    "canonicalGeometry": "Passed global geometry audit: 1578/1686 routes matched and 26 state assets present. Pennsylvania's two coordinate-withheld routes remain excluded from route-scoped geometry because their unresolved endpoints are an approximate ballfield anchor and an official park-area anchor, respectively."
+  },
+  "sources": [
+    "https://pfbc.pa.gov/watertrails/",
+    "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating",
+    "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3877924&ViewerMode=2&action=PDFStream&docID=1753189&docName=LAHI_ParkGuide&nativeExt=pdf&overlay=0&revision=0",
+    "https://canoedraft.shaw-weil.com/river/Pine%20Creek%20%28Allegheny%20County%29.php",
+    "https://canoedraft.shaw-weil.com/gauge/",
+    "https://www.alleghenycounty.us/Parks-and-Events/Parks/North-Park",
+    "https://indianacountyparks.org/our-parks/waterworks-park/",
+    "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
+  ],
+  "validation": {
+    "routeTypecheck": "passed",
+    "routeDataAudit": "passed: 1166 routes",
+    "corridorAudit": "passed: 213 definitions, 423 covered routes",
+    "accessRegistry": "passed: 3001 generated entries, 0 conflicts",
+    "coordinateAudit": "focused Pennsylvania review: 146 endpoint records; 35 ok, 94 review, 15 suspicious, and 2 documented failures; no coordinate corrections applied",
+    "safetyAudit": "global findings are two pre-existing West Virginia heuristic findings; no Pennsylvania issue",
+    "focusedTests": "passed: 5 files, 25 tests",
+    "productionBuild": "passed: 1991 pages",
+    "fullTestSuite": "root suite reached 84 passed files / 743 passed tests and stopped on 2 pre-existing/shared-worktree failures: route-coordinate-review-artifact.test.ts nearby-official-location fixture, and operations.test.ts encoding/control-plane snapshot. API contract workspace passed separately: 9 files / 23 tests."
+  },
+  "nextReview": "Reopen only if official Pennsylvania access owners publish an exact Little Pine take-out, Laurel Hill publishes a surveyed creek-edge launch coordinate, Three Rivers gains a route-specific threshold/gauge package, or a new distinct corridor receives authoritative endpoint and safety evidence."
+}

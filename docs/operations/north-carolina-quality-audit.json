@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "state": "North Carolina",
+  "updatedAt": "2026-09-03T08:25:00-05:00",
+  "status": "complete_with_one_documented_tailrace_review",
+  "scope": "Audit of the North Carolina routes already covered in this thread for safety, camping, imagery, endpoint reasonableness, and overlap/consolidation.",
+  "inventory": {
+    "liveRoutes": 14,
+    "safetyComplete": 14,
+    "campingComplete": 14,
+    "finiteEndpointCoordinates": 14,
+    "nonPlaceholderGalleryPreviews": 14,
+    "uniquePreviewImages": 12,
+    "galleryPosture": "Each route has a rights-cleared route or same-river context image; context captions do not imply endpoint or current-condition coverage."
+  },
+  "accessAudit": {
+    "registryEntries": 28,
+    "coordinateStatus": { "consistent": 28, "nearbyVariants": 0, "conflicts": 0 },
+    "waterbodyConfirmedEntries": 23,
+    "exactOnRiverEntries": 9,
+    "notWaterbodyConfirmedEntries": 5,
+    "coordinateRiverAudit": { "endpointRecords": 28, "ok": 9, "review": 18, "suspicious": 1, "failure": 0, "unknown": 0 },
+    "documentedReview": "The sole suspicious result is the Neuse River Falls Dam Tailrace put-in, 418 ft from the named NHD trace. Raleigh's tailrace access anchor and the route's direct USGS/dam-release evidence support keeping it as a clearly caveated access-area anchor; do not move it to an invented wetted-edge point."
+  },
+  "overlapAndConsolidation": {
+    "findingCount": 0,
+    "findingTypes": {},
+    "recommendation": "No generated geometric or endpoint overlap findings require consolidation. Keep the 14 routes as distinct published sections; deferred New River/Lumber candidates remain outside the live route set until they clear the route-specific threshold and access bar.",
+    "destructiveConsolidationApplied": false
+  },
+  "validation": {
+    "routeData": "Passed current global route audit for 1166 routes and route typecheck.",
+    "gallery": "All 14 North Carolina route previews resolve to non-placeholder images.",
+    "safetyAndCamping": "All 14 North Carolina routes have populated safety hazards/notes and camping text/classification.",
+    "access": "Generated registry has 28 North Carolina entries, all coordinate-consistent and conflict-free.",
+    "overlap": "Current generated overlap report reviewed: 0 North Carolina findings.",
+    "production": "Passed production build with 1991 pages; unrelated concurrent generated artifacts remain untouched."
+  },
+  "sources": [
+    "https://www.ncwildlife.org/boating/boating-access-areas",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02087183/",
+    "https://raleighnc.gov/river-access"
+  ],
+  "nextReview": "Reopen only when a deferred candidate gains a distinct named public endpoint pair, station-tied operating guidance, safety package, and overlap clearance."
+}

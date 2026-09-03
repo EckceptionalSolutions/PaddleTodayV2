@@ -6995,6 +6995,18 @@ function stablePhotoIndex(key: string, length: number): number {
 }
 
 export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto {
+  const marylandContextPhoto = route.state === 'Maryland' && route.riverId
+    ? approvedMarylandContextPhotosByRiverId[route.riverId]
+    : undefined;
+  if (marylandContextPhoto) {
+    return {
+      ...marylandContextPhoto,
+      id: `maryland-context-${route.riverId}-${marylandContextPhoto.id}`,
+      isPlaceholder: false,
+      sourceKind: 'river',
+    };
+  }
+
   const approvedPhotos = getApprovedRoutePhotos(route.slug);
   const key = `${route.riverId ?? 'route'}:${route.slug}`;
 
