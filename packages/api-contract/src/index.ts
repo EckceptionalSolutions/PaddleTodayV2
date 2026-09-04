@@ -33,7 +33,9 @@ export type RouteHazard =
   | 'urban_water_quality'
   | 'dam_release'
   | 'access_uncertain'
-  | 'private_banks';
+  | 'private_banks'
+  | 'wind'
+  | 'portage';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type RiverAlertDeliveryMethod = 'email' | 'push';
@@ -268,6 +270,8 @@ export const routeHazardLabels: Record<RouteHazard, string> = {
   dam_release: 'Dam release',
   access_uncertain: 'Access uncertain',
   private_banks: 'Private banks',
+  wind: 'Wind exposure',
+  portage: 'Portage',
 };
 
 export const routeSafetyLevelLabels: Record<RouteRiskLevel, string> = {
