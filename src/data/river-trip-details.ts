@@ -26,6 +26,7 @@ import { westVirginiaRiverTripDetails } from './trip-details/west-virginia';
 import { retiredRiverTripDetails } from './trip-details/retired';
 import { newJerseyRiverTripDetails } from './trip-details/new-jersey';
 import { delawareRiverTripDetails } from './trip-details/delaware';
+import { wyomingRiverTripDetails } from './trip-details/wyoming';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...arkansasRiverTripDetails,
@@ -55,4 +56,5 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...retiredRiverTripDetails,
   ...newJerseyRiverTripDetails,
   ...delawareRiverTripDetails,
+  ...wyomingRiverTripDetails,
 };

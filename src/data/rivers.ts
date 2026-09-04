@@ -26,6 +26,7 @@ import { wisconsinRoutes } from './routes/wisconsin';
 import { westVirginiaRoutes } from './routes/west-virginia';
 import { newJerseyRoutes } from './routes/new-jersey';
 import { delawareRoutes } from './routes/delaware';
+import { wyomingRoutes } from './routes/wyoming';
 
 const stateRoutes: River[] = [
   ...arkansasRoutes,
@@ -54,6 +55,7 @@ const stateRoutes: River[] = [
   ...westVirginiaRoutes,
   ...newJerseyRoutes,
   ...delawareRoutes,
+  ...wyomingRoutes,
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
@@ -1815,6 +1817,29 @@ const routeOrder = [
   "murderkill-river-bowers-beach-loop",
   "miller-creek-strawberry-sassafras",
   "duck-creek-woodland-beach-loop",
+  "snake-river-flagg-ranch-lizard-creek",
+  "snake-river-jackson-lake-dam-pacific-creek",
+  "snake-river-pacific-creek-deadmans-bar",
+  "snake-river-deadmans-bar-moose",
+  "snake-river-moose-wilson",
+  "snake-river-west-table-sheep-gulch",
+  "green-river-tailrace-slate-creek",
+  "green-river-slate-creek-dodge-bottom",
+  "green-river-dodge-bottom-hay-farm",
+  "green-river-hay-farm-highway-28",
+  "green-river-highway-28-six-mile",
+  "north-platte-gray-reef-lusby",
+  "north-platte-bessemer-robertson",
+  "bighorn-river-wedding-hot-springs",
+  "bighorn-river-hot-springs-skelton",
+  "string-leigh-lakes-portage-loop",
+  "jackson-lake-colter-bay-hermitage-out-and-back",
+  "green-river-lakes-lower-lake-out-and-back",
+  "fontenelle-reservoir-creek-recreation-area-loop",
+  "boysen-reservoir-fremont-bay-loop",
+  "jenny-lake-lupine-launch-inspiration-out-and-back",
+  "lewis-lake-shoshone-channel-wilderness-paddle",
+  "glendo-reservoir-sandy-beach-loop",
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {
