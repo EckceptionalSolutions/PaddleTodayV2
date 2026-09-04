@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "state": "Wyoming",
+  "status": "complete",
+  "completionSummary": "Wyoming coverage now includes 23 routes spanning four major basins plus Yellowstone/Lewis-Shoshone. Five Seedskadee Green River access-to-access sections are eligible for conservative minimum-only scoring because USFWS ties the 700 cfs lower context and 800 cfs summer minimum to direct gauge 09211200. The remaining 18 routes stay planning-only; Alpine Canyon retains mixed-source flow cues without a hard safety floor.",
+  "validationResults": {
+    "focusedWyomingTests": "pass (4 tests)",
+    "fullNpmTest": "Vitest pass (93 files / 828 tests) and API contract pass (9 files / 23 tests). The npm run typecheck wrapper is blocked by pre-existing design-token drift; its route/public-script/dry/full typecheck subchecks pass. The original dirty worktree also has unrelated Idaho assertions.",
+    "typecheck": "pass; route audit 1179 routes",
+    "scoringSensitivity": "pass; 1023 routes / 21663 scenarios / 0 invariant failures / 0 changed scenarios",
+    "safetyAudit": "pass for Wyoming; 2 pre-existing global West Virginia findings",
+    "galleryAudit": "pass; all 23 Wyoming route previews non-placeholder (global gallery script remains scoped to WI/IA/MN)",
+    "thresholdResearch": "Five Seedskadee sections use an official USFWS 700 cfs lower operating context and 800 cfs summer minimum on direct gauge 09211200 for minimum-only scoring. Alpine Canyon retains a mixed AW/USGS-derived 1,800 cfs planning floor and 6,500 cfs preferred cue but remains planning-only; no other route received an invented numeric cutoff.",
+    "scoringReadiness": "Promoted 5 Seedskadee Green routes to scored minimum-only eligibility. Withheld Alpine Canyon because its 1,800 cfs floor is secondary/community-derived and the authoritative AW page provides preferred/optimal cues rather than a hard runnable minimum. Withheld all proxy-gauge, reservoir, lake, and other direct-gauge routes lacking route-specific numeric flow limits.",
+    "coordinateAudit": "Wyoming 53 endpoints: 2 ok, 40 review, 11 unknown, 0 suspicious/failure; global audit retains 28 pre-existing failures",
+    "coordinateSuggestions": "33 global suggestions, 0 autonomous; existing 111/111 autonomous corrections validated",
+    "geometryAudit": "pass; 1601/1709 routes matched, 27 state assets",
+    "overlapAudit": "pass; 8 Wyoming findings (3 near-collinear adjacent pairs and 5 shared endpoints), all retained as distinct access-to-access trips",
+    "accessRegistry": "pass; 3039 canonical access entries, 0 conflicts"
+  },
+  "qualityAudit": {
+    "safety": {"routesChecked": 23, "findings": 0, "reviewStatus": "reviewed"},
+    "camping": {"routesChecked": 23, "missingClassification": 0, "classificationCounts": {"endpoint_campground": 7, "nearby_basecamp": 15, "none": 1}},
+    "gallery": {"routesChecked": 23, "placeholderPreviews": 0, "routeSpecific": 4, "sameRiverOrWatershedContext": 19},
+    "consolidation": {"duplicateEndpointPairs": 0, "decisions": "Retain all 15 river sections: shared endpoints and near-collinear pairs are intentional adjacent reaches with different access pairs, distances, difficulty, or operational boundaries. Retain eight lake/reservoir/wilderness itineraries because they provide distinct waterbodies, turnaround rules, or management contexts."}
+  },
+  "baseline": {
+    "sourceRouteRecords": 23,
+    "publicRoutePageRecords": 23,
+    "tripDetailRecords": 23,
+    "canonicalGeometryRecords": 23,
+    "duplicateIds": [],
+    "duplicateSlugs": [],
+    "overlapFinding": "The 15 river cards remain distinct adjacent access-to-access sections; the overlap audit found three near-collinear adjacent pairs and five shared endpoints, with no duplicate endpoint pair. Eight lake/reservoir/wilderness cards are separate same-launch or lake-corridor itineraries with different waterbodies, access controls, and trip value; none duplicates an existing Wyoming river reach. Boysen, Jenny, Lewis-Shoshone, and Glendo close distinct basin, park, and trip-type gaps."
+  },
+  "gapAnalysis": {
+    "geography": [
+      "Greater Yellowstone and Jackson Hole",
+      "Snake River Canyon",
+      "Upper Green River and Seedskadee Basin",
+      "North Platte tailwaters and Casper corridor",
+      "Wind-Bighorn Basin",
+      "High-elevation lake and wilderness day trips",
+      "Reservoir flatwater and developed BLM access"
+    ],
+    "basins": [
+      "Snake-Columbia",
+      "Green-Colorado",
+      "North Platte-Missouri",
+      "Wind-Bighorn-Yellowstone"
+    ],
+    "difficulty": [
+      "Beginner scenic river",
+      "Intermediate braided river",
+      "Advanced braided river",
+      "Class III whitewater",
+      "Wind-exposed flatwater"
+    ],
+    "tripTypes": [
+      "Short access-to-access float",
+      "Full-day refuge float",
+      "Urban day float",
+      "Whitewater run",
+      "Lake out-and-back",
+      "River-to-lake wilderness transition"
+    ]
+  },
+  "strategy": {
+    "publicationPosture": "Use scored minimum-only eligibility only for the five Seedskadee sections whose USFWS operating guidance is tied to direct gauge 09211200. A direct gauge alone does not justify scoring; all other Wyoming routes remain planning-only until route-specific thresholds are defensible.",
+    "thresholdPosture": "Use minimum-only models and omit numeric cutoffs unless a manager or recognized paddling source ties a practical floor or clearly labeled planning cue to the selected gauge. Alpine Canyon uses a corroborated 1,800 cfs runnable-floor cue and 6,500 cfs preferred lower cue; neither is a safety guarantee. Never infer a ceiling from ordinary historical flow.",
+    "accessPosture": "Publish only named NPS, USFS, USFWS, BLM, WGFD, state-park, or municipal launches. Preserve an official parking or campground anchor when it intentionally represents a carry/staging point and label the offset.",
+    "imagePosture": "Prefer NPS, USFWS, USGS, USFS, or clearly licensed Wikimedia route imagery. Same-river or regional context must be labeled as context and must not imply the exact reach.",
+    "geometryPosture": "Generate one canonical route asset per published card, inspect endpoint connection and water-corridor shape, and withhold any route whose access or geometry cannot be defended."
+  },
+  "priorityCandidateFamilies": [
+    {
+      "family": "Snake River in Grand Teton National Park",
+      "plannedSections": [
+        "Jackson Lake Dam to Pacific Creek Landing",
+        "Pacific Creek Landing to Deadmans Bar",
+        "Deadmans Bar to Moose Landing",
+        "Moose Landing to Wilson Bridge",
+        "Flagg Ranch to Lizard Creek Campground"
+      ],
+      "rationale": "NPS publishes exact named launches, distances, difficulty tiers, braided-channel and logjam hazards, boating permits, AIS requirements, and seasonal access."
+    },
+    {
+      "family": "Snake River Canyon",
+      "plannedSections": [
+        "West Table Boat Ramp to Sheep Gulch Boat Ramp"
+      ],
+      "rationale": "USFS and Recreation.gov identify the public ramps, whitewater operational boundary, group-use rules, fee posture, AIS requirements, and limited-cell emergency context."
+    },
+    {
+      "family": "Green River through Seedskadee National Wildlife Refuge",
+      "plannedSections": [
+        "Fontenelle Dam to Slate Creek Campground",
+        "Slate Creek Campground to Dodge Bottoms",
+        "Dodge Bottoms to Hay Farm",
+        "Hay Farm to Highway 28",
+        "Highway 28 to Six Mile Hill"
+      ],
+      "rationale": "USFWS publishes the complete public ramp chain, river-mile positions, float-time guidance, rock-sill hazards, wind guidance, release variability, and boating rules."
+    },
+    {
+      "family": "North Platte River",
+      "plannedSections": [
+        "Gray Reef Dam to Lusby Public Access Area",
+        "Lusby Public Access Area to Robertson Road Public Access Area"
+      ],
+      "rationale": "WGFD and BLM document a long public-access chain, named boat ramps, floating use, private-land easements, no-camping rules at Lusby, and dam-release hazards. Final endpoints require coordinate and corridor verification."
+    },
+    {
+      "family": "Wind-Bighorn River",
+      "plannedSections": [
+        "Wedding of the Waters to Hot Springs State Park",
+        "Hot Springs State Park to Skelton Public Access Area"
+      ],
+      "rationale": "Published after WGFD named the Wedding and Skelton public ramps and Hot Springs State Park confirmed the terrace landing; both remain planning-only because the Basin gauge is a proxy and seasonal heat/release notices can change operations."
+    },
+    {
+      "family": "Mountain lakes, reservoirs, and wilderness channels",
+      "plannedSections": [
+        "Colter Bay to Hermitage Point out-and-back",
+        "String Lake to Leigh Lake out-and-back",
+        "Green River Lakes shoreline out-and-back",
+        "Boysen Reservoir Fremont Bay loop",
+        "Jenny Lake Lupine Meadows out-and-back",
+        "Lewis Lake to Shoshone Lake wilderness channel"
+      ],
+      "rationale": "These fill high-elevation flatwater, reservoir, and wilderness-day-trip gaps. All are planning-only and retain explicit wind, cold-water, carry, parking, permit, and geometry controls."
+    }
+  ],
+  "initialWithholdingRules": [
+    "Do not publish Yellowstone River reaches inside Yellowstone National Park because park boating restrictions and closures require a separate rule review.",
+    "Do not publish Wind River Canyon or tribal-reservation-dependent reaches without explicit current permission and public access evidence.",
+    "Do not publish a bridge shoulder, fishing easement, or informal bank as a launch merely because it is near water.",
+    "Do not combine adjacent Grand Teton or Seedskadee sections into one card when their difficulty, float time, or safe operational boundary differs.",
+    "Withhold Southgate-to-Flagg Snake whitewater until a current public Southgate launch control and route-specific geometry are confirmed; NPS describes it as an advanced Class III run.",
+    "Publish lake and reservoir routes only as planning-only trips with explicit wind/cold-water/carry controls, same-launch or shoreline turnaround boundaries, and route-scoped curated geometry.",
+    "Publish the Lewis-Shoshone channel only as an expert planning route: the upstream shallow mile may require wading/lining, no road take-out exists at Shoshone, and overnight travel requires a Yellowstone backcountry permit."
+  ],
+  "implementedBatch": {
+    "baselineRoutes": 15,
+    "continuationRoutesAdded": 8,
+    "routesAdded": 23,
+    "regions": ["Greater Yellowstone/Jackson Hole", "Snake River Canyon/Alpine", "Green River Basin/Seedskadee", "Central Wyoming/Casper", "Wind-Bighorn Basin/Thermopolis", "Wind River Range/Pinedale", "Green River Basin/Kemmerer", "Yellowstone/Lewis-Shoshone"],
+    "basins": ["Snake-Columbia", "Green-Colorado", "North Platte-Missouri", "Wind-Bighorn-Yellowstone"],
+    "directGaugeRoutes": 13,
+    "proxyGaugeRoutes": 10,
+    "scoredRoutes": 5,
+    "planningOnlyRoutes": 18,
+    "scoredRouteIds": ["green-river-tailrace-slate-creek", "green-river-slate-creek-dodge-bottom", "green-river-dodge-bottom-hay-farm", "green-river-hay-farm-highway-28", "green-river-highway-28-six-mile"],
+    "numericThresholdRoutes": 6,
+    "numericThresholdBreakdown": {"greenSeedskadee": 5, "snakeAlpineCanyon": 1},
+    "geometry": {"matched": 23, "curatedFallback": 9, "unmatched": 0},
+    "imagery": {"nonPlaceholder": 23, "routeSpecific": 4, "sameRiverOrWatershedContext": 19},
+    "access": {"publicEndpointPairs": 23, "intentionalOffsetReviews": 9, "coordinateFailures": 0},
+    "withheld": ["Southgate-to-Flagg Snake Class III", "Yellowstone River reaches inside Yellowstone National Park", "Wind River Canyon and tribal-reservation-dependent reaches", "unverified urban or informal-bank launches"],
+    "validation": ["typecheck:routes", "routes:audit", "routes:safety:audit", "photos:audit", "routes:audit:coordinates", "routes:audit:coordinates:suggestions", "routes:geometries:generate", "routes:geometries:audit", "routes:audit:overlap", "wyoming-expansion.test.ts"]
+  },
+  "authoritativeStartingSources": [
+    "https://www.nps.gov/grte/planyourvisit/upload/Floating17-access.pdf",
+    "https://home.nps.gov/grte/planyourvisit/float.htm",
+    "https://www.nps.gov/grte/learn/management/compendium.htm",
+    "https://www.nps.gov/places/000/deadmans-bar.htm",
+    "https://www.fws.gov/refuge/seedskadee/frequently-asked-questions",
+    "https://www.fws.gov/refuge/seedskadee/visit-us/activities/boating---non-motorized",
+    "https://www.fws.gov/sites/default/files/documents/2025-06/rivermiles-2025.pdf",
+    "https://www.nps.gov/grte/planyourvisit/stringleighplan.htm",
+    "https://www.nps.gov/places/000/colter-bay-marina-boat-launch.htm",
+    "https://www.nps.gov/grte/planyourvisit/parking.htm",
+    "https://www.recreation.gov/camping/campgrounds/233874",
+    "https://www.blm.gov/visit/fontenelle-creek-recreation-area",
+    "https://www.usbr.gov/uc/water/crsp/cs/ftd.html",
+    "https://waterdata.usgs.gov/monitoring-location/09211150/",
+    "https://www.recreation.gov/gateways/1230",
+    "https://wyoparks.wyo.gov/index.php/files/310/Boysen/8/Boysen-Map.pdf",
+    "https://www.nps.gov/grte/planyourvisit/jennylakeplan.htm",
+    "https://www.nps.gov/places/000/jenny-lake-launch.htm",
+    "https://www.nps.gov/yell/planyourvisit/boating.htm?ls=null",
+    "https://www.nps.gov/yell/planyourvisit/upload/Yellowstone-Boat-Safety-and-Regulations-Booklet.pdf",
+    "https://www.recreation.gov/gateways/1233",
+    "https://www.recreation.gov/timed-entry/10112505",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/2472/main",
+    "https://www.howsyourriver.com/whitewater/lunch-counter-7-west-table-to-sheep-gulch-alpine-canyon-wy",
+    "https://wgfd.wyo.gov/Public-Access/Public-Access-Areas/North-Platte-River-Lusby",
+    "https://wgfd.wyo.gov/public-access/public-access-areas"
+  ]
+}

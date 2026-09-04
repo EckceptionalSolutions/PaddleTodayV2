@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-03T12:10:39.799Z",
-  "auditGeneratedAt": "2026-09-03T12:03:23.962Z",
+  "generatedAt": "2026-09-04T15:54:19.153Z",
+  "auditGeneratedAt": "2026-09-03T13:31:54.621Z",
   "summary": {
-    "entryCount": 3001,
-    "repeatedEntryCount": 706,
+    "entryCount": 3039,
+    "repeatedEntryCount": 714,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
     "derivedWaterEntryCount": 1735,
@@ -287514,6 +287514,3384 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 83.22275494695599,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--bessemer-bend-public-access-area",
+      "state": "Wyoming",
+      "name": "Bessemer Bend Public Access Area",
+      "aliases": [
+        "Bessemer Bend Public Access Area"
+      ],
+      "sourceIds": [
+        "north-platte-bessemer-robertson-bessemer-bend-public-access-area"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.772536076,
+        "longitude": -106.530906117
+      },
+      "accessCoordinate": {
+        "latitude": 42.772536076,
+        "longitude": -106.530906117
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.77254,-106.53091",
+          "coordinate": {
+            "latitude": 42.772536076,
+            "longitude": -106.530906117
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-platte-bessemer-robertson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-bessemer-robertson",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "north-platte-bessemer-robertson-bessemer-bend-public-access-area",
+          "name": "Bessemer Bend Public Access Area",
+          "latitude": 42.772536076,
+          "longitude": -106.530906117,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-platte-bessemer-robertson",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Bessemer Bend Public Access Area",
+          "latitude": 42.772536076,
+          "longitude": -106.530906117,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--colter-bay-marina-boat-launch",
+      "state": "Wyoming",
+      "name": "Colter Bay Marina boat launch",
+      "aliases": [
+        "Colter Bay Marina boat launch"
+      ],
+      "sourceIds": [
+        "jackson-lake-colter-bay-hermitage-out-and-back-colter-bay-marina-boat-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.905559,
+        "longitude": -110.640113
+      },
+      "accessCoordinate": {
+        "latitude": 43.905559,
+        "longitude": -110.640113
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.90556,-110.64011",
+          "coordinate": {
+            "latitude": 43.905559,
+            "longitude": -110.640113
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "jackson-lake-colter-bay-hermitage-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-lake-colter-bay-hermitage-out-and-back",
+          "routeName": "Jackson Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-lake-colter-bay-hermitage-out-and-back-colter-bay-marina-boat-launch",
+          "name": "Colter Bay Marina boat launch",
+          "latitude": 43.905559,
+          "longitude": -110.640113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-lake-colter-bay-hermitage-out-and-back",
+          "routeName": "Jackson Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-lake-colter-bay-hermitage-out-and-back-colter-bay-marina-boat-launch",
+          "name": "Colter Bay Marina boat launch",
+          "latitude": 43.905559,
+          "longitude": -110.640113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-lake-colter-bay-hermitage-out-and-back",
+          "routeName": "Jackson Lake",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Colter Bay Marina boat launch",
+          "latitude": 43.905559,
+          "longitude": -110.640113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-lake-colter-bay-hermitage-out-and-back",
+          "routeName": "Jackson Lake",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Colter Bay Marina boat launch",
+          "latitude": 43.905559,
+          "longitude": -110.640113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--colter-bay-hermitage-point-shoreline",
+      "state": "Wyoming",
+      "name": "Colter Bay–Hermitage Point shoreline",
+      "aliases": [
+        "Colter Bay–Hermitage Point shoreline"
+      ],
+      "sourceIds": [
+        "jackson-lake-colter-bay-hermitage-out-and-back-colter-bay-hermitage-point-shoreline"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.874,
+        "longitude": -110.615
+      },
+      "accessCoordinate": {
+        "latitude": 43.874,
+        "longitude": -110.615
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.87400,-110.61500",
+          "coordinate": {
+            "latitude": 43.874,
+            "longitude": -110.615
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "jackson-lake-colter-bay-hermitage-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-lake-colter-bay-hermitage-out-and-back",
+          "routeName": "Jackson Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-lake-colter-bay-hermitage-out-and-back-colter-bay-hermitage-point-shoreline",
+          "name": "Colter Bay–Hermitage Point shoreline",
+          "latitude": 43.874,
+          "longitude": -110.615,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--deadmans-bar",
+      "state": "Wyoming",
+      "name": "Deadmans Bar",
+      "aliases": [
+        "Deadmans Bar"
+      ],
+      "sourceIds": [
+        "snake-river-deadmans-bar-moose-deadmans-bar",
+        "snake-river-pacific-creek-deadmans-bar-deadmans-bar"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.7578839,
+        "longitude": -110.6178224
+      },
+      "accessCoordinate": {
+        "latitude": 43.7578839,
+        "longitude": -110.6178224
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "43.75788,-110.61782",
+          "coordinate": {
+            "latitude": 43.7578839,
+            "longitude": -110.6178224
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "snake-river-deadmans-bar-moose",
+            "snake-river-pacific-creek-deadmans-bar"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-deadmans-bar-moose-deadmans-bar",
+          "name": "Deadmans Bar",
+          "latitude": 43.7578839,
+          "longitude": -110.6178224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Deadmans Bar",
+          "latitude": 43.7578839,
+          "longitude": -110.6178224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-pacific-creek-deadmans-bar-deadmans-bar",
+          "name": "Deadmans Bar",
+          "latitude": 43.7578839,
+          "longitude": -110.6178224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Deadmans Bar",
+          "latitude": 43.7578839,
+          "longitude": -110.6178224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--dodge-bottoms-access",
+      "state": "Wyoming",
+      "name": "Dodge Bottoms access",
+      "aliases": [
+        "Dodge Bottoms access"
+      ],
+      "sourceIds": [
+        "green-river-dodge-bottom-hay-farm-dodge-bottoms-access",
+        "green-river-slate-creek-dodge-bottom-dodge-bottoms-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.96616,
+        "longitude": -109.97357
+      },
+      "accessCoordinate": {
+        "latitude": 41.96616,
+        "longitude": -109.97357
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.96616,-109.97357",
+          "coordinate": {
+            "latitude": 41.96616,
+            "longitude": -109.97357
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "green-river-dodge-bottom-hay-farm",
+            "green-river-slate-creek-dodge-bottom"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-dodge-bottom-hay-farm",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-dodge-bottom-hay-farm-dodge-bottoms-access",
+          "name": "Dodge Bottoms access",
+          "latitude": 41.96616,
+          "longitude": -109.97357,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-dodge-bottom-hay-farm",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Dodge Bottoms access",
+          "latitude": 41.96616,
+          "longitude": -109.97357,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-slate-creek-dodge-bottom",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-slate-creek-dodge-bottom-dodge-bottoms-access",
+          "name": "Dodge Bottoms access",
+          "latitude": 41.96616,
+          "longitude": -109.97357,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-slate-creek-dodge-bottom",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Dodge Bottoms access",
+          "latitude": 41.96616,
+          "longitude": -109.97357,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--flagg-ranch-river-access",
+      "state": "Wyoming",
+      "name": "Flagg Ranch river access",
+      "aliases": [
+        "Flagg Ranch river access"
+      ],
+      "sourceIds": [
+        "snake-river-flagg-ranch-lizard-creek-flagg-ranch-river-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.0996346,
+        "longitude": -110.6677149
+      },
+      "accessCoordinate": {
+        "latitude": 44.0996346,
+        "longitude": -110.6677149
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.09963,-110.66771",
+          "coordinate": {
+            "latitude": 44.0996346,
+            "longitude": -110.6677149
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-flagg-ranch-lizard-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-flagg-ranch-lizard-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-flagg-ranch-lizard-creek-flagg-ranch-river-access",
+          "name": "Flagg Ranch river access",
+          "latitude": 44.0996346,
+          "longitude": -110.6677149,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-flagg-ranch-lizard-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Flagg Ranch river access",
+          "latitude": 44.0996346,
+          "longitude": -110.6677149,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--fontenelle-creek-recreation-area-boat-ramp",
+      "state": "Wyoming",
+      "name": "Fontenelle Creek Recreation Area boat ramp",
+      "aliases": [
+        "Fontenelle Creek Recreation Area boat ramp"
+      ],
+      "sourceIds": [
+        "fontenelle-reservoir-creek-recreation-area-loop-fontenelle-creek-recreation-area-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.0722577,
+        "longitude": -110.1537967
+      },
+      "accessCoordinate": {
+        "latitude": 42.0722577,
+        "longitude": -110.1537967
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.07226,-110.15380",
+          "coordinate": {
+            "latitude": 42.0722577,
+            "longitude": -110.1537967
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "fontenelle-reservoir-creek-recreation-area-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "routeName": "Fontenelle Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "fontenelle-reservoir-creek-recreation-area-loop-fontenelle-creek-recreation-area-boat-ramp",
+          "name": "Fontenelle Creek Recreation Area boat ramp",
+          "latitude": 42.0722577,
+          "longitude": -110.1537967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "routeName": "Fontenelle Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "fontenelle-reservoir-creek-recreation-area-loop-fontenelle-creek-recreation-area-boat-ramp",
+          "name": "Fontenelle Creek Recreation Area boat ramp",
+          "latitude": 42.0722577,
+          "longitude": -110.1537967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "routeName": "Fontenelle Reservoir",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fontenelle Creek Recreation Area boat ramp",
+          "latitude": 42.0722577,
+          "longitude": -110.1537967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "routeName": "Fontenelle Reservoir",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Fontenelle Creek Recreation Area boat ramp",
+          "latitude": 42.0722577,
+          "longitude": -110.1537967,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--fontenelle-dam-tailrace-access",
+      "state": "Wyoming",
+      "name": "Fontenelle Dam tailrace access",
+      "aliases": [
+        "Fontenelle Dam tailrace access"
+      ],
+      "sourceIds": [
+        "green-river-tailrace-slate-creek-fontenelle-dam-tailrace-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.02507,
+        "longitude": -110.06226
+      },
+      "accessCoordinate": {
+        "latitude": 42.02507,
+        "longitude": -110.06226
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.02507,-110.06226",
+          "coordinate": {
+            "latitude": 42.02507,
+            "longitude": -110.06226
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "green-river-tailrace-slate-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-tailrace-slate-creek",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-tailrace-slate-creek-fontenelle-dam-tailrace-access",
+          "name": "Fontenelle Dam tailrace access",
+          "latitude": 42.02507,
+          "longitude": -110.06226,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-tailrace-slate-creek",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fontenelle Dam tailrace access",
+          "latitude": 42.02507,
+          "longitude": -110.06226,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--fremont-bay-lakeside-shoreline-turnaround",
+      "state": "Wyoming",
+      "name": "Fremont Bay / Lakeside shoreline turnaround",
+      "aliases": [
+        "Fremont Bay / Lakeside shoreline turnaround"
+      ],
+      "sourceIds": [
+        "boysen-reservoir-fremont-bay-loop-fremont-bay-lakeside-shoreline-turnaround"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.353,
+        "longitude": -108.117
+      },
+      "accessCoordinate": {
+        "latitude": 43.353,
+        "longitude": -108.117
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.35300,-108.11700",
+          "coordinate": {
+            "latitude": 43.353,
+            "longitude": -108.117
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "boysen-reservoir-fremont-bay-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "routeName": "Boysen Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "boysen-reservoir-fremont-bay-loop-fremont-bay-lakeside-shoreline-turnaround",
+          "name": "Fremont Bay / Lakeside shoreline turnaround",
+          "latitude": 43.353,
+          "longitude": -108.117,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--fremont-bay-boat-ramp-boysen-state-park",
+      "state": "Wyoming",
+      "name": "Fremont Bay boat ramp / Boysen State Park",
+      "aliases": [
+        "Fremont Bay boat ramp / Boysen State Park"
+      ],
+      "sourceIds": [
+        "boysen-reservoir-fremont-bay-loop-fremont-bay-boat-ramp-boysen-state-park"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.321348,
+        "longitude": -108.124512
+      },
+      "accessCoordinate": {
+        "latitude": 43.321348,
+        "longitude": -108.124512
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.32135,-108.12451",
+          "coordinate": {
+            "latitude": 43.321348,
+            "longitude": -108.124512
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "boysen-reservoir-fremont-bay-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "routeName": "Boysen Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "boysen-reservoir-fremont-bay-loop-fremont-bay-boat-ramp-boysen-state-park",
+          "name": "Fremont Bay boat ramp / Boysen State Park",
+          "latitude": 43.321348,
+          "longitude": -108.124512,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "routeName": "Boysen Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "boysen-reservoir-fremont-bay-loop-fremont-bay-boat-ramp-boysen-state-park",
+          "name": "Fremont Bay boat ramp / Boysen State Park",
+          "latitude": 43.321348,
+          "longitude": -108.124512,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "routeName": "Boysen Reservoir",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fremont Bay boat ramp / Boysen State Park",
+          "latitude": 43.321348,
+          "longitude": -108.124512,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "routeName": "Boysen Reservoir",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Fremont Bay boat ramp / Boysen State Park",
+          "latitude": 43.321348,
+          "longitude": -108.124512,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--gray-reef-boat-launch",
+      "state": "Wyoming",
+      "name": "Gray Reef boat launch",
+      "aliases": [
+        "Gray Reef boat launch"
+      ],
+      "sourceIds": [
+        "north-platte-gray-reef-lusby-gray-reef-boat-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.5683197,
+        "longitude": -106.7011215
+      },
+      "accessCoordinate": {
+        "latitude": 42.5683197,
+        "longitude": -106.7011215
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.56832,-106.70112",
+          "coordinate": {
+            "latitude": 42.5683197,
+            "longitude": -106.7011215
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-platte-gray-reef-lusby"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "north-platte-gray-reef-lusby-gray-reef-boat-launch",
+          "name": "Gray Reef boat launch",
+          "latitude": 42.5683197,
+          "longitude": -106.7011215,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Gray Reef boat launch",
+          "latitude": 42.5683197,
+          "longitude": -106.7011215,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--green-river-lakes-campground-carry-down-launch",
+      "state": "Wyoming",
+      "name": "Green River Lakes Campground carry-down launch",
+      "aliases": [
+        "Green River Lakes Campground carry-down launch"
+      ],
+      "sourceIds": [
+        "green-river-lakes-lower-lake-out-and-back-green-river-lakes-campground-carry-down-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.3125866,
+        "longitude": -109.8615511
+      },
+      "accessCoordinate": {
+        "latitude": 43.3125866,
+        "longitude": -109.8615511
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.31259,-109.86155",
+          "coordinate": {
+            "latitude": 43.3125866,
+            "longitude": -109.8615511
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "green-river-lakes-lower-lake-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-lakes-lower-lake-out-and-back",
+          "routeName": "Green River Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-lakes-lower-lake-out-and-back-green-river-lakes-campground-carry-down-launch",
+          "name": "Green River Lakes Campground carry-down launch",
+          "latitude": 43.3125866,
+          "longitude": -109.8615511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-lakes-lower-lake-out-and-back",
+          "routeName": "Green River Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-lakes-lower-lake-out-and-back-green-river-lakes-campground-carry-down-launch",
+          "name": "Green River Lakes Campground carry-down launch",
+          "latitude": 43.3125866,
+          "longitude": -109.8615511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-lakes-lower-lake-out-and-back",
+          "routeName": "Green River Lakes",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Green River Lakes Campground carry-down launch",
+          "latitude": 43.3125866,
+          "longitude": -109.8615511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-lakes-lower-lake-out-and-back",
+          "routeName": "Green River Lakes",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Green River Lakes Campground carry-down launch",
+          "latitude": 43.3125866,
+          "longitude": -109.8615511,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--hay-farm-access",
+      "state": "Wyoming",
+      "name": "Hay Farm access",
+      "aliases": [
+        "Hay Farm access"
+      ],
+      "sourceIds": [
+        "green-river-dodge-bottom-hay-farm-hay-farm-access",
+        "green-river-hay-farm-highway-28-hay-farm-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.92354,
+        "longitude": -109.90701
+      },
+      "accessCoordinate": {
+        "latitude": 41.92354,
+        "longitude": -109.90701
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.92354,-109.90701",
+          "coordinate": {
+            "latitude": 41.92354,
+            "longitude": -109.90701
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "green-river-dodge-bottom-hay-farm",
+            "green-river-hay-farm-highway-28"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-dodge-bottom-hay-farm",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-dodge-bottom-hay-farm-hay-farm-access",
+          "name": "Hay Farm access",
+          "latitude": 41.92354,
+          "longitude": -109.90701,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-dodge-bottom-hay-farm",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hay Farm access",
+          "latitude": 41.92354,
+          "longitude": -109.90701,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-hay-farm-highway-28",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-hay-farm-highway-28-hay-farm-access",
+          "name": "Hay Farm access",
+          "latitude": 41.92354,
+          "longitude": -109.90701,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-hay-farm-highway-28",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Hay Farm access",
+          "latitude": 41.92354,
+          "longitude": -109.90701,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--hot-springs-state-park-terrace-boat-ramp",
+      "state": "Wyoming",
+      "name": "Hot Springs State Park terrace boat ramp",
+      "aliases": [
+        "Hot Springs State Park terrace boat ramp"
+      ],
+      "sourceIds": [
+        "bighorn-river-hot-springs-skelton-hot-springs-state-park-terrace-boat-ramp",
+        "bighorn-river-wedding-hot-springs-hot-springs-state-park-terrace-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.6540461,
+        "longitude": -108.1977017
+      },
+      "accessCoordinate": {
+        "latitude": 43.6540461,
+        "longitude": -108.1977017
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "43.65405,-108.19770",
+          "coordinate": {
+            "latitude": 43.6540461,
+            "longitude": -108.1977017
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "bighorn-river-hot-springs-skelton",
+            "bighorn-river-wedding-hot-springs"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "bighorn-river-hot-springs-skelton",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "bighorn-river-hot-springs-skelton-hot-springs-state-park-terrace-boat-ramp",
+          "name": "Hot Springs State Park terrace boat ramp",
+          "latitude": 43.6540461,
+          "longitude": -108.1977017,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "bighorn-river-hot-springs-skelton",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Hot Springs State Park terrace boat ramp",
+          "latitude": 43.6540461,
+          "longitude": -108.1977017,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "bighorn-river-wedding-hot-springs",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "bighorn-river-wedding-hot-springs-hot-springs-state-park-terrace-boat-ramp",
+          "name": "Hot Springs State Park terrace boat ramp",
+          "latitude": 43.6540461,
+          "longitude": -108.1977017,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "bighorn-river-wedding-hot-springs",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hot Springs State Park terrace boat ramp",
+          "latitude": 43.6540461,
+          "longitude": -108.1977017,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--jackson-lake-dam-tailwater-launch",
+      "state": "Wyoming",
+      "name": "Jackson Lake Dam tailwater launch",
+      "aliases": [
+        "Jackson Lake Dam tailwater launch"
+      ],
+      "sourceIds": [
+        "snake-river-jackson-lake-dam-pacific-creek-jackson-lake-dam-tailwater-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.8582541,
+        "longitude": -110.5856193
+      },
+      "accessCoordinate": {
+        "latitude": 43.8582541,
+        "longitude": -110.5856193
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.85825,-110.58562",
+          "coordinate": {
+            "latitude": 43.8582541,
+            "longitude": -110.5856193
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-jackson-lake-dam-pacific-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-jackson-lake-dam-pacific-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-jackson-lake-dam-pacific-creek-jackson-lake-dam-tailwater-launch",
+          "name": "Jackson Lake Dam tailwater launch",
+          "latitude": 43.8582541,
+          "longitude": -110.5856193,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-jackson-lake-dam-pacific-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Jackson Lake Dam tailwater launch",
+          "latitude": 43.8582541,
+          "longitude": -110.5856193,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--jenny-lake-lupine-meadows-boat-launch",
+      "state": "Wyoming",
+      "name": "Jenny Lake Lupine Meadows boat launch",
+      "aliases": [
+        "Jenny Lake Lupine Meadows boat launch"
+      ],
+      "sourceIds": [
+        "jenny-lake-lupine-launch-inspiration-out-and-back-jenny-lake-lupine-meadows-boat-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.751387,
+        "longitude": -110.7214
+      },
+      "accessCoordinate": {
+        "latitude": 43.751387,
+        "longitude": -110.7214
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.75139,-110.72140",
+          "coordinate": {
+            "latitude": 43.751387,
+            "longitude": -110.7214
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "jenny-lake-lupine-launch-inspiration-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jenny-lake-lupine-launch-inspiration-out-and-back",
+          "routeName": "Jenny Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jenny-lake-lupine-launch-inspiration-out-and-back-jenny-lake-lupine-meadows-boat-launch",
+          "name": "Jenny Lake Lupine Meadows boat launch",
+          "latitude": 43.751387,
+          "longitude": -110.7214,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jenny-lake-lupine-launch-inspiration-out-and-back",
+          "routeName": "Jenny Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jenny-lake-lupine-launch-inspiration-out-and-back-jenny-lake-lupine-meadows-boat-launch",
+          "name": "Jenny Lake Lupine Meadows boat launch",
+          "latitude": 43.751387,
+          "longitude": -110.7214,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jenny-lake-lupine-launch-inspiration-out-and-back",
+          "routeName": "Jenny Lake",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Jenny Lake Lupine Meadows boat launch",
+          "latitude": 43.751387,
+          "longitude": -110.7214,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jenny-lake-lupine-launch-inspiration-out-and-back",
+          "routeName": "Jenny Lake",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Jenny Lake Lupine Meadows boat launch",
+          "latitude": 43.751387,
+          "longitude": -110.7214,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--jenny-lake-west-shore-inspiration-point-turnaround",
+      "state": "Wyoming",
+      "name": "Jenny Lake west-shore Inspiration Point turnaround",
+      "aliases": [
+        "Jenny Lake west-shore Inspiration Point turnaround"
+      ],
+      "sourceIds": [
+        "jenny-lake-lupine-launch-inspiration-out-and-back-jenny-lake-west-shore-inspiration-point-turnaround"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.759,
+        "longitude": -110.748
+      },
+      "accessCoordinate": {
+        "latitude": 43.759,
+        "longitude": -110.748
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.75900,-110.74800",
+          "coordinate": {
+            "latitude": 43.759,
+            "longitude": -110.748
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "jenny-lake-lupine-launch-inspiration-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jenny-lake-lupine-launch-inspiration-out-and-back",
+          "routeName": "Jenny Lake",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "jenny-lake-lupine-launch-inspiration-out-and-back-jenny-lake-west-shore-inspiration-point-turnaround",
+          "name": "Jenny Lake west-shore Inspiration Point turnaround",
+          "latitude": 43.759,
+          "longitude": -110.748,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--leigh-lake-portage",
+      "state": "Wyoming",
+      "name": "Leigh Lake portage",
+      "aliases": [
+        "Leigh Lake portage"
+      ],
+      "sourceIds": [
+        "string-leigh-lakes-portage-loop-leigh-lake-portage"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.8067,
+        "longitude": -110.7371
+      },
+      "accessCoordinate": {
+        "latitude": 43.8067,
+        "longitude": -110.7371
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.80670,-110.73710",
+          "coordinate": {
+            "latitude": 43.8067,
+            "longitude": -110.7371
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "string-leigh-lakes-portage-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "string-leigh-lakes-portage-loop",
+          "routeName": "String and Leigh Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "string-leigh-lakes-portage-loop-leigh-lake-portage",
+          "name": "Leigh Lake portage",
+          "latitude": 43.8067,
+          "longitude": -110.7371,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--lewis-lake-campground-boat-ramp",
+      "state": "Wyoming",
+      "name": "Lewis Lake Campground boat ramp",
+      "aliases": [
+        "Lewis Lake Campground boat ramp"
+      ],
+      "sourceIds": [
+        "lewis-lake-shoshone-channel-wilderness-paddle-lewis-lake-campground-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.282048,
+        "longitude": -110.627732
+      },
+      "accessCoordinate": {
+        "latitude": 44.282048,
+        "longitude": -110.627732
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.28205,-110.62773",
+          "coordinate": {
+            "latitude": 44.282048,
+            "longitude": -110.627732
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lewis-lake-shoshone-channel-wilderness-paddle"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "routeName": "Lewis River Channel",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "lewis-lake-shoshone-channel-wilderness-paddle-lewis-lake-campground-boat-ramp",
+          "name": "Lewis Lake Campground boat ramp",
+          "latitude": 44.282048,
+          "longitude": -110.627732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "routeName": "Lewis River Channel",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Lewis Lake Campground boat ramp",
+          "latitude": 44.282048,
+          "longitude": -110.627732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--lewis-river-channel-northern-shallow-section",
+      "state": "Wyoming",
+      "name": "Lewis River Channel northern shallow section",
+      "aliases": [
+        "Lewis River Channel northern shallow section"
+      ],
+      "sourceIds": [
+        "lewis-lake-shoshone-channel-wilderness-paddle-lewis-river-channel-northern-shallow-section"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.324,
+        "longitude": -110.64
+      },
+      "accessCoordinate": {
+        "latitude": 44.324,
+        "longitude": -110.64
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.32400,-110.64000",
+          "coordinate": {
+            "latitude": 44.324,
+            "longitude": -110.64
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "lewis-lake-shoshone-channel-wilderness-paddle"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "routeName": "Lewis River Channel",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "lewis-lake-shoshone-channel-wilderness-paddle-lewis-river-channel-northern-shallow-section",
+          "name": "Lewis River Channel northern shallow section",
+          "latitude": 44.324,
+          "longitude": -110.64,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--lizard-creek-campground-boat-staging",
+      "state": "Wyoming",
+      "name": "Lizard Creek Campground boat staging",
+      "aliases": [
+        "Lizard Creek Campground boat staging"
+      ],
+      "sourceIds": [
+        "snake-river-flagg-ranch-lizard-creek-lizard-creek-campground-boat-staging"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.002845,
+        "longitude": -110.68818
+      },
+      "accessCoordinate": {
+        "latitude": 44.002845,
+        "longitude": -110.68818
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.00285,-110.68818",
+          "coordinate": {
+            "latitude": 44.002845,
+            "longitude": -110.68818
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-flagg-ranch-lizard-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-flagg-ranch-lizard-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-flagg-ranch-lizard-creek-lizard-creek-campground-boat-staging",
+          "name": "Lizard Creek Campground boat staging",
+          "latitude": 44.002845,
+          "longitude": -110.68818,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-flagg-ranch-lizard-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lizard Creek Campground boat staging",
+          "latitude": 44.002845,
+          "longitude": -110.68818,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--lower-green-river-lake-shoreline-turnaround",
+      "state": "Wyoming",
+      "name": "Lower Green River Lake shoreline turnaround",
+      "aliases": [
+        "Lower Green River Lake shoreline turnaround"
+      ],
+      "sourceIds": [
+        "green-river-lakes-lower-lake-out-and-back-lower-green-river-lake-shoreline-turnaround"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.361,
+        "longitude": -109.836
+      },
+      "accessCoordinate": {
+        "latitude": 43.361,
+        "longitude": -109.836
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.36100,-109.83600",
+          "coordinate": {
+            "latitude": 43.361,
+            "longitude": -109.836
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "green-river-lakes-lower-lake-out-and-back"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-lakes-lower-lake-out-and-back",
+          "routeName": "Green River Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-lakes-lower-lake-out-and-back-lower-green-river-lake-shoreline-turnaround",
+          "name": "Lower Green River Lake shoreline turnaround",
+          "latitude": 43.361,
+          "longitude": -109.836,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--lusby-public-access-area",
+      "state": "Wyoming",
+      "name": "Lusby Public Access Area",
+      "aliases": [
+        "Lusby Public Access Area"
+      ],
+      "sourceIds": [
+        "north-platte-gray-reef-lusby-lusby-public-access-area"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.598552238,
+        "longitude": -106.614216517
+      },
+      "accessCoordinate": {
+        "latitude": 42.598552238,
+        "longitude": -106.614216517
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.59855,-106.61422",
+          "coordinate": {
+            "latitude": 42.598552238,
+            "longitude": -106.614216517
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-platte-gray-reef-lusby"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "north-platte-gray-reef-lusby-lusby-public-access-area",
+          "name": "Lusby Public Access Area",
+          "latitude": 42.598552238,
+          "longitude": -106.614216517,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lusby Public Access Area",
+          "latitude": 42.598552238,
+          "longitude": -106.614216517,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--moose-landing",
+      "state": "Wyoming",
+      "name": "Moose Landing",
+      "aliases": [
+        "Moose Landing"
+      ],
+      "sourceIds": [
+        "snake-river-deadmans-bar-moose-moose-landing",
+        "snake-river-moose-wilson-moose-landing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.6558955,
+        "longitude": -110.7141656
+      },
+      "accessCoordinate": {
+        "latitude": 43.6558955,
+        "longitude": -110.7141656
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "43.65590,-110.71417",
+          "coordinate": {
+            "latitude": 43.6558955,
+            "longitude": -110.7141656
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "snake-river-deadmans-bar-moose",
+            "snake-river-moose-wilson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-deadmans-bar-moose-moose-landing",
+          "name": "Moose Landing",
+          "latitude": 43.6558955,
+          "longitude": -110.7141656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Moose Landing",
+          "latitude": 43.6558955,
+          "longitude": -110.7141656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-moose-wilson",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-moose-wilson-moose-landing",
+          "name": "Moose Landing",
+          "latitude": 43.6558955,
+          "longitude": -110.7141656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-moose-wilson",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Moose Landing",
+          "latitude": 43.6558955,
+          "longitude": -110.7141656,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--muddy-bay-shoreline-turnaround",
+      "state": "Wyoming",
+      "name": "Muddy Bay shoreline turnaround",
+      "aliases": [
+        "Muddy Bay shoreline turnaround"
+      ],
+      "sourceIds": [
+        "glendo-reservoir-sandy-beach-loop-muddy-bay-shoreline-turnaround"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.527,
+        "longitude": -104.998
+      },
+      "accessCoordinate": {
+        "latitude": 42.527,
+        "longitude": -104.998
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.52700,-104.99800",
+          "coordinate": {
+            "latitude": 42.527,
+            "longitude": -104.998
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "glendo-reservoir-sandy-beach-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "routeName": "Glendo Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "glendo-reservoir-sandy-beach-loop-muddy-bay-shoreline-turnaround",
+          "name": "Muddy Bay shoreline turnaround",
+          "latitude": 42.527,
+          "longitude": -104.998,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--pacific-creek-landing",
+      "state": "Wyoming",
+      "name": "Pacific Creek Landing",
+      "aliases": [
+        "Pacific Creek Landing"
+      ],
+      "sourceIds": [
+        "snake-river-jackson-lake-dam-pacific-creek-pacific-creek-landing",
+        "snake-river-pacific-creek-deadmans-bar-pacific-creek-landing"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.8457419,
+        "longitude": -110.5178476
+      },
+      "accessCoordinate": {
+        "latitude": 43.8457419,
+        "longitude": -110.5178476
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "43.84574,-110.51785",
+          "coordinate": {
+            "latitude": 43.8457419,
+            "longitude": -110.5178476
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "snake-river-jackson-lake-dam-pacific-creek",
+            "snake-river-pacific-creek-deadmans-bar"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-jackson-lake-dam-pacific-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-jackson-lake-dam-pacific-creek-pacific-creek-landing",
+          "name": "Pacific Creek Landing",
+          "latitude": 43.8457419,
+          "longitude": -110.5178476,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-jackson-lake-dam-pacific-creek",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Pacific Creek Landing",
+          "latitude": 43.8457419,
+          "longitude": -110.5178476,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-pacific-creek-deadmans-bar-pacific-creek-landing",
+          "name": "Pacific Creek Landing",
+          "latitude": 43.8457419,
+          "longitude": -110.5178476,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Pacific Creek Landing",
+          "latitude": 43.8457419,
+          "longitude": -110.5178476,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--robertson-road-public-access-area",
+      "state": "Wyoming",
+      "name": "Robertson Road Public Access Area",
+      "aliases": [
+        "Robertson Road Public Access Area"
+      ],
+      "sourceIds": [
+        "north-platte-bessemer-robertson-robertson-road-public-access-area"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.81163303,
+        "longitude": -106.415909297
+      },
+      "accessCoordinate": {
+        "latitude": 42.81163303,
+        "longitude": -106.415909297
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.81163,-106.41591",
+          "coordinate": {
+            "latitude": 42.81163303,
+            "longitude": -106.415909297
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "north-platte-bessemer-robertson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-bessemer-robertson",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "north-platte-bessemer-robertson-robertson-road-public-access-area",
+          "name": "Robertson Road Public Access Area",
+          "latitude": 42.81163303,
+          "longitude": -106.415909297,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "north-platte-bessemer-robertson",
+          "routeName": "North Platte River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Robertson Road Public Access Area",
+          "latitude": 42.81163303,
+          "longitude": -106.415909297,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--sandy-beach-boat-ramp-glendo-state-park",
+      "state": "Wyoming",
+      "name": "Sandy Beach boat ramp / Glendo State Park",
+      "aliases": [
+        "Sandy Beach boat ramp / Glendo State Park"
+      ],
+      "sourceIds": [
+        "glendo-reservoir-sandy-beach-loop-sandy-beach-boat-ramp-glendo-state-park"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 42.50262,
+        "longitude": -105.02732
+      },
+      "accessCoordinate": {
+        "latitude": 42.50262,
+        "longitude": -105.02732
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "42.50262,-105.02732",
+          "coordinate": {
+            "latitude": 42.50262,
+            "longitude": -105.02732
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "glendo-reservoir-sandy-beach-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "routeName": "Glendo Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "glendo-reservoir-sandy-beach-loop-sandy-beach-boat-ramp-glendo-state-park",
+          "name": "Sandy Beach boat ramp / Glendo State Park",
+          "latitude": 42.50262,
+          "longitude": -105.02732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "routeName": "Glendo Reservoir",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "glendo-reservoir-sandy-beach-loop-sandy-beach-boat-ramp-glendo-state-park",
+          "name": "Sandy Beach boat ramp / Glendo State Park",
+          "latitude": 42.50262,
+          "longitude": -105.02732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "routeName": "Glendo Reservoir",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Sandy Beach boat ramp / Glendo State Park",
+          "latitude": 42.50262,
+          "longitude": -105.02732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "routeName": "Glendo Reservoir",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Sandy Beach boat ramp / Glendo State Park",
+          "latitude": 42.50262,
+          "longitude": -105.02732,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--sheep-gulch-boat-ramp",
+      "state": "Wyoming",
+      "name": "Sheep Gulch Boat Ramp",
+      "aliases": [
+        "Sheep Gulch Boat Ramp"
+      ],
+      "sourceIds": [
+        "snake-river-west-table-sheep-gulch-sheep-gulch-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.1815896,
+        "longitude": -110.9602081
+      },
+      "accessCoordinate": {
+        "latitude": 43.1815896,
+        "longitude": -110.9602081
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.18159,-110.96021",
+          "coordinate": {
+            "latitude": 43.1815896,
+            "longitude": -110.9602081
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-west-table-sheep-gulch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-west-table-sheep-gulch",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-west-table-sheep-gulch-sheep-gulch-boat-ramp",
+          "name": "Sheep Gulch Boat Ramp",
+          "latitude": 43.1815896,
+          "longitude": -110.9602081,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-west-table-sheep-gulch",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Sheep Gulch Boat Ramp",
+          "latitude": 43.1815896,
+          "longitude": -110.9602081,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--shoshone-lake-channel-outlet-backcountry-boundary",
+      "state": "Wyoming",
+      "name": "Shoshone Lake channel outlet / backcountry boundary",
+      "aliases": [
+        "Shoshone Lake channel outlet / backcountry boundary"
+      ],
+      "sourceIds": [
+        "lewis-lake-shoshone-channel-wilderness-paddle-shoshone-lake-channel-outlet-backcountry-boundary"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.3553,
+        "longitude": -110.6643
+      },
+      "accessCoordinate": {
+        "latitude": 44.3553,
+        "longitude": -110.6643
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.35530,-110.66430",
+          "coordinate": {
+            "latitude": 44.3553,
+            "longitude": -110.6643
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lewis-lake-shoshone-channel-wilderness-paddle"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "routeName": "Lewis River Channel",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "lewis-lake-shoshone-channel-wilderness-paddle-shoshone-lake-channel-outlet-backcountry-boundary",
+          "name": "Shoshone Lake channel outlet / backcountry boundary",
+          "latitude": 44.3553,
+          "longitude": -110.6643,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "routeName": "Lewis River Channel",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Shoshone Lake channel outlet / backcountry boundary",
+          "latitude": 44.3553,
+          "longitude": -110.6643,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--six-mile-hill-access",
+      "state": "Wyoming",
+      "name": "Six Mile Hill access",
+      "aliases": [
+        "Six Mile Hill access"
+      ],
+      "sourceIds": [
+        "green-river-highway-28-six-mile-six-mile-hill-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.79909,
+        "longitude": -109.79222
+      },
+      "accessCoordinate": {
+        "latitude": 41.79909,
+        "longitude": -109.79222
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "41.79909,-109.79222",
+          "coordinate": {
+            "latitude": 41.79909,
+            "longitude": -109.79222
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "green-river-highway-28-six-mile"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-highway-28-six-mile",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-highway-28-six-mile-six-mile-hill-access",
+          "name": "Six Mile Hill access",
+          "latitude": 41.79909,
+          "longitude": -109.79222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-highway-28-six-mile",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Six Mile Hill access",
+          "latitude": 41.79909,
+          "longitude": -109.79222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--skelton-public-access-area",
+      "state": "Wyoming",
+      "name": "Skelton Public Access Area",
+      "aliases": [
+        "Skelton Public Access Area"
+      ],
+      "sourceIds": [
+        "bighorn-river-hot-springs-skelton-skelton-public-access-area"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.749997299,
+        "longitude": -108.15716654
+      },
+      "accessCoordinate": {
+        "latitude": 43.749997299,
+        "longitude": -108.15716654
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.75000,-108.15717",
+          "coordinate": {
+            "latitude": 43.749997299,
+            "longitude": -108.15716654
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "bighorn-river-hot-springs-skelton"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "bighorn-river-hot-springs-skelton",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "bighorn-river-hot-springs-skelton-skelton-public-access-area",
+          "name": "Skelton Public Access Area",
+          "latitude": 43.749997299,
+          "longitude": -108.15716654,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "bighorn-river-hot-springs-skelton",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Skelton Public Access Area",
+          "latitude": 43.749997299,
+          "longitude": -108.15716654,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--slate-creek-campground-boat-staging",
+      "state": "Wyoming",
+      "name": "Slate Creek Campground boat staging",
+      "aliases": [
+        "Slate Creek Campground boat staging"
+      ],
+      "sourceIds": [
+        "green-river-slate-creek-dodge-bottom-slate-creek-campground-boat-staging",
+        "green-river-tailrace-slate-creek-slate-creek-campground-boat-staging"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.98174,
+        "longitude": -110.04459
+      },
+      "accessCoordinate": {
+        "latitude": 41.98174,
+        "longitude": -110.04459
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.98174,-110.04459",
+          "coordinate": {
+            "latitude": 41.98174,
+            "longitude": -110.04459
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "green-river-slate-creek-dodge-bottom",
+            "green-river-tailrace-slate-creek"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-slate-creek-dodge-bottom",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-slate-creek-dodge-bottom-slate-creek-campground-boat-staging",
+          "name": "Slate Creek Campground boat staging",
+          "latitude": 41.98174,
+          "longitude": -110.04459,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-slate-creek-dodge-bottom",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Slate Creek Campground boat staging",
+          "latitude": 41.98174,
+          "longitude": -110.04459,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-tailrace-slate-creek",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-tailrace-slate-creek-slate-creek-campground-boat-staging",
+          "name": "Slate Creek Campground boat staging",
+          "latitude": 41.98174,
+          "longitude": -110.04459,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-tailrace-slate-creek",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Slate Creek Campground boat staging",
+          "latitude": 41.98174,
+          "longitude": -110.04459,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--string-lake-canoe-launch",
+      "state": "Wyoming",
+      "name": "String Lake canoe launch",
+      "aliases": [
+        "String Lake canoe launch"
+      ],
+      "sourceIds": [
+        "string-leigh-lakes-portage-loop-string-lake-canoe-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.784981,
+        "longitude": -110.726148
+      },
+      "accessCoordinate": {
+        "latitude": 43.784981,
+        "longitude": -110.726148
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.78498,-110.72615",
+          "coordinate": {
+            "latitude": 43.784981,
+            "longitude": -110.726148
+          },
+          "occurrenceCount": 4,
+          "routeCount": 1,
+          "routes": [
+            "string-leigh-lakes-portage-loop"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "string-leigh-lakes-portage-loop",
+          "routeName": "String and Leigh Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "string-leigh-lakes-portage-loop-string-lake-canoe-launch",
+          "name": "String Lake canoe launch",
+          "latitude": 43.784981,
+          "longitude": -110.726148,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "string-leigh-lakes-portage-loop",
+          "routeName": "String and Leigh Lakes",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "string-leigh-lakes-portage-loop-string-lake-canoe-launch",
+          "name": "String Lake canoe launch",
+          "latitude": 43.784981,
+          "longitude": -110.726148,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "string-leigh-lakes-portage-loop",
+          "routeName": "String and Leigh Lakes",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "String Lake canoe launch",
+          "latitude": 43.784981,
+          "longitude": -110.726148,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "string-leigh-lakes-portage-loop",
+          "routeName": "String and Leigh Lakes",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "String Lake canoe launch",
+          "latitude": 43.784981,
+          "longitude": -110.726148,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--wedding-of-the-waters-boat-ramp",
+      "state": "Wyoming",
+      "name": "Wedding of the Waters boat ramp",
+      "aliases": [
+        "Wedding of the Waters boat ramp"
+      ],
+      "sourceIds": [
+        "bighorn-river-wedding-hot-springs-wedding-of-the-waters-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.588695695,
+        "longitude": -108.214408555
+      },
+      "accessCoordinate": {
+        "latitude": 43.588695695,
+        "longitude": -108.214408555
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.58870,-108.21441",
+          "coordinate": {
+            "latitude": 43.588695695,
+            "longitude": -108.214408555
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "bighorn-river-wedding-hot-springs"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "bighorn-river-wedding-hot-springs",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "bighorn-river-wedding-hot-springs-wedding-of-the-waters-boat-ramp",
+          "name": "Wedding of the Waters boat ramp",
+          "latitude": 43.588695695,
+          "longitude": -108.214408555,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "bighorn-river-wedding-hot-springs",
+          "routeName": "Bighorn River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Wedding of the Waters boat ramp",
+          "latitude": 43.588695695,
+          "longitude": -108.214408555,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--west-table-boat-ramp",
+      "state": "Wyoming",
+      "name": "West Table Boat Ramp",
+      "aliases": [
+        "West Table Boat Ramp"
+      ],
+      "sourceIds": [
+        "snake-river-west-table-sheep-gulch-west-table-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.206593,
+        "longitude": -110.819923
+      },
+      "accessCoordinate": {
+        "latitude": 43.206593,
+        "longitude": -110.819923
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.20659,-110.81992",
+          "coordinate": {
+            "latitude": 43.206593,
+            "longitude": -110.819923
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-west-table-sheep-gulch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-west-table-sheep-gulch",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-west-table-sheep-gulch-west-table-boat-ramp",
+          "name": "West Table Boat Ramp",
+          "latitude": 43.206593,
+          "longitude": -110.819923,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-west-table-sheep-gulch",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "West Table Boat Ramp",
+          "latitude": 43.206593,
+          "longitude": -110.819923,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--wilson-boat-ramp",
+      "state": "Wyoming",
+      "name": "Wilson Boat Ramp",
+      "aliases": [
+        "Wilson Boat Ramp"
+      ],
+      "sourceIds": [
+        "snake-river-moose-wilson-wilson-boat-ramp"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.5001678,
+        "longitude": -110.8408295
+      },
+      "accessCoordinate": {
+        "latitude": 43.5001678,
+        "longitude": -110.8408295
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.50017,-110.84083",
+          "coordinate": {
+            "latitude": 43.5001678,
+            "longitude": -110.8408295
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "snake-river-moose-wilson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-moose-wilson",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "snake-river-moose-wilson-wilson-boat-ramp",
+          "name": "Wilson Boat Ramp",
+          "latitude": 43.5001678,
+          "longitude": -110.8408295,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "snake-river-moose-wilson",
+          "routeName": "Snake River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Wilson Boat Ramp",
+          "latitude": 43.5001678,
+          "longitude": -110.8408295,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "wyoming--wyoming-highway-28-access",
+      "state": "Wyoming",
+      "name": "Wyoming Highway 28 access",
+      "aliases": [
+        "Wyoming Highway 28 access"
+      ],
+      "sourceIds": [
+        "green-river-hay-farm-highway-28-wyoming-highway-28-access",
+        "green-river-highway-28-six-mile-wyoming-highway-28-access"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 41.88171,
+        "longitude": -109.80915
+      },
+      "accessCoordinate": {
+        "latitude": 41.88171,
+        "longitude": -109.80915
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "41.88171,-109.80915",
+          "coordinate": {
+            "latitude": 41.88171,
+            "longitude": -109.80915
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "green-river-hay-farm-highway-28",
+            "green-river-highway-28-six-mile"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "green-river-hay-farm-highway-28",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-hay-farm-highway-28-wyoming-highway-28-access",
+          "name": "Wyoming Highway 28 access",
+          "latitude": 41.88171,
+          "longitude": -109.80915,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-hay-farm-highway-28",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Wyoming Highway 28 access",
+          "latitude": 41.88171,
+          "longitude": -109.80915,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-highway-28-six-mile",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "accessPoint",
+          "sourceId": "green-river-highway-28-six-mile-wyoming-highway-28-access",
+          "name": "Wyoming Highway 28 access",
+          "latitude": 41.88171,
+          "longitude": -109.80915,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "green-river-highway-28-six-mile",
+          "routeName": "Green River",
+          "state": "Wyoming",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Wyoming Highway 28 access",
+          "latitude": 41.88171,
+          "longitude": -109.80915,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

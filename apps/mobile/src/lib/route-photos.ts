@@ -537,6 +537,18 @@ const placeholderImages = [
 ];
 
 const riverGroupImages: Record<string, string> = {
+  'snake-river-wyoming': 'https://www.nps.gov/common/uploads/cropped_image/primary/67D000DD-F7BB-5870-21E7B02F45C04310.jpg?width=1600&quality=90&mode=crop',
+  'green-river-wyoming': 'https://www.fws.gov/sites/default/files/banner_images/2022-03/Green-River-sunrise-fog-seedskadee-nwr-from-Lombard-Ferry-tom-koerner-usfws.jpg',
+  'north-platte-river-wyoming': 'https://upload.wikimedia.org/wikipedia/commons/9/93/North_Platte_River_at_Glendo_Wyoming_%2852696646003%29.jpg?width=1600',
+  'bighorn-river-wyoming': 'https://upload.wikimedia.org/wikipedia/commons/d/de/Thermopolis_%28Wyoming%29_Bighorn_River_13-09-2014_14-55-13.jpg?width=1600',
+  'string-leigh-lakes-wyoming': 'https://www.nps.gov/common/uploads/cropped_image/primary/67D000DD-F7BB-5870-21E7B02F45C04310.jpg?width=1600&quality=90&mode=crop',
+  'jackson-lake-wyoming': 'https://www.nps.gov/common/uploads/cropped_image/primary/67D000DD-F7BB-5870-21E7B02F45C04310.jpg?width=1600&quality=90&mode=crop',
+  'green-river-lakes-wyoming': 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Green%20River%20Lakes.jpg?width=1600',
+  'fontenelle-reservoir-wyoming': 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/medium/public/media/images/IMG_0008.JPG?itok=rnVTHNM9',
+  'boysen-reservoir-wyoming': 'https://upload.wikimedia.org/wikipedia/commons/3/39/Boysen_Reservoir.jpg?width=1600',
+  'jenny-lake-wyoming': 'https://www.nps.gov/common/uploads/cropped_image/primary/67D000DD-F7BB-5870-21E7B02F45C04310.jpg?width=1600&quality=90&mode=crop',
+  'lewis-river-channel-wyoming': 'https://www.nps.gov/common/uploads/cropped_image/primary/67D000DD-F7BB-5870-21E7B02F45C04310.jpg?width=1600&quality=90&mode=crop',
+  'glendo-reservoir-wyoming': 'https://upload.wikimedia.org/wikipedia/commons/8/80/Glendo_State_Park_Laramie_Peak.jpg?width=1600',
   'allen-creek': '/gallery/river-groups/allen-creek/allen-creek-wetlands.webp',
   'logan-creek': '/gallery/river-groups/logan-creek/logan-creek-pender-bridge.jpg',
   'platte-river': '/gallery/river-groups/platte-river/platte-river-grand-island-cr8.jpg',
