@@ -14,6 +14,7 @@ import {
   conditionTierDisplayLabel,
   liveDataWarning,
 } from './ui-taxonomy.js';
+import { buildRoutePlannerHref } from '../lib/route-segments.ts';
 
 export function formatTravelLabel(minutes) {
   if (!Number.isFinite(minutes)) {
@@ -55,8 +56,23 @@ export function favoriteRecordForItem(item) {
     reach: river.reach,
     state: river.state,
     region: river.region,
-    url: `/rivers/${encodeURIComponent(river.slug)}/`,
+    url: buildRoutePlannerHref(river.slug, item.selectedSegment ?? null),
   };
+}
+
+export function isCurrentCallUnavailable(route) {
+  if (!route) return false;
+  const readiness = route.readiness?.status;
+  if (readiness === 'withheld') return true;
+  const liveData = route.liveData;
+  return liveData?.overall !== 'live'
+    && (
+      liveData?.gaugeState === 'stale'
+      || liveData?.weatherState === 'stale'
+      || liveData?.gauge?.state === 'stale'
+      || liveData?.weather?.state === 'stale'
+      || liveData?.overall === 'offline'
+    );
 }
 
 export function coldWeatherDrivenCall(item) {
@@ -66,10 +82,13 @@ export function coldWeatherDrivenCall(item) {
 export function recommendationVerdict(item) {
   const route = item?.cardRoute;
   if (!route) return 'Checking';
-  return callLabelForDecision(route.rating, route.readiness?.status);
+  return callLabelForDecision(route.rating, isCurrentCallUnavailable(route) ? 'withheld' : route.readiness?.status);
 }
 
 export function recommendationTier(item) {
+  if (isCurrentCallUnavailable(item?.cardRoute)) {
+    return 'Not enough data';
+  }
   return conditionTierDisplayLabel(item?.cardRoute?.rating);
 }
 

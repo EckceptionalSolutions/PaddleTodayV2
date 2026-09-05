@@ -99,6 +99,7 @@ import {
   formatBoardRefreshCopy,
   formatGeneratedFreshness,
   formatTravelLabel,
+  isCurrentCallUnavailable,
   liveReadWarning,
   metaLineText,
   parseTemperature,
@@ -1490,7 +1491,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     return;
   }
   renderFeaturedMap(item, { visible: nearbyReady, status: regionStateText(item) });
-  const ratingKey = ratingToneKey(item.cardRoute.rating);
+  const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
+  const ratingKey = callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
     featuredPanel.classList.toggle('home-featured--locked', !locationReady);
     featuredPanel.classList.remove('home-featured--empty');
@@ -1516,13 +1518,15 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       ? 'Best fit for your current setup.'
       : 'Best fit based on your location.';
   }
-  setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', conditionTierDisplayLabel(item.cardRoute.rating));
-  setText(document, 'featured-verdict', recommendationVerdict(item));
-    setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady, latestResults));
+  setText(document, 'featured-score', callUnavailable ? '--' : String(item.cardRoute.score));
+  setText(document, 'featured-rating', callUnavailable ? 'Not enough data' : conditionTierDisplayLabel(item.cardRoute.rating));
+  setText(document, 'featured-verdict', callUnavailable ? 'Call unavailable' : recommendationVerdict(item));
+  setText(document, 'featured-reason', callUnavailable
+    ? 'Live river reads are stale. Refresh the sources before relying on this route.'
+    : recommendationSummaryText(item, nearbyReady, latestResults));
     renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
-  setText(document, 'featured-confidence', confidenceLabel(item));
+  setText(document, 'featured-confidence', callUnavailable ? 'Not enough data' : confidenceLabel(item));
   setText(
     document,
     'featured-distance',

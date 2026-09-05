@@ -6,6 +6,7 @@ import {
   cardSummary,
   favoriteRecordForItem,
   friendlyCapReason,
+  isCurrentCallUnavailable,
   liveReadWarning,
   metaLineText,
   parseRawSignalLine,
@@ -137,14 +138,15 @@ export function recommendationCardViewModel(
     includeRouteType = false,
   },
 ) {
+  const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
   return {
-    ratingKey: ratingToneKey(item.cardRoute.rating),
+    ratingKey: callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating),
     slot: index === 0 ? "Today's Best" : recommendationSlotLabel(index, nearbyReady),
     kind: item.kind === 'group' ? 'River · top stretch score' : 'Route score',
     state: regionStateText(item),
     route: featuredRouteLabelForItem(item),
     summary: recommendationSummaryText(item, nearbyReady, latestResults),
-    score: String(item.cardRoute.score),
+    score: callUnavailable ? '--' : String(item.cardRoute.score),
     rating: recommendationTier(item),
     verdict: recommendationVerdict(item, index, nearbyReady),
     meta: metaLineText(item, nearbyReady, { includeRouteType }),
@@ -324,13 +326,14 @@ export function riverCardViewModel(
       metaLineText(currentItem, currentShowDistance),
   },
 ) {
+  const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
   return {
-    ratingKey: ratingToneKey(item.cardRoute.rating),
+    ratingKey: callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating),
     kind: item.kind === 'group' ? 'River · top stretch score' : 'Route score',
     state: regionStateText(item),
     route: routeLabelForItem(item),
     segment: segmentLabelForItem(item),
-    score: String(item.cardRoute.score),
+    score: callUnavailable ? '--' : String(item.cardRoute.score),
     rating: recommendationTier(item),
     verdict: recommendationVerdict(item),
     meta: metaLine(item, showDistance),

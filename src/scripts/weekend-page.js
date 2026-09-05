@@ -623,7 +623,7 @@ function watchSlotLabel(index) {
 
 function weekendDateRangeText(label) {
   if (typeof label !== 'string') {
-    return 'Dates loading';
+    return 'This weekend';
   }
 
   const trimmed = label.trim();
@@ -632,7 +632,7 @@ function weekendDateRangeText(label) {
     return match[1];
   }
 
-  return trimmed.replace(/^weekend\s*/i, '').trim() || 'Dates loading';
+  return trimmed.replace(/^weekend\s*/i, '').trim() || 'This weekend';
 }
 
 function updateFreshness({ generatedAt = lastGeneratedAt, refreshing = false, fallback = false } = {}) {

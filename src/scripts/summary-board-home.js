@@ -98,6 +98,7 @@ import {
   formatBoardRefreshCopy,
   formatGeneratedFreshness,
   formatTravelLabel,
+  isCurrentCallUnavailable,
   liveReadWarning,
   metaLineText,
   parseTemperature,
@@ -259,8 +260,8 @@ const featuredGalleryPlaceholder = document.querySelector('[data-featured-galler
 const featuredGalleryContribute = document.querySelector('[data-featured-gallery-contribute]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const exploreSection = document.querySelector('.decision-section--explore');
-const homeFreshness = document.querySelector('[data-home-freshness]');
-const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
+const homeFreshnessNodes = Array.from(document.querySelectorAll('[data-home-freshness]'));
+const homeFreshnessWraps = Array.from(document.querySelectorAll('[data-home-freshness-wrap]'));
 const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
@@ -303,7 +304,7 @@ const locationInput = document.querySelector('[data-location-input]');
 const locationClearButton = document.querySelector('[data-location-clear]');
 const locationEditTrigger = document.querySelector('[data-location-edit-trigger]');
 const locationSelected = document.querySelector('[data-location-selected]');
-const locationStatus = null;
+const locationStatus = document.querySelector('[data-location-status]');
 
 const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
@@ -556,7 +557,7 @@ const {
   updateLocationIndicator,
 } = createBoardLocationController({
   locationService: boardLocationService,
-  getDefaultStatusTarget: () => locationSelected || homeLocationSortSummary,
+  getDefaultStatusTarget: () => locationStatus || locationSelected || homeLocationSortSummary,
   getLocationState: () => userLocationState,
   indicator: locationIndicator,
   indicatorLabel: locationIndicatorLabel,
@@ -1071,26 +1072,24 @@ function matchesHomeNearbyFilters(result) {
 }
 
 function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
-  if (!(homeFreshness instanceof HTMLElement)) {
+  if (homeFreshnessNodes.length === 0) {
     return;
   }
 
-  if (homeFreshnessWrap instanceof HTMLElement) {
-    homeFreshnessWrap.hidden = false;
-  }
+  homeFreshnessWraps.forEach((wrap) => {
+    if (wrap instanceof HTMLElement) wrap.hidden = false;
+  });
 
   const base = formatGeneratedFreshness(generatedAt);
+  let message = base;
   if (refreshing && generatedAt) {
-    homeFreshness.textContent = `${base} Refreshing now...`;
-    return;
+    message = `${base} Refreshing now...`;
+  } else if (fallback && generatedAt) {
+    message = `${base} Showing latest available data.`;
   }
-
-  if (fallback && generatedAt) {
-    homeFreshness.textContent = `${base} Showing latest available data.`;
-    return;
-  }
-
-  homeFreshness.textContent = base;
+  homeFreshnessNodes.forEach((node) => {
+    if (node instanceof HTMLElement) node.textContent = message;
+  });
 }
 
 function updateSummaryScoreFilterButtons(counts = {}) {
@@ -1505,7 +1504,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredReach instanceof HTMLElement) {
       featuredReach.textContent = locationReady
-        ? `Increase drive distance above ${selectedRadiusMiles} miles to compare more routes.`
+        ? activePreferenceText
+          ? `No routes match ${activePreferenceText} within ${selectedRadiusMiles} miles.`
+          : `No routes are within ${selectedRadiusMiles} miles of your location.`
         : 'Set your location to unlock today\'s best nearby pick.';
     }
     if (featuredBridge instanceof HTMLElement) {
@@ -1520,7 +1521,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       document,
       'featured-reason',
       locationReady
-        ? 'Paddle Today currently covers Midwest routes only.'
+        ? activePreferenceText
+          ? 'Clear a preference or widen the drive radius to see more routes.'
+          : 'Try a wider drive radius to see more routes near you.'
         : 'Add a location to see drive time and nearby ranking.'
     );
     setText(document, 'featured-facts-label', locationReady ? '' : 'Route facts');
@@ -1529,7 +1532,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     setText(
       document,
       'featured-distance',
-      locationReady ? `Increase to ${nextRadiusSuggestionMiles(selectedRadiusMiles)} mi` : 'Add a location for drive time'
+      locationReady ? `Try ${nextRadiusSuggestionMiles(selectedRadiusMiles)} mi` : 'Add a location for drive time'
     );
     setText(
       document,
@@ -1589,7 +1592,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     return;
   }
   renderFeaturedMap(item, { visible: nearbyReady || featuredMapAlwaysVisible, status: regionStateText(item) });
-  const ratingKey = ratingToneKey(item.cardRoute.rating);
+  const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
+  const ratingKey = callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
     featuredPanel.classList.toggle('home-featured--locked', !locationReady && !featuredUnlockedWithoutLocation);
     featuredPanel.classList.remove('home-featured--empty');
@@ -1615,13 +1619,15 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       ? 'Best fit for your current setup.'
       : 'Best fit based on your location.';
   }
-  setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', conditionTierDisplayLabel(item.cardRoute.rating));
-  setText(document, 'featured-verdict', recommendationVerdict(item));
-  setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady, latestResults));
+  setText(document, 'featured-score', callUnavailable ? '--' : String(item.cardRoute.score));
+  setText(document, 'featured-rating', callUnavailable ? 'Not enough data' : conditionTierDisplayLabel(item.cardRoute.rating));
+  setText(document, 'featured-verdict', callUnavailable ? 'Call unavailable' : recommendationVerdict(item));
+  setText(document, 'featured-reason', callUnavailable
+    ? 'Live river reads are stale. Refresh the sources before relying on this route.'
+    : recommendationSummaryText(item, nearbyReady, latestResults));
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
-  setText(document, 'featured-confidence', confidenceLabel(item));
+  setText(document, 'featured-confidence', callUnavailable ? 'Not enough data' : confidenceLabel(item));
   const featuredSegmentLabel = segmentLabelForItem(item);
   setText(document, 'featured-segment', featuredSegmentLabel);
   setText(
@@ -1827,6 +1833,11 @@ function resetExploreFilters({ rerender = true } = {}) {
 function updateLocationStatus() {
   const locationReady = Boolean(userLocation && userLocationState === 'ready');
 
+  if (locationStatus instanceof HTMLElement && locationReady) {
+    locationStatus.hidden = true;
+    locationStatus.textContent = '';
+  }
+
   if (homeLocationSummary instanceof HTMLElement) {
     if (userLocationState === 'pending') {
       homeLocationSummary.textContent = 'Finding your location...';
@@ -1869,6 +1880,7 @@ function updateLocationStatus() {
 
   if (homeRadiusSlider instanceof HTMLInputElement) {
     homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
+    homeRadiusSlider.setAttribute('aria-valuetext', `${selectedRadiusMiles} miles`);
   }
 
   if (homeDifficultySelect instanceof HTMLSelectElement) {
@@ -2945,7 +2957,9 @@ function setupLocationControls() {
   if (homeRadiusSlider instanceof HTMLInputElement && homeRadiusSlider.dataset.radiusBound !== 'true') {
     homeRadiusSlider.dataset.radiusBound = 'true';
     homeRadiusSlider.addEventListener('input', () => {
-      setRadiusMiles(radiusMilesForIndex(homeRadiusSlider.value));
+      const radiusMiles = radiusMilesForIndex(homeRadiusSlider.value);
+      homeRadiusSlider.setAttribute('aria-valuetext', `${radiusMiles} miles`);
+      setRadiusMiles(radiusMiles);
     });
   }
 

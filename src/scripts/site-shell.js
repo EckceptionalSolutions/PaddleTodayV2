@@ -250,6 +250,18 @@ function closeSearch() {
   }
 }
 
+function searchFocusableElements() {
+  if (!(searchDialog instanceof HTMLElement)) {
+    return [];
+  }
+
+  return Array.from(
+    searchDialog.querySelectorAll(
+      'a[href], area[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter((element) => element instanceof HTMLElement && !element.hidden && element.offsetParent !== null);
+}
+
 function bindSearch() {
   for (const button of searchOpenButtons) {
     if (!(button instanceof HTMLButtonElement)) continue;
@@ -277,8 +289,30 @@ function bindSearch() {
     const target = event.target;
     const isTypingTarget = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
 
-    if (event.key === 'Escape' && searchDialog instanceof HTMLElement && !searchDialog.hidden) {
+    const searchOpen = searchDialog instanceof HTMLElement && !searchDialog.hidden;
+
+    if (event.key === 'Escape' && searchOpen) {
       closeSearch();
+      return;
+    }
+
+    if (event.key === 'Tab' && searchOpen) {
+      const focusable = searchFocusableElements();
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
       return;
     }
 

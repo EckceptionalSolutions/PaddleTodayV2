@@ -14,8 +14,14 @@ import {
   escapeHtml,
   markerClassForRating,
 } from './map-runtime.js';
+import { buildRoutePlannerHref } from '../lib/route-segments.ts';
+import { isCurrentCallUnavailable } from './board-presenters.js';
 
 export function boardMarkerClassFor(item) {
+  if (isCurrentCallUnavailable(item?.cardRoute)) {
+    return markerClassForRating(null, 'low');
+  }
+
   return markerClassForRating(item.cardRoute.rating, item.cardRoute.confidence.label);
 }
 
@@ -27,6 +33,7 @@ export function boardRouteActionModel(
   } = {},
 ) {
   const routeSlug = route?.river?.slug;
+  const selectedSegment = route === item?.cardRoute ? item?.selectedSegment : null;
   const grouped = isGroupedItem(item);
   const routeCount = Number.isFinite(item?.totalRouteCount)
     ? item.totalRouteCount
@@ -35,13 +42,15 @@ export function boardRouteActionModel(
   return {
     route: routeSlug
       ? {
-          href: `/rivers/${encodeURIComponent(routeSlug)}/`,
+          href: buildRoutePlannerHref(routeSlug, selectedSegment ?? null),
           label: routeLabel,
         }
       : null,
-    compare: grouped && item?.link
+    compare: grouped && (route?.river?.riverId || item?.link)
       ? {
-          href: item.link,
+          href: route?.river?.riverId
+            ? `/rivers/by-river/${encodeURIComponent(route.river.riverId)}/`
+            : item.link,
           label: Number.isFinite(routeCount) && routeCount > 1
             ? `Compare ${routeCount} routes`
             : 'Compare routes',
@@ -140,7 +149,7 @@ export function createBoardMapPopupRenderer({
   mapMarkerContext,
 }) {
   return function popupMarkup(item) {
-    const ratingKey = ratingToneKey(item.cardRoute.rating);
+    const ratingKey = isCurrentCallUnavailable(item?.cardRoute) ? 'pending' : ratingToneKey(item.cardRoute.rating);
     const stretchFacts = joinWithBullet([
       routeLengthLabel(item),
       routeDifficultyLabel(item),
@@ -393,7 +402,10 @@ export function createBoardMapController({
           <strong class="summary-map-result__name">${escapeHtml(item.cardRoute.river.name)}</strong>
           <span class="summary-map-result__route">${escapeHtml(routeLabelForItem(item))}</span>
           <span class="summary-map-result__meta">${escapeHtml(isGroupedItem(item)
-            ? joinWithBullet([mapMarkerContext(item), `Top stretch score ${item.cardRoute.score}`])
+            ? joinWithBullet([
+                mapMarkerContext(item),
+                isCurrentCallUnavailable(item?.cardRoute) ? '' : `Top stretch score ${item.cardRoute.score}`,
+              ])
             : joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
         </span>
       `;

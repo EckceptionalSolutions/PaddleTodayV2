@@ -6,12 +6,13 @@ import {
 import { isGroupedItem, joinWithBullet } from './board-domain.js';
 import { confidenceDisplayLabel } from './ui-taxonomy.js';
 import { mapCallLabelForRating } from './map-runtime.js';
+import { isCurrentCallUnavailable } from './board-presenters.js';
 
 export function createBoardMapModel({
   groupRouteQualifier = 'shown',
   includeSetupRepresentative = false,
 } = {}) {
-  const mapMarkerLabel = (item) => String(item.cardRoute.score);
+  const mapMarkerLabel = (item) => isCurrentCallUnavailable(item?.cardRoute) ? '--' : String(item.cardRoute.score);
   const visibleMapMarkerLabel = (item) => mapMarkerLabel(item);
 
   const routeCountLabel = (item) => `${item.totalRouteCount} routes on this river`;
@@ -38,6 +39,10 @@ export function createBoardMapModel({
       : routeLabelForItem(item);
 
   const mapMarkerContext = (item) => {
+    if (isCurrentCallUnavailable(item?.cardRoute)) {
+      return 'Live reads unavailable';
+    }
+
     if (!isGroupedItem(item)) {
       return mapCallLabelForRating(item.cardRoute.rating);
     }
@@ -49,6 +54,10 @@ export function createBoardMapModel({
   };
 
   const mapMarkerAriaLabel = (item) => {
+    if (isCurrentCallUnavailable(item?.cardRoute)) {
+      return `${item.cardRoute.river.name}: live reads unavailable. Select to view route details.`;
+    }
+
     if (!isGroupedItem(item)) {
       return `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`;
     }
