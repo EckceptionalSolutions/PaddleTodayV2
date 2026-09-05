@@ -26,6 +26,7 @@ import { wisconsinRoutes } from './routes/wisconsin';
 import { westVirginiaRoutes } from './routes/west-virginia';
 import { newJerseyRoutes } from './routes/new-jersey';
 import { delawareRoutes } from './routes/delaware';
+import { georgiaRoutes } from './routes/georgia';
 
 const stateRoutes: River[] = [
   ...arkansasRoutes,
@@ -54,9 +55,18 @@ const stateRoutes: River[] = [
   ...westVirginiaRoutes,
   ...newJerseyRoutes,
   ...delawareRoutes,
+  ...georgiaRoutes,
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
+  "chattahoochee-river-ga115-duncan-bridge",
+  "chattahoochee-river-powers-island-paces-mill",
+  "chattahoochee-river-columbus-whitewater-park",
+  "broad-river-us281-us172",
+  "etowah-river-highway136-kelly-bridge",
+  "toccoa-river-deep-hole-sandy-bottoms",
+  "flint-river-sprewell-bluff-po-biddy",
+  ...georgiaRoutes.filter((route) => (route.id.startsWith('chattahoochee-river-') || route.id.startsWith('ocmulgee-river-')) && !['chattahoochee-river-ga115-duncan-bridge', 'chattahoochee-river-powers-island-paces-mill', 'chattahoochee-river-columbus-whitewater-park'].includes(route.id)).map((route) => route.id),
   "arkansas-river-parkdale-royal-gorge",
   "arkansas-river-browns-canyon-fishermans-stone",
   "arkansas-river-stone-bridge-salida",

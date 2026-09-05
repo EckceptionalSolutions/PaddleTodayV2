@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "state": "Georgia",
+  "status": "expanded_scored_batch",
+  "strategy": "Start with direct-USGS reaches whose public endpoint pair and route-specific numeric guidance are independently documented; add planning-only routes only after a separate access and threshold review.",
+  "baseline": {
+    "existingGeorgiaRoutes": 0,
+    "addedRoutes": 86,
+    "scoredRoutes": 86,
+    "planningRoutes": 0
+  },
+  "coverage": {
+    "basins": [
+      "Chattahoochee",
+      "Ocmulgee",
+      "Broad",
+      "Etowah",
+      "Toccoa",
+      "Flint"
+    ],
+    "regions": [
+      "Atlanta metro",
+      "Columbus",
+      "northeast Georgia",
+      "north Georgia Blue Ridge",
+      "middle Georgia"
+    ],
+    "tripTypes": [
+      "managed-access Chattahoochee connectors",
+      "upper whitewater",
+      "urban blueway",
+      "whitewater park",
+      "shoal run",
+      "forested canoe trail",
+      "full-day natural river"
+    ],
+    "routeIds": [
+      "chattahoochee-river-ga115-duncan-bridge",
+      "chattahoochee-river-powers-island-paces-mill",
+      "chattahoochee-river-columbus-whitewater-park",
+      "broad-river-us281-us172",
+      "etowah-river-highway136-kelly-bridge",
+      "toccoa-river-deep-hole-sandy-bottoms",
+      "flint-river-sprewell-bluff-po-biddy",
+      "chattahoochee-river-chattahoochee-pointe-mcginnis-ferry",
+      "chattahoochee-river-chattahoochee-pointe-abbotts-bridge",
+      "chattahoochee-river-chattahoochee-pointe-medlock-bridge",
+      "chattahoochee-river-chattahoochee-pointe-jones-bridge",
+      "chattahoochee-river-mcginnis-ferry-abbotts-bridge",
+      "chattahoochee-river-abbotts-bridge-medlock-bridge",
+      "chattahoochee-river-abbotts-bridge-jones-bridge",
+      "chattahoochee-river-jones-bridge-chattahoochee-river-park",
+      "chattahoochee-river-medlock-bridge-garrard-landing",
+      "chattahoochee-river-jones-bridge-garrard-landing",
+      "chattahoochee-river-garrard-landing-island-ford",
+      "chattahoochee-river-garrard-landing-don-white",
+      "chattahoochee-river-island-ford-don-white",
+      "chattahoochee-river-island-ford-azalea-park",
+      "chattahoochee-river-island-ford-overlook-park",
+      "chattahoochee-river-don-white-overlook-park",
+      "chattahoochee-river-azalea-park-overlook-park",
+      "chattahoochee-river-morgan-falls-park-johnson-ferry",
+      "chattahoochee-river-morgan-falls-park-powers-island",
+      "chattahoochee-river-morgan-falls-park-paces-mill",
+      "chattahoochee-river-morgan-falls-park-whitewater-creek",
+      "chattahoochee-river-powers-island-whitewater-creek",
+      "chattahoochee-river-whitewater-creek-paces-mill",
+      "chattahoochee-river-johnson-ferry-paces-mill",
+      "chattahoochee-river-overlook-park-johnson-ferry",
+      "chattahoochee-river-johnson-ferry-powers-island",
+      "chattahoochee-river-overlook-park-powers-island",
+      "chattahoochee-river-overlook-park-paces-mill",
+      "chattahoochee-river-lower-pool-abbotts-bridge",
+      "chattahoochee-river-bowmans-island-mcginnis-ferry",
+      "chattahoochee-river-bowmans-island-medlock-bridge",
+      "chattahoochee-river-bowmans-island-jones-bridge",
+      "chattahoochee-river-bowmans-island-island-ford",
+      "chattahoochee-river-mcginnis-ferry-medlock-bridge",
+      "chattahoochee-river-mcginnis-ferry-jones-bridge",
+      "chattahoochee-river-mcginnis-ferry-island-ford",
+      "chattahoochee-river-mcginnis-ferry-johnson-ferry-south",
+      "chattahoochee-river-medlock-bridge-jones-bridge",
+      "chattahoochee-river-medlock-bridge-island-ford",
+      "chattahoochee-river-medlock-bridge-johnson-ferry-south",
+      "chattahoochee-river-medlock-bridge-powers-island",
+      "chattahoochee-river-jones-bridge-island-ford",
+      "chattahoochee-river-jones-bridge-johnson-ferry-south",
+      "chattahoochee-river-jones-bridge-powers-island",
+      "chattahoochee-river-jones-bridge-paces-mill",
+      "chattahoochee-river-island-ford-johnson-ferry-south",
+      "chattahoochee-river-island-ford-powers-island",
+      "chattahoochee-river-island-ford-paces-mill",
+      "chattahoochee-river-johnson-ferry-south-powers-island",
+      "chattahoochee-river-johnson-ferry-south-paces-mill",
+      "chattahoochee-river-chattahoochee-pointe-garrard-landing",
+      "chattahoochee-river-chattahoochee-pointe-island-ford",
+      "chattahoochee-river-chattahoochee-pointe-don-white",
+      "chattahoochee-river-chattahoochee-pointe-azalea-park",
+      "chattahoochee-river-mcginnis-ferry-garrard-landing",
+      "chattahoochee-river-mcginnis-ferry-don-white",
+      "chattahoochee-river-mcginnis-ferry-azalea-park",
+      "chattahoochee-river-abbotts-bridge-garrard-landing",
+      "chattahoochee-river-abbotts-bridge-island-ford",
+      "chattahoochee-river-abbotts-bridge-don-white",
+      "chattahoochee-river-abbotts-bridge-azalea-park",
+      "chattahoochee-river-medlock-bridge-don-white",
+      "chattahoochee-river-medlock-bridge-azalea-park",
+      "chattahoochee-river-jones-bridge-don-white",
+      "chattahoochee-river-jones-bridge-azalea-park",
+      "chattahoochee-river-garrard-landing-azalea-park",
+      "chattahoochee-river-don-white-azalea-park",
+      "chattahoochee-river-chattahoochee-pointe-rogers-bridge",
+      "chattahoochee-river-mcginnis-ferry-rogers-bridge",
+      "chattahoochee-river-rogers-bridge-abbotts-bridge",
+      "chattahoochee-river-rogers-bridge-medlock-bridge",
+      "chattahoochee-river-rogers-bridge-jones-bridge",
+      "chattahoochee-river-rogers-bridge-garrard-landing",
+      "chattahoochee-river-rogers-bridge-island-ford",
+      "chattahoochee-river-rogers-bridge-don-white",
+      "chattahoochee-river-rogers-bridge-azalea-park",
+      "ocmulgee-river-lloyd-shoals-wise-creek",
+      "ocmulgee-river-popes-ferry-amerson",
+      "ocmulgee-river-amerson-spring-street"
+    ]
+  },
+  "evidencePosture": {
+    "gauges": "All 86 use direct USGS telemetry; 84 are discharge-based and 2 use gage-height series.",
+    "thresholds": "NPS publishes the corridor flow ceiling for 76 managed Chattahoochee connector routes; American Whitewater supplies route-specific guidance for the other ten.",
+    "access": "NPS identifies each connector endpoint as a public launch unit; the original seven use NPS, Georgia State Park, Forest Service, Georgia Rivers, or American Whitewater endpoint material.",
+    "images": "Each route has an approved same-river Wikimedia Commons image with credit and license labeling.",
+    "geometry": "Route-scoped geometry is generated for the Georgia set; state and root manifests are regenerated after each expansion batch."
+  },
+  "withheldCandidates": [
+    {
+      "candidate": "Chattooga headwaters / Section III",
+      "reason": "High-consequence whitewater and Forest Service regulation require a separate expert-only safety and access package; do not mix into the initial recreational batch."
+    },
+    {
+      "candidate": "Etowah Hightower Road to Highway 9",
+      "reason": "American Whitewater flags stale information, strainers, and access uncertainty; hold until current public endpoint and wood conditions are independently verified."
+    },
+    {
+      "candidate": "Ocmulgee / Altamaha long water-trail segments",
+      "reason": "Strong route inventory exists, but station-tied numeric thresholds and exact public endpoint pairs still need corridor-specific verification before scored publication."
+    },
+    {
+      "candidate": "coastal Satilla, Okefenokee, and tidal trails",
+      "reason": "Tide, wind, water-quality, and non-USGS or lake-gauge semantics require a separate coastal scoring model; retain as future planning research."
+    },
+    {
+      "candidate": "Savannah Rapids Park to North Augusta Boat Ramp",
+      "reason": "American Whitewater documents a strong Augusta gauge and public endpoints, but the route finishes in South Carolina and includes dam/release and cross-border access controls; hold for a dedicated border-state route review."
+    },
+    {
+      "candidate": "Chestatee Copper Mine to Lumpkin County Park",
+      "reason": "The direct Dahlonega gauge and route guidance are useful, but the published put-in has multiple variants, steep or roadside access, private frontage, and a 28.9-mile commitment; no single lawful endpoint pair is yet strong enough for scored publication."
+    },
+    {
+      "candidate": "Coosawattee GA Route 5 to Carter's Lake",
+      "reason": "The only detailed route material is old, the reach transitions into lake paddling, and current public access plus lake-level controls are not documented well enough for a scored fall route."
+    },
+    {
+      "candidate": "Dog River GA Route 5 to Dog River Reservoir",
+      "reason": "Trip reports provide useful flow observations, but the route lacks a current authoritative endpoint/access package and finishes with a reservoir segment whose planning semantics are not established."
+    },
+    {
+      "candidate": "Tallulah Mathis bypass",
+      "reason": "The reach is normally dewatered and only becomes runnable during unusual rain or release conditions; it is not a stable seasonal scored recommendation."
+    }
+  ],
+  "overlapDecision": "The 86 routes are retained as distinct scored itineraries because they use different endpoint pairs, trip lengths, difficulty bands, or operational boundaries; the expanded Chattahoochee public-launch matrix and three Ocmulgee reaches add distinct public endpoint pairs without inventing private or closed access.",
+  "consolidation": {
+    "status": "family_model_added",
+    "corridors": [
+      {
+        "corridorId": "ga-chattahoochee-public-launch-chain",
+        "routeSelector": "chattahoochee-river-*",
+        "decision": "Keep selectable endpoint-pair cards; consolidate only at the corridor-family layer because route-specific distance, gauge context, access hours, hazards, and shuttle commitments differ."
+      },
+      {
+        "corridorId": "ga-ocmulgee-public-access-chain",
+        "routeSelector": "ocmulgee-river-*",
+        "decision": "Keep all three reaches; they are adjacent but use different gauges, endpoint pairs, flow guidance, and operating contexts."
+      }
+    ],
+    "duplicateEndpointGroups": 0,
+    "missingSafetyCampingOrGallery": 0
+  }
+}

@@ -1080,6 +1080,27 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
   { corridorId: 'de-murderkill-bowers-beach-loop', label: 'Murderkill River Bowers Beach same-launch tidal exploration', continuityStatus: 'partial', canonicalSlug: 'murderkill-river-bowers-beach-loop', slugs: ['murderkill-river-bowers-beach-loop'], segmentEdges: [{ fromId: 'murderkill-river-bowers-beach-put-in', toId: 'murderkill-river-bowers-beach-return', status: 'verified' }] },
   { corridorId: 'de-miller-creek-strawberry-sassafras', label: 'Miller Creek Strawberry Landing to Sassafras Landing', continuityStatus: 'partial', canonicalSlug: 'miller-creek-strawberry-sassafras', slugs: ['miller-creek-strawberry-sassafras'], segmentEdges: [{ fromId: 'miller-creek-strawberry-put-in', toId: 'miller-creek-sassafras-take-out', status: 'verified' }] },
   { corridorId: 'de-duck-creek-woodland-beach', label: 'Duck Creek Woodland Beach same-launch tidal exploration', continuityStatus: 'partial', canonicalSlug: 'duck-creek-woodland-beach-loop', slugs: ['duck-creek-woodland-beach-loop'], segmentEdges: [{ fromId: 'duck-creek-woodland-beach-put-in', toId: 'duck-creek-woodland-beach-return', status: 'verified' }] },
+  {
+    corridorId: 'ga-chattahoochee-public-launch-chain',
+    label: 'Chattahoochee River managed public-launch access family',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'chattahoochee-river-',
+    segmentEdges: [],
+  },
+  {
+    corridorId: 'ga-ocmulgee-public-access-chain',
+    label: 'Ocmulgee River documented public-access reach family',
+    continuityStatus: 'condition-family',
+    slugPrefix: 'ocmulgee-river-',
+    segmentEdges: [],
+  },
+  {
+    corridorId: 'ny-susquehanna-otego-bainbridge',
+    label: 'Upper Susquehanna Otego-to-Bainbridge access corridor',
+    continuityStatus: 'verified',
+    canonicalSlug: 'susquehanna-river-sidney-bainbridge',
+    slugs: ['susquehanna-river-otego-unadilla', 'susquehanna-river-unadilla-sidney', 'susquehanna-river-sidney-bainbridge'],
+  },
 ];
 
 export function corridorForSlug(slug: string) {
