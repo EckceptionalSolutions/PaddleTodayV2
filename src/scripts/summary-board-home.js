@@ -370,6 +370,7 @@ let lastSummaryMapItems = [];
 let pendingSummaryMapItems = [];
 let pendingSummaryMapPreserveViewport = false;
 let summaryMapRequested = false;
+let summaryMapHasFittedResults = false;
 let lastFeaturedHeroKey;
 let featuredHeroAnimationTimeout = 0;
 let userLocation = null;
@@ -2420,6 +2421,9 @@ function scrollToHomeTarget(targetId) {
 }
 
 function renderSummaryMap(items, { preserveViewport = false } = {}) {
+  if (!preserveViewport) {
+    summaryMapHasFittedResults = false;
+  }
   pendingSummaryMapItems = Array.isArray(items) ? items : [];
   pendingSummaryMapPreserveViewport = preserveViewport;
   summaryMapController.renderResults(pendingSummaryMapItems);
@@ -2431,7 +2435,11 @@ function renderSummaryMap(items, { preserveViewport = false } = {}) {
   }
 }
 
-function requestSummaryMapRender() {
+function requestSummaryMapRender({ fitResults = false } = {}) {
+  if (fitResults) {
+    pendingSummaryMapPreserveViewport = false;
+    summaryMapHasFittedResults = false;
+  }
   if (summaryMapRequested) {
     renderRequestedSummaryMap(pendingSummaryMapItems, {
       preserveViewport: pendingSummaryMapPreserveViewport,
@@ -2491,9 +2499,10 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
     summaryMapLibre = maplibregl;
 
     if (!mapRuntime) {
+      const startingPoint = userLocation ?? items[0]?.cardRoute.river;
       mapRuntime = createPaddleMap(maplibregl, {
         container: summaryMap,
-        center: [-93.7, 44.6],
+        center: startingPoint ? [startingPoint.longitude, startingPoint.latitude] : [-98.5, 39.8],
         zoom: 5.2,
         minZoom: 3.4,
         maxZoom: 12,
@@ -2545,6 +2554,18 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
       hasBounds = true;
     }
 
+    // Fit before loading route geometry so a slow request cannot strand the
+    // camera at its initial position. Even a cached refresh must fit once.
+    mapRuntime.resize();
+    if (hasBounds) {
+      const fitted = fitMapBounds(mapRuntime, bounds, {
+        profile: 'results',
+        compact: phoneBreakpoint.matches,
+        preserveViewport: preserveViewport && summaryMapHasFittedResults,
+      });
+      summaryMapHasFittedResults ||= fitted;
+    }
+
     await renderSummaryMapRouteLines(items, renderVersion);
     if (renderVersion !== summaryMapRenderVersion) {
       return;
@@ -2556,13 +2577,6 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
       if (renderVersion !== summaryMapRenderVersion) {
         return;
       }
-      const compact = window.matchMedia('(max-width: 720px)').matches;
-      fitMapBounds(mapRuntime, bounds, {
-        profile: 'results',
-        compact,
-        preserveViewport,
-      });
-      mapRuntime.resize();
       if (!items.some((item) => item.key === selectedSummaryMapKey) && items[0]) {
         updateSummaryMapSelection(items[0].key);
       }
@@ -3122,13 +3136,16 @@ export function initSummaryBoard() {
   });
 
   for (const button of homeJumpButtons) {
-    if (!(button instanceof HTMLButtonElement)) {
+    if (!(button instanceof HTMLElement)) {
       continue;
     }
 
     button.addEventListener('click', () => {
       const targetId = button.dataset.homeJumpTarget;
       if (targetId) {
+        if (targetId === 'best-options') {
+          requestSummaryMapRender({ fitResults: true });
+        }
         scrollToHomeTarget(targetId);
       }
     });

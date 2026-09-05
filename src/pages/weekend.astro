@@ -75,7 +75,7 @@ const structuredData = [
     </aside>
 
     <div class="decision-hero__support">
-      <p class="hero__overview-label">Weekend overview</p>
+      <p class="hero__overview-label" data-weekend-overview-label>Weekend overview</p>
       <ul class="hero__call-mix" data-weekend-call-mix>
         <li class="hero__call-mix-item hero__call-mix-item--strong">
           <strong data-weekend-strong-count>--</strong>
@@ -89,16 +89,14 @@ const structuredData = [
           <strong data-weekend-fair-count>--</strong>
           <span>Watch closely</span>
         </li>
-        <li class="hero__call-mix-item hero__call-mix-item--no-go">
-          <strong data-weekend-withheld-count>--</strong>
-          <span>Not enough data</span>
-        </li>
       </ul>
       <details class="weekend-data-note">
-        <summary>Why some routes say “Not enough data”</summary>
+        <summary>About weekend data coverage</summary>
       <p class="hero__note muted">
-        “Not enough data” means the weekend score was withheld because the forecast, live river read,
-        working-range calibration, or confidence was not strong enough.
+        Across all locations, <strong data-weekend-withheld-count>--</strong> routes do not yet have
+        a reliable weekend outlook. These routes are excluded from the shortlist and this total
+        does not change with your distance filter. A weekend outlook needs forecast coverage,
+        a current river reading, a calibrated paddling range, and sufficient confidence.
       </p>
       </details>
     </div>

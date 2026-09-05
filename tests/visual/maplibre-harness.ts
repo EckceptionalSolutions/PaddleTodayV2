@@ -4,7 +4,7 @@ export async function installMapLibreHarness(page: Page) {
   await page.addInitScript(() => {
     const harness = {
       maps: [] as Array<{ label: string }>,
-      fitCalls: [] as Array<{ label: string; options: Record<string, unknown>; at: number }>,
+      fitCalls: [] as Array<{ label: string; bounds: number[][]; options: Record<string, unknown>; at: number }>,
       cameraCalls: [] as Array<{ label: string; method: string }>,
       markersAdded: 0,
       markersRemoved: 0,
@@ -173,8 +173,8 @@ export async function installMapLibreHarness(page: Page) {
       queryRenderedFeatures() { return []; }
       querySourceFeatures() { return []; }
 
-      fitBounds(_bounds: unknown, options: Record<string, unknown> = {}) {
-        harness.fitCalls.push({ label: this.label, options, at: Date.now() });
+      fitBounds(bounds: any, options: Record<string, unknown> = {}) {
+        harness.fitCalls.push({ label: this.label, bounds: bounds?.toArray?.() ?? bounds, options, at: Date.now() });
         return this;
       }
 

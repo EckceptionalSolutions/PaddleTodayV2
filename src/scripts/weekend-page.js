@@ -662,16 +662,16 @@ function updateFreshness({ generatedAt = lastGeneratedAt, refreshing = false, fa
   homeFreshness.textContent = `${base}.`;
 }
 
-function updateSnapshotLine(payload) {
+function updateSnapshotLine(payload, visibleRivers = payload?.rivers) {
   if (!(snapshotLine instanceof HTMLElement)) {
     return;
   }
 
-  const items = Array.isArray(payload?.rivers) ? payload.rivers : [];
+  const items = Array.isArray(visibleRivers) ? visibleRivers : [];
   const { bestBets, worthWatching } = splitWeekendItems(items);
   const count = bestBets.length;
-  const withheld = payload?.withheldCount ?? 0;
-  const bestLabel = payload?.label || 'Weekend';
+  const scopeLabel = userLocation && selectedWeekendDistance !== null
+    ? `within ${weekendDistanceLabel()}` : 'across all locations';
 
   if (count <= 0) {
     if (worthWatching.length > 0) {
@@ -679,23 +679,22 @@ function updateSnapshotLine(payload) {
         worthWatching.length === 1
           ? '1 tradeoff route worth re-checking'
           : `${worthWatching.length} tradeoff routes worth re-checking`;
-      snapshotLine.textContent = `No weekend picks yet / ${watchLabel}`;
+      snapshotLine.textContent = `No weekend picks yet ${scopeLabel} / ${watchLabel}`;
       return;
     }
 
-    snapshotLine.textContent =
-      withheld > 0
-        ? `No weekend picks yet / ${withheld} routes need better forecast confidence`
-        : 'No weekend picks yet / forecast confidence is still building';
+    snapshotLine.textContent = `No weekend picks yet ${scopeLabel}. Try a wider range or check back after the next refresh.`;
     return;
   }
 
   const countLabel = count === 1 ? '1 weekend pick' : `${count} weekend picks`;
-  const insight = withheld > 0 ? `${withheld} need better forecast confidence` : bestLabel;
-  snapshotLine.textContent = `${countLabel} / ${insight}`;
+  snapshotLine.textContent = `${countLabel} ${scopeLabel}`;
 }
 
 function updateOverviewCounts(payload, visibleRivers = payload?.rivers) {
+  setText(document.querySelector('[data-weekend-overview-label]'),
+    userLocation && selectedWeekendDistance !== null
+      ? `Weekend overview · ${weekendDistanceLabel()}` : 'Weekend overview · All locations');
   const rivers = Array.isArray(visibleRivers) ? visibleRivers : [];
   const strong = rivers.filter((item) => item.weekend.rating === 'Strong').length;
   const good = rivers.filter((item) => item.weekend.rating === 'Good').length;
@@ -1475,7 +1474,7 @@ function renderWeekend(payload) {
     generatedAt: lastGeneratedAt,
     fallback: payload?.snapshotStatus === 'stale',
   });
-  updateSnapshotLine(payload);
+  updateSnapshotLine(payload, plan.inRangeRoutes);
   updateOverviewCounts(payload, plan.inRangeRoutes);
   updateWeekendControls(plan);
   renderFeatured(plan.featured, {

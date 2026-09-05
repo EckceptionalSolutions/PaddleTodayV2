@@ -133,6 +133,90 @@ const weekendFixture: WeekendSummaryResponse = {
   })),
 };
 
+test('Home fits nearby picks after a cached refresh and when opening more picks', async ({ page }) => {
+  await installMapLibreHarness(page);
+  const localRoute = summaryItem({
+    riverId: 'chicago-test', slug: 'chicago-test-route', name: 'Chicago test river',
+    reach: 'Nearby reach', latitude: 41.9, longitude: -87.7, score: 88, rating: 'Strong',
+  });
+  const payload = { ...summaryFixture, rivers: [...summaryFixture.rivers, localRoute], riverCount: 3 };
+  await page.addInitScript((cached) => {
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({
+      latitude: 41.88, longitude: -87.63, label: 'Chicago', source: 'manual',
+    }));
+    localStorage.setItem('paddletoday:api-cache:river-summary:v2', JSON.stringify({
+      version: 1, fetchedAt: Date.now(), payload: { ...cached, requestId: 'cached-before-refresh' },
+    }));
+    // Keep the lazy map asleep until after the cached board refreshes.
+    const Observer = window.IntersectionObserver;
+    window.IntersectionObserver = class extends Observer {
+      constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
+        super(callback, options);
+        this.callback = callback;
+      }
+      callback: IntersectionObserverCallback;
+      observe(target: Element) {
+        if (target.matches('[data-summary-map-shell]')) {
+          (window as any).openLazySummaryMap = () => this.callback([
+            { isIntersecting: true, target } as IntersectionObserverEntry,
+          ], this);
+        } else {
+          super.observe(target);
+        }
+      }
+    };
+  }, payload);
+  await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: payload }));
+  await page.route('**/data/canonical-river-geometries/**', (route) => route.fulfill({ status: 404, body: '' }));
+  await page.goto('/');
+  await expect.poll(() => page.evaluate(() => typeof (window as any).openLazySummaryMap)).toBe('function');
+  await expect.poll(() => page.evaluate(() => {
+    const cached = JSON.parse(localStorage.getItem('paddletoday:api-cache:river-summary:v2')!);
+    return cached.payload.requestId;
+  })).toBe(payload.requestId);
+  await page.evaluate(() => (window as any).openLazySummaryMap());
+  const resultFits = async () => (await mapHarnessState(page)).fitCalls.filter(
+    (call: any) => call.bounds?.[0]?.[0] < -87 && call.bounds?.[1]?.[0] > -88,
+  );
+  await expect.poll(async () => (await resultFits()).length).toBeGreaterThan(0);
+  const fit = (await resultFits()).at(-1);
+  expect(fit.bounds[0][0]).toBeCloseTo(-87.73);
+  expect(fit.bounds[1][0]).toBeCloseTo(-87.67);
+  expect(fit.bounds[0][1]).toBeCloseTo(41.87);
+  expect(fit.bounds[1][1]).toBeCloseTo(41.93);
+  // Mobile already displays the results map and hides the desktop jump link.
+  if ((page.viewportSize()?.width ?? 1280) <= 720) {
+    await expect(page.locator('.home-featured__jump-link')).toBeHidden();
+    return;
+  }
+  const previousFits = (await resultFits()).length;
+  await page.getByRole('link', { name: 'View more top picks' }).click();
+  await expect.poll(async () => (await resultFits()).length).toBeGreaterThan(previousFits);
+});
+
+test('Weekend keeps nationwide coverage out of nearby recommendation counts', async ({ page }) => {
+  await installMapLibreHarness(page);
+  const farRoute = structuredClone(weekendFixture.rivers[0]);
+  farRoute.river = { ...farRoute.river, slug: 'far-weekend-route', latitude: 32, longitude: -110 };
+  await page.route('**/api/weekend/summary.json*', (route) => route.fulfill({ json: {
+    ...weekendFixture, withheldCount: 1500, riverCount: 3, rivers: [...weekendFixture.rivers, farRoute],
+  } }));
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:user-location', JSON.stringify({
+      latitude: 45.75, longitude: -93.65, label: 'Milaca',
+    }));
+  });
+  await page.goto('/weekend/');
+  await expect(page.locator('[data-weekend-snapshot]')).toHaveText('1 weekend pick within 300 miles');
+  await expect(page.locator('[data-weekend-call-mix]')).not.toContainText('1500');
+  await expect(page.locator('[data-weekend-call-mix]')).not.toContainText('Not enough data');
+  await page.getByText('About weekend data coverage', { exact: true }).click();
+  await expect(page.locator('.weekend-data-note')).toContainText('Across all locations, 1500');
+  await page.locator('[data-weekend-distance-option="any"]').click();
+  await expect(page.locator('[data-weekend-snapshot]')).toHaveText('2 weekend picks across all locations');
+  await expect(page.locator('[data-weekend-strong-count]')).toHaveText('2');
+});
+
 const favoriteSeed = {
   version: 1,
   items: [
