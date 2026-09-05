@@ -1,8 +1,23 @@
 # North Carolina Route Memory
 
-Updated 2026-09-02 during the active North Carolina expansion goal.
+Updated 2026-09-05 during the active North Carolina expansion goal.
 
 ## Current continuation window
+
+- Added `hammocks-beach-huggins-island-loop`: the six-mile round-trip Huggins Island Paddle Trail from the designated Hammocks Beach State Park access. NC State Parks publishes the difficult route, official paddle map, designated kayak launch/landing context, barrier-island waters, ferry routes, and paddle-in camping posture; the NC Coastal Plain Paddle Trails GIS independently identifies the trail. The route is planning-only with USGS `02092760` at White Oak River near Swansboro as a nearby tidal proxy, no numeric cutoff, and explicit tide, wind, wave, weather, cold-water, protected-area, ferry, parking, and emergency-return checks.
+- Added the three adjacent New River State Park planning sections `new-river-elk-shoals-wagoner`, `new-river-wagoner-us221`, and `new-river-us221-kings-creek`. NC State Parks’ current park page and official map identify the named access areas, section mileages, public paddling posture, seasonal hours, portage symbols, and paddle-in camping areas. All three use USGS `03161000` near Jefferson as a clearly labeled same-river proxy with no transferred numeric cutoff and remain planning-only.
+- New River access posture: Elk Shoals is day-use only; Wagoner and U.S. 221 have vehicle-access facilities and camping context; Kings Creek has seasonal operating hours; Riverbend and Prather’s Creek are paddle-in camping areas and are not vehicle shuttle points. The new routes stop at named public access areas and do not promote bridge shoulders, private banks, or unmarked shoreline landings.
+- New River geometry posture: route-scoped canonical geometry was requested for all three new sections, but the shared generator encountered a Windows file-lock race while another local geometry/Astro process was rewriting state bundles. Re-run the canonical geometry generation and state/manifest audit after the shared writer is idle; do not delete or overwrite the unrelated in-progress artifacts.
+- Added `lumber-river-boardman-princess-ann`: an approximately 11.7-mile Boardman Boating Access Area to Princess Ann State Park reach. NC State Parks publishes the ordered access pair and mileage; NCWRC supplies the Boardman ramp coordinate and Princess Ann has a current park GPS. The direct USGS `02134500` Boardman station is context only, with no transferred numeric cutoff.
+- Lumber River posture: keep the route planning-only because blackwater levels fluctuate and the route has long bends, wood/strainers, limited alternate exits, seasonal access hours, and endpoint camping/reservation terms. Princess Ann and the Boardman area must not be treated as interchangeable vehicle or paddle-in campsites.
+- Added `south-fork-catawba-spencer-mcadenville`: the 5.5-mile Spencer Mountain to R.Y. McAden Blueway section. Spencer Mountain is pass-controlled, the source documents Class I/II features and a dam below the McAden take-out, and USGS `02145000` at Lowell is labeled a same-river proxy.
+- Added `south-fork-catawba-mcadenville-cramerton`: the approximately 2.5-mile R.Y. McAden to Goat Island Park section. The Adam Springs portage decision below the McAdenville dam is explicit; no shoreline, island, or portage-area camping is promoted. Both South Fork routes use non-placeholder same-river context imagery and remain planning-only.
+- Added five connected French Broad Paddle Trail planning sections: `french-broad-island-ford-hap-simpson`, `french-broad-penrose-blantyre`, `french-broad-blantyre-horse-shoe`, `french-broad-horse-shoe-lazy-otter`, and `french-broad-lazy-otter-westfeldt`. The official access list currently identifies the selected endpoint pairs at miles 11.5/21.5, 32/35, 35/41.5, 41.5/45, and 45/52.5. All five use direct USGS `03439000` only as same-river current context, transfer no numeric cutoff, and require current access/obstruction, post-storm debris, cold-water, strainer, daylight, shuttle, and named-take-out checks. No route-specific overnight camping is assumed; use nearby basecamp only unless separately verified.
+- Added eight connected Haw River Paddle Trail sections: `haw-river-brooks-altamahaw`, `haw-river-altamahaw-shallow-ford`, `haw-river-shallow-ford-indian-valley`, `haw-river-indian-valley-great-bend`, `haw-river-glencoe-red-slide`, `haw-river-red-slide-graham`, `haw-river-graham-swepsonville`, and `haw-river-swepsonville-saxapahaw-lake`. The official Haw River Trail publishes the access system, section distances, relative difficulty, gauge guidance, seasonal hours, and dam/portage rules. The records use direct USGS `02096500` Haw River context except the Brooks/Altamahaw upper reach, which uses USGS `02094500` Reedy Fork proxy context; none transfers a numeric cutoff. Shallow Ford camping and the Glencoe/Puryear dam portages remain explicit rather than being treated as ordinary endpoints.
+- Added `roanoke-river-williamston-astoria` from the official Roanoke River State Trail access chain. The state trail lists the named accesses and 12-mile spacing; NCWRC supplies the endpoint anchors. It remains planning-only with USGS `02080500` as upstream same-river proxy context, with wind, weather, broad-river navigation, and current access checks emphasized.
+- Added three Mayo River State Park sections (`mayo-river-deshazo-anglin`, `mayo-river-anglin-hickory`, and `mayo-river-hickory-mayodan`) and seven consecutive Yadkin River sections (`yadkin-river-crater-burch`, `yadkin-river-burch-shore`, `yadkin-river-shore-shoals`, `yadkin-river-shoals-donnaha`, `yadkin-river-donnaha-old-421`, `yadkin-river-old-421-huntsville`, and `yadkin-river-huntsville-tanglewood`). Official park/county access pages provide current named endpoints and rules; the Yadkin chain explicitly carries mandatory-portage warnings and managed-access/camping caveats. All ten remain planning-only.
+
+- North Carolina route-quality audit: all 45 routes have reviewed safety hazards/notes, camping prose/classification, finite endpoints, and non-placeholder preview imagery. The gallery now promotes each approved same-river context image into the route gallery when a route-specific photo is unavailable, with an explicit “not necessarily this exact reach” caption. Exact endpoint-pair deduplication found no duplicate or reversed route pairs; shared access points are intentional boundaries in the French Broad, Haw, Mayo, New River, South Fork Catawba, and Yadkin chains. No route was removed or merged because the section pairs represent distinct public access choices rather than duplicate records.
 
 - Added `new-river-todd-wagoner`: Todd Island Park to New River State Park Wagoner Access, a roughly 7-mile Class II South Fork New River day run.
 - Access posture: NCWRC identifies Todd Island Park (`36.2784, -81.5703`) and Wagoner Access (`36.4165, -81.387`) as public bank/canoe entries. These are stored as public-access anchors with carry uncertainty; they are not asserted to be NHD flowline-center points.
@@ -52,3 +67,23 @@ Updated 2026-09-02 during the active North Carolina expansion goal.
 - [CanWePaddle Andrews to Murphy flow page](https://canwepaddle.com/rivers/north-carolina/valley-river-andrews-murphy/)
 - [Valley River trip planning and hazard notes](https://www.paddlehiwassee.com/valleyriver.htm)
 - [USGS 03550000](https://waterdata.usgs.gov/monitoring-location/USGS-03550000/)
+- [Hammocks Beach State Park](https://www.ncparks.gov/state-parks/hammocks-beach-state-park)
+- [Hammocks Beach paddle trail map](https://www.ncparks.gov/media/166/open)
+- [Hammocks Beach current facility and paddling guidance](https://www.ncparks.gov/state-parks/hammocks-beach-state-park/news/status-facilities)
+- [NC Coastal Plain Paddle Trails GIS](https://services.gis.nc.gov/secure/rest/services/NC1Map_Recreation/MapServer)
+- [USGS 02092760](https://waterdata.usgs.gov/monitoring-location/USGS-02092760/)
+- [French Broad Paddle Trail access points](https://frenchbroadpaddle.com/en/access-points)
+- [French Broad Paddle Trail flows and gauges](https://frenchbroadpaddle.com/en/flows-gauges)
+- [French Broad Paddle Trail obstruction map](https://frenchbroadpaddle.com/en/webmap-obstructions)
+- [NCDOT French Broad river-user safety package](https://xfer.services.ncdot.gov/PDEA/I-2513/I-2513%20B%20and%20D%20Integrated%20Plan%20for%20Communications%20Construction%20and%20Demo%20and%20River%20User%20Safety.pdf)
+- [USGS 03439000](https://waterdata.usgs.gov/monitoring-location/USGS-03439000/)
+- [Haw River Trail paddle-trail overview](https://www.hawrivertrail.org/paddle-trail-overview)
+- [Haw River Trail gauge guidance](https://www.hawrivertrail.org/river-gauge)
+- [Haw River Trail Brooks Bridge to Altamahaw](https://www.hawrivertrail.org/brooks-bridge-to-altamahaw)
+- [Haw River Trail Altamahaw to Shallow Ford](https://www.hawrivertrail.org/brooks-bridge-to-altamahaw-2)
+- [Haw River Trail Indian Valley to Great Bend](https://www.hawrivertrail.org/the-valley-to-great-bend-park)
+- [Haw River Trail Glencoe to Red Slide](https://www.hawrivertrail.org/glencoe-to-red-slide-park)
+- [Haw River Trail Red Slide to Swepsonville](https://www.hawrivertrail.org/red-slide-park-to-swepsonville-river-park)
+- [Haw River Trail Swepsonville to Saxapahaw Lake](https://www.hawrivertrail.org/swepsonville-river-park-to-saxapahaw-lake)
+- [USGS 02096500](https://waterdata.usgs.gov/monitoring-location/USGS-02096500/)
+- [USGS 02094500](https://waterdata.usgs.gov/monitoring-location/USGS-02094500/)

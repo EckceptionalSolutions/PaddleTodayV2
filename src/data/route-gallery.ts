@@ -6793,6 +6793,32 @@ export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
   return [...(approvedRoutePhotosBySlug[slug] ?? [])];
 }
 
+export function getRouteGalleryPhotos(route: RoutePhotoTarget): RouteGalleryPhoto[] {
+  const approvedPhotos = getApprovedRoutePhotos(route.slug);
+  if (approvedPhotos.length > 0) {
+    return approvedPhotos;
+  }
+
+  const preview = getRoutePreviewPhoto(route);
+  if (preview.isPlaceholder) {
+    return [];
+  }
+
+  return [
+    {
+      id: `${preview.id}-gallery`,
+      src: preview.src,
+      alt: preview.alt,
+      caption:
+        preview.sourceKind === 'river'
+          ? `${preview.caption} — not necessarily this exact reach.`
+          : preview.caption,
+      credit: preview.credit,
+      takenLabel: preview.takenLabel,
+    },
+  ];
+}
+
 // Some river systems have approved photography on only one or two routes. Reuse
 // that same-river context before falling back to a generic river placeholder.
 const approvedRiverFallbackRouteById: Record<string, string> = {

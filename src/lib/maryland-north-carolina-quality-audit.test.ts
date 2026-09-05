@@ -4,7 +4,7 @@ import { listAllRiversForAudit } from './rivers';
 
 describe.each([
   ['Maryland', 140],
-  ['North Carolina', 14],
+  ['North Carolina', 45],
 ] as const)('%s route quality audit', (state, expectedCount) => {
   it('has safety, camping, finite endpoints, and non-placeholder imagery on every route', () => {
     const routes = listAllRiversForAudit().filter((route) => route.state === state);
