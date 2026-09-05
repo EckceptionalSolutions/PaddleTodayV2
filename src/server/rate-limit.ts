@@ -5,7 +5,7 @@ const DEFAULT_WINDOW_MS = 10 * 60 * 1000;
 const DEFAULT_MAX_REQUESTS = 5;
 const DEFAULT_MAX_BUCKETS = 10_000;
 
-export type RateLimitScope = 'alerts' | 'feedback' | 'route_contributions' | 'route_requests';
+export type RateLimitScope = 'alerts' | 'feedback' | 'route_contributions' | 'route_requests' | 'admin_login';
 
 export interface RateLimitDecision {
   limited: boolean;
@@ -22,7 +22,13 @@ interface RateLimitPolicy {
 
 const rateByScopeAndIp = new Map<string, number[]>();
 
-export function getIp(request: ApiRequest) {
+export function getIp(request: ApiRequest, options: { trustedProxyAddresses?: string[] } = {}) {
+  const socket = socketAddress(request);
+  const trustedProxyAddresses = options.trustedProxyAddresses
+    ?? (process.env.TRUSTED_PROXY_IPS || '').split(',').map((value) => value.trim()).filter(Boolean);
+  const proxyTrusted = trustedProxyAddresses.includes(socket);
+  if (!proxyTrusted) return socket;
+
   const forwardedFor = clean(request.headers['x-forwarded-for'], 240);
   if (forwardedFor) {
     return forwardedFor.split(',')[0]?.trim() || socketAddress(request);

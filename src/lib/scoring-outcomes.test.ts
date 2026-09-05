@@ -6,6 +6,8 @@ describe('parseScoringOutcomeObservation', () => {
     const result = parseScoringOutcomeObservation({
       schemaVersion: 1,
       decisionCapturedAt: '2026-05-10T12:00:00-05:00',
+      decisionPolicyRevision: 'publication-scoring-2026-09-04',
+      evidenceAgeMinutes: 18,
       appScore: 82,
       appRating: 'Good',
       appConfidence: 76,
@@ -31,6 +33,8 @@ describe('parseScoringOutcomeObservation', () => {
       value: expect.objectContaining({
         schemaVersion: 1,
         decisionCapturedAt: '2026-05-10T17:00:00.000Z',
+        decisionPolicyRevision: 'publication-scoring-2026-09-04',
+        evidenceAgeMinutes: 18,
         appScore: 82,
         appReadiness: 'ready',
         thresholdModel: 'two-sided',
@@ -52,6 +56,15 @@ describe('parseScoringOutcomeObservation', () => {
     expect(parseScoringOutcomeObservation({
       schemaVersion: 1,
       appScore: 140,
+      observedWaterLevel: 'ideal',
+      tripCompletion: 'completed',
+      overallVerdict: 'good',
+    })).toMatchObject({ ok: false });
+
+    expect(parseScoringOutcomeObservation({
+      schemaVersion: 1,
+      decisionPolicyRevision: ' ',
+      evidenceAgeMinutes: 7 * 24 * 60 + 1,
       observedWaterLevel: 'ideal',
       tripCompletion: 'completed',
       overallVerdict: 'good',

@@ -15,6 +15,22 @@ execSync("npm run routes:geometries:audit", {
   stdio: "inherit",
 });
 
+execSync("npm run typecheck --workspace @paddletoday/api-contract", {
+  stdio: "inherit",
+});
+
+execSync("npm run typecheck --workspace @paddletoday/api-client", {
+  stdio: "inherit",
+});
+
+execSync("npm run typecheck --workspace @paddletoday/geo", {
+  stdio: "inherit",
+});
+
+execSync("npm run typecheck --workspace @paddletoday/trip-pack", {
+  stdio: "inherit",
+});
+
 execSync("npm run gallery:audit", {
   stdio: "inherit",
 });

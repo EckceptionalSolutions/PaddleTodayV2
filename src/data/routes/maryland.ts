@@ -2026,7 +2026,7 @@ const middlePotomacRoutes: River[] = [
     longitude: -77.7676661,
     gaugeKind: 'proxy' as const,
     routeType: 'whitewater' as const,
-    difficulty: 'advanced' as const,
+    difficulty: 'hard' as const,
     riskLevel: 'advanced' as const,
     hazards: ['fast_rise', 'cold_water', 'strainers', 'private_banks', 'access_uncertain', 'mandatory_takeout', 'dam', 'whitewater'] as RouteSafetyProfile['hazards'],
     putIn: { name: 'Big Slackwater Boat Ramp', latitude: 39.5007254, longitude: -77.845342 },

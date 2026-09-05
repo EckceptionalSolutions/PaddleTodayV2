@@ -6,16 +6,17 @@ import {
   routeSegmentSummary,
   selectRouteSegment,
   type RouteSegment,
-  type RouteSegmentSummary,
   type RiverSummaryApiItem,
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { useIsFocused } from '@react-navigation/native';
+import { useQueryClient } from '@tanstack/react-query';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRiverGeometryQuery, useRiverSummaryQuery } from '../api/queries';
+import { riverDetailQueryOptions, riverGroupQueryOptions, useRiverGeometryQuery, useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { ExploreSearchBar } from '../components/explore-controls';
 import {
@@ -35,7 +36,7 @@ import {
   sheetHeightValue,
   type MapSheetSnap,
 } from '../components/explore-route-drawer';
-import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
+import { RoutePlotMap, type RoutePlotMapHandle } from '../components/route-plot-map';
 import { RiverCard } from '../components/river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
@@ -49,36 +50,21 @@ import {
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
-import { coverageAnchorForRoute, coverageCenter, groupRoutesByConditionScore } from '../lib/river-coverage';
+import { buildExploreMapPoints, dedupeExploreRoutes, routeSpanCoordinatesForRiver, type ExploreRiver } from '../lib/explore-map-model';
+import { exploreCameraAction, type ExploreCameraState } from '../lib/explore-camera';
+import { individualRoutesAtZoom } from '../lib/map-viewport';
 import {
   buildRouteGroupMeta,
-  riverGroupKeyForRoute,
   routeGroupMetaForRoute,
 } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-interface ExploreRiver extends RiverSummaryApiItem {
-  distanceMiles: number | null;
-  travelLabel: string | null;
-  selectedSegment: RouteSegment | null;
-  segmentSummary: RouteSegmentSummary | null;
-}
-
-interface ExploreMapPoint extends RoutePlotPoint {
-  routeSlug: string;
-  routeSlugs: string[];
-}
-
 interface ExplorePreferences {
   filters: ExploreFilters;
   viewMode?: 'list' | 'map';
 }
-
-type MapCoordinate = { latitude: number; longitude: number };
-type SummaryAccessPoint = NonNullable<RiverSummaryApiItem['river']['accessPoints']>[number];
-const MAX_MAP_POINTS = 200;
 
 const confidenceRank = {
   High: 3,
@@ -94,6 +80,9 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const isFocused = useIsFocused();
+  const navigationPendingRef = useRef(false);
   const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string; transientIntent?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
@@ -134,12 +123,26 @@ export default function ExploreScreen() {
     [rivers, filters, location]
   );
   const draftResults = useMemo(
-    () => applyExploreFilters(rivers, draftFilters, location),
-    [rivers, draftFilters, location]
+    () => filtersOpen ? applyExploreFilters(rivers, draftFilters, location) : results,
+    [rivers, draftFilters, location, filtersOpen, results]
   );
   const selectedRiver = selectedSlug ? results.find((river) => river.river.slug === selectedSlug) ?? null : null;
   const activeFilterCount = countActiveFilters(filters);
   const bottomContentInset = androidBottomInset(insets.bottom);
+
+  useFocusEffect(useCallback(() => {
+    navigationPendingRef.current = false;
+  }, []));
+
+  // Warm only a settled selection, never every marker in the viewport. The
+  // detail screen shares this query key and joins an in-flight request.
+  useEffect(() => {
+    if (!selectedSlug || !isFocused || viewMode !== 'map') return;
+    const timeout = setTimeout(() => {
+      void queryClient.prefetchQuery(riverDetailQueryOptions(selectedSlug));
+    }, 200);
+    return () => clearTimeout(timeout);
+  }, [isFocused, queryClient, selectedSlug, viewMode]);
 
   useEffect(() => {
     void hydrateExplorePreferences();
@@ -308,6 +311,7 @@ export default function ExploreScreen() {
         }}
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={openExploreRoute}
+        onPrepareRoute={prepareExploreRoute}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
         onUseLocation={() => void requestLocation()}
@@ -352,11 +356,15 @@ export default function ExploreScreen() {
 
     const routeCount = routeGroupMetaForRoute(route, routeCounts).routeCount;
     if (route.river.riverId && routeCount > 1) {
+      if (navigationPendingRef.current) return;
+      navigationPendingRef.current = true;
       router.push({ pathname: '/river-hub/[riverId]', params: { riverId: route.river.riverId } });
     }
   }
 
   function openExploreRoute(route: ExploreRiver) {
+    if (navigationPendingRef.current) return;
+    navigationPendingRef.current = true;
     if (route.selectedSegment) {
       trackAppEvent('route_planner_opened_from_filter', {
         slug: route.river.slug,
@@ -375,6 +383,15 @@ export default function ExploreScreen() {
         ...buildRoutePlannerParams(route.selectedSegment),
       },
     });
+  }
+
+  function prepareExploreRoute(route: ExploreRiver) {
+    const grouped = !route.selectedSegment && route.river.riverId && routeGroupMetaForRoute(route, routeCounts).routeCount > 1;
+    if (grouped) {
+      void queryClient.prefetchQuery(riverGroupQueryOptions(route.river.riverId!));
+    } else {
+      void queryClient.prefetchQuery(riverDetailQueryOptions(route.river.slug));
+    }
   }
 }
 
@@ -400,6 +417,7 @@ function FullScreenExploreMap({
   onContributePhotos,
   onOpenRiverRoutes,
   onOpenRoute,
+  onPrepareRoute,
   onSearchChange,
   onSelectSlug,
   onToggleSaved,
@@ -427,6 +445,7 @@ function FullScreenExploreMap({
   onContributePhotos: (slug: string) => void;
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
+  onPrepareRoute: (route: ExploreRiver) => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string | null) => void;
   onToggleSaved: (river: RiverSummaryApiItem) => void;
@@ -435,30 +454,28 @@ function FullScreenExploreMap({
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
-  const [mapZoomLevel, setMapZoomLevel] = useState(5);
+  const [mapReady, setMapReady] = useState(false);
+  const onMapReady = useCallback(() => setMapReady(true), []);
+  const isFocused = useIsFocused();
+  const [individualRoutes, setIndividualRoutes] = useState(false);
+  const cameraStateRef = useRef<ExploreCameraState | null>(null);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   // Load the representative route geometry for grouped results too. Without
   // this, a grouped river selection only had access-point chords to draw,
   // which can visibly cut across bends instead of following the river.
-  const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '');
-  const mapResults = useMemo(() => {
-    if (results.length <= MAX_MAP_POINTS) {
-      return results;
-    }
-
-    const withoutSelected = selectedRiver
-      ? results.filter((river) => river.river.slug !== selectedRiver.river.slug)
-      : results;
-    return (selectedRiver ? [selectedRiver, ...withoutSelected] : withoutSelected).slice(0, MAX_MAP_POINTS);
-  }, [results, selectedRiver]);
-  const points = useExploreMapPoints(mapResults, routeCounts, results, mapZoomLevel);
+  const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '', isFocused && viewMode === 'map');
+  const points = useMemo(
+    () => buildExploreMapPoints(results, routeCounts, results, individualRoutes),
+    [routeCounts, results, individualRoutes]
+  );
+  const onMapZoomChange = useCallback((zoom: number) => setIndividualRoutes((current) => individualRoutesAtZoom(current, zoom)), []);
   const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
   const selectedMapPointId = useMemo(
     () => points.find((point) => point.routeSlugs.includes(selectedSlug ?? ''))?.id ?? null,
     [points, selectedSlug]
   );
   const selectedCanonicalSpan = useMemo(
-    () => (selectedRiver ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinatesForRiver(selectedRiver)) : null),
+    () => (selectedRiver ? endpointSnappedRouteCoordinates(selectedGeometryQuery.data, routeSpanCoordinatesForRiver(selectedRiver)) ?? routeSpanCoordinatesForRiver(selectedRiver) : null),
     [selectedGeometryQuery.data, selectedRiver]
   );
   const canonicalSpans = useMemo(
@@ -483,38 +500,25 @@ function FullScreenExploreMap({
   ].join('|');
   const overlayTop = topInset + 216;
 
+  const cameraContext = `${filterFocusSignature}|${userLocation?.latitude ?? ''}|${userLocation?.longitude ?? ''}`;
+  const hasPoints = points.length > 0;
   useEffect(() => {
-    if (activeFilterCount === 0 || points.length === 0 || selectedSlug) {
-      return;
+    if (viewMode !== 'map' || !hasPoints) {
+      setMapReady(false);
+      cameraStateRef.current = null;
     }
-
-    const timeout = setTimeout(() => {
-      mapRef.current?.focusAll();
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, [activeFilterCount, filterFocusSignature, points.length, selectedSlug]);
-
+  }, [hasPoints, viewMode]);
   useEffect(() => {
-    if (!userLocation || points.length === 0 || activeFilterCount > 0 || selectedSlug) {
-      return;
-    }
-
-    const timeout = setTimeout(() => {
-      mapRef.current?.focusUserArea();
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, [activeFilterCount, points.length, selectedSlug, userLocation]);
-
-  useEffect(() => {
-    if (!selectedSlug || !selectedRiver) {
-      return;
-    }
-
-    const timeout = setTimeout(() => mapRef.current?.focusSelected(), 120);
-    return () => clearTimeout(timeout);
-  }, [selectedRiver, selectedSlug]);
+    if (!isFocused || viewMode !== 'map' || !hasPoints || !mapReady) return;
+    const frame = requestAnimationFrame(() => {
+      const next = { context: cameraContext, selectedSlug };
+      const action = exploreCameraAction(cameraStateRef.current, next, activeFilterCount > 0, Boolean(userLocation));
+      cameraStateRef.current = next;
+      if (action === 'all') mapRef.current?.focusAll();
+      else if (action === 'user') mapRef.current?.focusUserArea();
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [activeFilterCount, cameraContext, hasPoints, isFocused, mapReady, selectedSlug, viewMode]);
 
   function handleGpsFocus() {
     if (userLocation) {
@@ -538,6 +542,7 @@ function FullScreenExploreMap({
         onFilterPress={onFilterPress}
         onSearchChange={onSearchChange}
         onOpenRoute={onOpenRoute}
+        onPrepareRoute={onPrepareRoute}
         onOpenRiverRoutes={onOpenRiverRoutes}
         onRetry={onRetry}
         onToggleSaved={onToggleSaved}
@@ -552,20 +557,23 @@ function FullScreenExploreMap({
       {results.length > 0 ? (
           <RoutePlotMap
             ref={mapRef}
+            onReady={onMapReady}
             points={points}
             selectedId={selectedMapPointId}
             canonicalSpans={canonicalSpans}
-            selectedFocusBottomInset={selectedRiver ? sheetHeightValue('half') + bottomInset : 0}
+            selectedFocusBottomInset={selectedRiver ? sheetHeightValue(sheetSnap) + bottomInset : 0}
           userLocation={userLocation}
             onSelectPoint={(point) => {
-            setSheetSnap('half');
+            if (!selectedSlug) setSheetSnap('half');
             onSelectSlug(points.find((candidate) => candidate.id === point.id)?.routeSlug ?? null);
           }}
           height={mapHeight}
           showFooter={false}
           fullBleed
+          clusterMarkers
+          dimUnselectedMarkers={false}
           refitOnPointChanges={false}
-          onZoomLevelChange={setMapZoomLevel}
+          onZoomLevelChange={onMapZoomChange}
         />
       ) : (
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
@@ -606,10 +614,10 @@ function FullScreenExploreMap({
           <View
             style={styles.mapStatusChip}
             accessibilityRole="text"
-             accessibilityLabel={`${points.length} score ${points.length === 1 ? 'zone' : 'zones'} across ${matchingRiverCount} ${matchingRiverCount === 1 ? 'river' : 'rivers'} shown on map`}
+             accessibilityLabel={`${results.length} matching routes across ${matchingRiverCount} rivers. Nearby map locations cluster together; tap a cluster to zoom in.`}
             >
               <Text style={styles.mapStatusChipText} numberOfLines={1}>
-                {`${points.length} ${points.length === 1 ? 'zone' : 'zones'} · ${matchingRiverCount} ${matchingRiverCount === 1 ? 'river' : 'rivers'}`}
+                {`${results.length} ${results.length === 1 ? 'route' : 'routes'} · ${matchingRiverCount} ${matchingRiverCount === 1 ? 'river' : 'rivers'}`}
               </Text>
            </View>
          </View>
@@ -626,14 +634,14 @@ function FullScreenExploreMap({
       ) : null}
 
       <View style={[styles.mapOverlayActions, { top: overlayTop + (userOutOfRange ? 56 : 0) }]}>
-        <Pressable
+        {selectedRiver ? <Pressable
           style={styles.mapFab}
           onPress={() => mapRef.current?.focusSelected()}
           accessibilityRole="button"
           accessibilityLabel="Center selected route"
         >
           <MaterialCommunityIcons name="crosshairs" color={colors.accent} size={20} />
-        </Pressable>
+        </Pressable> : null}
         <Pressable
           style={styles.mapFab}
           onPress={() => mapRef.current?.focusAll()}
@@ -718,6 +726,7 @@ function ExploreListView({
   topInset,
   onFilterPress,
   onOpenRoute,
+  onPrepareRoute,
   onOpenRiverRoutes,
   onRetry,
   onSearchChange,
@@ -735,6 +744,7 @@ function ExploreListView({
   topInset: number;
   onFilterPress: () => void;
   onOpenRoute: (route: ExploreRiver) => void;
+  onPrepareRoute: (route: ExploreRiver) => void;
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onRetry: () => void;
   onSearchChange: (query: string) => void;
@@ -812,6 +822,7 @@ function ExploreListView({
             saved={isSaved(item.river.slug)}
             onToggleSaved={() => onToggleSaved(item)}
             onPress={() => openRoute(item)}
+            onPressIn={() => onPrepareRoute(item)}
             segmentLabel={formatRouteSegmentLabel(item.segmentSummary, item.selectedSegment)}
             segmentEndpointLabel={segmentEndpointLabel(item.selectedSegment)}
             routeCount={item.selectedSegment ? 1 : routeGroupMetaForRoute(item, routeCounts).routeCount}
@@ -856,172 +867,6 @@ function ExploreViewToggle({
       })}
     </View>
   );
-}
-
-function useExploreMapPoints(
-  results: ExploreRiver[],
-  routeCounts: ReadonlyMap<string, number>,
-  allMatchingRoutes: ExploreRiver[] = results,
-  zoomLevel = 5
-) {
-  return useMemo<ExploreMapPoint[]>(
-    () =>
-      dedupeExploreRoutes(results).flatMap((river) => {
-        const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
-        const riverKey = riverGroupKeyForRoute(river);
-        const matchingRiverRoutes = allMatchingRoutes.filter((candidate) => (
-            river.selectedSegment
-              ? candidate.river.slug === river.river.slug
-              : riverGroupKeyForRoute(candidate) === riverKey
-          ));
-        const matchingRouteCount = matchingRiverRoutes.length;
-        const scoreZones = groupRoutesByConditionScore(matchingRiverRoutes);
-
-        if (zoomLevel >= 8.5) {
-          return matchingRiverRoutes.map((route) => {
-            const center = coverageAnchorForRoute(route, routeSpanCoordinatesForRiver(route));
-            if (!center) return null;
-            return {
-              id: `route:${route.river.slug}`,
-              routeSlug: route.river.slug,
-              routeSlugs: [route.river.slug],
-              label: route.river.name,
-              latitude: center.latitude,
-              longitude: center.longitude,
-              score: route.score,
-              rating: route.rating,
-              markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
-              routeCount: 1,
-              spanSegments: [routeSpanCoordinatesForRiver(route)].filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
-              meta: [route.river.reach, `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
-            };
-          }).filter(Boolean) as ExploreMapPoint[];
-        }
-
-        return scoreZones.flatMap((group) => {
-          const representative = group.representative;
-          const center = coverageCenter(group.routes);
-          if (!representative || !center || group.score === null) return [];
-          const spanSegments = group.routes
-            .map(routeSpanCoordinatesForRiver)
-            .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
-
-          return [{
-            id: `score-group:${group.key}`,
-            routeSlug: representative.river.slug,
-            routeSlugs: group.routes.map((route) => route.river.slug),
-            label: representative.river.name,
-            latitude: center.latitude,
-            longitude: center.longitude,
-            score: group.score,
-            rating: group.rating,
-            markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
-            routeCount,
-            spanSegments,
-            meta: [
-              accessPointCountLabel(representative),
-              `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'} in this zone`,
-              matchingRouteCount > group.routes.length ? `${matchingRouteCount} routes on this river` : null,
-              routeCount !== matchingRouteCount ? `${routeCount} total routes` : null,
-              representative.travelLabel ? `${representative.travelLabel} drive` : null,
-            ]
-              .filter(Boolean)
-              .join(' - '),
-          }];
-        });
-      }),
-    [allMatchingRoutes, results, routeCounts, zoomLevel]
-  );
-}
-
-function dedupeExploreRoutes(results: ExploreRiver[]) {
-  const seen = new Set<string>();
-  return results.filter((river) => {
-    const key = river.selectedSegment
-      ? `segment:${river.river.slug}`
-      : `river:${riverGroupKeyForRoute(river)}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-function routeSpanCoordinatesForRiver(river: RiverSummaryApiItem): MapCoordinate[] | null {
-  const selectedSegment = 'selectedSegment' in river
-    ? (river as ExploreRiver).selectedSegment
-    : null;
-  if (selectedSegment) {
-    const segmentStart = Math.min(selectedSegment.putIn.mileFromStart, selectedSegment.takeOut.mileFromStart);
-    const segmentEnd = Math.max(selectedSegment.putIn.mileFromStart, selectedSegment.takeOut.mileFromStart);
-    const segmentChain = [
-      selectedSegment.putIn,
-      ...(river.river.accessPoints ?? []).filter((point) => (
-        point.mileFromStart > segmentStart && point.mileFromStart < segmentEnd
-      )),
-      selectedSegment.takeOut,
-    ]
-      .map(accessCoordinate)
-      .filter(isMapCoordinate);
-
-    if (segmentChain.length >= 2) {
-      return segmentChain;
-    }
-  }
-
-  const accessPoints = river.river.accessPoints
-    ?.map((point) => ({ point, coordinate: accessCoordinate(point) }))
-    .filter(hasMappedAccessCoordinate)
-    .sort((left, right) => left.point.mileFromStart - right.point.mileFromStart);
-
-  if (accessPoints && accessPoints.length > 0) {
-    const routeChain = [
-      accessCoordinate(river.river.putIn),
-      ...accessPoints.map((entry) => entry.coordinate),
-      accessCoordinate(river.river.takeOut),
-    ].filter(isMapCoordinate);
-    if (routeChain.length >= 2) {
-      return routeChain;
-    }
-  }
-
-  const endpoints = [accessCoordinate(river.river.putIn), accessCoordinate(river.river.takeOut)].filter(isMapCoordinate);
-  if (endpoints.length >= 2) {
-    return endpoints;
-  }
-
-  return null;
-}
-
-function accessPointCountLabel(river: RiverSummaryApiItem) {
-  const accessPointCount = river.river.accessPoints?.filter((point) => accessCoordinate(point)).length ?? 0;
-  if (accessPointCount > 2) {
-    return `${accessPointCount} access points`;
-  }
-
-  return null;
-}
-
-function accessCoordinate(
-  point: { latitude?: number; longitude?: number } | null | undefined
-): MapCoordinate | null {
-  if (!point || !Number.isFinite(point.latitude) || !Number.isFinite(point.longitude)) {
-    return null;
-  }
-
-  return {
-    latitude: point.latitude as number,
-    longitude: point.longitude as number,
-  };
-}
-
-function isMapCoordinate(coordinate: MapCoordinate | null): coordinate is MapCoordinate {
-  return coordinate !== null;
-}
-
-function hasMappedAccessCoordinate(
-  entry: { point: SummaryAccessPoint; coordinate: MapCoordinate | null }
-): entry is { point: SummaryAccessPoint; coordinate: MapCoordinate } {
-  return entry.coordinate !== null;
 }
 
 function applyExploreFilters(
@@ -1295,7 +1140,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   viewModeButton: {
-    minHeight: 32,
+    minHeight: 44,
     borderRadius: radius.pill,
     paddingHorizontal: 10,
     flexDirection: 'row',
@@ -1404,9 +1249,9 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   mapFab: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: 'rgba(255, 255, 255, 0.96)',
     borderWidth: 1,
     borderColor: colors.border,

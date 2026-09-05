@@ -33,7 +33,11 @@ export type RouteHazard =
   | 'urban_water_quality'
   | 'dam_release'
   | 'access_uncertain'
-  | 'private_banks';
+  | 'private_banks'
+  | 'wind'
+  | 'portage'
+  | 'waterfall'
+  | 'wildlife';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type RiverAlertDeliveryMethod = 'email' | 'push';
@@ -268,6 +272,10 @@ export const routeHazardLabels: Record<RouteHazard, string> = {
   dam_release: 'Dam release',
   access_uncertain: 'Access uncertain',
   private_banks: 'Private banks',
+  wind: 'Wind exposure',
+  portage: 'Portage',
+  waterfall: 'Waterfall',
+  wildlife: 'Wildlife',
 };
 
 export const routeSafetyLevelLabels: Record<RouteRiskLevel, string> = {
@@ -921,6 +929,8 @@ export type ScoringGaugeTrend = 'rising' | 'steady' | 'falling' | 'unknown';
 export interface ScoringOutcomeObservationInput {
   schemaVersion: 1;
   decisionCapturedAt?: string;
+  decisionPolicyRevision?: string;
+  evidenceAgeMinutes?: number;
   appScore?: number;
   appRating?: ScoreRating;
   appConfidence?: number;

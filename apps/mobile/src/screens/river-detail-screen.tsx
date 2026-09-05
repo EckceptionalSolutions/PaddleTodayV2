@@ -19,6 +19,7 @@ import {
   type RiverAlertThreshold,
   type CreateRouteContributionRequest,
   type RiverDetailApiResult,
+  type RiverSummaryApiItem,
   type RiverOutlook,
   type ScoreBreakdown,
 } from '@paddletoday/api-contract';
@@ -28,6 +29,7 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   Image,
   Modal,
   Platform,
@@ -49,11 +51,12 @@ import {
   useRiverDetailQuery,
   useRiverGroupQuery,
   useRiverHistoryQuery,
+  useRiverSummaryQuery,
   useRouteCommunityQuery,
 } from '../api/queries';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
-import { AppErrorState, AppLoadingState } from '../components/app-state';
+import { AppErrorState } from '../components/app-state';
 import { QualityPill, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
@@ -128,9 +131,6 @@ export default function RiverDetailScreen() {
       ? 'Recommended from River Hub'
       : null;
   const detailQuery = useRiverDetailQuery(slug);
-  const geometryQuery = useRiverGeometryQuery(slug);
-  const historyQuery = useRiverHistoryQuery(slug, 7);
-  const communityQuery = useRouteCommunityQuery(slug);
   const createAlertMutation = useCreateRiverAlertMutation();
   const createContributionMutation = useCreateRouteContributionMutation();
   const { email: storedEmail, setEmail, recordRouteAlert } = useAlertPreferences();
@@ -164,9 +164,23 @@ export default function RiverDetailScreen() {
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
+  const geometryQuery = useRiverGeometryQuery(slug, activeSection === 'Access' || prepareTripVisible);
+  const historyQuery = useRiverHistoryQuery(slug, 7, activeSection === 'More');
+  const communityQuery = useRouteCommunityQuery(slug, activeSection === 'Reports' || reportSheetVisible);
+  // Explore already has the catalog; don't download a river group just to count it.
+  const summaryQuery = useRiverSummaryQuery(false);
+  const summaryRoute = useMemo(
+    () => summaryQuery.data?.rivers.find((route) => route.river.slug === slug),
+    [slug, summaryQuery.data?.rivers]
+  );
+  const summarySiblingCount = useMemo(() => {
+    if (!summaryRoute?.river.riverId) return null;
+    return summaryQuery.data!.rivers.filter((route) => route.river.riverId === summaryRoute.river.riverId).length;
+  }, [summaryQuery.data?.rivers, summaryRoute]);
+
   const detail = detailQuery.data?.result ?? null;
   const isPlanningRoute = detail?.river.scoreEligibility === 'planning';
-  const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '');
+  const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '', summarySiblingCount === null);
   const history = historyQuery.data?.result ?? null;
   const community = communityQuery.data ?? null;
   const checklist = useMemo(() => (detail ? detail.checklist.slice(0, 4) : []), [detail]);
@@ -193,7 +207,7 @@ export default function RiverDetailScreen() {
   );
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
-  const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
+  const siblingRouteCount = summarySiblingCount ?? groupQuery.data?.result.routes.length ?? 0;
   const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
@@ -262,9 +276,9 @@ export default function RiverDetailScreen() {
     );
   }
 
-  if (detailQuery.isLoading && !detail) {
+  if (detailQuery.isPending && !detail) {
     return (
-      <AppLoadingState title="Loading route" body="Getting the latest route score and history." />
+      <RouteDetailLoadingState river={summaryRoute?.river} bottomInset={bottomContentInset} />
     );
   }
 
@@ -592,7 +606,11 @@ export default function RiverDetailScreen() {
           <RefreshControl
             tintColor={colors.accent}
             refreshing={detailQuery.isRefetching || historyQuery.isRefetching || communityQuery.isRefetching}
-            onRefresh={() => Promise.all([detailQuery.refetch(), historyQuery.refetch(), communityQuery.refetch()])}
+            onRefresh={() => Promise.all([
+              detailQuery.refetch(),
+              ...(activeSection === 'More' ? [historyQuery.refetch()] : []),
+              ...(activeSection === 'Reports' ? [communityQuery.refetch()] : []),
+            ])}
           />
         }
       >
@@ -625,7 +643,7 @@ export default function RiverDetailScreen() {
               <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
                 <View style={styles.heroTitleCopy}>
                   <Text style={styles.kicker}>{detail.river.name}</Text>
-                  <Text style={styles.title}>{detail.river.reach}</Text>
+                  <Text testID="route-detail-title" style={styles.title}>{detail.river.reach}</Text>
                 </View>
                 <View style={styles.heroActions}>
                   {!isPlanningRoute ? (
@@ -795,6 +813,8 @@ export default function RiverDetailScreen() {
                 <Text style={styles.emptyText}>
                   {communityQuery.isError
                     ? 'Approved community notes could not be loaded right now.'
+                    : communityQuery.isLoading
+                      ? 'Loading photos and trip reports…'
                     : 'Photos and trip reports will show up here after approval.'}
                 </Text>
               )}
@@ -914,7 +934,11 @@ export default function RiverDetailScreen() {
             <SectionCard
               title="Score history"
               subtitle={
-                history?.latestSnapshotAt
+                historyQuery.isLoading
+                  ? 'Loading score history…'
+                  : historyQuery.isError
+                    ? 'Score history could not be loaded. Pull to refresh to try again.'
+                    : history?.latestSnapshotAt
                   ? `Last captured ${formatTimestamp(history.latestSnapshotAt)}`
                   : 'History will fill in as snapshots are captured.'
               }
@@ -1076,6 +1100,48 @@ export default function RiverDetailScreen() {
         onClose={() => setAlertSheetVisible(false)}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
       />
+    </SafeAreaView>
+  );
+}
+
+function RouteDetailLoadingState({ river, bottomInset }: {
+  river?: RiverSummaryApiItem['river'];
+  bottomInset: number;
+}) {
+  const router = useRouter();
+  const compactHeader = useWindowDimensions().width < 360;
+  const actionCount = river?.scoreEligibility === 'planning' ? 2 : 3;
+  return (
+    <SafeAreaView edges={['bottom']} style={styles.screenSafeArea}>
+      <Stack.Screen options={{ title: river?.name ?? 'River detail' }} />
+      <ScrollView style={styles.screen} contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomInset }]}>
+        {river ? (
+          <RoutePhotoCard river={river} height={108} showCaption={false}
+            onContributePhotos={() => router.push({ pathname: '/contribute-photo/[slug]', params: { slug: river.slug } })} />
+        ) : <View style={[styles.loadingPlaceholder, { height: 108 }]} />}
+        <View style={styles.hero} accessibilityState={{ busy: true }}>
+          <View style={styles.heroHeader}>
+            <View style={styles.heroScore}><ActivityIndicator color={colors.accent} /></View>
+            <View style={styles.heroCopy}>
+              <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
+                <View style={styles.heroTitleCopy}>
+                  <Text style={styles.kicker}>{river?.name ?? 'Route conditions'}</Text>
+                  <Text testID="route-detail-title" style={styles.title}>{river?.reach ?? 'Loading route'}</Text>
+                </View>
+                <View style={styles.heroActions} aria-hidden>
+                  {Array.from({ length: actionCount }, (_, index) => (
+                    <View key={index} style={[styles.heroIconButton, styles.loadingPlaceholder]} />
+                  ))}
+                </View>
+              </View>
+              <Text style={styles.emptyText} accessibilityLiveRegion="polite">Loading current conditions…</Text>
+            </View>
+          </View>
+          <View style={[styles.loadingPlaceholder, { height: 42 }]} />
+        </View>
+        <View style={[styles.loadingPlaceholder, { height: 110 }]} />
+        <View style={[styles.loadingPlaceholder, { height: 180 }]} />
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -2724,6 +2790,10 @@ function ageLabel(value: string) {
 }
 
 const styles = StyleSheet.create({
+  loadingPlaceholder: {
+    backgroundColor: colors.canvasMuted,
+    borderRadius: radius.lg,
+  },
   screenSafeArea: {
     flex: 1,
     backgroundColor: colors.canvas,

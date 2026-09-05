@@ -186,12 +186,16 @@ export async function getStoredRiverSummarySnapshot(
     return null;
   }
 
+  const rivers = snapshot.rivers
+    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
+    .map(normalizeSummarySnapshotItem)
+    .map((item) => metadata.snapshotStatus === 'stale' ? markSummarySnapshotItemStale(item) : item);
+
   return {
     ...snapshot,
     ...metadata,
-    rivers: snapshot.rivers
-      .map(normalizeSummarySnapshotItem)
-      .map((item) => metadata.snapshotStatus === 'stale' ? markSummarySnapshotItemStale(item) : item),
+    riverCount: rivers.length,
+    rivers,
   };
 }
 
@@ -216,6 +220,10 @@ export async function getStoredRiverDetailSnapshot(
   slug: string,
   options: StoredSnapshotReadOptions = {},
 ): Promise<StoredSnapshot<RiverDetailSnapshot> | null> {
+  if (!getRiverBySlug(slug)) {
+    return null;
+  }
+
   const snapshot =
     (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug))) ??
     (await readSummaryDetailFallback(slug));
@@ -244,12 +252,16 @@ export async function getStoredWeekendSummarySnapshot(
     return null;
   }
 
+  const rivers = snapshot.rivers
+    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
+    .map(normalizeWeekendSnapshotItem)
+    .map((item) => metadata.snapshotStatus === 'stale' ? markWeekendSnapshotItemStale(item) : item);
+
   return {
     ...snapshot,
     ...metadata,
-    rivers: snapshot.rivers
-      .map(normalizeWeekendSnapshotItem)
-      .map((item) => metadata.snapshotStatus === 'stale' ? markWeekendSnapshotItemStale(item) : item),
+    riverCount: rivers.length,
+    rivers,
   };
 }
 
@@ -269,6 +281,7 @@ export async function getStoredRiverGroupSnapshot(
     result: {
       ...snapshot.result,
       routes: snapshot.result.routes
+        .filter((result) => Boolean(getRiverBySlug(result.river.slug)))
         .map(normalizeDetailSnapshotResult)
         .map((result) => metadata.snapshotStatus === 'stale' ? markDetailSnapshotResultStale(result) : result),
     },
@@ -292,6 +305,7 @@ async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | nu
   }
 
   const rivers = summary.rivers
+    .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
     .map(normalizeSummarySnapshotItem)
     .map((item) => ({
       river: {
@@ -345,7 +359,7 @@ async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | nu
 async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnapshot | null> {
   const summary = await readStoredOrLocalSummary();
   const routes = summary?.rivers
-    .filter((item) => item.river.riverId === riverId)
+    .filter((item) => item.river.riverId === riverId && Boolean(getRiverBySlug(item.river.slug)))
     .map((item) => detailFromSummaryItem(item))
     .sort((left, right) => right.score - left.score);
 
@@ -584,6 +598,7 @@ function markSummarySnapshotItemStale(item: RiverSummaryApiItem): RiverSummaryAp
   const staleSummary = staleSnapshotMessage(item.generatedAt);
   return {
     ...item,
+    readiness: markReadinessStale(item.readiness),
     liveData: {
       ...item.liveData,
       overall: item.liveData.overall === 'offline' ? 'offline' : 'degraded',
@@ -600,6 +615,7 @@ function markWeekendSnapshotItemStale(item: WeekendSummaryApiItem): WeekendSumma
   const staleSummary = staleSnapshotMessage(item.generatedAt);
   return {
     ...item,
+    readiness: markReadinessStale(item.readiness),
     liveData: {
       ...item.liveData,
       overall: item.liveData.overall === 'offline' ? 'offline' : 'degraded',
@@ -616,6 +632,7 @@ function markDetailSnapshotResultStale(result: RiverDetailApiResult): RiverDetai
   const staleSummary = staleSnapshotMessage(result.generatedAt);
   return {
     ...result,
+    readiness: markReadinessStale(result.readiness),
     liveData: {
       ...result.liveData,
       overall: result.liveData.overall === 'offline' ? 'offline' : 'degraded',
@@ -631,6 +648,16 @@ function markDetailSnapshotResultStale(result: RiverDetailApiResult): RiverDetai
         detail: `${result.liveData.weather.detail} ${staleSummary}`,
       },
     },
+  };
+}
+
+function markReadinessStale<T extends { status: 'ready' | 'verify' | 'withheld' | 'skip'; label: string; reason: string }>(readiness: T): T {
+  if (readiness.status !== 'ready') return readiness;
+  return {
+    ...readiness,
+    status: 'withheld',
+    label: 'Not enough data',
+    reason: `${readiness.reason} This stored snapshot is stale, so Paddle Today is withholding a current call until the live sources refresh.`,
   };
 }
 

@@ -1,12 +1,14 @@
 import { randomUUID, createHmac, timingSafeEqual } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import {
   blobUrl,
   cleanBlobPath as cleanPathSegment,
   createJsonStorage,
+  mutateJson,
   parseContainerSas,
 } from './blob-storage';
+import type { JsonStorage } from './blob-storage';
 import {
   isArrayOf,
   isBoolean,
@@ -99,12 +101,10 @@ interface ApprovedCommunityStore {
   reports: ApprovedTripReport[];
 }
 
-type BinaryStorage = {
-  kind: 'blob' | 'local';
-  readJson<T>(blobName: string): Promise<T | null>;
-  writeJson(blobName: string, value: unknown): Promise<void>;
+type BinaryStorage = JsonStorage & {
   readBytes(blobName: string): Promise<{ buffer: Buffer; contentType: string | null } | null>;
   writeBytes(blobName: string, value: Buffer, contentType: string): Promise<void>;
+  deleteBlob(blobName: string): Promise<void>;
 };
 
 function isRouteContributionStoredFile(value: unknown): value is RouteContributionStoredFile {
@@ -228,7 +228,6 @@ export async function createRouteContributionSubmission(args: {
   meta: RouteContributionSubmission['meta'];
 }) {
   const storage = contributionsStorage();
-  const index = (await storage.readJson<RouteContributionIndex>(indexBlobName())) ?? { submissions: [] };
   const id = `contribution_${randomUUID()}`;
   const storedFiles: RouteContributionStoredFile[] = [];
 
@@ -264,8 +263,15 @@ export async function createRouteContributionSubmission(args: {
   };
 
   await storage.writeJson(submissionBlobName(id), submission);
-  index.submissions.unshift(submission);
-  await storage.writeJson(indexBlobName(), index);
+  await mutateJson({
+    storage,
+    blobName: indexBlobName(),
+    initial: { submissions: [] } as RouteContributionIndex,
+    mutate: (index) => {
+      index.submissions.unshift(submission);
+      return index;
+    },
+  });
 
   return { submission, storage: storage.kind };
 }
@@ -280,6 +286,52 @@ export async function listRouteContributionSubmissions(args: {
 
 export async function getRouteContributionSubmission(id: string) {
   return contributionsStorage().readJson<RouteContributionSubmission>(submissionBlobName(id));
+}
+
+/** Remove a submission, its source files, and any approved derivatives. */
+export async function deleteRouteContributionSubmission(id: string) {
+  if (!isSafeSubmissionId(id)) return false;
+
+  const storage = contributionsStorage();
+  const submission = await storage.readJson<RouteContributionSubmission>(submissionBlobName(id));
+  const index = await storage.readJson<RouteContributionIndex>(indexBlobName());
+  if (!submission && !index?.submissions.some((item) => item.id === id)) return false;
+
+  const sourceFiles = submission?.files ?? [];
+  await Promise.all([
+    storage.deleteBlob(submissionBlobName(id)),
+    ...sourceFiles.map((file) => storage.deleteBlob(file.blobName)),
+  ]);
+
+  if (submission?.status === 'approved') {
+    await Promise.all([
+      mutateJson({
+        storage,
+        blobName: approvedPhotosBlobName(submission.river.slug),
+        initial: [] as ApprovedCommunityPhoto[],
+        mutate: (photos) => photos.filter((item) => item.sourceSubmissionId !== id),
+      }),
+      mutateJson({
+        storage,
+        blobName: approvedReportsBlobName(submission.river.slug),
+        initial: [] as ApprovedTripReport[],
+        mutate: (reports) => reports.filter((item) => item.sourceSubmissionId !== id),
+      }),
+      ...sourceFiles.map((file) => storage.deleteBlob(approvedPhotoBlobName(submission.river.slug, id, file.fileName))),
+    ]);
+  }
+
+  await mutateJson({
+    storage,
+    blobName: indexBlobName(),
+    initial: { submissions: [] } as RouteContributionIndex,
+    mutate: (latestIndex) => {
+      latestIndex.submissions = latestIndex.submissions.filter((item) => item.id !== id);
+      return latestIndex;
+    },
+  });
+
+  return true;
 }
 
 export async function getApprovedCommunityForRoute(slug: string): Promise<ApprovedCommunityStore> {
@@ -324,20 +376,27 @@ export async function reviewRouteContributionSubmission(args: {
     await removeApprovedContributionAssets(storage, submission);
   }
 
-  await storage.writeJson(indexBlobName(), index);
+  await mutateJson({
+    storage,
+    blobName: indexBlobName(),
+    initial: { submissions: [] } as RouteContributionIndex,
+    mutate: (latestIndex) => {
+      const latestItem = latestIndex.submissions.find((item) => item.id === args.id);
+      if (latestItem) Object.assign(latestItem, submission);
+      return latestIndex;
+    },
+  });
   return submission;
 }
 
 async function approveContributionAssets(storage: BinaryStorage, submission: RouteContributionSubmission, approvedAt: string) {
   const community = await getApprovedCommunityForRoute(submission.river.slug);
-  const nextPhotos = [...community.photos];
-  const nextReports = [...community.reports];
   const approvedSubmissionPhotos: ApprovedCommunityPhoto[] = [];
 
   for (const file of submission.files) {
-    const alreadyApproved = nextPhotos.some((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
+    const alreadyApproved = community.photos.some((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
     if (alreadyApproved) {
-      const existing = nextPhotos.find((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
+      const existing = community.photos.find((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
       if (existing) {
         approvedSubmissionPhotos.push(existing);
       }
@@ -364,13 +423,12 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
       approvedAt,
       sourceSubmissionId: submission.id,
     };
-    nextPhotos.push(approvedPhoto);
     approvedSubmissionPhotos.push(approvedPhoto);
   }
 
   const reportText = submission.trip.report.trim();
-  if (reportText.length >= 12 && !nextReports.some((item) => item.sourceSubmissionId === submission.id)) {
-    nextReports.push({
+  const approvedReport: ApprovedTripReport | null = reportText.length >= 12 && !community.reports.some((item) => item.sourceSubmissionId === submission.id)
+    ? {
       id: `${submission.id}-report`,
       approvedAt,
       sourceSubmissionId: submission.id,
@@ -380,23 +438,44 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
       report: reportText,
       notes: submission.notes,
       photos: approvedSubmissionPhotos,
+    }
+    : null;
+
+  await mutateJson({
+    storage,
+    blobName: approvedPhotosBlobName(submission.river.slug),
+    initial: [] as ApprovedCommunityPhoto[],
+    mutate: (photos) => {
+      const existingIds = new Set(photos.map((photo) => photo.id));
+      return [...photos, ...approvedSubmissionPhotos.filter((photo) => !existingIds.has(photo.id))];
+    },
+  });
+  if (approvedReport) {
+    await mutateJson({
+      storage,
+      blobName: approvedReportsBlobName(submission.river.slug),
+      initial: [] as ApprovedTripReport[],
+      mutate: (reports) => reports.some((report) => report.sourceSubmissionId === submission.id)
+        ? reports
+        : [...reports, approvedReport],
     });
   }
-
-  await Promise.all([
-    storage.writeJson(approvedPhotosBlobName(submission.river.slug), nextPhotos),
-    storage.writeJson(approvedReportsBlobName(submission.river.slug), nextReports),
-  ]);
 }
 
 async function removeApprovedContributionAssets(storage: BinaryStorage, submission: RouteContributionSubmission) {
-  const community = await getApprovedCommunityForRoute(submission.river.slug);
-  const nextPhotos = community.photos.filter((item) => item.sourceSubmissionId !== submission.id);
-  const nextReports = community.reports.filter((item) => item.sourceSubmissionId !== submission.id);
-
   await Promise.all([
-    storage.writeJson(approvedPhotosBlobName(submission.river.slug), nextPhotos),
-    storage.writeJson(approvedReportsBlobName(submission.river.slug), nextReports),
+    mutateJson({
+      storage,
+      blobName: approvedPhotosBlobName(submission.river.slug),
+      initial: [] as ApprovedCommunityPhoto[],
+      mutate: (photos) => photos.filter((item) => item.sourceSubmissionId !== submission.id),
+    }),
+    mutateJson({
+      storage,
+      blobName: approvedReportsBlobName(submission.river.slug),
+      initial: [] as ApprovedTripReport[],
+      mutate: (reports) => reports.filter((item) => item.sourceSubmissionId !== submission.id),
+    }),
   ]);
 }
 
@@ -435,11 +514,13 @@ export function createAdminSessionCookie() {
   const payload = `admin.${exp}`;
   const signature = createHmac('sha256', secret).update(payload).digest('base64url');
   const token = `${payload}.${signature}`;
-  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${ADMIN_SESSION_TTL_SECONDS}`;
+  const secure = process.env.NODE_ENV === 'production' || process.env.PADDLETODAY_COOKIE_SECURE === 'true';
+  return `${ADMIN_SESSION_COOKIE}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${ADMIN_SESSION_TTL_SECONDS}${secure ? '; Secure' : ''}`;
 }
 
 export function clearAdminSessionCookie() {
-  return `${ADMIN_SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`;
+  const secure = process.env.NODE_ENV === 'production' || process.env.PADDLETODAY_COOKIE_SECURE === 'true';
+  return `${ADMIN_SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure ? '; Secure' : ''}`;
 }
 
 export function isAdminRequestAuthorized(cookieHeader: string | undefined) {
@@ -516,7 +597,8 @@ function contributionsStorage(): BinaryStorage {
   if (container) {
     return {
       kind: 'blob',
-      readJson: jsonStorage.readJson,
+      readJson: (blobName) => jsonStorage.readJson(blobName),
+      readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
       writeJson: jsonStorage.writeJson,
       async readBytes(blobName: string) {
         const response = await fetch(blobUrl(container, blobName), { method: 'GET' });
@@ -539,12 +621,19 @@ function contributionsStorage(): BinaryStorage {
         });
         if (!response.ok) throw new Error(`Failed to write contribution file ${blobName}: HTTP ${response.status}`);
       },
+      async deleteBlob(blobName: string) {
+        const response = await fetch(blobUrl(container, blobName), { method: 'DELETE' });
+        if (response.status !== 404 && !response.ok) {
+          throw new Error(`Failed to delete contribution blob ${blobName}: HTTP ${response.status}`);
+        }
+      },
     };
   }
 
   return {
     kind: 'local',
-    readJson: jsonStorage.readJson,
+    readJson: (blobName) => jsonStorage.readJson(blobName),
+    readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
     writeJson: jsonStorage.writeJson,
     async readBytes(blobName: string) {
       const filePath = localPathFor(blobName);
@@ -563,6 +652,9 @@ function contributionsStorage(): BinaryStorage {
       await mkdir(dirname(filePath), { recursive: true });
       await writeFile(filePath, value);
     },
+    async deleteBlob(blobName: string) {
+      await rm(localPathFor(blobName), { force: true });
+    },
   };
 }
 
@@ -573,6 +665,10 @@ function localPathFor(blobName: string) {
 function sanitizeFileSegment(value: string, fallback: string) {
   const cleaned = value.trim().replace(/[^a-zA-Z0-9._-]+/g, '-').replace(/-+/g, '-').replace(/^[-.]+|[-.]+$/g, '');
   return cleaned || fallback;
+}
+
+function isSafeSubmissionId(value: string) {
+  return /^contribution_[a-zA-Z0-9-]+$/.test(value);
 }
 
 function contentTypeFromName(value: string) {

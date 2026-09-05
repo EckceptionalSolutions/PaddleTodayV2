@@ -52,8 +52,17 @@ Optional runtime overrides:
 - `RATE_LIMIT_FEEDBACK_WINDOW_MS` / `RATE_LIMIT_FEEDBACK_MAX`
 - `RATE_LIMIT_ROUTE_CONTRIBUTIONS_WINDOW_MS` / `RATE_LIMIT_ROUTE_CONTRIBUTIONS_MAX`
 - `RATE_LIMIT_ROUTE_REQUESTS_WINDOW_MS` / `RATE_LIMIT_ROUTE_REQUESTS_MAX`
+- `RATE_LIMIT_ADMIN_LOGIN_WINDOW_MS` / `RATE_LIMIT_ADMIN_LOGIN_MAX`
+
+When the API is behind a reverse proxy, set `TRUSTED_PROXY_IPS` to a comma-separated list of the proxy socket addresses before enabling forwarded-client attribution. Forwarded headers from unlisted clients are ignored and the limiter uses the direct socket address. Configure a shared edge limit for multi-instance deployments.
 
 The application limiter is a bounded, process-local abuse backstop. Multi-instance deployments must also configure and validate an edge limit at App Gateway, Front Door, Cloudflare, or an equivalent shared ingress layer.
+
+The API deployment package and snapshot worker use committed lockfiles and `npm ci`; the API startup command assumes dependencies were installed during deployment. Run `npm run snapshots:capacity` against a captured summary before release to record payload headroom against the 4 MiB summary budget.
+
+Contribution uploads are decoded, resized, re-encoded as JPEG, and metadata-stripped before they can become public derivatives. Apply the retention windows and deletion procedure in [`contribution-retention-policy.md`](contribution-retention-policy.md) before enabling long-term production retention.
+
+An authenticated administrator can remove a contribution with `DELETE /api/admin/route-contributions/{submissionId}`; the handler removes the submission index entry, source files, and any approved community derivatives.
 
 Exercise the complete HTTP contract against a local or staging API:
 
@@ -77,7 +86,7 @@ Run the complete smoke suite against any deployed origin:
 DEPLOYMENT_BASE_URL=https://paddletoday.com npm run deployment:smoke
 ```
 
-The suite checks readiness, health/cache/upstream telemetry, the static homepage, summary and weekend boards, a real route detail, GPX and calendar attachments, JSON request IDs, and the response-header/body request-ID match. It defaults to `/api/health` and `/api/health/ready`, which work through both the linked frontend origin and the App Service origin. `DEPLOYMENT_HEALTH_PATH` and `DEPLOYMENT_READINESS_PATH` can override those paths for a nonstandard ingress. The API deployment workflow runs the same suite after deployment when the `AZURE_WEBAPP_URL` repository secret is configured, with bounded retries for App Service startup.
+The suite checks readiness, health/cache/upstream telemetry, the static homepage, summary and weekend boards, a real route detail, GPX and calendar attachments, JSON request IDs, security headers, and the response-header/body request-ID match. It defaults to `/api/health` and `/api/health/ready`, which work through both the linked frontend origin and the App Service origin. `DEPLOYMENT_HEALTH_PATH` and `DEPLOYMENT_READINESS_PATH` can override those paths for a nonstandard ingress. The API deployment workflow runs the same suite after deployment when the `AZURE_WEBAPP_URL` repository secret is configured, with bounded retries for App Service startup.
 
 ## Pre-release checklist
 
@@ -92,6 +101,7 @@ The suite checks readiness, health/cache/upstream telemetry, the static homepage
 - The built frontend includes the deferred Umami script with website ID `ce97ebc3-44ba-4c12-898e-666c904bc6b6`.
 - Logs and `/api/health` show normal request flow without repeated upstream failures.
 - `npm run rate-limit:smoke` passes against staging, and any shared edge limiter has a separately recorded 429 test.
+- The public ingress restricts direct App Service access as intended, terminates TLS, sends HSTS, and uses least-privilege SAS/IAM scopes; follow [`deployment-platform-verification.md`](deployment-platform-verification.md) and record the platform-side evidence with the deployment run.
 
 ## Current constraints
 

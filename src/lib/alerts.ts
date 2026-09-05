@@ -3,6 +3,7 @@ import { normalizeEmailAddress } from '@paddletoday/api-contract';
 import {
   cleanBlobPath as cleanPathSegment,
   createJsonStorage,
+  mutateJson,
   type JsonStorage,
 } from './blob-storage';
 import { isArrayOf, isBoolean, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
@@ -149,7 +150,8 @@ export async function createRiverThresholdAlert(args: {
   const expoPushToken = normalizeExpoPushToken(args.expoPushToken);
   const now = args.now ?? new Date().toISOString();
   const storage = alertsStorage();
-  const store = (await storage.readJson<AlertsStore>(alertsBlobName())) ?? { alerts: [] };
+  let outcome!: { alert: RiverThresholdAlert; duplicate: boolean; reactivated: boolean };
+  await mutateJson({ storage, blobName: alertsBlobName(), initial: { alerts: [] } as AlertsStore, mutate: (store) => {
   const existing = store.alerts.find(
     (alert) =>
       alert.type === 'river_threshold' &&
@@ -160,11 +162,12 @@ export async function createRiverThresholdAlert(args: {
   );
 
   if (existing?.isActive) {
-    return {
+    outcome = {
       alert: existing,
       duplicate: true,
       reactivated: false,
     };
+    return store;
   }
 
   if (existing) {
@@ -178,12 +181,12 @@ export async function createRiverThresholdAlert(args: {
     existing.email = email || existing.email;
     existing.expoPushToken = expoPushToken || existing.expoPushToken || null;
     existing.deliveryMethod = deliveryMethod;
-    await storage.writeJson(alertsBlobName(), store);
-    return {
+    outcome = {
       alert: existing,
       duplicate: false,
       reactivated: true,
     };
+    return store;
   }
 
   const alert: RiverThresholdAlert = {
@@ -207,13 +210,14 @@ export async function createRiverThresholdAlert(args: {
   };
 
   store.alerts.push(alert);
-  await storage.writeJson(alertsBlobName(), store);
-
-  return {
+  outcome = {
     alert,
     duplicate: false,
     reactivated: false,
   };
+  return store;
+  }});
+  return outcome;
 }
 
 export async function updateRiverAlert(
@@ -221,11 +225,10 @@ export async function updateRiverAlert(
   patch: Partial<Pick<RiverThresholdAlert, 'isActive' | 'lastState' | 'belowSince' | 'lastTriggeredAt' | 'lastEvaluatedAt' | 'updatedAt'>>
 ): Promise<RiverThresholdAlert | null> {
   const storage = alertsStorage();
-  const store = (await storage.readJson<AlertsStore>(alertsBlobName())) ?? { alerts: [] };
+  let result: RiverThresholdAlert | null = null;
+  await mutateJson({ storage, blobName: alertsBlobName(), initial: { alerts: [] } as AlertsStore, mutate: (store) => {
   const alert = store.alerts.find((candidate) => candidate.id === id);
-  if (!alert) {
-    return null;
-  }
+  if (!alert) return store;
 
   if (typeof patch.isActive === 'boolean') {
     alert.isActive = patch.isActive;
@@ -246,8 +249,10 @@ export async function updateRiverAlert(
     alert.updatedAt = patch.updatedAt;
   }
 
-  await storage.writeJson(alertsBlobName(), store);
-  return alert;
+  result = alert;
+  return store;
+  }});
+  return result;
 }
 
 export async function appendRiverAlertEvent(args: {
@@ -267,7 +272,6 @@ export async function appendRiverAlertEvent(args: {
 }): Promise<RiverAlertEvent> {
   const sentAt = args.sentAt ?? new Date().toISOString();
   const storage = alertsStorage();
-  const store = (await storage.readJson<AlertEventsStore>(eventsBlobName())) ?? { events: [] };
   const event: RiverAlertEvent = {
     id: `event_${randomUUID()}`,
     alertId: args.alertId,
@@ -286,8 +290,10 @@ export async function appendRiverAlertEvent(args: {
     deliveryUpdatedAt: args.deliveryStatus ? sentAt : undefined,
     deliveryError: null,
   };
-  store.events.push(event);
-  await storage.writeJson(eventsBlobName(), store);
+  await mutateJson({ storage, blobName: eventsBlobName(), initial: { events: [] } as AlertEventsStore, mutate: (store) => {
+    store.events.push(event);
+    return store;
+  }});
   return event;
 }
 
@@ -296,16 +302,20 @@ export async function listRiverAlertEvents(): Promise<RiverAlertEvent[]> {
   return [...store.events].sort((left, right) => left.sentAt.localeCompare(right.sentAt));
 }
 
+export async function findRiverAlertEventByDeliveryKey(deliveryKey: string): Promise<RiverAlertEvent | null> {
+  const store = (await alertsStorage().readJson<AlertEventsStore>(eventsBlobName())) ?? { events: [] };
+  return store.events.find((event) => event.deliveryKey === deliveryKey) ?? null;
+}
+
 export async function updateRiverAlertEvent(
   id: string,
   patch: Partial<Pick<RiverAlertEvent, 'deliveryStatus' | 'deliveryUpdatedAt' | 'deliveryError'>>
 ): Promise<RiverAlertEvent | null> {
   const storage = alertsStorage();
-  const store = (await storage.readJson<AlertEventsStore>(eventsBlobName())) ?? { events: [] };
+  let result: RiverAlertEvent | null = null;
+  await mutateJson({ storage, blobName: eventsBlobName(), initial: { events: [] } as AlertEventsStore, mutate: (store) => {
   const event = store.events.find((candidate) => candidate.id === id);
-  if (!event) {
-    return null;
-  }
+  if (!event) return store;
 
   if (patch.deliveryStatus) {
     event.deliveryStatus = patch.deliveryStatus;
@@ -317,8 +327,10 @@ export async function updateRiverAlertEvent(
     event.deliveryError = patch.deliveryError;
   }
 
-  await storage.writeJson(eventsBlobName(), store);
-  return event;
+  result = event;
+  return store;
+  }});
+  return result;
 }
 
 function alertsBlobName() {

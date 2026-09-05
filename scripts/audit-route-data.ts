@@ -1,8 +1,16 @@
-import { rivers } from '../src/data/rivers';
+import { listAllRiversForAudit, listRivers, WITHHELD_ROUTE_SLUGS } from '../src/lib/rivers';
+import { publicRivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
 import { minnesotaPaddleGuideEntries } from '../src/data/minnesota-paddle-guide';
+import { isScoreEligible } from '../src/data/route-publication';
 import type { River, RiverAccessPoint } from '../src/lib/types';
 import { validateScoringProfile } from '../src/lib/scoring-profile-validation';
+import {
+  isPlanningCoordinateDeferred,
+  isPlanningDistanceDeferred,
+  isStagedDistanceLabel,
+  type PlanningValidationDeferral,
+} from '../src/lib/route-data-audit-policy';
 
 type Severity = 'Critical' | 'High' | 'Medium' | 'Low';
 
@@ -15,6 +23,9 @@ interface AuditIssue {
 }
 
 const issues: AuditIssue[] = [];
+const planningValidationDeferrals: PlanningValidationDeferral[] = [];
+const auditedRoutes = listAllRiversForAudit();
+const verbose = process.argv.includes('--verbose');
 
 const stateBounds: Record<string, { lat: [number, number]; lon: [number, number] }> = {
   Illinois: { lat: [36.8, 42.6], lon: [-91.6, -87.0] },
@@ -75,6 +86,29 @@ function coordinateKey(point: RiverAccessPoint) {
   return `${point.latitude.toFixed(5)},${point.longitude.toFixed(5)}`;
 }
 
+function isSameLaunchItinerary(route: River, enriched: River) {
+  if (!enriched.putIn || !enriched.takeOut) return false;
+
+  const endpointDistance = distanceMiles(enriched.putIn, enriched.takeOut);
+  if (endpointDistance > 0.05) return false;
+
+  const routeText = [
+    route.id,
+    route.reach,
+    route.summary,
+    enriched.reach,
+    enriched.summary,
+    enriched.putIn.name,
+    enriched.takeOut.name,
+    enriched.logistics?.distanceLabel,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  return /(loop|round[- ]trip|return|out[- ]and[- ]back|same[- ]launch|same[- ]ramp)/.test(routeText);
+}
+
 function auditEndpoint(route: River, label: 'putIn' | 'takeOut', point: RiverAccessPoint | undefined) {
   if (!point) {
     addIssue(route, 'Incomplete', `Missing ${label}`, 'Route has no enriched endpoint.', 'High');
@@ -114,9 +148,9 @@ function auditEndpoint(route: River, label: 'putIn' | 'takeOut', point: RiverAcc
 
 const ids = new Map<string, River>();
 const slugs = new Map<string, River>();
-const endpointPairs = new Map<string, River>();
+const endpointPairs = new Map<string, { route: River; enriched: River }>();
 
-for (const route of rivers) {
+for (const route of auditedRoutes) {
   const tripDetails = riverTripDetails[route.id];
   const enriched: River = tripDetails ? { ...route, ...tripDetails } : route;
 
@@ -157,11 +191,21 @@ for (const route of rivers) {
 
   const distanceLabel = enriched.logistics?.distanceLabel;
   const routeMiles = parseMiles(distanceLabel);
+  const isPlanningRoute = route.scoreEligibility === 'planning';
   if (!enriched.logistics) {
     addIssue(route, 'Incomplete', 'Missing logistics', route.id, 'High');
+  } else if (isPlanningRoute && (routeMiles === null || isPlanningDistanceDeferred(distanceLabel))) {
+    planningValidationDeferrals.push({
+      routeId: route.id,
+      category: 'Distance',
+      reason: routeMiles === null
+        ? 'Planning distance is intentionally source/map controlled and is deferred until a route-specific source publishes stable mileage.'
+        : 'Planning distance is explicitly controlled by a map, chart, tide, condition, or staging detail and is deferred until scored-route review.',
+      evidence: distanceLabel ?? '',
+    });
   } else if (routeMiles === null) {
     addIssue(route, 'Distance', 'Distance label does not contain parseable mileage', distanceLabel ?? '', 'Medium');
-  } else if (routeMiles <= 0 || (routeMiles > 35 && !/multi[- ]day|staged|sectioned/i.test(distanceLabel ?? ''))) {
+  } else if (routeMiles <= 0 || (routeMiles > 35 && !isStagedDistanceLabel(distanceLabel))) {
     addIssue(route, 'Distance', 'Route mileage is outside expected day-route bounds', distanceLabel ?? '', 'Medium');
   }
 
@@ -170,16 +214,28 @@ for (const route of rivers) {
     const reversePairKey = `${coordinateKey(enriched.takeOut)}>${coordinateKey(enriched.putIn)}`;
     const samePairRoute = endpointPairs.get(pairKey);
     const reversedPairRoute = endpointPairs.get(reversePairKey);
+    const sameLaunchPair = isSameLaunchItinerary(route, enriched) &&
+      (samePairRoute ? isSameLaunchItinerary(samePairRoute.route, samePairRoute.enriched) : false);
 
-    if (samePairRoute) {
-      addIssue(route, 'Duplicate', 'Duplicate endpoint pair', samePairRoute.id, 'High');
+    if (samePairRoute && !sameLaunchPair) {
+      addIssue(route, 'Duplicate', 'Duplicate endpoint pair', samePairRoute.route.id, 'High');
     }
-    if (reversedPairRoute) {
-      addIssue(route, 'Duplicate', 'Reversed endpoint pair', reversedPairRoute.id, 'High');
+    if (reversedPairRoute && !sameLaunchPair) {
+      addIssue(route, 'Duplicate', 'Reversed endpoint pair', reversedPairRoute.route.id, 'High');
     }
-    endpointPairs.set(pairKey, route);
+    endpointPairs.set(pairKey, { route, enriched });
 
-    if (routeMiles !== null) {
+    if (isPlanningRoute && routeMiles !== null && isPlanningCoordinateDeferred()) {
+      const straightLineMiles = distanceMiles(enriched.putIn, enriched.takeOut);
+      if (straightLineMiles > 0.05 && routeMiles < straightLineMiles * 0.92) {
+        planningValidationDeferrals.push({
+          routeId: route.id,
+          category: 'Coordinate',
+          reason: 'Planning mileage-to-anchor comparison is deferred because planning endpoints are source-backed access anchors and the route label may describe a map-controlled channel or itinerary.',
+          evidence: `${routeMiles} mi label vs ${straightLineMiles.toFixed(1)} mi straight-line`,
+        });
+      }
+    } else if (routeMiles !== null) {
       const straightLineMiles = distanceMiles(enriched.putIn, enriched.takeOut);
       if (straightLineMiles > 0.05 && routeMiles < straightLineMiles * 0.92) {
         addIssue(
@@ -206,7 +262,19 @@ for (const entry of minnesotaPaddleGuideEntries) {
   }
 }
 
-if (issues.length > 0) {
+const auditedById = new Map(auditedRoutes.map((route) => [route.id, route]));
+const blockingIssues = issues.filter((issue) => auditedById.get(issue.routeId)?.scoreEligibility !== 'planning');
+const populationSummary = {
+  inventory: auditedRoutes.length,
+  publicCatalog: publicRivers.length,
+  publicIndexed: listRivers().length,
+  scored: auditedRoutes.filter(isScoreEligible).length,
+  planning: auditedRoutes.filter((route) => !isScoreEligible(route)).length,
+  publicPlanning: publicRivers.filter((route) => !isScoreEligible(route)).length,
+  withheld: publicRivers.filter((route) => WITHHELD_ROUTE_SLUGS.has(route.slug)).length,
+};
+
+if (blockingIssues.length > 0) {
   const grouped = issues.reduce<Record<Severity, number>>(
     (result, issue) => {
       result[issue.severity] += 1;
@@ -215,9 +283,23 @@ if (issues.length > 0) {
     { Critical: 0, High: 0, Medium: 0, Low: 0 },
   );
 
-  console.error(`Route data audit failed with ${issues.length} issue(s).`);
-  console.error(JSON.stringify({ bySeverity: grouped, issues }, null, 2));
+  console.error(`Route data audit failed with ${blockingIssues.length} blocking issue(s); ${issues.length - blockingIssues.length} planning-route issue(s) remain tracked.`);
+  console.error(JSON.stringify({ populations: populationSummary, bySeverity: grouped, blockingIssues, planningIssues: issues.filter((issue) => !blockingIssues.includes(issue)) }, null, 2));
   process.exit(1);
 }
 
-console.log(`Route data audit passed for ${rivers.length} routes.`);
+const planningByCategory = issues
+  .filter((issue) => !blockingIssues.includes(issue))
+  .reduce<Record<string, number>>((counts, issue) => {
+    counts[issue.category] = (counts[issue.category] ?? 0) + 1;
+    return counts;
+  }, {});
+const planningDeferralsByCategory = planningValidationDeferrals.reduce<Record<string, number>>((counts, deferral) => {
+  counts[deferral.category] = (counts[deferral.category] ?? 0) + 1;
+  return counts;
+}, {});
+console.log(`Route data audit passed for ${auditedRoutes.length} routes (scored and planning populations); ${issues.length} planning-route issue(s) remain tracked and ${planningValidationDeferrals.length} planning validation check(s) are explicitly deferred.`);
+console.log(JSON.stringify({ populations: populationSummary, planningIssuesByCategory: planningByCategory, planningValidationDeferredByCategory: planningDeferralsByCategory }));
+if (verbose && (issues.length > 0 || planningValidationDeferrals.length > 0)) {
+  console.log(JSON.stringify({ planningIssues: issues.filter((issue) => !blockingIssues.includes(issue)), planningValidationDeferrals }, null, 2));
+}

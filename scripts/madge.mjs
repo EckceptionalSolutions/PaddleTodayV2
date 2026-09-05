@@ -1,39 +1,57 @@
-import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { createRequire } from 'node:module';
 
-const npxCommand = process.platform === "win32" ? "npx.cmd" : "npx";
-const localBinary = process.platform === "win32" ? "node_modules/.bin/madge.cmd" : "node_modules/.bin/madge";
+const require = createRequire(import.meta.url);
+const madge = require('madge');
+
 const roots = [
-  "src",
-  "scripts",
-  "apps/mobile/app",
-  "apps/mobile/src",
-  "packages/api-client/src",
-  "packages/api-contract/src",
+  'src',
+  'scripts',
+  'apps/mobile/app',
+  'apps/mobile/src',
+  'packages/api-client/src',
+  'packages/api-contract/src',
+  'packages/design-tokens/src',
+  'packages/geo/src',
+  'packages/trip-pack/src',
 ];
-const args = [
-  "--yes",
-  "madge",
-  "--circular",
-  "--extensions",
-  "ts,tsx,js,mjs",
-  "--ts-config",
-  "tsconfig.json",
-  "--no-color",
-  "--no-spinner",
-  "--warning",
-];
+
+const config = {
+  fileExtensions: ['ts', 'tsx', 'js', 'mjs'],
+  tsConfig: 'tsconfig.json',
+  // Type-only barrel imports do not create runtime cycles. Ignoring them keeps
+  // the graph focused on cycles that can affect module initialization.
+  detectiveOptions: {
+    ts: { skipTypeImports: true },
+    tsx: { skipTypeImports: true },
+  },
+};
+
+let failed = false;
 
 for (const root of roots) {
   console.log(`\n[madge] ${root}`);
 
-  const command = existsSync(localBinary) ? localBinary : npxCommand;
-  const commandArgs = existsSync(localBinary) ? ["--circular", "--extensions", "ts,tsx,js,mjs", "--ts-config", "tsconfig.json", "--no-color", "--no-spinner", "--warning", root] : [...args, root];
-  const result = process.platform === "win32"
-    ? spawnSync("cmd.exe", ["/c", command, ...commandArgs], { stdio: "inherit" })
-    : spawnSync(command, commandArgs, { stdio: "inherit" });
+  try {
+    const graph = await madge(root, config);
+    const cycles = graph.circular();
+    const skipped = graph.warnings().skipped;
 
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
+    if (cycles.length > 0) {
+      failed = true;
+      console.error(`Found ${cycles.length} circular dependencies!`);
+      cycles.forEach((cycle, index) => console.error(`${index + 1}) ${cycle.join(' > ')}`));
+    } else {
+      console.log('No circular dependency found!');
+    }
+
+    if (skipped.length > 0) {
+      console.warn(`Skipped ${skipped.length} unresolved dependencies:`);
+      skipped.forEach((file) => console.warn(file));
+    }
+  } catch (error) {
+    failed = true;
+    console.error(error instanceof Error ? error.message : error);
   }
 }
+
+process.exitCode = failed ? 1 : 0;

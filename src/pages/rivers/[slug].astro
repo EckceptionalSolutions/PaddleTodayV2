@@ -381,7 +381,7 @@ const routeFaqStructuredData = {
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>
-              <strong>{logistics?.distanceLabel ?? 'Check source'}</strong>
+              <strong data-overview-distance>{logistics?.distanceLabel ?? 'Check source'}</strong>
             </div>
             <div>
               <span>Difficulty</span>
@@ -389,7 +389,7 @@ const routeFaqStructuredData = {
             </div>
             <div>
               <span>Typical time</span>
-              <strong title={logistics?.estimatedPaddleTime}>{typicalTimeHeadline}</strong>
+              <strong data-overview-time title={logistics?.estimatedPaddleTime}>{typicalTimeHeadline}</strong>
             </div>
             <div>
               <span>Shuttle</span>

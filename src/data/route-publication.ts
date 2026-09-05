@@ -17,11 +17,32 @@ export function hasQualifyingGauge(route: River): boolean {
   return !unavailableGaugeKeys.has(`${route.gaugeSource.provider}:${route.gaugeSource.siteId}`);
 }
 
+/**
+ * Resolve the route's effective scoring policy after data enrichment.
+ * Explicit planning routes stay planning even when their gauge source is
+ * technically direct; inferred planning applies to routes without a usable
+ * direct gauge.
+ */
+export function isScoreEligible(route: River): boolean {
+  return route.scoreEligibility !== 'planning' && hasQualifyingGauge(route);
+}
+
+export function isPublicRoute(route: River): boolean {
+  return isScoreEligible(route) || isPublicPlanningRoute(route);
+}
+
 export function isPublicPlanningRoute(route: River): boolean {
-  return route.gaugeSource.kind === 'proxy'
-    && route.safetyProfile?.reviewStatus === 'reviewed'
-    && (route.routeType !== 'whitewater'
-      || (route.safetyProfile.riskLevel === 'advanced'
-        && route.profile.thresholdModel === 'minimum-only'
-        && route.scoreEligibility === 'planning'));
+  const isExplicitPlanning = route.scoreEligibility === 'planning';
+  const isProxyRoute = route.gaugeSource.kind === 'proxy';
+  if ((!isExplicitPlanning && !isProxyRoute) || route.safetyProfile?.reviewStatus !== 'reviewed') {
+    return false;
+  }
+
+  // Proxy whitewater routes need an explicit planning decision after the
+  // route has been reviewed; inferred proxy eligibility must not publish an
+  // expert-only route accidentally. Explicitly authored planning routes are
+  // intentionally discoverable even when their conditions are not scoreable.
+  if (route.routeType === 'whitewater' && isProxyRoute && !isExplicitPlanning) return false;
+
+  return true;
 }

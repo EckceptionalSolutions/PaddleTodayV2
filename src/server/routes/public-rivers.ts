@@ -139,6 +139,10 @@ export async function handleRiverDetail(
   snapshotOnly = false,
 ) {
   const publicRiver = getRiverBySlug(slug);
+  if (!publicRiver) {
+    return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
+  }
+
   if (publicRiver?.scoreEligibility === 'planning') {
     const weather = await withTimeout(getRiverWeather(slug), LIVE_SCORE_TIMEOUT_MS, `planning route weather for ${slug}`).catch(() => null);
     return sendJson(response, 200, {

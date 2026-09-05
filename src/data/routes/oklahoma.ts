@@ -542,6 +542,7 @@ export const oklahomaRoutes: River[] = [
     },
   {
     "id": "flint-creek-us412-chewey",
+    "riverId": "flint-creek-oklahoma",
     "slug": "flint-creek-us412-chewey",
     "name": "Flint Creek",
     "reach": "US-412 bridge to Chewey Bridge on the Illinois River",

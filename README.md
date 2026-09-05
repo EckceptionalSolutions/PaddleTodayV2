@@ -144,6 +144,7 @@ Request intake env vars:
 - `ROUTE_CONTRIBUTIONS_BLOB_PREFIX`
 - `PADDLETODAY_ADMIN_PASSWORD`
 - `PADDLETODAY_ADMIN_SESSION_SECRET`
+- `TRUSTED_PROXY_IPS` (optional; comma-separated proxy addresses allowed to supply `X-Forwarded-For`)
 - `ACS_EMAIL_CONNECTION_STRING`
 - `ROUTE_REPLIES_FROM_EMAIL`
 - `ROUTE_REPLIES_REPLY_TO_EMAIL` (optional)

@@ -3,6 +3,7 @@ import {
   createJsonStorage,
   type JsonStorage,
 } from './blob-storage';
+import { mapWithConcurrency } from './async-concurrency';
 import { isArrayOf, isNullableNumber, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 import type { RiverScoreResult, ScoreRating } from './types';
 
@@ -106,21 +107,20 @@ export async function captureHistorySnapshotForResults(args: {
   const storage = historyStorage();
   const date = localDateKey(now);
   const hour = localHourKey(now);
+  const writeConcurrency = positiveInteger(process.env.RIVER_HISTORY_WRITE_CONCURRENCY, 8);
 
-  await Promise.all(
-    args.results.map(async (result) => {
-      const snapshot = buildSnapshot(result, now);
-      const hourlyPath = hourlyBlobName(result.river.slug, date);
-      const dailyPath = dailyBlobName(result.river.slug);
-      const existingHourly = (await storage.readJson<RiverHistorySnapshot[]>(hourlyPath)) ?? [];
-      const nextHourly = upsertSnapshot(existingHourly, snapshot);
-      await storage.writeJson(hourlyPath, nextHourly);
+  await mapWithConcurrency(args.results, writeConcurrency, async (result) => {
+    const snapshot = buildSnapshot(result, now);
+    const hourlyPath = hourlyBlobName(result.river.slug, date);
+    const dailyPath = dailyBlobName(result.river.slug);
+    const existingHourly = (await storage.readJson<RiverHistorySnapshot[]>(hourlyPath)) ?? [];
+    const nextHourly = upsertSnapshot(existingHourly, snapshot);
+    await storage.writeJson(hourlyPath, nextHourly);
 
-      const existingDaily = (await storage.readJson<RiverHistoryDaySummary[]>(dailyPath)) ?? [];
-      const nextDaily = upsertDailySummary(existingDaily, summarizeSnapshots(nextHourly, date));
-      await storage.writeJson(dailyPath, nextDaily);
-    })
-  );
+    const existingDaily = (await storage.readJson<RiverHistoryDaySummary[]>(dailyPath)) ?? [];
+    const nextDaily = upsertDailySummary(existingDaily, summarizeSnapshots(nextHourly, date));
+    await storage.writeJson(dailyPath, nextDaily);
+  });
 
   return {
     routeCount: args.results.length,
@@ -263,4 +263,9 @@ function zonedParts(date: Date) {
     day: map.day,
     hour: map.hour,
   };
+}
+
+function positiveInteger(value: string | undefined, fallback: number) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
 }

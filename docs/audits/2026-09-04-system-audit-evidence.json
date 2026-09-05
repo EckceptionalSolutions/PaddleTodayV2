@@ -1,0 +1,1655 @@
+{
+  "catalog": {
+    "inventory": 1902,
+    "scoringInput": 1288,
+    "public": 1822,
+    "states": {
+      "Georgia": 51,
+      "Colorado": 39,
+      "Texas": 86,
+      "Iowa": 133,
+      "Minnesota": 236,
+      "Kentucky": 136,
+      "Wisconsin": 163,
+      "Illinois": 11,
+      "Ohio": 10,
+      "Kansas": 11,
+      "Maryland": 140,
+      "Missouri": 76,
+      "South Dakota": 13,
+      "Michigan": 26,
+      "Utah": 6,
+      "Arkansas": 46,
+      "Tennessee": 2,
+      "Pennsylvania": 62,
+      "North Dakota": 7,
+      "Indiana": 15,
+      "Nebraska": 10,
+      "West Virginia": 58,
+      "Virginia": 34,
+      "North Carolina": 14,
+      "New York": 292,
+      "New Jersey": 36,
+      "Delaware": 17,
+      "Oklahoma": 4,
+      "Wyoming": 23,
+      "Idaho": 65
+    },
+    "providers": {
+      "usgs": 1600,
+      "mn_dnr": 222
+    },
+    "models": {
+      "two-sided": 972,
+      "minimum-only": 850
+    },
+    "eligibility": {
+      "scored": 1263,
+      "planning": 559
+    }
+  },
+  "staleReadiness": {
+    "verdict": "go",
+    "verdictLabel": "Paddle today",
+    "summary": "Conditions look good right now.",
+    "note": "Earlier conditions supported launching.",
+    "effectiveLiveData": {
+      "overall": "degraded",
+      "summary": "Gauge read is 7h old. Paddle Today update is 7h old. Treat this route as stale until refresh succeeds.",
+      "gauge": {
+        "state": "stale",
+        "ageMinutes": 0,
+        "detail": "Gauge read is 7h old. Recheck the source before you drive."
+      },
+      "weather": {
+        "state": "stale",
+        "ageMinutes": 0,
+        "detail": "Weather and score update is 7h old. Refresh before relying on the call."
+      }
+    },
+    "weather": {
+      "state": "calm",
+      "label": "Weather unavailable",
+      "summaryValue": "Weather unavailable",
+      "compactValue": "Unknown",
+      "conditionLabel": "No forecast",
+      "rainChancePercent": null,
+      "windMph": null,
+      "temperatureF": null
+    },
+    "accessLabel": "Mapped put-in and take-out"
+  },
+  "freshReadiness": "go",
+  "noStoredReadiness": "watch",
+  "planningWeather": {
+    "group": "baltimore-blueway-maryland",
+    "items": [
+      {
+        "slug": "baltimore-blueway-masonville-cove",
+        "weather": 0,
+        "weatherState": "unavailable"
+      },
+      {
+        "slug": "baltimore-blueway-patapsco-river",
+        "weather": 1,
+        "weatherState": "live"
+      }
+    ]
+  },
+  "rateLimit": {
+    "sameIp": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "newHeader": false
+  },
+  "concurrentAlertWrites": {
+    "acknowledged": 2,
+    "persisted": 1,
+    "gets": 3,
+    "puts": 2,
+    "mockedStorage": true
+  },
+  "snapshotCatalogMismatch": [
+    "red-lake-river-smiley-bridge-centennial-park",
+    "root-river-lanesboro-peterson",
+    "wolf-river-pearson-lily",
+    "st-croix-river-norway-point-fox",
+    "sauk-river-spring-hill-frogtown",
+    "sauk-river-st-martin-frogtown",
+    "sauk-river-st-martin-rockville",
+    "sauk-river-st-martin-eagle-park",
+    "cottonwood-river-juenemann-springfield",
+    "cloquet-river-island-lake-bachelor-road",
+    "south-fork-zumbro-lake-zumbro",
+    "shell-rock-river-renning-shell-rock",
+    "shell-rock-river-heery-woods-renning",
+    "fox-river-princeton-white-river-locks",
+    "peshtigo-river-burnt-bridge-goodman-park",
+    "eau-claire-river-bear-lake-county-n",
+    "menomonee-river-hoyt-park-bluemound",
+    "vermilion-river-schoepfle-mill-hollow",
+    "trempealeau-river-whitehall-independence",
+    "waupaca-river-county-q-brainards-bridge",
+    "popple-river-highway-101-white-ash",
+    "gasconade-river-pointers-creek-cooper-hill",
+    "flambeau-river-highway-w-hervas",
+    "flambeau-river-hervas-beaver-dam",
+    "buffalo-river-steel-creek-kyles-landing",
+    "buffalo-river-kyles-landing-erbie",
+    "buffalo-river-erbie-ozark",
+    "buffalo-river-kyles-landing-ozark",
+    "buffalo-river-steel-creek-ozark",
+    "pigeon-river-waterville-hartford",
+    "pigeon-river-hartford-denton",
+    "loup-river-george-syas-monroe",
+    "loup-river-george-syas-columbus",
+    "loup-river-george-syas-adm-access",
+    "vermilion-river-shively-eightmile",
+    "vermilion-river-eightmile-county-road-24",
+    "st-louis-river-county-road-4-95",
+    "st-louis-river-zim-toivola",
+    "st-louis-river-toivola-county-road-29",
+    "lemonweir-river-mauston-dam-19th-ave",
+    "white-river-park-riverview-park",
+    "pine-river-lincoln-pine-river-park-county-w",
+    "pine-river-richland-center-canoe-port-1-port-4",
+    "little-platte-river-stumpton-hwy-o",
+    "big-rib-river-highway-64-greiner",
+    "cedar-creek-cedarburg-mill-cth-t",
+    "bad-axe-north-fork-duck-egg-hwy-o",
+    "new-wood-river-county-e-tesch",
+    "embarrass-south-branch-hwy-45-county-m",
+    "namekagon-river-stinnett-springbrook",
+    "namekagon-river-springbrook-big-bend",
+    "cloquet-river-bear-lake-road-island-lake",
+    "mississippi-river-county-road-12-dam-county-road-25",
+    "mississippi-river-iron-bridge-county-road-12-dam",
+    "red-river-north-dam-mb-johnson",
+    "red-river-lincoln-drive-lafave",
+    "root-river-peterson-rushford",
+    "beaver-dam-river-county-s-lowell",
+    "cloquet-river-bachelor-road-highway-53"
+  ],
+  "samples": [
+    {
+      "slug": "snake-river-county-road-9-snake-bit",
+      "state": "Minnesota",
+      "source": {
+        "id": "mn-dnr-229",
+        "provider": "mn_dnr",
+        "siteId": "229",
+        "metric": "gage_height_ft",
+        "unit": "ft",
+        "kind": "direct",
+        "siteName": "Snake River near Pine City, MN",
+        "detailUrl": "https://www.dnr.state.mn.us/waters/csg/site.html?id=36076001",
+        "hydrographUrl": "https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320"
+      },
+      "profile": {
+        "thresholdModel": "minimum-only",
+        "tooLow": 2.3,
+        "thresholdSource": {
+          "label": "MN DNR river-level interpretation bands for Snake River near Pine City",
+          "url": "https://www.dnr.state.mn.us/river_levels/index.html"
+        },
+        "thresholdSourceStrength": "official",
+        "rainfallSensitivity": "high",
+        "seasonMonths": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "seasonNotes": "Spring through early fall is the practical window. The Snake drains quickly, so recent rain and rising trend matter almost as much as the raw reading.",
+        "difficulty": "moderate",
+        "difficultyNotes": "Class I rapids, low-water scraping, and the long runout to the St. Croix make this more than a lazy flatwater shuttle even though it is not a technical whitewater run.",
+        "confidenceNotes": "MN DNR maps this lower corridor, the Pine City gauge is on the route, and the low-water guidance is official. The take-out still deserves a check before launch: the DNR map names Snake Bit, while the clearest public-access record nearby is the Snake/St. Croix landing at the confluence."
+      }
+    },
+    {
+      "slug": "chattahoochee-river-powers-island-paces-mill",
+      "state": "Georgia",
+      "source": {
+        "id": "usgs-02336000",
+        "provider": "usgs",
+        "siteId": "02336000",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "direct",
+        "siteName": "Chattahoochee River at Atlanta, GA",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-02336000/",
+        "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02336000"
+      },
+      "profile": {
+        "thresholdModel": "minimum-only",
+        "idealMin": 2500,
+        "tooLow": 1000,
+        "thresholdSource": {
+          "label": "American Whitewater: runnable around 1,000 cfs; optimal 2,500 cfs and up",
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/474/main",
+          "provider": "american_whitewater"
+        },
+        "thresholdSourceStrength": "community",
+        "rainfallSensitivity": "medium",
+        "seasonMonths": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "seasonNotes": "The NPS corridor is open for boating year-round. Fall is especially attractive in the wooded Atlanta corridor, but daylight, water quality, and dam-release conditions still control the decision.",
+        "difficulty": "moderate",
+        "difficultyNotes": "Mostly moving Class I–II water, but current around submerged rocks, strainers, releases, and crowded launch areas requires competent boat handling.",
+        "confidenceNotes": "The named reach, direct USGS gauge, public endpoint pair, and route-specific flow guidance are documented by American Whitewater and agency or park sources. NPS documents the 48-mile year-round boating corridor, named public ramps, and Paces Mill as the last canoe/kayak exit."
+      }
+    },
+    {
+      "slug": "chattahoochee-river-ga115-duncan-bridge",
+      "state": "Georgia",
+      "source": {
+        "id": "usgs-02331000",
+        "provider": "usgs",
+        "siteId": "02331000",
+        "metric": "gage_height_ft",
+        "unit": "ft",
+        "kind": "direct",
+        "siteName": "Chattahoochee River near Leaf, GA",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-02331000/",
+        "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02331000"
+      },
+      "profile": {
+        "thresholdModel": "two-sided",
+        "idealMin": 3.5,
+        "idealMax": 4.7,
+        "tooLow": 2.5,
+        "tooHigh": 4.7,
+        "thresholdSource": {
+          "label": "American Whitewater Leaf gauge bands: below 2.5 ft very low; 2.5–3.5 runnable; 3.5–4.7 good; the Leaf gauge clips above 4.7 ft, so verify the Cornelia gauge for high water",
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/471/main",
+          "provider": "american_whitewater"
+        },
+        "thresholdSourceStrength": "community",
+        "rainfallSensitivity": "medium",
+        "seasonMonths": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "seasonNotes": "The Upper Chattahoochee is a strong fall option when stage, weather, and park access cooperate. Cold water, rain-driven rises, and limited daylight require a conservative turnaround plan.",
+        "difficulty": "hard",
+        "difficultyNotes": "American Whitewater rates the reach Class II–III with stronger features above the normal band. Rescue skills, helmet/PFD, and whitewater boat control are required.",
+        "confidenceNotes": "The named reach, direct USGS gauge, public endpoint pair, and route-specific flow guidance are documented by American Whitewater and agency or park sources. American Whitewater documents the 4.1-mile GA 115-to-Duncan Bridge reach, direct Leaf gauge, stage bands, high-water sensor limitation, and Georgia State Park access requirement."
+      }
+    },
+    {
+      "slug": "brazos-river-brazos-park-east-bledsoe-miller",
+      "state": "Texas",
+      "source": {
+        "id": "usgs-08096500",
+        "provider": "usgs",
+        "siteId": "08096500",
+        "metric": "discharge_cfs",
+        "unit": "cfs",
+        "kind": "proxy",
+        "siteName": "Brazos Rv at Waco, TX",
+        "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-08096500/",
+        "hydrographUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=08096500"
+      },
+      "profile": {
+        "thresholdModel": "two-sided",
+        "idealMin": 501,
+        "idealMax": 1200,
+        "tooLow": 200,
+        "tooHigh": 5000,
+        "thresholdSource": {
+          "label": "Brazos River Authority paddling-flow chart",
+          "url": "https://brazos.org/about-us/news/news-room/resource-library/on-the-river",
+          "provider": "local"
+        },
+        "thresholdSourceStrength": "official",
+        "rainfallSensitivity": "high",
+        "windSensitivity": 0.25,
+        "seasonMonths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "seasonNotes": "The Waco trail is described as a year-round day-use route, but low water, heavy rainfall, lake releases, wind, and urban runoff can change conditions quickly. The broad BRA bands are planning cues, not a route-specific safety certification.",
+        "difficulty": "easy",
+        "difficultyNotes": "The official trail is designed for novice paddlers and has no required shuttle or portage, but the return-loop distance, possible snags, changing river levels, urban water quality, and proxy gauge require conservative same-day planning.",
+        "confidenceNotes": "Confidence is good for a guarded Waco add: TPWD publishes the exact Brazos Bridges access chain, coordinates, loop distance, float-time range, and safety guidance; the City of Waco corroborates the public ramp, dock, route rules, and water-quality cautions; USGS 08096500 provides current discharge, stage, and long-term statistics on the same Waco Brazos corridor; and BRA publishes numeric paddling bands. The gauge is downstream of the trail segment, so the route explicitly uses proxy language and requires visual confirmation at the trail."
+      }
+    }
+  ],
+  "capturedAt": "2026-09-04T19:23:40.007Z",
+  "baseline": {
+    "commit": "b3de92762114e4fb033f78a2e2922b05a146c2ed",
+    "initialChangedPaths": 328,
+    "node": "v24.14.0",
+    "mutableWorkingTree": true
+  },
+  "explicitPlanningPromoted": [
+    {
+      "slug": "lower-colorado-two-rivers-south-canyon",
+      "state": "Colorado",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "patapsco-river-woodstock-daniels",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "patapsco-river-orange-grove-avalon",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "antietam-creek-devils-backbone-md34",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "antietam-creek-md34-potomac",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "monocacy-river-rocky-ridge-devilbiss",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "monocacy-river-devilbiss-gambrill",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "monocacy-river-gambrill-monocacy-ramp",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-oldtown-paw-paw",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-fifteen-mile-creek-hancock",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-hancock-big-pool",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-big-pool-williamsport",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "big-pipe-creek-hapes-mill-double-pipe-park",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "catoctin-creek-doubs-meadow-catoctin-park",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "catoctin-creek-catoctin-park-lander",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "deer-creek-sandy-hook-md136",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "north-branch-potomac-mason-spring-gap",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "north-branch-potomac-spring-gap-oldtown",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-paw-paw-bonds",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-bonds-fifteen-mile-creek",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "deer-creek-walters-benjamins",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "deer-creek-rocks-ma-pa-portage",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "susquehanna-river-lapidum-shuresville",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "susquehanna-river-frank-hutchins-lapidum",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "broad-creek-harford-public-landing-loop",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "anacostia-river-bladensburg-anacostia-park",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-shepherdstown-dargan",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-williamsport-big-slackwater",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-dam-four-shepherdstown",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-taylors-snyders",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-edwards-violettes",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-brunswick-point-of-rocks",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "potomac-river-point-of-rocks-monocacy",
+      "state": "Maryland",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "rivanna-river-crofton-palmyra",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "nottoway-river-double-bridge-route630",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "reed-creek-kents-millers-blueway",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "chestnut-creek-galax-byllesby",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "smith-river-bassett-great-road",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "clinch-river-blackford-pucketts-hole",
+      "state": "Virginia",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "lake-champlain-rouses-point-great-chazy",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "st-regis-river-winthrop-route-92",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-thurman-station-hadley",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-fish-hatchery-thurman-station",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "croton-river-dam-echo-point",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "susquehanna-river-otego-unadilla",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "susquehanna-river-unadilla-sidney",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "hoosic-river-buskirk-johnsonville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "raquette-river-piercefield-parmenter",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "schroon-river-warrensburg-thurman-station",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "south-sandy-creek-route-95-route-11",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "unadilla-river-guilford-rockdale",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-indian-confluence-north-river",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-north-river-riparius",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "chenango-river-sherburne-north-norwich",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "salmon-river-pineville-compactor",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "west-branch-delaware-river-delhi-walton",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "east-branch-delaware-river-downsville-shinhopple",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "delaware-river-hancock-callicoon",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "mongaup-river-rio-powerhouse-delaware",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "cattaraugus-creek-zoar-bridge-gowanda",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "rondout-creek-high-falls-rosendale",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "oswegatchie-river-heuvelton-ogdensburg",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "raquette-river-raymondville-massena-springs",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "genesee-river-lee-landing-st-helena",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "wallkill-river-popp-gardiner",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "wallkill-river-new-paltz-rosendale",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "batten-kill-eagleville-battenville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "esopus-creek-phoenicia-boiceville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "wappinger-creek-cady-greenvale",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "black-river-watertown-dexter-canyon",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "black-river-forestport-hawkinsville",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "black-river-hawkinsville-norton-road",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "keuka-outlet-penn-yan-dresden",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "honeoye-creek-fishell-out-and-back",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "oatka-creek-mumford-scottsville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "schoharie-creek-north-blenheim-middleburgh",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "schoharie-creek-middleburgh-central-bridge",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "cobleskill-creek-warnerville-central-bridge",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "schoharie-creek-central-bridge-esperance",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "anthony-kill-round-lake-mechanicville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "cohocton-river-campbell-kinsella",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "la-chute-river-bicentennial-fort-ticonderoga",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "fishing-brook-pickwickett-county-line-flow",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "genesee-river-petten-lower-falls-out-and-back",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "allegheny-river-allegany-olean",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "allegheny-river-olean-portville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "mohawk-river-lock-9-freemans-bridge",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "mohawk-river-freemans-bridge-lock-7",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "west-branch-delaware-river-airport-hale-eddy",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "delaware-river-balls-eddy-hancock",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "niagara-river-lewiston-fort-niagara",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "west-branch-st-regis-five-mile-hand-launches",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "onondaga-creek-meachem-inner-harbor",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "oak-orchard-creek-route-63-knowlesville",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "buffalo-river-harlem-ohio-street",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "genesee-river-waterways-center-corn-hill",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "genesee-river-turning-point-port-of-rochester",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "oatka-creek-leroy-mumford",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "peconic-river-forge-pond-upper-mills",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "peconic-river-upper-mills-weeping-willow",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "peconic-river-weeping-willow-indian-island",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "fall-creek-route-13-flat-rock",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "salmon-river-route-2a-black-hole",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "south-branch-moose-river-rock-dam-mckeever",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "moose-river-mckeever-iron-bridge",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "salmon-creek-ludlowville-cayuga-lake",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "raquette-river-helenbrooks-hole",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "sacandaga-river-stewarts-bridge-hudson",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "indian-river-abanakee-dam-outer-gooley",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "jessup-river-route-30-indian-lake",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "black-creek-churchville-black-creek-park",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "catatonk-creek-candor-owego",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "owego-creek-lower-owego-out-and-back",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "canisteo-river-canisteo-addison",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "cazenovia-creek-west-falls-mill-road",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "cazenovia-creek-mill-road-cazenovia-park",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "cazenovia-creek-cazenovia-park-thomas-higgins",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "flint-creek-orleans-phelps",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "kinderhook-creek-east-nassau-valatie",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "kinderhook-creek-stuyvesant-falls-stockport",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-schodack-island-catskill",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "independence-river-bailey-donnattsburg",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "otselic-river-willet-landers-corners",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "schoharie-creek-burtonsville-fort-hunter",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "hudson-river-riparius-glen",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "west-river-marsh-sunnyside-out-and-back",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "catharine-creek-wma-marsh-connector",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "chemung-river-elmira-chemung",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "susquehanna-river-bainbridge-afton",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "chenango-river-chenango-forks-port-crane",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "chenango-river-port-crane-chenango-bridge",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "tioga-river-lindley-mulholland",
+      "state": "New York",
+      "model": "two-sided"
+    },
+    {
+      "slug": "otselic-river-landers-upper-lisle",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "tioughnioga-river-marathon-whitney-point",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "eighteenmile-creek-burt-newfane",
+      "state": "New York",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "south-branch-raritan-river-sunnyside-stanton-station",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "passaic-river-suchorsky-pennington-park",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "great-egg-harbor-river-weymouth-lake-lenape",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "pequest-river-route-46-orchard-street",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "alloway-creek-quinton-hancocks-bridge",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "cedar-creek-ore-pond-dudley-park",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "maurice-river-fowser-matts-landing",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "mullica-river-batsto-pleasant-mills",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "delaware-river-belvidere-phillipsburg",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "delaware-river-firemens-eddy-trenton",
+      "state": "New Jersey",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "christina-river-newport-7th-street",
+      "state": "Delaware",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "christina-river-churchmans-newport",
+      "state": "Delaware",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-flagg-ranch-lizard-creek",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-jackson-lake-dam-pacific-creek",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-pacific-creek-deadmans-bar",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-deadmans-bar-moose",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-moose-wilson",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-west-table-sheep-gulch",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "fontenelle-reservoir-creek-recreation-area-loop",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "glendo-reservoir-sandy-beach-loop",
+      "state": "Wyoming",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "south-fork-snake-lorenzo-menan",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "south-fork-snake-menan-mike-walker",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "north-fork-payette-kellys-whitewater-park",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "blackfoot-river-wolverine-canyon",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "south-fork-boise-anderson-danskin",
+      "state": "Idaho",
+      "model": "two-sided"
+    },
+    {
+      "slug": "bear-river-black-canyon-grace-powerhouse",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "lolo-creek-lolo-road-greer",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "snake-river-lower-salmon-falls-bliss",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "teton-river-highway-33-spring-hollow",
+      "state": "Idaho",
+      "model": "two-sided"
+    },
+    {
+      "slug": "snake-river-auger-falls-park",
+      "state": "Idaho",
+      "model": "two-sided"
+    },
+    {
+      "slug": "st-joe-river-shadowy-st-maries-aqua",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "clearwater-river-mckays-bend-pink-house",
+      "state": "Idaho",
+      "model": "minimum-only"
+    },
+    {
+      "slug": "henrys-lake-south-shore-loop",
+      "state": "Idaho",
+      "model": "minimum-only"
+    }
+  ],
+  "withheldInLocalFallback": [
+    "fox-river-princeton-white-river-locks",
+    "menomonee-river-hoyt-park-bluemound",
+    "vermilion-river-schoepfle-mill-hollow",
+    "trempealeau-river-whitehall-independence",
+    "gasconade-river-pointers-creek-cooper-hill",
+    "loup-river-george-syas-monroe",
+    "loup-river-george-syas-columbus",
+    "loup-river-george-syas-adm-access",
+    "lemonweir-river-mauston-dam-19th-ave",
+    "pine-river-richland-center-canoe-port-1-port-4",
+    "cedar-creek-cedarburg-mill-cth-t",
+    "beaver-dam-river-county-s-lowell"
+  ],
+  "dependencyScan": {
+    "metadata": {
+      "info": 0,
+      "low": 0,
+      "moderate": 25,
+      "high": 14,
+      "critical": 0,
+      "total": 39
+    },
+    "affectedPackages": [
+      {
+        "name": "@expo/cli",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/config",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/config-plugins",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/metro",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/metro-config",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/ngrok",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "@expo/plist",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@expo/prebuild-config",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@react-navigation/bottom-tabs",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@react-navigation/core",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@react-navigation/elements",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@react-navigation/native",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "@react-navigation/native-stack",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "@xmldom/xmldom",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+            "url": "https://github.com/advisories/GHSA-6gmq-8vp8-gcm6"
+          }
+        ]
+      },
+      {
+        "name": "brace-expansion",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+            "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg"
+          },
+          {
+            "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+            "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg"
+          },
+          {
+            "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+            "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895"
+          },
+          {
+            "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+            "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895"
+          },
+          {
+            "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+            "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895"
+          }
+        ]
+      },
+      {
+        "name": "browserslist",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+            "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx"
+          },
+          {
+            "title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+            "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g"
+          }
+        ]
+      },
+      {
+        "name": "decode-uri-component",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+            "url": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr"
+          }
+        ]
+      },
+      {
+        "name": "expo",
+        "severity": "high",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "expo-asset",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "expo-constants",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "expo-dev-client",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "expo-dev-launcher",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "expo-linking",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "expo-manifests",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "expo-notifications",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "expo-router",
+        "severity": "moderate",
+        "isDirect": true,
+        "advisories": []
+      },
+      {
+        "name": "fast-uri",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "fast-uri vulnerable to host confusion via backslash authority introducer",
+            "url": "https://github.com/advisories/GHSA-7p8r-x3mc-p8w7"
+          },
+          {
+            "title": "fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references",
+            "url": "https://github.com/advisories/GHSA-5jgf-p345-68v8"
+          },
+          {
+            "title": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+            "url": "https://github.com/advisories/GHSA-f65p-4m7j-42xc"
+          },
+          {
+            "title": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
+            "url": "https://github.com/advisories/GHSA-fph4-wmhf-6fwf"
+          },
+          {
+            "title": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+            "url": "https://github.com/advisories/GHSA-jqff-g426-hqxp"
+          }
+        ]
+      },
+      {
+        "name": "image-size",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+            "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr"
+          },
+          {
+            "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+            "url": "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq"
+          }
+        ]
+      },
+      {
+        "name": "js-yaml",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+            "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj"
+          },
+          {
+            "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+            "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj"
+          }
+        ]
+      },
+      {
+        "name": "metro",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "metro-config",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "metro-transform-worker",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "nanoid",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "nanoid: custom generators can loop indefinitely when size is zero",
+            "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8"
+          }
+        ]
+      },
+      {
+        "name": "plist",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "postcss",
+        "severity": "high",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output",
+            "url": "https://github.com/advisories/GHSA-qx2v-qp2m-jg93"
+          },
+          {
+            "title": "PostCSS: Arbitrary file read and information disclosure via attacker-controlled sourceMappingURL in CSS comments",
+            "url": "https://github.com/advisories/GHSA-6g55-p6wh-862q"
+          },
+          {
+            "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+            "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp"
+          },
+          {
+            "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+            "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849"
+          }
+        ]
+      },
+      {
+        "name": "query-string",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      },
+      {
+        "name": "undici",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+            "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524"
+          },
+          {
+            "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+            "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5"
+          },
+          {
+            "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+            "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm"
+          }
+        ]
+      },
+      {
+        "name": "uuid",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": [
+          {
+            "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+            "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+          }
+        ]
+      },
+      {
+        "name": "xcode",
+        "severity": "moderate",
+        "isDirect": false,
+        "advisories": []
+      }
+    ]
+  },
+  "productionReadOnlyProbe": {
+    "readiness": {
+      "http": 200,
+      "riverCount": 1686,
+      "ms": 582
+    },
+    "summary": {
+      "http": 200,
+      "generatedAt": "2026-09-04T19:07:52.312Z",
+      "snapshotStatus": "fresh",
+      "riverCount": 929,
+      "decodedBytes": 3588909,
+      "ms": 2113
+    },
+    "note": "One normal GET per endpoint; timing is not a benchmark; differs from local working tree."
+  },
+  "malformedHostProbe": {
+    "target": "isolated audit server on 127.0.0.1:4432",
+    "beforeHttp": 200,
+    "requestError": "ECONNRESET",
+    "afterError": "ECONNREFUSED",
+    "serverExit": 1,
+    "error": "ERR_INVALID_URL",
+    "source": "src/server/api-server.ts:55"
+  },
+  "checks": {
+    "root": {
+      "files": 95,
+      "tests": 837,
+      "initial": "pass",
+      "later": "geometry route-count mismatch: 1815 versus 1821"
+    },
+    "apiContract": 23,
+    "apiClient": 5,
+    "geo": 8,
+    "tripPack": 7,
+    "mobile": 6,
+    "designTokens": 3,
+    "mobileTypecheck": "pass",
+    "scoringSensitivity": {
+      "routes": 1119,
+      "scenarios": 24019,
+      "invariantFailures": 0,
+      "addedRoutes": 334
+    },
+    "serverTypecheckDiagnostics": 87,
+    "rootTypecheck": "stopped at geometry audit; earlier sync/dry/route checks passed",
+    "freshAstroStartup": "missing @astrojs/compiler-binding-win32-x64-msvc"
+  },
+  "sourceHashes": {
+    "package.json": "62cbdb8647fc5006edcfa2124b7692948f73cea260146a08998c77bed1933a5c",
+    "vitest.config.ts": "9c51fd565cf6ad875bb6cf7d572b72ae2c14d2e156cf728f029e7ed72ea41227",
+    "scripts/typecheck.mjs": "3167d385ee9e96455c9a05d383658bd9658a05d7a37090bc37629d0d81ab4586",
+    "tsconfig.route-data.json": "28d62f393fcb57a068565208cb884cbf758488686b6e217cdc69a07ab4b82433",
+    "scripts/operations-verify.ts": "6d16074d475127621a99428b55428e59a83bb216535740705bbf52f2ba35a6b0",
+    "src/server/api-server.ts": "0e801c9d0f2f7204037405016dd4281cbb3975068b704b3391ea15bc9e94d68b",
+    "src/server/routes/public-rivers.ts": "820fb9da440037282d8a7407f39d53ef7a9311ed4103923cc696638098cca799",
+    "src/data/route-publication.ts": "8acc4640202c23390aee07139f0b25f8aa729727a6a42ef234573df182caaf3c",
+    "src/lib/rivers.ts": "d10cf5a15182111531285ef986d94d76f50bcd135ac306805434ff292ab995dd",
+    "src/lib/river-snapshots.ts": "7226af5eed63d106e108669e99fb032cf1d313a477d4cef4c7e0fc589244bbba",
+    "src/lib/api-contract.ts": "adbf9522a75043030d90301beac35a964e202baf4b7022dbbe3b3d9a113c1d26",
+    "packages/api-contract/src/river-detail-readiness-view-model.ts": "4619f23ad4f87264ad4cd6a758c69b17a04a2cd00ed4b05f27e80bc5f953f310",
+    "src/lib/alerts.ts": "f2e530422ca1be0dcd858c3e1920d885541d77deb59cdbc574e9d2d284515b15",
+    "src/lib/blob-storage.ts": "0c9c49c6b77ea809bf6a01a4e7d2d525143443e9d2e69a0d2a758897895ce7d4",
+    "src/server/rate-limit.ts": "1b1bd46d9df2ec28599b77a01d77697ed34cc2a64f8ac7ba3e25f267314caf31",
+    "src/server/routes/admin.ts": "4de5f68bb2cc40a7eda825d6fe8275d1736323c43624ee2e0e98b608f83a3814",
+    "src/lib/route-contributions.ts": "b535ec22795622f4839c3da05badbf7b26b6d641e57519480d6a807adfdfd77c",
+    "src/server/routes/route-contributions.ts": "fa9175deac14307449a0d09b6b79101e2dcf96432bc4f7c027780b673cf408e9",
+    "src/scripts/summary-board-home.js": "f8907356658dfd0cafa13e7c1f4cd495761df337292cbc631bdc96c1cf7528c4",
+    "src/layouts/BaseLayout.astro": "06f9b97264a4d66ad7c39be63b6ae97df7dcf3f80fc9dd40cf745c1ea3842e4a",
+    "src/pages/index.astro": "b7b3f9419e2f674c8b56271154988d046c05d953211d714bf32b3fdb14168a96",
+    "infra/azure/snapshot-worker/Dockerfile": "5b2a48c4544624b0d113cdc71959b2fc2fa357dbb676a97d3404e3d9f96ba1aa",
+    "infra/azure/container-apps-job.bicep": "06b1b61fa4b0e09da4dd66fbf140b9bf4be78bef4e76d4fb1bdbd5c0d5ed90ad",
+    ".github/workflows/azure-app-service-api.yml": "4ea989af770b0f2c31a29ad7525dcfa386c2a51e562d17d22f1c9067d5505862",
+    ".github/workflows/operations-gates.yml": "969edfff3bd4933970cf806e49a97ff4873144f1bcc08ae059b735dccbf25a3a"
+  }
+}

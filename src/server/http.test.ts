@@ -45,6 +45,31 @@ describe('server response helpers', () => {
     expect(result).toBe(response);
   });
 
+  it('adds baseline browser security headers to API responses', () => {
+    const response = mockResponse();
+
+    sendJson(response, 200, { requestId: 'req_headers', ok: true });
+
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({
+      'x-content-type-options': 'nosniff',
+      'referrer-policy': 'strict-origin-when-cross-origin',
+      'permissions-policy': 'geolocation=(), microphone=(), camera=()',
+    }));
+  });
+
+  it('adds HSTS when the API is running in production', () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    try {
+      const response = mockResponse();
+      sendJson(response, 200, { requestId: 'req_hsts', ok: true });
+      expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({
+        'strict-transport-security': 'max-age=31536000; includeSubDomains',
+      }));
+    } finally {
+      vi.unstubAllEnvs();
+    }
+  });
+
   it('preserves headers while omitting the body for HEAD responses', () => {
     const response = mockResponse();
     const result = sendBinary(response, 200, Buffer.from('gpx'), 'application/gpx+xml', 'no-store', false, {

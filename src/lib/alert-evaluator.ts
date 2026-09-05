@@ -1,5 +1,6 @@
 import {
   appendRiverAlertEvent,
+  findRiverAlertEventByDeliveryKey,
   listRiverAlerts,
   updateRiverAlert,
   type RiverAlertState,
@@ -13,6 +14,7 @@ import {
   DEFAULT_ALERT_MAX_SNAPSHOT_AGE_MS,
 } from './alert-policy';
 import { getStoredRiverDetailSnapshot, type RiverDetailSnapshot } from './river-snapshots';
+import { riverAlertDeliveryKey } from './alert-delivery';
 
 const DEFAULT_COOLDOWN_MS = 12 * 60 * 60 * 1000;
 export const DEFAULT_ALERT_REARM_MS = 2 * 60 * 60 * 1000;
@@ -118,6 +120,25 @@ export async function evaluateRiverAlerts(args: {
     }
 
     try {
+      const deliveryKey = riverAlertDeliveryKey(alert, evaluation.snapshot);
+      const recordedDelivery = await findRiverAlertEventByDeliveryKey(deliveryKey);
+      if (recordedDelivery?.deliveryStatus === 'accepted' || recordedDelivery?.deliveryStatus === 'delivered') {
+        await updateRiverAlert(alert.id, {
+          lastState: 'at_or_above_threshold',
+          belowSince: null,
+          lastTriggeredAt: evaluatedAt,
+          lastEvaluatedAt: evaluatedAt,
+          updatedAt: evaluatedAt,
+        });
+        console.warn('[alerts] recovered recorded delivery without resending', {
+          alertId: alert.id,
+          deliveryKey,
+          deliveryId: recordedDelivery.deliveryId,
+        });
+        stats.skipped += 1;
+        continue;
+      }
+
       const delivery = alert.deliveryMethod === 'push'
         ? await sendRiverAlertPush({ alert, snapshot: evaluation.snapshot })
         : await sendRiverAlertEmail({ alert, snapshot: evaluation.snapshot });

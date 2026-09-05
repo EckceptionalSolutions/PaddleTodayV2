@@ -1,8 +1,9 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 
 const npxCommand = process.platform === "win32" ? "npx.cmd" : "npx";
-const localBinary = process.platform === "win32" ? "node_modules/.bin/knip.cmd" : "node_modules/.bin/knip";
+const localBinary = resolve("node_modules/.bin", process.platform === "win32" ? "knip.cmd" : "knip");
 const configPath = "knip.json";
 const transientArgs = [
   "--yes",

@@ -223,7 +223,10 @@ async function fetchLatestObservation(observationStationsUrl: string | undefined
     timeoutMs: 10_000,
     retries: 2,
     headers: NWS_HEADERS,
-  });
+  }).catch(() => null);
+  if (!stations) {
+    return null;
+  }
   const stationId = stations.features?.[0]?.properties?.stationIdentifier;
   if (!stationId) {
     return null;

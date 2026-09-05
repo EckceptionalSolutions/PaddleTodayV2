@@ -1,6 +1,8 @@
 # Paddle Today Cost Audit
 
-Last reviewed: 2026-05-12
+Last reviewed: 2026-09-04
+
+The figures below are planning estimates. They are not a bill or a forecast. The repository can verify deployment shape and snapshot capacity, but it does not have access to the Azure, GitHub, Expo, Maps, or email invoices needed to establish actual monthly spend.
 
 | Name | Function | Cost estimate | Link |
 | --- | --- | --- | --- |
@@ -18,3 +20,17 @@ Last reviewed: 2026-05-12
 | Umami Cloud | Optional privacy-friendly web analytics. | Free Hobby plan for low-traffic sites; paid plans apply if usage grows. | [Umami Cloud](https://umami.is/docs/cloud) |
 | Open-Meteo Geocoding | Location search and reverse geocoding on the web app. | Free/fair-use for low volume; paid plans are available if usage grows. | [Open-Meteo pricing](https://open-meteo.com/en/pricing) |
 | OpenFreeMap tiles | Web map tiles for MapLibre maps. | No app API key today; confirm production terms or budget for a paid tile provider if usage grows. | [OpenFreeMap](https://openfreemap.org/) |
+
+## 2026-09 verification checklist
+
+Record these values from the billing owners before changing the estimates above:
+
+| Provider | Evidence to capture | Owner action |
+| --- | --- | --- |
+| Azure | Subscription cost by resource group for Static Web Apps, App Service, Container Apps Job, storage, registry, logs, and Communication Services; month-to-date and trailing 90 days. | Export the Cost Management view and attach the export to the operations record. |
+| GitHub Actions | Minutes and artifact/storage usage by workflow, including snapshot and alert jobs. | Export the billing usage report and identify the highest-cost workflows. |
+| Expo EAS | Build/update counts and plan usage for the current billing period. | Export the project usage page and record whether the free tier is sufficient. |
+| Google Maps | Android Maps SDK request count and monthly credit consumption. | Export the billing report and set a budget alert before the credit is exceeded. |
+| Email delivery | Messages sent, failures, and provider charges for the same period. | Compare provider usage with alert-evaluation counts in the weekly product report. |
+
+Use the repository checks as supporting evidence: `npm run operations:verify` validates deployment and snapshot controls, and `npm run snapshots:capacity` records the current snapshot storage budget. A read-only Azure Consumption query for 2026-08-01 through 2026-09-04 returned the expected Paddle Today resources but no priced usage totals (`pretaxCost` was unavailable), so it cannot replace the billing export. Neither repository checks nor the CLI query replaces provider billing evidence.

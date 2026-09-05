@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, rename, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { rivers } from '../src/data/rivers';
 import { auditRouteSafety, routeSafetyAuditSummary, type RouteSafetyAuditIssue } from '../src/lib/route-safety-audit';
@@ -58,7 +58,7 @@ const issues = auditRouteSafety(rivers);
 const summary = routeSafetyAuditSummary(issues);
 
 await mkdir(path.dirname(jsonPath), { recursive: true });
-await writeFile(
+await writeGeneratedFile(
   jsonPath,
   `${JSON.stringify(
     {
@@ -73,7 +73,31 @@ await writeFile(
     2,
   )}\n`,
 );
-await writeFile(markdownPath, makeMarkdown({ generatedAt, issues }));
+await writeGeneratedFile(markdownPath, makeMarkdown({ generatedAt, issues }));
 
 console.log(`Route safety audit generated ${issues.length} issue(s) for ${rivers.length} routes.`);
 console.log(JSON.stringify(summary));
+
+async function writeGeneratedFile(filePath: string, contents: string) {
+  const temporaryPath = `${filePath}.tmp-${process.pid}`;
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      await writeFile(temporaryPath, contents, 'utf8');
+      try {
+        await rename(temporaryPath, filePath);
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error;
+        await unlink(filePath);
+        await rename(temporaryPath, filePath);
+      }
+      return;
+    } catch (error) {
+      lastError = error;
+      const code = (error as NodeJS.ErrnoException).code;
+      if (!['EACCES', 'EPERM', 'EEXIST', 'UNKNOWN'].includes(String(code)) || attempt === 3) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 50 * (attempt + 1)));
+    }
+  }
+  throw lastError;
+}

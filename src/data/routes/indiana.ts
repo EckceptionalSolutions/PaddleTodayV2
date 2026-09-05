@@ -231,8 +231,8 @@ export const indianaRoutes: River[] = [
     "routeType": "recreational",
     "summary": "Downstream Maumee River reach from the public Kreager Park / North River Road ramp into New Haven's Moser Park canoe launch. The New Haven watershed plan identifies Moser as a city-managed canoe launch, while the Maumee Pathway and local park sources document the distinct Kreager-to-Moser corridor; USGS 04183000 provides the New Haven live check.",
     "statusText": "Use USGS 04183000 at New Haven. Apply the conservative Maumee paddling window of roughly 950-2,800 cfs from RiverScout as community guidance only; check for rising water, debris, flooding, and current access conditions before committing to this longer downstream segment.",
-    "latitude": 41.0892,
-    "longitude": -85.0407,
+    "latitude": 41.0864828,
+    "longitude": -85.0486275,
     "gaugeSource": {"id": "usgs-04183000", "provider": "usgs", "siteId": "04183000", "metric": "discharge_cfs", "unit": "cfs", "kind": "direct", "siteName": "Maumee River at New Haven, IN", "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04183000/"},
     "safetyProfile": {
       "riskLevel": "caution",
@@ -261,7 +261,7 @@ export const indianaRoutes: River[] = [
       "confidenceNotes": "Endpoint distinctness is strong enough for publication: New Haven's watershed plan explicitly identifies Moser Park as a city-managed canoe launch, the Maumee Pathway sources connect Kreager and Moser, and the New Haven USGS station is direct telemetry for this downstream corridor. The flow band remains community guidance rather than an official manager safety limit."
     },
     "accessPoints": [
-      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407, "mileFromStart": 0, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."},
+      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0864828, "longitude": -85.0486275, "mileFromStart": 0, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."},
       {"id": "maumee-moser-park-canoe-launch", "name": "Moser Park Canoe Launch", "latitude": 41.07339, "longitude": -85.021895, "mileFromStart": 5, "segmentKind": "creek", "note": "City-managed canoe launch identified in the Upper Maumee watershed plan; inspect current landing and parking before launch."}
     ],
     "evidenceNotes": [
@@ -270,7 +270,7 @@ export const indianaRoutes: River[] = [
       {"label": "Direct live gauge", "value": "USGS 04183000 at New Haven", "note": "USGS provides direct discharge and gage-height telemetry for the downstream New Haven corridor.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04183000"},
       {"label": "Paddling flow guidance", "value": "About 950-2,800 cfs", "note": "RiverScout publishes a practical Maumee paddling window; Paddle Today preserves it as community guidance and not an official safety limit.", "sourceUrl": "https://riverscout.app/rivers/indiana/maumee-river"},
       {"label": "Corridor continuity", "value": "Maumee Pathway continues east from Kreager to Moser", "note": "City and regional trail sources document the connected river corridor and public destinations.", "sourceUrl": "https://www.indianatrails.com/the-rivergreenway"},
-      {"label": "Endpoint coordinates", "value": "41.0892,-85.0407 to 41.07339,-85.021895", "note": "Kreager is the city boat-ramp location; Moser is a map-reviewed city park/canoe-launch pin and should be checked against current landing signage.", "sourceUrl": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18"}
+      {"label": "Endpoint coordinates", "value": "41.0864828,-85.0486275 to 41.07339,-85.021895", "note": "Kreager was corrected on 2026-09-05 to the visible ramp across North River Road, corroborated by the city access inventory and OSM node 951074983. Moser remains an unresolved park pin away from the Maumee; this route remains withheld pending verification of its actual water entry.", "sourceUrl": "https://newhavenparks.recdesk.com/Community/Facility/Detail?facilityId=18"}
     ],
     "sourceLinks": [
       {"label": "Upper Maumee watershed plan", "url": "https://dam.assets.ohio.gov/image/upload/epa.ohio.gov/Portals/35/nps/WAPs/MaumeeRUpper.pdf", "provider": "local"},
@@ -340,7 +340,7 @@ export const indianaRoutes: River[] = [
     },
     "accessPoints": [
       {"id": "maumee-niagara-drive-access", "name": "Anthony Boulevard / Niagara Drive Access", "latitude": 41.0821, "longitude": -85.1128, "mileFromStart": 0, "segmentKind": "creek", "note": "Public Fort Wayne Maumee access below Hosey Dam; visitor guidance describes a steep gravel ramp."},
-      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407, "mileFromStart": 4, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."}
+      {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0864828, "longitude": -85.0486275, "mileFromStart": 4, "segmentKind": "creek", "note": "Public concrete boat ramp across North River Road from Kreager Park."}
     ],
     "evidenceNotes": [
       {"label": "Named route and public endpoints", "value": "Anthony Boulevard / Niagara Drive to Kreager Park, nearly 4 mi", "note": "Visit Fort Wayne's paddling guide names the downstream-of-Hosey-Dam Niagara Drive access, approximate distance, and Kreager Park finish.", "sourceUrl": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/"},
@@ -348,7 +348,7 @@ export const indianaRoutes: River[] = [
       {"label": "Direct live gauge", "value": "USGS 04182950 at Coliseum Boulevard", "note": "USGS provides current discharge and gage height for the nearby Maumee corridor.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04182950"},
       {"label": "Paddling flow guidance", "value": "About 950-2,800 cfs", "note": "RiverScout publishes a practical paddling window for the Maumee; Paddle Today preserves it as community guidance and does not represent it as an official safety limit.", "sourceUrl": "https://riverscout.app/rivers/indiana/maumee-river"},
       {"label": "Ramp and dam caveat", "value": "Steep gravel put-in below Hosey Dam", "note": "Visit Fort Wayne warns that the Niagara Drive gravel ramp is steep; the start is downstream of the Hosey Dam.", "sourceUrl": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/"},
-      {"label": "Endpoint coordinates", "value": "41.0821,-85.1128 to 41.0892,-85.0407", "note": "Coordinates are map-reviewed pins for the named Niagara Drive access and Kreager Park/North River Road ramp; confirm current launch signage on arrival.", "sourceUrl": "https://www.cityoffortwayne.in.gov/images/stories/Utilities/docs/boatramps.pdf"}
+      {"label": "Endpoint coordinates", "value": "41.0821,-85.1128 to 41.0864828,-85.0486275", "note": "Kreager was corrected on 2026-09-05 to OSM slipway node 951074983 at the visible water-side ramp end, corroborated by aerial imagery and the city access inventory. Niagara Drive is unchanged; confirm current launch signage on arrival.", "sourceUrl": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway"}
     ],
     "sourceLinks": [
       {"label": "Visit Fort Wayne paddling guide", "url": "https://www.visitfortwayne.com/things-to-do/parks-and-outdoors/kayaking-canoeing/", "provider": "local"},

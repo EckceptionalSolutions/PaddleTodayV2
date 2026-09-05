@@ -4,6 +4,7 @@ import type { ApiRequest } from '../http';
 import { clean, readJsonBody, sendBinary, sendBodyLimitResponse, sendJson } from '../http';
 import { contentTypeFor } from '../static-route';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
+import sharp from 'sharp';
 import { getRiverBySlug } from '../../lib/rivers';
 import { parseScoringOutcomeObservation } from '../../lib/scoring-outcomes';
 import {
@@ -165,14 +166,24 @@ export async function handleRoutePhotoSubmission(
         );
       }
 
-      const extension = extensionForPhotoMime(decoded.mimeType);
-      const fileName = `${String(index + 1).padStart(2, '0')}-${sanitizeFileSegment(originalName, 'photo')}${extension}`;
+      const normalized = await normalizeUploadedPhoto(decoded.buffer);
+      if (!normalized) {
+        return sendJson(
+          response,
+          400,
+          { requestId, error: 'invalid_photo_data', message: 'The uploaded photo could not be decoded safely.' },
+          includeBody,
+          'no-store'
+        );
+      }
+
+      const fileName = `${String(index + 1).padStart(2, '0')}-${sanitizeFileSegment(originalName, 'photo')}.jpg`;
       decodedFiles.push({
         fileName,
         originalName,
-        mimeType: decoded.mimeType,
-        size: byteSize,
-        buffer: decoded.buffer,
+        mimeType: 'image/jpeg',
+        size: normalized.length,
+        buffer: normalized.buffer,
         caption: clean(file?.caption, 240),
       });
     }
@@ -292,15 +303,27 @@ function isSupportedPhotoMime(value: string) {
   return value === 'image/jpeg' || value === 'image/png' || value === 'image/webp';
 }
 
-function extensionForPhotoMime(value: string) {
-  switch (value) {
-    case 'image/png':
-      return '.png';
-    case 'image/webp':
-      return '.webp';
-    case 'image/jpeg':
-    default:
-      return '.jpg';
+const MAX_PHOTO_PIXELS = 40_000_000;
+const MAX_PHOTO_DIMENSION = 2_400;
+
+async function normalizeUploadedPhoto(buffer: Buffer) {
+  try {
+    const metadata = await sharp(buffer, { failOn: 'error' }).metadata();
+    const width = metadata.width ?? 0;
+    const height = metadata.height ?? 0;
+    if (!width || !height || width * height > MAX_PHOTO_PIXELS) return null;
+
+    const normalized = await sharp(buffer, { failOn: 'error' })
+      .rotate()
+      .resize({ width: MAX_PHOTO_DIMENSION, height: MAX_PHOTO_DIMENSION, fit: 'inside', withoutEnlargement: true })
+      .jpeg({ quality: 85, mozjpeg: true })
+      .toBuffer();
+
+    return normalized.length > 0 && normalized.length <= ROUTE_CONTRIBUTION_MAX_FILE_BYTES
+      ? { buffer: normalized, length: normalized.length }
+      : null;
+  } catch {
+    return null;
   }
 }
 

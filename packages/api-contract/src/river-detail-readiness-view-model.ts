@@ -154,16 +154,16 @@ export function effectiveRiverLiveData(
 }
 
 function readinessVerdict(result: Pick<RiverDetailApiResult, 'checklist' | 'readiness'>, liveData: LiveDataStatus) {
-  if (result.readiness) {
-    return result.readiness.status === 'ready'
-      ? 'go'
-      : result.readiness.status === 'verify'
-        ? 'watch'
-        : result.readiness.status;
+  // A stored affirmative readiness result cannot override stale or degraded
+  // telemetry. Preserve stronger negative decisions, then downgrade any
+  // potentially affirmative call until current evidence is available.
+  if (result.readiness?.status === 'withheld' || result.readiness?.status === 'skip') {
+    return result.readiness.status;
   }
   if (liveData.overall === 'offline') return 'skip';
-  if (result.checklist.some((item) => item.status === 'skip')) return 'skip';
   if (liveData.overall === 'degraded') return 'watch';
+  if (result.checklist.some((item) => item.status === 'skip')) return 'skip';
+  if (result.readiness) return result.readiness.status === 'ready' ? 'go' : 'watch';
   if (result.checklist.some((item) => item.status === 'watch')) return 'watch';
   return 'go';
 }
@@ -196,14 +196,20 @@ export function buildRiverReadinessViewModel(
 ): RiverReadinessViewModel {
   const effectiveLiveData = effectiveRiverLiveData(result, options);
   const verdict = readinessVerdict(result, effectiveLiveData);
-  const readinessStatus = result.readiness?.status
-    ?? (verdict === 'go' ? 'ready' : verdict === 'watch' ? 'verify' : verdict);
+  const readinessStatus = verdict === 'go'
+    ? 'ready'
+    : verdict === 'watch'
+      ? 'verify'
+      : verdict;
+  const firstChecklistNote = result.checklist.find((item) => item.status !== 'go')?.detail;
 
   return {
     verdict,
     verdictLabel: callLabelForDecision(result.rating, readinessStatus),
     summary: readinessSummary(verdict),
-    note: result.readiness?.reason ?? result.checklist.find((item) => item.status !== 'go')?.detail ?? effectiveLiveData.summary,
+    note: verdict === 'go'
+      ? result.readiness?.reason ?? firstChecklistNote ?? effectiveLiveData.summary
+      : firstChecklistNote ?? result.readiness?.reason ?? effectiveLiveData.summary,
     effectiveLiveData,
     weather: buildRiverWeatherViewModel(result.weather),
     accessLabel: accessLabel(result),

@@ -13,8 +13,9 @@ import {
 } from './map-runtime.js';
 import { createBoardMapMarker } from './board-map-controller.js';
 import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { isCurrentCallUnavailable } from './board-presenters.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
+import { buildRouteSegments, formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 import { callLabelForDecision, ratingToneKey } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
 
@@ -356,7 +357,22 @@ function renderFavoriteCard(favorite, current) {
 
   setText(card, 'favorite-route', current?.river?.reach || favorite.reach || 'Route');
   const segmentField = card.querySelector('[data-field="favorite-segment"]');
-  const segmentLabel = current?.river ? formatRouteSegmentLabel(routeSegmentSummary(current.river), null) : '';
+  let selectedSegment = null;
+  if (current?.river) {
+    try {
+      const savedUrl = new URL(favorite.url || '', window.location.origin);
+      const putInId = savedUrl.searchParams.get('putin');
+      const takeOutId = savedUrl.searchParams.get('takeout');
+      selectedSegment = buildRouteSegments(current.river).find(
+        (segment) => segment.putIn.id === putInId && segment.takeOut.id === takeOutId,
+      ) || null;
+    } catch {
+      selectedSegment = null;
+    }
+  }
+  const segmentLabel = current?.river
+    ? formatRouteSegmentLabel(routeSegmentSummary(current.river), selectedSegment)
+    : '';
   if (segmentField instanceof HTMLElement) {
     segmentField.textContent = segmentLabel;
     segmentField.hidden = !segmentLabel;
@@ -384,8 +400,9 @@ function renderFavoriteCard(favorite, current) {
       orb.classList.add(`score-orb--${tone}`);
     }
 
-    setText(card, 'favorite-score', String(current.score));
-    setText(card, 'favorite-rating', callLabelForDecision(current.rating, current.readiness?.status, 'today', true));
+    const callUnavailable = isCurrentCallUnavailable(current);
+    setText(card, 'favorite-score', callUnavailable ? '--' : String(current.score));
+    setText(card, 'favorite-rating', callUnavailable ? 'Not enough data' : callLabelForDecision(current.rating, current.readiness?.status, 'today', true));
     setText(card, 'favorite-verdict', current.gaugeBandLabel || 'Current route read');
     setText(card, 'favorite-meta', metaLine(current));
     setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');

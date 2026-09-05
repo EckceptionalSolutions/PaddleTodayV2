@@ -32,6 +32,7 @@ jobs:
         run: |
           npm run build:app
           cp staticwebapp.config.json dist/staticwebapp.config.json
+          node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
 
       - name: Deploy frontend to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1

@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-03T13:43:15.787Z.
+Generated 2026-09-04T06:19:09.749Z.
 
-- Defined corridors: 213
-- Routes covered by a corridor definition: 423
-- Remaining multi-route families: 211
+- Defined corridors: 214
+- Routes covered by a corridor definition: 426
+- Remaining multi-route families: 217
 
 ## Defined corridors
 
@@ -223,6 +223,7 @@ Generated 2026-09-03T13:43:15.787Z.
 | de-murderkill-bowers-beach-loop | Murderkill River Bowers Beach same-launch tidal exploration | partial | 1 | 1 |
 | de-miller-creek-strawberry-sassafras | Miller Creek Strawberry Landing to Sassafras Landing | partial | 1 | 1 |
 | de-duck-creek-woodland-beach | Duck Creek Woodland Beach same-launch tidal exploration | partial | 1 | 1 |
+| ny-susquehanna-otego-bainbridge | Upper Susquehanna Otego-to-Bainbridge access corridor | verified | 3 | 0 |
 
 ## Next pilot priorities (MN / WI / IA)
 
@@ -252,7 +253,6 @@ Generated 2026-09-03T13:43:15.787Z.
 | Missouri | Current River | 16 |
 | Missouri | Jacks Fork River | 15 |
 | Texas | Colorado River | 13 |
-| New York | Susquehanna River | 13 |
 | New Jersey | Delaware River | 12 |
 | New York | Hudson River | 12 |
 | Kansas | Kansas River | 11 |
@@ -269,6 +269,7 @@ Generated 2026-09-03T13:43:15.787Z.
 | Iowa | Maquoketa River | 9 |
 | Kentucky | Tradewater River | 9 |
 | Colorado | Arkansas River | 8 |
+| Idaho | South Fork Snake River | 8 |
 | Iowa | Wapsipinicon River | 8 |
 | New York | Champlain Canal | 7 |
 | Wisconsin | Fox River | 7 |
@@ -283,6 +284,6 @@ Generated 2026-09-03T13:43:15.787Z.
 | Missouri | Big Piney River | 6 |
 | Iowa | Boone River | 6 |
 | Kentucky | Buck Creek | 6 |
-| Additional families omitted | See route data and overlap audit | 171 |
+| Additional families omitted | See route data and overlap audit | 177 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

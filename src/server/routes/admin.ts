@@ -7,6 +7,7 @@ import {
   adminAuthConfigured,
   clearAdminSessionCookie,
   createAdminSessionCookie,
+  deleteRouteContributionSubmission,
   getContributionFilePreviewUrl,
   isAdminRequestAuthorized,
   listRouteContributionSubmissions,
@@ -21,6 +22,7 @@ import { getRiverBySlug } from '../../lib/rivers';
 import { listRiverAlerts } from '../../lib/alerts';
 import { getGitHubTelemetry } from '../../lib/github-telemetry';
 import { buildScoringCalibrationMetrics } from '../../lib/scoring-calibration';
+import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 
 export async function handleAdminSessionStatus(
   request: ApiRequest,
@@ -43,6 +45,18 @@ export async function handleAdminSessionCreate(
   requestId: string,
   includeBody: boolean
 ) {
+  const loginLimit = consumeRateLimit('admin_login', getIp(request));
+  if (loginLimit.limited) {
+    return sendJson(
+      response,
+      429,
+      { requestId, error: 'rate_limited', message: 'Too many login attempts. Try again later.' },
+      includeBody,
+      'no-store',
+      rateLimitHeaders(loginLimit),
+    );
+  }
+
   if (!adminAuthConfigured()) {
     return sendJson(
       response,
@@ -470,6 +484,29 @@ export async function handleAdminContributionReview(
       includeBody,
       'no-store'
     );
+  }
+}
+
+export async function handleAdminContributionDelete(
+  request: ApiRequest,
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  submissionId: string,
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const removed = await deleteRouteContributionSubmission(submissionId);
+    if (!removed) {
+      return sendJson(response, 404, { requestId, error: 'not_found', message: 'Submission not found.' }, includeBody, 'no-store');
+    }
+    return sendJson(response, 200, { requestId, ok: true, deleted: true, submissionId }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-contributions] delete failed', { requestId, submissionId, error });
+    return sendJson(response, 502, { requestId, error: 'request_failed', message: 'Could not delete submission.' }, includeBody, 'no-store');
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T13:30:17.399Z",
+  "updatedAt": "2026-09-05T06:14:36.406Z",
   "runs": [
     {
       "id": "route-research-current-continuation-202609030535-co-usgs-09073005-screened-out",
@@ -306817,6 +306817,1435 @@
       "reviewItems": 40,
       "autoCreatedTasks": 3,
       "summary": "Persisted 40 bounded deduplicated consolidation review items; 3 open high-confidence items are verifier-gated."
+    },
+    {
+      "id": "gatekeeper-20260903181502",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T18:14:12.866Z",
+      "completedAt": "2026-09-03T18:15:02.497Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260903131518-ny-8353801bd8b3",
+      "kind": "consolidation_review",
+      "taskId": "overlap-review-8353801bd8b3",
+      "workerRole": "independent-verifier",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "status": "completed",
+      "startedAt": "2026-09-03T18:05:00Z",
+      "completedAt": "2026-09-03T18:15:18Z",
+      "localRunTime": "2026-09-03 13:15 CDT",
+      "routeSlugs": [
+        "catatonk-creek-candor-owego",
+        "owego-creek-lower-owego-out-and-back"
+      ],
+      "familyModel": {
+        "model": "rejected_no_corridor",
+        "corridorId": null,
+        "preserveRouteCards": true,
+        "routeSlugs": [
+          "catatonk-creek-candor-owego",
+          "owego-creek-lower-owego-out-and-back"
+        ],
+        "sharedSegment": "Lower Owego Creek near the mouth / confluence",
+        "decision": "No route-corridor registry entry; shared endpoint proximity is not a verified selectable access-chain family."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: Catatonk Creek is Candor→Owego one-way; Owego Creek is Canal Street→gauge-corridor turnaround→Canal Street out-and-back.",
+        "riverContinuity": "passed_for_distinctness: the cards touch at the Owego Creek mouth but are a tributary-to-mainstem through-route versus a bounded mainstem out-and-back.",
+        "accessLegality": "passed_with_endpoint_advisory: NYSDEC supports the Owego Creek hand launch off Canal Street and the Tioga map supports Moyer Park canoe/kayak access plus Owego Creek launch context; endpoints remain route-specific.",
+        "gaugeReach": "passed: shared direct USGS 01514000 is downstream of the Catatonk confluence and does not collapse the routes into one gauge or hazard profile.",
+        "campingLogistics": "passed: 11.7-mile / 4–7-hour shuttle route versus approximately 3.5-mile / 2–4-hour no-shuttle out-and-back; both are day-use access with nearby basecamp only.",
+        "hazards": "passed: route-specific dam, constriction, cold-water, fast-rise, shallow-water, bridge/railroad, wood, urban-water-quality, and bailout constraints remain visible.",
+        "routeSpecificEvidence": "passed: both route cards and evidence packages are preserved unchanged.",
+        "coordinateReview": "passed_with_advisory: Owego Canal Street is authoritative/ok; Catatonk endpoints remain unknown in the NHD audit."
+      },
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "tmp/route-overlap-audit.csv",
+        "src/data/routes/new-york.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/operations/gauge-review-ledger.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/states/new-york.json",
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/r7susqhanbroc.pdf",
+        "https://experiencetioga.com/wp-content/uploads/Trails-of-Tioga-Map.pdf",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01514000/",
+        "https://dec.ny.gov/things-to-do/boating/accessing-navigating-waterways",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11039/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11040/main"
+      ],
+      "validation": {
+        "status": "passed",
+        "routeRecordsChanged": false,
+        "familyModelRecorded": true,
+        "corridorModelRecorded": false,
+        "commands": [
+          "passed: npm run routes:audit:overlap",
+          "passed: npm run routes:audit:corridors",
+          "completed: npm run routes:audit:coordinates; selected-family failures absent, Catatonk unknown and Owego launch ok",
+          "passed: npm run routes:geometries:audit",
+          "passed_for_selected_family: npm run routes:safety:audit; two issues are unrelated Guyandotte findings",
+          "passed: npm run operations:verify"
+        ],
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed_for_selected_family",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        }
+      },
+      "rollbackEvidence": "No route records or corridor definitions were changed. Revert by removing this run plus the matching task/queue/summary disposition metadata and restoring only audit-artifact snapshots generated by this run; preserve unrelated shared working-tree changes.",
+      "summary": "Rejected duplicate resolution and corridor registration. The 0.08-mile endpoint signal is explained by the shared Owego mouth and reversed endpoint proximity; Catatonk Candor→Owego and lower Owego Canal Street out-and-back remain distinct route cards."
+    },
+    {
+      "id": "gatekeeper-20260903181838",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T18:17:59.064Z",
+      "completedAt": "2026-09-03T18:18:38.644Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260903182046",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-03T18:20:07.885Z",
+      "completedAt": "2026-09-03T18:20:46.999Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904001734",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T00:16:43.115Z",
+      "completedAt": "2026-09-04T00:17:34.164Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260903191740-md-24e49324b784",
+      "kind": "consolidation_review",
+      "taskId": "overlap-review-24e49324b784",
+      "workerRole": "independent-verifier",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "status": "completed",
+      "startedAt": "2026-09-03T23:55:00Z",
+      "completedAt": "2026-09-04T00:18:05Z",
+      "localRunTime": "2026-09-03 19:17 CDT",
+      "routeSlugs": [
+        "conococheague-creek-kemps-mill-williamsport",
+        "north-branch-potomac-spring-gap-oldtown",
+        "potomac-river-big-pool-williamsport",
+        "potomac-river-bonds-fifteen-mile-creek",
+        "potomac-river-brunswick-point-of-rocks",
+        "potomac-river-dam-four-shepherdstown",
+        "potomac-river-fifteen-mile-creek-hancock",
+        "potomac-river-hancock-big-pool",
+        "potomac-river-oldtown-paw-paw",
+        "potomac-river-paw-paw-bonds",
+        "potomac-river-point-of-rocks-monocacy",
+        "potomac-river-shepherdstown-dargan",
+        "potomac-river-taylors-snyders",
+        "potomac-river-williamsport-big-slackwater"
+      ],
+      "familyModel": {
+        "model": "rejected_no_corridor",
+        "corridorId": null,
+        "preserveRouteCards": true,
+        "sharedSegments": [
+          "North Branch Potomac Spring Gap → Oldtown / Potomac Oldtown → Paw Paw",
+          "Potomac Paw Paw → Bond's Landing → Fifteen Mile Creek → Hancock → Big Pool → Williamsport",
+          "Potomac Williamsport → Big Slackwater → Dam 4 downstream → Taylors → Snyders → Shepherdstown → Dargan",
+          "Potomac Brunswick → Point of Rocks → Nolands Ferry → Monocacy"
+        ],
+        "decision": "No new umbrella corridor registry entry; retain existing verified route-specific corridors and the Dam 4/Taylors/Snyders access-chain family."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: directional access ladders and hard boundaries verified; Conococheague ends at the Potomac confluence and is not a Potomac segment.",
+        "riverContinuity": "passed_for_distinctness: three river identities, tributary/confluence context, separate Potomac ladders, and dam boundaries prevent one umbrella family.",
+        "accessLegality": "passed_with_endpoint_advisories: NPS/C&O, C&O Trust, Maryland DNR, and the access registry support named public access while retaining field-confirmation caveats for area anchors and confluence landings.",
+        "gaugeReach": "passed_for_distinctness: six direct gauge contexts with route-specific thresholds and caveats; shared gauges within subchains do not make the candidate interchangeable.",
+        "campingLogistics": "passed: approximately 4.5–16.8 miles and 2–10 hours with differing endpoint camping, basecamp, shuttle, intermediate access, portage, daylight, and hard-takeout commitments.",
+        "hazards": "passed: North Branch low-water dam, Williamsport power-company dam, Dam 4, Dam 5, shallow/vegetated Conococheague, cold water, fast rises, strainers, wind, private/railroad banks, and hard take-outs remain route-specific.",
+        "routeSpecificEvidence": "passed: all route cards, trip details, evidence, gauge profiles, safety packages, corridor edges, and canonical geometries remain preserved.",
+        "coordinateReview": "passed_with_advisories: no selected-family coordinate failure; expected park-area, confluence, and generalized water-entry reviews remain unchanged.",
+        "geometryReview": "passed: all 14 route geometry files exist with endpoint-ordered traces; geometry corroborates separate spans but not an umbrella corridor.",
+        "externalEvidence": "passed: NPS, Maryland DNR, C&O Canal Trust, and USGS checks support distinct access, hazard, tributary, and monitoring-location boundaries."
+      },
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "tmp/route-overlap-audit.csv",
+        "tmp/route-overlap-audit.md",
+        "src/data/routes/maryland.ts",
+        "src/data/trip-details/maryland.ts",
+        "src/data/route-corridors.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "docs/corridor-review-ledger.json",
+        "public/data/canonical-river-geometries/states/maryland.json",
+        "https://www.nps.gov/choh/planyourvisit/boating.htm",
+        "https://dnr.maryland.gov/fisheries/Pages/hotspots/conococheague.aspx",
+        "https://www.canaltrust.org/plan/highlights-and-amenities/boat-ramps-co-canal/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01613000/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01618000/"
+      ],
+      "validation": {
+        "status": "passed",
+        "routeRecordsChanged": false,
+        "familyModelRecorded": true,
+        "corridorModelRecorded": false,
+        "commands": [
+          "passed: npm run routes:audit",
+          "passed: npm run routes:audit:overlap; 1177 route spans and 2394 findings",
+          "passed: npm run routes:audit:corridors",
+          "passed: npm run routes:audit:coordinates; selected family had no failure severity",
+          "passed: npm run routes:geometries:audit",
+          "passed_for_selected_family: npm run routes:safety:audit; two issues are unrelated Guyandotte findings",
+          "passed: npm run operations:verify; 13 gate tests, full typecheck, audits, mobile typecheck, and production build"
+        ],
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed_for_selected_family",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        }
+      },
+      "rollbackEvidence": "No route records or corridor definitions were changed. Revert by removing this run plus the matching task/queue/summary disposition metadata and restoring only audit-artifact snapshots generated by this run; preserve unrelated shared working-tree changes.",
+      "summary": "Rejected the proposed Maryland umbrella corridor. The candidate crosses Conococheague Creek, North Branch Potomac, and multiple Potomac access ladders with six direct gauges, distinct dam/portage boundaries, and materially different safety and logistics packages; preserve all 14 route cards and existing corridor definitions."
+    },
+    {
+      "id": "gatekeeper-20260904002207",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T00:21:27.594Z",
+      "completedAt": "2026-09-04T00:22:07.682Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904062006",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T06:19:15.471Z",
+      "completedAt": "2026-09-04T06:20:06.853Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "No safety exception or policy override was supplied."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Full typecheck and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260904011700-ny-1ad331052f85",
+      "kind": "consolidation_review",
+      "taskId": "overlap-review-1ad331052f85",
+      "workerRole": "independent-verifier",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "status": "completed",
+      "startedAt": "2026-09-04T06:16:51Z",
+      "completedAt": "2026-09-04T06:20:37Z",
+      "localRunTime": "2026-09-04 01:20 CDT",
+      "routeSlugs": [
+        "susquehanna-river-otego-unadilla",
+        "susquehanna-river-sidney-bainbridge",
+        "susquehanna-river-unadilla-sidney",
+        "unadilla-river-rockdale-sidney"
+      ],
+      "familyModel": {
+        "corridorId": "ny-susquehanna-otego-bainbridge",
+        "model": "verified_bounded_multi_endpoint_corridor_with_excluded_crossing",
+        "canonicalSlug": "susquehanna-river-sidney-bainbridge",
+        "accessOrder": [
+          "Otego/Wells Bridge DEC hand launch",
+          "Unadilla DEC Susquehanna River hand launch",
+          "Sidney DEC Fishing Access",
+          "General Clinton Park river access"
+        ],
+        "segmentEdges": [
+          "Otego/Wells Bridge DEC hand launch → Unadilla DEC Susquehanna River hand launch",
+          "Unadilla DEC Susquehanna River hand launch → Sidney DEC Fishing Access",
+          "Sidney DEC Fishing Access → General Clinton Park river access"
+        ],
+        "preserveRouteCards": true,
+        "excludedRouteSlugs": [
+          "unadilla-river-rockdale-sidney"
+        ],
+        "excludedReason": "Different Unadilla River waterbody, gauge, threshold, confluence-area take-out, and logistics package."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: Susquehanna Otego → Unadilla → Sidney → General Clinton Park; Unadilla River Rockdale → Sidney confluence is separate.",
+        "riverContinuity": "passed: three Susquehanna cards form one contiguous ordered chain; the Unadilla crossing is confluence geometry, not a cross-waterbody family.",
+        "accessLegality": "passed_with_endpoint_advisories: current NYSDEC Otsego County records list Otego, Unadilla, and Sidney hand launches; carries, parking, waterline, footing, and posted rules remain launch-day checks.",
+        "gaugeReach": "passed_with_route_specific_profiles: direct USGS 01500500 applies to the two upstream planning cards, 01502632 to Sidney–Bainbridge, and 01502500 to Rockdale–Sidney; no gauge was generalized.",
+        "campingLogistics": "passed: route-specific distances, planning/scored eligibility, endpoint camping, no-camping posture, shuttles, daylight commitments, and hard handoffs remain distinct.",
+        "hazards": "passed: low water, fast rise, cold water, strainers, private banks, access uncertainty, bridge/shallows/railroad-island, confluence, and dirt-road landing cautions remain route-specific.",
+        "routeSpecificEvidence": "passed: route cards, trip details, access points, gauge profiles, safety packages, geometries, and logistics were preserved unchanged.",
+        "coordinateReview": "passed_with_advisories: authoritative water-entry matches retained expected 191–230 ft Susquehanna and 1,054 ft Unadilla named-flowline offsets; no coordinate changed.",
+        "geometryReview": "passed: four route geometry files exist; selected overlap rows are two Susquehanna shared endpoints plus one Unadilla/Susquehanna crossing.",
+        "externalEvidence": "passed: current NYSDEC Otsego County launch directory and USGS records support the endpoint and station identities."
+      },
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "tmp/route-overlap-audit.csv",
+        "tmp/route-overlap-audit.md",
+        "src/data/routes/new-york.ts",
+        "src/data/trip-details/new-york.ts",
+        "src/data/route-corridors.ts",
+        "docs/corridor-review-ledger.json",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "public/data/canonical-river-geometries/routes/susquehanna-river-otego-unadilla.json",
+        "public/data/canonical-river-geometries/routes/susquehanna-river-unadilla-sidney.json",
+        "public/data/canonical-river-geometries/routes/susquehanna-river-sidney-bainbridge.json",
+        "public/data/canonical-river-geometries/routes/unadilla-river-rockdale-sidney.json",
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/otsego-county",
+        "https://dec.ny.gov/places/susquehanna-river",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01500500",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01502632",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01502500"
+      ],
+      "validation": {
+        "status": "passed",
+        "routeRecordsChanged": false,
+        "familyModelRecorded": true,
+        "corridorModelRecorded": true,
+        "commands": [
+          "passed: npm run routes:audit",
+          "passed: npm run routes:audit:overlap; 1196 route spans and 2413 findings",
+          "passed: npm run routes:audit:corridors; 214 definitions and 426 covered routes",
+          "passed: npm run routes:audit:coordinates; selected endpoints had ok/review advisories only",
+          "passed: npm run routes:geometries:audit; 1626/1734 routes matched and 29 state assets present",
+          "passed_for_selected_family: npm run routes:safety:audit; two findings are unrelated Guyandotte findings",
+          "passed: npm run operations:verify; 13 gate tests, full typecheck, route audits, gallery audit, mobile typecheck, and production build"
+        ],
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed_for_selected_family",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        }
+      },
+      "rollbackEvidence": "No route records were changed. Revert by removing the ny-susquehanna-otego-bainbridge corridor and ledger entries, removing this task/queue/summary disposition metadata, and removing this run entry; restore only audit-artifact snapshots generated by this run and preserve unrelated shared working-tree changes.",
+      "summary": "Verified the bounded Otego → Unadilla → Sidney → General Clinton Park Susquehanna corridor, preserved all four route cards, and excluded the separate Rockdale-to-Sidney Unadilla crossing from any umbrella model."
+    },
+    {
+      "id": "independent-verifier-20260904071157-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-09-04T07:11:57.389-05:00",
+      "completedAt": "2026-09-04T07:11:57.389-05:00",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed",
+        "existingWorkingTreePreserved": "passed",
+        "focusedAudits": "skipped_no_selected_task",
+        "operationsVerify": "skipped_no_selected_task"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 41 materialized consolidation tasks are terminal (40 completed, one blocked), zero reviews are active or ready, and one approved plus one new overlap finding remain without materialized tasks (overlap-review-0ef2045f8733 approved; overlap-review-26d1180bd782 new). Read the required operations records, route-corridor registry, route and trip-detail corpus, and coordinate/geometry/safety audit artifacts; JSON artifacts parsed successfully, with geometry audit results produced by the routes:geometries:audit command rather than standalone docs files. No route, corridor, task, queue, trip-detail, or audit record was changed by this run; pre-existing working-tree edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected."
+    },
+    {
+      "id": "independent-verifier-20260904131259-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-09-04T13:12:59.749-05:00",
+      "completedAt": "2026-09-04T13:12:59.749-05:00",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed",
+        "existingWorkingTreePreserved": "passed",
+        "focusedAudits": "skipped_no_selected_task",
+        "operationsVerify": "skipped_no_selected_task"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 41 materialized consolidation tasks are terminal (40 completed, one blocked), zero reviews are active or ready, and one approved plus one new overlap finding remain without materialized tasks (overlap-review-0ef2045f8733 approved; overlap-review-26d1180bd782 new). Read the required operations records, route-corridor registry, 30 route modules, 31 trip-detail modules, and coordinate/geometry/safety audit artifacts; 2,831 JSON artifacts under docs/public parsed successfully. No route, corridor, task, queue, trip-detail, or audit record was changed by this run; pre-existing working-tree edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected."
+    },
+    {
+      "id": "gatekeeper-20260904204039",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T20:39:56.420Z",
+      "completedAt": "2026-09-04T20:40:39.154Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (1 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Typecheck, scoring invariants, workspace tests, and production build completed."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904210731",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:06:54.146Z",
+      "completedAt": "2026-09-04T21:07:31.182Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (1 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=failed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904211215",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:10:05.541Z",
+      "completedAt": "2026-09-04T21:12:15.016Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (1 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904212427",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:22:45.042Z",
+      "completedAt": "2026-09-04T21:24:27.959Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": false,
+          "detail": "Route safety audit did not complete."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904212655",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:25:11.884Z",
+      "completedAt": "2026-09-04T21:26:55.253Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (1 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904213545",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:33:44.007Z",
+      "completedAt": "2026-09-04T21:35:45.531Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (1 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904214305",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:42:02.244Z",
+      "completedAt": "2026-09-04T21:43:05.343Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904214903",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:47:32.821Z",
+      "completedAt": "2026-09-04T21:49:03.187Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904215758",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T21:56:11.218Z",
+      "completedAt": "2026-09-04T21:57:58.304Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904220446",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:03:52.321Z",
+      "completedAt": "2026-09-04T22:04:46.577Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904220725",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:05:56.246Z",
+      "completedAt": "2026-09-04T22:07:25.520Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904221340",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:12:06.536Z",
+      "completedAt": "2026-09-04T22:13:40.443Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904221715",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:15:53.337Z",
+      "completedAt": "2026-09-04T22:17:15.600Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904222136",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:20:59.116Z",
+      "completedAt": "2026-09-04T22:21:36.357Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=failed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904222414",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:22:43.750Z",
+      "completedAt": "2026-09-04T22:24:14.130Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904222929",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:28:06.255Z",
+      "completedAt": "2026-09-04T22:29:29.858Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904223828",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:37:08.505Z",
+      "completedAt": "2026-09-04T22:38:28.469Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904224003",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:38:42.286Z",
+      "completedAt": "2026-09-04T22:40:03.347Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904224504",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:43:39.642Z",
+      "completedAt": "2026-09-04T22:45:04.505Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904224746",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:46:21.122Z",
+      "completedAt": "2026-09-04T22:47:46.758Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260904225556",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-04T22:55:17.591Z",
+      "completedAt": "2026-09-04T22:55:56.478Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=failed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260904191336-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-09-05T00:13:36Z",
+      "completedAt": "2026-09-05T00:13:36Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "warning: 2916/2917 parsed; pre-existing untracked docs/operations/georgia-expansion-audit.json has trailing text",
+        "existingWorkingTreePreserved": "passed",
+        "focusedAudits": "skipped_no_selected_task",
+        "operationsVerify": "skipped_no_selected_task"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 41 materialized consolidation tasks are terminal (40 completed, one blocked), zero reviews are active or ready, and one approved plus one new overlap finding remain without materialized tasks (overlap-review-0ef2045f8733 approved; overlap-review-26d1180bd782 new). Read the required operations records, route-corridor registry, 30 route modules, 31 trip-detail modules, and coordinate/geometry/safety audit artifacts. The required operations JSON parsed; one pre-existing untracked Georgia expansion audit artifact has trailing text, so the full 2917-file corpus parsed 2916/2917. No route, corridor, task, queue, trip-detail, or audit record was changed by this run; pre-existing working-tree edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected.",
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "docs/operations/gate-policy.json",
+        "src/data/route-corridors.ts",
+        "src/data/routes/",
+        "src/data/trip-details/",
+        "docs/operations/georgia-expansion-audit.json"
+      ],
+      "routeRecordsChanged": false,
+      "corridorRecordsChanged": false,
+      "taskRecordsChanged": false,
+      "queueRecordsChanged": false,
+      "rollbackEvidence": "Only this no-work run record was appended. Revert by removing independent-verifier-20260904191336-no-work from docs/operations/runs.json; preserve all pre-existing shared working-tree changes, including the unrelated Georgia audit artifact."
+    },
+    {
+      "id": "gatekeeper-20260905003450",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-05T00:33:04.238Z",
+      "completedAt": "2026-09-05T00:34:50.920Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260905012459",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-05T01:23:12.724Z",
+      "completedAt": "2026-09-05T01:24:59.748Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260905012701",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-05T01:25:08.291Z",
+      "completedAt": "2026-09-05T01:27:01.873Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "independent-verifier-20260905011436-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-09-05T06:14:36.406Z",
+      "completedAt": "2026-09-05T06:14:36.406Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed",
+        "coordinateGeometrySafetyArtifactsParsed": "passed: 2930/2930 JSON artifacts parsed",
+        "existingWorkingTreePreserved": "passed",
+        "focusedAudits": "skipped_no_selected_task",
+        "operationsVerify": "skipped_no_selected_task"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 41 materialized consolidation tasks are terminal (40 completed, one blocked), zero reviews are active or ready, and one approved plus one new overlap finding remain without materialized tasks (overlap-review-0ef2045f8733 approved; overlap-review-26d1180bd782 new). Read the required operations records, route-corridor registry, 30 route modules, 31 trip-detail modules, and coordinate/geometry/safety audit artifacts. All 2930 JSON artifacts under docs and public/data parsed successfully. No route, corridor, task, queue, trip-detail, or audit record was changed by this run; pre-existing working-tree edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected.",
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "docs/operations/gate-policy.json",
+        "src/data/route-corridors.ts",
+        "src/data/routes/",
+        "src/data/trip-details/",
+        "docs/",
+        "public/data/"
+      ],
+      "routeRecordsChanged": false,
+      "corridorRecordsChanged": false,
+      "taskRecordsChanged": false,
+      "queueRecordsChanged": false,
+      "rollbackEvidence": "Only this no-work run record was appended. Revert by removing independent-verifier-20260905011436-no-work from docs/operations/runs.json; preserve all pre-existing shared working-tree changes."
     }
   ]
 }

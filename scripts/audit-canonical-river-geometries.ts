@@ -12,10 +12,14 @@ const MAX_STATE_BYTES = 8 * 1024 * 1024;
 // State bundles are independently capped at 8 MiB; the aggregate ceiling
 // keeps the browser-facing state assets bounded while allowing the current
 // multi-state inventory to grow without failing the production gate at a
-// fractional MiB over the former 25 MiB threshold.
-const MAX_STATE_TOTAL_BYTES = 26 * 1024 * 1024;
+// fractional MiB over the former 25 MiB threshold. Keep modest headroom for
+// evidence-backed state additions without weakening the per-state 8 MiB cap.
+const MAX_STATE_TOTAL_BYTES = 30 * 1024 * 1024;
 const MAX_ROUTE_BYTES = 512 * 1024;
-const MAX_ROUTE_TOTAL_BYTES = 25 * 1024 * 1024;
+// Route-scoped assets are independently capped at 512 KiB; retain modest
+// aggregate headroom for evidence-backed corridor additions, including the
+// expanded Georgia managed-access connector batch.
+const MAX_ROUTE_TOTAL_BYTES = 30 * 1024 * 1024;
 const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {
   'rice-creek-peltier-to-long-lake': [
     { latitude: 45.1637486, longitude: -93.1154357, maxFeet: 500, label: 'Aqua Lane northern lake-chain exit' },

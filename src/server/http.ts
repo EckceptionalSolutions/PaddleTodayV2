@@ -29,6 +29,7 @@ export function sendJson(
     : null;
   const responseBody = compressedBody ?? bodyBuffer;
   response.writeHead(status, {
+    ...securityHeaders(response),
     'content-type': 'application/json; charset=utf-8',
     'cache-control': cacheControl,
     'content-length': responseBody.length,
@@ -42,7 +43,7 @@ export function sendJson(
 }
 
 export function sendEmpty(response: ServerResponse, status: number, headers: Record<string, string>) {
-  response.writeHead(status, headers);
+  response.writeHead(status, { ...securityHeaders(response), ...headers });
   response.end();
   return response;
 }
@@ -57,6 +58,7 @@ export function sendBinary(
   extraHeaders: Record<string, string> = {},
 ) {
   response.writeHead(status, {
+    ...securityHeaders(response),
     'content-type': contentType,
     'content-length': payload.length,
     'cache-control': cacheControl,
@@ -65,6 +67,20 @@ export function sendBinary(
   });
   response.end(includeBody ? payload : undefined);
   return response;
+}
+
+export function securityHeaders(response: ServerResponse): Record<string, string> {
+  const forwardedProto = String(response.req?.headers['x-forwarded-proto'] ?? '')
+    .split(',')[0]
+    .trim()
+    .toLowerCase();
+  const isTls = process.env.NODE_ENV === 'production' || forwardedProto === 'https';
+  return {
+    'x-content-type-options': 'nosniff',
+    'referrer-policy': 'strict-origin-when-cross-origin',
+    'permissions-policy': 'geolocation=(), microphone=(), camera=()',
+    ...(isTls ? { 'strict-transport-security': 'max-age=31536000; includeSubDomains' } : {}),
+  };
 }
 
 export function requestIdFromPayload(payload: unknown): string {

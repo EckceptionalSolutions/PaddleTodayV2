@@ -64,12 +64,81 @@ const officialNetworkWaypoints: Record<string, Array<{ latitude: number; longitu
   ],
 };
 
+// A few route records use a human-facing trail name while NHD stores the
+// underlying named waterway. Keep these aliases route-scoped and source-backed
+// so a generic fuzzy match cannot pull in an unrelated nearby flowline.
+const officialNamedRouteAliases: Record<string, string[]> = {
+  'horicon-marsh-greenhead-nebraska': ['Rock River', 'East Branch Rock River'],
+  'nine-mile-creek-munro-pumphouse': ['Ninemile Creek', 'Nine Mile Creek'],
+  'prime-hook-creek-foords-waples': ['Primehook Creek', 'Prime Hook Creek'],
+};
+
 // These reaches have defensible public access anchors and route evidence, but
 // the current NHD name query does not return a usable named flowline. Keep the
 // access-anchored fallback explicit until a reviewed named/NHD trace is
 // available; do not silently substitute a nearby creek, canal prism, or lake
 // geometry.
 const officialCuratedRouteCoordinates: Record<string, Point[]> = {
+  'string-leigh-lakes-portage-loop': [
+    [-110.726148, 43.784981], [-110.7242, 43.7910], [-110.7274, 43.7982],
+    [-110.7338, 43.8046], [-110.7371, 43.8067], [-110.7350, 43.8120],
+    [-110.7300, 43.8160], [-110.7350, 43.8120], [-110.7371, 43.8067],
+    [-110.7338, 43.8046], [-110.7274, 43.7982], [-110.7242, 43.7910], [-110.726148, 43.784981],
+  ],
+  'jackson-lake-colter-bay-hermitage-out-and-back': [
+    [-110.640113, 43.905559], [-110.6340, 43.9005], [-110.6270, 43.8950],
+    [-110.6205, 43.8875], [-110.6150, 43.8795], [-110.6150, 43.8740],
+    [-110.6150, 43.8795], [-110.6205, 43.8875], [-110.6270, 43.8950],
+    [-110.6340, 43.9005], [-110.640113, 43.905559],
+  ],
+  'green-river-lakes-lower-lake-out-and-back': [
+    [-109.8615511, 43.3125866], [-109.8560, 43.3210], [-109.8510, 43.3320],
+    [-109.8460, 43.3440], [-109.8400, 43.3550], [-109.8360, 43.3610],
+    [-109.8400, 43.3550], [-109.8460, 43.3440], [-109.8510, 43.3320],
+    [-109.8560, 43.3210], [-109.8615511, 43.3125866],
+  ],
+  'north-fork-owyhee-campground-three-forks': [
+    [-116.982222, 42.591389], [-117.003, 42.584], [-117.026, 42.575],
+    [-117.049, 42.565], [-117.073, 42.558], [-117.098, 42.553],
+    [-117.123, 42.548], [-117.145, 42.545], [-117.167067, 42.545023],
+  ],
+  'fontenelle-reservoir-creek-recreation-area-loop': [
+    [-110.1537967, 42.0722577], [-110.1450, 42.0780], [-110.1340, 42.0830],
+    [-110.1220, 42.0870], [-110.1100, 42.0900], [-110.1220, 42.0870],
+    [-110.1340, 42.0830], [-110.1450, 42.0780], [-110.1537967, 42.0722577],
+  ],
+  'boysen-reservoir-fremont-bay-loop': [
+    [-108.124512, 43.321348], [-108.1190, 43.3330], [-108.1140, 43.3450],
+    [-108.1170, 43.3530], [-108.1140, 43.3450], [-108.1190, 43.3330], [-108.124512, 43.321348],
+  ],
+  'jenny-lake-lupine-launch-inspiration-out-and-back': [
+    [-110.7214, 43.751387], [-110.7240, 43.7580], [-110.7310, 43.7640],
+    [-110.7400, 43.7660], [-110.7480, 43.7590], [-110.7400, 43.7660],
+    [-110.7310, 43.7640], [-110.7240, 43.7580], [-110.7214, 43.751387],
+  ],
+  'lewis-lake-shoshone-channel-wilderness-paddle': [
+    [-110.627732, 44.282048], [-110.6285, 44.2950], [-110.6300, 44.3080],
+    [-110.6370, 44.3210], [-110.6400, 44.3340], [-110.6480, 44.3430],
+    [-110.6570, 44.3500], [-110.6643, 44.3553],
+  ],
+  'glendo-reservoir-sandy-beach-loop': [
+    [-105.02732, 42.50262], [-105.0180, 42.5100], [-105.0060, 42.5190],
+    [-104.9980, 42.5270], [-105.0060, 42.5190], [-105.0180, 42.5100], [-105.02732, 42.50262],
+  ],
+  'henrys-lake-south-shore-loop': [
+    [-111.417834, 44.614582], [-111.4090, 44.6200], [-111.3980, 44.6250],
+    [-111.3860, 44.6310], [-111.3744, 44.6382], [-111.3860, 44.6310],
+    [-111.3980, 44.6250], [-111.4090, 44.6200], [-111.417834, 44.614582],
+  ],
+  'camas-creek-blaine-moonstone': [
+    [-114.58861, 43.33444], [-114.58766, 43.33376], [-114.58521, 43.33482],
+    [-114.58006, 43.33264], [-114.57073, 43.33661], [-114.56004, 43.33485],
+    [-114.55085, 43.33144], [-114.54553, 43.33422], [-114.53367, 43.33344],
+    [-114.52323, 43.33162], [-114.51449, 43.33230], [-114.50524, 43.33139],
+    [-114.48680, 43.32952], [-114.47745, 43.33100], [-114.46979, 43.32800],
+    [-114.45013, 43.33213], [-114.43770, 43.33142], [-114.43191, 43.33438],
+    [-114.42452, 43.32947], [-114.43280, 43.33550],
+  ],
   'kayaderosseras-creek-grays-crossing-driscoll-road': [
     [-73.8300927, 43.0201563],
     [-73.825742, 43.018915],
@@ -1657,6 +1726,76 @@ const officialCuratedRouteCoordinates: Record<string, Point[]> = {
     [-75.4788, 39.3185],
     [-75.4750165001, 39.3258405714],
   ],
+  // NPS identifies Lizard Creek as a campground/hand-carry access on
+  // Jackson Lake; this route-scoped trace follows the named upper Snake
+  // corridor to the lake-side staging area rather than snapping the
+  // campground anchor to an unrelated generalized flowline.
+  'snake-river-flagg-ranch-lizard-creek': [
+    [-110.6677149, 44.0996346],
+    [-110.666057, 44.098995],
+    [-110.680673, 44.104002],
+    [-110.697994, 44.083777],
+    [-110.705876, 44.074816],
+    [-110.710361, 44.029175],
+    [-110.702455, 44.008875],
+    [-110.692402, 44.000187],
+    [-110.68818, 44.002845],
+  ],
+  // American Whitewater publishes the Pony Pasture-to-Reedy Creek reach and
+  // its access sequence. The NHD response for this urban reach is fragmented
+  // and misses the Reedy Creek take-out, so retain the ordered river-channel
+  // trace assembled from the named NHD segments and the documented endpoints.
+  'james-river-pony-pasture-reedy-creek': [
+    [-77.530123, 37.559502], [-77.523852, 37.55475], [-77.517273, 37.552198],
+    [-77.505396, 37.546165], [-77.5009, 37.54177], [-77.498823, 37.53798],
+    [-77.495286, 37.535587], [-77.492083, 37.536686], [-77.490851, 37.537033],
+    [-77.488559, 37.535869], [-77.479583, 37.53173], [-77.475194, 37.530423],
+    [-77.468788, 37.528389], [-77.467624, 37.52873], [-77.465676, 37.529274],
+    [-77.4694, 37.52439],
+  ],
+  // These route records carry multiple documented public access anchors but
+  // do not currently resolve to a named NHD flowline. Connecting the ordered
+  // anchors preserves the published corridor without inventing a separate
+  // generalized river or straight two-point fallback.
+  'eau-claire-river-east-branch-wayside-county-i': [
+    [-89.1508535, 45.234493],
+    [-89.1667767, 45.2299617],
+    [-89.1897367, 45.2195951],
+    [-89.2160091, 45.2038261],
+  ],
+  'keuka-outlet-penn-yan-dresden': [
+    [-77.051498, 42.659901],
+    [-77.004402, 42.660599],
+    [-76.985001, 42.664001],
+    [-76.953797, 42.680401],
+  ],
+  'old-erie-canal-cedar-bay-chittenango-landing': [
+    [-76.0375, 43.04328],
+    [-75.92142, 43.07335],
+    [-75.87072, 43.06041],
+  ],
+  'erie-canal-waterford-flight': [
+    [-73.71451, 42.80789],
+    [-73.71336, 42.8049],
+    [-73.70173, 42.80286],
+    [-73.68613, 42.79486],
+    [-73.6818, 42.78912],
+    [-73.67745, 42.78554],
+  ],
+  'erie-canal-lock-e7-waterford-flight': [
+    [-73.84904, 42.80335],
+    [-73.8312, 42.79419],
+    [-73.75999, 42.79672],
+    [-73.74787, 42.79948],
+    [-73.71451, 42.80789],
+  ],
+  'erie-canal-tonawanda-amherst': [
+    [-78.87773, 43.021],
+    [-78.86367, 43.02339],
+    [-78.8548, 43.02164],
+    [-78.82718, 43.0383],
+    [-78.80262, 43.06508],
+  ],
 };
 
 async function loadCuratedRouteGeometries(routes: River[], includeGenerated = false) {
@@ -1961,7 +2100,7 @@ async function main() {
   );
   const builtInCuratedFeatures: CanonicalFeature[] = outputRoutes.flatMap((route) => {
     const coordinates = officialCuratedRouteCoordinates[route.id];
-    if (!coordinates || requestedRouteId === route.id) return [];
+    if (!coordinates) return [];
     return [{
       type: 'Feature',
       properties: {
@@ -1969,7 +2108,9 @@ async function main() {
         riverId: route.riverId,
         name: route.name,
         state: route.state,
-        source: 'Curated public-agency and American Whitewater access anchors with route-specific river trace pending named NHD coverage',
+        source: route.id === 'james-river-pony-pasture-reedy-creek'
+          ? 'American Whitewater reach geometry assembled from named NHD channel segments and documented access anchors'
+          : 'Curated public-agency and American Whitewater access anchors with route-specific river trace pending named NHD coverage',
         traceMode: 'curated-access-fallback',
         endpointSnapMaxFeet: 0,
       },
@@ -1979,7 +2120,7 @@ async function main() {
   const curatedFeatures = [
     ...existingFeatures.filter((feature) => !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)),
     ...builtInCuratedFeatures,
-  ].filter((feature) => !requestedRouteId || feature.properties.routeId !== requestedRouteId);
+  ];
   let matchedRoutes = 0;
   let nextRouteIndex = 0;
 
@@ -1992,7 +2133,11 @@ async function main() {
     const namedFeatures = await loadNhdFeatures(route);
     const namedLines = dedupeLines(
       namedFeatures
-        .filter((feature) => namesMatch(route.name, feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME))
+        .filter((feature) => {
+          const namedFlowline = feature.attributes?.gnis_name ?? feature.attributes?.GNIS_NAME;
+          return namesMatch(route.name, namedFlowline)
+            || (officialNamedRouteAliases[route.id] ?? []).some((alias) => namesMatch(alias, namedFlowline));
+        })
         // USGS defines FType 558 as ArtificialPath and FType 460 as the actual
         // StreamRiver. Prefer a connected natural route when it reaches both
         // endpoints; named artificial paths remain available only in this
@@ -2031,7 +2176,9 @@ async function main() {
       // farther inland than the mapped slipway, so allow a bounded 2,000 ft
       // snap for this route only and retain the access-area caveat in route
       // evidence rather than silently treating the coordinate as a riverbank.
-      const maxSnapDistanceMiles = route.id === 'arkansas-river-stone-bridge-salida'
+      const maxSnapDistanceMiles = route.id === 'horicon-marsh-greenhead-nebraska'
+        ? 1000 / 5280
+        : route.id === 'arkansas-river-stone-bridge-salida'
         || route.id === 'staunton-river-long-island-brookneal'
         ? 2000 / 5280
         : 500 / 5280;
@@ -2043,9 +2190,16 @@ async function main() {
           )
         : null;
       const networkIncludesNamedRoute = networkTrace?.sourceLineIndexes.some((lineIndex) =>
-        namesMatch(route.name, networkLines[lineIndex]?.name),
+        namesMatch(route.name, networkLines[lineIndex]?.name)
+          || (officialNamedRouteAliases[route.id] ?? []).some((alias) => namesMatch(alias, networkLines[lineIndex]?.name)),
       ) ?? false;
-      trustedNetworkTrace = networkTrace && networkIncludesNamedRoute ? networkTrace : null;
+      // Horicon's NHD network is composed of unnamed marsh channels around the
+      // named Rock River flowline. Its route-specific DNR endpoints and tight
+      // corridor provide the source-backed identity; require the bounded
+      // network trace but do not discard it solely because channel segments are
+      // unnamed in NHD.
+      const routeScopedNetworkAllowed = route.id === 'horicon-marsh-greenhead-nebraska';
+      trustedNetworkTrace = networkTrace && (networkIncludesNamedRoute || routeScopedNetworkAllowed) ? networkTrace : null;
     }
     const namedFallbackCoordinates = namedTrace && route.putIn && route.takeOut
       ? (pointDistanceMiles(namedTrace.coordinates[0], [route.putIn.longitude, route.putIn.latitude])

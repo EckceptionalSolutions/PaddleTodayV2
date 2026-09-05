@@ -4,6 +4,7 @@ import {
   isStoredSnapshotFresh,
   storedSnapshotMetadata,
 } from './river-snapshots';
+import { getRiverBySlug } from './rivers';
 
 const NOW = new Date('2026-07-27T04:00:00.000Z');
 
@@ -58,5 +59,6 @@ describe('stored river snapshot freshness', () => {
       weatherState: 'stale',
     });
     expect(snapshot?.rivers[0]?.liveData.summary).toContain('latest successful Paddle Today snapshot');
+    expect(snapshot?.rivers.every((item) => Boolean(getRiverBySlug(item.river.slug)))).toBe(true);
   });
 });

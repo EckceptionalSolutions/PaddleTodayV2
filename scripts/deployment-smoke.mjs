@@ -11,6 +11,7 @@ const [ready, health, home, summary, weekend] = await Promise.all([
   checkJson('summary board', '/api/rivers/summary.json', validateSummary),
   checkJson('weekend board', '/api/weekend/summary.json', validateWeekend),
 ]);
+await checkSecurityHeaders();
 
 const firstSlug = summary?.rivers?.[0]?.river?.slug;
 if (firstSlug) {
@@ -117,6 +118,35 @@ async function checkAttachment(name, path, expectedContentType, marker) {
     record(name, valid, valid ? `${text.length} bytes` : `HTTP ${response.status}, ${contentType || 'no content type'}`);
   } catch (error) {
     record(name, false, errorMessage(error));
+  }
+}
+
+async function checkSecurityHeaders() {
+  try {
+    const response = await fetchWithTimeout(new URL('/', baseUrl), { headers: { accept: 'text/html' } });
+    const required = [
+      ['x-content-type-options', (value) => value === 'nosniff'],
+      // same-origin is at least as restrictive as the documented baseline.
+      ['referrer-policy', (value) => value === 'strict-origin-when-cross-origin' || value === 'same-origin'],
+      ['permissions-policy', (value) => value === 'geolocation=(), microphone=(), camera=()'],
+    ];
+    for (const [name, validate] of required) {
+      if (!validate(response.headers.get(name))) {
+        record('security headers', false, `${name} is missing or unexpected`);
+        return;
+      }
+    }
+    if (new URL(baseUrl).protocol === 'https:') {
+      const hsts = response.headers.get('strict-transport-security') ?? '';
+      const maxAge = Number(hsts.match(/(?:^|;)\s*max-age=(\d+)/i)?.[1] ?? 0);
+      if (maxAge < 31_536_000 || !/includeSubDomains/i.test(hsts)) {
+        record('security headers', false, 'strict-transport-security must includeSubDomains with max-age >= 31536000');
+        return;
+      }
+    }
+    record('security headers', true, 'baseline browser headers present');
+  } catch (error) {
+    record('security headers', false, errorMessage(error));
   }
 }
 

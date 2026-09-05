@@ -64,8 +64,8 @@ function escapeRegExp(value: string) {
 function updateRouteFile(text: string, correction: Correction) {
   const routeStart = text.indexOf(`"id": "${correction.routeId}"`);
   if (routeStart < 0) return text;
-  const nextRoute = text.indexOf('\n  {\n    "id":', routeStart + 1);
-  const routeEnd = nextRoute < 0 ? text.length : nextRoute;
+  const nextRoute = /\r?\n  \{\r?\n    "id":/.exec(text.slice(routeStart + 1));
+  const routeEnd = nextRoute ? routeStart + 1 + nextRoute.index : text.length;
   const block = text.slice(routeStart, routeEnd);
   let updatedBlock = block;
   let sourceId: string | null = null;

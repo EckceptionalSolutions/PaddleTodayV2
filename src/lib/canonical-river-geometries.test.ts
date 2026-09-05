@@ -122,6 +122,39 @@ describe('canonical river geometry asset', () => {
     expect(distanceMiles(coordinates?.at(-1) ?? [0, 0], [-95.9809894, 46.2807577])).toBeLessThan(0.03);
   });
 
+  it('covers the formerly unmatched source-backed corridors', () => {
+    const horicon = routeFeature('horicon-marsh-greenhead-nebraska');
+    const nineMile = routeFeature('nine-mile-creek-munro-pumphouse');
+    const primeHook = routeFeature('prime-hook-creek-foords-waples');
+
+    expect(horicon.properties?.traceMode).toBe('network-traced');
+    expect(horicon.properties?.endpointSnapMaxFeet).toBeLessThanOrEqual(1000);
+    expect(nineMile.properties?.traceMode).toBe('named-fallback');
+    expect(nineMile.properties?.endpointSnapMaxFeet).toBeLessThanOrEqual(100);
+    expect(primeHook.properties?.traceMode).toBe('network-traced');
+    expect(primeHook.properties?.endpointSnapMaxFeet).toBeLessThanOrEqual(500);
+    for (const feature of [horicon, nineMile, primeHook]) {
+      expect(feature.geometry?.type).toBe('MultiLineString');
+      expect(feature.geometry?.coordinates?.[0]?.length).toBeGreaterThan(2);
+    }
+  });
+
+  it('preserves documented access-anchor traces when named NHD coverage is unavailable', () => {
+    for (const routeId of [
+      'eau-claire-river-east-branch-wayside-county-i',
+      'keuka-outlet-penn-yan-dresden',
+      'old-erie-canal-cedar-bay-chittenango-landing',
+      'erie-canal-waterford-flight',
+      'erie-canal-lock-e7-waterford-flight',
+      'erie-canal-tonawanda-amherst',
+    ]) {
+      const feature = routeFeature(routeId);
+      expect(feature.properties?.traceMode).toBe('curated-access-fallback');
+      expect(feature.properties?.endpointSnapMaxFeet).toBe(0);
+      expect(feature.geometry?.coordinates?.[0]?.length).toBeGreaterThan(2);
+    }
+  });
+
   it('carries the Pony Pasture route through the Manchester Canal to the Reedy Creek ramp', () => {
     const feature = routeFeature('james-river-pony-pasture-reedy-creek');
     const putIn: [number, number] = [-77.53012072, 37.55949468];

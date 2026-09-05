@@ -1,12 +1,14 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 import type { ServerResponse } from 'node:http';
+import { securityHeaders } from './http';
 
 const PUBLIC_ASSET_EXTENSIONS = new Set(['.css', '.js', '.json', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff2', '.ico']);
 
 export function sendStatic(response: ServerResponse, filePath: string, includeBody = true) {
   const stats = statSync(filePath);
   response.writeHead(200, {
+    ...securityHeaders(response),
     'content-type': contentTypeFor(filePath),
     'cache-control': cacheControlFor(filePath),
     'content-length': stats.size,

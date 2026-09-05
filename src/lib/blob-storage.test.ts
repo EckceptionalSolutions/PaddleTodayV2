@@ -1,6 +1,16 @@
 import { describe, expect, it, vi } from 'vitest';
-import { blobUrl, cleanBlobPath, parseContainerSas, putJsonBlob } from './blob-storage';
-import { createJsonStorage } from './blob-storage';
+import { rm } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import {
+  BlobPreconditionError,
+  blobUrl,
+  cleanBlobPath,
+  mutateJson,
+  parseContainerSas,
+  putJsonBlob,
+  withJsonStorageLock,
+} from './blob-storage';
+import { createJsonStorage, type JsonStorage } from './blob-storage';
 
 describe('blob storage primitives', () => {
   it('separates the signed query from the stable container URL', () => {
@@ -40,6 +50,22 @@ describe('blob storage primitives', () => {
         body: '{\n  "ok": true\n}',
       }),
     );
+  });
+
+  it('retries transient blob request failures', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(new Response(null, { status: 201 }));
+    const container = parseContainerSas('https://example.com/container?sig=x')!;
+
+    await putJsonBlob(container, 'items/one.json', { ok: true }, {
+      fetchImplementation: fetchMock as typeof fetch,
+      retries: 2,
+      retryDelayMs: 1,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it('provides one validated blob-backed JSON repository', async () => {
@@ -83,7 +109,84 @@ describe('blob storage primitives', () => {
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
       'https://example.com/container?restype=container&comp=list&prefix=route-requests%2F&sig=x',
-      { method: 'GET' },
+      expect.objectContaining({ method: 'GET' }),
     );
+  });
+
+  it('serializes same-process JSON mutations for one blob key', async () => {
+    const order: string[] = [];
+    await Promise.all([
+      withJsonStorageLock('test:alerts.json', async () => {
+        order.push('first-start');
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        order.push('first-end');
+      }),
+      withJsonStorageLock('test:alerts.json', async () => {
+        order.push('second-start');
+        order.push('second-end');
+      }),
+    ]);
+
+    expect(order).toEqual(['first-start', 'first-end', 'second-start', 'second-end']);
+  });
+
+  it('commits local JSON mutations with a content precondition', async () => {
+    const blobName = 'counter.json';
+    const localPath = resolve(process.cwd(), '.local/blob-storage-test', blobName);
+    await rm(localPath, { force: true });
+    const storage = createJsonStorage({
+      localDirectory: '.local/blob-storage-test',
+      label: 'test',
+      validate: (value) => Boolean(value && typeof value === 'object' && 'count' in value),
+    });
+    try {
+      const first = await mutateJson({
+        storage,
+        blobName,
+        initial: { count: 0 },
+        mutate: (value) => ({ count: value.count + 1 }),
+      });
+      const second = await mutateJson({
+        storage,
+        blobName,
+        initial: { count: 0 },
+        mutate: (value) => ({ count: value.count + 1 }),
+      });
+
+      expect(first.count).toBe(1);
+      expect(second.count).toBe(2);
+    } finally {
+      await rm(localPath, { force: true });
+    }
+  });
+
+  it('retries a conditional mutation after a concurrent writer wins', async () => {
+    let current = { count: 0 };
+    let etag = '"initial"';
+    let conflictInjected = false;
+    const storage: JsonStorage = {
+      kind: 'local',
+      listJsonNames: async () => [],
+      readJson: async () => current,
+      readJsonWithEtag: async () => ({ value: { ...current }, etag }),
+      writeJson: async (_blobName, value, options = {}) => {
+        if (!conflictInjected) {
+          conflictInjected = true;
+          current = { count: 10 };
+          etag = '"external"';
+          throw new BlobPreconditionError();
+        }
+        expect(options.ifMatch).toBe('"external"');
+        current = value as { count: number };
+        etag = '"committed"';
+      },
+    };
+
+    await expect(mutateJson({
+      storage,
+      blobName: 'counter.json',
+      initial: { count: 0 },
+      mutate: (value) => ({ count: value.count + 1 }),
+    })).resolves.toEqual({ count: 11 });
   });
 });

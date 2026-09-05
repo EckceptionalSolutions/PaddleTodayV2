@@ -45,6 +45,12 @@ export function parseScoringOutcomeObservation(value: unknown): ScoringOutcomePa
     return { ok: false, error: 'decisionCapturedAt must be a valid timestamp.' };
   }
 
+  const decisionPolicyRevision = optionalShortString(value.decisionPolicyRevision, 80);
+  const evidenceAgeMinutes = optionalBoundedNumber(value.evidenceAgeMinutes, 0, 7 * 24 * 60);
+  if (decisionPolicyRevision === false || evidenceAgeMinutes === false) {
+    return { ok: false, error: 'Decision policy revision or evidence age is invalid.' };
+  }
+
   const appScore = optionalBoundedNumber(value.appScore, 0, 100);
   const appConfidence = optionalBoundedNumber(value.appConfidence, 0, 100);
   const gaugeValue = optionalFiniteNumber(value.gaugeValue);
@@ -94,6 +100,8 @@ export function parseScoringOutcomeObservation(value: unknown): ScoringOutcomePa
     value: {
       schemaVersion: 1,
       ...(decisionCapturedAt ? { decisionCapturedAt } : {}),
+      ...(decisionPolicyRevision ? { decisionPolicyRevision } : {}),
+      ...(evidenceAgeMinutes !== undefined ? { evidenceAgeMinutes } : {}),
       ...(appScore !== undefined ? { appScore } : {}),
       ...(value.appRating !== undefined ? { appRating: value.appRating as ScoreRating } : {}),
       ...(appConfidence !== undefined ? { appConfidence } : {}),
@@ -120,6 +128,13 @@ function optionalTimestamp(value: unknown): string | undefined | false {
   if (value === undefined || value === null || value === '') return undefined;
   if (typeof value !== 'string' || !Number.isFinite(new Date(value).getTime())) return false;
   return new Date(value).toISOString();
+}
+
+function optionalShortString(value: unknown, maxLength: number): string | undefined | false {
+  if (value === undefined || value === null || value === '') return undefined;
+  if (typeof value !== 'string') return false;
+  const normalized = value.trim();
+  return normalized.length > 0 && normalized.length <= maxLength ? normalized : false;
 }
 
 function optionalBoundedNumber(value: unknown, min: number, max: number): number | undefined | false {

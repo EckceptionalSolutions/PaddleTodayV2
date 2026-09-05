@@ -14,6 +14,7 @@ export function RiverCard({
   showPhoto = false,
   onToggleSaved,
   onPress,
+  onPressIn,
   segmentLabel,
   segmentEndpointLabel,
   routeCount = 1,
@@ -24,6 +25,7 @@ export function RiverCard({
   showPhoto?: boolean;
   onToggleSaved?: () => void;
   onPress: () => void;
+  onPressIn?: () => void;
   segmentLabel?: string;
   segmentEndpointLabel?: string;
   routeCount?: number;
@@ -34,7 +36,14 @@ export function RiverCard({
   const showDataWarning = river.liveData.overall !== 'live';
 
   return (
-    <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable
+      style={({ pressed }) => [styles.card, pressed ? { opacity: 0.75 } : null]}
+      onPress={onPress}
+      onPressIn={onPressIn}
+      accessibilityRole="button"
+      accessibilityLabel={`${routeCount > 1 ? 'Compare routes' : 'Open route'}: ${river.river.name}, ${river.river.reach}`}
+      android_ripple={{ color: colors.canvasMuted }}
+    >
       {showPhoto ? <RouteCardPhoto river={river} /> : null}
 
       <View style={styles.header}>

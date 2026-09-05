@@ -1,5 +1,6 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { dirname, relative, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 
 export interface BlobContainer {
   base: string;
@@ -13,13 +14,28 @@ export interface ParseContainerSasOptions {
 export interface PutJsonBlobOptions {
   fetchImplementation?: typeof fetch;
   space?: number;
+  timeoutMs?: number;
+  retries?: number;
+  retryDelayMs?: number;
+  ifMatch?: string;
+  ifNoneMatch?: string;
 }
 
 export interface JsonStorage {
   kind: 'blob' | 'local';
   listJsonNames(prefix?: string): Promise<string[]>;
   readJson<T>(blobName: string): Promise<T | null>;
-  writeJson(blobName: string, value: unknown): Promise<void>;
+  readJsonWithEtag<T>(blobName: string): Promise<{ value: T | null; etag: string | null }>;
+  writeJson(blobName: string, value: unknown, options?: { ifMatch?: string; ifNoneMatch?: string }): Promise<void>;
+}
+
+export class BlobPreconditionError extends Error {
+  readonly status = 412;
+
+  constructor(message = 'Blob changed before the mutation could be committed.') {
+    super(message);
+    this.name = 'BlobPreconditionError';
+  }
 }
 
 export interface CreateJsonStorageOptions {
@@ -29,6 +45,68 @@ export interface CreateJsonStorageOptions {
   label: string;
   space?: number;
   fetchImplementation?: typeof fetch;
+  timeoutMs?: number;
+  retries?: number;
+  retryDelayMs?: number;
+}
+
+const DEFAULT_BLOB_TIMEOUT_MS = 30_000;
+const DEFAULT_BLOB_ATTEMPTS = 3;
+const DEFAULT_BLOB_RETRY_DELAY_MS = 500;
+const jsonMutationLocks = new Map<string, Promise<void>>();
+
+/** Serialize read-modify-write mutations within this process. */
+export async function withJsonStorageLock<T>(key: string, operation: () => Promise<T>): Promise<T> {
+  const previous = jsonMutationLocks.get(key) ?? Promise.resolve();
+  let release!: () => void;
+  const current = new Promise<void>((resolve) => { release = resolve; });
+  jsonMutationLocks.set(key, current);
+  await previous;
+  try {
+    return await operation();
+  } finally {
+    release();
+    if (jsonMutationLocks.get(key) === current) jsonMutationLocks.delete(key);
+  }
+}
+
+export async function mutateJson<T>(args: {
+  storage: JsonStorage;
+  blobName: string;
+  initial: T;
+  mutate: (current: T) => T | Promise<T>;
+  attempts?: number;
+}): Promise<T> {
+  return withJsonStorageLock(`${args.storage.kind}:${args.blobName}`, () => mutateJsonUnlocked(args));
+}
+
+async function mutateJsonUnlocked<T>(args: {
+  storage: JsonStorage;
+  blobName: string;
+  initial: T;
+  mutate: (current: T) => T | Promise<T>;
+  attempts?: number;
+}): Promise<T> {
+  const attempts = Math.max(1, args.attempts ?? 5);
+  let lastConflict: unknown;
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    const current = await args.storage.readJsonWithEtag<T>(args.blobName);
+    const next = await args.mutate(current.value ?? structuredClone(args.initial));
+    try {
+      await args.storage.writeJson(
+        args.blobName,
+        next,
+        current.etag ? { ifMatch: current.etag } : { ifNoneMatch: '*' },
+      );
+      return next;
+    } catch (error) {
+      if (!(error instanceof BlobPreconditionError)) throw error;
+      lastConflict = error;
+    }
+  }
+  throw lastConflict instanceof Error
+    ? lastConflict
+    : new BlobPreconditionError(`Could not commit ${args.blobName} after ${attempts} attempts.`);
 }
 
 /**
@@ -75,14 +153,66 @@ export async function putJsonBlob(
   options: PutJsonBlobOptions = {},
 ) {
   const fetchImplementation = options.fetchImplementation ?? fetch;
-  return fetchImplementation(blobUrl(container, blobName), {
+  return fetchWithRetry(fetchImplementation, blobUrl(container, blobName), {
     method: 'PUT',
     headers: {
       'x-ms-blob-type': 'BlockBlob',
       'content-type': 'application/json; charset=utf-8',
+      ...(options.ifMatch ? { 'if-match': options.ifMatch } : {}),
+      ...(options.ifNoneMatch ? { 'if-none-match': options.ifNoneMatch } : {}),
     },
     body: JSON.stringify(value, null, options.space ?? 2),
-  });
+  }, options);
+}
+
+async function fetchWithRetry(
+  fetchImplementation: typeof fetch,
+  url: string,
+  init: RequestInit,
+  options: Pick<CreateJsonStorageOptions, 'timeoutMs' | 'retries' | 'retryDelayMs'>,
+) {
+  const timeoutMs = positiveInteger(options.timeoutMs, DEFAULT_BLOB_TIMEOUT_MS);
+  const attempts = positiveInteger(options.retries, DEFAULT_BLOB_ATTEMPTS);
+  const retryDelayMs = positiveInteger(options.retryDelayMs, DEFAULT_BLOB_RETRY_DELAY_MS);
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetchImplementation(url, {
+        ...init,
+        signal: controller.signal,
+      });
+      if (!shouldRetryResponse(response.status) || attempt === attempts) {
+        return response;
+      }
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts) {
+        throw error;
+      }
+    } finally {
+      clearTimeout(timer);
+    }
+
+    await delay(retryDelayMs * 2 ** (attempt - 1));
+  }
+
+  throw lastError ?? new Error(`Request failed for ${url}`);
+}
+
+function shouldRetryResponse(status: number) {
+  return status === 408 || status === 429 || status >= 500;
+}
+
+function positiveInteger(value: number | undefined, fallback: number): number {
+  return typeof value === 'number' && Number.isInteger(value) && value > 0 ? value : fallback;
+}
+
+async function delay(milliseconds: number) {
+  await new Promise<void>((resolve) => setTimeout(resolve, milliseconds));
 }
 
 export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorage {
@@ -96,9 +226,11 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
       async listJsonNames(prefix = '') {
         const prefixParam = prefix ? `&prefix=${encodeURIComponent(prefix)}` : '';
         const query = container.query ? `&${container.query.slice(1)}` : '';
-        const response = await fetchImplementation(
+        const response = await fetchWithRetry(
+          fetchImplementation,
           `${container.base}?restype=container&comp=list${prefixParam}${query}`,
           { method: 'GET' },
+          options,
         );
         if (!response.ok) {
           const detail = await response.text().catch(() => '');
@@ -111,12 +243,17 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
           .map((match) => decodeXml(match[1]))
           .filter((name) => name.endsWith('.json'));
       },
-      async readJson<T>(blobName: string) {
-        const response = await fetchImplementation(blobUrl(container, blobName), {
-          method: 'GET',
-          headers: { accept: 'application/json' },
-        });
-        if (response.status === 404) return null;
+      async readJsonWithEtag<T>(blobName: string) {
+        const response = await fetchWithRetry(
+          fetchImplementation,
+          blobUrl(container, blobName),
+          {
+            method: 'GET',
+            headers: { accept: 'application/json' },
+          },
+          options,
+        );
+        if (response.status === 404) return { value: null, etag: null };
         if (!response.ok) {
           throw new Error(`Failed to read ${options.label} blob ${blobName}: HTTP ${response.status}`);
         }
@@ -124,13 +261,23 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
         if (!options.validate(value)) {
           throw new Error(`Invalid ${options.label} blob ${blobName}`);
         }
-        return value as T;
+        return { value: value as T, etag: response.headers.get('etag') };
       },
-      async writeJson(blobName: string, value: unknown) {
+      async readJson<T>(blobName: string) {
+        return (await this.readJsonWithEtag<T>(blobName)).value;
+      },
+      async writeJson(blobName: string, value: unknown, writeOptions = {}) {
         const response = await putJsonBlob(container, blobName, value, {
           fetchImplementation,
           space,
+          timeoutMs: options.timeoutMs,
+          retries: options.retries,
+          retryDelayMs: options.retryDelayMs,
+          ...writeOptions,
         });
+        if (response.status === 412) {
+          throw new BlobPreconditionError(`Blob ${blobName} changed before it could be written.`);
+        }
         if (!response.ok) {
           throw new Error(`Failed to write ${options.label} blob ${blobName}: HTTP ${response.status}`);
         }
@@ -146,24 +293,40 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
       const files = await listLocalJsonFiles(prefixRoot);
       return files.map((filePath) => relative(localRoot, filePath).replaceAll('\\', '/'));
     },
-    async readJson<T>(blobName: string) {
+    async readJsonWithEtag<T>(blobName: string) {
       const filePath = resolve(process.cwd(), options.localDirectory, blobName);
       try {
-        const value: unknown = JSON.parse(await readFile(filePath, 'utf8'));
+        const raw = await readFile(filePath, 'utf8');
+        const value: unknown = JSON.parse(raw);
         if (!options.validate(value)) {
           throw new Error(`Invalid ${options.label} JSON in ${blobName}`);
         }
-        return value as T;
+        return { value: value as T, etag: etagFor(raw) };
       } catch (error) {
         if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
-          return null;
+          return { value: null, etag: null };
         }
         throw error;
       }
     },
-    async writeJson(blobName: string, value: unknown) {
+    async readJson<T>(blobName: string) {
+      return (await this.readJsonWithEtag<T>(blobName)).value;
+    },
+    async writeJson(blobName: string, value: unknown, writeOptions = {}) {
       const filePath = resolve(process.cwd(), options.localDirectory, blobName);
       await mkdir(dirname(filePath), { recursive: true });
+      if (writeOptions.ifMatch || writeOptions.ifNoneMatch) {
+        let existing: string | null = null;
+        try { existing = etagFor(await readFile(filePath, 'utf8')); } catch (error) {
+          if (!(error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT')) throw error;
+        }
+        if (writeOptions.ifNoneMatch === '*' && existing !== null) {
+          throw new BlobPreconditionError(`Blob ${blobName} already exists.`);
+        }
+        if (writeOptions.ifMatch && existing !== writeOptions.ifMatch) {
+          throw new BlobPreconditionError(`Blob ${blobName} changed before it could be written.`);
+        }
+      }
       await writeFile(filePath, JSON.stringify(value, null, space), 'utf8');
     },
   };
@@ -195,4 +358,8 @@ function decodeXml(value: string) {
     .replaceAll('&quot;', '"')
     .replaceAll('&#39;', "'")
     .replaceAll('&amp;', '&');
+}
+
+function etagFor(value: string) {
+  return `"${createHash('sha256').update(value, 'utf8').digest('hex')}"`;
 }

@@ -1,0 +1,261 @@
+{
+  "reviewedAt": "2026-09-05T11:30:49.130Z",
+  "method": "Manual source-backed corrections; hydrography audited before registering new official controls, so the water check does not depend on our own annotations.",
+  "auditScope": "Batch comparison uses the six corrected endpoint records against the pre-edit 1,993-route audit snapshot (36 failures to 31). Live generated reports may include subsequent full-inventory refreshes. Unchanged Moser Park is not an accepted correction: a persistent reviewed-access hold keeps it withheld even if connected-network hydrography downgrades it to review.",
+  "correctedAccessCount": 5,
+  "correctedEndpointCount": 6,
+  "officialPineMapSha256": "6f00b5fb117a1b694e3c37f46da76ff4d879ae77e616a4b8485f8c10484dba1c",
+  "supportingSources": [
+    "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+    "https://www.cityoffortwayne.in.gov/1278/Rivergreenway",
+    "https://www.openstreetmap.org/node/951074983",
+    "https://www.wisconsinrivertrips.com/segments/pine-river-richland-county/richland-center",
+    "https://www.google.com/maps/d/kml?mid=1jJU4dF6pdzbLf6Eh9FyrUCSiS_M&forcekml=1"
+  ],
+  "corrections": [
+    {
+      "routeId": "maumee-river-kreager-moser",
+      "endpoint": "putIn",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "latitude": 41.0864828,
+      "longitude": -85.0486275,
+      "previous": {
+        "latitude": 41.0892,
+        "longitude": -85.0407,
+        "severity": "failure"
+      },
+      "auditAfter": {
+        "severity": "review",
+        "distanceFeetToMatchedRiver": 122.54002061764372,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-85.0515,41.0845,-85.0455,41.0885&bboxSR=4326&imageSR=4326&size=1200,800&format=jpg&f=image",
+        "bbox": [
+          -85.0515,
+          41.0845,
+          -85.0455,
+          41.0885
+        ],
+        "size": [
+          1200,
+          800
+        ],
+        "approximateWaterEntryPixel": [
+          574,
+          403
+        ],
+        "sha256": "d0ded1e7eeb63c461458128e6e641b21841d4609ceeb128cc96ea6498ffe2b29"
+      }
+    },
+    {
+      "routeId": "maumee-river-niagara-kreager",
+      "endpoint": "takeOut",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "latitude": 41.0864828,
+      "longitude": -85.0486275,
+      "previous": {
+        "latitude": 41.0892,
+        "longitude": -85.0407,
+        "severity": "failure"
+      },
+      "auditAfter": {
+        "severity": "review",
+        "distanceFeetToMatchedRiver": 124.72485111710043,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-85.0515,41.0845,-85.0455,41.0885&bboxSR=4326&imageSR=4326&size=1200,800&format=jpg&f=image",
+        "bbox": [
+          -85.0515,
+          41.0845,
+          -85.0455,
+          41.0885
+        ],
+        "size": [
+          1200,
+          800
+        ],
+        "approximateWaterEntryPixel": [
+          574,
+          403
+        ],
+        "sha256": "d0ded1e7eeb63c461458128e6e641b21841d4609ceeb128cc96ea6498ffe2b29"
+      }
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "putIn",
+      "endpointName": "Canoe Port 1 / Bowen's Mill / County AA",
+      "latitude": 43.373027,
+      "longitude": -90.384133,
+      "previous": {
+        "latitude": 43.34677,
+        "longitude": -90.38865,
+        "severity": "ok"
+      },
+      "auditAfter": {
+        "severity": "ok",
+        "distanceFeetToMatchedRiver": 30.973955767368242,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.38555,43.3723,-90.38255,43.3743&bboxSR=4326&imageSR=4326&size=900,600&format=jpg&f=image",
+        "bbox": [
+          -90.38555,
+          43.3723,
+          -90.38255,
+          43.3743
+        ],
+        "size": [
+          900,
+          600
+        ],
+        "approximateWaterEntryPixel": [
+          425,
+          382
+        ],
+        "sha256": "9331698cf1da4556ae1484c969fd051888254f41f212aa627861ebdfbf648d26"
+      }
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 2 / Lions Park",
+      "latitude": 43.359817,
+      "longitude": -90.389001,
+      "previous": {
+        "latitude": 43.3423,
+        "longitude": -90.3834,
+        "severity": "failure"
+      },
+      "auditAfter": {
+        "severity": "ok",
+        "distanceFeetToMatchedRiver": 16.09791646654537,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.390828,43.35907,-90.387828,43.36107&bboxSR=4326&imageSR=4326&size=900,600&format=jpg&f=image",
+        "bbox": [
+          -90.390828,
+          43.35907,
+          -90.387828,
+          43.36107
+        ],
+        "size": [
+          900,
+          600
+        ],
+        "approximateWaterEntryPixel": [
+          548,
+          376
+        ],
+        "sha256": "d25e2fbabfce6d78753c85fd8010343cf26e1c8ac1ebdd06ead29a93385cf9f9"
+      }
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "accessPoint",
+      "endpointName": "Canoe Port 3 / North Park",
+      "latitude": 43.346679,
+      "longitude": -90.388651,
+      "previous": {
+        "latitude": 43.3498866,
+        "longitude": -90.3923001,
+        "severity": "failure"
+      },
+      "auditAfter": {
+        "severity": "ok",
+        "distanceFeetToMatchedRiver": 3.683682383950099,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.390261,43.345619,-90.387261,43.347619&bboxSR=4326&imageSR=4326&size=900,600&format=jpg&f=image",
+        "bbox": [
+          -90.390261,
+          43.345619,
+          -90.387261,
+          43.347619
+        ],
+        "size": [
+          900,
+          600
+        ],
+        "approximateWaterEntryPixel": [
+          483,
+          282
+        ],
+        "sha256": "66e69b04a58c8ab7cbe9329904da6bb6634001d3ef6aea265f6e7d615d3af8ce"
+      }
+    },
+    {
+      "routeId": "pine-river-richland-center-canoe-port-1-port-4",
+      "endpoint": "takeOut",
+      "endpointName": "Canoe Port 4 / Seminary Street",
+      "latitude": 43.335268,
+      "longitude": -90.391478,
+      "previous": {
+        "latitude": 43.3362,
+        "longitude": -90.3864,
+        "severity": "failure"
+      },
+      "auditAfter": {
+        "severity": "ok",
+        "distanceFeetToMatchedRiver": 45.66930131660933,
+        "endpointOnWaterbody": true,
+        "coordinateEvidenceRole": null
+      },
+      "confidence": "high",
+      "uncertaintyFeet": 30,
+      "sourceUrl": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.392888,43.333855,-90.389888,43.335855&bboxSR=4326&imageSR=4326&size=900,600&format=jpg&f=image",
+        "bbox": [
+          -90.392888,
+          43.333855,
+          -90.389888,
+          43.335855
+        ],
+        "size": [
+          900,
+          600
+        ],
+        "approximateWaterEntryPixel": [
+          423,
+          176
+        ],
+        "sha256": "f45942460a5b1b286e784319ff36ef5a9a60ca31ab9bf731cb28a7fb2c900638"
+      }
+    }
+  ],
+  "validation": {
+    "routeTypecheck": "passed",
+    "routeDataAudit": "passed",
+    "canonicalGeometryAudit": "passed",
+    "targetedTestFiles": 6,
+    "targetedTestsPassed": 53,
+    "holdCoveragePasses": true,
+    "failuresBeforeBatch": 36,
+    "failuresAfterBatch": 31
+  }
+}

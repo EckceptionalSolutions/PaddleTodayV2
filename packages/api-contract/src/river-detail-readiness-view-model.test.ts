@@ -63,7 +63,7 @@ function detailFixture(overrides: Partial<RiverDetailApiResult> = {}): RiverDeta
       rainExplanation: '',
       comfortExplanation: '',
     },
-    confidence: { score: 90, label: 'High', reasons: [], warnings: [] },
+    confidence: { score: 90, label: 'High', level: 'high', reasons: [], warnings: [], rationale: [] },
     liveData: {
       overall: 'live',
       summary: 'All sources live.',
@@ -75,6 +75,11 @@ function detailFixture(overrides: Partial<RiverDetailApiResult> = {}): RiverDeta
       { status: 'go', label: 'Gauge window', detail: 'Gauge is in range.' },
       { status: 'go', label: 'Weather window', detail: 'Weather looks good.' },
     ],
+    readiness: {
+      status: 'ready',
+      label: 'Ready',
+      reason: 'All sources live.',
+    },
     outlooks: [],
     gauge: {
       sourceId: 'test',
@@ -181,6 +186,25 @@ describe('river detail readiness view model', () => {
     }), { now });
     expect(offline.verdict).toBe('skip');
     expect(offline.effectiveLiveData.overall).toBe('offline');
+  });
+
+  it('does not preserve an affirmative stored readiness call after data goes stale', () => {
+    const stale = buildRiverReadinessViewModel(detailFixture({
+      generatedAt: '2026-07-27T02:00:00.000Z',
+      gauge: {
+        ...detailFixture().gauge!,
+        observedAt: '2026-07-27T03:00:00.000Z',
+      },
+      readiness: {
+        status: 'ready',
+        label: 'Ready',
+        reason: 'Stored when telemetry was current.',
+      },
+    }), { now });
+
+    expect(stale.verdict).toBe('watch');
+    expect(stale.verdictLabel).toBe('Watch closely');
+    expect(stale.summary).toContain('second look');
   });
 
   it('applies weather-risk priority and stable unavailable fallbacks', () => {

@@ -2,6 +2,7 @@ import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto';
 import {
   cleanBlobPath as cleanPathSegment,
   createJsonStorage,
+  mutateJson,
   type JsonStorage,
 } from './blob-storage';
 import {
@@ -87,32 +88,32 @@ export async function createOrUpdateAreaNotificationSubscription(args: {
 }) {
   const now = args.now ?? new Date().toISOString();
   const storage = areaNotificationStorage();
-  const store = (await storage.readJson<SubscriptionStore>(subscriptionsBlobName())) ?? { subscriptions: [] };
-  const existing = store.subscriptions.find((item) => item.expoPushToken === args.expoPushToken);
-  if (existing) {
-    Object.assign(existing, normalizedSubscriptionFields(args), {
-      isActive: true,
-      updatedAt: now,
-    });
-    await storage.writeJson(subscriptionsBlobName(), store);
-    return { subscription: existing, created: false };
-  }
+  let result!: { subscription: AreaNotificationSubscription; created: boolean };
+  await mutateJson({ storage, blobName: subscriptionsBlobName(), initial: { subscriptions: [] } as SubscriptionStore, mutate: (store) => {
+    const existing = store.subscriptions.find((item) => item.expoPushToken === args.expoPushToken);
+    if (existing) {
+      Object.assign(existing, normalizedSubscriptionFields(args), { isActive: true, updatedAt: now });
+      result = { subscription: existing, created: false };
+      return store;
+    }
 
-  const subscription: AreaNotificationSubscription = {
-    id: `area_${randomUUID()}`,
-    managementToken: randomUUID().replaceAll('-', ''),
-    ...normalizedSubscriptionFields(args),
-    isActive: true,
-    lastTodaySentAt: null,
-    lastWeekendSentAt: null,
-    lastTodayEligibleSlugs: [],
-    lastWeekendKey: null,
-    createdAt: now,
-    updatedAt: now,
-  };
-  store.subscriptions.push(subscription);
-  await storage.writeJson(subscriptionsBlobName(), store);
-  return { subscription, created: true };
+    const subscription: AreaNotificationSubscription = {
+      id: `area_${randomUUID()}`,
+      managementToken: randomUUID().replaceAll('-', ''),
+      ...normalizedSubscriptionFields(args),
+      isActive: true,
+      lastTodaySentAt: null,
+      lastWeekendSentAt: null,
+      lastTodayEligibleSlugs: [],
+      lastWeekendKey: null,
+      createdAt: now,
+      updatedAt: now,
+    };
+    store.subscriptions.push(subscription);
+    result = { subscription, created: true };
+    return store;
+  }});
+  return result;
 }
 
 export async function updateAreaNotificationSubscription(
@@ -121,12 +122,16 @@ export async function updateAreaNotificationSubscription(
   now = new Date().toISOString(),
 ) {
   const storage = areaNotificationStorage();
-  const store = (await storage.readJson<SubscriptionStore>(subscriptionsBlobName())) ?? { subscriptions: [] };
-  const subscription = store.subscriptions.find((item) => item.id === id);
-  if (!subscription) return null;
-  Object.assign(subscription, patch, { updatedAt: now });
-  await storage.writeJson(subscriptionsBlobName(), store);
-  return subscription;
+  let result: AreaNotificationSubscription | null = null;
+  await mutateJson({ storage, blobName: subscriptionsBlobName(), initial: { subscriptions: [] } as SubscriptionStore, mutate: (store) => {
+    const subscription = store.subscriptions.find((item) => item.id === id);
+    if (subscription) {
+      Object.assign(subscription, patch, { updatedAt: now });
+      result = subscription;
+    }
+    return store;
+  }});
+  return result;
 }
 
 export function verifyAreaNotificationManagementToken(
@@ -153,10 +158,11 @@ export async function listAreaNotificationEvents() {
 
 export async function appendAreaNotificationEvent(args: Omit<AreaNotificationEvent, 'id'>) {
   const storage = areaNotificationStorage();
-  const store = (await storage.readJson<EventStore>(eventsBlobName())) ?? { events: [] };
   const event: AreaNotificationEvent = { id: `area_event_${randomUUID()}`, ...args };
-  store.events.push(event);
-  await storage.writeJson(eventsBlobName(), store);
+  await mutateJson({ storage, blobName: eventsBlobName(), initial: { events: [] } as EventStore, mutate: (store) => {
+    store.events.push(event);
+    return store;
+  }});
   return event;
 }
 
@@ -165,12 +171,16 @@ export async function updateAreaNotificationEvent(
   patch: Partial<Pick<AreaNotificationEvent, 'deliveryStatus' | 'deliveryUpdatedAt' | 'deliveryError'>>,
 ) {
   const storage = areaNotificationStorage();
-  const store = (await storage.readJson<EventStore>(eventsBlobName())) ?? { events: [] };
-  const event = store.events.find((item) => item.id === id);
-  if (!event) return null;
-  Object.assign(event, patch);
-  await storage.writeJson(eventsBlobName(), store);
-  return event;
+  let result: AreaNotificationEvent | null = null;
+  await mutateJson({ storage, blobName: eventsBlobName(), initial: { events: [] } as EventStore, mutate: (store) => {
+    const event = store.events.find((item) => item.id === id);
+    if (event) {
+      Object.assign(event, patch);
+      result = event;
+    }
+    return store;
+  }});
+  return result;
 }
 
 export function isAreaNotificationsEnabled() {

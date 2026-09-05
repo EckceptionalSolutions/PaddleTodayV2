@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle } from 'react';
+import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
@@ -28,6 +28,7 @@ export interface RoutePlotMapHandle {
 
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points: RoutePlotPoint[];
+  onReady?: () => void;
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
@@ -42,11 +43,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
+  fitToAllEdgePadding?: number;
+  refitOnPointChanges?: boolean;
   fitToSelectedOnReady?: boolean;
   focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
+  clusterMarkers?: boolean;
+  dimUnselectedMarkers?: boolean;
 }>(function RoutePlotMap({
   points,
+  onReady,
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
@@ -58,6 +64,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   showFooter = true,
   showAllControl = false,
   fullBleed = false,
+  refitOnPointChanges = true,
+  dimUnselectedMarkers = true,
   focusOnSelect: _focusOnSelect = false,
   fitToAllOnReady: _fitToAllOnReady = false,
   fitToSelectedOnReady: _fitToSelectedOnReady = false,
@@ -68,12 +76,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     ...(backgroundSpan.length >= 2 ? [backgroundSpan] : []),
     ...backgroundSpanSegments.map(finiteSpanCoordinates).filter((span) => span.length >= 2),
   ];
-  const bounds = getBounds(points, userLocation, backgroundSpans.flat(), canonicalSpans);
+  const bounds = getBounds(points, userLocation, backgroundSpans.flat(), refitOnPointChanges ? canonicalSpans : undefined);
   const visiblePoints = points.filter(isFinitePoint);
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
   const selectedSpans = selectedId && selectedPoint ? routeSpanSegments(selectedPoint, canonicalSpans) : [];
 
   useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined, focusUserArea: () => undefined }), []);
+  useEffect(() => { onReady?.(); }, [onReady]);
 
   return (
     <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
@@ -118,11 +127,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
-          const dimmed = Boolean(selectedId && !selected);
+          const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
           const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
-              key={`${point.id}-${showScore ? 'score' : 'dot'}-${selected ? 'selected' : 'idle'}`}
+              key={point.id}
               style={[
                 styles.markerTarget,
                 projectPoint(point.latitude, point.longitude, bounds),

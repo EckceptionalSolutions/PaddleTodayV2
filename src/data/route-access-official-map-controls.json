@@ -15704,6 +15704,731 @@
       ]
     },
     {
+      "id": "wy_gt_snake_nps_launch_controls",
+      "name": "Grand Teton National Park Snake River launch controls",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.nps.gov/grte/learn/management/compendium.htm",
+      "sourceType": "official-nps-boating-access-and-compendium",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NPS identifies Lizard Creek as a designated Jackson Lake hand-launch/carry area. The stored campground/staging coordinate intentionally represents the official access-area anchor rather than the generalized NHD shoreline; confirm the exact carry and wetted-edge entry on site.",
+      "controls": [
+        {
+          "featureId": "gt-lizard-creek-campground-staging",
+          "name": "Lizard Creek Campground boat staging",
+          "aliases": ["Lizard Creek Campground", "Lizard Creek boat staging", "Lizard Creek hand launch"],
+          "waterbody": "Snake River",
+          "latitude": 44.002845,
+          "longitude": -110.68818,
+          "uncertaintyFeet": 25,
+          "coordinateText": "NPS campground/staging anchor for a hand-carried vessel on Jackson Lake; the shoreline and carry are intentionally offset from the generalized flowline."
+        }
+      ]
+    },
+    {
+      "id": "wy_wgfd_public_access_anchors",
+      "name": "Wyoming Game and Fish public floating access anchors",
+      "state": "Wyoming",
+      "sourceUrl": "https://wgfd.wyo.gov/public-access/public-access-areas",
+      "sourceType": "official-wgfd-public-access-area-pages",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "WGFD public-access pages identify the named floating areas, ramps, parking, and facilities. Coordinates are agency access-area anchors and may be offset from generalized NHD flowlines; verify the final carry and wetted-edge entry on site.",
+      "controls": [
+        {"featureId":"wgfd-lusby-public-access","name":"Lusby Public Access Area","aliases":["Lusby","Lusby boat ramp"],"waterbody":"North Platte River","latitude":42.598552238,"longitude":-106.614216517,"uncertaintyFeet":25,"coordinateText":"WGFD Lusby public floating access-area anchor; primitive ramp/parking/restroom, no camping or fires."},
+        {"featureId":"wgfd-bessemer-bend-public-access","name":"Bessemer Bend Public Access Area","aliases":["Bessemer Bend","Bessemer Bend boat ramp"],"waterbody":"North Platte River","latitude":42.772536076,"longitude":-106.530906117,"uncertaintyFeet":25,"coordinateText":"WGFD improved public floating ramp/access-area anchor."},
+        {"featureId":"wgfd-robertson-road-public-access","name":"Robertson Road Public Access Area","aliases":["Robertson Road Public Access Area","Robertson Road","Robertson Road boat ramp"],"waterbody":"North Platte River","latitude":42.81163303,"longitude":-106.415909297,"uncertaintyFeet":500,"coordinateText":"WGFD improved public floating ramp/access-area anchor; no overnight camping or fires."},
+        {"featureId":"wgfd-wedding-of-the-waters","name":"Wedding of the Waters boat ramp","aliases":["Wedding of the Water","Wedding of the Waters"],"waterbody":"Bighorn River","latitude":43.588695695,"longitude":-108.214408555,"uncertaintyFeet":25,"coordinateText":"WGFD public Bighorn River ramp, dock, parking, and comfort-facility access-area anchor."},
+        {"featureId":"wgfd-skelton-public-access","name":"Skelton Public Access Area","aliases":["Skelton","Skelton boat ramp"],"waterbody":"Bighorn River","latitude":43.749997299,"longitude":-108.15716654,"uncertaintyFeet":25,"coordinateText":"WGFD public Bighorn River ramp/parking/comfort access-area anchor."}
+      ]
+    },
+    {
+      "id": "wy_gt_deadmans_bar_nps_access",
+      "name": "Grand Teton National Park Deadmans Bar access",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.nps.gov/places/000/deadmans-bar.htm",
+      "sourceType": "official-nps-access-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NPS identifies Deadmans Bar as a designated Snake River access and publishes its route mileage and launch facilities. The stored road-end anchor is retained as the official access-area point; verify the final carry and shoreline landing on site.",
+      "controls": [
+        {"featureId":"gt-deadmans-bar-access","name":"Deadmans Bar","aliases":["Deadmans Bar boat launch","Deadmans Bar access"],"waterbody":"Snake River","latitude":43.7578839,"longitude":-110.6178224,"uncertaintyFeet":500,"coordinateText":"NPS Deadmans Bar access-area anchor; road-end parking/carry may be offset from the generalized channel."}
+      ]
+    },
+    {
+      "id": "wy_gt_lake_launch_controls",
+      "name": "Grand Teton National Park lake launch controls",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.nps.gov/grte/learn/management/compendium.htm",
+      "sourceType": "official-nps-lake-boating-and-parking-pages",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NPS identifies the String Lake carry-down launch, Colter Bay developed marina launch, and designated parking anchors. Coordinates intentionally represent the official facility or parking area and may be offset from the shoreline; verify carry and wetted-edge entry on site.",
+      "controls": [
+        {"featureId":"gt-string-lake-canoe-launch","name":"String Lake canoe launch","aliases":["String Lake Canoe Launch","String Lake middle parking lot"],"waterbody":"String Lake","latitude":43.784981,"longitude":-110.726148,"uncertaintyFeet":150,"coordinateText":"NPS parking/launch anchor for the carry-down String Lake canoe launch; no trailer ramp."},
+        {"featureId":"gt-colter-bay-marina-launch","name":"Colter Bay Marina boat launch","aliases":["Colter Bay launch ramp","Colter Bay Marina"],"waterbody":"Jackson Lake","latitude":43.905559,"longitude":-110.640113,"uncertaintyFeet":250,"coordinateText":"NPS Colter Bay main parking/marina anchor; paved ramp accesses sheltered bay and may be inoperable at low water."}
+      ]
+    },
+    {
+      "id": "wy_bt_green_river_lakes_launch",
+      "name": "Bridger-Teton National Forest Green River Lakes launch",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.recreation.gov/camping/campgrounds/233874",
+      "sourceType": "official-recreationgov-forest-service-campground-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies the Green River Lakes campground and primitive carry-down boat launch. The coordinate is the mapped campground/launch-area anchor rather than a surveyed shoreline point; verify road, fire, water, and carry status immediately before use.",
+      "controls": [
+        {"featureId":"bt-green-river-lakes-campground-launch","name":"Green River Lakes Campground carry-down launch","aliases":["Green River Lakes boat launch","Green River Lakes Campground"],"waterbody":"Lower Green River Lake","latitude":43.3125866,"longitude":-109.8615511,"uncertaintyFeet":400,"coordinateText":"Forest Service/Recreation.gov campground and primitive launch-area anchor; hand carry to shore."}
+      ]
+    },
+    {
+      "id": "wy_blm_fontenelle_reservoir_launch",
+      "name": "BLM Fontenelle Creek Recreation Area launch",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.blm.gov/visit/fontenelle-creek-recreation-area",
+      "sourceType": "official-blm-recreation-area-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "BLM identifies a functional boat ramp, dock, parking, camping, and paved reservoir access at Fontenelle Creek Recreation Area. The coordinate is the public recreation-area anchor; verify the exact wetted-edge carry and current reservoir level.",
+      "controls": [
+        {"featureId":"blm-fontenelle-creek-ramp","name":"Fontenelle Creek Recreation Area boat ramp","aliases":["Fontenelle Reservoir BLM ramp","Fontenelle Creek Recreation Area"],"waterbody":"Fontenelle Reservoir","latitude":42.0722577,"longitude":-110.1537967,"uncertaintyFeet":400,"coordinateText":"BLM developed ramp/dock/parking anchor on the west side of Fontenelle Reservoir; no remote shoreline take-out is assumed."}
+      ]
+    },
+    {
+      "id": "wy_boysen_state_park_launch",
+      "name": "Boysen State Park Fremont Bay access",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.recreation.gov/gateways/1230",
+      "sourceType": "official-recreationgov-and-wyoming-state-parks-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies Boysen Reservoir as a public boating gateway with developed ramps and campgrounds; the Wyoming State Parks overview map identifies Fremont Bay and multiple boat ramps. The stored gateway coordinate is retained as a facility anchor and requires on-site confirmation of the signed Fremont Bay ramp.",
+      "controls": [
+        {"featureId":"wyoming-boysen-fremont-bay-ramp","name":"Fremont Bay boat ramp / Boysen State Park","aliases":["Fremont Bay boat ramp","Boysen State Park boat ramp","Boysen Reservoir access"],"waterbody":"Boysen Reservoir","latitude":43.321348,"longitude":-108.124512,"uncertaintyFeet":700,"coordinateText":"Recreation.gov gateway / state-park map anchor; confirm the signed ramp and parking on arrival."}
+      ]
+    },
+    {
+      "id": "wy_gt_jenny_lake_launch",
+      "name": "Grand Teton National Park Jenny Lake launch",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.nps.gov/places/000/jenny-lake-launch.htm",
+      "sourceType": "official-nps-launch-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NPS identifies the Jenny Lake Boat Launch as a designated canoe/kayak/small-boat launch reached by Lupine Meadows Road. The coordinate is the NPS parking/launch-area anchor, intentionally offset from the shoreline where the hand carry begins.",
+      "controls": [
+        {"featureId":"gt-jenny-lake-lupine-launch","name":"Jenny Lake Lupine Meadows boat launch","aliases":["Jenny Lake Boat Launch","Lupine Meadows launch"],"waterbody":"Jenny Lake","latitude":43.751387,"longitude":-110.7214,"uncertaintyFeet":250,"coordinateText":"NPS small gravel parking/launch anchor; no facilities and vehicle access only from Lupine Meadows Road."}
+      ]
+    },
+    {
+      "id": "wy_yell_lewis_lake_launch",
+      "name": "Yellowstone National Park Lewis Lake launch",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.nps.gov/yell/planyourvisit/upload/Yellowstone-Boat-Safety-and-Regulations-Booklet.pdf",
+      "sourceType": "official-nps-boating-booklet-and-recreationgov-campground-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NPS and Recreation.gov identify the Lewis Lake Campground boat ramp near the campground information area. The stored campground coordinate is an access-area anchor; verify the dock, parking, and seasonal opening before launch.",
+      "controls": [
+        {"featureId":"yell-lewis-lake-campground-ramp","name":"Lewis Lake Campground boat ramp","aliases":["Lewis Lake boat launch","Lewis Lake Campground ramp"],"waterbody":"Lewis Lake","latitude":44.282048,"longitude":-110.627732,"uncertaintyFeet":350,"coordinateText":"NPS/Recreation.gov campground ramp anchor; no road take-out exists at Shoshone Lake."}
+      ]
+    },
+    {
+      "id": "wy_glendo_state_park_sandy_beach_launch",
+      "name": "Glendo State Park Sandy Beach access",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.recreation.gov/gateways/1233",
+      "sourceType": "official-recreationgov-and-wyoming-state-parks-gateway",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies Glendo State Park as a public boating gateway with six ramps, seven campgrounds, and a marina; the stored gateway coordinate is retained as the Sandy Beach staging anchor and requires on-site confirmation of the signed ramp.",
+      "controls": [
+        {"featureId":"wyoming-glendo-sandy-beach-ramp","name":"Sandy Beach boat ramp / Glendo State Park","aliases":["Sandy Beach ramp","Glendo State Park boat ramp","Glendo Reservoir access"],"waterbody":"Glendo Reservoir","latitude":42.50262,"longitude":-105.02732,"uncertaintyFeet":700,"coordinateText":"Recreation.gov gateway/state-park staging anchor; confirm the signed Sandy Beach ramp and parking on arrival."}
+      ]
+    },
+    {
+      "id": "id_upper_salmon_boater_guide_accesses",
+      "name": "BLM, USFS, and Idaho Fish and Game Upper Salmon River boater guide access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.blm.gov/sites/default/files/documents/files/Media-Center_Public-Room_Idaho_Upper-Salmon-river_BoaterGuide.pdf",
+      "sourceType": "official-interagency-boater-guide-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The interagency Upper Salmon boater guide names and maps each public access at a published river mile. Coordinates retain the mapped facility or ramp anchor, with conservative uncertainty for symbol placement and generalized NHD centerlines; verify the signed water entry and current condition on arrival.",
+      "controls": [
+        {"featureId":"id-upper-salmon-challis-bridge","name":"Challis Bridge Recreation Site boat ramp","aliases":["Challis Bridge Boat Ramp","Challis Bridge Recreation Site"],"waterbody":"Salmon River","latitude":44.470151,"longitude":-114.200743,"uncertaintyFeet":450,"coordinateText":"Official guide mile 58.5 public boat-ramp/access anchor."},
+        {"featureId":"id-upper-salmon-island-park","name":"Salmon Island Park boat ramp","aliases":["Salmon Island Park","Island Park boat ramp"],"waterbody":"Salmon River","latitude":45.170721,"longitude":-113.894916,"uncertaintyFeet":550,"coordinateText":"Official guide mile 126.3 municipal/public ramp anchor; approach via the mapped left channel."}
+      ]
+    },
+    {
+      "id": "id_blm_tower_rock_recreationgov",
+      "name": "BLM Tower Rock Recreation Site access",
+      "state": "Idaho",
+      "sourceUrl": "https://www.recreation.gov/gateways/15035",
+      "sourceType": "official-recreationgov-blm-site-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies the BLM-managed Tower Rock site, prime river access for floaters, and its published GPS coordinate. The coordinate is retained as a campground/boat-ramp access-area anchor rather than false wetted-edge precision.",
+      "controls": [
+        {"featureId":"id-blm-tower-rock-ramp","name":"Tower Rock Recreation Site","aliases":["Tower Rock Campground","Tower Rock boat ramp"],"waterbody":"Salmon River","latitude":45.3125,"longitude":-113.905833,"uncertaintyFeet":700,"coordinateText":"Official BLM/Recreation.gov facility coordinate; confirm the signed boat ramp and current river edge on arrival."}
+      ]
+    },
+    {
+      "id": "id_blm_henrys_lake_south_shore",
+      "name": "BLM Henrys Lake South Shore Boat Access",
+      "state": "Idaho",
+      "sourceUrl": "https://www.blm.gov/visit/henrys-lake-boat-access",
+      "sourceType": "official-blm-recreation-site-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "BLM identifies the South Shore facility as a public undeveloped boat ramp with primitive camping and publishes the site coordinate. The point is retained as the access-area anchor; verify the exact shoreline carry, water level, road, and ramp condition on arrival.",
+      "controls": [
+        {"featureId":"id-blm-henrys-lake-south-shore","name":"Henrys Lake South Shore Boat Access","aliases":["Henry's Lake South Shore Boat Access","Henrys Lake Boat Access"],"waterbody":"Henrys Lake","latitude":44.614582,"longitude":-111.417834,"uncertaintyFeet":500,"coordinateText":"Official BLM site coordinate for the undeveloped ramp and primitive campground."}
+      ]
+    },
+    {
+      "id": "id_south_fork_boise_anderson_danskin",
+      "name": "USBR South Fork Boise Anderson Ranch and Danskin launch controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.usbr.gov/pn/programs/ea/idaho/andersonturbine/2022-03-17%20--%20ARD%20Turbine%20Modernization%20EA%20FINAL.pdf",
+      "sourceType": "official-usbr-tailwater-access-and-launch-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "USBR identifies the Anderson Ranch tailwater and Danskin floatboat launch facilities. The launch coordinate is retained as a dam-tailwater staging/facility anchor rather than false wetted-edge precision; the Wilderness Portal route map independently corroborates the stored upper launch area. Confirm the current carry, release, road, parking, and shoreline condition before use.",
+      "controls": [
+        {
+          "featureId": "id-south-fork-boise-anderson-tailwater",
+          "name": "Anderson Ranch Dam Tailwaters Access",
+          "aliases": ["Anderson Ranch tailwater access", "Anderson Ranch Dam launch", "South Fork Boise upper launch"],
+          "waterbody": "South Fork Boise River",
+          "latitude": 43.3589,
+          "longitude": -115.454,
+          "uncertaintyFeet": 1200,
+          "coordinateText": "USBR tailwater facility/staging anchor, corroborated by the Wilderness Portal upper-run map; verify the current wetted-edge carry and release conditions."
+        }
+      ]
+    },
+    {
+      "id": "id_lolo_creek_lolo_road_greer",
+      "name": "Idaho Fish and Game and BLM Lolo Creek public access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://idfg.idaho.gov/ifwis/idnhp/cdc_pdf/lolo96.pdf",
+      "sourceType": "official-idfg-public-access-assessment",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Idaho Fish and Game Lolo Creek conservation assessment identifies public access roads at the Lolo Creek Road crossing and the Greer/Carrot Ridge corridor, while American Whitewater's access update documents the BLM public parcel below the Greer bridge. Stored coordinates remain access-area and bridge/crossing anchors rather than false wetted-edge precision; verify the gate, parking, carry, and current signage before use.",
+      "controls": [
+        {
+          "featureId": "id-lolo-creek-road-put-in",
+          "name": "Lolo Creek Road public crossing",
+          "aliases": ["Lolo Creek Road put-in", "Lolo Creek fish-trap crossing", "Lolo Creek upper public crossing"],
+          "waterbody": "Lolo Creek",
+          "latitude": 46.29435,
+          "longitude": -115.97602,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Public road/crossing access identified in the IDFG Lolo Creek assessment and American Whitewater reach directions; confirm the current gate, carry, and fish-trap status."
+        },
+        {
+          "featureId": "id-lolo-greer-blm-access",
+          "name": "Greer BLM Lolo Creek access",
+          "aliases": ["Greer Lolo Creek access", "Lolo Creek BLM parcel", "Greer bridge take-out"],
+          "waterbody": "Lolo Creek",
+          "latitude": 46.37212,
+          "longitude": -116.17181,
+          "uncertaintyFeet": 350,
+          "coordinateText": "BLM public access parcel below the Greer bridge documented by American Whitewater and supported by the IDFG access assessment; use only marked public parking and confirm the current river entry."
+        }
+      ]
+    },
+    {
+      "id": "id_middle_fork_payette_boiling_trail_creek",
+      "name": "Boise National Forest Middle Fork Payette campground access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5394050.pdf",
+      "sourceType": "official-usfs-corridor-plan-and-recreationgov-facility-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Boise National Forest corridor plan identifies the Middle Fork Payette recreation/camping setting, and Recreation.gov documents the public Boiling Springs facility and river boating opportunities. Stored coordinates remain campground/access-area anchors rather than false wetted-edge precision; confirm seasonal road, campground, parking, and signed carry conditions before launching or taking out.",
+      "controls": [
+        {
+          "featureId": "id-middle-fork-payette-boiling-springs",
+          "name": "Boiling Springs Campground access",
+          "aliases": ["Boiling Springs Campground Put-In", "Boiling Springs Cabin river access", "Middle Fork Payette Boiling Springs"],
+          "waterbody": "Middle Fork Payette River",
+          "latitude": 44.359874,
+          "longitude": -115.858043,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Forest Service campground/facility anchor on Forest Road 698; verify the legal river carry and seasonal opening."
+        },
+        {
+          "featureId": "id-middle-fork-payette-trail-creek",
+          "name": "Trail Creek Campground access",
+          "aliases": ["Trail Creek Campground Take-Out", "Middle Fork Payette Trail Creek", "Trail Creek endpoint"],
+          "waterbody": "Middle Fork Payette River",
+          "latitude": 44.275356,
+          "longitude": -115.874771,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Named Boise National Forest campground/access anchor above the undocumented Steeps; verify the signed landing and stop before the downstream Class V+ sections."
+        }
+      ]
+    },
+    {
+      "id": "id_warm_springs_creek_lodge_river_run",
+      "name": "Ketchum Warm Springs Creek public-river-access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.ketchumura.org/recreation/page/public-river-access-map",
+      "sourceType": "official-city-public-river-access-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The City of Ketchum public-river-access map documents public access points and fishing/nature-study easements along Warm Springs Creek and the adjacent Big Wood corridor. The American Whitewater lodge endpoints are retained as approximate reach anchors rather than false wetted-edge precision; use only signed easement/carry routes and verify current resort parking, trail, and day-use conditions.",
+      "controls": [
+        {
+          "featureId": "id-warm-springs-lodge-public-easement",
+          "name": "Warm Springs Lodge public-easement reach anchor",
+          "aliases": ["Warm Springs Lodge put-in area", "Warm Springs Creek Lodge put-in", "Warm Springs Creek public access easement"],
+          "waterbody": "Warm Springs Creek",
+          "latitude": 43.682968,
+          "longitude": -114.40562,
+          "uncertaintyFeet": 700,
+          "coordinateText": "American Whitewater lodge-area endpoint matched to the City of Ketchum public-river-access map’s Warm Springs Creek easement network; verify the signed carry route and do not cross resort facilities without authorization."
+        },
+        {
+          "featureId": "id-river-run-lodge-public-easement",
+          "name": "River Run Lodge public-river-access reach anchor",
+          "aliases": ["River Run Lodge take-out on Big Wood River", "River Run Lodge take-out", "Big Wood public access easement"],
+          "waterbody": "Big Wood River",
+          "latitude": 43.670983,
+          "longitude": -114.366735,
+          "uncertaintyFeet": 700,
+          "coordinateText": "American Whitewater lodge-area endpoint matched to the City of Ketchum public-river-access map’s public easement and park-access network; confirm the signed carry-out, parking, and current resort restrictions."
+        }
+      ]
+    },
+    {
+      "id": "id_snake_river_auger_falls_park",
+      "name": "Auger Falls public park and boating-access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22327-fishing-and-boating-access-site-auger",
+      "sourceType": "official-city-park-and-idfg-boating-access-sites",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The City of Twin Falls documents Auger Falls Heritage Park as the public upstream corridor and Idaho Fish and Game documents an Auger Falls fishing/boating access site near the downstream Broken Bridge endpoint. The route retains the foot-shuttle limitation: the official access site does not imply public vehicle access to the endpoint or permission to use private gates.",
+      "controls": [
+        {
+          "featureId": "id-auger-falls-heritage-park-put-in",
+          "name": "Auger Falls Heritage Park public put-in corridor",
+          "aliases": ["Auger Falls Heritage Park Put-In", "Auger Falls Park put-in", "Auger Falls public park access"],
+          "waterbody": "Snake River",
+          "latitude": 42.6211,
+          "longitude": -114.5131,
+          "uncertaintyFeet": 600,
+          "coordinateText": "City of Twin Falls Auger Falls Heritage Park facility anchor; carry from signed park parking/trails and verify the current shoreline route before entering."
+        },
+        {
+          "featureId": "id-auger-falls-idfg-boating-access",
+          "name": "Idaho Fish and Game Auger Falls boating access",
+          "aliases": ["Broken Bridge / Yingst Grade Take-Out", "Broken Bridge take-out", "Auger Falls boating access site"],
+          "waterbody": "Snake River",
+          "latitude": 42.632993984838805,
+          "longitude": -114.51998746838838,
+          "uncertaintyFeet": 2000,
+          "coordinateText": "Idaho Fish and Game boating-access facility anchor near the Broken Bridge endpoint; use only the lawful foot carry, confirm the current gate/trail, and do not infer public vehicle access."
+        }
+      ]
+    },
+    {
+      "id": "id_bear_river_black_canyon_grace_powerhouse",
+      "name": "PacifiCorp Grace Dam Black Canyon recreation controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.pacificorp.com/content/dam/pcorp/documents/en/pacificorp/energy/hydro/bear-river/project-documents/final-documents/land-management-and-site-plans/2009-11-23_Grace%20Dam%20and%20Last%20Chance%20Site%20Plan.pdf",
+      "sourceType": "official-pacificorp-recreation-site-plan-and-idfg-access-description",
+      "sourceDocumentDate": "2009-11-23",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "PacifiCorp's Grace Dam/Last Chance recreation plan documents a Black Canyon put-in below Grace Dam and a Black Canyon take-out upstream of Grace Powerhouse, with gravel parking, hand-launch access, portable toilets, and maintained recreation facilities. Idaho Fish and Game independently describes public access from the PacifiCorp hydroelectric plant. Coordinates remain facility anchors rather than surveyed wetted edges; current release-day rules, road status, parking, and facility restrictions must be confirmed.",
+      "controls": [
+        {
+          "featureId": "id-bear-grace-dam-black-canyon-put-in",
+          "name": "Black Canyon Grace Dam public put-in",
+          "aliases": ["Grace Dam Bridge / Grace Dam Road put-in", "Black Canyon Put-in", "Grace Dam put-in"],
+          "waterbody": "Bear River",
+          "latitude": 42.58694,
+          "longitude": -111.72639,
+          "uncertaintyFeet": 500,
+          "coordinateText": "PacifiCorp recreation-plan facility anchor approximately 0.12 miles below Grace Dam; verify release-day parking, signed access, road status, and the hand-launch route."
+        },
+        {
+          "featureId": "id-bear-grace-powerhouse-black-canyon-take-out",
+          "name": "Black Canyon Grace Powerhouse public take-out",
+          "aliases": ["Grace Powerhouse take-out", "Black Canyon Take-out", "Grace Powerhouse access"],
+          "waterbody": "Bear River",
+          "latitude": 42.54166,
+          "longitude": -111.80028,
+          "uncertaintyFeet": 600,
+          "coordinateText": "PacifiCorp recreation-plan take-out facility approximately 0.5 miles upstream of Grace Powerhouse; confirm parking, hand-launch/egress route, and powerhouse restrictions."
+        }
+      ]
+    },
+    {
+      "id": "id_portneuf_lava_hot_springs_pvc",
+      "name": "Portneuf Marsh Valley Canal diversion monitoring control",
+      "state": "Idaho",
+      "sourceUrl": "https://portneufwatershed.org/sites/ISU-PR-Topaz/",
+      "sourceType": "official-watershed-monitoring-station-and-diversion-hazard",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-area-anchor",
+      "method": "The Portneuf Watershed Partnership identifies its Topaz station on the downstream side of the Portneuf Marsh Valley Canal diversion, 1.5 miles below the USGS Topaz gauge. This is a named diversion/monitoring landmark and hazard control only; it does not establish a public launch, take-out, parking, or permission to approach the structure.",
+      "controls": [
+        {
+          "featureId": "id-portneuf-pmvc-diversion-monitoring-station",
+          "name": "Portneuf Marsh Valley Canal diversion / Topaz station",
+          "aliases": ["PVC Diversion", "PMVC Diversion", "Topaz Station", "Portneuf Topaz diversion"],
+          "waterbody": "Portneuf River",
+          "latitude": 42.624394013,
+          "longitude": -112.117096506,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Watershed monitoring landmark on the downstream side of the Portneuf Marsh Valley Canal diversion; hazard/area anchor only, not a public boating access point."
+        }
+      ]
+    },
+    {
+      "id": "id_moyie_river_copper_twin_bridges",
+      "name": "Boundary County Moyie bridge-access and Meadow Creek controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www2.boundarycountyid.org/planning/compplan/final_draft/08recreation.htm",
+      "sourceType": "official-county-recreation-plan-and-idfg-water-facility-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Boundary County's recreation plan states that the Moyie can be accessed south of Eastport at County Road 211 and identifies five bridges where the river can be accessed for put-in or take-out; it also identifies Meadow Creek Campground as a day-use landing. The bridge coordinates remain facility/road anchors rather than surveyed wetted edges, so verify current parking, railroad/road safety, shoreline legality, and seasonal campground status before launching.",
+      "controls": [
+        {
+          "featureId": "id-moyie-copper-creek-campground",
+          "name": "Copper Creek Campground public river access",
+          "aliases": ["Copper Creek Campground Put-In", "Moyie Copper Creek campground"],
+          "waterbody": "Moyie River",
+          "latitude": 48.988444,
+          "longitude": -116.175482,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Developed Forest Service campground/facility anchor on the Moyie; confirm seasonal opening, fees, signed carry, and the current shoreline approach."
+        },
+        {
+          "featureId": "id-moyie-twin-bridges-road-access",
+          "name": "Twin Bridges road-and-rail access anchor",
+          "aliases": ["Twin Bridges Road Bridge Take-Out", "Twin Bridges river-right put-in", "Moyie Twin Bridges"],
+          "waterbody": "Moyie River",
+          "latitude": 48.861108,
+          "longitude": -116.157978,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Boundary County bridge-access control and Idaho Paddler endpoint anchor immediately downstream of the road/rail bridge; public parking, railroad safety, and lawful shoreline carry remain current-review items."
+        },
+        {
+          "featureId": "id-moyie-meadow-creek-campground",
+          "name": "Meadow Creek Campground day-use access",
+          "aliases": ["Meadow Creek Campground Take-Out", "Moyie Meadow Creek campground"],
+          "waterbody": "Moyie River",
+          "latitude": 48.81987,
+          "longitude": -116.14733,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Named Forest Service campground/day-use landing; confirm campground operating status, fees, signed river carry, and the marked take-out eddy."
+        },
+        {
+          "featureId": "id-moyie-reservoir-boating-takeout",
+          "name": "Moyie Reservoir boating take-out",
+          "aliases": ["Moyie Reservoir Boating Take-Out", "Moyie Falls reservoir day-use area", "Canyon View Road reservoir access"],
+          "waterbody": "Moyie River",
+          "latitude": 48.73135,
+          "longitude": -116.1831,
+          "uncertaintyFeet": 700,
+          "coordinateText": "Bonners Ferry recreation study plan and paddling sources identify the public reservoir/day-use facility at the end of Canyon View Road; treat this as a facility anchor below the lower canyon and confirm current shoreline carry, parking, reservoir level, and dam exclusion postings."
+        }
+      ]
+    },
+    {
+      "id": "id_camas_creek_blaine_moonstone",
+      "name": "Camas Creek Blaine bridge and Moonstone access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22305-fishing-and-boating-access-site",
+      "sourceType": "idfg-public-boat-access-and-paddling-reach-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "American Whitewater and Visit Southern Idaho identify the Blaine Bridge/Macon Flat corridor as the route start, while Idaho Fish and Game identifies Moonstone as a public boat launch on Magic Reservoir. The bridge start is a roadside access anchor rather than a documented developed ramp; verify lawful parking, traffic safety, and the carry to water before publication or launch.",
+      "controls": [
+        {
+          "featureId": "id-camas-blaine-bridge-put-in",
+          "name": "Blaine Bridge / Macon Flat Road put-in",
+          "aliases": ["Blaine Bridge Put-In", "Camas Creek Blaine Bridge", "Macon Flat Road Camas access"],
+          "waterbody": "Camas Creek",
+          "latitude": 43.33444,
+          "longitude": -114.58861,
+          "uncertaintyFeet": 800,
+          "coordinateText": "American Whitewater/Visit Southern Idaho roadside bridge anchor; not a surveyed ramp. Confirm current legal parking, traffic, and shoreline carry."
+        },
+        {
+          "featureId": "id-camas-moonstone-boat-launch",
+          "name": "Moonstone public boat launch",
+          "aliases": ["Moonstone Landing", "Camas Creek Moonstone take-out", "Moonstone Magic Reservoir launch"],
+          "waterbody": "Magic Reservoir",
+          "latitude": 43.3355,
+          "longitude": -114.4328,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Idaho Fish and Game public boat launch on Magic Reservoir; confirm seasonal ramp level, parking, and wind exposure."
+        }
+      ]
+    },
+    {
+      "id": "id_mores_creek_big_gulch_robie",
+      "name": "Mores Creek Big Gulch and Robie Creek access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/578/main",
+      "sourceType": "documented-paddling-reach-and-public-road-facility-context",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "American Whitewater identifies the Big Gulch-to-Robie Creek reach and marks both access points approximate. Idaho Fish and Game documents Highway 21 pullout access, while the USACE identifies Mores Creek Park in the Robie Creek/Lucky Peak corridor. These coordinates are roadside/facility anchors rather than surveyed ramps; verify the exact river carry, legal parking, traffic, and current park access before launching.",
+      "controls": [
+        {
+          "featureId": "id-mores-big-gulch-roadside-start",
+          "name": "Big Gulch / Highway 21 roadside start",
+          "aliases": ["Mores Creek Big Gulch put-in", "Big Gulch start", "Highway 21 Mores Creek start"],
+          "waterbody": "Mores Creek",
+          "latitude": 43.77489,
+          "longitude": -115.90928,
+          "uncertaintyFeet": 1200,
+          "coordinateText": "American Whitewater approximate start and Idaho Highway 21 roadside access context; not a surveyed ramp. Confirm legal parking and the carry to water."
+        },
+        {
+          "featureId": "id-mores-robie-creek-park-exit",
+          "name": "Robie Creek / Mores Creek Park exit",
+          "aliases": ["Mores Creek Robie Creek take-out", "Mores Creek Park", "Lucky Peak Mores Creek access"],
+          "waterbody": "Mores Creek",
+          "latitude": 43.64805556,
+          "longitude": -115.9897222,
+          "uncertaintyFeet": 900,
+          "coordinateText": "USACE Mores Creek Park facility anchor near the Robie Creek/Lucky Peak corridor; confirm the river-side landing and current day-use or parking rules."
+        }
+      ]
+    },
+    {
+      "id": "id_potlatch_little_boulder_cedar",
+      "name": "Potlatch Little Boulder and Cedar Creek access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/Potlatch_River.htm",
+      "sourceType": "named-campground-and-approximate-canyon-access-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies Little Boulder Campground as the put-in and Cedar Creek as the lower endpoint, while RiverFacts supplies approximate GPS anchors and the Forest Service campground record supports the developed put-in. The downstream exit and mid-canyon trails are not surveyed public ramps; confirm current road, private-bank, and 4WD conditions before committing.",
+      "controls": [
+        {
+          "featureId": "id-potlatch-little-boulder-campground",
+          "name": "Little Boulder Campground put-in",
+          "aliases": ["Potlatch Little Boulder put-in", "Little Boulder Campground", "NF-1963 Potlatch access"],
+          "waterbody": "Potlatch River",
+          "latitude": 46.78333,
+          "longitude": -116.4564,
+          "uncertaintyFeet": 700,
+          "coordinateText": "Named Forest Service campground and RiverFacts access anchor; verify seasonal road, parking, and carry to the river."
+        },
+        {
+          "featureId": "id-potlatch-cedar-creek-takeout",
+          "name": "Cedar Creek take-out",
+          "aliases": ["Potlatch Cedar Creek endpoint", "Cedar Creek lower access", "Potlatch RiverFacts take-out"],
+          "waterbody": "Potlatch River",
+          "latitude": 46.65499,
+          "longitude": -116.54917,
+          "uncertaintyFeet": 1200,
+          "coordinateText": "Approximate RiverFacts endpoint and North Idaho Rivers lower access; confirm current lawful landing, road condition, and private-bank boundaries."
+        }
+      ]
+    },
+    {
+      "id": "id_boundary_creek_canadian_border_kootenai",
+      "name": "Boundary Creek Canadian border and Kootenai confluence access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/Boundary_Creek.htm",
+      "sourceType": "remote-whitewater-guide-and-usgs-gauge-access-context",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies the Canadian-border headwater bridge/Saddle Pass road as the upper access and the USGS gauge at the lower canyon as the take-out context. Both coordinates remain approximate forest-road or monitoring-site anchors, not surveyed public ramps; confirm gates, Border Patrol restrictions, legal parking, and an actual river landing before committing.",
+      "controls": [
+        {
+          "featureId": "id-boundary-creek-saddle-pass-upper",
+          "name": "Boundary Creek Saddle Pass upper access",
+          "aliases": ["Boundary Creek Canadian border put-in", "Saddle Pass Boundary Creek", "Boundary Creek headwater bridge"],
+          "waterbody": "Boundary Creek",
+          "latitude": 49.005,
+          "longitude": -116.655,
+          "uncertaintyFeet": 5000,
+          "coordinateText": "Approximate North Idaho Rivers upper access near the Canadian border and Saddle Pass road; verify the current road, gate, legal staging, and no-crossing boundary on site."
+        },
+        {
+          "featureId": "id-boundary-creek-usgs-gauge-takeout",
+          "name": "Boundary Creek USGS gauge / Kootenai confluence",
+          "aliases": ["Boundary Creek near Porthill gauge", "Boundary Creek lower take-out", "Boundary Creek Kootenai confluence"],
+          "waterbody": "Boundary Creek",
+          "latitude": 48.99722222,
+          "longitude": -116.56916667,
+          "uncertaintyFeet": 900,
+          "coordinateText": "USGS 12321500 monitoring-site anchor at the mouth of the canyon; confirm a safe river landing, parking, and current access restrictions rather than treating the gauge as a ramp."
+        }
+      ]
+    },
+    {
+      "id": "id_st_joe_heller_creek_spruce_tree",
+      "name": "St. Joe Heller Creek and Spruce Tree campground access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/St_Joe_Heller_Creek.htm",
+      "sourceType": "named-forest-service-campground-and-remote-whitewater-guide",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies Heller Camp and Spruce Tree as the endpoint pair, while Forest Service/Mapcarta campground records provide facility anchors. The gauge-side Spruce Tree ramp is primitive and the Heller approach uses rough seasonal Forest Road 320; retain both as facility/road anchors requiring current gate, parking, carry, and landing confirmation.",
+      "controls": [
+        {
+          "featureId": "id-st-joe-heller-campground",
+          "name": "Heller Creek Campground river access",
+          "aliases": ["Heller Camp", "Heller Creek Recreation Site", "Heller Creek Campground"],
+          "waterbody": "St. Joe River",
+          "latitude": 47.06481,
+          "longitude": -115.21862,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Named Forest Service campground and North Idaho Rivers upper endpoint; Forest Road 320 is rough/seasonal and the point is a facility anchor, not a surveyed whitewater ramp."
+        },
+        {
+          "featureId": "id-st-joe-spruce-tree-campground",
+          "name": "Spruce Tree Campground river access",
+          "aliases": ["Spruce Tree Campground", "St. Joe Spruce Tree take-out", "Spruce Tree primitive ramp"],
+          "waterbody": "St. Joe River",
+          "latitude": 47.03808,
+          "longitude": -115.34777,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Named Forest Service campground at the end of Forest Road 218 and primitive river landing; confirm seasonal opening, parking, carry, and eddy room."
+        }
+      ]
+    },
+    {
+      "id": "id_lightning_creek_east_fork_clark_fork",
+      "name": "Lightning Creek East Fork and Highway 200 access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/Lightning_Creek.htm",
+      "sourceType": "named-forest-road-and-highway-bridge-whitewater-access-record",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies the unmarked East Fork Creek bridge on Lightning Creek Road as the put-in and paved parking at the Highway 200 bridge in Clark Fork as the take-out. USGS station metadata and the Idaho Transportation Department milepoint log corroborate the lower bridge/gauge context; both endpoints remain access-area anchors requiring current road, parking, carry, and landing confirmation.",
+      "controls": [
+        {
+          "featureId": "id-lightning-east-fork-bridge",
+          "name": "East Fork Creek bridge / Lightning Creek Road",
+          "aliases": ["Lightning Creek East Fork put-in", "Lightning Creek Road 419 put-in", "East Fork Lightning Creek bridge"],
+          "waterbody": "Lightning Creek",
+          "latitude": 48.258,
+          "longitude": -116.077,
+          "uncertaintyFeet": 1800,
+          "coordinateText": "Approximate North Idaho Rivers upper access at the unmarked East Fork bridge; verify current forest-road repairs, legal parking, and carry to the creek."
+        },
+        {
+          "featureId": "id-lightning-highway-200-bridge",
+          "name": "Highway 200 Lightning Creek bridge, Clark Fork",
+          "aliases": ["Lightning Creek at Clark Fork gauge", "Lightning Creek Highway 200 take-out", "Clark Fork Lightning Creek bridge"],
+          "waterbody": "Lightning Creek",
+          "latitude": 48.150885,
+          "longitude": -116.183309,
+          "uncertaintyFeet": 450,
+          "coordinateText": "North Idaho Rivers paved bridge parking and USGS 12392155 lower endpoint/gauge context; confirm the current river-side landing, traffic, parking, and any construction controls."
+        }
+      ]
+    },
+    {
+      "id": "id_north_fork_clearwater_black_canyon",
+      "name": "North Fork Clearwater Black Canyon Cedars and Kelly Forks access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/Black_Canyon.htm",
+      "sourceType": "remote-whitewater-guide-and-forest-service-campground-access-context",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies the Cedars/Forest Road 250 river crossing as the upper boundary and a river-left landing just above the Kelly Forks confluence bridge as the lower boundary. Forest Service recreation pages and the Kelly Forks campground record corroborate the developed lower facility; both stored points remain access-area anchors requiring current road, parking, carry, and landing confirmation.",
+      "controls": [
+        {
+          "featureId": "id-north-fork-clearwater-cedars",
+          "name": "The Cedars / Forest Road 250 river crossing",
+          "aliases": ["Black Canyon Cedars put-in", "North Fork Clearwater Cedars", "Forest Road 250 Cedars crossing"],
+          "waterbody": "North Fork Clearwater River",
+          "latitude": 46.8727,
+          "longitude": -115.0771,
+          "uncertaintyFeet": 3500,
+          "coordinateText": "Approximate North Idaho Rivers upper boundary where Forest Road 250 meets the river; verify the actual carry, parking, road opening, and current private/agency signs."
+        },
+        {
+          "featureId": "id-north-fork-clearwater-kelly-forks",
+          "name": "Kelly Forks campground / work-center landing",
+          "aliases": ["Kelly Forks Campground", "Kelly Forks Ranger Station", "Black Canyon Kelly Forks take-out"],
+          "waterbody": "North Fork Clearwater River",
+          "latitude": 46.7167,
+          "longitude": -115.25515,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Forest Service campground/work-center anchor near the primitive river-left landing above the confluence bridge; verify current campground opening, parking, carry, and bridge approach."
+        }
+      ]
+    },
+    {
+      "id": "id_south_fork_clearwater_golden_canyon",
+      "name": "South Fork Clearwater Golden Canyon Highway 14 access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/544/main",
+      "sourceType": "documented-paddling-reach-and-state-highway-milepoint",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "American Whitewater names the Hanging Rock put-in and free Cougar Creek Trailhead take-out, while the Idaho Transportation Department Highway 14 milepoint log identifies the corresponding Hanging Rock landmark near MP 28 and Cougar Creek culvert near MP 20.656. These are roadside/trailhead facility anchors rather than surveyed ramps; verify shoulder parking, carry path, traffic, seasonal road condition, and current Idaho Fish and Game/Forest Service notices before launching.",
+      "controls": [
+        {
+          "featureId": "id-sf-clearwater-hanging-rock",
+          "name": "Hanging Rock Highway 14 put-in",
+          "aliases": ["Hanging Rock Put-In", "Golden Canyon Hanging Rock", "South Fork Clearwater MP 28"],
+          "waterbody": "South Fork Clearwater River",
+          "latitude": 45.797477,
+          "longitude": -115.740003,
+          "uncertaintyFeet": 500,
+          "coordinateText": "American Whitewater reach anchor at Hanging Rock; wide roadside staging area near Highway 14 MP 28, not a developed ramp. Confirm parking and shoulder safety before unloading."
+        },
+        {
+          "featureId": "id-sf-clearwater-cougar-creek-trailhead",
+          "name": "Cougar Creek Trailhead take-out",
+          "aliases": ["Golden Canyon Cougar Creek Trailhead", "South Fork Clearwater MP 20.6", "Cougar Creek culvert"],
+          "waterbody": "South Fork Clearwater River",
+          "latitude": 45.822518,
+          "longitude": -115.860353,
+          "uncertaintyFeet": 600,
+          "coordinateText": "American Whitewater's free highway trailhead exit near Highway 14 MP 20.6; road/trailhead anchor rather than a surveyed river ramp. Confirm the carry, legal parking, and traffic conditions before launch."
+        }
+      ]
+    },
+    {
       "id": "de_duck_creek_woodland_beach",
       "name": "Delaware Duck Creek Woodland Beach same-launch tidal exploration",
       "state": "Delaware",
@@ -15733,6 +16458,97 @@
           "longitude": -75.4750165001,
           "uncertaintyFeet": 300,
           "coordinateText": "The same Woodland Beach Creekside public facility is the required return boundary. Do not infer a take-out at the bayside fishing pier, Delaware Bay shoreline, private banks, road crossings, marsh edges, or Smyrna Landing Road."
+        }
+      ]
+    }
+,
+    {
+      "id": "fort_wayne_kreager_ramp_aerial_20260905",
+      "name": "Fort Wayne Rivergreenway public access inventory and ramp imagery",
+      "state": "Indiana",
+      "sourceUrl": "https://www.cityoffortwayne.in.gov/1278/Rivergreenway",
+      "sourceType": "official-identity-aerial-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "The city lists the North River Road Trailhead and Boat Ramp across from Kreager Park. OSM slipway node 951074983 identifies the same ramp. On 2026-09-05, Esri World Imagery independently showed the coordinate at the water-side ramp end connected to the public parking area. The old point was inside Kreager Park, about 2,395 feet northeast of the launch. This is imagery-derived, not a surveyed city coordinate. Reproducible imagery bounds and audit results are in docs/route-coordinate-corrections-2026-09-05.json.",
+      "controls": [
+        {
+          "featureId": "maumee-kreager-park-ramp",
+          "name": "Kreager Park / North River Road Boat Ramp",
+          "waterbody": "Maumee River",
+          "latitude": 41.0864828,
+          "longitude": -85.0486275,
+          "riverMile": null,
+          "uncertaintyFeet": 30,
+          "matchedRiverDistanceFeet": 122.54002061764372,
+          "onNhdWaterbody": true,
+          "coordinateText": "OSM node 951074983; visually verified at the ramp toe on 2026-09-05"
+        }
+      ]
+    },
+    {
+      "id": "richland_center_pine_ports_aerial_20260905",
+      "name": "Richland Center Pine River Canoe Ports & Walking Trails map and landing imagery",
+      "state": "Wisconsin",
+      "sourceUrl": "https://www.richlandcenterwi.gov/sites/default/files/fileattachments/parks_amp_recreation/page/2520/the_pine_river-canoe_ports_trails.pdf",
+      "sourceType": "official-identity-aerial-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": "6f00b5fb117a1b694e3c37f46da76ff4d879ae77e616a4b8485f8c10484dba1c",
+      "coordinateRole": "authoritative-water-entry",
+      "method": "City brochure page 2 establishes the ordered public ports at County AA (Bowens Mill), Industrial Drive (Lions Park), North/Krouskop Park, and Seminary Street. The WRT Richland Center trip map independently identifies the same four access areas. On 2026-09-05 each coordinate was placed at the visible landing or pier in Esri World Imagery, not at the road, parking centroid, visitor-center address, or nearest river centerline. Port 4 is the main landing below the former-dam rapids; the guide describes a separate upstream bypass pier. Coordinates are imagery-derived with 30-foot uncertainty, not surveyed agency GPS. Reproducible imagery bounds and audit results are in docs/route-coordinate-corrections-2026-09-05.json.",
+      "controls": [
+        {
+          "featureId": "pine-richland-canoe-port-1",
+          "name": "Canoe Port 1 / Bowen's Mill / County AA",
+          "waterbody": "Pine River",
+          "latitude": 43.373027,
+          "longitude": -90.384133,
+          "riverMile": 0,
+          "uncertaintyFeet": 30,
+          "matchedRiverDistanceFeet": 30.973955767368242,
+          "onNhdWaterbody": true,
+          "sourcePage": 2,
+          "coordinateText": "Visible water-side landing or pier, checked 2026-09-05; official map supplies access identity, imagery supplies coordinate"
+        },
+        {
+          "featureId": "pine-richland-canoe-port-2",
+          "name": "Canoe Port 2 / Lions Park",
+          "waterbody": "Pine River",
+          "latitude": 43.359817,
+          "longitude": -90.389001,
+          "riverMile": 2.7,
+          "uncertaintyFeet": 30,
+          "matchedRiverDistanceFeet": 16.09791646654537,
+          "onNhdWaterbody": true,
+          "sourcePage": 2,
+          "coordinateText": "Visible water-side landing or pier, checked 2026-09-05; official map supplies access identity, imagery supplies coordinate"
+        },
+        {
+          "featureId": "pine-richland-canoe-port-3",
+          "name": "Canoe Port 3 / North Park",
+          "waterbody": "Pine River",
+          "latitude": 43.346679,
+          "longitude": -90.388651,
+          "riverMile": 4.4,
+          "uncertaintyFeet": 30,
+          "matchedRiverDistanceFeet": 3.683682383950099,
+          "onNhdWaterbody": true,
+          "sourcePage": 2,
+          "coordinateText": "Visible water-side landing or pier, checked 2026-09-05; official map supplies access identity, imagery supplies coordinate"
+        },
+        {
+          "featureId": "pine-richland-canoe-port-4",
+          "name": "Canoe Port 4 / Seminary Street",
+          "waterbody": "Pine River",
+          "latitude": 43.335268,
+          "longitude": -90.391478,
+          "riverMile": 5.5,
+          "uncertaintyFeet": 30,
+          "matchedRiverDistanceFeet": 45.66930131660933,
+          "onNhdWaterbody": true,
+          "sourcePage": 2,
+          "coordinateText": "Visible water-side landing or pier, checked 2026-09-05; official map supplies access identity, imagery supplies coordinate"
         }
       ]
     }

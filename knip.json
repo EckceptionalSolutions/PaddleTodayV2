@@ -2,6 +2,7 @@
   "ignoreDependencies": [
     "astro"
   ],
+  "vitest": false,
   "workspaces": {
     ".": {
       "ignoreDependencies": [
@@ -9,7 +10,6 @@
       ],
       "entry": [
         "astro.config.mjs",
-        "vitest.config.ts",
         "scripts/**/*.{mjs,ts}",
         "src/**/*.astro",
         "src/scripts/**/*.{js,mjs}",
@@ -17,7 +17,6 @@
       ],
       "project": [
         "astro.config.mjs",
-        "vitest.config.ts",
         "scripts/**/*.{mjs,ts}",
         "src/**/*.astro",
         "src/**/*.{js,mjs,ts,tsx}"
@@ -29,6 +28,9 @@
         "@expo/ngrok",
         "@paddletoday/api-client",
         "@paddletoday/api-contract",
+        "@paddletoday/design-tokens",
+        "@paddletoday/geo",
+        "@paddletoday/trip-pack",
         "@react-native-firebase/analytics",
         "@react-native-firebase/app",
         "@react-native-firebase/crashlytics",
@@ -45,6 +47,7 @@
         "expo-status-bar",
         "expo-build-properties",
         "expo-dev-client",
+        "expo-store-review",
         "react-native-maps",
         "react-native-worklets"
       ],
@@ -77,6 +80,26 @@
       ],
       "project": [
         "src/**/*.{ts,tsx}"
+      ]
+    },
+    "packages/geo": {
+      "entry": [
+        "src/index.ts",
+        "vitest.config.ts"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}",
+        "vitest.config.ts"
+      ]
+    },
+    "packages/trip-pack": {
+      "entry": [
+        "src/index.ts",
+        "vitest.config.ts"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}",
+        "vitest.config.ts"
       ]
     }
   }

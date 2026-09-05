@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-03T13:30:17.399Z",
+  "updatedAt": "2026-09-04T06:16:51Z",
   "tasks": [
     {
       "id": "route-implementation-wi-usgs-04077630",
@@ -5115,7 +5115,8 @@
       },
       "validation": {
         "status": "passed",
-        "corridorModelRecorded": true,
+        "familyModelRecorded": true,
+        "corridorModelRecorded": false,
         "routeRecordsChanged": false,
         "rollback": "No route records were deleted, merged, retired, or rewritten. Revert this run by removing the wi-beaver-dam-cotton-mill-lowell corridor and ledger entries, restoring this task/queue item to ready/new, removing the Beaver Dam summary section, and removing this run entry.",
         "gatekeeperId": "gatekeeper-20260820170112",
@@ -5136,10 +5137,28 @@
       "owner": "independent-verifier",
       "priority": "high",
       "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: implemented. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "evidence": [
-        "docs/operations/overlap-review-queue.json",
-        "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+    "evidence": [
+      "docs/operations/overlap-review-queue.json",
+      "tmp/route-overlap-audit.csv",
+      "tmp/route-overlap-audit.md",
+      "docs/operations/overlap-consolidation-summary.md",
+      "src/data/route-corridors.ts",
+      "docs/corridor-review-ledger.json",
+      "src/data/routes/new-york.ts",
+      "src/data/trip-details/new-york.ts",
+      "src/data/generated/route-access-registry.json",
+      "docs/route-coordinate-river-audit.json",
+      "docs/route-coordinate-authoritative-evidence.json",
+      "docs/route-safety-audit.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-otego-unadilla.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-unadilla-sidney.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-sidney-bainbridge.json",
+      "public/data/canonical-river-geometries/routes/unadilla-river-rockdale-sidney.json",
+      "https://dec.ny.gov/things-to-do/boating/launch-sites/otsego-county",
+      "https://dec.ny.gov/places/susquehanna-river",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01500500",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01502632",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01502500"
       ],
       "routeSlugs": [
         "goose-creek-dump-hollow-laurel-branch",
@@ -77853,11 +77872,11 @@
     {
       "id": "overlap-review-8353801bd8b3",
       "title": "Review route consolidation candidate: New York · catatonk-creek-candor-owego ↔ owego-creek-lower-owego-out-and-back",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Independent source review before merge, retirement, or suppression; preserve the strongest evidence package. Queue status: new. Compare public access, gauge applicability, distance, hazards, camping, and route-specific logistics before any consolidation.",
+      "summary": "Disposition: rejected as one consolidated route family. The 0.08-mile endpoint signal is a shared Owego mouth / reversed-endpoint artifact: Catatonk Creek Candor→Owego is an 11.7-mile one-way through-route, while Owego Creek Canal Street is a 3.5-mile out-and-back with a separate turnaround, hazards, and logistics. Preserve both route cards; no route data or corridor definition changed.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
@@ -77867,20 +77886,82 @@
         "catatonk-creek-candor-owego",
         "owego-creek-lower-owego-out-and-back"
       ],
-      "sourceFindingId": "overlap-review-8353801bd8b3"
+      "sourceFindingId": "overlap-review-8353801bd8b3",
+      "updatedAt": "2026-09-03T18:15:18Z",
+      "lastRunId": "independent-verifier-20260903131518-ny-8353801bd8b3",
+      "latestRunId": "independent-verifier-20260903131518-ny-8353801bd8b3",
+      "blockers": [],
+      "familyModel": {
+        "model": "rejected_no_corridor",
+        "corridorId": null,
+        "preserveRouteCards": true,
+        "routeSlugs": [
+          "catatonk-creek-candor-owego",
+          "owego-creek-lower-owego-out-and-back"
+        ],
+        "sharedSegment": "Lower Owego Creek near the mouth / confluence",
+        "decision": "No route-corridor registry entry; the overlap is not a selectable access-chain family."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: Catatonk Creek is Candor→Owego one-way; Owego Creek starts and ends at the Canal Street hand launch with a gauge-corridor turnaround.",
+        "riverContinuity": "passed_for_distinctness: the cards touch at the Owego Creek mouth but represent a tributary-to-mainstem through-route versus a bounded mainstem out-and-back.",
+        "accessLegality": "passed_with_endpoint_advisory: NYSDEC identifies the Owego Creek hand launch off Canal Street at the mouth and the Tioga County map identifies Moyer Park canoe/kayak access; the Catatonk waterline anchor and Owego exit remain route-specific and cannot be substituted.",
+        "gaugeReach": "passed: both reference direct USGS 01514000, but the station is downstream of the Catatonk confluence and does not make the routes identical or certify local features.",
+        "campingLogistics": "passed: Catatonk is 11.7 miles / 4–7 hours with a shuttle and daylight commitment; Owego is approximately 3.5 miles out-and-back / 2–4 hours with no shuttle. Both retain nearby-basecamp-only camping posture.",
+        "hazards": "passed: Catatonk retains the opening dam, broken dams/constrictions, fast-rise, cold-water, and long-commitment hazards; Owego retains shallow water, bridge/railroad structures, wood, urban-water-quality, and limited bailout hazards.",
+        "routeSpecificEvidence": "passed: distinct endpoint pairs, distances, gauge caveats, camping, safety, and logistics remain visible; no route record was deleted, merged, retired, or silently rewritten.",
+        "coordinateReview": "passed_with_advisory: Owego Canal Street is an authoritative water-entry with 9.6 ft named-flowline offset and ok endpoint audit; Catatonk endpoints remain unknown because no named NHD flowline was returned in the route bounding box."
+      },
+      "validation": {
+        "status": "passed",
+        "corridorModelRecorded": true,
+        "routeRecordsChanged": false,
+        "rollback": "No route records or corridor definitions were changed. Revert this run by removing the task/queue/summary/run disposition metadata and restoring only the audit-artifact snapshots generated before this run; preserve unrelated shared working-tree changes.",
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed_for_selected_family",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        },
+        "commands": [
+          "passed: npm run routes:audit:overlap; 1166 route spans and 2384 findings, with the selected family producing one duplicate_or_reversed signal",
+          "passed: npm run routes:audit:corridors; 213 definitions and 423 covered routes",
+          "completed: npm run routes:audit:coordinates; Owego Canal Street endpoints ok, Owego turnaround review, Catatonk endpoints unknown; unrelated global failures remain outside this family",
+          "passed: npm run routes:geometries:audit; 1583/1691 routes matched and 27 state assets present",
+          "passed_for_selected_family: npm run routes:safety:audit; the two generated issues are both for wv-guyandotte-branchland-west-hamlin",
+          "passed: npm run operations:verify; operations gate tests, full typecheck, and production build completed"
+        ]
+      },
+      "resultSummary": "Independent verifier rejected duplicate resolution and corridor registration. The audit signal is explained by the shared Owego mouth and reversed endpoint proximity; the two records have different endpoint order, route shape, distance, hazards, and shuttle logistics."
     },
     {
       "id": "overlap-review-24e49324b784",
       "title": "Review route consolidation candidate: Maryland · conococheague-creek-kemps-mill-williamsport ↔ north-branch-potomac-spring-gap-oldtown ↔ potomac-river-big-pool-williamsport +11",
-      "lane": "ready",
+      "lane": "completed",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Disposition: rejected as one consolidated family. The 14 cards span Conococheague Creek, North Branch Potomac, and multiple distinct Potomac access ladders with six direct gauge contexts, dam/portage boundaries, and materially different route, camping, safety, and shuttle commitments. Preserve every route card and existing corridor definition.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+        "tmp/route-overlap-audit.md",
+        "docs/operations/overlap-consolidation-summary.md",
+        "src/data/routes/maryland.ts",
+        "src/data/trip-details/maryland.ts",
+        "src/data/route-corridors.ts",
+        "src/data/generated/route-access-registry.json",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-coordinate-authoritative-evidence.json",
+        "docs/route-safety-audit.json",
+        "docs/corridor-review-ledger.json",
+        "public/data/canonical-river-geometries/states/maryland.json",
+        "https://www.nps.gov/choh/planyourvisit/boating.htm",
+        "https://dnr.maryland.gov/fisheries/Pages/hotspots/conococheague.aspx",
+        "https://www.canaltrust.org/plan/highlights-and-amenities/boat-ramps-co-canal/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01613000/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-01618000/"
       ],
       "routeSlugs": [
         "conococheague-creek-kemps-mill-williamsport",
@@ -77898,20 +77979,105 @@
         "potomac-river-taylors-snyders",
         "potomac-river-williamsport-big-slackwater"
       ],
-      "sourceFindingId": "overlap-review-24e49324b784"
+      "sourceFindingId": "overlap-review-24e49324b784",
+      "updatedAt": "2026-09-04T00:18:05Z",
+      "lastRunId": "independent-verifier-20260903191740-md-24e49324b784",
+      "latestRunId": "independent-verifier-20260903191740-md-24e49324b784",
+      "blockers": [],
+      "familyModel": {
+        "model": "rejected_no_corridor",
+        "corridorId": null,
+        "preserveRouteCards": true,
+        "routeSlugs": [
+          "conococheague-creek-kemps-mill-williamsport",
+          "north-branch-potomac-spring-gap-oldtown",
+          "potomac-river-big-pool-williamsport",
+          "potomac-river-bonds-fifteen-mile-creek",
+          "potomac-river-brunswick-point-of-rocks",
+          "potomac-river-dam-four-shepherdstown",
+          "potomac-river-fifteen-mile-creek-hancock",
+          "potomac-river-hancock-big-pool",
+          "potomac-river-oldtown-paw-paw",
+          "potomac-river-paw-paw-bonds",
+          "potomac-river-point-of-rocks-monocacy",
+          "potomac-river-shepherdstown-dargan",
+          "potomac-river-taylors-snyders",
+          "potomac-river-williamsport-big-slackwater"
+        ],
+        "sharedSegments": [
+          "North Branch Potomac Spring Gap → Oldtown / Potomac Oldtown → Paw Paw",
+          "Potomac Paw Paw → Bond's Landing → Fifteen Mile Creek → Hancock → Big Pool → Williamsport",
+          "Potomac Williamsport → Big Slackwater → Dam 4 downstream → Taylors → Snyders → Shepherdstown → Dargan",
+          "Potomac Brunswick → Point of Rocks → Nolands Ferry → Monocacy"
+        ],
+        "decision": "No new umbrella corridor registry entry. Retain the existing verified route-specific corridors and the existing Dam 4/Taylors/Snyders access-chain family; the candidate is a presentation-level overlap across distinct branches and gauge/hazard/logistics packages, not one selectable route family."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: The endpoint pairs form several directional access ladders, including Spring Gap→Oldtown→Paw Paw→Bond's Landing→Fifteen Mile Creek→Hancock→Big Pool→Williamsport, a separate Williamsport→Big Slackwater→Dam 4→Shepherdstown→Dargan chain, and a separate Brunswick→Point of Rocks→Monocacy chain; Conococheague ends at the Potomac confluence and is not a Potomac segment.",
+        "riverContinuity": "passed_for_distinctness: the overlap audit found 14 shared-endpoint signals plus three collinear/contained signals, but the family crosses three river identities and includes tributary/confluence, North Branch, lower/middle Potomac, and separate access ladders with gaps and hard dam boundaries.",
+        "accessLegality": "passed_with_endpoint_advisories: NPS/C&O and C&O Trust list the named ramps, while Maryland DNR confirms Kemps Mill walk-in access and the lower Conococheague approach from River Bottom. The access registry keeps named endpoint variants distinct and flags generalized/area-anchor coordinates for launch-day confirmation; no private, bridge, dam, or campground access was substituted.",
+        "gaugeReach": "passed_for_distinctness: the 14 cards use six direct stations—01614500 Conococheague/Fairview, 01603000 North Branch/Cumberland, 01610000 Paw Paw, 01613000 Hancock, 01638500 Point of Rocks, and 01618000 Shepherdstown—with route-specific thresholds and caveats. Shared station identity within subchains does not make the entire candidate interchangeable.",
+        "campingLogistics": "passed: route packages range from approximately 4.5 to 16.8 miles and 2–10 hours, with endpoint campgrounds, nearby C&O basecamp context, or separate no-riverbank-camping postures; shuttle, intermediate access, portage, daylight, and hard-takeout commitments differ by card.",
+        "hazards": "passed: route-specific hazards remain material, including the North Branch low-water dam, Williamsport power-company dam, Dam 4, Dam 5, Conococheague shallow/vegetated channel and Kemps Mill boundary, cold water, fast rises, strainers, wind, private/railroad banks, and hard downstream take-outs.",
+        "routeSpecificEvidence": "passed: existing route cards, trip-detail projections, source links, access points, gauge profiles, camping/logistics text, safety profiles, corridor edges, and canonical geometries remain preserved; no route was deleted, merged, retired, or silently rewritten.",
+        "coordinateReview": "passed_with_advisories: no selected-family coordinate failure was reported. Selected records contain expected review anchors, including Kemps Mill area access, Oldtown/Mill Run confluence context, Big Pool/Dam 5 and C&O ramp anchors, Taylors/Snyders, Point of Rocks/Nolands, and other park-area coordinates; the audit provides authoritative or waterbody support and requires field confirmation rather than coordinate mutation.",
+        "geometryReview": "passed: all 14 route geometry files exist with endpoint-ordered curated or network traces; the canonical geometry audit passed globally. The geometry traces corroborate the separate spans but do not justify an umbrella corridor.",
+        "externalEvidence": "passed: NPS identifies the C&O/Potomac boating context and separately marks the North Branch low-water dam, Dam 4, Williamsport power-company dam, and Dam 5; Maryland DNR identifies Conococheague as a shallow tributary joining the Potomac near Williamsport and separately documents Kemps Mill access; USGS confirms the Hancock and Shepherdstown stations are distinct monitoring locations."
+      },
+      "validation": {
+        "status": "passed",
+        "corridorModelRecorded": true,
+        "routeRecordsChanged": false,
+        "rollback": "No route records or corridor definitions were changed. Revert this run by removing the matching task/queue/summary/run disposition metadata and restoring only audit-artifact snapshots generated by this run; preserve unrelated shared working-tree changes.",
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed_for_selected_family",
+          "verification": "passed",
+          "tests": "passed",
+          "rollback": "passed"
+        },
+        "commands": [
+          "passed: npm run routes:audit; route data audit passed for 1182 routes",
+          "passed: npm run routes:audit:overlap; 1177 route spans and 2394 findings; selected family retained 14 bounded signals including three distinctness-critical collinear/contained signals",
+          "passed: npm run routes:audit:corridors; 213 definitions and 423 covered routes",
+          "passed: npm run routes:audit:coordinates; 1778 routes / 4140 endpoints; selected family had no failure severity, with expected review advisories",
+          "passed: npm run routes:geometries:audit; 1598/1706 routes matched and 28 state assets present",
+          "passed_for_selected_family: npm run routes:safety:audit; the two generated issues are both for wv-guyandotte-branchland-west-hamlin",
+          "passed: npm run operations:verify; 13 gate tests, full typecheck, route audit, geometry audit, gallery audit, mobile typecheck, and production build completed"
+        ]
+      },
+      "resultSummary": "Independent verifier rejected the proposed single Maryland umbrella corridor. The candidate is a cross-branch overlap signal: Conococheague Creek and North Branch Potomac are distinct from the Potomac mainstem, and the Potomac cards split into multiple existing access ladders with six direct gauges, dam/portage boundaries, and materially different safety and logistics packages. Preserve all 14 route cards and existing corridor definitions."
     },
     {
-      "id": "overlap-review-1ad331052f85",
-      "title": "Review route consolidation candidate: New York · susquehanna-river-otego-unadilla ↔ susquehanna-river-sidney-bainbridge ↔ susquehanna-river-unadilla-sidney +1",
-      "lane": "ready",
+    "id": "overlap-review-1ad331052f85",
+    "title": "Review route consolidation candidate: New York · susquehanna-river-otego-unadilla ↔ susquehanna-river-sidney-bainbridge ↔ susquehanna-river-unadilla-sidney +1",
+    "lane": "completed",
       "kind": "consolidation_review",
-      "owner": "independent-verifier",
-      "priority": "high",
-      "summary": "Verify endpoint order, river continuity, access legality, and whether the routes are genuinely distinct before proposing a family model. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
-      "evidence": [
-        "docs/operations/overlap-review-queue.json",
-        "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+    "owner": "independent-verifier",
+    "priority": "high",
+    "summary": "Disposition: verified the bounded Otego–Unadilla–Sidney–Bainbridge Susquehanna corridor while excluding the separate Rockdale–Sidney Unadilla crossing. Preserve all four route cards with route-specific gauges, thresholds, camping, hazards, coordinates, and logistics.",
+    "evidence": [
+      "docs/operations/overlap-review-queue.json",
+      "tmp/route-overlap-audit.csv",
+      "tmp/route-overlap-audit.md",
+      "docs/operations/overlap-consolidation-summary.md",
+      "src/data/route-corridors.ts",
+      "docs/corridor-review-ledger.json",
+      "src/data/routes/new-york.ts",
+      "src/data/trip-details/new-york.ts",
+      "src/data/generated/route-access-registry.json",
+      "docs/route-coordinate-river-audit.json",
+      "docs/route-coordinate-authoritative-evidence.json",
+      "docs/route-safety-audit.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-otego-unadilla.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-unadilla-sidney.json",
+      "public/data/canonical-river-geometries/routes/susquehanna-river-sidney-bainbridge.json",
+      "public/data/canonical-river-geometries/routes/unadilla-river-rockdale-sidney.json",
+      "https://dec.ny.gov/things-to-do/boating/launch-sites/otsego-county",
+      "https://dec.ny.gov/places/susquehanna-river",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01500500",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01502632",
+      "https://waterdata.usgs.gov/monitoring-location/USGS-01502500"
       ],
       "routeSlugs": [
         "susquehanna-river-otego-unadilla",
@@ -77919,7 +78085,71 @@
         "susquehanna-river-unadilla-sidney",
         "unadilla-river-rockdale-sidney"
       ],
-      "sourceFindingId": "overlap-review-1ad331052f85"
+    "sourceFindingId": "overlap-review-1ad331052f85",
+    "updatedAt": "2026-09-04T06:16:51Z",
+    "lastRunId": "independent-verifier-20260904011700-ny-1ad331052f85",
+    "latestRunId": "independent-verifier-20260904011700-ny-1ad331052f85",
+    "blockers": [],
+    "familyModel": {
+      "model": "verified_bounded_multi_endpoint_corridor_with_excluded_crossing",
+      "corridorId": "ny-susquehanna-otego-bainbridge",
+      "canonicalSlug": "susquehanna-river-sidney-bainbridge",
+      "preserveRouteCards": true,
+      "routeSlugs": [
+        "susquehanna-river-otego-unadilla",
+        "susquehanna-river-unadilla-sidney",
+        "susquehanna-river-sidney-bainbridge"
+      ],
+      "accessOrder": [
+        "Otego/Wells Bridge DEC hand launch",
+        "Unadilla DEC Susquehanna River hand launch",
+        "Sidney DEC Fishing Access",
+        "General Clinton Park river access"
+      ],
+      "segmentEdges": [
+        "Otego/Wells Bridge DEC hand launch → Unadilla DEC Susquehanna River hand launch",
+        "Unadilla DEC Susquehanna River hand launch → Sidney DEC Fishing Access",
+        "Sidney DEC Fishing Access → General Clinton Park river access"
+      ],
+      "excludedRouteSlugs": ["unadilla-river-rockdale-sidney"],
+      "excludedReason": "Different Unadilla River waterbody, direct USGS 01502500 reach, 150–3,000 cfs planning band, confluence-area take-out, and access/logistics package."
+    },
+    "independentReview": {
+      "endpointOrder": "passed: Susquehanna routes are ordered Otego → Unadilla → Sidney → General Clinton Park; the Unadilla River route is Rockdale → Sidney confluence and is not part of that chain.",
+      "riverContinuity": "passed: the three Susquehanna cards share the named river and form a contiguous ordered access chain; the crossing signal is a localized Unadilla/Susquehanna confluence relationship, not a cross-waterbody family.",
+      "accessLegality": "passed_with_endpoint_advisories: current NYSDEC Otsego County records list Otego, Unadilla, and Sidney as public hand launches; carries, parking, waterline, bank footing, and posted rules remain launch-day checks. Rockdale and its confluence-area finish remain route-specific.",
+      "gaugeReach": "passed_with_route_specific_profiles: Otego–Unadilla and Unadilla–Sidney use direct USGS 01500500 context with different planning postures; Sidney–Bainbridge uses direct USGS 01502632 stage guidance; Rockdale–Sidney uses direct USGS 01502500. No gauge was generalized across the cards.",
+      "campingLogistics": "passed: the Susquehanna cards retain approximately 9, 6.75, and 3.25 river-mile commitments, with no camping on the two planning splits and General Clinton endpoint camping on the scored downstream card; shuttle plans and hard handoffs remain route-specific. Rockdale–Sidney remains an approximately 8-mile no-camping shuttle route.",
+      "hazards": "passed: low water, fast rise, cold water, strainers, private banks, access uncertainty, mandatory take-outs, bridge/shallows/railroad-island features, and confluence/dirt-road landing cautions remain attached to the relevant cards.",
+      "routeSpecificEvidence": "passed: all four route cards, generated trip details, source links, access points, gauge profiles, safety packages, and logistics remain preserved; no route was deleted, merged, retired, or silently rewritten.",
+      "coordinateReview": "passed_with_advisories: selected endpoints are authoritative NYSDEC or route-source water-entry anchors. Coordinate audit retains expected review offsets of 191–230 ft for Otego/Unadilla/Sidney Susquehanna anchors and 1,054 ft for the Unadilla confluence anchor; no coordinate mutation was justified.",
+      "geometryReview": "passed: all four route-specific canonical geometry files exist; the selected overlap rows are two shared-endpoint signals within the Susquehanna chain plus one Unadilla/Susquehanna crossing signal. Geometry supports the bounded family and the excluded crossing.",
+      "externalEvidence": "passed: NYSDEC's current Otsego County directory lists the Otego, Unadilla, and Sidney Susquehanna hand launches, and USGS maintains direct 01500500 Susquehanna-at-Unadilla, 01502632 Susquehanna-at-Bainbridge, and 01502500 Unadilla-at-Rockdale contexts."
+    },
+    "validation": {
+      "status": "passed",
+      "corridorModelRecorded": true,
+      "routeRecordsChanged": false,
+      "rollback": "No route records were changed. Revert by removing the ny-susquehanna-otego-bainbridge corridor and ledger entries, removing this task/queue/summary disposition metadata, and removing this run entry; restore only audit-artifact snapshots generated by this run and preserve unrelated shared working-tree changes.",
+      "gates": {
+        "evidence": "passed",
+        "safety": "passed_for_selected_family",
+        "verification": "passed",
+        "tests": "passed",
+        "rollback": "passed"
+      },
+      "commands": [
+        "passed: npm run routes:audit; route data audit passed for 1202 routes",
+        "passed: npm run routes:audit:overlap; 1196 route spans and 2413 findings; selected rows were one crossing and two Susquehanna shared-endpoint signals",
+        "passed: npm run routes:audit:corridors; 214 definitions and 426 covered routes after recording ny-susquehanna-otego-bainbridge",
+        "passed: npm run routes:audit:coordinates; selected endpoints were ok/review advisories with authoritative access matches and no failure severity",
+        "passed: npm run routes:geometries:audit; 1626/1734 routes matched and 29 state assets present",
+        "passed_for_selected_family: npm run routes:safety:audit; the two generated issues are both for wv-guyandotte-branchland-west-hamlin",
+        "passed: official NYSDEC Otsego County launch directory and USGS station records reviewed for endpoint and gauge identity",
+        "passed: npm run operations:verify; full operations gate tests, typecheck, audits, and production build completed"
+      ]
+    },
+    "resultSummary": "Independent verifier recorded a verified bounded Susquehanna access corridor for Otego → Unadilla → Sidney → General Clinton Park, preserved the three distinct Susquehanna cards, and excluded the separate Rockdale-to-Sidney Unadilla crossing from any umbrella model."
     }
   ]
 }

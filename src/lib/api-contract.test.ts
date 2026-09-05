@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { scoreRiverCondition } from './scoring';
-import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult } from './api-contract';
+import { serializeDetailResult, serializePlanningRoute, serializeSummaryResult, serializeRiverGroupResult } from './api-contract';
 import type { GaugeReading, River, WeatherSnapshot } from './types';
 
 const baseRiver: River = {
@@ -336,5 +336,20 @@ describe('api-contract serializers', () => {
     expect(planning.river.scoreEligibilityReason).toBe('proxy_gauge');
     expect(planning.gaugeBandLabel).toBe('Not scored');
     expect(planning.explanation).toContain('does not issue a same-day score');
+  });
+
+  it('serializes every planning route with an independent unavailable weather value', () => {
+    const result = serializeRiverGroupResult({
+      riverId: 'rum-river',
+      routes: [],
+      planningRoutes: [
+        { ...baseRiver, slug: 'rum-planning-a', scoreEligibility: 'planning' },
+        { ...baseRiver, slug: 'rum-planning-b', scoreEligibility: 'planning' },
+      ],
+    });
+
+    expect(result.routes).toHaveLength(2);
+    expect(result.routes.every((route) => route.liveData.overall === 'offline')).toBe(true);
+    expect(result.routes.every((route) => route.weather === null)).toBe(true);
   });
 });

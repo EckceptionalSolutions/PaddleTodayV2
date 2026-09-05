@@ -194,5 +194,49 @@ resource consecutiveSnapshotFailures 'Microsoft.Insights/scheduledQueryRules@202
   }
 }
 
+resource snapshotFreshnessAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = {
+  name: '${jobName}-freshness'
+  location: location
+  properties: {
+    displayName: 'Paddle Today snapshot job has no recent success'
+    description: 'Alerts when no successful snapshot execution has completed in the expected two-hour window.'
+    severity: 1
+    enabled: true
+    evaluationFrequency: 'PT15M'
+    windowSize: 'PT4H'
+    scopes: [
+      logAnalytics.id
+    ]
+    criteria: {
+      allOf: [
+        {
+          query: format('''
+            let latestSuccess = ContainerAppSystemLogs_CL
+            | where JobName_s == '{0}'
+            | where Reason_s == 'Completed'
+            | summarize LatestSuccess=max(TimeGenerated);
+            latestSuccess
+            | where isnull(LatestSuccess) or datetime_diff('minute', now(), LatestSuccess) > 120
+          ''', jobName)
+          timeAggregation: 'Count'
+          operator: 'GreaterThan'
+          threshold: 0
+          failingPeriods: {
+            numberOfEvaluationPeriods: 1
+            minFailingPeriodsToAlert: 1
+          }
+        }
+      ]
+    }
+    autoMitigate: true
+    actions: {
+      actionGroups: [
+        snapshotFailureActionGroup.id
+      ]
+    }
+  }
+}
+
 output jobId string = job.id
 output snapshotFailureAlertId string = consecutiveSnapshotFailures.id
+output snapshotFreshnessAlertId string = snapshotFreshnessAlert.id

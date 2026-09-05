@@ -7,7 +7,8 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
-import { Animated, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import Animated, { cancelAnimation, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine } from '../lib/route-facts';
@@ -60,7 +61,7 @@ export function ExploreRouteDrawer({
   const segmentLabel = formatRouteSegmentLabel(selectedRiver.segmentSummary ?? null, selectedRiver.selectedSegment ?? null);
 
   return (
-    <Animated.View style={[styles.mapSheet, styles.fullMapSheet, { height: sheetGesture.animatedHeight }]}>
+    <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetGesture.animatedStyle]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
         <Pressable
           style={styles.mapSheetHandleButton}
@@ -121,6 +122,7 @@ export function ExploreRouteDrawer({
         </Pressable>
       </View>
       <RoutePhotoCard
+        key={`photo:${selectedRiver.river.slug}`}
         river={selectedRiver.river}
         compact
         height={full ? 86 : 78}
@@ -129,7 +131,7 @@ export function ExploreRouteDrawer({
       <View style={styles.mapSheetActions}>
         <View style={styles.mapSheetPrimaryActions}>
           <Pressable
-            style={styles.mapPreviewOpenButton}
+            style={({ pressed }) => [styles.mapPreviewOpenButton, pressed ? { opacity: 0.75 } : null]}
             onPress={onOpenRoute}
             accessibilityRole="button"
             accessibilityLabel={`${routeCount > 1 ? 'Open best route' : 'Open route'}: ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
@@ -171,6 +173,7 @@ export function ExploreRouteDrawer({
       </View>
       {full ? (
         <ScrollView
+          key={`details:${selectedRiver.river.slug}`}
           style={styles.drawerContentScroll}
           showsVerticalScrollIndicator
           persistentScrollbar
@@ -246,18 +249,14 @@ function useMapSheetPanResponder(
   maxSheetHeight: number,
   onClose: () => void
 ) {
-  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap, maxSheetHeight))).current;
+  const animatedHeight = useSharedValue(sheetHeightValue(sheetSnap, maxSheetHeight));
+  const animatedStyle = useAnimatedStyle(() => ({ height: animatedHeight.value }));
   const currentSnapRef = useRef(sheetSnap);
 
   useEffect(() => {
     currentSnapRef.current = sheetSnap;
-    Animated.spring(animatedHeight, {
-      toValue: sheetHeightValue(sheetSnap, maxSheetHeight),
-      useNativeDriver: false,
-      damping: 22,
-      stiffness: 210,
-      mass: 0.75,
-    }).start();
+    animatedHeight.value = withSpring(sheetHeightValue(sheetSnap, maxSheetHeight), SHEET_SPRING);
+    return () => cancelAnimation(animatedHeight);
   }, [animatedHeight, maxSheetHeight, sheetSnap]);
 
   const panResponder = useMemo(
@@ -267,11 +266,11 @@ function useMapSheetPanResponder(
         onMoveShouldSetPanResponder: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onMoveShouldSetPanResponderCapture: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onPanResponderGrant: () => {
-          animatedHeight.stopAnimation();
+          cancelAnimation(animatedHeight);
         },
         onPanResponderMove: (_event, gestureState) => {
           const baseHeight = sheetHeightValue(currentSnapRef.current, maxSheetHeight);
-          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight));
+          animatedHeight.value = clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight);
         },
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
@@ -281,31 +280,24 @@ function useMapSheetPanResponder(
             return;
           }
 
+          const changed = currentSnapRef.current !== nextSnap;
           currentSnapRef.current = nextSnap;
           setSheetSnap(nextSnap);
-          Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(nextSnap, maxSheetHeight),
-            useNativeDriver: false,
-            damping: 22,
-            stiffness: 210,
-            mass: 0.75,
-          }).start();
+          // A changed snap starts its spring in the effect. A short drag back
+          // to the same snap still needs to settle, without two competing springs.
+          if (!changed) animatedHeight.value = withSpring(sheetHeightValue(nextSnap, maxSheetHeight), SHEET_SPRING);
         },
         onPanResponderTerminate: () => {
-          Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(currentSnapRef.current, maxSheetHeight),
-            useNativeDriver: false,
-            damping: 22,
-            stiffness: 210,
-            mass: 0.75,
-          }).start();
+          animatedHeight.value = withSpring(sheetHeightValue(currentSnapRef.current, maxSheetHeight), SHEET_SPRING);
         },
       }),
     [animatedHeight, maxSheetHeight, onClose, setSheetSnap]
   );
 
-  return { panHandlers: panResponder.panHandlers, animatedHeight };
+  return { panHandlers: panResponder.panHandlers, animatedStyle };
 }
+
+const SHEET_SPRING = { damping: 22, stiffness: 210, mass: 0.75 };
 
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
   // Keep the expanded tray close to its content height. The previous 500pt

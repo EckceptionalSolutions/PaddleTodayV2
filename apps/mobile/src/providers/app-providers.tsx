@@ -73,7 +73,9 @@ export function AppProviders({ children }: PropsWithChildren) {
       persistOptions={{
         persister: queryPersister,
         buster: QUERY_CACHE_BUSTER,
-        maxAge: 24 * 60 * 60 * 1000,
+        // Persisted route and board responses must not look current after a
+        // full day offline; the API snapshot SLA is two hours.
+        maxAge: 2 * 60 * 60 * 1000,
         dehydrateOptions: {
           shouldDehydrateQuery: (query) => query.state.status === 'success',
         },

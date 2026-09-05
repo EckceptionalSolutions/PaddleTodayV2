@@ -48,7 +48,7 @@ export const indianaRiverTripDetails: Record<string, RiverTripDetails> = {
     }
   },
   "maumee-river-kreager-moser": {
-    "putIn": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407},
+    "putIn": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0864828, "longitude": -85.0486275},
     "takeOut": {"id": "maumee-moser-park-canoe-launch", "name": "Moser Park Canoe Launch", "latitude": 41.07339, "longitude": -85.021895},
     "logistics": {
       "distanceLabel": "About 5 river miles",
@@ -64,7 +64,7 @@ export const indianaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "maumee-river-niagara-kreager": {
     "putIn": {"id": "maumee-niagara-drive-access", "name": "Anthony Boulevard / Niagara Drive Access", "latitude": 41.0821, "longitude": -85.1128},
-    "takeOut": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0892, "longitude": -85.0407},
+    "takeOut": {"id": "maumee-kreager-park-ramp", "name": "Kreager Park / North River Road Boat Ramp", "latitude": 41.0864828, "longitude": -85.0486275},
     "logistics": {
       "distanceLabel": "Nearly 4 river miles",
       "estimatedPaddleTime": "About 1 hr 30 min to 2 hr",

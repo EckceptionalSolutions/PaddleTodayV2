@@ -30,6 +30,7 @@ jobs:
         env:
           RIVER_HISTORY_CONTAINER_SAS_URL: ${{ secrets.RIVER_HISTORY_CONTAINER_SAS_URL }}
           RIVER_HISTORY_BLOB_PREFIX: ${{ vars.RIVER_HISTORY_BLOB_PREFIX || 'river-history' }}
+          RIVER_HISTORY_WRITE_CONCURRENCY: '8'
           HISTORY_TIME_ZONE: ${{ vars.HISTORY_TIME_ZONE || 'America/Chicago' }}
         run: |
           if [ -z "$RIVER_HISTORY_CONTAINER_SAS_URL" ]; then

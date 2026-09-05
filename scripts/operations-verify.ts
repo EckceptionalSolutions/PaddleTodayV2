@@ -21,9 +21,40 @@ try {
   evidence.evidence = { passed: false, detail: 'Gauge inventory or review-ledger artifact is missing or invalid.' };
 }
 
-evidence.safety = { passed: true, detail: 'No safety exception or policy override was supplied.' };
+const safetyAudit = run('routes:safety:audit', []);
+if (!safetyAudit) {
+  evidence.safety = { passed: false, detail: 'Route safety audit did not complete.' };
+} else {
+  try {
+    const report = JSON.parse(await readFile('docs/route-safety-audit.json', 'utf8')) as {
+      issueCount?: number;
+      summary?: { Critical?: number; High?: number; Medium?: number; Low?: number };
+    };
+    const critical = report.summary?.Critical ?? 0;
+    const high = report.summary?.High ?? 0;
+    evidence.safety = {
+      passed: critical === 0,
+      detail: critical === 0
+        ? `Route safety audit found no critical blockers (${high} high-severity review item(s) remain tracked).`
+        : `Route safety audit found ${critical} critical blocker(s).`,
+    };
+  } catch {
+    evidence.safety = { passed: false, detail: 'Route safety audit report is missing or invalid.' };
+  }
+}
 evidence.verification = { passed: run('operations:gates:test', []), detail: 'Independent gate tests completed.' };
-evidence.tests = { passed: run('typecheck', []) && run('build', []), detail: 'Full typecheck and production build completed.' };
+const testChecks: Array<[string, string]> = [
+  ['typecheck', 'typecheck'],
+  ['scoring sensitivity', 'scoring:sensitivity:check'],
+  ['snapshot capacity', 'snapshots:capacity'],
+  ['workspace tests', 'test:workspaces'],
+  ['production build', 'build'],
+];
+const testResults = testChecks.map(([label, command]) => ({ label, passed: run(command, []) }));
+evidence.tests = {
+  passed: testResults.every((result) => result.passed),
+  detail: `Checks: ${testResults.map((result) => `${result.label}=${result.passed ? 'passed' : 'failed'}`).join(', ')}. No checks were skipped.`,
+};
 const gitCheck = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8', shell: false });
 evidence.rollback = { passed: gitCheck.status === 0, detail: gitCheck.status === 0 ? 'Git repository provides a bounded revert path.' : 'Git repository could not be resolved.' };
 

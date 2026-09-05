@@ -3,6 +3,7 @@ import type { RiverDetailSnapshot } from './river-snapshots';
 import { riverAlertDeliveryKey } from './alert-delivery';
 
 const EXPO_PUSH_SEND_URL = 'https://exp.host/--/api/v2/push/send';
+const EXPO_PUSH_TIMEOUT_MS = 10_000;
 
 interface ExpoPushTicket {
   status?: 'ok' | 'error';
@@ -33,28 +34,36 @@ export async function sendRiverAlertPush(args: {
 
   const subject = subjectForAlert(args.alert, args.snapshot);
   const deliveryKey = riverAlertDeliveryKey(args.alert, args.snapshot);
-  const response = await fetch(EXPO_PUSH_SEND_URL, {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'accept-encoding': 'gzip, deflate',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      to: args.alert.expoPushToken,
-      title: subject,
-      body: bodyForAlert(args.snapshot),
-      data: {
-        url: `/river/${args.alert.riverSlug}`,
-        riverSlug: args.alert.riverSlug,
-        alertId: args.alert.id,
-        deliveryKey,
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), EXPO_PUSH_TIMEOUT_MS);
+  let response: Response;
+  try {
+    response = await fetch(EXPO_PUSH_SEND_URL, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'accept-encoding': 'gzip, deflate',
+        'content-type': 'application/json',
       },
-      sound: 'default',
-      priority: 'high',
-      channelId: 'river-alerts',
-    }),
-  });
+      body: JSON.stringify({
+        to: args.alert.expoPushToken,
+        title: subject,
+        body: bodyForAlert(args.snapshot),
+        data: {
+          url: `/river/${args.alert.riverSlug}`,
+          riverSlug: args.alert.riverSlug,
+          alertId: args.alert.id,
+          deliveryKey,
+        },
+        sound: 'default',
+        priority: 'high',
+        channelId: 'river-alerts',
+      }),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
     throw new Error(`Expo push send failed: HTTP ${response.status}`);

@@ -56,7 +56,7 @@ describe('rate limiting', () => {
     expect(consumeRateLimit('alerts', '203.0.113.9', { now: 1_000, maxRequests: 1 }).limited).toBe(false);
   });
 
-  it('uses the first forwarded address and falls back to the socket address', () => {
+  it('uses forwarded addresses only when the connecting proxy is trusted', () => {
     const forwarded = {
       headers: { 'x-forwarded-for': '198.51.100.7, 10.0.0.4' },
       socket: { remoteAddress: '10.0.0.5' },
@@ -66,7 +66,8 @@ describe('rate limiting', () => {
       socket: { remoteAddress: '198.51.100.9' },
     } as IncomingMessage;
 
-    expect(getIp(forwarded)).toBe('198.51.100.7');
+    expect(getIp(forwarded)).toBe('10.0.0.5');
+    expect(getIp(forwarded, { trustedProxyAddresses: ['10.0.0.5'] })).toBe('198.51.100.7');
     expect(getIp(direct)).toBe('198.51.100.9');
   });
 });

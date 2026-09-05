@@ -1,7 +1,8 @@
 import type { default as NativeMapView } from 'react-native-maps';
 import { distanceMiles } from '@paddletoday/api-contract';
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { FlatList, Modal, Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { clusterFocusRegion, isMapCluster, mapViewportPoints, type MapViewport } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
   clamp,
@@ -24,6 +25,7 @@ declare const require: <T = unknown>(moduleName: string) => T;
 
 const SELECTED_MARKER_COLOR = '#2563EB';
 const ROUTE_SPAN_COLOR = '#2563EB';
+const EMPTY_SPANS: RouteSpanCoordinate[][] = [];
 
 export type { RoutePlotPoint, RouteSpanCoordinate } from './route-plot-map-model';
 
@@ -35,6 +37,7 @@ export interface RoutePlotMapHandle {
 
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points: RoutePlotPoint[];
+  onReady?: () => void;
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
@@ -54,12 +57,15 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
   refitOnPointChanges?: boolean;
+  clusterMarkers?: boolean;
+  dimUnselectedMarkers?: boolean;
 }>(function RoutePlotMap({
   points,
+  onReady,
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
-  backgroundSpanSegments = [],
+  backgroundSpanSegments = EMPTY_SPANS,
   canonicalSpans,
   onSelectPoint,
   onViewSelected,
@@ -75,13 +81,21 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   focusOnSelect = false,
   selectedFocusBottomInset = 0,
   refitOnPointChanges = true,
+  clusterMarkers = false,
+  dimUnselectedMarkers = true,
 }, ref) {
-  const backgroundSpan = finiteSpanCoordinates(backgroundSpanCoordinates);
-  const backgroundSpans = [
-    ...(backgroundSpan.length >= 2 ? [backgroundSpan] : []),
-    ...backgroundSpanSegments.map(finiteSpanCoordinates).filter((span) => span.length >= 2),
-  ];
-  const bounds = getBounds(points, userLocation, backgroundSpans.flat(), canonicalSpans);
+  const backgroundSpans = useMemo(() => {
+    const span = finiteSpanCoordinates(backgroundSpanCoordinates);
+    return [
+      ...(span.length >= 2 ? [span] : []),
+      ...backgroundSpanSegments.map(finiteSpanCoordinates).filter((segment) => segment.length >= 2),
+    ];
+  }, [backgroundSpanCoordinates, backgroundSpanSegments]);
+  const boundsSpans = refitOnPointChanges ? canonicalSpans : undefined;
+  const bounds = useMemo(
+    () => getBounds(points, userLocation, backgroundSpans.flat(), boundsSpans),
+    [points, userLocation, backgroundSpans, boundsSpans]
+  );
   const visiblePoints = useMemo(() => points.filter(isFinitePoint), [points]);
   const nativeMarkerPoints = useMemo(
     () => [...visiblePoints].sort(compareMapPointIds),
@@ -102,17 +116,31 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const initialRegion = regionFromBounds(bounds);
   // Route geometry can arrive after the summary markers. Updating that overlay
   // should not change the user's camera position.
-  const pointSignature = nativeMarkerPoints.map(mapPointSignature).join('|');
+  const pointSignature = useMemo(() => nativeMarkerPoints.map(mapPointSignature).join('|'), [nativeMarkerPoints]);
   const hasUserLocation = Boolean(
     userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
   );
   const nativeUserLocation = hasUserLocation ? userLocation : null;
-  const [regionDelta, setRegionDelta] = useState({
-    latitudeDelta: initialRegion.latitudeDelta,
-    longitudeDelta: initialRegion.longitudeDelta,
-  });
+  const [regionDelta, setRegionDelta] = useState<MapViewport>(initialRegion);
+  const { width: windowWidth } = useWindowDimensions();
+  const [mapWidth, setMapWidth] = useState(windowWidth);
+  const [clusterChoices, setClusterChoices] = useState<RoutePlotPoint[] | null>(null);
+  const viewportPoints = useMemo(
+    () => clusterMarkers ? mapViewportPoints(nativeMarkerPoints, regionDelta, mapWidth, height) : nativeMarkerPoints,
+    [clusterMarkers, nativeMarkerPoints, regionDelta, mapWidth, height]
+  );
+  // Retain a selected marker even when its location is inside a cluster. The
+  // cluster itself stays unchanged when opening/closing the preview.
+  const renderedMarkerPoints = useMemo(() => {
+    if (clusterMarkers && selectedId && selectedPoint && !viewportPoints.some((point) => point.id === selectedId)) {
+      return [...viewportPoints, selectedPoint];
+    }
+    return viewportPoints;
+  }, [clusterMarkers, selectedId, selectedPoint, viewportPoints]);
   const showScoreMarkers = shouldShowScoreMarkers(regionDelta.latitudeDelta, visiblePoints.length);
-  const [trackMarkerViews, setTrackMarkerViews] = useState(true);
+  const selectPointRef = useRef(selectPoint);
+  selectPointRef.current = selectPoint;
+  const handleSelectPoint = useCallback((point: RoutePlotPoint) => selectPointRef.current(point), []);
 
   function focusSelected() {
     if (!nativeMaps || !selectedPoint) {
@@ -132,6 +160,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   }
 
   function selectPoint(point: RoutePlotPoint) {
+    if (isMapCluster(point)) {
+      if (regionDelta.longitudeDelta <= 0.005) setClusterChoices(point.members);
+      else mapRef.current?.animateToRegion?.(clusterFocusRegion(point, regionDelta), 260);
+      return;
+    }
     onSelectPoint?.(point);
     if (!focusOnSelect || !nativeMaps) {
       return;
@@ -216,11 +249,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [canonicalSpans, fitToAllEdgePadding, height, selectedFocusBottomInset, selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
-    setRegionDelta({
-      latitudeDelta: initialRegion.latitudeDelta,
-      longitudeDelta: initialRegion.longitudeDelta,
-    });
-  }, [initialRegion.latitudeDelta, initialRegion.longitudeDelta]);
+    if (!nativeMaps) onReady?.();
+  }, [nativeMaps, onReady]);
 
   useEffect(() => {
     const previousPointSignature = previousPointSignatureRef.current;
@@ -232,16 +262,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
     focusAll();
   }, [nativeMaps, pointSignature, refitOnPointChanges, selectedId, userLocation]);
-
-  useEffect(() => {
-    if (!nativeMaps) {
-      return;
-    }
-
-    setTrackMarkerViews(true);
-    const timeout = setTimeout(() => setTrackMarkerViews(false), 450);
-    return () => clearTimeout(timeout);
-  }, [nativeMaps, pointSignature, selectedId, showScoreMarkers]);
 
   useEffect(() => {
     if (!fitToAllOnReady) {
@@ -273,22 +293,26 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     const Polyline = nativeMaps.Polyline;
 
     return (
-      <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
+      <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]} onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}>
         <MapView
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
+          onMapReady={onReady}
+          moveOnMarkerPress={false}
           onRegionChangeComplete={(region) => {
             onZoomLevelChange?.(Math.log2(360 / Math.max(region.longitudeDelta, 0.0001)));
             setRegionDelta((current) => {
               if (
-                Math.abs(current.latitudeDelta - region.latitudeDelta) < 0.01 &&
-                Math.abs(current.longitudeDelta - region.longitudeDelta) < 0.01
+                Math.abs(current.latitude - region.latitude) < region.latitudeDelta * 0.01 &&
+                Math.abs(current.longitude - region.longitude) < region.longitudeDelta * 0.01 &&
+                Math.abs(current.latitudeDelta - region.latitudeDelta) < region.latitudeDelta * 0.01 &&
+                Math.abs(current.longitudeDelta - region.longitudeDelta) < region.longitudeDelta * 0.01
               ) {
                 return current;
               }
 
-              return { latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta };
+              return region;
             });
           }}
           showsUserLocation={false}
@@ -332,10 +356,10 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             />
           ) : null)}
 
-          {nativeMarkerPoints.map((point) => {
+          {renderedMarkerPoints.map((point) => {
             const selected = point.id === selectedId;
-            const dimmed = Boolean(selectedId && !selected);
-            const showScore = selected || showScoreMarkers;
+            const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
+            const showScore = isMapCluster(point) || selected || showScoreMarkers;
             if (markerMode === 'pin') {
               const pinColor = pinColorForPoint(point, selected);
 
@@ -352,37 +376,39 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             }
 
             return (
-              <Marker
+              <NativeScoreMarker
                 key={point.id}
-                coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                onPress={() => selectPoint(point)}
-                zIndex={selected ? 10 : 1}
-                anchor={{ x: 0.5, y: 0.5 }}
-                centerOffset={{ x: 0, y: 0 }}
-                tracksViewChanges={trackMarkerViews}
-              >
-                <View
-                  style={[
-                    styles.nativeMarker,
-                    showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
-                    dimmed ? styles.nativeMarkerDimmed : null,
-                    selected ? styles.nativeMarkerSelected : null,
-                    toneForRating(point.rating),
-                    selected ? styles.nativeMarkerSelectedTone : null,
-                  ]}
-                  collapsable={false}
-                >
-                  {showScore ? (
-                    <Text style={styles.nativeMarkerText}>
-                      {markerTextForPoint(point)}
-                    </Text>
-                  ) : null}
-                </View>
-              </Marker>
+                point={point}
+                selected={selected}
+                dimmed={dimmed}
+                showScore={showScore}
+                onSelect={handleSelectPoint}
+              />
             );
           })}
 
         </MapView>
+
+        <Modal visible={Boolean(clusterChoices)} transparent animationType="fade" onRequestClose={() => setClusterChoices(null)}>
+          <View style={styles.clusterBackdrop}>
+            <View style={styles.clusterSheet} accessibilityViewIsModal>
+              <Text style={styles.footerTitle}>Choose a map location</Text>
+              <Pressable onPress={() => setClusterChoices(null)} accessibilityRole="button" accessibilityLabel="Close map locations" style={styles.clusterChoice}>
+                <Text style={styles.showAllButtonText}>Close</Text>
+              </Pressable>
+              <FlatList
+                data={clusterChoices ?? []}
+                keyExtractor={(point) => point.id}
+                renderItem={({ item }) => (
+                  <Pressable style={styles.clusterChoice} accessibilityRole="button" onPress={() => { setClusterChoices(null); selectPoint(item); }}>
+                    <Text style={styles.footerTitle}>{item.label}</Text>
+                    <Text style={styles.footerMeta}>{item.markerAccessibilityLabel ?? item.meta}</Text>
+                  </Pressable>
+                )}
+              />
+            </View>
+          </View>
+        </Modal>
 
         {showAllControl ? <ShowAllButton onPress={focusAll} /> : null}
         {showFooter ? (
@@ -426,7 +452,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
-          const dimmed = Boolean(selectedId && !selected);
+          const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
           const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
@@ -470,6 +496,49 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
         />
       ) : null}
     </View>
+  );
+});
+
+// Keep native snapshot tracking local to the markers whose appearance changed.
+// Switching between selected routes should not re-snapshot the entire map.
+const NativeScoreMarker = memo(function NativeScoreMarker({
+  point, selected, dimmed, showScore, onSelect,
+}: {
+  point: RoutePlotPoint;
+  selected: boolean;
+  dimmed: boolean;
+  showScore: boolean;
+  onSelect: (point: RoutePlotPoint) => void;
+}) {
+  const [tracking, setTracking] = useState(true);
+  useEffect(() => {
+    setTracking(true);
+    const timeout = setTimeout(() => setTracking(false), 450);
+    return () => clearTimeout(timeout);
+  }, [selected, dimmed, showScore, point.score, point.rating, point.markerLabel]);
+  const Marker = getNativeMaps()!.Marker;
+  return (
+    <Marker
+      coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+      onPress={() => onSelect(point)}
+      zIndex={selected ? 10 : 1}
+      anchor={{ x: 0.5, y: 0.5 }}
+      centerOffset={{ x: 0, y: 0 }}
+      tracksViewChanges={tracking}
+      accessibilityLabel={point.label + ', ' + (point.markerAccessibilityLabel ?? markerTextForPoint(point))}
+    >
+      <View style={[
+        styles.nativeMarker,
+        showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
+        dimmed ? styles.nativeMarkerDimmed : null,
+        selected ? styles.nativeMarkerSelected : null,
+        toneForRating(point.rating),
+        selected ? styles.nativeMarkerSelectedTone : null,
+        isMapCluster(point) ? styles.nativeClusterMarker : null,
+      ]} collapsable={false}>
+        {showScore ? <Text style={styles.nativeMarkerText}>{markerTextForPoint(point)}</Text> : null}
+      </View>
+    </Marker>
   );
 });
 
@@ -678,6 +747,10 @@ function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
 }
 
 const styles = StyleSheet.create({
+  clusterBackdrop: { flex: 1, justifyContent: 'center', padding: spacing.xl, backgroundColor: 'rgba(0,0,0,0.4)' },
+  clusterSheet: { maxHeight: '75%', padding: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong },
+  clusterChoice: { minHeight: 48, justifyContent: 'center', paddingVertical: spacing.sm, borderBottomWidth: 1, borderBottomColor: colors.border },
+  nativeClusterMarker: { backgroundColor: colors.accent, minWidth: 42, height: 36, borderRadius: 18 },
   shell: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,

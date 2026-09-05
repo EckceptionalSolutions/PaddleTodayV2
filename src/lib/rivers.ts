@@ -1,5 +1,5 @@
 import { publicRivers, routeInventory } from '../data/rivers';
-import { hasQualifyingGauge } from '../data/route-publication';
+import { hasQualifyingGauge, isScoreEligible } from '../data/route-publication';
 import { riverTripDetails } from '../data/river-trip-details';
 import { classifyCamping } from './camping-classification';
 import { scoreRiverCondition } from './scoring';
@@ -57,7 +57,7 @@ export function listRivers(): River[] {
 }
 
 export function listScoredRivers(): River[] {
-  return [...getRouteIndexes().routes].filter((river) => hasQualifyingGauge(river));
+  return [...getRouteIndexes().routes].filter(isScoreEligible);
 }
 
 // Internal audit tooling needs every source route, including routes withheld
@@ -72,7 +72,7 @@ export function getRiverBySlug(slug: string): River | undefined {
 
 export async function getRiverScore(slug: string): Promise<RiverScoreResult | null> {
   const river = getRiverBySlug(slug);
-  if (!river || !hasQualifyingGauge(river)) {
+  if (!river || !isScoreEligible(river)) {
     return null;
   }
 
@@ -177,7 +177,7 @@ function getRouteIndexes(): RouteIndexes {
 }
 
 export async function getRiverGroupScores(riverId: string): Promise<RiverScoreResult[] | null> {
-  const routes = getRiversByRiverId(riverId).filter((river) => hasQualifyingGauge(river));
+  const routes = getRiversByRiverId(riverId).filter(isScoreEligible);
   if (routes.length === 0) {
     return null;
   }
@@ -257,7 +257,8 @@ function enrichRiver(river: River): River {
     latitude: putInCoordinates?.latitude ?? enriched.latitude,
     longitude: putInCoordinates?.longitude ?? enriched.longitude,
     riverId: enriched.riverId || inferredRiverIdsBySlug.get(enriched.slug) || deriveRiverId(enriched.name),
-    scoreEligibility: hasQualifyingGauge(enriched) ? 'scored' as const : 'planning' as const,
+    scoreEligibility: enriched.scoreEligibility
+      ?? (hasQualifyingGauge(enriched) ? 'scored' as const : 'planning' as const),
     ...(enriched.gaugeSource.kind === 'proxy' ? { scoreEligibilityReason: 'proxy_gauge' as const } : {}),
   };
   const corridor = corridorForSlug(base.slug);

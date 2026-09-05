@@ -112,6 +112,8 @@ function contributionCardMarkup(submission) {
     ? [
         Array.isArray(outcome.hazards) && outcome.hazards.length ? `Hazards: ${outcome.hazards.join(', ')}` : '',
         Array.isArray(outcome.reasonCodes) && outcome.reasonCodes.length ? `Reasons: ${outcome.reasonCodes.join(', ')}` : '',
+        outcome.decisionPolicyRevision ? `Policy: ${outcome.decisionPolicyRevision}` : '',
+        typeof outcome.evidenceAgeMinutes === 'number' ? `Evidence age: ${outcome.evidenceAgeMinutes} min` : '',
       ].filter(Boolean).join(' · ')
     : '';
 

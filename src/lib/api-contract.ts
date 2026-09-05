@@ -286,7 +286,7 @@ export function serializeRiverGroupResult(args: {
     },
     routes: [
       ...args.routes.map(serializeDetailResult),
-      ...(args.planningRoutes ?? []).map(serializePlanningRoute),
+      ...(args.planningRoutes ?? []).map((route) => serializePlanningRoute(route)),
     ],
   };
 }

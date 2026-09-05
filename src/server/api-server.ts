@@ -21,6 +21,7 @@ import {
 } from './routes/route-contributions';
 import {
   handleAdminContributionFile,
+  handleAdminContributionDelete,
   handleAdminContributionList,
   handleAdminScoringCalibration,
   handleAdminContributionReview,
@@ -52,10 +53,28 @@ const port = Number(
 const startedAt = Date.now();
 
 const server = createServer(async (request, response) => {
-  const requestUrl = new URL(request.url || '/', `http://${request.headers.host || `${host}:${port}`}`);
   const includeBody = request.method !== 'HEAD';
   const requestStartedAt = Date.now();
   const requestId = createRequestId();
+  let requestUrl: URL;
+
+  try {
+    if (request.headers.host && !isValidHostHeader(request.headers.host)) {
+      throw new Error('Invalid Host header.');
+    }
+    // Request routing only needs the path/query. Use a fixed base so a
+    // client-controlled Host header cannot influence URL interpretation.
+    requestUrl = new URL(request.url || '/', 'http://paddletoday.internal');
+  } catch (error) {
+    console.warn('Rejected malformed request target.', {
+      requestId,
+      method: request.method ?? 'GET',
+      host: request.headers.host ?? null,
+      target: request.url ?? null,
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return sendJson(response, 400, { requestId, error: 'invalid_request_target' }, includeBody);
+  }
 
   response.on('finish', () => {
     if (shouldLogRequest(requestUrl.pathname, response.statusCode)) {
@@ -199,6 +218,16 @@ server.listen(port, host, () => {
   }
 });
 
+function isValidHostHeader(value: string) {
+  if (!value || /[\s\/?#@]/.test(value)) return false;
+  try {
+    const parsed = new URL(`http://${value}`);
+    return parsed.hostname.length > 0 && parsed.pathname === '/';
+  } catch {
+    return false;
+  }
+}
+
 function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[0]) {
   if (pathname === '/api/river-request' || pathname === '/api/route-request') {
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept');
@@ -329,6 +358,17 @@ async function handleWriteRoutes(
       requestId,
       includeBody,
       decodeURIComponent(adminContributionReviewMatch[1])
+    );
+  }
+
+  const adminContributionDeleteMatch = pathname.match(/^\/api\/admin\/route-contributions\/([^/]+)$/);
+  if (adminContributionDeleteMatch && request.method === 'DELETE') {
+    return handleAdminContributionDelete(
+      request,
+      response,
+      requestId,
+      includeBody,
+      decodeURIComponent(adminContributionDeleteMatch[1]),
     );
   }
 

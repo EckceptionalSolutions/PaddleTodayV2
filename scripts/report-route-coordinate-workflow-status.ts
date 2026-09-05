@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { rivers } from '../src/data/rivers';
 import { coordinateWithheldRouteSlugs } from '../src/data/generated/withheld-route-slugs';
+import { routeAccessReviewHolds } from '../src/data/route-access-review-holds';
 
 type AuditReport = { generatedAt: string; routeCount: number; endpointCount: number; bySeverity: Record<string, number> };
 type SuggestionReport = { generatedAt: string; count: number; autoApplyEligibleCount: number; items: Array<{ routeId: string }> };
@@ -29,7 +30,10 @@ async function main() {
     readJson<GeometryManifest>('public/data/canonical-river-geometries.json'),
   ]);
   const withheld = new Set<string>(coordinateWithheldRouteSlugs);
-  const unresolvedRoutes = new Set(suggestions.items.map((item) => item.routeId));
+  const unresolvedRoutes = new Set([
+    ...suggestions.items.map((item) => item.routeId),
+    ...Object.keys(routeAccessReviewHolds),
+  ]);
   const missingFromHold = [...unresolvedRoutes].filter((routeId) => !withheld.has(routeId)).sort();
   const staleHolds = [...withheld].filter((routeId) => !unresolvedRoutes.has(routeId)).sort();
   const report = {

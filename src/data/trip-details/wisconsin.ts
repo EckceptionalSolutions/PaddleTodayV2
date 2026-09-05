@@ -4337,20 +4337,20 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "pine-river-richland-center-canoe-port-1-port-4": {
     "putIn": {
       "id": "pine-richland-canoe-port-1-bowens-mill",
-      "name": "Canoe Port 1 / Bowen's Mill / Krouskop Park",
-      "latitude": 43.34677,
-      "longitude": -90.38865
+      "name": "Canoe Port 1 / Bowen's Mill / County AA",
+      "latitude": 43.373027,
+      "longitude": -90.384133
     },
     "takeOut": {
       "id": "pine-richland-canoe-port-4-seminary-street",
       "name": "Canoe Port 4 / Seminary Street",
-      "latitude": 43.3362,
-      "longitude": -90.3864
+      "latitude": 43.335268,
+      "longitude": -90.391478
     },
     "logistics": {
       "distanceLabel": "About 5.5 mi",
       "estimatedPaddleTime": "About 2 hr to 3 hr",
-      "shuttle": "Use Richland Center's short in-town shuttle between Canoe Port 1 near Bowen's Mill / Krouskop Park and Canoe Port 4 at Seminary Street. The official canoe-port map also supports shorter Port 1-2, 2-3, and 3-4 segments.",
+      "shuttle": "Use Richland Center's short in-town shuttle between Canoe Port 1 near Bowen's Mill at County AA and Canoe Port 4 at Seminary Street. The official canoe-port map also supports shorter Port 1-2, 2-3, and 3-4 segments.",
       "permits": "No route-specific paddling permit is known. Use the city/county canoe-port sites, follow posted city park rules, and avoid private banks outside the official access chain.",
       "camping": "No on-route camping is documented for the Richland Center in-town segment. Treat it as a day route; Pier County Park and private outfitters are off-route basecamp options.",
       "campingClassification": "nearby_basecamp",
@@ -4363,46 +4363,46 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "watchFor": [
         "Strainers, bridge debris, and fresh flood damage after storms.",
         "Faster pushy current and fewer beginner-friendly eddies when the proxy gauge rises above modest-flow conditions.",
-        "The former-dam rapids chute just below Port 4; use the Port 4 floating pier and trail portage instead of continuing into the chute when the line is not clearly within group ability.",
+        "The former-dam rapids before the main Seminary Street landing. Scout from land and confirm the separate upstream floating pier and trail portage are usable if bypassing the chute; the take-out pin is below the rapids.",
         "Urban water-quality context, cold water, muddy banks, and private-property edges."
       ]
     },
     "accessPoints": [
       {
         "id": "pine-richland-canoe-port-1-bowens-mill",
-        "name": "Canoe Port 1 / Bowen's Mill / Krouskop Park",
-        "latitude": 43.34677,
-        "longitude": -90.38865,
+        "name": "Canoe Port 1 / Bowen's Mill / County AA",
+        "latitude": 43.373027,
+        "longitude": -90.384133,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Official city/county canoe-port map labels Port 1 at Bowen's Mill; Miles Paddled gives Krouskop Park GPS for this Pine River access area."
+        "note": "Port 1 is the north-bank landing just west of the County AA bridge at Bowen's Mill, confirmed by the city map and aerial imagery on 2026-09-05. Krouskop Park is Port 3, not this launch."
       },
       {
         "id": "pine-richland-canoe-port-2-lions-park",
         "name": "Canoe Port 2 / Lions Park",
-        "latitude": 43.3423,
-        "longitude": -90.3834,
+        "latitude": 43.359817,
+        "longitude": -90.389001,
         "mileFromStart": 2.7,
         "segmentKind": "creek",
-        "note": "Official city/county canoe-port map lists Port 2 at Lions Park, 2.7 miles below Port 1."
+        "note": "The city map identifies Port 2 as Lions Park at the Industrial Drive crossing, 2.7 miles below Port 1. The pin marks the visible west-bank landing immediately downstream of the bridge, checked against aerial imagery on 2026-09-05."
       },
       {
         "id": "pine-richland-canoe-port-3-north-park",
         "name": "Canoe Port 3 / North Park",
-        "latitude": 43.3498866,
-        "longitude": -90.3923001,
+        "latitude": 43.346679,
+        "longitude": -90.388651,
         "mileFromStart": 4.4,
         "segmentKind": "creek",
-        "note": "Official city/county canoe-port map lists Port 3 at North Park, 1.7 miles below Port 2."
+        "note": "The city map identifies Port 3 as North Park, 1.7 miles below Port 2; the paddling guide calls this Krouskop Park. The pin marks the north-bank pier beside the ballfield parking area, checked against aerial imagery on 2026-09-05."
       },
       {
         "id": "pine-richland-canoe-port-4-seminary-street",
         "name": "Canoe Port 4 / Seminary Street",
-        "latitude": 43.3362,
-        "longitude": -90.3864,
+        "latitude": 43.335268,
+        "longitude": -90.391478,
         "mileFromStart": 5.5,
         "segmentKind": "creek",
-        "note": "Official city/county canoe-port map lists Port 4 at Seminary Street, and Richland Center tourism references Pine River access at 397 W. Seminary Street."
+        "note": "Port 4 is the west-bank landing immediately upstream of the Seminary Street bridge, below the former-dam rapids, confirmed by the city map and aerial imagery on 2026-09-05. The visitor-center address is not the water entry."
       }
     ]
   },

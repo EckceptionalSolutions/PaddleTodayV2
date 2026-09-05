@@ -16,6 +16,9 @@ function pageContext() {
       river: route.dataset.riverName || undefined,
       state: route.dataset.riverState || undefined,
       region: route.dataset.riverRegion || undefined,
+      score_eligibility: route.dataset.routeScoreEligibility || 'scored',
+      readiness: route.dataset.routeReadiness || undefined,
+      live_data_overall: route.dataset.routeLiveDataOverall || undefined,
     };
   }
 

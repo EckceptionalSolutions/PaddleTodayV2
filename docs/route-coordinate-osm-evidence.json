@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-01T21:06:16.292Z",
-  "suggestionsGeneratedAt": "2026-08-01T21:05:53.195Z",
+  "generatedAt": "2026-09-04T22:52:32.438Z",
+  "suggestionsGeneratedAt": "2026-09-04T22:50:15.518Z",
   "source": {
     "name": "OpenStreetMap via Overpass API",
     "urls": [
@@ -11,232 +11,115 @@
     "searchRadiusMeters": 1200
   },
   "classifierVersion": 2,
-  "itemCount": 37,
-  "queriedItemCount": 37,
-  "remainingItemCount": 0,
-  "complete": true,
+  "itemCount": 39,
+  "queriedItemCount": 26,
+  "remainingItemCount": 13,
+  "complete": false,
   "failedBatches": [],
   "items": [
     {
-      "routeId": "big-fork-river-highway-1-highway-6-south",
+      "routeId": "erie-canal-amherst-lockport",
       "endpoint": "accessPoint",
-      "endpointName": "Busticogan watercraft campsite",
+      "endpointName": "Ransom Creek Kayak Launch",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 118499025,
+          "osmId": 85330960,
           "kind": "road-bridge",
-          "name": "County Road 40",
-          "latitude": 47.8547319,
-          "longitude": -93.5313909,
-          "distanceFromCurrentFeet": 5768.793732284885,
-          "distanceFromMatchedRiverPointFeet": 3407.5782125538826,
+          "name": "Amherst Canalway Trail",
+          "latitude": 43.0690485,
+          "longitude": -78.7497594,
+          "distanceFromCurrentFeet": 151.8187702668983,
+          "distanceFromMatchedRiverPointFeet": 235.76232873618542,
+          "tags": {
+            "bicycle": "yes",
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "cycleway",
+            "layer": "1",
+            "motor_vehicle": "no",
+            "name": "Amherst Canalway Trail",
+            "segregated": "no",
+            "surface": "wood",
+            "tiger:cfcc": "A71",
+            "tiger:county": "Erie, NY"
+          },
+          "url": "https://www.openstreetmap.org/way/85330960"
+        },
+        {
+          "osmType": "way",
+          "osmId": 85330954,
+          "kind": "road-bridge",
+          "name": "Tonawanda Creek Road",
+          "latitude": 43.0689831,
+          "longitude": -78.7495904,
+          "distanceFromCurrentFeet": 202.74778118871268,
+          "distanceFromMatchedRiverPointFeet": 282.2061499883985,
           "tags": {
             "bridge": "yes",
             "highway": "tertiary",
             "layer": "1",
-            "name": "County Road 40",
-            "name_1": "County Highway 40",
-            "ref": "CR 40",
-            "surface": "concrete",
+            "name": "Tonawanda Creek Road",
+            "ref": "CR 2",
             "tiger:cfcc": "A41",
-            "tiger:county": "Itasca, MN",
-            "tiger:name_base": "County Road 40",
-            "tiger:name_base_1": "County Highway 40",
-            "tiger:reviewed": "no"
+            "tiger:county": "Erie, NY",
+            "tiger:name_base": "Tonawanda Creek",
+            "tiger:name_type": "Rd",
+            "tiger:zip_left": "14032",
+            "tiger:zip_right": "14032"
           },
-          "url": "https://www.openstreetmap.org/way/118499025"
+          "url": "https://www.openstreetmap.org/way/85330954"
         },
         {
           "osmType": "way",
-          "osmId": 1484058402,
-          "kind": "other",
-          "name": "Big Fork River",
-          "latitude": 47.8403215,
-          "longitude": -93.5041716,
-          "distanceFromCurrentFeet": 3693.823588155888,
-          "distanceFromMatchedRiverPointFeet": 5195.912476174719,
-          "tags": {
-            "canoe": "designated",
-            "name": "Big Fork River",
-            "rapids": "1",
-            "source": "NHD",
-            "waterway": "river"
-          },
-          "url": "https://www.openstreetmap.org/way/1484058402"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1484058400,
-          "kind": "other",
-          "name": null,
-          "latitude": 47.8410481,
-          "longitude": -93.5034675,
-          "distanceFromCurrentFeet": 3852.6730982511635,
-          "distanceFromMatchedRiverPointFeet": 5218.460718069664,
-          "tags": {
-            "canoe": "designated",
-            "waterway": "link"
-          },
-          "url": "https://www.openstreetmap.org/way/1484058400"
-        },
-        {
-          "osmType": "way",
-          "osmId": 118378937,
+          "osmId": 172737961,
           "kind": "road-bridge",
-          "name": null,
-          "latitude": 47.8404255,
-          "longitude": -93.5035022,
-          "distanceFromCurrentFeet": 3854.171820962458,
-          "distanceFromMatchedRiverPointFeet": 5318.776627208668,
+          "name": "Amherst Canalway Trail",
+          "latitude": 43.0690384,
+          "longitude": -78.7532619,
+          "distanceFromCurrentFeet": 806.761213661134,
+          "distanceFromMatchedRiverPointFeet": 820.8802996317717,
+          "tags": {
+            "bicycle": "yes",
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "cycleway",
+            "layer": "1",
+            "motor_vehicle": "no",
+            "name": "Amherst Canalway Trail",
+            "segregated": "no",
+            "surface": "asphalt",
+            "tiger:cfcc": "A71",
+            "tiger:county": "Erie, NY"
+          },
+          "url": "https://www.openstreetmap.org/way/172737961"
+        },
+        {
+          "osmType": "way",
+          "osmId": 172737974,
+          "kind": "road-bridge",
+          "name": "Tonawanda Creek Road",
+          "latitude": 43.0689678,
+          "longitude": -78.753357,
+          "distanceFromCurrentFeet": 834.8793955349189,
+          "distanceFromMatchedRiverPointFeet": 851.8543660391849,
           "tags": {
             "bridge": "yes",
-            "highway": "secondary",
+            "highway": "tertiary",
             "layer": "1",
-            "maxspeed": "55 mph",
-            "ref": "MN 1",
-            "tiger:cfcc": "A31",
-            "tiger:county": "Itasca, MN",
-            "tiger:name_base": "State Highway 1",
-            "tiger:reviewed": "no"
+            "name": "Tonawanda Creek Road",
+            "ref": "CR 2",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Erie, NY",
+            "tiger:name_base": "Tonawanda Creek",
+            "tiger:name_type": "Rd",
+            "tiger:zip_left": "14032",
+            "tiger:zip_right": "14032"
           },
-          "url": "https://www.openstreetmap.org/way/118378937"
-        },
-        {
-          "osmType": "node",
-          "osmId": 13607564500,
-          "kind": "waterway-access-point",
-          "name": "State Hwy 1 Public Water Access Site",
-          "latitude": 47.8410425,
-          "longitude": -93.5032854,
-          "distanceFromCurrentFeet": 3897.2875079324263,
-          "distanceFromMatchedRiverPointFeet": 5259.079940285235,
-          "tags": {
-            "access": "yes",
-            "canoe": "designated",
-            "name": "State Hwy 1 Public Water Access Site",
-            "operator": "MNDOT",
-            "source": "https://gisdata.mn.gov/dataset/struc-water-access-sites",
-            "waterway": "access_point"
-          },
-          "url": "https://www.openstreetmap.org/node/13607564500"
+          "url": "https://www.openstreetmap.org/way/172737974"
         }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "badger-mill-creek-old-county-pb-highway-69",
-      "endpoint": "accessPoint",
-      "endpointName": "Riverside Road alternate exit",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 37125106,
-          "kind": "road-bridge",
-          "name": "State Highway 69",
-          "latitude": 42.9490617,
-          "longitude": -89.5442362,
-          "distanceFromCurrentFeet": 2270.620233938733,
-          "distanceFromMatchedRiverPointFeet": 41.990461990917815,
-          "tags": {
-            "bridge": "yes",
-            "hgv": "designated",
-            "hgv:state_network": "yes",
-            "highway": "primary",
-            "lanes": "2",
-            "lit": "no",
-            "maxspeed": "55 mph",
-            "name": "State Highway 69",
-            "ref": "WI 69",
-            "sidewalk": "no",
-            "source:hgv:state_network": "https://wisconsindot.gov/Documents/dmv/shared/truck-routes.pdf",
-            "surface": "concrete"
-          },
-          "url": "https://www.openstreetmap.org/way/37125106"
-        },
-        {
-          "osmType": "node",
-          "osmId": 13062218779,
-          "kind": "slipway",
-          "name": null,
-          "latitude": 42.9490262,
-          "longitude": -89.5440468,
-          "distanceFromCurrentFeet": 2231.15899902822,
-          "distanceFromMatchedRiverPointFeet": 92.6621786930397,
-          "tags": {
-            "access": "yes",
-            "fee": "no",
-            "leisure": "slipway",
-            "surface": "gravel"
-          },
-          "url": "https://www.openstreetmap.org/node/13062218779"
-        },
-        {
-          "osmType": "node",
-          "osmId": 6601766708,
-          "kind": "canoe-access",
-          "name": null,
-          "latitude": 42.9487434,
-          "longitude": -89.5433925,
-          "distanceFromCurrentFeet": 2129.136400930664,
-          "distanceFromMatchedRiverPointFeet": 295.10462137256263,
-          "tags": {
-            "canoe": "put_in:egress"
-          },
-          "url": "https://www.openstreetmap.org/node/6601766708"
-        },
-        {
-          "osmType": "way",
-          "osmId": 783446280,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 42.9395584,
-          "longitude": -89.5415123,
-          "distanceFromCurrentFeet": 4654.6190353653055,
-          "distanceFromMatchedRiverPointFeet": 3573.3080409689137,
-          "tags": {
-            "bridge": "yes",
-            "highway": "track",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/783446280"
-        },
-        {
-          "osmType": "way",
-          "osmId": 724637145,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 42.9534615,
-          "longitude": -89.5231706,
-          "distanceFromCurrentFeet": 3636.730636333592,
-          "distanceFromMatchedRiverPointFeet": 5875.941409114832,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1",
-            "surface": "wood"
-          },
-          "url": "https://www.openstreetmap.org/way/724637145"
-        },
-        {
-          "osmType": "way",
-          "osmId": 724637147,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 42.9531162,
-          "longitude": -89.5228377,
-          "distanceFromCurrentFeet": 3705.9996581362816,
-          "distanceFromMatchedRiverPointFeet": 5929.457589824789,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1",
-            "surface": "wood"
-          },
-          "url": "https://www.openstreetmap.org/way/724637147"
-        }
-      ],
-      "queried": true
+      ]
     },
     {
       "routeId": "lemonweir-river-mauston-dam-19th-ave",
@@ -429,217 +312,1299 @@
       "queried": true
     },
     {
-      "routeId": "cedar-river-riverwood-state-line",
-      "endpoint": "accessPoint",
-      "endpointName": "Orchard Creek trailer access",
-      "features": [],
-      "queried": true
-    },
-    {
-      "routeId": "hay-river-county-ff-highway-25",
-      "endpoint": "accessPoint",
-      "endpointName": "County Road N bridge",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 1286871735,
-          "kind": "road-bridge",
-          "name": "County Road N",
-          "latitude": 45.0685168,
-          "longitude": -91.9439293,
-          "distanceFromCurrentFeet": 4591.929949943132,
-          "distanceFromMatchedRiverPointFeet": 2038.9328418614955,
-          "tags": {
-            "atv": "yes",
-            "bridge": "yes",
-            "highway": "tertiary",
-            "lanes": "2",
-            "layer": "1",
-            "name": "County Road N",
-            "ref": "CTH N"
-          },
-          "url": "https://www.openstreetmap.org/way/1286871735"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "upper-iowa-river-iverson-bridge-kumpf",
+      "routeId": "erie-canal-mays-point-montezuma-aqueduct",
       "endpoint": "takeOut",
-      "endpointName": "Kumpf Access",
-      "features": [],
-      "queried": true
-    },
-    {
-      "routeId": "cedar-river-chain-lakes-ellis-harbor",
-      "endpoint": "takeOut",
-      "endpointName": "Ellis Harbor public boat launch",
-      "features": [],
-      "queried": true
-    },
-    {
-      "routeId": "baraboo-river-north-freedom-giese",
-      "endpoint": "accessPoint",
-      "endpointName": "Kohlmeyer Road bridge",
+      "endpointName": "Richmond Aqueduct / Montezuma Heritage Park landing",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 1474519227,
-          "kind": "road-bridge",
-          "name": "Kohlmeyer Road",
-          "latitude": 43.4749195,
-          "longitude": -89.837003,
-          "distanceFromCurrentFeet": 4230.447846990449,
-          "distanceFromMatchedRiverPointFeet": 1343.0562948690451,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "Kohlmeyer Road",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Sauk, WI",
-            "tiger:name_base": "Kohlmeyer",
-            "tiger:name_type": "Rd",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53951",
-            "tiger:zip_right": "53951"
-          },
-          "url": "https://www.openstreetmap.org/way/1474519227"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "sheboygan-river-johnsonville-dassow",
-      "endpoint": "accessPoint",
-      "endpointName": "Highway J bridge access",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 147693904,
+          "osmId": 43314729,
           "kind": "road-bridge",
           "name": null,
-          "latitude": 43.776442,
-          "longitude": -87.9136068,
-          "distanceFromCurrentFeet": 5247.001100674999,
-          "distanceFromMatchedRiverPointFeet": 2369.2904166928583,
+          "latitude": 43.0075997,
+          "longitude": -76.7011556,
+          "distanceFromCurrentFeet": 1311.460306097145,
+          "distanceFromMatchedRiverPointFeet": 7595.349218657276,
           "tags": {
             "bridge": "yes",
-            "highway": "residential",
+            "highway": "primary",
             "layer": "1",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "Woodland",
-            "tiger:name_type": "Rd",
-            "tiger:reviewed": "no",
-            "tiger:separated": "no",
-            "tiger:source": "tiger_import_dch_v0.6_20070830",
-            "tiger:tlid": "79491450:79491109",
-            "tiger:upload_uuid": "bulk_upload.pl-017ae6d7-f9ee-49df-83cc-3b91a37ad20d",
-            "tiger:zip_left": "53085",
-            "tiger:zip_right": "53073"
+            "ref": "NY 90",
+            "tiger:cfcc": "A31",
+            "tiger:county": "Cayuga, NY",
+            "tiger:name_base": "County Road 3B",
+            "tiger:name_base_1": "State Highway 90",
+            "tiger:zip_left": "13117"
           },
-          "url": "https://www.openstreetmap.org/way/147693904"
+          "url": "https://www.openstreetmap.org/way/43314729"
         },
         {
           "osmType": "way",
-          "osmId": 147693942,
+          "osmId": 43314730,
           "kind": "road-bridge",
-          "name": "County Road J",
-          "latitude": 43.7907323,
-          "longitude": -87.9163723,
-          "distanceFromCurrentFeet": 5536.0769690574925,
-          "distanceFromMatchedRiverPointFeet": 3345.02121991794,
+          "name": "New York State Thruway",
+          "latitude": 42.9979449,
+          "longitude": -76.7307264,
+          "distanceFromCurrentFeet": 8536.443691662787,
+          "distanceFromMatchedRiverPointFeet": 2391.9880333684896,
           "tags": {
             "bridge": "yes",
-            "highway": "tertiary",
+            "hgv": "designated",
+            "highway": "motorway",
+            "lanes": "2",
             "layer": "1",
-            "name": "County Road J",
-            "ref": "CTH J",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "County Road J",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53083",
-            "tiger:zip_right": "53083"
+            "maxspeed": "65 mph",
+            "name": "New York State Thruway",
+            "official_name": "Governor Thomas E. Dewey Thruway",
+            "oneway": "yes",
+            "ref": "I 90",
+            "toll": "yes"
           },
-          "url": "https://www.openstreetmap.org/way/147693942"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "cedar-creek-covered-bridge-lions",
-      "endpoint": "accessPoint",
-      "endpointName": "Robin Court Cedar Creek access",
-      "features": [
+          "url": "https://www.openstreetmap.org/way/43314730"
+        },
         {
           "osmType": "way",
-          "osmId": 351264696,
+          "osmId": 43314733,
           "kind": "road-bridge",
-          "name": "West Washington Street",
-          "latitude": 43.3230196,
-          "longitude": -87.9788403,
-          "distanceFromCurrentFeet": 5033.9503654751425,
-          "distanceFromMatchedRiverPointFeet": 3600.951827998711,
+          "name": "New York State Thruway",
+          "latitude": 42.9977391,
+          "longitude": -76.7307095,
+          "distanceFromCurrentFeet": 8573.5739659523,
+          "distanceFromMatchedRiverPointFeet": 2465.4319988860298,
+          "tags": {
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "motorway",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "65 mph",
+            "name": "New York State Thruway",
+            "official_name": "Governor Thomas E. Dewey Thruway",
+            "oneway": "yes",
+            "ref": "I 90",
+            "toll": "yes"
+          },
+          "url": "https://www.openstreetmap.org/way/43314733"
+        },
+        {
+          "osmType": "way",
+          "osmId": 20031444,
+          "kind": "road-bridge",
+          "name": "State Route 31",
+          "latitude": 43.0173035,
+          "longitude": -76.7110677,
+          "distanceFromCurrentFeet": 3111.2534036541774,
+          "distanceFromMatchedRiverPointFeet": 6762.665596773262,
           "tags": {
             "bridge": "yes",
             "hgv": "designated",
             "hgv:state_network": "yes",
             "highway": "primary",
             "layer": "1",
-            "maxspeed": "25 mph",
-            "name": "West Washington Street",
-            "ref": "WI 60",
-            "source:hgv:state_network": "https://wisconsindot.gov/Documents/dmv/shared/truck-routes.pdf",
+            "maxspeed": "55 mph",
+            "name": "State Route 31",
+            "rcn_ref": "5",
+            "ref": "NY 31",
+            "source:hgv:state_network": "NYSDOT https://www.dot.ny.gov/divisions/operating/oom/transportation-systems/repository/2010%20trk%20access%20bk.pdf",
+            "surface": "paved",
             "tiger:cfcc": "A31",
-            "tiger:county": "Ozaukee, WI",
-            "tiger:name_base": "State Highway 60",
-            "tiger:name_base_1": "Washington",
-            "tiger:name_direction_prefix_1": "W",
-            "tiger:name_type_1": "St",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53024",
-            "tiger:zip_right": "53024"
+            "tiger:county": "Cayuga, NY",
+            "tiger:name_base": "State Highway 31",
+            "tiger:zip_left": "13140"
           },
-          "url": "https://www.openstreetmap.org/way/351264696"
+          "url": "https://www.openstreetmap.org/way/20031444"
         },
         {
           "osmType": "way",
-          "osmId": 554940911,
+          "osmId": 20171481,
+          "kind": "road-bridge",
+          "name": "State Route 31",
+          "latitude": 43.0174175,
+          "longitude": -76.7117335,
+          "distanceFromCurrentFeet": 3256.0753355922507,
+          "distanceFromMatchedRiverPointFeet": 6665.664250226207,
+          "tags": {
+            "bridge": "yes",
+            "hgv": "designated",
+            "hgv:state_network": "yes",
+            "highway": "primary",
+            "layer": "1",
+            "maxspeed": "55 mph",
+            "name": "State Route 31",
+            "rcn_ref": "5",
+            "ref": "NY 31",
+            "source:hgv:state_network": "NYSDOT https://www.dot.ny.gov/divisions/operating/oom/transportation-systems/repository/2010%20trk%20access%20bk.pdf",
+            "surface": "asphalt",
+            "tiger:cfcc": "A31",
+            "tiger:county": "Seneca, NY",
+            "tiger:name_base": "State Highway 31"
+          },
+          "url": "https://www.openstreetmap.org/way/20171481"
+        },
+        {
+          "osmType": "way",
+          "osmId": 288037108,
+          "kind": "road-bridge",
+          "name": "Aqueduct Trail",
+          "latitude": 43.0100587,
+          "longitude": -76.7190337,
+          "distanceFromCurrentFeet": 4061.462416561617,
+          "distanceFromMatchedRiverPointFeet": 3424.0587529068375,
+          "tags": {
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "path",
+            "layer": "1",
+            "name": "Aqueduct Trail",
+            "note": "Dedicated May 30 2011",
+            "operator": "Town of Montezuma",
+            "source": "survey",
+            "surface": "grass"
+          },
+          "url": "https://www.openstreetmap.org/way/288037108"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1271776616,
+          "kind": "road-bridge",
+          "name": "Lavoy's Trail",
+          "latitude": 43.0100973,
+          "longitude": -76.7184513,
+          "distanceFromCurrentFeet": 3905.591451924377,
+          "distanceFromMatchedRiverPointFeet": 3557.640618645621,
+          "tags": {
+            "bridge": "yes",
+            "highway": "footway",
+            "layer": "1",
+            "name": "Lavoy's Trail",
+            "surface": "ground"
+          },
+          "url": "https://www.openstreetmap.org/way/1271776616"
+        }
+      ]
+    },
+    {
+      "routeId": "oak-orchard-creek-medina-lake-ontario",
+      "endpoint": "takeOut",
+      "endpointName": "Oak Orchard State Marine Park Lake Ontario launch",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "node",
+          "osmId": 2268544118,
+          "kind": "slipway",
+          "name": null,
+          "latitude": 43.3692139,
+          "longitude": -78.1928387,
+          "distanceFromCurrentFeet": 866.2945277324767,
+          "distanceFromMatchedRiverPointFeet": 422.1000218846094,
+          "tags": {
+            "leisure": "slipway",
+            "parking": "yes",
+            "tidal": "no"
+          },
+          "url": "https://www.openstreetmap.org/node/2268544118"
+        },
+        {
+          "osmType": "node",
+          "osmId": 10038070248,
+          "kind": "slipway",
+          "name": null,
+          "latitude": 43.3711645,
+          "longitude": -78.1915085,
+          "distanceFromCurrentFeet": 1563.8349614062427,
+          "distanceFromMatchedRiverPointFeet": 1159.48508419042,
+          "tags": {
+            "leisure": "slipway",
+            "parking": "yes",
+            "toilets": "yes"
+          },
+          "url": "https://www.openstreetmap.org/node/10038070248"
+        },
+        {
+          "osmType": "way",
+          "osmId": 131753177,
           "kind": "road-bridge",
           "name": null,
-          "latitude": 43.3016015,
-          "longitude": -87.9668417,
-          "distanceFromCurrentFeet": 3634.7580695299075,
-          "distanceFromMatchedRiverPointFeet": 5457.0028832885555,
+          "latitude": 43.3727214,
+          "longitude": -78.1923795,
+          "distanceFromCurrentFeet": 1872.6974216077704,
+          "distanceFromMatchedRiverPointFeet": 1694.9987957467683,
+          "tags": {
+            "bridge": "yes",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/131753177"
+        },
+        {
+          "osmType": "way",
+          "osmId": 131753172,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 43.3729099,
+          "longitude": -78.191543,
+          "distanceFromCurrentFeet": 2047.016741733227,
+          "distanceFromMatchedRiverPointFeet": 1783.100298536599,
+          "tags": {
+            "bridge": "yes",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/131753172"
+        },
+        {
+          "osmType": "way",
+          "osmId": 50302425,
+          "kind": "road-bridge",
+          "name": "Lake Ontario State Parkway",
+          "latitude": 43.362969,
+          "longitude": -78.1919499,
+          "distanceFromCurrentFeet": 2178.274815610916,
+          "distanceFromMatchedRiverPointFeet": 1870.073169538356,
+          "tags": {
+            "access:conditional": "no @ (Dec-Mar)",
+            "bridge": "yes",
+            "expressway": "yes",
+            "hgv": "no",
+            "highway": "primary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "55 mph",
+            "name": "Lake Ontario State Parkway",
+            "oneway": "yes",
+            "ref": "LOSP",
+            "surface": "asphalt"
+          },
+          "url": "https://www.openstreetmap.org/way/50302425"
+        },
+        {
+          "osmType": "way",
+          "osmId": 50302426,
+          "kind": "road-bridge",
+          "name": "Lake Ontario State Parkway",
+          "latitude": 43.3625497,
+          "longitude": -78.1919266,
+          "distanceFromCurrentFeet": 2317.1020193600725,
+          "distanceFromMatchedRiverPointFeet": 2023.0281955359185,
+          "tags": {
+            "access:conditional": "no @ (Dec-Mar)",
+            "bicycle": "yes",
+            "bridge": "yes",
+            "expressway": "yes",
+            "hgv": "no",
+            "highway": "primary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "55 mph",
+            "name": "Lake Ontario State Parkway",
+            "oneway": "yes",
+            "ref": "LOSP",
+            "surface": "asphalt"
+          },
+          "url": "https://www.openstreetmap.org/way/50302426"
+        }
+      ]
+    },
+    {
+      "routeId": "little-pine-creek-north-park-lake-allison-park",
+      "endpoint": "takeOut",
+      "endpointName": "Allison Park public ballfield area on Duncan Avenue",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "way",
+          "osmId": 518349342,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.5608182,
+          "longitude": -79.959658,
+          "distanceFromCurrentFeet": 193.40136531192988,
+          "distanceFromMatchedRiverPointFeet": 10524.287839568588,
+          "tags": {
+            "bridge": "yes",
+            "highway": "path",
+            "surface": "wood"
+          },
+          "url": "https://www.openstreetmap.org/way/518349342"
+        },
+        {
+          "osmType": "way",
+          "osmId": 518349343,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.5597851,
+          "longitude": -79.9599424,
+          "distanceFromCurrentFeet": 198.81839095029463,
+          "distanceFromMatchedRiverPointFeet": 10658.800586595677,
+          "tags": {
+            "bridge": "yes",
+            "highway": "path",
+            "surface": "wood"
+          },
+          "url": "https://www.openstreetmap.org/way/518349343"
+        },
+        {
+          "osmType": "way",
+          "osmId": 887788058,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.5625364,
+          "longitude": -79.9597039,
+          "distanceFromCurrentFeet": 807.3673946947065,
+          "distanceFromMatchedRiverPointFeet": 10471.939371390728,
           "tags": {
             "bridge": "yes",
             "highway": "service",
-            "layer": "1",
-            "service": "driveway",
-            "surface": "wood"
+            "layer": "1"
           },
-          "url": "https://www.openstreetmap.org/way/554940911"
+          "url": "https://www.openstreetmap.org/way/887788058"
         },
         {
           "osmType": "way",
-          "osmId": 825878506,
+          "osmId": 123319065,
           "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.3215661,
-          "longitude": -87.9694188,
-          "distanceFromCurrentFeet": 3682.225848027981,
-          "distanceFromMatchedRiverPointFeet": 4128.996953615943,
+          "name": "Naylor Avenue",
+          "latitude": 40.5581597,
+          "longitude": -79.9609456,
+          "distanceFromCurrentFeet": 840.3107672543482,
+          "distanceFromMatchedRiverPointFeet": 11045.041904732514,
+          "tags": {
+            "access": "no",
+            "bridge": "yes",
+            "highway": "residential",
+            "lanes": "2",
+            "layer": "1",
+            "name": "Naylor Avenue",
+            "tiger:cfcc": "A41",
+            "tiger:name_base": "Naylor",
+            "tiger:name_type": "Ave"
+          },
+          "url": "https://www.openstreetmap.org/way/123319065"
+        },
+        {
+          "osmType": "way",
+          "osmId": 125344386,
+          "kind": "road-bridge",
+          "name": "Old Route 8",
+          "latitude": 40.5627834,
+          "longitude": -79.9593312,
+          "distanceFromCurrentFeet": 910.2978248680504,
+          "distanceFromMatchedRiverPointFeet": 10362.585473949897,
           "tags": {
             "bridge": "yes",
+            "highway": "residential",
+            "lanes": "2",
+            "layer": "1",
+            "name": "Old Route 8",
+            "oneway": "yes",
+            "tiger:cfcc": "A35",
+            "tiger:name_base": "Old Route 8",
+            "tiger:zip_left": "15101",
+            "tiger:zip_right": "15101"
+          },
+          "url": "https://www.openstreetmap.org/way/125344386"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1450703986,
+          "kind": "road-bridge",
+          "name": "Hartwood Acres",
+          "latitude": 40.5676347,
+          "longitude": -79.9225297,
+          "distanceFromCurrentFeet": 10702.358073349116,
+          "distanceFromMatchedRiverPointFeet": 1096.1126969816232,
+          "tags": {
+            "bicycle": "yes",
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "service",
+            "horse": "yes",
+            "layer": "1",
+            "motor_vehicle": "no",
+            "name": "Hartwood Acres",
+            "surface": "paved",
+            "tiger:cfcc": "A41",
+            "tiger:name_base": "Hartwood Acres",
+            "tiger:reviewed": "no",
+            "tiger:zip_left": "15238",
+            "tiger:zip_right": "15238"
+          },
+          "url": "https://www.openstreetmap.org/way/1450703986"
+        },
+        {
+          "osmType": "way",
+          "osmId": 123319079,
+          "kind": "road-bridge",
+          "name": "William Flinn Highway",
+          "latitude": 40.5573498,
+          "longitude": -79.9588589,
+          "distanceFromCurrentFeet": 1127.0295674644246,
+          "distanceFromMatchedRiverPointFeet": 10551.690473505963,
+          "tags": {
+            "NHS": "yes",
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "4",
+            "layer": "1",
+            "maxspeed": "40 mph",
+            "name": "William Flinn Highway",
+            "old_ref_legislative": "72",
+            "oneway": "no",
+            "ref": "PA 8",
+            "ref:penndot": "SR 0008",
+            "sidewalk": "both",
+            "source:hgv": "https://www.dot.state.pa.us/public/pubsforms/Publications/TruckersMap.pdf",
+            "surface": "concrete"
+          },
+          "url": "https://www.openstreetmap.org/way/123319079"
+        },
+        {
+          "osmType": "way",
+          "osmId": 224212254,
+          "kind": "road-bridge",
+          "name": "Duncan Avenue",
+          "latitude": 40.5600201,
+          "longitude": -79.96482,
+          "distanceFromCurrentFeet": 1360.0191731941477,
+          "distanceFromMatchedRiverPointFeet": 11981.420196454128,
+          "tags": {
+            "bridge": "yes",
+            "highway": "primary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "35 mph",
+            "name": "Duncan Avenue",
+            "ref": "Green Belt"
+          },
+          "url": "https://www.openstreetmap.org/way/224212254"
+        },
+        {
+          "osmType": "way",
+          "osmId": 125344395,
+          "kind": "road-bridge",
+          "name": "William Flinn Highway",
+          "latitude": 40.5642559,
+          "longitude": -79.9578974,
+          "distanceFromCurrentFeet": 1539.0400361451564,
+          "distanceFromMatchedRiverPointFeet": 9943.65226955277,
+          "tags": {
+            "NHS": "yes",
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "4",
+            "layer": "1",
+            "maxspeed": "40 mph",
+            "name": "William Flinn Highway",
+            "old_ref_legislative": "72",
+            "oneway": "no",
+            "ref": "PA 8;Green Belt",
+            "ref:penndot": "SR 0008",
+            "sidewalk": "no",
+            "source:hgv": "https://www.dot.state.pa.us/public/pubsforms/Publications/TruckersMap.pdf",
+            "surface": "concrete"
+          },
+          "url": "https://www.openstreetmap.org/way/125344395"
+        },
+        {
+          "osmType": "way",
+          "osmId": 311072484,
+          "kind": "road-bridge",
+          "name": "Clearview Road",
+          "latitude": 40.5647912,
+          "longitude": -79.9566951,
+          "distanceFromCurrentFeet": 1858.1255295091808,
+          "distanceFromMatchedRiverPointFeet": 9609.468269475614,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "25 mph",
+            "name": "Clearview Road",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "url": "https://www.openstreetmap.org/way/311072484"
+        },
+        {
+          "osmType": "way",
+          "osmId": 223946674,
+          "kind": "road-bridge",
+          "name": "Mount Royal Boulevard",
+          "latitude": 40.5642471,
+          "longitude": -79.9654969,
+          "distanceFromCurrentFeet": 2102.9897009054166,
+          "distanceFromMatchedRiverPointFeet": 12049.647849496436,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "lanes": "2",
+            "layer": "2",
+            "name": "Mount Royal Boulevard",
+            "tiger:cfcc": "A31",
+            "tiger:name_base": "Mount Royal",
+            "tiger:name_type": "Blvd",
+            "tiger:zip_left": "15101",
+            "tiger:zip_right": "15101"
+          },
+          "url": "https://www.openstreetmap.org/way/223946674"
+        },
+        {
+          "osmType": "way",
+          "osmId": 223946676,
+          "kind": "road-bridge",
+          "name": "Mount Royal Boulevard",
+          "latitude": 40.5655934,
+          "longitude": -79.9645312,
+          "distanceFromCurrentFeet": 2305.04934199832,
+          "distanceFromMatchedRiverPointFeet": 11785.947304912348,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "lanes": "2",
+            "layer": "1",
+            "name": "Mount Royal Boulevard",
+            "tiger:cfcc": "A31",
+            "tiger:name_base": "Mount Royal",
+            "tiger:name_type": "Blvd",
+            "tiger:zip_left": "15101",
+            "tiger:zip_right": "15101"
+          },
+          "url": "https://www.openstreetmap.org/way/223946676"
+        },
+        {
+          "osmType": "way",
+          "osmId": 750050400,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.5520369,
+          "longitude": -79.9584919,
+          "distanceFromCurrentFeet": 3051.607830154007,
+          "distanceFromMatchedRiverPointFeet": 11107.08976416784,
+          "tags": {
+            "bridge": "yes",
+            "highway": "service",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/750050400"
+        },
+        {
+          "osmType": "way",
+          "osmId": 224610105,
+          "kind": "road-bridge",
+          "name": "Felicity Avenue",
+          "latitude": 40.5507307,
+          "longitude": -79.9598002,
+          "distanceFromCurrentFeet": 3502.170891945489,
+          "distanceFromMatchedRiverPointFeet": 11638.135261001054,
+          "tags": {
+            "bridge": "yes",
+            "highway": "unclassified",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "25 mph",
+            "name": "Felicity Avenue",
+            "tiger:cfcc": "A41",
+            "tiger:name_base": "Felicity",
+            "tiger:name_type": "Ave",
+            "tiger:zip_left": "15101",
+            "tiger:zip_right": "15101"
+          },
+          "url": "https://www.openstreetmap.org/way/224610105"
+        },
+        {
+          "osmType": "way",
+          "osmId": 125344379,
+          "kind": "road-bridge",
+          "name": "Harts Run Road",
+          "latitude": 40.5696077,
+          "longitude": -79.9539606,
+          "distanceFromCurrentFeet": 3767.338105188192,
+          "distanceFromMatchedRiverPointFeet": 9033.714595713443,
+          "tags": {
+            "bridge": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "layer": "1",
+            "name": "Harts Run Road",
+            "oneway": "no",
+            "ref": "Green Belt",
+            "ref:penndot": "SR 1010",
+            "surface": "asphalt"
+          },
+          "url": "https://www.openstreetmap.org/way/125344379"
+        },
+        {
+          "osmType": "way",
+          "osmId": 224217341,
+          "kind": "road-bridge",
+          "name": "Mount Royal Boulevard",
+          "latitude": 40.5539977,
+          "longitude": -79.971223,
+          "distanceFromCurrentFeet": 3890.2790891111863,
+          "distanceFromMatchedRiverPointFeet": 14180.137274396813,
+          "tags": {
+            "bridge": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "30 mph",
+            "name": "Mount Royal Boulevard",
+            "tiger:cfcc": "A35",
+            "tiger:name_base": "Mount Royal",
+            "tiger:name_type": "Blvd",
+            "tiger:zip_left": "15101",
+            "tiger:zip_right": "15101"
+          },
+          "url": "https://www.openstreetmap.org/way/224217341"
+        },
+        {
+          "osmType": "way",
+          "osmId": 123319062,
+          "kind": "road-bridge",
+          "name": "East Elfinwild Road",
+          "latitude": 40.5496591,
+          "longitude": -79.9589261,
+          "distanceFromCurrentFeet": 3902.856077962637,
+          "distanceFromMatchedRiverPointFeet": 11599.89115696669,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "25 mph",
+            "name": "East Elfinwild Road"
+          },
+          "url": "https://www.openstreetmap.org/way/123319062"
+        }
+      ]
+    },
+    {
+      "routeId": "connetquot-river-great-river-heckscher",
+      "endpoint": "takeOut",
+      "endpointName": "Heckscher State Park Field 7 water-access area",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "way",
+          "osmId": 227392447,
+          "kind": "road-bridge",
+          "name": "Shore Drive",
+          "latitude": 40.7284277,
+          "longitude": -73.1490036,
+          "distanceFromCurrentFeet": 11265.047914696159,
+          "distanceFromMatchedRiverPointFeet": 1548.278826193404,
+          "tags": {
+            "bridge": "yes",
+            "highway": "residential",
+            "layer": "1",
+            "name": "Shore Drive",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Suffolk, NY",
+            "tiger:name_base": "Shore",
+            "tiger:name_type": "Dr",
+            "tiger:reviewed": "no",
+            "tiger:zip_left": "11769",
+            "tiger:zip_right": "11769"
+          },
+          "url": "https://www.openstreetmap.org/way/227392447"
+        },
+        {
+          "osmType": "way",
+          "osmId": 969891659,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.7043498,
+          "longitude": -73.1700623,
+          "distanceFromCurrentFeet": 2554.9683890660267,
+          "distanceFromMatchedRiverPointFeet": 9116.82674979604,
+          "tags": {
+            "bridge": "yes",
+            "foot": "yes",
             "highway": "cycleway",
             "layer": "1"
           },
-          "url": "https://www.openstreetmap.org/way/825878506"
+          "url": "https://www.openstreetmap.org/way/969891659"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1036979951,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.7054807,
+          "longitude": -73.1734627,
+          "distanceFromCurrentFeet": 3538.343629160469,
+          "distanceFromMatchedRiverPointFeet": 9285.161082404733,
+          "tags": {
+            "bridge": "boardwalk",
+            "highway": "path",
+            "surface": "wood"
+          },
+          "url": "https://www.openstreetmap.org/way/1036979951"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1038043419,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.7339015,
+          "longitude": -73.1620454,
+          "distanceFromCurrentFeet": 12544.568926967753,
+          "distanceFromMatchedRiverPointFeet": 3709.589932151015,
+          "tags": {
+            "bridge": "yes",
+            "highway": "path",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1038043419"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1024105549,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.719178,
+          "longitude": -73.1637056,
+          "distanceFromCurrentFeet": 7168.557976971175,
+          "distanceFromMatchedRiverPointFeet": 3742.419981752554,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1024105549"
+        },
+        {
+          "osmType": "way",
+          "osmId": 38326900,
+          "kind": "road-bridge",
+          "name": "Timberpoint Road",
+          "latitude": 40.7191489,
+          "longitude": -73.1637596,
+          "distanceFromCurrentFeet": 7158.157714966641,
+          "distanceFromMatchedRiverPointFeet": 3760.630981729836,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "30 mph",
+            "name": "Timberpoint Road",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Suffolk, NY",
+            "tiger:name_base": "Timberpoint",
+            "tiger:name_type": "Rd"
+          },
+          "url": "https://www.openstreetmap.org/way/38326900"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1024105552,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 40.719095,
+          "longitude": -73.1637635,
+          "distanceFromCurrentFeet": 7138.513216019912,
+          "distanceFromMatchedRiverPointFeet": 3774.534062687545,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1024105552"
         }
-      ],
-      "queried": true
+      ]
+    },
+    {
+      "routeId": "erie-canal-ransom-creek-lockport",
+      "endpoint": "accessPoint",
+      "endpointName": "Amherst Marine Center",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "node",
+          "osmId": 1757791424,
+          "kind": "slipway",
+          "name": null,
+          "latitude": 43.0686711,
+          "longitude": -78.7718836,
+          "distanceFromCurrentFeet": 156.46024520203125,
+          "distanceFromMatchedRiverPointFeet": 5786.2257700920345,
+          "tags": {
+            "leisure": "slipway"
+          },
+          "url": "https://www.openstreetmap.org/node/1757791424"
+        },
+        {
+          "osmType": "way",
+          "osmId": 85330960,
+          "kind": "road-bridge",
+          "name": "Amherst Canalway Trail",
+          "latitude": 43.0690485,
+          "longitude": -78.7497594,
+          "distanceFromCurrentFeet": 5831.893004336763,
+          "distanceFromMatchedRiverPointFeet": 227.17495573464103,
+          "tags": {
+            "bicycle": "yes",
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "cycleway",
+            "layer": "1",
+            "motor_vehicle": "no",
+            "name": "Amherst Canalway Trail",
+            "segregated": "no",
+            "surface": "wood",
+            "tiger:cfcc": "A71",
+            "tiger:county": "Erie, NY"
+          },
+          "url": "https://www.openstreetmap.org/way/85330960"
+        },
+        {
+          "osmType": "way",
+          "osmId": 85330954,
+          "kind": "road-bridge",
+          "name": "Tonawanda Creek Road",
+          "latitude": 43.0689831,
+          "longitude": -78.7495904,
+          "distanceFromCurrentFeet": 5875.809592309509,
+          "distanceFromMatchedRiverPointFeet": 272.3851359212448,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "layer": "1",
+            "name": "Tonawanda Creek Road",
+            "ref": "CR 2",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Erie, NY",
+            "tiger:name_base": "Tonawanda Creek",
+            "tiger:name_type": "Rd",
+            "tiger:zip_left": "14032",
+            "tiger:zip_right": "14032"
+          },
+          "url": "https://www.openstreetmap.org/way/85330954"
+        },
+        {
+          "osmType": "way",
+          "osmId": 27372520,
+          "kind": "road-bridge",
+          "name": "Campbell Boulevard",
+          "latitude": 43.0693258,
+          "longitude": -78.7707899,
+          "distanceFromCurrentFeet": 437.7865430340901,
+          "distanceFromMatchedRiverPointFeet": 5486.019631285196,
+          "tags": {
+            "bridge": "yes",
+            "hgv": "designated",
+            "hgv:state_network": "yes",
+            "highway": "secondary",
+            "layer": "2",
+            "name": "Campbell Boulevard",
+            "ref": "NY 270",
+            "source:hgv:state_network": "NYSDOT https://www.dot.ny.gov/divisions/operating/oom/transportation-systems/repository/2010%20trk%20access%20bk.pdf",
+            "tiger:cfcc": "A39",
+            "tiger:county": "Erie, NY",
+            "tiger:name_base": "Campbell",
+            "tiger:name_base_1": "State Highway 270",
+            "tiger:name_type": "Blvd"
+          },
+          "url": "https://www.openstreetmap.org/way/27372520"
+        },
+        {
+          "osmType": "way",
+          "osmId": 922300602,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 43.0695559,
+          "longitude": -78.7708745,
+          "distanceFromCurrentFeet": 502.7667770116089,
+          "distanceFromMatchedRiverPointFeet": 5507.790215832725,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/922300602"
+        },
+        {
+          "osmType": "way",
+          "osmId": 922300599,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 43.0695621,
+          "longitude": -78.7706948,
+          "distanceFromCurrentFeet": 525.4694178902004,
+          "distanceFromMatchedRiverPointFeet": 5459.895660985053,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/922300599"
+        },
+        {
+          "osmType": "way",
+          "osmId": 27372521,
+          "kind": "road-bridge",
+          "name": "Campbell Boulevard",
+          "latitude": 43.0697659,
+          "longitude": -78.7707892,
+          "distanceFromCurrentFeet": 582.215733889405,
+          "distanceFromMatchedRiverPointFeet": 5485.470127522551,
+          "tags": {
+            "bridge": "yes",
+            "hgv": "designated",
+            "hgv:state_network": "yes",
+            "highway": "secondary",
+            "layer": "2",
+            "name": "Campbell Boulevard",
+            "ref": "NY 270",
+            "source:hgv:state_network": "NYSDOT https://www.dot.ny.gov/divisions/operating/oom/transportation-systems/repository/2010%20trk%20access%20bk.pdf",
+            "tiger:cfcc": "A31",
+            "tiger:county": "Niagara, NY",
+            "tiger:name_base": "Campbell",
+            "tiger:name_base_1": "State Highway 270",
+            "tiger:name_type": "Blvd"
+          },
+          "url": "https://www.openstreetmap.org/way/27372521"
+        },
+        {
+          "osmType": "way",
+          "osmId": 172737961,
+          "kind": "road-bridge",
+          "name": "Amherst Canalway Trail",
+          "latitude": 43.0690384,
+          "longitude": -78.7532619,
+          "distanceFromCurrentFeet": 4899.483881435346,
+          "distanceFromMatchedRiverPointFeet": 837.3599647232244,
+          "tags": {
+            "bicycle": "yes",
+            "bridge": "yes",
+            "foot": "yes",
+            "highway": "cycleway",
+            "layer": "1",
+            "motor_vehicle": "no",
+            "name": "Amherst Canalway Trail",
+            "segregated": "no",
+            "surface": "asphalt",
+            "tiger:cfcc": "A71",
+            "tiger:county": "Erie, NY"
+          },
+          "url": "https://www.openstreetmap.org/way/172737961"
+        },
+        {
+          "osmType": "way",
+          "osmId": 172737974,
+          "kind": "road-bridge",
+          "name": "Tonawanda Creek Road",
+          "latitude": 43.0689678,
+          "longitude": -78.753357,
+          "distanceFromCurrentFeet": 4872.8042980504015,
+          "distanceFromMatchedRiverPointFeet": 868.2596800159346,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "layer": "1",
+            "name": "Tonawanda Creek Road",
+            "ref": "CR 2",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Erie, NY",
+            "tiger:name_base": "Tonawanda Creek",
+            "tiger:name_type": "Rd",
+            "tiger:zip_left": "14032",
+            "tiger:zip_right": "14032"
+          },
+          "url": "https://www.openstreetmap.org/way/172737974"
+        }
+      ]
+    },
+    {
+      "routeId": "maumee-river-kreager-moser",
+      "endpoint": "takeOut",
+      "endpointName": "Moser Park Canoe Launch",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "way",
+          "osmId": 121785068,
+          "kind": "road-bridge",
+          "name": "Main Street",
+          "latitude": 41.0728002,
+          "longitude": -85.0230802,
+          "distanceFromCurrentFeet": 390.5733015939011,
+          "distanceFromMatchedRiverPointFeet": 2721.745843136843,
+          "tags": {
+            "bridge": "yes",
+            "highway": "residential",
+            "layer": "1",
+            "name": "Main Street"
+          },
+          "url": "https://www.openstreetmap.org/way/121785068"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1354646393,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 41.0774321,
+          "longitude": -85.0206106,
+          "distanceFromCurrentFeet": 1516.342107697533,
+          "distanceFromMatchedRiverPointFeet": 1887.410695397611,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1354646393"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785072,
+          "kind": "road-bridge",
+          "name": "Rose Avenue",
+          "latitude": 41.0774634,
+          "longitude": -85.0206107,
+          "distanceFromCurrentFeet": 1527.4426698056009,
+          "distanceFromMatchedRiverPointFeet": 1882.3527217849087,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "layer": "1",
+            "maxspeed": "30 mph",
+            "name": "Rose Avenue"
+          },
+          "url": "https://www.openstreetmap.org/way/121785072"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785063,
+          "kind": "road-bridge",
+          "name": "Lincoln Highway East",
+          "latitude": 41.0701416,
+          "longitude": -85.0269367,
+          "distanceFromCurrentFeet": 1824.0381417013941,
+          "distanceFromMatchedRiverPointFeet": 3496.5118431100223,
+          "tags": {
+            "bridge": "yes",
+            "cycleway": "lane",
+            "highway": "secondary",
+            "layer": "1",
+            "maxspeed": "35 mph",
+            "name": "Lincoln Highway East",
+            "name_1": "Dawkins Rd",
+            "old_ref": "US 24;SR 14"
+          },
+          "url": "https://www.openstreetmap.org/way/121785063"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1394555217,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 41.0700662,
+          "longitude": -85.0269732,
+          "distanceFromCurrentFeet": 1849.5973337532992,
+          "distanceFromMatchedRiverPointFeet": 3524.166852107238,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1394555217"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1517873176,
+          "kind": "road-bridge",
+          "name": "Maumee Pathway",
+          "latitude": 41.0835686,
+          "longitude": -85.0207184,
+          "distanceFromCurrentFeet": 3727.3951962647743,
+          "distanceFromMatchedRiverPointFeet": 2174.650478924452,
+          "tags": {
+            "bicycle": "designated",
+            "bridge": "boardwalk",
+            "foot": "designated",
+            "highway": "path",
+            "name": "Maumee Pathway"
+          },
+          "url": "https://www.openstreetmap.org/way/1517873176"
+        },
+        {
+          "osmType": "way",
+          "osmId": 96862535,
+          "kind": "road-bridge",
+          "name": "Maumee Pathway",
+          "latitude": 41.0835655,
+          "longitude": -85.0205277,
+          "distanceFromCurrentFeet": 3731.18818055901,
+          "distanceFromMatchedRiverPointFeet": 2214.2758973991863,
+          "tags": {
+            "bicycle": "designated",
+            "bridge": "boardwalk",
+            "foot": "designated",
+            "highway": "path",
+            "name": "Maumee Pathway"
+          },
+          "url": "https://www.openstreetmap.org/way/96862535"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785062,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 41.0686897,
+          "longitude": -85.0280528,
+          "distanceFromCurrentFeet": 2410.1148490181363,
+          "distanceFromMatchedRiverPointFeet": 4041.4601976523204,
+          "tags": {
+            "NHS": "yes",
+            "bridge": "yes",
+            "hgv": "designated",
+            "hgv:national_network": "yes",
+            "highway": "trunk",
+            "lanes": "2",
+            "layer": "1",
+            "old_ref": "US 30",
+            "ref": "SR 930",
+            "source:hgv:national_network": "https://hepgis-usdot.hub.arcgis.com/apps/usdot::national-network-conventional-combination-trucks-map/explore"
+          },
+          "url": "https://www.openstreetmap.org/way/121785062"
+        },
+        {
+          "osmType": "way",
+          "osmId": 108248407,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 41.0844073,
+          "longitude": -85.0205519,
+          "distanceFromCurrentFeet": 4036.231558789619,
+          "distanceFromMatchedRiverPointFeet": 2415.588200472893,
+          "tags": {
+            "bicycle": "designated",
+            "bridge": "yes",
+            "foot": "designated",
+            "highway": "cycleway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/108248407"
+        },
+        {
+          "osmType": "way",
+          "osmId": 17250689,
+          "kind": "road-bridge",
+          "name": "Landin Road",
+          "latitude": 41.0843936,
+          "longitude": -85.0204181,
+          "distanceFromCurrentFeet": 4034.7922017347446,
+          "distanceFromMatchedRiverPointFeet": 2438.248359279449,
+          "tags": {
+            "bridge": "yes",
+            "highway": "secondary",
+            "layer": "1",
+            "name": "Landin Road"
+          },
+          "url": "https://www.openstreetmap.org/way/17250689"
+        },
+        {
+          "osmType": "way",
+          "osmId": 1354646401,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 41.0844206,
+          "longitude": -85.0203299,
+          "distanceFromCurrentFeet": 4047.099928109057,
+          "distanceFromMatchedRiverPointFeet": 2462.5041979503444,
+          "tags": {
+            "bridge": "yes",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "layer": "1"
+          },
+          "url": "https://www.openstreetmap.org/way/1354646401"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785059,
+          "kind": "road-bridge",
+          "name": "Hartzell Road",
+          "latitude": 41.0673302,
+          "longitude": -85.0301291,
+          "distanceFromCurrentFeet": 3164.8129131780706,
+          "distanceFromMatchedRiverPointFeet": 4615.623970696142,
+          "tags": {
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "secondary",
+            "layer": "1",
+            "name": "Hartzell Road",
+            "source:hgv": "https://www.cityoffortwayne.in.gov/DocumentCenter/View/999/Truck-Routes-PDF;https://codelibrary.amlegal.com/codes/ftwayne/latest/ftwayne_in/0-0-0-4987"
+          },
+          "url": "https://www.openstreetmap.org/way/121785059"
+        },
+        {
+          "osmType": "way",
+          "osmId": 779583522,
+          "kind": "road-bridge",
+          "name": "Werling Road",
+          "latitude": 41.0646553,
+          "longitude": -85.0207782,
+          "distanceFromCurrentFeet": 3201.335834113476,
+          "distanceFromMatchedRiverPointFeet": 5738.79601104805,
+          "tags": {
+            "bridge": "yes",
+            "highway": "tertiary",
+            "layer": "1",
+            "name": "Werling Road"
+          },
+          "url": "https://www.openstreetmap.org/way/779583522"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785077,
+          "kind": "road-bridge",
+          "name": "Summit Street",
+          "latitude": 41.0737962,
+          "longitude": -85.008371,
+          "distanceFromCurrentFeet": 3722.3633023356397,
+          "distanceFromMatchedRiverPointFeet": 5501.03824918735,
+          "tags": {
+            "bridge": "yes",
+            "highway": "residential",
+            "name": "Summit Street"
+          },
+          "url": "https://www.openstreetmap.org/way/121785077"
+        },
+        {
+          "osmType": "way",
+          "osmId": 121785083,
+          "kind": "road-bridge",
+          "name": "Rose Avenue",
+          "latitude": 41.0777673,
+          "longitude": -85.0089411,
+          "distanceFromCurrentFeet": 3904.0539213482207,
+          "distanceFromMatchedRiverPointFeet": 4952.814875806688,
+          "tags": {
+            "bridge": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "35 mph",
+            "name": "Rose Avenue",
+            "old_ref": "US 24"
+          },
+          "url": "https://www.openstreetmap.org/way/121785083"
+        }
+      ]
     },
     {
       "routeId": "beaver-dam-river-county-s-lowell",
@@ -688,26 +1653,20 @@
       "queried": true
     },
     {
-      "routeId": "rum-river-wayside-milaca",
-      "endpoint": "accessPoint",
-      "endpointName": "Old Whitney Log Dam area",
-      "features": [],
-      "queried": true
-    },
-    {
-      "routeId": "mississippi-river-overlook-belle-prairie",
+      "routeId": "blackwater-river-wayside-the-ford",
       "endpoint": "putIn",
-      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "endpointName": "U.S. 220 Wayside Park public access",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 44552498,
+          "osmId": 20041864,
           "kind": "road-bridge",
-          "name": "C. Elmer Anderson Memorial Highway",
-          "latitude": 46.3130588,
-          "longitude": -94.2676732,
-          "distanceFromCurrentFeet": 2648.1127013017867,
-          "distanceFromMatchedRiverPointFeet": 1731.9622871128804,
+          "name": "Virgil H Goode Highway",
+          "latitude": 37.0542083,
+          "longitude": -79.8822441,
+          "distanceFromCurrentFeet": 3295.902306215899,
+          "distanceFromMatchedRiverPointFeet": 2669.9155738400827,
           "tags": {
             "NHS": "yes",
             "bridge": "yes",
@@ -717,27 +1676,30 @@
             "highway": "trunk",
             "lanes": "2",
             "layer": "1",
-            "maxspeed": "65 mph",
-            "name": "C. Elmer Anderson Memorial Highway",
-            "name:etymology:wikidata": "Q439456",
+            "maxspeed": "55 mph",
+            "name": "Virgil H Goode Highway",
             "oneway": "yes",
-            "ref": "MN 371",
+            "ref": "US 220",
             "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23",
-            "surface": "asphalt"
+            "surface": "concrete",
+            "tiger:cfcc": "A29",
+            "tiger:county": "Franklin, VA",
+            "tiger:name_base": "United States Highway 220",
+            "tiger:name_base_1": "Virgil H Goode",
+            "tiger:name_type_1": "Hwy"
           },
-          "url": "https://www.openstreetmap.org/way/44552498"
+          "url": "https://www.openstreetmap.org/way/20041864"
         },
         {
           "osmType": "way",
-          "osmId": 44552478,
+          "osmId": 20041865,
           "kind": "road-bridge",
-          "name": "C. Elmer Anderson Memorial Highway",
-          "latitude": 46.3130929,
-          "longitude": -94.2675028,
-          "distanceFromCurrentFeet": 2672.229961175731,
-          "distanceFromMatchedRiverPointFeet": 1776.6580447018493,
+          "name": "Virgil H Goode Highway",
+          "latitude": 37.0541591,
+          "longitude": -79.8824134,
+          "distanceFromCurrentFeet": 3343.5024880761525,
+          "distanceFromMatchedRiverPointFeet": 2691.184965245883,
           "tags": {
-            "MN_Mway_island": "371b",
             "NHS": "yes",
             "bridge": "yes",
             "expressway": "yes",
@@ -745,293 +1707,334 @@
             "hgv:national_network": "yes",
             "highway": "trunk",
             "lanes": "2",
-            "maxspeed": "65 mph",
-            "name": "C. Elmer Anderson Memorial Highway",
-            "name:etymology:wikidata": "Q439456",
-            "oneway": "yes",
-            "ref": "MN 371",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/44552478"
-        },
-        {
-          "osmType": "way",
-          "osmId": 207097224,
-          "kind": "road-bridge",
-          "name": "1A / Mississippi River Trail",
-          "latitude": 46.3131163,
-          "longitude": -94.2673896,
-          "distanceFromCurrentFeet": 2688.3667701669146,
-          "distanceFromMatchedRiverPointFeet": 1806.421410841806,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "cycleway",
             "layer": "1",
-            "name": "1A / Mississippi River Trail",
-            "surface": "paved"
+            "maxspeed": "55 mph",
+            "name": "Virgil H Goode Highway",
+            "oneway": "yes",
+            "ref": "US 220",
+            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23",
+            "surface": "concrete",
+            "tiger:cfcc": "A29",
+            "tiger:county": "Franklin, VA",
+            "tiger:name_base": "United States Highway 220",
+            "tiger:name_base_1": "Virgil H Goode",
+            "tiger:name_type_1": "Hwy"
           },
-          "url": "https://www.openstreetmap.org/way/207097224"
+          "url": "https://www.openstreetmap.org/way/20041865"
         }
-      ],
-      "queried": true
+      ]
     },
     {
-      "routeId": "mississippi-river-fletcher-creek-overlook",
+      "routeId": "mississippi-river-piasa-harbor-alton-riverfront",
       "endpoint": "takeOut",
-      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "endpointName": "Alton Riverfront public boat launch",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 44552498,
+          "osmId": 28489732,
           "kind": "road-bridge",
-          "name": "C. Elmer Anderson Memorial Highway",
-          "latitude": 46.3130588,
-          "longitude": -94.2676732,
-          "distanceFromCurrentFeet": 2648.1127013017867,
-          "distanceFromMatchedRiverPointFeet": 1731.9622871128804,
+          "name": "Clark Bridge",
+          "latitude": 38.8847061,
+          "longitude": -90.1760528,
+          "distanceFromCurrentFeet": 292.1263128408222,
+          "distanceFromMatchedRiverPointFeet": 1676.7774060886559,
           "tags": {
             "NHS": "yes",
             "bridge": "yes",
-            "expressway": "yes",
+            "cycleway": "lane",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "2",
+            "layer": "1",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
+            "oneway": "yes",
+            "ref": "US 67",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json"
+          },
+          "url": "https://www.openstreetmap.org/way/28489732"
+        },
+        {
+          "osmType": "node",
+          "osmId": 12549669381,
+          "kind": "slipway",
+          "name": "Alton Riverfront",
+          "latitude": 38.8842677,
+          "longitude": -90.1745597,
+          "distanceFromCurrentFeet": 592.5372137711228,
+          "distanceFromMatchedRiverPointFeet": 1827.0510296062841,
+          "tags": {
+            "access": "yes",
+            "leisure": "slipway",
+            "name": "Alton Riverfront",
+            "surface": "concrete"
+          },
+          "url": "https://www.openstreetmap.org/node/12549669381"
+        },
+        {
+          "osmType": "way",
+          "osmId": 28489755,
+          "kind": "road-bridge",
+          "name": "Clark Bridge",
+          "latitude": 38.8805718,
+          "longitude": -90.1818075,
+          "distanceFromCurrentFeet": 2455.389524456019,
+          "distanceFromMatchedRiverPointFeet": 731.1844901160036,
+          "tags": {
+            "NHS": "yes",
+            "bridge": "yes",
+            "cycleway": "lane",
             "hgv": "designated",
             "hgv:national_network": "yes",
             "highway": "trunk",
             "lanes": "2",
             "layer": "1",
-            "maxspeed": "65 mph",
-            "name": "C. Elmer Anderson Memorial Highway",
-            "name:etymology:wikidata": "Q439456",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
             "oneway": "yes",
-            "ref": "MN 371",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23",
-            "surface": "asphalt"
+            "ref": "US 67",
+            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23"
           },
-          "url": "https://www.openstreetmap.org/way/44552498"
+          "url": "https://www.openstreetmap.org/way/28489755"
         },
         {
           "osmType": "way",
-          "osmId": 44552478,
+          "osmId": 138023115,
           "kind": "road-bridge",
-          "name": "C. Elmer Anderson Memorial Highway",
-          "latitude": 46.3130929,
-          "longitude": -94.2675028,
-          "distanceFromCurrentFeet": 2672.229961175731,
-          "distanceFromMatchedRiverPointFeet": 1776.6580447018493,
+          "name": "Clark Bridge",
+          "latitude": 38.8806639,
+          "longitude": -90.1819383,
+          "distanceFromCurrentFeet": 2456.594808004976,
+          "distanceFromMatchedRiverPointFeet": 764.356562310423,
           "tags": {
-            "MN_Mway_island": "371b",
             "NHS": "yes",
             "bridge": "yes",
-            "expressway": "yes",
+            "cycleway": "lane",
             "hgv": "designated",
             "hgv:national_network": "yes",
             "highway": "trunk",
             "lanes": "2",
-            "maxspeed": "65 mph",
-            "name": "C. Elmer Anderson Memorial Highway",
-            "name:etymology:wikidata": "Q439456",
+            "layer": "1",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
             "oneway": "yes",
-            "ref": "MN 371",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23",
-            "surface": "asphalt"
+            "ref": "US 67",
+            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23"
           },
-          "url": "https://www.openstreetmap.org/way/44552478"
+          "url": "https://www.openstreetmap.org/way/138023115"
         },
         {
           "osmType": "way",
-          "osmId": 207097224,
+          "osmId": 138023111,
           "kind": "road-bridge",
-          "name": "1A / Mississippi River Trail",
-          "latitude": 46.3131163,
-          "longitude": -94.2673896,
-          "distanceFromCurrentFeet": 2688.3667701669146,
-          "distanceFromMatchedRiverPointFeet": 1806.421410841806,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "cycleway",
-            "layer": "1",
-            "name": "1A / Mississippi River Trail",
-            "surface": "paved"
-          },
-          "url": "https://www.openstreetmap.org/way/207097224"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "sheboygan-river-dassow-river-park",
-      "endpoint": "accessPoint",
-      "endpointName": "Highway TT bridge access",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 21589417,
-          "kind": "road-bridge",
-          "name": "County Road TT",
-          "latitude": 43.7542274,
-          "longitude": -87.8502664,
-          "distanceFromCurrentFeet": 3297.257981423848,
-          "distanceFromMatchedRiverPointFeet": 1697.3889673271708,
-          "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "1",
-            "name": "County Road TT",
-            "ref": "CTH TT",
-            "tiger:cfcc": "A49",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "County Road T T",
-            "tiger:reviewed": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/21589417"
-        },
-        {
-          "osmType": "way",
-          "osmId": 39793637,
-          "kind": "road-bridge",
-          "name": "State Highway 23",
-          "latitude": 43.7515195,
-          "longitude": -87.8481485,
-          "distanceFromCurrentFeet": 3630.9073065919188,
-          "distanceFromMatchedRiverPointFeet": 2395.447321725551,
+          "name": "Clark Bridge",
+          "latitude": 38.8834266,
+          "longitude": -90.1765616,
+          "distanceFromCurrentFeet": 778.1314112695055,
+          "distanceFromMatchedRiverPointFeet": 1213.4923929805461,
           "tags": {
             "NHS": "yes",
             "bridge": "yes",
-            "expressway": "yes",
+            "cycleway": "lane",
             "hgv": "designated",
-            "hgv:state_network": "yes",
             "highway": "trunk",
             "lanes": "2",
             "layer": "1",
-            "maxspeed": "65 mph",
-            "motorroad": "yes",
-            "name": "State Highway 23",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
             "oneway": "yes",
-            "ref": "WI 23",
-            "source:hgv:state_network": "https://wisconsindot.gov/Documents/dmv/shared/truck-routes.pdf",
-            "source:maxspeed": "sign"
+            "ref": "US 67",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json"
           },
-          "url": "https://www.openstreetmap.org/way/39793637"
+          "url": "https://www.openstreetmap.org/way/138023111"
         },
         {
           "osmType": "way",
-          "osmId": 39663189,
+          "osmId": 1105501755,
           "kind": "road-bridge",
-          "name": "Old Plank Road Trail",
-          "latitude": 43.7511629,
-          "longitude": -87.8483078,
-          "distanceFromCurrentFeet": 3583.1816709903046,
-          "distanceFromMatchedRiverPointFeet": 2404.8866790042193,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "path",
-            "horse": "designated",
-            "layer": "1",
-            "maxspeed": "20 mph",
-            "moped": "designated",
-            "name": "Old Plank Road Trail",
-            "segregated": "no",
-            "snowmobile": "designated",
-            "source:access": "http://www.sheboygancounty.com/government/departments-f-q/planning-and-conservation/facilities/trails/old-plank-road-trail",
-            "source:maxspeed": "http://www.sheboygancounty.com/home/showdocument?id=5033",
-            "surface": "wood"
-          },
-          "url": "https://www.openstreetmap.org/way/39663189"
-        },
-        {
-          "osmType": "way",
-          "osmId": 39793636,
-          "kind": "road-bridge",
-          "name": "State Highway 23",
-          "latitude": 43.751297,
-          "longitude": -87.8482211,
-          "distanceFromCurrentFeet": 3607.6498799936426,
-          "distanceFromMatchedRiverPointFeet": 2406.96520259445,
+          "name": "Clark Bridge",
+          "latitude": 38.8860562,
+          "longitude": -90.1732412,
+          "distanceFromCurrentFeet": 786.9988889671815,
+          "distanceFromMatchedRiverPointFeet": 2555.8006255487985,
           "tags": {
             "NHS": "yes",
             "bridge": "yes",
-            "expressway": "yes",
+            "cycleway": "lane",
             "hgv": "designated",
-            "hgv:state_network": "yes",
             "highway": "trunk",
             "lanes": "2",
             "layer": "1",
-            "maxspeed": "65 mph",
-            "motorroad": "yes",
-            "name": "State Highway 23",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
             "oneway": "yes",
-            "ref": "WI 23",
-            "source:hgv:state_network": "https://wisconsindot.gov/Documents/dmv/shared/truck-routes.pdf",
-            "source:maxspeed": "sign"
+            "ref": "US 67",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json",
+            "turn:lanes": "left|left;right"
           },
-          "url": "https://www.openstreetmap.org/way/39793636"
+          "url": "https://www.openstreetmap.org/way/1105501755"
         },
         {
           "osmType": "way",
-          "osmId": 147693954,
+          "osmId": 1105501754,
+          "kind": "road-bridge",
+          "name": "Clark Bridge",
+          "latitude": 38.8872766,
+          "longitude": -90.1725745,
+          "distanceFromCurrentFeet": 1149.7875404867807,
+          "distanceFromMatchedRiverPointFeet": 3017.565923400921,
+          "tags": {
+            "NHS": "yes",
+            "bridge": "yes",
+            "cycleway": "lane",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "3",
+            "layer": "1",
+            "maxspeed": "50 mph",
+            "name": "Clark Bridge",
+            "oneway": "yes",
+            "ref": "US 67",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json",
+            "turn:lanes": "left|left|right"
+          },
+          "url": "https://www.openstreetmap.org/way/1105501754"
+        },
+        {
+          "osmType": "way",
+          "osmId": 287104603,
           "kind": "road-bridge",
           "name": null,
-          "latitude": 43.7565932,
-          "longitude": -87.8717042,
-          "distanceFromCurrentFeet": 3314.894608364541,
-          "distanceFromMatchedRiverPointFeet": 4089.3787242032604,
+          "latitude": 38.8889452,
+          "longitude": -90.1792751,
+          "distanceFromCurrentFeet": 1577.335899796688,
+          "distanceFromMatchedRiverPointFeet": 2954.9021552767867,
           "tags": {
             "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "Alpine",
-            "tiger:name_type": "Rd",
-            "tiger:reviewed": "no",
-            "tiger:separated": "no",
-            "tiger:source": "tiger_import_dch_v0.6_20070830",
-            "tiger:tlid": "79504680:79494306:79517434:79494297:79521093:79521094",
-            "tiger:upload_uuid": "bulk_upload.pl-017ae6d7-f9ee-49df-83cc-3b91a37ad20d",
-            "tiger:zip_left": "53085",
-            "tiger:zip_right": "53085"
+            "highway": "footway",
+            "layer": "1"
           },
-          "url": "https://www.openstreetmap.org/way/147693954"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "turtle-creek-school-section-east-creek",
-      "endpoint": "accessPoint",
-      "endpointName": "Highway 14 bridge access",
-      "features": [
+          "url": "https://www.openstreetmap.org/way/287104603"
+        },
         {
           "osmType": "way",
-          "osmId": 1071282488,
+          "osmId": 200062241,
           "kind": "road-bridge",
-          "name": "State Highway 11",
-          "latitude": 42.6432031,
-          "longitude": -88.712258,
-          "distanceFromCurrentFeet": 3273.1294300700742,
-          "distanceFromMatchedRiverPointFeet": 2382.2647214027543,
+          "name": "River Heritage Parkway",
+          "latitude": 38.8869251,
+          "longitude": -90.1701913,
+          "distanceFromCurrentFeet": 1707.5421104907011,
+          "distanceFromMatchedRiverPointFeet": 3398.108035463657,
+          "tags": {
+            "alt_name": "Berm Highway",
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "2",
+            "layer": "1",
+            "name": "River Heritage Parkway",
+            "oneway": "yes",
+            "ref": "IL 143",
+            "reg_name": "Illinois Route 143",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json"
+          },
+          "url": "https://www.openstreetmap.org/way/200062241"
+        },
+        {
+          "osmType": "way",
+          "osmId": 200062244,
+          "kind": "road-bridge",
+          "name": "River Heritage Parkway",
+          "latitude": 38.8869395,
+          "longitude": -90.170013,
+          "distanceFromCurrentFeet": 1757.400502766302,
+          "distanceFromMatchedRiverPointFeet": 3440.020633223295,
+          "tags": {
+            "alt_name": "Berm Highway",
+            "bridge": "yes",
+            "hgv": "designated",
+            "highway": "trunk",
+            "lanes": "2",
+            "layer": "1",
+            "name": "River Heritage Parkway",
+            "oneway": "yes",
+            "ref": "IL 143",
+            "reg_name": "Illinois Route 143",
+            "source:hgv": "https://gis-idot.opendata.arcgis.com/datasets/IDOT::designated-truck-routes-state-jurisdiction-truck-route/explore?location=40.542466%2C-88.991188%2C14.60;https://www.gettingaroundillinois.com/MapViewer/?config=DTRconfig.json"
+          },
+          "url": "https://www.openstreetmap.org/way/200062244"
+        },
+        {
+          "osmType": "way",
+          "osmId": 200060558,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 38.8846641,
+          "longitude": -90.1694968,
+          "distanceFromCurrentFeet": 1849.0431385086886,
+          "distanceFromMatchedRiverPointFeet": 3102.1336879359123,
           "tags": {
             "bridge": "yes",
-            "highway": "primary",
-            "lanes": "2",
-            "lit": "no",
-            "maxspeed": "55 mph",
-            "maxweight:signed": "no",
-            "name": "State Highway 11",
-            "ref": "WI 11",
-            "sidewalk": "no",
-            "surface": "asphalt"
+            "highway": "footway",
+            "layer": "1",
+            "source": "Bing"
           },
-          "url": "https://www.openstreetmap.org/way/1071282488"
+          "url": "https://www.openstreetmap.org/way/200060558"
+        },
+        {
+          "osmType": "node",
+          "osmId": 12549669383,
+          "kind": "slipway",
+          "name": "Kayak Access",
+          "latitude": 38.8779645,
+          "longitude": -90.1851277,
+          "distanceFromCurrentFeet": 3794.307325102515,
+          "distanceFromMatchedRiverPointFeet": 1970.9176095057835,
+          "tags": {
+            "access": "yes",
+            "leisure": "slipway",
+            "name": "Kayak Access",
+            "note": "Gap in guardrail to carry about 10 feet\nClosed October 15 to April 15"
+          },
+          "url": "https://www.openstreetmap.org/node/12549669383"
+        },
+        {
+          "osmType": "node",
+          "osmId": 111165516,
+          "kind": "slipway",
+          "name": "Lincoln Shields Ramp",
+          "latitude": 38.8809486,
+          "longitude": -90.1897498,
+          "distanceFromCurrentFeet": 4264.297884896655,
+          "distanceFromMatchedRiverPointFeet": 2980.122777312848,
+          "tags": {
+            "access": "yes",
+            "leisure": "slipway",
+            "lit": "yes",
+            "name": "Lincoln Shields Ramp",
+            "note": "Mississippi River Water Trail Site 26-21",
+            "surface": "concrete"
+          },
+          "url": "https://www.openstreetmap.org/node/111165516"
+        },
+        {
+          "osmType": "node",
+          "osmId": 12572148796,
+          "kind": "slipway",
+          "name": "Ellis Lake",
+          "latitude": 38.877757,
+          "longitude": -90.189275,
+          "distanceFromCurrentFeet": 4729.29601878457,
+          "distanceFromMatchedRiverPointFeet": 3060.0989757908796,
+          "tags": {
+            "leisure": "slipway",
+            "name": "Ellis Lake",
+            "surface": "concrete"
+          },
+          "url": "https://www.openstreetmap.org/node/12572148796"
         }
-      ],
-      "queried": true
+      ]
     },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",
@@ -1376,159 +2379,59 @@
       "queried": true
     },
     {
-      "routeId": "mullet-river-sumac-river-park",
-      "endpoint": "accessPoint",
-      "endpointName": "Lower Mullet River dam portage",
+      "routeId": "blackwater-river-wayside-the-ford",
+      "endpoint": "takeOut",
+      "endpointName": "The Ford at Round Hill Road public access",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 304462829,
+          "osmId": 993741783,
           "kind": "road-bridge",
-          "name": "County Road PP",
-          "latitude": 43.7226219,
-          "longitude": -87.8275687,
-          "distanceFromCurrentFeet": 1650.5258063618476,
-          "distanceFromMatchedRiverPointFeet": 337.13692191372945,
+          "name": "Booker T Washington Highway",
+          "latitude": 37.0580176,
+          "longitude": -79.8350391,
+          "distanceFromCurrentFeet": 3129.4721516760637,
+          "distanceFromMatchedRiverPointFeet": 2916.5694921676304,
           "tags": {
             "bridge": "yes",
-            "highway": "tertiary",
+            "highway": "primary",
             "layer": "1",
-            "lcn": "yes",
-            "name": "County Road PP",
-            "ref": "CTH PP"
+            "maxspeed": "55 mph",
+            "name": "Booker T Washington Highway",
+            "name:etymology:wikidata": "Q319871",
+            "ref": "VA 122",
+            "surface": "asphalt",
+            "tiger:cfcc": "A31",
+            "tiger:county": "Franklin, VA",
+            "tiger:name_base": "Booker T Washington",
+            "tiger:name_type": "Hwy",
+            "tiger:reviewed": "no"
           },
-          "url": "https://www.openstreetmap.org/way/304462829"
+          "url": "https://www.openstreetmap.org/way/993741783"
         },
         {
           "osmType": "way",
-          "osmId": 395184398,
+          "osmId": 993741781,
           "kind": "road-bridge",
           "name": null,
-          "latitude": 43.7275837,
-          "longitude": -87.8164371,
-          "distanceFromCurrentFeet": 3976.8708013151645,
-          "distanceFromMatchedRiverPointFeet": 3281.3612830839143,
+          "latitude": 37.0577897,
+          "longitude": -79.8385566,
+          "distanceFromCurrentFeet": 4149.3973039536095,
+          "distanceFromMatchedRiverPointFeet": 3887.4724176582263,
           "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/395184398"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "endpoint": "accessPoint",
-      "endpointName": "Jidana Park",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 446947591,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9417313,
-          "longitude": -93.472876,
-          "distanceFromCurrentFeet": 1076.0637163370225,
-          "distanceFromMatchedRiverPointFeet": 1744.8181744323049,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "boardwalk",
-            "foot": "designated",
-            "highway": "cycleway",
-            "layer": "1",
-            "surface": "wood"
-          },
-          "url": "https://www.openstreetmap.org/way/446947591"
-        },
-        {
-          "osmType": "way",
-          "osmId": 101476571,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9441815,
-          "longitude": -93.4633446,
-          "distanceFromCurrentFeet": 3636.212588204482,
-          "distanceFromMatchedRiverPointFeet": 3509.022019708939,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/101476571"
-        },
-        {
-          "osmType": "way",
-          "osmId": 306882439,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9545243,
-          "longitude": -93.4828143,
-          "distanceFromCurrentFeet": 4854.76785382634,
-          "distanceFromMatchedRiverPointFeet": 3597.6946891223965,
-          "tags": {
+            "access": "private",
             "bridge": "yes",
             "highway": "service",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/306882439"
-        },
-        {
-          "osmType": "way",
-          "osmId": 306882442,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9548221,
-          "longitude": -93.4832369,
-          "distanceFromCurrentFeet": 4992.168982465828,
-          "distanceFromMatchedRiverPointFeet": 3743.229737969824,
-          "tags": {
-            "bridge": "yes",
-            "highway": "path",
             "layer": "1",
-            "surface": "paved"
+            "service": "driveway",
+            "tiger:cfcc": "A41",
+            "tiger:county": "Franklin, VA",
+            "tiger:reviewed": "no"
           },
-          "url": "https://www.openstreetmap.org/way/306882442"
-        },
-        {
-          "osmType": "way",
-          "osmId": 41603098,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.954101,
-          "longitude": -93.4853327,
-          "distanceFromCurrentFeet": 4952.548052245975,
-          "distanceFromMatchedRiverPointFeet": 3796.754737222857,
-          "tags": {
-            "bicycle": "yes",
-            "bridge": "yes",
-            "foot": "yes",
-            "highway": "path",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/41603098"
-        },
-        {
-          "osmType": "way",
-          "osmId": 451033717,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.953321,
-          "longitude": -93.4871643,
-          "distanceFromCurrentFeet": 4931.16207240041,
-          "distanceFromMatchedRiverPointFeet": 3879.633632435616,
-          "tags": {
-            "bicycle": "yes",
-            "bridge": "yes",
-            "foot": "yes",
-            "highway": "path",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/451033717"
+          "url": "https://www.openstreetmap.org/way/993741781"
         }
-      ],
-      "queried": true
+      ]
     },
     {
       "routeId": "pine-river-richland-center-canoe-port-1-port-4",
@@ -2407,6 +3310,54 @@
       "queried": true
     },
     {
+      "routeId": "glover-river-fr56000-glover",
+      "endpoint": "putIn",
+      "endpointName": "FR 56000 access near Octavia",
+      "queried": true,
+      "features": [
+        {
+          "osmType": "way",
+          "osmId": 1158011768,
+          "kind": "road-bridge",
+          "name": "74100",
+          "latitude": 34.3142556,
+          "longitude": -94.9373524,
+          "distanceFromCurrentFeet": 1472.4877589573491,
+          "distanceFromMatchedRiverPointFeet": 553.4172885728062,
+          "tags": {
+            "bridge": "yes",
+            "highway": "residential",
+            "layer": "1",
+            "name": "74100",
+            "tiger:cfcc": "A41",
+            "tiger:county": "McCurtain, OK",
+            "tiger:name_base": "74100",
+            "tiger:reviewed": "no"
+          },
+          "url": "https://www.openstreetmap.org/way/1158011768"
+        },
+        {
+          "osmType": "way",
+          "osmId": 251079716,
+          "kind": "road-bridge",
+          "name": null,
+          "latitude": 34.3087862,
+          "longitude": -94.9356543,
+          "distanceFromCurrentFeet": 2546.7915194451934,
+          "distanceFromMatchedRiverPointFeet": 2573.6516971072997,
+          "tags": {
+            "bridge": "yes",
+            "highway": "residential",
+            "layer": "1",
+            "tiger:cfcc": "A49",
+            "tiger:county": "McCurtain, OK",
+            "tiger:reviewed": "no"
+          },
+          "url": "https://www.openstreetmap.org/way/251079716"
+        }
+      ]
+    },
+    {
       "routeId": "trempealeau-river-whitehall-independence",
       "endpoint": "takeOut",
       "endpointName": "Schultz Park / Four Seasons Park",
@@ -2467,636 +3418,6 @@
       "queried": true
     },
     {
-      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
-      "endpoint": "accessPoint",
-      "endpointName": "Knollwood Target",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 1052876667,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9427943,
-          "longitude": -93.3934896,
-          "distanceFromCurrentFeet": 1961.2264593378327,
-          "distanceFromMatchedRiverPointFeet": 952.8828534155635,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/1052876667"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1052876666,
-          "kind": "road-bridge",
-          "name": "34th Street West",
-          "latitude": 44.9427521,
-          "longitude": -93.3935269,
-          "distanceFromCurrentFeet": 1979.3863398145,
-          "distanceFromMatchedRiverPointFeet": 967.7608359909889,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "34th Street West",
-            "tiger:cfcc": "A41",
-            "tiger:name_base": "Aquila",
-            "tiger:name_direction_suffix": "S",
-            "tiger:name_type": "Ln",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "55426",
-            "tiger:zip_left_1": "55426",
-            "tiger:zip_right": "55426"
-          },
-          "url": "https://www.openstreetmap.org/way/1052876666"
-        },
-        {
-          "osmType": "way",
-          "osmId": 101476412,
-          "kind": "road-bridge",
-          "name": "Aquila Lane South",
-          "latitude": 44.942756,
-          "longitude": -93.3934325,
-          "distanceFromCurrentFeet": 1965.2994501220435,
-          "distanceFromMatchedRiverPointFeet": 967.7734128162575,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "Aquila Lane South",
-            "tiger:cfcc": "A41",
-            "tiger:name_base": "Aquila",
-            "tiger:name_direction_suffix": "S",
-            "tiger:name_type": "Ln",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "55426",
-            "tiger:zip_left_1": "55426",
-            "tiger:zip_right": "55426"
-          },
-          "url": "https://www.openstreetmap.org/way/101476412"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1052870825,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9438584,
-          "longitude": -93.3999478,
-          "distanceFromCurrentFeet": 2995.5354330047276,
-          "distanceFromMatchedRiverPointFeet": 1708.7268245308753,
-          "tags": {
-            "bridge": "yes",
-            "description": "exit ramp from northbound Hwy 169 to Minnetonka Blvd",
-            "destination": "Minnetonka Boulevard",
-            "destination:ref": "CR 5",
-            "highway": "motorway_link",
-            "layer": "1",
-            "oneway": "yes",
-            "source": "image"
-          },
-          "url": "https://www.openstreetmap.org/way/1052870825"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1052870824,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.94384,
-          "longitude": -93.4000238,
-          "distanceFromCurrentFeet": 3016.1541812400674,
-          "distanceFromMatchedRiverPointFeet": 1729.467210312056,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "description": "northbound Hwy 169",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169",
-            "source": "image;knowledge"
-          },
-          "url": "https://www.openstreetmap.org/way/1052870824"
-        },
-        {
-          "osmType": "way",
-          "osmId": 22738749,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9460627,
-          "longitude": -93.4004761,
-          "distanceFromCurrentFeet": 2886.6848472072293,
-          "distanceFromMatchedRiverPointFeet": 1766.1723373144903,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "description": "northbound Hwy 169",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169",
-            "source": "image;knowledge",
-            "surface": "concrete"
-          },
-          "url": "https://www.openstreetmap.org/way/22738749"
-        },
-        {
-          "osmType": "way",
-          "osmId": 101476449,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9437919,
-          "longitude": -93.4002208,
-          "distanceFromCurrentFeet": 3069.670241155307,
-          "distanceFromMatchedRiverPointFeet": 1783.277243842184,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "description": "southbound Hwy 169",
-            "highway": "motorway",
-            "lanes": "3",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169"
-          },
-          "url": "https://www.openstreetmap.org/way/101476449"
-        },
-        {
-          "osmType": "way",
-          "osmId": 22738729,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9460165,
-          "longitude": -93.4005931,
-          "distanceFromCurrentFeet": 2919.250196096978,
-          "distanceFromMatchedRiverPointFeet": 1793.9214395779345,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169",
-            "surface": "concrete"
-          },
-          "url": "https://www.openstreetmap.org/way/22738729"
-        },
-        {
-          "osmType": "way",
-          "osmId": 30794535,
-          "kind": "road-bridge",
-          "name": "North Cedar Lake LRT Regional Trail",
-          "latitude": 44.9398422,
-          "longitude": -93.3924734,
-          "distanceFromCurrentFeet": 2846.4294955039645,
-          "distanceFromMatchedRiverPointFeet": 2052.88996249208,
-          "tags": {
-            "bicycle": "yes",
-            "bridge": "yes",
-            "foot": "yes",
-            "highway": "cycleway",
-            "layer": "2",
-            "name": "North Cedar Lake LRT Regional Trail",
-            "railway": "abandoned",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/30794535"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1052913415,
-          "kind": "road-bridge",
-          "name": "North Cedar Lake LRT Regional Trail",
-          "latitude": 44.9396754,
-          "longitude": -93.3925617,
-          "distanceFromCurrentFeet": 2911.209013828478,
-          "distanceFromMatchedRiverPointFeet": 2109.736339121548,
-          "tags": {
-            "bicycle": "yes",
-            "bridge": "yes",
-            "foot": "yes",
-            "highway": "cycleway",
-            "layer": "2",
-            "name": "North Cedar Lake LRT Regional Trail",
-            "railway": "abandoned",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/1052913415"
-        },
-        {
-          "osmType": "way",
-          "osmId": 6030809,
-          "kind": "road-bridge",
-          "name": "36th Street West",
-          "latitude": 44.9397465,
-          "longitude": -93.3971112,
-          "distanceFromCurrentFeet": 3406.220733846717,
-          "distanceFromMatchedRiverPointFeet": 2243.3857160437724,
-          "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "2",
-            "maxspeed": "25 mph",
-            "name": "36th Street West",
-            "source": "image"
-          },
-          "url": "https://www.openstreetmap.org/way/6030809"
-        },
-        {
-          "osmType": "way",
-          "osmId": 953865805,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9396712,
-          "longitude": -93.3970671,
-          "distanceFromCurrentFeet": 3422.0492318362185,
-          "distanceFromMatchedRiverPointFeet": 2264.2790252461373,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/953865805"
-        },
-        {
-          "osmType": "way",
-          "osmId": 22738768,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9501392,
-          "longitude": -93.4004359,
-          "distanceFromCurrentFeet": 3015.725880354066,
-          "distanceFromMatchedRiverPointFeet": 2451.8458332275786,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "description": "northbound Hwy 169",
-            "highway": "motorway",
-            "lanes": "3",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169",
-            "source": "image;knowledge"
-          },
-          "url": "https://www.openstreetmap.org/way/22738768"
-        },
-        {
-          "osmType": "way",
-          "osmId": 22738766,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9500527,
-          "longitude": -93.4006711,
-          "distanceFromCurrentFeet": 3062.620409379639,
-          "distanceFromMatchedRiverPointFeet": 2473.540456700081,
-          "tags": {
-            "NHS": "yes",
-            "bridge": "yes",
-            "description": "southbound Hwy 169",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "60 mph",
-            "oneway": "yes",
-            "ref": "US 169"
-          },
-          "url": "https://www.openstreetmap.org/way/22738766"
-        },
-        {
-          "osmType": "way",
-          "osmId": 993780384,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9387926,
-          "longitude": -93.3909205,
-          "distanceFromCurrentFeet": 3142.9473146895284,
-          "distanceFromMatchedRiverPointFeet": 2515.7759852188105,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/993780384"
-        },
-        {
-          "osmType": "way",
-          "osmId": 256796948,
-          "kind": "road-bridge",
-          "name": "36th Street West",
-          "latitude": 44.9387459,
-          "longitude": -93.3909197,
-          "distanceFromCurrentFeet": 3159.8341850301913,
-          "distanceFromMatchedRiverPointFeet": 2532.168186335349,
-          "tags": {
-            "bridge": "yes",
-            "cycleway": "shared_lane",
-            "highway": "tertiary",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "25 mph",
-            "name": "36th Street West",
-            "oneway": "yes",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/256796948"
-        },
-        {
-          "osmType": "way",
-          "osmId": 53787489,
-          "kind": "road-bridge",
-          "name": "36th Street West",
-          "latitude": 44.9386662,
-          "longitude": -93.390919,
-          "distanceFromCurrentFeet": 3188.678198485185,
-          "distanceFromMatchedRiverPointFeet": 2560.1150283708575,
-          "tags": {
-            "bridge": "yes",
-            "cycleway": "shared_lane",
-            "highway": "tertiary",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "25 mph",
-            "name": "36th Street West",
-            "oneway": "yes",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/53787489"
-        },
-        {
-          "osmType": "way",
-          "osmId": 920237130,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9386214,
-          "longitude": -93.3909062,
-          "distanceFromCurrentFeet": 3204.5144000966116,
-          "distanceFromMatchedRiverPointFeet": 2576.73027500351,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/920237130"
-        },
-        {
-          "osmType": "way",
-          "osmId": 574191606,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.944919,
-          "longitude": -93.4048374,
-          "distanceFromCurrentFeet": 4071.999687366298,
-          "distanceFromMatchedRiverPointFeet": 2881.1950085866633,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "cycleway",
-            "layer": "1",
-            "surface": "wood"
-          },
-          "url": "https://www.openstreetmap.org/way/574191606"
-        },
-        {
-          "osmType": "way",
-          "osmId": 101476430,
-          "kind": "road-bridge",
-          "name": "Minnetonka Boulevard",
-          "latitude": 44.945008,
-          "longitude": -93.4048866,
-          "distanceFromCurrentFeet": 4077.4881085777197,
-          "distanceFromMatchedRiverPointFeet": 2892.07767653143,
-          "tags": {
-            "alt_name": "County Road 5",
-            "bridge": "yes",
-            "foot": "use_sidepath",
-            "highway": "secondary",
-            "layer": "1",
-            "name": "Minnetonka Boulevard",
-            "oneway": "no",
-            "ref": "CR 5",
-            "surface": "paved"
-          },
-          "url": "https://www.openstreetmap.org/way/101476430"
-        },
-        {
-          "osmType": "way",
-          "osmId": 920237124,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9361761,
-          "longitude": -93.3898125,
-          "distanceFromCurrentFeet": 4075.3863566180153,
-          "distanceFromMatchedRiverPointFeet": 3512.28188638854,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/920237124"
-        },
-        {
-          "osmType": "way",
-          "osmId": 920237115,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9362048,
-          "longitude": -93.3896103,
-          "distanceFromCurrentFeet": 4064.0313582065323,
-          "distanceFromMatchedRiverPointFeet": 3517.5718489772357,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/920237115"
-        },
-        {
-          "osmType": "way",
-          "osmId": 30826724,
-          "kind": "road-bridge",
-          "name": "37th Street West",
-          "latitude": 44.9361085,
-          "longitude": -93.3897111,
-          "distanceFromCurrentFeet": 4099.516870064726,
-          "distanceFromMatchedRiverPointFeet": 3543.4448631314904,
-          "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "2",
-            "name": "37th Street West"
-          },
-          "url": "https://www.openstreetmap.org/way/30826724"
-        },
-        {
-          "osmType": "way",
-          "osmId": 920237125,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.936023,
-          "longitude": -93.3897581,
-          "distanceFromCurrentFeet": 4130.924931420059,
-          "distanceFromMatchedRiverPointFeet": 3569.8217214093575,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/920237125"
-        },
-        {
-          "osmType": "way",
-          "osmId": 42865543,
-          "kind": "road-bridge",
-          "name": "Cedar Lake Road",
-          "latitude": 44.9544519,
-          "longitude": -93.4007728,
-          "distanceFromCurrentFeet": 3908.883620585191,
-          "distanceFromMatchedRiverPointFeet": 3772.9301419513554,
-          "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "lanes": "4",
-            "layer": "1",
-            "maxspeed": "30 mph",
-            "name": "Cedar Lake Road",
-            "name:etymology:wikidata": "Q4218899",
-            "surface": "concrete"
-          },
-          "url": "https://www.openstreetmap.org/way/42865543"
-        },
-        {
-          "osmType": "way",
-          "osmId": 955495930,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9545284,
-          "longitude": -93.4007729,
-          "distanceFromCurrentFeet": 3927.470636250993,
-          "distanceFromMatchedRiverPointFeet": 3797.387712633915,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/955495930"
-        },
-        {
-          "osmType": "way",
-          "osmId": 42473540,
-          "kind": "road-bridge",
-          "name": "Minnesota State Highway 7",
-          "latitude": 44.9351065,
-          "longitude": -93.3900731,
-          "distanceFromCurrentFeet": 4467.438600018242,
-          "distanceFromMatchedRiverPointFeet": 3870.9838964242163,
-          "tags": {
-            "bicycle": "no",
-            "bridge": "yes",
-            "expressway": "yes",
-            "hgv": "designated",
-            "hgv:national_network": "yes",
-            "highway": "trunk",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "50 mph",
-            "name": "Minnesota State Highway 7",
-            "oneway": "yes",
-            "ref": "MN 7",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23"
-          },
-          "url": "https://www.openstreetmap.org/way/42473540"
-        },
-        {
-          "osmType": "way",
-          "osmId": 42638779,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 44.9348165,
-          "longitude": -93.3951692,
-          "distanceFromCurrentFeet": 4803.46758130679,
-          "distanceFromMatchedRiverPointFeet": 3880.3605191451234,
-          "tags": {
-            "bridge": "yes",
-            "highway": "motorway_link",
-            "layer": "1",
-            "oneway": "yes"
-          },
-          "url": "https://www.openstreetmap.org/way/42638779"
-        },
-        {
-          "osmType": "way",
-          "osmId": 42638800,
-          "kind": "road-bridge",
-          "name": "Minnesota State Highway 7",
-          "latitude": 44.9347264,
-          "longitude": -93.3952182,
-          "distanceFromCurrentFeet": 4838.637167176033,
-          "distanceFromMatchedRiverPointFeet": 3914.321467096078,
-          "tags": {
-            "bicycle": "no",
-            "bridge": "yes",
-            "expressway": "yes",
-            "hgv": "designated",
-            "hgv:national_network": "yes",
-            "highway": "trunk",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "50 mph",
-            "name": "Minnesota State Highway 7",
-            "oneway": "yes",
-            "ref": "MN 7",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23"
-          },
-          "url": "https://www.openstreetmap.org/way/42638800"
-        },
-        {
-          "osmType": "way",
-          "osmId": 42638796,
-          "kind": "road-bridge",
-          "name": "Minnesota State Highway 7",
-          "latitude": 44.9349444,
-          "longitude": -93.3900287,
-          "distanceFromCurrentFeet": 4526.139700542147,
-          "distanceFromMatchedRiverPointFeet": 3931.1393743380554,
-          "tags": {
-            "bicycle": "no",
-            "bridge": "yes",
-            "expressway": "yes",
-            "hgv": "designated",
-            "hgv:national_network": "yes",
-            "highway": "trunk",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "50 mph",
-            "name": "Minnesota State Highway 7",
-            "oneway": "yes",
-            "ref": "MN 7",
-            "source:hgv:national_network": "Title 23: Highways Part 658 http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&rgn=div5&view=text&node=23:1.0.1.7.33&idno=23"
-          },
-          "url": "https://www.openstreetmap.org/way/42638796"
-        }
-      ],
-      "queried": true
-    },
-    {
       "routeId": "fox-river-princeton-white-river-locks",
       "endpoint": "accessPoint",
       "endpointName": "Old St. Marie Road Landing",
@@ -3125,120 +3446,89 @@
       "queried": true
     },
     {
-      "routeId": "white-river-park-riverview-park",
-      "endpoint": "accessPoint",
-      "endpointName": "Spring Valley Road / Lyons Wave scout point",
+      "routeId": "maumee-river-kreager-moser",
+      "endpoint": "putIn",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "queried": true,
       "features": [
         {
           "osmType": "way",
-          "osmId": 835106861,
+          "osmId": 1517873180,
           "kind": "road-bridge",
-          "name": "Spring Valley Road",
-          "latitude": 42.6423794,
-          "longitude": -88.3599543,
-          "distanceFromCurrentFeet": 1035.3004424749722,
-          "distanceFromMatchedRiverPointFeet": 160.98867851118047,
+          "name": "Maumee Pathway",
+          "latitude": 41.0870851,
+          "longitude": -85.0443264,
+          "distanceFromCurrentFeet": 1260.7717419865758,
+          "distanceFromMatchedRiverPointFeet": 566.9743504058282,
           "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "1",
-            "name": "Spring Valley Road",
-            "name_1": "State Highway 36",
-            "name_2": "Mormon Road",
-            "surface": "concrete",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Walworth, WI",
-            "tiger:name_base": "Spring Valley",
-            "tiger:name_base_1": "State Highway 36",
-            "tiger:name_base_2": "Mormon",
-            "tiger:name_type": "Rd",
-            "tiger:name_type_2": "Rd",
-            "tiger:reviewed": "no"
+            "bicycle": "designated",
+            "bridge": "boardwalk",
+            "foot": "designated",
+            "highway": "path",
+            "name": "Maumee Pathway"
           },
-          "url": "https://www.openstreetmap.org/way/835106861"
+          "url": "https://www.openstreetmap.org/way/1517873180"
         },
         {
           "osmType": "way",
-          "osmId": 428172603,
+          "osmId": 1231001183,
           "kind": "road-bridge",
-          "name": "Mill Street",
-          "latitude": 42.6480868,
-          "longitude": -88.357422,
-          "distanceFromCurrentFeet": 2875.2585716605486,
-          "distanceFromMatchedRiverPointFeet": 2247.123996641801,
+          "name": null,
+          "latitude": 41.0907802,
+          "longitude": -85.0366639,
+          "distanceFromCurrentFeet": 1250.5457358473923,
+          "distanceFromMatchedRiverPointFeet": 2303.1421792492015,
           "tags": {
+            "bicycle": "yes",
             "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "1",
-            "name": "Mill Street",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Walworth, WI",
-            "tiger:name_base": "Mill",
-            "tiger:name_type": "St",
-            "tiger:reviewed": "aerial",
-            "tiger:zip_left": "53105",
-            "tiger:zip_right": "53105"
+            "highway": "footway",
+            "layer": "1"
           },
-          "url": "https://www.openstreetmap.org/way/428172603"
+          "url": "https://www.openstreetmap.org/way/1231001183"
         },
         {
-          "osmType": "way",
-          "osmId": 1122503789,
-          "kind": "road-bridge",
-          "name": "State Highway 36",
-          "latitude": 42.6471403,
-          "longitude": -88.3706925,
-          "distanceFromCurrentFeet": 2731.3143962457666,
-          "distanceFromMatchedRiverPointFeet": 3524.7600964812823,
+          "osmType": "node",
+          "osmId": 951074983,
+          "kind": "slipway",
+          "name": null,
+          "latitude": 41.0864828,
+          "longitude": -85.0486275,
+          "distanceFromCurrentFeet": 2394.5870212192053,
+          "distanceFromMatchedRiverPointFeet": 1671.5740500937452,
           "tags": {
-            "bridge": "yes",
-            "highway": "primary",
-            "layer": "1",
-            "maxweight:signed": "no",
-            "name": "State Highway 36",
-            "ref": "WI 36",
-            "surface": "concrete",
-            "tiger:cfcc": "A31",
-            "tiger:county": "Walworth, WI",
-            "tiger:name_base": "State Highway 36",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53105",
-            "tiger:zip_right": "53105"
+            "leisure": "slipway"
           },
-          "url": "https://www.openstreetmap.org/way/1122503789"
-        },
-        {
-          "osmType": "way",
-          "osmId": 240874972,
-          "kind": "road-bridge",
-          "name": "State Highway 36",
-          "latitude": 42.6496702,
-          "longitude": -88.3704406,
-          "distanceFromCurrentFeet": 3424.3613516423825,
-          "distanceFromMatchedRiverPointFeet": 4032.010178489287,
-          "tags": {
-            "bridge": "yes",
-            "highway": "primary",
-            "layer": "1",
-            "maxspeed": "50 mph",
-            "maxweight:signed": "no",
-            "name": "State Highway 36",
-            "name_1": "State Road 36",
-            "ref": "WI 36",
-            "source:maxspeed": "sign",
-            "surface": "asphalt",
-            "tiger:cfcc": "A31",
-            "tiger:county": "Walworth, WI",
-            "tiger:name_base": "State Highway 36",
-            "tiger:name_base_1": "State Road 36",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53105",
-            "tiger:zip_right": "53105"
-          },
-          "url": "https://www.openstreetmap.org/way/240874972"
+          "url": "https://www.openstreetmap.org/node/951074983"
         }
-      ],
-      "queried": true
+      ]
+    },
+    {
+      "routeId": "maumee-river-niagara-kreager",
+      "endpoint": "takeOut",
+      "endpointName": "Kreager Park / North River Road Boat Ramp",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "colorado-river-lost-pines-riverbend-park",
+      "endpoint": "accessPoint",
+      "endpointName": "Loop 230 / Highway 95 Bridge access",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "blackfoot-river-government-dam-cutthroat",
+      "endpoint": "takeOut",
+      "endpointName": "Cutthroat Trout Campground Take-Out",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "blackfoot-river-cutthroat-trail-creek",
+      "endpoint": "putIn",
+      "endpointName": "Cutthroat Trout Campground Put-In",
+      "queried": false,
+      "features": []
     },
     {
       "routeId": "vermilion-river-schoepfle-mill-hollow",
@@ -4037,186 +4327,25 @@
       "queried": true
     },
     {
-      "routeId": "sheboygan-river-johnsonville-dassow",
-      "endpoint": "accessPoint",
-      "endpointName": "Highway M bridge access",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 147693904,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.776442,
-          "longitude": -87.9136068,
-          "distanceFromCurrentFeet": 993.0832602632402,
-          "distanceFromMatchedRiverPointFeet": 1792.806557680061,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "Woodland",
-            "tiger:name_type": "Rd",
-            "tiger:reviewed": "no",
-            "tiger:separated": "no",
-            "tiger:source": "tiger_import_dch_v0.6_20070830",
-            "tiger:tlid": "79491450:79491109",
-            "tiger:upload_uuid": "bulk_upload.pl-017ae6d7-f9ee-49df-83cc-3b91a37ad20d",
-            "tiger:zip_left": "53085",
-            "tiger:zip_right": "53073"
-          },
-          "url": "https://www.openstreetmap.org/way/147693904"
-        },
-        {
-          "osmType": "way",
-          "osmId": 147693930,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.7703896,
-          "longitude": -87.9090906,
-          "distanceFromCurrentFeet": 1686.8370276237395,
-          "distanceFromMatchedRiverPointFeet": 1773.9645961474337,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "tiger:cfcc": "A49",
-            "tiger:county": "Sheboygan, WI",
-            "tiger:name_base": "Rio",
-            "tiger:name_type": "Rd",
-            "tiger:reviewed": "no",
-            "tiger:source": "tiger_import_dch_v0.6_20070830",
-            "tiger:tlid": "79521050",
-            "tiger:upload_uuid": "bulk_upload.pl-017ae6d7-f9ee-49df-83cc-3b91a37ad20d"
-          },
-          "url": "https://www.openstreetmap.org/way/147693930"
-        },
-        {
-          "osmType": "way",
-          "osmId": 307251496,
-          "kind": "road-bridge",
-          "name": "County Road M",
-          "latitude": 43.7799347,
-          "longitude": -87.9011458,
-          "distanceFromCurrentFeet": 3073.2492671856967,
-          "distanceFromMatchedRiverPointFeet": 2376.588116610639,
-          "tags": {
-            "bridge": "yes",
-            "highway": "tertiary",
-            "layer": "1",
-            "name": "County Road M",
-            "ref": "CTH M"
-          },
-          "url": "https://www.openstreetmap.org/way/307251496"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "la-crosse-river-highway-108-veterans",
-      "endpoint": "accessPoint",
-      "endpointName": "County M former-dam ledge",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 576151926,
-          "kind": "road-bridge",
-          "name": "County Highway M",
-          "latitude": 43.9065264,
-          "longitude": -91.1014358,
-          "distanceFromCurrentFeet": 1080.4295464792824,
-          "distanceFromMatchedRiverPointFeet": 241.19747326082464,
-          "tags": {
-            "alt_name": "County Highway M",
-            "bridge": "yes",
-            "highway": "tertiary",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "55 mph",
-            "name": "County Highway M",
-            "oneway": "no",
-            "ref": "CTH M",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/576151926"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "plover-river-hwy-k-jordan-park",
-      "endpoint": "accessPoint",
-      "endpointName": "Sharonwood Lane access option",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 362230709,
-          "kind": "road-bridge",
-          "name": "Sharonwood Lane",
-          "latitude": 44.5887506,
-          "longitude": -89.4880134,
-          "distanceFromCurrentFeet": 2700.755723497909,
-          "distanceFromMatchedRiverPointFeet": 2149.6897105074013,
-          "tags": {
-            "bridge": "yes",
-            "highway": "unclassified",
-            "layer": "1",
-            "name": "Sharonwood Lane",
-            "surface": "concrete"
-          },
-          "url": "https://www.openstreetmap.org/way/362230709"
-        }
-      ],
-      "queried": true
-    },
-    {
-      "routeId": "winnebago-river-fertile-mason-city",
+      "routeId": "kishwaukee-river-marengo-siems-hwy23",
       "endpoint": "putIn",
-      "endpointName": "William Rhodes Island Park below-dam access",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 1227703678,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.2634365,
-          "longitude": -93.4198762,
-          "distanceFromCurrentFeet": 1440.408534899726,
-          "distanceFromMatchedRiverPointFeet": 825.7438780015523,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/1227703678"
-        },
-        {
-          "osmType": "way",
-          "osmId": 253914729,
-          "kind": "road-bridge",
-          "name": "South 1st Street",
-          "latitude": 43.2630449,
-          "longitude": -93.4182344,
-          "distanceFromCurrentFeet": 1873.041090973692,
-          "distanceFromMatchedRiverPointFeet": 1279.8777002502102,
-          "tags": {
-            "bridge": "yes",
-            "highway": "secondary",
-            "layer": "1",
-            "name": "South 1st Street",
-            "ref": "CR S18",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Worth, IA",
-            "tiger:name_base": "1st",
-            "tiger:name_direction_prefix": "S",
-            "tiger:name_type": "St",
-            "tiger:reviewed": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/253914729"
-        }
-      ],
-      "queried": true
+      "endpointName": "Woodbine Launch",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "niobrara-river-fort-niobrara-smith-falls",
+      "endpoint": "takeOut",
+      "endpointName": "Nichols Landing, Smith Falls State Park",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "kalamazoo-river-comstock-mayors-riverfront",
+      "endpoint": "takeOut",
+      "endpointName": "Mayor's Riverfront Park Boat Launch",
+      "queried": false,
+      "features": []
     },
     {
       "routeId": "cedar-creek-cedarburg-mill-cth-t",
@@ -4457,532 +4586,52 @@
       "queried": true
     },
     {
-      "routeId": "bark-river-bark-river-park-delafield",
-      "endpoint": "accessPoint",
-      "endpointName": "Nixon Park / East Park Avenue",
-      "features": [
-        {
-          "osmType": "way",
-          "osmId": 929053455,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1056428,
-          "longitude": -88.3455642,
-          "distanceFromCurrentFeet": 788.1672062288826,
-          "distanceFromMatchedRiverPointFeet": 249.0467456995391,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929053455"
-        },
-        {
-          "osmType": "way",
-          "osmId": 929053489,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1070798,
-          "longitude": -88.3452386,
-          "distanceFromCurrentFeet": 989.3681648861827,
-          "distanceFromMatchedRiverPointFeet": 286.61041144661135,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929053489"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137831,
-          "kind": "road-bridge",
-          "name": "Lawn Street",
-          "latitude": 43.1071222,
-          "longitude": -88.34517,
-          "distanceFromCurrentFeet": 988.4623183826988,
-          "distanceFromMatchedRiverPointFeet": 303.4086561653002,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "Lawn Street",
-            "sidewalk": "left",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Lawn",
-            "tiger:name_type": "St",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53029",
-            "tiger:zip_right": "53029"
-          },
-          "url": "https://www.openstreetmap.org/way/996137831"
-        },
-        {
-          "osmType": "way",
-          "osmId": 929053685,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1071714,
-          "longitude": -88.3450955,
-          "distanceFromCurrentFeet": 989.0135277537123,
-          "distanceFromMatchedRiverPointFeet": 323.8103623257648,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929053685"
-        },
-        {
-          "osmType": "way",
-          "osmId": 421063416,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1051508,
-          "longitude": -88.3464118,
-          "distanceFromCurrentFeet": 988.823417477384,
-          "distanceFromMatchedRiverPointFeet": 513.6512656908621,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "path",
-            "layer": "1",
-            "segregated": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/421063416"
-        },
-        {
-          "osmType": "way",
-          "osmId": 929053505,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1046911,
-          "longitude": -88.3468127,
-          "distanceFromCurrentFeet": 1105.5452212162409,
-          "distanceFromMatchedRiverPointFeet": 712.2492888124141,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929053505"
-        },
-        {
-          "osmType": "way",
-          "osmId": 187820021,
-          "kind": "road-bridge",
-          "name": "East Capitol Drive",
-          "latitude": 43.1046055,
-          "longitude": -88.3468311,
-          "distanceFromCurrentFeet": 1115.0270435225814,
-          "distanceFromMatchedRiverPointFeet": 740.8267635477891,
-          "tags": {
-            "bridge": "yes",
-            "highway": "secondary",
-            "layer": "1",
-            "name": "East Capitol Drive",
-            "name:etymology:wikidata": "Q2915273",
-            "name:etymology:wikipedia": "en:Wisconsin State Capitol",
-            "old_name": "County Highway E",
-            "old_ref": "CTH E",
-            "sidewalk": "both",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Capitol",
-            "tiger:name_direction_prefix": "E",
-            "tiger:name_type": "Dr",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53029",
-            "tiger:zip_right": "53029"
-          },
-          "url": "https://www.openstreetmap.org/way/187820021"
-        },
-        {
-          "osmType": "way",
-          "osmId": 929057406,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1045356,
-          "longitude": -88.3468525,
-          "distanceFromCurrentFeet": 1125.0395675116688,
-          "distanceFromMatchedRiverPointFeet": 765.2632278462096,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929057406"
-        },
-        {
-          "osmType": "way",
-          "osmId": 929057409,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1039605,
-          "longitude": -88.3467205,
-          "distanceFromCurrentFeet": 1148.7405996551536,
-          "distanceFromMatchedRiverPointFeet": 933.2278067243075,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/929057409"
-        },
-        {
-          "osmType": "way",
-          "osmId": 187820027,
-          "kind": "road-bridge",
-          "name": "Haight Drive",
-          "latitude": 43.1039157,
-          "longitude": -88.3466938,
-          "distanceFromCurrentFeet": 1148.1639278603693,
-          "distanceFromMatchedRiverPointFeet": 945.3274080421353,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "Haight Drive",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Haight",
-            "tiger:name_type": "Dr",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53029",
-            "tiger:zip_right": "53029"
-          },
-          "url": "https://www.openstreetmap.org/way/187820027"
-        },
-        {
-          "osmType": "way",
-          "osmId": 928883658,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1038723,
-          "longitude": -88.3466595,
-          "distanceFromCurrentFeet": 1145.8008156000972,
-          "distanceFromMatchedRiverPointFeet": 956.3591936355203,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/928883658"
-        },
-        {
-          "osmType": "way",
-          "osmId": 421063415,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1092913,
-          "longitude": -88.3436658,
-          "distanceFromCurrentFeet": 1550.5432716380851,
-          "distanceFromMatchedRiverPointFeet": 1175.3910971998275,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "path",
-            "layer": "1",
-            "segregated": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/421063415"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1167641089,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1096288,
-          "longitude": -88.3455743,
-          "distanceFromCurrentFeet": 1820.9269486208295,
-          "distanceFromMatchedRiverPointFeet": 1218.6143831512097,
-          "tags": {
-            "bridge": "yes",
-            "hgv": "designated",
-            "hgv:national_network": "yes",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "65 mph",
-            "old_ref": "US 16",
-            "oneway": "yes",
-            "ref": "WI 16",
-            "source:hgv:national_network": "https://www.ecfr.gov/current/title-23/chapter-I/subchapter-G/part-658;https://hepgis-usdot.hub.arcgis.com/apps/usdot::national-network-conventional-combination-trucks-map",
-            "source:maxspeed": "sign",
-            "tiger:reviewed": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/1167641089"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1167641088,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1098699,
-          "longitude": -88.3454659,
-          "distanceFromCurrentFeet": 1889.6509191842117,
-          "distanceFromMatchedRiverPointFeet": 1305.0440711318972,
-          "tags": {
-            "bridge": "yes",
-            "hgv": "designated",
-            "hgv:national_network": "yes",
-            "highway": "motorway",
-            "lanes": "2",
-            "layer": "1",
-            "maxspeed": "65 mph",
-            "old_ref": "US 16",
-            "oneway": "yes",
-            "ref": "WI 16",
-            "source:hgv:national_network": "https://www.ecfr.gov/current/title-23/chapter-I/subchapter-G/part-658;https://hepgis-usdot.hub.arcgis.com/apps/usdot::national-network-conventional-combination-trucks-map",
-            "source:maxspeed": "sign",
-            "tiger:reviewed": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/1167641088"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137829,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1027563,
-          "longitude": -88.3470367,
-          "distanceFromCurrentFeet": 1437.1343585496559,
-          "distanceFromMatchedRiverPointFeet": 1372.4321300120644,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/996137829"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137826,
-          "kind": "road-bridge",
-          "name": "East Park Avenue",
-          "latitude": 43.1027074,
-          "longitude": -88.3470739,
-          "distanceFromCurrentFeet": 1455.7369495432272,
-          "distanceFromMatchedRiverPointFeet": 1392.5795045197854,
-          "tags": {
-            "bridge": "yes",
-            "highway": "residential",
-            "layer": "1",
-            "name": "East Park Avenue",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Park",
-            "tiger:name_direction_prefix": "E",
-            "tiger:name_type": "Ave",
-            "tiger:reviewed": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/996137826"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137824,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1026726,
-          "longitude": -88.3470803,
-          "distanceFromCurrentFeet": 1464.74228953016,
-          "distanceFromMatchedRiverPointFeet": 1405.0964969711372,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/996137824"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137822,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1014232,
-          "longitude": -88.3473536,
-          "distanceFromCurrentFeet": 1826.3896712311548,
-          "distanceFromMatchedRiverPointFeet": 1860.5259199770123,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1",
-            "surface": "unpaved"
-          },
-          "url": "https://www.openstreetmap.org/way/996137822"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137820,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1005458,
-          "longitude": -88.3474155,
-          "distanceFromCurrentFeet": 2082.7956052340837,
-          "distanceFromMatchedRiverPointFeet": 2172.610365755361,
-          "tags": {
-            "bridge": "yes",
-            "highway": "footway",
-            "layer": "1",
-            "surface": "unpaved"
-          },
-          "url": "https://www.openstreetmap.org/way/996137820"
-        },
-        {
-          "osmType": "way",
-          "osmId": 996137818,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1003819,
-          "longitude": -88.3475998,
-          "distanceFromCurrentFeet": 2160.100525510327,
-          "distanceFromMatchedRiverPointFeet": 2243.3638433400174,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "path",
-            "layer": "1",
-            "segregated": "no"
-          },
-          "url": "https://www.openstreetmap.org/way/996137818"
-        },
-        {
-          "osmType": "way",
-          "osmId": 168635548,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1124829,
-          "longitude": -88.3419311,
-          "distanceFromCurrentFeet": 2701.1801041539647,
-          "distanceFromMatchedRiverPointFeet": 2428.04889634971,
-          "tags": {
-            "bicycle": "designated",
-            "bridge": "yes",
-            "foot": "designated",
-            "highway": "path",
-            "layer": "1",
-            "segregated": "no",
-            "surface": "asphalt"
-          },
-          "url": "https://www.openstreetmap.org/way/168635548"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1167641091,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1095916,
-          "longitude": -88.3334024,
-          "distanceFromCurrentFeet": 2969.4078962160165,
-          "distanceFromMatchedRiverPointFeet": 3386.375577566673,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/1167641091"
-        },
-        {
-          "osmType": "way",
-          "osmId": 352641632,
-          "kind": "road-bridge",
-          "name": "Merton Avenue",
-          "latitude": 43.1095936,
-          "longitude": -88.3333466,
-          "distanceFromCurrentFeet": 2982.2143898443496,
-          "distanceFromMatchedRiverPointFeet": 3400.530758675641,
-          "tags": {
-            "alt_name": "County Highway KC",
-            "bridge": "yes",
-            "highway": "secondary",
-            "layer": "1",
-            "name": "Merton Avenue",
-            "oneway": "yes",
-            "ref": "CTH KC",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Merton",
-            "tiger:name_type": "Ave",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53029",
-            "tiger:zip_right": "53029"
-          },
-          "url": "https://www.openstreetmap.org/way/352641632"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1167641092,
-          "kind": "road-bridge",
-          "name": "Merton Avenue",
-          "latitude": 43.1095898,
-          "longitude": -88.3332305,
-          "distanceFromCurrentFeet": 3007.338555148054,
-          "distanceFromMatchedRiverPointFeet": 3428.9833230268964,
-          "tags": {
-            "alt_name": "County Highway KC",
-            "bridge": "yes",
-            "highway": "secondary",
-            "layer": "1",
-            "name": "Merton Avenue",
-            "oneway": "yes",
-            "ref": "CTH KC",
-            "tiger:cfcc": "A41",
-            "tiger:county": "Waukesha, WI",
-            "tiger:name_base": "Merton",
-            "tiger:name_type": "Ave",
-            "tiger:reviewed": "no",
-            "tiger:zip_left": "53029",
-            "tiger:zip_right": "53029"
-          },
-          "url": "https://www.openstreetmap.org/way/1167641092"
-        },
-        {
-          "osmType": "way",
-          "osmId": 1167641093,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.1095957,
-          "longitude": -88.3331664,
-          "distanceFromCurrentFeet": 3022.838215031839,
-          "distanceFromMatchedRiverPointFeet": 3445.7291362772303,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway",
-            "layer": "1"
-          },
-          "url": "https://www.openstreetmap.org/way/1167641093"
-        },
-        {
-          "osmType": "way",
-          "osmId": 928437570,
-          "kind": "road-bridge",
-          "name": null,
-          "latitude": 43.0961968,
-          "longitude": -88.3469899,
-          "distanceFromCurrentFeet": 3443.186874296048,
-          "distanceFromMatchedRiverPointFeet": 3711.7810660207892,
-          "tags": {
-            "bridge": "yes",
-            "footway": "sidewalk",
-            "highway": "footway"
-          },
-          "url": "https://www.openstreetmap.org/way/928437570"
-        }
-      ],
-      "queried": true
+      "routeId": "platte-river-honor-upper",
+      "endpoint": "putIn",
+      "endpointName": "Platte River State Forest Campground river access",
+      "queried": false,
+      "features": []
     },
     {
       "routeId": "loup-river-george-syas-monroe",
       "endpoint": "putIn",
       "endpointName": "George D. Syas WMA fishing access",
       "queried": true,
+      "features": []
+    },
+    {
+      "routeId": "erie-canal-baldwinsville-three-rivers",
+      "endpoint": "accessPoint",
+      "endpointName": "Onondaga Lake Outlet Launch",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "erie-canal-sylvan-beach",
+      "endpoint": "accessPoint",
+      "endpointName": "Squires Landing Public Access",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "erie-canal-freemans-bridge-lock-e7",
+      "endpoint": "accessPoint",
+      "endpointName": "Aqueduct Park",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "erie-canal-lock-e7-waterford-flight-south",
+      "endpoint": "takeOut",
+      "endpointName": "Freddie’s Park",
+      "queried": false,
+      "features": []
+    },
+    {
+      "routeId": "erie-canal-lock-e7-waterford-flight-south",
+      "endpoint": "accessPoint",
+      "endpointName": "Niskayuna Lions Park",
+      "queried": false,
       "features": []
     }
   ]

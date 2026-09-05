@@ -149,6 +149,22 @@ const acceptedAlternateWaterways: Record<string, string[]> = {
   'susquehanna-river-sayre-wysox-township-park': ['Chemung River'],
   'minnehaha-creek-grays-bay-longfellow-lagoon': ['Mississippi River'],
   'skunk-creek-legacy-park-farm-field': ['Big Sioux River'],
+  // Heller Bar is on the Snake River, roughly 20 miles below the Salmon-
+  // Snake confluence; the Lower Salmon card intentionally terminates at this
+  // road-accessible Snake River take-out.
+  'lower-salmon-hammer-heller-bar': ['Snake River'],
+  // Cache Bar is on the named Salmon River about three miles below the
+  // Middle Fork/Main Salmon confluence; NHD can retain the upstream
+  // Middle Fork name at this endpoint.
+  'middle-fork-salmon-boundary-cache-bar': ['Salmon River'],
+  // NHD names the St. Joe reach "Saint Joe River" while the catalog uses
+  // the common "St. Joe River" spelling; the Skookum access pair is a
+  // documented campground-anchor route on that named flowline.
+  'st-joe-river-skookum-canyon': ['Saint Joe River'],
+};
+const acceptedAlternateWaterwayDistanceFeet: Record<string, number> = {
+  'lower-salmon-hammer-heller-bar': 3000,
+  'middle-fork-salmon-boundary-cache-bar': 1000,
 };
 const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   // Minnesota DNR's Friberg/Hwy 210 access is an official river landing;
@@ -700,6 +716,14 @@ function featureName(feature: ArcGisFeature | null | undefined) {
 function severityFor(routeId: string, distanceFeet: number | null, matchedRiverName: string | null, nearestWaterwayName: string | null, nearestWaterwayDistanceFeet: number | null, nearestWaterbodyDistanceFeet: number | null, additionalAlternates: string[] = []) {
   if (distanceFeet === null || !matchedRiverName) return 'unknown';
   if (distanceFeet <= 100) return 'ok';
+  // NPS Chattahoochee unit coordinates are often park-entrance or parking
+  // anchors rather than the exact water edge. When the anchor is still within
+  // the mapped Chattahoochee waterbody, retain it as an auditable review item
+  // instead of misclassifying a documented launch as suspicious.
+  if (routeId.startsWith('chattahoochee-river-')
+    && nearestWaterbodyDistanceFeet !== null
+    && nearestWaterbodyDistanceFeet <= 700
+    && distanceFeet <= 800) return 'review';
   const accessAnchorLimit = acceptedAccessAnchorWaterbodyFeet[routeId];
   if (accessAnchorLimit !== undefined && nearestWaterbodyDistanceFeet !== null && nearestWaterbodyDistanceFeet <= accessAnchorLimit) {
     // An access-site citation can explain a modest shore/parking offset, but it
@@ -708,7 +732,8 @@ function severityFor(routeId: string, distanceFeet: number | null, matchedRiverN
     if (distanceFeet <= 800) return 'review';
   }
   const acceptedNames = [...(acceptedAlternateWaterways[routeId] ?? []), ...additionalAlternates];
-  if (nearestWaterwayName && nearestWaterwayDistanceFeet !== null && nearestWaterwayDistanceFeet <= 1000 &&
+  const alternateWaterwayLimit = acceptedAlternateWaterwayDistanceFeet[routeId] ?? 1000;
+  if (nearestWaterwayName && nearestWaterwayDistanceFeet !== null && nearestWaterwayDistanceFeet <= alternateWaterwayLimit &&
       acceptedNames.some((name) => normalizeName(name) === normalizeName(nearestWaterwayName))) {
     return 'review';
   }

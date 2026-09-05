@@ -11,7 +11,7 @@ import type {
   WeekendSummaryApiItem,
   WeekendSummaryResponse,
 } from '@paddletoday/api-contract';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { queryOptions, useMutation, useQuery } from '@tanstack/react-query';
 import { apiClient } from './client';
 
 export const riverQueryKeys = {
@@ -24,9 +24,10 @@ export const riverQueryKeys = {
   community: (slug: string) => ['river-community', slug] as const,
 };
 
-export function useRiverSummaryQuery() {
+export function useRiverSummaryQuery(enabled = true) {
   return useQuery({
     queryKey: riverQueryKeys.summary,
+    enabled,
     queryFn: ({ signal }) => apiClient.getSummary({ signal }),
     select: dedupeRiverSummaryResponse,
     retry: false,
@@ -34,8 +35,8 @@ export function useRiverSummaryQuery() {
   });
 }
 
-export function useRiverDetailQuery(slug: string) {
-  return useQuery({
+export function riverDetailQueryOptions(slug: string) {
+  return queryOptions({
     queryKey: riverQueryKeys.detail(slug),
     enabled: Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRiverDetail(slug, { signal }),
@@ -43,8 +44,12 @@ export function useRiverDetailQuery(slug: string) {
   });
 }
 
-export function useRiverGroupQuery(riverId: string) {
-  return useQuery({
+export function useRiverDetailQuery(slug: string) {
+  return useQuery(riverDetailQueryOptions(slug));
+}
+
+export function riverGroupQueryOptions(riverId: string) {
+  return queryOptions({
     queryKey: riverQueryKeys.group(riverId),
     enabled: Boolean(riverId),
     queryFn: ({ signal }) => apiClient.getRiverGroup(riverId, { signal }),
@@ -52,10 +57,14 @@ export function useRiverGroupQuery(riverId: string) {
   });
 }
 
-export function useRiverHistoryQuery(slug: string, days = 7) {
+export function useRiverGroupQuery(riverId: string, enabled = true) {
+  return useQuery({ ...riverGroupQueryOptions(riverId), enabled: enabled && Boolean(riverId) });
+}
+
+export function useRiverHistoryQuery(slug: string, days = 7, enabled = true) {
   return useQuery({
     queryKey: riverQueryKeys.history(slug, days),
-    enabled: Boolean(slug),
+    enabled: enabled && Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRiverHistory(slug, { days, signal }),
     staleTime: 30 * 60 * 1000,
   });
@@ -70,10 +79,10 @@ export function useWeekendSummaryQuery() {
   });
 }
 
-export function useRouteCommunityQuery(slug: string) {
+export function useRouteCommunityQuery(slug: string, enabled = true) {
   return useQuery({
     queryKey: riverQueryKeys.community(slug),
-    enabled: Boolean(slug),
+    enabled: enabled && Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRouteCommunity(slug, { signal }),
     staleTime: 15 * 60 * 1000,
   });
@@ -97,10 +106,10 @@ export function useUpdateAreaNotificationSubscriptionMutation() {
   });
 }
 
-export function useRiverGeometryQuery(slug: string) {
+export function useRiverGeometryQuery(slug: string, enabled = true) {
   return useQuery({
     queryKey: riverQueryKeys.geometry(slug),
-    enabled: Boolean(slug),
+    enabled: enabled && Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRiverGeometry(slug, { signal }),
     staleTime: 24 * 60 * 60 * 1000,
     gcTime: 7 * 24 * 60 * 60 * 1000,

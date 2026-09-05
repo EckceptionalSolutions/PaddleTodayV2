@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { hasQualifyingGauge } from '../../data/route-publication';
 import { getOperationsSnapshot } from '../../lib/operations';
+import { listRiverStateGroups } from '../../lib/rivers';
 
 const snapshot = getOperationsSnapshot();
 const laneLabels = [
@@ -12,6 +14,63 @@ const laneLabels = [
   ['completed', 'Completed'],
 ] as const;
 const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.tasks.filter((item) => item.lane === task.lane)]));
+const stateGroups = listRiverStateGroups();
+const stateGroupsById = new Map(stateGroups.map((state) => [state.name, state]));
+const coverageMapData = snapshot.stateResearchRanking
+  .map((state) => {
+    const stateGroup = stateGroupsById.get(state.name);
+    const gauge = state.gaugeCoverage;
+    const publicRoutes = stateGroup?.routeCount ?? state.scored;
+    return {
+      id: state.id,
+      name: state.name,
+      publicRoutes,
+      liveRoutes: state.scored,
+      planningRoutes: Math.max(0, publicRoutes - state.scored),
+      riverFamilies: gauge.routeFamilyCount || stateGroup?.riverCount || 0,
+      gauge: gauge.routeCapableGaugeCount > 0
+        ? {
+            covered: gauge.coveredGaugeCount,
+            routeCapable: gauge.routeCapableGaugeCount,
+            percent: gauge.routeCoveragePercent,
+            baselineComplete: gauge.baselineComplete,
+          }
+        : null,
+      reviewPercent: gauge.reviewCoveragePercent,
+      researchStatus: state.researchStatus,
+      discoveryComplete: state.discoveryComplete,
+      routeExpansionStatus: state.routeExpansionStatus,
+      frontierLabel: state.frontierLabel,
+      statePageHref: publicRoutes > 0
+        ? `/states/${state.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`
+        : null,
+    };
+  })
+  .concat(
+    stateGroups
+      .filter((stateGroup) => !snapshot.stateResearchRanking.some((state) => state.name === stateGroup.name))
+      .map((stateGroup) => ({
+        id: stateGroup.name
+          .split(/\s+/)
+          .map((part) => part[0])
+          .join('')
+          .slice(0, 2)
+          .toUpperCase(),
+        name: stateGroup.name,
+        publicRoutes: stateGroup.routeCount,
+        liveRoutes: stateGroup.routes.filter((route) => hasQualifyingGauge(route)).length,
+        planningRoutes: stateGroup.routes.filter((route) => !hasQualifyingGauge(route)).length,
+        riverFamilies: stateGroup.riverCount,
+        gauge: null,
+        reviewPercent: 0,
+        researchStatus: 'gauge_baseline_pending',
+        discoveryComplete: false,
+        routeExpansionStatus: 'more_routes_possible',
+        frontierLabel: 'Not in gauge baseline',
+        statePageHref: stateGroup.routeCount > 0 ? `/states/${stateGroup.slug}/` : null,
+      }))
+  );
+const coverageMapDataJson = JSON.stringify(coverageMapData).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout
@@ -144,6 +203,45 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
           <article class="snapshot-card"><span class="snapshot-card__label">Existing-route gaps</span><strong>{snapshot.totals.existingRouteGapGauges}</strong><small>Gauge integration, not duplicate routes</small></article>
           <article class="snapshot-card"><span class="snapshot-card__label">Deferred</span><strong>{snapshot.totals.deferredGauges}</strong><small>Explicit retry condition</small></article>
         </div>
+        <section class="admin-coverage-map" data-admin-coverage-map aria-labelledby="admin-coverage-map-title">
+          <div class="admin-coverage-map__head">
+            <div>
+              <p class="eyebrow">State footprint</p>
+              <h3 id="admin-coverage-map-title">Paddle Today coverage at a glance</h3>
+            </div>
+            <p class="muted">Click a state for route depth, gauge coverage, and the next research signal.</p>
+          </div>
+          <div class="admin-coverage-map__layout">
+            <div class="admin-coverage-map__map-shell">
+              <div class="admin-coverage-map__map" data-admin-coverage-map-container role="img" aria-label="United States state coverage map"></div>
+              <p class="muted admin-coverage-map__status" data-admin-coverage-map-status aria-live="polite">Map loads after admin sign-in.</p>
+              <div class="admin-coverage-map__legend" aria-label="Map legend">
+                <span class="admin-coverage-map__legend-title">Public route reaches</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--low"></i>1–10</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--mid"></i>11–25</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--high"></i>26–75</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--max"></i>76–150</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--ultra"></i>151+</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--open"></i>Dashed outline: research open</span>
+                <span><i class="admin-coverage-map__swatch admin-coverage-map__swatch--empty"></i>No public routes</span>
+              </div>
+            </div>
+            <aside class="admin-coverage-map__detail" data-admin-coverage-map-detail aria-live="polite">
+              <p class="eyebrow">Selected state</p>
+              <h4 data-admin-coverage-map-detail-name>Choose a state</h4>
+              <p class="muted" data-admin-coverage-map-detail-summary>Hover for a quick read; click to pin details here.</p>
+              <dl class="admin-coverage-map__detail-metrics">
+                <div><dt>Gauge coverage</dt><dd data-admin-coverage-map-detail-gauge>—</dd></div>
+                <div><dt>Public route reaches</dt><dd data-admin-coverage-map-detail-routes>—</dd></div>
+                <div><dt>Research status</dt><dd data-admin-coverage-map-detail-status>—</dd></div>
+              </dl>
+              <p class="muted" data-admin-coverage-map-detail-note></p>
+              <a class="river-inline-button" data-admin-coverage-map-detail-link hidden>Open state page</a>
+            </aside>
+          </div>
+          <p class="muted admin-coverage-map__note">The fill shows the public route footprint, including reviewed planning reaches. A solid outline means the current research pass is complete; a dashed outline means discovery or gauge-baseline work remains. Gauge coverage stays available in the detail panel as a supporting signal.</p>
+          <script type="application/json" data-admin-coverage-map-data set:html={coverageMapDataJson}></script>
+        </section>
         <div class="operations-table-wrap"><table class="operations-table"><thead><tr><th>State</th><th>Frontier</th><th>Known gauges</th><th>Eligible reviewed</th><th>Published routes</th><th>Current opportunity</th><th>Discovery</th><th>Status</th></tr></thead><tbody>
           {snapshot.stateResearchRanking.map((state) => <tr class={state.id === snapshot.policy.activeFrontierState ? 'operations-table__focus' : undefined}><th scope="row">{state.name}</th><td>{state.frontierLabel}</td><td>{state.gaugeCoverage.knownGaugeCount}</td><td>{state.gaugeCoverage.reviewedGaugeCount} / {state.gaugeCoverage.eligibleGaugeCount} ({state.gaugeCoverage.reviewCoveragePercent}%)</td><td>{state.gaugeCoverage.coveredGaugeCount} / {state.gaugeCoverage.routeCapableGaugeCount} ({state.gaugeCoverage.routeCoveragePercent}%)</td><td><span class={`operations-pill operations-pill--${state.routeExpansionStatus}`}>{state.routeExpansionStatus === 'no_current_route' ? 'no current route' : state.routeExpansionStatus.replaceAll('_', ' ')}</span><small>{state.routeExpansionStatus === 'more_routes_possible' ? `${state.routeExpansionGaugeCount} unresolved gauges` : state.routeExpansionStatus === 'no_current_route' ? `${state.routeExpansionBlockedGaugeCount} blocked or stale` : 'all route-capable gauges covered'}</small></td><td>{state.discoveryComplete ? 'complete' : 'required'}</td><td><span class={`operations-pill operations-pill--${state.researchStatus}`}>{state.researchStatus.replaceAll('_', ' ')}</span></td></tr>)}
         </tbody></table></div>
@@ -186,5 +284,6 @@ const taskLanes = new Map(snapshot.tasks.map((task) => [task.lane, snapshot.task
   </main>
   <script>
     import '../../scripts/operations-page.js';
+    import '../../scripts/admin-coverage-map.js';
   </script>
 </BaseLayout>
