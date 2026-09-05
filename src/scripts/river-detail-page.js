@@ -35,6 +35,9 @@ import {
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
+import { buildRoutePlannerHref } from '../lib/route-segments.ts';
+
+const SCORING_DECISION_POLICY_REVISION = 'publication-scoring-2026-09-04';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -81,6 +84,8 @@ const accessShape = root.querySelector('[data-access-shape]');
 const accessTime = root.querySelector('[data-access-time]');
 const accessStage = root.querySelector('[data-access-stage]');
 const accessShuttle = root.querySelector('[data-access-shuttle]');
+const overviewDistance = root.querySelector('[data-overview-distance]');
+const overviewTime = root.querySelector('[data-overview-time]');
 const accessNote = root.querySelector('[data-access-note]');
 const accessSummary = root.querySelector('[data-access-summary]');
 const accessPutInLink = root.querySelector('[data-access-putin-link]');
@@ -116,6 +121,7 @@ const shareFacebookLink = root.querySelector('[data-share-facebook]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
+const favoriteButton = root.querySelector('[data-favorite-button]');
 const routeGallery = root.querySelector('[data-route-gallery]');
 const routeGalleryViewer = root.querySelector('[data-route-gallery-viewer]');
 const routeGalleryPending = root.querySelector('[data-route-gallery-pending]');
@@ -246,16 +252,20 @@ let approvedRoutePhotos = parseApprovedRoutePhotos(routeGallery instanceof HTMLE
 let selectedRoutePhotoFiles = [];
 let submittedRoutePhotoPreviews = [];
 
+const isPlanningRoute = root.dataset.routeScoreEligibility === 'planning';
+
 function routeAnalyticsProperties(extra = {}) {
   return {
     route: slug,
     river: riverContext.name,
     state: riverContext.state,
     region: riverContext.region,
+    score_eligibility: isPlanningRoute ? 'planning' : 'scored',
+    readiness: latestResult?.readiness?.status,
+    live_data_overall: latestResult?.liveData?.overall,
     ...extra,
   };
 }
-const isPlanningRoute = root.dataset.routeScoreEligibility === 'planning';
 
 function plannerAnalyticsProperties(extra = {}) {
   const distanceMatch = String(activeAccessContext.distanceLabel || '').match(/(\d+(?:\.\d+)?)/);
@@ -277,7 +287,7 @@ function setText(field, value) {
 
 function updateAlertCtaCopy(result) {
   const rating = result?.rating;
-  const isCurrentlyGood = !hasHardSkip(result) && (rating === 'Strong' || rating === 'Good');
+  const isCurrentlyGood = currentCallReadiness(result) !== 'withheld' && !hasHardSkip(result) && (rating === 'Strong' || rating === 'Good');
   const title = isCurrentlyGood ? 'Stay ahead of changes' : 'Know when it improves';
   const copy = isCurrentlyGood
     ? 'Get emailed when this route newly crosses your alert threshold.'
@@ -1177,6 +1187,7 @@ function bindRouteReportForm() {
 
     setRouteReportSubmitting(true);
     setRouteReportStatus(reportFiles.length > 0 ? `Sending condition report with ${reportFiles.length} photo${reportFiles.length === 1 ? '' : 's'}...` : 'Sending condition report...');
+    const evidenceAgeMinutes = evidenceAgeMinutesAtDecision(latestResult);
 
     try {
       const files = await Promise.all(
@@ -1200,6 +1211,10 @@ function bindRouteReportForm() {
         scoringOutcome: {
           schemaVersion: 1,
           ...(latestResult?.generatedAt ? { decisionCapturedAt: latestResult.generatedAt } : {}),
+          decisionPolicyRevision: SCORING_DECISION_POLICY_REVISION,
+          ...(evidenceAgeMinutes !== null
+            ? { evidenceAgeMinutes }
+            : {}),
           ...(typeof latestResult?.score === 'number' ? { appScore: latestResult.score } : {}),
           ...(latestResult?.rating ? { appRating: latestResult.rating } : {}),
           ...(typeof latestResult?.confidence?.score === 'number' ? { appConfidence: latestResult.confidence.score } : {}),
@@ -1489,6 +1504,17 @@ function setupDetailSectionNav() {
   syncActiveDetailSection();
 }
 
+function evidenceAgeMinutesAtDecision(result) {
+  if (!result || typeof result.generatedAt !== 'string') return null;
+  const decisionAt = Date.parse(result.generatedAt);
+  if (!Number.isFinite(decisionAt)) return null;
+  const observedTimes = [result.gauge?.observedAt, result.weather?.observedAt]
+    .map((value) => typeof value === 'string' ? Date.parse(value) : NaN)
+    .filter((value) => Number.isFinite(value));
+  if (observedTimes.length === 0) return null;
+  return Math.min(7 * 24 * 60, Math.max(0, Math.round((decisionAt - Math.min(...observedTimes)) / 60000)));
+}
+
 function setupDetailJumpLinks() {
   if (detailJumpLinks.length === 0 || detailSections.length === 0) {
     return;
@@ -1556,7 +1582,7 @@ function isDataLimitedNoGo(result) {
 function decisionLabel(input) {
   const rating = typeof input === 'string' ? input : input?.rating;
   if (typeof input !== 'string') {
-    const readiness = input?.readiness?.status ?? (isDataLimitedNoGo(input) ? 'withheld' : hasHardSkip(input) ? 'skip' : 'ready');
+    const readiness = currentCallReadiness(input);
     return callLabelForDecision(rating, readiness);
   }
   return callDisplayLabel(rating, { liveData: typeof input === 'string' ? null : input?.liveData });
@@ -1581,8 +1607,26 @@ function liveWarningLabel(liveData) {
 function ratingLabel(resultOrRating) {
   const rating = typeof resultOrRating === 'string' ? resultOrRating : resultOrRating?.rating;
   const liveData = typeof resultOrRating === 'string' ? null : resultOrRating?.liveData;
+  if (typeof resultOrRating !== 'string' && currentCallReadiness(resultOrRating) === 'withheld') {
+    return 'Not enough data';
+  }
   if (rating === 'No-go' && liveData?.overall === 'offline') return 'Manual check needed';
   return conditionTierDisplayLabel(rating);
+}
+
+function currentCallReadiness(result) {
+  if (!result) return 'ready';
+  const readiness = result.readiness?.status ?? (isDataLimitedNoGo(result) ? 'withheld' : hasHardSkip(result) ? 'skip' : 'ready');
+  const liveData = result.liveData;
+  const staleLiveRead = liveData?.overall !== 'live'
+    && (
+      liveData?.gaugeState === 'stale'
+      || liveData?.weatherState === 'stale'
+      || liveData?.gauge?.state === 'stale'
+      || liveData?.weather?.state === 'stale'
+      || liveData?.overall === 'offline'
+    );
+  return staleLiveRead && readiness !== 'skip' ? 'withheld' : readiness;
 }
 
 function weatherSkipReason(result) {
@@ -1600,9 +1644,9 @@ function weatherSkipReason(result) {
 
 function decisionStatement(result) {
   const rating = result?.rating;
-  const readiness = result?.readiness?.status ?? (isDataLimitedNoGo(result) ? 'withheld' : hasHardSkip(result) ? 'skip' : 'ready');
+  const readiness = currentCallReadiness(result);
   if (readiness === 'withheld') {
-    return `Call unavailable. ${result?.readiness?.reason ?? 'Live river data is missing, so verify the gauge and access sources directly.'}`;
+    return `Call unavailable. ${result?.readiness?.reason ?? 'Live river data is stale, so verify the gauge and access sources directly.'}`;
   }
   if (readiness === 'verify') {
     return `Watch closely. ${result?.readiness?.reason ?? 'Verify the flagged conditions before launching.'}`;
@@ -2767,7 +2811,9 @@ function renderDecisionSummary(result) {
     .filter(Boolean);
   const todaysCall = decisionStatement(result);
   const scoreLine =
-    typeof result.score === 'number' && result.rating
+    currentCallReadiness(result) === 'withheld'
+      ? 'Score unavailable until live reads refresh.'
+      : typeof result.score === 'number' && result.rating
       ? hasHardSkip(result)
         ? `Score ${result.score}; route inputs rate ${ratingLabel(result)}`
         : `Score ${result.score}; ${ratingLabel(result)}`
@@ -3316,6 +3362,8 @@ function renderActiveAccessContext() {
   setElementText(activeFactPutIn, context.putIn?.name || 'Check source links');
   setElementText(activeFactTakeOut, context.takeOut?.name || 'Check source links');
   setElementText(activeFactDistance, context.distanceLabel || 'Check source links');
+  setElementText(overviewDistance, context.distanceLabel || 'Check source');
+  setElementText(overviewTime, context.distanceLabel ? `About ${formatDuration(Math.max(0.5, Number.parseFloat(context.distanceLabel) / 3))}` : 'Check source');
 
   setCopyButtonState(activePutInCopy, context.putIn, 'Put-in');
   setCopyButtonState(activeTakeOutCopy, context.takeOut, 'Take-out');
@@ -3477,6 +3525,13 @@ function initializeAccessPlanner() {
       nextUrl.searchParams.set('takeout', end.id);
     }
     window.history.replaceState({}, '', `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+    if (favoriteButton instanceof HTMLElement) {
+      favoriteButton.dataset.favoriteUrl = buildRoutePlannerHref(slug, {
+        putIn: start,
+        takeOut: end,
+        distanceMiles: distance,
+      });
+    }
     syncTripPackLinks();
 
     if (!plannerViewTracked) {
@@ -3519,6 +3574,16 @@ function formatDuration(hours) {
     return `${whole} hr`;
   }
   return `${whole} hr ${minutes} min`;
+}
+
+function distanceMilesFromLabel(label) {
+  const match = String(label || '').match(/(\d+(?:\.\d+)?)/);
+  if (!match) {
+    return null;
+  }
+
+  const distance = Number(match[1]);
+  return Number.isFinite(distance) && distance > 0 ? distance : null;
 }
 
 function routeLineColor(result) {
@@ -4419,10 +4484,11 @@ function syncTripPackLinks() {
   if (end.id) gpxUrl.searchParams.set('takeout', end.id);
   const launch = new Date(Date.now() + 60 * 60 * 1000);
   launch.setMinutes(0, 0, 0);
-  const distance = Number.parseFloat(riverContext.distanceLabel);
+  const distance = distanceMilesFromLabel(riverContext.distanceLabel);
   const times = (riverContext.paddleTimeLabel.match(/\d+(?:\.\d+)?/g) || []).map(Number);
-  const ratio = Number.isFinite(distance) && distance > 0 && Number.isFinite(Number.parseFloat(activeAccessContext.distanceLabel))
-    ? Math.min(1, Math.max(0, Number.parseFloat(activeAccessContext.distanceLabel) / distance))
+  const selectedDistance = distanceMilesFromLabel(activeAccessContext.distanceLabel);
+  const ratio = Number.isFinite(distance) && distance > 0 && Number.isFinite(selectedDistance)
+    ? Math.min(1, Math.max(0, selectedDistance / distance))
     : 1;
   const expectedMinutes = Math.max(60, Math.round((times[1] || times[0] || 4) * ratio * 60) + 60);
   const expected = new Date(launch.getTime() + expectedMinutes * 60 * 1000);
@@ -4466,7 +4532,7 @@ function bindTripPackActions() {
       routeUrl: routeShareContext.url,
       putIn: { name: start?.name ?? 'Check source', latitude: Number(start?.latitude) || 0, longitude: Number(start?.longitude) || 0 },
       takeOut: { name: end?.name ?? 'Check source', latitude: Number(end?.latitude) || 0, longitude: Number(end?.longitude) || 0 },
-      distanceMiles: Number.parseFloat(activeAccessContext.distanceLabel) || null,
+      distanceMiles: distanceMilesFromLabel(activeAccessContext.distanceLabel),
       launchAt: launch,
       expectedTakeOutAt: new Date(launch.getTime() + 4 * 60 * 60 * 1000),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -4486,7 +4552,21 @@ function bindTripPackActions() {
 }
 
 function renderDetailResult(result) {
+  const callWithheld = currentCallReadiness(result) === 'withheld';
+  if (callWithheld && result.readiness?.status !== 'withheld') {
+    result = {
+      ...result,
+      readiness: {
+        ...(result.readiness || {}),
+        status: 'withheld',
+        label: 'Not enough data',
+        reason: 'Live river reads are stale. Refresh the sources before relying on this call.',
+      },
+    };
+  }
   latestResult = result;
+  root.dataset.routeReadiness = result.readiness?.status || '';
+  root.dataset.routeLiveDataOverall = result.liveData?.overall || '';
   setDetailLoadingState(false);
 
   if (isPlanningRoute || result?.river?.scoreEligibility === 'planning') {
@@ -4500,8 +4580,8 @@ function renderDetailResult(result) {
   root.classList.remove('river-detail--great', 'river-detail--good', 'river-detail--marginal', 'river-detail--no-go');
   root.classList.add(`river-detail--${ratingKey}`);
 
-  setText('score', String(result.score));
-  setText('rating', ratingLabel(result));
+  setText('score', callWithheld ? '--' : String(result.score));
+  setText('rating', callWithheld ? 'Not enough data' : ratingLabel(result));
   renderDecisionSummary(result);
   setText('decision-line', decisionStatement(result));
   updateShareActions(result);
@@ -4516,10 +4596,20 @@ function renderDetailResult(result) {
   const decisionPill = setText('decision', decision);
   decorateDecision(decisionPill, result);
 
-  const confidence = setText('confidence', confidenceDisplayLabel(result.confidence.label));
+  const displayConfidence = callWithheld
+    ? {
+        ...(result.confidence || {}),
+        label: 'Low',
+        warnings: [
+          ...(Array.isArray(result.confidence?.warnings) ? result.confidence.warnings : []),
+          'Data confidence is unavailable while live reads are stale.',
+        ],
+      }
+    : result.confidence;
+  const confidence = setText('confidence', displayConfidence?.label ? confidenceDisplayLabel(displayConfidence.label) : 'Not enough data');
   if (confidence instanceof HTMLElement) {
     confidence.classList.remove('confidence-pill--high', 'confidence-pill--medium', 'confidence-pill--low');
-    confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
+    confidence.classList.add(`confidence-pill--${(displayConfidence?.label || 'low').toLowerCase()}`);
   }
 
   const effectiveLiveData = buildRiverReadinessViewModel(result).effectiveLiveData;
@@ -4608,7 +4698,7 @@ function renderDetailResult(result) {
   renderFactors(result.factors);
   renderChecklist(result.checklist);
   renderOutlooks(result.outlooks);
-  renderConfidenceDetail(result.confidence);
+  renderConfidenceDetail(displayConfidence);
   renderScoreBreakdown(result);
 }
 

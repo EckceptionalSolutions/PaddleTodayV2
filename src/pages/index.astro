@@ -128,6 +128,14 @@ const homepageStructuredData = [
           </div>
         </form>
 
+        <p
+          class="home-location-bar__status muted"
+          data-location-status
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+
         <div class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">
@@ -222,6 +230,7 @@ const homepageStructuredData = [
                     max="5"
                     step="1"
                     value="1"
+                    aria-valuetext="50 miles"
                     data-home-radius-slider
                   />
                 </label>

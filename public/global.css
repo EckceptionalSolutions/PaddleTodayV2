@@ -25290,6 +25290,72 @@ html body.page-route-detail [data-river-detail] .route-overview-photo img {
   }
 }
 
+/* Final mobile layout guardrails for the shared header, location feedback, and saved cards. */
+@media (max-width: 760px) {
+  html body .site-header__topline {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.32rem !important;
+    min-width: 0 !important;
+  }
+
+  html body .site-header__search {
+    flex: 0 0 2rem !important;
+  }
+
+  html body .site-header__nav {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  html body .site-header__action {
+    flex: 0 0 auto !important;
+  }
+
+  html body .home-location-bar__status {
+    display: block;
+    margin: -0.1rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  html body.page-favorites .favorites-card,
+  html body.page-favorites .favorites-card .river-card__scoreline,
+  html body.page-favorites .favorites-card .river-card__score-copy {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  html body.page-favorites .favorites-card {
+    overflow: hidden !important;
+  }
+
+  html body.page-favorites .favorites-card .river-card__meta-line,
+  html body.page-favorites .favorites-card .river-card__signal-line,
+  html body.page-favorites .favorites-card .river-card__facts,
+  html body.page-favorites .favorites-card .river-card__facts > * {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  html body.page-favorites .favorites-card .river-card__facts {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 420px) {
+  html body .site-header__nav-link {
+    padding-inline: 0.46rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  html body .site-header__action {
+    padding-inline: 0.46rem !important;
+  }
+}
+
 /* Final hierarchy pass: surface trip facts, tighten planning copy, and make
    the two access maps read as orientation vs. segment planning. */
 html body.page-route-detail [data-river-detail] .route-overview-trip-fit {
