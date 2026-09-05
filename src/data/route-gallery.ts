@@ -539,6 +539,62 @@ const approvedMarylandContextPhotosByRiverId: Record<string, RouteGalleryPhoto> 
 };
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'chattahoochee-river-ga115-duncan-bridge': [{
+    id: 'chattahoochee-river-upper-hooch-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chattahoochee.jpg?width=1600',
+    alt: 'The Chattahoochee River flowing through Georgia.',
+    caption: 'Chattahoochee River; same-river Upper Hooch corridor context',
+    credit: 'Mike Gonzalez via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  }],
+  'chattahoochee-river-powers-island-paces-mill': [{
+    id: 'chattahoochee-river-atlanta-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chattahoochee.jpg?width=1600',
+    alt: 'The Chattahoochee River flowing through Georgia.',
+    caption: 'Chattahoochee River; same-river Atlanta corridor context',
+    credit: 'Mike Gonzalez via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  }],
+  'chattahoochee-river-columbus-whitewater-park': [{
+    id: 'chattahoochee-river-atlanta-commons-columbus',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chattahoochee.jpg?width=1600',
+    alt: 'The Chattahoochee River flowing through Georgia.',
+    caption: 'Chattahoochee River; same-river Columbus corridor context',
+    credit: 'Mike Gonzalez via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  }],
+  'broad-river-us281-us172': [{
+    id: 'broad-river-georgia-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/South_Fork_Broad_River%2C_GA%2C_US.jpg?width=1600',
+    alt: 'The South Fork Broad River in Georgia.',
+    caption: 'Broad River watershed; same-river context',
+    credit: 'Jud McCranie via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+  }],
+  'etowah-river-highway136-kelly-bridge': [{
+    id: 'etowah-river-canton-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Etowah_River_Park_bridge_over_the_Etowah_River%2C_Canton_GA.jpg?width=1600',
+    alt: 'The Etowah River at Etowah River Park in Canton, Georgia.',
+    caption: 'Etowah River at Canton; same-river context',
+    credit: 'John Phelan via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  }],
+  'toccoa-river-deep-hole-sandy-bottoms': [{
+    id: 'toccoa-river-fannin-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Toccoa_River_in_Fannin_County%2C_June_2017.jpg?width=1600',
+    alt: 'The Toccoa River in Fannin County, Georgia.',
+    caption: 'Toccoa River in Fannin County; same-river context',
+    credit: 'Thomson200 via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC0',
+  }],
+  'flint-river-sprewell-bluff-po-biddy': [{
+    id: 'flint-river-georgia-usgs',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Flint_river_georgia.jpg?width=1600',
+    alt: 'The Flint River in Georgia.',
+    caption: 'Flint River; same-river context',
+    credit: 'Brian Hughes / U.S. Geological Survey via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  }],
   'brandywine-creek-smith-bridge-thompsons-bridge': [{
     id: 'brandywine-creek-walkers-mill-cc0',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Walkers%20Mill%20DE.jpg?width=1600',
@@ -6424,6 +6480,7 @@ export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
 // Some river systems have approved photography on only one or two routes. Reuse
 // that same-river context before falling back to a generic river placeholder.
 const approvedRiverFallbackRouteById: Record<string, string> = {
+  'chattahoochee-river': 'chattahoochee-river-powers-island-paces-mill',
   'big-fork-river': 'big-fork-river-highway-6-north-big-falls-east',
   'big-sioux-river': 'big-sioux-river-farm-field-rotary',
   'boone-river': 'boone-river-albright-tunnel-mill',
@@ -6518,6 +6575,14 @@ const approvedRegionalContextPhotosByRiverId: Record<string, RouteGalleryPhoto> 
     caption: 'Pennsylvania stream corridor; regional context only, not the Laurel Hill Creek reach',
     credit: 'Good Free Photos',
     takenLabel: 'CC0 / public domain; regional context only',
+  },
+  'ocmulgee-river': {
+    id: 'ocmulgee-river-usgs-commons-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ocmulgee%20River.jpg?width=1600',
+    alt: 'The Ocmulgee River near Macon, Georgia.',
+    caption: 'Ocmulgee River near Macon; same-river context, not an endpoint or current-conditions photograph',
+    credit: 'U.S. Geological Survey via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
   },
 };
 
