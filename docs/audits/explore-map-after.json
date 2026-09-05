@@ -1,0 +1,315 @@
+{
+  "routeCount": 2062,
+  "samples": [
+    {
+      "label": "regional",
+      "markers": 0,
+      "p95FrameMs": 50.099999999999454,
+      "maxFrameMs": 83.30000000000018,
+      "longTasks": [
+        {
+          "startTime": 5983.5,
+          "duration": 79
+        },
+        {
+          "startTime": 6064.5999999940395,
+          "duration": 61
+        }
+      ]
+    },
+    {
+      "label": "local",
+      "markers": 0,
+      "p95FrameMs": 50.099999999998545,
+      "maxFrameMs": 83.19999999999891,
+      "longTasks": [
+        {
+          "startTime": 8668.40000000596,
+          "duration": 82
+        }
+      ]
+    },
+    {
+      "label": "pan",
+      "markers": 0,
+      "p95FrameMs": 50,
+      "maxFrameMs": 66.60000000000036,
+      "longTasks": []
+    },
+    {
+      "label": "regional-return",
+      "markers": 0,
+      "p95FrameMs": 66.60000000000036,
+      "maxFrameMs": 66.60000000000036,
+      "longTasks": [
+        {
+          "startTime": 13310.59999999404,
+          "duration": 51
+        },
+        {
+          "startTime": 13578.40000000596,
+          "duration": 52
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "path": "/data/explore-map-overview.json",
+      "bytes": 1088961
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-fox-highway-70.json",
+      "bytes": 0
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-riverside-thayers.json",
+      "bytes": 0
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-thayers-norway-point.json",
+      "bytes": 0
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-sand-creek-highway-70.json",
+      "bytes": 0
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-fox-highway-70.json",
+      "bytes": 5118
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-thayers-norway-point.json",
+      "bytes": 5557
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-riverside-thayers.json",
+      "bytes": 5948
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-sand-creek-highway-70.json",
+      "bytes": 7290
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-highway-70-sunrise.json",
+      "bytes": 7169
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-sunrise-wild-river.json",
+      "bytes": 3911
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-interstate-osceola.json",
+      "bytes": 4361
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-osceola-william-obrien.json",
+      "bytes": 4303
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-william-obrien-boomsite.json",
+      "bytes": 6136
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/st-croix-river-wild-river-lions-park.json",
+      "bytes": 4060
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/mississippi-river-dayton-mississippi-gateway.json",
+      "bytes": 3842
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/mississippi-river-babcock-peninsula-point.json",
+      "bytes": 2839
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/snake-river-canary-cross-lake.json",
+      "bytes": 5569
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/snake-river-county-road-9-snake-bit.json",
+      "bytes": 6069
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/snake-river-county-road-3-mora.json",
+      "bytes": 17002
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/snake-river-mora-canary.json",
+      "bytes": 15174
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/kettle-river-lower-kettle-5-to-6.json",
+      "bytes": 5400
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/kettle-river-number-4-number-5.json",
+      "bytes": 6345
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/namekagon-river-county-k-whispering-pines.json",
+      "bytes": 9316
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-martins-north-county-park.json",
+      "bytes": 8450
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-north-county-central.json",
+      "bytes": 7897
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-north-county-germanium.json",
+      "bytes": 8755
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-germanium-south-county-park.json",
+      "bytes": 5537
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-walbo-cambridge-west.json",
+      "bytes": 12536
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-highway-7-walbo.json",
+      "bytes": 20867
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rum-river-cambridge-martins.json",
+      "bytes": 9554
+    },
+    {
+      "path": "/data/canonical-river-geometries/routes/rice-creek-peltier-to-long-lake.json",
+      "bytes": 10795
+    }
+  ],
+  "functions": [
+    {
+      "name": "(idle)",
+      "url": "",
+      "hits": 969
+    },
+    {
+      "name": "(program)",
+      "url": "",
+      "hits": 696
+    },
+    {
+      "name": "receive",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 19
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "hits": 12
+    },
+    {
+      "name": "updateBucketOpacities",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 10
+    },
+    {
+      "name": "querySelectorAll",
+      "url": "",
+      "hits": 8
+    },
+    {
+      "name": "getAttributeObject",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 8
+    },
+    {
+      "name": "match",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 8
+    },
+    {
+      "name": "render",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 7
+    },
+    {
+      "name": "renderLayer",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 7
+    },
+    {
+      "name": "lint",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 7
+    },
+    {
+      "name": "getAttributeObject",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 6
+    },
+    {
+      "name": "",
+      "url": "http://127.0.0.1:4323/src/scripts/explore-map-viewport.js",
+      "hits": 6
+    },
+    {
+      "name": "_render",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 5
+    },
+    {
+      "name": "addLayer",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 5
+    },
+    {
+      "name": "_updateLoadedParentTileCache",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 5
+    },
+    {
+      "name": "_containerDimensions",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 5
+    },
+    {
+      "name": "",
+      "url": "http://127.0.0.1:4323/src/scripts/summary-board.js",
+      "hits": 5
+    },
+    {
+      "name": "updateLayerOpacities",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 4
+    },
+    {
+      "name": "",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 4
+    },
+    {
+      "name": "Kr",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 4
+    },
+    {
+      "name": "draw",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 4
+    },
+    {
+      "name": "bindVertexArray",
+      "url": "",
+      "hits": 4
+    },
+    {
+      "name": "match",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 4
+    },
+    {
+      "name": "get",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/astro_n_aria-query.js",
+      "hits": 4
+    }
+  ],
+  "mapClickVerified": true,
+  "errors": []
+}

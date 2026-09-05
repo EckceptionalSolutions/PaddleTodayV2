@@ -424,6 +424,8 @@ export function createMapMarker({
   return marker;
 }
 
+const overlaySourceData = new WeakMap();
+
 export function syncGeoJsonOverlay(
   runtime,
   {
@@ -431,6 +433,7 @@ export function syncGeoJsonOverlay(
     data,
     layers = [],
     updateData = true,
+    skipUnchangedData = false,
   },
 ) {
   if (
@@ -447,10 +450,14 @@ export function syncGeoJsonOverlay(
   }
 
   const source = runtime.getSource(sourceId);
-  if (source && updateData && typeof source.setData === 'function') {
+  if (source && updateData && typeof source.setData === 'function'
+    && (!skipUnchangedData || overlaySourceData.get(source) !== data)) {
     source.setData(data);
+    overlaySourceData.set(source, data);
   } else if (!source) {
     runtime.addSource(sourceId, { type: 'geojson', data });
+    const addedSource = runtime.getSource(sourceId);
+    if (addedSource) overlaySourceData.set(addedSource, data);
   }
 
   for (const layer of layers) {

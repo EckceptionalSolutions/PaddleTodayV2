@@ -444,6 +444,26 @@ describe('map viewport and marker lifecycle', () => {
 });
 
 describe('GeoJSON overlay lifecycle', () => {
+  it('skips identical cached data, updates changed data, and restores a replaced source', () => {
+    const runtime = new FakeMap({});
+    const data = { type: 'FeatureCollection', features: [] };
+    const options = { sourceId: 'cached', data, skipUnchangedData: true };
+    syncGeoJsonOverlay(runtime, options);
+    const source = runtime.getSource('cached') as { setData: ReturnType<typeof vi.fn> };
+    source.setData = vi.fn();
+    syncGeoJsonOverlay(runtime, options);
+    expect(source.setData).not.toHaveBeenCalled();
+    syncGeoJsonOverlay(runtime, { ...options, data: { ...data } });
+    expect(source.setData).toHaveBeenCalledOnce();
+    const replacement = { setData: vi.fn() };
+    runtime.sources.set('cached', replacement);
+    syncGeoJsonOverlay(runtime, options);
+    expect(replacement.setData).toHaveBeenCalledWith(data);
+    runtime.removeSource('cached');
+    syncGeoJsonOverlay(runtime, options);
+    expect(runtime.getSource('cached')).toEqual({ type: 'geojson', data });
+  });
+
   it('adds a source and its layers once, then updates source data', () => {
     const runtime = new FakeMap({});
     const initialData = { type: 'FeatureCollection', features: [] };

@@ -8,7 +8,10 @@ export async function installMapLibreHarness(page: Page) {
       cameraCalls: [] as Array<{ label: string; method: string }>,
       markersAdded: 0,
       markersRemoved: 0,
+      markersCreated: 0,
+      sourceUpdates: [] as string[],
     };
+    const mapInstances: any[] = [];
 
     class FakeEvented {
       listeners = new Map<string, Set<(...args: any[]) => void>>();
@@ -64,6 +67,11 @@ export async function installMapLibreHarness(page: Page) {
           [Math.max(...lngs), Math.max(...lats)],
         ];
       }
+
+      contains(point: [number, number]) {
+        const [sw, ne] = this.toArray();
+        return point[0] >= sw[0] && point[0] <= ne[0] && point[1] >= sw[1] && point[1] <= ne[1];
+      }
     }
 
     class FakePopup extends FakeEvented {
@@ -96,6 +104,14 @@ export async function installMapLibreHarness(page: Page) {
         return this.element;
       }
 
+      setLngLat() { return this; }
+      addTo(map: any) {
+        this.open = true;
+        map.container.append(this.element);
+        this.emit('open');
+        return this;
+      }
+
       isOpen() {
         return this.open;
       }
@@ -116,6 +132,7 @@ export async function installMapLibreHarness(page: Page) {
       layers = new Map<string, any>();
       zoom: number;
       label: string;
+      bounds = new FakeBounds([[-180, -90], [180, 90]]);
 
       constructor(readonly options: Record<string, any>) {
         super();
@@ -134,6 +151,7 @@ export async function installMapLibreHarness(page: Page) {
           || Object.keys(container.dataset).find((key) => key.toLowerCase().includes('map'))
           || 'map';
         harness.maps.push({ label: this.label });
+        mapInstances.push(this);
       }
 
       loaded() { return true; }
@@ -142,6 +160,14 @@ export async function installMapLibreHarness(page: Page) {
       getContainer() { return this.container; }
       getCanvas() { return this.canvas; }
       getZoom() { return this.zoom; }
+      getBounds() { return this.bounds; }
+      move(zoom: number, bounds: Array<[number, number]>) {
+        this.zoom = zoom;
+        this.bounds = new FakeBounds(bounds);
+        this.emit('zoomend');
+        this.emit('moveend');
+        this.emit('idle');
+      }
       resize() { return this; }
       remove() {
         this.container.classList.remove('maplibregl-map');
@@ -151,7 +177,7 @@ export async function installMapLibreHarness(page: Page) {
       addSource(sourceId: string, source: any) {
         const state = {
           ...source,
-          setData(data: unknown) { state.data = data; },
+          setData(data: unknown) { state.data = data; harness.sourceUpdates.push(sourceId); },
         };
         this.sources.set(sourceId, state);
       }
@@ -213,6 +239,7 @@ export async function installMapLibreHarness(page: Page) {
 
       constructor(options: Record<string, any> = {}) {
         this.element = options.element instanceof HTMLElement ? options.element : document.createElement('div');
+        harness.markersCreated += 1;
       }
 
       setLngLat(value: any) {
@@ -263,6 +290,7 @@ export async function installMapLibreHarness(page: Page) {
     }
 
     (window as any).__paddleMapHarness = harness;
+    (window as any).__paddleMapInstances = mapInstances;
     (window as any).maplibregl = {
       Map: FakeMap,
       Marker: FakeMarker,

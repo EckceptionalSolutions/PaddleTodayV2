@@ -1,0 +1,511 @@
+{
+  "routeCount": 2052,
+  "samples": [
+    {
+      "label": "regional",
+      "markers": 740,
+      "p95FrameMs": 83.30000000000018,
+      "maxFrameMs": 100,
+      "longTasks": [
+        {
+          "startTime": 6433.0999999940395,
+          "duration": 98
+        },
+        {
+          "startTime": 6533.399999976158,
+          "duration": 60
+        },
+        {
+          "startTime": 6595.899999976158,
+          "duration": 60
+        },
+        {
+          "startTime": 6657.299999982119,
+          "duration": 62
+        },
+        {
+          "startTime": 6719.5999999940395,
+          "duration": 67
+        },
+        {
+          "startTime": 6788.399999976158,
+          "duration": 54
+        },
+        {
+          "startTime": 6842.799999982119,
+          "duration": 51
+        },
+        {
+          "startTime": 6940.5,
+          "duration": 57
+        },
+        {
+          "startTime": 7047.899999976158,
+          "duration": 63
+        },
+        {
+          "startTime": 7295.199999988079,
+          "duration": 55
+        },
+        {
+          "startTime": 7350.299999982119,
+          "duration": 65
+        },
+        {
+          "startTime": 7415.5999999940395,
+          "duration": 58
+        },
+        {
+          "startTime": 7473.699999988079,
+          "duration": 74
+        },
+        {
+          "startTime": 7739.799999982119,
+          "duration": 58
+        },
+        {
+          "startTime": 7798.5999999940395,
+          "duration": 52
+        },
+        {
+          "startTime": 7851.5,
+          "duration": 54
+        }
+      ]
+    },
+    {
+      "label": "local",
+      "markers": 815,
+      "p95FrameMs": 83.30000000000109,
+      "maxFrameMs": 133.29999999999927,
+      "longTasks": [
+        {
+          "startTime": 8326.299999982119,
+          "duration": 58
+        },
+        {
+          "startTime": 8385.09999999404,
+          "duration": 56
+        },
+        {
+          "startTime": 8441.59999999404,
+          "duration": 77
+        },
+        {
+          "startTime": 8614.59999999404,
+          "duration": 55
+        },
+        {
+          "startTime": 8671.299999982119,
+          "duration": 59
+        },
+        {
+          "startTime": 8779.199999988079,
+          "duration": 50
+        },
+        {
+          "startTime": 8829.699999988079,
+          "duration": 51
+        },
+        {
+          "startTime": 9062.09999999404,
+          "duration": 51
+        },
+        {
+          "startTime": 9117.799999982119,
+          "duration": 67
+        },
+        {
+          "startTime": 9185,
+          "duration": 139
+        },
+        {
+          "startTime": 9325.09999999404,
+          "duration": 56
+        },
+        {
+          "startTime": 10016,
+          "duration": 53
+        }
+      ]
+    },
+    {
+      "label": "pan",
+      "markers": 815,
+      "p95FrameMs": 66.70000000000073,
+      "maxFrameMs": 83.39999999999964,
+      "longTasks": [
+        {
+          "startTime": 10402.5,
+          "duration": 52
+        },
+        {
+          "startTime": 10456.399999976158,
+          "duration": 50
+        },
+        {
+          "startTime": 10508.699999988079,
+          "duration": 66
+        },
+        {
+          "startTime": 10574.899999976158,
+          "duration": 69
+        },
+        {
+          "startTime": 10644.299999982119,
+          "duration": 68
+        },
+        {
+          "startTime": 10712.5,
+          "duration": 73
+        },
+        {
+          "startTime": 10785.59999999404,
+          "duration": 50
+        },
+        {
+          "startTime": 10836.5,
+          "duration": 63
+        },
+        {
+          "startTime": 10949.899999976158,
+          "duration": 50
+        },
+        {
+          "startTime": 11000.399999976158,
+          "duration": 62
+        },
+        {
+          "startTime": 11062.899999976158,
+          "duration": 70
+        },
+        {
+          "startTime": 11133,
+          "duration": 53
+        },
+        {
+          "startTime": 11231.59999999404,
+          "duration": 56
+        }
+      ]
+    },
+    {
+      "label": "regional-return",
+      "markers": 740,
+      "p95FrameMs": 83.39999999999964,
+      "maxFrameMs": 116.70000000000073,
+      "longTasks": [
+        {
+          "startTime": 12635,
+          "duration": 54
+        },
+        {
+          "startTime": 12689.299999982119,
+          "duration": 51
+        },
+        {
+          "startTime": 12741.59999999404,
+          "duration": 51
+        },
+        {
+          "startTime": 12844.5,
+          "duration": 54
+        },
+        {
+          "startTime": 12899.299999982119,
+          "duration": 68
+        },
+        {
+          "startTime": 12968.5,
+          "duration": 62
+        },
+        {
+          "startTime": 13031.299999982119,
+          "duration": 62
+        },
+        {
+          "startTime": 13093.299999982119,
+          "duration": 61
+        },
+        {
+          "startTime": 13156,
+          "duration": 59
+        },
+        {
+          "startTime": 13217.09999999404,
+          "duration": 61
+        },
+        {
+          "startTime": 13278.799999982119,
+          "duration": 130
+        },
+        {
+          "startTime": 13409.699999988079,
+          "duration": 60
+        },
+        {
+          "startTime": 14090.399999976158,
+          "duration": 57
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "path": "/data/canonical-river-geometries.json",
+      "bytes": 4517
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/arkansas.json",
+      "bytes": 2348703
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/colorado.json",
+      "bytes": 338570
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/delaware.json",
+      "bytes": 123745
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/georgia.json",
+      "bytes": 1885348
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/idaho.json",
+      "bytes": 2105684
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/illinois.json",
+      "bytes": 314916
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/indiana.json",
+      "bytes": 386953
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/iowa.json",
+      "bytes": 4753901
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/kansas.json",
+      "bytes": 401583
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/maine.json",
+      "bytes": 1129889
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/kentucky.json",
+      "bytes": 2636018
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/maryland.json",
+      "bytes": 400504
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/michigan.json",
+      "bytes": 509499
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/minnesota.json",
+      "bytes": 3315418
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/missouri.json",
+      "bytes": 973206
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/nebraska.json",
+      "bytes": 123203
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/new-jersey.json",
+      "bytes": 656268
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/new-york.json",
+      "bytes": 2785706
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/north-carolina.json",
+      "bytes": 553497
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/north-dakota.json",
+      "bytes": 265875
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/ohio.json",
+      "bytes": 134177
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/oklahoma.json",
+      "bytes": 45352
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/pennsylvania.json",
+      "bytes": 558555
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/south-dakota.json",
+      "bytes": 285743
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/tennessee.json",
+      "bytes": 20132
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/texas.json",
+      "bytes": 1322341
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/utah.json",
+      "bytes": 36130
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/virginia.json",
+      "bytes": 345430
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/west-virginia.json",
+      "bytes": 1103911
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/wisconsin.json",
+      "bytes": 2642060
+    },
+    {
+      "path": "/data/canonical-river-geometries/states/wyoming.json",
+      "bytes": 144553
+    }
+  ],
+  "functions": [
+    {
+      "name": "(program)",
+      "url": "",
+      "hits": 1045
+    },
+    {
+      "name": "(idle)",
+      "url": "",
+      "hits": 461
+    },
+    {
+      "name": "setTransform",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 89
+    },
+    {
+      "name": "_updateOpacity",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 56
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "hits": 27
+    },
+    {
+      "name": "Za._update",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 23
+    },
+    {
+      "name": "AbortController",
+      "url": "",
+      "hits": 13
+    },
+    {
+      "name": "_render",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 12
+    },
+    {
+      "name": "uniform1i",
+      "url": "",
+      "hits": 12
+    },
+    {
+      "name": "removeEventListener",
+      "url": "",
+      "hits": 12
+    },
+    {
+      "name": "render",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 11
+    },
+    {
+      "name": "fire",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 11
+    },
+    {
+      "name": "lint",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 11
+    },
+    {
+      "name": "getAttributeObject",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 11
+    },
+    {
+      "name": "",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 10
+    },
+    {
+      "name": "requestAnimationFrame",
+      "url": "",
+      "hits": 8
+    },
+    {
+      "name": "receive",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 8
+    },
+    {
+      "name": "",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 8
+    },
+    {
+      "name": "getAttributeObject",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 8
+    },
+    {
+      "name": "draw",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 7
+    },
+    {
+      "name": "frame",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 7
+    },
+    {
+      "name": "syncSummaryConditionMarkers",
+      "url": "http://127.0.0.1:4323/src/scripts/summary-board.js",
+      "hits": 7
+    },
+    {
+      "name": "match",
+      "url": "http://127.0.0.1:4323/node_modules/.vite/deps/audit-CDVTjWME.js",
+      "hits": 7
+    },
+    {
+      "name": "",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 6
+    },
+    {
+      "name": "Gi",
+      "url": "https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js",
+      "hits": 6
+    }
+  ],
+  "errors": []
+}
