@@ -30,6 +30,9 @@ import { delawareRoutes } from './routes/delaware';
 import { wyomingRoutes } from './routes/wyoming';
 import { idahoRoutes } from './routes/idaho';
 import { georgiaRoutes } from './routes/georgia';
+import { maineRoutes } from './routes/maine';
+import { maineBatchTwoRoutes } from './routes/maine-batch-two';
+import { maineBatchThreeRoutes } from './routes/maine-batch-three';
 
 const stateRoutes: River[] = [
   ...arkansasRoutes,
@@ -62,6 +65,9 @@ const stateRoutes: River[] = [
   ...wyomingRoutes,
   ...idahoRoutes,
   ...georgiaRoutes,
+  ...maineRoutes,
+  ...maineBatchTwoRoutes,
+  ...maineBatchThreeRoutes,
 ];
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
@@ -1984,6 +1990,39 @@ const routeOrder = [
   "st-joe-heller-creek-spruce-tree",
   "lightning-creek-east-fork-clark-fork",
   "henrys-lake-south-shore-loop",
+  "allagash-river-churchill-dam-umsaskis",
+  "allagash-river-michaud-farm-allagash-falls",
+  "allagash-river-allagash-falls-twin-brook",
+  "saco-river-fryeburg-route-302-route-160",
+  "saco-river-route-160-brownfield",
+  "androscoggin-river-hanover-bethel",
+  "androscoggin-river-mexico-rumford",
+  "kennebec-river-skowhegan-norridgewock",
+  "presumpscot-river-gorham-falmouth",
+  "saint-croix-river-baileyville-calais",
+  "aroostook-river-washburn-fort-fairfield",
+  "penobscot-river-medway-lincoln",
+  "penobscot-river-lincoln-passadumkeag",
+  "penobscot-river-passadumkeag-milford",
+  "penobscot-river-milford-bangor",
+  "penobscot-river-bangor-verona",
+  "west-branch-penobscot-river-t3r11-t2r10",
+  "st-john-river-saint-francis-fort-kent",
+  "st-john-river-fort-kent-frenchville",
+  "st-john-river-frenchville-madawaska",
+  "kennebec-river-solon-norridgewock",
+  "kennebec-river-waterville-augusta",
+  "kennebec-river-augusta-gardiner",
+  "kennebec-river-gardiner-bath",
+  "saco-river-brownfield-dayton",
+  "saco-river-dayton-biddeford",
+  "machias-river-t31md-machias",
+  "chamberlain-lake-dacf-remote-loop",
+  "chesuncook-lake-t3r12-remote-loop",
+  "lake-onawa-difw-access-loop",
+  "lake-george-skowhegan-access-loop",
+  "webb-lake-dacf-access-loop",
+  ...maineBatchThreeRoutes.map((route) => route.id),
 ];
 
 export const routeInventory: River[] = routeOrder.map((slug) => {

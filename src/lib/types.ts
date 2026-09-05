@@ -62,6 +62,7 @@ export type GaugeBand =
 export type GaugeKind = 'direct' | 'proxy';
 export type RouteScoreEligibility = 'scored' | 'planning';
 export type RouteScoreEligibilityReason = 'proxy_gauge';
+export type RouteConsolidationRole = 'macro' | 'segment' | 'alternative';
 export type SourceStrength = 'official' | 'mixed' | 'community' | 'derived';
 export type RainfallSensitivity = 'low' | 'medium' | 'high';
 export type ThresholdModel = 'two-sided' | 'minimum-only';
@@ -153,6 +154,13 @@ export interface RiverTripDetails {
   continuityStatus?: 'verified' | 'partial' | 'condition-family';
 }
 
+export interface RiverConsolidation {
+  group: string;
+  role: RouteConsolidationRole;
+  relatedRouteIds: string[];
+  note: string;
+}
+
 export interface River {
   id: string;
   riverId?: string;
@@ -177,6 +185,7 @@ export interface River {
   accessPoints?: RiverRouteAccessPoint[];
   evidenceNotes: RiverEvidenceNote[];
   sourceLinks: SourceLink[];
+  consolidation?: RiverConsolidation;
   scoreEligibility?: RouteScoreEligibility;
   scoreEligibilityReason?: RouteScoreEligibilityReason;
 }
