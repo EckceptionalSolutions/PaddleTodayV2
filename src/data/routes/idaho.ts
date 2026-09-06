@@ -68,6 +68,14 @@ const salmonCareyRigginsThreshold =
   "https://www.howsyourriver.com/runs/7-carey-creek-to-riggins-salmon-id";
 const salmonCareyRigginsAwReach =
   "https://www.americanwhitewater.org/content/River/view/river-detail/1464/main";
+const salmonStanleyRoughAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/608/main";
+const salmonStanleyRoughThreshold =
+  "https://www.riverbrain.com/runs/327";
+const salmonStanleyRoughHys =
+  "https://www.howsyourriver.com/runs/3-rough-creek-bridge-to-torrey-s-hole-river-access-salmon-id";
+const salmonStanleyPutInAccess =
+  "https://boatrampatlas.com/ramp/id-salmon-river-bridge-access/";
 const salmonRigginsCityPark = "https://mapcarta.com/N7560987269";
 const lowerSalmonThresholdGuide = "https://www.riverbrain.com/runs/251";
 const lowerSalmonAwGuide =
@@ -81,6 +89,12 @@ const middleForkSalmonPutInSource = "https://www.riverbrain.com/accesses/26";
 const middleForkSalmonConfluenceSource = "https://www.riverbrain.com/accesses/352";
 const middleForkSalmonTakeOutSource = "https://www.riverbrain.com/accesses/353";
 const middleForkSalmonPermit = "https://www.recreation.gov/permits/234623";
+const middleForkSalmonMarshAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/617/main";
+const middleForkSalmonMarshPutIn =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109769";
+const middleForkSalmonMarshTakeOut =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/115020";
 const mainSalmonThreshold = "https://www.riverbrain.com/runs/250";
 const mainSalmonPutInSource = "https://www.riverbrain.com/accesses/354";
 const mainSalmonVinegarSource = "https://www.riverbrain.com/accesses/379";
@@ -108,6 +122,14 @@ const southForkSalmonPovertyFlat =
   "https://www.recreation.gov/camping/campgrounds/10176188";
 const southForkSalmonGauge =
   "https://waterdata.usgs.gov/monitoring-location/USGS-13310700/";
+const seceshCanyonAw =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/622/main";
+const seceshCanyonMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/622/map";
+const seceshCanyonGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13310700/";
+const seceshCanyonAccessGuide =
+  "https://www.fs.usda.gov/detail/payette/passes-permits/?cid=fsm9_030962";
 const eastForkSouthForkUpperAw =
   "https://www.americanwhitewater.org/content/River/view/river-detail/616/main";
 const eastForkSouthForkUpperMap =
@@ -124,6 +146,17 @@ const northForkPayetteThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/591/main";
 const northForkPayetteMcCallThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/590/main";
+const lowerMaladThreshold =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/574/main";
+const lowerMaladMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/574/map";
+const lowerMaladFlows = "https://kayakidaho.com/idaho-flows/snake-s";
+const lowerMaladGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13152500/";
+const lowerMaladParkGuide =
+  "https://parksandrecreation.idaho.gov/wp-content/uploads/parks/thousand-springs/Malad-Brochure-2023.pdf";
+const lowerMaladDiversionGuide =
+  "https://research.idwr.idaho.gov/apps/Shared/LfRelatedDocs/Home/DownloadDoc?eid=2533656";
 const middleForkPayetteThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/4120/main";
 const middleForkPayetteBoilingThreshold =
@@ -155,6 +188,8 @@ const upperLochsaThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/569/main";
 const upperLochsaFlowGuide =
   "https://snoflo.org/paddle/idaho/white-pine-indian-grave-creek-to-wilderness-gateway-bridge";
+const upperLochsaPowellFlowGuide =
+  "https://www.howsyourriver.com/runs/1-powell-to-white-pine-indian-grave-creek-lochsa-id";
 const lochsaSplitLowellThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/571/main";
 const lochsaSplitLowellAccess =
@@ -216,6 +251,12 @@ const kellyCreekForestService =
   "https://www.fs.usda.gov/r01/nezperce-clearwater/recreation/kelly-forks-cabin";
 const northForkClearwaterHeadwatersAw =
   "https://www.americanwhitewater.org/content/River/view/river-detail/542/main";
+const northForkClearwaterElizabethAw =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/1000049/main";
+const northForkClearwaterElizabethAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118960";
+const northForkClearwaterKellyAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118961";
 const hiddenCreekCampground = "https://mapcarta.com/23536926";
 const northForkClearwaterForestService =
   "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=79594";
@@ -318,12 +359,30 @@ const owyheeBoaterGuide =
 const owyheeThreeForks = "https://www.blm.gov/visit/three-forks";
 const owyheeRomeGauge =
   "https://waterdata.usgs.gov/monitoring-location/USGS-13181000/";
+const eastForkOwyheeAw =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/581/main";
+const eastForkOwyheeGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13176400/";
+const eastForkOwyheeTripReport =
+  "https://www.lowercolumbiacanoeclub.org/riverrunnerblog/efowyhee2023";
+const owyheeThreeForksRomeFlow =
+  "https://site-media.americanwhitewater.org/Document_907.pdf";
+const owyheeRomeAccess = "https://www.recreation.gov/gateways/1834";
+const owyheeThreeForksAccess = "https://www.blm.gov/visit/three-forks";
+const southForkOwyheeAw =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4141/main";
+const southForkOwyheeBlm =
+  "https://www.blm.gov/visit/south-fork-owyhee-wild-and-scenic-river";
+const southForkOwyheeMap =
+  "https://www.blm.gov/sites/default/files/documents/files/Media-Center_Public-Room_Idaho_Bruneau-Jarbidge-Owyhee_BoaterGuide.pdf";
 const jarbidgeThreshold = "https://www.riverbrain.com/runs/142";
 const jarbidgePutInSource = "https://www.riverbrain.com/accesses/225";
 const jarbidgeTakeOutSource = "https://www.riverbrain.com/accesses/226";
 const sunbeamThreshold = "https://www.riverbrain.com/runs/327";
 const sunbeamDayStretchAw =
   "https://www.americanwhitewater.org/content/River/view/river-detail/609/main";
+const salmonRoughSunbeamHys =
+  "https://www.howsyourriver.com/runs/3-rough-creek-bridge-to-torrey-s-hole-river-access-salmon-id";
 const sunbeamPutInSource = "https://www.riverbrain.com/accesses/581";
 const sunbeamMormonBendSource = "https://www.riverbrain.com/accesses/583";
 const sunbeamTakeOutSource = "https://www.riverbrain.com/accesses/584";
@@ -333,6 +392,11 @@ const lowerYankeeAwReach =
   "https://www.americanwhitewater.org/content/River/view/river-detail/649/main";
 const lowerYankeeGauge =
   "https://waterdata.usgs.gov/monitoring-location/USGS-13296000/";
+const upperYankeeSegments =
+  "https://www.fws.gov/sites/default/files/documents/Yankee%20Fork%20Chinook%20Salmon%20and%20Steelhead%20Projects%2C%202008-2018.pdf";
+const eastForkChallisRun = "https://www.riverbrain.com/runs/330";
+const eastForkAccess = "https://www.riverbrain.com/accesses/591";
+const deadmanHoleAccess = "https://www.riverbrain.com/accesses/592";
 const hellsCanyonThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/633/main";
 const hellsCanyonPage = "https://www.recreation.gov/permits/234625";
@@ -358,6 +422,26 @@ const augerQuaggaRules =
   "https://invasivespecies.idaho.gov/snake-river-access";
 const tetonThreshold =
   "https://www.howsyourriver.com/runs/highway-33-bridge-to-spring-hollow-south-of-france-teton-id";
+const upperTetonAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/1000040/main";
+const upperTetonMap =
+  "https://www.tetonwater.org/get-out/recreation-map/";
+const upperTetonCountyRules =
+  "https://pub-tetoncounty.escribemeetings.com/filestream.ashx?DocumentId=12743";
+const upperTetonBatesAccess =
+  "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22433-fishing-and-boating-access-site-bates";
+const upperTetonGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13052200/";
+const upperTetonFoxAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118921";
+const upperTetonSouthBatesAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118922";
+const upperTetonBatesAwAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118923";
+const upperTetonPacksaddleAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118925";
+const upperTetonHighway33Access =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118926";
 const tetonAwReach =
   "https://www.americanwhitewater.org/content/River/view/river-detail/650/main";
 const lowerTetonAwReach =
@@ -371,8 +455,22 @@ const tetonDamManagementPlan =
 const tetonCanyonGuide = "https://www.blm.gov/sites/blm.gov/files/BLM_ID_TetonRiver.pdf";
 const tetonManagementPlan =
   "https://eplanning.blm.gov/public_projects/nepa/49403/138991/171039/FINAL_Snake_River_Planning_Area_%26_Teton_River_Canyon_Capacity_EA_22March2018.pdf";
+const pineCreekAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/597/main";
+const pineCreekTripReport =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/597/reports";
+const pineCreekGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13052200/";
+const pineCreekAccessGuide =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/597/map";
+const pineCreekWatershedContext =
+  "https://www.tetonwater.org/get-out/recreation-map/";
 const bitchCreekAwReach =
   "https://www.americanwhitewater.org/content/River/view/river-detail/524/main";
+const upperBitchCreekAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/525/main";
+const upperBitchCreekFlowGuide =
+  "https://idwr.idaho.gov/wp-content/uploads/sites/2/iwrb/1998/199812-Resource-Inventory-Upper-Snake-River-Basin.pdf";
 const bitchCreekDreamflows = "https://www.dreamflows.com/xlist-id.php";
 const bitchCreekAccessPlan =
   "https://www.usbr.gov/pn/programs/rmp/teton/rmp-teton2006.pdf";
@@ -454,6 +552,33 @@ const potlatchGuide = "https://www.northidahorivers.com/Potlatch_River.htm";
 const potlatchMap = "https://www.riverfacts.com/maps/11100.html";
 const potlatchCampground =
   "https://idahocampgroundreview.com/campgrounds/idaho-littlebouldercreek";
+const littlePotlatchThreshold =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/5013/main";
+const littlePotlatchEvidence =
+  "https://site-media.americanwhitewater.org/Document_946.pdf";
+const littlePotlatchGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13341570/";
+const littlePotlatchFlowReport =
+  "https://www.spokesman.com/stories/2019/may/26/the-potlatch-river-a-hidden-gem-on-the-edge-of-the/";
+const bigBearThreshold =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/517/main";
+const bigBearMap = "https://www.riverfacts.com/maps/11000.html";
+const bigBearGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13341570/";
+const bigBearItdBridge =
+  "https://itd.idaho.gov/project/d1-bridge-repair-2/";
+const lowerPotlatchThreshold =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/602/main";
+const lowerPotlatchMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/602/map";
+const lowerPotlatchGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13341570/";
+const bearValleyFlowGuide =
+  "https://www.whitewaterguidebook.com/idaho/bear-valley-creek/";
+const bearValleySnoflo =
+  "https://snoflo.org/paddle/idaho/109643-fir-creek-campground-to-boise-nf-boundary";
+const bearValleyAccessGuide = "https://www.go-idaho.com/Bear-Valley-Creek-Idaho/";
+const bearValleyMap = "https://www.riverfacts.com/details/10999.html";
 const boundaryCreekThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/421/main";
 const boundaryCreekGuide =
@@ -463,12 +588,48 @@ const boundaryCreekGauge =
 const boundaryCreekMap = "https://mapcarta.com/23518968";
 const smithCreekThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/627/main";
+const smithUpperThreshold =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/10542/main";
 const smithCreekFlowProject =
   "https://www.americanwhitewater.org/project/smith-creek-management-id/";
 const smithCreekIdfg =
   "https://idfg.idaho.gov/ifwis/fishingplanner/water/1165299489639";
 const smithCreekMap =
   "https://www.americanwhitewater.org/content/River/view/river-detail/627/map";
+const northForkCdaAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/3917/main";
+const northForkCdaGuide =
+  "https://www.northidahorivers.com/CDA_North_Fork.htm";
+const northForkCdaGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12411000/";
+const northForkCdaLowerAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4468/main";
+const northForkCdaLowerMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4468/map";
+const northForkCdaLowerGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12413000/";
+const northForkCdaForestServiceGuide =
+  "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5421419.pdf";
+const littleNorthForkCdaAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/548/main";
+const littleNorthForkCdaMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/548/map";
+const littleNorthForkCdaGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12413000/";
+const littleNorthForkCdaIdfgWater =
+  "https://idfg.idaho.gov/ifwis/fishingplanner/water/1162388476102";
+const boulderCreekAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/10359/main";
+const boulderCreekMap =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/10359/map";
+const boulderCreekGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12304500/";
+const boulderCreekIdfgWater =
+  "https://idfg.idaho.gov/ifwis/fishingplanner/water/1160515486249";
+const boulderCreekLeoniaAccess =
+  "https://idfg.idaho.gov/blog/2016/07/leonia-montana-access-site-open-kootenai-river";
+const boulderCreekForestContext =
+  "https://www.fs.usda.gov/r01/kootenai/about-area/about-forest";
 const stMariesAwReach =
   "https://www.americanwhitewater.org/content/River/view/river-detail/641/main";
 const stMariesGauge =
@@ -480,6 +641,33 @@ const stMariesIdfgAccess =
 const stMariesAccessGuide =
   "https://idfg.idaho.gov/old-web/docs/wildReportsNewsletters/panhandleAccessGuide.pdf";
 const stMariesLocalGuide = "https://www.northidahorivers.com/St_Maries.htm";
+const southForkCdaAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4452/main";
+const southForkCdaGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12413131/";
+const southForkCdaGuide =
+  "https://www.northidahorivers.com/CDA_South_Fork.htm";
+const southForkCdaIdfg =
+  "https://idfg.idaho.gov/ifwis/fishingplanner/water/1162568475572";
+const southForkCdaAccessArticle =
+  "https://www.americanwhitewater.org/article/2kikod8vyskomgf5i2dkt/";
+const southForkCdaTrail =
+  "https://parksandrecreation.idaho.gov/state-park/trail-of-the-coeur-dalenes/";
+const packGorgetteAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4523/main";
+const packSlidesAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4522/main";
+const packGrottosAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/4521/main";
+const packGorgetteGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-12392300/";
+const packGorgetteLocalGuide =
+  "https://sandpointonline.com/sandpointmag/sms11/moving_waters.html";
+const packMinimumFlowSource =
+  "https://idwr.idaho.gov/wp-content/uploads/sites/2/iwrb/2011/20110513-IWRB-Meeting-Agenda-3-11.pdf";
+const packFlowContextSource =
+  "https://www.bonnerswcd.org/files/5d1c8f5fc/RR_Nov_22.pdf";
+const packDreamflows = "https://www.dreamflows.com/alphaReaches.php?st=id";
 const smithCreekGauge =
   "https://waterdata.usgs.gov/monitoring-location/USGS-12321500/";
 const lightningCreekThreshold =
@@ -527,6 +715,30 @@ const lowerDeadwoodTakeOutAccess =
   "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/116336";
 const lowerDeadwoodGauge =
   "https://waterdata.usgs.gov/monitoring-location/USGS-13236500/";
+const upperDeadwoodAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/550/main";
+const upperDeadwoodPutInAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/111011";
+const upperDeadwoodTakeOutAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118425";
+const upperDeadwoodGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13236500/";
+const henrysLowerMesaAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/559/main";
+const henrysLowerMesaPutInAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/110747";
+const henrysLowerMesaTakeOutAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/116016";
+const henrysLowerMesaGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13046000/";
+const westForkBruneauAwReach =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/535/main";
+const westForkBruneauPutInAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/108670";
+const westForkBruneauTakeOutAccess =
+  "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/113905";
+const westForkBruneauGauge =
+  "https://waterdata.usgs.gov/monitoring-location/USGS-13168500/";
 const deadwoodAccessSource = "https://mapcarta.com/W1186918225";
 const danskinStationAccessSource = "https://mapcarta.com/N900053077";
 const grandjeanThreshold =
@@ -580,6 +792,14 @@ const priestRiverThresholdGuide =
   "https://www.grc101.com/IdahoPaddling/GIPPriestOutlet.html";
 const priestRiverAccessGuide =
   "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fsm9_018811.pdf";
+const priestRiverChipmunkGuide =
+  "https://www.grc101.com/IdahoPaddling/GIPPriestChipmunk.html";
+const priestRiverMcAbeeGuide =
+  "https://www.grc101.com/IdahoPaddling/GIPPriestBelowMcAbee.html";
+const priestRiverFlowGuide =
+  "https://sandpointonline.com/sandpointmag/sms11/moving_waters.html";
+const priestRiverMudholeAccess =
+  "https://www.recreation.gov/camping/campgrounds/233596";
 const johnsonCreekThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/562/main";
 const johnsonCreekFlowTable = "https://levels.wkcc.org/?D=7t2";
@@ -943,6 +1163,499 @@ const commonSalmonSafety = [
 ];
 
 export const idahoRoutes: River[] = [
+  makeRoute({
+    id: "secesh-river-canyon-lower",
+    riverId: "secesh-river-idaho",
+    name: "Secesh River",
+    reach: "Loon Creek to Lick Creek / South Fork Salmon",
+    region: "Central Idaho / Payette National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 15.7-mile Class IV-V Secesh River canyon and lower reach to the South Fork Salmon, with remote Forest Service access, high-consequence wood, and a broad spring/summer proxy-gauge window.",
+    statusText:
+      "Threshold-documented planning expedition. American Whitewater correlates the reach to South Fork Salmon gauge 13310700 at 1,000-6,000 cfs; the gauge is a watershed proxy rather than a local Secesh measurement. The AW record says the endpoint coordinates are approximate, so verify road, carry, camping, and current wood before committing.",
+    distance: "About 15.7 river miles",
+    time: "About 6-10 hours plus a remote shuttle and scouting",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "remote", "fast_rise", "access_uncertain"],
+    safety: [
+      "American Whitewater rates the Secesh River Canyon and Lower Secesh Class IV-V. Use a proven creek/river-running team, full rescue kit, satellite communication, and a portage plan for wood and unscoutable canyon features.",
+      "The 1,000-6,000 cfs correlation is on downstream/adjacent South Fork Salmon gauge 13310700 and is not a local Secesh safety guarantee. Inspect the river and do not launch solely from the online value.",
+      "The canyon is remote, endpoint coordinates are explicitly approximate, and road access is seasonal. Confirm Forest Service road status, legal staging, camping, and the South Fork Salmon confluence exit before loading boats.",
+    ],
+    gauge: "13310700",
+    gaugeName: "South Fork Salmon River near Krassel Ranger Station, ID (Secesh proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1000, idealMin: 1000, idealMax: 6000, tooHigh: 6000 },
+    thresholdLabel: "American Whitewater proxy correlation: 1,000-6,000 cfs on South Fork Salmon gauge 13310700",
+    thresholdUrl: seceshCanyonAw,
+    thresholdSupportUrl: seceshCanyonGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: seceshCanyonAw,
+    sourceLabel: "American Whitewater Secesh River Canyon and Lower Secesh reach record",
+    mapUrl: seceshCanyonMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Secesh map/access record", url: seceshCanyonMap },
+      { label: "USGS 13310700 South Fork Salmon proxy gauge", url: seceshCanyonGauge },
+      { label: "Payette National Forest permit and access guidance", url: seceshCanyonAccessGuide },
+      { label: "South Fork Salmon wilderness logistics", url: southForkSalmonPermit },
+    ],
+    putIn: {
+      name: "Secesh / Loon Creek access",
+      latitude: 45.1722221374512,
+      longitude: -115.814163208008,
+      mileFromStart: 0,
+      note: "American Whitewater's approximate put-in anchor. Confirm the Loon Creek road-end, parking, carry, and seasonal gate before launch.",
+    },
+    takeOut: {
+      name: "Lick Creek / South Fork Salmon access",
+      latitude: 45.0286102294922,
+      longitude: -115.712219238281,
+      mileFromStart: 15.7,
+      note: "American Whitewater's approximate lower access anchor near Lick Creek and the South Fork Salmon. Confirm the take-out, confluence landing, downstream continuation, and legal vehicle staging.",
+    },
+    camping:
+      "Remote backcountry camping may be possible only at lawful Forest Service sites and established river camps; verify permit, fire, sanitation, and seasonal closure rules before departure.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Remote one-way shuttle on seasonal Payette National Forest roads. Stage the lower vehicle and verify road conditions, gates, and confluence landing before committing to the canyon.",
+    permits:
+      "Follow Payette National Forest and South Fork Salmon permit/closure rules, Idaho AIS/PFD requirements, fire restrictions, and any current wilderness or wildlife notices.",
+    watchFor: ["canyon wood", "unscoutable Class IV-V", "cold water", "rapid spring rise", "seasonal roads", "approximate access", "remote rescue"],
+    season: [5, 6, 7],
+    imageUrl: salmonImage,
+    imageLabel: "Central Idaho Salmon watershed context photograph; not a Secesh endpoint image",
+  }),
+  makeRoute({
+    id: "north-fork-coeur-dalene-jordan-teepee",
+    riverId: "north-fork-coeur-dalene-idaho",
+    name: "North Fork Coeur d'Alene River",
+    reach: "Jordan Camp to Teepee Creek",
+    region: "North Idaho / Coeur d'Alene National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 6.7-mile Class II+(III) roadless North Fork Coeur d'Alene reach from Jordan Camp to the Teepee Creek bridge/trail exit, with scenic canyon walls and low-flow braid/wood concerns.",
+    statusText:
+      "Threshold-documented planning route. American Whitewater correlates this reach to the North Fork Coeur d'Alene gauge near Prichard with a 2,000-10,000 cfs runnable envelope; the local guide notes that the gauge is below Teepee Creek, so the live value is proxy context. The field cue is a bankfull river under the take-out bridge, with a short late-April/early-May access window.",
+    distance: "About 6.7 river miles",
+    time: "About 3-5 hours plus a long forest-road shuttle and scouting",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "remote", "access_uncertain"],
+    safety: [
+      "North Idaho Rivers describes Class II-III swiftwater with braided sections that become scrapy at low flow, brushy banks, and wood. Use a suitable whitewater craft, PFD, throw bag, and a crew comfortable with remote self-rescue.",
+      "The nearest online gauge is below Teepee Creek, which is nearly equal in volume to the North Fork. Check the local bankfull cue under the take-out bridge and do not treat the gauge as a direct reach measurement.",
+      "The 3099/412 and Shoshone Creek approaches can remain snowed in until flows are already dropping. Scout road conditions, stage the take-out, and carry communication; Trail 20 is the committed hike-out option.",
+    ],
+    gauge: "12411000",
+    gaugeName: "North Fork Coeur d'Alene above Shoshone Creek near Prichard, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 2000, idealMin: 2000, idealMax: 10000, tooHigh: 10000 },
+    thresholdLabel: "American Whitewater runnable correlation: 2,000-10,000 cfs on downstream 12411000; local field cue is bankfull under the take-out bridge",
+    thresholdUrl: northForkCdaAwReach,
+    thresholdSupportUrl: northForkCdaGuide,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: northForkCdaAwReach,
+    sourceLabel: "American Whitewater North Fork Coeur d'Alene Jordan Camp-to-Teepee reach record",
+    mapUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/3917/map",
+    additionalSourceLinks: [
+      { label: "North Idaho Rivers Jordan Camp-to-Teepee guide", url: northForkCdaGuide },
+      { label: "American Whitewater Jordan Camp put-in access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109729" },
+      { label: "American Whitewater Teepee Creek take-out access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/114982" },
+      { label: "USGS North Fork Coeur d'Alene proxy gauge", url: northForkCdaGauge },
+      { label: "Idaho DEQ North Fork Coeur d'Alene watershed context", url: "https://www.deq.idaho.gov/water-quality/surface-water/total-maximum-daily-loads/coeur-dalene-river-upper-north-fork-subbasin/" },
+      { label: "American Whitewater North Fork Coeur d'Alene map", url: "https://www.americanwhitewater.org/content/River/view/river-detail/3917/map" },
+    ],
+    putIn: {
+      name: "Jordan Camp Access",
+      latitude: 47.9444,
+      longitude: -116.097,
+      mileFromStart: 0,
+      note: "American Whitewater access-area anchor at Jordan Camp; reach it via Forest Roads 3099/412 or the longer Shoshone Creek approach only after confirming seasonal road and legal staging conditions.",
+    },
+    takeOut: {
+      name: "Teepee Creek Bridge / Trail 20 Exit",
+      latitude: 47.8848,
+      longitude: -116.13,
+      mileFromStart: 6.7,
+      note: "American Whitewater take-out anchor at the Teepee Creek bridge; local guidance uses the bridge for a bankfull field check and Trail 20 for the committed river exit. Confirm parking and river-side carry.",
+    },
+    camping:
+      "No on-route developed camping is assumed. Use lawful Forest Service sites near Big Hank Campground or a separately verified North Idaho basecamp; protect the roadless canyon and pack out waste.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Long forest-road shuttle from the Teepee Creek bridge to Jordan Camp, with snow and mud commonly controlling the short spring window. Stage the take-out first and carry a recovery/communication plan.",
+    permits:
+      "Follow Idaho Panhandle/Coeur d'Alene National Forest rules, Idaho AIS/PFD requirements, fire restrictions, seasonal road closures, and any posted access or wildlife protections.",
+    watchFor: ["bankfull bridge cue", "braided low-water channels", "brush and wood", "snowbound access roads", "Trail 20 hike-out", "roadless canyon logistics"],
+    season: [4, 5],
+    imageUrl: stJoeImage,
+    imageLabel: "North Idaho river corridor context photograph; not a Jordan Camp endpoint image",
+  }),
+
+  makeRoute({
+    id: "north-fork-coeur-dalene-babins-little-north",
+    riverId: "north-fork-coeur-dalene-idaho",
+    name: "North Fork Coeur d'Alene River",
+    reach: "Babins Junction to Little North Fork",
+    region: "North Idaho / Coeur d'Alene River corridor",
+    routeType: "whitewater",
+    summary:
+      "A 14.9-mile Class I(II) North Fork Coeur d'Alene float from the Babins Junction steel bridge to the Little North Fork Road bridge, with paved shuttle roads, mostly private high-water frontage, and a required wood/brush inspection.",
+    statusText:
+      "Threshold-documented planning route. American Whitewater correlates the reach to downstream USGS 12413000 at 2,000-20,000 cfs; the page describes a mostly Class I summer float that becomes more technical during runoff and warns of low-water scraping, brush, private frontage, and a historical log-jam portage. Use the gauge as downstream proxy context and confirm both bridge-area access points before launch.",
+    distance: "About 14.9 river miles",
+    time: "About 4-7 hours plus a paved shuttle",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "private_banks", "access_uncertain"],
+    safety: [
+      "American Whitewater describes mostly Class I water with Class I(II) runoff character, brushy banks, and low-water riffles that can drag boats. Wear a PFD, carry basic rescue and repair gear, and keep an active lookout around every bend.",
+      "The gauge is downstream at Enaville, so 2,000-20,000 cfs is a planning correlation rather than a local go/no-go rule. Inspect the actual channel, any remaining wood, and bridge clearance before committing.",
+      "The riverfront is mostly private above the high-water mark. Launch and land only at the named bridge/frontage-road access areas, respect posted restrictions, and do not substitute private shoreline, tubes-only sites, or informal camps.",
+    ],
+    gauge: "12413000",
+    gaugeName: "North Fork Coeur d'Alene River at Enaville, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 2000, idealMin: 2000, idealMax: 20000, tooHigh: 20000 },
+    thresholdLabel: "American Whitewater downstream-proxy correlation: 2,000-20,000 cfs on USGS 12413000",
+    thresholdUrl: northForkCdaLowerAwReach,
+    thresholdSupportUrl: northForkCdaLowerGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: northForkCdaLowerAwReach,
+    sourceLabel: "American Whitewater North Fork Coeur d'Alene Babins Junction-to-Little North Fork reach record",
+    mapUrl: northForkCdaLowerMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Babins Junction map/access record", url: northForkCdaLowerMap },
+      { label: "USGS 12413000 North Fork Coeur d'Alene at Enaville", url: northForkCdaLowerGauge },
+      { label: "Coeur d'Alene River Corridor Forest Service guide", url: northForkCdaForestServiceGuide },
+      { label: "Idaho Fish and Game North Fork/Little North Fork water record", url: "https://idfg.idaho.gov/ifwis/fishingplanner/water/1162388476102" },
+    ],
+    putIn: {
+      name: "Babins Junction steel bridge / frontage-road access",
+      latitude: 47.6525268554688,
+      longitude: -116.031066894531,
+      mileFromStart: 0,
+      note: "American Whitewater's named bridge/frontage-road access. Use the easy river-right trail only after confirming lawful parking, bridge staging, and current road conditions.",
+    },
+    takeOut: {
+      name: "Little North Fork Road bridge",
+      latitude: 47.6104888916016,
+      longitude: -116.24146270752,
+      mileFromStart: 14.9,
+      note: "American Whitewater's small parking-area and short-trail take-out just past the Little North Fork confluence. Confirm river-right landing, parking, and private-bank boundaries.",
+    },
+    camping:
+      "Day-use float; no on-route camping is claimed. Nearby Forest Service campgrounds exist in the broader corridor, but use only lawful developed or clearly designated sites and do not camp on private riverfront.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Paved-road shuttle between the Babins Junction and Little North Fork bridge areas. Stage vehicles without blocking frontage roads, bridge approaches, or private driveways.",
+    permits:
+      "Follow Idaho boating/AIS/PFD rules, Forest Service and county road restrictions, posted private-property signs, fire rules, and any current bridge or road work notices.",
+    watchFor: ["low-water scraping", "brushy bends", "strainers and legacy log jams", "private frontage", "bridge clearance", "warm-weekend crowding"],
+    season: [5, 6, 7, 8],
+    imageUrl: stJoeImage,
+    imageLabel: "North Idaho river corridor context photograph; not a Babins Junction endpoint image",
+  }),
+
+  makeRoute({
+    id: "little-north-fork-coeur-dalene-laverne-mouth",
+    riverId: "little-north-fork-coeur-dalene-idaho",
+    name: "Little North Fork Coeur d'Alene River",
+    reach: "Laverne Creek to Coeur d'Alene River",
+    region: "North Idaho / Coeur d'Alene National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 21.1-mile Class II-III Little North Fork Coeur d'Alene reach from Laverne Creek to the main Coeur d'Alene River, with Forest Service road/campground logistics, low-water scraping, wood, and private-bank controls.",
+    statusText:
+      "Threshold-documented planning route. American Whitewater correlates this reach to downstream USGS 12413000 at 2,000-20,000 cfs and identifies the Laverne Creek and main-river access anchors. The Forest Service corridor guide documents nearby Bumblebee/Honeysuckle campground and bridge logistics but warns that Honeysuckle has no developed river access; verify the actual carry and legal landing before launch.",
+    distance: "About 21.1 river miles",
+    time: "About 6-9 hours plus a remote forest-road shuttle",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "remote", "private_banks", "access_uncertain"],
+    safety: [
+      "American Whitewater rates the reach Class II-III and correlates a broad 2,000-20,000 cfs window. Treat the number as downstream proxy context; inspect actual channel depth, wood, bridge clearance, and weather before committing to this long reach.",
+      "The Forest Service corridor guide identifies Bumblebee and Honeysuckle campground logistics, but Honeysuckle is not a developed river launch. Carry boats only from a verified lawful access area and do not substitute campground shoreline or private frontage without permission.",
+      "Low-water scraping, brush, strainers, cold water, and a long shuttle can turn a nominally moderate float into a remote self-rescue problem. Carry repair/rescue gear, communication, and a conservative turnaround plan.",
+    ],
+    gauge: "12413000",
+    gaugeName: "North Fork Coeur d'Alene River at Enaville, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 2000, idealMin: 2000, idealMax: 20000, tooHigh: 20000 },
+    thresholdLabel: "American Whitewater downstream-proxy correlation: 2,000-20,000 cfs on USGS 12413000",
+    thresholdUrl: littleNorthForkCdaAwReach,
+    thresholdSupportUrl: littleNorthForkCdaGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: littleNorthForkCdaAwReach,
+    sourceLabel: "American Whitewater Little North Fork Coeur d'Alene Laverne Creek-to-mouth reach record",
+    mapUrl: littleNorthForkCdaMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Little North Fork map/access record", url: littleNorthForkCdaMap },
+      { label: "USGS 12413000 North Fork Coeur d'Alene downstream proxy", url: littleNorthForkCdaGauge },
+      { label: "Coeur d'Alene River Corridor Forest Service guide", url: northForkCdaForestServiceGuide },
+      { label: "Idaho Fish and Game Little North Fork water record", url: littleNorthForkCdaIdfgWater },
+    ],
+    putIn: {
+      name: "Laverne Creek access",
+      latitude: 47.7063903808594,
+      longitude: -116.376670837402,
+      mileFromStart: 0,
+      note: "American Whitewater's access-area anchor near Laverne Creek. Confirm Forest Service road condition, legal parking, and a river-side carry; no developed ramp is assumed.",
+    },
+    takeOut: {
+      name: "Coeur d'Alene River confluence access",
+      latitude: 47.5572204589844,
+      longitude: -116.254997253418,
+      mileFromStart: 21.1,
+      note: "American Whitewater's lower access anchor near the main Coeur d'Alene River. Confirm the exact landing, downstream-current conditions, parking, and private-bank boundaries.",
+    },
+    camping:
+      "Nearby Forest Service basecamp options include Bumblebee and Honeysuckle, but Honeysuckle has no developed river access. No on-route camping or campground landing is assumed; use only lawful designated sites.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Remote forest-road shuttle using the Coeur d'Alene River corridor and Little North Fork roads. Verify seasonal gates, mud/snow, bridge access, and vehicle recovery before committing.",
+    permits:
+      "Follow Idaho boating/AIS/PFD rules, Forest Service campground and road rules, posted private-property restrictions, fire limits, and current closure notices.",
+    watchFor: ["low-water scraping", "brush and wood", "cold water", "campground carry", "private frontage", "seasonal roads", "long shuttle"],
+    season: [5, 6, 7, 8],
+    imageUrl: stJoeImage,
+    imageLabel: "North Idaho river corridor context photograph; not a Laverne Creek endpoint image",
+  }),
+
+  makeRoute({
+    id: "boulder-creek-gorge",
+    riverId: "boulder-creek-idaho",
+    name: "Boulder Creek",
+    reach: "Upper access to Kootenai River (Gorge)",
+    region: "North Idaho / Boundary County / Kootenai corridor",
+    routeType: "whitewater",
+    summary:
+      "A 5.5-mile Class IV-V Boulder Creek run with Red Lobster, Grunge Poser, a mandatory gravel-bar portage around an unrunnable gorge, and Magnolia Falls before the Kootenai confluence.",
+    statusText:
+      "Threshold-documented planning expedition. American Whitewater correlates the reach to the Yaak River near Troy gauge at 600-2,500 cfs, with roughly 1,000-1,500 cfs described as medium flow; the local put-in staff gauge is the decisive check. AW names exact put-in and take-out access anchors but warns the Kootenai confluence has no obvious public access and requires an exploratory shuttle plan.",
+    distance: "About 5.5 river miles",
+    time: "About 4-8 hours plus scouting, portage, and an exceptionally long shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "remote",
+      "fast_rise",
+      "access_uncertain",
+      "mandatory_takeout",
+    ],
+    safety: [
+      "American Whitewater describes Class IV-V rapids, Red Lobster, Grunge Poser, Magnolia Falls, wood, and committing canyon features. Use a proven expert creek team, full rescue kit, cold-water protection, and a portage plan for every blind horizon line.",
+      "The route has one mandatory gravel-bar exit before the vertical-walled unrunnable gorge. Do not pass that eddy; the documented portage follows a low saddle and reconnects above Magnolia Falls. Scout the portage before entering the gorge.",
+      "The Yaak gauge is a cross-border proxy. AW correlates 600-2,500 cfs and describes roughly 1,000-1,500 cfs as medium, while the local put-in gauge at about 3.6 ft is low. Inspect local stage, wood, falls, weather, and same-day trend rather than launching from the proxy number alone.",
+      "AW warns that there is no obvious public Kootenai access near the confluence and that the shuttle around the river is extremely long. Confirm the take-out, Leonia-area seasonal access, legal parking, and an evacuation plan before committing.",
+    ],
+    gauge: "12304500",
+    gaugeName: "Yaak River near Troy, MT (proxy for Boulder Creek)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 1000, idealMax: 1500, tooHigh: 2500 },
+    thresholdLabel:
+      "American Whitewater Yaak proxy correlation: 600-2,500 cfs runnable shoulder; roughly 1,000-1,500 cfs medium-flow context, with a local 3.6-ft put-in staff-gauge cue",
+    thresholdUrl: boulderCreekAwReach,
+    thresholdSupportUrl: boulderCreekGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: boulderCreekAwReach,
+    sourceLabel: "American Whitewater Boulder Creek Gorge reach record",
+    mapUrl: boulderCreekMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Boulder Creek access map", url: boulderCreekMap },
+      { label: "American Whitewater Boulder Creek put-in access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/110177" },
+      { label: "American Whitewater Boulder Creek take-out access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/115441" },
+      { label: "USGS Yaak River near Troy proxy gauge", url: boulderCreekGauge },
+      { label: "Idaho Fish and Game Boulder Creek water record", url: boulderCreekIdfgWater },
+      { label: "Idaho Fish and Game Leonia Kootenai access site", url: boulderCreekLeoniaAccess },
+      { label: "Kootenai National Forest access context", url: boulderCreekForestContext },
+    ],
+    putIn: {
+      name: "Boulder Creek Put-In Access",
+      latitude: 48.58652,
+      longitude: -116.146907,
+      mileFromStart: 0,
+      note: "American Whitewater access-area anchor 0.05 miles from the reach start. Approach from Troy or Bonners Ferry only after confirming the road, local staff-gauge reading, parking, and a safe carry.",
+    },
+    takeOut: {
+      name: "Boulder Creek / Kootenai Confluence Take-Out",
+      latitude: 48.625465,
+      longitude: -116.066503,
+      mileFromStart: 5.5,
+      note: "American Whitewater access-area anchor 5.36 miles downstream. AW says no obvious public Kootenai access exists near the confluence; verify the landing and use a separately confirmed downstream Leonia access only if the planned shuttle and seasonal opening support it.",
+    },
+    camping:
+      "No on-route camping is claimed. Use a separately verified Boundary County, Kootenai National Forest, or Kootenai corridor basecamp; do not camp at the gravel-bar portage or confluence without current landowner and fire-rule confirmation.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "The shuttle is unusually long around the Kootenai River. AW describes Leonia Road and an ATV-oriented road system near the confluence; stage vehicles only at verified public sites, consider the seasonal Leonia access window, and carry recovery/communication gear.",
+    permits:
+      "Follow Idaho boating/AIS/PFD rules, Kootenai and Idaho Panhandle road and fire restrictions, posted private-property signs, and any Montana/Idaho access-site closures. No right to use an informal bank or ATV road is implied.",
+    watchFor: [
+      "Red Lobster and Grunge Poser",
+      "mandatory gravel-bar portage before unrunnable gorge",
+      "Magnolia Falls and seal-launch/rappel consequences",
+      "mobile wood",
+      "local 3.6-ft staff-gauge cue",
+      "no obvious public confluence access",
+      "extremely long shuttle",
+    ],
+    season: [5, 6, 7],
+    imageUrl: stJoeImage,
+    imageLabel: "North Idaho Panhandle river context photograph; not a Boulder Creek endpoint image",
+  }),
+  makeRoute({
+    id: "smith-creek-upper",
+    riverId: "smith-creek-idaho",
+    name: "Smith Creek",
+    reach: "Upper Smith Creek",
+    region: "North Idaho / Boundary County / Selkirk Mountains",
+    routeType: "whitewater",
+    summary:
+      "A 3.6-mile Class III-IV+(V) Upper Smith Creek reach from the diversion-area access to the lower bridge, with clean bedrock rapids, small cascades, and a local staff-gauge cue.",
+    statusText:
+      "Threshold-documented planning route. American Whitewater reports a 6.4-foot staff-gauge reading as a low, friendly Upper Smith flow and 8.1 feet as a moderate reading; the same report associates 6.4 feet with roughly 75-80 cfs below the diversion. Boundary Creek 12321500 is regional proxy context only, and the hydro diversion can remove much of the available water.",
+    distance: "About 3.6 river miles",
+    time: "About 2-4 hours plus scouting and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "remote", "fast_rise", "access_uncertain"],
+    safety: [
+      "American Whitewater rates Upper Smith III-IV+(V) and describes a slow start that builds into clean bedrock rapids and small cascades. Use a proven creek boat, helmet, PFD, throw bags, and a team capable of self-rescue in cold water.",
+      "Call the Smith Creek diversion at (208) 267-2744 and inspect the local staff gauge below the diversion. The Boundary Creek online gauge is one drainage north and cannot replace the local release/stage check.",
+      "The reach has a major drop near the lower half, an undercut left bank, and changing hydro operations. Confirm Forest Service road access, bridge parking, private-bank boundaries, and wood immediately before launch.",
+    ],
+    gauge: "12321500",
+    gaugeName: "Boundary Creek near Porthill, ID (regional proxy for Upper Smith)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 75, idealMin: 75, idealMax: 80 },
+    thresholdLabel: "Upper Smith local staff gauge: 6.4 ft is low/friendly and correlated to about 75-80 cfs below diversion; 8.1 ft is moderate",
+    thresholdUrl: smithUpperThreshold,
+    thresholdSupportUrl: smithCreekFlowProject,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: smithUpperThreshold,
+    sourceLabel: "American Whitewater Upper Smith Creek reach record",
+    mapUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/10542/map",
+    additionalSourceLinks: [
+      { label: "American Whitewater Upper Smith Creek put-in access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109732" },
+      { label: "American Whitewater Upper Smith Creek take-out access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/114984" },
+      { label: "American Whitewater Smith Creek flow-management project", url: smithCreekFlowProject },
+      { label: "USGS Boundary Creek regional proxy gauge", url: smithCreekGauge },
+      { label: "Idaho Fish and Game Smith Creek water record", url: smithCreekIdfg },
+      { label: "Idaho Panhandle Smith Ridge trail/road context", url: "https://www.fs.usda.gov/r01/idahopanhandle/recreation/smith-ridge-cut-peak-trail-18" },
+    ],
+    putIn: {
+      name: "Upper Smith Creek Diversion Access",
+      latitude: 48.889992,
+      longitude: -116.699105,
+      mileFromStart: 0,
+      note: "American Whitewater access point below the hydro diversion; call the operator, inspect the staff gauge, and verify Forest Service road parking and legal carry before launching.",
+    },
+    takeOut: {
+      name: "Upper Smith Creek Lower Bridge",
+      latitude: 48.928094,
+      longitude: -116.660663,
+      mileFromStart: 3.63,
+      note: "American Whitewater lower bridge endpoint; confirm river-side landing, bridge parking, and current road/closure conditions rather than assuming a developed ramp.",
+    },
+    camping:
+      "No developed Smith Creek endpoint campground is assumed. Use a separately verified legal Kaniksu/Boundary County basecamp and follow fire, wildlife, and seasonal closure rules.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short Forest Service-road shuttle between the diversion access and lower bridge, but road conditions and gates can change quickly. Stage the lower bridge first and carry satellite communication.",
+    permits:
+      "Follow Idaho Panhandle National Forest rules, Idaho AIS/PFD requirements, fire and road closures, hydro-facility restrictions, and private-bank boundaries.",
+    watchFor: ["6.4-ft local staff-gauge cue", "hydro diversion changes", "large lower-half drop", "undercut left bank", "cold water", "bridge parking and landing"],
+    season: [4, 5, 6, 7],
+    imageUrl: stJoeImage,
+    imageLabel: "North Idaho Panhandle river context photograph; not an Upper Smith endpoint image",
+  }),
+
+  makeRoute({
+    id: "snake-river-swan-falls-walters-ferry",
+    riverId: "snake-river-birds-of-prey-idaho",
+    name: "Snake River",
+    reach: "Swan Falls Dam to Walters Ferry (Birds of Prey)",
+    region: "Southwest Idaho / Morley Nelson Snake River Birds of Prey NCA",
+    routeType: "recreational",
+    summary:
+      "A 16.3-mile Class I(II) desert-canyon float from the developed Swan Falls launch to the Walters Ferry boat ramp, with two Class II rapids and strong raptor-viewing value.",
+    statusText:
+      "Threshold-documented planning route. American Whitewater and BLM describe a year-round float with seasonal flows roughly 3,000-40,000 cfs, but Swan Falls operations can change discharge quickly and the route has no fixed recreational optimum; use the direct below-Swan-Falls gauge as a conservative planning reference only.",
+    distance: "About 16.3 river miles",
+    time: "About 4-7 hours plus shuttle, wind, and wildlife-viewing stops",
+    difficulty: "easy",
+    risk: "caution",
+    hazards: ["cold_water", "wind", "dam", "whitewater", "remote", "access_uncertain"],
+    safety: [
+      "The BLM describes two Class II rapids between Swan Falls and Celebration Park; this is not a beginner-only flatwater trip. Wear a PFD, carry a communication plan, and stay clear of the dam and all posted exclusion zones.",
+      "Swan Falls operations create short-term flow fluctuations. Check the direct 13172500/Idaho Power below-Swan-Falls record, weather and wind, and current dam notices immediately before launching.",
+      "The route passes through the Morley Nelson Snake River Birds of Prey NCA. Keep distance from nesting cliffs and wildlife, use only developed public launches, and avoid private-bank landings.",
+    ],
+    gauge: "13172500",
+    gaugeName: "Snake River below Swan Falls Dam near Murphy, ID",
+    gaugeKind: "direct",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 3000 },
+    thresholdLabel: "AW/BLM seasonal operating cue: about 3,000 cfs winter flow to 40,000 cfs spring flow; no fixed optimum published",
+    thresholdUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/10374/main",
+    thresholdSupportUrl: "https://www.blm.gov/visit/swan-falls-picnic-area",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/10374/main",
+    sourceLabel: "American Whitewater Swan Falls Dam to Walters Ferry reach record",
+    mapUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-13172500/",
+    additionalSourceLinks: [
+      { label: "BLM Swan Falls Picnic Area launch and boating guidance", url: "https://www.blm.gov/visit/swan-falls-picnic-area" },
+      { label: "BLM Morley Nelson Snake River Birds of Prey visitor guide", url: "https://www.blm.gov/sites/default/files/documents/files/Morley%20Nelson%20Visitor%20Guide.pdf" },
+      { label: "Idaho Fish and Game Walters Ferry boat ramp", url: "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22295-fishing-and-boating-access-site-walters" },
+      { label: "Canyon County public access coordinates", url: "https://www.canyoncounty.id.gov/celebration-park-boat-ramp-area-will-be-closed-august-31-2026-november-2026/" },
+      { label: "USGS below-Swan-Falls gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13172500/" },
+    ],
+    putIn: {
+      name: "Swan Falls Dam River Access",
+      latitude: 43.245993,
+      longitude: -116.378029,
+      mileFromStart: 0,
+      note: "Developed BLM/Idaho Power launch below Swan Falls Dam; confirm current dam exclusion, parking, and seasonal notices before carrying boats to the river.",
+    },
+    takeOut: {
+      name: "Walters Ferry Boat Ramp",
+      latitude: 43.341475,
+      longitude: -116.603309,
+      mileFromStart: 16.3,
+      note: "Idaho Fish and Game day-use ramp with dock and restroom; verify current access and any construction or seasonal restrictions.",
+    },
+    camping:
+      "Swan Falls has nearby free camping areas, but the park itself is day-use only. Walters Ferry is day-use; use lawful BLM/NCA campsites or a Boise/Melba-area basecamp and follow fire and wildlife rules.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "One-way shuttle from Walters Ferry back to Swan Falls is required. Allow extra time for the long canyon road approach, wind, and a slow final reach below Celebration Park.",
+    permits:
+      "Follow BLM Morley Nelson NCA and Swan Falls site rules, Idaho AIS/PFD requirements, wildlife-closure notices, fire restrictions, and posted dam/private-bank restrictions.",
+    watchFor: ["Swan Falls dam exclusion", "two Class II rapids", "wind and heat", "raptor nesting cliffs", "changing dam releases", "Walters Ferry ramp conditions"],
+    season: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    imageUrl: snakeImage,
+    imageLabel: "Snake River canyon context photograph",
+  }),
+
   makeRoute({
     id: "little-north-fork-clearwater-headwaters-reservoir",
     riverId: "clearwater-little-north-fork-idaho",
@@ -1408,6 +2121,444 @@ export const idahoRoutes: River[] = [
     season: [2, 3, 4],
     imageUrl: clearwaterImage,
     imageLabel: "Clearwater basin context photograph; not a Potlatch endpoint image",
+  }),
+
+  makeRoute({
+    id: "little-potlatch-river-headwaters-potlatch",
+    riverId: "potlatch-river-idaho",
+    name: "Little Potlatch River",
+    reach: "Headwaters to Potlatch River",
+    region: "North-Central Idaho / Latah-Nez Perce counties",
+    routeType: "whitewater",
+    summary:
+      "A roughly 7.5-mile Class IV-V Little Potlatch Creek descent through granite and basalt canyon to the Potlatch River.",
+    statusText:
+      "Planning-only proxy-gauge route. American Whitewater documents the IV-V headwaters reach, legal bridge access, private-bank/fence exposure, and a remote committing canyon. Local reports correlate a non-local Spalding gauge with a put-in stick gauge around 3.0-3.5 ft; treat the cfs values as planning cues, not a local safety guarantee.",
+    distance: "About 7.5 river miles",
+    time: "About 5-8 hours including scouting, portage, and a committing shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "remote",
+      "fast_rise",
+      "access_uncertain",
+      "private_banks",
+      "portage",
+    ],
+    safety: [
+      "American Whitewater rates the reach Class IV-V and describes waterfalls, a sieve portage, basalt slot canyons, granite gorges, and a remote feel. Use an expert team with throw bags, pin/rescue equipment, cold-water protection, and a deliberate portage plan.",
+      "American Whitewater trip reports and the Spokesman-Review describe a local stick-gauge target around 3.0-3.5 ft, with roughly 325-1,000 cfs at the downstream Spalding gauge in reported runs. The Spalding gauge is far downstream and correlation is blurry; verify the local stick gauge and inspect the actual channel before launch.",
+      "The run crosses private property even though floating is described as legal under Idaho law. Expect fences, respect landowners, use only the named bridge access, and do not assume a bank landing or road pullout is public.",
+    ],
+    gauge: "13341570",
+    gaugeName: "Potlatch River below Little Potlatch Creek near Spalding, ID (proxy for Little Potlatch)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 300, idealMin: 325, idealMax: 1000 },
+    thresholdLabel:
+      "Little Potlatch local-stick-gauge correlation: about 3.0-3.5 ft at the put-in and roughly 325-1,000 cfs on the downstream Spalding proxy; below about 2.8 ft is commonly reported as scrape-prone",
+    thresholdUrl: littlePotlatchThreshold,
+    thresholdSupportUrl: littlePotlatchFlowReport,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: littlePotlatchThreshold,
+    sourceLabel: "American Whitewater Little Potlatch Headwaters-to-Potlatch reach record",
+    mapUrl: littlePotlatchThreshold,
+    additionalSourceLinks: [
+      { label: "American Whitewater Little Potlatch reach", url: littlePotlatchThreshold },
+      { label: "American Whitewater / FERC Little Potlatch access and conservation record", url: littlePotlatchEvidence },
+      { label: "Spokesman-Review local stick-gauge and flow correlation report", url: littlePotlatchFlowReport },
+      { label: "USGS Potlatch River below Little Potlatch Creek proxy gauge", url: littlePotlatchGauge },
+      { label: "Idaho Transportation Department Little Potlatch Creek bridge milepoint record", url: "https://apps.itd.idaho.gov/apps/milepointlog/logs/dist/D2_FA_MPLog.pdf" },
+      { label: "Little Potlatch Creek mapped stream location", url: "https://www.anyplaceamerica.com/directory/id/nez-perce-county-16069/streams/little-potlatch-creek-373664/" },
+      { label: "American Whitewater Idaho river index", url: "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-IDA" },
+    ],
+    putIn: {
+      name: "Little Potlatch upstream bridge access (approximate)",
+      latitude: 46.607925,
+      longitude: -116.664561,
+      mileFromStart: 0,
+      note: "American Whitewater describes legal bridge access at the upstream end, but does not publish a dedicated ramp coordinate in the public reach text. Treat this as an approximate bridge/road anchor and confirm the current landing, parking, and private-frontage rules before launch.",
+    },
+    takeOut: {
+      name: "Little Potlatch / Potlatch River bridge access (approximate)",
+      latitude: 46.5235,
+      longitude: -116.72987,
+      mileFromStart: 7.5,
+      note: "Mapcarta identifies the Little Potlatch stream near its lower end; American Whitewater describes legal downstream bridge access. Confirm the exact bridge, road approach, landing, and fence conditions immediately before committing.",
+    },
+    access: [
+      {
+        name: "Little Potlatch upstream bridge access (approximate)",
+        latitude: 46.607925,
+        longitude: -116.664561,
+        mileFromStart: 0,
+        note: "Approximate bridge anchor based on the AW legal-bridge description; field-verify parking and river-side carry.",
+      },
+      {
+        name: "Little Potlatch / Potlatch River bridge access (approximate)",
+        latitude: 46.5235,
+        longitude: -116.72987,
+        mileFromStart: 7.5,
+        note: "Approximate lower stream/confluence anchor; do not infer a public ramp from the coordinate alone.",
+      },
+    ],
+    camping:
+      "No on-route camping is assumed. Use a legal basecamp near Moscow/Juliaetta or a confirmed private/agency site; the canyon and private frontage are not treated as dispersed camping opportunities.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Stage the downstream bridge first, then use county roads and current local directions to reach the upstream bridge. Allow extra time for private-road gates, snow/ice, and a difficult recovery if the lower landing is not usable.",
+    permits:
+      "No route-specific permit was confirmed. Follow Idaho AIS/PFD rules, current road and bridge closures, private-property boundaries, landowner requests, fire restrictions, and any local law-enforcement guidance on navigation and access.",
+    watchFor: [
+      "waterfalls and sieve portage",
+      "fences near the lower run",
+      "wood and cold early-season water",
+      "private-bank access conflicts",
+      "proxy-gauge mismatch",
+      "approximate bridge landings",
+    ],
+    season: [1, 2, 3, 4],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater watershed context photograph; not a Little Potlatch endpoint image",
+  }),
+
+  makeRoute({
+    id: "big-bear-creek-highway-8-kendrick",
+    riverId: "big-bear-creek-idaho",
+    name: "Big Bear Creek",
+    reach: "Highway 8 Bridge to Kendrick High School",
+    region: "North-Central Idaho / Latah County",
+    routeType: "whitewater",
+    summary:
+      "A 14.5-mile Class IV-V Big Bear Creek descent from the Highway 8 bridge west of Deary to the Kendrick High School endpoint.",
+    statusText:
+      "Planning-only proxy-gauge route. American Whitewater publishes an exact 1,000-2,600 cfs runnable correlation on the Potlatch gauge and exact access coordinates, while its 2006 description warns of barbed-wire fences, a major falls portage, wood, a steelhead weir, and a long cold full-day shuttle. Confirm both landings and every in-channel hazard immediately before launch.",
+    distance: "14.5 river miles",
+    time: "About 6-10 hours including scouting, portage, and a long shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "remote",
+      "fast_rise",
+      "access_uncertain",
+      "portage",
+    ],
+    safety: [
+      "American Whitewater rates the reach Class IV-V and describes nearly continuous rapids, a major falls portage, a dangerous river-wide fence, and mobile wood. Scout the entire corridor from the road where possible and never assume a fence or wire is visible from upstream.",
+      "American Whitewater's live correlation for the Potlatch River below Little Potlatch Creek near Spalding is 1,000-2,600 cfs. This is a downstream proxy for Big Bear Creek; use it as a broad planning cue only and override it with a local visual inspection.",
+      "American Whitewater reports Idaho Fish and Game steelhead weirs on Big Bear and Little Bear, typically February-June, including a Big Bear weir below the Little Bear Ridge Road bridge. Portage around any installed weir and do not disturb it.",
+      "The run is cold, remote, and a full-day commitment with limited bailout options. Carry rescue and repair equipment, a conservative evacuation plan, and current road/bridge information; the Highway 8 bridge corridor may have active maintenance.",
+    ],
+    gauge: "13341570",
+    gaugeName: "Potlatch River below Little Potlatch Creek near Spalding, ID (proxy for Big Bear Creek)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1000, idealMin: 1000, idealMax: 2600, tooHigh: 2600 },
+    thresholdLabel:
+      "American Whitewater Big Bear correlation: 1,000-2,600 cfs on the Potlatch River below Little Potlatch Creek near Spalding proxy gauge",
+    thresholdUrl: bigBearThreshold,
+    thresholdSupportUrl: bigBearMap,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: bigBearThreshold,
+    sourceLabel: "American Whitewater Big Bear Highway 8-to-Kendrick reach record",
+    mapUrl: bigBearMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Big Bear reach and flow correlation", url: bigBearThreshold },
+      { label: "RiverFacts Big Bear access map and endpoint coordinates", url: bigBearMap },
+      { label: "USGS Potlatch River proxy gauge", url: bigBearGauge },
+      { label: "Idaho Transportation Department Highway 8 bridge maintenance context", url: bigBearItdBridge },
+      { label: "Idaho Fish and Game boating-access directory", url: "https://idfg.idaho.gov/visit/fish-boat-guide" },
+    ],
+    putIn: {
+      name: "Highway 8 Bridge west of Deary",
+      latitude: 46.783054,
+      longitude: -116.596947,
+      mileFromStart: 0,
+      note: "American Whitewater access point 109795 at the Highway 8 bridge; the bridge is confirmed in the ITD corridor, but this is not a dedicated IDFG ramp. Verify legal parking, shoulder safety, and the current river-side carry.",
+    },
+    takeOut: {
+      name: "Kendrick High School endpoint",
+      latitude: 46.651668548584,
+      longitude: -116.661666870117,
+      mileFromStart: 14.5,
+      note: "American Whitewater access point 115047 / RiverFacts endpoint. Treat the coordinate as a navigation anchor, not proof of a public ramp; confirm legal landing and parking before committing.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a separate legal basecamp in the Kendrick/Deary area and do not camp on agricultural or school frontage.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Long North-Central Idaho shuttle using Highway 8, county roads, and the Kendrick endpoint. Stage the endpoint first, use only legal pullouts, and check ITD/current local road work before launch.",
+    permits:
+      "No route-specific river permit was confirmed. Follow Idaho AIS/PFD requirements, all posted bridge and school-property rules, current road closures, private-land boundaries, and IDFG weir instructions.",
+    watchFor: [
+      "river-wide barbed-wire fence",
+      "major falls and mandatory portage",
+      "mobile wood and strainers",
+      "seasonal IDFG steelhead weirs",
+      "cold water and limited bailout",
+      "downstream proxy-gauge mismatch",
+      "uncertain legal endpoint landing",
+    ],
+    season: [2, 3, 4, 5, 6],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater watershed context photograph; not a Big Bear endpoint image",
+  }),
+
+  makeRoute({
+    id: "potlatch-river-frog-pond-kendrick",
+    riverId: "potlatch-river-idaho",
+    name: "Potlatch River",
+    reach: "Frog Pond to Kendrick",
+    region: "North-Central Idaho / Latah County",
+    routeType: "whitewater",
+    summary:
+      "A 6.4-mile Class II-III lower Potlatch reach from Frog Pond to the Kendrick-area concrete bridge access.",
+    statusText:
+      "Planning-only proxy-gauge route. American Whitewater's 2023 reach record publishes a 700-8,000 cfs Potlatch proxy correlation, exact access coordinates, and several take-out options; North Idaho Rivers describes the local stick-gauge minimum, early-season window, and low-water scraping below roughly four feet. Confirm the intended bridge landing, private frontage, and current strainers before launch.",
+    distance: "6.4 river miles",
+    time: "About 3-5 hours including scouting and shuttle",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "low_water",
+      "access_uncertain",
+      "private_banks",
+    ],
+    safety: [
+      "American Whitewater rates the reach Class II-III and describes a short lower section with the main rapids near the Frog Pond start, several take-out options, and a 2023 report of a bridge strainer. Scout the concrete bridge and any visible wood before committing downstream.",
+      "American Whitewater's 700-8,000 cfs correlation uses the Potlatch River below Little Potlatch Creek near Spalding gauge. North Idaho Rivers says the local stick gauge is the controlling cue, with about 3.0 feet as a minimum and the lower miles becoming scrapy below about 4.0 feet; the online gauge is over 30 miles downstream and does not correlate well.",
+      "The corridor follows county roads and residential/agricultural frontage. Use only the named access, keep boats and vehicles out of private yards, and confirm the concrete-bridge landing and parking before launch. A bicycle shuttle is possible but does not establish a public right to every roadside pullout.",
+    ],
+    gauge: "13341570",
+    gaugeName: "Potlatch River below Little Potlatch Creek near Spalding, ID (proxy for lower Potlatch)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 700, idealMin: 700, idealMax: 8000, tooHigh: 8000 },
+    thresholdLabel:
+      "American Whitewater Lower Potlatch correlation: 700-8,000 cfs on the Spalding proxy; local North Idaho Rivers cue is a 3.0-ft minimum stick level and roughly 4.0 ft for less-scrapey lower miles",
+    thresholdUrl: lowerPotlatchThreshold,
+    thresholdSupportUrl: potlatchGuide,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: lowerPotlatchThreshold,
+    sourceLabel: "American Whitewater Lower Potlatch Frog Pond-to-Kendrick reach record",
+    mapUrl: lowerPotlatchMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Lower Potlatch reach and flow correlation", url: lowerPotlatchThreshold },
+      { label: "American Whitewater Lower Potlatch map/access record", url: lowerPotlatchMap },
+      { label: "North Idaho Rivers Potlatch flow, access, and shuttle guide", url: potlatchGuide },
+      { label: "USGS Potlatch River proxy gauge", url: lowerPotlatchGauge },
+      { label: "USGS Potlatch River at Kendrick context gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13341500/" },
+      { label: "Idaho Fish and Game Potlatch water record", url: "https://idfg.idaho.gov/ifwis/fishingplanner/water/1167653464740" },
+    ],
+    putIn: {
+      name: "Frog Pond access",
+      latitude: 46.655,
+      longitude: -116.549,
+      mileFromStart: 0,
+      note: "American Whitewater access point 111258 at Frog Pond. Confirm current roadside parking, river-side carry, and any local/private frontage controls.",
+    },
+    takeOut: {
+      name: "Kendrick first concrete bridge",
+      latitude: 46.6275,
+      longitude: -116.641,
+      mileFromStart: 6.4,
+      note: "American Whitewater access point 116528 / Kendrick-area bridge anchor. Treat it as a navigation and landing coordinate, not proof of a dedicated ramp; inspect the bridge for wood and confirm legal parking before launch.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a legal Kendrick/Deary basecamp and do not camp on private agricultural frontage or at an unmarked bridge pullout.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short county-road shuttle along the lower Potlatch; American Whitewater reports that a bicycle shuttle is practical. Use only legal shoulders and private-road approaches, and stage the endpoint before launch.",
+    permits:
+      "No route-specific river permit was confirmed. Follow Idaho AIS/PFD requirements, private-property signs, bridge and road rules, current fish/weir notices, and any local closure or construction notice.",
+    watchFor: [
+      "bridge strainer",
+      "low-water scraping",
+      "private frontage",
+      "limited bridge parking",
+      "cold early-season water",
+      "downstream proxy mismatch",
+    ],
+    season: [2, 3, 4, 5],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater watershed context photograph; not a Lower Potlatch endpoint image",
+  }),
+
+  makeRoute({
+    id: "bear-valley-creek-fir-confluence",
+    riverId: "bear-valley-creek-idaho",
+    name: "Bear Valley Creek",
+    reach: "Fir Creek Campground to Middle Fork Salmon confluence",
+    region: "Central Idaho / Boise National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 7-mile Class II-III Bear Valley Creek reach from Fir Creek Campground to the Middle Fork Salmon confluence.",
+    statusText:
+      "Planning-only proxy-gauge route. Whitewater Guidebook, Snoflo, RiverFacts, and Forest Service corridor information agree on the Fir Creek start, confluence endpoint, Class II-III character, and early-summer flow planning; the Middle Fork Lodge gauge is a nearby proxy and the creek has a mandatory fish-trap portage, continuous wood exposure, remote access, and a long carry/shuttle.",
+    distance: "About 7 river miles",
+    time: "About 4-6 hours including portage, scouting, and the remote shuttle",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "remote", "access_uncertain", "portage"],
+    safety: [
+      "Whitewater Guidebook describes mostly Class II with occasional Class III, a mandatory portage around a river-wide fish trap shortly below Fir Creek, and continuous wood potential. Portage the trap and scout every bend; do not use the downstream Middle Fork continuation without a separate permit and Dagger Falls plan.",
+      "Snoflo publishes a 600-2,000 cfs ideal streamflow range on the Middle Fork Lodge-area gauge, while Whitewater Guidebook gives a 3-5 ft Middle Fork Lodge stage cue. Both are planning proxies for Bear Valley Creek, not a guarantee of local depth or wood clearance.",
+      "Fir Creek Campground and Forest Roads 579/582 provide the named access corridor, but the confluence endpoint is a trail/bridge-area landing rather than a dedicated developed ramp. Confirm seasonal road openings, parking, carry, river-right/left landing, and current wilderness rules before departure.",
+    ],
+    gauge: "13309220",
+    gaugeName: "Middle Fork Salmon River at Middle Fork Lodge near Yellow Pine, ID (proxy for Bear Valley Creek)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 600, idealMax: 2000, tooHigh: 2000 },
+    thresholdLabel:
+      "Snoflo Bear Valley planning band: 600-2,000 cfs on the Middle Fork Lodge-area proxy; Whitewater Guidebook adds a 3-5 ft stage cue",
+    thresholdUrl: bearValleySnoflo,
+    thresholdSupportUrl: bearValleyFlowGuide,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: bearValleyFlowGuide,
+    sourceLabel: "Whitewater Guidebook Bear Valley Creek route record",
+    mapUrl: bearValleyMap,
+    additionalSourceLinks: [
+      { label: "Whitewater Guidebook Bear Valley Creek route and stage cue", url: bearValleyFlowGuide },
+      { label: "Snoflo Fir Creek-to-Boise National Forest boundary flow band", url: bearValleySnoflo },
+      { label: "RiverFacts Bear Valley access coordinates", url: bearValleyMap },
+      { label: "Bear Valley / Fir Creek campground and road context", url: bearValleyAccessGuide },
+      { label: "USGS Middle Fork Salmon proxy gauge", url: marshCreekMiddleForkGauge },
+      { label: "Boise National Forest Wild and Scenic corridor study", url: "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5394050.pdf" },
+    ],
+    putIn: {
+      name: "Fir Creek Campground",
+      latitude: 44.43111,
+      longitude: -115.29139,
+      mileFromStart: 0,
+      note: "Named campground and trailhead access; verify seasonal Forest Road 579/582 opening, campground status, parking, and the legal river-side carry.",
+    },
+    takeOut: {
+      name: "Middle Fork Salmon confluence / Dagger Falls trail access",
+      latitude: 44.52944,
+      longitude: -115.29223,
+      mileFromStart: 7,
+      note: "RiverFacts confluence-area endpoint anchor. This is not a dedicated ramp; confirm the current trail/bridge landing and do not continue below Dagger Falls without the required Middle Fork permit.",
+    },
+    camping:
+      "Fir Creek Campground is the named endpoint campground when open. No informal on-route camping is assumed; verify Forest Service rules, bear storage, fire restrictions, and water treatment.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Remote Forest Road 579/582 shuttle with a trail/bridge carry at the confluence. Stage the endpoint first, confirm road conditions and gates, and carry communications and recovery gear.",
+    permits:
+      "No permit is assumed for the Bear Valley Creek reach above the Middle Fork Salmon. A separate Middle Fork Salmon permit is required for downstream travel below Dagger Falls; follow Forest Service, AIS/PFD, fire, wildlife, and wilderness rules.",
+    watchFor: ["mandatory fish-trap portage", "continuous river-wide wood", "cold high-elevation water", "remote Forest Road 579/582", "confluence trail/bridge landing", "Middle Fork permit boundary"],
+    season: [5, 6, 7],
+    imageUrl: salmonImage,
+    imageLabel: "Middle Fork Salmon watershed context photograph; not a Bear Valley endpoint image",
+  }),
+
+  makeRoute({
+    id: "big-creek-middle-fork-airstrip-cache-bar",
+    riverId: "big-creek-middle-fork-salmon-idaho",
+    name: "Big Creek (Middle Fork Salmon tributary)",
+    reach: "Big Creek Airstrip to Cache Bar via the Middle Fork Salmon",
+    region: "Central Idaho / Frank Church River of No Return Wilderness",
+    routeType: "whitewater",
+    summary:
+      "A 36-mile Class III-IV Big Creek expedition from the public backcountry airstrip, followed by roughly 18 miles on the Middle Fork Salmon to the Cache Bar take-out.",
+    statusText:
+      "Planning-only wilderness expedition. Whitewater Guidebook uses the Middle Fork Salmon gauge's 3-foot reading as the ideal Big Creek cue; American Whitewater describes Big Creek as Class III-IV with substantial wood and a mandatory Middle Fork permit. The airstrip and Cache Bar are documented access facilities, but flight, permit, seasonal closure, and wood checks are hard gates.",
+    distance: "About 54 river miles including the Middle Fork exit; multi-day staged expedition",
+    time: "About 3-5 days including flight/logistics, scouting, and wilderness camping",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "remote", "fast_rise", "access_uncertain", "mandatory_takeout"],
+    safety: [
+      "American Whitewater and Whitewater Guidebook describe a remote Class III-IV creek with frequent wood portages, limited eddies, and a stronger Class IV character at medium water. Use a proven expedition crew, satellite communication, repair/rescue gear, and a conservative portage plan.",
+      "The 3-foot Middle Fork Lodge stage is a local planning cue for the connected Big Creek/Middle Fork trip, not a direct Big Creek gauge or safety guarantee. A 2026 trip report at 5 feet described upper Big Creek as wood-choked and effectively Class V; inspect the trend, current wood, and party capability before launch.",
+      "A free Middle Fork permit is required for Big Creek paddling and the connected Middle Fork segment; the corridor is closed to canoe/kayak use in April, May, August, and September for spawning protection. Confirm the current permit, flight/airstrip status, road or air access, wildfire closures, and Cache Bar ramp before committing.",
+    ],
+    gauge: "13309220",
+    gaugeName: "Middle Fork Salmon River at Middle Fork Lodge, ID (tributary/exit proxy)",
+    gaugeKind: "proxy",
+    gaugeMetric: "gage_height_ft",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 2, idealMin: 3, idealMax: 4, tooHigh: 5 },
+    thresholdLabel: "Whitewater Guidebook: ideal when Middle Fork stage is about 3 ft; about 2 ft is a low-water benchmark and 5 ft is retained as a high-wood escalation cue",
+    thresholdUrl: "https://www.whitewaterguidebook.com/idaho/big-creek/",
+    thresholdSupportUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/518/main",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/518/main",
+    sourceLabel: "American Whitewater Big Creek Airstrip-to-Cache Bar reach record",
+    mapUrl: "https://www.northidahorivers.com/Middle_Fork_Salmon.htm",
+    additionalSourceLinks: [
+      { label: "Whitewater Guidebook Big Creek flow and permit guide", url: "https://www.whitewaterguidebook.com/idaho/big-creek/" },
+      { label: "American Whitewater Big Creek reach and permit record", url: "https://www.americanwhitewater.org/content/River/view/river-detail/518/main" },
+      { label: "American Whitewater Big Creek trip report / wood context", url: "https://www.americanwhitewater.org/content/River/view/river-detail/518/reports/100428261" },
+      { label: "USGS Middle Fork Lodge stage gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13309220/" },
+      { label: "Idaho Transportation Department Big Creek airstrip directory", url: "https://itd.idaho.gov/aero/airport-planning/5010-safety-inspections-airport-economic-impacts/" },
+      { label: "North Idaho Rivers Middle Fork access and Cache Bar logistics", url: "https://www.northidahorivers.com/Middle_Fork_Salmon.htm" },
+      { label: "U.S. Fish and Wildlife Middle Fork Salmon overview", url: "https://www.fws.gov/rivers/river/salmon-middle-fork" },
+    ],
+    putIn: {
+      name: "Big Creek Backcountry Airstrip / Ranger Station",
+      latitude: 45.1332431,
+      longitude: -115.3217789,
+      mileFromStart: 0,
+      note: "Forest Service public-use airstrip and ranger-station access near Big Creek Campground. Flight or overland approach, current NOTAM/airstrip condition, and river carry require advance confirmation; do not treat the runway as a casual public ramp.",
+    },
+    takeOut: {
+      name: "Cache Bar Boat Ramp",
+      latitude: 45.31856,
+      longitude: -114.63671,
+      mileFromStart: 54,
+      note: "Public Forest Service Cache Bar take-out on the Salmon corridor, about 18 miles below the Big Creek/Middle Fork connection. Confirm current ramp, trailer staging, permit records, and swift-current landing conditions.",
+    },
+    access: [
+      {
+        name: "Big Creek Backcountry Airstrip / Ranger Station",
+        latitude: 45.1332431,
+        longitude: -115.3217789,
+        mileFromStart: 0,
+        note: "Named Big Creek airstrip access; flight scheduling, airstrip notices, and a legal boat carry to the creek are required.",
+      },
+      {
+        name: "Middle Fork Salmon confluence / mandatory continuation",
+        latitude: 45.0832,
+        longitude: -115.0455,
+        mileFromStart: 36,
+        note: "Approximate Big Creek/Middle Fork connection waypoint; not a take-out. Continue only with the current Middle Fork permit, camping plan, and downstream wood/rapid assessment.",
+        segmentKind: "transition",
+      },
+      {
+        name: "Cache Bar Boat Ramp",
+        latitude: 45.31856,
+        longitude: -114.63671,
+        mileFromStart: 54,
+        note: "Named Forest Service take-out facility; lower and upper ramps have different eddy/current characteristics. Confirm current landing and trailer staging.",
+      },
+    ],
+    camping:
+      "This is a wilderness expedition with designated or durable backcountry camps along Big Creek and the Middle Fork. Use only current Forest Service camps, pack out waste, carry a fire-pan/portable-toilet plan where required, and do not assume private ranch or airstrip camping.",
+    campingClassification: "on_route_campsite",
+    shuttle:
+      "No conventional road shuttle reaches the Big Creek put-in. Arrange an authorized flight or verify the exceptional overland approach, then use a permitted wilderness float to Cache Bar and a current trailer/vehicle shuttle plan from the Salmon corridor.",
+    permits:
+      "A free Middle Fork Salmon permit is required for Big Creek paddling and the connected Middle Fork; observe the April-May and August-September canoe/kayak closure, Idaho AIS/PFD rules, wilderness regulations, fire restrictions, and current Forest Service closures.",
+    watchFor: ["mobile wood and mandatory portages", "rapid escalation at higher Middle Fork stages", "flight/airstrip and carry logistics", "permit and spawning closures", "cold-water wilderness rescue", "Cache Bar swift-current landing"],
+    season: [6, 7],
+    imageUrl: salmonImage,
+    imageLabel: "Middle Fork Salmon watershed context photograph; not a Big Creek endpoint image",
   }),
 
   makeRoute({
@@ -4000,6 +5151,108 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "salmon-river-stanley-rough-creek",
+    riverId: "upper-salmon-river-idaho",
+    name: "Salmon River",
+    reach: "Stanley Bridge to Rough Creek Bridge",
+    region: "Central Idaho / Sawtooth Valley",
+    routeType: "whitewater",
+    summary:
+      "A 9.3-mile Class II Stanley Valley float from the Highway 75 bridge in Stanley to the informal downstream-left Rough Creek Bridge access, using the upper-Salmon 600-6,800 cfs planning envelope as proxy context.",
+    statusText:
+      "Planning-only threshold route. American Whitewater defines the 9.3-mile Stanley-to-Rough Creek reach and names both access anchors; RiverBrain and How's Your River provide numeric upper-Salmon flow context, but the active gauge is below the Yankee Fork downstream of this reach and the Rough Creek landing is an informal road/bridge access requiring field confirmation.",
+    distance: "About 9.3 river miles",
+    time: "About 3-5 hours plus shuttle and access inspection",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: [
+      "cold_water",
+      "strainers",
+      "fast_rise",
+      "low_water",
+      "access_uncertain",
+      "private_banks",
+    ],
+    safety: [
+      "American Whitewater rates this reach Class II and describes a scenic valley float with a small low-bank Stanley launch and an informal Rough Creek Bridge access. Wear a PFD, account for cold water, and carry basic rescue and repair equipment.",
+      "Use the 600-6,800 cfs upper-Salmon planning envelope only as a conservative reference. The HYS 600-6,800 cfs run guidance is published for the adjacent Rough Creek-to-Torrey stretch, while RiverBrain lists broader upper-Salmon/Sunbeam cues; the 13296500 gauge is downstream of the reach below Yankee Fork and is therefore proxy context here.",
+      "The Stanley bridge launch is a small low-bank access beside Highway 75. Rough Creek is an informal downstream-left bridge access and may not provide a maintained ramp, legal parking, or a safe carry at all water levels; inspect both locations before committing.",
+      "Do not continue below Rough Creek without a separate plan: the downstream Sunbeam section adds Shotgun and Sunbeam/Dam rapids whose difficulty increases with flow. Treat Rough Creek as the mandatory take-out for this card.",
+    ],
+    gauge: "13296500",
+    gaugeName: "Salmon River below Yankee Fork near Clayton, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 1000, idealMax: 3000, tooHigh: 6800 },
+    thresholdLabel:
+      "Upper Salmon/Sunbeam planning context: approximately 600 cfs minimum, 1,000-3,000 cfs conservative operating band, and 6,800 cfs upper cue; downstream Yankee Fork gauge is proxy context for this upstream reach",
+    thresholdUrl: salmonStanleyRoughThreshold,
+    thresholdSupportUrl: salmonStanleyRoughHys,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: salmonStanleyRoughAwReach,
+    sourceLabel: "American Whitewater Stanley-to-Rough Creek reach record",
+    mapUrl: salmonStanleyRoughAwReach,
+    additionalSourceLinks: [
+      { label: "American Whitewater Stanley Run map and access record", url: salmonStanleyRoughAwReach },
+      { label: "RiverBrain Upper Salmon/Sunbeam flow and rapid context", url: salmonStanleyRoughThreshold },
+      { label: "How's Your River adjacent Rough Creek-to-Torrey flow context", url: salmonStanleyRoughHys },
+      { label: "Boat Ramp Atlas Stanley Salmon River Bridge access", url: salmonStanleyPutInAccess },
+      { label: "USGS Salmon River below Yankee Fork proxy gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13296500/" },
+      { label: "BLM Upper Salmon boating and designated-access guidance", url: upperSalmonGuide },
+      { label: "Idaho Fish and Game statewide boating-access guide", url: "https://idfg.idaho.gov/sites/default/files/fishing-boating-access-guide-2016.pdf" },
+    ],
+    putIn: {
+      name: "Salmon River Bridge Put-In / Stanley",
+      latitude: 44.22353,
+      longitude: -114.92768,
+      mileFromStart: 0,
+      note: "American Whitewater and Boat Ramp Atlas identify the river-left Highway 75 bridge access with a small parking area and low-bank carry. Confirm current public parking and shoreline conditions.",
+    },
+    takeOut: {
+      name: "Rough Creek Bridge Informal Take-Out",
+      latitude: 44.256582,
+      longitude: -114.856228,
+      mileFromStart: 9.3,
+      note: "American Whitewater places the access on downstream river left at Highway 75 mile 199.0. Stored point is a matched-flowline bridge-area anchor; confirm exact landing, legal parking, and safe carry before launch.",
+    },
+    access: [
+      {
+        name: "Salmon River Bridge Put-In / Stanley",
+        latitude: 44.22353,
+        longitude: -114.92768,
+        mileFromStart: 0,
+        note: "Public bridge-area low-bank access; verify parking, traffic, and carry.",
+      },
+      {
+        name: "Rough Creek Bridge Informal Take-Out",
+        latitude: 44.256582,
+        longitude: -114.856228,
+        mileFromStart: 9.3,
+        note: "Informal downstream-left bridge access; no maintained ramp or guaranteed parking is assumed.",
+      },
+    ],
+    camping:
+      "Use a Stanley-area basecamp or lawful Sawtooth National Recreation Area developed/dispersed site. No on-route campsite or overnight river landing is assumed for this short day section.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Highway 75 parallels the reach. Stage the Rough Creek bridge vehicle first, then inspect the Stanley launch; allow for bridge traffic, shoulder constraints, and a contingency take-out if the informal landing is not usable.",
+    permits:
+      "Follow Sawtooth National Recreation Area and Forest Service access rules, Idaho AIS/PFD requirements, fire restrictions, designated put-in/take-out requirements, and current Highway 75 notices.",
+    watchFor: [
+      "cold spring water",
+      "low-water rocks and shallow riffles",
+      "wood and bridge hydraulics",
+      "Highway 75 traffic and shoulder parking",
+      "informal Rough Creek landing",
+      "downstream Shotgun/Sunbeam transition",
+    ],
+    season: [5, 6, 7, 8],
+    imageUrl: salmonImage,
+    imageLabel: "Upper Salmon River same-river context photograph",
+  }),
+
+  makeRoute({
     id: "salmon-river-stanley-sunbeam",
     riverId: "upper-salmon-river-idaho",
     name: "Salmon River",
@@ -4086,6 +5339,117 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "salmon-river-rough-creek-yankee-fork",
+    riverId: "upper-salmon-river-idaho",
+    name: "Salmon River",
+    reach: "Rough Creek Bridge to Yankee Fork Access",
+    region: "Central Idaho / Sawtooth Valley",
+    routeType: "whitewater",
+    summary:
+      "A distinct approximately 4.2-mile Class III-IV upper Sunbeam segment from the Rough Creek Bridge to the Yankee Fork access, covering the Shotgun and Sunbeam/Dam features before the existing lower Sunbeam card.",
+    statusText:
+      "Planning-only expert segment. American Whitewater's Sunbeam reach and How's Your River identify Rough Creek, Shotgun, Sunbeam Dam, and the Yankee Fork access; RiverBrain supplies the numeric upper-Salmon flow cues. The gauge is downstream proxy context for the upper start and the Yankee Fork take-out remains a primitive pull-off with limited staging.",
+    distance: "About 4.2 river miles",
+    time: "About 2-4 hours plus scouting, portage, and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "fast_rise",
+      "low_water",
+      "access_uncertain",
+      "mandatory_takeout",
+    ],
+    safety: [
+      "American Whitewater and How's Your River identify Shotgun as a boulder garden that becomes Class IV at higher flows and the former Sunbeam Dam rapid as a consequential hole. Scout from river left and portage if the line, wood, or water level is not clearly manageable.",
+      "RiverBrain's upper-Salmon cues and HYS's adjacent run guidance support a 600-6,800 cfs planning envelope; use 1,800-3,200 cfs as the conservative operating band for this short expert segment. The 13296500 gauge is below the Yankee Fork and is proxy context for the Rough Creek start.",
+      "Rough Creek is an informal downstream-left bridge access, not a maintained ramp. The Yankee Fork endpoint is a primitive pull-off with no water and limited staging; inspect both carries and stage vehicles before launch.",
+      "This card ends at the Yankee Fork access. Do not continue into the lower Sunbeam/Torrey reach without reassessing the additional Class III features, cold water, wood, daylight, and take-out logistics.",
+    ],
+    gauge: "13296500",
+    gaugeName: "Salmon River below Yankee Fork near Clayton, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 1800, idealMax: 3200, tooHigh: 6800 },
+    thresholdLabel:
+      "Upper Salmon/Sunbeam guidance: approximately 600 cfs minimum, 1,800-3,200 cfs conservative operating band, and 6,800 cfs upper cue; downstream Yankee Fork gauge is proxy context for the Rough Creek start",
+    thresholdUrl: sunbeamThreshold,
+    thresholdSupportUrl: salmonRoughSunbeamHys,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: sunbeamDayStretchAw,
+    sourceLabel: "American Whitewater Rough Creek-to-Sunbeam reach record",
+    mapUrl: sunbeamDayStretchAw,
+    additionalSourceLinks: [
+      { label: "American Whitewater Sunbeam reach and rapid record", url: sunbeamDayStretchAw },
+      { label: "How's Your River Rough Creek-to-Torrey flow and rapid context", url: salmonRoughSunbeamHys },
+      { label: "RiverBrain Upper Salmon/Sunbeam flow guidance", url: sunbeamThreshold },
+      { label: "RiverBrain Yankee Fork access", url: sunbeamTakeOutSource },
+      { label: "USGS Salmon River below Yankee Fork proxy gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13296500/" },
+      { label: "BLM Upper Salmon boating and designated-access guidance", url: upperSalmonGuide },
+      { label: "Idaho boating and invasive-species requirements", url: idahoBoating },
+    ],
+    putIn: {
+      name: "Rough Creek Bridge Informal Put-In",
+      latitude: 44.256582,
+      longitude: -114.856228,
+      mileFromStart: 0,
+      note: "American Whitewater places the put-in on downstream river left at Highway 75 mile 199.0; stored point is a matched-flowline bridge-area anchor pending current landing and parking confirmation.",
+    },
+    takeOut: {
+      name: "Yankee Fork Access Primitive Take-Out",
+      latitude: 44.26872412,
+      longitude: -114.7332716,
+      mileFromStart: 4.2,
+      note: "RiverBrain/AW access below the former Sunbeam dam site: primitive pull-off, no maintained boat ramp, no water, and limited staging. Confirm the carry and endpoint before launch.",
+    },
+    access: [
+      {
+        name: "Rough Creek Bridge Informal Put-In",
+        latitude: 44.256582,
+        longitude: -114.856228,
+        mileFromStart: 0,
+        note: "Informal bridge-area launch; legal parking and shoreline carry require current field confirmation.",
+      },
+      {
+        name: "Shotgun Scout / Portage River Left",
+        latitude: 44.2615,
+        longitude: -114.817,
+        mileFromStart: 1.7,
+        note: "Approximate river-left scouting/portage corridor from the AW/HYS reach description; not a separate public landing.",
+        segmentKind: "transition",
+      },
+      {
+        name: "Yankee Fork Access Primitive Take-Out",
+        latitude: 44.26872412,
+        longitude: -114.7332716,
+        mileFromStart: 4.2,
+        note: "Primitive endpoint pull-off below Sunbeam; do not continue downstream without a new plan.",
+      },
+    ],
+    camping:
+      "No on-route overnight is assumed. Use a lawful Stanley-area or Mormon Bend basecamp and carry water; the Yankee Fork endpoint has no water or camping according to the access record.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Highway 75 parallels the run. Stage the Yankee Fork vehicle first, then inspect the Rough Creek bridge carry; allow time for scouting Shotgun and Sunbeam, portage, and primitive endpoint staging.",
+    permits:
+      "Follow Sawtooth National Recreation Area/Forest Service access rules, Idaho AIS/PFD requirements, fire restrictions, posted bridge parking controls, and current road and closure notices.",
+    watchFor: [
+      "Shotgun boulder garden",
+      "Sunbeam/Dam hole and remnants",
+      "low-water rocks and high-flow holes",
+      "cold water and wood",
+      "rough bridge carry",
+      "primitive Yankee Fork take-out",
+    ],
+    season: [5, 6, 7],
+    imageUrl: salmonImage,
+    imageLabel: "Upper Salmon River same-river context photograph",
+  }),
+
+  makeRoute({
     id: "salmon-river-sunbeam-torreys-hole",
     riverId: "upper-salmon-river-idaho",
     name: "Salmon River",
@@ -4157,6 +5521,100 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "yankee-fork-custer-pole-flat",
+    riverId: "upper-salmon-river-idaho",
+    name: "Yankee Fork Salmon River",
+    reach: "Custer Pullout to Pole Flat Campground",
+    region: "Central Idaho / Custer County",
+    routeType: "whitewater",
+    summary:
+      "A roughly 7.1-mile roadside Class II+ upper Yankee Fork section from the Custer Pullout through the West Fork confluence to Pole Flat Campground, linking the historic upper corridor to the existing lower Yankee run.",
+    statusText:
+      "Threshold-informed planning route. American Whitewater's Yankee Fork record identifies the upper-road-end-to-Salmon corridor, direct 13296000 gauge context, and a broad runnable range; USFWS survey mapping supplies the Custer Pullout, West Fork, and Pole Flat segment anchors. Recent AW reports at 1,500 cfs describe a great run while 1,800-2,000 cfs is harder Class IV on the downstream section, so this upper card remains planning-only pending current wood and local-level confirmation.",
+    distance: "About 7.1 river miles",
+    time: "About 3-5 hours plus scouting and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "fast_rise", "mandatory_takeout"],
+    safety: [
+      "American Whitewater describes the Yankee Fork as mellow and floatable above the roadside Class III+/IV+ lower miles, but the gradient, wood, and channel character change quickly near the West Fork and Pole Flat. Use a proven crew and scout from Yankee Fork Road before committing.",
+      "The direct 13296000 gauge is near Clayton and is most informative for the lower Yankee; do not transfer its reading mechanically to the upper Custer corridor. Confirm local depth, wood, and road access at the launch and at every bridge or campground transition.",
+      "AW trip reports describe about 1,500 cfs as a great downstream run and 1,800-2,000 cfs as Class IV; those markers are planning context rather than a hard upper-section safety limit. Reduce the objective or take out early if wood, snowmelt, or private-frontage constraints change the risk.",
+      "Pole Flat is a deliberate endpoint. Continuing downstream enters the separate Pole Flat-to-Salmon card; reassess the final bend, wood, daylight, and the next shuttle before linking sections.",
+    ],
+    gauge: "13296000",
+    gaugeName: "Yankee Fork Salmon River near Clayton, ID",
+    gaugeKind: "direct",
+    thresholdModel: "minimum-only",
+    threshold: { idealMin: 1300, idealMax: 1800 },
+    thresholdLabel:
+      "American Whitewater trip-report markers on the Yankee Fork gauge: about 1,300 cfs good, 1,500 cfs great, and 1,800-2,000 cfs harder Class IV downstream; no hard cutoff is published for the upper Custer corridor",
+    thresholdUrl: lowerYankeeAwReach,
+    thresholdSupportUrl: lowerYankeeGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: lowerYankeeAwReach,
+    sourceLabel: "American Whitewater Yankee Fork upper-road-end reach record",
+    mapUrl: "https://parksandrecreation.idaho.gov/state-park/land-of-the-yankee-fork-state-park/",
+    additionalSourceLinks: [
+      { label: "American Whitewater Yankee Fork reach and trip reports", url: lowerYankeeAwReach },
+      { label: "USGS Yankee Fork gauge 13296000", url: lowerYankeeGauge },
+      { label: "USFWS Yankee Fork survey segment coordinates", url: upperYankeeSegments },
+      { label: "Land of the Yankee Fork State Park", url: "https://parksandrecreation.idaho.gov/state-park/land-of-the-yankee-fork-state-park/" },
+      { label: "Sawtooth National Recreation Area access and road context", url: "https://www.fs.usda.gov/recarea/sawtooth/recarea/?recid=5842" },
+    ],
+    putIn: {
+      name: "Custer Pullout / Yankee Fork Road",
+      latitude: 44.385455,
+      longitude: -114.701455,
+      mileFromStart: 0,
+      note: "USFWS Yankee Fork survey identifies the Custer Pullout at this river segment. Treat it as a roadside/turnout carry rather than a guaranteed ramp; confirm legal parking, bank access, and current road conditions before launching.",
+    },
+    takeOut: {
+      name: "Pole Flat Campground / Yankee Fork Weir",
+      latitude: 44.303037,
+      longitude: -114.720434,
+      mileFromStart: 7.1,
+      note: "USFWS survey places Pole Flat Weir at this endpoint and the Forest Service lists Pole Flat as a seasonal developed campground. Confirm opening, parking, carry, and any monitoring or restoration restrictions before taking out.",
+    },
+    access: [
+      {
+        name: "Custer Pullout / Yankee Fork Road",
+        latitude: 44.385455,
+        longitude: -114.701455,
+        mileFromStart: 0,
+        note: "Upper roadside launch anchor from the USFWS survey; current parking and river carry require field confirmation.",
+      },
+      {
+        name: "West Fork Yankee Fork Confluence",
+        latitude: 44.349041,
+        longitude: -114.726489,
+        mileFromStart: 3.6,
+        segmentKind: "transition",
+        note: "USFWS survey segment break and road-scout transition. Use only as a contingency or scout point if a lawful shoulder and river carry are present; do not assume a formal take-out.",
+      },
+      {
+        name: "Pole Flat Campground / Yankee Fork Weir",
+        latitude: 44.303037,
+        longitude: -114.720434,
+        mileFromStart: 7.1,
+        note: "Seasonal Forest Service campground/monitoring-area endpoint; verify current operating status, parking, and carry before relying on it.",
+      },
+    ],
+    camping:
+      "Pole Flat is a developed Forest Service campground when open, with additional seasonal campgrounds along the Yankee Fork corridor. Custer is a day-use historic site; do not assume overnight camping at the pullout or any riverbank transition.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Yankee Fork Road parallels the section. Stage at Pole Flat first, then drive upstream to the Custer Pullout; use the West Fork location for a road-side scout only and expect narrow shoulders, seasonal closures, and tourist traffic near the historic sites.",
+    permits:
+      "No river permit is listed for this day run. Follow Salmon-Challis/Sawtooth National Recreation Area and Land of the Yankee Fork State Park rules, campground fees, Idaho AIS/PFD requirements, fire restrictions, and current road or restoration notices.",
+    watchFor: ["mobile wood and changing channels", "West Fork transition", "cold water and fast rise", "roadside carries", "Pole Flat monitoring/campground endpoint"],
+    season: [5, 6, 7, 8],
+    imageUrl: salmonImage,
+    imageLabel: "Yankee Fork-Salmon watershed context photograph",
+  }),
+
+  makeRoute({
     id: "yankee-fork-pole-flat-salmon",
     riverId: "upper-salmon-river-idaho",
     name: "Yankee Fork Salmon River",
@@ -4223,6 +5681,102 @@ export const idahoRoutes: River[] = [
     season: [5, 6, 7, 8],
     imageUrl: salmonImage,
     imageLabel: "Yankee Fork-Salmon watershed context photograph",
+  }),
+
+  makeRoute({
+    id: "salmon-river-east-fork-bayhorse",
+    riverId: "upper-salmon-river-idaho",
+    name: "Salmon River",
+    reach: "East Fork Recreation Site to Bayhorse Recreation Site",
+    region: "Central Idaho / Custer County",
+    routeType: "recreational",
+    summary:
+      "A roughly 11.7-mile Class II Upper Salmon section from the public East Fork campground/ramp through Deadman Hole to the developed Bayhorse campground and ramp.",
+    statusText:
+      "Gauge-scored threshold route. RiverBrain documents the 20-mile East Fork-to-Challis run, the direct Salmon-at-Salmon gauge, a 600-8,000 cfs recommended envelope, 2,000 cfs average, named East Fork/Deadman/Bayhorse access, camping, and two diversion-dam decisions. This scoped East Fork-to-Bayhorse segment ends at the developed Bayhorse ramp before the existing Bayhorse-to-Challis card.",
+    distance: "About 11.7 river miles",
+    time: "About 4-6 hours plus shuttle and diversion scouting",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: salmonHazards,
+    safety: [
+      "RiverBrain rates the East Fork-to-Challis corridor Class II but identifies two diversion dams and the Challis Rock Garden. Stay on the published safe side of each diversion and scout whenever the water is high, turbid, or changing.",
+      "The 600-8,000 cfs envelope and 1,500-2,500 cfs planning band are reach guidance from the direct Salmon-at-Salmon gauge, not a safety guarantee for every rapid. Current wood, private frontage, cold water, weather, and craft choice control the launch decision.",
+      "East Fork and Deadman Hole are public BLM access/camping areas; Bayhorse is a developed BLM/IDFG campground and ramp. Confirm seasonal opening, fees, parking, ramp condition, and current river-side carry before launch.",
+      "This card ends at Bayhorse. Continuing downstream enters the separate Bayhorse-to-Challis Bridge route; re-check daylight, downstream wood, diversion features, and shuttle before linking sections.",
+    ],
+    gauge: "13302500",
+    gaugeName: "Salmon River at Salmon, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 1500, idealMax: 2500, tooHigh: 8000 },
+    thresholdLabel:
+      "RiverBrain East Fork-to-Challis guidance: 600 cfs minimum, 2,000 cfs average, 8,000 cfs maximum; 1,500-2,500 cfs conservative planning band",
+    thresholdUrl: eastForkChallisRun,
+    thresholdSupportUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-13302500/",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "scored",
+    sourceUrl: upperSalmonGuide,
+    sourceLabel: "BLM/USFS/IDFG Upper Salmon boating guide",
+    mapUrl: upperSalmonPage,
+    additionalSourceLinks: [
+      { label: "RiverBrain East Fork-to-Challis run and access table", url: eastForkChallisRun },
+      { label: "USGS Salmon River at Salmon direct gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13302500/" },
+      { label: "RiverBrain East Fork access", url: eastForkAccess },
+      { label: "RiverBrain Deadman Hole access", url: deadmanHoleAccess },
+      { label: "BLM Bayhorse Recreation Site", url: "https://www.blm.gov/visit/bayhorse-recreation-site" },
+      { label: "Idaho Fish and Game Bayhorse boat ramp", url: "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22461-fishing-and-boating-access-site-bayhorse" },
+      { label: "Recreation.gov Upper Salmon gateway", url: "https://www.recreation.gov/gateways/16490" },
+    ],
+    putIn: {
+      name: "East Fork Recreation Site boat ramp",
+      latitude: 44.267071,
+      longitude: -114.326309,
+      mileFromStart: 0,
+      note: "Public BLM East Fork campground/ramp at the Salmon–East Fork confluence; confirm seasonal opening, parking, fees, and the carry from the facility to the river.",
+    },
+    takeOut: {
+      name: "Bayhorse Recreation Site boat ramp",
+      latitude: 44.385555,
+      longitude: -114.260278,
+      mileFromStart: 11.7,
+      note: "Developed BLM/IDFG campground ramp with day-use parking; stage before launch and confirm current ramp, camping, and parking status.",
+    },
+    access: [
+      {
+        name: "East Fork Recreation Site boat ramp",
+        latitude: 44.267071,
+        longitude: -114.326309,
+        mileFromStart: 0,
+        note: "RiverBrain and BLM identify this as an all-vehicle public access with camping and water; confirm current seasonal operations and carry.",
+      },
+      {
+        name: "Deadman Hole Access",
+        latitude: 44.34696959,
+        longitude: -114.26590204,
+        mileFromStart: 7.7,
+        segmentKind: "transition",
+        note: "RiverBrain identifies a primitive all-vehicle access with dispersed camping, water, and a boat ramp; use as a contingency or mid-run exit only after confirming current parking and landing.",
+      },
+      {
+        name: "Bayhorse Recreation Site boat ramp",
+        latitude: 44.385555,
+        longitude: -114.260278,
+        mileFromStart: 11.7,
+        note: "Developed BLM/IDFG endpoint ramp and campground; verify current fees, parking, carry, and river traffic before relying on the landing.",
+      },
+    ],
+    camping:
+      "East Fork offers developed seasonal camping; Deadman Hole has primitive dispersed camping; Bayhorse offers a developed fee campground with water, toilets, and a boat ramp. Confirm seasonal openings, fees, fire restrictions, and occupancy before relying on any site.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Highway 75/93 parallels the reach. Stage at Bayhorse, then drive to East Fork; use Deadman Hole for a contingency exit or scout and leave room for trailers, anglers, and campground traffic.",
+    permits:
+      "No general river permit is listed for this Upper Salmon day run. Follow BLM/Salmon-Challis rules, developed-campground fees, Idaho AIS/PFD requirements, fire restrictions, and current road/access notices.",
+    watchFor: ["two diversion dams", "Challis Rock Garden downstream transition", "spring wood and sweepers", "cold water", "private frontage and campground traffic"],
+    season: [3, 4, 5, 6, 7, 8, 9, 10],
+    imageUrl: salmonImage,
+    imageLabel: "Upper Salmon River same-river context photograph",
   }),
 
   makeRoute({
@@ -4872,6 +6426,76 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "middle-fork-salmon-marsh-boundary",
+    riverId: "middle-fork-salmon-river-idaho",
+    name: "Middle Fork Salmon River",
+    reach: "Marsh Creek to Boundary Creek",
+    region: "Central Idaho / Frank Church River of No Return Wilderness",
+    routeType: "whitewater",
+    summary:
+      "A 15.7-mile Class III-IV early-season route from the Highway 21 Marsh Creek launch to the Boundary Creek Middle Fork launch corridor.",
+    statusText:
+      "Planning-only direct-gauge threshold route. American Whitewater describes Marsh Creek becoming the Middle Fork at Bear Valley and identifies this as an early-season alternative when snow blocks Boundary Creek. RiverBrain's Middle Fork guidance supplies a 1,000-12,000 cfs envelope with a 3,500-5,500 cfs planning ideal; verify wood, stage trend, Highway 21 access, and the permit boundary before continuing below Boundary Creek.",
+    distance: "About 15.7 river miles",
+    time: "About 1-2 days plus scouting and remote shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "remote", "fast_rise", "access_uncertain", "mandatory_takeout"],
+    safety: [
+      "American Whitewater rates the reach Class III-IV and notes that it becomes the Middle Fork after the Bear Valley confluence. Expect cold water, changing wood, narrow channels, and remote rescue; scout from legal road or Forest Service access and carry satellite communication.",
+      "Use the direct Middle Fork Lodge gauge only with the RiverBrain 1,000 cfs minimum, 3,500-5,500 cfs planning ideal, and 12,000 cfs upper shoulder. The gauge is downstream of the early Marsh Creek section, so local snowmelt, wood, weather, and access conditions override any numeric cue.",
+      "This card ends at the Boundary Creek launch corridor. American Whitewater says downstream Middle Fork travel requires the Forest Service permit; do not continue through the controlled wilderness corridor without a current permit, camp assignment, and downstream plan.",
+    ],
+    gauge: "13309220",
+    gaugeName: "Middle Fork Salmon River at Middle Fork Lodge near Yellow Pine, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1000, idealMin: 3500, idealMax: 5500, tooHigh: 12000 },
+    thresholdLabel:
+      "RiverBrain Middle Fork guidance: 1,000 cfs minimum, 4,500 cfs average, 12,000 cfs maximum; 3,500-5,500 cfs planning ideal",
+    thresholdUrl: middleForkSalmonThreshold,
+    thresholdSupportUrl: middleForkSalmonMarshAwReach,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: middleForkSalmonMarshAwReach,
+    sourceLabel: "American Whitewater Marsh Creek to Boundary Creek reach record",
+    mapUrl: middleForkSalmonMarshAwReach,
+    additionalSourceLinks: [
+      { label: "RiverBrain Middle Fork flow guidance", url: middleForkSalmonThreshold },
+      { label: "American Whitewater Marsh Creek access", url: middleForkSalmonMarshPutIn },
+      { label: "American Whitewater Boundary Creek access", url: middleForkSalmonMarshTakeOut },
+      { label: "USGS Middle Fork Lodge gauge", url: marshCreekMiddleForkGauge },
+      { label: "Idaho Fish and Game Marsh Creek water record", url: marshCreekIdfgWater },
+      { label: "Middle Fork Salmon permit and river rules", url: middleForkSalmonPermit },
+    ],
+    putIn: {
+      name: "State Highway 21 Marsh Creek Put-In",
+      latitude: 44.4089,
+      longitude: -115.183,
+      mileFromStart: 0,
+      note: "American Whitewater's mapped Highway 21 access anchor; confirm snow, road shoulders, legal staging, and the carry to water before launch.",
+    },
+    takeOut: {
+      name: "Boundary Creek Boat Ramp",
+      latitude: 44.5319,
+      longitude: -115.294,
+      mileFromStart: 15.7,
+      note: "American Whitewater's Boundary Creek access anchor and downstream permit boundary; confirm ramp condition, parking, and current Forest Service restrictions.",
+    },
+    camping:
+      "Use only current Forest Service or lawful dispersed sites along the Marsh Creek/Boundary corridor. Boundary Creek has named camping context, but no campsite, water, or fire availability is guaranteed; pack out waste and verify closures.",
+    campingClassification: "on_route_campsite",
+    shuttle:
+      "Highway 21 provides the upper access corridor; Boundary Creek requires a remote Forest Service road shuttle. Stage the take-out first, verify snow and gate status, and carry maps, repair gear, and satellite communication.",
+    permits:
+      "American Whitewater identifies the Marsh Creek-to-Dagger Falls section as an early-season alternative and says a permit is required for downstream Middle Fork travel below Dagger Falls/Boundary Creek. Confirm current Salmon-Challis rules, AIS/PFD requirements, fire restrictions, and any closure before launch.",
+    watchFor: ["Bear Valley confluence", "changing wood and cold water", "remote rescue", "Dagger Falls/Boundary Creek permit boundary", "snow and road-gate conditions"],
+    season: [5, 6, 7, 8, 9],
+    imageUrl: salmonImage,
+    imageLabel: "Middle Fork/Salmon River same-watershed context photograph",
+  }),
+
+  makeRoute({
     id: "middle-fork-salmon-boundary-cache-bar",
     riverId: "middle-fork-salmon-river-idaho",
     name: "Middle Fork Salmon River",
@@ -5296,6 +6920,99 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "north-fork-payette-mccall-hartsell",
+    riverId: "north-fork-payette-river-idaho",
+    name: "North Fork Payette River",
+    reach: "McCall to Hartsell Bridge above Cascade Reservoir",
+    region: "Southwest Idaho / Long Valley",
+    routeType: "whitewater",
+    summary:
+      "A 15.6-mile Class II-III North Fork Payette reach from the McCall town put-in through the Sheep Creek training section to Hartsell Bridge above Cascade Reservoir.",
+    statusText:
+      "Planning-only direct-gauge route. American Whitewater gives the upper 2.5 miles a 1,000-3,500 cfs ideal range and says the lower valley can float above 200 cfs, but the combined reach has mixed difficulty, current town-stretch strainer alerts, and access points that require same-day carry and parking confirmation.",
+    distance: "About 15.6 river miles",
+    time: "About 5-8 hours including the mixed upper/lower reach, scouting, and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "low_water", "fast_rise", "access_uncertain"],
+    safety: [
+      "American Whitewater describes the first 2.5 miles from McCall to Sheep Bridge as spring Class II-III training water with one Class III rapid and a 1,000-3,500 cfs ideal range; downstream is a lower-gradient valley float that can run above about 200 cfs. Treat those as segment cues, not a single safe envelope for the entire reach.",
+      "American Whitewater's 2026 alerts report serious log jams in the broader Lardo-to-Deinhard town stretch, including portages and debris moving toward the reservoir. Inspect every bridge and bend, confirm the current alert, and abort rather than force a wood-choked line.",
+      "McCall is a public town launch, while Sheep Creek Bridge and Hartsell/Smylie Bridge are roadside or BLM access anchors. Confirm legal parking, river carry, landing ownership, and the downstream reservoir transition; do not assume a fishing or bridge coordinate is a dedicated ramp.",
+    ],
+    gauge: "13239000",
+    gaugeName: "North Fork Payette River at McCall, ID",
+    gaugeKind: "direct",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 200, idealMin: 1000, idealMax: 3500 },
+    thresholdLabel:
+      "American Whitewater split-reach cues: upper McCall-to-Sheep Bridge ideal 1,000-3,500 cfs; lower valley float runnable above about 200 cfs",
+    thresholdUrl: northForkPayetteMcCallThreshold,
+    thresholdSupportUrl: "https://idahodocs.contentdm.oclc.org/digital/api/collection/p16293coll7/id/107352/download",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: northForkPayetteMcCallThreshold,
+    sourceLabel: "American Whitewater McCall to Hartsell Bridge reach record",
+    mapUrl: "https://www.blm.gov/visit/payette-river-north-fork",
+    additionalSourceLinks: [
+      { label: "USGS North Fork Payette at McCall direct gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13239000/", provider: "usgs" },
+      { label: "American Whitewater reach alerts and access division", url: northForkPayetteMcCallThreshold },
+      { label: "North Fork Payette McCall-to-Cascade water trail guide", url: "https://idahodocs.contentdm.oclc.org/digital/api/collection/p16293coll7/id/107352/download" },
+      { label: "BLM North Fork Payette recreation site at Smylie Lane", url: "https://www.blm.gov/visit/payette-river-north-fork", provider: "local" },
+      { label: "Idaho Fish and Game Hartsell/Smylie Bridge water record", url: "https://idfg.idaho.gov/ifwis/fishingplanner/water/72043", provider: "local" },
+    ],
+    putIn: {
+      name: "McCall town / Payette Lake outlet put-in",
+      latitude: 44.91194,
+      longitude: -116.11772,
+      mileFromStart: 0,
+      note: "American Whitewater's McCall put-in anchor at the Payette Lake outlet. Use the documented public town launch, confirm current carry and parking, and keep clear of swimmers and bridge traffic.",
+    },
+    takeOut: {
+      name: "Hartsell (Smylie) Bridge take-out",
+      latitude: 44.79017,
+      longitude: -116.14068,
+      mileFromStart: 15.6,
+      note: "American Whitewater's Hartsell/Smylie Bridge take-out above Cascade Reservoir; use the signed BLM/roadside landing only after confirming ownership, parking, carry, and reservoir conditions.",
+    },
+    access: [
+      {
+        name: "McCall town / Payette Lake outlet put-in",
+        latitude: 44.91194,
+        longitude: -116.11772,
+        mileFromStart: 0,
+        note: "Public McCall launch anchor; confirm current river entry and park staging.",
+      },
+      {
+        name: "Sheep Creek Bridge division point",
+        latitude: 44.89212,
+        longitude: -116.10818,
+        mileFromStart: 2.83,
+        note: "American Whitewater's division between the upper Class II-III training section and the lower valley float; not a substitute for a same-day landing check.",
+        segmentKind: "transition",
+      },
+      {
+        name: "Hartsell (Smylie) Bridge take-out",
+        latitude: 44.79017,
+        longitude: -116.14068,
+        mileFromStart: 15.6,
+        note: "Bridge/BLM endpoint above the reservoir; use only the confirmed legal landing and do not continue into reservoir backwater without a separate plan.",
+      },
+    ],
+    camping:
+      "Day-use endpoints. Use lawful McCall, Donnelly, or Cascade-area campgrounds or a nearby basecamp; no on-route overnight camping is assumed in the mixed town/agricultural valley corridor.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "One-way valley shuttle between McCall and Hartsell Bridge, with traffic and bridge approaches requiring deliberate staging. Leave the take-out vehicle before launching and keep private driveways and BLM day-use access clear.",
+    permits:
+      "No river permit is listed. Follow City/BLM access rules, Idaho AIS/PFD requirements, fire restrictions, current strainer alerts, and any seasonal or reservoir closure notices.",
+    watchFor: ["mixed upper/lower flow bands", "town-stretch log jams", "Class III rapid below McCall Fish Hatchery", "cold water", "private frontage and bridge parking", "Cascade Reservoir transition"],
+    season: [4, 5, 6, 7, 8, 9],
+    imageUrl: payetteImage,
+    imageLabel: "Payette River same-watershed context photograph",
+  }),
+
+  makeRoute({
     id: "north-fork-payette-sheep-smylie-lane",
     riverId: "north-fork-payette-river-idaho",
     name: "North Fork Payette River",
@@ -5646,6 +7363,102 @@ export const idahoRoutes: River[] = [
     season: [5, 6, 7, 8, 9],
     imageUrl: payetteImage,
     imageLabel: "Payette River same-watershed context photograph",
+  }),
+
+  makeRoute({
+    id: "lochsa-powell-white-pine",
+    riverId: "lochsa-river-idaho",
+    name: "Lochsa River",
+    reach: "Powell to White Pine (Indian Grave Creek)",
+    region: "North-Central Idaho / Highway 12",
+    routeType: "whitewater",
+    summary:
+      "A 26-mile Class II-III upper Lochsa reach from the Powell campground/ranger-station corridor to White Pine, upstream of the classic Class IV section.",
+    statusText:
+      "Planning-only direct-stage route. American Whitewater/How's Your River identify Powell-to-White-Pine as a distinct 26-mile Class II-III reach with a 2-10 ft Lowell-stage runnable envelope, but the USGS warns its recorder stage differs from the Lowell bridge staff gauge and high water can escalate rapidly; Powell and White Pine are campground/Forest Service access anchors requiring current carry and parking confirmation.",
+    distance: "About 26 river miles",
+    time: "About 6-10 hours including the long roadside shuttle, scouting, and cold-water stops",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "fast_rise", "remote", "access_uncertain"],
+    safety: [
+      "How's Your River describes the reach as Class II-III with six named rapids and a 2.0-10.0 ft runnable stage envelope; that is reach-planning guidance, not a safe-line guarantee. The downstream Upper Lochsa becomes Class IV at White Pine, so treat White Pine as a mandatory take-out for this card.",
+      "The USGS 13337000 recorder is 0.7 miles upstream of Lowell bridge and warns that its stage may read 2-3 ft higher than the bridge staff gauge. Use one consistent gauge reference, check trend and local staff information, and do not infer the Powell reach's actual depth from a stale or mismatched stage.",
+      "Powell Campground/Lochsa Public Service Site and White Sand/White Pine corridor facilities are public Forest Service anchors, not guaranteed wetted-edge ramps. Confirm seasonal opening, parking, river-side carry, private facility boundaries, Highway 12 staging, cold-water gear, and the downstream mandatory take-out before launch.",
+    ],
+    gauge: "13337000",
+    gaugeName: "Lochsa River near Lowell, ID",
+    gaugeKind: "direct",
+    gaugeMetric: "gage_height_ft",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 2, idealMin: 2, idealMax: 10, tooHigh: 10 },
+    thresholdLabel:
+      "How's Your River/American Whitewater Powell-to-White-Pine stage envelope: 2.0-10.0 ft on the Lowell-stage reference; USGS notes recorder-to-bridge stage offset",
+    thresholdUrl: upperLochsaPowellFlowGuide,
+    thresholdSupportUrl: upperLochsaThreshold,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: upperLochsaThreshold,
+    sourceLabel: "American Whitewater Powell-to-White-Pine Lochsa reach record",
+    mapUrl: upperLochsaPowellFlowGuide,
+    additionalSourceLinks: [
+      { label: "How's Your River Powell-to-White-Pine flow and access page", url: upperLochsaPowellFlowGuide },
+      { label: "American Whitewater Powell-to-White-Pine reach record", url: "https://www.americanwhitewater.org/content/River/view/river-detail/568/main" },
+      { label: "USGS Lochsa River near Lowell stage/discharge gauge warning", url: "https://waterdata.usgs.gov/nwis/uv/?site_no=13337000", provider: "usgs" },
+      { label: "Forest Service Upper Lochsa corridor guide", url: upperLochsaCorridor },
+      { label: "Powell Campground public river corridor", url: "https://www.recreation.gov/camping/campgrounds/232317" },
+      { label: "White Pine River Access staging notes", url: "https://nrt.org/sites/175/files/Clearwater_Lochsa_GRP_2019.pdf" },
+    ],
+    putIn: {
+      name: "Powell Campground / Lochsa Public Service Site",
+      latitude: 46.5123,
+      longitude: -114.7172,
+      mileFromStart: 0,
+      note: "Public Forest Service campground and river-corridor anchor near the Powell Ranger Station. Confirm the exact river carry, seasonal opening, parking, and any facility/private-boundary restrictions before treating it as a launch.",
+    },
+    takeOut: {
+      name: "White Pine River Access",
+      latitude: 46.445801,
+      longitude: -115.09037,
+      mileFromStart: 26,
+      note: "Named Forest Service White Pine access and mandatory endpoint above the Class IV Upper Lochsa. Use the primitive hand launch/landing only after confirming current carry, parking, and Highway 12 staging.",
+    },
+    access: [
+      {
+        name: "Powell Campground / Lochsa Public Service Site",
+        latitude: 46.5123,
+        longitude: -114.7172,
+        mileFromStart: 0,
+        note: "Public Forest Service campground corridor; exact wetted-edge launch placement requires current inspection.",
+        segmentKind: "transition",
+      },
+      {
+        name: "White Sand Campground corridor",
+        latitude: 46.50742,
+        longitude: -114.68678,
+        mileFromStart: 4.2,
+        note: "Named upper-Lochsa campground context from the Forest Service corridor; not assumed to be a separate boat ramp.",
+        segmentKind: "transition",
+      },
+      {
+        name: "White Pine River Access",
+        latitude: 46.445801,
+        longitude: -115.09037,
+        mileFromStart: 26,
+        note: "Primitive Forest Service hand launch and mandatory endpoint before the Class IV Upper Lochsa section.",
+      },
+    ],
+    camping:
+      "Powell Campground and White Sand Campground provide named Forest Service basecamp options when open. No informal on-route camping is assumed; follow current reservations, fire, bear-storage, and Wild and Scenic corridor rules.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Long Highway 12 shuttle between Powell and White Pine with limited shoulders and seasonal construction. Stage the White Pine vehicle first, keep the road clear, and do not continue downstream into the Class IV card without a separate plan.",
+    permits:
+      "No river permit is listed for this roadside reach. Follow Forest Service campground/access rules, Idaho AIS/PFD requirements, fire restrictions, Wild and Scenic corridor rules, and current Highway 12 notices.",
+    watchFor: ["stage-reference mismatch", "cold water and rapid rise", "mobile wood and bridge hazards", "campground/facility carry", "mandatory White Pine take-out", "Highway 12 staging"],
+    season: [5, 6, 7, 8],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater-Lochsa watershed context photograph",
   }),
 
   makeRoute({
@@ -6843,6 +8656,95 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "malad-river-dam-snake",
+    riverId: "malad-river-idaho",
+    name: "Malad River",
+    reach: "Malad Dam to Snake River confluence",
+    region: "South-Central Idaho / Gooding County",
+    routeType: "whitewater",
+    summary:
+      "A 1.9-mile Class IV lower Malad gorge run from the dam area to the Snake River, with a mandatory dam portage and high-flow big-water character.",
+    statusText:
+      "Planning-only proxy-gauge route. American Whitewater documents the lower gorge, a locked-gate/0.2-mile carry to the official put-in, a mandatory river-left dam portage, and 600-1,300+ cfs observations; the Gooding-area USGS gauge is upstream/proxy, the lower diversion can alter hydraulics, and the Snake access endpoint is approximate.",
+    distance: "About 1.9 river miles",
+    time: "About 2-4 hours including the dam carry, scouting, and a difficult take-out",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "dam", "cold_water", "strainers", "fast_rise", "access_uncertain", "mandatory_takeout"],
+    safety: [
+      "American Whitewater rates the lower reach Class IV and requires a river-left portage around the first dam; the official kayaker put-in is below the dam after a locked-gate approach and roughly 0.2-mile hike. Confirm the carry, gate, and landowner rules before bringing a boat.",
+      "American Whitewater reports the lower section as continuous at about 1,300 cfs, with a 1,250 cfs April 2025 run and a 600 cfs fall 2023 run. Kayak Idaho's lower-Malad guidance gives a broader 300-1,500 cfs planning band; use current trend and on-site scouting rather than treating either as a safe-line guarantee.",
+      "The lower Malad diversion can move or remove up to roughly 1,500 cfs, and the Snake confluence has a difficult, approximate landing. Stay well clear of diversion works, verify the current river-right/parking take-out, and carry rescue communications for a short but committing gorge.",
+    ],
+    gauge: "13152500",
+    gaugeName: "Malad River near Gooding, ID (upstream/proxy for lower Malad)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 300, idealMin: 1000, idealMax: 1500, tooHigh: 2200 },
+    thresholdLabel:
+      "American Whitewater lower-gorge observations: about 600 cfs fall run and 1,250-1,300 cfs continuous/high-flow runs; Kayak Idaho lower-Malad planning band 300-1,500 cfs",
+    thresholdUrl: lowerMaladThreshold,
+    thresholdSupportUrl: lowerMaladFlows,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: lowerMaladThreshold,
+    sourceLabel: "American Whitewater Lower Malad Dam-to-Snake reach record",
+    mapUrl: lowerMaladMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Lower Malad reach and access record", url: lowerMaladThreshold },
+      { label: "American Whitewater Lower Malad map / approximate endpoint", url: lowerMaladMap },
+      { label: "Kayak Idaho Snake flows / lower Malad planning band", url: lowerMaladFlows },
+      { label: "USGS Malad River near Gooding proxy gauge", url: lowerMaladGauge, provider: "usgs" },
+      { label: "Idaho Fish and Game lower Malad water record", url: "https://idfg.idaho.gov/ifwis/fishingplanner/water/1149061428630", provider: "local" },
+      { label: "Malad Gorge State Park access and safety context", url: lowerMaladParkGuide, provider: "local" },
+      { label: "Idaho Water Resources lower Malad diversion record", url: lowerMaladDiversionGuide, provider: "local" },
+      { label: "Idaho Power upper Malad access context", url: "https://www.idahopower.com/recreation/parks-and-campgrounds/upper-malad-river/", provider: "local" },
+    ],
+    putIn: {
+      name: "Malad Dam below-gate official kayaker put-in",
+      latitude: 42.8735,
+      longitude: -114.8765,
+      mileFromStart: 0,
+      note: "American Whitewater's official kayaker entry below Malad Dam; coordinates are approximate. Expect a locked-gate approach and roughly 0.2-mile boat carry; confirm legal access and current dam operations before launch.",
+    },
+    takeOut: {
+      name: "Snake River access parking near Malad confluence",
+      latitude: 42.86306,
+      longitude: -114.90194,
+      mileFromStart: 1.9,
+      note: "Approximate Snake River access/parking anchor near the lower Malad confluence. American Whitewater coordinates are approximate; verify the current river-right landing, parking, and private/park boundaries before committing.",
+    },
+    access: [
+      {
+        name: "Malad Dam below-gate official kayaker put-in",
+        latitude: 42.8735,
+        longitude: -114.8765,
+        mileFromStart: 0,
+        note: "Below-dam launch after the locked-gate and 0.2-mile carry; mandatory dam portage and legal access confirmation are hard gates.",
+        segmentKind: "transition",
+      },
+      {
+        name: "Snake River access parking near Malad confluence",
+        latitude: 42.86306,
+        longitude: -114.90194,
+        mileFromStart: 1.9,
+        note: "Approximate lower endpoint; confirm the legal landing and current parking rather than following the coordinate blindly.",
+      },
+    ],
+    camping:
+      "Day-use gorge. Use a lawful Gooding/Twin Falls-area basecamp or established Malad Gorge State Park camping where available; no on-route camping is assumed.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short but access-sensitive shuttle from the dam approach to the Snake-side endpoint. Stage the lower vehicle first, confirm the locked gate and 0.2-mile carry, and leave a recovery plan for a difficult confluence landing.",
+    permits:
+      "No river permit was confirmed. Follow Malad Gorge State Park, Idaho AIS/PFD, dam/diversion operator, road, private-property, and current closure rules; do not enter restricted dam or diversion infrastructure.",
+    watchFor: ["mandatory Malad Dam portage", "locked gate and 0.2-mile carry", "Class IV continuous lower gorge", "lower diversion hydraulics", "Snake confluence take-out", "rapid flow changes"],
+    season: [3, 4, 5, 6, 7, 8, 9],
+    imageUrl: snakeImage,
+    imageLabel: "Snake River / southern Idaho context photograph",
+  }),
+
+  makeRoute({
     id: "portneuf-river-lava-hot-springs-pvc",
     riverId: "portneuf-river-idaho",
     name: "Portneuf River",
@@ -6932,18 +8834,88 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
-    id: "north-fork-clearwater-black-canyon",
+    id: "north-fork-clearwater-elizabeth-kelly",
     riverId: "north-fork-clearwater-river-idaho",
     name: "North Fork Clearwater River",
-    reach: "Cedars to Kelly Forks (Black Canyon)",
+    reach: "Elizabeth Creek to Kelly Forks (Black Canyon)",
     region: "North-Central Idaho / Clearwater National Forest",
     routeType: "whitewater",
     summary:
-      "A roughly 5-mile remote Class IV Black Canyon run from the Cedars road crossing to Kelly Forks.",
+      "A 6.5-mile Class III-IV+ Black Canyon reach from the Elizabeth Creek access to the Kelly Forks Campground take-out.",
     statusText:
-      "Planning-only proxy-gauge route. North Idaho Rivers documents a high-quality Class IV gorge with substantial wood and road scouting, while the USGS Canyon Ranger Station gauge is more than 40 miles downstream. The guide reports successful 4,100-4,500 cfs runs and a 3,800 cfs minimum cue, but local reach flow and current wood remain decisive.",
-    distance: "About 5 river miles",
+      "Planning-only proxy-threshold route. American Whitewater names Elizabeth Creek and Kelly Forks as the access pair and describes a fast Class III-IV+ gorge with hidden rapids, holes, and wood. North Idaho Rivers' 3,800 cfs minimum cue and 4,100-4,500 cfs observed runs on downstream USGS 13340600 remain planning context; local level, Forest Road 250 access, and same-day wood scouting control the decision.",
+    distance: "About 6.5 river miles",
     time: "About 2-4 hours plus road scouting and a remote shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "remote", "fast_rise", "access_uncertain", "mandatory_takeout"],
+    safety: [
+      "American Whitewater rates the reach Class III-IV+ and describes strong holes, blind corners, and a fast gorge that eases near the Kelly Forks bridge. Use a proven rescue-capable crew and scout from the road before committing.",
+      "Use 3,800 cfs as a conservative minimum cue and 4,100-4,500 cfs as observed medium-flow context on USGS 13340600. The gauge is downstream of major tributaries, so local water level, trend, and wood can differ materially.",
+      "Elizabeth Creek and Kelly Forks are remote Forest Service access-area anchors. Confirm Forest Road 250 opening, legal parking, river-left landing, campground status, and the bridge approach before launch; do not use the longer Cedars-to-Kelly card's access assumptions for this shorter reach.",
+    ],
+    gauge: "13340600",
+    gaugeName: "North Fork Clearwater River near Canyon Ranger Station, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 3800, idealMin: 4100, idealMax: 4500 },
+    thresholdLabel:
+      "North Idaho Rivers North Fork guidance: about 4,000 cfs minimum cue; 4,100-4,500 cfs observed medium-flow runs on downstream Canyon Ranger Station gauge",
+    thresholdUrl: northForkClearwaterBlackCanyonGuide,
+    thresholdSupportUrl: northForkClearwaterElizabethAw,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: northForkClearwaterElizabethAw,
+    sourceLabel: "American Whitewater Elizabeth Creek to Kelly Forks Black Canyon reach",
+    mapUrl: northForkClearwaterElizabethAw,
+    additionalSourceLinks: [
+      { label: "North Idaho Rivers Black Canyon flow and wood guide", url: northForkClearwaterBlackCanyonGuide },
+      { label: "American Whitewater Elizabeth Creek access", url: northForkClearwaterElizabethAccess },
+      { label: "American Whitewater Kelly Forks access", url: northForkClearwaterKellyAccess },
+      { label: "USGS North Fork Clearwater Canyon Ranger Station gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13340600/" },
+      { label: "Clearwater National Forest recreation corridor", url: northForkClearwaterForestService },
+      { label: "Kelly Forks Campground map", url: kellyForksCampground },
+    ],
+    putIn: {
+      name: "Elizabeth Creek access",
+      latitude: 46.79073,
+      longitude: -115.21916,
+      mileFromStart: 0,
+      note: "American Whitewater's convenient access immediately upstream of the Elizabeth Creek confluence; confirm Forest Road 250 parking and the legal carry to river-left water.",
+    },
+    takeOut: {
+      name: "Kelly Forks Campground take-out",
+      latitude: 46.71759,
+      longitude: -115.2555,
+      mileFromStart: 6.5,
+      note: "American Whitewater's upstream, river-left take-out at the Kelly Forks bridge; campground access is a facility anchor, so confirm landing, parking, and seasonal status.",
+    },
+    camping:
+      "Kelly Forks Campground and nearby Forest Service facilities provide endpoint basecamp context when open. No informal Black Canyon roadside camping is assumed; verify seasonal dates, fees, fire restrictions, and bear storage.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Forest Road 250 follows the corridor but is remote, slow, and seasonal. Stage Kelly Forks first, then drive to Elizabeth Creek; allow a full daylight road-scout window and carry recovery gear.",
+    permits:
+      "Follow Clearwater National Forest road and campground rules, Idaho AIS/PFD requirements, fire restrictions, private-bank boundaries, and current closure notices. The proxy gauge does not establish safe flow by itself.",
+    watchFor: ["hidden Class IV holes", "blind corners and mobile wood", "3,800 cfs minimum cue", "Forest Road 250 access", "Kelly Forks bridge and campground landing"],
+    season: [5, 6, 7],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater watershed context photograph; not the Elizabeth Creek or Kelly Forks endpoints",
+  }),
+
+  makeRoute({
+    id: "north-fork-clearwater-black-canyon",
+    riverId: "north-fork-clearwater-river-idaho",
+    name: "North Fork Clearwater River",
+    reach: "Cedars to Elizabeth Creek (upper Black Canyon)",
+    region: "North-Central Idaho / Clearwater National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 12.65-mile Class I-III+ upper Black Canyon run from the Cedars access to the Elizabeth Creek take-out, with a Forest Road 250 shuttle and wood-sensitive canyon scenery.",
+    statusText:
+      "Planning-only proxy-gauge route. American Whitewater's current Cedars-to-Elizabeth reach record lists 12.65 miles of Class I-III+ water, named Cedars/Hidden Creek/Elizabeth access, and persistent wood caution. North Idaho Rivers' broader North Fork guidance reports a 4,000 cfs minimum cue, but the Canyon Ranger Station gauge is downstream below major tributaries; local level, road access, and wood remain decisive.",
+    distance: "About 12.65 river miles",
+    time: "About 4-6 hours plus road scouting and a remote shuttle",
     difficulty: "hard",
     risk: "advanced",
     hazards: [
@@ -6956,80 +8928,90 @@ export const idahoRoutes: River[] = [
       "mandatory_takeout",
     ],
     safety: [
-      "North Idaho Rivers describes Class IV water, two partially hidden difficult rapids, large holes, and substantial wood. Road-scout the entire corridor, maintain a strong rescue team, and do not commit without a verified portage/turnaround plan.",
-      "Use 3,800 cfs as a conservative minimum cue and 4,100-4,500 cfs as the observed medium-flow reference on USGS 13340600 at Canyon Ranger Station. That gauge is more than 40 miles downstream below major tributaries; local water level and trend can differ materially.",
-      "The Cedars start and Kelly Forks exit are remote Forest Road 250 access-area anchors. Confirm seasonal road openings, legal parking, current construction/wood, and the river-left landing above the Kelly Forks bridge before launch.",
+      "American Whitewater rates the upper section Class I-III+ but specifically warns boaters to watch continuously for wood; the downstream character increases below Hidden Creek. Scout from Forest Road 250, carry rescue and repair gear, and do not commit without a current wood/portage plan.",
+      "Use 4,000 cfs as a broad North Fork minimum cue and 4,100-4,500 cfs as observed medium-flow context on USGS 13340600. The gauge is more than 40 miles downstream below major tributaries, so local water level and trend can differ materially.",
+      "Cedars, Hidden Creek, and Elizabeth are remote Forest Service access-area anchors. Confirm seasonal Forest Road 250 opening, legal parking, river-side carry, campground status, and the Elizabeth take-out eddy before launch.",
     ],
     gauge: "13340600",
     gaugeName: "North Fork Clearwater River near Canyon Ranger Station, ID (downstream proxy)",
     gaugeKind: "proxy",
     thresholdModel: "minimum-only",
-    threshold: { tooLow: 3800, idealMin: 4100, idealMax: 4500 },
+    threshold: { tooLow: 4000, idealMin: 4100, idealMax: 4500 },
     thresholdLabel:
-      "North Idaho Rivers Black Canyon guidance: 3,800 cfs minimum cue; 4,100-4,500 cfs observed medium-flow runs on downstream Canyon Ranger Station gauge",
+      "North Idaho Rivers North Fork guidance: about 4,000 cfs minimum cue; 4,100-4,500 cfs observed medium-flow runs on downstream Canyon Ranger Station gauge",
     thresholdUrl: northForkClearwaterBlackCanyonGuide,
-    thresholdSupportUrl: northForkClearwaterThreshold,
+    thresholdSupportUrl: northForkClearwaterHeadwatersAw,
     thresholdSourceStrength: "mixed",
     scoreEligibility: "planning",
     sourceUrl: northForkClearwaterBlackCanyonGuide,
-    sourceLabel: "North Idaho Rivers Black Canyon Cedars-to-Kelly Forks guide",
-    mapUrl: "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=79594",
+    sourceLabel: "American Whitewater Cedars-to-Elizabeth reach record",
+    mapUrl: northForkClearwaterHeadwatersAw,
     additionalSourceLinks: [
       { label: "North Idaho Rivers Black Canyon flow and wood guide", url: northForkClearwaterBlackCanyonGuide },
-      { label: "American Whitewater North Fork Clearwater reach and access chain", url: northForkClearwaterThreshold },
+      { label: "American Whitewater Cedars-to-Elizabeth reach and access chain", url: northForkClearwaterHeadwatersAw },
+      { label: "American Whitewater Cedars access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/109777" },
+      { label: "American Whitewater Hidden Creek Campground access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/0vFi6wg30p9t2HD93vxiG" },
+      { label: "American Whitewater Elizabeth Creek take-out", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/118959" },
       { label: "USGS North Fork Clearwater Canyon Ranger Station gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13340600/" },
       { label: "Clearwater National Forest recreation corridor", url: "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=79594" },
       { label: "Kelly Forks Campground access map", url: "https://mapcarta.com/N3864944214" },
       { label: "Kelly Forks Cabin and work-center context", url: "https://www.fs.usda.gov/r01/nezperce-clearwater/recreation/kelly-forks-cabin" },
     ],
     putIn: {
-      name: "The Cedars / Forest Road 250 river crossing",
-      latitude: 46.8727,
-      longitude: -115.0771,
+      name: "The Cedars access",
+      latitude: 46.87252,
+      longitude: -115.07655,
       mileFromStart: 0,
-      note: "North Idaho Rivers identifies the Cedars where Forest Road 250 meets the river. This locality/road crossing is an approximate access-area anchor; verify the exact water entry, legal parking, and current road opening.",
+      note: "American Whitewater access point at The Cedars; verify Forest Road 250 opening, parking, exact river carry, and current public entry before staging.",
     },
     takeOut: {
-      name: "Kelly Forks campground / work center landing",
-      latitude: 46.7167,
-      longitude: -115.25515,
-      mileFromStart: 5,
-      note: "North Idaho Rivers identifies a river-left take-out just upstream of the Kelly Forks confluence bridge; the stored point is the named Forest Service campground/work-center anchor, not a surveyed ramp.",
+      name: "Elizabeth Creek take-out",
+      latitude: 46.79045,
+      longitude: -115.22040,
+      mileFromStart: 12.65,
+      note: "American Whitewater take-out just above the Elizabeth Creek confluence; plan the take-out eddy during shuttle and confirm the current carry and legal landing.",
     },
     access: [
       {
-        name: "The Cedars / Forest Road 250 river crossing",
-        latitude: 46.8727,
-        longitude: -115.0771,
+        name: "The Cedars access",
+        latitude: 46.87252,
+        longitude: -115.07655,
         mileFromStart: 0,
-        note: "Approximate Cedars road/river crossing; verify the actual carry and parking before staging.",
+        note: "American Whitewater named launch; confirm Forest Road 250, parking, and river-side carry.",
       },
       {
-        name: "Kelly Forks campground / work center landing",
-        latitude: 46.7167,
-        longitude: -115.25515,
-        mileFromStart: 5,
-        note: "Named Forest Service campground/work-center anchor near the primitive river-left landing; confirm the bridge approach and parking.",
+        name: "Hidden Creek Campground access",
+        latitude: 46.83097,
+        longitude: -115.17921,
+        mileFromStart: 12.34,
+        note: "American Whitewater partial-run access and Forest Service campground; confirm current campground opening, river carry, and parking.",
+      },
+      {
+        name: "Elizabeth Creek take-out",
+        latitude: 46.79045,
+        longitude: -115.22040,
+        mileFromStart: 12.65,
+        note: "American Whitewater named take-out; plan the eddy before the Elizabeth Creek confluence and confirm current legal landing.",
       },
     ],
     camping:
-      "Kelly Forks Campground and the nearby Forest Service work center provide endpoint basecamp context when open. No informal Black Canyon camping or roadside overnight is assumed; verify seasonal dates, fees, fire rules, and bear storage.",
+      "Cedars and Hidden Creek provide Forest Service campground context when open. No informal Black Canyon roadside camping is assumed; verify seasonal dates, fees, fire rules, potable water, and bear storage.",
     campingClassification: "endpoint_campground",
     shuttle:
-      "Forest Road 250 follows the corridor but is remote, slow, and seasonal. Stage the Kelly Forks vehicle first, then drive to the Cedars crossing; carry recovery gear and allow a full daylight road-scout window.",
+      "Forest Road 250 follows the corridor but is remote, slow, and seasonal. Stage the Elizabeth vehicle first, then drive to The Cedars; allow a full daylight road-scout window and carry recovery gear.",
     permits:
       "Follow Clearwater National Forest road/campground rules, Idaho AIS/PFD requirements, fire restrictions, private-bank boundaries, and current closure notices. The proxy gauge does not establish a safe flow by itself.",
     watchFor: [
-      "Class IV gorge and two partially hidden major rapids",
-      "large holes and mobile wood",
-      "3,800 cfs minimum cue with 4,100-4,500 cfs observed runs",
+      "Class I-III+ water with continuous wood watch",
+      "4,000 cfs broad North Fork minimum cue",
+      "4,100-4,500 cfs observed downstream-gauge context",
       "downstream proxy-gauge mismatch",
       "seasonal Forest Road 250 access",
-      "primitive Kelly Forks landing",
+      "Hidden Creek and Elizabeth campground/landing controls",
     ],
     season: [5, 6, 7],
     imageUrl: clearwaterImage,
-    imageLabel: "Clearwater watershed context photograph; not a Black Canyon endpoint image",
+    imageLabel: "Clearwater watershed context photograph; not a Cedars or Elizabeth endpoint image",
   }),
 
   makeRoute({
@@ -7211,6 +9193,69 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "lolo-creek-cottonwood-lolo-road",
+    riverId: "lolo-creek-idaho",
+    name: "Lolo Creek",
+    reach: "Cottonwood Flats to Lolo Creek Road bridge",
+    region: "North-Central Idaho / Clearwater basin",
+    routeType: "whitewater",
+    summary:
+      "An approximately 8.5-mile upper Lolo Creek Class IV+ reach from the Cottonwood Flats access area to the Lolo Creek Road bridge, with local gauge cues and a seasonal weir/wood review boundary.",
+    statusText:
+      "Threshold-informed planning route. American Whitewater reports about 400 cfs as a conservative low runnable level and 800-1,000 cfs as a preferred Idaho range on the direct Lolo Creek gauge; BLM and IDFG documents identify Cottonwood Flats and the Lolo Creek Road bridge access context, but current parking, weir operations, and wood require confirmation.",
+    distance: "About 8.5 river miles",
+    time: "About 4-7 hours plus scouting and portage planning",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "remote", "strainers", "cold_water", "fast_rise", "access_uncertain"],
+    safety: [
+      "This upper reach is continuous technical Class IV+ creek water with landslide and wood exposure. Use a proven Class IV/V crew, helmets, throw bags, repair gear, first aid, and satellite communication.",
+      "The Cottonwood Flats and Lolo Creek Road access areas are road/bridge staging points rather than developed ramps. Confirm current public entry, parking, seasonal roads, and the fish-trap/weir operating boundary before launching.",
+      "Use about 400 cfs as the conservative lower planning floor and 800-1,000 cfs as the preferred local band on USGS 13339500. Current wood, gauge behavior, weather, and the local staff-gauge/rapid character override any numeric cue.",
+    ],
+    gauge: "13339500",
+    gaugeName: "Lolo Creek near Greer, ID",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 400, idealMin: 800, idealMax: 1000 },
+    thresholdLabel: "American Whitewater/local Lolo guidance: about 400 cfs low runnable; Idaho boaters commonly prefer 800-1,000 cfs",
+    thresholdUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/572/main",
+    thresholdSupportUrl: "https://www.northidahorivers.com/Lolo_Creek.htm",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/572/main",
+    sourceLabel: "American Whitewater Lolo Creek upper reach record",
+    mapUrl: "https://eplanning.blm.gov/public_projects/nepa/32708/42286/44944/Lolo_Draft_EA_508.pdf",
+    additionalSourceLinks: [
+      { label: "American Whitewater Lolo access and gauge update", url: "https://www.americanwhitewater.org/article/29972/" },
+      { label: "Idaho Fish and Game Lolo Creek access assessment", url: "https://idfg.idaho.gov/ifwis/idnhp/cdc_pdf/lolo96.pdf" },
+      { label: "USGS Lolo Creek near Greer live gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13339500/" },
+      { label: "Cottonwood Flats map context", url: "https://mapcarta.com/23525218" },
+    ],
+    putIn: {
+      name: "Cottonwood Flats public access area",
+      latitude: 46.290731,
+      longitude: -115.905665,
+      mileFromStart: 0,
+      note: "Upper access-area anchor near State Meadows/Cottonwood Flats; confirm the actual river landing, road condition, parking, and any private or seasonal restrictions before committing.",
+    },
+    takeOut: {
+      name: "Lolo Creek Road bridge",
+      latitude: 46.29435,
+      longitude: -115.97602,
+      mileFromStart: 8.5,
+      note: "Named bridge/fish-trap access area used by local boaters; seasonal weir operations may require taking out immediately downstream and carrying around the facility.",
+    },
+    camping: "No on-route camping is assumed. Use a lawful Clearwater National Forest or Idaho County basecamp and carry an emergency overnight contingency.",
+    campingClassification: "nearby_basecamp",
+    shuttle: "Long rural shuttle on State Meadows/Lolo Creek roads and Highway 11; inspect gates, washouts, and weather before staging, and leave a written float plan.",
+    permits: "Follow Clearwater National Forest/BLM access rules, fish-trap and seasonal weir notices, Idaho AIS/PFD requirements, fire restrictions, and current road closures.",
+    watchFor: ["continuous Class IV+ creek water", "mobile wood and landslides", "seasonal weir/fish-trap boundary", "remote rescue", "approximate upper access"],
+    season: [3, 4, 5, 6],
+    imageUrl: clearwaterImage,
+    imageLabel: "Clearwater basin same-watershed context photograph",
+  }),
+
+  makeRoute({
     id: "lolo-creek-lolo-road-greer",
     riverId: "lolo-creek-idaho",
     name: "Lolo Creek",
@@ -7290,6 +9335,234 @@ export const idahoRoutes: River[] = [
     season: [3, 4, 5, 6],
     imageUrl: clearwaterImage,
     imageLabel: "Clearwater basin same-watershed context photograph",
+  }),
+
+  makeRoute({
+    id: "south-fork-owyhee-yp-east-fork",
+    riverId: "owyhee-river-idaho",
+    name: "South Fork Owyhee River",
+    reach: "South Fork Pipeline Launch Site to East Fork confluence",
+    region: "Southwestern Idaho / Owyhee Canyonlands",
+    routeType: "whitewater",
+    summary:
+      "A remote approximately 34-mile Class II-III+ South Fork Owyhee expedition from the BLM-mapped South Fork Pipeline launch area to the East Fork confluence, with primitive camps, rough 4WD access, and a diversion-dam portage consideration.",
+    statusText:
+      "Planning-only remote route. American Whitewater describes roughly 250 cfs as enough for an amateur open canoe and notes that rapids wash out around 3,000 cfs; the Rome gauge is a downstream proxy. The BLM boater guide maps the South Fork Pipeline launch and 45 Ranch/YP access context, but current road, private-inholding, and permission status must be confirmed before staging.",
+    distance: "About 34 river miles",
+    time: "About 2-4 days with camps and scouting",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "remote", "cold_water", "strainers", "fast_rise", "access_uncertain", "mandatory_takeout"],
+    safety: [
+      "Treat this as a remote self-support desert expedition: carry satellite communication, rescue and repair gear, first aid, redundant water treatment, and enough food and water for road or weather delays.",
+      "American Whitewater describes a roughly 250 cfs lower planning cue for an amateur open canoe and reports that rapids wash out around 3,000 cfs. Those values are reach guidance, not a guarantee; inspect current wood, diversion structures, wind, and channel conditions before committing.",
+      "The BLM boater guide maps South Fork Pipeline, 45 Ranch, and YP access, but the approach is rough 4WD and private inholdings/permission issues are material. Confirm current launch legality, road status, landowner permission, and a river-right landing at the East Fork confluence.",
+    ],
+    gauge: "13181000",
+    gaugeName: "Owyhee River near Rome, OR (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 250, idealMin: 250, idealMax: 3000 },
+    thresholdLabel: "American Whitewater South Fork Owyhee guidance: roughly 250 cfs minimum for an amateur open canoe; around 3,000 cfs rapids wash out; Rome gauge is a downstream proxy",
+    thresholdUrl: southForkOwyheeAw,
+    thresholdSupportUrl: southForkOwyheeMap,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: southForkOwyheeAw,
+    sourceLabel: "American Whitewater South Fork Owyhee reach record",
+    mapUrl: southForkOwyheeMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater South Fork Owyhee reach and trip reports", url: southForkOwyheeAw },
+      { label: "BLM South Fork Owyhee Wild and Scenic River page", url: southForkOwyheeBlm },
+      { label: "BLM Bruneau-Jarbidge-Owyhee boater guide and access map", url: southForkOwyheeMap },
+      { label: "USGS Owyhee River near Rome downstream proxy gauge", url: owyheeRomeGauge },
+      { label: "BLM/National Wild and Scenic Owyhee river plan", url: "https://rivers.gov/apps/sites/rivers/files/documents/plans/owyhee-plan-or.pdf" },
+      { label: "Idaho Fish and Game Owyhee access and inholding context", url: "https://www.idfg.idaho.gov/ifwis/idnhp/cdc_pdf/wetinv98.pdf" },
+    ],
+    putIn: {
+      name: "South Fork Pipeline Launch Site",
+      latitude: 41.929167,
+      longitude: -116.670278,
+      mileFromStart: 0,
+      note: "BLM boater-guide map callout in Nevada; approach is rough 4WD and current road, landowner, and permit status must be confirmed before unloading.",
+    },
+    takeOut: {
+      name: "East Fork Owyhee Confluence",
+      latitude: 42.26528,
+      longitude: -116.88806,
+      mileFromStart: 34,
+      note: "Approximate South Fork/East Fork confluence above the upper Owyhee; confirm a current river-right landing, 45 Ranch/BLM road access, private frontage, and the continuation boundary.",
+    },
+    access: [
+      {
+        name: "South Fork Pipeline Launch Site",
+        latitude: 41.929167,
+        longitude: -116.670278,
+        mileFromStart: 0,
+        note: "BLM boater-guide launch map callout; rough 4WD approach and current access status require confirmation.",
+      },
+      {
+        name: "45 Ranch access area",
+        latitude: 42.172667,
+        longitude: -116.8734574,
+        mileFromStart: 28,
+        segmentKind: "transition",
+        note: "Mapped ranch/inholding context only. Do not use without current landowner permission and a confirmed public road/landing; this is not an assumed public take-out.",
+      },
+      {
+        name: "East Fork Owyhee Confluence",
+        latitude: 42.26528,
+        longitude: -116.88806,
+        mileFromStart: 34,
+        note: "Approximate confluence landing; confirm current public access, private frontage, and downstream continuation before relying on it as a take-out.",
+      },
+    ],
+    camping:
+      "Remote desert dispersed camping is expected only where lawful and durable along the managed corridor. Carry all water, use a fire pan where required, follow current fire restrictions, and do not camp on private inholdings.",
+    campingClassification: "on_route_campsite",
+    shuttle:
+      "Long remote 4WD shuttle on rough cross-state roads. Stage vehicles before launch, carry spare fuel/tires, and recheck road conditions after rain; do not assume YP Ranch or 45 Ranch access is currently granted.",
+    permits:
+      "Check current BLM Wild and Scenic/Owyhee boating notices, access permissions, fire restrictions, Idaho/Nevada AIS and PFD rules, and private-inholding boundaries before departure.",
+    watchFor: ["Class III rapids and changing wood", "diversion dam and portage", "private ranch/inholding boundaries", "remote rescue and no cell coverage", "hot dry desert and limited water", "wet-road impassability"],
+    season: [3, 4, 5, 6],
+    imageUrl: northForkOwyheeImage,
+    imageLabel: "Owyhee canyon context photograph; South Fork endpoint not depicted",
+  }),
+
+  makeRoute({
+    id: "east-fork-owyhee-duck-crutcher",
+    riverId: "owyhee-river-idaho",
+    name: "East Fork Owyhee River",
+    reach: "Duck Valley Indian Reservation to Crutcher Crossing",
+    region: "Southwestern Idaho / Owyhee Canyonlands",
+    routeType: "whitewater",
+    summary:
+      "A remote 65.6-mile Class III-IV(V+) East Fork Owyhee expedition from the Duck Valley launch to Crutcher Crossing, with long flatwater, willow corridors, mandatory portage/scouting hazards, and a direct Crutcher gauge.",
+    statusText:
+      "Threshold-informed planning route. American Whitewater and recent trip reports identify roughly 1,000-2,000 cfs on the Crutcher gauge as a useful planning window, with about 1,100 cfs described as an ideal padded flow and 700 cfs as a hard-shell/canoe low edge. The BLM guide warns that the reservation access requires approval, upper-fork portages are likely below bank-full, and the canyon is remote; confirm tribal/BLM access, road conditions, water trend, and every major portage before committing.",
+    distance: "About 65.6 river miles, usually a 3-5 day expedition",
+    time: "About 3-5 days with scouting, portages, and camps",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "remote", "strainers", "cold_water", "fast_rise", "low_water", "access_uncertain", "portage"],
+    safety: [
+      "This is a remote, committing East Fork trip with willow tunnels, fences, changing channels, long flatwater, Class III-IV rapids, sieves, and limited walk-out options. Use experienced expedition paddlers with satellite communication, rescue/repair gear, redundant food/water, and a complete portage plan.",
+      "Recent trip reports describe 1,000-2,000 cfs as the target Crutcher gauge range, about 1,100 cfs as well padded, and 700 cfs as a low edge for hard shells or canoes. The BLM guide says the East Fork should be near bank-full or higher on the reservation and that upper portages are likely below high water; local scouting overrides the numeric cue.",
+      "The Duck Valley launch requires current reservation approval or confirmation from tribal officials. Garat and Rickard crossings have separate private-road/permission controls, while Crutcher is a remote high-clearance launch; verify the selected access and wet-road conditions before departure.",
+    ],
+    gauge: "13176400",
+    gaugeName: "East Fork Owyhee River at Crutcher Crossing, ID",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 700, idealMin: 1000, idealMax: 2000 },
+    thresholdLabel: "East Fork Owyhee planning window: about 700 cfs hard-shell low edge; 1,000-2,000 cfs target; about 1,100 cfs recent ideal trip-report flow",
+    thresholdUrl: eastForkOwyheeAw,
+    thresholdSupportUrl: eastForkOwyheeTripReport,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: eastForkOwyheeAw,
+    sourceLabel: "American Whitewater East Fork Owyhee reach record",
+    mapUrl: owyheeBoaterGuide,
+    additionalSourceLinks: [
+      { label: "American Whitewater East Fork Owyhee reach and trip reports", url: eastForkOwyheeAw },
+      { label: "Recent East Fork Owyhee trip report and Duck Valley access notes", url: eastForkOwyheeTripReport },
+      { label: "USGS Crutcher Crossing direct gauge", url: eastForkOwyheeGauge },
+      { label: "BLM Bruneau-Jarbidge-Owyhee boater guide and access map", url: owyheeBoaterGuide },
+      { label: "BLM Owyhee Wilderness access and road conditions", url: owyheeCrutchersBlm },
+    ],
+    putIn: {
+      name: "Duck Valley East Fork Owyhee launch",
+      latitude: 42.032,
+      longitude: -116.2375,
+      mileFromStart: 0,
+      note: "Recent paddler coordinates for the Duck Valley launch; confirm current tribal approval, road condition, parking, and river entry with Duck Valley officials before staging.",
+    },
+    takeOut: {
+      name: "Crutcher Crossing launch / take-out",
+      latitude: 42.25989,
+      longitude: -116.87013,
+      mileFromStart: 65.6,
+      note: "BLM/American Whitewater and map sources identify Crutcher Crossing; use only the established high-clearance approach and confirm crossing, parking, and current road restrictions.",
+    },
+    camping:
+      "Plan for self-support camping only at lawful, durable BLM or reservation-approved sites. Carry all water, food, waste, fire-pan, and weather contingency equipment; do not assume private ranch or reservation banks are available.",
+    campingClassification: "on_route_campsite",
+    shuttle:
+      "Very long remote shuttle across Idaho/Nevada backcountry roads. Stage vehicles before launch, carry spare fuel/tires and recovery gear, and do not drive the access roads after rain without current local confirmation.",
+    permits:
+      "Complete the BLM self-registration/boating requirements and obtain current Duck Valley Shoshone-Paiute approval for reservation access; follow AIS/PFD, fire, wilderness, private-property, and seasonal road rules.",
+    watchFor: ["willow tunnels and fences", "Thread the Needle and sieve hazards", "mandatory portages and changing channels", "reservation/private access", "remote rescue and no cell coverage", "wet-road impassability"],
+    season: [3, 4, 5, 6],
+    imageUrl: northForkOwyheeImage,
+    imageLabel: "Owyhee canyon context photograph; East Fork access is not depicted",
+  }),
+
+  makeRoute({
+    id: "owyhee-river-three-forks-rome",
+    riverId: "owyhee-river-idaho",
+    name: "Owyhee River",
+    reach: "Three Forks to Rome",
+    region: "Southwestern Idaho / Southeastern Oregon Owyhee Canyonlands",
+    routeType: "whitewater",
+    summary:
+      "A remote approximately 35-mile Class III-IV(V) Owyhee mainstem expedition from the Three Forks confluence to the Rome launch, with pool-and-drop canyon rapids, primitive camps, and a published Rome-gauge optimum.",
+    statusText:
+      "Threshold-informed planning route. The BLM/American Whitewater boater guidance identifies 1,500-3,000 cfs at the Rome gauge as the optimum Three Forks-to-Rome planning window, with broader upper-river shoulders around 1,000-6,000 cfs. Three Forks is a primitive BLM boat launch/campground and Rome is a developed public launch, but the canyon remains remote and includes Class IV/V rapids, wind, portage decisions, and rapid road/weather changes.",
+    distance: "About 35 river miles, usually 2-3 days",
+    time: "About 2-3 days with scouting and camps",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "remote", "cold_water", "strainers", "fast_rise", "low_water", "wind", "access_uncertain", "portage"],
+    safety: [
+      "Treat the Three Forks-to-Rome section as an expert self-support expedition with Class III-IV/V consequences, long pools, limited exits, and no reliable cell service. Carry satellite communication, rescue/repair gear, redundant water, and a current evacuation plan.",
+      "Use 1,500-3,000 cfs at the Rome gauge as the BLM/American Whitewater optimum planning band and 1,000-6,000 cfs as a broad shoulder only. Cabin, Cable, and other canyon rapids can require scouting, lining, or portage; local conditions and boat type override the gauge range.",
+      "Three Forks has five primitive campsites, a boat launch, parking, and vault toilets, while Rome has a public BLM launch/campground. The 36-mile high-clearance approach to Three Forks can become impassable when wet; stage the shuttle and confirm launch/take-out conditions before departure.",
+    ],
+    gauge: "13181000",
+    gaugeName: "Owyhee River near Rome, OR (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1000, idealMin: 1500, idealMax: 3000, tooHigh: 6000 },
+    thresholdLabel: "BLM/American Whitewater optimum for Three Forks-to-Rome: 1,500-3,000 cfs; broad planning shoulders 1,000-6,000 cfs on the Rome proxy",
+    thresholdUrl: owyheeThreeForksRomeFlow,
+    thresholdSupportUrl: owyheeRomeGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: owyheeThreeForksRomeFlow,
+    sourceLabel: "American Whitewater/BLM Owyhee boater flow guidance",
+    mapUrl: owyheeThreeForksAccess,
+    additionalSourceLinks: [
+      { label: "BLM Three Forks Recreation Site", url: owyheeThreeForksAccess },
+      { label: "Recreation.gov Owyhee Wild and Scenic River / Rome Launch", url: owyheeRomeAccess },
+      { label: "American Whitewater Owyhee reach record and trip reports", url: owyheeCrutchersAw },
+      { label: "American Whitewater Owyhee boater guide flow table", url: owyheeThreeForksRomeFlow },
+      { label: "USGS Owyhee River near Rome proxy gauge", url: owyheeRomeGauge },
+    ],
+    putIn: {
+      name: "Three Forks Recreation Site Boat Launch",
+      latitude: 42.545023,
+      longitude: -117.167067,
+      mileFromStart: 0,
+      note: "BLM primitive launch at the North/Middle/Main Owyhee confluence with five campsites and vault toilets; high-clearance access and wet-road conditions require current confirmation.",
+    },
+    takeOut: {
+      name: "Rome Launch Site",
+      latitude: 42.83613,
+      longitude: -117.6212,
+      mileFromStart: 35,
+      note: "Public BLM launch/campground at US 95 near Rome; confirm current parking, river access, fire rules, and any seasonal notices.",
+    },
+    camping:
+      "Use the primitive BLM campsites at Three Forks and lawful durable canyon sites only. Carry a fire pan, portable toilet/waste system, all food and water, and a weather contingency; no private-bank camping is assumed.",
+    campingClassification: "on_route_campsite",
+    shuttle:
+      "Remote high-clearance shuttle from Three Forks to Rome. Stage the Three Forks vehicle before rain, allow extra time for the 36-mile access road, and do not rely on cell coverage or an unverified wet-weather exit.",
+    permits:
+      "Check current BLM Owyhee Wild and Scenic self-registration, fire-pan, AIS/PFD, camping, and seasonal road rules before launch.",
+    watchFor: ["Cabin and Cable rapids", "Class IV/V portage decisions", "wind and cold water", "long pools and limited exits", "wet-road access and remote rescue"],
+    season: [3, 4, 5, 6],
+    imageUrl: northForkOwyheeImage,
+    imageLabel: "Owyhee canyon context photograph; Three Forks-to-Rome corridor",
   }),
 
   makeRoute({
@@ -7557,6 +9830,132 @@ export const idahoRoutes: River[] = [
     watchFor: ["Jarbidge Falls mandatory portage", "Sevy Falls, Wally's Wallow, and Maze Rapid", "logjams, sweepers, heat, poison ivy, and rattlesnakes", "mandatory Bruneau Launch Site take-out"],
     imageUrl: snakeImage,
     imageLabel: "Southwest Idaho canyon river context photograph",
+  }),
+
+  makeRoute({
+    id: "priest-river-dickensheet-white-tail",
+    riverId: "priest-river-idaho",
+    name: "Priest River",
+    reach: "Dickensheet Campground to White Tail Butte Landing (Chipmunk Rapids)",
+    region: "Idaho Panhandle / Priest Lake",
+    routeType: "recreational",
+    summary:
+      "A roughly 10-mile Class I-II Priest River float with the named Chipmunk Rapids feature, public state access, and a documented White Tail Butte landing.",
+    statusText:
+      "Threshold-documented planning route. Idaho Paddler lists 1,200-4,500 cfs at the Priest River gauge and a Class II Chipmunk Rapids cue around 3,500 cfs; the public endpoint pair is documented by the Forest Service, but the White Tail landing is undeveloped and low-water channel choice changes.",
+    distance: "About 10 river miles",
+    time: "About 3-4 hours plus shuttle",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["cold_water", "strainers", "low_water", "fast_rise", "access_uncertain"],
+    safety: [
+      "This is mostly Class I water with the named Class II Chipmunk Rapids feature; wear a PFD, keep a conservative line around bends and wood, and do not treat the flatwater character as consequence-free.",
+      "Dickensheet is a developed state campground. White Tail Butte is an undeveloped state landing; confirm the road, parking, bank condition, and a legal take-out before launch.",
+      "Use 1,200-4,500 cfs as the published corridor band and about 3,500 cfs as the Chipmunk Rapids reference. Summer low water can expose dry side channels and require dragging; spring and fall rise increase current and cold-water consequences.",
+    ],
+    gauge: "12394000",
+    gaugeName: "Priest River near Coolin, ID (Dickensheet)",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1200, idealMin: 1200, idealMax: 3500, tooHigh: 4500 },
+    thresholdLabel: "Idaho Paddler corridor guidance: 1,200-4,500 cfs; Chipmunk Rapids reference around 3,500 cfs",
+    thresholdUrl: priestRiverChipmunkGuide,
+    thresholdSupportUrl: priestRiverAccessGuide,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: priestRiverChipmunkGuide,
+    sourceLabel: "Idaho Paddler Priest River Chipmunk Rapids guide",
+    mapUrl: priestRiverAccessGuide,
+    additionalSourceLinks: [
+      { label: "USFS Priest River public-access map", url: priestRiverAccessGuide },
+      { label: "American Whitewater Priest River reach record", url: priestRiverThresholdGuide },
+      { label: "USGS Dickensheet gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-12394000/" },
+    ],
+    putIn: {
+      name: "Dickensheet Campground",
+      latitude: 48.45194,
+      longitude: -116.89944,
+      mileFromStart: 0,
+      note: "Developed Idaho State Parks campground and public parking; use the signed river access and keep campground circulation clear.",
+    },
+    takeOut: {
+      name: "White Tail Butte Landing",
+      latitude: 48.4146,
+      longitude: -116.92161,
+      mileFromStart: 10.1,
+      note: "Undeveloped state landing shown on the Forest Service float map; confirm bank condition, road access, and legal parking before committing.",
+    },
+    camping: "Dickensheet Campground is an endpoint basecamp option when open. No overnight use is assumed at the undeveloped White Tail landing.",
+    campingClassification: "endpoint_campground",
+    shuttle: "Highway 57 and local roads provide the shuttle, but the White Tail approach is undeveloped and may be narrow or seasonal; stage the take-out first.",
+    permits: "Follow Idaho State Parks and Idaho Panhandle National Forest rules, campground fees, Idaho AIS/PFD requirements, and seasonal road/closure notices.",
+    watchFor: ["Chipmunk Rapids", "low-water side-channel drag", "undeveloped White Tail landing", "cold water and strainers"],
+    season: [5, 6, 7, 8, 9, 10],
+    imageUrl: stJoeImage,
+    imageLabel: "Northern Idaho river corridor context photograph",
+  }),
+
+  makeRoute({
+    id: "priest-river-mcabee-mudhole",
+    riverId: "priest-river-idaho",
+    name: "Priest River",
+    reach: "McAbee Falls Bridge to Priest River Recreation Area (Mudhole)",
+    region: "Idaho Panhandle / Priest River",
+    routeType: "whitewater",
+    summary:
+      "A 13.5-mile Class I-III lower Priest River run with the continuous Eight Mile Rapids section and a developed Corps of Engineers campground/boat-ramp take-out.",
+    statusText:
+      "Threshold-documented planning route. Idaho Paddler publishes 1,200-4,500 cfs at the Priest River gauge and describes Eight Mile Rapids as continuous Class III around 3,000 cfs; high-water hazards, private frontage, and the undeveloped bridge launch keep this card planning-only.",
+    distance: "About 13.5 river miles",
+    time: "About 4-5 hours plus shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "fast_rise", "private_banks", "access_uncertain"],
+    safety: [
+      "Eight Mile Rapids is a sustained Class III section with curlers, holes, and a long swim consequence; use a whitewater-capable craft, helmet, rescue kit, and a crew with reliable self-rescue skills.",
+      "McAbee is a bridge-side undeveloped launch. The Mudhole is a developed public Corps of Engineers recreation area with a boat ramp, beach, parking, restrooms, and seasonal camping; confirm current opening dates and ramp condition.",
+      "Use 1,200-4,500 cfs as the published corridor band, with about 3,000 cfs as the documented Eight Mile reference. The Forest Service warns that Eight Mile becomes hazardous at high water, while low summer flows can make the channel slow or rocky.",
+    ],
+    gauge: "12394000",
+    gaugeName: "Priest River near Coolin, ID (Dickensheet; upstream context)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1200, idealMin: 1200, idealMax: 3500, tooHigh: 4500 },
+    thresholdLabel: "Idaho Paddler: 1,200-4,500 cfs at Priest River gauge; Eight Mile Rapids described around 3,000 cfs",
+    thresholdUrl: priestRiverMcAbeeGuide,
+    thresholdSupportUrl: priestRiverFlowGuide,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: priestRiverMcAbeeGuide,
+    sourceLabel: "Idaho Paddler McAbee-to-Priest River guide",
+    mapUrl: priestRiverMudholeAccess,
+    additionalSourceLinks: [
+      { label: "USFS Priest River public-access and hazard map", url: priestRiverAccessGuide },
+      { label: "USACE Priest River Recreation Area (Mudhole)", url: priestRiverMudholeAccess },
+      { label: "Sandpoint lower Priest flow and Eight Mile context", url: priestRiverFlowGuide },
+      { label: "McAbee Falls map coordinate", url: "https://mapcarta.com/23546384" },
+    ],
+    putIn: {
+      name: "McAbee Falls Bridge",
+      latitude: 48.28436,
+      longitude: -116.87185,
+      mileFromStart: 0,
+      note: "Bridge-side launch on Peninsula Road described by Idaho Paddler; use the downstream river-left carry only if the current road, parking, and bank access are confirmed.",
+    },
+    takeOut: {
+      name: "Priest River Recreation Area (Mudhole)",
+      latitude: 48.17917,
+      longitude: -116.89222,
+      mileFromStart: 13.5,
+      note: "Public Corps of Engineers recreation area at the Priest/Pend Oreille confluence with a boat ramp, dock, beach, parking, and seasonal campground.",
+    },
+    camping: "Priest River Recreation Area offers reservable seasonal campsites and restrooms. Do not assume camping on private frontage or at the McAbee bridge launch.",
+    campingClassification: "endpoint_campground",
+    shuttle: "Approximately 8 miles of paved shuttle on local roads and Highway 57, with a narrow shoulder and active traffic; stage the Mudhole vehicle before launching.",
+    permits: "Follow Corps of Engineers/Idaho Panhandle access rules, campground reservations, Idaho AIS/PFD requirements, and current seasonal notices.",
+    watchFor: ["Eight Mile Rapids sustained Class III", "high-water curlers and holes", "private frontage", "McAbee bridge launch", "Mudhole swim area and boat traffic"],
+    season: [5, 6, 7, 8, 9, 10],
+    imageUrl: stJoeImage,
+    imageLabel: "Northern Idaho river corridor context photograph",
   }),
 
   makeRoute({
@@ -8334,6 +10733,283 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "pack-river-upper-grottos",
+    riverId: "pack-river-idaho",
+    name: "Pack River",
+    reach: "Upper Grottos",
+    region: "North Idaho / Bonner County",
+    routeType: "whitewater",
+    summary:
+      "A 1.9-mile Class V+ Upper Pack River steep-creek reach with waterfalls, rock slides, undercuts, and a committing sequence that ends at the Upper Slides access.",
+    statusText:
+      "Planning-only expert threshold route. American Whitewater correlates the direct Pack River near Colburn gauge to 650-1,000 cfs and documents three committing grotto sequences, a 20-foot waterfall, a 30-foot slide, a 45-foot Super Slide, old-growth log hazards, and no easy river exit. This card is intentionally withheld from live scoring despite the direct gauge because current expert scouting, portage decisions, wood, and rescue capability dominate the numeric signal.",
+    distance: "About 1.9 river miles",
+    time: "About 1-3 hours plus extensive scouting and portage",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "strainers", "cold_water", "remote", "access_uncertain", "waterfall", "portage"],
+    safety: [
+      "This is Class V+ steep creeking for expert teams only. The reach contains waterfalls, long complex combinations, undercuts, piton rocks, and no easy exit; a swim or pinned boat may be unrecoverable.",
+      "American Whitewater identifies a large old-growth log below the first waterfall, a heavily undercut second grotto, and a roughly 45-foot Super Slide. Scout every sequence from legal shore and pre-plan portages; do not treat the 1.9-mile length as a short or forgiving run.",
+      "Use the direct Pack River near Colburn gauge's 650-1,000 cfs AW correlation only as a screening cue. Current wood, landing, weather, cold-water, and rescue conditions override the flow number, and the adjacent Slides/Gorgette transitions require a planned exit.",
+    ],
+    gauge: "12392300",
+    gaugeName: "Pack River near Colburn, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 650, idealMin: 650, idealMax: 1000, tooHigh: 1000 },
+    thresholdLabel:
+      "American Whitewater direct-gauge correlation: 650-1,000 cfs runnable; expert-only Class V+ reach with numeric cue subordinate to scouting and rescue",
+    thresholdUrl: packGrottosAwReach,
+    thresholdSupportUrl: packGorgetteGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: packGrottosAwReach,
+    sourceLabel: "American Whitewater Pack Upper Grottos reach record",
+    mapUrl: packGrottosAwReach,
+    additionalSourceLinks: [
+      { label: "USGS Pack River near Colburn direct gauge", url: packGorgetteGauge },
+      { label: "Dreamflows Pack composite reach map", url: "https://www.dreamflows.com/reachMap/index.php?num=A&rid=742" },
+      { label: "Sandpoint Magazine Pack River flow and access guide", url: packGorgetteLocalGuide },
+      { label: "Idaho Water Resources Board Pack minimum-flow record", url: packMinimumFlowSource },
+      { label: "Bonner Soil and Water Conservation District Pack flow context", url: packFlowContextSource },
+    ],
+    putIn: {
+      name: "Pack River Road Grottos put-in",
+      latitude: 48.625,
+      longitude: -116.627,
+      mileFromStart: 0,
+      note: "American Whitewater's Upper Grottos road-access anchor; confirm lawful staging, carry, private frontage, and current road conditions before committing to the steep creek.",
+    },
+    takeOut: {
+      name: "Pack River Road Upper Slides access",
+      latitude: 48.601,
+      longitude: -116.637,
+      mileFromStart: 1.9,
+      note: "American Whitewater's Grottos endpoint and Upper Slides access anchor; confirm the legal carry, parking, and downstream transition before entering the Slides.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a lawful Sandpoint-area or Forest Service basecamp; do not camp at informal bridge pullouts or private Pack River frontage.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short Pack River Road shuttle with a required take-out vehicle at the Upper Slides access. Keep boats clear of narrow shoulders and do not rely on an unverified roadside pullout as an evacuation point.",
+    permits:
+      "No special river permit is listed. Follow Idaho AIS/PFD rules, Forest Service and county road restrictions, fire closures, private-property boundaries, and temporary Pack River access notices.",
+    watchFor: ["20-foot waterfall", "old-growth log below first drop", "undercut second grotto", "45-foot Super Slide", "mandatory portage and no-exit canyon"],
+    season: [4, 5, 6],
+    imageUrl: clearwaterImage,
+    imageLabel: "North Idaho watershed context photograph; not the Pack River endpoints",
+  }),
+
+  makeRoute({
+    id: "pack-river-upper-slides",
+    riverId: "pack-river-idaho",
+    name: "Pack River",
+    reach: "Upper Slides",
+    region: "North Idaho / Bonner County",
+    routeType: "whitewater",
+    summary:
+      "A 2.3-mile Class III-IV+(V) Upper Pack River section from a Pack River Road access to the second bridge, combining bedrock slides with continuous boulder drops and straightforward roadside portage options.",
+    statusText:
+      "Planning-only direct-gauge threshold route. American Whitewater correlates the Pack River near Colburn gauge to a 500-2,000 cfs runnable band and describes the Slides as the most popular upper Pack section because the major slides can be portaged. The access points are informal Pack River Road anchors, and the nearby Gorgette begins immediately downstream, so current road, wood, parking, and take-out confirmation are required.",
+    distance: "About 2.3 river miles",
+    time: "About 1-2 hours plus scouting and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "strainers", "cold_water", "fast_rise", "remote", "access_uncertain"],
+    safety: [
+      "Use a proven Class IV crew with cold-water protection, throw bags, and a plan to portage the larger bedrock slides. The route is short but consequential, with continuous boulder drops and limited recovery between features.",
+      "American Whitewater describes the Slides as popular partly because the major slides are easy to portage, but the final 1.5 miles becomes continuous Class III-IV boulder water. Scout the line and every portage from legal Pack River Road access before launching.",
+      "Use the direct Pack River near Colburn gauge with 500 cfs as the AW lower runnable shoulder and 2,000 cfs as the upper correlation. Current wood, bridge approaches, road conditions, and the downstream Gorgette transition override the numeric cue.",
+    ],
+    gauge: "12392300",
+    gaugeName: "Pack River near Colburn, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 500, idealMin: 500, idealMax: 2000, tooHigh: 2000 },
+    thresholdLabel:
+      "American Whitewater direct-gauge correlation: 500-2,000 cfs runnable; local Pack context is broader but not a reach-specific safety guarantee",
+    thresholdUrl: packSlidesAwReach,
+    thresholdSupportUrl: packGorgetteGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: packSlidesAwReach,
+    sourceLabel: "American Whitewater Pack Upper Slides reach record",
+    mapUrl: packSlidesAwReach,
+    additionalSourceLinks: [
+      { label: "USGS Pack River near Colburn direct gauge", url: packGorgetteGauge },
+      { label: "Sandpoint Magazine Pack River flow and access guide", url: packGorgetteLocalGuide },
+      { label: "Dreamflows Pack Slides reach map", url: "https://www.dreamflows.com/reachMap/index.php?num=A&rid=742" },
+      { label: "Idaho Water Resources Board Pack minimum-flow record", url: packMinimumFlowSource },
+      { label: "Bonner Soil and Water Conservation District Pack flow context", url: packFlowContextSource },
+    ],
+    putIn: {
+      name: "Pack River Road Slides put-in",
+      latitude: 48.601,
+      longitude: -116.637,
+      mileFromStart: 0,
+      note: "American Whitewater's roadside Slides access anchor; confirm lawful staging, narrow-shoulder parking, and the carry to the river before launch.",
+    },
+    takeOut: {
+      name: "Pack River Road second bridge take-out",
+      latitude: 48.577,
+      longitude: -116.612,
+      mileFromStart: 2.3,
+      note: "American Whitewater's second-vehicle-bridge take-out and downstream Gorgette put-in; confirm legal parking, safe carry, and the transition before continuing downstream.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a lawful Sandpoint-area or Forest Service basecamp; do not camp at bridge pullouts or on private Pack River frontage.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short Pack River Road shuttle between the downstream second bridge and the upper roadside access. Stage the take-out vehicle first and keep boats clear of traffic and bridge approaches.",
+    permits:
+      "No special river permit is listed. Follow Idaho AIS/PFD rules, Forest Service and county road restrictions, fire closures, private-property boundaries, and temporary Pack River access notices.",
+    watchFor: ["bedrock slides and portages", "continuous Class III-IV boulder drops", "logs and sweepers", "downstream Gorgette transition", "cold spring runoff"],
+    season: [4, 5, 6],
+    imageUrl: clearwaterImage,
+    imageLabel: "North Idaho watershed context photograph; not the Pack River endpoints",
+  }),
+
+  makeRoute({
+    id: "pack-river-upper-gorgette",
+    riverId: "pack-river-idaho",
+    name: "Pack River",
+    reach: "Upper Gorgette",
+    region: "North Idaho / Bonner County",
+    routeType: "whitewater",
+    summary:
+      "A 4.7-mile Class III-IV+ Upper Pack River reach from the second Pack River Road bridge through the Gorgette to a roadside take-out, with continuous boulder water, logs, and a committed Class IV-V pinch.",
+    statusText:
+      "Planning-only direct-gauge threshold route. American Whitewater correlates the Pack River near Colburn gauge to a 600-1,500 cfs runnable band and identifies the second Pack River Road bridge as the Gorgette put-in with a roadside take-out downstream. The local flow guide describes the Pack as best around 500-2,500 cfs, but the access points are informal bridge/road anchors and the Gorgette escalates sharply, so current scouting and legal parking confirmation are mandatory.",
+    distance: "About 4.7 river miles",
+    time: "About 2-3 hours plus shuttle and full scouting",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "strainers", "cold_water", "fast_rise", "remote", "access_uncertain"],
+    safety: [
+      "This is an expert Class III-IV+ reach with a rapidly tightening Class IV-V Gorgette section. Use a proven whitewater crew, rescue hardware, cold-water protection, and a plan for portage or retreat before entering the gorge.",
+      "American Whitewater describes logs in the upper stretch, few eddies near the Gorgette, and a sharp canyon turn requiring an immediate scout. Inspect the entire rapid sequence from Pack River Road or legal shore access before launching.",
+      "Use the direct Pack River near Colburn gauge with 600 cfs as the AW lower runnable shoulder and 1,500 cfs as the upper correlation; the broader 500-2,500 cfs local context is not a substitute for current wood, road, and channel inspection.",
+    ],
+    gauge: "12392300",
+    gaugeName: "Pack River near Colburn, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 600, idealMin: 600, idealMax: 1500, tooHigh: 1500 },
+    thresholdLabel:
+      "American Whitewater direct-gauge correlation: 600-1,500 cfs runnable; local Pack guidance gives a broader 500-2,500 cfs spring context",
+    thresholdUrl: packGorgetteAwReach,
+    thresholdSupportUrl: packGorgetteGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: packGorgetteAwReach,
+    sourceLabel: "American Whitewater Pack Upper Gorgette reach record",
+    mapUrl: packGorgetteAwReach,
+    additionalSourceLinks: [
+      { label: "USGS Pack River near Colburn direct gauge", url: packGorgetteGauge },
+      { label: "Sandpoint Magazine Pack River flow and access guide", url: packGorgetteLocalGuide },
+      { label: "Idaho Water Resources Board Pack minimum-flow record", url: packMinimumFlowSource },
+      { label: "Bonner Soil and Water Conservation District Pack flow context", url: packFlowContextSource },
+      { label: "Dreamflows Pack reach index", url: packDreamflows },
+    ],
+    putIn: {
+      name: "Pack River Road second bridge / Gorgette put-in",
+      latitude: 48.577,
+      longitude: -116.612,
+      mileFromStart: 0,
+      note: "American Whitewater's second-vehicle-bridge Gorgette put-in; confirm lawful river-right staging, bridge/road safety, and current parking before carrying boats to the water.",
+    },
+    takeOut: {
+      name: "Pack River Road roadside Gorgette take-out",
+      latitude: 48.524,
+      longitude: -116.588,
+      mileFromStart: 4.7,
+      note: "American Whitewater's roadside take-out anchor near the first downstream bridge; confirm a legal pullout and safe carry away from the road before committing to the reach.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a lawful Sandpoint-area or Forest Service basecamp; do not camp at informal bridge pullouts or on private Pack River frontage.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Pack River Road shuttle from the downstream roadside take-out to the second bridge. Stage the take-out vehicle first, expect narrow shoulders and seasonal road conditions, and keep boats clear of traffic.",
+    permits:
+      "No special river permit is listed. Follow Idaho AIS/PFD rules, Forest Service and county road restrictions, fire closures, private-property boundaries, and any temporary Pack River access notices.",
+    watchFor: ["Gorgette Class IV-V pinch", "logs and sweepers", "few recovery eddies", "roadside bridge access", "cold spring runoff"],
+    season: [4, 5, 6],
+    imageUrl: clearwaterImage,
+    imageLabel: "North Idaho watershed context photograph; not the Pack River endpoints",
+  }),
+
+  makeRoute({
+    id: "south-fork-coeur-dalene-mullan-wallace",
+    riverId: "south-fork-coeur-dalene-river-idaho",
+    name: "South Fork Coeur d'Alene River",
+    reach: "Mullan to Wallace",
+    region: "Idaho Panhandle / Silver Valley",
+    routeType: "whitewater",
+    summary:
+      "An approximately 8-mile Class III-IV Silver Valley run from Mullan toward Wallace, with narrow concrete channels, railroad and highway infrastructure, Tunnel Rapid, and very limited eddies.",
+    statusText:
+      "Planning-only threshold route. American Whitewater correlates the reach to the direct South Fork gauge above Placer Creek at Wallace with a 250-600 cfs runnable range; North Idaho Rivers describes the run as feeling low and scrapey near 350 cfs and warns that flows above about 1,100 cfs may not fit beneath the low bridge at Wallace. Historic mining debris, low bridges, a railroad trestle, tunnel hydraulics, and a cumbersome riprap take-out require expert scouting and current local confirmation.",
+    distance: "About 8 river miles",
+    time: "About 3-6 hours plus shuttle and full shore scouting",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "strainers", "remote", "access_uncertain"],
+    safety: [
+      "This is not a beginner run. The river is narrow, roadside, and often walled in, with blind corners, no-eddy sections, railroad trestles, concrete banks, and Tunnel Rapid near Wallace. Use a proven Class IV crew with rescue hardware, throw bags, first aid, and satellite communication.",
+      "North Idaho Rivers recommends full visual scouting from the Trail of the Coeur d'Alenes or shore because many hazards cannot be safely boat-scouted. Inspect every bridge, trestle, culvert, log jam, and concrete channel before launching.",
+      "Use 250 cfs as the AW lower runnable shoulder and 350-600 cfs as the conservative planning band. Treat approximately 1,100 cfs as a hard upper bridge-clearance warning from local guidance, not as a runnable target; current bridge clearance, debris, and channel conditions override every numeric cue.",
+    ],
+    gauge: "12413131",
+    gaugeName: "South Fork Coeur d'Alene River above Placer Creek at Wallace, ID",
+    gaugeKind: "direct",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 250, idealMin: 350, idealMax: 600, tooHigh: 1100 },
+    thresholdLabel:
+      "American Whitewater direct-gauge correlation: 250-600 cfs runnable; local guidance describes about 350 cfs as low/scrapey and warns of low-bridge clearance above about 1,100 cfs",
+    thresholdUrl: southForkCdaAwReach,
+    thresholdSupportUrl: southForkCdaGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: southForkCdaAwReach,
+    sourceLabel: "American Whitewater South Fork Coeur d'Alene reach record",
+    mapUrl: southForkCdaAwReach,
+    additionalSourceLinks: [
+      { label: "USGS South Fork Coeur d'Alene direct gauge", url: southForkCdaGauge },
+      { label: "North Idaho Rivers local flow and hazard guide", url: southForkCdaGuide },
+      { label: "Idaho Fish and Game South Fork Coeur d'Alene water record", url: southForkCdaIdfg },
+      { label: "American Whitewater Wallace boater-access cleanup project", url: southForkCdaAccessArticle },
+      { label: "Idaho Parks Trail of the Coeur d'Alenes scouting corridor", url: southForkCdaTrail },
+      { label: "Idaho fisheries plan / Silver Valley river context", url: "https://idfg.idaho.gov/sites/default/files/digital-2025-2030-fisheries-plan.pdf" },
+    ],
+    putIn: {
+      name: "Mullan / Interstate 90 river access",
+      latitude: 47.4672,
+      longitude: -115.801,
+      mileFromStart: 0,
+      note: "American Whitewater's Mullan-area access coordinate; confirm current roadside staging, private frontage, and safe entry away from I-90 and railroad infrastructure.",
+    },
+    takeOut: {
+      name: "Wallace visitor-center / Placer Creek-area take-out",
+      latitude: 47.4738,
+      longitude: -115.924,
+      mileFromStart: 8,
+      note: "American Whitewater's Wallace-area endpoint; current access improvements have been discussed, but use only a marked lawful landing and confirm riprap, parking, and visitor-center status before launch.",
+    },
+    camping:
+      "No on-route camping is assumed. Use a lawful Mullan or Wallace basecamp; do not camp beside the industrial corridor, railroad, highway, or river-channel concrete.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Short but traffic-sensitive I-90 / Trail of the Coeur d'Alenes shuttle. Stage the Wallace vehicle first, keep boats and people clear of railroad and highway corridors, and do not block the visitor-center or trailhead access.",
+    permits:
+      "Follow Idaho Fish and Game rules, Idaho AIS/PFD requirements, Idaho Parks trail rules, railroad and highway exclusion zones, fire restrictions, and current Wallace/Mullan access notices.",
+    watchFor: ["Tunnel Rapid", "low bridges and trestles", "historic mining debris", "blind no-eddy corners", "changing wood and riprap take-out"],
+    season: [3, 4, 5, 6],
+    imageUrl: stJoeImage,
+    imageLabel: "Idaho Panhandle same-watershed context photograph",
+  }),
+
+  makeRoute({
     id: "st-maries-river-mashburn-st-joe",
     riverId: "st-maries-river-idaho",
     name: "St. Maries River",
@@ -8403,6 +11079,75 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "st-joe-river-bluff-turner-flat",
+    riverId: "st-joe-river-idaho",
+    name: "St. Joe River",
+    reach: "Bluff Creek to Turner Flat Campground",
+    region: "Idaho Panhandle / St. Joe National Forest",
+    routeType: "recreational",
+    summary:
+      "A 12.3-mile Class II St. Joe float along Highway 50 from the formal Bluff Creek river access to Turner Flat Campground.",
+    statusText:
+      "Planning-only proxy-threshold route. American Whitewater documents formal river access, Eagle Creek, and Turner Flat campground access along the Highway 50 corridor; Kayak Idaho's 500-1,500 cfs Panhandle band is retained as Calder proxy context. Current campground status, wood, bridge/road staging, and local level control the launch decision.",
+    distance: "About 12.3 river miles",
+    time: "About 4-7 hours",
+    difficulty: "moderate",
+    risk: "caution",
+    hazards: ["cold_water", "strainers", "low_water", "access_uncertain", "wind"],
+    safety: [
+      "American Whitewater rates this section Class II and describes a paved Highway 50 corridor with formal river access and multiple campground options. Wear PFDs, scout bridge approaches, and keep a conservative shoreline plan around wood and private frontage.",
+      "Use 500-1,500 cfs only as a broad Calder-gauge proxy band. The gauge is downstream context for this upper corridor; local level, debris, road traffic, weather, and craft choice override the numeric cue.",
+      "Turner Flat has easy river access and campground facilities when open. Eagle Creek and the intermediate River Access site are useful staging references, but do not assume every campsite or bank is a public launch; use only signed access and confirm seasonal openings.",
+    ],
+    gauge: "12414500",
+    gaugeName: "St. Joe River at Calder, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 500, idealMin: 500, idealMax: 1500, tooHigh: 1500 },
+    thresholdLabel: "Kayak Idaho Panhandle planning band: 500-1,500 cfs on the Calder proxy gauge",
+    thresholdUrl: stJoeSkookumFlow,
+    thresholdSupportUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-12414500/",
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/11267/main",
+    sourceLabel: "American Whitewater Bluff Creek to Turner Flat reach record",
+    mapUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/11267/main",
+    additionalSourceLinks: [
+      { label: "American Whitewater Bluff Creek river access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/L5lqXpJNl0D2TKNyWcIJr" },
+      { label: "American Whitewater Turner Flat campground access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/CigQ4cLdMCPrJscx6HuYB" },
+      { label: "American Whitewater Eagle Creek river access", url: "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/WbpJzNSgDO1JnZUd9ISbw" },
+      { label: "Kayak Idaho Panhandle flow table", url: stJoeSkookumFlow },
+      { label: "USFS St. Joe Wild and Scenic River plan", url: stJoePlan },
+      { label: "USGS St. Joe River at Calder proxy gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-12414500/" },
+    ],
+    putIn: {
+      name: "Bluff Creek River Access",
+      latitude: 47.194762,
+      longitude: -115.50607,
+      mileFromStart: 0,
+      note: "Formal American Whitewater river access 1.3 miles below the Bluff Creek bridge; confirm parking, river-side carry, and current Forest Service signage.",
+    },
+    takeOut: {
+      name: "Turner Flat Campground Take-Out",
+      latitude: 47.236839,
+      longitude: -115.65587,
+      mileFromStart: 12.3,
+      note: "Forest Service campground with documented easy river access; confirm seasonal opening, parking, water, toilets, and current Highway 50 conditions.",
+    },
+    camping:
+      "Highway 50 corridor campgrounds and dispersed sites provide nearby basecamp options. Turner Flat has named campground facilities when open; reserve or confirm current status, water, toilets, fees, and fire restrictions.",
+    campingClassification: "endpoint_campground",
+    shuttle:
+      "Highway 50 parallels the reach and makes a paved shuttle practical. Stage Turner Flat first, keep vehicles off highway shoulders, and use only signed campground and river-access pullouts.",
+    permits:
+      "Follow Idaho Panhandle National Forest, Wild and Scenic River, campground, fire, AIS/PFD, and highway-safety rules. No separate river permit was confirmed for this public day-float corridor.",
+    watchFor: ["Eagle Creek access", "wood and bridge approaches", "cold water", "Highway 50 traffic", "seasonal campground closures"],
+    season: [5, 6, 7, 8],
+    imageUrl: stJoeImage,
+    imageLabel: "St. Joe River same-river context photograph",
+  }),
+
+  makeRoute({
     id: "st-joe-river-spruce-tree-turner-flat",
     riverId: "st-joe-river-idaho",
     name: "St. Joe River",
@@ -8429,6 +11174,7 @@ export const idahoRoutes: River[] = [
     safety: [
       "Tumbledown Falls includes a six-foot drop preceded by Class IV water; Skookum Canyon contains sustained violent Class III-IV rapids. Scout and portage only where public land and safe trails allow.",
       "The Calder gauge is far downstream and is a proxy only. Local level, wood, road, fire, and campground checks control the decision.",
+      "This is a long, remote multi-section commitment with limited bailout and rescue access. Carry communication, cold-water protection, repair/rescue equipment, and an overnight contingency; do not treat the proxy gauge or campground endpoints as a same-day safety certification.",
     ],
     gauge: "12414500",
     gaugeName: "St. Joe River at Calder, ID (downstream proxy)",
@@ -9362,6 +12108,92 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "bitch-creek-coyote-meadows-highway-32",
+    riverId: "bitch-creek-idaho",
+    name: "Bitch Creek",
+    reach: "Coyote Meadows to Highway 32 Bridge",
+    region: "Eastern Idaho / Teton Canyon",
+    routeType: "whitewater",
+    summary:
+      "A 13.6-mile Class III-IV upper Bitch Creek run from the Coyote Meadows confluence area to the Highway 32 bridge, upstream of the isolated canyon section.",
+    statusText:
+      "Planning-only threshold route. American Whitewater identifies the Coyote Meadows-to-Highway 32 reach as Class III-IV but labels coordinates very approximate and warns the linked Teton gauge drains roughly 25 times the upper reach; the Idaho Upper Snake resource inventory supplies a conservative 500 cfs planning cue on the linked Teton reference, not a direct Bitch Creek measurement.",
+    distance: "About 13.6 river miles",
+    time: "About 5-8 hours including remote access, scouting, wood checks, and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "fast_rise", "remote", "access_uncertain", "portage"],
+    safety: [
+      "American Whitewater rates this upper reach Class III-IV and explicitly says its latitude/longitude data are very approximate. Treat the Coyote Meadows anchor as a planning area, not a surveyed ramp, and confirm current road, trail, parking, and river-side carry before committing.",
+      "The linked Teton gauge drains about 876 square miles while the upper Bitch Creek put-in drains about 35 square miles. Use the 500 cfs inventory cue only as a conservative watershed reference, inspect actual local stage, and do not infer a direct reach flow from the downstream gauge.",
+      "Remote canyon wood, cold water, changing spring runoff, and limited exits require a solid Class III-IV crew, rescue equipment, satellite communication, and a daylight plan with a conservative turn-around or take-out decision at Highway 32.",
+    ],
+    gauge: "13055000",
+    gaugeName: "Teton River near St. Anthony, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 500, idealMin: 500 },
+    thresholdLabel: "Idaho Upper Snake resource inventory: approximately 500 cfs planning cue for the Coyote Meadows Run; linked Teton gauge is a highly mismatched downstream proxy",
+    thresholdUrl: upperBitchCreekFlowGuide,
+    thresholdSupportUrl: upperBitchCreekAwReach,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: upperBitchCreekAwReach,
+    sourceLabel: "American Whitewater Upper Bitch Creek Coyote Meadows reach record",
+    mapUrl: upperBitchCreekAwReach,
+    additionalSourceLinks: [
+      { label: "American Whitewater Upper Bitch Creek reach record", url: upperBitchCreekAwReach },
+      { label: "Idaho Upper Snake River whitewater resource inventory", url: upperBitchCreekFlowGuide },
+      { label: "American Whitewater Bitch Creek canyon access/gauge context", url: bitchCreekAwReach },
+      { label: "USBR Teton River Canyon recreation management plan", url: bitchCreekAccessPlan },
+      { label: "ITD State Highway 32 Bitch Creek Bridge project", url: bitchCreekBridgeProject },
+      { label: "USGS Teton River near St. Anthony proxy gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13055000/" },
+    ],
+    putIn: {
+      name: "Coyote Meadows / Upper Bitch Creek Confluence Area",
+      latitude: 43.99548,
+      longitude: -111.00578,
+      mileFromStart: 0,
+      note: "Approximate American Whitewater Coyote Meadows confluence-area anchor. Confirm seasonal road/trail access, legal parking, and the actual river-side carry; AW warns coordinates are very approximate.",
+    },
+    takeOut: {
+      name: "Highway 32 Bitch Creek Bridge",
+      latitude: 43.9406,
+      longitude: -111.18,
+      mileFromStart: 13.6,
+      note: "Named American Whitewater bridge endpoint and start of the separate Bitch Creek Canyon card. Confirm legal shoulder parking and the downstream mandatory take-out boundary before launching.",
+    },
+    access: [
+      {
+        name: "Coyote Meadows / Upper Bitch Creek Confluence Area",
+        latitude: 43.99548,
+        longitude: -111.00578,
+        mileFromStart: 0,
+        note: "Approximate remote access-area anchor; current road, trail, carry, and public-land confirmation required.",
+        segmentKind: "transition",
+      },
+      {
+        name: "Highway 32 Bitch Creek Bridge",
+        latitude: 43.9406,
+        longitude: -111.18,
+        mileFromStart: 13.6,
+        note: "Bridge-area endpoint above the isolated canyon run; verify traffic-safe staging, parking, and river-side landing.",
+      },
+    ],
+    camping:
+      "No on-route camping is assumed. Use a lawful Teton Valley or Teton Canyon basecamp and carry an emergency overnight contingency for a remote, wood-sensitive reach.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Arrange a full daylight shuttle between the approximate Coyote Meadows access area and Highway 32. Roads may be seasonal and the route has limited reliable exits; do not launch without a confirmed take-out vehicle and communications plan.",
+    permits:
+      "No river permit is listed. Follow Idaho boating/PFD and invasive-species requirements, Caribou-Targhee/USBR/BLM access restrictions, private-land boundaries, bridge safety rules, and current road, fire, and closure notices.",
+    watchFor: ["approximate upper access", "Class III-IV basalt rapids", "wood and strainers", "cold spring runoff", "limited exits", "Highway 32 mandatory endpoint"],
+    season: [5, 6, 7],
+    imageUrl: tetonImage,
+    imageLabel: "Teton River southeast Idaho corridor photograph",
+  }),
+
+  makeRoute({
     id: "bitch-creek-highway-32-teton",
     riverId: "bitch-creek-idaho",
     name: "Bitch Creek",
@@ -10290,6 +13122,115 @@ export const idahoRoutes: River[] = [
   }),
 
   makeRoute({
+    id: "pine-creek-north-fork-highway-21-snake",
+    riverId: "pine-creek-idaho",
+    name: "Pine Creek",
+    reach: "North Fork Pine Creek / Highway 21 to Snake River",
+    region: "Eastern Idaho / Teton Valley and Swan Valley",
+    routeType: "whitewater",
+    summary:
+      "A remote approximately 10.7-mile Class II-IV Pine Creek descent from the Highway 21/North Fork corridor to the Snake River, with exact American Whitewater access anchors and a 250-300 cfs local trip-report cue tied to the Teton gauge.",
+    statusText:
+      "Planning-only threshold route. American Whitewater supplies the named reach, exact endpoint coordinates, Class II-IV rating, and trip-report flow context; the Teton River above South Leigh Creek gauge is only a proxy for Pine Creek, and the remote road, wood, private-inholding, and Snake River landing controls require current field confirmation.",
+    distance: "About 10.7 river miles",
+    time: "About 5-8 hours plus scouting, shuttle, and a remote take-out plan",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: [
+      "whitewater",
+      "cold_water",
+      "strainers",
+      "fast_rise",
+      "remote",
+      "access_uncertain",
+      "mandatory_takeout",
+    ],
+    safety: [
+      "American Whitewater rates Pine Creek Class II-IV. Treat the upper canyon as advanced moving water: scout wood and blind corners, wear a PFD, and carry rescue and communication equipment for a remote drainage.",
+      "The reach is not represented by a Pine Creek stream gauge. The Teton River above South Leigh Creek gauge is a planning proxy only; a trip report describes local Pine Creek around 250-300 cfs when Teton was about 681 cfs and the Snake about 10,000 cfs. Confirm local water, weather, and debris at the launch rather than transferring the proxy number mechanically.",
+      "American Whitewater's exact Highway 21/North Fork put-in and Snake River take-out coordinates are access anchors, not a guarantee of a maintained public ramp. Confirm road condition, lawful parking, private inholdings, shoreline carry, and a safe Snake landing before committing.",
+      "The Snake River confluence can add larger-volume current and cold-water consequences. Plan the take-out before launch, do not drift into an unintended downstream reach, and keep a conservative turnaround option if the lower creek or landing is not runnable.",
+    ],
+    gauge: "13052200",
+    gaugeName: "Teton River above South Leigh Creek near Driggs, ID (proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 250, idealMin: 250, idealMax: 300 },
+    thresholdLabel:
+      "American Whitewater trip-report/local cue: Pine Creek was described around 250-300 cfs with Teton near 681 cfs; retain as a local planning window, not a published go/no-go threshold",
+    thresholdUrl: pineCreekAwReach,
+    thresholdSupportUrl: pineCreekTripReport,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: pineCreekAwReach,
+    sourceLabel: "American Whitewater Pine Creek reach record",
+    mapUrl: pineCreekAccessGuide,
+    additionalSourceLinks: [
+      { label: "American Whitewater Pine Creek map and access points", url: pineCreekAccessGuide },
+      { label: "American Whitewater Pine Creek trip reports", url: pineCreekTripReport },
+      { label: "USGS Teton River above South Leigh Creek proxy gauge", url: pineCreekGauge },
+      { label: "Friends of the Teton River recreation map and access rules", url: pineCreekWatershedContext },
+      { label: "Idaho Fish and Game statewide boating-access guide", url: "https://idfg.idaho.gov/sites/default/files/fishing-boating-access-guide-2016.pdf" },
+      { label: "American Whitewater Pine Creek main reach record", url: pineCreekAwReach },
+    ],
+    putIn: {
+      name: "North Fork Pine Creek / Highway 21 Put-In",
+      latitude: 43.560758,
+      longitude: -111.275906,
+      mileFromStart: 0,
+      note: "Exact American Whitewater upper access anchor. Confirm the Highway 21 turn, road condition, lawful parking, and a safe carry to the creek before launching.",
+    },
+    takeOut: {
+      name: "Pine Creek / Snake River Confluence Take-Out",
+      latitude: 43.477242,
+      longitude: -111.44134,
+      mileFromStart: 10.7,
+      note: "Exact American Whitewater lower endpoint near the Snake River. Confirm current landing, private-bank boundaries, downstream hazards, and a vehicle-accessible shuttle point.",
+    },
+    access: [
+      {
+        name: "North Fork Pine Creek / Highway 21 Put-In",
+        latitude: 43.560758,
+        longitude: -111.275906,
+        mileFromStart: 0,
+        note: "American Whitewater upper endpoint; field-verify road, parking, and creek carry.",
+      },
+      {
+        name: "Pine Creek Mid-Reach Access / Scout",
+        latitude: 43.509021,
+        longitude: -111.357853,
+        mileFromStart: 5.7,
+        note: "American Whitewater intermediate access anchor; treat as a scout/contingency point only until current parking, legality, and shoreline carry are confirmed.",
+      },
+      {
+        name: "Pine Creek / Snake River Confluence Take-Out",
+        latitude: 43.477242,
+        longitude: -111.44134,
+        mileFromStart: 10.7,
+        note: "American Whitewater lower endpoint; confirm a safe landing and lawful vehicle staging before launch.",
+      },
+    ],
+    camping:
+      "No on-route camping is assumed. Use a lawful Teton Valley or Swan Valley basecamp and confirm current Forest Service/BLM camping, fire, sanitation, and road rules before relying on an overnight plan.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Stage the Snake River vehicle first, then inspect the Highway 21 approach and upper carry. Allow a full day for the remote shuttle, road delays, scouting, and a contingency take-out; do not rely on cell coverage in the canyon.",
+    permits:
+      "Follow Idaho AIS/PFD requirements, current Forest Service/BLM and county road rules, private-property boundaries, fire restrictions, and any Snake River access or closure notices.",
+    watchFor: [
+      "Class III-IV blind corners and wood",
+      "rapidly changing local flow",
+      "cold water and remote rescue",
+      "Highway 21 road and parking uncertainty",
+      "private inholdings",
+      "Snake River confluence landing",
+    ],
+    season: [5, 6, 7],
+    imageUrl: tetonImage,
+    imageLabel: "Teton watershed context photograph; not a Pine Creek endpoint or current-conditions image",
+  }),
+
+  makeRoute({
     id: "henrys-lake-south-shore-loop",
     riverId: "henrys-lake-idaho",
     name: "Henrys Lake",
@@ -10374,5 +13315,356 @@ export const idahoRoutes: River[] = [
     ],
     imageUrl: henrysImage,
     imageLabel: "Henrys Lake State Park same-lake context photograph",
+  }),
+
+  makeRoute({
+    id: "henrys-fork-lower-mesa-warm-river",
+    riverId: "henrys-fork-idaho",
+    name: "Henrys Fork",
+    reach: "Lower Mesa Falls to Warm River",
+    region: "Eastern Idaho / Mesa Falls",
+    routeType: "whitewater",
+    summary:
+      "A 6.7-mile Class II+ Henrys Fork reach beginning at the Lower Mesa Falls put-in and ending at the Warm River access, with a USGS Ashton gauge window and a mandatory waterfall-aware launch plan.",
+    statusText:
+      "Gauge-scored expert-access route. American Whitewater publishes a 1,000-3,500 cfs runnable window on the Henrys Fork near Ashton gauge; the put-in is immediately below the Lower Mesa Falls drops and the downstream reach eases to Class II+.",
+    distance: "About 6.7 river miles",
+    time: "About 2-4 hours below the falls, plus a full scout and shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "mandatory_takeout", "waterfall", "access_uncertain"],
+    safety: [
+      "The launch is at the base of Lower Mesa Falls, a two-tier waterfall with a steep hike and no casual roadside put-in. Only a crew that has personally inspected the landing and waterfall lines should consider launching here.",
+      "Below the falls the reach is mostly mild Class II+ water, but cold water, wood, changing channels, and the inability to exit quickly still require a whitewater-capable craft and worn PFD.",
+      "Use 1,000 cfs as the lower runnable cue and 3,500 cfs as the upper cue on USGS 13046000; the gauge is a planning input, never permission to run the falls or ignore same-day inspection.",
+    ],
+    gauge: "13046000",
+    gaugeName: "Henrys Fork near Ashton, ID",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 1000, idealMin: 1400, idealMax: 2600, tooHigh: 3500 },
+    thresholdLabel: "American Whitewater runnable window: 1,000-3,500 cfs on the Henrys Fork near Ashton gauge",
+    thresholdUrl: henrysLowerMesaAwReach,
+    thresholdSupportUrl: henrysLowerMesaGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "scored",
+    sourceUrl: henrysLowerMesaAwReach,
+    sourceLabel: "American Whitewater Lower Mesa Falls-to-Warm River reach record",
+    mapUrl: henrysLowerMesaAwReach.replace("/main", "/map"),
+    additionalSourceLinks: [
+      { label: "American Whitewater Lower Mesa Falls put-in access", url: henrysLowerMesaPutInAccess },
+      { label: "American Whitewater Warm River take-out access", url: henrysLowerMesaTakeOutAccess },
+      { label: "USGS Henrys Fork near Ashton gauge", url: henrysLowerMesaGauge },
+      { label: "Caribou-Targhee Forest Service boating access", url: caribouTargheeAccessGuide },
+      { label: "Fremont County Mesa Falls scenic access roads", url: "https://www.fremontcountyid.gov/192/Scenic-Drives" },
+    ],
+    putIn: {
+      name: "Lower Mesa Falls base-of-falls put-in",
+      latitude: 44.17407,
+      longitude: -111.31915,
+      mileFromStart: 0,
+      note: "American Whitewater access point at the base of Lower Mesa Falls; reach it by the Mesa Falls Scenic Drive/Upper Mesa Falls parking approach and inspect the hike and landing before carrying boats.",
+    },
+    takeOut: {
+      name: "Warm River take-out",
+      latitude: 44.11095,
+      longitude: -111.33502,
+      mileFromStart: 6.7,
+      note: "American Whitewater Warm River access point; confirm the current landing, parking, and road conditions before launch.",
+    },
+    access: [
+      {
+        name: "Lower Mesa Falls base-of-falls put-in",
+        latitude: 44.17407,
+        longitude: -111.31915,
+        mileFromStart: 0,
+        note: "Named American Whitewater access; waterfall landing and carry are not a casual public ramp.",
+      },
+      {
+        name: "Warm River take-out",
+        latitude: 44.11095,
+        longitude: -111.33502,
+        mileFromStart: 6.7,
+        note: "Named American Whitewater take-out; verify current public parking and shoreline access.",
+      },
+    ],
+    camping: "Use developed Forest Service, state, or private campground/lodging options near Mesa Falls and Warm River; no on-route camping is assumed.",
+    campingClassification: "nearby_basecamp",
+    shuttle: "Stage the Warm River vehicle first, then use the Mesa Falls Scenic Drive and Upper Mesa Falls approach; account for the long boat carry and fee-area rules.",
+    permits: "Follow Forest Service and fee-area rules, Idaho AIS/PFD requirements, fire restrictions, and all posted Mesa Falls closure boundaries.",
+    watchFor: ["Lower Mesa Falls waterfall launch", "cold water and wood", "changing channels", "Warm River landing and parking"],
+    season: [5, 6, 7, 8],
+    imageUrl: henrysImage,
+    imageLabel: "Henrys Fork / Mesa Falls watershed context photograph",
+  }),
+
+  makeRoute({
+    id: "deadwood-river-upper-reservoir-julie",
+    riverId: "deadwood-river-idaho",
+    name: "Deadwood River",
+    reach: "Deadwood Reservoir to Julie Creek",
+    region: "Southwest Idaho / Boise National Forest",
+    routeType: "whitewater",
+    summary:
+      "A 14-mile Class IV-V Upper Deadwood backcountry run below Deadwood Dam to the former Julie Creek Campground, with a direct release gauge and a mandatory continuation plan because the old vehicle access has washed out.",
+    statusText:
+      "Planning-only expert route. American Whitewater documents a 400-2,000 cfs direct-release runnable window, current wood portages, and the loss of vehicle access at Julie Creek; parties normally continue into the existing Lower Deadwood reach to Deadwood Campground.",
+    distance: "About 14.3 river miles to Julie Creek; about 23 miles if continuing to Deadwood Campground",
+    time: "About 6-8 hours to Julie Creek, or a full day to the lower take-out, plus a long remote shuttle",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "strainers", "remote", "fast_rise", "portage", "access_uncertain"],
+    safety: [
+      "The Upper Deadwood is continuous Class IV with Class V rapids and frequent large wood. Scout every horizon line, portage whenever wood or hydraulics are uncertain, and carry rescue gear and satellite communication.",
+      "Julie Creek Campground is a former endpoint with no vehicle access. The practical exit is to continue through the Lower Deadwood to the existing Deadwood Campground take-out; do not plan a vehicle shuttle to Julie Creek.",
+      "Use the direct Deadwood release gauge's 400-2,000 cfs runnable envelope only as planning context. Dam releases, current wood, cold water, and same-day inspection control the decision.",
+    ],
+    gauge: "13236500",
+    gaugeName: "Deadwood River below Deadwood Reservoir near Lowman, ID",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 400, idealMin: 700, idealMax: 1300, tooHigh: 2000 },
+    thresholdLabel: "American Whitewater direct-release runnable window: 400-2,000 cfs",
+    thresholdUrl: upperDeadwoodAwReach,
+    thresholdSupportUrl: upperDeadwoodGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: upperDeadwoodAwReach,
+    sourceLabel: "American Whitewater Upper Deadwood reach record",
+    mapUrl: upperDeadwoodAwReach.replace("/main", "/map"),
+    additionalSourceLinks: [
+      { label: "American Whitewater Deadwood Reservoir put-in", url: upperDeadwoodPutInAccess },
+      { label: "American Whitewater Julie Creek/Deadwood Campground take-out record", url: upperDeadwoodTakeOutAccess },
+      { label: "USGS Deadwood release gauge", url: upperDeadwoodGauge },
+      { label: "Boise National Forest Deadwood Reservoir access", url: "https://www.fs.usda.gov/recarea/boise/recarea/?recid=5038" },
+      { label: "Existing Lower Deadwood continuation route", url: lowerDeadwoodAwReach },
+    ],
+    putIn: {
+      name: "Deadwood Reservoir put-in",
+      latitude: 44.29197,
+      longitude: -115.64193,
+      mileFromStart: 0,
+      note: "Named American Whitewater access below Deadwood Dam; confirm dam-release notice, road conditions, and the actual river entry.",
+    },
+    takeOut: {
+      name: "Julie Creek Campground (former access; continue downstream)",
+      latitude: 44.14462,
+      longitude: -115.65961,
+      mileFromStart: 14.3,
+      note: "Former Upper Deadwood endpoint and possible overnight camp, but vehicle access is gone. Continue into the Lower Deadwood to reach the existing Deadwood Campground take-out.",
+    },
+    access: [
+      {
+        name: "Deadwood Reservoir put-in",
+        latitude: 44.29197,
+        longitude: -115.64193,
+        mileFromStart: 0,
+        note: "Named access below the dam; verify release and road conditions.",
+      },
+      {
+        name: "Julie Creek Campground (former access; continue downstream)",
+        latitude: 44.14462,
+        longitude: -115.65961,
+        mileFromStart: 14.3,
+        note: "River access/campsite only; no vehicle shuttle. Continue downstream for the public Deadwood Campground take-out.",
+      },
+    ],
+    camping: "Julie Creek is a possible primitive overnight camp; the practical developed endpoint is the existing Deadwood Campground on the lower reach. Verify Forest Service status and fire restrictions.",
+    campingClassification: "on_route_campsite",
+    shuttle: "Long remote shuttle to Deadwood Reservoir, with no vehicle access at Julie Creek. Stage the lower Deadwood vehicle separately or commit to the full continuation to Deadwood Campground.",
+    permits: "Follow Boise National Forest road, reservoir, campground, fire, and dam-release rules; Idaho AIS/PFD requirements; and current closure notices.",
+    watchFor: ["large wood and portage decisions", "Class V drops", "cold dam-release water", "former Julie Creek access", "remote shuttle"],
+    season: [6, 7, 8, 9],
+    imageUrl: boiseImage,
+    imageLabel: "Deadwood / Boise National Forest watershed context photograph",
+  }),
+
+  makeRoute({
+    id: "west-fork-bruneau-rowland-indian-hot-springs",
+    riverId: "bruneau-river-idaho",
+    name: "West Fork Bruneau",
+    reach: "Below Rowland, Nevada to Indian Hot Springs",
+    region: "Southwest Idaho / Bruneau-Jarbidge wilderness corridor",
+    routeType: "whitewater",
+    summary:
+      "A 34-mile Class IV-V West Fork Bruneau expedition from the Rowland access in Nevada through remote canyon to Indian Hot Springs, with a downstream Hot Spring gauge reference and multi-day self-support logistics.",
+    statusText:
+      "Planning-only expert expedition. American Whitewater describes 220-250 cfs Rowland-gauge conditions as deep enough for the run and publishes a 450-2,500 cfs runnable window on the downstream Hot Spring gauge; access roads are remote and the route has no quick exits.",
+    distance: "About 34 river miles",
+    time: "About 3-5 days self-support",
+    difficulty: "hard",
+    risk: "advanced",
+    hazards: ["whitewater", "cold_water", "remote", "strainers", "fast_rise", "portage", "access_uncertain", "wildlife"],
+    safety: [
+      "This is a remote Class IV-V expedition with poison ivy, barbed wire potential, wood, cattle impacts, and long sections without road access. Bring expedition rescue equipment, satellite communication, water treatment, and a conservative portage plan.",
+      "American Whitewater recommends the Rowland, Nevada road approach rather than confusing hard-core tracks to Blackrock Crossing. Confirm land status, road conditions, and the current take-out before committing.",
+      "Use 450 cfs as the lower and 2,500 cfs as the upper planning cue on USGS 13168500 near Hot Spring; the gauge is downstream reference context and does not substitute for local Rowland flow, weather, or rapid inspection.",
+    ],
+    gauge: "13168500",
+    gaugeName: "Bruneau River near Hot Spring, ID (downstream proxy)",
+    gaugeKind: "proxy",
+    thresholdModel: "two-sided",
+    threshold: { tooLow: 450, idealMin: 700, idealMax: 1500, tooHigh: 2500 },
+    thresholdLabel: "American Whitewater downstream-gauge runnable window: 450-2,500 cfs; trip reports note 220-250 cfs on the Rowland gauge can still provide depth",
+    thresholdUrl: westForkBruneauAwReach,
+    thresholdSupportUrl: westForkBruneauGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: westForkBruneauAwReach,
+    sourceLabel: "American Whitewater West Fork Bruneau reach record",
+    mapUrl: westForkBruneauAwReach.replace("/main", "/map"),
+    additionalSourceLinks: [
+      { label: "American Whitewater Rowland put-in access", url: westForkBruneauPutInAccess },
+      { label: "American Whitewater Indian Hot Springs take-out access", url: westForkBruneauTakeOutAccess },
+      { label: "USGS Bruneau River near Hot Spring gauge", url: westForkBruneauGauge },
+      { label: "BLM Bruneau-Jarbidge-Owyhee boater guide", url: owyheeBoaterGuide },
+      { label: "BLM Bruneau-Jarbidge-Owyhee access and wilderness guidance", url: bruneauPage },
+    ],
+    putIn: {
+      name: "Rowland, Nevada road access",
+      latitude: 41.95,
+      longitude: -115.68555,
+      mileFromStart: 0,
+      note: "Named American Whitewater access near Rowland, Nevada; use the established approach and verify current road, land-status, and river-entry conditions.",
+    },
+    takeOut: {
+      name: "Indian Hot Springs take-out",
+      latitude: 42.58055,
+      longitude: -115.63722,
+      mileFromStart: 34,
+      note: "Named American Whitewater take-out at Indian Hot Springs; confirm the public landing, parking, and any BLM restrictions before launch.",
+    },
+    access: [
+      {
+        name: "Rowland, Nevada road access",
+        latitude: 41.95,
+        longitude: -115.68555,
+        mileFromStart: 0,
+        note: "Remote road-based put-in; route status and land access require current verification.",
+      },
+      {
+        name: "Indian Hot Springs take-out",
+        latitude: 42.58055,
+        longitude: -115.63722,
+        mileFromStart: 34,
+        note: "Remote named take-out; verify shoreline, parking, and current BLM conditions.",
+      },
+    ],
+    camping: "American Whitewater describes ample scattered canyon camps; use durable sites, filter water, pack out waste, and follow current BLM restrictions. No developed endpoint campground is assumed.",
+    campingClassification: "on_route_campsite",
+    shuttle: "Stage the Indian Hot Springs vehicle and arrange a reliable Rowland shuttle; the approach roads are remote dirt tracks and may be impassable when wet.",
+    permits: "Follow BLM Bruneau-Jarbidge-Owyhee boating, wilderness, fire, and land-status rules; Idaho AIS/PFD requirements; and all current closure notices.",
+    watchFor: ["Pintoe, Al Beam Falls, and Julie Wilson Falls", "poison ivy and barbed wire", "wood and cattle impacts", "heat, water treatment, and long roadless sections"],
+    season: [4, 5, 6],
+    imageUrl: northForkOwyheeImage,
+    imageLabel: "Bruneau-Jarbidge-Owyhee canyon context photograph",
+  }),
+
+  makeRoute({
+    id: "teton-river-upper-fox-creek-highway-33",
+    riverId: "teton-river-idaho",
+    name: "Teton River",
+    reach: "Fox Creek East to Highway 33 Bridge (Upper Teton)",
+    region: "Eastern Idaho / Teton Valley",
+    routeType: "recreational",
+    summary:
+      "A 21-mile Class I-II Upper Teton float from Fox Creek East to the Highway 33 bridge, with shallow braided channels, five named access points, and a direct Driggs-area gauge.",
+    statusText:
+      "Planning-only low-flow route. American Whitewater describes this as easy water that is shallow but boatable at all flows; its current page labels 240 cfs low runnable. Treat that number as a local planning cue, not a hard cutoff, and verify channel depth, bushes, access parking, weather, and same-day closures before launch.",
+    distance: "About 21 river miles, with shorter public-access segments available",
+    time: "About 5-8 hours for the full reach; shorter segments can be staged at South Bates, Bates, or Packsaddle",
+    difficulty: "easy",
+    risk: "caution",
+    hazards: ["low_water", "strainers", "cold_water", "fast_rise", "private_banks", "access_uncertain"],
+    safety: [
+      "American Whitewater describes no sustained whitewater, but shallow braided channels and overhanging bushes can still pin or strand an unprepared boat. Use a craft appropriate for shallow water and wear a PFD throughout.",
+      "The 240 cfs American Whitewater reading is a low-runnable reference for this reach, not a guaranteed minimum. Channel depth, weed growth, debris, and the usable branch can change within the same flow band; inspect the first mile and turn around before committing to a braid.",
+      "Use only designated access parking. Teton County restricts roadside parking near Fox Creek East, South Bates, and Bates/Buxton, and the old south-side Bates access was decommissioned; confirm the current public-side entrance and daylight rules.",
+      "The upper Teton is a long, exposed day with limited convenient exits between access points. Carry communication, water, warm layers, and a shuttle plan; do not assume every bridge or private bank is a legal landing.",
+    ],
+    gauge: "13052200",
+    gaugeName: "Teton River above South Leigh Creek near Driggs, ID",
+    gaugeKind: "direct",
+    thresholdModel: "minimum-only",
+    threshold: { tooLow: 240, idealMin: 240 },
+    thresholdLabel: "American Whitewater reach cue: 240 cfs was labeled low runnable; the reach is described as boatable at all flows, so this is a planning cue rather than a hard cutoff",
+    thresholdUrl: upperTetonAwReach,
+    thresholdSupportUrl: upperTetonGauge,
+    thresholdSourceStrength: "mixed",
+    scoreEligibility: "planning",
+    sourceUrl: upperTetonAwReach,
+    sourceLabel: "American Whitewater Upper Teton reach record",
+    mapUrl: upperTetonMap,
+    additionalSourceLinks: [
+      { label: "American Whitewater Fox Creek East access", url: upperTetonFoxAccess },
+      { label: "American Whitewater South Bates Bridge access", url: upperTetonSouthBatesAccess },
+      { label: "Idaho Fish and Game Bates Bridge access site", url: upperTetonBatesAccess },
+      { label: "American Whitewater Bates Bridge access", url: upperTetonBatesAwAccess },
+      { label: "American Whitewater Packsaddle Bridge access", url: upperTetonPacksaddleAccess },
+      { label: "American Whitewater Highway 33 take-out access", url: upperTetonHighway33Access },
+      { label: "USGS Teton River above South Leigh Creek gauge", url: upperTetonGauge },
+      { label: "Teton River public-access map and rules", url: upperTetonMap },
+      { label: "Teton County river parking and access ordinance", url: upperTetonCountyRules },
+    ],
+    putIn: {
+      name: "Fox Creek East access",
+      latitude: 43.65052412187438,
+      longitude: -111.1666384566103,
+      mileFromStart: 0,
+      note: "American Whitewater/IDFG access anchor with a short carry to the water; use designated parking and confirm the current public entrance before launching.",
+    },
+    takeOut: {
+      name: "Highway 33 Bridge take-out",
+      latitude: 43.82533001804893,
+      longitude: -111.23296414251719,
+      mileFromStart: 21,
+      note: "Named American Whitewater endpoint; confirm the legal river-side carry, bridge staging, and downstream boundary before extending the trip.",
+    },
+    access: [
+      {
+        name: "Fox Creek East access",
+        latitude: 43.65052412187438,
+        longitude: -111.1666384566103,
+        mileFromStart: 0,
+        note: "Short walk to the river; suitable for small craft. Designated parking and current access rules apply.",
+      },
+      {
+        name: "South Bates Bridge",
+        latitude: 43.69620344532112,
+        longitude: -111.16562102174578,
+        mileFromStart: 3.58,
+        note: "Upper-most trailer-ramp access in the American Whitewater description; use the current public-side parking and ramp.",
+      },
+      {
+        name: "Bates Bridge / Buxton River Park",
+        latitude: 43.723679782960744,
+        longitude: -111.18754457657357,
+        mileFromStart: 7.1,
+        note: "Popular public access with IDFG-managed ramp context; day-use, parking, and current county rules apply.",
+      },
+      {
+        name: "Packsaddle Bridge",
+        latitude: 43.78129093840931,
+        longitude: -111.2100738617457,
+        mileFromStart: 14.69,
+        note: "Named American Whitewater access anchor; confirm current parking, carry, and lawful landing at the bridge.",
+      },
+      {
+        name: "Highway 33 Bridge take-out",
+        latitude: 43.82533001804893,
+        longitude: -111.23296414251719,
+        mileFromStart: 21,
+        note: "Named take-out above the separate Teton canyon routes; do not continue downstream without a new plan and current access confirmation.",
+      },
+    ],
+    camping:
+      "No overnight camping is assumed on the route. Big Eddy has a campground in the American Whitewater description, but verify current reservation, day-use, fire, sanitation, and private-bank rules before relying on it.",
+    campingClassification: "nearby_basecamp",
+    shuttle:
+      "Stage the downstream vehicle first and use the named South Bates, Bates/Buxton, Packsaddle, or Highway 33 access points for shorter segments. Parking is managed at designated sites; do not stage on county roads or private frontage.",
+    permits:
+      "Follow Idaho AIS/PFD rules, IDFG access-site rules, Teton County designated-parking and daylight requirements, wildlife/nesting protections, private-bank boundaries, and current weather or closure notices.",
+    watchFor: ["shallow braided channels", "overhanging bushes and strainers", "cold water", "fast weather rise", "designated parking only", "private or sensitive banks"],
+    season: [6, 7, 8, 9],
+    imageUrl: tetonImage,
+    imageLabel: "Teton River southeast Idaho corridor photograph",
   }),
 ];

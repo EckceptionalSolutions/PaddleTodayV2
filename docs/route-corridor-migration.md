@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-04T06:19:09.749Z.
+Generated 2026-09-06T00:31:08.179Z.
 
-- Defined corridors: 214
-- Routes covered by a corridor definition: 426
-- Remaining multi-route families: 217
+- Defined corridors: 216
+- Routes covered by a corridor definition: 508
+- Remaining multi-route families: 265
 
 ## Defined corridors
 
@@ -223,6 +223,8 @@ Generated 2026-09-04T06:19:09.749Z.
 | de-murderkill-bowers-beach-loop | Murderkill River Bowers Beach same-launch tidal exploration | partial | 1 | 1 |
 | de-miller-creek-strawberry-sassafras | Miller Creek Strawberry Landing to Sassafras Landing | partial | 1 | 1 |
 | de-duck-creek-woodland-beach | Duck Creek Woodland Beach same-launch tidal exploration | partial | 1 | 1 |
+| ga-chattahoochee-public-launch-chain | Chattahoochee River managed public-launch access family | condition-family | 79 | 0 |
+| ga-ocmulgee-public-access-chain | Ocmulgee River documented public-access reach family | condition-family | 3 | 0 |
 | ny-susquehanna-otego-bainbridge | Upper Susquehanna Otego-to-Bainbridge access corridor | verified | 3 | 0 |
 
 ## Next pilot priorities (MN / WI / IA)
@@ -250,11 +252,15 @@ Generated 2026-09-04T06:19:09.749Z.
 | Kentucky | Floyds Fork | 21 |
 | Missouri | Eleven Point River | 20 |
 | West Virginia | Guyandotte River | 17 |
+| Maine | Kennebec River | 17 |
+| Maine | Penobscot River | 17 |
 | Missouri | Current River | 16 |
 | Missouri | Jacks Fork River | 15 |
 | Texas | Colorado River | 13 |
+| Idaho | Salmon River | 13 |
 | New Jersey | Delaware River | 12 |
 | New York | Hudson River | 12 |
+| Maine | Androscoggin River | 11 |
 | Kansas | Kansas River | 11 |
 | Minnesota | St. Louis River | 11 |
 | Kentucky | Barren River | 10 |
@@ -262,28 +268,24 @@ Generated 2026-09-04T06:19:09.749Z.
 | Minnesota | Red Lake River | 10 |
 | Minnesota | Rum River | 10 |
 | Kentucky | Upper Cumberland River | 10 |
+| North Carolina | Yadkin River | 10 |
+| Maine | Aroostook River | 9 |
 | Arkansas | Bayou DeView | 9 |
 | Texas | Brazos River | 9 |
 | New York | Grass River | 9 |
+| North Carolina | Haw River | 9 |
 | Kentucky | Levisa Fork | 9 |
 | Iowa | Maquoketa River | 9 |
 | Kentucky | Tradewater River | 9 |
 | Colorado | Arkansas River | 8 |
+| Idaho | Big Creek (St. Joe tributary) | 8 |
+| Maine | Saco River | 8 |
 | Idaho | South Fork Snake River | 8 |
 | Iowa | Wapsipinicon River | 8 |
 | New York | Champlain Canal | 7 |
 | Wisconsin | Fox River | 7 |
 | New York | Genesee River | 7 |
 | Texas | Guadalupe River | 7 |
-| Wisconsin | Namekagon River | 7 |
-| Minnesota | North Fork Crow River | 7 |
-| New York | Saranac River | 7 |
-| Iowa | South Skunk River | 7 |
-| Minnesota | St. Croix River | 7 |
-| Wisconsin | Baraboo River | 6 |
-| Missouri | Big Piney River | 6 |
-| Iowa | Boone River | 6 |
-| Kentucky | Buck Creek | 6 |
-| Additional families omitted | See route data and overlap audit | 177 |
+| Additional families omitted | See route data and overlap audit | 225 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

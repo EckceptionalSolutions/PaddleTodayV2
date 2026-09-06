@@ -1004,7 +1004,7 @@ export const illinoisRoutes: River[] = [
       "confidenceNotes": "Confidence is strong for the named access itinerary and safety framing: the Mississippi River Water Trail documents the 7-mile Piasa Harbor-to-Alton finish, USACE lists both access areas, the USGS/USACE station provides direct Pool 26 level telemetry, and the Water Trail publishes commercial-traffic and structure hazards. The 14.0-ft floor is an operational low-water reference, not an agency-certified paddling guarantee."
     },
     "putIn": {"id": "piasa-harbor-access", "name": "Piasa Harbor public access", "latitude": 38.9370857212856, "longitude": -90.2867113839149},
-    "takeOut": {"id": "alton-riverfront-access", "name": "Alton Riverfront public boat launch", "latitude": 38.8855000354463, "longitude": -90.1759188990604},
+    "takeOut": {"id": "alton-riverfront-access", "name": "Alton Riverfront public boat launch", "latitude": 38.88422, "longitude": -90.17444},
     "evidenceNotes": [
       {"label": "Exact route and distance", "value": "Piasa Harbor to Alton Riverfront; about 7 miles", "note": "The Mississippi River Water Trail's Great Rivers itinerary documents the 7-mile Piasa Harbor launch and Alton Boat Launch finish with shuttle logistics.", "sourceUrl": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/"},
       {"label": "Public endpoints", "value": "Piasa Harbor Area to Alton Riverfront Recreation Area", "note": "USACE recreation and Pool 26 access inventories identify Piasa Harbor/Piasa Creek access and the Alton Riverfront boat ramp as public facilities.", "sourceUrl": "https://www.mvs.army.mil/Missions/Recreation/Rivers-Project-Office/Recreation/"},

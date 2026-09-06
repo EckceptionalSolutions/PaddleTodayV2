@@ -2,14 +2,27 @@ import { describe, expect, it } from 'vitest';
 import { getRoutePreviewPhoto } from '../data/route-gallery';
 import { publicRivers } from '../data/rivers';
 import { idahoRoutes } from '../data/routes/idaho';
+import { maxPublishedRapidClass } from '../data/route-publication';
 
 const expectedIds = [
+  'secesh-river-canyon-lower',
+  'north-fork-coeur-dalene-jordan-teepee',
+  'north-fork-coeur-dalene-babins-little-north',
+  'little-north-fork-coeur-dalene-laverne-mouth',
+  'boulder-creek-gorge',
+  'smith-creek-upper',
+  'snake-river-swan-falls-walters-ferry',
   'little-north-fork-clearwater-headwaters-reservoir',
   'slate-creek-franklin-mine-st-joe',
   'marble-creek-camp-3-st-joe',
   'st-joe-river-skookum-canyon',
   'mores-creek-big-gulch-robie',
   'potlatch-river-little-boulder-cedar',
+  'little-potlatch-river-headwaters-potlatch',
+  'big-bear-creek-highway-8-kendrick',
+  'potlatch-river-frog-pond-kendrick',
+  'bear-valley-creek-fir-confluence',
+  'big-creek-middle-fork-airstrip-cache-bar',
   'boundary-creek-canadian-border-kootenai', 'smith-creek-bridge-smith-falls',
   'st-joe-heller-creek-spruce-tree',
   'little-salmon-smoky-boulder-hazard',
@@ -29,19 +42,19 @@ const expectedIds = [
   'south-fork-snake-heise-twin-bridges', 'south-fork-snake-twin-bridges-lorenzo',
   'south-fork-snake-lorenzo-menan', 'south-fork-snake-menan-mike-walker',
   'payette-river-banks-beehive-bend', 'payette-river-beehive-bend-horseshoe-dam', 'middle-fork-payette-boiling-springs-trail-creek', 'middle-fork-payette-hardscrabble-lightning-creek', 'south-fork-payette-deer-creek-banks',
-  'boise-river-barber-ann-morrison', 'boise-river-barber-willow-lane', 'boise-river-troutdale-badger', 'boise-river-troutdale-willow', 'north-fork-boise-barber-flat-troutdale', 'salmon-river-stanley-sunbeam', 'salmon-river-sunbeam-torreys-hole', 'yankee-fork-pole-flat-salmon', 'salmon-river-bayhorse-challis-bridge',
+  'boise-river-barber-ann-morrison', 'boise-river-barber-willow-lane', 'boise-river-troutdale-badger', 'boise-river-troutdale-willow', 'north-fork-boise-barber-flat-troutdale', 'salmon-river-stanley-rough-creek', 'salmon-river-stanley-sunbeam', 'salmon-river-rough-creek-yankee-fork', 'salmon-river-sunbeam-torreys-hole', 'yankee-fork-custer-pole-flat', 'yankee-fork-pole-flat-salmon', 'salmon-river-east-fork-bayhorse', 'salmon-river-bayhorse-challis-bridge',
   'salmon-river-challis-bridge-watts', 'salmon-river-watts-kilpatrick',
   'salmon-river-kilpatrick-salmon-island', 'salmon-river-salmon-island-north-fork', 'salmon-river-north-fork-corn-creek',
   'main-salmon-corn-creek-vinegar-carey', 'salmon-river-carey-creek-riggins',
-  'middle-fork-salmon-boundary-cache-bar',
+  'middle-fork-salmon-marsh-boundary', 'middle-fork-salmon-boundary-cache-bar',
   'lower-salmon-island-bar-shorts-bar', 'lower-salmon-shorts-bar-lucile',
-  'lower-salmon-lucile-hammer-creek', 'lower-salmon-hammer-heller-bar', 'north-fork-payette-sheep-smylie-lane', 'north-fork-payette-rotary-sheep-bridge', 'north-fork-payette-smiths-ferry-banks', 'north-fork-payette-cabarton-smiths-ferry',
+  'lower-salmon-lucile-hammer-creek', 'lower-salmon-hammer-heller-bar', 'north-fork-payette-mccall-hartsell', 'north-fork-payette-sheep-smylie-lane', 'north-fork-payette-rotary-sheep-bridge', 'north-fork-payette-smiths-ferry-banks', 'north-fork-payette-cabarton-smiths-ferry',
   'north-fork-payette-kellys-whitewater-park',
-  'upper-lochsa-white-pine-wilderness-gateway', 'lower-lochsa-wilderness-gateway-split-creek', 'north-fork-clearwater-washington-quartz', 'north-fork-clearwater-weitas-washington', 'north-fork-clearwater-hidden-kelly', 'kelly-creek-moose-kelly-forks', 'lochsa-split-creek-lowell', 'big-creek-st-joe-end-road-bridge', 'marsh-creek-highway-21-dagger-falls', 'crooked-fork-highway-12-white-sands', 'selway-paradise-selway-falls', 'selway-falls-wild-goose-clearwater',
+  'lochsa-powell-white-pine', 'upper-lochsa-white-pine-wilderness-gateway', 'lower-lochsa-wilderness-gateway-split-creek', 'north-fork-clearwater-washington-quartz', 'north-fork-clearwater-weitas-washington', 'north-fork-clearwater-hidden-kelly', 'kelly-creek-moose-kelly-forks', 'lochsa-split-creek-lowell', 'big-creek-st-joe-end-road-bridge', 'marsh-creek-highway-21-dagger-falls', 'crooked-fork-highway-12-white-sands', 'selway-paradise-selway-falls', 'selway-falls-wild-goose-clearwater',
   'henrys-fork-riverside-hatchery-ford', 'south-fork-boise-anderson-danskin', 'south-fork-boise-danskin-neal',
-  'bear-river-black-canyon-grace-powerhouse', 'bear-river-oneida-narrows', 'portneuf-river-lava-hot-springs-pvc', 'north-fork-clearwater-black-canyon', 'north-fork-clearwater-kelly-aquarius',
-  'south-fork-clearwater-bully-creek-highway-13', 'south-fork-clearwater-golden-canyon', 'lolo-creek-lolo-road-greer', 'north-fork-owyhee-campground-three-forks', 'owyhee-river-crutchers-three-forks', 'bruneau-indian-hot-springs-bruneau',
-  'jarbidge-river-murphy-bruneau', 'priest-river-outlet-dickensheet',
+  'bear-river-black-canyon-grace-powerhouse', 'bear-river-oneida-narrows', 'malad-river-dam-snake', 'portneuf-river-lava-hot-springs-pvc', 'north-fork-clearwater-elizabeth-kelly', 'north-fork-clearwater-black-canyon', 'north-fork-clearwater-kelly-aquarius',
+  'south-fork-clearwater-bully-creek-highway-13', 'south-fork-clearwater-golden-canyon', 'lolo-creek-cottonwood-lolo-road', 'lolo-creek-lolo-road-greer', 'south-fork-owyhee-yp-east-fork', 'east-fork-owyhee-duck-crutcher', 'owyhee-river-three-forks-rome', 'north-fork-owyhee-campground-three-forks', 'owyhee-river-crutchers-three-forks', 'bruneau-indian-hot-springs-bruneau',
+  'jarbidge-river-murphy-bruneau', 'priest-river-dickensheet-white-tail', 'priest-river-mcabee-mudhole', 'priest-river-outlet-dickensheet',
   'north-fork-st-joe-loop-creek-confluence', 'st-joe-spruce-tree-gold-creek', 'st-joe-tumbledown-gold-bluff',
   'south-fork-payette-grandjean-deadwood',
   'deadwood-river-julie-creek-deadwood-campground',
@@ -51,10 +64,11 @@ const expectedIds = [
   'snake-river-hells-canyon-dam-pittsburg',
   'snake-river-pittsburg-heller-bar',
   'snake-river-murtaugh-bridge-twin-falls',
-  'st-maries-river-mashburn-st-joe', 'st-joe-river-spruce-tree-turner-flat',
+  'pack-river-upper-grottos', 'pack-river-upper-slides', 'pack-river-upper-gorgette', 'south-fork-coeur-dalene-mullan-wallace', 'st-maries-river-mashburn-st-joe', 'st-joe-river-bluff-turner-flat', 'st-joe-river-spruce-tree-turner-flat',
   'st-joe-river-shadowy-st-maries-aqua',
   'clearwater-river-mckays-bend-pink-house', 'snake-river-lower-salmon-falls-bliss', 'snake-river-milner-mile',
-  'blackfoot-river-government-dam-cutthroat', 'blackfoot-river-cutthroat-trail-creek', 'blackfoot-river-wolverine-canyon', 'henrys-fork-hatchery-ford-upper-mesa', 'teton-river-dam-site-teton-forks', 'teton-river-lower-canyon', 'teton-river-highway-33-spring-hollow', 'bitch-creek-highway-32-teton', 'big-wood-river-baker-north-fork', 'big-wood-river-chocolate-gulch-lake-creek', 'big-wood-river-rotary-broadway', 'snake-river-auger-falls-park', 'warm-springs-creek-lodge-river-run', 'weiser-river-midvale-galloway', 'moyie-river-copper-twin-bridges', 'moyie-river-twin-bridges-meadow-creek', 'moyie-river-meadow-creek-reservoir', 'camas-creek-blaine-moonstone', 'henrys-lake-south-shore-loop',
+  'blackfoot-river-government-dam-cutthroat', 'blackfoot-river-cutthroat-trail-creek', 'blackfoot-river-wolverine-canyon', 'henrys-fork-hatchery-ford-upper-mesa', 'teton-river-dam-site-teton-forks', 'teton-river-lower-canyon', 'teton-river-highway-33-spring-hollow', 'bitch-creek-coyote-meadows-highway-32', 'bitch-creek-highway-32-teton', 'big-wood-river-baker-north-fork', 'big-wood-river-chocolate-gulch-lake-creek', 'big-wood-river-rotary-broadway', 'snake-river-auger-falls-park', 'warm-springs-creek-lodge-river-run', 'weiser-river-midvale-galloway', 'moyie-river-copper-twin-bridges', 'moyie-river-twin-bridges-meadow-creek', 'moyie-river-meadow-creek-reservoir', 'camas-creek-blaine-moonstone', 'pine-creek-north-fork-highway-21-snake', 'henrys-lake-south-shore-loop',
+  'henrys-fork-lower-mesa-warm-river', 'deadwood-river-upper-reservoir-julie', 'west-fork-bruneau-rowland-indian-hot-springs', 'teton-river-upper-fox-creek-highway-33',
 ];
 
 const scoredIds = [
@@ -79,6 +93,7 @@ const scoredIds = [
   'boise-river-troutdale-badger',
   'salmon-river-stanley-sunbeam',
   'salmon-river-sunbeam-torreys-hole',
+  'salmon-river-east-fork-bayhorse',
   'salmon-river-bayhorse-challis-bridge',
   'salmon-river-challis-bridge-watts',
   'salmon-river-watts-kilpatrick',
@@ -127,9 +142,14 @@ const scoredIds = [
   'moyie-river-copper-twin-bridges',
   'moyie-river-twin-bridges-meadow-creek',
   'bear-river-black-canyon-grace-powerhouse',
+  'henrys-fork-lower-mesa-warm-river',
 ];
 
 const planningIds = [
+  'secesh-river-canyon-lower',
+  'north-fork-coeur-dalene-jordan-teepee',
+  'north-fork-coeur-dalene-babins-little-north',
+  'little-north-fork-coeur-dalene-laverne-mouth',
   'slate-creek-franklin-mine-st-joe',
   'marble-creek-camp-3-st-joe',
   'east-fork-south-fork-salmon-vibika-johnson',
@@ -139,8 +159,10 @@ const planningIds = [
   'st-joe-river-skookum-canyon',
   'south-fork-snake-lorenzo-menan',
   'south-fork-snake-menan-mike-walker',
+  'smith-creek-upper',
+  'snake-river-swan-falls-walters-ferry',
   'south-fork-payette-deer-creek-banks',
-  'st-joe-river-spruce-tree-turner-flat', 'st-maries-river-mashburn-st-joe',
+  'st-joe-river-spruce-tree-turner-flat', 'st-joe-river-bluff-turner-flat', 'st-maries-river-mashburn-st-joe', 'south-fork-coeur-dalene-mullan-wallace', 'pack-river-upper-gorgette', 'pack-river-upper-slides', 'pack-river-upper-grottos', 'middle-fork-salmon-marsh-boundary',
   'henrys-lake-south-shore-loop',
   'south-fork-payette-staircase-deer-creek-banks',
   'north-fork-st-joe-loop-creek-confluence', 'st-joe-spruce-tree-gold-creek', 'st-joe-tumbledown-gold-bluff',
@@ -155,43 +177,63 @@ const planningIds = [
   'blackfoot-river-wolverine-canyon',
   'blackfoot-river-government-dam-cutthroat',
   'blackfoot-river-cutthroat-trail-creek',
-  'portneuf-river-lava-hot-springs-pvc',
-  'bitch-creek-highway-32-teton',
+  'portneuf-river-lava-hot-springs-pvc', 'malad-river-dam-snake',
+  'bitch-creek-coyote-meadows-highway-32', 'bitch-creek-highway-32-teton',
   'owyhee-river-crutchers-three-forks',
+  'south-fork-owyhee-yp-east-fork',
+  'east-fork-owyhee-duck-crutcher',
+  'owyhee-river-three-forks-rome',
   'north-fork-owyhee-campground-three-forks',
-  'camas-creek-blaine-moonstone',
+  'camas-creek-blaine-moonstone', 'pine-creek-north-fork-highway-21-snake',
+  'salmon-river-stanley-rough-creek',
+  'salmon-river-rough-creek-yankee-fork',
   'moyie-river-meadow-creek-reservoir',
   'mores-creek-big-gulch-robie',
   'potlatch-river-little-boulder-cedar',
+  'little-potlatch-river-headwaters-potlatch',
+  'big-bear-creek-highway-8-kendrick',
+  'potlatch-river-frog-pond-kendrick',
+  'bear-valley-creek-fir-confluence', 'north-fork-payette-mccall-hartsell',
+  'big-creek-middle-fork-airstrip-cache-bar',
   'boundary-creek-canadian-border-kootenai', 'smith-creek-bridge-smith-falls',
+  'boulder-creek-gorge',
   'st-joe-heller-creek-spruce-tree',
   'lightning-creek-east-fork-clark-fork',
-  'north-fork-clearwater-black-canyon', 'north-fork-clearwater-washington-quartz', 'north-fork-clearwater-weitas-washington', 'north-fork-clearwater-hidden-kelly',
+  'north-fork-clearwater-elizabeth-kelly', 'north-fork-clearwater-black-canyon', 'north-fork-clearwater-washington-quartz', 'north-fork-clearwater-weitas-washington', 'north-fork-clearwater-hidden-kelly',
   'boise-river-troutdale-willow',
   'kelly-creek-moose-kelly-forks',
   'lochsa-split-creek-lowell',
   'selway-paradise-selway-falls',
   'little-north-fork-clearwater-headwaters-reservoir',
-  'yankee-fork-pole-flat-salmon',
-  'teton-river-dam-site-teton-forks',
+  'yankee-fork-custer-pole-flat', 'yankee-fork-pole-flat-salmon',
+  'lolo-creek-cottonwood-lolo-road', 'priest-river-dickensheet-white-tail', 'priest-river-mcabee-mudhole',
+  'teton-river-dam-site-teton-forks', 'teton-river-upper-fox-creek-highway-33',
   'big-wood-river-rotary-broadway',
-  'crooked-fork-highway-12-white-sands', 'big-creek-st-joe-end-road-bridge',
+  'crooked-fork-highway-12-white-sands', 'big-creek-st-joe-end-road-bridge', 'lochsa-powell-white-pine',
   'marsh-creek-highway-21-dagger-falls',
+  'deadwood-river-upper-reservoir-julie', 'west-fork-bruneau-rowland-indian-hot-springs',
 ];
 
 describe('Idaho statewide paddling expansion', () => {
   it('keeps the researched Idaho batch and identifiers stable', () => {
-    expect(idahoRoutes).toHaveLength(125);
+    expect(idahoRoutes).toHaveLength(163);
     expect(idahoRoutes.map((route) => route.id)).toEqual(expectedIds);
-    expect(new Set(idahoRoutes.map((route) => route.id)).size).toBe(125);
-    expect(new Set(idahoRoutes.map((route) => route.slug)).size).toBe(125);
+    expect(new Set(idahoRoutes.map((route) => route.id)).size).toBe(163);
+    expect(new Set(idahoRoutes.map((route) => route.slug)).size).toBe(163);
   });
 
   it('publishes every reviewed route with evidence-based scoring eligibility', () => {
     const publicIds = new Set(publicRivers.filter((route) => route.state === 'Idaho').map((route) => route.id));
+    const highConsequenceIds = new Set(
+      idahoRoutes
+        .filter((route) => (maxPublishedRapidClass(route) ?? 0) >= 4)
+        .map((route) => route.id),
+    );
+    const expectedScoredIds = scoredIds.filter((id) => !highConsequenceIds.has(id));
+    const expectedPlanningIds = [...planningIds, ...scoredIds.filter((id) => highConsequenceIds.has(id))];
     expect([...publicIds].sort()).toEqual(expectedIds.sort());
-    expect(idahoRoutes.filter((route) => route.scoreEligibility === 'scored').map((route) => route.id).sort()).toEqual([...scoredIds].sort());
-    expect(idahoRoutes.filter((route) => route.scoreEligibility === 'planning').map((route) => route.id).sort()).toEqual([...planningIds].sort());
+    expect(idahoRoutes.filter((route) => route.scoreEligibility === 'scored').map((route) => route.id).sort()).toEqual(expectedScoredIds.sort());
+    expect(idahoRoutes.filter((route) => route.scoreEligibility === 'planning').map((route) => route.id).sort()).toEqual(expectedPlanningIds.sort());
   });
 
   it('has complete access, gauge, safety, camping, evidence, and image records', () => {
@@ -219,12 +261,33 @@ describe('Idaho statewide paddling expansion', () => {
   });
 
   it('preserves Idaho-specific operational controls and gauge posture', () => {
-    expect(idahoRoutes.filter((route) => route.gaugeSource.kind === 'direct')).toHaveLength(91);
-    expect(idahoRoutes.filter((route) => route.routeType === 'recreational')).toHaveLength(26);
-    expect(idahoRoutes.filter((route) => route.routeType === 'whitewater')).toHaveLength(99);
-    expect(idahoRoutes.filter((route) => route.gaugeSource.kind === 'proxy')).toHaveLength(34);
+    expect(idahoRoutes.filter((route) => route.gaugeSource.kind === 'direct')).toHaveLength(107);
+    expect(idahoRoutes.filter((route) => route.routeType === 'recreational')).toHaveLength(31);
+    expect(idahoRoutes.filter((route) => route.routeType === 'whitewater')).toHaveLength(132);
+    expect(idahoRoutes.filter((route) => route.gaugeSource.kind === 'proxy')).toHaveLength(56);
     expect(idahoRoutes.filter((route) => route.gaugeSource.kind === 'proxy').every((route) => route.scoreEligibilityReason === 'proxy_gauge')).toBe(true);
-    expect(idahoRoutes.filter((route) => route.profile.thresholdModel === 'two-sided')).toHaveLength(74);
+    expect(idahoRoutes.filter((route) => route.profile.thresholdModel === 'two-sided')).toHaveLength(100);
+    expect(idahoRoutes.find((route) => route.id === 'boulder-creek-gorge')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1000, idealMax: 1500, tooHigh: 2500 });
+    expect(idahoRoutes.find((route) => route.id === 'boulder-creek-gorge')?.gaugeSource).toMatchObject({ siteId: '12304500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'boulder-creek-gorge')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'big-bear-creek-highway-8-kendrick')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1000, idealMin: 1000, idealMax: 2600, tooHigh: 2600 });
+    expect(idahoRoutes.find((route) => route.id === 'big-bear-creek-highway-8-kendrick')?.gaugeSource).toMatchObject({ siteId: '13341570', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'big-bear-creek-highway-8-kendrick')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'potlatch-river-frog-pond-kendrick')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 700, idealMin: 700, idealMax: 8000, tooHigh: 8000 });
+    expect(idahoRoutes.find((route) => route.id === 'potlatch-river-frog-pond-kendrick')?.gaugeSource).toMatchObject({ siteId: '13341570', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'potlatch-river-frog-pond-kendrick')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'bear-valley-creek-fir-confluence')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 600, idealMax: 2000, tooHigh: 2000 });
+    expect(idahoRoutes.find((route) => route.id === 'bear-valley-creek-fir-confluence')?.gaugeSource).toMatchObject({ siteId: '13309220', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'bear-valley-creek-fir-confluence')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'big-creek-middle-fork-airstrip-cache-bar')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2, idealMin: 3, idealMax: 4, tooHigh: 5 });
+    expect(idahoRoutes.find((route) => route.id === 'big-creek-middle-fork-airstrip-cache-bar')?.gaugeSource).toMatchObject({ siteId: '13309220', kind: 'proxy', metric: 'gage_height_ft', unit: 'ft' });
+    expect(idahoRoutes.find((route) => route.id === 'big-creek-middle-fork-airstrip-cache-bar')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-payette-mccall-hartsell')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 200, idealMin: 1000, idealMax: 3500 });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-payette-mccall-hartsell')?.gaugeSource).toMatchObject({ siteId: '13239000', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-payette-mccall-hartsell')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'malad-river-dam-snake')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 300, idealMin: 1000, idealMax: 1500, tooHigh: 2200 });
+    expect(idahoRoutes.find((route) => route.id === 'malad-river-dam-snake')?.gaugeSource).toMatchObject({ siteId: '13152500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'malad-river-dam-snake')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'boise-river-troutdale-willow')?.profile).toMatchObject({ tooLow: 500, idealMin: 1200, idealMax: 1800, tooHigh: 5000 });
     expect(idahoRoutes.find((route) => route.id === 'boise-river-troutdale-willow')?.gaugeSource.siteId).toBe('13185000');
     expect(idahoRoutes.find((route) => route.id === 'boise-river-troutdale-willow')?.scoreEligibility).toBe('planning');
@@ -252,9 +315,15 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-sunbeam-torreys-hole')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1800, idealMax: 3200, tooHigh: 6000 });
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-sunbeam-torreys-hole')?.gaugeSource).toMatchObject({ siteId: '13296500', kind: 'direct' });
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-sunbeam-torreys-hole')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-east-fork-bayhorse')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1500, idealMax: 2500, tooHigh: 8000 });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-east-fork-bayhorse')?.gaugeSource).toMatchObject({ siteId: '13302500', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-east-fork-bayhorse')?.scoreEligibility).toBe('scored');
     expect(idahoRoutes.find((route) => route.id === 'teton-river-dam-site-teton-forks')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 500, idealMin: 500 });
     expect(idahoRoutes.find((route) => route.id === 'teton-river-dam-site-teton-forks')?.gaugeSource).toMatchObject({ siteId: '13055000', kind: 'proxy' });
     expect(idahoRoutes.find((route) => route.id === 'teton-river-dam-site-teton-forks')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'teton-river-upper-fox-creek-highway-33')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 240, idealMin: 240 });
+    expect(idahoRoutes.find((route) => route.id === 'teton-river-upper-fox-creek-highway-33')?.gaugeSource).toMatchObject({ siteId: '13052200', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'teton-river-upper-fox-creek-highway-33')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'big-wood-river-rotary-broadway')?.gaugeSource).toMatchObject({ siteId: '13135500', kind: 'direct' });
     expect(idahoRoutes.find((route) => route.id === 'big-wood-river-rotary-broadway')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'crooked-fork-highway-12-white-sands')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 5500, idealMin: 8000, idealMax: 15000 });
@@ -271,10 +340,10 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'little-north-fork-clearwater-headwaters-reservoir')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'little-salmon-smoky-boulder-hazard')?.profile).toMatchObject({ tooLow: 500, idealMin: 1100, idealMax: 1300, tooHigh: 3000 });
     expect(idahoRoutes.find((route) => route.id === 'little-salmon-smoky-boulder-hazard')?.gaugeSource.siteId).toBe('13316500');
-    expect(idahoRoutes.find((route) => route.id === 'little-salmon-smoky-boulder-hazard')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'little-salmon-smoky-boulder-hazard')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'little-salmon-hazard-creek-riggins')?.profile).toMatchObject({ tooLow: 500, idealMin: 1100, idealMax: 1300, tooHigh: 3000 });
     expect(idahoRoutes.find((route) => route.id === 'little-salmon-hazard-creek-riggins')?.gaugeSource.siteId).toBe('13316500');
-    expect(idahoRoutes.find((route) => route.id === 'little-salmon-hazard-creek-riggins')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'little-salmon-hazard-creek-riggins')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'johnson-creek-yellow-pine-airport-gauge')?.profile).toMatchObject({ tooLow: 450, idealMin: 550, idealMax: 650, tooHigh: 1500 });
     expect(idahoRoutes.find((route) => route.id === 'johnson-creek-yellow-pine-airport-gauge')?.gaugeSource.siteId).toBe('13313000');
     expect(idahoRoutes.find((route) => route.id === 'johnson-creek-yellow-pine-airport-gauge')?.scoreEligibility).toBe('scored');
@@ -286,7 +355,7 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'east-fork-south-fork-salmon-johnson-indian-point')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.profile).toMatchObject({ tooLow: 300, idealMin: 300, idealMax: 2000, tooHigh: 2000 });
     expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.gaugeSource.siteId).toBe('13052200');
-    expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-upper-coffee-pot-mccrea')?.profile).toMatchObject({ tooLow: 1000, idealMin: 1000, idealMax: 2000, tooHigh: 2000 });
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-upper-coffee-pot-mccrea')?.gaugeSource.siteId).toBe('13042500');
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-upper-coffee-pot-mccrea')?.scoreEligibility).toBe('scored');
@@ -295,7 +364,7 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-box-canyon-last-chance')?.scoreEligibility).toBe('scored');
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-boiling-springs-trail-creek')?.profile).toMatchObject({ tooLow: 450, idealMin: 750, idealMax: 1330 });
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-boiling-springs-trail-creek')?.gaugeSource.siteId).toBe('13237920');
-    expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-boiling-springs-trail-creek')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-boiling-springs-trail-creek')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-hardscrabble-lightning-creek')?.profile).toMatchObject({ tooLow: 400, idealMin: 800, idealMax: 1500 });
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-hardscrabble-lightning-creek')?.gaugeSource.siteId).toBe('13237920');
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-payette-hardscrabble-lightning-creek')?.scoreEligibility).toBe('scored');
@@ -307,7 +376,10 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'north-fork-payette-sheep-smylie-lane')?.scoreEligibility).toBe('scored');
     expect(idahoRoutes.find((route) => route.id === 'upper-lochsa-white-pine-wilderness-gateway')?.profile).toMatchObject({ tooLow: 2000, idealMin: 3000, idealMax: 5000, tooHigh: 8000 });
     expect(idahoRoutes.find((route) => route.id === 'upper-lochsa-white-pine-wilderness-gateway')?.gaugeSource.siteId).toBe('13337000');
-    expect(idahoRoutes.find((route) => route.id === 'upper-lochsa-white-pine-wilderness-gateway')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'upper-lochsa-white-pine-wilderness-gateway')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'lochsa-powell-white-pine')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2, idealMin: 2, idealMax: 10, tooHigh: 10 });
+    expect(idahoRoutes.find((route) => route.id === 'lochsa-powell-white-pine')?.gaugeSource).toMatchObject({ siteId: '13337000', kind: 'direct', metric: 'gage_height_ft', unit: 'ft' });
+    expect(idahoRoutes.find((route) => route.id === 'lochsa-powell-white-pine')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'payette-river-banks-beehive-bend')?.profile).toMatchObject({ tooLow: 800, idealMin: 2000, idealMax: 10000, tooHigh: 12000 });
     expect(idahoRoutes.find((route) => route.id === 'payette-river-beehive-bend-horseshoe-dam')?.profile).toMatchObject({ tooLow: 1200, idealMin: 2000, idealMax: 10000, tooHigh: 15000 });
     expect(idahoRoutes.find((route) => route.id === 'payette-river-beehive-bend-horseshoe-dam')?.gaugeSource.siteId).toBe('13247500');
@@ -322,13 +394,16 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-north-fork-corn-creek')?.scoreEligibility).toBe('scored');
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-carey-creek-riggins')?.profile).toMatchObject({ tooLow: 1000, idealMin: 3000, idealMax: 30000, tooHigh: 100000 });
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-carey-creek-riggins')?.gaugeSource.siteId).toBe('13317000');
-    expect(idahoRoutes.find((route) => route.id === 'salmon-river-carey-creek-riggins')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-carey-creek-riggins')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'lower-salmon-lucile-hammer-creek')?.profile).toMatchObject({ tooLow: 3000, idealMin: 8000, idealMax: 12000, tooHigh: 20000 });
     expect(idahoRoutes.find((route) => route.id === 'lower-salmon-hammer-heller-bar')?.profile).toMatchObject({ tooLow: 3000, idealMin: 8000, idealMax: 12000, tooHigh: 20000 });
     expect(idahoRoutes.find((route) => route.id === 'south-fork-snake-conant-byington')?.logistics?.campingClassification).toBe('on_route_campsite');
     expect(idahoRoutes.find((route) => route.id === 'south-fork-snake-byington-heise')?.safetyProfile?.hazards).toContain('dam');
     expect(idahoRoutes.find((route) => route.id === 'boise-river-barber-ann-morrison')?.safetyProfile?.hazards).toContain('mandatory_takeout');
     expect(idahoRoutes.find((route) => route.id === 'st-joe-river-spruce-tree-turner-flat')?.routeType).toBe('whitewater');
+    expect(idahoRoutes.find((route) => route.id === 'st-joe-river-bluff-turner-flat')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 500, idealMin: 500, idealMax: 1500, tooHigh: 1500 });
+    expect(idahoRoutes.find((route) => route.id === 'st-joe-river-bluff-turner-flat')?.gaugeSource).toMatchObject({ siteId: '12414500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'st-joe-river-bluff-turner-flat')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'st-joe-river-skookum-canyon')?.profile).toMatchObject({ tooLow: 500, idealMin: 500, idealMax: 1500 });
     expect(idahoRoutes.find((route) => route.id === 'st-joe-river-skookum-canyon')?.gaugeSource.siteId).toBe('12414500');
     expect(idahoRoutes.find((route) => route.id === 'st-joe-river-skookum-canyon')?.gaugeSource.kind).toBe('proxy');
@@ -343,7 +418,7 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-poverty-flat-east-fork')?.profile).toMatchObject({ tooLow: 200, idealMin: 200, idealMax: 6000, tooHigh: 6000 });
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-poverty-flat-east-fork')?.gaugeSource.siteId).toBe('13310700');
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-poverty-flat-east-fork')?.gaugeSource.kind).toBe('direct');
-    expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-poverty-flat-east-fork')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-poverty-flat-east-fork')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-secesh-confluence-vinegar')?.profile).toMatchObject({ tooLow: 2, idealMin: 3.2 });
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-secesh-confluence-vinegar')?.gaugeSource.siteId).toBe('13310700');
     expect(idahoRoutes.find((route) => route.id === 'south-fork-salmon-secesh-confluence-vinegar')?.gaugeSource.metric).toBe('gage_height_ft');
@@ -353,16 +428,31 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'south-fork-boise-anderson-danskin')?.scoreEligibility).toBe('scored');
     expect(idahoRoutes.find((route) => route.id === 'lolo-creek-lolo-road-greer')?.profile).toMatchObject({ tooLow: 400, idealMin: 800, idealMax: 1000 });
     expect(idahoRoutes.find((route) => route.id === 'lolo-creek-lolo-road-greer')?.gaugeSource.siteId).toBe('13339500');
-    expect(idahoRoutes.find((route) => route.id === 'lolo-creek-lolo-road-greer')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'lolo-creek-lolo-road-greer')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'lolo-creek-cottonwood-lolo-road')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 400, idealMin: 800, idealMax: 1000 });
+    expect(idahoRoutes.find((route) => route.id === 'lolo-creek-cottonwood-lolo-road')?.gaugeSource).toMatchObject({ siteId: '13339500', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'lolo-creek-cottonwood-lolo-road')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-owyhee-yp-east-fork')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 250, idealMin: 250, idealMax: 3000 });
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-owyhee-yp-east-fork')?.gaugeSource).toMatchObject({ siteId: '13181000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-owyhee-yp-east-fork')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'east-fork-owyhee-duck-crutcher')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 700, idealMin: 1000, idealMax: 2000 });
+    expect(idahoRoutes.find((route) => route.id === 'east-fork-owyhee-duck-crutcher')?.gaugeSource).toMatchObject({ siteId: '13176400', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'east-fork-owyhee-duck-crutcher')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'owyhee-river-three-forks-rome')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1000, idealMin: 1500, idealMax: 3000, tooHigh: 6000 });
+    expect(idahoRoutes.find((route) => route.id === 'owyhee-river-three-forks-rome')?.gaugeSource).toMatchObject({ siteId: '13181000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'owyhee-river-three-forks-rome')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'south-fork-clearwater-golden-canyon')?.profile).toMatchObject({ tooLow: 600, idealMin: 1000, idealMax: 2000 });
     expect(idahoRoutes.find((route) => route.id === 'south-fork-clearwater-golden-canyon')?.gaugeSource.siteId).toBe('13338500');
-    expect(idahoRoutes.find((route) => route.id === 'south-fork-clearwater-golden-canyon')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-clearwater-golden-canyon')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'moyie-river-meadow-creek-reservoir')?.profile).toMatchObject({ tooLow: 500, idealMin: 3000, idealMax: 5000, tooHigh: 5000 });
     expect(idahoRoutes.find((route) => route.id === 'moyie-river-meadow-creek-reservoir')?.gaugeSource.siteId).toBe('12306500');
     expect(idahoRoutes.find((route) => route.id === 'moyie-river-meadow-creek-reservoir')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'camas-creek-blaine-moonstone')?.profile).toMatchObject({ tooLow: 500, idealMin: 500, idealMax: 1800 });
     expect(idahoRoutes.find((route) => route.id === 'camas-creek-blaine-moonstone')?.gaugeSource.siteId).toBe('13141500');
     expect(idahoRoutes.find((route) => route.id === 'camas-creek-blaine-moonstone')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'pine-creek-north-fork-highway-21-snake')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 250, idealMin: 250, idealMax: 300 });
+    expect(idahoRoutes.find((route) => route.id === 'pine-creek-north-fork-highway-21-snake')?.gaugeSource).toMatchObject({ siteId: '13052200', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'pine-creek-north-fork-highway-21-snake')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'mores-creek-big-gulch-robie')?.profile).toMatchObject({ tooLow: 600, idealMin: 600, idealMax: 1000 });
     expect(idahoRoutes.find((route) => route.id === 'mores-creek-big-gulch-robie')?.gaugeSource.siteId).toBe('13200000');
     expect(idahoRoutes.find((route) => route.id === 'mores-creek-big-gulch-robie')?.scoreEligibility).toBe('planning');
@@ -370,15 +460,45 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'potlatch-river-little-boulder-cedar')?.gaugeSource.siteId).toBe('13341570');
     expect(idahoRoutes.find((route) => route.id === 'potlatch-river-little-boulder-cedar')?.gaugeSource.kind).toBe('proxy');
     expect(idahoRoutes.find((route) => route.id === 'potlatch-river-little-boulder-cedar')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'little-potlatch-river-headwaters-potlatch')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 300, idealMin: 325, idealMax: 1000 });
+    expect(idahoRoutes.find((route) => route.id === 'little-potlatch-river-headwaters-potlatch')?.gaugeSource).toMatchObject({ siteId: '13341570', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'little-potlatch-river-headwaters-potlatch')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'boundary-creek-canadian-border-kootenai')?.profile).toMatchObject({ tooLow: 400, idealMin: 400, idealMax: 600, tooHigh: 600 });
     expect(idahoRoutes.find((route) => route.id === 'boundary-creek-canadian-border-kootenai')?.gaugeSource.siteId).toBe('12321500');
     expect(idahoRoutes.find((route) => route.id === 'boundary-creek-canadian-border-kootenai')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'smith-creek-bridge-smith-falls')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 100, idealMin: 200, idealMax: 300 });
     expect(idahoRoutes.find((route) => route.id === 'smith-creek-bridge-smith-falls')?.gaugeSource).toMatchObject({ siteId: '12321500', kind: 'proxy' });
     expect(idahoRoutes.find((route) => route.id === 'smith-creek-bridge-smith-falls')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'smith-creek-upper')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 75, idealMin: 75, idealMax: 80 });
+    expect(idahoRoutes.find((route) => route.id === 'smith-creek-upper')?.gaugeSource).toMatchObject({ siteId: '12321500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'smith-creek-upper')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-jordan-teepee')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2000, idealMin: 2000, idealMax: 10000, tooHigh: 10000 });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-jordan-teepee')?.gaugeSource).toMatchObject({ siteId: '12411000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-jordan-teepee')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'secesh-river-canyon-lower')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1000, idealMin: 1000, idealMax: 6000, tooHigh: 6000 });
+    expect(idahoRoutes.find((route) => route.id === 'secesh-river-canyon-lower')?.gaugeSource).toMatchObject({ siteId: '13310700', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'secesh-river-canyon-lower')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-babins-little-north')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2000, idealMin: 2000, idealMax: 20000, tooHigh: 20000 });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-babins-little-north')?.gaugeSource).toMatchObject({ siteId: '12413000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-coeur-dalene-babins-little-north')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'little-north-fork-coeur-dalene-laverne-mouth')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 2000, idealMin: 2000, idealMax: 20000, tooHigh: 20000 });
+    expect(idahoRoutes.find((route) => route.id === 'little-north-fork-coeur-dalene-laverne-mouth')?.gaugeSource).toMatchObject({ siteId: '12413000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'little-north-fork-coeur-dalene-laverne-mouth')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-gorgette')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 600, idealMax: 1500, tooHigh: 1500 });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-gorgette')?.gaugeSource).toMatchObject({ siteId: '12392300', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-gorgette')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-slides')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 500, idealMin: 500, idealMax: 2000, tooHigh: 2000 });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-slides')?.gaugeSource).toMatchObject({ siteId: '12392300', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-slides')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-grottos')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 650, idealMin: 650, idealMax: 1000, tooHigh: 1000 });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-grottos')?.gaugeSource).toMatchObject({ siteId: '12392300', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'pack-river-upper-grottos')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'st-maries-river-mashburn-st-joe')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1000, idealMax: 2000, tooHigh: 3000 });
     expect(idahoRoutes.find((route) => route.id === 'st-maries-river-mashburn-st-joe')?.gaugeSource).toMatchObject({ siteId: '12414900', kind: 'direct' });
     expect(idahoRoutes.find((route) => route.id === 'st-maries-river-mashburn-st-joe')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-coeur-dalene-mullan-wallace')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 250, idealMin: 350, idealMax: 600, tooHigh: 1100 });
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-coeur-dalene-mullan-wallace')?.gaugeSource).toMatchObject({ siteId: '12413131', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'south-fork-coeur-dalene-mullan-wallace')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'north-fork-st-joe-loop-creek-confluence')?.profile).toMatchObject({ tooLow: 2500, idealMin: 4000, idealMax: 10000 });
     expect(idahoRoutes.find((route) => route.id === 'north-fork-st-joe-loop-creek-confluence')?.sourceLinks.some((link) => link.url === 'https://www.northidahorivers.com/St_Joe_North_Fork.htm')).toBe(true);
     expect(idahoRoutes.find((route) => route.id === 'st-joe-spruce-tree-gold-creek')?.profile).toMatchObject({ tooLow: 1500, idealMin: 1500, idealMax: 4000, tooHigh: 25000 });
@@ -395,16 +515,28 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'lightning-creek-east-fork-clark-fork')?.profile).toMatchObject({ tooLow: 900, idealMin: 900 });
     expect(idahoRoutes.find((route) => route.id === 'lightning-creek-east-fork-clark-fork')?.gaugeSource.siteId).toBe('12392155');
     expect(idahoRoutes.find((route) => route.id === 'lightning-creek-east-fork-clark-fork')?.scoreEligibility).toBe('planning');
-    expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-black-canyon')?.profile).toMatchObject({ tooLow: 3800, idealMin: 4100, idealMax: 4500 });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-black-canyon')?.profile).toMatchObject({ tooLow: 4000, idealMin: 4100, idealMax: 4500 });
     expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-black-canyon')?.gaugeSource.siteId).toBe('13340600');
     expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-black-canyon')?.gaugeSource.kind).toBe('proxy');
     expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-black-canyon')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-elizabeth-kelly')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 3800, idealMin: 4100, idealMax: 4500 });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-elizabeth-kelly')?.gaugeSource).toMatchObject({ siteId: '13340600', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'north-fork-clearwater-elizabeth-kelly')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'snake-river-swan-falls-walters-ferry')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 3000 });
+    expect(idahoRoutes.find((route) => route.id === 'snake-river-swan-falls-walters-ferry')?.gaugeSource).toMatchObject({ siteId: '13172500', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'snake-river-swan-falls-walters-ferry')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'henrys-lake-south-shore-loop')?.gaugeSource.metric).toBe('gage_height_ft');
     expect(idahoRoutes.find((route) => route.id === 'bruneau-indian-hot-springs-bruneau')?.profile).toMatchObject({ tooLow: 700, idealMin: 700, idealMax: 2500, tooHigh: 2500 });
     expect(idahoRoutes.find((route) => route.id === 'jarbidge-river-murphy-bruneau')?.profile).toMatchObject({ tooLow: 700, idealMin: 900, idealMax: 1300, tooHigh: 2600 });
     expect(idahoRoutes.find((route) => route.id === 'snake-river-hells-canyon-dam-pittsburg')?.profile).toMatchObject({ tooLow: 7000, idealMin: 7000, idealMax: 80000, tooHigh: 80000 });
     expect(idahoRoutes.find((route) => route.id === 'snake-river-pittsburg-heller-bar')?.profile).toMatchObject({ tooLow: 6000, idealMin: 20000, idealMax: 40000, tooHigh: 80000 });
     expect(idahoRoutes.find((route) => route.id === 'priest-river-outlet-dickensheet')?.profile).toMatchObject({ tooLow: 900, idealMin: 1200, idealMax: 1600, tooHigh: 4500 });
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-dickensheet-white-tail')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1200, idealMin: 1200, idealMax: 3500, tooHigh: 4500 });
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-dickensheet-white-tail')?.gaugeSource).toMatchObject({ siteId: '12394000', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-dickensheet-white-tail')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-mcabee-mudhole')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1200, idealMin: 1200, idealMax: 3500, tooHigh: 4500 });
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-mcabee-mudhole')?.gaugeSource).toMatchObject({ siteId: '12394000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'priest-river-mcabee-mudhole')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'north-fork-payette-smiths-ferry-banks')?.profile).toMatchObject({ tooLow: 750, idealMin: 1400, idealMax: 1600, tooHigh: 3000 });
     expect(idahoRoutes.find((route) => route.id === 'boise-river-troutdale-badger')?.profile).toMatchObject({ tooLow: 500, idealMin: 1200, idealMax: 1800, tooHigh: 5000 });
     expect(idahoRoutes.find((route) => route.id === 'north-fork-boise-barber-flat-troutdale')?.profile).toMatchObject({ tooLow: 600, idealMin: 1000, idealMax: 2000 });
@@ -414,16 +546,16 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'snake-river-lower-salmon-falls-bliss')?.profile).toMatchObject({ tooLow: 4000 });
     expect(idahoRoutes.find((route) => route.id === 'snake-river-lower-salmon-falls-bliss')?.gaugeSource.siteId).toBe('13135000');
     expect(idahoRoutes.find((route) => route.id === 'snake-river-auger-falls-park')?.profile).toMatchObject({ tooLow: 400, idealMin: 400, idealMax: 1000, tooHigh: 4000 });
-    expect(idahoRoutes.find((route) => route.id === 'snake-river-auger-falls-park')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'snake-river-auger-falls-park')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.profile).toMatchObject({ tooLow: 300, idealMin: 300, idealMax: 2000, tooHigh: 2000 });
     expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.gaugeSource.siteId).toBe('13052200');
-    expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'teton-river-highway-33-spring-hollow')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'teton-river-lower-canyon')?.profile).toMatchObject({ tooLow: 500, idealMin: 500, idealMax: 2000 });
     expect(idahoRoutes.find((route) => route.id === 'teton-river-lower-canyon')?.gaugeSource.siteId).toBe('13055000');
     expect(idahoRoutes.find((route) => route.id === 'teton-river-lower-canyon')?.gaugeSource.kind).toBe('proxy');
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-hatchery-ford-upper-mesa')?.profile).toMatchObject({ tooLow: 600, idealMin: 1000, idealMax: 2200, tooHigh: 3000 });
     expect(idahoRoutes.find((route) => route.id === 'henrys-fork-hatchery-ford-upper-mesa')?.gaugeSource.siteId).toBe('13046000');
-    expect(idahoRoutes.find((route) => route.id === 'henrys-fork-hatchery-ford-upper-mesa')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'henrys-fork-hatchery-ford-upper-mesa')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'blackfoot-river-wolverine-canyon')?.profile).toMatchObject({ tooLow: 450, idealMin: 450, idealMax: 900 });
     expect(idahoRoutes.find((route) => route.id === 'blackfoot-river-wolverine-canyon')?.gaugeSource.siteId).toBe('13066000');
     expect(idahoRoutes.find((route) => route.id === 'blackfoot-river-wolverine-canyon')?.scoreEligibility).toBe('planning');
@@ -440,6 +572,9 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'bitch-creek-highway-32-teton')?.gaugeSource.siteId).toBe('13055000');
     expect(idahoRoutes.find((route) => route.id === 'bitch-creek-highway-32-teton')?.gaugeSource.kind).toBe('proxy');
     expect(idahoRoutes.find((route) => route.id === 'bitch-creek-highway-32-teton')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'bitch-creek-coyote-meadows-highway-32')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 500, idealMin: 500 });
+    expect(idahoRoutes.find((route) => route.id === 'bitch-creek-coyote-meadows-highway-32')?.gaugeSource).toMatchObject({ siteId: '13055000', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'bitch-creek-coyote-meadows-highway-32')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'big-wood-river-chocolate-gulch-lake-creek')?.profile).toMatchObject({ tooLow: 400, idealMin: 400, idealMax: 800, tooHigh: 800 });
     expect(idahoRoutes.find((route) => route.id === 'big-wood-river-chocolate-gulch-lake-creek')?.gaugeSource.siteId).toBe('13135500');
     expect(idahoRoutes.find((route) => route.id === 'big-wood-river-chocolate-gulch-lake-creek')?.gaugeSource.kind).toBe('direct');
@@ -460,10 +595,50 @@ describe('Idaho statewide paddling expansion', () => {
     expect(idahoRoutes.find((route) => route.id === 'fall-river-concrete-ccc-kirkham')?.gaugeSource.siteId).toBe('13047500');
     expect(idahoRoutes.find((route) => route.id === 'fall-river-cave-falls-concrete')?.profile).toMatchObject({ thresholdModel: 'minimum-only', tooLow: 1500, idealMin: 1500 });
     expect(idahoRoutes.find((route) => route.id === 'fall-river-cave-falls-concrete')?.gaugeSource).toMatchObject({ siteId: '13047500', kind: 'direct' });
-    expect(idahoRoutes.find((route) => route.id === 'fall-river-cave-falls-concrete')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'fall-river-cave-falls-concrete')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'salmon-river-stanley-sunbeam')?.profile).toMatchObject({ tooLow: 600, idealMin: 1800, idealMax: 3200, tooHigh: 6000 });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-stanley-rough-creek')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1000, idealMax: 3000, tooHigh: 6800 });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-stanley-rough-creek')?.gaugeSource).toMatchObject({ siteId: '13296500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-stanley-rough-creek')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'yankee-fork-custer-pole-flat')?.profile).toMatchObject({ thresholdModel: 'minimum-only', idealMin: 1300, idealMax: 1800 });
+    expect(idahoRoutes.find((route) => route.id === 'yankee-fork-custer-pole-flat')?.gaugeSource).toMatchObject({ siteId: '13296000', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'yankee-fork-custer-pole-flat')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-rough-creek-yankee-fork')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 600, idealMin: 1800, idealMax: 3200, tooHigh: 6800 });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-rough-creek-yankee-fork')?.gaugeSource).toMatchObject({ siteId: '13296500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'salmon-river-rough-creek-yankee-fork')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'middle-fork-salmon-boundary-cache-bar')?.profile).toMatchObject({ tooLow: 1000, idealMin: 3500, idealMax: 5500, tooHigh: 12000 });
+    expect(idahoRoutes.find((route) => route.id === 'middle-fork-salmon-marsh-boundary')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1000, idealMin: 3500, idealMax: 5500, tooHigh: 12000 });
+    expect(idahoRoutes.find((route) => route.id === 'middle-fork-salmon-marsh-boundary')?.gaugeSource).toMatchObject({ siteId: '13309220', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'middle-fork-salmon-marsh-boundary')?.scoreEligibility).toBe('planning');
     expect(idahoRoutes.find((route) => route.id === 'main-salmon-corn-creek-vinegar-carey')?.profile).toMatchObject({ tooLow: 4000, idealMin: 12000, idealMax: 28000, tooHigh: 35000 });
     expect(idahoRoutes.find((route) => route.id === 'south-fork-payette-staircase-deer-creek-banks')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'henrys-fork-lower-mesa-warm-river')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 1000, idealMin: 1400, idealMax: 2600, tooHigh: 3500 });
+    expect(idahoRoutes.find((route) => route.id === 'henrys-fork-lower-mesa-warm-river')?.gaugeSource).toMatchObject({ siteId: '13046000', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'henrys-fork-lower-mesa-warm-river')?.scoreEligibility).toBe('scored');
+    expect(idahoRoutes.find((route) => route.id === 'deadwood-river-upper-reservoir-julie')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 400, idealMin: 700, idealMax: 1300, tooHigh: 2000 });
+    expect(idahoRoutes.find((route) => route.id === 'deadwood-river-upper-reservoir-julie')?.gaugeSource).toMatchObject({ siteId: '13236500', kind: 'direct' });
+    expect(idahoRoutes.find((route) => route.id === 'deadwood-river-upper-reservoir-julie')?.scoreEligibility).toBe('planning');
+    expect(idahoRoutes.find((route) => route.id === 'west-fork-bruneau-rowland-indian-hot-springs')?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 450, idealMin: 700, idealMax: 1500, tooHigh: 2500 });
+    expect(idahoRoutes.find((route) => route.id === 'west-fork-bruneau-rowland-indian-hot-springs')?.gaugeSource).toMatchObject({ siteId: '13168500', kind: 'proxy' });
+    expect(idahoRoutes.find((route) => route.id === 'west-fork-bruneau-rowland-indian-hot-springs')?.scoreEligibility).toBe('planning');
+  });
+
+  it('audits high-consequence Idaho routes before any broader go-live decision', () => {
+    const highConsequenceRoutes = idahoRoutes.filter((route) => (maxPublishedRapidClass(route) ?? 0) >= 4);
+    const classFiveRoutes = highConsequenceRoutes.filter((route) => (maxPublishedRapidClass(route) ?? 0) >= 5);
+
+    expect(highConsequenceRoutes).toHaveLength(79);
+    expect(classFiveRoutes).toHaveLength(37);
+    expect(highConsequenceRoutes.every((route) => route.safetyProfile?.reviewStatus === 'reviewed')).toBe(true);
+    expect(highConsequenceRoutes.every((route) => route.safetyProfile?.riskLevel === 'advanced')).toBe(true);
+    expect(highConsequenceRoutes.every((route) => (route.safetyProfile?.hazards.length ?? 0) >= 4)).toBe(true);
+    expect(highConsequenceRoutes.every((route) => (route.safetyProfile?.safetyNotes.length ?? 0) >= 3)).toBe(true);
+    expect(highConsequenceRoutes.every((route) => route.accessPoints.length >= 2)).toBe(true);
+    expect(highConsequenceRoutes.every((route) => route.sourceLinks.length >= 6)).toBe(true);
+    expect(highConsequenceRoutes.every((route) => Boolean(route.profile.thresholdSource.url))).toBe(true);
+
+    // These routes would expose a high-consequence rapid to the same-day score UI.
+    expect(highConsequenceRoutes.filter((route) => route.scoreEligibility === 'scored')).toHaveLength(0);
+    expect(classFiveRoutes.filter((route) => route.scoreEligibility === 'scored')).toHaveLength(0);
   });
 });

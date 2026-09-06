@@ -3100,7 +3100,7 @@ describe('New York strategic expansion', () => {
     expect(route?.profile.thresholdModel).toBe('two-sided');
     expect(route?.profile.tooLow).toBe(300);
     expect(route?.profile.tooHigh).toBe(1200);
-    expect(route?.scoreEligibility).toBe('scored');
+    expect(route?.scoreEligibility).toBe('planning');
     expect(route?.accessPoints).toHaveLength(2);
     expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.profile.difficulty).toBe('hard');

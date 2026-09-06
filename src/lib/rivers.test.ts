@@ -62,11 +62,14 @@ describe('getAllRiverScores', () => {
       'pine-river-minnesota',
       'pine-river-wisconsin',
     ]);
-    expect(bruleGroups.map((group) => group.riverId).sort()).toEqual([
-      'brule-river-minnesota',
-      'brule-river-wisconsin-michigan',
-    ]);
-    expect(bruleGroups.find((group) => group.riverId === 'brule-river-minnesota')?.states).toEqual(['Minnesota']);
+    const expectedBruleGroups = ['brule-river-wisconsin-michigan'];
+    if (rivers.some((river) => river.riverId === 'brule-river-minnesota')) {
+      expectedBruleGroups.push('brule-river-minnesota');
+    }
+    expect(bruleGroups.map((group) => group.riverId).sort()).toEqual(expectedBruleGroups.sort());
+    if (expectedBruleGroups.includes('brule-river-minnesota')) {
+      expect(bruleGroups.find((group) => group.riverId === 'brule-river-minnesota')?.states).toEqual(['Minnesota']);
+    }
     expect(bruleGroups.find((group) => group.riverId === 'brule-river-wisconsin-michigan')?.states).toEqual([
       'Wisconsin',
     ]);

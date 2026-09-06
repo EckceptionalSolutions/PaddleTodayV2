@@ -12476,8 +12476,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Central Wisconsin",
     "summary": "Shorter lower-Lemonweir run from the Mauston Dam access to the 19th Avenue / Lemonweir Mills landing, with riffles below the dam, wooded banks, sandbars, and direct New Lisbon gauge support.",
     "statusText": "Use the Lemonweir River at New Lisbon gauge. Treat 170 cfs as the conservative same-river low-water floor; WRT reports this exact Mauston-to-19th Avenue route had good depth at 240 cfs.",
-    "latitude": 43.7994,
-    "longitude": -90.0684,
+    "latitude": 43.79684,
+    "longitude": -90.068933,
     "gaugeSource": {
       "id": "usgs-05403500",
       "provider": "usgs",
@@ -12533,8 +12533,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "mauston-dam-lemonweir-access",
         "name": "Mauston Dam downstream access",
-        "latitude": 43.7994,
-        "longitude": -90.0684,
+        "latitude": 43.79684,
+        "longitude": -90.068933,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from Wisconsin River Trips; use the downstream launch area north of the river below the dam."

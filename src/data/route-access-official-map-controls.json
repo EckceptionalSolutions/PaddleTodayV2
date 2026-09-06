@@ -16551,6 +16551,56 @@
           "coordinateText": "Visible water-side landing or pier, checked 2026-09-05; official map supplies access identity, imagery supplies coordinate"
         }
       ]
+    },
+    {
+      "id": "alton_riverfront_ramp_aerial_20260905",
+      "name": "Alton Riverfront public boat launch source and landing imagery",
+      "state": "Illinois",
+      "sourceUrl": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
+      "sourceType": "official-identity-aerial-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "The water-trail organizer explicitly names the City of Alton boat launch at Alton Marina as the take-out. OSM slipway node 12549669381 independently locates the same facility. Imagery shows the public concrete ramp under Clark Bridge entering a connected marina channel; the previous point was inland in the marina parking area. The coordinate is the visible ramp toe, not the marina centroid or Mississippi main flowline. Manually checked 2026-09-05. Imagery-derived with 40-foot uncertainty, not surveyed agency GPS. Independent NHD audit completed before this control was registered; evidence in docs/route-coordinate-corrections-2026-09-05-batch2.json.",
+      "controls": [
+        {
+          "featureId": "alton-riverfront-public-launch",
+          "name": "Alton Riverfront public boat launch",
+          "waterbody": "Mississippi River",
+          "latitude": 38.88422,
+          "longitude": -90.17444,
+          "riverMile": null,
+          "uncertaintyFeet": 40,
+          "matchedRiverDistanceFeet": 1681.0288604896402,
+          "onNhdWaterbody": true,
+          "coordinateText": "Visible water-side launch; primary-source identity plus imagery, checked 2026-09-05"
+        }
+      ]
+    },
+    {
+      "id": "mauston_dam_launch_aerial_20260905",
+      "name": "Mauston Dam downstream access source and landing imagery",
+      "state": "Wisconsin",
+      "sourceUrl": "https://www.mauston.com/top10",
+      "sourceType": "official-identity-aerial-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "The city explicitly recommends launching at Mauston Dam to paddle to 19th Street landing. Wisconsin River Trips identifies the north-bank put-in below the dam and supplies a ground photograph of its gravel approach. Its trip-map marker identifies the adjacent parking area. Imagery locates the shore-side gravel access below the dam, not the parking marker, upstream impoundment, or city block containing the former point. Existing below-dam and spillway-current cautions are retained. Manually checked 2026-09-05. Imagery-derived with 40-foot uncertainty, not surveyed agency GPS. Independent NHD audit completed before this control was registered; evidence in docs/route-coordinate-corrections-2026-09-05-batch2.json.",
+      "controls": [
+        {
+          "featureId": "lemonweir-mauston-dam",
+          "name": "Mauston Dam downstream access",
+          "waterbody": "Lemonweir River",
+          "latitude": 43.79684,
+          "longitude": -90.068933,
+          "riverMile": null,
+          "uncertaintyFeet": 40,
+          "matchedRiverDistanceFeet": 89.54584740365522,
+          "onNhdWaterbody": true,
+          "coordinateText": "Visible water-side launch; primary-source identity plus imagery, checked 2026-09-05"
+        }
+      ]
     }
   ]
 }

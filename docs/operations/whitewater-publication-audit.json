@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-09-05",
+  "scope": "Catalog-wide publication gate for explicitly published American Whitewater-style Class IV+ reaches",
+  "policy": {
+    "highConsequenceDefinition": "A route whose summary contains a published Class IV, V, or VI rapid, including mixed reaches such as Class III-IV(V).",
+    "liveScoring": false,
+    "planningOrHidden": true,
+    "enforcement": "The catalog boundary downgrades scored Class IV+ routes to planning. Routes without explicit planning metadata remain withheld when the normal reviewed-planning publication gate does not pass."
+  },
+  "inventory": {
+    "routeInventory": 2156,
+    "highConsequenceRoutes": 158,
+    "highConsequenceScoredBeforeGate": 59,
+    "highConsequencePlanningAfterGate": 128,
+    "highConsequenceHiddenAfterGate": 30,
+    "highConsequenceScoredAfterGate": 0,
+    "statesWithHighConsequenceRoutes": [
+      "Arkansas",
+      "Colorado",
+      "Idaho",
+      "Minnesota",
+      "New York",
+      "Pennsylvania",
+      "Tennessee",
+      "Texas",
+      "Utah",
+      "Virginia",
+      "West Virginia",
+      "Wisconsin"
+    ]
+  },
+  "hiddenHighConsequenceRoutes": [
+    "big-fork-river-johnson-big-falls-east",
+    "wolf-river-markton-big-smokey-falls",
+    "red-river-weed-dam-zeimers-falls",
+    "peshtigo-river-burnt-bridge-goodman-park",
+    "peshtigo-river-roaring-rapids",
+    "menominee-river-piers-gorge",
+    "jump-south-fork-little-falls-big-falls",
+    "south-fork-ogden-river-willows-magpie",
+    "cossatot-river-ed-banks-highway-278",
+    "big-south-fork-burnt-mill-leatherwood",
+    "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
+    "trinity-river-trammell-crow-loop-12",
+    "rio-grande-lajitas-santa-elena-canyon",
+    "big-fork-river-highway-1-highway-6-south",
+    "vermilion-river-eightmile-county-road-24",
+    "tyler-forks-hwy-77-vogues-road",
+    "brule-river-gunflint-trail-northern-light",
+    "brule-river-lima-grade-northern-light",
+    "brule-river-sauna-bath-highway-61",
+    "big-sucker-creek-county-33-lake-superior",
+    "pigeon-river-partridge-falls-old-highway-61",
+    "pigeon-river-old-highway-61-highway-61",
+    "devil-track-river-maple-hill-lake-superior",
+    "cascade-river-grade-cascade-road",
+    "kadunce-river-sht-highway-61",
+    "poplar-river-lutsen-seventh-bridge",
+    "baptism-river-eckbeck-river-mouth",
+    "beaver-river-lax-lake-highway-61",
+    "blacklick-creek-route-259-saylor-park",
+    "slippery-rock-creek-eckert-harris"
+  ],
+  "validation": {
+    "crossStatePublicationTest": "route-publication.test.ts verifies zero Class IV+ routes in the scored inventory",
+    "routeDataAudit": "pass; all scored and planning populations satisfy the existing route-data audit, with remaining planning issues tracked separately",
+    "safetyAudit": "pass; 0 structural safety findings in the scored catalog"
+  }
+}

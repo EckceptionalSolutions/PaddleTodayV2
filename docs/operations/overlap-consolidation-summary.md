@@ -2,9 +2,16 @@
 
 Latest bounded audit: `npm run routes:audit:overlap`
 
-- 782 route spans reviewed
-- 2,265 findings: 179 access-chain containment, 258 contained connectors, 127 crossing segments, 631 near-collinear overlaps, and 1,070 shared endpoints
+- 1,115 route spans reviewed
+- 3,635 findings: 179 access-chain containment, 312 contained connectors, 468 crossing segments, 901 near-collinear overlaps, and 1,775 shared endpoints
+- The deduplicated review queue contains 40 bounded items; none are currently classified as `probable_duplicate`.
 - Findings are review signals, not deletion instructions.
+
+## 2026-09-05 Catalog quality and deduplication audit
+
+The route inventory now has 2,166 route cards. Every card has a reviewed structured safety profile, explicit camping text and classification, and a non-placeholder gallery preview. The 12 previously uncovered North Dakota and Oklahoma cards now use rights-cleared USGS context images labeled as regional context rather than endpoint or current-conditions photography; the remaining state fallbacks likewise retain that disclosure in their captions.
+
+The overlap run produced no exact duplicate or reversed-endpoint queue items. The high-priority queue is therefore treated as consolidation review, not automatic deduplication: access-chain containment and near-collinear findings represent selectable endpoint variants, composite reaches, or geometry checks. Preserve route-specific gauges, thresholds, hazards, camping posture, access legality, and shuttle logistics until an independent verifier approves a family model. No route was deleted, merged, retired, or silently rewritten in this audit.
 
 ## 2026-09-03 Follow-up: Maryland Potomac/Conococheague candidate — rejected as one umbrella family
 
@@ -115,3 +122,11 @@ The four-card signal separates into a verified three-card Susquehanna access cor
 The registry records `ny-susquehanna-otego-bainbridge` as a verified family membership. The cross-card access order and handoff edges are recorded in the review ledger and task evidence because the corridor validator requires segment-edge access IDs to coexist on one canonical route. This is a selectable access-chain model, not a single condition profile: Otego-to-Unadilla is planning-only with a direct Unadilla-area USGS 01500500 context and no separate numeric cutoff; Unadilla-to-Sidney is planning-only with the parent 300–6,000 cfs planning range; Sidney-to-Bainbridge is scored against direct USGS 01502632 stage guidance of 3–4 ft generally optimal, below 2.1 ft too low, above 5 ft very fast, and above 8 ft off water. The cards also retain distinct distances (about 9, 6.75, and 3.25 miles), camping posture (none versus General Clinton endpoint campground), hazards, access caveats, shuttle commitments, and hard handoff boundaries.
 
 The Rockdale-to-Sidney card remains outside the family. It is an 8-mile Unadilla River reach using direct USGS 01502500 and a separate 150–3,000 cfs planning band, ending at a confluence-area landing rather than the named Sidney Susquehanna hand launch. The crossing signal is therefore a localized confluence/geometry relationship, not permission to combine waterbodies, gauges, thresholds, or access rights. Coordinate audits retain expected `ok`/`review` advisories (including 193 ft Otego/Unadilla and 230 ft Sidney named-flowline offsets) with authoritative NYSDEC water-entry matches; no coordinate was changed. All four route cards, trip details, geometries, evidence, hazards, and logistics remain published and distinct.
+
+## Georgia · Chattahoochee public-launch family
+
+The 77-card Georgia queue candidate is approved as an existing condition-family model, not as a route merge. The registry entry `ga-chattahoochee-public-launch-chain` remains the discovery/condition boundary with no segment edges. Every directional endpoint-pair card remains selectable and published; the two separate statewide Chattahoochee cards for the GA 115 / Duncan Bridge reach and Columbus Whitewater Park are outside this queue candidate.
+
+Independent checks found 77 unique directional endpoint pairs, direct USGS discharge context across five retained stations, route-specific threshold profiles, nearby-basecamp camping posture, distinct distance/time/shuttle commitments, and preserved access, safety, camping, overlap, and hazard evidence. The route cards retain dam-release, strainer, fast-rise, cold-water, urban-water-quality, and private-bank cautions rather than flattening them into a family default. NPS launch and flow material corroborates the managed public-launch sequence and release-sensitive operating model.
+
+The focused Georgia expansion test passed. Route overlap, route inventory, canonical geometry, coordinate, and safety audits also ran; the selected Chattahoochee family has no coordinate-audit failure or suspicious endpoint finding. The full `npm run operations:verify` run passed the production build, typechecks, route/geometry/safety/scoring/gallery gates, and independent gate tests, but its workspace test gate remains blocked by unrelated current-worktree failures in Grand Marais (4), New York (1), and operations snapshot tests (3). No route record, trip detail, geometry, corridor definition, or coordinate was deleted, merged, retired, or silently rewritten.

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-02T11:12:33.833Z",
+  "generatedAt": "2026-09-05T23:14:16.514Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 1621,
+    "routesReviewed": 2166,
     "findings": 1095,
-    "high": 20
+    "high": 16
   },
   "findings": [
     {
@@ -322,7 +322,7 @@
     {
       "slug": "big-fork-river-johnson-big-falls-east",
       "state": "Minnesota",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -572,7 +572,7 @@
     {
       "slug": "wolf-river-markton-big-smokey-falls",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -582,7 +582,7 @@
     {
       "slug": "red-river-weed-dam-zeimers-falls",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -1905,7 +1905,7 @@
     {
       "slug": "peshtigo-river-roaring-rapids",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -2494,7 +2494,7 @@
     {
       "slug": "menominee-river-piers-gorge",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -2524,7 +2524,7 @@
     {
       "slug": "jump-south-fork-little-falls-big-falls",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -4190,7 +4190,7 @@
     {
       "slug": "south-fork-ogden-river-willows-magpie",
       "state": "Utah",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5132,7 +5132,7 @@
     {
       "slug": "cossatot-river-ed-banks-highway-278",
       "state": "Arkansas",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5192,7 +5192,7 @@
     {
       "slug": "big-south-fork-burnt-mill-leatherwood",
       "state": "Tennessee",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5242,7 +5242,7 @@
     {
       "slug": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
       "state": "Pennsylvania",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -5535,11 +5535,10 @@
       "state": "Pennsylvania",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "susquehanna-river-wrays-shikellamy-west",
@@ -6423,7 +6422,7 @@
     {
       "slug": "trinity-river-trammell-crow-loop-12",
       "state": "Texas",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -6443,7 +6442,7 @@
     {
       "slug": "rio-grande-lajitas-santa-elena-canyon",
       "state": "Texas",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -6837,11 +6836,10 @@
       "state": "Pennsylvania",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "conodoguinet-creek-vincent-difilippo-good-hope",
@@ -6858,11 +6856,10 @@
       "state": "Pennsylvania",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "conodoguinet-creek-good-hope-acri-meadow",
@@ -6879,11 +6876,10 @@
       "state": "Pennsylvania",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wabash-river-linn-grove-white-bridge",
@@ -7761,7 +7757,7 @@
     {
       "slug": "big-fork-river-highway-1-highway-6-south",
       "state": "Minnesota",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -8581,7 +8577,7 @@
     {
       "slug": "tyler-forks-hwy-77-vogues-road",
       "state": "Wisconsin",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -10281,7 +10277,7 @@
     {
       "slug": "brule-river-sauna-bath-highway-61",
       "state": "Minnesota",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -10339,7 +10335,7 @@
     {
       "slug": "pigeon-river-old-highway-61-highway-61",
       "state": "Minnesota",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
@@ -10851,7 +10847,7 @@
     {
       "slug": "slippery-rock-creek-eckert-harris",
       "state": "Pennsylvania",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"

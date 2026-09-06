@@ -79,6 +79,37 @@ const officialNamedRouteAliases: Record<string, string[]> = {
 // available; do not silently substitute a nearby creek, canal prism, or lake
 // geometry.
 const officialCuratedRouteCoordinates: Record<string, Point[]> = {
+  // Hammocks Beach has no named NHD flowline for the marked barrier-island
+  // paddle trail. The official NC Coastal Plain Paddle Trails GIS supplies the
+  // mapped trail vertices; retain a reviewed simplified loop anchored at the
+  // designated state-park access instead of substituting White Oak River.
+  'hammocks-beach-huggins-island-loop': [
+    [-77.1429, 34.671], [-77.1380035269, 34.6701823081], [-77.1289448214, 34.6459295946],
+    [-77.1401172636, 34.6399901604], [-77.1281412803, 34.6368274144], [-77.1429, 34.671],
+  ],
+  // The lower North Fork Coeur d'Alene route has a long, highly detailed
+  // NHD trace. Retain a reviewed centerline sample so this access-anchored
+  // planning card stays within the manifest's bounded geometry payload while
+  // preserving the documented river corridor and both bridge endpoints.
+  'north-fork-coeur-dalene-babins-little-north': [
+    [-116.031192, 47.652308], [-116.031651, 47.66296], [-116.038992, 47.668939],
+    [-116.052367, 47.66628], [-116.056017, 47.661523], [-116.058906, 47.657215],
+    [-116.071765, 47.652775], [-116.088486, 47.654395], [-116.103065, 47.647849],
+    [-116.120784, 47.65194], [-116.130064, 47.652901], [-116.146811, 47.660682],
+    [-116.163384, 47.660153], [-116.179169, 47.650043], [-116.187843, 47.64275],
+    [-116.190463, 47.635803], [-116.192302, 47.630271], [-116.196503, 47.62421],
+    [-116.207337, 47.619126], [-116.225097, 47.615192], [-116.239143, 47.612405],
+    [-116.241461237074, 47.6104969782706],
+  ],
+  'little-north-fork-coeur-dalene-laverne-mouth': [
+    [-116.377320439847, 47.7069524577705], [-116.381651, 47.695586], [-116.371426, 47.68959],
+    [-116.366314, 47.679323], [-116.365972, 47.670253], [-116.369582, 47.659731],
+    [-116.362155, 47.653625], [-116.359574, 47.645048], [-116.362375, 47.634366],
+    [-116.350297, 47.623565], [-116.335545, 47.620167], [-116.323485, 47.629123],
+    [-116.300318, 47.630456], [-116.282442, 47.630755], [-116.269064, 47.619602],
+    [-116.242445, 47.610708], [-116.253092, 47.589648], [-116.25468, 47.576762],
+    [-116.258152, 47.558817], [-116.25665199958, 47.5580135115483],
+  ],
   'string-leigh-lakes-portage-loop': [
     [-110.726148, 43.784981], [-110.7242, 43.7910], [-110.7274, 43.7982],
     [-110.7338, 43.8046], [-110.7371, 43.8067], [-110.7350, 43.8120],
@@ -2108,7 +2139,12 @@ async function main() {
         riverId: route.riverId,
         name: route.name,
         state: route.state,
-        source: route.id === 'james-river-pony-pasture-reedy-creek'
+        source: route.id === 'hammocks-beach-huggins-island-loop'
+          ? 'North Carolina Coastal Plain Paddle Trails GIS mapped trail vertices with Hammocks Beach State Park access anchor'
+          : route.id === 'north-fork-coeur-dalene-babins-little-north'
+          || route.id === 'little-north-fork-coeur-dalene-laverne-mouth'
+          ? 'Reviewed USGS NHD Flowline centerline sample with American Whitewater access anchors'
+          : route.id === 'james-river-pony-pasture-reedy-creek'
           ? 'American Whitewater reach geometry assembled from named NHD channel segments and documented access anchors'
           : 'Curated public-agency and American Whitewater access anchors with route-specific river trace pending named NHD coverage',
         traceMode: 'curated-access-fallback',
@@ -2242,6 +2278,22 @@ async function main() {
   }
   features.push(...curatedFeatures);
   features.sort((left, right) => left.properties.routeId.localeCompare(right.properties.routeId));
+  if (requestedRouteId && !reviewMode) {
+    const requestedFeature = features.find((feature) => feature.properties.routeId === requestedRouteId);
+    if (!requestedFeature) throw new Error(`No canonical geometry matched requested route ${requestedRouteId}.`);
+    await mkdir(routeOutputDir, { recursive: true });
+    const requestedRouteOutputPath = path.join(routeOutputDir, `${requestedRouteId}.json`);
+    const requestedRouteTemporaryOutputPath = `${requestedRouteOutputPath}.tmp-${process.pid}`;
+    await writeFile(requestedRouteTemporaryOutputPath, `${JSON.stringify(requestedFeature)}\n`, 'utf8');
+    try {
+      await unlink(requestedRouteOutputPath);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    }
+    await rename(requestedRouteTemporaryOutputPath, requestedRouteOutputPath);
+    console.log(`Wrote requested route-scoped geometry asset for ${requestedRouteId}`);
+    return;
+  }
   const matchedRouteIds = new Set(features.map((feature) => feature.properties.routeId));
   const unmatchedRouteIds = outputRoutes.map((route) => route.id).filter((routeId) => !matchedRouteIds.has(routeId));
   const metadata = {
@@ -2267,12 +2319,37 @@ async function main() {
     [...stateGroups.entries()].map(async ([slug, stateFeatures]) => {
       const stateOutputPath = path.join(stateOutputDir, `${slug}.json`);
       const stateTemporaryOutputPath = `${stateOutputPath}.tmp-${process.pid}`;
+      // State bundles are map-serving assets; endpointSnapMaxFeet is a
+      // route-audit diagnostic already retained in every route-scoped file.
+      // Omitting that repeated field keeps the bounded aggregate state bundle
+      // below its audited payload cap without changing route geometry.
+      const stateMapFeatures = stateFeatures.map((feature) => ({
+        ...feature,
+        properties: {
+          ...feature.properties,
+          endpointSnapMaxFeet: undefined,
+        },
+      }));
       await writeFile(
         stateTemporaryOutputPath,
-        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateFeatures })}\n`,
+        `${JSON.stringify({ type: 'FeatureCollection', source: 'USGS NHD Flowline', scope: 'state', state: stateFeatures[0]?.properties.state ?? '', ...metadata, features: stateMapFeatures })}\n`,
         'utf8',
       );
-      await rename(stateTemporaryOutputPath, stateOutputPath);
+      try {
+        await rename(stateTemporaryOutputPath, stateOutputPath);
+      } catch (error) {
+        // A separate Windows process can briefly lock an unrelated state
+        // bundle. Preserve that existing artifact and continue regenerating
+        // unlocked states and route-scoped assets; the audit will still expose
+        // any resulting state-bundle drift.
+        if ((error as NodeJS.ErrnoException).code !== 'EPERM') throw error;
+        console.warn(`Skipped locked state geometry asset ${slug}; existing file preserved.`);
+        try {
+          await unlink(stateTemporaryOutputPath);
+        } catch {
+          // Best-effort cleanup only; the next run can replace this temp file.
+        }
+      }
     }),
   );
 
@@ -2280,7 +2357,14 @@ async function main() {
   await Promise.all(
     (await readdir(routeOutputDir))
       .filter((fileName) => fileName.endsWith('.json') && !expectedRouteFiles.has(fileName))
-      .map((fileName) => unlink(path.join(routeOutputDir, fileName))),
+      .map(async (fileName) => {
+        try {
+          await unlink(path.join(routeOutputDir, fileName));
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== 'EPERM') throw error;
+          console.warn(`Skipped locked stale route geometry asset ${fileName}; existing file preserved.`);
+        }
+      }),
   );
   await Promise.all(
     features.map(async (feature) => {
@@ -2293,7 +2377,17 @@ async function main() {
       try {
         await unlink(routeOutputPath);
       } catch (error) {
-        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+        const code = (error as NodeJS.ErrnoException).code;
+        if (code !== 'ENOENT' && code !== 'EPERM') throw error;
+        if (code === 'EPERM') {
+          console.warn(`Skipped locked route geometry asset ${feature.properties.routeId}; existing file preserved.`);
+          try {
+            await unlink(routeTemporaryOutputPath);
+          } catch {
+            // Best-effort cleanup only; the next run can replace this temp file.
+          }
+          return;
+        }
       }
       await rename(routeTemporaryOutputPath, routeOutputPath);
     }),

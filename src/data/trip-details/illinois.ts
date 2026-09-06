@@ -233,7 +233,7 @@ export const illinoisRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "mississippi-river-piasa-harbor-alton-riverfront": {
     "putIn": {"id": "piasa-harbor-access", "name": "Piasa Harbor public access", "latitude": 38.9370857212856, "longitude": -90.2867113839149},
-    "takeOut": {"id": "alton-riverfront-access", "name": "Alton Riverfront public boat launch", "latitude": 38.8855000354463, "longitude": -90.1759188990604},
+    "takeOut": {"id": "alton-riverfront-access", "name": "Alton Riverfront public boat launch", "latitude": 38.88422, "longitude": -90.17444},
     "logistics": {
       "distanceLabel": "About 7 mi",
       "estimatedPaddleTime": "About 3–5 hr depending on wind, current, stops, and traffic",
