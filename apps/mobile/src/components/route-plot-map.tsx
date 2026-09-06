@@ -779,23 +779,31 @@ const styles = StyleSheet.create({
   // Android captures custom markers into a bitmap. A fixed root frame avoids
   // reusing a narrow dot snapshot when a wider score badge appears.
   nativeMarkerFrame: {
-    width: 48, height: 48, alignItems: 'center', justifyContent: 'center',
+    // Keep the native marker's Yoga box larger than the badge so Android's
+    // Google Maps bitmap snapshot always has room for the full circle.
+    width: 56,
+    height: 56,
+    flexShrink: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'visible',
   },
   nativeMarker: {
+    flexShrink: 0,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
   },
   nativeScoreMarker: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
   nativeDotMarker: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
   },
   nativeMarkerSelected: {
     borderColor: colors.surfaceStrong,

@@ -83,7 +83,7 @@ check('React Native Maps iOS subview insertion fix is installed', () =>
 check('React Native Maps Android marker clipping fix is installed', () =>
   fileIncludes(
     join(root, 'node_modules/react-native-maps/android/src/main/java/com/rnmaps/maps/MapMarker.java'),
-    ['expandSnapshotSizeFromSubtree', 'width = maxWh[0]', 'height = maxWh[1]']
+    ['expandSnapshotSizeFromSubtree', 'width = maxWh[0]', 'height = maxWh[1]', 'setClipChildren(false)', 'protected void onLayout']
   )
 );
 
