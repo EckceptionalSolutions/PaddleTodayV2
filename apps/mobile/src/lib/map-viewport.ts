@@ -78,3 +78,41 @@ function normalizeLongitude(longitude: number) {
 function longitudeNear(longitude: number, center: number) {
   return center + normalizeLongitude(longitude - center);
 }
+
+// Score placement is recalculated only after the camera settles. Keep route
+// identities and coordinates intact; a collision changes only badge vs dot.
+export function mapScoreLayout(
+  points: RoutePlotPoint[], region: MapViewport, width: number, height: number, selectedId?: string | null,
+) {
+  const scoreIds = new Set<string>();
+  if (![region.latitude, region.longitude, region.latitudeDelta, region.longitudeDelta, width, height].every(Number.isFinite)
+    || region.latitudeDelta <= 0 || region.longitudeDelta <= 0 || width <= 0 || height <= 0) {
+    return { points: [] as RoutePlotPoint[], scoreIds };
+  }
+  const visible = points.filter((point) => Number.isFinite(point.latitude) && Number.isFinite(point.longitude)
+    && Math.abs(point.latitude - region.latitude) <= region.latitudeDelta * 0.7
+    && Math.abs(longitudeNear(point.longitude, region.longitude) - region.longitude) <= region.longitudeDelta * 0.7);
+  const mercator = (latitude: number) => Math.log(Math.tan(Math.PI / 4 + Math.max(-85, Math.min(85, latitude)) * Math.PI / 360));
+  const north = mercator(region.latitude + region.latitudeDelta / 2);
+  const south = mercator(region.latitude - region.latitudeDelta / 2);
+  const cells = new Map<string, Array<{ x: number; y: number }>>();
+  const spacing = 44; // 36px badge, selected border, and breathing room.
+  const ordered = [...visible].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId) || a.id.localeCompare(b.id));
+  for (const point of ordered) {
+    const x = (0.5 + (longitudeNear(point.longitude, region.longitude) - region.longitude) / region.longitudeDelta) * width;
+    const y = (north - mercator(point.latitude)) / Math.max(north - south, 0.000001) * height;
+    const cx = Math.floor(x / spacing);
+    const cy = Math.floor(y / spacing);
+    let overlaps = false;
+    for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) {
+      if (cells.get(`${cx + dx}:${cy + dy}`)?.some((other) => Math.abs(x - other.x) < spacing && Math.abs(y - other.y) < spacing)) overlaps = true;
+    }
+    if (overlaps) continue;
+    scoreIds.add(point.id);
+    const key = `${cx}:${cy}`;
+    const cell = cells.get(key) ?? [];
+    cell.push({ x, y });
+    cells.set(key, cell);
+  }
+  return { points: visible, scoreIds };
+}

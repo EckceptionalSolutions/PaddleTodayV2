@@ -17,7 +17,7 @@ try {
     });
     const page = await context.newPage();
     await page.goto(new URL('/explore', baseUrl).href);
-    const markers = page.getByRole('button', { name: /, score \d+, \d+ routes?$/ });
+    const markers = page.getByRole('button', { name: /, score \d+$/ });
     await markers.nth(1).waitFor();
     await expect(page.getByRole('button', { name: 'Center selected route', exact: true })).toHaveCount(0);
     const first = markers.nth(0);

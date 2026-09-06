@@ -134,9 +134,9 @@ export function ExploreRouteDrawer({
             style={({ pressed }) => [styles.mapPreviewOpenButton, pressed ? { opacity: 0.75 } : null]}
             onPress={onOpenRoute}
             accessibilityRole="button"
-            accessibilityLabel={`${routeCount > 1 ? 'Open best route' : 'Open route'}: ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
+            accessibilityLabel={`Open route: ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
           >
-            <Text style={styles.mapPreviewOpenText} numberOfLines={1}>{routeCount > 1 ? 'Open best route' : 'Open route'}</Text>
+            <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
           </Pressable>
           <Pressable
             style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
