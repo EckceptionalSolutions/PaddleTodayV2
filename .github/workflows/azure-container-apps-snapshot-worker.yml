@@ -9,6 +9,9 @@ on:
       - 'packages/**'
       - 'package.json'
       - 'package-lock.json'
+      - 'scripts/deployment-config.mjs'
+      - 'scripts/lib/deployment-config.mjs'
+      - 'scripts/snapshot-worker-validate.sh'
       - 'infra/azure/container-apps-platform.bicep'
       - 'infra/azure/container-apps-job.bicep'
       - 'infra/azure/snapshot-worker/**'
@@ -28,10 +31,22 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+
+      - name: Check deployment configuration
+        env:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+        run: node scripts/deployment-config.mjs snapshot
 
       - name: Azure login
         uses: azure/login@v2
@@ -39,8 +54,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Provision Container Apps platform
-        env:
-          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
         run: |
           az deployment group create \
             --resource-group "$AZURE_RESOURCE_GROUP" \
@@ -49,6 +62,12 @@ jobs:
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
             --output none
+
+      - name: Validate job and monitoring permissions before building
+        env:
+          SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+          SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
+        run: bash scripts/snapshot-worker-validate.sh
 
       - name: Build worker image in Azure Container Registry
         run: |

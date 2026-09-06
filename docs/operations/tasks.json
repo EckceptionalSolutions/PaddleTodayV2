@@ -76319,7 +76319,7 @@
     {
       "id": "nc-state-coverage-gauge-review-batch-02094500",
       "title": "Review the eighteenth North Carolina provider-baseline gauge window",
-      "lane": "in_progress",
+      "lane": "blocked",
       "kind": "state_coverage",
       "owner": "gauge-coverage",
       "priority": "critical",
@@ -76346,7 +76346,16 @@
       "status": "completed",
       "nextGaugePointer": "usgs:02095181",
       "lastRunId": "route-worker-current-continuation-202609100950-nc-02094500-02095000-no-add",
-      "updatedAt": "2026-09-10T09:30:00Z"
+      "updatedAt": "2026-09-10T09:30:00Z",
+      "retryCondition": "Verify the future-dated September 10 completion record and authoritative current North Carolina gauge pointer. Reconcile status and lane explicitly before scheduling this historical window again.",
+      "metadata": {
+        "workflowReconciliation": {
+          "at": "2026-09-06T13:38:18.404Z",
+          "reason": "The record declares completed with passed validation and a linked run, but retains ready lane and future-dated completion evidence. Quarantined to prevent duplicate scheduling without endorsing those dates.",
+          "previousLane": "ready",
+          "sourceRunId": "route-worker-current-continuation-202609100950-nc-02094500-02095000-no-add"
+        }
+      }
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02095181",
@@ -76367,7 +76376,8 @@
       "nextGaugePointer": "usgs:02096960",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609101250-nc-02095181-02096846-no-add",
-      "updatedAt": "2026-09-10T12:30:00Z"
+      "updatedAt": "2026-09-10T12:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02096960",
@@ -76388,7 +76398,8 @@
       "nextGaugePointer": "usgs:0209734440",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609101550-nc-02096960-02097314-no-add",
-      "updatedAt": "2026-09-10T15:30:00Z"
+      "updatedAt": "2026-09-10T15:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-0209734440",
@@ -76409,7 +76420,8 @@
       "nextGaugePointer": "usgs:02097464",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609101850-nc-0209734440-0209741955-no-add",
-      "updatedAt": "2026-09-10T18:30:00Z"
+      "updatedAt": "2026-09-10T18:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02097464",
@@ -76430,7 +76442,8 @@
       "nextGaugePointer": "usgs:02100500",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609102150-nc-02097464-02099000-no-add",
-      "updatedAt": "2026-09-10T21:30:00Z"
+      "updatedAt": "2026-09-10T21:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02100500",
@@ -76451,7 +76464,8 @@
       "nextGaugePointer": "usgs:02102192",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609110050-nc-02100500-02102000-no-add",
-      "updatedAt": "2026-09-11T00:30:00Z"
+      "updatedAt": "2026-09-11T00:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02102192",
@@ -76472,7 +76486,8 @@
       "nextGaugePointer": "usgs:0210307850",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609110350-nc-02102192-02103000-no-add",
-      "updatedAt": "2026-09-11T03:30:00Z"
+      "updatedAt": "2026-09-11T03:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-0210307850",
@@ -76493,7 +76508,8 @@
       "nextGaugePointer": "usgs:0210398250",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202609110650-nc-0210307850-0210382325-no-add",
-      "updatedAt": "2026-09-11T06:30:00Z"
+      "updatedAt": "2026-09-11T06:30:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-0210398250",
@@ -76635,7 +76651,8 @@
       "nextGaugePointer": "usgs:02116500",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202608292355-nc-02111500-02115360-no-add",
-      "updatedAt": "2026-08-29T23:00:00Z"
+      "updatedAt": "2026-08-29T23:00:00Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02116500",
@@ -76656,7 +76673,8 @@
       "nextGaugePointer": "usgs:02123500",
       "validationStatus": "passed",
       "lastRunId": "route-worker-current-continuation-202608292325-nc-02116500-02121500",
-      "updatedAt": "2026-08-29T23:21:46Z"
+      "updatedAt": "2026-08-29T23:21:46Z",
+      "lane": "completed"
     },
     {
       "id": "nc-state-coverage-gauge-review-batch-02123500",

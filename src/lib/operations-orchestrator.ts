@@ -141,7 +141,7 @@ export function selectNextWorkOrder(tasks: OperationsTask[]): WorkOrder | null {
           ? 'demand-triage'
           : task.kind === 'route_implementation'
             ? 'route-implementation'
-          : task.kind === 'consolidation_review'
+          : task.kind === 'consolidation_review' || task.kind === 'safety_review'
             ? 'independent-verifier'
           : 'route-research';
 

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-05T23:14:16.514Z",
+  "generatedAt": "2026-09-06T16:41:36.477Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
     "routesReviewed": 2166,
     "findings": 1095,
-    "high": 16
+    "high": 0
   },
   "findings": [
     {
@@ -3406,44 +3406,40 @@
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "current-river-waymeyer-cataract",
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "current-river-van-buren-gooseneck",
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "current-river-waymeyer-gooseneck",
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "eleven-point-river-cane-bluff-greer-crossing",
@@ -3750,22 +3746,20 @@
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "big-piney-river-slabtown-ross",
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "big-piney-river-dogs-bluff-mineral-springs",
@@ -3802,22 +3796,20 @@
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "james-river-hl-kerr-ralph-cox",
       "state": "Missouri",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "gasconade-river-rollins-ferry-pointers-creek",
@@ -4312,22 +4304,20 @@
       "state": "Kentucky",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "floyds-fork-creekside-cane-run",
       "state": "Kentucky",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "floyds-fork-creekside-seaton-valley",
@@ -5344,11 +5334,10 @@
       "state": "North Dakota",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "lehigh-river-white-haven-rockport",
@@ -6804,22 +6793,20 @@
       "state": "Kentucky",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "south-fork-kentucky-river-rocky-branch-kay-wood",
       "state": "Kentucky",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "conodoguinet-creek-willow-mill-vincent-difilippo",
@@ -6886,22 +6873,20 @@
       "state": "Indiana",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wabash-river-vera-cruz-kehoe-park",
       "state": "Indiana",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "wabash-river-vera-cruz-hale-street",
@@ -6918,11 +6903,10 @@
       "state": "Indiana",
       "scored": true,
       "issues": [
-        "safety-review-needed",
         "camping-status-missing",
         "endpoint-package-incomplete"
       ],
-      "severity": "high"
+      "severity": "medium"
     },
     {
       "slug": "west-fork-white-river-barlow-mcculloch",

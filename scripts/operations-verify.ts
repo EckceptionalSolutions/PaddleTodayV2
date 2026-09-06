@@ -44,11 +44,13 @@ if (!safetyAudit) {
 }
 evidence.verification = { passed: run('operations:gates:test', []), detail: 'Independent gate tests completed.' };
 const testChecks: Array<[string, string]> = [
+  ['task board schema', 'operations:tasks:check'],
   ['typecheck', 'typecheck'],
   ['scoring sensitivity', 'scoring:sensitivity:check'],
   ['snapshot capacity', 'snapshots:capacity'],
   ['workspace tests', 'test:workspaces'],
-  ['production build', 'build'],
+  // Type checking already ran above; keep the standalone build command unchanged.
+  ['production build', 'build:app'],
 ];
 const testResults = testChecks.map(([label, command]) => ({ label, passed: run(command, []) }));
 evidence.tests = {

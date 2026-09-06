@@ -76,6 +76,27 @@ npm run test
 
 Run `npm run api` in one terminal and `npm run dev` in another during local development. The Astro dev server proxies `/api` to the local backend on port `4322`.
 
+For one-command local startup, use `npm run dev:all`. It reuses matching healthy
+servers or starts a local API and Astro frontend, prints the selected URL, and
+writes logs for its child services to `.local/dev/`. Stop with Ctrl+C; servers that
+were already running are left alone. Run `npm run doctor` to check the environment
+without installing dependencies or stopping anything. See the
+[local development guide](docs/local-development.md) for ports and startup checks.
+
+For a complete test and production-build pass, run `npm run verify`. It runs the
+existing test checks followed by `build:app`, so type checking runs once. Standalone
+`npm test` and `npm run build` retain their existing checks. Use
+`npm run operations:verify` when evidence, safety, and rollback gates are also required.
+
+Run `npm run operations:brief` for an actionable operations summary. It reads local
+reports and recent GitHub Actions runs using the authenticated `gh` CLI, writes
+`.local/operations/daily-brief.md` and `.json`, and remembers task lanes for the next
+comparison. It flags stale or missing evidence, repeated no-work runs, and CI
+failures. It does not refresh sources or modify route data or the shared task board.
+See [the workflow runbook](docs/operations/workflow-runbook.md) for scheduled reporting.
+Run `npm run operations:ci:triage` for the latest CI failure diagnosis; see
+[deployment checks and recovery](docs/operations/deployment-workflow.md).
+
 For a one-origin preview of the built app, run `npm run preview`. That serves the built `dist/` files and the `/api` endpoints from the same Node process on `4321`.
 
 If the Astro dev server is already using `4321`, run `npm run preview:local` instead. That serves the same one-origin runtime on `4323`.

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T23:24:32.316Z",
+  "updatedAt": "2026-09-06T13:03:16.145Z",
   "runs": [
     {
       "id": "route-research-current-continuation-202609030535-co-usgs-09073005-screened-out",
@@ -42171,8 +42171,8 @@
     {
       "id": "gatekeeper-20260811091204",
       "kind": "gatekeeper_verification",
-      "startedAt": "2026-08-11T09:11:14.553Z",
-      "completedAt": "2026-08-11T09:12:04.884Z",
+      "startedAt": "2026-08-11T09:07:16.119Z",
+      "completedAt": "2026-08-11T09:07:48.89Z",
       "status": "passed",
       "summary": "All required merge gates passed.",
       "gates": [
@@ -85049,10 +85049,10 @@
     {
       "id": "gatekeeper-20260820105037",
       "kind": "gatekeeper_verification",
-      "startedAt": "2026-08-20T10:50:04.396Z",
-      "completedAt": "2026-08-20T10:50:37.361Z",
-      "status": "failed",
-      "summary": "One or more required merge gates failed.",
+      "startedAt": "2026-08-20T10:49:44.646Z",
+      "completedAt": "2026-08-20T10:50:37.123Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
       "gates": [
         {
           "id": "evidence",
@@ -85071,7 +85071,7 @@
         },
         {
           "id": "tests",
-          "passed": false,
+          "passed": true,
           "detail": "Full typecheck and production build completed."
         },
         {
@@ -90873,10 +90873,10 @@
     {
       "id": "gatekeeper-20260820222719",
       "kind": "gatekeeper_verification",
-      "startedAt": "2026-08-20T22:26:16Z",
-      "completedAt": "2026-08-20T22:27:19Z",
+      "startedAt": "2026-08-20T22:26:47.08Z",
+      "completedAt": "2026-08-20T22:27:19.599Z",
       "status": "passed",
-      "summary": "Post-planner operations verification passed after final task-board reconciliation.",
+      "summary": "All required merge gates passed.",
       "gates": [
         {
           "id": "evidence",
@@ -90891,7 +90891,7 @@
         {
           "id": "verification",
           "passed": true,
-          "detail": "Independent operations gate tests completed."
+          "detail": "Independent gate tests completed."
         },
         {
           "id": "tests",
@@ -121333,18 +121333,14 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-22T22:15:00Z",
       "status": "planned",
-      "taskId": "oh-gauge-review-batch-23",
-      "workerRole": "gauge-coverage",
-      "stateId": "OH",
+      "taskId": "route-opportunity-sd-usgs-06479525",
+      "workerRole": "route-research",
+      "stateId": "SD",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:03159540",
-        "usgs:03202000",
-        "usgs:03205470",
-        "usgs:03216070",
-        "usgs:03217200"
+        "usgs:06479525"
       ],
-      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+      "summary": "Advanced the bounded route-opportunity queue to South Dakota USGS 06479525 after closing the Old Mans Creek no-add review."
     },
     {
       "id": "orchestrator-20260821220447",
@@ -131032,18 +131028,18 @@
     {
       "id": "orchestrator-20260822011500",
       "kind": "orchestrator_plan",
-      "startedAt": "2026-08-22T01:15:00.627Z",
+      "startedAt": "2026-08-22T01:15:00Z",
       "status": "planned",
-      "taskId": "tn-gauge-review-batch-19",
+      "taskId": "ks-gauge-review-batch-28",
       "workerRole": "gauge-coverage",
-      "stateId": "TN",
+      "stateId": "KS",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:03584045",
-        "usgs:03584600",
-        "usgs:03588500",
-        "usgs:03593800",
-        "usgs:03596000"
+        "usgs:07143310",
+        "usgs:07143330",
+        "usgs:07143375",
+        "usgs:07143665",
+        "usgs:07143672"
       ],
       "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
@@ -155145,14 +155141,18 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-22T19:30:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-wi-usgs-05341498",
-      "workerRole": "route-research",
-      "stateId": "WI",
+      "taskId": "oh-gauge-review-batch-12",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05341498"
+        "usgs:03126395",
+        "usgs:03126910",
+        "usgs:03127000",
+        "usgs:03127980",
+        "usgs:03127986"
       ],
-      "summary": "Advanced the bounded route-opportunity queue to Wisconsin Apple River at Somerset after closing the Bruce no-add review."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260822183430",
@@ -155234,14 +155234,18 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-22T20:15:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-nd-usgs-05114000",
-      "workerRole": "route-research",
-      "stateId": "ND",
+      "taskId": "oh-gauge-review-batch-15",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05114000"
+        "usgs:03135000",
+        "usgs:03136500",
+        "usgs:03138500",
+        "usgs:03139000",
+        "usgs:03139850"
       ],
-      "summary": "Advanced the bounded route-opportunity queue to North Dakota Souris River near Sherwood after closing the Apple River no-add review."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260822183626",
@@ -155323,14 +155327,18 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-22T21:15:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-ia-usgs-05455100",
-      "workerRole": "route-research",
-      "stateId": "IA",
+      "taskId": "oh-gauge-review-batch-19",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05455100"
+        "usgs:03145173",
+        "usgs:03145483",
+        "usgs:03145534",
+        "usgs:03146000",
+        "usgs:03146277"
       ],
-      "summary": "Advanced the bounded route-opportunity queue to Iowa USGS 05455100 after closing the Sherwood no-add review."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260822183735",
@@ -155426,14 +155434,18 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-23T00:15:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-wi-usgs-05341495",
-      "workerRole": "route-research",
-      "stateId": "WI",
+      "taskId": "oh-gauge-review-batch-31",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:05341495"
+        "usgs:03234000",
+        "usgs:03234300",
+        "usgs:03234500",
+        "usgs:03237020",
+        "usgs:03237280"
       ],
-      "summary": "Advanced the bounded route-opportunity queue after closing the Castlewood stale/no-add review."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260822184158",
@@ -155515,14 +155527,18 @@
       "kind": "orchestrator_plan",
       "startedAt": "2026-08-23T01:15:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-ne-usgs-06790500",
-      "workerRole": "route-research",
-      "stateId": "NE",
+      "taskId": "oh-gauge-review-batch-35",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:06790500"
+        "usgs:03259000",
+        "usgs:03260706",
+        "usgs:03261500",
+        "usgs:03261950",
+        "usgs:03262000"
       ],
-      "summary": "Advanced the bounded route-opportunity queue after closing the White Breast Creek stale/no-add review."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260822184320",
@@ -175923,16 +175939,20 @@
     {
       "id": "orchestrator-20260823041500",
       "kind": "orchestrator_plan",
-      "startedAt": "2026-08-23T04:15:00.347Z",
+      "startedAt": "2026-08-23T04:15:00Z",
       "status": "planned",
-      "taskId": "route-opportunity-mi-usgs-04174040",
-      "workerRole": "route-research",
-      "stateId": "MI",
+      "taskId": "oh-gauge-review-batch-47",
+      "workerRole": "gauge-coverage",
+      "stateId": "OH",
       "inventoryId": "provider-baseline-2026-08-14",
       "gaugeKeys": [
-        "usgs:04174040"
+        "usgs:04195820",
+        "usgs:04196000",
+        "usgs:04196500",
+        "usgs:04196800",
+        "usgs:04197100"
       ],
-      "summary": "medium priority route_research task selected from the ready lane; WIP policy permits assignment."
+      "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
     },
     {
       "id": "orchestrator-20260823041630",
@@ -211544,17 +211564,7 @@
       "gaugeKeys": [
         "usgs:03353800"
       ],
-      "checks": {
-        "evidence": "passed",
-        "safety": "passed",
-        "duplicate": "passed",
-        "independent_verification": "passed",
-        "tests_typecheck_build": "passed",
-        "rollback": "passed"
-      },
-      "disposition": "blocked",
-      "routesAdded": 0,
-      "summary": "White Lick Creek near Mooresville retained as a blocked route candidate: a distinct 15.4-mile reach is plausible, but authoritative endpoint/access, threshold, safety, logistics, imagery, and overlap evidence remain incomplete."
+      "summary": "Blocked candidate: American Whitewater identifies a 15.4-mile White Lick Creek reach tied to the Mooresville gauge, but authoritative endpoints/legal access, threshold calibration, and safety/logistics evidence remain incomplete."
     },
     {
       "id": "independent-verifier-20260823190200-in-03353800-blocked",
@@ -211569,13 +211579,7 @@
       "gaugeKeys": [
         "usgs:03353800"
       ],
-      "checks": {
-        "evidence": "passed",
-        "safety": "passed",
-        "duplicate": "passed",
-        "independent_verification": "passed"
-      },
-      "summary": "Verified that the candidate remains visible and no route should be added until the listed evidence gaps are cleared."
+      "summary": "Verified USGS Mooresville station identity/live data and the American Whitewater reach lead; endpoint authority, legal access, threshold, and current hazards remain unverified."
     },
     {
       "id": "gatekeeper-20260823190400-in-03353800-blocked",
@@ -211598,7 +211602,7 @@
         "tests_typecheck_build": "passed",
         "rollback": "passed"
       },
-      "summary": "Gate passed for a blocked/no-add disposition; implementation was correctly withheld."
+      "summary": "Implementation blocked; route remains visible but cannot be promoted until authoritative endpoint, legal-access, threshold, safety, logistics, image, and overlap gates pass."
     },
     {
       "id": "route-worker-20260823212000-in-03333700-blocked",
@@ -308414,8 +308418,8 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
-    }
-    ,{
+    },
+    {
       "id": "independent-verifier-20260906003235-ga-71878511407b",
       "kind": "consolidation_review",
       "role": "independent-verifier",
@@ -308454,11 +308458,31 @@
       "validation": {
         "corridorModelRecorded": true,
         "gates": [
-          {"id":"evidence","passed":true,"detail":"Georgia route and official NPS/USGS evidence recorded."},
-          {"id":"safety","passed":true,"detail":"Route safety audit passed with zero issues."},
-          {"id":"verification","passed":true,"detail":"Focused Georgia test and independent checks passed."},
-          {"id":"tests","passed":false,"detail":"Workspace tests failed in unrelated Grand Marais (4), New York (1), and operations snapshot (3) tests; production build and typechecks passed."},
-          {"id":"rollback","passed":true,"detail":"No route data changed; bounded revert path recorded."}
+          {
+            "id": "evidence",
+            "passed": true,
+            "detail": "Georgia route and official NPS/USGS evidence recorded."
+          },
+          {
+            "id": "safety",
+            "passed": true,
+            "detail": "Route safety audit passed with zero issues."
+          },
+          {
+            "id": "verification",
+            "passed": true,
+            "detail": "Focused Georgia test and independent checks passed."
+          },
+          {
+            "id": "tests",
+            "passed": false,
+            "detail": "Workspace tests failed in unrelated Grand Marais (4), New York (1), and operations snapshot (3) tests; production build and typechecks passed."
+          },
+          {
+            "id": "rollback",
+            "passed": true,
+            "detail": "No route data changed; bounded revert path recorded."
+          }
         ],
         "commands": [
           "npm run routes:audit:overlap",
@@ -308476,6 +308500,244 @@
         ],
         "rollback": "No route records or route-corridor definitions were deleted, merged, retired, or silently rewritten. Revert only this review metadata if needed; preserve concurrent route and audit changes."
       }
+    },
+    {
+      "id": "gatekeeper-20260906123835",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T12:37:23.815Z",
+      "completedAt": "2026-09-06T12:38:35.890Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ],
+      "resolvedBy": "gatekeeper-20260906124942",
+      "resolution": "Restored exact lockfile dependencies and matching Windows native bindings; complete operations verification subsequently passed."
+    },
+    {
+      "id": "gatekeeper-20260906124649",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T12:46:02.938Z",
+      "completedAt": "2026-09-06T12:46:49.596Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": false,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=failed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ],
+      "resolvedBy": "gatekeeper-20260906124942",
+      "resolution": "Restored exact lockfile dependencies and matching Windows native bindings; complete operations verification subsequently passed."
+    },
+    {
+      "id": "gatekeeper-20260906124942",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T12:48:18.218Z",
+      "completedAt": "2026-09-06T12:49:42.639Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "daily-operations-report-20260906-workflow-setup",
+      "kind": "daily_operations_report",
+      "startedAt": "2026-09-06T12:50:16.495Z",
+      "completedAt": "2026-09-06T12:51:22.586Z",
+      "status": "completed_with_findings",
+      "summary": "Consolidated operations sources, audited stale automation configuration, scheduled one daily brief and reduced consolidation review frequency. Full operations gates passed; Azure Snapshot Worker permissions remain an owner action.",
+      "reportPath": "docs/operations/daily-reports/2026-09-06.md",
+      "validationRunId": "gatekeeper-20260906124942"
+    },
+    {
+      "id": "independent-verifier-20260906080316-no-work",
+      "kind": "independent_verifier",
+      "startedAt": "2026-09-06T13:03:16.145Z",
+      "completedAt": "2026-09-06T13:03:16.145Z",
+      "status": "no_work",
+      "automationId": "paddletoday-consolidation-reviewer",
+      "workerRole": "independent-verifier",
+      "checks": {
+        "wipLimit": "passed",
+        "eligibility": "passed",
+        "routeAndTripDetailCorpusRead": "passed: 30 route modules and 31 trip-detail modules",
+        "coordinateGeometrySafetyArtifactsParsed": "passed: 2965/2965 JSON artifacts parsed",
+        "existingWorkingTreePreserved": "passed",
+        "focusedAudits": "skipped_no_selected_task",
+        "operationsVerify": "skipped_no_selected_task"
+      },
+      "summary": "No eligible ready consolidation_review task under the maximum two-review WIP limit; all 41 materialized consolidation tasks are terminal (40 completed, one blocked), zero reviews are active or ready, and the overlap queue has one approved plus one new unmaterialized finding (overlap-review-0ef2045f8733 approved; overlap-review-26d1180bd782 new). Read the required operations records, route-corridor registry, route and trip-detail corpus, and coordinate/geometry/safety artifacts. All 2965 JSON artifacts under docs and public/data parsed successfully. No route, corridor, task, queue, trip-detail, or audit record was changed by this run; pre-existing working-tree edits were preserved. Focused audits and npm run operations:verify were skipped because no task was selected.",
+      "evidence": [
+        "docs/operations/tasks.json",
+        "docs/operations/overlap-review-queue.json",
+        "docs/operations/overlap-consolidation-summary.md",
+        "docs/operations/gate-policy.json",
+        "src/data/route-corridors.ts",
+        "src/data/routes/",
+        "src/data/trip-details/",
+        "docs/",
+        "public/data/"
+      ],
+      "routeRecordsChanged": false,
+      "corridorRecordsChanged": false,
+      "taskRecordsChanged": false,
+      "queueRecordsChanged": false,
+      "rollbackEvidence": "Only this no-work run record was appended. Revert by removing independent-verifier-20260906080316-no-work from docs/operations/runs.json; preserve all pre-existing shared working-tree changes."
+    },
+    {
+      "id": "gatekeeper-20260906134615",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T13:44:43.426Z",
+      "completedAt": "2026-09-06T13:46:15.181Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: task board schema=passed, typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "gatekeeper-20260906135034",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T13:49:15.535Z",
+      "completedAt": "2026-09-06T13:50:34.078Z",
+      "status": "passed",
+      "summary": "All required merge gates passed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": true,
+          "detail": "Checks: task board schema=passed, typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=passed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    },
+    {
+      "id": "workflow-follow-up-20260906-startup-doctor-task-schema",
+      "kind": "workflow_improvement",
+      "startedAt": "2026-09-06T13:49:15.535Z",
+      "completedAt": "2026-09-06T13:52:05.506Z",
+      "status": "completed_with_historical_warnings",
+      "summary": "Added doctor and managed local startup; normalized nine terminal task lanes, quarantined one conflicting future-dated ready/completed record, and enforced task schema in planning and verification. Preserved source evidence and existing services.",
+      "validationRunId": "gatekeeper-20260906135034",
+      "evidence": [
+        "docs/operations/workflow-follow-up-2026-09-06.md",
+        "docs/local-development.md"
+      ],
+      "readyTasksAfter": 1
     }
   ]
 }

@@ -2,8 +2,11 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { selectNextWorkOrder, type OperationsTask } from '../src/lib/operations-orchestrator';
 import { selectGaugeReviewCandidates, type GaugeInventoryArtifact, type GaugeReviewLedgerArtifact } from '../src/lib/gauge-coverage';
 import { buildRouteOpportunityQueue, materializeRouteOpportunityTasks } from '../src/lib/route-opportunities';
+import { validateTaskBoard } from '../src/lib/operations-task-board';
 
 const payload = JSON.parse(await readFile('docs/operations/tasks.json', 'utf8')) as { tasks: OperationsTask[] };
+const boardValidation = validateTaskBoard(payload);
+if (boardValidation.errors.length) throw new Error(`Task board validation failed. Run npm run operations:tasks:check.\n${boardValidation.errors.join('\n')}`);
 const stateRegistry = JSON.parse(await readFile('docs/operations/state-registry.json', 'utf8')) as { canonicalStates: Array<{ id: string; name: string; frontierTier: number }> };
 const gaugeInventory = JSON.parse(await readFile('docs/operations/gauge-inventory.json', 'utf8')) as GaugeInventoryArtifact;
 const gaugeLedger = JSON.parse(await readFile('docs/operations/gauge-review-ledger.json', 'utf8')) as GaugeReviewLedgerArtifact;
@@ -32,6 +35,8 @@ const enrichedTasks = materializedTasks.map((task) => {
   return { ...task, stateId, frontierTier, inventoryId: task.inventoryId ?? gaugeInventory.inventoryId, gaugeKeys };
 });
 const workOrder = selectNextWorkOrder(enrichedTasks);
+const generatedBoardValidation = validateTaskBoard({ tasks: enrichedTasks });
+if (generatedBoardValidation.errors.length) throw new Error(`Generated task board is invalid:\n${generatedBoardValidation.errors.join('\n')}`);
 const generatedAt = new Date().toISOString();
 const result = { generatedAt, workOrder };
 

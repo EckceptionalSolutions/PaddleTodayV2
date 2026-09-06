@@ -14,6 +14,10 @@ const task = (overrides: Partial<OperationsTask> = {}): OperationsTask => ({
 });
 
 describe('operations orchestrator', () => {
+  it('assigns safety reviews to an independent verifier', () => {
+    const order = selectNextWorkOrder([task({ kind: 'safety_review', owner: 'independent-verifier' })]);
+    expect(order?.workerRole).toBe('independent-verifier');
+  });
   it('selects high-priority state work before lower-priority product work', () => {
     const order = selectNextWorkOrder([
       task({ id: 'product', kind: 'product', priority: 'high', title: 'Product' }),

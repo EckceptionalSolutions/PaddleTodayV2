@@ -20,6 +20,12 @@ jobs:
           node-version: '22.12.0'
           cache: npm
 
+      - name: Check deployment configuration
+        env:
+          AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_NAME }}
+          AZUREAPPSERVICE_PUBLISHPROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+        run: node scripts/deployment-config.mjs api
+
       - name: Install dependencies
         run: npm ci
 
