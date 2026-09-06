@@ -308379,6 +308379,103 @@
           "detail": "Git repository provides a bounded revert path."
         }
       ]
+    },
+    {
+      "id": "gatekeeper-20260906002709",
+      "kind": "gatekeeper_verification",
+      "startedAt": "2026-09-06T00:24:32.037Z",
+      "completedAt": "2026-09-06T00:27:09.865Z",
+      "status": "failed",
+      "summary": "One or more required merge gates failed.",
+      "gates": [
+        {
+          "id": "evidence",
+          "passed": true,
+          "detail": "Gauge inventory provider-baseline-202608272235 records 5356 gauges across 21 provider-baselined states."
+        },
+        {
+          "id": "safety",
+          "passed": true,
+          "detail": "Route safety audit found no critical blockers (0 high-severity review item(s) remain tracked)."
+        },
+        {
+          "id": "verification",
+          "passed": true,
+          "detail": "Independent gate tests completed."
+        },
+        {
+          "id": "tests",
+          "passed": false,
+          "detail": "Checks: typecheck=passed, scoring sensitivity=passed, snapshot capacity=passed, workspace tests=failed, production build=passed. No checks were skipped."
+        },
+        {
+          "id": "rollback",
+          "passed": true,
+          "detail": "Git repository provides a bounded revert path."
+        }
+      ]
+    }
+    ,{
+      "id": "independent-verifier-20260906003235-ga-71878511407b",
+      "kind": "consolidation_review",
+      "role": "independent-verifier",
+      "startedAt": "2026-09-06T00:24:32.000Z",
+      "completedAt": "2026-09-06T00:32:35.995Z",
+      "status": "blocked",
+      "taskId": "overlap-review-71878511407b",
+      "selectedTaskId": "overlap-review-71878511407b",
+      "state": "Georgia",
+      "summary": "Existing 77-card Chattahoochee condition family approved independently; no route data changed; completion blocked by unrelated workspace tests.",
+      "routeRecordsChanged": false,
+      "familyModel": {
+        "model": "existing_condition_family_preserved",
+        "corridorId": "ga-chattahoochee-public-launch-chain",
+        "continuityStatus": "condition-family",
+        "routeSelector": "chattahoochee-river-*",
+        "routeCount": 77,
+        "preserveRouteCards": true,
+        "excludedRouteSlugs": [
+          "chattahoochee-river-ga115-duncan-bridge",
+          "chattahoochee-river-columbus-whitewater-park"
+        ],
+        "decision": "Use the existing registry family for discovery and condition grouping only; do not add segment edges or merge route cards."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: 77 unique directional endpoint pairs; route records retain ordered put-in/take-out semantics.",
+        "riverContinuity": "passed_for_condition_family: one managed Chattahoochee launch family, not one continuous one-gauge route.",
+        "accessLegality": "passed_with_endpoint_advisory: designated public launch context is documented; current hours, parking, permissions, and closures remain launch-day checks.",
+        "gaugeReach": "passed_with_route_specific_profiles: five direct discharge gauges are retained across the selected cards; no generalized gauge was introduced.",
+        "campingLogistics": "passed: nearby-basecamp posture, distance/time, shuttle, and endpoint logistics remain card-specific.",
+        "hazards": "passed: dam release, strainers, fast rise, cold water, urban water quality, and private-bank hazards remain route-specific.",
+        "coordinateReview": "passed_with_advisories: selected Chattahoochee endpoints have zero failure or suspicious findings; no coordinate changed.",
+        "geometryReview": "passed_with_manifest_note: selected geometry assets are present and parseable MultiLineStrings; endpoint order comes from route/access records.",
+        "routeSpecificEvidence": "passed: selected cards retain access, safety, camping, overlap, and hazard evidence; no route was deleted, merged, retired, or silently rewritten."
+      },
+      "validation": {
+        "corridorModelRecorded": true,
+        "gates": [
+          {"id":"evidence","passed":true,"detail":"Georgia route and official NPS/USGS evidence recorded."},
+          {"id":"safety","passed":true,"detail":"Route safety audit passed with zero issues."},
+          {"id":"verification","passed":true,"detail":"Focused Georgia test and independent checks passed."},
+          {"id":"tests","passed":false,"detail":"Workspace tests failed in unrelated Grand Marais (4), New York (1), and operations snapshot (3) tests; production build and typechecks passed."},
+          {"id":"rollback","passed":true,"detail":"No route data changed; bounded revert path recorded."}
+        ],
+        "commands": [
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:corridors",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit",
+          "npm run routes:audit:coordinates -- --concurrency=20",
+          "npm run routes:safety:audit",
+          "npx vitest run src/lib/georgia-expansion.test.ts",
+          "npm run operations:verify"
+        ],
+        "blockers": [
+          "npm run operations:verify workspace test gate failed in unrelated current-worktree changes: src/lib/grand-marais-direct-gauge-expansion.test.ts (4), src/lib/new-york-expansion.test.ts (1), and src/lib/operations.test.ts (3).",
+          "The selected Georgia family test passed; completion waits on unrelated workspace test repair or explicit disposition."
+        ],
+        "rollback": "No route records or route-corridor definitions were deleted, merged, retired, or silently rewritten. Revert only this review metadata if needed; preserve concurrent route and audit changes."
+      }
     }
   ]
 }

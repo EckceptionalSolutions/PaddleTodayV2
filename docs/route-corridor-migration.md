@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-05T22:19:10.965Z.
+Generated 2026-09-06T00:31:08.179Z.
 
 - Defined corridors: 216
 - Routes covered by a corridor definition: 508
-- Remaining multi-route families: 264
+- Remaining multi-route families: 265
 
 ## Defined corridors
 
@@ -268,6 +268,7 @@ Generated 2026-09-05T22:19:10.965Z.
 | Minnesota | Red Lake River | 10 |
 | Minnesota | Rum River | 10 |
 | Kentucky | Upper Cumberland River | 10 |
+| North Carolina | Yadkin River | 10 |
 | Maine | Aroostook River | 9 |
 | Arkansas | Bayou DeView | 9 |
 | Texas | Brazos River | 9 |
@@ -285,7 +286,6 @@ Generated 2026-09-05T22:19:10.965Z.
 | Wisconsin | Fox River | 7 |
 | New York | Genesee River | 7 |
 | Texas | Guadalupe River | 7 |
-| Wisconsin | Namekagon River | 7 |
-| Additional families omitted | See route data and overlap audit | 224 |
+| Additional families omitted | See route data and overlap audit | 225 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

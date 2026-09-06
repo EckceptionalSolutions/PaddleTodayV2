@@ -1094,7 +1094,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+  "status": "verified",
       "routes": [
         "chattahoochee-river-abbotts-bridge-azalea-park",
         "chattahoochee-river-abbotts-bridge-don-white",
@@ -1187,7 +1187,10 @@
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-09-05T23:14:15.520Z",
       "lastSeenAt": "2026-09-05T23:24:32.316Z",
-      "taskId": "overlap-review-71878511407b"
+  "taskId": "overlap-review-71878511407b",
+  "reviewDisposition": "approved_existing_condition_family_blocked_tests",
+  "reviewedAt": "2026-09-06T00:30:00.000Z",
+  "reviewRunId": "independent-verifier-20260906003000-ga-71878511407b"
     },
     {
       "id": "overlap-review-94125f286c97",

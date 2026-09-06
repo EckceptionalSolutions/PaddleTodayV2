@@ -77847,7 +77847,7 @@
     {
       "id": "safety-review-wv-guyandotte-branchland-west-hamlin-20260831",
       "title": "Safety review: Guyandotte Branchland to West Hamlin access and conditions",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "safety_review",
       "owner": "independent-verifier",
       "priority": "high",
@@ -78156,15 +78156,25 @@
     {
       "id": "overlap-review-71878511407b",
       "title": "Review route consolidation candidate: Georgia · chattahoochee-river-abbotts-bridge-azalea-park ↔ chattahoochee-river-abbotts-bridge-don-white ↔ chattahoochee-river-abbotts-bridge-garrard-landing +74",
-      "lane": "ready",
+      "lane": "blocked",
       "kind": "consolidation_review",
       "owner": "independent-verifier",
       "priority": "high",
-      "summary": "Prefer a corridor family with selectable validated in/out pairs when safety, gauge, and logistics remain explicit. Queue status: new. Confirm every put-in/take-out, portage, hazard, gauge reach, and material logistics difference remains visible in the proposed family model.",
+      "summary": "Existing Georgia Chattahoochee condition-family model independently approved for 77 selectable endpoint-pair cards; completion blocked by unrelated workspace test failures. Preserve every put-in/take-out, portage, hazard, gauge reach, and logistics difference.",
       "evidence": [
         "docs/operations/overlap-review-queue.json",
         "tmp/route-overlap-audit.csv",
-        "docs/operations/overlap-consolidation-summary.md"
+        "docs/operations/overlap-consolidation-summary.md",
+        "docs/corridor-review-ledger.json",
+        "docs/route-corridor-migration.md",
+        "docs/route-coordinate-river-audit.json",
+        "docs/route-safety-audit.json",
+        "src/data/route-corridors.ts",
+        "src/data/routes/georgia.ts",
+        "src/data/trip-details/georgia.ts",
+        "tmp/route-overlap-audit.md",
+        "https://home.nps.gov/chat/planyourvisit/maps.htm",
+        "https://home.nps.gov/chat/planyourvisit/river-flow-rate.htm"
       ],
       "routeSlugs": [
         "chattahoochee-river-abbotts-bridge-azalea-park",
@@ -78245,7 +78255,63 @@
         "chattahoochee-river-rogers-bridge-medlock-bridge",
         "chattahoochee-river-whitewater-creek-paces-mill"
       ],
-      "sourceFindingId": "overlap-review-71878511407b"
+      "sourceFindingId": "overlap-review-71878511407b",
+      "updatedAt": "2026-09-06T00:30:00.000Z",
+      "lastRunId": "independent-verifier-20260906003000-ga-71878511407b",
+      "latestRunId": "independent-verifier-20260906003000-ga-71878511407b",
+      "familyModel": {
+        "model": "existing_condition_family_preserved",
+        "corridorId": "ga-chattahoochee-public-launch-chain",
+        "continuityStatus": "condition-family",
+        "routeSelector": "chattahoochee-river-*",
+        "routeCount": 77,
+        "preserveRouteCards": true,
+        "excludedRouteSlugs": [
+          "chattahoochee-river-ga115-duncan-bridge",
+          "chattahoochee-river-columbus-whitewater-park"
+        ],
+        "decision": "Use the existing registry family for discovery and condition grouping only; do not add segment edges or merge route cards."
+      },
+      "independentReview": {
+        "endpointOrder": "passed: 77 unique directional endpoint pairs; route records retain ordered put-in/take-out semantics.",
+        "riverContinuity": "passed_for_condition_family: one managed Chattahoochee launch family, not one continuous one-gauge route.",
+        "accessLegality": "passed_with_endpoint_advisory: NPS launch material supports designated public launch context; current hours, parking, permissions, and closures remain launch-day checks.",
+        "gaugeReach": "passed_with_route_specific_profiles: five direct discharge gauges are retained across the selected cards; no generalized gauge was introduced.",
+        "campingLogistics": "passed: nearby-basecamp posture, distance/time, shuttle, and endpoint logistics remain card-specific.",
+        "hazards": "passed: dam release, strainers, fast rise, cold water, urban water quality, and private-bank hazards remain route-specific.",
+        "routeSpecificEvidence": "passed: selected cards retain access, safety, camping, and overlap evidence; no route was deleted, merged, retired, or silently rewritten.",
+        "coordinateReview": "passed_with_advisories: selected Chattahoochee audit subset has zero failure or suspicious endpoint findings; no coordinate changed.",
+        "geometryReview": "passed_with_manifest_note: selected geometry assets are present and parseable MultiLineStrings; route-level endpoint order is taken from route/access records, not unordered geometry parts.",
+        "externalEvidence": "passed: official NPS launch/flow pages and direct USGS station references support the family boundary and release-sensitive operating model."
+      },
+      "validation": {
+        "status": "blocked",
+        "corridorModelRecorded": true,
+        "routeRecordsChanged": false,
+        "gates": {
+          "evidence": "passed",
+          "safety": "passed",
+          "verification": "passed",
+          "tests": "blocked",
+          "rollback": "passed"
+        },
+        "commands": [
+          "npm run routes:audit:overlap",
+          "npm run routes:audit:corridors",
+          "npm run routes:geometries:audit",
+          "npm run routes:audit",
+          "npm run routes:audit:coordinates -- --concurrency=20",
+          "npm run routes:safety:audit",
+          "npx vitest run src/lib/georgia-expansion.test.ts",
+          "npm run operations:verify"
+        ],
+        "blockers": [
+          "npm run operations:verify completed all build, typecheck, route, geometry, safety, scoring, gallery, and independent-gate checks but workspace tests failed in unrelated current-worktree changes: src/lib/grand-marais-direct-gauge-expansion.test.ts (4), src/lib/new-york-expansion.test.ts (1), and src/lib/operations.test.ts (3).",
+          "The selected Georgia family itself passed npx vitest run src/lib/georgia-expansion.test.ts; the task remains blocked until the unrelated workspace test failures are repaired or explicitly dispositioned."
+        ],
+        "rollback": "No route records or route-corridor definitions were deleted, merged, retired, or silently rewritten. Revert only this task/queue/summary/run disposition metadata and the added ledger rows if needed; preserve concurrent route and audit changes.",
+        "resultSummary": "Existing 77-card Chattahoochee condition family approved independently; no route data changed; completion blocked by unrelated workspace tests."
+      }
     }
   ]
 }
