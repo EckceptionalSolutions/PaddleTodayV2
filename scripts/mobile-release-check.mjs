@@ -53,11 +53,16 @@ checkFile(
   'React Native Maps iOS subview insertion fix installer',
   join(root, 'scripts/apply-react-native-maps-ios-subview-fix.mjs')
 );
+checkFile(
+  'React Native Maps Android marker clipping fix installer',
+  join(root, 'scripts/apply-react-native-maps-android-marker-fix.mjs')
+);
 check('EAS archive includes React Native native fix installers', () =>
   fileIncludes(join(root, '.easignore'), [
     '/scripts/*',
     '!/scripts/apply-react-native-android-drawing-order-fix.mjs',
     '!/scripts/apply-react-native-maps-ios-subview-fix.mjs',
+    '!/scripts/apply-react-native-maps-android-marker-fix.mjs',
   ])
 );
 check('React Native Android drawing-order fix is installed', () =>
@@ -74,6 +79,12 @@ check('React Native Maps iOS subview insertion fix is installed', () =>
     'NSUInteger safeIndex = atIndex < 0 ? 0 : MIN((NSUInteger)atIndex, _reactSubviews.count);',
     'insertObject:(UIView *)subview atIndex:safeIndex',
   ])
+);
+check('React Native Maps Android marker clipping fix is installed', () =>
+  fileIncludes(
+    join(root, 'node_modules/react-native-maps/android/src/main/java/com/rnmaps/maps/MapMarker.java'),
+    ['expandSnapshotSizeFromSubtree', 'width = maxWh[0]', 'height = maxWh[1]']
+  )
 );
 
 for (const profile of ['development', 'preview', 'production']) {
