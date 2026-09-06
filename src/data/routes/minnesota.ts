@@ -33028,6 +33028,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
     "state": "Minnesota",
     "region": "Lutsen",
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "summary": "Short, steep lower Poplar run with continuous Class III-IV boulder gardens, Bielik's Surprise, and a mandatory exit above the dangerous gorge below Seventh Bridge.",
     "statusText": "DNR 01063003 reports direct discharge at the Seventh Bridge take-out. No defensible runnable flow band has been published for this station, so the live reading is context only and the route remains a conservative, locally verified expert decision.",
     "latitude": 47.664625340847806,
@@ -33108,7 +33109,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
       {
         "label": "Threshold limitation",
         "value": "No published runnable band",
-        "note": "The route is intentionally scored with incomplete thresholds rather than transferring values from another river or inventing a flow range.",
+        "note": "The route is intentionally published for planning with incomplete thresholds rather than transferring values from another river or inventing a flow range.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2528/flow"
       }
     ],
@@ -33126,6 +33127,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
     "state": "Minnesota",
     "region": "Tettegouche",
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "summary": "Expert lower Baptism run through Illgen Falls, the mandatory High Falls portage, Two Step, and the Narrows before exiting at the river mouth without a Lake Superior paddling segment.",
     "statusText": "Use direct DNR station 01092001 at Highway 61 near the finish. American Whitewater identifies about 200 cfs as a low runnable reference for Illgen Falls, 300-450 cfs as optimal, and above 500 cfs as carrying serious consequences.",
     "latitude": 47.3728981018066,
@@ -33229,6 +33231,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
     "state": "Minnesota",
     "region": "Beaver Bay",
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "summary": "Very steep lower Beaver run with large slides, boulders, holes, and a direct gauge inside the reach, ending at Highway 61 before the river reaches Lake Superior.",
     "statusText": "DNR 02006003 reports direct discharge about 0.6 mile below the put-in. American Whitewater explicitly says reliable runnable levels are not yet known, so the gauge is context only and the app does not claim a safe or runnable band.",
     "latitude": 47.2733,
@@ -33309,7 +33312,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
       {
         "label": "Threshold limitation",
         "value": "Runnable levels unknown",
-        "note": "American Whitewater explicitly says it has no familiarity with runnable levels; this route therefore retains incomplete thresholds and conservative scoring.",
+        "note": "American Whitewater explicitly says it has no familiarity with runnable levels; this route therefore retains incomplete thresholds and conservative planning status.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2521/main"
       }
     ],

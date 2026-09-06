@@ -12,7 +12,7 @@ describe('operations snapshot', () => {
   it('keeps planning routes out of scored saturation counts', () => {
     const snapshot = getOperationsSnapshot();
     const minnesota = snapshot.states.find((state) => state.id === 'MN');
-    expect(minnesota).toMatchObject({ scored: 145, planning: 113, legacySaturation: 'provisionally_saturated' });
+    expect(minnesota).toMatchObject({ scored: 138, planning: 120, legacySaturation: 'provisionally_saturated' });
     expect(minnesota?.saturation).toBe('saturated');
     expect(minnesota?.discoveryComplete).toBe(true);
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
@@ -22,7 +22,7 @@ describe('operations snapshot', () => {
   it('keeps proxy routes in planning after the completed Texas discovery sweep', () => {
     const snapshot = getOperationsSnapshot();
     const texas = snapshot.states.find((state) => state.id === 'TX');
-    expect(texas).toMatchObject({ planning: 1, legacySaturation: 'saturated' });
+    expect(texas).toMatchObject({ planning: 3, legacySaturation: 'saturated' });
     expect(texas?.saturation).toBe('saturated');
     expect(texas?.discoveryComplete).toBe(true);
     expect(texas?.scored ?? 0).toBeGreaterThanOrEqual(16);
@@ -32,7 +32,7 @@ describe('operations snapshot', () => {
     const snapshot = getOperationsSnapshot();
     const utah = snapshot.states.find((state) => state.id === 'UT');
     const rankedUtah = snapshot.stateResearchRanking.find((state) => state.id === 'UT');
-    expect(utah).toMatchObject({ planning: 0, legacySaturation: 'saturated' });
+    expect(utah).toMatchObject({ planning: 1, legacySaturation: 'saturated' });
     expect(utah?.saturation).toBe('saturated');
     expect(utah?.discoveryComplete).toBe(true);
     expect(utah?.scored ?? 0).toBeGreaterThanOrEqual(3);
@@ -73,7 +73,7 @@ describe('operations snapshot', () => {
     });
     const ranked = rankGaugeStateCoverage([
       { id: 'TX', scored: 80, planning: 0, saturation: 'not_started', gaugeCoverage: coverage({}) },
-      { id: 'MN', scored: 145, planning: 113, saturation: 'provisionally_saturated', gaugeCoverage: coverage({ stateId: 'MN', baselineComplete: false }) },
+      { id: 'MN', scored: 138, planning: 120, saturation: 'provisionally_saturated', gaugeCoverage: coverage({ stateId: 'MN', baselineComplete: false }) },
     ]);
     expect(ranked[0].id).toBe('MN');
     expect(ranked[0].researchStatus).toBe('gauge_baseline_pending');
@@ -84,7 +84,7 @@ describe('operations snapshot', () => {
     const ranked = rankStateCoverage([
       { id: 'UT', scored: 2, planning: 0, saturation: 'not_started' },
       { id: 'SD', scored: 12, planning: 0, saturation: 'not_started' },
-      { id: 'MN', scored: 145, planning: 113, saturation: 'provisionally_saturated' },
+      { id: 'MN', scored: 138, planning: 120, saturation: 'provisionally_saturated' },
     ]);
     expect(ranked.map((state) => state.id)).toEqual(['SD', 'UT', 'MN']);
     expect(ranked[0].coveragePercent).toBe(100);
