@@ -23,6 +23,7 @@ interface RoutePhotoTarget {
   slug: string;
   name?: string;
   reach?: string;
+  state?: string;
 }
 
 const placeholderRoutePhotos: RouteGalleryPhoto[] = [
@@ -712,6 +713,109 @@ const maineRiverContextPhotos = [
   maineDacfImage('maine-dacf-river-context-7', 7, 'A rocky Maine freshwater shoreline framed by autumn forest.', 'Maine DACF open-water and shoreline context; exact reach not claimed'),
   sandyRiverFwsPhoto,
 ];
+
+// Rights-cleared state context is the last non-placeholder fallback when a
+// route has no route-, river-, or watershed-specific image. Captions explicitly
+// identify these as context rather than endpoint or current-conditions photos.
+const approvedStateContextPhotos: Record<string, RouteGalleryPhoto> = {
+  Arkansas: {
+    id: 'arkansas-state-paddling-context',
+    src: '/gallery/cossatot-river-ed-banks-highway-278/cossatot-river-usace.jpg',
+    alt: 'A rocky, wooded Arkansas river corridor with clear moving water.',
+    caption: 'Arkansas river corridor context; not this route or current conditions',
+    credit: 'Jamie Camp / U.S. Army Corps of Engineers via Wikimedia Commons',
+    takenLabel: 'USACE asset: public domain; regional context only',
+  },
+  Illinois: {
+    id: 'illinois-state-paddling-context',
+    src: '/gallery/vermilion-river-lowell-oglesby/vermilion-river-pontiac.jpg',
+    alt: 'A wooded Illinois riverbank with calm moving water.',
+    caption: 'Illinois river corridor context; not this route or current conditions',
+    credit: 'Guyute82 via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; regional context only',
+  },
+  Indiana: {
+    id: 'indiana-state-paddling-context',
+    src: '/gallery/west-fork-white-river-canoe-country-edgewater/white-river-kayaking-indianapolis.jpg',
+    alt: 'Paddlers on an Indiana river corridor.',
+    caption: 'Indiana river corridor context; not this route or current conditions',
+    credit: "City of Indianapolis Mayor's Office via Wikimedia Commons",
+    takenLabel: 'Wikimedia Commons: CC0; regional context only',
+  },
+  Kentucky: {
+    id: 'kentucky-state-paddling-context',
+    src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+    alt: 'A wooded Kentucky creek corridor with shallow moving water.',
+    caption: 'Kentucky river corridor context; not this route or current conditions',
+    credit: 'Bpluke01 via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; regional context only',
+  },
+  Michigan: {
+    id: 'michigan-state-paddling-context',
+    src: '/gallery/clinton-river-budd-shadyside/clinton-river-macomb-county.jpg',
+    alt: 'A wooded Michigan river corridor.',
+    caption: 'Michigan river corridor context; not this route or current conditions',
+    credit: 'Local hero via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain; regional context only',
+  },
+  Missouri: {
+    id: 'missouri-state-paddling-context',
+    src: '/gallery/james-river-shelvin-rock-hooten-town/james-river-springfield.jpg',
+    alt: 'A wooded southwest Missouri river corridor with shallow water.',
+    caption: 'Missouri river corridor context; not this route or current conditions',
+    credit: 'Wikimedia Commons contributor',
+    takenLabel: 'Wikimedia Commons license on linked file page; regional context only',
+  },
+  'North Dakota': {
+    id: 'north-dakota-state-paddling-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/IMG_1243.jpg',
+    alt: 'The Sheyenne River meanders through a North Dakota prairie corridor.',
+    caption: 'North Dakota river corridor context; not this route or current conditions',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS public domain; regional context only',
+  },
+  Ohio: {
+    id: 'ohio-state-paddling-context',
+    src: '/gallery/little-miami-river-rogers-ballpark-carl-rahe/little-miami-river-loveland-commons.webp',
+    alt: 'Paddlers move through a wooded Ohio river corridor.',
+    caption: 'Ohio river corridor context; not this route or current conditions',
+    credit: 'AndyHemmerCincinnati via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; regional context only',
+  },
+  Oklahoma: {
+    id: 'oklahoma-state-paddling-context',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/USGS07196320_20200725_131504.jpg',
+    alt: 'Paddlers float the Illinois River near Moodys, Oklahoma.',
+    caption: 'Oklahoma river corridor context; not this route or current conditions',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'USGS public domain; regional context only',
+  },
+  Texas: {
+    id: 'texas-state-paddling-context',
+    src: '/gallery/village-creek-fm418-sh327/village-creek-near-silsbee.webp',
+    alt: 'A sandy, wooded southeast Texas river corridor.',
+    caption: 'Texas river corridor context; not this route or current conditions',
+    credit: 'Jill Carlson via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0; regional context only',
+  },
+  Utah: {
+    id: 'utah-state-paddling-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Colorado%20Recreational%20River%2C%20Colorado%2C%20Utah%20%2835842291953%29.jpg?width=1600',
+    alt: 'A broad western river corridor in the Colorado-Utah region.',
+    caption: 'Utah-region river corridor context; not this route or current conditions',
+    credit: 'Bob Wick / Bureau of Land Management via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 2.0; regional context only',
+  },
+  'West Virginia': greenbrierRiverWestVirginiaPhoto,
+  Wisconsin: {
+    id: 'wisconsin-state-paddling-context',
+    src: '/gallery/wisconsin-river-sauk-city-arena/wisconsin-river-ferry-bluff.jpg',
+    alt: 'The Wisconsin River winds through a broad sandy valley.',
+    caption: 'Wisconsin river corridor context; not this route or current conditions',
+    credit: 'Gripper via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY-SA 4.0; regional context only',
+  },
+};
 
 const maineLakeContextPhotos = [
   alamoosookLakeFwsPhoto,
@@ -6932,6 +7036,14 @@ const approvedRegionalContextPhotosByRiverId: Record<string, RouteGalleryPhoto> 
 // river-group image exists. Captions deliberately identify the image as
 // context when it was taken elsewhere on the same river.
 const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
+  'malad-river-idaho': {
+    id: 'malad-river-idaho-snake-watershed-context',
+    src: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Snake_River_view_near_Twin_Falls%2C_Idaho.jpg',
+    alt: 'The Snake River runs through a broad southern Idaho canyon landscape.',
+    caption: 'Snake River / southern Idaho context; not the Lower Malad endpoints or current-conditions photograph',
+    credit: 'Wikimedia Commons contributor',
+    takenLabel: 'Wikimedia Commons license on linked file page; regional context only',
+  },
   'portneuf-river-idaho': {
     id: 'portneuf-river-idaho-highway-30-context',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/DSCN6277%20portneufriver%20e.jpg?width=1600',
@@ -6988,11 +7100,27 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Wikimedia Commons contributor',
     takenLabel: 'Wikimedia Commons license on linked file page',
   },
+  'snake-river-birds-of-prey-idaho': {
+    id: 'snake-river-birds-of-prey-idaho-context',
+    src: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Snake_River_view_near_Twin_Falls%2C_Idaho.jpg',
+    alt: 'The Snake River forms a broad canyon corridor in southern Idaho.',
+    caption: 'Snake River in southern Idaho; regional context only, not the Swan Falls–Walters Ferry reach or current conditions',
+    credit: 'Wikimedia Commons contributor',
+    takenLabel: 'Wikimedia Commons license on linked file page',
+  },
   'teton-river-idaho': {
     id: 'teton-river-idaho-american-rivers-context',
     src: 'https://www.americanrivers.org/wp-content/uploads/2022/12/Teton_river_in_South_East_Idaho-1024x576.jpg',
     alt: 'The Teton River winds through a scenic southeast Idaho canyon and valley corridor.',
     caption: 'Teton River in southeast Idaho; same-river context, not the Highway 33/Felt/Spring Hollow endpoints or current conditions',
+    credit: 'American Rivers',
+    takenLabel: 'American Rivers image on linked page',
+  },
+  'pine-creek-idaho': {
+    id: 'pine-creek-idaho-teton-watershed-context',
+    src: 'https://www.americanrivers.org/wp-content/uploads/2022/12/Teton_river_in_South_East_Idaho-1024x576.jpg',
+    alt: 'The Teton watershed winds through a scenic southeast Idaho canyon and valley corridor.',
+    caption: 'Teton watershed context; not the Pine Creek endpoint or current conditions',
     credit: 'American Rivers',
     takenLabel: 'American Rivers image on linked page',
   },
@@ -7100,11 +7228,59 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Forest Service via Wikimedia Commons',
     takenLabel: 'U.S. government work / public domain',
   },
+  'deadwood-river-idaho': {
+    id: 'deadwood-river-idaho-boise-basin-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/-IDAHO-B-0002-%20Boise%20River%20-%20Boise%20%285563104954%29.jpg?width=1600',
+    alt: 'The Deadwood River lies in a forested Boise National Forest mountain basin.',
+    caption: 'Boise basin context; not the Upper Deadwood endpoint or current-conditions photograph',
+    credit: 'WaterArchives.org via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons license on linked file page',
+  },
+  'north-fork-coeur-dalene-idaho': {
+    id: 'north-fork-coeur-dalene-idaho-panhandle-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
+    alt: 'A forested northern Idaho river corridor in the Idaho Panhandle.',
+    caption: 'Idaho Panhandle river context; not a Jordan Camp-to-Teepee endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'secesh-river-idaho': {
+    id: 'secesh-river-idaho-salmon-watershed-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Salmon%20River%20north%20of%20Challis%2C%20Idaho%20%2823600914631%29.jpg?width=1600',
+    alt: 'A forested Idaho Salmon River watershed corridor.',
+    caption: 'Central Idaho Salmon watershed context; not a Secesh endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'little-north-fork-coeur-dalene-idaho': {
+    id: 'little-north-fork-coeur-dalene-idaho-panhandle-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
+    alt: 'A forested northern Idaho river corridor in the Idaho Panhandle.',
+    caption: 'Idaho Panhandle river context; not a Little North Fork Coeur d’Alene endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
   'st-maries-river-idaho': {
     id: 'st-maries-river-idaho-panhandle-context',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
     alt: 'A forested northern Idaho river corridor in the Idaho Panhandle.',
     caption: 'Idaho Panhandle river context; not a St. Maries endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'south-fork-coeur-dalene-river-idaho': {
+    id: 'south-fork-coeur-dalene-idaho-panhandle-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
+    alt: 'A forested northern Idaho river corridor in the Idaho Panhandle.',
+    caption: 'Idaho Panhandle river context; not a South Fork Coeur d’Alene endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'pack-river-idaho': {
+    id: 'pack-river-idaho-north-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
+    alt: 'A forested northern Idaho river corridor in the Panhandle.',
+    caption: 'North Idaho watershed context; not a Pack River endpoint or current-conditions photograph',
     credit: 'U.S. Forest Service via Wikimedia Commons',
     takenLabel: 'U.S. government work / public domain',
   },
@@ -7228,12 +7404,44 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Forest Service via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons license on linked file page',
   },
+  'bear-valley-creek-idaho': {
+    id: 'bear-valley-creek-idaho-middle-fork-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Salmon_River_north_of_Challis%2C_Idaho_%2823600914631%29.jpg?width=1600',
+    alt: 'A central Idaho river corridor in the Salmon River watershed.',
+    caption: 'Central Idaho Salmon watershed context; not the Bear Valley Creek endpoints or current conditions',
+    credit: 'Bureau of Land Management via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'big-creek-middle-fork-salmon-idaho': {
+    id: 'big-creek-middle-fork-salmon-idaho-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Salmon%20River%20north%20of%20Challis%2C%20Idaho%20%2823600914631%29.jpg?width=1600',
+    alt: 'A central Idaho river corridor in the Salmon River watershed.',
+    caption: 'Central Idaho Salmon watershed context; not a Big Creek endpoint or current-conditions photograph',
+    credit: 'Bureau of Land Management via Wikimedia Commons',
+    takenLabel: 'U.S. government work / public domain',
+  },
+  'big-bear-creek-idaho': {
+    id: 'big-bear-creek-idaho-clearwater-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Clearwater_River_near_Orofino%2C_Idaho.jpg?width=1600',
+    alt: 'A forested Idaho river corridor in the Clearwater watershed.',
+    caption: 'Clearwater watershed context; not the Big Bear Creek endpoints or current conditions',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons license on linked file page',
+  },
   'boundary-creek-idaho': {
     id: 'boundary-creek-idaho-panhandle-context',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
     alt: 'A forested North Idaho river corridor in the St. Joe and Kaniksu mountain region.',
     caption: 'North Idaho Panhandle river context; not the Boundary Creek endpoints or current conditions',
     credit: 'Wikimedia Commons contributor',
+    takenLabel: 'Wikimedia Commons license on linked file page',
+  },
+  'boulder-creek-idaho': {
+    id: 'boulder-creek-idaho-panhandle-context',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/St%20Joe%20River%20at%20Red%20Ives.jpg?width=1600',
+    alt: 'A forested North Idaho Panhandle river corridor near the Kootenai watershed.',
+    caption: 'North Idaho Panhandle context; not the Boulder Creek endpoint or current-conditions photograph',
+    credit: 'U.S. Forest Service via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons license on linked file page',
   },
   'lightning-creek-idaho': {
@@ -8404,6 +8612,17 @@ export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto
     return {
       ...regionalContextPhoto,
       id: `regional-context-${route.riverId}-${regionalContextPhoto.id}`,
+      isPlaceholder: false,
+      sourceKind: 'river',
+    };
+  }
+
+  const stateContextPhoto = route.state ? approvedStateContextPhotos[route.state] : undefined;
+  if (stateContextPhoto) {
+    return {
+      ...stateContextPhoto,
+      id: `state-context-${route.state}-${stateContextPhoto.id}`,
+      caption: `${stateContextPhoto.caption}; route imagery unavailable`,
       isPlaceholder: false,
       sourceKind: 'river',
     };

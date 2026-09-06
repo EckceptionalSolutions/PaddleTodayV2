@@ -795,8 +795,18 @@ export const northDakotaRoutes: River[] = [
     "summary": "Short Badlands Little Missouri River float from the Rough Rider / former Sully Creek State Park canoe-kayak access to the Medora Bridge corridor. NPS names the three-mile reach and ties fair boating to the direct USGS Medora gauge.",
     "statusText": "Use the Little Missouri River at Medora gauge. NPS says at least 2.5 ft / 699 cfs at Medora is required for fair boating and 2.5 to 3.5 ft / 699 to 1,500 cfs is good boating; below that expect dragging, and high or rising water can become dangerous quickly.",
     "latitude": 46.89263398,
-    "longitude": -103.54044775,
-    "gaugeSource": {
+     "longitude": -103.54044775,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "flash_flood", "remote"],
+       "safetyNotes": [
+         "Launch only at or above the NPS fair-boating threshold of 699 cfs / 2.5 ft; below it, dragging is expected.",
+         "Treat high or rising Badlands water as a rapid hazard with floating wood, muddy exits, heat exposure, and limited cell service.",
+         "Confirm the current park access, weather, shuttle, daylight, and downstream Medora Bridge landing before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-06336000",
       "provider": "usgs",
       "siteId": "06336000",

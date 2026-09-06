@@ -3914,8 +3914,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "mauston-dam-lemonweir-access",
       "name": "Mauston Dam downstream access",
-      "latitude": 43.7994,
-      "longitude": -90.0684
+      "latitude": 43.79684,
+      "longitude": -90.068933
     },
     "takeOut": {
       "id": "lemonweir-mills",
@@ -3946,8 +3946,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "mauston-dam-lemonweir-access",
         "name": "Mauston Dam downstream access",
-        "latitude": 43.7994,
-        "longitude": -90.0684,
+        "latitude": 43.79684,
+        "longitude": -90.068933,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in from Wisconsin River Trips; use the downstream launch below the dam."

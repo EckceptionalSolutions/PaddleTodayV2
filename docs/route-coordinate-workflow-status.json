@@ -1,25 +1,55 @@
 {
-  "generatedAt": "2026-09-05T11:43:37.041Z",
+  "generatedAt": "2026-09-05T15:16:20.168Z",
   "audit": {
-    "generatedAt": "2026-09-05T11:38:45.288Z",
-    "routeCount": 1995,
-    "endpointCount": 4606,
+    "generatedAt": "2026-09-05T15:16:12.426Z",
+    "routeCount": 2028,
+    "endpointCount": 4672,
     "bySeverity": {
-      "ok": 1511,
-      "review": 2765,
-      "suspicious": 221,
+      "ok": 1526,
+      "review": 2813,
+      "suspicious": 222,
       "failure": 30,
-      "unknown": 79
+      "unknown": 81
     }
   },
   "triage": {
-    "reviewItemCount": 33,
-    "unresolvedRouteCount": 32,
-    "withheldRouteCount": 32,
-    "publicRouteCount": 1165,
-    "holdCoveragePasses": true,
+    "reviewItemCount": 0,
+    "unresolvedRouteCount": 1,
+    "withheldRouteCount": 30,
+    "publicRouteCount": 1167,
+    "holdCoveragePasses": false,
     "missingFromHold": [],
-    "staleHolds": []
+    "staleHolds": [
+      "beaver-dam-river-county-s-lowell",
+      "blackfoot-river-cutthroat-trail-creek",
+      "blackfoot-river-government-dam-cutthroat",
+      "blackwater-river-wayside-the-ford",
+      "cedar-creek-cedarburg-mill-cth-t",
+      "colorado-river-lost-pines-riverbend-park",
+      "connetquot-river-great-river-heckscher",
+      "erie-canal-amherst-lockport",
+      "erie-canal-baldwinsville-three-rivers",
+      "erie-canal-freemans-bridge-lock-e7",
+      "erie-canal-lock-e7-waterford-flight-south",
+      "erie-canal-mays-point-montezuma-aqueduct",
+      "erie-canal-ransom-creek-lockport",
+      "erie-canal-sylvan-beach",
+      "fox-river-princeton-white-river-locks",
+      "gasconade-river-pointers-creek-cooper-hill",
+      "glover-river-fr56000-glover",
+      "kalamazoo-river-comstock-mayors-riverfront",
+      "kishwaukee-river-marengo-siems-hwy23",
+      "little-pine-creek-north-park-lake-allison-park",
+      "loup-river-george-syas-adm-access",
+      "loup-river-george-syas-columbus",
+      "loup-river-george-syas-monroe",
+      "menomonee-river-hoyt-park-bluemound",
+      "niobrara-river-fort-niobrara-smith-falls",
+      "oak-orchard-creek-medina-lake-ontario",
+      "platte-river-honor-upper",
+      "trempealeau-river-whitehall-independence",
+      "vermilion-river-schoepfle-mill-hollow"
+    ]
   },
   "evidence": {
     "osm": {
@@ -31,8 +61,8 @@
       "failedBatchCount": 0
     },
     "authoritative": {
-      "generatedAt": "2026-09-05T11:31:35.136Z",
-      "endpointCount": 263412,
+      "generatedAt": "2026-09-05T12:17:43.891Z",
+      "endpointCount": 264016,
       "providers": [
         {
           "id": "mn_dnr",
@@ -6780,7 +6810,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "The Idaho Fish and Game Lolo Creek conservation assessment identifies public access roads at the Lolo Creek Road crossing and the Greer/Carrot Ridge corridor, while American Whitewater's access update documents the BLM public parcel below the Greer bridge. Stored coordinates remain access-area and bridge/crossing anchors rather than false wetted-edge precision; verify the gate, parking, carry, and current signage before use.",
-          "matchedEndpointCount": 21
+          "matchedEndpointCount": 23
         },
         {
           "id": "id_middle_fork_payette_boiling_trail_creek",
@@ -6808,7 +6838,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "The City of Ketchum public-river-access map documents public access points and fishing/nature-study easements along Warm Springs Creek and the adjacent Big Wood corridor. The American Whitewater lodge endpoints are retained as approximate reach anchors rather than false wetted-edge precision; use only signed easement/carry routes and verify current resort parking, trail, and day-use conditions.",
-          "matchedEndpointCount": 6
+          "matchedEndpointCount": 7
         },
         {
           "id": "id_snake_river_auger_falls_park",
@@ -6822,7 +6852,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "The City of Twin Falls documents Auger Falls Heritage Park as the public upstream corridor and Idaho Fish and Game documents an Auger Falls fishing/boating access site near the downstream Broken Bridge endpoint. The route retains the foot-shuttle limitation: the official access site does not imply public vehicle access to the endpoint or permission to use private gates.",
-          "matchedEndpointCount": 18
+          "matchedEndpointCount": 20
         },
         {
           "id": "id_bear_river_black_canyon_grace_powerhouse",
@@ -6836,7 +6866,7 @@
           "sourceDocumentDate": "2009-11-23",
           "sourceSha256": null,
           "extractionMethod": "PacifiCorp's Grace Dam/Last Chance recreation plan documents a Black Canyon put-in below Grace Dam and a Black Canyon take-out upstream of Grace Powerhouse, with gravel parking, hand-launch access, portable toilets, and maintained recreation facilities. Idaho Fish and Game independently describes public access from the PacifiCorp hydroelectric plant. Coordinates remain facility anchors rather than surveyed wetted edges; current release-day rules, road status, parking, and facility restrictions must be confirmed.",
-          "matchedEndpointCount": 20
+          "matchedEndpointCount": 22
         },
         {
           "id": "id_portneuf_lava_hot_springs_pvc",
@@ -6864,7 +6894,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "Boundary County's recreation plan states that the Moyie can be accessed south of Eastport at County Road 211 and identifies five bridges where the river can be accessed for put-in or take-out; it also identifies Meadow Creek Campground as a day-use landing. The bridge coordinates remain facility/road anchors rather than surveyed wetted edges, so verify current parking, railroad/road safety, shoreline legality, and seasonal campground status before launching.",
-          "matchedEndpointCount": 48
+          "matchedEndpointCount": 50
         },
         {
           "id": "id_camas_creek_blaine_moonstone",
@@ -6878,7 +6908,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "American Whitewater and Visit Southern Idaho identify the Blaine Bridge/Macon Flat corridor as the route start, while Idaho Fish and Game identifies Moonstone as a public boat launch on Magic Reservoir. The bridge start is a roadside access anchor rather than a documented developed ramp; verify lawful parking, traffic safety, and the carry to water before publication or launch.",
-          "matchedEndpointCount": 20
+          "matchedEndpointCount": 22
         },
         {
           "id": "id_mores_creek_big_gulch_robie",
@@ -6892,7 +6922,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "American Whitewater identifies the Big Gulch-to-Robie Creek reach and marks both access points approximate. Idaho Fish and Game documents Highway 21 pullout access, while the USACE identifies Mores Creek Park in the Robie Creek/Lucky Peak corridor. These coordinates are roadside/facility anchors rather than surveyed ramps; verify the exact river carry, legal parking, traffic, and current park access before launching.",
-          "matchedEndpointCount": 3
+          "matchedEndpointCount": 5
         },
         {
           "id": "id_potlatch_little_boulder_cedar",
@@ -6920,7 +6950,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "North Idaho Rivers identifies the Canadian-border headwater bridge/Saddle Pass road as the upper access and the USGS gauge at the lower canyon as the take-out context. Both coordinates remain approximate forest-road or monitoring-site anchors, not surveyed public ramps; confirm gates, Border Patrol restrictions, legal parking, and an actual river landing before committing.",
-          "matchedEndpointCount": 6
+          "matchedEndpointCount": 7
         },
         {
           "id": "id_st_joe_heller_creek_spruce_tree",
@@ -6934,7 +6964,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "North Idaho Rivers identifies Heller Camp and Spruce Tree as the endpoint pair, while Forest Service/Mapcarta campground records provide facility anchors. The gauge-side Spruce Tree ramp is primitive and the Heller approach uses rough seasonal Forest Road 320; retain both as facility/road anchors requiring current gate, parking, carry, and landing confirmation.",
-          "matchedEndpointCount": 8
+          "matchedEndpointCount": 9
         },
         {
           "id": "id_lightning_creek_east_fork_clark_fork",
@@ -6948,7 +6978,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "North Idaho Rivers identifies the unmarked East Fork Creek bridge on Lightning Creek Road as the put-in and paved parking at the Highway 200 bridge in Clark Fork as the take-out. USGS station metadata and the Idaho Transportation Department milepoint log corroborate the lower bridge/gauge context; both endpoints remain access-area anchors requiring current road, parking, carry, and landing confirmation.",
-          "matchedEndpointCount": 14
+          "matchedEndpointCount": 15
         },
         {
           "id": "id_north_fork_clearwater_black_canyon",
@@ -6976,7 +7006,7 @@
           "sourceDocumentDate": null,
           "sourceSha256": null,
           "extractionMethod": "American Whitewater names the Hanging Rock put-in and free Cougar Creek Trailhead take-out, while the Idaho Transportation Department Highway 14 milepoint log identifies the corresponding Hanging Rock landmark near MP 28 and Cougar Creek culvert near MP 20.656. These are roadside/trailhead facility anchors rather than surveyed ramps; verify shoulder parking, carry path, traffic, seasonal road condition, and current Idaho Fish and Game/Forest Service notices before launching.",
-          "matchedEndpointCount": 7
+          "matchedEndpointCount": 9
         },
         {
           "id": "de_duck_creek_woodland_beach",
@@ -7019,28 +7049,56 @@
           "sourceSha256": "6f00b5fb117a1b694e3c37f46da76ff4d879ae77e616a4b8485f8c10484dba1c",
           "extractionMethod": "City brochure page 2 establishes the ordered public ports at County AA (Bowens Mill), Industrial Drive (Lions Park), North/Krouskop Park, and Seminary Street. The WRT Richland Center trip map independently identifies the same four access areas. On 2026-09-05 each coordinate was placed at the visible landing or pier in Esri World Imagery, not at the road, parking centroid, visitor-center address, or nearest river centerline. Port 4 is the main landing below the former-dam rapids; the guide describes a separate upstream bypass pier. Coordinates are imagery-derived with 30-foot uncertainty, not surveyed agency GPS. Reproducible imagery bounds and audit results are in docs/route-coordinate-corrections-2026-09-05.json.",
           "matchedEndpointCount": 4
+        },
+        {
+          "id": "alton_riverfront_ramp_aerial_20260905",
+          "name": "Alton Riverfront public boat launch source and landing imagery",
+          "state": "Illinois",
+          "url": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
+          "layerUrl": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
+          "coordinateRole": "authoritative-water-entry",
+          "inventoryFetchedAt": null,
+          "inventoryFeatureCount": 1,
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "extractionMethod": "The water-trail organizer explicitly names the City of Alton boat launch at Alton Marina as the take-out. OSM slipway node 12549669381 independently locates the same facility. Imagery shows the public concrete ramp under Clark Bridge entering a connected marina channel; the previous point was inland in the marina parking area. The coordinate is the visible ramp toe, not the marina centroid or Mississippi main flowline. Manually checked 2026-09-05. Imagery-derived with 40-foot uncertainty, not surveyed agency GPS. Independent NHD audit completed before this control was registered; evidence in docs/route-coordinate-corrections-2026-09-05-batch2.json.",
+          "matchedEndpointCount": 1
+        },
+        {
+          "id": "mauston_dam_launch_aerial_20260905",
+          "name": "Mauston Dam downstream access source and landing imagery",
+          "state": "Wisconsin",
+          "url": "https://www.mauston.com/top10",
+          "layerUrl": "https://www.mauston.com/top10",
+          "coordinateRole": "authoritative-water-entry",
+          "inventoryFetchedAt": null,
+          "inventoryFeatureCount": 1,
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "extractionMethod": "The city explicitly recommends launching at Mauston Dam to paddle to 19th Street landing. Wisconsin River Trips identifies the north-bank put-in below the dam and supplies a ground photograph of its gravel approach. Its trip-map marker identifies the adjacent parking area. Imagery locates the shore-side gravel access below the dam, not the parking marker, upstream impoundment, or city block containing the former point. Existing below-dam and spillway-current cautions are retained. Manually checked 2026-09-05. Imagery-derived with 40-foot uncertainty, not surveyed agency GPS. Independent NHD audit completed before this control was registered; evidence in docs/route-coordinate-corrections-2026-09-05-batch2.json.",
+          "matchedEndpointCount": 1
         }
       ]
     }
   },
   "canonicalRegistry": {
-    "generatedAt": "2026-09-05T11:41:40.991Z",
-    "entryCount": 3332,
-    "repeatedEntryCount": 760,
-    "conflictCount": 0,
-    "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1871,
-    "authoritativeAccessCount": 1212,
-    "authoritativeWaterEntryCount": 560,
+    "generatedAt": "2026-09-05T15:14:19.912Z",
+    "entryCount": 3393,
+    "repeatedEntryCount": 764,
+    "conflictCount": 2,
+    "distinctLocationNameCount": 0,
+    "derivedWaterEntryCount": 562,
+    "authoritativeAccessCount": 1214,
+    "authoritativeWaterEntryCount": 562,
     "areaAnchorOnlyCount": 1,
     "authoritativeAccessMismatchCount": 0
   },
   "routeGeometry": {
-    "routeCount": 1920,
-    "matchedRouteCount": 1920,
-    "networkTracedRouteCount": 352,
-    "namedFallbackRouteCount": 1334,
-    "curatedRouteCount": 234,
+    "routeCount": 1955,
+    "matchedRouteCount": 1955,
+    "networkTracedRouteCount": 360,
+    "namedFallbackRouteCount": 1359,
+    "curatedRouteCount": 236,
     "unmatchedRouteCount": 0
   },
   "automation": {

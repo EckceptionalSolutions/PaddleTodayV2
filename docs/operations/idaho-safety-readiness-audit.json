@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-05",
+  "state": "Idaho",
+  "scope": "Route metadata and publication-surface readiness; not an expert certification of runnable conditions",
+  "inventory": {
+    "routes": 163,
+    "whitewaterRoutes": 132,
+    "recreationalRoutes": 31,
+    "directGaugeRoutes": 107,
+    "proxyGaugeRoutes": 56,
+    "scoredRoutes": 47,
+    "planningRoutes": 116,
+    "maxClassIVOrHigher": 79,
+    "maxClassVOrHigher": 37,
+    "maxClassIVOrHigherScored": 0,
+    "maxClassVOrHigherScored": 0
+  },
+  "structuralReadiness": {
+    "reviewedSafetyProfiles": "163/163",
+    "highConsequenceReviewedProfiles": "79/79",
+    "highConsequenceAdvancedRiskLabels": "79/79",
+    "highConsequenceRoutesWithAtLeastFourHazards": "79/79",
+    "highConsequenceRoutesWithAtLeastThreeSafetyNotes": "79/79",
+    "highConsequenceRoutesWithAtLeastTwoAccessPoints": "79/79",
+    "highConsequenceRoutesWithAtLeastSixSourceLinks": "79/79",
+    "highConsequenceRoutesWithThresholdSource": "79/79",
+    "globalRouteSafetyAuditFindings": 0
+  },
+  "importantLimitations": [
+    "The route-safety audit is a structural completeness check. It does not validate paddler competency, current wood, local rescue capacity, closures, or whether a threshold remains safe after a rapid changes character.",
+    "A gauge reading is an observation and planning input, not a runnable guarantee. Proxy gauges add reach-mismatch uncertainty, and even direct gauges do not replace same-day visual scouting.",
+    "American Whitewater's safety guidance treats Class IV as requiring scouting and practiced rescue capability, and Class V as requiring extensive experience, reliable self-rescue, and practiced rescue skills."
+  ],
+  "publicationExposure": {
+    "currentIssue": "The catalog-wide publication gate now keeps all Idaho Class IV+ routes out of the scored same-day route surface; high-consequence routes remain planning-only or withheld.",
+    "existingControls": [
+      "Planning routes show a planning status and no same-day score.",
+      "Proxy routes are not score-eligible unless explicitly authored as planning routes.",
+      "Scored routes expose the advanced safety label, hazard chips, safety notes, threshold source, gauge freshness, and access/logistics sections."
+    ]
+  },
+  "recommendation": {
+    "goLiveWithAllRapidClasses": false,
+    "decision": "Do not launch all Idaho rapid classes into one undifferentiated same-day scoring catalog.",
+    "stagedPolicy": {
+      "classIToIII": "Eligible for live scoring only when the route has a reach-matched direct/official gauge, current access and closure controls, and reviewed safety metadata.",
+      "classIV": "Planning/expert-only by default. Consider live scoring only after route-specific expert review confirms direct telemetry, current access, scout/portage/rescue information, and an explicit competency warning.",
+      "classVAndVPlus": "Planning-only. Keep thresholds as planning cues, but do not present a same-day paddle/no-paddle score or alert as if the gauge can certify safety."
+    },
+    "nextGate": "Any future Class IV+ live-scoring exception would require a separately approved expert-publication policy, route-specific competency/rescue sign-off, and a regression test; the default remains planning-only or withheld."
+  },
+  "authoritativeReferences": [
+    "https://www.americanwhitewater.org/explore/safety/safety-code/",
+    "https://site-media.americanwhitewater.org/Scale-of-River-Difficulty-Safety-Code-2024.pdf",
+    "https://www.usgs.gov/mission-areas/water-resources/science/usgs-national-streamgaging-network",
+    "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-IDA"
+  ]
+}

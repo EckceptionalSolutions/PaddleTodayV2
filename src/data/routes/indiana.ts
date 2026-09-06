@@ -885,8 +885,18 @@ export const indianaRoutes: River[] = [
     "summary": "Longer Wells County Wabash day from Linn Grove Park to White Bridge Picnic Area. The river is still broad-audience at ordinary levels, but the local stage window stays strict at 1.5 to 3 ft.",
     "statusText": "Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. The latest official USGS reading available during this run was 1.41 ft at 2026-07-16 02:45 EDT, so expect shallow dragging and slower progress on this longer run.",
     "latitude": 40.645752,
-    "longitude": -85.031219,
-    "gaugeSource": {
+     "longitude": -85.031219,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Stay inside the Wells County Trails 1.5-3.0 ft stage band; below it, shallow dragging is likely and above it current and debris increase.",
+         "Watch for floating wood, bridge debris, strainers, wind, thunderstorms, cold water, and limited legal bailout access over the longer reach.",
+         "Use only Linn Grove and White Bridge public launches and skip Action/Flood Stage conditions."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03323000",
       "provider": "usgs",
       "siteId": "03323000",
@@ -991,8 +1001,18 @@ export const indianaRoutes: River[] = [
     "summary": "Mid-length Wells County Wabash route from Vera Cruz Paddlesports Launch into Bluffton at Kehoe Park. Use the Bluffton stage gauge and stay inside the same local 1.5 to 3 ft kayaking band.",
     "statusText": "Wells County Trails still calls 1.5 to 3 ft the ideal kayaking height. The latest official USGS reading available during this run was 1.39 ft at 2026-07-16 07:45 EDT, so expect shallow dragging rather than a clean green-light.",
     "latitude": 40.69890779,
-    "longitude": -85.0828222,
-    "gaugeSource": {
+     "longitude": -85.0828222,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Stay inside the Wells County Trails 1.5-3.0 ft stage band; below it, shallow dragging is likely and above it current and debris increase.",
+         "Watch for floating wood, bridge debris, strainers, cold water, thunderstorms, and the in-town Kehoe Park landing.",
+         "Use only Vera Cruz and Kehoe public access, and never launch during Action or Flood Stage."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03323000",
       "provider": "usgs",
       "siteId": "03323000",
@@ -1227,8 +1247,18 @@ export const indianaRoutes: River[] = [
     "summary": "Longest current Wells County Wabash day from Linn Grove Park to the public east-end Hale Street access in Bluffton. Use the Bluffton stage gauge and keep the same strict 1.5 to 3 ft posture.",
     "statusText": "Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below that means shallow dragging, and above 3 ft this app turns conservative because higher water adds stronger flow, debris, and obstacle hazards.",
     "latitude": 40.645752,
-    "longitude": -85.031219,
-    "gaugeSource": {
+     "longitude": -85.031219,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Stay inside the Wells County Trails 1.5-3.0 ft stage band; below it, shallow dragging is likely and above it current and debris increase.",
+         "Treat the nearly 12-mile route as a full-day commitment with wood, bridge debris, cold water, wind, private banks, and limited legal exits.",
+         "Use only Linn Grove and Hale Street public accesses and never launch during Action or Flood Stage."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03323000",
       "provider": "usgs",
       "siteId": "03323000",

@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { River } from '../lib/types';
-import { hasQualifyingGauge, isPublicPlanningRoute, isScoreEligible } from './route-publication';
+import { routeInventory } from './rivers';
+import {
+  enforceHighConsequencePlanning,
+  hasQualifyingGauge,
+  isPublicPlanningRoute,
+  isScoreEligible,
+  maxPublishedRapidClass,
+} from './route-publication';
 
 function route(overrides: Partial<River> = {}) {
   return {
@@ -34,5 +41,26 @@ describe('route publication policy', () => {
     });
     expect(isScoreEligible(proxy)).toBe(false);
     expect(isPublicPlanningRoute(proxy)).toBe(true);
+  });
+
+  it('never exposes an explicitly Class IV+ route to live scoring', () => {
+    const highConsequenceRoutes = routeInventory.filter(
+      (river) => (maxPublishedRapidClass(river) ?? 0) >= 4,
+    );
+
+    expect(highConsequenceRoutes.length).toBeGreaterThan(0);
+    expect(highConsequenceRoutes.every((river) => river.scoreEligibility !== 'scored')).toBe(true);
+    expect(routeInventory.filter((river) => isScoreEligible(river)).some((river) => (maxPublishedRapidClass(river) ?? 0) >= 4)).toBe(false);
+  });
+
+  it('downgrades a high-consequence direct route to planning at publication time', () => {
+    const candidate = route({
+      scoreEligibility: 'scored',
+      summary: 'Class III-IV reach with a short Class V rapid.',
+    });
+
+    enforceHighConsequencePlanning(candidate);
+    expect(candidate.scoreEligibility).toBe('planning');
+    expect(isScoreEligible(candidate)).toBe(false);
   });
 });

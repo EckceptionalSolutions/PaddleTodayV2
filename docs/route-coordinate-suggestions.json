@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-05T11:38:45.288Z",
-  "registryGeneratedAt": "2026-09-05T11:41:40.991Z",
-  "count": 33,
+  "generatedAt": "2026-09-05T19:58:22.878Z",
+  "registryGeneratedAt": "2026-09-05T22:19:14.078Z",
+  "count": 40,
   "autoApplyEligibleCount": 0,
   "items": [
     {
@@ -1429,638 +1429,6 @@
       "autoApplyEligible": false
     },
     {
-      "routeId": "lemonweir-river-mauston-dam-19th-ave",
-      "routeName": "Lemonweir River",
-      "reach": "Mauston Dam to 19th Avenue Landing",
-      "state": "Wisconsin",
-      "endpoint": "putIn",
-      "endpointName": "Mauston Dam downstream access",
-      "current": {
-        "latitude": 43.7994,
-        "longitude": -90.0684
-      },
-      "reason": "Endpoint is 875 ft from the matched NHD flowline.",
-      "canonicalAccessId": "wisconsin--mauston-dam-downstream-access",
-      "canonicalAccessStatus": "unverified",
-      "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "Wisconsin River Trips - Lemonweir River Mauston",
-          "url": "https://www.wisconsinrivertrips.com/segments/lemonweir-river/mauston",
-          "provider": "wisconsin_river_trips"
-        },
-        {
-          "label": "Miles Paddled - Lemonweir River",
-          "url": "https://milespaddled.com/lemonweir-river/",
-          "provider": "miles_paddled"
-        },
-        {
-          "label": "Travel Wisconsin - Lemonweir River",
-          "url": "https://www.travelwisconsin.com/outdoors/on-the-water/lemonweir-river",
-          "provider": "local"
-        },
-        {
-          "label": "Juneau County Lemonweir Mills Boat Launch",
-          "url": "https://www.co.juneau.wi.gov/departments/land%2C_forestry%2C___parks/launches/lemonweir_mills.php",
-          "provider": "local"
-        },
-        {
-          "label": "USGS 05403500 Lemonweir River at New Lisbon",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05403500/",
-          "provider": "usgs"
-        }
-      ],
-      "authoritativeAccessCandidates": [],
-      "nearbyAuthoritativeCandidates": [
-        {
-          "provider": "wi_dnr",
-          "featureId": "5160",
-          "name": "Riverside Park & Lake Decorah Boat Launch",
-          "latitude": 43.79909629480422,
-          "longitude": -90.07703429410648,
-          "distanceFromCurrentFeet": 2276.225074259974,
-          "distanceFromMatchedRiverPointFeet": 1957.1578574399548,
-          "sourceUrl": "https://dnrmaps.wi.gov/arcgis2/rest/services/PR_Recreation/PR_Boat_Access_Shore_Fishing_WTM_Ext/MapServer/2/16245",
-          "administrator": "Public Works",
-          "owner": "CITY",
-          "launchMethod": "RAMP",
-          "launchSurface": "Concrete",
-          "waterbody": "Decorah Lake",
-          "county": "Juneau",
-          "municipality": "CITY OF MAUSTON",
-          "phone": "608-847-4070 opt.4",
-          "comments": "Abandon flag: No",
-          "directions": null
-        }
-      ],
-      "candidates": [
-        {
-          "kind": "osm-slipway",
-          "name": null,
-          "latitude": 43.7991717,
-          "longitude": -90.0770069,
-          "distanceFeet": 2267.842159442318,
-          "sourceUrl": "https://www.openstreetmap.org/node/7560445034",
-          "matchedRiverPointDistanceFeet": 1959.7219040444784,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "candidateHydrography": {
-            "candidateId": "mapped:https://www.openstreetmap.org/node/7560445034",
-            "directQueryVerified": true,
-            "flowlineEvidenceSource": "candidate-query",
-            "waterbodyEvidenceSource": "candidate-query",
-            "mode": "mapped-launch-near-waterbody",
-            "nearestIntendedFlowlineFeet": 206.1800755057768,
-            "nearestIntendedFlowlineName": "Lemonweir River",
-            "nearestWaterbodyFeet": 0,
-            "nearestWaterbodyName": "Decorah Lake",
-            "onNhdWaterbody": true,
-            "ambiguousOfficialCandidates": false,
-            "supportedOfficialCandidateCount": 0,
-            "exactOfficialNameMatch": false,
-            "terminalNamedWaterbodyAgreement": false
-          },
-          "routeGeometryDistanceFeet": 205.9621510767796,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 30,
-          "confidence": "low",
-          "waterScore": 30,
-          "waterConfidence": "low",
-          "accessScore": 55,
-          "accessConfidence": "medium",
-          "limitingFactor": "water-location",
-          "evidenceScore": 60,
-          "evidence": [
-            {
-              "signal": "candidate-specific-nhd-query",
-              "effect": 0,
-              "detail": "Hydrography was independently queried around this proposed coordinate rather than inherited from the old route endpoint.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "mapped-launch-feature",
-              "effect": 45,
-              "detail": "OpenStreetMap identifies this feature as slipway.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/node/7560445034"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 2268 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-nearby",
-              "effect": 15,
-              "detail": "Candidate is within 206 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "North Union Street",
-          "latitude": 43.7975751,
-          "longitude": -90.0706561,
-          "distanceFeet": 892.2707266575085,
-          "sourceUrl": "https://www.openstreetmap.org/way/177247651",
-          "matchedRiverPointDistanceFeet": 192.13651733709253,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2.8259543415087776,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 15,
-          "confidence": "low",
-          "waterScore": 35,
-          "waterConfidence": "low",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "access-location",
-          "evidenceScore": 30,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/177247651"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 892 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 3 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 43.7960602,
-          "longitude": -90.068161,
-          "distanceFeet": 1220.0394488600014,
-          "sourceUrl": "https://www.openstreetmap.org/way/808519304",
-          "matchedRiverPointDistanceFeet": 670.0127592906033,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 9.593759496592318,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 15,
-          "confidence": "low",
-          "waterScore": 35,
-          "waterConfidence": "low",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "access-location",
-          "evidenceScore": 30,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/808519304"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 1220 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 10 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "nearest-nhd-waterbody",
-          "name": "Decorah Lake",
-          "latitude": 43.798291,
-          "longitude": -90.070388,
-          "distanceFeet": 661.5952624294919,
-          "routeGeometryDistanceFeet": 264.78218787343616,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 50,
-          "waterConfidence": "low",
-          "accessScore": 0,
-          "accessConfidence": "none",
-          "limitingFactor": "access-location",
-          "evidenceScore": 30,
-          "evidence": [
-            {
-              "signal": "unnamed-waterbody-only",
-              "effect": 10,
-              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 662 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-nearby",
-              "effect": 15,
-              "detail": "Candidate is within 265 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "matched-river-centerline",
-          "name": "Lemonweir River",
-          "latitude": 43.79730958659125,
-          "longitude": -90.07002594539772,
-          "distanceFeet": 874.5798706746493,
-          "routeGeometryDistanceFeet": 0,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 100,
-          "waterConfidence": "high",
-          "accessScore": 0,
-          "accessConfidence": "none",
-          "limitingFactor": "access-location",
-          "evidenceScore": 80,
-          "evidence": [
-            {
-              "signal": "intended-river-centerline",
-              "effect": 40,
-              "detail": "Candidate lies on the NHD flowline matched to Lemonweir River.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "river-name-agreement",
-              "effect": 20,
-              "detail": "Lemonweir River agrees with the route river name.",
-              "source": "semantic"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 875 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "nearest-named-waterway",
-          "name": "Lemonweir River",
-          "latitude": 43.79730958659125,
-          "longitude": -90.07002594539772,
-          "distanceFeet": 874.5798706746493,
-          "routeGeometryDistanceFeet": 0,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 95,
-          "waterConfidence": "high",
-          "accessScore": 0,
-          "accessConfidence": "none",
-          "limitingFactor": "access-location",
-          "evidenceScore": 70,
-          "evidence": [
-            {
-              "signal": "river-name-agreement",
-              "effect": 35,
-              "detail": "Lemonweir River agrees with the intended river.",
-              "source": "semantic"
-            },
-            {
-              "signal": "named-waterway",
-              "effect": 15,
-              "detail": "Candidate is on a named NHD waterway.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 875 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Monroe Street",
-          "latitude": 43.8001969,
-          "longitude": -90.074367,
-          "distanceFeet": 1597.8482072948136,
-          "sourceUrl": "https://www.openstreetmap.org/way/808513014",
-          "matchedRiverPointDistanceFeet": 1554.3908451390053,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 396.0439008884191,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 10,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/808513014"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 1598 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 43.8035421,
-          "longitude": -90.0635571,
-          "distanceFeet": 1977.2364823919484,
-          "sourceUrl": "https://www.openstreetmap.org/way/39375985",
-          "matchedRiverPointDistanceFeet": 2840.961789651109,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2835.343727898051,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/39375985"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 1977 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2835 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 43.8035638,
-          "longitude": -90.0631623,
-          "distanceFeet": 2051.674455880227,
-          "sourceUrl": "https://www.openstreetmap.org/way/39375986",
-          "matchedRiverPointDistanceFeet": 2910.6807349009823,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2904.3036296302716,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/39375986"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 2052 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2904 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 43.7964184,
-          "longitude": -90.0566516,
-          "distanceFeet": 3279.24183886405,
-          "sourceUrl": "https://www.openstreetmap.org/way/39375673",
-          "matchedRiverPointDistanceFeet": 3536.7624930002876,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2081.9246589396494,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/39375673"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 3279 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2082 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 43.7964216,
-          "longitude": -90.0562785,
-          "distanceFeet": 3371.705074343029,
-          "sourceUrl": "https://www.openstreetmap.org/way/39375675",
-          "matchedRiverPointDistanceFeet": 3634.4996056855257,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2150.574063589336,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/39375675"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 3372 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2151 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        }
-      ],
-      "recommended": {
-        "kind": "osm-slipway",
-        "name": null,
-        "latitude": 43.7991717,
-        "longitude": -90.0770069,
-        "distanceFeet": 2267.842159442318,
-        "sourceUrl": "https://www.openstreetmap.org/node/7560445034",
-        "matchedRiverPointDistanceFeet": 1959.7219040444784,
-        "osmConsensusRouteCount": 1,
-        "officialAccessAgreement": null,
-        "candidateHydrography": {
-          "candidateId": "mapped:https://www.openstreetmap.org/node/7560445034",
-          "directQueryVerified": true,
-          "flowlineEvidenceSource": "candidate-query",
-          "waterbodyEvidenceSource": "candidate-query",
-          "mode": "mapped-launch-near-waterbody",
-          "nearestIntendedFlowlineFeet": 206.1800755057768,
-          "nearestIntendedFlowlineName": "Lemonweir River",
-          "nearestWaterbodyFeet": 0,
-          "nearestWaterbodyName": "Decorah Lake",
-          "onNhdWaterbody": true,
-          "ambiguousOfficialCandidates": false,
-          "supportedOfficialCandidateCount": 0,
-          "exactOfficialNameMatch": false,
-          "terminalNamedWaterbodyAgreement": false
-        },
-        "routeGeometryDistanceFeet": 205.9621510767796,
-        "routeGeometryReliable": false,
-        "routeAxisFraction": null,
-        "score": 30,
-        "confidence": "low",
-        "waterScore": 30,
-        "waterConfidence": "low",
-        "accessScore": 55,
-        "accessConfidence": "medium",
-        "limitingFactor": "water-location",
-        "evidenceScore": 60,
-        "evidence": [
-          {
-            "signal": "candidate-specific-nhd-query",
-            "effect": 0,
-            "detail": "Hydrography was independently queried around this proposed coordinate rather than inherited from the old route endpoint.",
-            "source": "hydrography"
-          },
-          {
-            "signal": "mapped-launch-feature",
-            "effect": 45,
-            "detail": "OpenStreetMap identifies this feature as slipway.",
-            "source": "openstreetmap",
-            "url": "https://www.openstreetmap.org/node/7560445034"
-          },
-          {
-            "signal": "large-move",
-            "effect": 0,
-            "detail": "Candidate requires moving 2268 ft; proximity does not increase confidence.",
-            "source": "proximity"
-          },
-          {
-            "signal": "active-route-nearby",
-            "effect": 15,
-            "detail": "Candidate is within 206 ft of the route's canonical river geometry.",
-            "source": "hydrography"
-          }
-        ],
-        "autoApplyEligible": false
-      },
-      "autoApplyEligible": false
-    },
-    {
       "routeId": "erie-canal-mays-point-montezuma-aqueduct",
       "routeName": "Erie Canal",
       "reach": "Above Lock E25, Mays Point to Montezuma Heritage Park and Richmond Aqueduct",
@@ -3089,6 +2457,134 @@
         ],
         "autoApplyEligible": false
       },
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "bear-valley-creek-fir-confluence",
+      "routeName": "Bear Valley Creek",
+      "reach": "Fir Creek Campground to Middle Fork Salmon confluence",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Middle Fork Salmon confluence / Dagger Falls trail access",
+      "current": {
+        "latitude": 44.52944,
+        "longitude": -115.29223
+      },
+      "reason": "Endpoint is 34727 ft from Bear Valley Creek; the nearest named waterway is Boundary Creek.",
+      "canonicalAccessId": "idaho--middle-fork-salmon-confluence-dagger-falls-trail-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Boundary Creek",
+          "latitude": 44.52977324131952,
+          "longitude": -115.29182798181363,
+          "distanceFeet": 160.34763848797755,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 0,
+          "waterConfidence": "none",
+          "accessScore": 5,
+          "accessConfidence": "low",
+          "limitingFactor": "water-location",
+          "evidenceScore": 0,
+          "evidence": [
+            {
+              "signal": "wrong-waterway-risk",
+              "effect": -35,
+              "detail": "Boundary Creek does not agree with Bear Valley Creek.",
+              "source": "conflict"
+            },
+            {
+              "signal": "small-move",
+              "effect": 10,
+              "detail": "Candidate is 160 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 44.53134924653357,
+          "longitude": -115.29112307845763,
+          "distanceFeet": 753.6714691454213,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 754 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Bear Valley Creek",
+          "latitude": 44.437583,
+          "longitude": -115.257235,
+          "distanceFeet": 34726.78984037084,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Bear Valley Creek.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Bear Valley Creek agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 34727 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
       "autoApplyEligible": false
     },
     {
@@ -4633,6 +4129,140 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "malad-river-dam-snake",
+      "routeName": "Malad River",
+      "reach": "Malad Dam to Snake River confluence",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Malad Dam below-gate official kayaker put-in",
+      "current": {
+        "latitude": 42.8735,
+        "longitude": -114.8765
+      },
+      "reason": "Endpoint is 3026 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--malad-dam-below-gate-official-kayaker-put-in",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.871427,
+          "longitude": -114.885028,
+          "distanceFeet": 2402.2229819961585,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2402 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Malad River",
+          "latitude": 42.865844,
+          "longitude": -114.87214100000001,
+          "distanceFeet": 3026.454051174568,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Malad River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Malad River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 3026 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Malad River",
+          "latitude": 42.865844,
+          "longitude": -114.87214100000001,
+          "distanceFeet": 3026.454051174568,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Malad River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 3026 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "beaver-dam-river-county-s-lowell",
       "routeName": "Beaver Dam River",
       "reach": "County Road S / Leipsig to River Street Dam / Lowell",
@@ -5323,6 +4953,140 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "potlatch-river-frog-pond-kendrick",
+      "routeName": "Potlatch River",
+      "reach": "Frog Pond to Kendrick",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Kendrick first concrete bridge",
+      "current": {
+        "latitude": 46.6275,
+        "longitude": -116.641
+      },
+      "reason": "Endpoint is 2205 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--kendrick-first-concrete-bridge",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 46.622777377262764,
+          "longitude": -116.63570551103123,
+          "distanceFeet": 2174.3911566034617,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2174 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Potlatch River",
+          "latitude": 46.622772,
+          "longitude": -116.63551899999999,
+          "distanceFeet": 2204.7443883575625,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Potlatch River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Potlatch River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2205 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Potlatch River",
+          "latitude": 46.622772,
+          "longitude": -116.63551899999999,
+          "distanceFeet": 2204.7443883575625,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Potlatch River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 2205 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "blackwater-river-wayside-the-ford",
       "routeName": "Blackwater River",
       "reach": "U.S. 220 Wayside Park to The Ford at Round Hill Road",
@@ -5589,431 +5353,85 @@
       "autoApplyEligible": false
     },
     {
-      "routeId": "mississippi-river-piasa-harbor-alton-riverfront",
-      "routeName": "Mississippi River",
-      "reach": "Piasa Harbor to Alton Riverfront",
-      "state": "Illinois",
+      "routeId": "boulder-creek-gorge",
+      "routeName": "Boulder Creek",
+      "reach": "Upper access to Kootenai River (Gorge)",
+      "state": "Idaho",
       "endpoint": "takeOut",
-      "endpointName": "Alton Riverfront public boat launch",
+      "endpointName": "Boulder Creek / Kootenai Confluence Take-Out",
       "current": {
-        "latitude": 38.8855000354463,
-        "longitude": -90.1759188990604
+        "latitude": 48.625465,
+        "longitude": -116.066503
       },
-      "reason": "Endpoint is 1945 ft from the matched NHD flowline.",
-      "canonicalAccessId": "illinois--alton-riverfront-public-boat-launch",
+      "reason": "Endpoint is 2069 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--boulder-creek-kootenai-confluence-take-out",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
-      "sourceLinks": [
-        {
-          "label": "USGS 05587498 monitoring location",
-          "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05587498/",
-          "provider": "usgs"
-        },
-        {
-          "label": "USACE Alton Pool 26 level data",
-          "url": "https://www.mvs-wc.usace.army.mil/trans/mi/mial_30e.html",
-          "provider": "local"
-        },
-        {
-          "label": "Mississippi River Water Trail itinerary",
-          "url": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
-          "provider": "local"
-        },
-        {
-          "label": "Mississippi River Water Trail safety",
-          "url": "https://mississippiriverwatertrail.org/safety/",
-          "provider": "local"
-        },
-        {
-          "label": "USACE Rivers Project recreation access",
-          "url": "https://www.mvs.army.mil/Missions/Recreation/Rivers-Project-Office/Recreation/",
-          "provider": "local"
-        },
-        {
-          "label": "USACE Pool 26 access inventory",
-          "url": "https://www.mvs.army.mil/Portals/54/docs/recreation/rivers/MasterPlan/2015MasterPlan/Rivers%20Project%20Master%20Plan%202015%20-%20Pool%2026%20Maps.pdf",
-          "provider": "local"
-        }
-      ],
+      "sourceLinks": [],
       "authoritativeAccessCandidates": [],
       "nearbyAuthoritativeCandidates": [],
       "candidates": [
         {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8847061,
-          "longitude": -90.1760528,
-          "distanceFeet": 292.1263128408222,
-          "sourceUrl": "https://www.openstreetmap.org/way/28489732",
-          "matchedRiverPointDistanceFeet": 1676.7774060886559,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 1672.2232925555338,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 20,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/28489732"
-            },
-            {
-              "signal": "small-move",
-              "effect": 10,
-              "detail": "Candidate is 292 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 1672 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "nearest-nhd-waterbody",
-          "name": null,
-          "latitude": 38.88467957082328,
-          "longitude": -90.17645187296914,
-          "distanceFeet": 335.4092629513293,
-          "routeGeometryDistanceFeet": 1608.3823220111553,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 0,
-          "accessConfidence": "none",
-          "limitingFactor": "balanced",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "unnamed-waterbody-only",
-              "effect": 10,
-              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 335 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 1608 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-slipway",
-          "name": "Alton Riverfront",
-          "latitude": 38.8842677,
-          "longitude": -90.1745597,
-          "distanceFeet": 592.5372137711228,
-          "sourceUrl": "https://www.openstreetmap.org/node/12549669381",
-          "matchedRiverPointDistanceFeet": 1827.0510296062841,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 1681.313799227078,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 80,
-          "accessConfidence": "medium",
-          "limitingFactor": "water-location",
-          "evidenceScore": 55,
-          "evidence": [
-            {
-              "signal": "mapped-launch-feature",
-              "effect": 45,
-              "detail": "OpenStreetMap identifies this feature as slipway.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/node/12549669381"
-            },
-            {
-              "signal": "access-name-agreement",
-              "effect": 25,
-              "detail": "Alton Riverfront agrees with the endpoint name.",
-              "source": "semantic"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 593 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 1681 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8834266,
-          "longitude": -90.1765616,
-          "distanceFeet": 778.1314112695055,
-          "sourceUrl": "https://www.openstreetmap.org/way/138023111",
-          "matchedRiverPointDistanceFeet": 1213.4923929805461,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 1191.5638125969956,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/138023111"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 778 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 1192 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8860562,
-          "longitude": -90.1732412,
-          "distanceFeet": 786.9988889671815,
-          "sourceUrl": "https://www.openstreetmap.org/way/1105501755",
-          "matchedRiverPointDistanceFeet": 2555.8006255487985,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2429.735215391956,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/1105501755"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 787 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2430 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8872766,
-          "longitude": -90.1725745,
-          "distanceFeet": 1149.7875404867807,
-          "sourceUrl": "https://www.openstreetmap.org/way/1105501754",
-          "matchedRiverPointDistanceFeet": 3017.565923400921,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2912.8161151969234,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/1105501754"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 1150 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2913 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": null,
-          "latitude": 38.8889452,
-          "longitude": -90.1792751,
-          "distanceFeet": 1577.335899796688,
-          "sourceUrl": "https://www.openstreetmap.org/way/287104603",
-          "matchedRiverPointDistanceFeet": 2954.9021552767867,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 2572.3168136777867,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 0,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/287104603"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 1577 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-disagreement",
-              "effect": -20,
-              "detail": "Candidate is 2572 ft from the route's canonical river geometry.",
-              "source": "conflict"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
           "kind": "matched-river-centerline",
-          "name": "Mississippi River",
-          "latitude": 38.880845524985986,
-          "longitude": -90.17925697025777,
-          "distanceFeet": 1944.7300286387342,
-          "routeGeometryDistanceFeet": 2.4010660126805305e-9,
+          "name": "Boulder Creek",
+          "latitude": 48.621987,
+          "longitude": -116.059726,
+          "distanceFeet": 2068.9760321673234,
+          "routeGeometryDistanceFeet": null,
           "routeGeometryReliable": false,
           "routeAxisFraction": null,
           "score": 0,
           "confidence": "none",
-          "waterScore": 100,
-          "waterConfidence": "high",
+          "waterScore": 80,
+          "waterConfidence": "medium",
           "accessScore": 0,
           "accessConfidence": "none",
           "limitingFactor": "access-location",
-          "evidenceScore": 80,
+          "evidenceScore": 60,
           "evidence": [
             {
               "signal": "intended-river-centerline",
               "effect": 40,
-              "detail": "Candidate lies on the NHD flowline matched to Mississippi River.",
+              "detail": "Candidate lies on the NHD flowline matched to Boulder Creek.",
               "source": "hydrography"
             },
             {
               "signal": "river-name-agreement",
               "effect": 20,
-              "detail": "Mississippi River agrees with the route river name.",
+              "detail": "Boulder Creek agrees with the route river name.",
               "source": "semantic"
             },
             {
               "signal": "large-move",
               "effect": 0,
-              "detail": "Candidate requires moving 1945 ft; proximity does not increase confidence.",
+              "detail": "Candidate requires moving 2069 ft; proximity does not increase confidence.",
               "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
-              "source": "hydrography"
             }
           ],
           "autoApplyEligible": false
         },
         {
           "kind": "nearest-named-waterway",
-          "name": "Mississippi River",
-          "latitude": 38.880845524985986,
-          "longitude": -90.17925697025777,
-          "distanceFeet": 1944.7300286387342,
-          "routeGeometryDistanceFeet": 2.4010660126805305e-9,
+          "name": "Boulder Creek",
+          "latitude": 48.621987,
+          "longitude": -116.059726,
+          "distanceFeet": 2068.9760321673234,
+          "routeGeometryDistanceFeet": null,
           "routeGeometryReliable": false,
           "routeAxisFraction": null,
           "score": 0,
           "confidence": "none",
-          "waterScore": 95,
-          "waterConfidence": "high",
+          "waterScore": 60,
+          "waterConfidence": "medium",
           "accessScore": 0,
           "accessConfidence": "none",
           "limitingFactor": "access-location",
-          "evidenceScore": 70,
+          "evidenceScore": 50,
           "evidence": [
             {
               "signal": "river-name-agreement",
               "effect": 35,
-              "detail": "Mississippi River agrees with the intended river.",
+              "detail": "Boulder Creek agrees with the intended river.",
               "source": "semantic"
             },
             {
@@ -6025,145 +5443,47 @@
             {
               "signal": "large-move",
               "effect": 0,
-              "detail": "Candidate requires moving 1945 ft; proximity does not increase confidence.",
+              "detail": "Candidate requires moving 2069 ft; proximity does not increase confidence.",
               "source": "proximity"
-            },
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 48.629114,
+          "longitude": -116.05854699999999,
+          "distanceFeet": 2335.044030428254,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
             {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
               "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8805718,
-          "longitude": -90.1818075,
-          "distanceFeet": 2455.389524456019,
-          "sourceUrl": "https://www.openstreetmap.org/way/28489755",
-          "matchedRiverPointDistanceFeet": 731.1844901160036,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 441.1423311764608,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 10,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/28489755"
             },
             {
               "signal": "large-move",
               "effect": 0,
-              "detail": "Candidate requires moving 2455 ft; proximity does not increase confidence.",
-              "source": "proximity"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "osm-road-bridge",
-          "name": "Clark Bridge",
-          "latitude": 38.8806639,
-          "longitude": -90.1819383,
-          "distanceFeet": 2456.594808004976,
-          "sourceUrl": "https://www.openstreetmap.org/way/138023115",
-          "matchedRiverPointDistanceFeet": 764.356562310423,
-          "osmConsensusRouteCount": 1,
-          "officialAccessAgreement": null,
-          "routeGeometryDistanceFeet": 430.02163768942444,
-          "routeGeometryReliable": false,
-          "routeAxisFraction": null,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 0,
-          "waterConfidence": "none",
-          "accessScore": 15,
-          "accessConfidence": "low",
-          "limitingFactor": "water-location",
-          "evidenceScore": 10,
-          "evidence": [
-            {
-              "signal": "mapped-road-bridge",
-              "effect": 10,
-              "detail": "A mapped road bridge can help locate a carry-in, but does not prove legal launch access.",
-              "source": "openstreetmap",
-              "url": "https://www.openstreetmap.org/way/138023115"
-            },
-            {
-              "signal": "large-move",
-              "effect": 0,
-              "detail": "Candidate requires moving 2457 ft; proximity does not increase confidence.",
+              "detail": "Candidate requires moving 2335 ft; proximity does not increase confidence.",
               "source": "proximity"
             }
           ],
           "autoApplyEligible": false
         }
       ],
-      "recommended": {
-        "kind": "osm-slipway",
-        "name": "Alton Riverfront",
-        "latitude": 38.8842677,
-        "longitude": -90.1745597,
-        "distanceFeet": 592.5372137711228,
-        "sourceUrl": "https://www.openstreetmap.org/node/12549669381",
-        "matchedRiverPointDistanceFeet": 1827.0510296062841,
-        "osmConsensusRouteCount": 1,
-        "officialAccessAgreement": null,
-        "routeGeometryDistanceFeet": 1681.313799227078,
-        "routeGeometryReliable": false,
-        "routeAxisFraction": null,
-        "score": 0,
-        "confidence": "none",
-        "waterScore": 0,
-        "waterConfidence": "none",
-        "accessScore": 80,
-        "accessConfidence": "medium",
-        "limitingFactor": "water-location",
-        "evidenceScore": 55,
-        "evidence": [
-          {
-            "signal": "mapped-launch-feature",
-            "effect": 45,
-            "detail": "OpenStreetMap identifies this feature as slipway.",
-            "source": "openstreetmap",
-            "url": "https://www.openstreetmap.org/node/12549669381"
-          },
-          {
-            "signal": "access-name-agreement",
-            "effect": 25,
-            "detail": "Alton Riverfront agrees with the endpoint name.",
-            "source": "semantic"
-          },
-          {
-            "signal": "moderate-move",
-            "effect": 5,
-            "detail": "Candidate is 593 ft from the stored coordinate.",
-            "source": "proximity"
-          },
-          {
-            "signal": "active-route-disagreement",
-            "effect": -20,
-            "detail": "Candidate is 1681 ft from the route's canonical river geometry.",
-            "source": "conflict"
-          }
-        ],
-        "autoApplyEligible": false
-      },
+      "recommended": null,
       "autoApplyEligible": false
     },
     {
@@ -7339,18 +6659,18 @@
       "autoApplyEligible": false
     },
     {
-      "routeId": "blackfoot-river-government-dam-cutthroat",
+      "routeId": "blackfoot-river-cutthroat-trail-creek",
       "routeName": "Blackfoot River",
-      "reach": "Government Dam Road to Cutthroat Trout Campground",
+      "reach": "Cutthroat Trout Campground to Trail Creek Bridge",
       "state": "Idaho",
-      "endpoint": "takeOut",
-      "endpointName": "Cutthroat Trout Campground Take-Out",
+      "endpoint": "putIn",
+      "endpointName": "Cutthroat Trout Campground Put-In",
       "current": {
         "latitude": 43.03499,
         "longitude": -111.85029
       },
       "reason": "Endpoint is 1056 ft from the matched NHD flowline.",
-      "canonicalAccessId": "idaho--cutthroat-trout-campground-take-out",
+      "canonicalAccessId": "idaho--cutthroat-trout-campground-put-in",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
       "sourceLinks": [],
@@ -7358,7 +6678,7 @@
         {
           "provider": "id_middle_fork_payette_boiling_trail_creek",
           "featureId": "id-middle-fork-payette-trail-creek",
-          "name": "Trail Creek Campground Take-Out",
+          "name": "Trail Creek Campground access",
           "officialName": "Trail Creek Campground access",
           "aliases": [
             "Trail Creek Campground Take-Out",
@@ -7381,28 +6701,54 @@
           "coordinateText": "Named Boise National Forest campground/access anchor above the undocumented Steeps; verify the signed landing and stop before the downstream Class V+ sections."
         },
         {
-          "provider": "id_moyie_river_copper_twin_bridges",
-          "featureId": "id-moyie-meadow-creek-campground",
-          "name": "Meadow Creek Campground Take-Out",
-          "officialName": "Meadow Creek Campground day-use access",
+          "provider": "id_middle_fork_payette_boiling_trail_creek",
+          "featureId": "id-middle-fork-payette-boiling-springs",
+          "name": "Boiling Springs Campground Put-In",
+          "officialName": "Boiling Springs Campground access",
           "aliases": [
-            "Meadow Creek Campground Take-Out",
-            "Moyie Meadow Creek campground"
+            "Boiling Springs Campground Put-In",
+            "Boiling Springs Cabin river access",
+            "Middle Fork Payette Boiling Springs"
           ],
-          "latitude": 48.81987,
-          "longitude": -116.14733,
-          "distanceFromCurrentFeet": 2374512.6102807736,
-          "distanceFromMatchedRiverPointFeet": 2373756.0805180822,
-          "sourceUrl": "https://www2.boundarycountyid.org/planning/compplan/final_draft/08recreation.htm",
+          "latitude": 44.359874,
+          "longitude": -115.858043,
+          "distanceFromCurrentFeet": 1162178.2356821515,
+          "distanceFromMatchedRiverPointFeet": 1162040.573853348,
+          "sourceUrl": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5394050.pdf",
           "coordinateRole": "authoritative-access-anchor",
-          "sourceType": "official-county-recreation-plan-and-idfg-water-facility-record",
+          "sourceType": "official-usfs-corridor-plan-and-recreationgov-facility-page",
           "sourceDocumentDate": null,
           "sourceSha256": null,
-          "extractionMethod": "Boundary County's recreation plan states that the Moyie can be accessed south of Eastport at County Road 211 and identifies five bridges where the river can be accessed for put-in or take-out; it also identifies Meadow Creek Campground as a day-use landing. The bridge coordinates remain facility/road anchors rather than surveyed wetted edges, so verify current parking, railroad/road safety, shoreline legality, and seasonal campground status before launching.",
-          "waterbody": "Moyie River",
+          "extractionMethod": "The Boise National Forest corridor plan identifies the Middle Fork Payette recreation/camping setting, and Recreation.gov documents the public Boiling Springs facility and river boating opportunities. Stored coordinates remain campground/access-area anchors rather than false wetted-edge precision; confirm seasonal road, campground, parking, and signed carry conditions before launching or taking out.",
+          "waterbody": "Middle Fork Payette River",
           "uncertaintyFeet": 450,
           "onNhdWaterbody": false,
-          "coordinateText": "Named Forest Service campground/day-use landing; confirm campground operating status, fees, signed river carry, and the marked take-out eddy."
+          "coordinateText": "Forest Service campground/facility anchor on Forest Road 698; verify the legal river carry and seasonal opening."
+        },
+        {
+          "provider": "id_potlatch_little_boulder_cedar",
+          "featureId": "id-potlatch-little-boulder-campground",
+          "name": "Little Boulder Campground put-in",
+          "officialName": "Little Boulder Campground put-in",
+          "aliases": [
+            "Potlatch Little Boulder put-in",
+            "Little Boulder Campground",
+            "NF-1963 Potlatch access"
+          ],
+          "latitude": 46.78333,
+          "longitude": -116.4564,
+          "distanceFromCurrentFeet": 1812146.3184221964,
+          "distanceFromMatchedRiverPointFeet": 1811584.7283240047,
+          "sourceUrl": "https://www.northidahorivers.com/Potlatch_River.htm",
+          "coordinateRole": "authoritative-access-anchor",
+          "sourceType": "named-campground-and-approximate-canyon-access-record",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "extractionMethod": "North Idaho Rivers identifies Little Boulder Campground as the put-in and Cedar Creek as the lower endpoint, while RiverFacts supplies approximate GPS anchors and the Forest Service campground record supports the developed put-in. The downstream exit and mid-canyon trails are not surveyed public ramps; confirm current road, private-bank, and 4WD conditions before committing.",
+          "waterbody": "Potlatch River",
+          "uncertaintyFeet": 700,
+          "onNhdWaterbody": false,
+          "coordinateText": "Named Forest Service campground and RiverFacts access anchor; verify seasonal road, parking, and carry to the river."
         }
       ],
       "nearbyAuthoritativeCandidates": [],
@@ -7541,18 +6887,18 @@
       "autoApplyEligible": false
     },
     {
-      "routeId": "blackfoot-river-cutthroat-trail-creek",
+      "routeId": "blackfoot-river-government-dam-cutthroat",
       "routeName": "Blackfoot River",
-      "reach": "Cutthroat Trout Campground to Trail Creek Bridge",
+      "reach": "Government Dam Road to Cutthroat Trout Campground",
       "state": "Idaho",
-      "endpoint": "putIn",
-      "endpointName": "Cutthroat Trout Campground Put-In",
+      "endpoint": "takeOut",
+      "endpointName": "Cutthroat Trout Campground Take-Out",
       "current": {
         "latitude": 43.03499,
         "longitude": -111.85029
       },
       "reason": "Endpoint is 1056 ft from the matched NHD flowline.",
-      "canonicalAccessId": "idaho--cutthroat-trout-campground-put-in",
+      "canonicalAccessId": "idaho--cutthroat-trout-campground-take-out",
       "canonicalAccessStatus": "unverified",
       "sharedRouteCount": 1,
       "sourceLinks": [],
@@ -7560,7 +6906,7 @@
         {
           "provider": "id_middle_fork_payette_boiling_trail_creek",
           "featureId": "id-middle-fork-payette-trail-creek",
-          "name": "Trail Creek Campground access",
+          "name": "Trail Creek Campground Take-Out",
           "officialName": "Trail Creek Campground access",
           "aliases": [
             "Trail Creek Campground Take-Out",
@@ -7583,54 +6929,28 @@
           "coordinateText": "Named Boise National Forest campground/access anchor above the undocumented Steeps; verify the signed landing and stop before the downstream Class V+ sections."
         },
         {
-          "provider": "id_middle_fork_payette_boiling_trail_creek",
-          "featureId": "id-middle-fork-payette-boiling-springs",
-          "name": "Boiling Springs Campground Put-In",
-          "officialName": "Boiling Springs Campground access",
+          "provider": "id_moyie_river_copper_twin_bridges",
+          "featureId": "id-moyie-meadow-creek-campground",
+          "name": "Meadow Creek Campground Take-Out",
+          "officialName": "Meadow Creek Campground day-use access",
           "aliases": [
-            "Boiling Springs Campground Put-In",
-            "Boiling Springs Cabin river access",
-            "Middle Fork Payette Boiling Springs"
+            "Meadow Creek Campground Take-Out",
+            "Moyie Meadow Creek campground"
           ],
-          "latitude": 44.359874,
-          "longitude": -115.858043,
-          "distanceFromCurrentFeet": 1162178.2356821515,
-          "distanceFromMatchedRiverPointFeet": 1162040.573853348,
-          "sourceUrl": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5394050.pdf",
+          "latitude": 48.81987,
+          "longitude": -116.14733,
+          "distanceFromCurrentFeet": 2374512.6102807736,
+          "distanceFromMatchedRiverPointFeet": 2373756.0805180822,
+          "sourceUrl": "https://www2.boundarycountyid.org/planning/compplan/final_draft/08recreation.htm",
           "coordinateRole": "authoritative-access-anchor",
-          "sourceType": "official-usfs-corridor-plan-and-recreationgov-facility-page",
+          "sourceType": "official-county-recreation-plan-and-idfg-water-facility-record",
           "sourceDocumentDate": null,
           "sourceSha256": null,
-          "extractionMethod": "The Boise National Forest corridor plan identifies the Middle Fork Payette recreation/camping setting, and Recreation.gov documents the public Boiling Springs facility and river boating opportunities. Stored coordinates remain campground/access-area anchors rather than false wetted-edge precision; confirm seasonal road, campground, parking, and signed carry conditions before launching or taking out.",
-          "waterbody": "Middle Fork Payette River",
+          "extractionMethod": "Boundary County's recreation plan states that the Moyie can be accessed south of Eastport at County Road 211 and identifies five bridges where the river can be accessed for put-in or take-out; it also identifies Meadow Creek Campground as a day-use landing. The bridge coordinates remain facility/road anchors rather than surveyed wetted edges, so verify current parking, railroad/road safety, shoreline legality, and seasonal campground status before launching.",
+          "waterbody": "Moyie River",
           "uncertaintyFeet": 450,
           "onNhdWaterbody": false,
-          "coordinateText": "Forest Service campground/facility anchor on Forest Road 698; verify the legal river carry and seasonal opening."
-        },
-        {
-          "provider": "id_potlatch_little_boulder_cedar",
-          "featureId": "id-potlatch-little-boulder-campground",
-          "name": "Little Boulder Campground put-in",
-          "officialName": "Little Boulder Campground put-in",
-          "aliases": [
-            "Potlatch Little Boulder put-in",
-            "Little Boulder Campground",
-            "NF-1963 Potlatch access"
-          ],
-          "latitude": 46.78333,
-          "longitude": -116.4564,
-          "distanceFromCurrentFeet": 1812146.3184221964,
-          "distanceFromMatchedRiverPointFeet": 1811584.7283240047,
-          "sourceUrl": "https://www.northidahorivers.com/Potlatch_River.htm",
-          "coordinateRole": "authoritative-access-anchor",
-          "sourceType": "named-campground-and-approximate-canyon-access-record",
-          "sourceDocumentDate": null,
-          "sourceSha256": null,
-          "extractionMethod": "North Idaho Rivers identifies Little Boulder Campground as the put-in and Cedar Creek as the lower endpoint, while RiverFacts supplies approximate GPS anchors and the Forest Service campground record supports the developed put-in. The downstream exit and mid-canyon trails are not surveyed public ramps; confirm current road, private-bank, and 4WD conditions before committing.",
-          "waterbody": "Potlatch River",
-          "uncertaintyFeet": 700,
-          "onNhdWaterbody": false,
-          "coordinateText": "Named Forest Service campground and RiverFacts access anchor; verify seasonal road, parking, and carry to the river."
+          "coordinateText": "Named Forest Service campground/day-use landing; confirm campground operating status, fees, signed river carry, and the marked take-out eddy."
         }
       ],
       "nearbyAuthoritativeCandidates": [],
@@ -8268,6 +7588,140 @@
               "effect": -20,
               "detail": "Candidate is 1657 ft from the route's canonical river geometry.",
               "source": "conflict"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "secesh-river-canyon-lower",
+      "routeName": "Secesh River",
+      "reach": "Loon Creek to Lick Creek / South Fork Salmon",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Secesh / Loon Creek access",
+      "current": {
+        "latitude": 45.1722221374512,
+        "longitude": -115.814163208008
+      },
+      "reason": "Endpoint is 934 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--secesh-loon-creek-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 45.172428,
+          "longitude": -115.81063900000001,
+          "distanceFeet": 909.488083001656,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 909 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Secesh River",
+          "latitude": 45.172334,
+          "longitude": -115.810535,
+          "distanceFeet": 934.0221620067775,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Secesh River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Secesh River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 934 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Secesh River",
+          "latitude": 45.172334,
+          "longitude": -115.810535,
+          "distanceFeet": 934.0221620067775,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Secesh River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 934 ft; proximity does not increase confidence.",
+              "source": "proximity"
             }
           ],
           "autoApplyEligible": false
@@ -9144,6 +8598,140 @@
       "autoApplyEligible": false
     },
     {
+      "routeId": "lochsa-powell-white-pine",
+      "routeName": "Lochsa River",
+      "reach": "Powell to White Pine (Indian Grave Creek)",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Powell Campground / Lochsa Public Service Site",
+      "current": {
+        "latitude": 46.5123,
+        "longitude": -114.7172
+      },
+      "reason": "Endpoint is 889 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--powell-campground-lochsa-public-service-site",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 46.51005702485092,
+          "longitude": -114.717384434941,
+          "distanceFeet": 819.5842559586,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 820 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Lochsa River",
+          "latitude": 46.5098662582442,
+          "longitude": -114.71735614022455,
+          "distanceFeet": 888.7349637578201,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Lochsa River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Lochsa River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 889 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Lochsa River",
+          "latitude": 46.5098662582442,
+          "longitude": -114.71735614022455,
+          "distanceFeet": 888.7349637578201,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Lochsa River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 889 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
       "routeId": "kalamazoo-river-comstock-mayors-riverfront",
       "routeName": "Kalamazoo River",
       "reach": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park",
@@ -9318,6 +8906,408 @@
               "effect": 20,
               "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
               "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "bear-valley-creek-fir-confluence",
+      "routeName": "Bear Valley Creek",
+      "reach": "Fir Creek Campground to Middle Fork Salmon confluence",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Fir Creek Campground",
+      "current": {
+        "latitude": 44.43111,
+        "longitude": -115.29139
+      },
+      "reason": "Endpoint is 883 ft from the matched NHD flowline.",
+      "canonicalAccessId": "idaho--fir-creek-campground",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 44.42909257895115,
+          "longitude": -115.28981786230632,
+          "distanceFeet": 842.2749520760252,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 10,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 842 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Bear Valley Creek",
+          "latitude": 44.428996010871856,
+          "longitude": -115.28973997282037,
+          "distanceFeet": 882.9264899753254,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Bear Valley Creek.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Bear Valley Creek agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 883 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Bear Valley Creek",
+          "latitude": 44.428996010871856,
+          "longitude": -115.28973997282037,
+          "distanceFeet": 882.9264899753254,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Bear Valley Creek agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 883 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "kennebec-river-waterville-fairfield",
+      "routeName": "Kennebec River",
+      "reach": "Waterville public access to Fairfield public access",
+      "state": "Maine",
+      "endpoint": "takeOut",
+      "endpointName": "Fairfield public access",
+      "current": {
+        "latitude": 44.62626,
+        "longitude": -69.58247
+      },
+      "reason": "Endpoint is 844 ft from the matched NHD flowline.",
+      "canonicalAccessId": "maine--fairfield-public-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 2,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 44.62665570841303,
+          "longitude": -69.58117442504782,
+          "distanceFeet": 366.0524053921292,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 366 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Kennebec River",
+          "latitude": 44.62748200273477,
+          "longitude": -69.57971173831761,
+          "distanceFeet": 843.5744175870082,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Kennebec River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Kennebec River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 844 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Kennebec River",
+          "latitude": 44.62748200273477,
+          "longitude": -69.57971173831761,
+          "distanceFeet": 843.5744175870082,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Kennebec River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 844 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "kennebec-river-fairfield-sidney",
+      "routeName": "Kennebec River",
+      "reach": "Fairfield public access to Sidney public access",
+      "state": "Maine",
+      "endpoint": "putIn",
+      "endpointName": "Fairfield public access",
+      "current": {
+        "latitude": 44.62626,
+        "longitude": -69.58247
+      },
+      "reason": "Endpoint is 844 ft from the matched NHD flowline.",
+      "canonicalAccessId": "maine--fairfield-public-access",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 2,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 44.62665570841303,
+          "longitude": -69.58117442504782,
+          "distanceFeet": 366.0524053921292,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 15,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 366 ft from the stored coordinate.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "matched-river-centerline",
+          "name": "Kennebec River",
+          "latitude": 44.62748200273477,
+          "longitude": -69.57971173831761,
+          "distanceFeet": 843.5744175870082,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 80,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 60,
+          "evidence": [
+            {
+              "signal": "intended-river-centerline",
+              "effect": 40,
+              "detail": "Candidate lies on the NHD flowline matched to Kennebec River.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "river-name-agreement",
+              "effect": 20,
+              "detail": "Kennebec River agrees with the route river name.",
+              "source": "semantic"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 844 ft; proximity does not increase confidence.",
+              "source": "proximity"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Kennebec River",
+          "latitude": 44.62748200273477,
+          "longitude": -69.57971173831761,
+          "distanceFeet": 843.5744175870082,
+          "routeGeometryDistanceFeet": null,
+          "routeGeometryReliable": false,
+          "routeAxisFraction": null,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 60,
+          "waterConfidence": "medium",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 50,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Kennebec River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "large-move",
+              "effect": 0,
+              "detail": "Candidate requires moving 844 ft; proximity does not increase confidence.",
+              "source": "proximity"
             }
           ],
           "autoApplyEligible": false
@@ -10567,197 +10557,6 @@
       "autoApplyEligible": false
     },
     {
-      "routeId": "erie-canal-freemans-bridge-lock-e7",
-      "routeName": "Erie Canal / Mohawk River",
-      "reach": "Freeman’s Bridge to Lock E7",
-      "state": "New York",
-      "endpoint": "accessPoint",
-      "endpointName": "Aqueduct Park",
-      "current": {
-        "latitude": 42.84935,
-        "longitude": -73.88983
-      },
-      "reason": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational.",
-      "canonicalAccessId": "new-york--aqueduct-park",
-      "canonicalAccessStatus": "unverified",
-      "sharedRouteCount": 1,
-      "sourceLinks": [],
-      "authoritativeAccessCandidates": [
-        {
-          "provider": "erie_canal_freemans_bridge_lock_e7",
-          "featureId": "erie-canal-freemans-bridge-lock-e7-aqueduct",
-          "name": "Aqueduct Park launch",
-          "officialName": "Aqueduct Park",
-          "aliases": [
-            "Aqueduct Park launch",
-            "E Mile 17.33"
-          ],
-          "latitude": 42.84935,
-          "longitude": -73.88983,
-          "distanceFromCurrentFeet": 0,
-          "distanceFromMatchedRiverPointFeet": null,
-          "sourceUrl": "https://eriecanalway.org/download_file/view/1555/547",
-          "coordinateRole": "authoritative-water-entry",
-          "sourceType": "official-canalway-guide-and-map",
-          "sourceDocumentDate": null,
-          "sourceSha256": null,
-          "extractionMethod": "The official Erie Canalway Section 28 stewardship inventory and Little Falls-to-Albany guide identify Freeman’s Bridge, Mohawk Harbor Marina, Aqueduct Park, Mohawk Landing Nature Preserve, Lock E7 Boat Ramp, and Lock E7 as the corridor’s access and control chain. Stored points require current confirmation of DEC, private, municipal, preserve, and Canal Corporation launch rules, parking and carry conditions, strong-current exclusion, lock/dam procedure, and the Section 29 boundary.",
-          "waterbody": "Mohawk River / Erie Canal",
-          "riverMile": 2.9,
-          "uncertaintyFeet": 150,
-          "onNhdWaterbody": false,
-          "coordinateText": "Erie Canalway guide coordinate for Aqueduct Park car-top launch and low dock"
-        },
-        {
-          "provider": "schoharie_creek_burtonsville_fort_hunter",
-          "featureId": "schoharie-creek-burtonsville-fort-hunter-dufel",
-          "name": "Aqueduct Picnic Area Boat Launch",
-          "officialName": "Schoharie Crossing Dufel Road Schoharie Creek launch",
-          "aliases": [
-            "North Dufel Road Schoharie Creek launch",
-            "Schoharie Crossing Boat Ramp",
-            "Aqueduct Picnic Area Boat Launch"
-          ],
-          "latitude": 42.9396,
-          "longitude": -74.29,
-          "distanceFromCurrentFeet": 111905.61224794072,
-          "distanceFromMatchedRiverPointFeet": null,
-          "sourceUrl": "https://staffportal.parks.ny.gov/boating/launch-sites.aspx?cnty=&sort=4&way=",
-          "coordinateRole": "authoritative-water-entry",
-          "sourceType": "official-current-NYS-Parks-and-NYSDEC-launch-directory-with-state-historic-site-corroboration",
-          "sourceDocumentDate": "2026",
-          "sourceSha256": null,
-          "extractionMethod": "The current NYS Parks/NYSDEC launch directory lists the Burtonville Road / Route 160 Schoharie Creek hand launch with approximately five-car parking and the hard-surface Schoharie Creek launch at the dead end of North Dufel Road with 30-car/trailer parking. The current Schoharie Crossing State Historic Site page confirms the Aqueduct Picnic Area and Boat Launch is open from sunrise to sunset and welcomes kayakers and canoers. Retain both as public water-entry controls for the bounded Burtonsville-to-Fort Hunter section, while requiring day-of confirmation of carry, landing, parking, site hours, and posted restrictions.",
-          "waterbody": "Schoharie Creek",
-          "riverMile": 14,
-          "uncertaintyFeet": 250,
-          "onNhdWaterbody": false,
-          "coordinateText": "Current NYS Parks/NYSDEC directory lists the hard-surface launch at the dead end of North Dufel Road with 30-car/trailer parking; the coordinate is the Dufel Road / Schoharie Crossing launch-area anchor documented in the state canalway guide and requires field confirmation of the water-side carry and site access."
-        },
-        {
-          "provider": "erie_canal_mays_point_montezuma_aqueduct",
-          "featureId": "erie-canal-mays-point-montezuma-aqueduct-aqueduct",
-          "name": "Richmond Aqueduct",
-          "officialName": "Richmond Aqueduct shoreline viewing/pull-out",
-          "aliases": [
-            "Richmond Aqueduct",
-            "Montezuma Heritage Park aqueduct landing",
-            "Seneca River Aqueduct"
-          ],
-          "latitude": 43.010617,
-          "longitude": -76.703828,
-          "distanceFromCurrentFeet": 753921.2938458928,
-          "distanceFromMatchedRiverPointFeet": null,
-          "sourceUrl": "https://eriecanalway.org/explore/watertrail/paddling-trips",
-          "coordinateRole": "authoritative-water-entry",
-          "sourceType": "official-canalway-guide-and-county-park-listing",
-          "sourceDocumentDate": null,
-          "sourceSha256": null,
-          "extractionMethod": "The Erie Canalway National Heritage Corridor publishes the bounded 4.6-mile Mays Point to Montezuma Heritage Park round trip and one-lock context. The official guide documents Mays Point Fishing Access above Lock E25 and the Richmond Aqueduct pull-out/viewing area, while Cayuga County documents the Montezuma Heritage Park canoe/kayak launch at 505 N Mays Point Road. Stored points are public water-access-area anchors and require field verification of the steep rip-rap carry, legal parking, lock status, current landing, and return route.",
-          "waterbody": "Seneca River / Erie Canal",
-          "riverMile": 2.3,
-          "uncertaintyFeet": 150,
-          "onNhdWaterbody": false,
-          "coordinateText": "Erie Canalway guide Richmond Aqueduct coordinate and shoreline pull-out/viewing context"
-        }
-      ],
-      "nearbyAuthoritativeCandidates": [],
-      "candidates": [
-        {
-          "kind": "nearest-nhd-waterbody",
-          "name": null,
-          "latitude": 42.84935,
-          "longitude": -73.88983,
-          "distanceFeet": 0,
-          "routeGeometryDistanceFeet": 343.3770044103607,
-          "routeGeometryReliable": true,
-          "routeAxisFraction": 0.2948329700317593,
-          "score": 5,
-          "confidence": "low",
-          "waterScore": 20,
-          "waterConfidence": "low",
-          "accessScore": 5,
-          "accessConfidence": "low",
-          "limitingFactor": "access-location",
-          "evidenceScore": 25,
-          "evidence": [
-            {
-              "signal": "unnamed-waterbody-only",
-              "effect": 10,
-              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "small-move",
-              "effect": 10,
-              "detail": "Candidate is 0 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "route-order-plausible",
-              "effect": 5,
-              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.29).",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        },
-        {
-          "kind": "nearest-named-waterway",
-          "name": "Mohawk River",
-          "latitude": 42.8502876958302,
-          "longitude": -73.88995951234038,
-          "distanceFeet": 343.8365268873111,
-          "routeGeometryDistanceFeet": 0,
-          "routeGeometryReliable": true,
-          "routeAxisFraction": 0.2875556949440885,
-          "score": 0,
-          "confidence": "none",
-          "waterScore": 95,
-          "waterConfidence": "high",
-          "accessScore": 0,
-          "accessConfidence": "none",
-          "limitingFactor": "access-location",
-          "evidenceScore": 80,
-          "evidence": [
-            {
-              "signal": "river-name-agreement",
-              "effect": 35,
-              "detail": "Mohawk River agrees with the intended river.",
-              "source": "semantic"
-            },
-            {
-              "signal": "named-waterway",
-              "effect": 15,
-              "detail": "Candidate is on a named NHD waterway.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "moderate-move",
-              "effect": 5,
-              "detail": "Candidate is 344 ft from the stored coordinate.",
-              "source": "proximity"
-            },
-            {
-              "signal": "active-route-agreement",
-              "effect": 20,
-              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
-              "source": "hydrography"
-            },
-            {
-              "signal": "route-order-plausible",
-              "effect": 5,
-              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.29).",
-              "source": "hydrography"
-            }
-          ],
-          "autoApplyEligible": false
-        }
-      ],
-      "recommended": null,
-      "autoApplyEligible": false
-    },
-    {
       "routeId": "erie-canal-lock-e7-waterford-flight-south",
       "routeName": "Erie Canal / Mohawk River",
       "reach": "Lock E7 to Waterford Flight, south side",
@@ -11046,6 +10845,197 @@
               "signal": "route-order-plausible",
               "effect": 5,
               "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.17).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        }
+      ],
+      "recommended": null,
+      "autoApplyEligible": false
+    },
+    {
+      "routeId": "erie-canal-freemans-bridge-lock-e7",
+      "routeName": "Erie Canal / Mohawk River",
+      "reach": "Freeman’s Bridge to Lock E7",
+      "state": "New York",
+      "endpoint": "accessPoint",
+      "endpointName": "Aqueduct Park",
+      "current": {
+        "latitude": 42.84935,
+        "longitude": -73.88983
+      },
+      "reason": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational.",
+      "canonicalAccessId": "new-york--aqueduct-park",
+      "canonicalAccessStatus": "unverified",
+      "sharedRouteCount": 1,
+      "sourceLinks": [],
+      "authoritativeAccessCandidates": [
+        {
+          "provider": "erie_canal_freemans_bridge_lock_e7",
+          "featureId": "erie-canal-freemans-bridge-lock-e7-aqueduct",
+          "name": "Aqueduct Park launch",
+          "officialName": "Aqueduct Park",
+          "aliases": [
+            "Aqueduct Park launch",
+            "E Mile 17.33"
+          ],
+          "latitude": 42.84935,
+          "longitude": -73.88983,
+          "distanceFromCurrentFeet": 0,
+          "distanceFromMatchedRiverPointFeet": null,
+          "sourceUrl": "https://eriecanalway.org/download_file/view/1555/547",
+          "coordinateRole": "authoritative-water-entry",
+          "sourceType": "official-canalway-guide-and-map",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "extractionMethod": "The official Erie Canalway Section 28 stewardship inventory and Little Falls-to-Albany guide identify Freeman’s Bridge, Mohawk Harbor Marina, Aqueduct Park, Mohawk Landing Nature Preserve, Lock E7 Boat Ramp, and Lock E7 as the corridor’s access and control chain. Stored points require current confirmation of DEC, private, municipal, preserve, and Canal Corporation launch rules, parking and carry conditions, strong-current exclusion, lock/dam procedure, and the Section 29 boundary.",
+          "waterbody": "Mohawk River / Erie Canal",
+          "riverMile": 2.9,
+          "uncertaintyFeet": 150,
+          "onNhdWaterbody": false,
+          "coordinateText": "Erie Canalway guide coordinate for Aqueduct Park car-top launch and low dock"
+        },
+        {
+          "provider": "schoharie_creek_burtonsville_fort_hunter",
+          "featureId": "schoharie-creek-burtonsville-fort-hunter-dufel",
+          "name": "Aqueduct Picnic Area Boat Launch",
+          "officialName": "Schoharie Crossing Dufel Road Schoharie Creek launch",
+          "aliases": [
+            "North Dufel Road Schoharie Creek launch",
+            "Schoharie Crossing Boat Ramp",
+            "Aqueduct Picnic Area Boat Launch"
+          ],
+          "latitude": 42.9396,
+          "longitude": -74.29,
+          "distanceFromCurrentFeet": 111905.61224794072,
+          "distanceFromMatchedRiverPointFeet": null,
+          "sourceUrl": "https://staffportal.parks.ny.gov/boating/launch-sites.aspx?cnty=&sort=4&way=",
+          "coordinateRole": "authoritative-water-entry",
+          "sourceType": "official-current-NYS-Parks-and-NYSDEC-launch-directory-with-state-historic-site-corroboration",
+          "sourceDocumentDate": "2026",
+          "sourceSha256": null,
+          "extractionMethod": "The current NYS Parks/NYSDEC launch directory lists the Burtonville Road / Route 160 Schoharie Creek hand launch with approximately five-car parking and the hard-surface Schoharie Creek launch at the dead end of North Dufel Road with 30-car/trailer parking. The current Schoharie Crossing State Historic Site page confirms the Aqueduct Picnic Area and Boat Launch is open from sunrise to sunset and welcomes kayakers and canoers. Retain both as public water-entry controls for the bounded Burtonsville-to-Fort Hunter section, while requiring day-of confirmation of carry, landing, parking, site hours, and posted restrictions.",
+          "waterbody": "Schoharie Creek",
+          "riverMile": 14,
+          "uncertaintyFeet": 250,
+          "onNhdWaterbody": false,
+          "coordinateText": "Current NYS Parks/NYSDEC directory lists the hard-surface launch at the dead end of North Dufel Road with 30-car/trailer parking; the coordinate is the Dufel Road / Schoharie Crossing launch-area anchor documented in the state canalway guide and requires field confirmation of the water-side carry and site access."
+        },
+        {
+          "provider": "erie_canal_mays_point_montezuma_aqueduct",
+          "featureId": "erie-canal-mays-point-montezuma-aqueduct-aqueduct",
+          "name": "Richmond Aqueduct",
+          "officialName": "Richmond Aqueduct shoreline viewing/pull-out",
+          "aliases": [
+            "Richmond Aqueduct",
+            "Montezuma Heritage Park aqueduct landing",
+            "Seneca River Aqueduct"
+          ],
+          "latitude": 43.010617,
+          "longitude": -76.703828,
+          "distanceFromCurrentFeet": 753921.2938458928,
+          "distanceFromMatchedRiverPointFeet": null,
+          "sourceUrl": "https://eriecanalway.org/explore/watertrail/paddling-trips",
+          "coordinateRole": "authoritative-water-entry",
+          "sourceType": "official-canalway-guide-and-county-park-listing",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "extractionMethod": "The Erie Canalway National Heritage Corridor publishes the bounded 4.6-mile Mays Point to Montezuma Heritage Park round trip and one-lock context. The official guide documents Mays Point Fishing Access above Lock E25 and the Richmond Aqueduct pull-out/viewing area, while Cayuga County documents the Montezuma Heritage Park canoe/kayak launch at 505 N Mays Point Road. Stored points are public water-access-area anchors and require field verification of the steep rip-rap carry, legal parking, lock status, current landing, and return route.",
+          "waterbody": "Seneca River / Erie Canal",
+          "riverMile": 2.3,
+          "uncertaintyFeet": 150,
+          "onNhdWaterbody": false,
+          "coordinateText": "Erie Canalway guide Richmond Aqueduct coordinate and shoreline pull-out/viewing context"
+        }
+      ],
+      "nearbyAuthoritativeCandidates": [],
+      "candidates": [
+        {
+          "kind": "nearest-nhd-waterbody",
+          "name": null,
+          "latitude": 42.84935,
+          "longitude": -73.88983,
+          "distanceFeet": 0,
+          "routeGeometryDistanceFeet": 343.3770044103607,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": 0.2948329700317593,
+          "score": 5,
+          "confidence": "low",
+          "waterScore": 20,
+          "waterConfidence": "low",
+          "accessScore": 5,
+          "accessConfidence": "low",
+          "limitingFactor": "access-location",
+          "evidenceScore": 25,
+          "evidence": [
+            {
+              "signal": "unnamed-waterbody-only",
+              "effect": 10,
+              "detail": "Candidate is on an NHD water polygon, but the polygon alone does not identify the intended launch.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "small-move",
+              "effect": 10,
+              "detail": "Candidate is 0 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.29).",
+              "source": "hydrography"
+            }
+          ],
+          "autoApplyEligible": false
+        },
+        {
+          "kind": "nearest-named-waterway",
+          "name": "Mohawk River",
+          "latitude": 42.8502876958302,
+          "longitude": -73.88995951234038,
+          "distanceFeet": 343.8365268873111,
+          "routeGeometryDistanceFeet": 0,
+          "routeGeometryReliable": true,
+          "routeAxisFraction": 0.2875556949440885,
+          "score": 0,
+          "confidence": "none",
+          "waterScore": 95,
+          "waterConfidence": "high",
+          "accessScore": 0,
+          "accessConfidence": "none",
+          "limitingFactor": "access-location",
+          "evidenceScore": 80,
+          "evidence": [
+            {
+              "signal": "river-name-agreement",
+              "effect": 35,
+              "detail": "Mohawk River agrees with the intended river.",
+              "source": "semantic"
+            },
+            {
+              "signal": "named-waterway",
+              "effect": 15,
+              "detail": "Candidate is on a named NHD waterway.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "moderate-move",
+              "effect": 5,
+              "detail": "Candidate is 344 ft from the stored coordinate.",
+              "source": "proximity"
+            },
+            {
+              "signal": "active-route-agreement",
+              "effect": 20,
+              "detail": "Candidate is within 0 ft of the route's canonical river geometry.",
+              "source": "hydrography"
+            },
+            {
+              "signal": "route-order-plausible",
+              "effect": 5,
+              "detail": "Intermediate access projects within the put-in/take-out corridor (fraction 0.29).",
               "source": "hydrography"
             }
           ],

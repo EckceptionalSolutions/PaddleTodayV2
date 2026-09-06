@@ -1,5 +1,57 @@
 import type { River } from '../lib/types';
 
+const publishedRapidClassValues: Record<string, number> = {
+  I: 1,
+  II: 2,
+  III: 3,
+  IV: 4,
+  V: 5,
+  VI: 6,
+};
+
+/**
+ * Read the highest American Whitewater-style rapid class explicitly published
+ * in a route's summary. A reach containing a single Class IV/V feature is
+ * treated as high consequence even when most of the mileage is easier.
+ */
+export function maxPublishedRapidClass(
+  route: Pick<River, 'summary'> & Partial<Pick<River, 'statusText' | 'profile'>>,
+): number | null {
+  const readClass = (text: string) => {
+    const classFragments = [...text.matchAll(/\bClass\s+([^.;\n]+)/gi)].map(
+      (match) => match[1],
+    );
+    const values = classFragments.flatMap((fragment) =>
+      [...fragment.matchAll(/\b(VI|IV|V|III|II|I)\b/gi)].map(
+        (match) => publishedRapidClassValues[match[1].toUpperCase()],
+      ),
+    );
+    return values.length > 0 ? Math.max(...values) : null;
+  };
+
+  // The route summary is the primary class declaration. Only fall back to
+  // status/notes when the summary has no class, avoiding false promotion from
+  // a warning that mentions a separate downstream Class IV section.
+  const summaryClass = readClass(typeof route.summary === 'string' ? route.summary : '');
+  if (summaryClass !== null) return summaryClass;
+  return readClass(
+    [route.statusText ?? '', route.profile?.difficultyNotes ?? ''].join(' '),
+  );
+}
+
+/**
+ * Apply the catalog-wide rapid-class publication gate. High-consequence
+ * reaches remain discoverable as planning routes when reviewed, but cannot
+ * enter the same-day scoring surface without a separate expert-publication
+ * policy (which the catalog does not currently implement).
+ */
+export function enforceHighConsequencePlanning(route: River): River {
+  if ((maxPublishedRapidClass(route) ?? 0) >= 4 && route.scoreEligibility === 'scored') {
+    route.scoreEligibility = 'planning';
+  }
+  return route;
+}
+
 // These stations were explicitly checked during the northern Minnesota gauge audit.
 // They are direct in the historical route data, but they do not currently satisfy
 // the product requirement for usable river telemetry.
@@ -24,7 +76,11 @@ export function hasQualifyingGauge(route: River): boolean {
  * direct gauge.
  */
 export function isScoreEligible(route: River): boolean {
-  return route.scoreEligibility !== 'planning' && hasQualifyingGauge(route);
+  return (
+    route.scoreEligibility !== 'planning' &&
+    (maxPublishedRapidClass(route) ?? 0) < 4 &&
+    hasQualifyingGauge(route)
+  );
 }
 
 export function isPublicRoute(route: River): boolean {

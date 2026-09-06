@@ -2,9 +2,16 @@
 
 Latest bounded audit: `npm run routes:audit:overlap`
 
-- 782 route spans reviewed
-- 2,265 findings: 179 access-chain containment, 258 contained connectors, 127 crossing segments, 631 near-collinear overlaps, and 1,070 shared endpoints
+- 1,115 route spans reviewed
+- 3,635 findings: 179 access-chain containment, 312 contained connectors, 468 crossing segments, 901 near-collinear overlaps, and 1,775 shared endpoints
+- The deduplicated review queue contains 40 bounded items; none are currently classified as `probable_duplicate`.
 - Findings are review signals, not deletion instructions.
+
+## 2026-09-05 Catalog quality and deduplication audit
+
+The route inventory now has 2,166 route cards. Every card has a reviewed structured safety profile, explicit camping text and classification, and a non-placeholder gallery preview. The 12 previously uncovered North Dakota and Oklahoma cards now use rights-cleared USGS context images labeled as regional context rather than endpoint or current-conditions photography; the remaining state fallbacks likewise retain that disclosure in their captions.
+
+The overlap run produced no exact duplicate or reversed-endpoint queue items. The high-priority queue is therefore treated as consolidation review, not automatic deduplication: access-chain containment and near-collinear findings represent selectable endpoint variants, composite reaches, or geometry checks. Preserve route-specific gauges, thresholds, hazards, camping posture, access legality, and shuttle logistics until an independent verifier approves a family model. No route was deleted, merged, retired, or silently rewritten in this audit.
 
 ## 2026-09-03 Follow-up: Maryland Potomac/Conococheague candidate — rejected as one umbrella family
 

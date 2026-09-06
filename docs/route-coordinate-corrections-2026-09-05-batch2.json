@@ -1,0 +1,168 @@
+{
+  "reviewedAt": "2026-09-05T12:17:04.295612+00:00",
+  "correctedAccessCount": 2,
+  "correctedEndpointCount": 2,
+  "method": "Manual primary-source identity, aerial water-entry placement and independent NHD audit before registering controls. Only the two corrected endpoint rows were merged into the full audit.",
+  "corrections": [
+    {
+      "routeId": "mississippi-river-piasa-harbor-alton-riverfront",
+      "endpoint": "takeOut",
+      "endpointName": "Alton Riverfront public boat launch",
+      "latitude": 38.88422,
+      "longitude": -90.17444,
+      "previous": {
+        "latitude": 38.8855000354463,
+        "longitude": -90.1759188990604,
+        "severity": "failure",
+        "distanceFeetToMatchedRiver": 1944.7300286387342
+      },
+      "auditAfter": {
+        "routeId": "mississippi-river-piasa-harbor-alton-riverfront",
+        "routeName": "Mississippi River",
+        "reach": "Piasa Harbor to Alton Riverfront",
+        "state": "Illinois",
+        "endpoint": "takeOut",
+        "endpointName": "Alton Riverfront public boat launch",
+        "latitude": 38.88422,
+        "longitude": -90.17444,
+        "matchedRiverName": "Mississippi River",
+        "distanceFeetToMatchedRiver": 1681.0288604896402,
+        "nearestMatchedLatitude": 38.88004,
+        "nearestMatchedLongitude": -90.176931,
+        "nearestWaterwayName": "Mississippi River",
+        "distanceFeetToNearestWaterway": 1681.0288604896402,
+        "nearestWaterwayLatitude": 38.88004,
+        "nearestWaterwayLongitude": -90.176931,
+        "nearestWaterbodyName": null,
+        "distanceFeetToNearestWaterbody": 23.827920209110555,
+        "nearestWaterbodyLatitude": 38.88423136186123,
+        "nearestWaterbodyLongitude": -90.17452262796682,
+        "endpointOnWaterbody": true,
+        "matchedHydrographyMode": "named-flowline",
+        "coordinateEvidenceRole": null,
+        "coordinateEvidenceSourceUrl": null,
+        "coordinateEvidenceDetail": null,
+        "severity": "review",
+        "note": "Endpoint is within 24 ft of NHD waterbody; flowline distance is informational."
+      },
+      "sourceUrl": "https://mississippiriverwatertrail.org/great-rivers-rendezvous/",
+      "confidence": "high",
+      "uncertaintyFeet": 40,
+      "method": "The water-trail organizer explicitly names the City of Alton boat launch at Alton Marina as the take-out. OSM slipway node 12549669381 independently locates the same facility. Imagery shows the public concrete ramp under Clark Bridge entering a connected marina channel; the previous point was inland in the marina parking area. The coordinate is the visible ramp toe, not the marina centroid or Mississippi main flowline.",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.177,38.8826,-90.1722,38.8858&bboxSR=4326&imageSR=4326&size=1200,800&format=jpg&f=image",
+        "bbox": [
+          -90.177,
+          38.8826,
+          -90.1722,
+          38.8858
+        ],
+        "size": [
+          1200,
+          800
+        ],
+        "approximateWaterEntryPixel": [
+          640,
+          395
+        ],
+        "sha256": "8607f4318d3e293375ed39ba0713f72498be8b250175f7e7962b55b518de4461"
+      }
+    },
+    {
+      "routeId": "lemonweir-river-mauston-dam-19th-ave",
+      "endpoint": "putIn",
+      "endpointName": "Mauston Dam downstream access",
+      "latitude": 43.79684,
+      "longitude": -90.068933,
+      "previous": {
+        "latitude": 43.7994,
+        "longitude": -90.0684,
+        "severity": "failure",
+        "distanceFeetToMatchedRiver": 874.5798706746493
+      },
+      "auditAfter": {
+        "routeId": "lemonweir-river-mauston-dam-19th-ave",
+        "routeName": "Lemonweir River",
+        "reach": "Mauston Dam to 19th Avenue Landing",
+        "state": "Wisconsin",
+        "endpoint": "putIn",
+        "endpointName": "Mauston Dam downstream access",
+        "latitude": 43.79684,
+        "longitude": -90.068933,
+        "matchedRiverName": "Lemonweir River",
+        "distanceFeetToMatchedRiver": 89.54584740365522,
+        "nearestMatchedLatitude": 43.79668894302259,
+        "nearestMatchedLongitude": -90.06920103473121,
+        "nearestWaterwayName": "Lemonweir River",
+        "distanceFeetToNearestWaterway": 89.54584740365522,
+        "nearestWaterwayLatitude": 43.79668894302259,
+        "nearestWaterwayLongitude": -90.06920103473121,
+        "nearestWaterbodyName": null,
+        "distanceFeetToNearestWaterbody": 25.180347349164617,
+        "nearestWaterbodyLatitude": 43.79678912747006,
+        "nearestWaterbodyLongitude": -90.0689976270128,
+        "endpointOnWaterbody": true,
+        "matchedHydrographyMode": "named-flowline",
+        "coordinateEvidenceRole": null,
+        "coordinateEvidenceSourceUrl": null,
+        "coordinateEvidenceDetail": null,
+        "severity": "ok",
+        "note": "Endpoint is within 25 ft of NHD waterbody; flowline distance is informational."
+      },
+      "sourceUrl": "https://www.mauston.com/top10",
+      "confidence": "high",
+      "uncertaintyFeet": 40,
+      "method": "The city explicitly recommends launching at Mauston Dam to paddle to 19th Street landing. Wisconsin River Trips identifies the north-bank put-in below the dam and supplies a ground photograph of its gravel approach. Its trip-map marker identifies the adjacent parking area. Imagery locates the shore-side gravel access below the dam, not the parking marker, upstream impoundment, or city block containing the former point. Existing below-dam and spillway-current cautions are retained.",
+      "imagery": {
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=-90.07,43.796,-90.067,43.798&bboxSR=4326&imageSR=4326&size=1200,800&format=jpg&f=image",
+        "bbox": [
+          -90.07,
+          43.796,
+          -90.067,
+          43.798
+        ],
+        "size": [
+          1200,
+          800
+        ],
+        "approximateWaterEntryPixel": [
+          427,
+          464
+        ],
+        "sha256": "6dda4b520ee9923f5bbedffaefb581bb5f8a6d0ca6a3aa176ec9a2f7011803bd"
+      }
+    }
+  ],
+  "supportingSources": [
+    "https://www.openstreetmap.org/node/12549669381",
+    "https://www.wisconsinrivertrips.com/segments/lemonweir-river/mauston",
+    "https://www.google.com/maps/d/kml?mid=10WOP4FQyzCUg9pO_0LQfUBcgNOlc6iVw&forcekml=1"
+  ],
+  "deferred": [
+    {
+      "routeId": "blackwater-river-wayside-the-ford",
+      "reason": "Existing coordinates match Google Maps viewport centers. County inventory and older planning documents conflict on access status; exact public water entry still unverified."
+    },
+    {
+      "routeId": "gasconade-river-pointers-creek-cooper-hill",
+      "reason": "MDC confirms hand launch near Third Creek confluence; precise south-bank carry path is obscured in imagery. Do not substitute the private opposite-bank clearing."
+    },
+    {
+      "routeId": "niobrara-river-fort-niobrara-smith-falls",
+      "reason": "Old Nichols point is south of the river in woods. North-bank public landing is documented, but exact designated landing still needs map-to-imagery verification."
+    }
+  ],
+  "validation": {
+    "focusedTests": {
+      "files": 6,
+      "passed": 53
+    },
+    "routeDataAudit": "passed for 1998 routes",
+    "canonicalGeometryAudit": "passed; 1924/1925 routes matched, 30 state assets. Workspace inventory grew concurrently during this batch.",
+    "holdCoveragePasses": true,
+    "typecheckRoutes": "Blocked by existing concurrent Idaho data changes: unsupported low_bridges, railroad and industrial_debris hazard tags at src/data/routes/idaho.ts:8363.",
+    "sourceScope": "Compared pre-batch snapshots with final source; only the two intended route blocks changed across four source files.",
+    "publication": "Both corrected routes removed from coordinate withholding; public route geometries regenerated.",
+    "deployment": "Not deployed."
+  }
+}

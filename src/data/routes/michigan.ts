@@ -1136,7 +1136,7 @@ export const michiganRoutes: River[] = [
     ],
     "safetyProfile": {
       "riskLevel": "caution",
-      "hazards": [],
+      "hazards": ["strainers", "fast_rise", "urban_water_quality"],
       "reviewStatus": "reviewed",
       "safetyNotes": [
         "Use the access planner to choose a short urban section instead of assuming the full corridor fits the day.",

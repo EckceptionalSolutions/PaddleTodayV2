@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-05",
+  "routeCount": 2166,
+  "safety": {
+    "reviewedProfiles": 2166,
+    "missingProfiles": 0,
+    "routesWithHazards": 2166,
+    "routesWithSafetyNotes": 2166
+  },
+  "camping": {
+    "routesWithCampingText": 2166,
+    "routesWithCampingClassification": 2166
+  },
+  "gallery": {
+    "routesWithPreview": 2166,
+    "routeSpecific": 752,
+    "riverOrContext": 1414,
+    "placeholders": 0,
+    "stateContextFallbacks": 218,
+    "note": "State-context and USGS context photos are labeled as regional context, not endpoint or current-conditions photography."
+  },
+  "deduplication": {
+    "overlapFindings": 3635,
+    "reviewQueueItems": 40,
+    "probableDuplicateItems": 0,
+    "action": "Preserve route cards; review route-family and geometry findings before any consolidation."
+  },
+  "validation": [
+    "npx vitest run src/lib/catalog-quality.test.ts src/lib/route-safety-audit.test.ts src/data/route-publication.test.ts",
+    "npm run typecheck:routes",
+    "npm run routes:safety:audit",
+    "npm run routes:audit",
+    "npm run photos:audit",
+    "npm run routes:audit:overlap",
+    "npm run operations:overlap-queue"
+  ]
+}

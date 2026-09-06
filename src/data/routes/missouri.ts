@@ -4954,8 +4954,18 @@ export const missouriRoutes: River[] = [
     "summary": "Combined lower Current River day from Waymeyer to the Big Spring upper river landing. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and more dragging risk over a longer day. No ideal range or high cutoff is claimed.",
     "latitude": 37.054302,
-    "longitude": -91.055459,
-    "gaugeSource": {
+     "longitude": -91.055459,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote"],
+       "safetyNotes": [
+         "Use the Van Buren gauge and postpone below the published 700 cfs low-water floor; shallow shoals and dragging become more likely.",
+         "Plan for motorboat wakes, slick access areas, private banks, limited exits, and fatigue on the long lower-river float.",
+         "Confirm the signed Big Spring upper landing, current NPS access rules, weather, daylight, and a lawful shuttle before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
       "siteId": "07067000",
@@ -5098,8 +5108,18 @@ export const missouriRoutes: River[] = [
     "summary": "Long lower Current River day from Waymeyer to Cataract. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and more dragging over a long day. No ideal range or high cutoff is claimed.",
     "latitude": 37.054302,
-    "longitude": -91.055459,
-    "gaugeSource": {
+     "longitude": -91.055459,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote"],
+       "safetyNotes": [
+         "Use the Van Buren gauge and postpone below the published 700 cfs low-water floor; shallow shoals and dragging become more likely over the long day.",
+         "Treat Waymeyer-to-Cataract as a committed full-day route with motorboat wakes, slick landings, few easy exits, and limited cell service.",
+         "Confirm Cataract landing, daylight, weather, current NPS rules, and a staged shuttle before launch; do not assume private-bank camping or bailout access."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
       "siteId": "07067000",
@@ -5242,8 +5262,18 @@ export const missouriRoutes: River[] = [
     "summary": "Long lower Current River day from Van Buren to Gooseneck / Hawes near the river mouth. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day. No ideal range or high cutoff is claimed.",
     "latitude": 36.9939,
-    "longitude": -91.014,
-    "gaugeSource": {
+     "longitude": -91.014,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote"],
+       "safetyNotes": [
+         "Use the Van Buren gauge and postpone below the published 700 cfs low-water floor; shallow shoals and long pools can make the trip slow and tiring.",
+         "Expect motorboat wakes, wind, slick landings, limited exits, and private banks around the Gooseneck / Hawes finish.",
+         "Verify the signed Gooseneck / Hawes landing, access hours, weather, daylight, and shuttle before launch; do not continue onto the Black River without a separate plan."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
       "siteId": "07067000",
@@ -5386,8 +5416,18 @@ export const missouriRoutes: River[] = [
     "summary": "Full lower Current River continuation from Waymeyer to Gooseneck / Hawes near the river mouth. Current NPS mileage and float-time guidance support the section, and the direct Van Buren gauge gives a conservative low-water check.",
     "statusText": "Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day or overnight plan. No ideal range or high cutoff is claimed.",
     "latitude": 37.054302,
-    "longitude": -91.055459,
-    "gaugeSource": {
+     "longitude": -91.055459,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote"],
+       "safetyNotes": [
+         "Use the Van Buren gauge and postpone below the published 700 cfs low-water floor; this 25-plus-mile route is exceptionally committing at low water.",
+         "Plan for fatigue, heat, motorboat wakes, wind, limited exits, private banks, and scarce cell service across the full lower Current.",
+         "Treat Gooseneck / Hawes camping and access as separately confirmed logistics, verify daylight and weather, and do not force the route after a late start."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07067000",
       "provider": "usgs",
       "siteId": "07067000",
@@ -9929,8 +9969,18 @@ export const missouriRoutes: River[] = [
     "summary": "Nine-mile Big Piney follow-on from MDC Mason Bridge Access to Forest Service Slabtown Recreation Area. The direct Big Piney USGS gauge is live again, and the route stays conservative with low-water-only scoring.",
     "statusText": "Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and slower travel. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.",
     "latitude": 37.50581,
-    "longitude": -91.98319,
-    "gaugeSource": {
+     "longitude": -91.98319,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote"],
+       "safetyNotes": [
+         "Use the Big Piney gauge and postpone below the published 309 cfs low-water floor; shallow riffles and dragging are expected below that level.",
+         "Watch for fresh wood, swift launch current, gravel build-up at Slabtown, private banks, and limited cell service on the rural shuttle.",
+         "Confirm Forest Service camping and access rules, daylight, road condition, and current weather before committing to the reach."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
       "siteId": "06930000",
@@ -10069,8 +10119,18 @@ export const missouriRoutes: River[] = [
     "summary": "Long Big Piney day or light overnight from Forest Service Slabtown Recreation Area to MDC Ross Access. Public endpoints, same-day USGS data, and an exact MoHERP trip row support conservative low-water-only scoring.",
     "statusText": "Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and long riffles can mean dragging or portages. This route has no defended high-water cutoff, so treat rising water, storms, and the long mileage cautiously.",
     "latitude": 37.561549,
-    "longitude": -92.03214279,
-    "gaugeSource": {
+     "longitude": -92.03214279,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "private_banks", "remote", "portage"],
+       "safetyNotes": [
+         "Use the Big Piney gauge and postpone below the published 309 cfs low-water floor; long riffles may require dragging or portage.",
+         "Treat Slabtown-to-Ross as a long-day or light-overnight commitment with fresh wood, limited exits, private banks, and no potable water at the access.",
+         "Confirm Forest Service and MDC access/camping rules, daylight, road condition, and a conservative turn-back plan before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-06930000",
       "provider": "usgs",
       "siteId": "06930000",
@@ -10681,8 +10741,18 @@ export const missouriRoutes: River[] = [
     "summary": "Popular lower James day float from MDC Shelvin Rock Access to MDC Hooten Town Access, using two public boat-ramp accesses and the Galena gauge downstream as a conservative low-water check.",
     "statusText": "Use the James River at Galena gauge. Around 200 cfs is the low-water marker for this lower-James route; below that, expect dragging in riffles and slow pools. Paddler reports will help tune the useful range.",
     "latitude": 36.99564609,
-    "longitude": -93.3697183,
-    "gaugeSource": {
+     "longitude": -93.3697183,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Use the Galena gauge and postpone below the published 200 cfs low-water marker; exposed riffles and dragging are likely.",
+         "Scout bends for wood and changing current, respect private banks, and allow extra time for the shuttle and a safe take-out.",
+         "Check rainfall, rising water, daylight, and current MDC access conditions before launching; the useful range remains community-calibrated."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07052500",
       "provider": "usgs",
       "siteId": "07052500",
@@ -10799,8 +10869,18 @@ export const missouriRoutes: River[] = [
     "summary": "Short Galena-area James River float from MDC H.L. Kerr Access to MDC Ralph Cox Memorial Access near the Y-Bridge, using the direct Galena gauge as a conservative low-water check.",
     "statusText": "Use the James River at Galena gauge. Around 200 cfs is the low-water marker; below that, expect dragging, slow pools, and exposed riffles. Paddler reports will help tune the useful range.",
     "latitude": 36.832233,
-    "longitude": -93.446571,
-    "gaugeSource": {
+     "longitude": -93.446571,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Use the Galena gauge and postpone below the published 200 cfs low-water marker; expect dragging and exposed riffles.",
+         "Watch for bridge debris, floating wood, private banks, and awkward landings near the Y-Bridge corridor.",
+         "Confirm both MDC accesses, weather, rising-water conditions, and a safe shuttle before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-07052500",
       "provider": "usgs",
       "siteId": "07052500",

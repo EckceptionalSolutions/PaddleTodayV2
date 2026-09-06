@@ -1556,8 +1556,18 @@ export const kentuckyRoutes: River[] = [
     "summary": "Middle Parklands Floyds Fork float with bluff-lined bends, gravel shoals, and multiple bridge landmarks. KDFWR documents the public access pair and mileage, and its route feature adds low-water, Distillery Bend, and take-out context.",
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, while the older route feature treats 35 to 500 cfs as the wider recreation range. Low water means shoal walking; high water means faster current and fewer eddies.",
     "latitude": 38.2158,
-    "longitude": -85.4778,
-    "gaugeSource": {
+     "longitude": -85.4778,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Stay inside the KDFWR 50-300 cfs / 1.3-2.5 ft good band; low water means shoal walking and high water reduces eddies.",
+         "Scout bluff-lined bends, bridge debris, strainers, and the Fisherville-area take-out before committing to the middle reach.",
+         "Use only the named public accesses and verify weather, parking, and current Parklands rules before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
       "siteId": "03298000",
@@ -1693,8 +1703,18 @@ export const kentuckyRoutes: River[] = [
     "summary": "Middle-corridor Parklands Floyds Fork float linking Creekside to Cane Run. KDFWR documents both endpoint accesses and the Creekside-to-Fisherville plus Fisherville-to-Cane route pieces, while route guidance adds bluff-lined bends, bridge landmarks, and the Cane Run side-channel finish.",
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, while the older route feature treats 35 to 500 cfs as the wider recreation range. Low water means shoal walking; high water means faster current and fewer eddies.",
     "latitude": 38.2158,
-    "longitude": -85.4778,
-    "gaugeSource": {
+     "longitude": -85.4778,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks"],
+       "safetyNotes": [
+         "Stay inside the KDFWR 50-300 cfs / 1.3-2.5 ft good band; high water brings faster current and fewer eddies through the Cane Run corridor.",
+         "Watch bridge debris, strainers, shoal walking, private banks, and the side-channel finish at Cane Run.",
+         "Use only Creekside and Cane Run public accesses and verify current Parklands rules, weather, and parking before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03298000",
       "provider": "usgs",
       "siteId": "03298000",
@@ -11007,8 +11027,18 @@ export const kentuckyRoutes: River[] = [
     "summary": "Long lower South Fork Kentucky River continuation from Rocky Branch Road Access to Fish Creek Boat Ramp. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and a paved downstream finish north of Booneville.",
     "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 994 cfs and 6.15 ft, above the official good band, so expect faster current and less forgiving muddy landings over a long downstream commitment.",
     "latitude": 37.3206,
-    "longitude": -83.6648,
-    "gaugeSource": {
+     "longitude": -83.6648,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks", "remote"],
+       "safetyNotes": [
+         "Stay inside the KDFWR 350-900 cfs / 4.8-6.0 ft good band; above it, current and muddy landings become less forgiving.",
+         "Treat the full Rocky Branch-to-Fish Creek chain as a long commitment with wood, strainers, private banks, limited bailouts, and fatigue exposure.",
+         "Confirm every named access, daylight, weather, shuttle, and downstream landing before launch; do not improvise roadside take-outs."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03281500",
       "provider": "usgs",
       "siteId": "03281500",
@@ -11131,8 +11161,18 @@ export const kentuckyRoutes: River[] = [
     "summary": "Long middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run.",
     "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 1050 cfs and 6.24 ft, above the official good band, so expect faster current and less forgiving muddy landings.",
     "latitude": 37.3206,
-    "longitude": -83.6648,
-    "gaugeSource": {
+     "longitude": -83.6648,
+     "safetyProfile": {
+       "riskLevel": "caution",
+       "hazards": ["low_water", "fast_rise", "strainers", "private_banks", "remote"],
+       "safetyNotes": [
+         "Stay inside the KDFWR 350-900 cfs / 4.8-6.0 ft good band; the observed above-band level requires extra caution around muddy landings.",
+         "Plan for a 19-mile commitment with wood, strainers, private banks, limited bailouts, and fatigue before Kay Wood.",
+         "Use only the named KDFWR access chain and verify weather, daylight, shuttle, and current landing conditions before launch."
+       ],
+       "reviewStatus": "reviewed"
+     },
+     "gaugeSource": {
       "id": "usgs-03281500",
       "provider": "usgs",
       "siteId": "03281500",

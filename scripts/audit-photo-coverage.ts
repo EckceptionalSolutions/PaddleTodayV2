@@ -4,9 +4,7 @@ import { join } from 'node:path';
 import { dedicatedRiverGroupHeroPhotos } from '../src/data/river-group-hero-photos.ts';
 import { getRiverGroupHeroPhoto } from '../src/data/river-group-hero.ts';
 import { getRoutePreviewPhoto } from '../src/data/route-gallery.ts';
-import { listRiverGroups, listRivers } from '../src/lib/rivers.ts';
-
-const TRACKED_STATES = ['Wisconsin', 'Iowa', 'Minnesota'] as const;
+import { listAllRiversForAudit, listRiverGroups } from '../src/lib/rivers.ts';
 
 type SourceKind = 'route' | 'river' | 'placeholder';
 
@@ -14,8 +12,9 @@ type CoverageCounts = Record<SourceKind, number> & {
   total: number;
 };
 
-const allRoutes = listRivers();
+const allRoutes = listAllRiversForAudit();
 const allRiverGroups = listRiverGroups();
+const TRACKED_STATES = [...new Set(allRoutes.map((route) => route.state))].sort();
 
 const rows = TRACKED_STATES.map((state) => {
   const routes = allRoutes.filter((route) => route.state === state);
@@ -97,6 +96,6 @@ for (const state of TRACKED_STATES) {
   console.log(`Missing ${state} (${missing.length}):`, missing.join('; '));
 }
 
-if (missingAssets.length > 0 || missingMobileFallbacks.length > 0) {
+if (combined.placeholder > 0 || missingAssets.length > 0 || missingMobileFallbacks.length > 0) {
   process.exitCode = 1;
 }
