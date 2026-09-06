@@ -2,7 +2,7 @@ import type { default as NativeMapView } from 'react-native-maps';
 import { distanceMiles } from '@paddletoday/api-contract';
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { FlatList, Modal, Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { clusterFocusRegion, isMapCluster, mapViewportPoints, type MapViewport } from '../lib/map-viewport';
+import { clusterFocusRegion, isMapCluster, mapViewportPoints, mapScoreLayout, type MapViewport } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
   clamp,
@@ -58,6 +58,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedFocusBottomInset?: number;
   refitOnPointChanges?: boolean;
   clusterMarkers?: boolean;
+  declutterScores?: boolean;
   dimUnselectedMarkers?: boolean;
 }>(function RoutePlotMap({
   points,
@@ -82,6 +83,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   selectedFocusBottomInset = 0,
   refitOnPointChanges = true,
   clusterMarkers = false,
+  declutterScores = false,
   dimUnselectedMarkers = true,
 }, ref) {
   const backgroundSpans = useMemo(() => {
@@ -125,9 +127,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const { width: windowWidth } = useWindowDimensions();
   const [mapWidth, setMapWidth] = useState(windowWidth);
   const [clusterChoices, setClusterChoices] = useState<RoutePlotPoint[] | null>(null);
+  const scoreLayout = useMemo(
+    () => declutterScores ? mapScoreLayout(nativeMarkerPoints, regionDelta, mapWidth, height, selectedId) : null,
+    [declutterScores, nativeMarkerPoints, regionDelta, mapWidth, height, selectedId]
+  );
   const viewportPoints = useMemo(
-    () => clusterMarkers ? mapViewportPoints(nativeMarkerPoints, regionDelta, mapWidth, height) : nativeMarkerPoints,
-    [clusterMarkers, nativeMarkerPoints, regionDelta, mapWidth, height]
+    () => scoreLayout?.points ?? (clusterMarkers ? mapViewportPoints(nativeMarkerPoints, regionDelta, mapWidth, height) : nativeMarkerPoints),
+    [scoreLayout, clusterMarkers, nativeMarkerPoints, regionDelta, mapWidth, height]
   );
   // Retain a selected marker even when its location is inside a cluster. The
   // cluster itself stays unchanged when opening/closing the preview.
@@ -300,6 +306,9 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           initialRegion={initialRegion}
           onMapReady={onReady}
           moveOnMarkerPress={false}
+          // Region-based screen placement assumes a north-up, flat map.
+          rotateEnabled={!declutterScores}
+          pitchEnabled={!declutterScores}
           onRegionChangeComplete={(region) => {
             onZoomLevelChange?.(Math.log2(360 / Math.max(region.longitudeDelta, 0.0001)));
             setRegionDelta((current) => {
@@ -359,7 +368,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           {renderedMarkerPoints.map((point) => {
             const selected = point.id === selectedId;
             const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
-            const showScore = isMapCluster(point) || selected || showScoreMarkers;
+            const showScore = scoreLayout ? scoreLayout.scoreIds.has(point.id) : isMapCluster(point) || selected || showScoreMarkers;
             if (markerMode === 'pin') {
               const pinColor = pinColorForPoint(point, selected);
 
@@ -521,22 +530,24 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
     <Marker
       coordinate={{ latitude: point.latitude, longitude: point.longitude }}
       onPress={() => onSelect(point)}
-      zIndex={selected ? 10 : 1}
+      zIndex={selected ? 10 : showScore ? 3 : 1}
       anchor={{ x: 0.5, y: 0.5 }}
       centerOffset={{ x: 0, y: 0 }}
       tracksViewChanges={tracking}
       accessibilityLabel={point.label + ', ' + (point.markerAccessibilityLabel ?? markerTextForPoint(point))}
     >
-      <View style={[
-        styles.nativeMarker,
-        showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
-        dimmed ? styles.nativeMarkerDimmed : null,
-        selected ? styles.nativeMarkerSelected : null,
-        toneForRating(point.rating),
-        selected ? styles.nativeMarkerSelectedTone : null,
-        isMapCluster(point) ? styles.nativeClusterMarker : null,
-      ]} collapsable={false}>
-        {showScore ? <Text style={styles.nativeMarkerText}>{markerTextForPoint(point)}</Text> : null}
+      <View style={styles.nativeMarkerFrame} collapsable={false}>
+        <View style={[
+          styles.nativeMarker,
+          showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
+          dimmed ? styles.nativeMarkerDimmed : null,
+          selected ? styles.nativeMarkerSelected : null,
+          toneForRating(point.rating),
+          selected ? styles.nativeMarkerSelectedTone : null,
+          isMapCluster(point) ? styles.nativeClusterMarker : null,
+        ]} collapsable={false}>
+          {showScore ? <Text style={styles.nativeMarkerText} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
+        </View>
       </View>
     </Marker>
   );
@@ -765,6 +776,11 @@ const styles = StyleSheet.create({
   nativeMap: {
     width: '100%',
   },
+  // Android captures custom markers into a bitmap. A fixed root frame avoids
+  // reusing a narrow dot snapshot when a wider score badge appears.
+  nativeMarkerFrame: {
+    width: 48, height: 48, alignItems: 'center', justifyContent: 'center',
+  },
   nativeMarker: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -772,21 +788,21 @@ const styles = StyleSheet.create({
     borderColor: colors.surfaceStrong,
   },
   nativeScoreMarker: {
-    minWidth: 36,
-    height: 32,
-    borderRadius: 16,
-    paddingHorizontal: 4,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
   },
   nativeDotMarker: {
-    width: 16,
-    height: 16,
-    borderRadius: 8,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
   },
   nativeMarkerSelected: {
     borderColor: colors.surfaceStrong,
   },
   nativeMarkerSelectedTone: {
-    backgroundColor: SELECTED_MARKER_COLOR,
+    borderColor: SELECTED_MARKER_COLOR,
+    borderWidth: 3,
   },
   nativeMarkerDimmed: {
     opacity: 0.58,
@@ -795,6 +811,8 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 11,
     fontWeight: '900',
+    lineHeight: 14,
+    includeFontPadding: false,
   },
   nativeUserMarker: {
     width: 24,

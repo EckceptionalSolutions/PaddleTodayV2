@@ -52,7 +52,6 @@ import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { buildExploreMapPoints, dedupeExploreRoutes, routeSpanCoordinatesForRiver, type ExploreRiver } from '../lib/explore-map-model';
 import { exploreCameraAction, type ExploreCameraState } from '../lib/explore-camera';
-import { individualRoutesAtZoom } from '../lib/map-viewport';
 import {
   buildRouteGroupMeta,
   routeGroupMetaForRoute,
@@ -457,7 +456,6 @@ function FullScreenExploreMap({
   const [mapReady, setMapReady] = useState(false);
   const onMapReady = useCallback(() => setMapReady(true), []);
   const isFocused = useIsFocused();
-  const [individualRoutes, setIndividualRoutes] = useState(false);
   const cameraStateRef = useRef<ExploreCameraState | null>(null);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   // Load the representative route geometry for grouped results too. Without
@@ -465,10 +463,9 @@ function FullScreenExploreMap({
   // which can visibly cut across bends instead of following the river.
   const selectedGeometryQuery = useRiverGeometryQuery(selectedSlug ?? '', isFocused && viewMode === 'map');
   const points = useMemo(
-    () => buildExploreMapPoints(results, routeCounts, results, individualRoutes),
-    [routeCounts, results, individualRoutes]
+    () => buildExploreMapPoints(results, routeCounts, results, true),
+    [routeCounts, results]
   );
-  const onMapZoomChange = useCallback((zoom: number) => setIndividualRoutes((current) => individualRoutesAtZoom(current, zoom)), []);
   const matchingRiverCount = useMemo(() => dedupeExploreRoutes(results).length, [results]);
   const selectedMapPointId = useMemo(
     () => points.find((point) => point.routeSlugs.includes(selectedSlug ?? ''))?.id ?? null,
@@ -570,10 +567,9 @@ function FullScreenExploreMap({
           height={mapHeight}
           showFooter={false}
           fullBleed
-          clusterMarkers
+          declutterScores
           dimUnselectedMarkers={false}
           refitOnPointChanges={false}
-          onZoomLevelChange={onMapZoomChange}
         />
       ) : (
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>

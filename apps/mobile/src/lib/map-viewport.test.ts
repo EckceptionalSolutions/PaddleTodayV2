@@ -1,10 +1,38 @@
 import { describe, expect, it } from 'vitest';
 import type { RoutePlotPoint } from '../components/route-plot-map-model';
-import { clusterFocusRegion, individualRoutesAtZoom, isMapCluster, mapViewportPoints } from './map-viewport';
+import { clusterFocusRegion, individualRoutesAtZoom, isMapCluster, mapViewportPoints, mapScoreLayout } from './map-viewport';
 
 const region = { latitude: 45, longitude: -93, latitudeDelta: 4, longitudeDelta: 4 };
 const point = (id: string, latitude = 45, longitude = -93): RoutePlotPoint => ({ id, label: id, latitude, longitude });
 const memberIds = (points: RoutePlotPoint[]) => points.flatMap((point) => isMapCluster(point) ? point.members.map((member) => member.id) : [point.id]).sort();
+
+describe('Individual route score placement', () => {
+  it('keeps nearby routes as dots, gives selection priority, and reveals scores when zooming in', () => {
+    const points = [point('a'), point('b', 45, -92.8), point('c', 46, -94)];
+    const layout = mapScoreLayout(points, region, 390, 844);
+    expect(layout.points).toEqual(points);
+    expect([...layout.scoreIds]).toEqual(['a', 'c']);
+    expect([...mapScoreLayout(points, region, 390, 844, 'b').scoreIds]).toEqual(['b', 'c']);
+    expect(mapScoreLayout(points, { ...region, longitudeDelta: 1, latitudeDelta: 1 }, 390, 844).scoreIds.has('b')).toBe(true);
+  });
+
+  it('keeps identities, omits offscreen routes, and makes placement independent of input ordering', () => {
+    const points = [point('a'), point('b', 45.01), point('far', 55), point('invalid', NaN)];
+    const layout = mapScoreLayout(points, region, 390, 844);
+    expect(layout.points).toEqual(points.slice(0, 2));
+    expect(layout.points[0]).toBe(points[0]);
+    expect([...mapScoreLayout([...points].reverse(), region, 390, 844).scoreIds]).toEqual([...layout.scoreIds]);
+    expect(mapScoreLayout(points, region, 0, 844).points).toEqual([]);
+  });
+
+  it('handles wrapped longitudes and densely overlapping routes without count bubbles', () => {
+    const points = Array.from({ length: 2000 }, (_, index) => point(String(index), 0, index % 2 ? -179.999 : 179.999));
+    const layout = mapScoreLayout(points, { latitude: 0, longitude: 180, latitudeDelta: 20, longitudeDelta: 20 }, 390, 844);
+    expect(layout.points).toHaveLength(2000);
+    expect(layout.points.some(isMapCluster)).toBe(false);
+    expect(layout.scoreIds.size).toBe(1);
+  });
+});
 
 describe('Native map viewport rendering', () => {
   it('bounds dense marker work by screen area while retaining every in-view location', () => {

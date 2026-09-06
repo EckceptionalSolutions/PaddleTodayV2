@@ -1,5 +1,6 @@
-import { forwardRef, useEffect, useImperativeHandle } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { mapScoreLayout } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
   clamp,
@@ -49,6 +50,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   focusOnSelect?: boolean;
   selectedFocusBottomInset?: number;
   clusterMarkers?: boolean;
+  declutterScores?: boolean;
   dimUnselectedMarkers?: boolean;
 }>(function RoutePlotMap({
   points,
@@ -66,6 +68,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   fullBleed = false,
   refitOnPointChanges = true,
   dimUnselectedMarkers = true,
+  declutterScores = false,
   focusOnSelect: _focusOnSelect = false,
   fitToAllOnReady: _fitToAllOnReady = false,
   fitToSelectedOnReady: _fitToSelectedOnReady = false,
@@ -80,13 +83,19 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const visiblePoints = points.filter(isFinitePoint);
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
   const selectedSpans = selectedId && selectedPoint ? routeSpanSegments(selectedPoint, canonicalSpans) : [];
+  const { width: windowWidth } = useWindowDimensions();
+  const [mapWidth, setMapWidth] = useState(windowWidth);
+  const scoreLayout = declutterScores ? mapScoreLayout(visiblePoints, {
+    latitude: (bounds.minLat + bounds.maxLat) / 2, longitude: (bounds.minLon + bounds.maxLon) / 2,
+    latitudeDelta: bounds.maxLat - bounds.minLat, longitudeDelta: bounds.maxLon - bounds.minLon,
+  }, mapWidth, height, selectedId) : null;
 
   useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined, focusUserArea: () => undefined }), []);
   useEffect(() => { onReady?.(); }, [onReady]);
 
   return (
     <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
-      <View style={[styles.mapCanvas, { height }]}>
+      <View style={[styles.mapCanvas, { height }]} onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}>
         <View style={styles.mapLandPatchNorth} />
         <View style={styles.mapLandPatchSouth} />
         <View style={styles.mapLakeWest} />
@@ -128,13 +137,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
           const dimmed = dimUnselectedMarkers && Boolean(selectedId && !selected);
-          const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
+          const showScore = scoreLayout ? scoreLayout.scoreIds.has(point.id) : selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
               key={point.id}
               style={[
                 styles.markerTarget,
                 projectPoint(point.latitude, point.longitude, bounds),
+                { zIndex: selected ? 10 : showScore ? 3 : 1 },
               ]}
               onPress={() => onSelectPoint?.(point)}
               hitSlop={10}
