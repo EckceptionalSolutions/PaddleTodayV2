@@ -184,6 +184,16 @@ export async function installMapLibreHarness(page: Page) {
 
       getSource(sourceId: string) { return this.sources.get(sourceId); }
       removeSource(sourceId: string) { this.sources.delete(sourceId); }
+      images = new Map<string, any>();
+      hasImage(id: string) { return this.images.has(id); }
+      addImage(id: string, image: any) { this.images.set(id, image); }
+      getLayersOrder() { return [...this.layers.keys()]; }
+      moveLayer(id: string) {
+        const layer = this.layers.get(id);
+        this.layers.delete(id);
+        this.layers.set(id, layer);
+        this.emit('styledata');
+      }
       addLayer(layer: any) { this.layers.set(layer.id, layer); }
       getLayer(layerId: string) { return this.layers.get(layerId); }
       removeLayer(layerId: string) { this.layers.delete(layerId); }

@@ -89,7 +89,7 @@
     "alerts:reconcile-push": "tsx src/server/alerts-reconcile-push.ts",
     "start": "tsx src/server/bootstrap.ts --static dist",
     "test": "npm run typecheck && npm run scoring:sensitivity:check && npm run test:workspaces",
-    "test:maps": "playwright test tests/visual/map-interactions.spec.ts tests/visual/explore-map-performance.spec.ts --project=desktop-chromium --workers=1",
+    "test:maps": "playwright test tests/visual/map-interactions.spec.ts tests/visual/explore-map-performance.spec.ts tests/visual/explore-score-badges.spec.ts --project=desktop-chromium --workers=1",
     "mobile:start": "npm run start --workspace @paddletoday/mobile",
     "mobile:android": "npm run android --workspace @paddletoday/mobile",
     "mobile:ios": "npm run ios --workspace @paddletoday/mobile",
