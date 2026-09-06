@@ -538,7 +538,323 @@ const approvedMarylandContextPhotosByRiverId: Record<string, RouteGalleryPhoto> 
   'chesapeake-bay-environmental-center-water-trails-maryland': marylandBlackwaterContextPhoto,
 };
 
+const maineExpansionRouteIds = [
+  'penobscot-river-medway-lincoln',
+  'penobscot-river-lincoln-passadumkeag',
+  'penobscot-river-passadumkeag-milford',
+  'penobscot-river-milford-bangor',
+  'penobscot-river-bangor-verona',
+  'west-branch-penobscot-river-t3r11-t2r10',
+  'st-john-river-saint-francis-fort-kent',
+  'st-john-river-fort-kent-frenchville',
+  'st-john-river-frenchville-madawaska',
+  'kennebec-river-solon-norridgewock',
+  'kennebec-river-waterville-augusta',
+  'kennebec-river-augusta-gardiner',
+  'kennebec-river-gardiner-bath',
+  'saco-river-brownfield-dayton',
+  'saco-river-dayton-biddeford',
+  'machias-river-t31md-machias',
+  'chamberlain-lake-dacf-remote-loop',
+  'chesuncook-lake-t3r12-remote-loop',
+  'lake-onawa-difw-access-loop',
+  'lake-george-skowhegan-access-loop',
+  'webb-lake-dacf-access-loop',
+  'kennebec-river-solon-madison',
+  'kennebec-river-madison-starks',
+  'kennebec-river-starks-skowhegan',
+  'kennebec-river-norridgewock-waterville',
+  'kennebec-river-waterville-fairfield',
+  'kennebec-river-fairfield-sidney',
+  'kennebec-river-sidney-augusta',
+  'kennebec-river-augusta-hallowell',
+  'kennebec-river-hallowell-richmond',
+  'kennebec-river-richmond-bath',
+  'kennebec-river-bath-phippsburg',
+  'kennebec-river-augusta-chelsea',
+  'penobscot-river-t3r11-medway',
+  'penobscot-river-medway-greenbush',
+  'penobscot-river-greenbush-winn',
+  'penobscot-river-winn-lincoln',
+  'penobscot-river-lincoln-howland',
+  'penobscot-river-howland-passadumkeag',
+  'penobscot-river-milford-orono',
+  'penobscot-river-orono-brewer',
+  'penobscot-river-brewer-bangor',
+  'penobscot-river-bangor-hampden',
+  'penobscot-river-hampden-eddington',
+  'penobscot-river-eddington-orrington',
+  'androscoggin-river-hanover-mexico',
+  'androscoggin-river-mexico-canton',
+  'androscoggin-river-canton-turner',
+  'androscoggin-river-turner-durham',
+  'androscoggin-river-durham-lewiston',
+  'androscoggin-river-lewiston-auburn',
+  'androscoggin-river-auburn-brunswick',
+  'androscoggin-river-brunswick-topsham',
+  'androscoggin-river-rumford-hanover',
+  'aroostook-river-oxbow-masardis',
+  'aroostook-river-masardis-ashland',
+  'aroostook-river-ashland-washburn',
+  'aroostook-river-washburn-caribou',
+  'aroostook-river-caribou-presque-isle',
+  'aroostook-river-presque-isle-fort-fairfield',
+  'aroostook-river-fort-fairfield-caribou',
+  'aroostook-river-masardis-washburn',
+  'saco-river-fryeburg-brownfield',
+  'saco-river-brownfield-saco',
+  'saco-river-saco-biddeford',
+  'saco-river-fryeburg-dayton',
+  'saint-croix-river-lambert-dyer',
+  'saint-croix-river-dyer-baileyville',
+  'saint-croix-river-lambert-baileyville',
+  'saint-croix-river-calais-robbinston',
+  'st-john-river-fort-kent-van-buren',
+  'st-john-river-van-buren-madawaska',
+  'allagash-river-t15r11-t13r12',
+  'moosehead-lake-rockwood-greenville',
+  'moosehead-lake-greenville-beaver-cove',
+  'moosehead-lake-beaver-cove-t1r14',
+  'moosehead-lake-t1r14-days-academy',
+  'moosehead-lake-days-academy-big-w',
+  'flagstaff-lake-eustis-bigelow',
+  'flagstaff-lake-bigelow-dead-river',
+  'flagstaff-lake-dead-river-t3r4',
+  'flagstaff-lake-t3r4-dead-river',
+  'pleasant-river-t18-columbia',
+  'pleasant-river-columbia-columbia-falls',
+  'pleasant-river-columbia-falls-addison',
+  'piscataquis-river-guilford-dover',
+  'piscataquis-river-dover-medford',
+  'piscataquis-river-medford-howland',
+  'sebec-lake-dover-sebec',
+] as const;
+
+const maineDacfImage = (id: string, imageNumber: number, alt: string, caption: string): RouteGalleryPhoto => ({
+  id,
+  src: `https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/${imageNumber}.jpg`,
+  alt,
+  caption,
+  credit: 'Maine Department of Agriculture, Conservation and Forestry',
+  takenLabel: 'Official Maine state image; exact reach not claimed',
+});
+
+const maineFwsImage = (id: string, src: string, alt: string, caption: string, credit: string): RouteGalleryPhoto => ({
+  id,
+  src,
+  alt,
+  caption,
+  credit,
+  takenLabel: 'U.S. Fish and Wildlife Service image; public domain; exact route not claimed',
+});
+
+const maineStreamFwsPhoto = maineFwsImage(
+  'maine-fws-stream-context',
+  'https://www.fws.gov/sites/default/files/banner_images/2021-01/maine%20FWCO%201_0.jpg',
+  'A Maine stream corridor bordered by forest.',
+  'Maine stream context; exact route not claimed',
+  'Scott Craig / U.S. Fish and Wildlife Service',
+);
+const sandyRiverFwsPhoto = maineFwsImage(
+  'sandy-river-maine-fws',
+  'https://www.fws.gov/sites/default/files/banner_images/2021-08/Sandy%20River%20Maine.JPG',
+  'The Sandy River flows through a forested Maine corridor.',
+  'Sandy River in Phillips, Maine; western Maine context for paddling routes',
+  'Nicole Pauley / U.S. Fish and Wildlife Service',
+);
+const greatWorksPenobscotFwsPhoto = maineFwsImage(
+  'great-works-dam-penobscot-fws',
+  'https://www.fws.gov/sites/default/files/2022-11/Great%20Works%20Dam%20Penobscot.jpeg',
+  'Great Works Dam on the Penobscot River in Old Town, Maine.',
+  'Penobscot River dam-removal context near Old Town; exact reach not claimed',
+  'U.S. Fish and Wildlife Service',
+);
+const kennebecMouthFwsPhoto = maineFwsImage(
+  'kennebec-mouth-fws',
+  'https://www.fws.gov/sites/default/files/2021-09/IMG_1159_1.JPG',
+  'The mouth of the Kennebec River viewed from Pond Island, Maine.',
+  'Lower Kennebec and tidal-transition context; exact route not claimed',
+  'U.S. Fish and Wildlife Service',
+);
+const lockwoodKennebecFwsPhoto = maineFwsImage(
+  'lockwood-dam-kennebec-fws',
+  'https://www.fws.gov/sites/default/files/2021-09/lockwood-dam-over-kennebec-river-maine.jpg',
+  'Lockwood Dam and the Kennebec River between Waterville and Winslow, Maine.',
+  'Kennebec River hydroelectric-structure context; exact route not claimed',
+  'Patrick Dockens / U.S. Fish and Wildlife Service',
+);
+const stJohnsRiverFwsPhoto = maineFwsImage(
+  'st-johns-river-maine-fws',
+  'https://www.fws.gov/sites/default/files/styles/max_650x650/public/2023-09/st-john-river-meagan-racey-usfws.png?itok=jGVZABGE',
+  'The St. John River flows through a forested Maine corridor.',
+  'St. John River in Maine; same-waterway context, exact reach not claimed',
+  'Meagan Racey / U.S. Fish and Wildlife Service',
+);
+const meduxnekeagRiverFwsPhoto = maineFwsImage(
+  'meduxnekeag-river-maine-fws',
+  'https://www.fws.gov/sites/default/files/styles/max_650x650/public/2022-08/Meduxnekeag%20river_Zintkala%20Eiring_USFWS.jpg?itok=uiOtefmx',
+  'The Meduxnekeag River flows through a forested northern Maine corridor.',
+  'Meduxnekeag River in Maine; northern Maine freshwater context',
+  'Zintkala Eiring / U.S. Fish and Wildlife Service',
+);
+const alamoosookLakeFwsPhoto = maineFwsImage(
+  'alamoosook-lake-maine-fws',
+  'https://www.fws.gov/sites/default/files/styles/max_650x650/public/2021-09/maine-field-office-on-alamoosook-lake1_0.jpg?itok=Dumk8Him',
+  'Alamoosook Lake and Great Pond Mountain in East Orland, Maine.',
+  'Alamoosook Lake and Great Pond Mountain; Maine lake context, exact route not claimed',
+  'Nicole Pauley / U.S. Fish and Wildlife Service',
+);
+
+const maineRiverContextPhotos = [
+  maineStreamFwsPhoto,
+  maineDacfImage('maine-dacf-river-context-1', 1, 'A forested Maine freshwater corridor with rocky shoreline.', 'Maine DACF freshwater corridor context; exact reach not claimed'),
+  maineDacfImage('maine-dacf-river-context-2', 2, 'A narrow Maine waterway bordered by dense forest.', 'Maine DACF wooded-waterway context; exact reach not claimed'),
+  maineDacfImage('maine-dacf-river-context-7', 7, 'A rocky Maine freshwater shoreline framed by autumn forest.', 'Maine DACF open-water and shoreline context; exact reach not claimed'),
+  sandyRiverFwsPhoto,
+];
+
+const maineLakeContextPhotos = [
+  alamoosookLakeFwsPhoto,
+  maineDacfImage('maine-dacf-lake-context-3', 3, 'A broad Maine lake with forested shores and distant mountains.', 'Maine DACF lake and wilderness context; exact lake and reach not claimed'),
+  maineDacfImage('maine-dacf-lake-context-4', 4, 'Open water and a forested shoreline on a Maine lake.', 'Maine DACF lake context; exact lake and reach not claimed'),
+  maineDacfImage('maine-dacf-lake-context-7', 7, 'A rocky Maine lake shoreline framed by autumn forest.', 'Maine DACF lake-shoreline context; exact lake and reach not claimed'),
+];
+
+const maineWhitewaterContextPhotos = [
+  maineDacfImage('maine-dacf-whitewater-context-1', 1, 'A forested Maine freshwater corridor with rocky shoreline.', 'Maine DACF moving-water context; exact reach not claimed'),
+  maineDacfImage('maine-dacf-whitewater-context-5', 5, 'Whitewater moves through a rocky Maine wilderness channel.', 'Maine DACF whitewater context; exact reach not claimed'),
+  maineDacfImage('maine-dacf-whitewater-context-6', 6, 'A rocky rapid and waterfall in a Maine wilderness setting.', 'Maine DACF whitewater context; exact reach not claimed'),
+  maineDacfImage('maine-dacf-whitewater-context-8', 8, 'A Maine waterfall and rapid framed by forest.', 'Maine DACF whitewater context; exact reach not claimed'),
+];
+
+const mainePhotosForSlug = (slug: string): RouteGalleryPhoto[] => {
+  if (slug === 'st-john-river-fort-kent-van-buren') {
+    return [stJohnsRiverFwsPhoto];
+  }
+  if (slug === 'aroostook-river-oxbow-masardis') {
+    return [meduxnekeagRiverFwsPhoto];
+  }
+  if (slug === 'penobscot-river-orono-brewer') {
+    return [greatWorksPenobscotFwsPhoto];
+  }
+  if (slug === 'kennebec-river-waterville-augusta') {
+    return [lockwoodKennebecFwsPhoto];
+  }
+  if (slug === 'kennebec-river-gardiner-bath') {
+    return [kennebecMouthFwsPhoto];
+  }
+  if (slug === 'west-branch-penobscot-river-t3r11-t2r10') {
+    return [maineDacfImage('maine-dacf-whitewater-context-6', 6, 'A rocky rapid and waterfall in a Maine wilderness setting.', 'Maine DACF whitewater context; exact reach not claimed')];
+  }
+  if (slug === 'allagash-river-t15r11-t13r12') {
+    return [maineDacfImage('maine-dacf-whitewater-context-8', 8, 'A Maine waterfall and rapid framed by forest.', 'Maine DACF whitewater context; exact reach not claimed')];
+  }
+  if (slug === 'penobscot-river-t3r11-medway') {
+    return [maineDacfImage('maine-dacf-whitewater-context-5', 5, 'Whitewater moves through a rocky Maine wilderness channel.', 'Maine DACF whitewater context; exact reach not claimed')];
+  }
+  if (/^(moosehead-lake|flagstaff-lake|chamberlain-lake|chesuncook-lake|lake-onawa|lake-george|webb-lake)/.test(slug)) {
+    return maineLakeContextPhotos;
+  }
+  if (/^(allagash-river|west-branch-penobscot-river)/.test(slug)) {
+    return maineWhitewaterContextPhotos;
+  }
+  return maineRiverContextPhotos;
+};
+
+const maineExpansionPhotosBySlug: Record<string, RouteGalleryPhoto[]> = Object.fromEntries(
+  maineExpansionRouteIds.map((slug) => [slug, mainePhotosForSlug(slug)]),
+);
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  ...maineExpansionPhotosBySlug,
+  'allagash-river-churchill-dam-umsaskis': [{
+    id: 'allagash-river-dacf-context',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'The Allagash River winds through a forested wilderness corridor in Maine.',
+    caption: 'Allagash River; Maine DACF same-river context',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'allagash-river-michaud-farm-allagash-falls': [{
+    id: 'allagash-river-dacf-context-lower',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'The Allagash River winds through a forested wilderness corridor in Maine.',
+    caption: 'Allagash River; Maine DACF same-river context',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'allagash-river-allagash-falls-twin-brook': [{
+    id: 'allagash-river-dacf-context-village',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'The Allagash River winds through a forested wilderness corridor in Maine.',
+    caption: 'Allagash River; Maine DACF same-river context',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'saco-river-fryeburg-route-302-route-160': [{
+    id: 'saco-river-maine-context',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'A forested river corridor in Maine.',
+    caption: 'Maine DACF river corridor regional context; not the Saco reach',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'saco-river-route-160-brownfield': [{
+    id: 'saco-river-maine-context-lower',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'A forested river corridor in Maine.',
+    caption: 'Maine DACF river corridor regional context; not the Saco reach',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'androscoggin-river-hanover-bethel': [{
+    id: 'androscoggin-river-usgs-fall',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/RiverPHOTO_web.jpg?itok=rBBzFvFf',
+    alt: 'The Androscoggin River in Maine winding through a forested corridor in autumn.',
+    caption: 'Androscoggin River; same-river context',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'Official USGS image; exact reach not claimed',
+  }],
+  'androscoggin-river-mexico-rumford': [{
+    id: 'androscoggin-river-usgs-fall-rumford',
+    src: 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/RiverPHOTO_web.jpg?itok=rBBzFvFf',
+    alt: 'The Androscoggin River in Maine winding through a forested corridor in autumn.',
+    caption: 'Androscoggin River; same-river context',
+    credit: 'U.S. Geological Survey',
+    takenLabel: 'Official USGS image; exact reach not claimed',
+  }],
+  'kennebec-river-skowhegan-norridgewock': [{
+    id: 'kennebec-river-maine-context',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'A forested river corridor in Maine.',
+    caption: 'Maine DACF river corridor regional context; not the Kennebec reach',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'presumpscot-river-gorham-falmouth': [{
+    id: 'presumpscot-river-maine-context',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'A forested river corridor in Maine.',
+    caption: 'Maine DACF river corridor regional context; not the Presumpscot reach',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
+  'saint-croix-river-baileyville-calais': [{
+    id: 'saint-croix-river-maine-context',
+    src: 'https://www.fws.gov/sites/default/files/2022-06/st.%20croix%20river_keith%20ramos%20_usfws.jpg',
+    alt: 'The Saint Croix River in Maine flowing through a forested corridor.',
+    caption: 'Saint Croix River; same-river context',
+    credit: 'Keith Ramos / U.S. Fish and Wildlife Service',
+    takenLabel: 'Official USFWS image; exact reach not claimed',
+  }],
+  'aroostook-river-washburn-fort-fairfield': [{
+    id: 'aroostook-river-maine-context',
+    src: 'https://www.maine.gov/dacf/parks/publications_maps/AWWBroc/Images/1.jpg',
+    alt: 'A forested river corridor in Maine.',
+    caption: 'Maine DACF river corridor regional context; not the Aroostook reach',
+    credit: 'Maine Department of Agriculture, Conservation and Forestry',
+    takenLabel: 'Official Maine state image; exact reach not claimed',
+  }],
   'chattahoochee-river-ga115-duncan-bridge': [{
     id: 'chattahoochee-river-upper-hooch-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Chattahoochee.jpg?width=1600',
@@ -6477,6 +6793,32 @@ export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
   return [...(approvedRoutePhotosBySlug[slug] ?? [])];
 }
 
+export function getRouteGalleryPhotos(route: RoutePhotoTarget): RouteGalleryPhoto[] {
+  const approvedPhotos = getApprovedRoutePhotos(route.slug);
+  if (approvedPhotos.length > 0) {
+    return approvedPhotos;
+  }
+
+  const preview = getRoutePreviewPhoto(route);
+  if (preview.isPlaceholder) {
+    return [];
+  }
+
+  return [
+    {
+      id: `${preview.id}-gallery`,
+      src: preview.src,
+      alt: preview.alt,
+      caption:
+        preview.sourceKind === 'river'
+          ? `${preview.caption} — not necessarily this exact reach.`
+          : preview.caption,
+      credit: preview.credit,
+      takenLabel: preview.takenLabel,
+    },
+  ];
+}
+
 // Some river systems have approved photography on only one or two routes. Reuse
 // that same-river context before falling back to a generic river placeholder.
 const approvedRiverFallbackRouteById: Record<string, string> = {
@@ -7897,6 +8239,30 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     takenLabel: 'Wikimedia Commons: WTFPL',
   },
   'new-river': newRiverGorgeContextPhoto,
+  'lumber-river': {
+    id: 'lumber-river-state-park-context',
+    src: 'https://files.nc.gov/parks/styles/barrio_carousel_full/public/images/2026-01/LURI_Scenic_CPeek.jpg?VersionId=GKBAJ9i2CSEdW5AHwllgdbTT65ydSr2h&itok=Xu_VWN4X',
+    alt: 'A wooded blackwater reach of the Lumber River in Lumber River State Park, North Carolina.',
+    caption: 'Lumber River State Park blackwater corridor; same-river context',
+    credit: 'North Carolina State Parks',
+    takenLabel: 'Official park image; context only',
+  },
+  'south-fork-catawba-river': {
+    id: 'south-fork-catawba-goat-island-context',
+    src: 'https://files.aptuitivcdn.com/JVXM9wad0E-1708/images/trails/trail-system/South-Fork-River-at-Goat-Island-57-2.1742840549.jpg',
+    alt: 'The South Fork Catawba River near Goat Island Park in Cramerton, North Carolina.',
+    caption: 'South Fork Catawba River at Goat Island; same-river context',
+    credit: 'Carolina Thread Trail',
+    takenLabel: 'Trail source image; context only',
+  },
+  'hammocks-beach': {
+    id: 'hammocks-beach-paddlefest-context',
+    src: 'https://files.nc.gov/parks/styles/barrio_carousel_full/public/images/2022-08/hammocks-beach-paddlefest-m-kane-photofiles.jpg?VersionId=.3OMu1PoQqf.9QVXnllZOdptz7e772Mi&itok=-hQM4G-E',
+    alt: 'Paddlers at Hammocks Beach State Park in North Carolina.',
+    caption: 'Hammocks Beach State Park coastal paddling; same-park context',
+    credit: 'North Carolina State Parks / M. Kane',
+    takenLabel: 'Official park image; context only',
+  },
   'neuse-river': {
     id: 'neuse-river-raleigh-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Neuse%20River%20-%20panoramio%20%281%29.jpg?width=1600',

@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
-import { getApprovedRoutePhotos, getRoutePreviewPhoto } from '../../data/route-gallery';
+import { getRouteGalleryPhotos, getRoutePreviewPhoto } from '../../data/route-gallery';
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
@@ -174,7 +174,7 @@ const routeIntro = `Check current paddling conditions for this ${river.name} rou
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, evidence strength, access details, and today's paddle score before you drive.`;
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, evidence strength, access, and a clear paddle call.`;
-const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
+const routeGalleryPhotos = getRouteGalleryPhotos(river);
 const routePreviewPhoto = getRoutePreviewPhoto(river);
 const routePreviewLabel =
   routePreviewPhoto.sourceKind === 'route'
@@ -190,7 +190,7 @@ const routePreviewCaption =
       : 'Representative river image — not this exact route.';
 const routeSocialCard = getRouteSocialCard(river.slug);
 const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png';
-const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
+const routeGalleryPhotosJson = JSON.stringify(routeGalleryPhotos);
 const breadcrumbItems = [
   {
     '@type': 'ListItem',
@@ -1467,7 +1467,7 @@ const routeFaqStructuredData = {
       data-detail-section="route-gallery"
       data-detail-nav-group="reports"
       data-route-gallery
-      data-approved-photos={approvedRoutePhotosJson}
+      data-approved-photos={routeGalleryPhotosJson}
     >
       <div class="route-gallery__intro">
         <div class="route-gallery__intro-copy">
@@ -1484,33 +1484,33 @@ const routeFaqStructuredData = {
 
       <div class="route-gallery__layout">
         <div class="route-gallery__viewer" data-route-gallery-viewer>
-          {approvedRoutePhotos.length > 0 ? (
+          {routeGalleryPhotos.length > 0 ? (
             <>
               <figure class="route-gallery__figure" data-route-gallery-figure>
                 <img
                   class="route-gallery__image"
-                  src={approvedRoutePhotos[0].src}
-                  alt={approvedRoutePhotos[0].alt}
+                  src={routeGalleryPhotos[0].src}
+                  alt={routeGalleryPhotos[0].alt}
                   loading="lazy"
                   decoding="async"
                   data-route-gallery-image
                 />
                 <figcaption class="route-gallery__caption">
                   <div class="route-gallery__caption-copy">
-                    <strong data-route-gallery-caption>{approvedRoutePhotos[0].caption}</strong>
+                    <strong data-route-gallery-caption>{routeGalleryPhotos[0].caption}</strong>
                     <span class="muted" data-route-gallery-credit>
-                      {approvedRoutePhotos[0].credit ? `Photo by ${approvedRoutePhotos[0].credit}` : 'Approved community photo'}
+                      {routeGalleryPhotos[0].credit ? `Photo by ${routeGalleryPhotos[0].credit}` : 'Approved route context photo'}
                     </span>
                   </div>
-                  <span class="route-gallery__caption-tag" data-route-gallery-taken hidden={!approvedRoutePhotos[0].takenLabel}>
-                    {approvedRoutePhotos[0].takenLabel ?? ''}
+                  <span class="route-gallery__caption-tag" data-route-gallery-taken hidden={!routeGalleryPhotos[0].takenLabel}>
+                    {routeGalleryPhotos[0].takenLabel ?? ''}
                   </span>
                 </figcaption>
               </figure>
 
-              {approvedRoutePhotos.length > 1 ? (
+              {routeGalleryPhotos.length > 1 ? (
                 <div class="route-gallery__thumbs" data-route-gallery-thumbs aria-label="Approved route photos">
-                  {approvedRoutePhotos.map((photo, index) => (
+                  {routeGalleryPhotos.map((photo, index) => (
                     <button
                       class:list={['route-gallery__thumb', index === 0 && 'route-gallery__thumb--active']}
                       type="button"
