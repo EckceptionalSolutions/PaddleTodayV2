@@ -184,10 +184,9 @@ test.describe('product polish interactions', () => {
   test('radius readout and state directory follow their controls', async ({ page }) => {
     await page.goto('/');
     const preferences = page.locator('[data-home-preferences]');
-    await expect(preferences).not.toHaveAttribute('open');
-    await expect(page.locator('[data-home-radius-slider]')).not.toBeVisible();
-    await preferences.locator('summary').click();
     const slider = page.locator('[data-home-radius-slider]');
+    await expect(preferences).toHaveAttribute('open');
+    await expect(slider).toBeVisible();
     await expect(slider).toHaveAttribute('data-radius-bound', 'true');
     await slider.fill('3');
     await expect(page.locator('[data-home-radius-value]')).toHaveText('Within 100 miles');
@@ -195,6 +194,7 @@ test.describe('product polish interactions', () => {
     await expect(preferences).toHaveAttribute('open');
     await expect(page.locator('[data-home-radius-value]')).toHaveText('Within 100 miles');
     await preferences.locator('summary').click();
+    await expect(preferences).not.toHaveAttribute('open');
     await expect(page.locator('[data-home-preferences-summary]')).toContainText('100 miles');
     await page.goto('/explore/');
     const directory = page.locator('[data-explore-states]');
@@ -272,6 +272,56 @@ test.describe('product polish interactions', () => {
     expect(new URL(await field.inputValue()).searchParams.has('lat')).toBe(false);
   });
 
+  test('an early GPS click waits for homepage hydration and runs once', async ({ page }) => {
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => { release = resolve; });
+    await page.route('**/*summary-board-home*.js*', async (route) => {
+      await gate;
+      await route.continue();
+    });
+    await page.addInitScript(() => {
+      (window as any).__polishGpsRequests = 0;
+      Object.defineProperty(navigator, 'geolocation', { configurable: true, value: {
+        getCurrentPosition() { (window as any).__polishGpsRequests += 1; },
+      } });
+      Object.defineProperty(navigator, 'permissions', { configurable: true, value: { query: async () => ({ state: 'prompt' }) } });
+    });
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.locator('[data-location-use]').first().click();
+    await page.locator('[data-location-use]').first().click();
+    expect(await page.evaluate(() => (window as any).__polishGpsRequests)).toBe(0);
+    release();
+    await expect.poll(() => page.evaluate(() => (window as any).__polishGpsRequests)).toBe(1);
+  });
+
+  for (const path of ['/', '/explore/']) {
+    test(`a delayed GPS reading cannot overwrite typed location on ${path}`, async ({ page }, testInfo) => {
+      test.skip(path === '/explore/' && testInfo.project.name !== 'desktop-chromium', 'Explore location controls are tested in the desktop workspace.');
+      await page.addInitScript(() => {
+        Object.defineProperty(navigator, 'geolocation', { configurable: true, value: {
+          getCurrentPosition(success: (position: unknown) => void) { (window as any).__resolvePolishGps = success; },
+        } });
+        Object.defineProperty(navigator, 'permissions', { configurable: true, value: { query: async () => ({ state: 'prompt' }) } });
+      });
+      await page.route('https://geocoding-api.open-meteo.com/v1/search**', (route) => route.fulfill({ json: { results: [
+        { name: 'Milaca', admin1: 'Minnesota', country: 'United States', latitude: 45.75, longitude: -93.65 },
+      ] } }));
+      await page.route('https://geocoding-api.open-meteo.com/v1/reverse**', (route) => route.fulfill({ json: { results: [
+        { name: 'Old city', admin1: 'Wisconsin', country: 'United States' },
+      ] } }));
+      await page.goto(path);
+      await expect(page.locator('[data-location-use]').first()).toHaveAttribute('data-location-bound', 'true');
+      await page.locator('[data-location-use]').first().click();
+      const input = page.locator('[data-location-input]');
+      await input.fill('Milaca');
+      await input.press('Enter');
+      await expect(input).toHaveValue('Milaca, MN');
+      await page.evaluate(async () => { await (window as any).__resolvePolishGps({ coords: { latitude: 43, longitude: -89 } }); });
+      await expect(input).toHaveValue('Milaca, MN');
+      expect(await page.evaluate(() => JSON.parse(localStorage.getItem('paddletoday:user-location') || '{}').label)).toBe('Milaca, MN');
+    });
+  }
+
   test('removing a saved route offers Undo and restores its exact record', async ({ page }) => {
     const seed = structuredClone(favoriteSeed);
     seed.items[0].url += '?putin=upper&takeout=lower';
@@ -290,6 +340,10 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('.favorites-card')).toHaveCount(1);
     expect(await page.evaluate(() => JSON.parse(localStorage.getItem('paddletoday:favorites:v1')!).items)).toEqual(seed.items);
     await expect(page.locator('.action-feedback')).toContainText('restored');
+    const dismiss = page.locator('.action-feedback').getByRole('button', { name: 'Dismiss' });
+    await expect(dismiss).toBeFocused();
+    await dismiss.click();
+    await expect(page.locator('.favorites-card [data-favorite-button]')).toBeFocused();
     await page.reload();
     await expect(page.locator('.favorites-card')).toHaveCount(1);
   });
@@ -515,6 +569,31 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-weekend-retry]')).not.toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.screenshot({ path: test.info().outputPath('weekend-polish.png'), fullPage: true });
+  });
+
+  test('weekend filter changes preserve a pending GPS lookup', async ({ page }) => {
+    await page.route('**/api/weekend/summary.json*', (route) => route.fulfill({ json: weekendFixture }));
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'geolocation', { configurable: true, value: {
+        getCurrentPosition(success: (position: unknown) => void) { (window as any).__weekendGps = success; },
+      } });
+    });
+    await page.route('https://geocoding-api.open-meteo.com/v1/reverse**', (route) => route.fulfill({ json: { results: [
+      { name: 'Milaca', admin1: 'Minnesota', country: 'United States' },
+    ] } }));
+    await page.goto('/weekend/');
+    const useLocation = page.locator('[data-weekend-location-use]');
+    await useLocation.click();
+    await page.locator('[data-weekend-filter="day-trips"]').click();
+    await expect(useLocation).toBeDisabled();
+    await expect(useLocation).toHaveText('Finding...');
+    await expect(page.locator('[data-weekend-location-hint]')).toHaveText('Finding your location...');
+    await page.evaluate(async () => { await (window as any).__weekendGps({ coords: { latitude: 45.75, longitude: -93.65 } }); });
+    await expect(page.locator('[data-weekend-location-label]')).toHaveText('Planning from Milaca, MN');
+    await expect(useLocation).toBeHidden();
+    await page.locator('[data-weekend-location-clear]').click();
+    await expect(useLocation).toBeEnabled();
+    await expect(useLocation).toHaveText('Use my location');
   });
 });
 

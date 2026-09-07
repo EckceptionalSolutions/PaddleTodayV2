@@ -83,15 +83,15 @@ export function buildRiverWeatherViewModel(
   }
 
   const state = weatherRiskState(weather);
-  const rainChancePercent = roundedFinite(weather.next12hPrecipProbabilityMax) ?? 0;
-  const windMph = roundedFinite(weather.next12hWindMphMax ?? weather.windMph) ?? 0;
+  const rainChancePercent = roundedFinite(weather.next12hPrecipProbabilityMax);
+  const windMph = roundedFinite(weather.next12hWindMphMax ?? weather.windMph);
   const temperatureF = roundedFinite(weather.temperatureF);
 
   return {
     state,
     label: weatherRiskLabel(state),
-    summaryValue: `${rainChancePercent}% rain • ${windMph} mph wind`,
-    compactValue: `${temperatureF === null ? '--' : `${temperatureF}°F`} / ${windMph} mph / ${rainChancePercent}%`,
+    summaryValue: `${rainChancePercent === null ? 'Rain chance unavailable' : `${rainChancePercent}% rain`} • ${windMph === null ? 'Wind unavailable' : `${windMph} mph wind`}`,
+    compactValue: `${temperatureF === null ? '--' : `${temperatureF}°F`} / ${windMph === null ? '--' : windMph} mph / ${rainChancePercent === null ? '--' : rainChancePercent}%`,
     conditionLabel: weather.conditionLabel?.trim() || weather.rainTimingLabel || 'Today',
     rainChancePercent,
     windMph,

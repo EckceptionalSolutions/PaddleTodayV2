@@ -34,6 +34,15 @@ export function createBoardLocationController({
   locationInput,
   logError = (error) => console.error('Manual location lookup failed.', error),
 }) {
+  let locationRequestId = 0;
+  let locationLookup = null;
+
+  function cancelLocationLookup() {
+    locationRequestId += 1;
+    locationLookup?.abort();
+    locationLookup = null;
+  }
+
   function distanceForResult(result) {
     const userLocation = getUserLocation();
     if (!userLocation) {
@@ -65,6 +74,7 @@ export function createBoardLocationController({
   }
 
   function setUserLocation(location) {
+    cancelLocationLookup();
     setLocationState(location, 'ready');
     saveLocation(location);
     if (getSortMode() === 'best-now') {
@@ -116,6 +126,7 @@ export function createBoardLocationController({
   }
 
   function clearUserLocation() {
+    cancelLocationLookup();
     setLocationState(null, 'idle');
     onLocationCleared();
     removeLocation();
@@ -142,6 +153,8 @@ export function createBoardLocationController({
     query,
     statusTarget = getDefaultStatusTarget(),
   ) {
+    cancelLocationLookup();
+    const requestId = locationRequestId;
     const trimmedQuery = typeof query === 'string' ? query.trim() : '';
     if (!trimmedQuery) {
       onEmptyQuery();
@@ -149,9 +162,11 @@ export function createBoardLocationController({
     }
 
     setStatusText(statusTarget, 'Looking up that location...');
+    locationLookup = new AbortController();
 
     try {
-      const match = await locationService.geocodeManualLocation(trimmedQuery);
+      const match = await locationService.geocodeManualLocation(trimmedQuery, { signal: locationLookup.signal });
+      if (requestId !== locationRequestId) return;
       if (!match) {
         setStatusText(statusTarget, 'That city or ZIP was not found.');
         return;
@@ -159,12 +174,16 @@ export function createBoardLocationController({
 
       (onLocationResolved ?? setUserLocation)(match);
     } catch (error) {
+      if (requestId !== locationRequestId) return;
       logError(error);
       setStatusText(statusTarget, 'That place could not be looked up right now.');
+    } finally {
+      if (requestId === locationRequestId) locationLookup = null;
     }
   }
 
   return {
+    cancelLocationLookup,
     distanceForResult,
     itemWithinSelectedRadius,
     resultWithinSelectedRadius,

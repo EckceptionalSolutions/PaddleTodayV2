@@ -795,7 +795,7 @@ function assessWeather(weather: WeatherSnapshot | null): {
       notes.push(`Air temperature is cold at ${Math.round(weather.temperatureF)}°F.`);
     } else if (weather.temperatureF < 50) {
       points -= 3;
-      impact = impact === 'negative' ? 'negative' : 'warning';
+      impact = 'warning';
       notes.push(`Air temperature is cool at ${Math.round(weather.temperatureF)}°F.`);
     } else if (weather.temperatureF <= 80) {
       points += 4;
@@ -805,7 +805,7 @@ function assessWeather(weather: WeatherSnapshot | null): {
       notes.push(`Air temperature is warm at ${Math.round(weather.temperatureF)}°F.`);
     } else {
       points -= 3;
-      impact = impact === 'negative' ? 'negative' : 'warning';
+      impact = 'warning';
       notes.push(`Air temperature is hot at ${Math.round(weather.temperatureF)}°F.`);
     }
   }
@@ -1680,7 +1680,7 @@ function buildOutlook(args: {
 }): RiverOutlook {
   const label = args.window?.label ?? (args.id === 'tomorrow' ? 'Tomorrow' : 'Weekend');
 
-  if (!args.window) {
+  if (!args.window?.startDate) {
     return {
       id: args.id,
       label,
@@ -1867,7 +1867,7 @@ function temperatureAdjustmentForWindow(window: ForecastWindow): number {
 }
 
 function routeAdjustmentForWindow(river: River, window: ForecastWindow): number {
-  const startMonth = Number(window.startDate.slice(5, 7));
+  const startMonth = Number(window.startDate?.slice(5, 7));
   const inSeason = Number.isInteger(startMonth) && river.profile.seasonMonths.includes(startMonth);
   let points = inSeason ? 0 : -4;
 

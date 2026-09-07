@@ -1,8 +1,8 @@
-import { createServer } from 'node:http';
+import { createServer, type IncomingMessage } from 'node:http';
 import { resolve } from 'node:path';
 import { sendEmpty, sendJson } from './http';
-import { createRequestId, readArgValue, shouldLogRequest } from './server-runtime';
-import { resolvePublicAssetFile, resolveStaticFile, sendStatic } from './static-route';
+import { createRequestId, parseRequestUrl, readArgValue, shouldLogRequest } from './server-runtime';
+import { resolvePublicAssetFile, resolveStaticFile, resolveNotFoundPage, sendStatic } from './static-route';
 import {
   handleHealth,
   handleReady,
@@ -59,12 +59,7 @@ const server = createServer(async (request, response) => {
   let requestUrl: URL;
 
   try {
-    if (request.headers.host && !isValidHostHeader(request.headers.host)) {
-      throw new Error('Invalid Host header.');
-    }
-    // Request routing only needs the path/query. Use a fixed base so a
-    // client-controlled Host header cannot influence URL interpretation.
-    requestUrl = new URL(request.url || '/', 'http://paddletoday.internal');
+    requestUrl = parseRequestUrl(request.url, request.headers.host);
   } catch (error) {
     console.warn('Rejected malformed request target.', {
       requestId,
@@ -73,7 +68,7 @@ const server = createServer(async (request, response) => {
       target: request.url ?? null,
       error: error instanceof Error ? error.message : String(error),
     });
-    return sendJson(response, 400, { requestId, error: 'invalid_request_target' }, includeBody);
+    return sendJson(response, 400, { requestId, error: 'invalid_request_target' }, includeBody, 'no-store');
   }
 
   response.on('finish', () => {
@@ -196,6 +191,8 @@ const server = createServer(async (request, response) => {
       if (staticFile) {
         return sendStatic(response, staticFile, includeBody);
       }
+      const notFoundPage = resolveNotFoundPage(requestUrl.pathname, request.headers.accept, staticDir);
+      if (notFoundPage) return sendStatic(response, notFoundPage, includeBody, 404);
     }
 
     return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
@@ -217,16 +214,6 @@ server.listen(port, host, () => {
     console.log(`canoe-adventures-v2 API listening on http://${host}:${port}`);
   }
 });
-
-function isValidHostHeader(value: string) {
-  if (!value || /[\s\/?#@]/.test(value)) return false;
-  try {
-    const parsed = new URL(`http://${value}`);
-    return parsed.hostname.length > 0 && parsed.pathname === '/';
-  } catch {
-    return false;
-  }
-}
 
 function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[0]) {
   if (pathname === '/api/river-request' || pathname === '/api/route-request') {
@@ -261,7 +248,7 @@ function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[
 }
 
 async function handleWriteRoutes(
-  request: Parameters<typeof createServer>[0],
+  request: IncomingMessage,
   response: Parameters<typeof sendEmpty>[0],
   requestUrl: URL,
   requestId: string,

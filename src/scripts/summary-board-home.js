@@ -397,6 +397,44 @@ let exploreLayoutKey = '';
   let initialized = false;
 let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
+let summaryMapResizeObserver = null;
+let summaryMapResizeFrame = 0;
+
+function scheduleSummaryMapResize() {
+  if (!mapRuntime || summaryMapResizeFrame) {
+    return;
+  }
+
+  const requestFrame = typeof window.requestAnimationFrame === 'function'
+    ? window.requestAnimationFrame.bind(window)
+    : (callback) => window.setTimeout(callback, 0);
+
+  summaryMapResizeFrame = requestFrame(() => {
+    summaryMapResizeFrame = 0;
+    mapRuntime?.resize();
+  });
+}
+
+function observeSummaryMapLayout() {
+  if (
+    summaryMapResizeObserver
+    || !(summaryMapShell instanceof HTMLElement)
+    || typeof ResizeObserver !== 'function'
+  ) {
+    return;
+  }
+
+  const frame = summaryMapShell.querySelector('.summary-map-frame');
+  if (!(frame instanceof HTMLElement)) {
+    return;
+  }
+
+  summaryMapResizeObserver = new ResizeObserver(() => {
+    scheduleSummaryMapResize();
+  });
+  summaryMapResizeObserver.observe(frame);
+}
+
 const { renderFeaturedMap } = createBoardFeaturedMapController({
   elements: {
     shell: featuredMapShell,
@@ -551,6 +589,7 @@ const {
 });
 const {
   distanceForResult,
+  cancelLocationLookup,
   itemWithinSelectedRadius,
   resultWithinSelectedRadius,
   clearUserLocation,
@@ -591,6 +630,7 @@ const {
 const {
   maybeUseGrantedLocation,
   requestUserLocation,
+  cancelUserLocationRequest,
 } = createBoardGeolocationController({
   navigatorObject: navigator,
   reverseGeocodeLocation: (latitude, longitude) =>
@@ -604,6 +644,7 @@ const {
     renderHomepage(latestResults);
   },
   onPending: () => {
+    cancelLocationLookup();
     locationEditing = false;
     userLocationState = 'pending';
     updateLocationStatus();
@@ -2520,6 +2561,7 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
         minZoom: 3.4,
         maxZoom: 12,
       });
+      observeSummaryMapLayout();
     }
 
     await waitForMapReady(mapRuntime);
@@ -2569,6 +2611,7 @@ async function renderRequestedSummaryMap(items, { preserveViewport = false } = {
 
     // Fit before loading route geometry so a slow request cannot strand the
     // camera at its initial position. Even a cached refresh must fit once.
+    scheduleSummaryMapResize();
     mapRuntime.resize();
     if (hasBounds) {
       const fitted = fitMapBounds(mapRuntime, bounds, {
@@ -2947,6 +2990,7 @@ function setupLocationControls() {
 
   if (locationClearButton instanceof HTMLButtonElement) {
     locationClearButton.addEventListener('click', () => {
+      cancelUserLocationRequest();
       clearUserLocation();
     });
   }
@@ -2977,6 +3021,7 @@ function setupLocationControls() {
     locationForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const query = locationInput instanceof HTMLInputElement ? locationInput.value.trim() : '';
+      cancelUserLocationRequest();
       await submitManualLocation(query);
     });
   }

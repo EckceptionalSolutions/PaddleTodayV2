@@ -139,6 +139,12 @@ describe('board display item domain', () => {
 });
 
 describe('board filter domain', () => {
+  it('matches accent, apostrophe, and spacing differences in route search', () => {
+    const result = { river: { name: 'Cañon Creek', aliases: ["Coeur d'Alene"] } };
+    expect(matchesBoardRouteFilters(result, { search: '  canon   creek ' }, {})).toBe(true);
+    expect(matchesBoardRouteFilters(result, { search: 'Coeur d’Alene' }, {})).toBe(true);
+    expect(matchesBoardRouteFilters(result, { search: 'Different river' }, {})).toBe(false);
+  });
   const allowed = ['any', 'easy', 'moderate', 'hard'];
 
   it('normalizes stored choice sets and falls back to any', () => {
@@ -250,6 +256,22 @@ describe('board filter domain', () => {
     expect(paddleTimeBucketForLabel('About 4 hr')).toBe('3-to-5');
     expect(paddleTimeBucketForLabel('About 6 hr')).toBe('5-to-7');
     expect(paddleTimeBucketForLabel('About 8 hr')).toBe('7-plus');
+  });
+
+  it.each([
+    ['30 to 90 minutes', 30, 90, 'up-to-3'],
+    ['About 1.5 hr to 2.5 hr', 90, 150, 'up-to-3'],
+    ['3 to 5 hours', 180, 300, '3-to-5'],
+  ])('sorts and buckets %s using its actual duration', (label, minMinutes, maxMinutes, bucket) => {
+    expect(parseEstimatedPaddleTimeRange(label)).toEqual({ minMinutes, maxMinutes });
+    expect(paddleTimeBucketForLabel(label)).toBe(bucket);
+    expect(estimatedPaddleMinutesForItem({ cardRoute: { river: { estimatedPaddleTime: label } } }))
+      .toBe((Number(minMinutes) + Number(maxMinutes)) / 2);
+  });
+
+  it('leaves unbounded duration outside finite time buckets', () => {
+    expect(parseEstimatedPaddleTimeRange('About 8 hr to 10+ hr')).toBeNull();
+    expect(paddleTimeBucketForLabel('About 8 hr to 10+ hr')).toBe('unknown');
   });
 
   it('derives paddle duration and difficulty from board items', () => {

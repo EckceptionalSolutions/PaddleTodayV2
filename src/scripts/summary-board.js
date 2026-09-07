@@ -752,6 +752,7 @@ const {
 });
 const {
   distanceForResult: getDistanceForResult,
+  cancelLocationLookup,
   itemWithinSelectedRadius,
   resultWithinSelectedRadius,
   clearUserLocation,
@@ -796,6 +797,7 @@ const {
 const {
   maybeUseGrantedLocation,
   requestUserLocation,
+  cancelUserLocationRequest,
 } = createBoardGeolocationController({
   navigatorObject: navigator,
   reverseGeocodeLocation: (latitude, longitude) =>
@@ -809,6 +811,7 @@ const {
     renderHomepage(latestResults);
   },
   onPending: () => {
+    cancelLocationLookup();
     locationEditing = false;
     userLocationState = 'pending';
     updateLocationStatus();
@@ -4303,6 +4306,7 @@ function setupLocationControls() {
 
   if (locationClearButton instanceof HTMLButtonElement) {
     locationClearButton.addEventListener('click', () => {
+      cancelUserLocationRequest();
       clearUserLocation();
     });
   }
@@ -4333,6 +4337,7 @@ function setupLocationControls() {
     locationForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const query = locationInput instanceof HTMLInputElement ? locationInput.value.trim() : '';
+      cancelUserLocationRequest();
       await submitManualLocation(query);
     });
   }

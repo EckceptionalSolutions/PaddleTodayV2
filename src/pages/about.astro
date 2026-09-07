@@ -62,11 +62,12 @@ const aboutStructuredData = {
   >
     <article class="info-card">
       <p class="eyebrow">Scores</p>
-      <h2>How Scoring Works</h2>
+      <h2 id="how-scoring-works">How Scoring Works</h2>
       <p class="muted about-score-card__intro">
         <strong>Bottom line:</strong> Water level/flow decides if a river is paddleable.
         Weather and other factors increase or decrease the score from there.
       </p>
+      <div class="about-score-table-scroll" role="region" aria-labelledby="how-scoring-works" tabindex="0">
       <table class="about-score-table">
         <thead>
           <tr>
@@ -107,6 +108,7 @@ const aboutStructuredData = {
           </tr>
         </tbody>
       </table>
+      </div>
       <p class="muted">
         Everything starts with enough water to paddle. From there, the score
         drops for storms, wind, cold air or water, incoming rain, or weak

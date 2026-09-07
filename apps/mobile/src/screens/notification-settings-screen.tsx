@@ -1,9 +1,10 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AreaNotificationCard } from '../components/area-notification-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { androidBottomInset } from '../lib/safe-area';
+import { openDeviceSettings } from '../lib/external-links';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function NotificationSettingsScreen() {
@@ -26,7 +27,7 @@ export default function NotificationSettingsScreen() {
         </View>
         <View style={styles.heroCopy}>
           <Text style={styles.kicker}>Settings</Text>
-          <Text style={styles.title}>Paddle alerts, your way</Text>
+          <Text accessibilityRole="header" style={styles.title}>Paddle alerts, your way</Text>
           <Text style={styles.subtitle}>
             Nearby alerts start with both Today and Weekend updates. Change either one here whenever you like.
           </Text>
@@ -46,10 +47,20 @@ export default function NotificationSettingsScreen() {
               disabled={requestingLocation}
               onPress={() => void requestLocation()}
               accessibilityRole="button"
+              accessibilityLabel={requestingLocation ? 'Finding your location' : 'Use my location'}
+              accessibilityState={{ disabled: requestingLocation, busy: requestingLocation }}
+              aria-busy={requestingLocation}
             >
               <MaterialCommunityIcons name="crosshairs-gps" color={colors.surfaceStrong} size={18} />
               <Text style={styles.primaryButtonText}>{requestingLocation ? 'Finding you…' : 'Use my location'}</Text>
             </Pressable>
+            {status === 'denied' || status === 'error' ? (
+              <Text accessibilityLiveRegion="polite" style={styles.locationBody}>
+                {status === 'denied'
+                  ? 'Location access is off. Enable it in device settings, or set a city or ZIP from Today.'
+                  : 'Your location could not be found. Try again, or set a city or ZIP from Today.'}
+              </Text>
+            ) : null}
           </View>
         </View>
       ) : null}
@@ -58,7 +69,7 @@ export default function NotificationSettingsScreen() {
 
       <Pressable
         style={styles.systemSettingsRow}
-        onPress={() => void Linking.openSettings()}
+        onPress={() => void openDeviceSettings()}
         accessibilityRole="button"
         accessibilityLabel="Open device notification settings"
       >

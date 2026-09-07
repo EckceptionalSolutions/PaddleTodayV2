@@ -183,6 +183,10 @@ export interface River {
   takeOut?: RiverAccessPoint;
   logistics?: RiverTripLogistics;
   accessPoints?: RiverRouteAccessPoint[];
+  segmentEdges?: RiverTripDetails['segmentEdges'];
+  corridorId?: RiverTripDetails['corridorId'];
+  corridorLabel?: RiverTripDetails['corridorLabel'];
+  continuityStatus?: RiverTripDetails['continuityStatus'];
   evidenceNotes: RiverEvidenceNote[];
   sourceLinks: SourceLink[];
   consolidation?: RiverConsolidation;

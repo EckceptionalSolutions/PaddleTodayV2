@@ -1,5 +1,6 @@
 import {
   buildRoutePlannerParams,
+  normalizeSearchText,
   callStateForDecision,
   formatRouteSegmentLabel,
   routeMatchesPaddleFilters,
@@ -39,7 +40,8 @@ import {
 import { RoutePlotMap, type RoutePlotMapHandle } from '../components/route-plot-map';
 import { RiverCard } from '../components/river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
-import { resolveApiBaseUrl } from '../lib/api-base-url';
+import { requestFailureMessage } from '../lib/request-failure';
+import { tabKeyboardProps } from '../lib/selection-keyboard';
 import { androidBottomInset } from '../lib/safe-area';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import {
@@ -230,7 +232,7 @@ export default function ExploreScreen() {
     void AsyncStorage.setItem(
       EXPLORE_PREFERENCES_STORAGE_KEY,
       JSON.stringify({ filters, viewMode })
-    );
+    ).catch(() => {});
   }, [filters, preferencesHydrated, viewMode]);
 
   useEffect(() => {
@@ -244,18 +246,18 @@ export default function ExploreScreen() {
     }
   }, [results, selectedSlug]);
 
-  if (summaryQuery.isLoading && rivers.length === 0) {
+  if (summaryQuery.isLoading && !summaryQuery.data) {
     return (
       <AppLoadingState title="Loading explore map" body="Loading routes and filters." />
     );
   }
 
-  if (summaryQuery.isError && rivers.length === 0) {
+  if (summaryQuery.isError && !summaryQuery.data) {
     return (
       <AppErrorState
         title="Explore did not load"
-        body="The map needs the latest route updates."
-        detail={errorDetailForExploreQuery(summaryQuery.error)}
+        body={requestFailureMessage(summaryQuery.error)}
+        retrying={summaryQuery.isFetching}
         onRetry={() => summaryQuery.refetch()}
       />
     );
@@ -301,6 +303,7 @@ export default function ExploreScreen() {
         userLocation={location}
         routeCounts={routeCounts}
         isRefetchError={summaryQuery.isRefetchError}
+        retrying={summaryQuery.isFetching}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
         onFilterPress={() => setFiltersOpen(true)}
@@ -317,7 +320,7 @@ export default function ExploreScreen() {
         isSaved={isSaved}
         onFocusNearest={() => {
           setFilters((current) => ({ ...current, sort: 'nearest' }));
-          void requestLocation();
+          if (!location && status !== 'requesting') void requestLocation();
         }}
         onToggleSaved={(river) =>
           void toggleSavedRiver({
@@ -409,6 +412,7 @@ function FullScreenExploreMap({
   userLocation,
   routeCounts,
   isRefetchError,
+  retrying,
   dataUpdatedAt,
   onRetry,
   onFilterPress,
@@ -437,6 +441,7 @@ function FullScreenExploreMap({
   userLocation: { latitude: number; longitude: number; label: string } | null;
   routeCounts: ReadonlyMap<string, number>;
   isRefetchError: boolean;
+  retrying: boolean;
   dataUpdatedAt?: number;
   onRetry: () => void;
   onFilterPress: () => void;
@@ -533,6 +538,7 @@ function FullScreenExploreMap({
         dataUpdatedAt={dataUpdatedAt}
         filters={filters}
         isRefetchError={isRefetchError}
+        retrying={retrying}
         results={results}
         routeCounts={routeCounts}
         topInset={topInset}
@@ -582,6 +588,7 @@ function FullScreenExploreMap({
       <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
         <AppRefreshNotice
           isError={isRefetchError}
+          retrying={retrying}
           dataUpdatedAt={dataUpdatedAt}
           onRetry={onRetry}
         />
@@ -649,8 +656,11 @@ function FullScreenExploreMap({
         <Pressable
           style={styles.mapFab}
           onPress={handleGpsFocus}
+          disabled={requesting}
           accessibilityRole="button"
           accessibilityLabel="Focus nearest rivers"
+          accessibilityState={{ disabled: requesting, busy: requesting }}
+          aria-busy={requesting}
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
         </Pressable>
@@ -663,18 +673,23 @@ function FullScreenExploreMap({
           onPress={onUseLocation}
           accessibilityRole="button"
           accessibilityLabel={requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
+          accessibilityState={{ disabled: requesting, busy: requesting }}
+          aria-busy={requesting}
         >
           <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>
-            {requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
+            {requesting ? 'Finding location' : status === 'denied' ? 'Location off · Retry' : status === 'error' ? 'Location unavailable · Retry' : 'Use location'}
           </Text>
         </Pressable>
       ) : (
         <Pressable
           style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
           onPress={handleGpsFocus}
+          disabled={requesting}
           accessibilityRole="button"
           accessibilityLabel="Focus nearest rivers"
+          accessibilityState={{ disabled: requesting, busy: requesting }}
+          aria-busy={requesting}
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>Near you</Text>
@@ -717,6 +732,7 @@ function ExploreListView({
   dataUpdatedAt,
   filters,
   isRefetchError,
+  retrying,
   results,
   routeCounts,
   topInset,
@@ -735,6 +751,7 @@ function ExploreListView({
   dataUpdatedAt?: number;
   filters: ExploreFilters;
   isRefetchError: boolean;
+  retrying: boolean;
   results: ExploreRiver[];
   routeCounts: ReadonlyMap<string, number>;
   topInset: number;
@@ -777,12 +794,13 @@ function ExploreListView({
           <View style={styles.exploreListHeader}>
             <AppRefreshNotice
               isError={isRefetchError}
+              retrying={retrying}
               dataUpdatedAt={dataUpdatedAt}
               onRetry={onRetry}
             />
             <View style={styles.exploreListTitleRow}>
               <View style={styles.exploreListTitleCopy}>
-                <Text style={styles.exploreListTitle}>Explore routes</Text>
+                <Text accessibilityRole="header" style={styles.exploreListTitle}>Explore routes</Text>
                 <Text style={styles.exploreListSubtitle}>
                   {groupedResults.length} matching {groupedResults.length === 1 ? 'river' : 'rivers'}
                 </Text>
@@ -838,8 +856,8 @@ function ExploreViewToggle({
   onChange: (mode: 'map' | 'list') => void;
 }) {
   return (
-    <View style={styles.viewModeToggle} accessibilityRole="tablist">
-      {(['map', 'list'] as const).map((option) => {
+    <View style={styles.viewModeToggle} accessibilityRole="tablist" accessibilityLabel="Explore view">
+      {(['map', 'list'] as const).map((option, index) => {
         const selected = mode === option;
         return (
           <Pressable
@@ -849,6 +867,8 @@ function ExploreViewToggle({
             accessibilityRole="tab"
             accessibilityLabel={`${option} view`}
             accessibilityState={{ selected }}
+            aria-selected={selected}
+            {...tabKeyboardProps(index, selected, 2, (next) => onChange(next === 0 ? 'map' : 'list'))}
           >
             <MaterialCommunityIcons
               name={option === 'map' ? 'map-outline' : 'format-list-bulleted'}
@@ -870,7 +890,7 @@ function applyExploreFilters(
   filters: ExploreFilters,
   location: { latitude: number; longitude: number } | null
 ): ExploreRiver[] {
-  const query = filters.query.trim().toLowerCase();
+  const query = normalizeSearchText(filters.query);
   const distanceLimit = filters.distance === 'any' ? null : Number(filters.distance);
   const segmentFilters = {
     paddleLength: filters.paddleLength === 'any' ? '' : filters.paddleLength,
@@ -981,7 +1001,7 @@ function recommendationRank(river: ExploreRiver) {
 }
 
 function searchBlob(river: RiverSummaryApiItem) {
-  return [
+  return normalizeSearchText([
     river.river.name,
     river.river.reach,
     river.river.state,
@@ -991,8 +1011,7 @@ function searchBlob(river: RiverSummaryApiItem) {
     river.summary.primaryFactor,
     river.summary.secondaryFactor,
   ]
-    .join(' ')
-    .toLowerCase();
+    .join(' '));
 }
 
 function estimateDriveMinutes(miles: number) {
@@ -1003,10 +1022,6 @@ function nullableNumber(value: number | null) {
   return typeof value === 'number' && Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
 }
 
-function errorDetailForExploreQuery(error: unknown) {
-  const message = error instanceof Error ? error.message : 'Unknown request error';
-  return `${resolveApiBaseUrl()} - ${message}`;
-}
 
 function normalizeExploreFilters(filters: ExploreFilters): ExploreFilters {
   return {
@@ -1219,7 +1234,7 @@ const styles = StyleSheet.create({
   fullMapLocationPrompt: {
     position: 'absolute',
     right: spacing.md,
-    minHeight: 40,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: 'rgba(255, 255, 255, 0.96)',
     borderWidth: 1,

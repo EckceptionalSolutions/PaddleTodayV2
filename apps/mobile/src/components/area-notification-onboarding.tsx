@@ -19,7 +19,7 @@ const DEFAULT_TRAVEL_MINUTES = 120;
 
 export function AreaNotificationOnboarding({ active }: { active: boolean }) {
   const { location } = useStoredLocation();
-  const { preferences, isHydrated, savePreferences } = useAreaNotificationPreferences();
+  const { preferences, isHydrated, loadError, savePreferences } = useAreaNotificationPreferences();
   const createMutation = useCreateAreaNotificationSubscriptionMutation();
   const updateMutation = useUpdateAreaNotificationSubscriptionMutation();
   const permissionAttemptStarted = useRef(false);
@@ -28,7 +28,7 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
   const [autoEnablePending, setAutoEnablePending] = useState(false);
 
   useEffect(() => {
-    if (!active || Platform.OS === 'web' || permissionAttemptStarted.current) return;
+    if (!active || !isHydrated || loadError || Platform.OS === 'web' || permissionAttemptStarted.current) return;
     permissionAttemptStarted.current = true;
     let cancelled = false;
 
@@ -62,14 +62,16 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
     return () => {
       cancelled = true;
     };
-  }, [active]);
+  }, [active, isHydrated, loadError]);
 
   useEffect(() => {
-    if (!active || !autoEnablePending || !isHydrated || !location || createMutation.isPending) return;
+    if (!active || !autoEnablePending || !isHydrated || loadError || !location || createMutation.isPending) return;
 
     if (preferences) {
       setAutoEnablePending(false);
-      void AsyncStorage.removeItem(AUTO_ENABLE_PENDING_STORAGE_KEY);
+      void AsyncStorage.removeItem(AUTO_ENABLE_PENDING_STORAGE_KEY).catch((error) => {
+        captureAppException(error, { name: 'area_notification_pending_cleanup_failed' });
+      });
       return;
     }
     if (subscriptionAttemptStarted.current) return;
@@ -100,12 +102,13 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
     }).catch((error) => {
       captureAppException(error, { name: 'area_notification_auto_enable_failed' });
     });
-  }, [active, autoEnablePending, createMutation, isHydrated, location, preferences, savePreferences]);
+  }, [active, autoEnablePending, createMutation, isHydrated, loadError, location, preferences, savePreferences]);
 
   useEffect(() => {
     if (
       !active ||
       !isHydrated ||
+      loadError ||
       !location ||
       !preferences?.isActive ||
       preferences.locationLabel === location.label ||
@@ -128,7 +131,7 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
     }).catch((error) => {
       captureAppException(error, { name: 'area_notification_location_update_failed' });
     });
-  }, [active, isHydrated, location, preferences, savePreferences, updateMutation]);
+  }, [active, isHydrated, loadError, location, preferences, savePreferences, updateMutation]);
 
   return null;
 }

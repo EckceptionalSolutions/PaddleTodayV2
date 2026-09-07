@@ -83,7 +83,7 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
       }
     }),
   );
-  return items.filter((item): item is RouteRequestRecord => item !== null).sort(sortNewestFirst);
+  return items.filter((item) => item !== null).sort(sortNewestFirst);
 }
 
 export async function getRouteRequestByStorageKey(storageKey: string): Promise<RouteRequestRecord | null> {

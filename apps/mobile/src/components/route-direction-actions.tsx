@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
 import { openExternalUrl } from '../lib/external-links';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -15,6 +16,33 @@ export function RouteDirectionActions({
   putIn?: RouteDirectionPoint;
   takeOut?: RouteDirectionPoint;
 }) {
+  const [status, setStatus] = useState('');
+  const [pending, setPending] = useState<string | null>(null);
+  const request = useRef<object | null>(null);
+  useEffect(() => {
+    request.current = null;
+    setStatus('');
+    setPending(null);
+    return () => { request.current = null; };
+  }, [putIn?.latitude, putIn?.longitude, takeOut?.latitude, takeOut?.longitude]);
+
+  async function openDirections(url: string, app: string) {
+    if (request.current) return;
+    const current = {};
+    request.current = current;
+    setStatus('');
+    setPending(app);
+    try {
+      const opened = await openExternalUrl(url, app);
+      if (request.current === current && !opened) setStatus(`${app} could not be opened. Try again or choose the other map app.`);
+    } finally {
+      if (request.current === current) {
+        request.current = null;
+        setPending(null);
+      }
+    }
+  }
+
   if (!hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
     return null;
   }
@@ -33,7 +61,10 @@ export function RouteDirectionActions({
       <View style={styles.directionsActions}>
         <Pressable
           style={styles.directionButton}
-          onPress={() => void openExternalUrl(appleUrl, 'Apple Maps')}
+          onPress={() => void openDirections(appleUrl, 'Apple Maps')}
+          disabled={Boolean(pending)}
+          aria-busy={pending === 'Apple Maps'}
+          accessibilityState={{ disabled: Boolean(pending), busy: pending === 'Apple Maps' }}
           accessibilityRole="button"
           accessibilityLabel="Open shuttle directions in Apple Maps"
         >
@@ -41,13 +72,17 @@ export function RouteDirectionActions({
         </Pressable>
         <Pressable
           style={styles.directionButton}
-          onPress={() => void openExternalUrl(googleUrl, 'Google Maps')}
+          onPress={() => void openDirections(googleUrl, 'Google Maps')}
+          disabled={Boolean(pending)}
+          aria-busy={pending === 'Google Maps'}
+          accessibilityState={{ disabled: Boolean(pending), busy: pending === 'Google Maps' }}
           accessibilityRole="button"
           accessibilityLabel="Open shuttle directions in Google Maps"
         >
           <Text style={styles.directionButtonText}>Google</Text>
         </Pressable>
       </View>
+      {status ? <Text accessibilityLiveRegion="polite" style={styles.directionsText}>{status}</Text> : null}
     </View>
   );
 }
@@ -74,7 +109,7 @@ const styles = StyleSheet.create({
   directionsText: { color: colors.textMuted, fontSize: 12, lineHeight: 17 },
   directionsActions: { flexDirection: 'row', gap: spacing.sm },
   directionButton: {
-    minHeight: 38,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     paddingHorizontal: 14,

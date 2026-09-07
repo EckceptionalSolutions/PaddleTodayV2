@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { type SavedRiverRecord, useSavedRivers } from '../providers/saved-rivers-provider';
@@ -17,18 +17,27 @@ export function SavedRouteNotesEditor({ river, onClose }: { river: SavedRiverRec
   const { updateSavedRiverNotes } = useSavedRivers();
   const [draft, setDraft] = useState(river.notes || '');
   const [saving, setSaving] = useState(false);
+  const savingInFlight = useRef(false);
   const [error, setError] = useState('');
   const insets = useSafeAreaInsets();
   async function save() {
-    if (saving) return;
+    if (savingInFlight.current) return;
+    savingInFlight.current = true;
     setSaving(true);
-    const saved = await updateSavedRiverNotes(river.slug, draft);
-    setSaving(false);
-    if (saved) onClose();
-    else setError('Could not save your note. Your draft is still here. Please try again.');
+    setError('');
+    try {
+      const saved = await updateSavedRiverNotes(river.slug, draft);
+      if (saved) onClose();
+      else setError('Could not save your note. Your draft is still here. Please try again.');
+    } catch {
+      setError('Could not save your note. Your draft is still here. Please try again.');
+    } finally {
+      savingInFlight.current = false;
+      setSaving(false);
+    }
   }
   return (
-      <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={() => { if (!saving) onClose(); }}>
+      <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={() => { if (!savingInFlight.current) onClose(); }}>
         <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
           <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={[styles.editor, { paddingTop: Math.max(24, insets.top), paddingBottom: Math.max(24, insets.bottom) }]}>
             <Text accessibilityRole="header" style={styles.title}>Notes for {river.name}</Text>
@@ -38,8 +47,8 @@ export function SavedRouteNotesEditor({ river, onClose }: { river: SavedRiverRec
             <Text style={styles.help}>{draft.length}/2,000 characters. Clear the note and save to remove it.</Text>
             {error ? <Text accessibilityLiveRegion="polite" style={styles.error}>{error}</Text> : null}
             <View style={styles.actions}>
-              <Pressable accessibilityRole="button" disabled={saving} style={styles.button} onPress={() => onClose()}><Text style={styles.buttonText}>Cancel</Text></Pressable>
-              <Pressable accessibilityRole="button" disabled={saving} accessibilityState={{ busy: saving, disabled: saving }} style={styles.button} onPress={() => void save()}><Text style={styles.buttonText}>{saving ? 'Saving…' : 'Save note'}</Text></Pressable>
+              <Pressable accessibilityRole="button" disabled={saving} accessibilityState={{ disabled: saving }} style={styles.button} onPress={() => { if (!savingInFlight.current) onClose(); }}><Text style={styles.buttonText}>Cancel</Text></Pressable>
+              <Pressable accessibilityRole="button" disabled={saving} aria-busy={saving} accessibilityState={{ busy: saving, disabled: saving }} style={styles.button} onPress={() => void save()}><Text style={styles.buttonText}>{saving ? 'Saving…' : 'Save note'}</Text></Pressable>
             </View>
           </ScrollView>
         </KeyboardAvoidingView>

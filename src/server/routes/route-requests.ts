@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
 import { parseContainerSas, putJsonBlob } from '../../lib/blob-storage';
 import type { ApiRequest } from '../http';
-import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
+import { clean, readJsonBody, sendRequestBodyErrorResponse, sendJson } from '../http';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 
 export async function handleRiverRequest(
@@ -124,8 +124,8 @@ export async function handleRiverRequest(
       'no-store'
     );
   } catch (error) {
-    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
-    if (bodyLimitResponse) return bodyLimitResponse;
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
 
     console.error('[river-request] request failed', { requestId, error });
     return sendJson(

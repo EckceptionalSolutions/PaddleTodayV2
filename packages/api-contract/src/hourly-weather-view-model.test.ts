@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { HourlyWeatherPoint, WeatherSnapshot } from './index';
+import { buildRiverWeatherViewModel } from './river-detail-readiness-view-model';
 import {
   buildHourlyWeatherTimingViewModel,
   classifyHourlyWeatherRisk,
@@ -56,6 +57,27 @@ function weather(
 }
 
 describe('hourly weather view models', () => {
+  it('keeps broader and code-only storm signals visible', () => {
+    expect(buildHourlyWeatherTimingViewModel(weather([point()], { next12hStormRisk: true }))).toMatchObject({
+      title: 'Storm timing needs a check', tone: 'watch', badgeLabel: 'Storm watch', badgeKind: 'storm',
+    });
+    expect(classifyHourlyWeatherRisk(point({ conditionLabel: null, weatherCode: 95 }))).toEqual({ level: 'skip', kind: 'storm' });
+  });
+  it('withholds an open window when hourly readings are incomplete', () => {
+    const missing = point({ precipProbability: null, windMph: null });
+    expect(classifyHourlyWeatherRisk(missing)).toEqual({ level: 'watch', kind: 'unknown' });
+    expect(buildHourlyWeatherTimingViewModel(weather([missing]))).toMatchObject({ title: 'Hourly forecast incomplete', tone: 'watch', badgeLabel: 'Check forecast' });
+    expect(buildHourlyWeatherTimingViewModel(weather([missing, point({ conditionLabel: 'Thunderstorms' })]))).toMatchObject({ title: 'Weather needs attention', tone: 'skip', badgeKind: 'storm' });
+  });
+
+  it('preserves missing summary measurements while retaining genuine zeros', () => {
+    expect(buildRiverWeatherViewModel(weather([], { next12hPrecipProbabilityMax: null, next12hWindMphMax: null, windMph: null }))).toMatchObject({
+      rainChancePercent: null, windMph: null, summaryValue: 'Rain chance unavailable • Wind unavailable',
+    });
+    expect(buildRiverWeatherViewModel(weather([], { next12hPrecipProbabilityMax: 0, next12hWindMphMax: 0 }))).toMatchObject({
+      rainChancePercent: 0, windMph: 0, summaryValue: '0% rain • 0 mph wind',
+    });
+  });
   it('classifies condition codes and mobile weather-risk thresholds', () => {
     expect(hourlyWeatherConditionKind(95)).toBe('storm');
     expect(hourlyWeatherConditionKind('Snow flurries')).toBe('cold');

@@ -61,12 +61,16 @@ if (!(submitButton instanceof HTMLButtonElement) || !alertId || !token) {
 } else {
   setStatus('Ready to turn this alert off.');
   submitButton.addEventListener('click', async () => {
+    if (submitButton.disabled) return;
     submitButton.disabled = true;
+    submitButton.setAttribute('aria-busy', 'true');
+    submitButton.textContent = 'Unsubscribing…';
     setStatus('Turning off this alert...');
 
     try {
       const response = await fetch('/api/alerts/unsubscribe', {
         method: 'POST',
+        signal: AbortSignal.timeout(15_000),
         headers: {
           accept: 'application/json',
           'content-type': 'application/json',
@@ -78,7 +82,7 @@ if (!(submitButton instanceof HTMLButtonElement) || !alertId || !token) {
       });
 
       const payload = await response.json().catch(() => ({}));
-      if (!response.ok) {
+      if (!response.ok || payload?.ok !== true) {
         throw new Error(payload?.message || 'Could not turn off this alert.');
       }
 
@@ -95,10 +99,16 @@ if (!(submitButton instanceof HTMLButtonElement) || !alertId || !token) {
           ? 'No action was needed.'
           : 'You can always create a new alert again from the river page.'
       );
+      cancelLink?.focus();
     } catch (error) {
       console.error('Failed to unsubscribe river alert.', error);
       submitButton.disabled = false;
-      setStatus(error instanceof Error ? error.message : 'Could not turn off this alert right now.', 'error');
+      setStatus(error instanceof Error && error.name === 'TimeoutError'
+        ? 'The request took too long. Try again to confirm this alert is off.'
+        : error instanceof Error ? error.message : 'Could not turn off this alert right now.', 'error');
+    } finally {
+      submitButton.removeAttribute('aria-busy');
+      submitButton.textContent = 'Unsubscribe';
     }
   });
 }

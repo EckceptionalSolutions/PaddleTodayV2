@@ -1,6 +1,6 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack } from 'expo-router';
-import { useState } from 'react';
+import { useRef, useState, type Ref } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
@@ -13,6 +13,10 @@ export default function RequestRouteScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const createRequestMutation = useCreateRiverRequestMutation();
+  const submitting = useRef(false);
+  const riverInput = useRef<TextInput>(null);
+  const areaInput = useRef<TextInput>(null);
+  const emailInput = useRef<TextInput>(null);
   const [riverName, setRiverName] = useState('');
   const [area, setArea] = useState('');
   const [accessPoints, setAccessPoints] = useState('');
@@ -21,24 +25,34 @@ export default function RequestRouteScreen() {
   const [status, setStatus] = useState('City, state, access points, and gauge links help most.');
 
   async function submitRequest() {
+    if (submitting.current) return;
     const cleanRiverName = riverName.trim();
     const cleanArea = area.trim();
     const cleanAccessPoints = accessPoints.trim();
     const cleanNotes = notes.trim();
 
-    if (cleanRiverName.length < 3 || cleanArea.length < 3) {
-      setStatus('Add a river name and city/state or general area.');
+    if (cleanRiverName.length < 3) {
+      setStatus('Add a river or route name with at least three characters.');
+      riverInput.current?.focus();
+      return;
+    }
+    if (!cleanArea) {
+      setStatus('Add a state, city, or general area. A state abbreviation is enough.');
+      areaInput.current?.focus();
       return;
     }
 
     const cleanReplyEmail = replyEmail.trim().toLowerCase();
     if (cleanReplyEmail && !isValidEmailAddress(cleanReplyEmail)) {
       setStatus('Enter a valid email address or leave the email field blank.');
+      emailInput.current?.focus();
       return;
     }
 
+    submitting.current = true;
+    setStatus('Sending your request…');
     try {
-      const response = await createRequestMutation.mutateAsync({
+      await createRequestMutation.mutateAsync({
         routeName: cleanRiverName,
         state: cleanArea,
         putIn: cleanAccessPoints,
@@ -48,11 +62,7 @@ export default function RequestRouteScreen() {
         replyEmail: cleanReplyEmail,
       });
 
-      if (!response.stored) {
-        setStatus('Request received.');
-      } else {
-        setStatus('Request received. Thanks for the lead.');
-      }
+      setStatus('Request received. Thanks for the lead.');
 
       setRiverName('');
       setArea('');
@@ -63,8 +73,10 @@ export default function RequestRouteScreen() {
       setStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
-          : 'Could not send this request.'
+          : 'Could not send this request. Your entries are still here; please try again.'
       );
+    } finally {
+      submitting.current = false;
     }
   }
 
@@ -85,7 +97,7 @@ export default function RequestRouteScreen() {
         >
         <View style={styles.hero}>
           <Text style={styles.kicker}>Route request</Text>
-          <Text style={styles.title}>Request a route</Text>
+          <Text accessibilityRole="header" style={styles.title}>Request a route</Text>
           <Text style={styles.subtitle}>
             Clear access points and source notes make review faster.
           </Text>
@@ -93,15 +105,18 @@ export default function RequestRouteScreen() {
 
         <SectionCard title="Route basics" subtitle="Required fields are marked.">
           <View style={styles.form}>
-            <Field label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" />
+            <Field label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" inputRef={riverInput} editable={!createRequestMutation.isPending} />
             <Field
               label="City, state, or general area *"
+              inputRef={areaInput}
+              editable={!createRequestMutation.isPending}
               value={area}
               onChangeText={setArea}
               placeholder="Taylors Falls, MN / Osceola, WI"
             />
             <Field
               label="Access points"
+              editable={!createRequestMutation.isPending}
               value={accessPoints}
               onChangeText={setAccessPoints}
               placeholder="Put-ins, take-outs, launches, parks, or bridges"
@@ -109,6 +124,7 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Notes"
+              editable={!createRequestMutation.isPending}
               value={notes}
               onChangeText={setNotes}
               placeholder="Optional: distance, hazards, shuttle notes, gauge links, or local demand."
@@ -116,6 +132,8 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Your email"
+              inputRef={emailInput}
+              editable={!createRequestMutation.isPending}
               value={replyEmail}
               onChangeText={setReplyEmail}
               placeholder="you@example.com"
@@ -126,11 +144,13 @@ export default function RequestRouteScreen() {
             <Pressable
               style={[styles.submitButton, createRequestMutation.isPending ? styles.submitButtonDisabled : null]}
               disabled={createRequestMutation.isPending}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: createRequestMutation.isPending, busy: createRequestMutation.isPending }}
               onPress={() => void submitRequest()}
             >
               <Text style={styles.submitButtonText}>{createRequestMutation.isPending ? 'Sending...' : 'Send request'}</Text>
             </Pressable>
-            <Text style={styles.statusText}>{status}</Text>
+            <Text style={styles.statusText} accessibilityLiveRegion="polite">{status}</Text>
           </View>
         </SectionCard>
         </ScrollView>
@@ -147,6 +167,8 @@ function Field({
   multiline = false,
   keyboardType,
   autoCapitalize,
+  inputRef,
+  editable = true,
 }: {
   label: string;
   value: string;
@@ -155,11 +177,15 @@ function Field({
   multiline?: boolean;
   keyboardType?: 'default' | 'email-address';
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  inputRef?: Ref<TextInput>;
+  editable?: boolean;
 }) {
   return (
     <View style={styles.field}>
       <Text style={styles.fieldLabel}>{label}</Text>
       <TextInput
+        ref={inputRef}
+        editable={editable}
         style={[styles.input, multiline ? styles.textarea : null]}
         value={value}
         onChangeText={onChangeText}

@@ -9,10 +9,14 @@ export function HistoryBars({ days }: { days: RiverHistoryDaySummary[] }) {
 
   const recentDays = days.slice(-7);
   const maxScore = Math.max(100, ...recentDays.map((day) => day.maxScore));
+  const chartDescription = `Daily average route scores. ${recentDays.map((day) => {
+    const date = new Date(`${day.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    return `${date}: ${day.avgScore} out of 100.`;
+  }).join(' ')}`;
 
   return (
     <View style={styles.wrap}>
-      <View style={styles.chart}>
+      <View accessible accessibilityRole="image" accessibilityLabel={chartDescription} style={styles.chart}>
         {recentDays.map((day) => {
           const barHeight = Math.max(12, Math.round((day.avgScore / maxScore) * 120));
           return (

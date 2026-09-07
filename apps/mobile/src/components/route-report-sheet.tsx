@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { androidBottomInset } from '../lib/safe-area';
+import { selectionKeyboardProps } from '../lib/selection-keyboard';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export interface SelectedReportPhoto {
@@ -42,6 +43,7 @@ interface RouteReportSheetProps {
   photoRightsConfirmed: boolean;
   contactConsentConfirmed: boolean;
   isSubmitting: boolean;
+  isPickingPhotos: boolean;
   status: string;
   onClose: () => void;
   onNameChange: (value: string) => void;
@@ -57,7 +59,7 @@ interface RouteReportSheetProps {
   onRemovePhoto: (id: string) => void;
   onTogglePhotoRights: () => void;
   onToggleContactConsent: () => void;
-  onSubmit: () => void;
+  onSubmit: () => Promise<'name' | 'email' | 'report' | void>;
 }
 
 export function RouteReportSheet({
@@ -76,6 +78,7 @@ export function RouteReportSheet({
   photoRightsConfirmed,
   contactConsentConfirmed,
   isSubmitting,
+  isPickingPhotos,
   status,
   onClose,
   onNameChange,
@@ -97,6 +100,9 @@ export function RouteReportSheet({
   const insets = useSafeAreaInsets();
   const bottomSheetInset = androidBottomInset(insets.bottom);
   const scrollRef = useRef<ScrollView | null>(null);
+  const nameInput = useRef<TextInput | null>(null);
+  const emailInput = useRef<TextInput | null>(null);
+  const reportInput = useRef<TextInput | null>(null);
   const formOffset = useRef(0);
   const inputOffsets = useRef<Record<string, number>>({});
   const keyboardBottomPadding = Platform.OS === 'android' ? 280 : 180 + insets.bottom;
@@ -116,7 +122,7 @@ export function RouteReportSheet({
               <Text style={styles.sheetTitle}>Send a route report</Text>
               <Text style={styles.sheetSubtitle}>Share what would help another paddler make the call.</Text>
             </View>
-            <Pressable style={styles.sheetCloseButton} onPress={onClose}>
+            <Pressable style={styles.sheetCloseButton} accessibilityRole="button" accessibilityLabel="Close route report" onPress={onClose}>
               <Text style={styles.sheetCloseText}>Close</Text>
             </Pressable>
           </View>
@@ -124,7 +130,7 @@ export function RouteReportSheet({
             ref={scrollRef}
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled"
-            keyboardDismissMode={Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
+            keyboardDismissMode={Platform.OS === 'web' ? 'none' : Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
             contentContainerStyle={[styles.sheetContent, { paddingBottom: keyboardBottomPadding }]}
           >
             <View style={styles.reviewPanel}>
@@ -147,6 +153,8 @@ export function RouteReportSheet({
                   style={styles.reportInput}
                   accessibilityLabel="Contributor name or paddling handle"
                   value={name}
+                  ref={nameInput}
+                  editable={!isSubmitting}
                   onChangeText={onNameChange}
                   onFocus={() => scrollFocusedInputIntoView('name')}
                   onLayout={(event) => recordInputOffset('name', event)}
@@ -160,6 +168,8 @@ export function RouteReportSheet({
                   style={styles.reportInput}
                   accessibilityLabel="Email address"
                   value={email}
+                  ref={emailInput}
+                  editable={!isSubmitting}
                   onChangeText={onEmailChange}
                   onFocus={() => scrollFocusedInputIntoView('email')}
                   onLayout={(event) => recordInputOffset('email', event)}
@@ -171,13 +181,15 @@ export function RouteReportSheet({
                 style={styles.reportInput}
                 accessibilityLabel="Trip date, optional"
                 value={tripDate}
+                editable={!isSubmitting}
                 onChangeText={onTripDateChange}
                 onFocus={() => scrollFocusedInputIntoView('tripDate')}
                 onLayout={(event) => recordInputOffset('tripDate', event)}
               />
-              <SentimentPicker value={sentiment ?? ''} onChange={onSentimentChange} />
+              <SentimentPicker value={sentiment ?? ''} disabled={isSubmitting} onChange={onSentimentChange} />
               <ChoicePicker
                 label="Observed water level"
+                disabled={isSubmitting}
                 value={observedWaterLevel}
                 options={[
                   { value: 'too-low', label: 'Too low' },
@@ -191,6 +203,7 @@ export function RouteReportSheet({
               />
               <ChoicePicker
                 label="Trip outcome"
+                disabled={isSubmitting}
                 value={tripCompletion}
                 options={[
                   { value: 'completed', label: 'Completed' },
@@ -202,6 +215,7 @@ export function RouteReportSheet({
               />
               <ChoicePicker
                 label="Overall verdict"
+                disabled={isSubmitting}
                 value={overallVerdict}
                 options={[
                   { value: 'excellent', label: 'Excellent' },
@@ -219,6 +233,8 @@ export function RouteReportSheet({
                 style={[styles.reportInput, styles.reportTextArea]}
                 accessibilityLabel="Route report"
                 value={report}
+                ref={reportInput}
+                editable={!isSubmitting}
                 onChangeText={onReportChange}
                 onFocus={() => scrollFocusedInputIntoView('report')}
                 onLayout={(event) => recordInputOffset('report', event)}
@@ -231,6 +247,7 @@ export function RouteReportSheet({
                 style={[styles.reportInput, styles.reportNotesArea]}
                 accessibilityLabel="Extra notes, optional"
                 value={notes}
+                editable={!isSubmitting}
                 onChangeText={onNotesChange}
                 onFocus={() => scrollFocusedInputIntoView('notes')}
                 onLayout={(event) => recordInputOffset('notes', event)}
@@ -245,8 +262,10 @@ export function RouteReportSheet({
                     </Text>
                   </View>
                   <Pressable
-                    style={[styles.reportPhotoButton, photoLimitReached ? styles.reportPhotoButtonDisabled : null]}
-                    disabled={photoLimitReached}
+                    style={[styles.reportPhotoButton, photoLimitReached || isSubmitting || isPickingPhotos ? styles.reportPhotoButtonDisabled : null]}
+                    disabled={photoLimitReached || isSubmitting || isPickingPhotos}
+                    accessibilityRole="button"
+                    accessibilityLabel="Add report photos"
                     onPress={onPickPhotos}
                   >
                     <Text style={styles.reportPhotoButtonText}>Add</Text>
@@ -257,7 +276,7 @@ export function RouteReportSheet({
                     {photos.map((photo) => (
                       <View key={photo.id} style={styles.reportPhotoThumbCard}>
                         <Image source={{ uri: photo.uri }} style={styles.reportPhotoThumb} resizeMode="cover" />
-                        <Pressable style={styles.reportPhotoRemove} onPress={() => onRemovePhoto(photo.id)}>
+                        <Pressable style={styles.reportPhotoRemove} disabled={isSubmitting} accessibilityRole="button" accessibilityLabel={`Remove ${photo.name}`} onPress={() => onRemovePhoto(photo.id)}>
                           <Text style={styles.reportPhotoRemoveText}>Remove</Text>
                         </Pressable>
                       </View>
@@ -276,6 +295,9 @@ export function RouteReportSheet({
                   accessibilityRole="checkbox"
                   accessibilityLabel="I own these photos or have permission to share them with Paddle Today."
                   accessibilityState={{ checked: photoRightsConfirmed }}
+                  aria-checked={photoRightsConfirmed}
+                  disabled={isSubmitting}
+                  {...selectionKeyboardProps(onTogglePhotoRights, isSubmitting)}
                 >
                   <View style={[styles.checkbox, photoRightsConfirmed ? styles.checkboxChecked : null]}>
                     {photoRightsConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
@@ -291,6 +313,9 @@ export function RouteReportSheet({
                 accessibilityRole="checkbox"
                 accessibilityLabel="I agree to follow-up questions."
                 accessibilityState={{ checked: contactConsentConfirmed }}
+                aria-checked={contactConsentConfirmed}
+                disabled={isSubmitting}
+                {...selectionKeyboardProps(onToggleContactConsent, isSubmitting)}
               >
                 <View style={[styles.checkbox, contactConsentConfirmed ? styles.checkboxChecked : null]}>
                   {contactConsentConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
@@ -300,13 +325,15 @@ export function RouteReportSheet({
                 </Text>
               </Pressable>
               <Pressable
-                style={[styles.reportSubmitButton, isSubmitting ? styles.reportSubmitButtonDisabled : null]}
-                disabled={isSubmitting}
-                onPress={onSubmit}
+                style={[styles.reportSubmitButton, isSubmitting || isPickingPhotos ? styles.reportSubmitButtonDisabled : null]}
+                disabled={isSubmitting || isPickingPhotos}
+                onPress={() => void submitAndFocusInvalidField()}
+                accessibilityRole="button"
+                aria-busy={isSubmitting}
               >
-                <Text style={styles.reportSubmitText}>{isSubmitting ? 'Sending...' : 'Send report'}</Text>
+                <Text style={styles.reportSubmitText}>{isSubmitting ? 'Sending...' : isPickingPhotos ? 'Preparing photos...' : 'Send report'}</Text>
               </Pressable>
-              <Text style={styles.reportStatus}>{status}</Text>
+              <Text accessibilityLiveRegion="polite" style={styles.reportStatus}>{status}</Text>
             </View>
           </ScrollView>
         </View>
@@ -317,6 +344,13 @@ export function RouteReportSheet({
 
   function recordInputOffset(key: string, event: LayoutChangeEvent) {
     inputOffsets.current[key] = formOffset.current + event.nativeEvent.layout.y;
+  }
+
+  async function submitAndFocusInvalidField() {
+    const invalidField = await onSubmit();
+    if (invalidField === 'name') nameInput.current?.focus();
+    if (invalidField === 'email') emailInput.current?.focus();
+    if (invalidField === 'report') reportInput.current?.focus();
   }
 
   function scrollFocusedInputIntoView(key: string) {
@@ -330,9 +364,11 @@ export function RouteReportSheet({
 
 function SentimentPicker({
   value,
+  disabled,
   onChange,
 }: {
   value: string;
+  disabled: boolean;
   onChange: (value: CreateRouteContributionRequest['tripSentiment']) => void;
 }) {
   const options = [
@@ -352,6 +388,10 @@ function SentimentPicker({
             key={option.value || 'none'}
             style={[styles.sentimentChip, selected ? styles.sentimentChipSelected : null]}
             onPress={() => onChange(option.value)}
+            disabled={disabled}
+            accessibilityRole="button"
+            accessibilityLabel={`Trip rating: ${option.label}`}
+            aria-pressed={selected}
           >
             <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
               {option.label}
@@ -365,11 +405,13 @@ function SentimentPicker({
 
 function ChoicePicker<T extends string>({
   label,
+  disabled,
   value,
   options,
   onChange,
 }: {
   label: string;
+  disabled: boolean;
   value: T | '';
   options: ReadonlyArray<{ value: T; label: string }>;
   onChange: (value: T | '') => void;
@@ -385,6 +427,10 @@ function ChoicePicker<T extends string>({
               key={option.value}
               style={[styles.sentimentChip, selected ? styles.sentimentChipSelected : null]}
               onPress={() => onChange(option.value)}
+              disabled={disabled}
+              accessibilityRole="button"
+              accessibilityLabel={`${label}: ${option.label}`}
+              aria-pressed={selected}
             >
               <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
                 {option.label}

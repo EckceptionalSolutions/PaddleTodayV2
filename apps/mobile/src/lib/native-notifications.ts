@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
+import { captureAppException } from './observability';
 
 const RIVER_ALERTS_CHANNEL_ID = 'river-alerts';
 export const AREA_NOTIFICATIONS_CHANNEL_ID = 'nearby-opportunities';
@@ -66,7 +67,7 @@ async function registerForPushNotifications(channelId: string, channelName: stri
       return {
         ok: false,
         expoPushToken: null,
-        message: 'Phone alerts need an EAS project id before push tokens can be created.',
+        message: 'Phone alerts are unavailable in this version of the app. Check for an app update and try again.',
       };
     }
 
@@ -77,10 +78,11 @@ async function registerForPushNotifications(channelId: string, channelName: stri
       message: 'Phone alert enabled.',
     };
   } catch (error) {
+    captureAppException(error, { name: 'notification_registration_failed' });
     return {
       ok: false,
       expoPushToken: null,
-      message: error instanceof Error ? error.message : 'Phone alerts could not be enabled on this device.',
+      message: 'Phone alerts could not be enabled on this device. Please try again.',
     };
   }
 }

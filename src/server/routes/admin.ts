@@ -1,7 +1,7 @@
 import { isValidEmailAddress as isValidEmail } from '@paddletoday/api-contract';
 import type { ServerResponse } from 'node:http';
 import type { ApiRequest } from '../http';
-import { clean, readJsonBody, sendBinary, sendBodyLimitResponse, sendJson } from '../http';
+import { clean, readJsonBody, sendBinary, sendRequestBodyErrorResponse, sendJson } from '../http';
 import { contentTypeFor } from '../static-route';
 import {
   adminAuthConfigured,
@@ -384,8 +384,8 @@ export async function handleAdminRouteAuditUpdate(
     });
     return sendJson(response, 200, { requestId, ok: true, audit }, includeBody, 'no-store');
   } catch (error) {
-    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
-    if (bodyLimitResponse) return bodyLimitResponse;
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
 
     console.error('[admin-route-audits] update failed', { requestId, routeSlug, error });
     return sendJson(

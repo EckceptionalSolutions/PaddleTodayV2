@@ -1,12 +1,15 @@
 let feedback;
 let timeout;
 
-export function showActionFeedback(message, { undo } = {}) {
+export function showActionFeedback(message, { undo, returnFocus } = {}) {
   if (!feedback) {
     feedback = document.createElement('div');
     feedback.className = 'action-feedback';
     document.body.append(feedback);
   }
+  const hadFocus = feedback.contains(document.activeElement);
+  const previousFocus = document.activeElement;
+  const resolveReturnFocus = returnFocus || (() => previousFocus instanceof HTMLElement && previousFocus !== document.body ? previousFocus : null);
   window.clearTimeout(timeout);
   feedback.replaceChildren();
   feedback.hidden = false;
@@ -22,9 +25,9 @@ export function showActionFeedback(message, { undo } = {}) {
     button.addEventListener('click', () => {
       try {
         undo();
-        showActionFeedback('Route restored to Saved routes.');
+        showActionFeedback('Route restored to Saved routes.', { returnFocus: resolveReturnFocus });
       } catch {
-        showActionFeedback('Could not restore this route. Browser storage is unavailable.', { undo });
+        showActionFeedback('Could not restore this route. Browser storage is unavailable.', { undo, returnFocus: resolveReturnFocus });
       }
     });
     feedback.append(button);
@@ -32,8 +35,16 @@ export function showActionFeedback(message, { undo } = {}) {
   const dismiss = document.createElement('button');
   dismiss.type = 'button';
   dismiss.textContent = 'Dismiss';
-  dismiss.addEventListener('click', () => { feedback.hidden = true; });
+  dismiss.addEventListener('click', () => {
+    const restoreFocus = feedback.contains(document.activeElement);
+    feedback.hidden = true;
+    if (restoreFocus) {
+      const target = resolveReturnFocus();
+      (target?.isConnected ? target : document.querySelector('main'))?.focus({ preventScroll: true });
+    }
+  });
   feedback.append(dismiss);
+  if (hadFocus) feedback.querySelector('button')?.focus({ preventScroll: true });
   if (!undo) timeout = window.setTimeout(() => {
     if (!feedback.contains(document.activeElement)) feedback.hidden = true;
   }, 6000);

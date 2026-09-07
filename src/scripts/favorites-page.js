@@ -2,7 +2,7 @@ import { savedRouteSnapshot, savedRouteChanges, parseSavedRouteSnapshots, advanc
 import { bindFavoriteNotes } from './favorite-notes.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
-import { readFavorites, subscribeFavorites } from './favorites-store.js';
+import { readFavorites, readFavoritesStatus, subscribeFavorites } from './favorites-store.js';
 import {
   clearMapMarkers,
   createMapStatusController,
@@ -42,6 +42,7 @@ function recordSavedRouteVisit(results) {
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 const root = document.querySelector('[data-favorites-page]');
 const summary = document.querySelector('[data-favorites-summary]');
+const refreshButton = document.querySelector('[data-favorites-refresh]');
 const empty = document.querySelector('[data-favorites-empty]');
 const grid = document.querySelector('[data-favorites-grid]');
 const template = document.querySelector('[data-favorites-card-template]');
@@ -55,8 +56,12 @@ const favoritesMapStatusController = createMapStatusController(favoritesMapStatu
 const favoritesMap = document.querySelector('[data-favorites-map]');
 
 const favoritesRequestGuard = createRequestGuard();
-let latestResults = [];
-let lastFetchedAt = null;
+const initialCache = readCachedPayload(SUMMARY_CACHE_KEY);
+let latestResults = Array.isArray(initialCache?.payload?.rivers) ? initialCache.payload.rivers : [];
+let lastFetchedAt = latestResults.length ? initialCache.fetchedAt : null;
+let loading = false;
+let loadFailed = false;
+let storageLoadFailed = false;
 let favoritesMapRuntime = null;
 let favoritesMapMarkers = [];
 let selectedFavoriteSlug = '';
@@ -476,29 +481,57 @@ function renderFavoriteCard(favorite, current) {
   return card;
 }
 
-function updateSummaryLine(favorites, { fallback = false } = {}) {
+function updateSummaryLine(favorites) {
   if (!(summary instanceof HTMLElement)) {
+    return;
+  }
+
+  if (storageLoadFailed) {
+    summary.textContent = 'Could not read saved routes from this browser. Your stored list has not been changed.';
+    if (refreshButton instanceof HTMLButtonElement) {
+      refreshButton.hidden = false;
+      refreshButton.disabled = loading;
+      refreshButton.textContent = 'Retry loading saved routes';
+    }
     return;
   }
 
   if (favorites.length === 0) {
     summary.textContent = 'No routes saved on this device yet.';
+    if (refreshButton instanceof HTMLButtonElement) refreshButton.hidden = true;
     return;
   }
 
+  if (refreshButton instanceof HTMLButtonElement) {
+    refreshButton.hidden = false;
+    refreshButton.disabled = loading;
+    refreshButton.textContent = loading ? 'Refreshing…' : loadFailed ? 'Try again' : 'Refresh calls';
+  }
+
   const countLabel = favorites.length === 1 ? '1 saved route' : `${favorites.length} saved routes`;
-  const freshness = lastFetchedAt ? freshnessLabel(lastFetchedAt) : 'Updated recently';
-  summary.textContent = fallback ? `${countLabel} \u2022 ${freshness} \u2022 showing latest available data` : `${countLabel} \u2022 ${freshness}`;
+  const freshness = lastFetchedAt ? freshnessLabel(lastFetchedAt) : 'Current calls have not loaded';
+  const stateLabel = loading ? 'Checking current calls…'
+    : loadFailed ? 'Could not refresh. Your saved routes are still here.'
+    : !hasFreshSummary && lastFetchedAt ? 'Showing last available calls' : '';
+  summary.textContent = [countLabel, freshness, stateLabel].filter(Boolean).join(' • ');
 }
 
 function renderFavorites(results = latestResults) {
-  recordSavedRouteVisit(results);
   if (!(grid instanceof HTMLElement) || !(empty instanceof HTMLElement)) {
     return;
   }
 
-  const favorites = readFavorites();
+  const stored = readFavoritesStatus();
+  storageLoadFailed = stored.hasError;
+  const favorites = stored.favorites;
   updateSummaryLine(favorites);
+  if (storageLoadFailed) {
+    empty.hidden = true;
+    grid.hidden = true;
+    if (favoritesMapShell instanceof HTMLElement) favoritesMapShell.hidden = true;
+    return;
+  }
+  recordSavedRouteVisit(results);
 
   if (favorites.length === 0) {
     empty.hidden = false;
@@ -530,19 +563,25 @@ function renderFavorites(results = latestResults) {
   renderFavoritesMap(results);
 }
 
-async function loadFavorites({ silent = false } = {}) {
+async function loadFavorites() {
+  if (loading) return;
+  renderFavorites();
+  if (storageLoadFailed) return;
   const { requestId, controller } = favoritesRequestGuard.begin();
+  loading = true;
+  updateSummaryLine(readFavorites());
 
   try {
     const payload = await getBrowserApiClient().getSummary({
       cache: 'no-store',
-      signal: controller.signal,
+      signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]),
     });
     if (!favoritesRequestGuard.isCurrent(requestId)) {
       return;
     }
 
     latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
+    loadFailed = false;
     hasFreshSummary = payload.snapshotStatus !== 'stale';
     lastFetchedAt = Date.now();
     writeCachedPayload(SUMMARY_CACHE_KEY, payload);
@@ -557,15 +596,15 @@ async function loadFavorites({ silent = false } = {}) {
     }
 
     hasFreshSummary = false;
+    loadFailed = true;
     const cached = readCachedPayload(SUMMARY_CACHE_KEY);
     latestResults = Array.isArray(cached?.payload?.rivers) ? cached.payload.rivers : latestResults;
     lastFetchedAt = cached?.fetchedAt ?? lastFetchedAt;
     renderFavorites(latestResults);
-    if (!silent) {
-      updateSummaryLine(readFavorites(), { fallback: true });
-    }
     console.error('Failed to load favorites summary.', error);
   } finally {
+    loading = false;
+    updateSummaryLine(readFavorites());
     favoritesRequestGuard.finish(controller);
   }
 }
@@ -583,5 +622,6 @@ subscribeFavorites(() => {
   renderFavorites(latestResults);
 });
 bindFavoriteNotes();
+refreshButton?.addEventListener('click', () => { void loadFavorites(); });
 renderFavorites();
 loadFavorites();

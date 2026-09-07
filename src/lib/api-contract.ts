@@ -1,4 +1,5 @@
 import type {
+  River,
   RiverScoreResult,
   ForecastWindow,
 } from './types';

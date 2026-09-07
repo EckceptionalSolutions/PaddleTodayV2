@@ -1,9 +1,8 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import Constants from 'expo-constants';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  Alert,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -47,8 +46,15 @@ export function FeedbackSheet({
   const [replyEmail, setReplyEmail] = useState('');
   const [status, setStatus] = useState('');
   const [storeChooserVisible, setStoreChooserVisible] = useState(false);
+  const [reviewPending, setReviewPending] = useState(false);
+  const openingReview = useRef(false);
+  const messageInput = useRef<TextInput>(null);
+  const emailInput = useRef<TextInput>(null);
+  const submitting = useRef(false);
+  const presentation = useRef(0);
 
   useEffect(() => {
+    presentation.current += 1;
     if (!visible) {
       return;
     }
@@ -61,18 +67,24 @@ export function FeedbackSheet({
   }, [visible]);
 
   async function submitFeedback() {
+    if (submitting.current) return;
     const cleanMessage = message.trim();
     const cleanReplyEmail = replyEmail.trim().toLowerCase();
 
     if (cleanMessage.length < 8) {
       setStatus('Add a little more detail so the feedback is actionable.');
+      messageInput.current?.focus();
       return;
     }
     if (cleanReplyEmail && !isValidEmailAddress(cleanReplyEmail)) {
       setStatus('Enter a valid email address or leave it blank.');
+      emailInput.current?.focus();
       return;
     }
 
+    submitting.current = true;
+    const submittedPresentation = presentation.current;
+    setStatus('Sending feedback…');
     try {
       await mutation.mutateAsync({
         category: 'other',
@@ -87,23 +99,34 @@ export function FeedbackSheet({
         source,
         automatic,
       });
-      setView('success');
-      setStatus('');
+      if (presentation.current === submittedPresentation) {
+        setView('success');
+        setStatus('');
+      }
     } catch (error) {
-      setStatus(
+      if (presentation.current === submittedPresentation) setStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
           : 'Could not send feedback right now. Please try again.'
       );
+    } finally {
+      submitting.current = false;
     }
   }
 
   function dismiss() {
+    presentation.current += 1;
     if (automatic && view !== 'success') {
       void snoozeFeedbackPrompt();
       trackAppEvent('app_feedback_dismissed', { source });
     }
     onClose();
+  }
+
+  function returnToChoices() {
+    presentation.current += 1;
+    setStatus('');
+    setView('choice');
   }
 
   async function openReview() {
@@ -121,50 +144,30 @@ export function FeedbackSheet({
       return;
     }
 
-    try {
-      const opened = await openStoreReviewPage();
-      trackAppEvent('store_review_page_opened', {
-        source: 'feedback_sheet',
-        available: opened,
-      });
-
-      if (opened) {
-        dismiss();
-        return;
-      }
-    } catch (error) {
-      captureAppException(error, {
-        name: 'store_review_page_failed',
-        extra: {
-          source: 'feedback_sheet',
-        },
-      });
-    }
-
-    Alert.alert(
-      'Review link unavailable',
-      'The store review link is not available in this build yet.'
-    );
+    await launchReview(openStoreReviewPage);
   }
 
   async function openSelectedWebStore(store: Exclude<WebStoreDestination, 'choose'>) {
+    await launchReview(() => openWebStoreReviewPage(store), store);
+  }
+
+  async function launchReview(open: () => Promise<boolean>, store?: string) {
+    if (openingReview.current) return;
+    openingReview.current = true;
+    setReviewPending(true);
+    setStatus('');
+    const openedPresentation = presentation.current;
     try {
-      await openWebStoreReviewPage(store);
-      trackAppEvent('store_review_page_opened', {
-        source: 'feedback_sheet',
-        store,
-        available: true,
-      });
-      dismiss();
+      const opened = await open();
+      if (!opened) throw new Error('Store review link unavailable');
+      trackAppEvent('store_review_page_opened', { source: 'feedback_sheet', store, available: true });
+      if (presentation.current === openedPresentation) dismiss();
     } catch (error) {
-      captureAppException(error, {
-        name: 'store_review_page_failed',
-        extra: {
-          source: 'feedback_sheet',
-          store,
-        },
-      });
-      Alert.alert('Review link unavailable', 'The store review page could not be opened.');
+      captureAppException(error, { name: 'store_review_page_failed', extra: { source: 'feedback_sheet', store } });
+      if (presentation.current === openedPresentation) setStatus('The store review page could not be opened. Please try again.');
+    } finally {
+      openingReview.current = false;
+      setReviewPending(false);
     }
   }
 
@@ -181,10 +184,8 @@ export function FeedbackSheet({
             {view === 'form' ? (
               <Pressable
                 style={styles.headerButton}
-                onPress={() => {
-                  setStatus('');
-                  setView('choice');
-                }}
+                onPress={returnToChoices}
+                accessibilityRole="button"
                 accessibilityLabel="Back to feedback choices"
               >
                 <MaterialCommunityIcons name="arrow-left" color={colors.textMuted} size={21} />
@@ -197,7 +198,7 @@ export function FeedbackSheet({
                 {headerSubtitle(view)}
               </Text>
             </View>
-            <Pressable style={styles.headerButton} onPress={dismiss} accessibilityLabel="Close feedback form">
+            <Pressable style={styles.headerButton} onPress={dismiss} accessibilityRole="button" accessibilityLabel="Close feedback form">
               <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
             </Pressable>
           </View>
@@ -211,7 +212,7 @@ export function FeedbackSheet({
               <Text style={styles.successText}>
                 Thanks for helping make PaddleToday more useful for paddlers.
               </Text>
-              <Pressable style={styles.primaryButton} onPress={onClose}>
+              <Pressable style={styles.primaryButton} onPress={onClose} accessibilityRole="button">
                 <Text style={styles.primaryButtonText}>Done</Text>
               </Pressable>
             </View>
@@ -221,6 +222,8 @@ export function FeedbackSheet({
                 style={[styles.choiceCard, styles.feedbackChoiceCard]}
                 onPress={() => {
                   trackAppEvent('app_feedback_form_started', { source, automatic });
+                  presentation.current += 1;
+                  setStatus('');
                   setView('form');
                 }}
                 accessibilityRole="button"
@@ -243,6 +246,9 @@ export function FeedbackSheet({
                 onPress={() => void openReview()}
                 accessibilityRole="button"
                 accessibilityLabel="Rate PaddleToday in the app store"
+                disabled={reviewPending}
+                aria-busy={reviewPending}
+                accessibilityState={{ disabled: reviewPending, busy: reviewPending }}
               >
                 <View style={[styles.choiceIcon, styles.reviewChoiceIcon]}>
                   <MaterialCommunityIcons name="star" color={colors.fair} size={24} />
@@ -268,6 +274,9 @@ export function FeedbackSheet({
                       onPress={() => void openSelectedWebStore('apple')}
                       accessibilityRole="button"
                       accessibilityLabel="Open Apple App Store review page"
+                      disabled={reviewPending}
+                      aria-busy={reviewPending}
+                      accessibilityState={{ disabled: reviewPending, busy: reviewPending }}
                     >
                       <MaterialCommunityIcons name="apple" color={colors.text} size={19} />
                       <Text style={styles.storeButtonText}>App Store</Text>
@@ -277,6 +286,9 @@ export function FeedbackSheet({
                       onPress={() => void openSelectedWebStore('google')}
                       accessibilityRole="button"
                       accessibilityLabel="Open Google Play review page"
+                      disabled={reviewPending}
+                      aria-busy={reviewPending}
+                      accessibilityState={{ disabled: reviewPending, busy: reviewPending }}
                     >
                       <MaterialCommunityIcons name="google-play" color={colors.text} size={19} />
                       <Text style={styles.storeButtonText}>Google Play</Text>
@@ -285,7 +297,8 @@ export function FeedbackSheet({
                 </View>
               ) : null}
 
-              <Pressable style={styles.secondaryButton} onPress={dismiss}>
+              {status ? <Text style={styles.status} accessibilityLiveRegion="polite">{status}</Text> : null}
+              <Pressable style={styles.secondaryButton} onPress={dismiss} accessibilityRole="button">
                 <Text style={styles.secondaryButtonText}>{automatic ? 'Not now' : 'Close'}</Text>
               </Pressable>
             </View>
@@ -301,6 +314,9 @@ export function FeedbackSheet({
                   <Text style={styles.requiredLabel}>Required</Text>
                 </View>
                 <TextInput
+                  ref={messageInput}
+                  accessibilityLabel="What should we know?"
+                  editable={!mutation.isPending}
                   style={[styles.input, styles.textarea]}
                   value={message}
                   onChangeText={setMessage}
@@ -320,6 +336,9 @@ export function FeedbackSheet({
                   <Text style={styles.optionalLabel}>Optional</Text>
                 </View>
                 <TextInput
+                  ref={emailInput}
+                  accessibilityLabel="Email for follow-up (optional)"
+                  editable={!mutation.isPending}
                   style={styles.input}
                   value={replyEmail}
                   onChangeText={setReplyEmail}
@@ -331,19 +350,23 @@ export function FeedbackSheet({
                 />
               </View>
 
-              {status ? <Text style={styles.status}>{status}</Text> : null}
+              {status ? <Text style={styles.status} accessibilityLiveRegion="polite">{status}</Text> : null}
 
               <View style={styles.actions}>
                 <Pressable
                   style={[styles.primaryButton, mutation.isPending ? styles.buttonDisabled : null]}
                   disabled={mutation.isPending}
+                  accessibilityRole="button"
+                  accessibilityState={{ disabled: mutation.isPending, busy: mutation.isPending }}
+                  accessibilityLabel="Send feedback"
+                  aria-busy={mutation.isPending}
                   onPress={() => void submitFeedback()}
                 >
                   <Text style={styles.primaryButtonText}>
                     {mutation.isPending ? 'Sending...' : 'Send feedback'}
                   </Text>
                 </Pressable>
-                <Pressable style={styles.secondaryButton} onPress={() => setView('choice')}>
+                <Pressable style={styles.secondaryButton} onPress={returnToChoices} accessibilityRole="button">
                   <Text style={styles.secondaryButtonText}>Back</Text>
                 </Pressable>
               </View>

@@ -1,16 +1,19 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { useRiverSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
+import { AppRefreshNotice } from '../components/app-state';
+import { tabKeyboardProps } from '../lib/selection-keyboard';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
 import { openFeedbackForm } from '../lib/feedback-controller';
 import { resetWelcome } from '../lib/onboarding';
+import { openExternalUrl } from '../lib/external-links';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -30,6 +33,8 @@ export default function SupportScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
+  const [summaryRetrying, setSummaryRetrying] = useState(false);
+  const summaryRetryInFlight = useRef(false);
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
   const [selectedSupportedState, setSelectedSupportedState] = useState<string | null>(null);
@@ -77,19 +82,23 @@ export default function SupportScreen() {
         return;
       }
 
-      const parsed = JSON.parse(text) as { riverCount?: unknown };
+      const parsed = JSON.parse(text) as { rivers?: unknown } | null;
+      if (!parsed || !Array.isArray(parsed.rivers)) {
+        throw new Error('The server responded, but the route feed was missing. Please try again.');
+      }
+      const riverCount = parsed.rivers.length;
       setDiagnosticState('ok');
       setDiagnosticText(
-        `Connected in ${elapsed}ms. Routes: ${typeof parsed.riverCount === 'number' ? parsed.riverCount : 'unknown'}.`
+        `Connected in ${elapsed}ms. Routes: ${riverCount}.`
       );
       trackAppEvent('api_diagnostic_succeeded', {
         elapsedMs: elapsed,
-        riverCount: typeof parsed.riverCount === 'number' ? parsed.riverCount : null,
+        riverCount,
       });
     } catch (error) {
       clearTimeout(timeout);
       setDiagnosticState('error');
-      setDiagnosticText(error instanceof Error ? error.message : 'Could not reach PaddleToday.');
+      setDiagnosticText(controller.signal.aborted ? 'The connection check timed out. Please try again.' : error instanceof Error ? error.message : 'Could not reach PaddleToday.');
       captureAppException(error, {
         name: 'api_diagnostic_failed',
         extra: {
@@ -112,7 +121,7 @@ export default function SupportScreen() {
     >
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
-        <Text style={styles.title}>Safety and app help</Text>
+        <Text accessibilityRole="header" style={styles.title}>Safety and app help</Text>
         <Text style={styles.subtitle}>
           Safety notes, feedback, and troubleshooting.
         </Text>
@@ -142,11 +151,25 @@ export default function SupportScreen() {
       </SectionCard>
 
       <SectionCard title="Supported rivers" subtitle="Browse rivers by state.">
-        {summaryQuery.isLoading && rivers.length === 0 ? (
+        <AppRefreshNotice
+          isError={summaryQuery.isError || summaryRetrying}
+          retrying={summaryRetrying}
+          dataUpdatedAt={summaryQuery.dataUpdatedAt}
+          label={summaryQuery.data ? 'Showing the last available supported rivers.' : 'Supported rivers could not load.'}
+          actionLabel="Retry supported rivers"
+          onRetry={() => {
+            if (summaryRetryInFlight.current) return;
+            summaryRetryInFlight.current = true;
+            setSummaryRetrying(true);
+            void summaryQuery.refetch().finally(() => {
+              summaryRetryInFlight.current = false;
+              setSummaryRetrying(false);
+            });
+          }}
+        />
+        {summaryQuery.isLoading && !summaryQuery.data && !summaryRetrying ? (
           <Text style={styles.supportedEmptyText}>Loading supported rivers.</Text>
-        ) : summaryQuery.isError && rivers.length === 0 ? (
-          <Text style={styles.supportedEmptyText}>Supported rivers could not load. Use the connection check below.</Text>
-        ) : (
+        ) : summaryQuery.data ? (
           <View style={styles.supportedStates}>
             <View style={styles.supportedSummary}>
               <Text style={styles.supportedSummaryValue}>{rivers.length}</Text>
@@ -154,8 +177,8 @@ export default function SupportScreen() {
                 route updates across {supportedStates.length} states
               </Text>
             </View>
-            <View style={styles.supportedStateChips}>
-              {supportedStates.map((state) => {
+            <View style={styles.supportedStateChips} accessibilityRole="tablist" accessibilityLabel="Supported river states">
+              {supportedStates.map((state, index) => {
                 const active = state.state === activeSupportedState?.state;
                 return (
                   <Pressable
@@ -165,6 +188,8 @@ export default function SupportScreen() {
                     accessibilityRole="tab"
                     accessibilityLabel={`${stateLabel(state.state)} supported rivers`}
                     accessibilityState={{ selected: active }}
+                    aria-selected={active}
+                    {...tabKeyboardProps(index, active, supportedStates.length, (next) => setSelectedSupportedState(supportedStates[next].state))}
                     android_ripple={{ color: colors.canvasMuted }}
                   >
                     <Text style={[styles.supportedStateChipText, active ? styles.supportedStateChipTextActive : null]}>
@@ -209,7 +234,7 @@ export default function SupportScreen() {
               </View>
             ) : null}
           </View>
-        )}
+        ) : null}
       </SectionCard>
 
       <SectionCard title="Frequently used sources" subtitle="Official places to verify conditions before a trip.">
@@ -239,12 +264,16 @@ export default function SupportScreen() {
           </View>
           <View style={styles.diagnosticCopy}>
             <Text style={styles.diagnosticTitle}>{diagnosticTitle(diagnosticState)}</Text>
-            <Text style={styles.diagnosticText}>{diagnosticText}</Text>
+            <Text accessibilityLiveRegion="polite" style={styles.diagnosticText}>{diagnosticText}</Text>
           </View>
         </View>
         <Pressable
           style={[styles.primaryButton, diagnosticState === 'checking' ? styles.primaryButtonDisabled : null]}
           disabled={diagnosticState === 'checking'}
+          accessibilityRole="button"
+          accessibilityLabel="Check connection"
+          accessibilityState={{ disabled: diagnosticState === 'checking', busy: diagnosticState === 'checking' }}
+          aria-busy={diagnosticState === 'checking'}
           onPress={() => void runDiagnostic()}
         >
           <MaterialCommunityIcons name="refresh" color={colors.surfaceStrong} size={18} />
@@ -350,14 +379,14 @@ function diagnosticTone(state: DiagnosticState) {
 }
 
 function replayWelcome(router: ReturnType<typeof useRouter>) {
-  void resetWelcome().then(() => router.push('/welcome'));
+  void resetWelcome().catch(() => {}).then(() => router.push('/welcome'));
 }
 
 function openUrl(url: string) {
   trackAppEvent('support_link_opened', {
     target: url.startsWith('mailto:') ? 'email' : url,
   });
-  void Linking.openURL(url);
+  void openExternalUrl(url, url.startsWith('mailto:') ? 'Email' : 'Link');
 }
 
 function openManualFeedback() {
@@ -709,7 +738,7 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     alignSelf: 'flex-start',
-    minHeight: 42,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     paddingHorizontal: 15,

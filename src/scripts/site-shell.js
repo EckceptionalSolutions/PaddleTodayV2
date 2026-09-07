@@ -1,3 +1,4 @@
+import { normalizeSearchText } from '@paddletoday/api-contract';
 import { favoriteCount, subscribeFavorites } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
 
@@ -18,7 +19,10 @@ const appDownloadConfigNode = document.querySelector('[data-app-download-config]
 let searchIndex = [];
 let searchIndexLoaded = false;
 let searchIndexPromise = null;
+let searchIndexError = false;
 let lastFocusedElement = null;
+let searchFocusTimer = null;
+let searchBackground = [];
 
 const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
 const APP_DOWNLOAD_DISMISS_DAYS = 30;
@@ -51,8 +55,7 @@ function escapeHtml(value) {
 }
 
 function normalizeText(value) {
-  return String(value || '')
-    .toLowerCase()
+  return normalizeSearchText(String(value || ''))
     .replace(/[^a-z0-9\s]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -66,8 +69,10 @@ function tokenize(value) {
 }
 
 function parseSearchIndexPayload(payload) {
-  searchIndex = Array.isArray(payload) ? payload : [];
+  if (!Array.isArray(payload)) throw new Error('Invalid search index.');
+  searchIndex = payload;
   searchIndexLoaded = true;
+  searchIndexError = false;
 }
 
 async function loadSearchIndex() {
@@ -98,6 +103,7 @@ async function loadSearchIndex() {
 
       if (indexUrl) {
         const response = await fetch(indexUrl, {
+          signal: AbortSignal.timeout(10_000),
           headers: {
             accept: 'application/json',
           },
@@ -114,7 +120,7 @@ async function loadSearchIndex() {
       parseSearchIndexPayload([]);
     } catch (error) {
       console.error('Could not load site search index.', error);
-      parseSearchIndexPayload([]);
+      searchIndexError = true;
     } finally {
       searchIndexPromise = null;
     }
@@ -189,6 +195,19 @@ function renderSearchResults(query = '') {
     return;
   }
 
+  if (searchIndexError) {
+    if (searchHint instanceof HTMLElement) searchHint.textContent = 'Search is temporarily unavailable.';
+    searchResults.innerHTML = `
+      <div class="site-search-dialog__empty">
+        <strong>Could not load routes.</strong>
+        <p class="muted">Check your connection and try again. Your search is still here.</p>
+        <button class="filter-chip" type="button" data-site-search-retry>Try again</button>
+        <a class="river-link river-link--inline" href="/states/">Browse by state</a>
+      </div>
+    `;
+    return;
+  }
+
   const results = searchMatches(query);
   const trimmedQuery = query.trim();
 
@@ -216,16 +235,35 @@ async function openSearch() {
     return;
   }
 
+  if (!searchDialog.hidden) return;
   lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
   searchDialog.hidden = false;
+  searchBackground = [];
+  // Include body-level controls such as the Saved-route Undo notice, not just
+  // siblings inside the page shell. Keep the dialog's ancestor path active.
+  for (let branch = searchDialog; branch.parentElement; branch = branch.parentElement) {
+    for (const element of branch.parentElement.children) {
+      if (element instanceof HTMLElement && element !== branch && !element.inert) searchBackground.push(element);
+    }
+    if (branch.parentElement === document.body) break;
+  }
+  for (const element of searchBackground) element.inert = true;
+  for (const button of searchOpenButtons) button.setAttribute('aria-expanded', 'true');
   document.body.classList.add('site-search-open');
-  window.setTimeout(() => {
-    if (searchInput instanceof HTMLInputElement) {
+  searchFocusTimer = window.setTimeout(() => {
+    if (!searchDialog.hidden && searchInput instanceof HTMLInputElement) {
       searchInput.focus();
       searchInput.select();
     }
   }, 20);
+  await refreshSearchResults();
+}
+
+async function refreshSearchResults() {
+  if (document.activeElement?.matches('[data-site-search-retry]')) searchInput?.focus();
   if (!searchIndexLoaded && searchResults instanceof HTMLElement) {
+    searchResults.setAttribute('aria-busy', 'true');
+    if (searchHint instanceof HTMLElement) searchHint.textContent = 'Loading river and route search…';
     searchResults.innerHTML = `
       <div class="site-search-dialog__empty">
         <strong>Loading routes.</strong>
@@ -235,6 +273,8 @@ async function openSearch() {
   }
 
   await loadSearchIndex();
+  searchResults?.setAttribute('aria-busy', 'false');
+  if (searchDialog?.hidden) return;
   renderSearchResults(searchInput instanceof HTMLInputElement ? searchInput.value : '');
 }
 
@@ -244,6 +284,10 @@ function closeSearch() {
   }
 
   searchDialog.hidden = true;
+  window.clearTimeout(searchFocusTimer);
+  for (const element of searchBackground) element.inert = false;
+  searchBackground = [];
+  for (const button of searchOpenButtons) button.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('site-search-open');
   if (lastFocusedElement instanceof HTMLElement) {
     lastFocusedElement.focus();
@@ -279,19 +323,26 @@ function bindSearch() {
 
   if (searchInput instanceof HTMLInputElement) {
     searchInput.addEventListener('input', () => {
-      void loadSearchIndex().then(() => {
+      if (searchIndexLoaded || searchIndexError) {
         renderSearchResults(searchInput.value);
-      });
+      }
     });
   }
 
+  searchResults?.addEventListener('click', (event) => {
+    if (event.target instanceof Element && event.target.closest('[data-site-search-retry]')) {
+      void refreshSearchResults();
+    }
+  });
+
   document.addEventListener('keydown', (event) => {
     const target = event.target;
-    const isTypingTarget = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement;
+    const isTypingTarget = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement || (target instanceof HTMLElement && target.isContentEditable);
 
     const searchOpen = searchDialog instanceof HTMLElement && !searchDialog.hidden;
 
     if (event.key === 'Escape' && searchOpen) {
+      event.preventDefault();
       closeSearch();
       return;
     }
@@ -320,7 +371,7 @@ function bindSearch() {
       return;
     }
 
-    if (event.key === '/' && !(searchDialog instanceof HTMLElement && !searchDialog.hidden)) {
+    if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey && !(searchDialog instanceof HTMLElement && !searchDialog.hidden)) {
       event.preventDefault();
       void openSearch();
     }

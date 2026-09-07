@@ -115,7 +115,7 @@ const stateMapRoutes = stateRoutes
   reach: route.reach,
   region: route.region,
   difficulty: route.profile.difficulty,
-  routeType: route.routeType ?? 'flatwater',
+  routeType: route.routeType ?? 'recreational',
   distanceLabel: route.logistics?.distanceLabel ?? '',
   latitude: route.latitude,
   longitude: route.longitude,
@@ -182,7 +182,7 @@ const faqItems = [
   },
   {
     question: `Are these ${stateGroup.name} river conditions live?`,
-    answer: `The route links on this page are server-rendered and crawlable. Each route page then checks live gauge readings, weather, water-level context, and route score data before you make a same-day call.`,
+    answer: `Open a route page for the latest available gauge readings, weather, water-level context, and route score. Check the update times and any missing-data notices, then verify conditions with the linked sources before leaving.`,
   },
   {
     question: `Can I request another ${stateGroup.name} route?`,
@@ -343,10 +343,11 @@ const structuredData = [
           </p>
           <h2 class="section-title" id="state-live-picks-title">Best {stateGroup.name} routes today</h2>
         </div>
-        <p class="muted river-group-page__section-note" data-state-live-status>
+        <p class="muted river-group-page__section-note" data-state-live-status role="status" aria-live="polite" tabindex="-1">
           Loading current scores, gauge reads, and weather signals.
         </p>
       </div>
+      <button class="filter-chip filter-chip--quiet" type="button" data-state-live-retry hidden>Retry live conditions</button>
       <div class="state-live-picks__grid" data-state-live-list>
         {bestRoutes.slice(0, 4).map((route) => (
           <article class="state-live-card state-live-card--static">
@@ -360,12 +361,12 @@ const structuredData = [
               <p>{route.reach}</p>
               <span>{routeFacts(route)}</span>
             </div>
-            <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>View route</a>
+            <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`} aria-label={`View route: ${route.name}: ${route.reach}`}>View route</a>
           </article>
         ))}
       </div>
       <p class="muted state-live-picks__note">
-        This panel hydrates from live Paddle Today scores. The route links above remain useful when JavaScript or the score API is unavailable.
+        Current scores load here when available. You can still open the route links to check details and sources if this update fails.
       </p>
     </section>
 
@@ -387,6 +388,7 @@ const structuredData = [
           <article class="route-choice state-route-card">
             <a class="state-route-card__media" href={`/rivers/${route.slug}/`} aria-label={`View ${route.name}: ${route.reach}`}>
               <img src={photo.src} alt={photo.alt} loading="lazy" />
+              <span class="state-route-card__photo-fallback" hidden>Photo unavailable</span>
             </a>
             <div class="state-route-card__body">
               <span class="route-choice__kind">{route.state} route</span>
@@ -405,7 +407,7 @@ const structuredData = [
             </div>
             <div class="route-choice__footer">
               <span class="route-choice__selection">Live score on route page</span>
-              <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>View route</a>
+              <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`} aria-label={`View route: ${route.name}: ${route.reach}`}>View route</a>
             </div>
           </article>
         ))}
@@ -563,7 +565,7 @@ const structuredData = [
           <h2 class="section-title" id="state-all-routes-title">Every {stateGroup.name} route on Paddle Today</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          {stateRouteNames.length} server-rendered route links.
+          {stateRouteNames.length} routes with condition and access details.
         </p>
       </div>
       <form class="state-route-filters" data-state-route-filters aria-label={`${stateGroup.name} route filters`}>
@@ -594,13 +596,13 @@ const structuredData = [
           <span class="sr-only">Filter by route type</span>
           <select class="filter-select__input" name="routeType" data-state-filter="routeType">
             <option value="">All route types</option>
-            <option value="flatwater">Flatwater / moving water</option>
+            <option value="recreational">Flatwater / moving water</option>
             <option value="whitewater">Whitewater</option>
           </select>
         </label>
         <button class="filter-chip filter-chip--quiet" type="reset" data-state-filter-reset>Reset</button>
       </form>
-      <p class="muted state-route-filter-status" data-state-filter-status>
+      <p class="muted state-route-filter-status" data-state-filter-status role="status" aria-live="polite" aria-atomic="true">
         Showing all {stateRouteCount} {routeLabel}.
       </p>
       <div class="state-route-list state-route-list--all" data-state-route-list>
@@ -613,7 +615,7 @@ const structuredData = [
             data-difficulty={route.profile.difficulty}
             data-region={route.region}
             data-river={route.riverId}
-            data-route-type={route.routeType ?? 'flatwater'}
+            data-route-type={route.routeType ?? 'recreational'}
           >
             <span>
               <strong>{route.name}</strong>

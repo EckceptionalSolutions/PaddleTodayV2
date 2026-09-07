@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   getStoredRiverSummarySnapshot,
+  getStoredWeekendSummarySnapshot,
+  getStoredRiverGroupSnapshot,
   isStoredSnapshotFresh,
   storedSnapshotMetadata,
 } from './river-snapshots';
@@ -61,4 +63,30 @@ describe('stored river snapshot freshness', () => {
     expect(snapshot?.rivers[0]?.liveData.summary).toContain('latest successful Paddle Today snapshot');
     expect(snapshot?.rivers.every((item) => Boolean(getRiverBySlug(item.river.slug)))).toBe(true);
   });
+  it('serves an allowed stale Weekend snapshot without requiring a summary-only readiness field', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
+    await expect(getStoredWeekendSummarySnapshot()).resolves.toBeNull();
+    const snapshot = await getStoredWeekendSummarySnapshot({ allowStale: true });
+    expect(snapshot?.snapshotStatus).toBe('stale');
+    expect(snapshot?.rivers.length).toBeGreaterThan(0);
+    expect(snapshot?.rivers[0].liveData.summary).toContain('latest successful Paddle Today snapshot');
+    expect(snapshot?.rivers[0].liveData.overall).not.toBe('live');
+    expect(snapshot?.rivers[0].weekend.label).toBeTruthy();
+  });
+
+  it('keeps difficulty choices and gauge metrics when rebuilding a river group from summary data', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2027-01-01T00:00:00.000Z'));
+    const summary = await getStoredRiverSummarySnapshot({ allowStale: true });
+    const riverId = summary?.rivers[0].river.riverId;
+    expect(riverId).toBeTruthy();
+    const snapshot = await getStoredRiverGroupSnapshot(riverId!, { allowStale: true });
+    expect(snapshot?.result.routes.length).toBeGreaterThan(0);
+    for (const route of snapshot!.result.routes) {
+      expect(snapshot!.result.group.difficultyOptions).toContain(route.river.profile.difficulty);
+      expect(route.river.gaugeSource.metric).toBe(getRiverBySlug(route.river.slug)!.gaugeSource.metric);
+    }
+  });
+
 });

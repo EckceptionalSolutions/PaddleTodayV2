@@ -239,7 +239,7 @@ async function getCachedWeatherSnapshot(river: River) {
   });
 }
 
-function enrichRiver(river: River): River {
+function enrichRiver(river: River): River & { riverId: string } {
   const tripDetails = riverTripDetails[river.id];
   const enriched = tripDetails ? { ...river, ...tripDetails } : river;
   const putInCoordinates = getValidAccessCoordinates(enriched.putIn);

@@ -12,7 +12,8 @@ export async function hasCompletedWelcome() {
 export async function completeWelcome(options: { trackFirstRouteOpen?: boolean } = {}) {
   const writes = [AsyncStorage.setItem(WELCOME_COMPLETED_STORAGE_KEY, '1')];
   if (options.trackFirstRouteOpen) {
-    writes.push(AsyncStorage.setItem(FIRST_ROUTE_OPEN_PENDING_KEY, '1'));
+    // Analytics metadata must not prevent entering the app after progress saves.
+    writes.push(AsyncStorage.setItem(FIRST_ROUTE_OPEN_PENDING_KEY, '1').catch(() => {}));
   }
   await Promise.all(writes);
 }
@@ -22,19 +23,27 @@ export async function resetWelcome() {
 }
 
 export async function migrateOnboardingStorage() {
-  if ((await AsyncStorage.getItem(ONBOARDING_STORAGE_MIGRATED_KEY)) === '1') {
-    return;
-  }
+  try {
+    if ((await AsyncStorage.getItem(ONBOARDING_STORAGE_MIGRATED_KEY)) === '1') {
+      return;
+    }
 
-  await AsyncStorage.multiRemove([LEGACY_TRIP_INTENT_STORAGE_KEY]);
-  await AsyncStorage.setItem(ONBOARDING_STORAGE_MIGRATED_KEY, '1');
+    await AsyncStorage.multiRemove([LEGACY_TRIP_INTENT_STORAGE_KEY]);
+    await AsyncStorage.setItem(ONBOARDING_STORAGE_MIGRATED_KEY, '1');
+  } catch {
+    // This only removes obsolete preferences. Retry on the next launch.
+  }
 }
 
 export async function consumeFirstRouteOpenPending() {
-  if ((await AsyncStorage.getItem(FIRST_ROUTE_OPEN_PENDING_KEY)) !== '1') {
+  try {
+    if ((await AsyncStorage.getItem(FIRST_ROUTE_OPEN_PENDING_KEY)) !== '1') {
+      return false;
+    }
+
+    await AsyncStorage.removeItem(FIRST_ROUTE_OPEN_PENDING_KEY);
+    return true;
+  } catch {
     return false;
   }
-
-  await AsyncStorage.removeItem(FIRST_ROUTE_OPEN_PENDING_KEY);
-  return true;
 }

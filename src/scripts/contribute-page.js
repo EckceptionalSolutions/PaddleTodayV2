@@ -1,9 +1,10 @@
 import { getBrowserApiClient } from './browser-api-client.js';
+import { createSubmissionCooldown } from './submission-cooldown.js';
 
 const CONTRIBUTE_MAX_FILES = 12;
 const CONTRIBUTE_MAX_BYTES = 4 * 1024 * 1024;
 const CONTRIBUTE_ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
-const CONTRIBUTE_COOLDOWN_MS = 30 * 1000;
+const cooldown = createSubmissionCooldown('contribute-photo-cooldown');
 
 const form = document.querySelector('[data-contribute-form]');
 const nameInput = document.querySelector('[data-contribute-name]');
@@ -22,6 +23,7 @@ const uploadList = document.querySelector('[data-contribute-upload-list]');
 const uploadGrid = document.querySelector('[data-contribute-upload-grid]');
 
 let selectedUploads = [];
+let submitting = false;
 
 function prefillRouteFromQuery() {
   if (!(routeSelect instanceof HTMLSelectElement)) return;
@@ -43,9 +45,12 @@ function setStatus(message, tone = '') {
   statusNode.classList.toggle('route-photo-form__status--error', tone === 'error');
 }
 
-function setSubmitting(submitting) {
+function setSubmitting(pending) {
+  submitting = pending;
+  form?.setAttribute('aria-busy', String(pending));
   if (submitButton instanceof HTMLButtonElement) {
-    submitButton.disabled = submitting;
+    submitButton.disabled = pending;
+    submitButton.textContent = pending ? 'Uploading...' : 'Upload photos';
   }
 }
 
@@ -204,10 +209,9 @@ if (
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (submitting) return;
 
-    const nowTs = Date.now();
-    const lastTs = Number(window.localStorage.getItem('contribute-photo-cooldown') || '0');
-    if (Number.isFinite(lastTs) && nowTs - lastTs < CONTRIBUTE_COOLDOWN_MS) {
+    if (cooldown.isActive()) {
       setStatus('Please wait a few seconds before uploading more photos.', 'error');
       return;
     }
@@ -270,7 +274,7 @@ if (
         }))
       );
 
-      await getBrowserApiClient().createRouteContribution({
+      const response = await getBrowserApiClient().createRouteContribution({
         riverSlug,
         contributorName,
         contributorEmail,
@@ -284,7 +288,8 @@ if (
         files,
       });
 
-      window.localStorage.setItem('contribute-photo-cooldown', String(nowTs));
+      if (response.stored !== true) throw new Error('Your photos were not received. Please try again.');
+      cooldown.recordSuccess();
       form.reset();
       clearPreviews();
       summarizeSelection();

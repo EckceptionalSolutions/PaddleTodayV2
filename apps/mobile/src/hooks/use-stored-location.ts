@@ -1,7 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
-import { createContext, createElement, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
-import type { StoredLocation } from '../lib/location';
+import { createContext, createElement, useCallback, useContext, useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
+import { hasValidLocationCoordinates, type StoredLocation } from '../lib/location';
+import { createLocationRequest } from '../lib/location-request';
 import { isRecord, parseJson } from '../lib/storage';
 
 const STORAGE_KEY = 'paddletoday:user-location';
@@ -20,6 +21,7 @@ interface StoredLocationContextValue {
   requestLocation: () => Promise<LocationRequestResult>;
   setLocationFromQuery: (query: string) => Promise<StoredLocation | null>;
   clearLocation: () => Promise<void>;
+  cancelLocationRequest: () => void;
 }
 
 const StoredLocationContext = createContext<StoredLocationContextValue | null>(null);
@@ -27,10 +29,14 @@ const StoredLocationContext = createContext<StoredLocationContextValue | null>(n
 export function StoredLocationProvider({ children }: PropsWithChildren) {
   const [location, setLocation] = useState<StoredLocation | null>(null);
   const [status, setStatus] = useState<LocationStatus>('loading');
+  const activeRequest = useRef<ReturnType<typeof createLocationRequest> | null>(null);
+  const revision = useRef(0);
 
   const hydrateLocation = useCallback(async () => {
+    const initialRevision = revision.current;
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
+      if (revision.current !== initialRevision) return;
       const parsed = parseJson(raw);
       if (isStoredLocation(parsed)) {
         setLocation(parsed);
@@ -41,18 +47,40 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
       // Ignore corrupt local state and fall through to idle.
     }
 
-    setStatus('idle');
+    if (revision.current === initialRevision) setStatus('idle');
   }, []);
 
   useEffect(() => {
     void hydrateLocation();
+    return () => {
+      revision.current += 1;
+      activeRequest.current?.cancel();
+      activeRequest.current = null;
+    };
   }, [hydrateLocation]);
 
-  const requestLocation = useCallback(async (): Promise<LocationRequestResult> => {
+  const beginRequest = useCallback(() => {
+    activeRequest.current?.cancel();
+    revision.current += 1;
+    const request = createLocationRequest();
+    activeRequest.current = request;
     setStatus('requesting');
+    return request;
+  }, []);
+
+  const cancelLocationRequest = useCallback(() => {
+    activeRequest.current?.cancel();
+    activeRequest.current = null;
+    revision.current += 1;
+    setStatus(location ? 'ready' : 'idle');
+  }, [location]);
+
+  const requestLocation = useCallback(async (): Promise<LocationRequestResult> => {
+    const request = beginRequest();
 
     try {
-      const permission = await Location.requestForegroundPermissionsAsync();
+      const permission = await request.run(Location.requestForegroundPermissionsAsync());
+      if (activeRequest.current !== request) return { location: null, permission: 'error', canAskAgain: true };
       if (permission.status !== 'granted') {
         setStatus('denied');
         return {
@@ -62,11 +90,13 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
         };
       }
 
-      const reading = await Location.getCurrentPositionAsync({
+      const reading = await request.run(Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Balanced,
-      });
+      }));
+      if (!hasValidLocationCoordinates(reading.coords)) throw new Error('Invalid device coordinates');
 
-      const label = await reverseGeocodeLabel(reading.coords.latitude, reading.coords.longitude);
+      const label = await request.run(reverseGeocodeLabel(reading.coords.latitude, reading.coords.longitude));
+      if (activeRequest.current !== request) return { location: null, permission: 'error', canAskAgain: true };
       const nextLocation: StoredLocation = {
         latitude: reading.coords.latitude,
         longitude: reading.coords.longitude,
@@ -76,21 +106,24 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
 
       setLocation(nextLocation);
       setStatus('ready');
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation));
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation)).catch(() => undefined);
       return {
         location: nextLocation,
         permission: 'granted',
         canAskAgain: permission.canAskAgain,
       };
     } catch {
-      setStatus('error');
+      if (activeRequest.current === request) setStatus(location ? 'ready' : 'error');
       return {
         location: null,
         permission: 'error',
         canAskAgain: true,
       };
+    } finally {
+      request.finish();
+      if (activeRequest.current === request) activeRequest.current = null;
     }
-  }, []);
+  }, [beginRequest, location]);
 
   const setLocationFromQuery = useCallback(async (query: string) => {
     const cleanQuery = query.trim();
@@ -98,19 +131,21 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
       return null;
     }
 
-    setStatus('requesting');
+    const request = beginRequest();
 
     try {
-      const remoteResult = await geocodeWithOpenMeteo(cleanQuery);
-      const [result] = remoteResult ? [remoteResult] : await Location.geocodeAsync(cleanQuery);
-      if (!result) {
+      const remoteResult = await request.run(geocodeWithOpenMeteo(cleanQuery, request.signal));
+      const [result] = remoteResult ? [remoteResult] : await request.run(Location.geocodeAsync(cleanQuery));
+      if (activeRequest.current !== request) return null;
+      if (!hasValidLocationCoordinates(result)) {
         setStatus(location ? 'ready' : 'idle');
         return null;
       }
 
       const resolvedLabel = 'label' in result && typeof result.label === 'string'
         ? result.label
-        : await reverseGeocodeLabel(result.latitude, result.longitude);
+        : await request.run(reverseGeocodeLabel(result.latitude, result.longitude));
+      if (activeRequest.current !== request) return null;
       const nextLocation: StoredLocation = {
         latitude: result.latitude,
         longitude: result.longitude,
@@ -120,36 +155,42 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
 
       setLocation(nextLocation);
       setStatus('ready');
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation));
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation)).catch(() => undefined);
       return nextLocation;
     } catch {
-      setStatus(location ? 'ready' : 'error');
+      if (activeRequest.current === request) setStatus(location ? 'ready' : 'error');
       return null;
+    } finally {
+      request.finish();
+      if (activeRequest.current === request) activeRequest.current = null;
     }
-  }, [location]);
+  }, [beginRequest, location]);
 
   const clearLocation = useCallback(async () => {
+    activeRequest.current?.cancel();
+    activeRequest.current = null;
+    revision.current += 1;
     setLocation(null);
     setStatus('idle');
-    await AsyncStorage.removeItem(STORAGE_KEY);
+    await AsyncStorage.removeItem(STORAGE_KEY).catch(() => undefined);
   }, []);
 
   const value = useMemo(
-    () => ({ location, status, requestLocation, setLocationFromQuery, clearLocation }),
-    [location, status, requestLocation, setLocationFromQuery, clearLocation]
+    () => ({ location, status, requestLocation, setLocationFromQuery, clearLocation, cancelLocationRequest }),
+    [location, status, requestLocation, setLocationFromQuery, clearLocation, cancelLocationRequest]
   );
 
   return createElement(StoredLocationContext.Provider, { value }, children);
 }
 
-async function geocodeWithOpenMeteo(query: string): Promise<{
+async function geocodeWithOpenMeteo(query: string, signal: AbortSignal): Promise<{
   latitude: number;
   longitude: number;
   label: string;
 } | null> {
   const response = await fetch(
     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
-    { headers: { accept: 'application/json' } }
+    { headers: { accept: 'application/json' }, signal }
   );
   if (!response.ok) {
     return null;
@@ -185,9 +226,8 @@ function isGeocodeCandidate(value: unknown): value is {
 } {
   return (
     isRecord(value) &&
-    typeof value.latitude === 'number' &&
-    typeof value.longitude === 'number' &&
-    typeof value.name === 'string'
+    typeof value.name === 'string' &&
+    hasValidLocationCoordinates(value)
   );
 }
 
@@ -201,8 +241,9 @@ export function useStoredLocation() {
 }
 
 async function reverseGeocodeLabel(latitude: number, longitude: number) {
+  const lookup = createLocationRequest(4_000);
   try {
-    const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
+    const [place] = await lookup.run(Location.reverseGeocodeAsync({ latitude, longitude }));
     const city = place?.city || place?.subregion || place?.district || place?.name;
     const region = place?.region || place?.country;
     if (city && region) {
@@ -213,6 +254,8 @@ async function reverseGeocodeLabel(latitude: number, longitude: number) {
     }
   } catch {
     // Fall back to a simple label below.
+  } finally {
+    lookup.finish();
   }
 
   return 'Current location';
@@ -221,8 +264,7 @@ async function reverseGeocodeLabel(latitude: number, longitude: number) {
 function isStoredLocation(value: unknown): value is StoredLocation {
   return (
     isRecord(value) &&
-    typeof value.latitude === 'number' &&
-    typeof value.longitude === 'number' &&
-    typeof value.label === 'string'
+    typeof value.label === 'string' &&
+    hasValidLocationCoordinates(value)
   );
 }

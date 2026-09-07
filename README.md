@@ -88,6 +88,20 @@ existing test checks followed by `build:app`, so type checking runs once. Standa
 `npm test` and `npm run build` retain their existing checks. Use
 `npm run operations:verify` when evidence, safety, and rollback gates are also required.
 
+For focused verification, `npm run test:workspaces` runs the root and all shared
+package/mobile unit suites. `npm run typecheck` includes runtime TypeScript under
+`src`, route data, shared packages, mobile, and generated-data checks;
+`npm run typecheck:runtime` checks just the runtime TypeScript. These commands do
+not run browser interaction tests.
+
+Run `npm run test:mobile:web` for the mobile browser suite. It starts Expo on port
+8082 and uses mocked API responses in Chromium. To run one flow, use
+`npm run test:mobile:web -- tests/mobile-web/saved-notes.spec.ts`.
+Native permission prompts, camera, calendar, and device sharing still need device
+verification. For website recovery checks, build first if no local site is running,
+then run `npx playwright test tests/visual/favorites-recovery.spec.ts`; the website
+harness reuses port 4323 or starts the built preview there.
+
 Run `npm run operations:brief` for an actionable operations summary. It reads local
 reports and recent GitHub Actions runs using the authenticated `gh` CLI, writes
 `.local/operations/daily-brief.md` and `.json`, and remembers task lanes for the next

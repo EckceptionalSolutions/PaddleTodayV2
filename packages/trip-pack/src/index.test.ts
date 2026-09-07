@@ -64,6 +64,8 @@ describe('trip pack serializers', () => {
 
   it('shares the same segment-time estimate used by planning', () => {
     expect(estimateSegmentDurationMinutes('12.5 mi', 'About 4 to 6 hr', 6.25)).toEqual({ min: 120, max: 180 });
+    expect(estimateSegmentDurationMinutes('10 mi', 'About 2 hr 30 min to 4 hr', 5)).toEqual({ min: 75, max: 120 });
+    expect(estimateSegmentDurationMinutes('4 mi', 'About 30–90 minutes', 4)).toEqual({ min: 30, max: 90 });
   });
 
   it('creates safe, portable filenames', () => {

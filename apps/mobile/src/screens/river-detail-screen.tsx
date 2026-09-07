@@ -8,6 +8,7 @@ import {
   callLabelForDecision,
   formatHourlyWeatherLabel,
   routeAccessPoints,
+  parsePaddleTimeHours,
   signedPoints,
   type ApprovedCommunityPhoto,
   type ApprovedTripReport,
@@ -40,6 +41,7 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  TextInput,
   useWindowDimensions,
   ViewStyle,
   View,
@@ -56,9 +58,10 @@ import {
 } from '../api/queries';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
-import { AppErrorState } from '../components/app-state';
+import { AppErrorState, AppRefreshNotice } from '../components/app-state';
 import { QualityPill, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
+import { RoutePhotoFallback } from '../components/route-photo-fallback';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RouteDirectionActions } from '../components/route-direction-actions';
 import { PrepareTripSheet } from '../components/prepare-trip-sheet';
@@ -72,6 +75,7 @@ import {
   callForRating,
   qualityForRating,
   formatGaugeValue,
+  formatPaddleTimeRange,
   formatPercent,
   formatTemperature,
   formatTimestamp,
@@ -142,6 +146,7 @@ export default function RiverDetailScreen() {
   const pendingSectionScrollRef = useRef<DetailSection | null>(null);
   const [alertStatus, setAlertStatus] = useState('');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
+  const alertSubmissionInFlight = useRef(false);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
   const [reportDate, setReportDate] = useState('');
@@ -155,7 +160,18 @@ export default function RiverDetailScreen() {
   const [reportPhotoRights, setReportPhotoRights] = useState(false);
   const [reportConsent, setReportConsent] = useState(false);
   const [reportStatus, setReportStatus] = useState('We review reports before publishing.');
+  const [reportSubmitting, setReportSubmitting] = useState(false);
+  const reportSubmissionInFlight = useRef(false);
+  const [reportPickingPhotos, setReportPickingPhotos] = useState(false);
+  const reportPickerInFlight = useRef(false);
   const [shareStatus, setShareStatus] = useState('');
+  const [communityRetrying, setCommunityRetrying] = useState(false);
+  const communityRetryInFlight = useRef(false);
+  const [historyRetrying, setHistoryRetrying] = useState(false);
+  const historyRetryInFlight = useRef(false);
+  const [sharePending, setSharePending] = useState(false);
+  const [shareCopy, setShareCopy] = useState('');
+  const shareRequest = useRef<object | null>(null);
   const [activeSection, setActiveSection] = useState<DetailSection>('Today');
   const [sectionTabsFloating, setSectionTabsFloating] = useState(false);
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
@@ -163,6 +179,14 @@ export default function RiverDetailScreen() {
   const [prepareTripVisible, setPrepareTripVisible] = useState(false);
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
+
+  useEffect(() => {
+    shareRequest.current = null;
+    setSharePending(false);
+    setShareStatus('');
+    setShareCopy('');
+    return () => { shareRequest.current = null; };
+  }, [slug, selectedPutInId, selectedTakeOutId]);
 
   const geometryQuery = useRiverGeometryQuery(slug, activeSection === 'Access' || prepareTripVisible);
   const historyQuery = useRiverHistoryQuery(slug, 7, activeSection === 'More');
@@ -282,12 +306,25 @@ export default function RiverDetailScreen() {
     );
   }
 
+  if (!detail && detailQuery.error instanceof PaddleTodayApiError && detailQuery.error.status === 404) {
+    return (
+      <AppErrorState
+        title="Route not found"
+        body="This route may have moved or is no longer available. Explore current routes to choose another trip."
+        icon="map-marker-question-outline"
+        actionLabel="Explore routes"
+        onRetry={() => router.replace('/explore')}
+      />
+    );
+  }
+
   if (detailQuery.isError && !detail) {
     return (
       <AppErrorState
         title="We couldn't load this route"
         body="Check your connection, then try again."
         detail={resolveApiUrl(`/api/rivers/${slug}.json`)}
+        retrying={detailQuery.isFetching}
         onRetry={() => detailQuery.refetch()}
       />
     );
@@ -318,6 +355,8 @@ export default function RiverDetailScreen() {
   }
 
   async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
+    if (alertSubmissionInFlight.current) return;
+    alertSubmissionInFlight.current = true;
     setPendingThreshold(threshold);
     try {
       trackAppEvent('native_alert_create_started', {
@@ -358,16 +397,21 @@ export default function RiverDetailScreen() {
           : `Could not save the ${alertThresholdLabel(threshold)} phone alert right now.`
       );
     } finally {
+      alertSubmissionInFlight.current = false;
       setPendingThreshold(null);
     }
   }
 
   async function shareRouteCall() {
-    if (!detail) {
+    if (!detail || shareRequest.current) {
       return;
     }
 
     const message = buildRouteShareMessage(detail, selectedPutIn, selectedTakeOut);
+    const request = {};
+    shareRequest.current = request;
+    setSharePending(true);
+    setShareCopy('');
     setShareStatus(isPlanningRoute ? 'Opening share sheet with planning details and access links.' : 'Opening share sheet with score, reason, and access links.');
     trackAppEvent('route_share_started', {
       slug: riverSlug,
@@ -377,23 +421,38 @@ export default function RiverDetailScreen() {
       take_out_id: selectedTakeOut?.id,
     });
     try {
-      await Share.share({
+      const result = await Share.share({
         title: `${detail.river.name} - ${detail.river.reach}`,
         message,
       });
-      setShareStatus(isPlanningRoute ? 'Shared planning details, access links, and safety reminder.' : 'Shared score, reason, access links, and safety reminder.');
-    } catch {
-      setShareStatus('Share sheet unavailable here. Route summary is ready from this screen.');
+      if (shareRequest.current !== request) return;
+      setShareStatus(result?.action === Share.dismissedAction ? 'Sharing cancelled.' : 'Route summary ready to share.');
+    } catch (error) {
+      if (shareRequest.current !== request) return;
+      if (error instanceof Error && error.name === 'AbortError') {
+        setShareStatus('Sharing cancelled.');
+      } else {
+        setShareStatus('Sharing is unavailable. You can copy the route summary below.');
+        setShareCopy(message);
+      }
+    } finally {
+      if (shareRequest.current === request) {
+        shareRequest.current = null;
+        setSharePending(false);
+      }
     }
   }
 
   async function pickReportPhotos() {
+    if (reportPickerInFlight.current || reportSubmissionInFlight.current) return;
     const remainingSlots = ROUTE_REPORT_MAX_PHOTOS - reportPhotos.length;
     if (remainingSlots <= 0) {
       setReportStatus(`You can attach up to ${ROUTE_REPORT_MAX_PHOTOS} photos per report.`);
       return;
     }
 
+    reportPickerInFlight.current = true;
+    setReportPickingPhotos(true);
     try {
       const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!permission.granted) {
@@ -438,10 +497,14 @@ export default function RiverDetailScreen() {
       }
     } catch {
       setReportStatus('Photos could not be opened. You can still send a text-only report.');
+    } finally {
+      reportPickerInFlight.current = false;
+      setReportPickingPhotos(false);
     }
   }
 
   function removeReportPhoto(id: string) {
+    if (reportSubmissionInFlight.current) return;
     setReportPhotos((current) => current.filter((photo) => photo.id !== id));
   }
 
@@ -483,23 +546,24 @@ export default function RiverDetailScreen() {
   }
 
   async function submitRouteReport() {
+    if (reportSubmissionInFlight.current || reportPickerInFlight.current) return;
     const contributorName = reportName.trim();
     const contributorEmail = reportEmail.trim().toLowerCase();
     const tripReport = reportText.trim();
 
     if (contributorName.length < 2) {
       setReportStatus('Add your name or paddling handle.');
-      return;
+      return 'name' as const;
     }
 
     if (!isValidEmailAddress(contributorEmail)) {
       setReportStatus('Enter a valid email address for follow-up questions.');
-      return;
+      return 'email' as const;
     }
 
     if (tripReport.length < 12 && reportPhotos.length === 0) {
       setReportStatus('Add at least a sentence or attach route photos.');
-      return;
+      return 'report' as const;
     }
 
     if (!reportWaterLevel || !reportCompletion || !reportVerdict) {
@@ -517,6 +581,8 @@ export default function RiverDetailScreen() {
       return;
     }
 
+    reportSubmissionInFlight.current = true;
+    setReportSubmitting(true);
     try {
       setReportStatus('Sending route report...');
       trackAppEvent('route_report_submitted', {
@@ -569,7 +635,6 @@ export default function RiverDetailScreen() {
       setReportPhotoRights(false);
       setReportConsent(false);
       setReportStatus('Thank you. Your report was sent for review.');
-      setReportSheetVisible(false);
       void communityQuery.refetch();
     } catch (error) {
       captureAppException(error, {
@@ -585,6 +650,9 @@ export default function RiverDetailScreen() {
           ? error.message
           : 'Could not send this route report right now.'
       );
+    } finally {
+      reportSubmissionInFlight.current = false;
+      setReportSubmitting(false);
     }
   }
 
@@ -614,6 +682,14 @@ export default function RiverDetailScreen() {
           />
         }
       >
+        <AppRefreshNotice
+          isError={detailQuery.isError}
+          retrying={detailQuery.isFetching}
+          dataUpdatedAt={detailQuery.dataUpdatedAt}
+          label="Showing the last available route details. Check current conditions before launching."
+          actionLabel="Retry route details"
+          onRetry={() => void detailQuery.refetch()}
+        />
         <RoutePhotoCard
           river={detail.river}
           height={108}
@@ -643,7 +719,7 @@ export default function RiverDetailScreen() {
               <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
                 <View style={styles.heroTitleCopy}>
                   <Text style={styles.kicker}>{detail.river.name}</Text>
-                  <Text testID="route-detail-title" style={styles.title}>{detail.river.reach}</Text>
+                  <Text accessibilityRole="header" testID="route-detail-title" style={styles.title}>{detail.river.reach}</Text>
                 </View>
                 <View style={styles.heroActions}>
                   {!isPlanningRoute ? (
@@ -660,9 +736,11 @@ export default function RiverDetailScreen() {
                   <HeroIconButton
                     icon="share-variant-outline"
                     accessibilityLabel="Share route"
+                    pending={sharePending}
                     onPress={() => void shareRouteCall()}
                   />
                   <SaveToggleButton
+                    routeLabel={`${detail.river.name}: ${detail.river.reach}`}
                     compact
                     primary
                     saved={isSaved(detail.river.slug)}
@@ -685,7 +763,8 @@ export default function RiverDetailScreen() {
                 {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <QualityPill rating={detail.rating} />}
                 {!isPlanningRoute ? <StatusPill status={effectiveLiveData.overall} /> : null}
               </View>
-              {shareStatus ? <Text style={styles.shareStatus}>{shareStatus}</Text> : null}
+              {shareStatus ? <Text accessibilityLiveRegion="polite" style={styles.shareStatus}>{shareStatus}</Text> : null}
+              {shareCopy ? <TextInput accessibilityLabel="Route summary to copy" value={shareCopy} editable={false} multiline autoFocus selectTextOnFocus style={styles.shareCopy} /> : null}
             </View>
           </View>
           {isPlanningRoute ? (
@@ -791,11 +870,29 @@ export default function RiverDetailScreen() {
               subtitle={
                 communityReports.length > 0
                   ? `${communityReports.length} approved reports about the route and access.`
-                  : communityQuery.isLoading
+                  : communityQuery.isError || communityRetrying
+                    ? 'Community reports are unavailable right now.'
+                    : communityQuery.isLoading
                     ? 'Loading approved paddler reports.'
                     : 'No approved reports yet.'
               }
             >
+              <AppRefreshNotice
+                isError={communityQuery.isError || communityRetrying}
+                retrying={communityQuery.isFetching}
+                dataUpdatedAt={communityQuery.dataUpdatedAt}
+                label={community ? 'Showing the last available community update.' : 'Photos and reports could not be loaded. Please try again.'}
+                actionLabel="Retry community reports"
+                onRetry={() => {
+                  if (communityRetryInFlight.current) return;
+                  communityRetryInFlight.current = true;
+                  setCommunityRetrying(true);
+                  void communityQuery.refetch().finally(() => {
+                    communityRetryInFlight.current = false;
+                    setCommunityRetrying(false);
+                  });
+                }}
+              />
               {communityPhotos.length > 0 ? (
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.communityPhotoStrip}>
                   {communityPhotos.slice(0, 6).map((photo) => (
@@ -936,14 +1033,30 @@ export default function RiverDetailScreen() {
               subtitle={
                 historyQuery.isLoading
                   ? 'Loading score history…'
-                  : historyQuery.isError
-                    ? 'Score history could not be loaded. Pull to refresh to try again.'
+                  : historyQuery.isError || historyRetrying
+                    ? 'Score history is unavailable right now.'
                     : history?.latestSnapshotAt
                   ? `Last captured ${formatTimestamp(history.latestSnapshotAt)}`
                   : 'History will fill in as snapshots are captured.'
               }
             >
-              <HistoryBars days={history?.days ?? []} />
+              <AppRefreshNotice
+                isError={historyQuery.isError || historyRetrying}
+                retrying={historyQuery.isFetching}
+                dataUpdatedAt={historyQuery.dataUpdatedAt}
+                label={history ? 'Showing the last available score history.' : 'Score history could not be loaded. Please try again.'}
+                actionLabel="Retry score history"
+                onRetry={() => {
+                  if (historyRetryInFlight.current) return;
+                  historyRetryInFlight.current = true;
+                  setHistoryRetrying(true);
+                  void historyQuery.refetch().finally(() => {
+                    historyRetryInFlight.current = false;
+                    setHistoryRetrying(false);
+                  });
+                }}
+              />
+              {history ? <HistoryBars days={history.days} /> : null}
             </SectionCard>
           </View>
         ) : null}
@@ -1070,7 +1183,8 @@ export default function RiverDetailScreen() {
         maxPhotos={ROUTE_REPORT_MAX_PHOTOS}
         photoRightsConfirmed={reportPhotoRights}
         contactConsentConfirmed={reportConsent}
-        isSubmitting={createContributionMutation.isPending}
+        isSubmitting={reportSubmitting}
+        isPickingPhotos={reportPickingPhotos}
         status={reportStatus}
         onClose={() => setReportSheetVisible(false)}
         onNameChange={setReportName}
@@ -1086,7 +1200,7 @@ export default function RiverDetailScreen() {
         onRemovePhoto={removeReportPhoto}
         onTogglePhotoRights={() => setReportPhotoRights((current) => !current)}
         onToggleContactConsent={() => setReportConsent((current) => !current)}
-        onSubmit={() => void submitRouteReport()}
+        onSubmit={submitRouteReport}
       />
 
       <AlertSetupSheet
@@ -1096,7 +1210,6 @@ export default function RiverDetailScreen() {
         status={alertStatus}
         bottomInset={bottomContentInset}
         pendingThreshold={pendingThreshold}
-        mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
       />
@@ -1126,7 +1239,7 @@ function RouteDetailLoadingState({ river, bottomInset }: {
               <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
                 <View style={styles.heroTitleCopy}>
                   <Text style={styles.kicker}>{river?.name ?? 'Route conditions'}</Text>
-                  <Text testID="route-detail-title" style={styles.title}>{river?.reach ?? 'Loading route'}</Text>
+                  <Text accessibilityRole="header" testID="route-detail-title" style={styles.title}>{river?.reach ?? 'Loading route'}</Text>
                 </View>
                 <View style={styles.heroActions} aria-hidden>
                   {Array.from({ length: actionCount }, (_, index) => (
@@ -1353,6 +1466,7 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
       <Pressable
         accessibilityRole="button"
         accessibilityState={{ expanded }}
+        aria-expanded={expanded}
         accessibilityLabel={expanded ? 'Collapse score explanation' : 'Expand score explanation'}
         onPress={() => setExpanded((current) => !current)}
         style={styles.scoreWhyHeader}
@@ -1551,6 +1665,7 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
         onPress={() => setExpanded((current) => !current)}
         accessibilityRole="button"
         accessibilityState={{ expanded }}
+        aria-expanded={expanded}
         accessibilityLabel={expanded ? 'Collapse safety details' : 'Expand safety details'}
       >
         <MaterialCommunityIcons
@@ -1636,7 +1751,7 @@ function LogisticsPanel({ title, body }: { title: string; body: string }) {
     <View style={styles.logisticsPanel}>
       <View style={styles.logisticsPanelHeader}>
         <LogisticsIcon title={title} />
-        <Text style={styles.logisticsPanelTitle}>{title}</Text>
+        <Text accessibilityRole="header" style={styles.logisticsPanelTitle}>{title}</Text>
       </View>
       <Text style={styles.logisticsPanelText}>{normalizeApiText(body)}</Text>
     </View>
@@ -1660,7 +1775,7 @@ function LogisticsBulletList({
     <View style={[styles.logisticsPanel, tone === 'warning' ? styles.logisticsPanelWarning : null]}>
       <View style={styles.logisticsPanelHeader}>
         <LogisticsIcon title={title} warning={tone === 'warning'} />
-        <Text style={styles.logisticsPanelTitle}>{title}</Text>
+        <Text accessibilityRole="header" style={styles.logisticsPanelTitle}>{title}</Text>
       </View>
       {visibleItems.length > 0 ? (
         <View style={styles.logisticsBulletList}>
@@ -1698,7 +1813,7 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
 
   return (
     <View style={styles.tripPlanningCard}>
-      <Text style={styles.tripPlanningTitle}>Route planning</Text>
+      <Text accessibilityRole="header" style={styles.tripPlanningTitle}>Route planning</Text>
       <View style={styles.tripPlanningRows}>
         {rows.map((row) => (
           <View key={row.label} style={styles.tripPlanningRow}>
@@ -1773,10 +1888,10 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
             {normalizeApiText(point.conditionLabel || 'Mixed')}
           </Text>
           <Text style={styles.weatherMeta}>
-            {formatPercent(point.precipProbability, '0%')} rain
+            {typeof point.precipProbability === 'number' && Number.isFinite(point.precipProbability) ? `${formatPercent(point.precipProbability)} rain` : 'Rain chance unavailable'}
           </Text>
           <Text style={styles.weatherMeta}>
-            {Math.round(point.windMph ?? 0)} mph wind
+            {typeof point.windMph === 'number' && Number.isFinite(point.windMph) ? `${Math.round(point.windMph)} mph wind` : 'Wind unavailable'}
           </Text>
         </View>
       ))}
@@ -1822,8 +1937,8 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
             >
               <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : point.displayLabel}</Text>
               <MaterialCommunityIcons name={riskVisual.icon} color={riskVisual.color} size={18} />
-              <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, '0%')}</Text>
-              <Text style={styles.weatherTimelineWind}>{Math.round(point.windMph ?? 0)} mph</Text>
+              <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, 'Rain chance unavailable')}</Text>
+              <Text style={styles.weatherTimelineWind}>{typeof point.windMph === 'number' && Number.isFinite(point.windMph) ? `${Math.round(point.windMph)} mph` : 'Wind unavailable'}</Text>
             </View>
           );
         })}
@@ -1961,11 +2076,13 @@ function MetricPill({ label, value }: { label: string; value: string }) {
 
 function HeroIconButton({
   icon,
+  pending = false,
   selected = false,
   accessibilityLabel,
   onPress,
 }: {
   icon: string;
+  pending?: boolean;
   selected?: boolean;
   accessibilityLabel: string;
   onPress: () => void;
@@ -1974,6 +2091,9 @@ function HeroIconButton({
     <Pressable
       style={[styles.heroIconButton, selected ? styles.heroIconButtonSelected : null]}
       onPress={onPress}
+      disabled={pending}
+      aria-busy={pending}
+      accessibilityState={{ disabled: pending, busy: pending }}
       hitSlop={10}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel}
@@ -2005,6 +2125,7 @@ function DetailSectionTabs({
             accessibilityRole="button"
             accessibilityLabel={`Show ${section} section`}
             accessibilityState={{ selected }}
+            aria-pressed={selected}
             onPress={() => onSelect(section)}
           >
             <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
@@ -2022,7 +2143,6 @@ function AlertSetupSheet({
   status,
   bottomInset,
   pendingThreshold,
-  mutationPending,
   onClose,
   onNativeAlert,
 }: {
@@ -2032,7 +2152,6 @@ function AlertSetupSheet({
   status: string;
   bottomInset: number;
   pendingThreshold: RiverAlertThreshold | null;
-  mutationPending: boolean;
   onClose: () => void;
   onNativeAlert: (threshold: RiverAlertThreshold) => void;
 }) {
@@ -2044,26 +2163,31 @@ function AlertSetupSheet({
           <View style={styles.alertSheetHeader}>
             <View style={styles.alertSheetTitleWrap}>
               <Text style={styles.alertSheetKicker}>{routeName}</Text>
-              <Text style={styles.alertSheetTitle}>Route alerts</Text>
+              <Text accessibilityRole="header" style={styles.alertSheetTitle}>Route alerts</Text>
               <Text style={styles.alertSheetSubtitle} numberOfLines={2}>
                 Get notified when {routeReach} reaches Good or Strong.
               </Text>
             </View>
-            <Pressable style={styles.alertSheetClose} onPress={onClose} accessibilityLabel="Close route alerts">
+            <Pressable style={styles.alertSheetClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route alerts">
               <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
             </Pressable>
           </View>
 
           <View style={styles.alertSheetSection}>
-            <Text style={styles.alertSheetSectionTitle}>Phone notifications</Text>
+            <Text accessibilityRole="header" style={styles.alertSheetSectionTitle}>Phone notifications</Text>
             <View style={styles.alertButtonRow}>
               {(['good', 'strong'] as const).map((threshold) => {
-                const isPending = pendingThreshold === threshold && mutationPending;
+                const isPending = pendingThreshold === threshold;
+                const busy = pendingThreshold !== null;
                 return (
                   <Pressable
                     key={`native-${threshold}`}
-                    style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
-                    disabled={isPending}
+                    style={[styles.alertButton, busy ? styles.alertButtonDisabled : null]}
+                    disabled={busy}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Phone alert at ${alertThresholdLabel(threshold)}`}
+                    accessibilityState={{ disabled: busy, busy: isPending }}
+                    aria-busy={isPending}
                     onPress={() => onNativeAlert(threshold)}
                   >
                     <MaterialCommunityIcons name="bell-ring-outline" color={colors.surfaceStrong} size={16} />
@@ -2076,7 +2200,7 @@ function AlertSetupSheet({
             </View>
           </View>
 
-          {status ? <Text style={styles.alertStatus}>{status}</Text> : null}
+          {status ? <Text accessibilityLiveRegion="polite" style={styles.alertStatus}>{status}</Text> : null}
         </View>
       </View>
     </Modal>
@@ -2161,7 +2285,7 @@ function AccessPlanner({
       <View style={styles.accessPlannerHeader}>
         <View style={styles.accessPlannerTitleWrap}>
           <Text style={styles.accessPlannerKicker}>Shorten your trip</Text>
-          <Text style={styles.accessPlannerTitle}>Pick a shorter segment</Text>
+          <Text accessibilityRole="header" style={styles.accessPlannerTitle}>Pick a shorter segment</Text>
         </View>
         <View style={styles.accessPlannerDistance}>
           <Text style={styles.accessPlannerDistanceValue}>{distanceLabel}</Text>
@@ -2210,7 +2334,14 @@ function AccessPointSelector({
   return (
     <View style={styles.accessSelector}>
       <Text style={styles.accessSelectorLabel}>{label}</Text>
-      <Pressable style={styles.accessDropdownButton} onPress={() => setOpen(true)}>
+      <Pressable
+        style={styles.accessDropdownButton}
+        onPress={() => setOpen(true)}
+        accessibilityRole="button"
+        accessibilityLabel={`Select ${label}, currently ${selectedPoint?.name ?? 'not selected'}`}
+        accessibilityState={{ expanded: open }}
+        aria-expanded={open}
+      >
         <View style={styles.accessDropdownCopy}>
           <Text style={styles.accessDropdownValue} numberOfLines={2}>
             {selectedPoint?.name ?? 'Select access'}
@@ -2225,18 +2356,22 @@ function AccessPointSelector({
         <Pressable style={styles.accessDropdownBackdrop} onPress={() => setOpen(false)}>
           <Pressable style={styles.accessDropdownSheet}>
             <View style={styles.accessDropdownSheetHeader}>
-              <Text style={styles.accessDropdownSheetTitle}>{label}</Text>
-              <Pressable style={styles.accessDropdownClose} onPress={() => setOpen(false)}>
+              <Text accessibilityRole="header" style={styles.accessDropdownSheetTitle}>{label}</Text>
+              <Pressable style={styles.accessDropdownClose} onPress={() => setOpen(false)} accessibilityRole="button" accessibilityLabel={`Close ${label} selection`}>
                 <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
               </Pressable>
             </View>
             <ScrollView style={styles.accessDropdownList} contentContainerStyle={styles.accessDropdownListContent}>
               {points.map((point) => {
-                const selected = point.id === selectedId;
+                const selected = point.id === selectedPoint?.id;
                 return (
                   <Pressable
                     key={`${label}-${point.id}`}
                     style={[styles.accessDropdownItem, selected ? styles.accessDropdownItemSelected : null]}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${label}: ${point.name}`}
+                    accessibilityState={{ selected }}
+                    aria-pressed={selected}
                     onPress={() => {
                       onSelect(point);
                       setOpen(false);
@@ -2425,44 +2560,6 @@ function parseDistanceMiles(value: string) {
   return Number.isFinite(miles) && miles > 0 ? miles : null;
 }
 
-function parsePaddleTimeHours(value: string) {
-  const numbers = value.match(/\d+(?:\.\d+)?/g)?.map(Number).filter(Number.isFinite) ?? [];
-  if (numbers.length === 0) {
-    return null;
-  }
-
-  const min = numbers[0];
-  const max = numbers[1] ?? numbers[0];
-  return min > 0 && max > 0 ? { min, max: Math.max(min, max) } : null;
-}
-
-function formatPaddleTimeRange(minHours: number, maxHours: number) {
-  const min = Math.max(0.5, roundPaddleHours(minHours));
-  const max = Math.max(min, roundPaddleHours(maxHours));
-
-  if (min === max) {
-    return `About ${formatPaddleHours(min)}`;
-  }
-
-  return `About ${formatPaddleHours(min)} to ${formatPaddleHours(max)}`;
-}
-
-function roundPaddleHours(hours: number) {
-  if (!Number.isFinite(hours)) {
-    return 0.5;
-  }
-
-  return Math.round(hours * 2) / 2;
-}
-
-function formatPaddleHours(hours: number) {
-  if (hours < 1) {
-    return '30 min';
-  }
-
-  return `${hours.toFixed(hours % 1 === 0 ? 0 : 1)} hr`;
-}
-
 function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'detail' | 'hydrograph') {
   trackAppEvent('gauge_source_opened', {
     slug: detail.river.slug,
@@ -2472,46 +2569,21 @@ function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'det
   void openExternalUrl(url, target === 'detail' ? 'Gauge source' : 'Hydrograph');
 }
 
-async function shareRoute(detail: RiverDetailApiResult) {
-  const url = `https://paddletoday.com/rivers/${detail.river.slug}/`;
-  const title = `${detail.river.name}: ${detail.river.reach}`;
-  const message = `${title}\n${callLabelForDecision(detail.rating, detail.readiness.status)} · ${qualityForRating(detail.rating)}\n${url}`;
-
-  try {
-    trackAppEvent('route_share_started', {
-      slug: detail.river.slug,
-      rating: detail.rating,
-    });
-    await Share.share(
-      Platform.select({
-        ios: { title, url },
-        default: { title, message },
-      }) ?? { title, message }
-    );
-    trackAppEvent('route_share_completed', {
-      slug: detail.river.slug,
-    });
-  } catch (error) {
-    captureAppException(error, {
-      name: 'route_share_failed',
-      extra: {
-        slug: detail.river.slug,
-      },
-    });
-  }
-}
-
 function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
   const imageUrl = resolveApiUrl(photo.src);
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const description = normalizeApiText(photo.alt || photo.caption || 'Approved route photo');
 
   return (
     <Pressable
       style={styles.communityPhotoCard}
       onPress={() => void openExternalUrl(imageUrl, 'Community photo')}
       accessibilityRole="button"
-      accessibilityLabel="Open approved community photo"
+      accessibilityLabel={`Open community photo: ${description}`}
     >
-      <Image source={{ uri: imageUrl }} style={styles.communityPhotoImage} resizeMode="cover" />
+      {failedUrl === imageUrl ? (
+        <View style={[styles.communityPhotoImage, { overflow: 'hidden' }]}><RoutePhotoFallback compact label="Photo unavailable" /></View>
+      ) : <Image source={{ uri: imageUrl }} onError={() => setFailedUrl(imageUrl)} style={styles.communityPhotoImage} resizeMode="cover" />}
       <Text style={styles.communityPhotoCaption} numberOfLines={2}>
         {normalizeApiText(photo.caption || 'Approved route photo')}
       </Text>
@@ -2579,6 +2651,9 @@ function mobileHourlyWeatherRiskVisual(risk: HourlyWeatherRisk): {
   icon: keyof typeof MaterialCommunityIcons.glyphMap;
   color: string;
 } {
+  if (risk.kind === 'unknown') {
+    return { icon: 'help-circle-outline', color: colors.textMuted };
+  }
   if (risk.kind === 'storm') {
     return { icon: 'weather-lightning', color: colors.noGo };
   }
@@ -3060,6 +3135,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     fontWeight: '800',
+  },
+  shareCopy: {
+    minHeight: 160,
+    maxHeight: 240,
+    padding: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.sm,
+    backgroundColor: colors.surfaceStrong,
+    color: colors.text,
+    fontSize: 13,
+    textAlignVertical: 'top',
   },
   decisionSummary: {
     backgroundColor: colors.surface,

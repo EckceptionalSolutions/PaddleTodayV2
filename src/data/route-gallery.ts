@@ -870,6 +870,16 @@ const maineExpansionPhotosBySlug: Record<string, RouteGalleryPhoto[]> = Object.f
 );
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'west-canada-creek-partridge-hill-route-28-overlook': [
+    {
+      id: 'west-canada-creek-partridge-hill-route-28-overlook-usgs-context',
+      src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
+      alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York.',
+      caption: 'West Canada Creek at Kast Bridge; same-river gauge context for the upper reach',
+      credit: 'U.S. Geological Survey',
+      takenLabel: 'USGS public domain',
+    },
+  ],
   ...maineExpansionPhotosBySlug,
   'allagash-river-churchill-dam-umsaskis': [{
     id: 'allagash-river-dacf-context',
@@ -4716,7 +4726,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'Lemon Creek tidal channel on Staten Island, New York.',
       caption: 'Lemon Creek tidal channel context',
       credit: 'Jim.henderson via Wikimedia Commons',
-      license: 'Public domain',
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
@@ -4727,7 +4736,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       alt: 'USGS public-domain aerial context of Braddock Bay and the Lake Ontario shoreline in New York.',
       caption: 'Braddock Bay and Lake Ontario aerial route context',
       credit: 'U.S. Geological Survey',
-      license: 'Public domain',
       takenLabel: 'USGS: public domain',
     },
   ],
@@ -8060,16 +8068,6 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'U.S. Geological Survey',
     takenLabel: 'USGS public domain',
   },
-  'west-canada-creek-partridge-hill-route-28-overlook': [
-    {
-      id: 'west-canada-creek-partridge-hill-route-28-overlook-usgs-context',
-      src: 'https://ny.water.usgs.gov/images/StationPictures/01346000.jpg',
-      alt: 'West Canada Creek at the USGS Kast Bridge monitoring station in New York.',
-      caption: 'West Canada Creek at Kast Bridge; same-river gauge context for the upper reach',
-      credit: 'U.S. Geological Survey',
-      takenLabel: 'USGS public domain',
-    },
-  ],
   'south-sandy-creek': {
     id: 'south-sandy-creek-adams-usgs-context',
     src: 'https://ny.water.usgs.gov/images/StationPictures/04250750.jpg',
@@ -8141,14 +8139,6 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     caption: 'Banister River near King’s Bridge; route-level context, not current endpoint conditions',
     credit: 'Discover Halifax / Halifax County Tourism',
     takenLabel: 'Official tourism image; source page credited',
-  },
-  'dan-river': {
-    id: 'dan-river-danville-fso-2026-context',
-    src: 'https://www.danriver.org/content/danriver/events/large/sept-fso-2026.jpg',
-    alt: 'Dan River Basin Association Danville paddle event image for the Dan River.',
-    caption: 'Dan River at Danville; route-level context, not current endpoint conditions',
-    credit: 'Dan River Basin Association',
-    takenLabel: 'Official association event image; source page credited',
   },
   'north-fork-holston': {
     id: 'north-fork-holston-weber-city-noaa-context',

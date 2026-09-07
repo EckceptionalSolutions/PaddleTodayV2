@@ -5,7 +5,7 @@ import { isValidEmailAddress as isValidEmail, type AppFeedbackCategory } from '@
 import { parseContainerSas, putJsonBlob } from '../../lib/blob-storage';
 import { sendFeedbackNotificationEmail } from '../../lib/feedback-email';
 import type { ApiRequest } from '../http';
-import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
+import { clean, readJsonBody, sendRequestBodyErrorResponse, sendJson } from '../http';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 
 const FEEDBACK_CATEGORIES = new Set<AppFeedbackCategory>([
@@ -142,8 +142,8 @@ export async function handleAppFeedback(
       'no-store'
     );
   } catch (error) {
-    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
-    if (bodyLimitResponse) return bodyLimitResponse;
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
 
     console.error('[feedback] request failed', { requestId, error });
     return sendJson(

@@ -14,10 +14,12 @@ export function currentAppVersion() {
   return Constants.expoConfig?.version ?? '0.0.0';
 }
 
-export async function requestAutomaticStoreReview() {
+export async function requestAutomaticStoreReview(isCurrent = () => true) {
   if (!(await StoreReview.isAvailableAsync())) {
     return false;
   }
+
+  if (!isCurrent()) return false;
 
   await StoreReview.requestReview();
   return true;

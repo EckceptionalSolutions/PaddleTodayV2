@@ -12,7 +12,7 @@ import Animated, { cancelAnimation, useAnimatedStyle, useSharedValue, withSpring
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine } from '../lib/route-facts';
-import { callForDecision, qualityForRating } from '../lib/format';
+import { callForDecision, formatPaddleTimeRange, qualityForRating } from '../lib/format';
 import { RoutePhotoCard } from './route-photo-card';
 import { ratingColors } from './rating-pill';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -56,7 +56,8 @@ export function ExploreRouteDrawer({
   const { height: windowHeight } = useWindowDimensions();
   const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round((windowHeight - bottomInset) * 0.86));
   const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, onClose);
-  const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
+  const selectedPutIn = selectedRiver.selectedSegment?.putIn ?? selectedRiver.river.putIn;
+  const selectedDirectionsUrl = mapUrlForAccessPoint(selectedPutIn);
   const full = sheetSnap === 'full';
   const segmentLabel = formatRouteSegmentLabel(selectedRiver.segmentSummary ?? null, selectedRiver.selectedSegment ?? null);
 
@@ -68,6 +69,8 @@ export function ExploreRouteDrawer({
           onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
           accessibilityRole="button"
           accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
+          accessibilityState={{ expanded: full }}
+          aria-expanded={full}
         >
           <View style={styles.mapSheetHandle} />
         </Pressable>
@@ -143,7 +146,7 @@ export function ExploreRouteDrawer({
             disabled={!selectedDirectionsUrl}
             onPress={() => selectedDirectionsUrl ? void openExternalUrl(selectedDirectionsUrl, 'Directions') : undefined}
             accessibilityRole="button"
-            accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
+            accessibilityLabel={`Directions to ${selectedPutIn?.name ?? selectedRiver.river.name} put-in`}
           >
             <MaterialCommunityIcons name="directions" color={selectedDirectionsUrl ? colors.accent : colors.textMuted} size={18} />
             <Text style={[styles.mapDirectionsText, selectedDirectionsUrl ? null : styles.mapDirectionsTextDisabled]} numberOfLines={1}>
@@ -155,6 +158,8 @@ export function ExploreRouteDrawer({
             onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
             accessibilityRole="button"
             accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
+            accessibilityState={{ expanded: full }}
+            aria-expanded={full}
           >
             <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
           </Pressable>
@@ -193,13 +198,15 @@ export function ExploreRouteDrawer({
           <View style={styles.drawerDetailGrid}>
             <DrawerDetailItem
               icon="map-marker-distance"
-              label="Distance"
-              value={selectedRiver.river.distanceLabel || 'Unknown'}
+              label={selectedRiver.selectedSegment ? 'Selected distance' : 'Distance'}
+              value={selectedRiver.selectedSegment ? `${selectedRiver.selectedSegment.distanceMiles.toFixed(1)} mi` : selectedRiver.river.distanceLabel || 'Unknown'}
             />
             <DrawerDetailItem
               icon="clock-outline"
-              label="Paddle time"
-              value={selectedRiver.river.estimatedPaddleTime || 'Unknown'}
+              label={selectedRiver.selectedSegment ? 'Selected paddle time' : 'Paddle time'}
+              value={selectedRiver.selectedSegment
+                ? formatPaddleTimeRange(selectedRiver.selectedSegment.estimatedHours.min, selectedRiver.selectedSegment.estimatedHours.max)
+                : selectedRiver.river.estimatedPaddleTime || 'Unknown'}
             />
             <DrawerDetailItem
               icon="waves"

@@ -120,7 +120,7 @@ function LegalScreen({ kind }: { kind: LegalScreenKind }) {
       >
         <View style={styles.hero}>
           <Text style={styles.kicker}>{copy.kicker}</Text>
-          <Text style={styles.title}>{copy.heading}</Text>
+          <Text accessibilityRole="header" style={styles.title}>{copy.heading}</Text>
           <Text style={styles.updated}>{copy.updated}</Text>
           <Text style={styles.subtitle}>{copy.intro}</Text>
         </View>

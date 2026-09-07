@@ -31,13 +31,16 @@ const requestEmail = 'hello@paddletoday.com';
             name="routeName"
             required
             minlength="3"
+            aria-describedby="request-routeName-error"
             placeholder="Example: St. Croix River - Taylors Falls to Osceola"
           />
+          <span class="request-form__error" id="request-routeName-error" hidden></span>
         </label>
 
         <label>
           State *
-          <input name="state" required placeholder="MN, WI, IA, etc." maxlength="32" autocomplete="address-level1" />
+          <input name="state" required placeholder="MN, WI, IA, etc." maxlength="32" autocomplete="address-level1" aria-describedby="request-state-error" />
+          <span class="request-form__error" id="request-state-error" hidden></span>
         </label>
 
         <details class="request-form__optional">
@@ -74,7 +77,8 @@ const requestEmail = 'hello@paddletoday.com';
 
         <label>
           Your email (optional)
-          <input name="replyEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+          <input name="replyEmail" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="request-replyEmail-error" />
+          <span class="request-form__error" id="request-replyEmail-error" hidden></span>
         </label>
 
         <label class="request-form__hp" aria-hidden="true">

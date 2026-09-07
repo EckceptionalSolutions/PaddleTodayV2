@@ -124,6 +124,8 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
     }
     showActionFeedback(saved ? `${favorite.name || 'Route'} saved.` : `${favorite.name || 'Route'} removed from Saved routes.`, {
       undo: !saved && original ? () => restoreFavorite(original) : undefined,
+      returnFocus: () => button.isConnected ? button : Array.from(document.querySelectorAll(FAVORITE_BUTTON_SELECTOR))
+        .find((candidate) => candidate.dataset.favoriteSlug === favorite.slug),
     });
     refreshFavoriteButtons(root);
     trackEvent('Toggle favorite', {
@@ -147,7 +149,7 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
   };
 
   root.addEventListener('click', clickHandler);
-  subscribeFavorites(() => {
+  const unsubscribe = subscribeFavorites(() => {
     refreshFavoriteButtons(root);
   });
   boundRoots.add(root);
@@ -155,6 +157,7 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
 
   return () => {
     root.removeEventListener('click', clickHandler);
+    unsubscribe();
     boundRoots.delete(root);
   };
 }

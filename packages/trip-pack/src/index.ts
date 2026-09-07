@@ -1,3 +1,6 @@
+import { parsePaddleTimeHours } from '@paddletoday/api-contract';
+export { parsePaddleTimeHours } from '@paddletoday/api-contract';
+
 export interface TripPackAccessPoint {
   id?: string;
   name: string;
@@ -256,14 +259,6 @@ export function parseDistanceMiles(value: string | null | undefined) {
   if (!match) return null;
   const miles = Number(match[1]);
   return Number.isFinite(miles) && miles > 0 ? miles : null;
-}
-
-export function parsePaddleTimeHours(value: string | null | undefined) {
-  const numbers = String(value ?? '').match(/\d+(?:\.\d+)?/g)?.map(Number).filter(Number.isFinite) ?? [];
-  if (numbers.length === 0) return null;
-  const min = numbers[0];
-  const max = numbers[1] ?? numbers[0];
-  return min > 0 && max > 0 ? { min, max: Math.max(min, max) } : null;
 }
 
 export function estimateSegmentDurationMinutes(

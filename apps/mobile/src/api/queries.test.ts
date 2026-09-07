@@ -1,3 +1,4 @@
+import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { QueryClient, QueryObserver } from '@tanstack/react-query';
 import type { RiverDetailResponse } from '@paddletoday/api-contract';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -71,6 +72,21 @@ describe('Explore-to-detail request lifecycle', () => {
     pending.resolve(response('a'));
     await pending.promise;
     expect(queryClient.getQueryData(riverQueryKeys.detail('a'))).toBeUndefined();
+  });
+
+  it('does not retry a confirmed missing route', async () => {
+    const error = new PaddleTodayApiError({ status: 404, message: 'not_found' });
+    vi.mocked(apiClient.getRiverDetail).mockRejectedValue(error);
+    await expect(client().fetchQuery({ ...riverDetailQueryOptions('missing'), retryDelay: 0 })).rejects.toBe(error);
+    expect(apiClient.getRiverDetail).toHaveBeenCalledTimes(1);
+  });
+
+  it('retains one retry for a temporary route failure', async () => {
+    vi.mocked(apiClient.getRiverDetail)
+      .mockRejectedValueOnce(new PaddleTodayApiError({ status: 503, message: 'unavailable' }))
+      .mockResolvedValueOnce(response('a'));
+    expect(await client().fetchQuery({ ...riverDetailQueryOptions('a'), retryDelay: 0 })).toEqual(response('a'));
+    expect(apiClient.getRiverDetail).toHaveBeenCalledTimes(2);
   });
 
   it('revalidates stale cached conditions', async () => {

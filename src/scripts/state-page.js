@@ -38,6 +38,9 @@ const routeDataElement = root.querySelector('[data-state-map-routes]');
 const statePageElement = root.querySelector('[data-state-page]');
 const liveList = root.querySelector('[data-state-live-list]');
 const liveStatus = root.querySelector('[data-state-live-status]');
+const liveRetry = root.querySelector('[data-state-live-retry]');
+const fallbackLiveMarkup = liveList instanceof HTMLElement ? liveList.innerHTML : '';
+let liveRequestPending = false;
 const filterForm = root.querySelector('[data-state-route-filters]');
 const filterStatus = root.querySelector('[data-state-filter-status]');
 const routeItems = Array.from(root.querySelectorAll('[data-state-route-item]'));
@@ -111,7 +114,7 @@ function liveCardMarkup(item) {
         ${facts.length ? `<span>${escapeHtml(facts.join(' | '))}</span>` : ''}
         ${signals.length ? `<small>${escapeHtml(signals.join(' | '))}</small>` : ''}
       </div>
-      <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(river.slug || '')}/">View route</a>
+      <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(river.slug || '')}/" aria-label="View route: ${escapeHtml([river.name, river.reach].filter(Boolean).join(': '))}">View route</a>
     </article>
   `;
 }
@@ -152,7 +155,7 @@ function stateScoreZonePopupMarkup(group) {
         <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, item))}</p>
       </div>
       <p class="score-map-popup__reach">${escapeHtml(river.reach || 'Mapped coverage')}</p>
-      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(river.slug || '')}/">View route</a>
+      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(river.slug || '')}/" aria-label="View route: ${escapeHtml([river.name, river.reach].filter(Boolean).join(': '))}">View route</a>
     </article>
   `;
 }
@@ -160,7 +163,7 @@ function stateScoreZonePopupMarkup(group) {
 function syncStateScoreMarkers() {
   if (!stateMap || !maplibreRuntime || stateLiveResults.length === 0) return;
   const visible = visibleSlugs();
-  const results = stateLiveResults.filter((item) => visible.size === 0 || visible.has(item?.river?.slug));
+  const results = stateLiveResults.filter((item) => visible.has(item?.river?.slug));
   const riverGroups = stateRiverGroups(results);
 
   markers = clearMapMarkers(markers);
@@ -211,13 +214,13 @@ function syncStateScoreMarkers() {
     });
   } else {
     mapStatusController.ready({
-      message: `Showing ${zoneCount} condition ${zoneCount === 1 ? 'zone' : 'zones'} across ${riverGroups.length} supported ${riverGroups.length === 1 ? 'river' : 'rivers'}. Select a zone to highlight its river coverage.`,
+      message: visible.size === 0 ? 'No routes match these filters. Reset the route filters to see all routes.' : `Showing ${zoneCount} condition ${zoneCount === 1 ? 'zone' : 'zones'} across ${riverGroups.length} supported ${riverGroups.length === 1 ? 'river' : 'rivers'}. Select a zone to highlight its river coverage.`,
     });
   }
 }
 
 async function hydrateLivePicks() {
-  if (!(liveList instanceof HTMLElement)) {
+  if (!(liveList instanceof HTMLElement) || liveRequestPending) {
     return;
   }
 
@@ -227,6 +230,13 @@ async function hydrateLivePicks() {
     return;
   }
 
+  liveRequestPending = true;
+  const retryHadFocus = document.activeElement === liveRetry;
+  if (liveRetry instanceof HTMLButtonElement) {
+    liveRetry.disabled = true;
+    liveRetry.setAttribute('aria-busy', 'true');
+  }
+  setText(liveStatus, 'Loading current scores, gauge reads, and weather signals.');
   try {
     const payload = await getBrowserApiClient().getSummary({
       cache: 'no-store',
@@ -238,7 +248,9 @@ async function hydrateLivePicks() {
     syncStateScoreMarkers();
 
     if (routes.length === 0) {
+      liveList.innerHTML = fallbackLiveMarkup;
       setText(liveStatus, `Live scores are unavailable for ${state} right now.`);
+      if (liveRetry instanceof HTMLButtonElement) liveRetry.hidden = false;
       return;
     }
 
@@ -250,9 +262,21 @@ async function hydrateLivePicks() {
         ? `Showing the top ${routes.length} ${state} routes from current scores.`
         : `Showing the top ${routes.length} ${state} routes; some reads may be stale or partial.`
     );
+    if (liveRetry instanceof HTMLButtonElement) {
+      const restoreFocus = retryHadFocus && (document.activeElement === liveRetry || document.activeElement === document.body);
+      liveRetry.hidden = true;
+      if (restoreFocus && liveStatus instanceof HTMLElement) liveStatus.focus();
+    }
   } catch (error) {
     console.error('Failed to load state live picks.', error);
     setText(liveStatus, 'Live scores are unavailable right now. Use the route links and source pages before you go.');
+    if (liveRetry instanceof HTMLButtonElement) liveRetry.hidden = false;
+  } finally {
+    liveRequestPending = false;
+    if (liveRetry instanceof HTMLButtonElement) {
+      liveRetry.disabled = false;
+      liveRetry.setAttribute('aria-busy', 'false');
+    }
   }
 }
 
@@ -629,7 +653,7 @@ function routePopupMarkup(route) {
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       ${route.routeCount > 1 ? `<p class="score-map-popup__summary">${route.routeCount} trip options share this condition zone.</p>` : ''}
-      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
+      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/" aria-label="View route: ${escapeHtml([route.name, route.reach].filter(Boolean).join(': '))}">View route</a>
     </article>
   `;
 }
@@ -675,17 +699,17 @@ function syncCanonicalStateRiverLayer(routes) {
 
 function updateMapVisibility() {
   const visible = visibleSlugs();
-  const visibleRoutes = mapRoutes.filter((route) => visible.size === 0 || visible.has(route.slug));
+  const visibleRoutes = mapRoutes.filter((route) => visible.has(route.slug));
 
   for (const marker of markers) {
     const element = marker.getElement?.();
     if (element instanceof HTMLElement) {
-      element.classList.toggle('state-map-marker--muted', visible.size > 0 && !visible.has(element.dataset.routeSlug));
+      element.hidden = !visible.has(element.dataset.routeSlug);
     }
   }
 
   if (!stateMap) return;
-  if (selectedRouteSlug && visible.size > 0 && !visible.has(selectedRouteSlug)) {
+  if (selectedRouteSlug && !visible.has(selectedRouteSlug)) {
     selectedRouteSlug = '';
     selectedRiverKey = '';
     previewRouteSlug = '';
@@ -714,7 +738,7 @@ function updateMapVisibility() {
 
   const riverCount = new Set(visibleRoutes.map((route) => route.riverId || route.name)).size;
   mapStatusController.ready({
-    message: `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${visibleRoutes.length} ${visibleRoutes.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`,
+    message: visibleRoutes.length === 0 ? 'No routes match these filters. Reset the route filters to see all routes.' : `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${visibleRoutes.length} ${visibleRoutes.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`,
   });
 
   if (stateLiveResults.length > 0) {
@@ -914,7 +938,11 @@ async function renderMap(routes) {
       maxZoom: 11.5,
     });
 
-    await waitForMapReady(stateMap);
+    await waitForMapReady(stateMap, {
+      timeoutMs: 7000,
+      rejectOnError: true,
+      rejectOnTimeout: true,
+    });
 
     mapRoutes = routes;
     const bounds = new maplibregl.LngLatBounds();
@@ -1043,6 +1071,16 @@ async function renderMap(routes) {
     mapStatusController.empty();
   } catch (error) {
     console.error('Failed to render state map.', error);
+    const failedMap = stateMap;
+    stateMap = null;
+    try {
+      markers = clearMapMarkers(markers);
+      activeRoutePopup?.remove();
+      activeRoutePopup = null;
+      failedMap?.remove();
+    } catch (cleanupError) {
+      console.error('Failed to clean up unavailable state map.', cleanupError);
+    }
     mapStatusController.unavailable();
   }
 }
@@ -1090,10 +1128,24 @@ function applyFilters() {
   }
 
   if (filterStatus instanceof HTMLElement) {
-    filterStatus.textContent = `Showing ${visibleCount} of ${routeItems.length} routes.`;
+    filterStatus.textContent = visibleCount === 0 ? 'No routes match these filters. Reset or change a filter to see routes.' : `Showing ${visibleCount} of ${routeItems.length} routes.`;
   }
 
   updateMapVisibility();
+}
+
+function bindRoutePhotoFallbacks() {
+  for (const media of root.querySelectorAll('.state-route-card__media')) {
+    const photo = media.querySelector('img');
+    const fallback = media.querySelector('.state-route-card__photo-fallback');
+    if (!(photo instanceof HTMLImageElement) || !(fallback instanceof HTMLElement)) continue;
+    const showFallback = () => {
+      photo.hidden = true;
+      fallback.hidden = false;
+    };
+    photo.addEventListener('error', showFallback, { once: true });
+    if (photo.complete && photo.naturalWidth === 0) showFallback();
+  }
 }
 
 function bindFilters() {
@@ -1102,6 +1154,7 @@ function bindFilters() {
   }
 
   filterForm.addEventListener('change', applyFilters);
+  filterForm.addEventListener('submit', (event) => event.preventDefault());
   filterForm.addEventListener('reset', () => {
     window.setTimeout(applyFilters, 0);
   });
@@ -1129,6 +1182,7 @@ function bindRouteFocus() {
     trigger.addEventListener('focus', () => setHover(true));
     trigger.addEventListener('blur', () => setHover(false));
     trigger.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || !stateMap) return;
       event.preventDefault();
       selectRoute(slug, { popup: true });
     });
@@ -1148,7 +1202,9 @@ function highlightHashTarget() {
   }, 1800);
 }
 
+bindRoutePhotoFallbacks();
 bindFilters();
+liveRetry?.addEventListener('click', () => void hydrateLivePicks());
 window.addEventListener('hashchange', highlightHashTarget);
 highlightHashTarget();
 hydrateLivePicks();

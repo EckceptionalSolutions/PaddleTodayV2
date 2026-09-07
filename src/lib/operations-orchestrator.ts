@@ -42,7 +42,7 @@ const geographicStateRank: Record<string, number> = {
   NE: 5,
 };
 
-function rankTask(task: OperationsTask) {
+function rankTask(task: OperationsTask): [number, number, number, number, number, string] {
   const isDiscoverySweep = task.id.includes('bounded-discovery-sweep');
   const frontierRank = isDiscoverySweep || task.kind === 'state_coverage' || task.routeOpportunity
     ? (task.frontierTier ?? 50)

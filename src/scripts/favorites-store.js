@@ -39,35 +39,31 @@ export function normalizeFavoriteEntry(input) {
 }
 
 function parseFavorites(raw) {
-  if (!raw) {
-    return [];
-  }
+  if (raw === null) return [];
+  const parsed = JSON.parse(raw);
+  const items = Array.isArray(parsed)
+    ? parsed
+    : parsed?.version === STORAGE_VERSION && Array.isArray(parsed.items)
+      ? parsed.items
+      : null;
+  if (!items) throw new Error('Saved routes could not be read.');
 
-  try {
-    const parsed = JSON.parse(raw);
-    const items = Array.isArray(parsed)
-      ? parsed
-      : parsed?.version === STORAGE_VERSION && Array.isArray(parsed.items)
-        ? parsed.items
-        : [];
-
-    const favoritesBySlug = new Map();
-    for (const item of items) {
-      const normalized = normalizeFavoriteEntry(item);
-      if (!normalized) {
-        continue;
-      }
-
-      const existing = favoritesBySlug.get(normalized.slug);
-      if (!existing || normalized.savedAt >= existing.savedAt) {
-        favoritesBySlug.set(normalized.slug, normalized);
-      }
+  const favoritesBySlug = new Map();
+  for (const item of items) {
+    const normalized = normalizeFavoriteEntry(item);
+    if (!normalized) throw new Error('Saved routes could not be read.');
+    const existing = favoritesBySlug.get(normalized.slug);
+    if (!existing || normalized.savedAt >= existing.savedAt) {
+      favoritesBySlug.set(normalized.slug, normalized);
     }
-
-    return Array.from(favoritesBySlug.values()).sort((left, right) => right.savedAt - left.savedAt);
-  } catch {
-    return [];
   }
+  return Array.from(favoritesBySlug.values()).sort((left, right) => right.savedAt - left.savedAt);
+}
+
+function readFavoritesForUpdate() {
+  const store = storage();
+  if (!store) throw new Error('Browser storage is unavailable.');
+  return parseFavorites(store.getItem(STORAGE_KEY));
 }
 
 function writeFavorites(items) {
@@ -104,30 +100,29 @@ function emitFavoritesChange(favorites) {
   );
 }
 
-export function readFavorites() {
-  const store = storage();
-  if (!store) {
-    return [];
-  }
-
+export function readFavoritesStatus() {
   try {
-    return parseFavorites(store.getItem(STORAGE_KEY));
+    return { favorites: readFavoritesForUpdate(), hasError: false };
   } catch {
-    return [];
+    return { favorites: [], hasError: true };
   }
+}
+
+export function readFavorites() {
+  return readFavoritesStatus().favorites;
 }
 
 export function restoreFavorite(entry) {
   const normalized = normalizeFavoriteEntry(entry);
   if (!normalized) return;
-  const favorites = readFavorites();
+  const favorites = readFavoritesForUpdate();
   if (!favorites.some((item) => item.slug === normalized.slug)) {
     writeFavorites([...favorites, normalized]);
   }
 }
 
 export function updateFavoriteNotes(slug, notes) {
-  const favorites = readFavorites();
+  const favorites = readFavoritesForUpdate();
   const favorite = favorites.find((item) => item.slug === slug);
   if (!favorite) throw new Error('This route is no longer saved. Your note has not been saved.');
   if (typeof notes !== 'string' || notes.length > 2000) throw new Error('Keep your note within 2,000 characters.');
@@ -158,7 +153,7 @@ export function toggleFavorite(entry) {
     return false;
   }
 
-  const favorites = readFavorites();
+  const favorites = readFavoritesForUpdate();
   const index = favorites.findIndex((item) => item.slug === normalized.slug);
   if (index >= 0) {
     favorites.splice(index, 1);
@@ -180,7 +175,7 @@ export function subscribeFavorites(listener) {
     listener(readFavorites());
   };
   const handleStorage = (event) => {
-    if (event.key === STORAGE_KEY) {
+    if (event.key === STORAGE_KEY || event.key === null) {
       listener(readFavorites());
     }
   };

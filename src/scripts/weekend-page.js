@@ -130,6 +130,7 @@ let latestWeekendPayload = null;
 let selectedWeekendFilter = 'all';
 let selectedWeekendDistance = loadStoredWeekendDistance();
 let userLocation = loadStoredWeekendLocation();
+let weekendLocationPending = false;
 let weekendMapRuntime = null;
 let weekendMapMarkers = [];
 let weekendMapRenderVersion = 0;
@@ -218,14 +219,17 @@ function updateWeekendControls(plan) {
       : 'Plan from your location';
   }
   if (weekendLocationHint instanceof HTMLElement) {
-    weekendLocationHint.textContent = userLocation
+    weekendLocationHint.textContent = weekendLocationPending
+      ? 'Finding your location...'
+      : userLocation
       ? 'Drive time is included in the weekend ranking.'
       : 'Use your location to include drive time in the weekend ranking.';
   }
   if (weekendLocationUse instanceof HTMLButtonElement) {
     weekendLocationUse.hidden = Boolean(userLocation);
-    weekendLocationUse.disabled = false;
-    weekendLocationUse.textContent = 'Use my location';
+    weekendLocationUse.disabled = weekendLocationPending;
+    weekendLocationUse.textContent = weekendLocationPending ? 'Finding...' : 'Use my location';
+    weekendLocationUse.setAttribute('aria-busy', String(weekendLocationPending));
   }
   if (weekendLocationClear instanceof HTMLButtonElement) {
     weekendLocationClear.hidden = !userLocation;
@@ -641,7 +645,7 @@ function updateFreshness({ generatedAt = lastGeneratedAt, refreshing = false, fa
   const base =
     typeof generatedAt === 'string' && generatedAt
       ? freshnessLabel(new Date(generatedAt).getTime())
-      : 'Updated recently';
+      : 'Update time unavailable';
 
   if (refreshing && generatedAt) {
     homeFreshness.textContent = `${base}. Refreshing now...`;
@@ -1615,12 +1619,15 @@ for (const button of weekendDistanceButtons) {
 
 if (weekendLocationUse instanceof HTMLButtonElement) {
   weekendLocationUse.addEventListener('click', () => {
+    if (weekendLocationPending) return;
     if (!navigator.geolocation) {
       setText(weekendLocationHint, 'Location is not available in this browser.');
       return;
     }
 
+    weekendLocationPending = true;
     weekendLocationUse.disabled = true;
+    weekendLocationUse.setAttribute('aria-busy', 'true');
     weekendLocationUse.textContent = 'Finding...';
     setText(weekendLocationHint, 'Finding your location...');
 
@@ -1642,13 +1649,19 @@ if (weekendLocationUse instanceof HTMLButtonElement) {
           label,
           source: 'device',
         };
+        weekendLocationPending = false;
+        weekendLocationUse.disabled = false;
+        weekendLocationUse.textContent = 'Use my location';
+        weekendLocationUse.setAttribute('aria-busy', 'false');
         saveWeekendLocation(userLocation);
         if (latestWeekendPayload) {
           renderWeekend(latestWeekendPayload);
         }
       },
       (error) => {
+        weekendLocationPending = false;
         weekendLocationUse.disabled = false;
+        weekendLocationUse.setAttribute('aria-busy', 'false');
         weekendLocationUse.textContent = 'Use my location';
         setText(
           weekendLocationHint,

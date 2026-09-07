@@ -1,3 +1,4 @@
+import type { OperationsTask } from './operations-orchestrator';
 import type {
   GaugeInventoryArtifact,
   GaugeReviewEntry,
@@ -217,10 +218,10 @@ export function materializeRouteOpportunityTasks<T extends ExistingTask>(
   const currentIds = new Set(queue.opportunities.map((opportunity) => opportunity.taskId));
   const scoreByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.score]));
   const queueStatusByTaskId = new Map(queue.opportunities.map((opportunity) => [opportunity.taskId, opportunity.status]));
-  const tasks = existingTasks.map((task) => isGaugeQueueTask(task) && currentIds.has(task.id)
-    ? { ...task, lane: queueStatusByTaskId.get(task.id) === 'in_progress' ? 'in_progress' : 'ready', routeOpportunityScore: scoreByTaskId.get(task.id) } as T
+  const tasks: Array<T | OperationsTask> = existingTasks.map((task) => isGaugeQueueTask(task) && currentIds.has(task.id)
+    ? { ...task, lane: queueStatusByTaskId.get(task.id) === 'in_progress' ? 'in_progress' : 'ready', routeOpportunityScore: scoreByTaskId.get(task.id) }
     : isGaugeQueueTask(task) && task.lane === 'ready'
-      ? { ...task, lane: 'blocked' } as T
+      ? { ...task, lane: 'blocked' }
       : task);
   const existingIds = new Set(tasks.map((task) => task.id));
   for (const opportunity of queue.opportunities) {
@@ -248,8 +249,8 @@ export function materializeRouteOpportunityTasks<T extends ExistingTask>(
       routeOpportunity: true,
       routeOpportunityScore: opportunity.score,
       opportunitySource: 'gauge_queue',
-    } as T);
+    });
     existingIds.add(opportunity.taskId);
   }
-  return tasks as T[];
+  return tasks;
 }

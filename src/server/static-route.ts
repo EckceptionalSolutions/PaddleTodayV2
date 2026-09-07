@@ -1,16 +1,17 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 import type { ServerResponse } from 'node:http';
+import { pipeline } from 'node:stream';
 import { securityHeaders } from './http';
 
 const PUBLIC_ASSET_EXTENSIONS = new Set(['.css', '.js', '.json', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff2', '.ico']);
 
-export function sendStatic(response: ServerResponse, filePath: string, includeBody = true) {
+export function sendStatic(response: ServerResponse, filePath: string, includeBody = true, statusCode = 200) {
   const stats = statSync(filePath);
-  response.writeHead(200, {
+  response.writeHead(statusCode, {
     ...securityHeaders(response),
     'content-type': contentTypeFor(filePath),
-    'cache-control': cacheControlFor(filePath),
+    'cache-control': statusCode === 200 ? cacheControlFor(filePath) : 'no-store',
     'content-length': stats.size,
     'access-control-allow-origin': '*',
   });
@@ -20,7 +21,13 @@ export function sendStatic(response: ServerResponse, filePath: string, includeBo
     return response;
   }
 
-  createReadStream(filePath).pipe(response);
+  // Close both streams on read failure or client disconnect. Plain pipe leaves
+  // read errors unhandled and can continue reading after a client has gone away.
+  pipeline(createReadStream(filePath), response, (error) => {
+    if (error && (error as NodeJS.ErrnoException).code !== 'ERR_STREAM_PREMATURE_CLOSE') {
+      console.warn('Static file transfer failed.', { filePath, error: error.message });
+    }
+  });
   return response;
 }
 
@@ -38,6 +45,17 @@ export function resolveStaticFile(pathname: string, rootDir: string): string | n
   }
 
   return null;
+}
+
+export function resolveNotFoundPage(pathname: string, accept: string | undefined, rootDir: string): string | null {
+  if (pathname === '/api' || pathname.startsWith('/api/')) return null;
+  const acceptsHtml = (accept ?? '').split(',').some((entry) => {
+    const [mediaType, ...parameters] = entry.split(';');
+    if (mediaType.trim().toLowerCase() !== 'text/html') return false;
+    const quality = parameters.find((parameter) => /^\s*q\s*=/i.test(parameter));
+    return quality === undefined || Number(quality.split('=')[1].trim()) > 0;
+  });
+  return acceptsHtml ? resolveStaticFile('/404', rootDir) : null;
 }
 
 export function resolvePublicAssetFile(pathname: string, publicDir: string): string | null {
@@ -69,6 +87,10 @@ export function contentTypeFor(filePath: string): string {
       return 'text/css; charset=utf-8';
     case '.json':
       return 'application/json; charset=utf-8';
+    case '.txt':
+      return 'text/plain; charset=utf-8';
+    case '.xml':
+      return 'application/xml; charset=utf-8';
     case '.svg':
       return 'image/svg+xml';
     case '.png':

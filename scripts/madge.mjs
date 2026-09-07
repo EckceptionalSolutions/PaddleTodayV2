@@ -1,7 +1,10 @@
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const madge = require('madge');
+const webpackConfig = fileURLToPath(new URL('./dependency-aliases.cjs', import.meta.url));
+const aliases = require(webpackConfig).resolve.alias;
 
 const roots = [
   'src',
@@ -17,7 +20,13 @@ const roots = [
 
 const config = {
   fileExtensions: ['ts', 'tsx', 'js', 'mjs'],
-  tsConfig: 'tsconfig.json',
+  webpackConfig,
+  tsConfig: {
+    compilerOptions: {
+      baseUrl: process.cwd(),
+      paths: Object.fromEntries(Object.entries(aliases).map(([name, source]) => [name, [source]])),
+    },
+  },
   // Type-only barrel imports do not create runtime cycles. Ignoring them keeps
   // the graph focused on cycles that can affect module initialization.
   detectiveOptions: {

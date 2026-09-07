@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
-import { callStateForDecision, type DecisionReadinessStatus, type PaddleLengthFilter as SharedPaddleLengthFilter, type RouteType, type ScoreRating } from '@paddletoday/api-contract';
+import { callStateForDecision, parsePaddleTimeHours, type DecisionReadinessStatus, type PaddleLengthFilter as SharedPaddleLengthFilter, type RouteType, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -281,7 +281,7 @@ export function ExploreFilterSheet({
               <Text style={styles.sheetTitle}>Filters</Text>
             <Text style={styles.sheetSubtitle}>{matchCount} routes match these filters</Text>
             </View>
-            <Pressable style={styles.sheetCancelButton} onPress={onDismiss}>
+            <Pressable style={styles.sheetCancelButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Cancel filters">
               <Text style={styles.sheetCancelText}>Cancel</Text>
             </Pressable>
           </View>
@@ -299,10 +299,10 @@ export function ExploreFilterSheet({
             />
           </ScrollView>
           <View style={[styles.sheetFooter, { paddingBottom: bottomInset }]}>
-            <Pressable style={styles.sheetResetButton} onPress={onReset}>
+            <Pressable style={styles.sheetResetButton} onPress={onReset} accessibilityRole="button">
               <Text style={styles.sheetResetText}>Clear filters</Text>
             </Pressable>
-            <Pressable style={styles.sheetShowButton} onPress={onApply}>
+            <Pressable style={styles.sheetShowButton} onPress={onApply} accessibilityRole="button">
               <Text style={styles.sheetShowText}>Show {matchCount} routes</Text>
             </Pressable>
           </View>
@@ -469,6 +469,7 @@ function DistanceSelector({ value, onChange }: { value: DistanceFilter; onChange
             accessibilityRole="button"
             accessibilityLabel={`Drive distance ${option.label}`}
             accessibilityState={{ selected }}
+            aria-pressed={selected}
           >
             <Text style={[styles.distanceStopText, selected ? styles.distanceStopTextSelected : null]}>
               {option.value === 'any' ? 'Any' : option.value}
@@ -547,7 +548,7 @@ function StatePickerModal({
 
 function StatePickerOption({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   return (
-    <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" accessibilityState={{ selected }}>
+    <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" aria-pressed={selected} accessibilityState={{ selected }}>
       <Text style={[styles.stateOptionText, selected ? styles.stateOptionTextSelected : null]}>{label}</Text>
       {selected ? <MaterialCommunityIcons name="check" color={colors.accent} size={19} /> : null}
     </Pressable>
@@ -576,6 +577,10 @@ function PresetChip({ label, selected, onPress }: { label: string; selected: boo
         pressed ? styles.presetChipPressed : null,
       ]}
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ selected }}
+      aria-pressed={selected}
       android_ripple={{ color: colors.accentSoft }}
     >
       <View style={[styles.presetIcon, selected ? styles.presetIconSelected : null]}>
@@ -693,7 +698,7 @@ export function statusMatches(rating: ScoreRating, readiness: DecisionReadinessS
 export function paddleTimeMatches(label: string, filter: PaddleTimeFilter, campingClassification?: string | null) {
   if (filter === 'any') return true;
 
-  const hours = parsePaddleHours(label);
+  const hours = parsePaddleTimeHours(label)?.max ?? null;
   if (hours === null) return false;
 
   if (filter === 'up-to-3') return hours <= 3;
@@ -747,14 +752,6 @@ function isPaddleLengthFilter(value: unknown): value is PaddleLengthFilter {
 
 function isCampingFilter(value: unknown): value is CampingFilter {
   return campingOptions.some((option) => option.value === value);
-}
-
-function parsePaddleHours(label: string) {
-  const matches = [...label.matchAll(/(\d+(?:\.\d+)?)/g)].map((match) => Number(match[1]));
-  const finite = matches.filter((value) => Number.isFinite(value));
-  if (finite.length === 0) return null;
-
-  return Math.max(...finite);
 }
 
 function isMultiDayRoute(label: string, campingClassification?: string | null) {

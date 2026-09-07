@@ -7,6 +7,10 @@ execSync("npm run typecheck:routes", {
   stdio: "inherit",
 });
 
+execSync("npm run typecheck:runtime", {
+  stdio: "inherit",
+});
+
 execSync("npm run routes:audit", {
   stdio: "inherit",
 });

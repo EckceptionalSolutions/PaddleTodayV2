@@ -1,5 +1,6 @@
 import { trackEvent } from './analytics.js';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { createSubmissionCooldown } from './submission-cooldown.js';
 
 const form = document.querySelector('[data-request-form]');
 const status = document.querySelector('[data-request-status]');
@@ -12,8 +13,8 @@ const formTitle = document.querySelector('[data-request-form-title]');
 const formNote = document.querySelector('[data-request-form-note]');
 
 const REQUEST_EMAIL = 'hello@paddletoday.com';
-const COOLDOWN_KEY = 'paddletoday:routeRequest:lastTs';
-const COOLDOWN_MS = 30 * 1000;
+const cooldown = createSubmissionCooldown('paddletoday:routeRequest:lastTs');
+let submitting = false;
 
 applyRequestContext();
 
@@ -22,10 +23,9 @@ if (form instanceof HTMLFormElement) {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (submitting) return;
 
-    const nowTs = Date.now();
-    const lastTs = Number(window.localStorage.getItem(COOLDOWN_KEY) || '0');
-    if (Number.isFinite(lastTs) && nowTs - lastTs < COOLDOWN_MS) {
+    if (cooldown.isActive()) {
       setStatus('Please wait a few seconds before sending another request.');
       return;
     }
@@ -65,18 +65,18 @@ if (form instanceof HTMLFormElement) {
         throw new Error('Route request was not stored.');
       }
 
-      window.localStorage.setItem(COOLDOWN_KEY, String(nowTs));
+      cooldown.recordSuccess();
       form.reset();
+      if (emailLink instanceof HTMLAnchorElement) emailLink.href = `mailto:${REQUEST_EMAIL}`;
       setStatus('Request received. Thank you.');
       trackEvent('Submit route request', {
         state,
         label: requestModeLabel(),
       });
-      setSubmitting(false);
-      return;
     } catch {
-      setSubmitting(false);
       fallbackToEmail({ routeName, state, putIn, takeOut, sources, notes, replyEmail });
+    } finally {
+      setSubmitting(false);
     }
   });
 }
@@ -104,6 +104,10 @@ function applyRequestContext() {
         'I noticed this might need an update:\n- \n\nWhat changed or looked wrong:\n- \n'
       );
     }
+    const optional = form.querySelector('details');
+    if (optional && ['putIn', 'takeOut', 'sources', 'notes'].some((name) => getField(name)?.value.trim())) {
+      optional.open = true;
+    }
   }
 
   if (!isUpdate) {
@@ -127,6 +131,8 @@ function setStatus(message) {
 }
 
 function setSubmitting(isSubmitting) {
+  submitting = isSubmitting;
+  form?.setAttribute('aria-busy', String(isSubmitting));
   if (!(submitButton instanceof HTMLButtonElement)) {
     return;
   }
@@ -179,6 +185,7 @@ function validateForm({ routeName, state, replyEmail }) {
   }
 
   if (emailField) {
+    emailField.setCustomValidity('');
     const message =
       !replyEmail || emailField.validity.valid ? '' : 'Enter a valid email address or leave it blank.';
     setFieldError(emailField, message);
@@ -186,9 +193,8 @@ function validateForm({ routeName, state, replyEmail }) {
   }
 
   if (firstInvalidField) {
-    firstInvalidField.reportValidity();
     firstInvalidField.focus();
-    return firstInvalidField.validationMessage || 'Please check the highlighted fields.';
+    return 'Please check the highlighted fields.';
   }
 
   return '';
@@ -200,6 +206,7 @@ function validateSingleField(field) {
   }
 
   const value = field.value.trim();
+  field.setCustomValidity('');
   let message = '';
 
   if (field.name === 'routeName') {
@@ -225,12 +232,17 @@ function getField(name) {
 
 function setFieldError(field, message) {
   field.setCustomValidity(message);
-  field.toggleAttribute('aria-invalid', Boolean(message));
+  if (message) field.setAttribute('aria-invalid', 'true');
+  else field.removeAttribute('aria-invalid');
+  const error = document.getElementById(`request-${field.name}-error`);
+  if (error) {
+    error.textContent = message;
+    error.hidden = !message;
+  }
 }
 
 function clearFieldError(field) {
-  field.setCustomValidity('');
-  field.removeAttribute('aria-invalid');
+  setFieldError(field, '');
 }
 
 function defaultSubmitLabel() {
@@ -286,5 +298,5 @@ function fallbackToEmail(payload) {
   if (emailLink instanceof HTMLAnchorElement) {
     emailLink.href = href;
   }
-  setStatus(`Could not reach the request API. Use the email link below to send this request to ${REQUEST_EMAIL}.`);
+  setStatus(`Could not send your request. Your entries are still here. Try again or use “Email instead” to send them to ${REQUEST_EMAIL}.`);
 }

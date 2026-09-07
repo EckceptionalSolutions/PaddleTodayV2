@@ -112,3 +112,29 @@ export function normalizeApiText(value: string | null | undefined) {
     .replace(/\s{2,}/g, ' ')
     .trim();
 }
+
+export function formatPaddleTimeRange(minHours: number, maxHours: number) {
+  if (!Number.isFinite(minHours) || !Number.isFinite(maxHours) || minHours <= 0 || maxHours < minHours) {
+    return 'Paddle time unavailable';
+  }
+  const min = Math.max(0.5, roundPaddleHours(minHours));
+  const max = Math.max(min, roundPaddleHours(maxHours));
+
+  if (min === max) {
+    return `About ${formatPaddleHours(min)}`;
+  }
+
+  return `About ${formatPaddleHours(min)} to ${formatPaddleHours(max)}`;
+}
+
+function roundPaddleHours(hours: number) {
+  return Math.round(hours * 2) / 2;
+}
+
+function formatPaddleHours(hours: number) {
+  if (hours < 1) {
+    return '30 min';
+  }
+
+  return `${hours.toFixed(hours % 1 === 0 ? 0 : 1)} hr`;
+}

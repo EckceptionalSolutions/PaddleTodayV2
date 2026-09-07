@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": [
+    "src/data/route-gallery.ts",
+    "src/data/river-group-hero-photos.ts"
+  ]
+}

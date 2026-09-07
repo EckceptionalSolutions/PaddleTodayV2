@@ -70,7 +70,7 @@ const structuredData = {
           <h3>{guide.title}</h3>
           <p>{guide.description}</p>
           <p>
-            <a class="river-link river-link--inline" href={guide.href}>
+            <a class="river-link river-link--inline" href={guide.href} aria-label={`Open guide: ${guide.title}`}>
               Open guide
             </a>
           </p>
@@ -86,7 +86,7 @@ const structuredData = {
         <h2 class="section-title" id="state-guides-title">Tracked routes by state</h2>
       </div>
       <p class="muted section-head__note">
-        State pages are crawlable route indexes and good starting points for future state-specific guides.
+        Choose a state to browse its rivers, compare routes, and find access details for your next trip.
       </p>
     </div>
     <div class="state-link-grid state-link-grid--compact">

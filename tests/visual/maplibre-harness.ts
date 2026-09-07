@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 
-export async function installMapLibreHarness(page: Page) {
-  await page.addInitScript(() => {
+export async function installMapLibreHarness(page: Page, { mapReady = true }: { mapReady?: boolean } = {}) {
+  await page.addInitScript(({ mapReady }) => {
     const harness = {
       maps: [] as Array<{ label: string }>,
       fitCalls: [] as Array<{ label: string; bounds: number[][]; options: Record<string, unknown>; at: number }>,
@@ -154,8 +154,8 @@ export async function installMapLibreHarness(page: Page) {
         mapInstances.push(this);
       }
 
-      loaded() { return true; }
-      isStyleLoaded() { return true; }
+      loaded() { return mapReady; }
+      isStyleLoaded() { return mapReady; }
       addControl() { return this; }
       getContainer() { return this.container; }
       getCanvas() { return this.canvas; }
@@ -318,7 +318,7 @@ export async function installMapLibreHarness(page: Page) {
       LngLatBounds: FakeBounds,
       NavigationControl: FakeNavigationControl,
     };
-  });
+  }, { mapReady });
 }
 
 export async function mapHarnessState(page: Page) {

@@ -12,7 +12,7 @@ export function AppLoadingState({
   return (
     <View style={styles.centerState}>
       <ActivityIndicator size="large" color={colors.accent} />
-      <Text style={styles.stateTitle}>{title}</Text>
+      <Text accessibilityRole="header" style={styles.stateTitle}>{title}</Text>
       {body ? <Text style={styles.stateBody}>{body}</Text> : null}
     </View>
   );
@@ -23,6 +23,7 @@ export function AppErrorState({
   body,
   detail,
   actionLabel = 'Try again',
+  icon = 'wifi-off',
   retrying = false,
   onRetry,
 }: {
@@ -30,15 +31,16 @@ export function AppErrorState({
   body: string;
   detail?: string;
   actionLabel?: string;
+  icon?: 'wifi-off' | 'map-marker-question-outline';
   retrying?: boolean;
   onRetry?: () => void;
 }) {
   return (
     <View style={styles.centerState}>
       <View style={styles.iconShell}>
-        <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={24} />
+        <MaterialCommunityIcons name={icon} color={colors.noGo} size={24} />
       </View>
-      <Text style={styles.stateTitle}>{title}</Text>
+      <Text accessibilityRole="header" style={styles.stateTitle}>{title}</Text>
       <Text style={styles.stateBody}>{body}</Text>
       {detail ? (
         <Text style={styles.stateDetail} numberOfLines={4}>
@@ -51,7 +53,9 @@ export function AppErrorState({
           onPress={onRetry}
           disabled={retrying}
           accessibilityRole="button"
+          accessibilityLabel={actionLabel}
           accessibilityState={{ disabled: retrying, busy: retrying }}
+          aria-busy={retrying}
         >
           <MaterialCommunityIcons name="refresh" color={colors.surfaceStrong} size={18} />
           <Text style={styles.retryButtonText}>{retrying ? 'Retrying…' : actionLabel}</Text>
@@ -63,13 +67,17 @@ export function AppErrorState({
 
 export function AppRefreshNotice({
   label = 'Showing the last available update.',
+  actionLabel = 'Retry refresh',
   isError,
   dataUpdatedAt,
+  retrying = false,
   onRetry,
 }: {
   label?: string;
+  actionLabel?: string;
   isError: boolean;
   dataUpdatedAt?: number;
+  retrying?: boolean;
   onRetry: () => void;
 }) {
   if (!isError) {
@@ -87,10 +95,13 @@ export function AppRefreshNotice({
       <Pressable
         style={styles.refreshNoticeButton}
         onPress={onRetry}
+        disabled={retrying}
         accessibilityRole="button"
-        accessibilityLabel="Retry refresh"
+        accessibilityLabel={actionLabel}
+        accessibilityState={{ disabled: retrying, busy: retrying }}
+        aria-busy={retrying}
       >
-        <Text style={styles.refreshNoticeButtonText}>Retry</Text>
+        <Text style={styles.refreshNoticeButtonText}>{retrying ? 'Retrying…' : 'Retry'}</Text>
       </Pressable>
     </View>
   );
@@ -183,7 +194,7 @@ const styles = StyleSheet.create({
     lineHeight: 17,
   },
   refreshNoticeButton: {
-    minHeight: 36,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     paddingHorizontal: 12,

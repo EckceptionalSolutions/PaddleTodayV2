@@ -1,6 +1,6 @@
 import type { ServerResponse } from 'node:http';
 import type { ApiRequest } from '../http';
-import { clean, readJsonBody, sendJson } from '../http';
+import { clean, readJsonBody, sendRequestBodyErrorResponse, sendJson } from '../http';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 import {
   createAreaNotificationManagementToken,
@@ -42,6 +42,8 @@ export async function handleAreaNotificationCreate(
       subscription: subscriptionResponse(result.subscription),
     }, includeBody, 'no-store');
   } catch (error) {
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
     console.error('[area-notifications] create failed', { requestId, error });
     return sendJson(response, 502, { requestId, error: 'subscription_create_failed', message: 'Could not save nearby alerts right now.' }, includeBody, 'no-store');
   }
@@ -93,6 +95,8 @@ export async function handleAreaNotificationPatch(
       subscription: subscriptionResponse(updated),
     }, includeBody, 'no-store');
   } catch (error) {
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
     console.error('[area-notifications] patch failed', { requestId, subscriptionId, error });
     return sendJson(response, 502, { requestId, error: 'subscription_update_failed', message: 'Could not update nearby alerts right now.' }, includeBody, 'no-store');
   }

@@ -10,7 +10,13 @@ export function createBoardGeolocationController({
   onReverseError = (error) => console.warn('Reverse geocoding current location failed.', error),
   onPermissionError = (error) => console.warn('Could not check geolocation permission.', error),
 }) {
+  let requestId = 0;
+  function cancelUserLocationRequest() {
+    requestId += 1;
+  }
+
   function requestUserLocation() {
+    const currentRequest = ++requestId;
     if (!navigatorObject.geolocation) {
       onUnavailable();
       return;
@@ -19,6 +25,7 @@ export function createBoardGeolocationController({
     onPending();
     navigatorObject.geolocation.getCurrentPosition(
       async (position) => {
+        if (currentRequest !== requestId) return;
         let label = 'your current location';
 
         try {
@@ -30,9 +37,10 @@ export function createBoardGeolocationController({
             label = geocodedLabel;
           }
         } catch (error) {
-          onReverseError(error);
+          if (currentRequest === requestId) onReverseError(error);
         }
 
+        if (currentRequest !== requestId) return;
         onResolved({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -40,7 +48,11 @@ export function createBoardGeolocationController({
           source: 'geolocation',
         });
       },
-      () => onDenied(),
+      (error) => {
+        if (currentRequest !== requestId) return;
+        if (error?.code === 1) onDenied();
+        else onUnavailable();
+      },
       {
         enableHighAccuracy: false,
         timeout: timeoutMs,
@@ -50,6 +62,7 @@ export function createBoardGeolocationController({
   }
 
   async function maybeUseGrantedLocation() {
+    const currentRequest = requestId;
     if (
       !navigatorObject.permissions
       || typeof navigatorObject.permissions.query !== 'function'
@@ -59,7 +72,7 @@ export function createBoardGeolocationController({
 
     try {
       const result = await navigatorObject.permissions.query({ name: 'geolocation' });
-      if (result.state === 'granted' && !hasUserLocation()) {
+      if (currentRequest === requestId && result.state === 'granted' && !hasUserLocation()) {
         requestUserLocation();
       }
     } catch (error) {
@@ -68,6 +81,7 @@ export function createBoardGeolocationController({
   }
 
   return {
+    cancelUserLocationRequest,
     maybeUseGrantedLocation,
     requestUserLocation,
   };

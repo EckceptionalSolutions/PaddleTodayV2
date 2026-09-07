@@ -1,3 +1,4 @@
+import { PaddleTodayApiError } from '@paddletoday/api-client';
 import type {
   AreaNotificationSubscriptionInput,
   AreaNotificationSubscriptionPatch,
@@ -13,6 +14,7 @@ import type {
 } from '@paddletoday/api-contract';
 import { queryOptions, useMutation, useQuery } from '@tanstack/react-query';
 import { apiClient } from './client';
+import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from '../lib/submission-results';
 
 export const riverQueryKeys = {
   summary: ['river-summary'] as const,
@@ -35,11 +37,16 @@ export function useRiverSummaryQuery(enabled = true) {
   });
 }
 
+function retryRouteRequest(failureCount: number, error: Error) {
+  return !(error instanceof PaddleTodayApiError && error.status === 404) && failureCount < 1;
+}
+
 export function riverDetailQueryOptions(slug: string) {
   return queryOptions({
     queryKey: riverQueryKeys.detail(slug),
     enabled: Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRiverDetail(slug, { signal }),
+    retry: retryRouteRequest,
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -53,6 +60,7 @@ export function riverGroupQueryOptions(riverId: string) {
     queryKey: riverQueryKeys.group(riverId),
     enabled: Boolean(riverId),
     queryFn: ({ signal }) => apiClient.getRiverGroup(riverId, { signal }),
+    retry: retryRouteRequest,
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -90,19 +98,19 @@ export function useRouteCommunityQuery(slug: string, enabled = true) {
 
 export function useCreateRiverAlertMutation() {
   return useMutation({
-    mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+    mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input).then(requireSavedAlert),
   });
 }
 
 export function useCreateAreaNotificationSubscriptionMutation() {
   return useMutation({
-    mutationFn: (input: AreaNotificationSubscriptionInput) => apiClient.createAreaNotificationSubscription(input),
+    mutationFn: (input: AreaNotificationSubscriptionInput) => apiClient.createAreaNotificationSubscription(input).then(requireConfirmedAreaSubscription),
   });
 }
 
 export function useUpdateAreaNotificationSubscriptionMutation() {
   return useMutation({
-    mutationFn: (input: AreaNotificationSubscriptionPatch) => apiClient.updateAreaNotificationSubscription(input),
+    mutationFn: (input: AreaNotificationSubscriptionPatch) => apiClient.updateAreaNotificationSubscription(input).then(requireConfirmedAreaSubscription),
   });
 }
 
@@ -119,25 +127,25 @@ export function useRiverGeometryQuery(slug: string, enabled = true) {
 
 export function useCreateAppFeedbackMutation() {
   return useMutation({
-    mutationFn: (input: CreateAppFeedbackRequest) => apiClient.createAppFeedback(input),
+    mutationFn: (input: CreateAppFeedbackRequest) => apiClient.createAppFeedback(input).then(requireStoredSubmission),
   });
 }
 
 export function useCreateRiverRequestMutation() {
   return useMutation({
-    mutationFn: (input: CreateRiverRequestRequest) => apiClient.createRiverRequest(input),
+    mutationFn: (input: CreateRiverRequestRequest) => apiClient.createRiverRequest(input).then(requireStoredSubmission),
   });
 }
 
 export function useCreateRouteReportMutation() {
   return useMutation({
-    mutationFn: (input: CreateRouteReportRequest) => apiClient.createRouteReport(input),
+    mutationFn: (input: CreateRouteReportRequest) => apiClient.createRouteReport(input).then(requireStoredSubmission),
   });
 }
 
 export function useCreateRouteContributionMutation() {
   return useMutation({
-    mutationFn: (input: CreateRouteContributionRequest) => apiClient.createRouteContribution(input),
+    mutationFn: (input: CreateRouteContributionRequest) => apiClient.createRouteContribution(input).then(requireStoredSubmission),
   });
 }
 

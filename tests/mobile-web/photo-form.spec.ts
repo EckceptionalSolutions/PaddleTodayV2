@@ -1,0 +1,44 @@
+import { test, expect, type Route } from '@playwright/test';
+test('photo submission preserves drafts and supports retry', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline', message: 'Offline test' } }));
+  await page.route('**/api/rivers/qa-route.json', (route) => route.fulfill({ json: { result: { river: { slug: 'qa-route', name: 'QA route', reach: 'Local QA' } } } }));
+  let pending: Route | null = null;
+  let requests = 0;
+  await page.route('**/api/route-contributions', (route) => { requests++; pending = route; });
+  await page.goto('/contribute-photo/qa-route');
+  const chooser = page.waitForEvent('filechooser');
+  await page.getByRole('button', { name: 'Upload photos', exact: true }).click();
+  await (await chooser).setFiles({ name: 'qa.png', mimeType: 'image/png', buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6ioAAAAASUVORK5CYII=', 'base64') });
+  await expect(page.getByText('1/4 attached', { exact: true })).toBeVisible();
+  const send = page.getByRole('button', { name: 'Submit photos', exact: true });
+  const name = page.getByRole('textbox', { name: 'Name or paddling handle', exact: true });
+  const email = page.getByRole('textbox', { name: 'Email for follow-up questions', exact: true });
+  await send.click();
+  await expect(name).toBeFocused();
+  await name.fill('QA Paddler');
+  await send.click();
+  await expect(email).toBeFocused();
+  await email.fill('qa@example.com');
+  for (const control of await page.getByRole('checkbox').all()) await control.check();
+  await send.click();
+  await expect.poll(() => Boolean(pending)).toBe(true);
+  await expect(name).not.toBeEditable();
+  await expect(email).not.toBeEditable();
+  await expect(page.getByRole('button', { name: 'Upload photos' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Sending...', exact: true })).toBeDisabled();
+  expect(requests).toBe(1);
+  await pending!.fulfill({ json: { ok: true, stored: false } });
+  await expect(page.getByText('Your submission was not saved. Please try again.', { exact: true })).toBeVisible();
+  await expect(name).toHaveValue('QA Paddler');
+  await expect(page.getByText('1/4 attached', { exact: true })).toBeVisible();
+  pending = null;
+  await send.click();
+  await expect.poll(() => Boolean(pending)).toBe(true);
+  await pending!.fulfill({ json: { ok: true, stored: true } });
+  await expect(page.getByText('Thank you. Your photos were sent for review.', { exact: true })).toBeVisible();
+  await expect(page.getByText('0/4 attached', { exact: true })).toBeVisible();
+  console.log('Photo form validation, pending locks, draft preservation, and retry passed with mocked uploads.');
+});
+
+

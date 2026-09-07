@@ -13,9 +13,10 @@ import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
-import { resolveApiBaseUrl } from '../lib/api-base-url';
+import { requestFailureMessage } from '../lib/request-failure';
 import { distanceMiles, distancePenalty, estimateTravelMinutes, formatTravelTime, type StoredLocation } from '../lib/location';
 import { androidBottomInset } from '../lib/safe-area';
+import { radioKeyboardProps, tabKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -27,6 +28,7 @@ interface WeekendRoute extends WeekendSummaryApiItem {
 }
 
 type WeekendFilter = 'all' | 'day-trips' | 'camping' | 'rechecks';
+const weekendFilterOrder: WeekendFilter[] = ['all', 'day-trips', 'camping', 'rechecks'];
 type WeekendAccessPoint = NonNullable<WeekendSummaryApiItem['river']['accessPoints']>[number];
 
 const weekendConfidenceRank = {
@@ -69,7 +71,9 @@ export default function WeekendScreen() {
     : [];
   const topPicks = inRangeRivers.filter(isCleanWeekendRoute).slice(0, 5);
   const expandedPicks = topPicks.length === 0 ? outOfRangeRivers.filter(isCleanWeekendRoute).slice(0, 4) : [];
-  const nearbyWatch = inRangeRivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5);
+  const nearbyWatch = topPicks.length === 0
+    ? inRangeRivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5)
+    : [];
   const featured = topPicks[0] ?? nearbyWatch[0] ?? expandedPicks[0] ?? inRangeRivers[0] ?? rivers[0];
   const hasWeekendPlan = topPicks.length > 0;
   const topPickSlugs = slugSet(topPicks);
@@ -82,6 +86,8 @@ export default function WeekendScreen() {
     .filter((river) => !primaryPlanSlugs.has(river.river.slug))
     .filter(hasWeekendCampingSupport)
     .slice(0, 4);
+  const campingPicks = inRangeRivers.filter(hasWeekendCampingSupport).slice(0, 4);
+  const visibleCampingRoutes = weekendFilter === 'camping' ? campingPicks : campingFriendlyRoutes;
   const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes, ...nearbyWatch]);
   const watchList = inRangeRivers
     .filter((river) => !shownSlugs.has(river.river.slug))
@@ -90,22 +96,18 @@ export default function WeekendScreen() {
   const skipList = inRangeRivers
     .filter((river) => river.weekend.rating === 'No-go')
     .slice(0, 5);
+  const allWeekendRoutes = uniqueWeekendRoutes([
+    ...topPicks, ...lowerCommitment, ...nearbyWatch, ...expandedPicks,
+    ...campingFriendlyRoutes, ...watchList, ...skipList,
+  ]);
   const weekendMapRoutes = uniqueWeekendRoutes(
     weekendFilter === 'day-trips'
       ? [...topPicks, ...lowerCommitment, ...expandedPicks]
       : weekendFilter === 'camping'
-        ? campingFriendlyRoutes
+        ? campingPicks
         : weekendFilter === 'rechecks'
           ? [...(!hasWeekendPlan ? nearbyWatch : []), ...watchList]
-          : [
-              ...topPicks,
-              ...lowerCommitment,
-              ...(!hasWeekendPlan ? nearbyWatch : []),
-              ...expandedPicks,
-              ...campingFriendlyRoutes,
-              ...watchList,
-              ...skipList,
-            ]
+          : allWeekendRoutes
   );
   const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes);
   const weekendMapSpans = weekendMapPoints.flatMap((point) => point.spanSegments ?? []);
@@ -120,21 +122,21 @@ export default function WeekendScreen() {
       return;
     }
 
-    void AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distanceLimit));
+    void AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distanceLimit)).catch(() => {});
   }, [distanceHydrated, distanceLimit]);
 
-  if (weekendQuery.isLoading && rivers.length === 0) {
+  if (weekendQuery.isLoading && !weekendQuery.data) {
     return (
       <AppLoadingState title="Loading weekend routes" body="Checking the weekend outlook." />
     );
   }
 
-  if (weekendQuery.isError && rivers.length === 0) {
+  if (weekendQuery.isError && !weekendQuery.data) {
     return (
       <AppErrorState
         title="Weekend outlook did not load"
-        body="Check your connection, then try again."
-        detail={errorDetailForWeekendQuery(weekendQuery.error)}
+        body={requestFailureMessage(weekendQuery.error)}
+        retrying={weekendQuery.isFetching}
         onRetry={() => weekendQuery.refetch()}
       />
     );
@@ -161,10 +163,11 @@ export default function WeekendScreen() {
       <AppRefreshNotice
         isError={weekendQuery.isRefetchError}
         dataUpdatedAt={weekendQuery.dataUpdatedAt}
+        retrying={weekendQuery.isFetching}
         onRetry={() => void weekendQuery.refetch()}
       />
       <View style={styles.hero}>
-        <Text style={styles.title}>Plan the weekend</Text>
+        <Text accessibilityRole="header" style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>
           {location
             ? 'Sorted by forecast, river conditions, and drive time.'
@@ -182,9 +185,10 @@ export default function WeekendScreen() {
           <WeekendFilters
             distance={distanceLimit}
             onSelectDistance={setDistanceLimit}
-            dayTrips={topPicks.length + lowerCommitment.length}
-            campingRoutes={campingFriendlyRoutes.length}
-            rechecks={watchList.length}
+            totalRoutes={allWeekendRoutes.length}
+            dayTrips={topPicks.length + lowerCommitment.length + expandedPicks.length}
+            campingRoutes={campingPicks.length}
+            rechecks={nearbyWatch.length + watchList.length}
             selectedRouteType={weekendFilter}
             onSelectRouteType={setWeekendFilter}
           />
@@ -234,9 +238,10 @@ export default function WeekendScreen() {
 
       {!location && hasWeekendPlan ? (
         <WeekendPlanLanes
-          dayTrips={topPicks.length + lowerCommitment.length}
-          campingRoutes={campingFriendlyRoutes.length}
-          rechecks={watchList.length}
+          totalRoutes={allWeekendRoutes.length}
+          dayTrips={topPicks.length + lowerCommitment.length + expandedPicks.length}
+          campingRoutes={campingPicks.length}
+          rechecks={nearbyWatch.length + watchList.length}
           selected={weekendFilter}
           onSelect={setWeekendFilter}
         />
@@ -258,6 +263,16 @@ export default function WeekendScreen() {
               onSelectPoint={(point) => router.push({ pathname: '/river/[slug]', params: { slug: point.id } })}
             />
           </View>
+        </SectionCard>
+      ) : null}
+
+      {weekendFilter !== 'all' && weekendMapRoutes.length === 0 ? (
+        <SectionCard title={`No ${weekendFilterLabel(weekendFilter)} routes`}>
+          <Text style={styles.emptyText} accessibilityLiveRegion="polite">
+            {location && distanceLimit !== null
+              ? 'No routes match this weekend category within your range. Choose All or increase the range above.'
+              : 'No routes match this weekend category right now. Choose All above to see the other weekend options.'}
+          </Text>
         </SectionCard>
       ) : null}
 
@@ -321,35 +336,25 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {(weekendFilter === 'all' || weekendFilter === 'camping') && campingFriendlyRoutes.length > 0 ? (
+      {(weekendFilter === 'all' || weekendFilter === 'camping') && visibleCampingRoutes.length > 0 ? (
         <SectionCard
           title="Camping-friendly"
           subtitle="Paddle this weekend routes with camping nearby or along the way."
         >
           <View style={styles.list}>
-            {campingFriendlyRoutes.map((river) => renderWeekendCard(river))}
+            {visibleCampingRoutes.map((river) => renderWeekendCard(river))}
           </View>
         </SectionCard>
       ) : null}
 
-      {weekendFilter === 'all' || weekendFilter === 'rechecks' ? (
+      {(weekendFilter === 'all' || weekendFilter === 'rechecks') && watchList.length > 0 ? (
         <SectionCard
           title="Watch list"
-          subtitle={
-            watchList.length > 0
-              ? 'Watch routes as the forecast settles.'
-              : 'No watch-list routes right now.'
-          }
+          subtitle="Watch routes as the forecast settles."
         >
-          {watchList.length > 0 ? (
-            <View style={styles.list}>
-              {watchList.map((river) => (
-                renderWeekendCard(river)
-              ))}
-            </View>
-          ) : (
-            <Text style={styles.emptyText}>No weekend routes are in the maybe range right now.</Text>
-          )}
+          <View style={styles.list}>
+            {watchList.map((river) => renderWeekendCard(river))}
+          </View>
         </SectionCard>
       ) : null}
 
@@ -422,17 +427,25 @@ function WeekendLocationStrip({
         <Text style={styles.locationLabel} numberOfLines={1}>
           {locationLabel ? `Planning from ${locationLabel}` : 'Plan from your location'}
         </Text>
-        <Text style={styles.locationHint}>
-          {locationLabel ? 'Drive times included.' : 'Use your location to sort by drive time.'}
+        <Text style={styles.locationHint} accessibilityLiveRegion="polite">
+          {locationLabel ? 'Drive times included.'
+            : requesting ? 'Finding your location to estimate drive times.'
+              : status === 'denied' ? 'Location permission was denied. Allow location access and retry, or set a city on Today.'
+                : status === 'error' ? 'Could not find your location. Try again or set a city on Today.'
+                  : 'Use your location to sort by drive time.'}
         </Text>
       </View>
       <Pressable
         style={[styles.locationButton, requesting ? styles.locationButtonDisabled : null]}
         disabled={requesting}
         onPress={locationLabel ? onClear : onUseLocation}
+        accessibilityRole="button"
+        accessibilityLabel={locationLabel ? 'Clear weekend planning location' : 'Use location for weekend routes'}
+        accessibilityState={{ disabled: requesting, busy: requesting }}
+        aria-busy={requesting}
       >
         <Text style={styles.locationButtonText}>
-          {requesting ? 'Finding' : locationLabel ? 'Clear' : status === 'denied' ? 'Retry' : 'Use'}
+          {requesting ? 'Finding' : locationLabel ? 'Clear' : status === 'denied' || status === 'error' ? 'Retry' : 'Use'}
         </Text>
       </Pressable>
     </View>
@@ -442,6 +455,7 @@ function WeekendLocationStrip({
 function WeekendFilters({
   distance,
   onSelectDistance,
+  totalRoutes,
   dayTrips,
   campingRoutes,
   rechecks,
@@ -450,6 +464,7 @@ function WeekendFilters({
 }: {
   distance: number | null;
   onSelectDistance: (value: number | null) => void;
+  totalRoutes: number;
   dayTrips: number;
   campingRoutes: number;
   rechecks: number;
@@ -475,7 +490,7 @@ function WeekendFilters({
               { width: `${Math.max(0, selectedIndex) * 20}%` },
             ]}
           />
-          <View style={styles.rangeStops}>
+          <View style={styles.rangeStops} accessibilityRole="radiogroup" accessibilityLabel="Weekend range">
             {weekendDistanceOptions.map((option, index) => {
               const active = index <= selectedIndex;
               const selected = index === selectedIndex;
@@ -486,6 +501,8 @@ function WeekendFilters({
                   onPress={() => onSelectDistance(option.value)}
                   accessibilityRole="radio"
                   accessibilityState={{ checked: selected }}
+                  aria-checked={selected}
+                  {...radioKeyboardProps(index, selected, weekendDistanceOptions.length, (nextIndex) => onSelectDistance(weekendDistanceOptions[nextIndex].value))}
                   accessibilityLabel={`Weekend range ${option.label}`}
                 >
                   <View style={[styles.rangeStop, active ? styles.rangeStopActive : null, selected ? styles.rangeThumb : null]} />
@@ -501,18 +518,18 @@ function WeekendFilters({
 
       <View style={styles.filterSection}>
         <Text style={styles.filterLabel}>Route type</Text>
-        <View style={styles.routeTypeRow}>
-          <RouteTypeChip label="All" value={dayTrips + campingRoutes + rechecks} active={selectedRouteType === 'all'} onPress={() => onSelectRouteType('all')} />
-          <RouteTypeChip label="Day trips" value={dayTrips} active={selectedRouteType === 'day-trips'} onPress={() => onSelectRouteType('day-trips')} />
-          <RouteTypeChip label="Camping" value={campingRoutes} active={selectedRouteType === 'camping'} onPress={() => onSelectRouteType('camping')} />
-          <RouteTypeChip label="Watch" value={rechecks} active={selectedRouteType === 'rechecks'} onPress={() => onSelectRouteType('rechecks')} />
+        <View style={styles.routeTypeRow} accessibilityRole="tablist" accessibilityLabel="Weekend route type">
+          <RouteTypeChip index={0} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="All" value={totalRoutes} active={selectedRouteType === 'all'} onPress={() => onSelectRouteType('all')} />
+          <RouteTypeChip index={1} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="Day trips" value={dayTrips} active={selectedRouteType === 'day-trips'} onPress={() => onSelectRouteType('day-trips')} />
+          <RouteTypeChip index={2} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="Camping" value={campingRoutes} active={selectedRouteType === 'camping'} onPress={() => onSelectRouteType('camping')} />
+          <RouteTypeChip index={3} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="Watch" value={rechecks} active={selectedRouteType === 'rechecks'} onPress={() => onSelectRouteType('rechecks')} />
         </View>
       </View>
     </View>
   );
 }
 
-function RouteTypeChip({ label, value, active, onPress }: { label: string; value: number; active: boolean; onPress: () => void }) {
+function RouteTypeChip({ label, value, active, onPress, index, onSelectIndex }: { label: string; value: number; active: boolean; onPress: () => void; index: number; onSelectIndex: (index: number) => void }) {
   return (
     <Pressable
       style={[styles.routeTypeChip, active ? styles.routeTypeChipActive : null]}
@@ -520,6 +537,8 @@ function RouteTypeChip({ label, value, active, onPress }: { label: string; value
       android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="tab"
       accessibilityState={{ selected: active }}
+      aria-selected={active}
+      {...tabKeyboardProps(index, active, weekendFilterOrder.length, onSelectIndex)}
       accessibilityLabel={`${label}, ${value} routes`}
     >
       <Text style={[styles.routeTypeCount, active ? styles.routeTypeTextActive : null]}>{value}</Text>
@@ -546,12 +565,14 @@ function SnapshotStat({
 }
 
 function WeekendPlanLanes({
+  totalRoutes,
   dayTrips,
   campingRoutes,
   rechecks,
   selected,
   onSelect,
 }: {
+  totalRoutes: number;
   dayTrips: number;
   campingRoutes: number;
   rechecks: number;
@@ -562,17 +583,17 @@ function WeekendPlanLanes({
     <View style={styles.planLanes}>
       <Text style={styles.planLanesTitle}>Filter weekend routes</Text>
       <Text style={styles.planLanesHint}>Choose what you want to see first.</Text>
-      <View style={styles.planLaneGrid}>
-        <PlanLane label="All" value={dayTrips + campingRoutes + rechecks} active={selected === 'all'} onPress={() => onSelect('all')} />
-        <PlanLane label="Day trips" value={dayTrips} active={selected === 'day-trips'} onPress={() => onSelect('day-trips')} />
-        <PlanLane label="Camping" value={campingRoutes} active={selected === 'camping'} onPress={() => onSelect('camping')} />
-        <PlanLane label="Watch" value={rechecks} active={selected === 'rechecks'} onPress={() => onSelect('rechecks')} />
+      <View style={styles.planLaneGrid} accessibilityRole="tablist" accessibilityLabel="Weekend route type">
+        <PlanLane index={0} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="All" value={totalRoutes} active={selected === 'all'} onPress={() => onSelect('all')} />
+        <PlanLane index={1} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="Day trips" value={dayTrips} active={selected === 'day-trips'} onPress={() => onSelect('day-trips')} />
+        <PlanLane index={2} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="Camping" value={campingRoutes} active={selected === 'camping'} onPress={() => onSelect('camping')} />
+        <PlanLane index={3} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="Watch" value={rechecks} active={selected === 'rechecks'} onPress={() => onSelect('rechecks')} />
       </View>
     </View>
   );
 }
 
-function PlanLane({ label, value, active, onPress }: { label: string; value: number; active: boolean; onPress: () => void }) {
+function PlanLane({ label, value, active, onPress, index, onSelectIndex }: { label: string; value: number; active: boolean; onPress: () => void; index: number; onSelectIndex: (index: number) => void }) {
   return (
     <Pressable
       style={[styles.planLane, active ? styles.planLaneActive : null]}
@@ -580,6 +601,8 @@ function PlanLane({ label, value, active, onPress }: { label: string; value: num
       android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="tab"
       accessibilityState={{ selected: active }}
+      aria-selected={active}
+      {...tabKeyboardProps(index, active, weekendFilterOrder.length, onSelectIndex)}
       accessibilityLabel={`${label}, ${value} routes`}
     >
       <Text style={[styles.planLaneValue, active ? styles.planLaneValueActive : null]}>{value}</Text>
@@ -797,10 +820,6 @@ function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
-function errorDetailForWeekendQuery(error: unknown) {
-  const message = error instanceof Error ? error.message : 'Unknown request error';
-  return `${resolveApiBaseUrl()} - ${message}`;
-}
 
 const styles = StyleSheet.create({
   screen: {
@@ -860,7 +879,7 @@ const styles = StyleSheet.create({
   },
   locationButton: {
     flexShrink: 0,
-    minHeight: 36,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     paddingHorizontal: 14,

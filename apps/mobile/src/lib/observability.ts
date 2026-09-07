@@ -41,9 +41,9 @@ function ComponentRenderer<P extends Record<string, unknown>>(ComponentToRender:
 
 class RenderErrorBoundary extends Component<
   PropsWithChildren<{ componentName: string }>,
-  { hasError: boolean }
+  { hasError: boolean; recovering: boolean }
 > {
-  state = { hasError: false };
+  state = { hasError: false, recovering: false };
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -67,11 +67,11 @@ class RenderErrorBoundary extends Component<
     return createElement(
       View,
       { style: styles.renderErrorState, accessibilityRole: 'alert' },
-      createElement(Text, { style: styles.renderErrorTitle }, 'This screen needs a reset'),
+      createElement(Text, { style: styles.renderErrorTitle, accessibilityRole: 'header' }, 'This screen needs a reset'),
       createElement(
         Text,
         { style: styles.renderErrorBody },
-        'PaddleToday hit an unexpected display error. You can return to Today and try again.'
+        'PaddleToday could not display this screen. Reload PaddleToday to try again.'
       ),
       createElement(
         Pressable,
@@ -79,20 +79,29 @@ class RenderErrorBoundary extends Component<
           style: styles.renderErrorButton,
           onPress: () => void this.recover(),
           accessibilityRole: 'button',
-          accessibilityLabel: 'Try this screen again',
+          accessibilityLabel: 'Reload PaddleToday',
+          disabled: this.state.recovering,
+          accessibilityState: { disabled: this.state.recovering, busy: this.state.recovering },
+          'aria-busy': this.state.recovering,
         },
-        createElement(Text, { style: styles.renderErrorButtonText }, 'Try again')
+        createElement(Text, { style: styles.renderErrorButtonText }, this.state.recovering ? 'Reloading…' : 'Reload app')
       )
     );
   }
 
+  private recovering = false;
+
   private async recover() {
+    if (this.recovering) return;
+    this.recovering = true;
+    this.setState({ recovering: true });
     try {
       await AsyncStorage.removeItem(QUERY_CACHE_STORAGE_KEY);
     } catch (error) {
       captureAppException(error, { name: 'render_error_cache_reset' });
     } finally {
-      this.setState({ hasError: false });
+      this.recovering = false;
+      this.setState({ hasError: false, recovering: false });
     }
   }
 }
@@ -102,17 +111,17 @@ export function captureAppException(error: unknown, context?: { name?: string; e
     return;
   }
 
-  void firebaseBridge().then((bridge) => bridge?.recordError(toError(error), context));
+  void firebaseBridge().then((bridge) => bridge?.recordError(toError(error), context)).catch(() => {});
 }
 
 export function trackAppEvent(name: string, properties?: EventProperties) {
-  void recordFeedbackUsageEvent(name, properties ?? {});
+  void recordFeedbackUsageEvent(name, properties ?? {}).catch(() => {});
 
   if (!isFirebaseDiagnosticsEnabled()) {
     return;
   }
 
-  void firebaseBridge().then((bridge) => bridge?.logEvent(name, properties ?? {}));
+  void firebaseBridge().then((bridge) => bridge?.logEvent(name, properties ?? {})).catch(() => {});
 }
 
 export function observabilityStatus() {

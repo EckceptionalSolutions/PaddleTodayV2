@@ -380,7 +380,7 @@ async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnap
         stateSummary: states.join(', '),
         regionSummary: regions.join(', '),
         regions,
-        difficultyOptions: difficultyOptionsForRoutes(routes.map((route) => route.river.difficulty)),
+        difficultyOptions: difficultyOptionsForRoutes(routes.map((route) => route.river.profile.difficulty)),
         distanceRange: distanceRangeForLabels(routes.map((route) => route.river.distanceLabel)),
         heroPhoto: getRiverGroupHeroPhoto(riverId, routes.map((route) => route.river)),
       },
@@ -415,6 +415,7 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
       safetyProfile: normalized.river.safetyProfile ?? river?.safetyProfile,
       gaugeSource: {
         provider: gaugeSource.provider,
+        metric: gaugeSource.metric,
         unit: gaugeSource.unit,
         detailUrl: gaugeSource.detailUrl,
         hydrographUrl: gaugeSource.hydrographUrl,
@@ -615,7 +616,6 @@ function markWeekendSnapshotItemStale(item: WeekendSummaryApiItem): WeekendSumma
   const staleSummary = staleSnapshotMessage(item.generatedAt);
   return {
     ...item,
-    readiness: markReadinessStale(item.readiness),
     liveData: {
       ...item.liveData,
       overall: item.liveData.overall === 'offline' ? 'offline' : 'degraded',

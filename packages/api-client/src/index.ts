@@ -39,11 +39,11 @@ export class PaddleTodayApiError extends Error {
 export interface RequestOptions {
   cache?: RequestCache;
   signal?: AbortSignal;
+  headers?: HeadersInit;
 }
 
 interface JsonRequestOptions extends RequestOptions {
   body?: unknown;
-  headers?: HeadersInit;
   method?: 'GET' | 'POST' | 'PATCH';
 }
 
@@ -93,21 +93,46 @@ export function createPaddleTodayApiClient(args: {
   async function requestJson<T>(path: string, options?: JsonRequestOptions): Promise<T> {
     const hasBody = options?.body !== undefined;
     const timeout = createRequestTimeout(args.timeoutMs, options?.signal);
-    let response: Response;
-
     try {
-      response = await fetchImpl(new URL(path, baseUrl), {
+      const headers: Record<string, string> = {
+        accept: 'application/json',
+        ...(hasBody ? { 'content-type': 'application/json' } : {}),
+      };
+      for (const source of [args.headers, options?.headers]) {
+        new Headers(source).forEach((value, name) => { headers[name] = value; });
+      }
+      const response = await fetchImpl(new URL(path, baseUrl), {
         method: options?.method ?? 'GET',
-        headers: {
-          accept: 'application/json',
-          ...(hasBody ? { 'content-type': 'application/json' } : {}),
-          ...args.headers,
-          ...options?.headers,
-        },
+        headers,
         cache: options?.cache,
         signal: timeout.signal,
         body: hasBody ? JSON.stringify(options.body) : undefined,
       });
+
+      // The deadline and caller cancellation must cover the body download too.
+      // Fetch resolves at the headers, which can arrive well before the JSON.
+      const payload = await readJsonBody(response);
+
+      if (!response.ok) {
+        const errorPayload = isApiErrorResponse(payload) ? payload : null;
+        throw new PaddleTodayApiError({
+          message:
+            errorPayload?.message ??
+            buildResponseErrorMessage(response.status),
+          status: response.status,
+          code: errorPayload?.error ?? null,
+          requestId: errorPayload?.requestId ?? null,
+        });
+      }
+
+      if (!isJsonObject(payload)) {
+        throw new PaddleTodayApiError({
+          message: buildInvalidSuccessBodyMessage(response.status),
+          status: response.status,
+        });
+      }
+
+      return payload as T;
     } catch (error) {
       if (timeout.timedOut()) {
         throw new PaddleTodayApiError({
@@ -122,28 +147,6 @@ export function createPaddleTodayApiClient(args: {
       timeout.cleanup();
     }
 
-    const payload = await readJsonBody(response);
-
-    if (!response.ok) {
-      const errorPayload = isApiErrorResponse(payload) ? payload : null;
-      throw new PaddleTodayApiError({
-        message:
-          errorPayload?.message ??
-          buildResponseErrorMessage(response.status, payload),
-        status: response.status,
-        code: errorPayload?.error ?? null,
-        requestId: errorPayload?.requestId ?? null,
-      });
-    }
-
-    if (!isJsonObject(payload)) {
-      throw new PaddleTodayApiError({
-        message: buildInvalidSuccessBodyMessage(response.status, payload),
-        status: response.status,
-      });
-    }
-
-    return payload as T;
   }
 
   return {
@@ -295,7 +298,7 @@ async function readJsonBody(response: Response): Promise<unknown> {
     return JSON.parse(text) as unknown;
   } catch {
     throw new PaddleTodayApiError({
-      message: buildInvalidSuccessBodyMessage(response.status, text),
+      message: buildInvalidSuccessBodyMessage(response.status),
       status: response.status,
     });
   }
@@ -313,18 +316,13 @@ function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
   return typeof value.error === 'string' && (value.message === undefined || typeof value.message === 'string');
 }
 
-function buildResponseErrorMessage(status: number, body: unknown) {
-  if (typeof body === 'string' && body.trim()) {
-    return `PaddleToday API request failed with HTTP ${status}: ${body}`;
-  }
-
-  return `PaddleToday API request failed with HTTP ${status}.`;
+function buildResponseErrorMessage(status: number) {
+  if (status >= 500) return 'PaddleToday is temporarily unavailable. Please try again shortly.';
+  if (status === 429) return 'PaddleToday is receiving too many requests. Wait a moment and try again.';
+  return 'PaddleToday could not complete this request. Please try again.';
 }
 
-function buildInvalidSuccessBodyMessage(status: number, body: unknown) {
-  if (typeof body === 'string') {
-    return `PaddleToday API returned invalid JSON for HTTP ${status}: ${body}`;
-  }
-
-  return `PaddleToday API returned an invalid JSON payload for HTTP ${status}.`;
+function buildInvalidSuccessBodyMessage(status: number) {
+  if (status >= 400) return buildResponseErrorMessage(status);
+  return 'PaddleToday could not read the response. Please try again.';
 }

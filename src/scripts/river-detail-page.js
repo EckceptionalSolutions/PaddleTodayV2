@@ -31,9 +31,11 @@ import {
   ratingToneKey,
   signedPoints,
   callLabelForDecision,
+  parsePaddleTimeHours,
 } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { createSubmissionCooldown } from './submission-cooldown.js';
 import { buildFloatPlanMessage } from '@paddletoday/trip-pack';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
 
@@ -94,9 +96,12 @@ const accessDirectionsGoogle = root.querySelector('[data-access-directions-googl
 const accessDirectionsApple = root.querySelector('[data-access-directions-apple]');
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
 const tripGpxLink = root.querySelector('[data-trip-gpx]');
+let tripGpxRequest = null;
+let tripShareRequest = null;
 const tripIcsLink = root.querySelector('[data-trip-ics]');
 const tripShareButton = root.querySelector('[data-trip-share]');
 const tripStatus = root.querySelector('[data-trip-status]');
+const tripManualCopy = root.querySelector('[data-trip-manual-copy]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const detailJumpLinks = Array.from(root.querySelectorAll('[data-detail-jump]'));
@@ -235,7 +240,6 @@ let activeAccessContext = {
 const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading'];
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const STALE_DETAIL_BANNER_MS = 15 * 60 * 1000;
-const ROUTE_PHOTO_COOLDOWN_MS = 30 * 1000;
 const ROUTE_PHOTO_MAX_FILES = 4;
 const ROUTE_PHOTO_MAX_BYTES = 4 * 1024 * 1024;
 const ROUTE_PHOTO_ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
@@ -243,7 +247,9 @@ let lastDetailSuccessAt = null;
 let hasLoadedDetailOnce = false;
 const detailCacheKey = `river-detail:${slug}:v1`;
 const historyCacheKey = `river-history:${slug}:7:v1`;
-const routePhotoCooldownKey = `route-photo:${slug}:last-submitted`;
+const contributionCooldown = createSubmissionCooldown(`route-photo:${slug}:last-submitted`);
+let photoSubmitting = false;
+let reportSubmitting = false;
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 let detailMapCollapsed = phoneBreakpoint.matches;
 const detailRequestGuard = createRequestGuard();
@@ -391,6 +397,7 @@ function photoCreditLabel(value) {
 function routeGalleryElements() {
   return {
     image: root.querySelector('[data-route-gallery-image]'),
+    fallback: root.querySelector('[data-route-gallery-image-fallback]'),
     caption: root.querySelector('[data-route-gallery-caption]'),
     credit: root.querySelector('[data-route-gallery-credit]'),
     taken: root.querySelector('[data-route-gallery-taken]'),
@@ -434,6 +441,7 @@ function renderApprovedRouteGallery() {
         decoding="async"
         data-route-gallery-image
       />
+      <div class="route-gallery__image-fallback" data-route-gallery-image-fallback role="status" hidden>Photo unavailable. You can still read its caption below.</div>
       <figcaption class="route-gallery__caption">
         <div class="route-gallery__caption-copy">
           <strong data-route-gallery-caption>${escapeHtml(lead.caption || 'Approved community photo')}</strong>
@@ -503,7 +511,7 @@ function reportSentimentLabel(value) {
 
 function updateApprovedRoutePhoto(index, options = {}) {
   const { scrollThumb = false } = options;
-  const { image, caption, credit, taken, thumbs } = routeGalleryElements();
+  const { image, fallback, caption, credit, taken, thumbs } = routeGalleryElements();
   if (!(image instanceof HTMLImageElement)) {
     return;
   }
@@ -513,7 +521,19 @@ function updateApprovedRoutePhoto(index, options = {}) {
     return;
   }
 
+  const showUnavailable = () => {
+    image.hidden = true;
+    if (fallback instanceof HTMLElement) fallback.hidden = false;
+  };
+  image.onerror = showUnavailable;
+  image.onload = () => {
+    image.hidden = false;
+    if (fallback instanceof HTMLElement) fallback.hidden = true;
+  };
+  image.hidden = false;
+  if (fallback instanceof HTMLElement) fallback.hidden = true;
   image.src = photo.src;
+  if (image.complete && image.naturalWidth === 0) showUnavailable();
   image.alt = photo.alt || photo.caption || `${riverContext.name} route photo`;
 
   if (caption instanceof HTMLElement) {
@@ -540,7 +560,7 @@ function updateApprovedRoutePhoto(index, options = {}) {
 
     if (isActive && scrollThumb) {
       thumb.scrollIntoView({
-        behavior: 'smooth',
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
         block: 'nearest',
         inline: 'center',
       });
@@ -560,6 +580,27 @@ function bindApprovedRouteGallery() {
     }
 
     thumb.dataset.galleryBound = 'true';
+    const preview = thumb.querySelector('img');
+    if (preview instanceof HTMLImageElement) {
+      const hideFailedPreview = () => { preview.style.visibility = 'hidden'; };
+      preview.addEventListener('error', hideFailedPreview, { once: true });
+      if (preview.complete && preview.naturalWidth === 0) hideFailedPreview();
+    }
+    thumb.addEventListener('keydown', (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      const current = thumbs.indexOf(thumb);
+      const target = event.key === 'ArrowRight' ? (current + 1) % thumbs.length
+        : event.key === 'ArrowLeft' ? (current - 1 + thumbs.length) % thumbs.length
+          : event.key === 'Home' ? 0
+            : event.key === 'End' ? thumbs.length - 1 : null;
+      if (target === null) return;
+      event.preventDefault();
+      const next = thumbs[target];
+      if (next instanceof HTMLButtonElement) {
+        next.focus();
+        next.click();
+      }
+    });
     thumb.addEventListener('click', () => {
       const index = Number(thumb.dataset.routeGalleryIndex);
       if (Number.isFinite(index)) {
@@ -859,6 +900,8 @@ function setRoutePhotoStatus(message, tone = '') {
 }
 
 function setRoutePhotoSubmitting(isSubmitting) {
+  photoSubmitting = isSubmitting;
+  routePhotoForm?.setAttribute('aria-busy', String(isSubmitting));
   if (!(routePhotoSubmitButton instanceof HTMLButtonElement)) {
     return;
   }
@@ -878,6 +921,8 @@ function setRouteReportStatus(message, tone = '') {
 }
 
 function setRouteReportSubmitting(isSubmitting) {
+  reportSubmitting = isSubmitting;
+  routeReportForm?.setAttribute('aria-busy', String(isSubmitting));
   if (!(routeReportSubmitButton instanceof HTMLButtonElement)) {
     return;
   }
@@ -978,10 +1023,9 @@ function bindRoutePhotoForm() {
 
   routePhotoForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (photoSubmitting) return;
 
-    const nowTs = Date.now();
-    const lastTs = Number(window.localStorage.getItem(routePhotoCooldownKey) || '0');
-    if (Number.isFinite(lastTs) && nowTs - lastTs < ROUTE_PHOTO_COOLDOWN_MS) {
+    if (contributionCooldown.isActive()) {
       setRoutePhotoStatus('Please wait a few seconds before uploading more photos.', 'error');
       return;
     }
@@ -1045,7 +1089,7 @@ function bindRoutePhotoForm() {
         }))
       );
 
-      await getBrowserApiClient().createRouteContribution({
+      const response = await getBrowserApiClient().createRouteContribution({
         riverSlug: slug,
         contributorName,
         contributorEmail,
@@ -1060,7 +1104,8 @@ function bindRoutePhotoForm() {
       });
 
       const photoCount = selectedRoutePhotoFiles.length;
-      window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
+      if (response.stored !== true) throw new Error('Your photos were not received. Please try again.');
+      contributionCooldown.recordSuccess();
       clearSubmittedRoutePhotoPreviews();
       submittedRoutePhotoPreviews = selectedRoutePhotoFiles.map(({ file, previewUrl }) => ({
         name: file.name,
@@ -1117,10 +1162,9 @@ function bindRouteReportForm() {
 
   routeReportForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (reportSubmitting) return;
 
-    const nowTs = Date.now();
-    const lastTs = Number(window.localStorage.getItem(routePhotoCooldownKey) || '0');
-    if (Number.isFinite(lastTs) && nowTs - lastTs < ROUTE_PHOTO_COOLDOWN_MS) {
+    if (contributionCooldown.isActive()) {
       setRouteReportStatus('Please wait a few seconds before sending another report.', 'error');
       return;
     }
@@ -1200,7 +1244,7 @@ function bindRouteReportForm() {
         }))
       );
 
-      await getBrowserApiClient().createRouteReport({
+      const response = await getBrowserApiClient().createRouteReport({
         riverSlug: slug,
         contributorName,
         contributorEmail,
@@ -1234,7 +1278,8 @@ function bindRouteReportForm() {
         files,
       });
 
-      window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
+      if (response.stored !== true) throw new Error('Your report was not received. Please try again.');
+      contributionCooldown.recordSuccess();
       routeReportForm.reset();
       summarizeReportPhotos([]);
       setRouteReportStatus('Thank you for your submission.', 'success');
@@ -1390,17 +1435,21 @@ function bindScoreFeedbackButtons() {
     button.dataset.bound = 'true';
     button.addEventListener('click', () => {
       const feedback = button.dataset.scoreFeedback || '';
-      window.localStorage.setItem(
-        `route-score-feedback:${slug}`,
-        JSON.stringify({
-          feedback,
-          score: latestResult?.score ?? null,
-          rating: latestResult?.rating ?? null,
-          at: new Date().toISOString(),
-        })
-      );
-      appendScoreFeedbackToReport(feedback);
+      try {
+        window.localStorage.setItem(
+          `route-score-feedback:${slug}`,
+          JSON.stringify({
+            feedback,
+            score: latestResult?.score ?? null,
+            rating: latestResult?.rating ?? null,
+            at: new Date().toISOString(),
+          })
+        );
+      } catch {
+        // The in-page draft is still available when optional storage is blocked.
+      }
       activateRouteReportPane();
+      appendScoreFeedbackToReport(feedback);
       if (routeScoreFeedbackStatus instanceof HTMLElement) {
         routeScoreFeedbackStatus.textContent = `${scoreFeedbackLabel(feedback)} noted. Add a sentence about what you saw, then send the report when ready.`;
       }
@@ -1426,7 +1475,7 @@ function scrollToDetailSection(section) {
   const top = section.getBoundingClientRect().top + window.scrollY - detailScrollOffset();
   window.scrollTo({
     top: Math.max(0, top),
-    behavior: 'smooth',
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
   });
 }
 
@@ -1778,7 +1827,9 @@ function setRouteActionStatus(message, tone = 'muted') {
 function closeRouteActionMenus() {
   for (const menu of routeActionMenus) {
     if (menu instanceof HTMLDetailsElement) {
+      const restoreFocus = menu.contains(document.activeElement);
       menu.open = false;
+      if (restoreFocus) menu.querySelector('summary')?.focus();
     }
   }
 }
@@ -1878,7 +1929,7 @@ function updateShareActions(result = latestResult) {
   }
 }
 
-async function copyTextToClipboard(text) {
+async function copyTextToClipboard(text, isCurrent = () => true) {
   if (navigator.clipboard?.writeText) {
     try {
       await navigator.clipboard.writeText(text);
@@ -1888,6 +1939,8 @@ async function copyTextToClipboard(text) {
     }
   }
 
+  if (!isCurrent()) return false;
+  const previousFocus = document.activeElement;
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.setAttribute('readonly', '');
@@ -1901,6 +1954,7 @@ async function copyTextToClipboard(text) {
     return document.execCommand('copy');
   } finally {
     textArea.remove();
+    if (previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus({ preventScroll: true });
   }
 }
 
@@ -1916,6 +1970,7 @@ function showManualShareCopy(text) {
     field.className = 'route-action-menu__manual-copy';
     field.dataset.shareManualCopy = 'true';
     field.readOnly = true;
+    field.setAttribute('aria-label', 'Condition summary to copy');
     field.rows = 5;
     shareCopyButton.after(field);
   }
@@ -2950,12 +3005,31 @@ function weatherHourlyNote(weather) {
     return `The best stretch looks to be ${bestWindow.start.label} to ${bestWindow.end.label}.`;
   }
 
+  if (weather.next12hStormRisk || weather.todayHourly.some(hasSevereHourlyWindowRisk)) {
+    return 'Weather risks need attention. Check the latest forecast and radar before choosing a paddle window.';
+  }
+
+  if (weather.todayHourly.some((point) => !hasHourlyWindowReadings(point))) {
+    return 'Hourly forecast readings are incomplete. Check the latest forecast before choosing a paddle window.';
+  }
+
   const firstRainHour = findFirstHourlyRain(weather);
   if (firstRainHour) {
     return `If you are trying to sneak in a short route, conditions look steadier before ${firstRainHour.label}.`;
   }
 
   return 'The next several hours look steadier than the all-day summary suggests.';
+}
+
+function hasHourlyWindowReadings(point) {
+  return [point.precipProbability, point.windMph, point.temperatureF]
+    .every((value) => typeof value === 'number' && Number.isFinite(value));
+}
+
+function hasSevereHourlyWindowRisk(point) {
+  return hourlyWeatherConditionKind(point) === 'storm'
+    || point.windMph >= 22 || point.windGustMph >= 30
+    || point.precipProbability >= 70 || point.precipitationIn >= 0.05;
 }
 
 function scoreHourlyPoint(point) {
@@ -3035,6 +3109,7 @@ function pickBestShortRouteWindow(weather) {
   if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length < 2) {
     return null;
   }
+  if (weather.next12hStormRisk) return null;
 
   const points = weather.todayHourly;
   const sunsetIndex = points.findIndex((point) => isAfterDark(point));
@@ -3054,22 +3129,9 @@ function pickBestShortRouteWindow(weather) {
       }
 
       const window = points.slice(startIndex, endIndex + 1);
-      let score = 0;
-      let hasStorm = false;
-      let hasHeavyRain = false;
-
-      for (const point of window) {
-        score += scoreHourlyPoint(point);
-        hasStorm ||= hourlyWeatherConditionKind(point) === 'storm';
-        hasHeavyRain ||= (point.precipProbability ?? 0) >= 70 || (point.precipitationIn ?? 0) >= 0.05;
-      }
-
-      if (hasStorm) {
-        score -= 6;
-      }
-      if (hasHeavyRain) {
-        score -= 3;
-      }
+      if (!window.every(hasHourlyWindowReadings)) continue;
+      if (window.some(hasSevereHourlyWindowRisk)) continue;
+      let score = window.reduce((total, point) => total + scoreHourlyPoint(point), 0);
 
       score += length === 3 ? 1 : 0;
       score -= startIndex * 0.6;
@@ -3095,6 +3157,14 @@ function bestShortRouteWindow(weather) {
   const bestWindow = pickBestShortRouteWindow(weather);
   if (bestWindow && bestWindow.score >= 6) {
     return `Best short-route window: ${bestWindow.start.label} to ${bestWindow.end.label}`;
+  }
+
+  if (weather.next12hStormRisk || weather.todayHourly.some(hasSevereHourlyWindowRisk)) {
+    return 'Weather risks need attention. Check the latest forecast and radar before choosing a paddle window.';
+  }
+
+  if (weather.todayHourly.some((point) => !hasHourlyWindowReadings(point))) {
+    return 'Hourly forecast readings are incomplete. Check the latest forecast before choosing a paddle window.';
   }
 
   const firstRainHour = findFirstHourlyRain(weather);
@@ -4485,46 +4555,100 @@ function syncTripPackLinks() {
   const launch = new Date(Date.now() + 60 * 60 * 1000);
   launch.setMinutes(0, 0, 0);
   const distance = distanceMilesFromLabel(riverContext.distanceLabel);
-  const times = (riverContext.paddleTimeLabel.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+  const timeRange = parsePaddleTimeHours(riverContext.paddleTimeLabel);
   const selectedDistance = distanceMilesFromLabel(activeAccessContext.distanceLabel);
   const ratio = Number.isFinite(distance) && distance > 0 && Number.isFinite(selectedDistance)
     ? Math.min(1, Math.max(0, selectedDistance / distance))
     : 1;
-  const expectedMinutes = Math.max(60, Math.round((times[1] || times[0] || 4) * ratio * 60) + 60);
+  const expectedMinutes = Math.max(60, Math.round((timeRange?.max ?? 4) * ratio * 60) + 60);
   const expected = new Date(launch.getTime() + expectedMinutes * 60 * 1000);
   const icsUrl = new URL(`/api/rivers/${encodeURIComponent(slug)}/trip.ics`, apiBase);
   if (start.id) icsUrl.searchParams.set('putin', start.id);
   if (end.id) icsUrl.searchParams.set('takeout', end.id);
   icsUrl.searchParams.set('start', launch.toISOString());
   icsUrl.searchParams.set('end', expected.toISOString());
-  if (tripGpxLink instanceof HTMLAnchorElement) tripGpxLink.href = gpxUrl.toString();
+  if (tripGpxLink instanceof HTMLAnchorElement) {
+    if (tripGpxLink.href !== gpxUrl.toString()) {
+      cancelTripShare();
+      setElementText(tripStatus, '');
+    }
+    if (tripGpxRequest && tripGpxRequest.url !== gpxUrl.toString()) {
+      cancelTripGpxCheck();
+      setElementText(tripStatus, 'Route selection changed. Check GPX availability again.');
+    }
+    tripGpxLink.href = gpxUrl.toString();
+  }
   if (tripIcsLink instanceof HTMLAnchorElement) tripIcsLink.href = icsUrl.toString();
+  return { launch, expected };
+}
+
+function cancelTripShare() {
+  tripShareRequest = null;
+  if (tripShareButton instanceof HTMLButtonElement) {
+    tripShareButton.disabled = false;
+    tripShareButton.setAttribute('aria-busy', 'false');
+  }
+  if (tripManualCopy instanceof HTMLTextAreaElement) {
+    tripManualCopy.hidden = true;
+    tripManualCopy.value = '';
+  }
+}
+
+function cancelTripGpxCheck() {
+  if (!tripGpxRequest) return;
+  const request = tripGpxRequest;
+  tripGpxRequest = null;
+  clearTimeout(request.timeout);
+  request.controller.abort();
+  tripGpxLink?.setAttribute('aria-busy', 'false');
+  tripGpxLink?.setAttribute('aria-disabled', 'false');
 }
 
 function bindTripPackActions() {
   syncTripPackLinks();
+  window.addEventListener('pagehide', cancelTripGpxCheck);
+  window.addEventListener('pagehide', cancelTripShare);
   if (tripGpxLink instanceof HTMLAnchorElement) {
     tripGpxLink.addEventListener('click', async (event) => {
       event.preventDefault();
+      if (tripGpxRequest) return;
+      const request = { url: tripGpxLink.href, controller: new AbortController(), timeout: null };
+      request.timeout = setTimeout(() => request.controller.abort(), 15000);
+      tripGpxRequest = request;
+      tripGpxLink.setAttribute('aria-busy', 'true');
+      tripGpxLink.setAttribute('aria-disabled', 'true');
       setElementText(tripStatus, 'Checking for canonical route geometry…');
       try {
-        const response = await fetch(tripGpxLink.href, { method: 'HEAD' });
+        const response = await fetch(request.url, { method: 'HEAD', signal: request.controller.signal });
+        if (tripGpxRequest !== request || request.controller.signal.aborted) return;
         if (!response.ok) {
-          setElementText(tripStatus, 'GPX is not available for this route yet.');
+          setElementText(tripStatus, response.status === 400 ? 'These access points are no longer available. Refresh the route and choose your put-in and take-out again.' : 'GPX is not available for this route yet.');
           return;
         }
-        window.location.href = tripGpxLink.href;
+        window.location.href = request.url;
       } catch {
-        setElementText(tripStatus, 'GPX export is unavailable while offline.');
+        if (tripGpxRequest === request) setElementText(tripStatus, request.controller.signal.aborted ? 'The GPX check timed out. Please try again.' : 'GPX export is unavailable while offline.');
+      } finally {
+        clearTimeout(request.timeout);
+        if (tripGpxRequest === request) {
+          tripGpxRequest = null;
+          tripGpxLink.setAttribute('aria-busy', 'false');
+          tripGpxLink.setAttribute('aria-disabled', 'false');
+        }
       }
     });
   }
   if (!(tripShareButton instanceof HTMLButtonElement)) return;
   tripShareButton.addEventListener('click', async () => {
+    if (tripShareRequest) return;
+    if (tripManualCopy instanceof HTMLTextAreaElement) tripManualCopy.hidden = true;
+    const timing = syncTripPackLinks();
+    if (!timing) {
+      setElementText(tripStatus, 'Choose access points before sharing a float plan.');
+      return;
+    }
     const start = activeAccessContext.putIn;
     const end = activeAccessContext.takeOut;
-    const launch = new Date(Date.now() + 60 * 60 * 1000);
-    launch.setMinutes(0, 0, 0);
     const text = buildFloatPlanMessage({
       routeSlug: slug,
       riverName: riverContext.name,
@@ -4533,20 +4657,48 @@ function bindTripPackActions() {
       putIn: { name: start?.name ?? 'Check source', latitude: Number(start?.latitude) || 0, longitude: Number(start?.longitude) || 0 },
       takeOut: { name: end?.name ?? 'Check source', latitude: Number(end?.latitude) || 0, longitude: Number(end?.longitude) || 0 },
       distanceMiles: distanceMilesFromLabel(activeAccessContext.distanceLabel),
-      launchAt: launch,
-      expectedTakeOutAt: new Date(launch.getTime() + 4 * 60 * 60 * 1000),
+      launchAt: timing.launch,
+      expectedTakeOutAt: timing.expected,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     });
+    const request = { restoreFocus: document.activeElement === tripShareButton };
+    tripShareRequest = request;
+    tripShareButton.disabled = true;
+    tripShareButton.setAttribute('aria-busy', 'true');
+    setElementText(tripStatus, 'Opening sharing…');
     try {
       if (navigator.share) {
         await navigator.share({ title: `Float plan - ${riverContext.name}`, text });
+        if (tripShareRequest !== request) return;
+        setElementText(tripStatus, 'Float plan shared.');
       } else {
-        await navigator.clipboard.writeText(text);
+        if (!await copyTextToClipboard(text, () => tripShareRequest === request)) throw new Error('Clipboard copy was not accepted.');
+        if (tripShareRequest !== request) return;
         setElementText(tripStatus, 'Float plan copied to your clipboard.');
       }
       trackEvent('Share float plan', plannerAnalyticsProperties());
     } catch (error) {
-      if (error?.name !== 'AbortError') setElementText(tripStatus, 'Could not open sharing. Copy the route link instead.');
+      if (tripShareRequest !== request) return;
+      if (error?.name === 'AbortError') {
+        setElementText(tripStatus, 'Sharing cancelled.');
+        return;
+      }
+      if (tripManualCopy instanceof HTMLTextAreaElement) {
+        tripManualCopy.value = text;
+        tripManualCopy.hidden = false;
+        tripManualCopy.focus();
+        tripManualCopy.select();
+        setElementText(tripStatus, 'Sharing is unavailable. Copy the selected float plan.');
+      } else {
+        setElementText(tripStatus, 'Could not open sharing. Copy the route link instead.');
+      }
+    } finally {
+      if (tripShareRequest === request) {
+        tripShareRequest = null;
+        tripShareButton.disabled = false;
+        tripShareButton.setAttribute('aria-busy', 'false');
+        if (request.restoreFocus && document.activeElement === document.body) tripShareButton.focus({ preventScroll: true });
+      }
     }
   });
 }
@@ -5021,8 +5173,11 @@ function bindAlertForm() {
     return;
   }
 
+  let submitting = false;
+  alertEmailInput.addEventListener('input', () => alertEmailInput.removeAttribute('aria-invalid'));
   alertForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (submitting) return;
     const submitter = event.submitter;
     const threshold =
       submitter instanceof HTMLButtonElement ? submitter.dataset.alertSubmit : null;
@@ -5034,11 +5189,15 @@ function bindAlertForm() {
 
     const email = alertEmailInput.value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alertEmailInput.setAttribute('aria-invalid', 'true');
       setAlertStatus('Enter a valid email address.', 'error');
       alertEmailInput.focus();
       return;
     }
 
+    submitting = true;
+    alertEmailInput.readOnly = true;
+    alertForm.setAttribute('aria-busy', 'true');
     for (const button of alertSubmitButtons) {
       if (button instanceof HTMLButtonElement) {
         button.disabled = true;
@@ -5054,6 +5213,10 @@ function bindAlertForm() {
         company:
           alertCompanyInput instanceof HTMLInputElement ? alertCompanyInput.value.trim() : '',
       });
+
+      if (payload?.ok !== true || !payload?.alert?.id) {
+        throw new Error('Your alert was not saved. Please try again.');
+      }
 
       setAlertStatus(
         payload?.duplicate
@@ -5082,6 +5245,9 @@ function bindAlertForm() {
         'error'
       );
     } finally {
+      submitting = false;
+      alertEmailInput.readOnly = false;
+      alertForm.removeAttribute('aria-busy');
       for (const button of alertSubmitButtons) {
         if (button instanceof HTMLButtonElement) {
           button.disabled = false;
@@ -5105,7 +5271,7 @@ function bindRouteActions() {
         }
         if (alertEmailInput instanceof HTMLInputElement) {
           window.setTimeout(() => {
-            alertEmailInput.focus();
+            if (alertDialog.open) alertEmailInput.focus();
           }, 20);
         }
       });

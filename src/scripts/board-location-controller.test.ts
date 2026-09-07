@@ -36,6 +36,44 @@ function harness({
 }
 
 describe('board location controller', () => {
+  it('ignores an older lookup that resolves after the latest choice', async () => {
+    const { controller, geocodeManualLocation, callbacks } = harness();
+    let finishFirst: (value: unknown) => void;
+    geocodeManualLocation.mockImplementationOnce(() => new Promise((resolve) => { finishFirst = resolve; }));
+    const first = controller.submitManualLocation('Old town');
+    const firstSignal = geocodeManualLocation.mock.calls[0][1].signal;
+    geocodeManualLocation.mockResolvedValueOnce({ label: 'New town' });
+    await controller.submitManualLocation('New town');
+    finishFirst!({ label: 'Old town' });
+    await first;
+    expect(firstSignal.aborted).toBe(true);
+    expect(callbacks.onLocationResolved).toHaveBeenCalledExactlyOnceWith({ label: 'New town' });
+  });
+
+  it('clearing the location prevents a pending lookup from restoring it', async () => {
+    const { controller, geocodeManualLocation, callbacks } = harness();
+    let finish: (value: unknown) => void;
+    geocodeManualLocation.mockImplementationOnce(() => new Promise((resolve) => { finish = resolve; }));
+    const pending = controller.submitManualLocation('Duluth');
+    controller.clearUserLocation();
+    finish!({ label: 'Duluth' });
+    await pending;
+    expect(callbacks.onLocationResolved).not.toHaveBeenCalled();
+    expect(callbacks.logError).not.toHaveBeenCalled();
+  });
+
+  it('an outdated failure cannot replace the latest lookup status', async () => {
+    const { controller, geocodeManualLocation, statusTarget, callbacks } = harness();
+    let rejectFirst: (error: Error) => void;
+    geocodeManualLocation.mockImplementationOnce(() => new Promise((_, reject) => { rejectFirst = reject; }));
+    const first = controller.submitManualLocation('Old town');
+    await controller.submitManualLocation('Missing');
+    rejectFirst!(new Error('offline'));
+    await first;
+    expect(statusTarget.textContent).toBe('That city or ZIP was not found.');
+    expect(callbacks.logError).not.toHaveBeenCalled();
+  });
+
   it.each([
     ['pending', false, 'loading', 'Finding nearest picks...'],
     ['denied', false, 'error', 'Location blocked'],
@@ -70,7 +108,7 @@ describe('board location controller', () => {
     await controller.submitManualLocation('  Duluth  ');
 
     expect(statusTarget.textContent).toBe('Looking up that location...');
-    expect(geocodeManualLocation).toHaveBeenCalledWith('Duluth');
+    expect(geocodeManualLocation).toHaveBeenCalledWith('Duluth', { signal: expect.any(AbortSignal) });
     expect(callbacks.onLocationResolved).toHaveBeenCalledWith(match);
   });
 

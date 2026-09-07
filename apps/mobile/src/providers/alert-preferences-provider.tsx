@@ -100,7 +100,9 @@ export function useAlertPreferences() {
 }
 
 async function persistPreferences(email: string, routeAlerts: SavedRouteAlertRecord[]) {
-  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify({ email, routeAlerts }));
+  // These preferences are a convenience; storage cannot block a report or make
+  // an alert already created on the server appear to have failed.
+  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify({ email, routeAlerts })).catch(() => undefined);
 }
 
 function isAlertPreferences(value: unknown): value is { email: string; routeAlerts: unknown[] } {

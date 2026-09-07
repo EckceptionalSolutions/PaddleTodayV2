@@ -2,7 +2,7 @@ import type { HourlyWeatherPoint, WeatherSnapshot } from './index';
 
 export type HourlyWeatherConditionKind = 'storm' | 'rain' | 'cold' | 'clear' | 'mixed';
 export type HourlyWeatherRiskLevel = 'clear' | 'watch' | 'skip';
-export type HourlyWeatherRiskKind = 'clear' | 'rain' | 'storm' | 'wind';
+export type HourlyWeatherRiskKind = 'clear' | 'rain' | 'storm' | 'wind' | 'unknown';
 export type HourlyWeatherTimingTone = 'open' | 'watch' | 'skip';
 export type HourlyWeatherTimingBadgeKind = 'clear' | 'clock' | 'storm' | 'alert';
 
@@ -66,7 +66,7 @@ export function classifyHourlyWeatherRisk(point: HourlyWeatherPoint): HourlyWeat
   const sustainedWind = point.windMph ?? 0;
   const gust = point.windGustMph ?? 0;
 
-  if (/(storm|thunder)/i.test(condition)) {
+  if (hourlyWeatherConditionKind(point) === 'storm') {
     return { level: 'skip', kind: 'storm' };
   }
   if (rain >= 60 || precipitation >= 0.08) {
@@ -80,6 +80,10 @@ export function classifyHourlyWeatherRisk(point: HourlyWeatherPoint): HourlyWeat
   }
   if (sustainedWind >= 16 || gust >= 24) {
     return { level: 'watch', kind: 'wind' };
+  }
+  if (typeof point.precipProbability !== 'number' || !Number.isFinite(point.precipProbability)
+    || typeof point.windMph !== 'number' || !Number.isFinite(point.windMph)) {
+    return { level: 'watch', kind: 'unknown' };
   }
   return { level: 'clear', kind: 'clear' };
 }
@@ -132,6 +136,19 @@ export function buildHourlyWeatherTimingViewModel(
   const firstRisk = firstRiskPoint?.risk ?? null;
   const stormRisk = weather.next12hStormRisk
     || points.some((point) => point.risk.kind === 'storm');
+  if (points.some((point) => point.risk.kind === 'unknown')) {
+    const knownRisk = stormRisk || points.some((point) => point.risk.level === 'skip');
+    return {
+      points,
+      title: knownRisk ? 'Weather needs attention' : 'Hourly forecast incomplete',
+      summary: knownRisk
+        ? 'Weather risks are present and some hourly readings are missing. Check the latest forecast and radar before deciding whether to launch.'
+        : 'Some hourly rain or wind readings are missing. Check the latest forecast before choosing a paddle window.',
+      tone: knownRisk ? 'skip' : 'watch',
+      badgeLabel: knownRisk ? 'Check now' : 'Check forecast',
+      badgeKind: stormRisk ? 'storm' : 'alert',
+    };
+  }
   const firstRiskTime = firstRiskPoint?.displayLabel ?? null;
   const riskLabel = firstRisk?.kind === 'storm'
     ? 'storm risk'
@@ -140,6 +157,16 @@ export function buildHourlyWeatherTimingViewModel(
       : 'wind';
 
   if (firstRiskIndex === -1) {
+    if (stormRisk) {
+      return {
+        points,
+        title: 'Storm timing needs a check',
+        summary: 'The broader forecast flags storm risk, but these hourly readings do not show when. Check the latest forecast and radar before choosing a launch time.',
+        tone: 'watch',
+        badgeLabel: 'Storm watch',
+        badgeKind: 'storm',
+      };
+    }
     return {
       points,
       title: 'Good weather window',

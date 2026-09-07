@@ -13,6 +13,13 @@ export interface StoredLocation {
 
 export { distanceMiles, distancePenalty, estimateTravelMinutes };
 
+export function hasValidLocationCoordinates(value: { latitude?: unknown; longitude?: unknown } | null | undefined): value is { latitude: number; longitude: number } {
+  return Boolean(value && typeof value.latitude === 'number' && Number.isFinite(value.latitude)
+    && value.latitude >= -90 && value.latitude <= 90
+    && typeof value.longitude === 'number' && Number.isFinite(value.longitude)
+    && value.longitude >= -180 && value.longitude <= 180);
+}
+
 export function formatTravelTime(minutes: number) {
   if (!Number.isFinite(minutes)) return 'Distance unavailable';
   if (minutes < 60) return `${minutes} min away`;

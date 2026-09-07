@@ -1,7 +1,7 @@
 import type { ServerResponse } from 'node:http';
 import { endpointSnappedRiverGeometry, stitchRiverLines, dedupeLine, type Coordinate } from '@paddletoday/geo';
-import { routeAccessPoints } from '@paddletoday/api-contract';
-import { buildGpx, buildIcs, orientRouteCoordinates, tripPackFilename, type TripPackAccessPoint } from '@paddletoday/trip-pack';
+import { routeAccessPoints, parsePaddleTimeHours } from '@paddletoday/api-contract';
+import { buildGpx, buildIcs, estimateSegmentDurationMinutes, orientRouteCoordinates, tripPackFilename, type TripPackAccessPoint } from '@paddletoday/trip-pack';
 import { getRiverBySlug } from '../../lib/rivers';
 import { sendBinary, sendJson } from '../http';
 import { loadRouteGeometry } from './river-geometry';
@@ -22,12 +22,14 @@ export async function handleRiverTripPack(
   if (!river) return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody);
 
   const points = routeAccessPoints(river);
-  const putIn = selectPoint(points, requestUrl.searchParams.get('putin')) ?? points[0];
-  const takeOut = selectPoint(points, requestUrl.searchParams.get('takeout')) ?? points.at(-1);
+  const putInId = requestUrl.searchParams.get('putin');
+  const takeOutId = requestUrl.searchParams.get('takeout');
+  const putIn = putInId ? selectPoint(points, putInId) : points[0];
+  const takeOut = takeOutId ? selectPoint(points, takeOutId) : points.at(-1);
   const putInIndex = putIn ? points.indexOf(putIn) : -1;
   const takeOutIndex = takeOut ? points.indexOf(takeOut) : -1;
   if (!putIn || !takeOut || putInIndex < 0 || takeOutIndex <= putInIndex || !hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
-    return sendJson(response, 400, { requestId, error: 'invalid_access_selection', message: 'Choose a put-in before the take-out.' }, includeBody);
+    return sendJson(response, 400, { requestId, error: 'invalid_access_selection', message: 'Choose available access points on this route, with the put-in before the take-out.' }, includeBody);
   }
 
   const measuredDistance = takeOut.mileFromStart - putIn.mileFromStart;
@@ -43,6 +45,17 @@ export async function handleRiverTripPack(
     : null;
   const distanceMiles = measuredDistance > 0 ? measuredDistance : proportionalDistance;
 
+  const fullTimeLabel = river.logistics?.estimatedPaddleTime;
+  const isFullRoute = putInIndex === 0 && takeOutIndex === points.length - 1;
+  const segmentTime = fullDistance && distanceMiles
+    ? estimateSegmentDurationMinutes(`${fullDistance} mi`, fullTimeLabel, distanceMiles)
+    : null;
+  const paddleTimeDescription = isFullRoute || !fullTimeLabel
+    ? fullTimeLabel ?? null
+    : segmentTime
+      ? `About ${segmentTime.min === segmentTime.max ? segmentTime.min : `${segmentTime.min}–${segmentTime.max}`} min for selected segment`
+      : `Full route: ${fullTimeLabel}`;
+
   const basePlan = {
     routeSlug: river.slug,
     riverName: river.name,
@@ -55,11 +68,11 @@ export async function handleRiverTripPack(
       .filter(hasCoordinates)
       .map(toPackPoint),
     distanceMiles: distanceMiles ? Number(distanceMiles.toFixed(1)) : null,
-    estimatedPaddleTime: river.logistics?.estimatedPaddleTime ?? null,
+    estimatedPaddleTime: paddleTimeDescription,
   };
 
   if (format === 'ics') {
-    const schedule = calendarSchedule(requestUrl, river.logistics?.estimatedPaddleTime, distanceMiles);
+    const schedule = calendarSchedule(requestUrl, river.logistics?.estimatedPaddleTime, distanceMiles, fullDistance);
     if (!schedule) {
       return sendJson(response, 400, { requestId, error: 'invalid_schedule', message: 'Calendar export requires valid start and end times.' }, includeBody);
     }
@@ -129,7 +142,7 @@ function parseDate(value: string | null) {
   return Number.isFinite(date.getTime()) ? date : null;
 }
 
-function calendarSchedule(requestUrl: URL, paddleTimeLabel?: string, distanceMiles?: number | null) {
+function calendarSchedule(requestUrl: URL, paddleTimeLabel?: string, distanceMiles?: number | null, fullDistanceMiles?: number | null) {
   const startValue = requestUrl.searchParams.get('start');
   const endValue = requestUrl.searchParams.get('end');
   if (startValue || endValue) {
@@ -140,9 +153,13 @@ function calendarSchedule(requestUrl: URL, paddleTimeLabel?: string, distanceMil
 
   const start = new Date();
   start.setUTCHours(start.getUTCHours() + 1, 0, 0, 0);
-  const timeValues = (paddleTimeLabel?.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
-  const estimatedHours = timeValues.at(-1)
-    ?? (distanceMiles && distanceMiles > 0 ? distanceMiles / 2.2 : 3);
+  const timeRange = parsePaddleTimeHours(paddleTimeLabel);
+  const distanceRatio = distanceMiles && distanceMiles > 0 && fullDistanceMiles && fullDistanceMiles > 0
+    ? Math.min(1, distanceMiles / fullDistanceMiles)
+    : 1;
+  const estimatedHours = timeRange
+    ? timeRange.max * distanceRatio
+    : (distanceMiles && distanceMiles > 0 ? distanceMiles / 2.2 : 3);
   const durationMinutes = Math.max(60, Math.round((estimatedHours + 1) * 60));
   return {
     start,

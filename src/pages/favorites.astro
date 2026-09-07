@@ -13,9 +13,10 @@ import FavoriteButton from '../components/FavoriteButton.astro';
       <div>
         <h1 class="section-title">Saved routes</h1>
       </div>
-      <p class="muted section-head__note" data-favorites-summary>
+      <p class="muted section-head__note" data-favorites-summary role="status">
         Checking saved routes on this device.
       </p>
+      <button class="filter-chip" type="button" data-favorites-refresh>Refresh calls</button>
     </div>
 
     <p class="favorites-page__device-note muted">

@@ -5,9 +5,9 @@ import {
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import type { ComponentProps, ReactNode } from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ImageBackground,
   KeyboardAvoidingView,
@@ -26,8 +26,8 @@ import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { QualityPill, ratingColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
-import { useStoredLocation } from '../hooks/use-stored-location';
-import { resolveApiBaseUrl } from '../lib/api-base-url';
+import { useStoredLocation, type LocationRequestResult } from '../hooks/use-stored-location';
+import { requestFailureMessage } from '../lib/request-failure';
 import { callForDecision, callStateForDecision, normalizeApiText, qualityForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
 import { type ExploreIntentId } from '../lib/explore-intents';
@@ -83,7 +83,7 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const summaryQuery = useRiverSummaryQuery();
-  const { location, status, requestLocation, setLocationFromQuery } = useStoredLocation();
+  const { location, status, requestLocation, setLocationFromQuery, cancelLocationRequest } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
@@ -149,21 +149,21 @@ export default function HomeScreen() {
     void AsyncStorage.setItem(
       BOARD_PREFERENCES_STORAGE_KEY,
       JSON.stringify({ mode })
-    );
+    ).catch(() => {});
   }, [mode, preferencesHydrated]);
 
-  if (summaryQuery.isLoading && rivers.length === 0) {
+  if (summaryQuery.isLoading && !summaryQuery.data) {
     return (
       <AppLoadingState title="Loading today’s routes" body="Checking river conditions." />
     );
   }
 
-  if (summaryQuery.isError && rivers.length === 0) {
+  if (summaryQuery.isError && !summaryQuery.data) {
     return (
       <AppErrorState
         title="Today’s routes did not load"
-        body="Check your connection, then try again."
-        detail={errorDetailForSummaryQuery(summaryQuery.error)}
+        body={requestFailureMessage(summaryQuery.error)}
+        retrying={summaryQuery.isFetching}
         onRetry={() => summaryQuery.refetch()}
       />
     );
@@ -179,7 +179,7 @@ export default function HomeScreen() {
           paddingBottom: spacing.xl + TAB_BAR_SAFE_SPACE + bottomContentInset,
         },
       ]}
-      keyboardDismissMode="on-drag"
+      keyboardDismissMode={Platform.OS === 'web' ? 'none' : 'on-drag'}
       keyboardShouldPersistTaps="handled"
       refreshControl={
         <RefreshControl
@@ -193,6 +193,7 @@ export default function HomeScreen() {
         <AppRefreshNotice
           isError={summaryQuery.isRefetchError}
           dataUpdatedAt={summaryQuery.dataUpdatedAt}
+          retrying={summaryQuery.isFetching}
           onRetry={() => void summaryQuery.refetch()}
         />
         <BoardHero
@@ -257,7 +258,7 @@ export default function HomeScreen() {
         <ExploreActionStrip
           hasLocation={Boolean(location)}
           locationStatus={status}
-          onUseLocation={() => void requestLocation()}
+          onUseLocation={requestLocation}
           onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
           onOpenIntent={openExploreIntent}
         />
@@ -300,14 +301,13 @@ export default function HomeScreen() {
       />
       <ManualLocationModal
         visible={locationSearchOpen}
-        onDismiss={() => setLocationSearchOpen(false)}
+        onDismiss={() => {
+          cancelLocationRequest();
+          setLocationSearchOpen(false);
+        }}
         onSubmit={async (query) => {
           const nextLocation = await setLocationFromQuery(query);
-          if (nextLocation) {
-            setLocationSearchOpen(false);
-            return true;
-          }
-          return false;
+          return Boolean(nextLocation);
         }}
       />
     </ScrollView>
@@ -378,8 +378,8 @@ function BoardHero({
 
   return (
     <View style={styles.heroShell}>
-      <ImageBackground source={{ uri: imageUri }} style={styles.heroImage} imageStyle={styles.heroImageRadius}>
-        <View style={styles.heroOverlay}>
+      <ImageBackground source={{ uri: imageUri }} style={[styles.heroImage, !headline && styles.heroImageEmpty]} imageStyle={styles.heroImageRadius}>
+        <View style={[styles.heroOverlay, !headline && styles.heroOverlayEmpty]}>
           <View style={styles.topBar}>
             <View>
               <Text style={styles.appName}>Today</Text>
@@ -391,7 +391,7 @@ function BoardHero({
           </View>
 
           {headline ? (
-            <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
+            <Pressable accessibilityRole="button" accessibilityLabel={`View ${headline.river.name}: ${headline.river.reach}`} style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
                 <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
                   <Text style={[styles.heroVerdictText, { color: ratingColors(headline.rating).textColor }]}>
@@ -399,7 +399,7 @@ function BoardHero({
                   </Text>
                   <Text style={[styles.heroVerdictMeta, { color: ratingColors(headline.rating).textColor }]}>Score {headline.score}</Text>
                 </View>
-                {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
+                {onToggleSaved ? <SaveToggleButton routeLabel={`${headline.river.name}: ${headline.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
                 <Text style={styles.headlineKicker}>{hasLocation ? headlineLabelForMode(mode, headline) : 'Best across all routes'}</Text>
@@ -526,7 +526,7 @@ function RiverImageCard({
   onOpen: () => void;
 }) {
   return (
-    <Pressable style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <ImageBackground
         source={{ uri: photoForRiver(river.river) }}
         style={styles.imageCardMedia}
@@ -538,7 +538,7 @@ function RiverImageCard({
               <Text style={styles.imageVerdictText}>{callForDecision(river.rating, river.readiness.status)}</Text>
               <Text style={styles.imageScoreLabel}>Score {river.score}</Text>
             </View>
-            <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
+            <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
           </View>
           <View style={styles.imageCardCopy}>
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
@@ -622,7 +622,7 @@ function CompactRiverRow({
   onOpen: () => void;
 }) {
   return (
-    <Pressable style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <View style={styles.quickThumb}>
         <ImageBackground source={{ uri: photoForRiver(river.river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
           <View style={styles.quickScore}>
@@ -648,7 +648,7 @@ function CompactRiverRow({
       </View>
       <View style={styles.quickActions}>
         <QualityPill rating={river.rating} />
-        <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
+        <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
       </View>
     </Pressable>
   );
@@ -668,7 +668,7 @@ function SectionHeading({
   return (
     <View style={styles.sectionHeading}>
       <View style={styles.sectionHeadingTop}>
-        <Text style={styles.sectionTitle}>{title}</Text>
+        <Text accessibilityRole="header" style={styles.sectionTitle}>{title}</Text>
         {actionLabel && onAction ? (
           <Pressable style={styles.sectionAction} onPress={onAction} android_ripple={{ color: colors.canvasMuted }}>
             <MaterialCommunityIcons name="map-outline" color={colors.accent} size={15} />
@@ -690,17 +690,38 @@ function ExploreActionStrip({
 }: {
   hasLocation: boolean;
   locationStatus: string;
-  onUseLocation: () => void | Promise<void>;
+  onUseLocation: () => Promise<LocationRequestResult>;
   onOpenExplore: () => void;
   onOpenIntent: (intent: ExploreIntentId) => void;
 }) {
+  const nearbyRequest = useRef<object | null>(null);
+  const [nearbyMessage, setNearbyMessage] = useState('');
+  useFocusEffect(useCallback(() => () => { nearbyRequest.current = null; }, []));
   const requestingLocation = locationStatus === 'requesting';
   const nearbyLabel = requestingLocation ? 'Finding nearby' : 'Best nearby';
+
+  async function openNearby() {
+    if (nearbyRequest.current) return;
+    if (hasLocation) return onOpenIntent('best-nearby');
+    const request = {};
+    nearbyRequest.current = request;
+    setNearbyMessage('');
+    try {
+      const result = await onUseLocation();
+      if (nearbyRequest.current !== request) return;
+      if (result.location) onOpenIntent('best-nearby');
+      else setNearbyMessage('Could not find your location. Try again or set a city or ZIP code above.');
+    } catch {
+      if (nearbyRequest.current === request) setNearbyMessage('Could not find your location. Try again or set a city or ZIP code above.');
+    } finally {
+      if (nearbyRequest.current === request) nearbyRequest.current = null;
+    }
+  }
 
   return (
     <View style={styles.exploreActions}>
       <View style={styles.exploreActionsHeader}>
-        <Text style={styles.exploreActionsTitle}>Plan a paddle</Text>
+        <Text accessibilityRole="header" style={styles.exploreActionsTitle}>Plan a paddle</Text>
         <Text style={styles.exploreActionsSubtitle}>Choose a view.</Text>
       </View>
       <View style={styles.exploreActionGrid}>
@@ -708,9 +729,7 @@ function ExploreActionStrip({
           label={nearbyLabel}
           icon="crosshairs-gps"
           disabled={requestingLocation}
-          onPress={hasLocation ? () => onOpenIntent('best-nearby') : () => {
-            void Promise.resolve(onUseLocation()).finally(() => onOpenIntent('best-nearby'));
-          }}
+          onPress={() => void openNearby()}
         />
         <ExploreActionChip label="Paddle now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
         <ExploreActionChip label="Camping" icon="tent" onPress={() => onOpenIntent('camping')} />
@@ -718,6 +737,7 @@ function ExploreActionStrip({
         <ExploreActionChip label="Full day" icon="sun-clock-outline" onPress={() => onOpenIntent('full-day')} />
         <ExploreActionChip label="All routes" icon="map-search-outline" onPress={onOpenExplore} />
       </View>
+      {!hasLocation && nearbyMessage ? <Text accessibilityLiveRegion="polite" style={styles.exploreActionsSubtitle}>{nearbyMessage}</Text> : null}
     </View>
   );
 }
@@ -736,6 +756,10 @@ function ExploreActionChip({
   return (
     <Pressable
       style={[styles.exploreActionChip, disabled ? styles.exploreActionDisabled : null]}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ disabled: Boolean(disabled), busy: Boolean(disabled) }}
+      aria-busy={Boolean(disabled)}
       disabled={disabled}
       onPress={onPress}
       android_ripple={{ color: colors.canvasMuted }}
@@ -748,7 +772,7 @@ function ExploreActionChip({
 
 function KnownRouteSearch({ onOpen }: { onOpen: () => void }) {
   return (
-    <Pressable style={styles.knownSearchCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable accessibilityRole="button" accessibilityLabel="Search for a river or route" style={styles.knownSearchCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
       <View style={styles.knownSearchInputRow}>
         <MaterialCommunityIcons name="magnify" color={colors.accent} size={18} />
@@ -770,23 +794,36 @@ function ManualLocationModal({
   const [query, setQuery] = useState('');
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const submission = useRef<object | null>(null);
 
   useEffect(() => {
+    submission.current = null;
     if (visible) {
       setQuery('');
       setMessage('');
       setSubmitting(false);
     }
+    return () => { submission.current = null; };
   }, [visible]);
 
   async function submitLocation() {
-    if (!query.trim() || submitting) return;
+    if (!query.trim() || submission.current) return;
+    const request = {};
+    submission.current = request;
     setSubmitting(true);
     setMessage('');
-    const found = await onSubmit(query);
-    if (!found) {
-      setMessage("We couldn't find that city or ZIP code.");
-      setSubmitting(false);
+    try {
+      const found = await onSubmit(query);
+      if (submission.current !== request) return;
+      if (found) onDismiss();
+      else setMessage("We couldn't find that city or ZIP code.");
+    } catch {
+      if (submission.current === request) setMessage('Location search is unavailable. Please try again.');
+    } finally {
+      if (submission.current === request) {
+        submission.current = null;
+        setSubmitting(false);
+      }
     }
   }
 
@@ -797,7 +834,7 @@ function ManualLocationModal({
         <View style={styles.locationModalCard}>
           <View style={styles.locationModalHeader}>
             <View style={styles.locationModalHeaderCopy}>
-              <Text style={styles.locationModalTitle}>Set your planning location</Text>
+              <Text accessibilityRole="header" style={styles.locationModalTitle}>Set your planning location</Text>
               <Text style={styles.locationModalSubtitle}>Enter a city or ZIP code to rank nearby routes.</Text>
             </View>
             <Pressable hitSlop={10} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close location search">
@@ -811,18 +848,23 @@ function ManualLocationModal({
               value={query}
               onChangeText={setQuery}
               placeholder="City, state, or ZIP code"
+              accessibilityLabel="City, state, or ZIP code"
               placeholderTextColor={colors.textMuted}
               autoCapitalize="words"
               autoCorrect={false}
               returnKeyType="search"
+              editable={!submitting}
               onSubmitEditing={() => void submitLocation()}
               style={styles.locationModalInput}
             />
           </View>
-          {message ? <Text style={styles.locationModalMessage}>{message}</Text> : null}
+          {message ? <Text style={styles.locationModalMessage} accessibilityLiveRegion="polite">{message}</Text> : null}
           <Pressable
             style={[styles.locationModalSubmit, (!query.trim() || submitting) ? styles.heroActionDisabled : null]}
             disabled={!query.trim() || submitting}
+            accessibilityState={{ disabled: !query.trim() || submitting, busy: submitting }}
+            accessibilityLabel="Use this location"
+            aria-busy={submitting}
             onPress={() => void submitLocation()}
             accessibilityRole="button"
           >
@@ -874,7 +916,7 @@ function RouteSearchModal({
         <View style={[styles.searchModalContent, { paddingTop: spacing.md + topInset, paddingBottom: spacing.md + bottomInset }]}>
           <View style={styles.searchModalHeader}>
             <View>
-              <Text style={styles.searchModalTitle}>Find a route</Text>
+              <Text accessibilityRole="header" style={styles.searchModalTitle}>Find a route</Text>
               <Text style={styles.searchModalSubtitle}>Search rivers, routes, states, and access points.</Text>
             </View>
             <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
@@ -891,6 +933,7 @@ function RouteSearchModal({
               value={query}
               onChangeText={onChange}
               placeholder="River, route, region, or state"
+              accessibilityLabel="Search rivers and routes"
               placeholderTextColor={colors.textMuted}
               returnKeyType="search"
               onSubmitEditing={() => {
@@ -913,7 +956,7 @@ function RouteSearchModal({
           <ScrollView
             style={styles.searchModalResults}
             contentContainerStyle={styles.searchModalResultsContent}
-            keyboardDismissMode="on-drag"
+            keyboardDismissMode={Platform.OS === 'web' ? 'none' : 'on-drag'}
             keyboardShouldPersistTaps="handled"
           >
             {!active ? (
@@ -923,11 +966,13 @@ function RouteSearchModal({
                   <Text style={styles.searchModalEmptyText}>Try a river name, nearby city, state, put-in, or take-out.</Text>
                 </View>
                 <View style={styles.searchStateSection}>
-                  <Text style={styles.searchStateTitle}>Browse by state</Text>
+                  <Text accessibilityRole="header" style={styles.searchStateTitle}>Browse by state</Text>
                   <View style={styles.searchStateGrid}>
                     {states.map((state) => (
                       <Pressable
                         key={state}
+                        accessibilityRole="button"
+                        accessibilityLabel={`Browse ${stateLabel(state)} routes`}
                         style={styles.searchStateChip}
                         onPress={() => onExploreState(state)}
                         android_ripple={{ color: colors.canvasMuted }}
@@ -943,7 +988,7 @@ function RouteSearchModal({
                 {results.map((river) => {
                   const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
                   return (
-                    <Pressable key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
                       <View style={[styles.knownSearchScore, searchScoreTone(river.rating).score]}>
                         <Text style={[styles.knownSearchScoreText, searchScoreTone(river.rating).text]}>{river.score}</Text>
                       </View>
@@ -975,10 +1020,10 @@ function RouteSearchModal({
               <View style={styles.knownSearchEmpty}>
                 <Text style={styles.knownSearchEmptyTitle}>No route found</Text>
                 <Text style={styles.searchModalEmptyText}>Open Explore to browse all rivers.</Text>
-                <Pressable onPress={onExplore}>
+                <Pressable accessibilityRole="button" onPress={onExplore}>
                   <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
                 </Pressable>
-                <Pressable style={styles.knownSearchRequestButton} onPress={onRequestRoute}>
+                <Pressable accessibilityRole="button" style={styles.knownSearchRequestButton} onPress={onRequestRoute}>
                   <Text style={styles.knownSearchRequestText}>Request a Route</Text>
                 </Pressable>
               </View>
@@ -1044,6 +1089,9 @@ function ModeTabs({
                 requestingLocation ? styles.modeTabDisabled : null,
               ]}
               disabled={requestingLocation}
+              accessibilityRole="button"
+              accessibilityState={{ selected: active, disabled: requestingLocation }}
+              aria-pressed={active}
               onPress={() => onChange(item)}
               android_ripple={{ color: colors.border, borderless: true }}
             >
@@ -1345,10 +1393,6 @@ function homeFactLine(river: BoardItem) {
   });
 }
 
-function errorDetailForSummaryQuery(error: unknown) {
-  const message = error instanceof Error ? error.message : 'Unknown request error';
-  return `${resolveApiBaseUrl()} - ${message}`;
-}
 
 const styles = StyleSheet.create({
   screen: {
@@ -1373,6 +1417,10 @@ const styles = StyleSheet.create({
   },
   heroImage: {
     minHeight: 310,
+    backgroundColor: colors.accentDeep,
+  },
+  heroImageEmpty: {
+    minHeight: 110,
   },
   heroImageRadius: {
     borderTopLeftRadius: radius.lg,
@@ -1383,6 +1431,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: spacing.md,
     backgroundColor: 'rgba(15, 25, 22, 0.34)',
+  },
+  heroOverlayEmpty: {
+    minHeight: 110,
+    justifyContent: 'center',
   },
   topBar: {
     flexDirection: 'row',
@@ -2076,6 +2128,7 @@ const styles = StyleSheet.create({
   },
   imageCardMedia: {
     height: 190,
+    backgroundColor: colors.accentDeep,
   },
   imageCardImage: {
     borderTopLeftRadius: radius.lg,

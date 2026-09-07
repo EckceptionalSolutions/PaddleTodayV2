@@ -21,7 +21,7 @@ import {
   ratingDisplayLabel,
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { callLabelForDecision, callStateForDecision, ratingToneKey, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
+import { callLabelForDecision, callStateForDecision, ratingToneKey, parsePaddleTimeHours, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
 import { coverageAnchorForRoutes, groupRoutesByConditionScore } from '../lib/river-coverage.js';
 import {
@@ -347,19 +347,13 @@ function visiblePickerRoutes(routes) {
 function shortTimeLabel(value) {
   if (!value) return '';
   const text = String(value).trim();
-  const hourRange = text.match(/(\d+(?:\.\d+)?)\s*hr(?:\s*to\s*(\d+(?:\.\d+)?)\s*hr)?/i);
-  if (hourRange) {
-    return hourRange[2]
-      ? `About ${hourRange[1]}–${hourRange[2]} hr`
-      : `About ${hourRange[1]} hr`;
-  }
-  const minuteRange = text.match(/(\d+(?:\.\d+)?)\s*min(?:\s*to\s*(\d+(?:\.\d+)?)\s*min)?/i);
-  if (minuteRange) {
-    return minuteRange[2]
-      ? `About ${minuteRange[1]}–${minuteRange[2]} min`
-      : `About ${minuteRange[1]} min`;
-  }
-  return text.split(/[,.]/)[0].trim().slice(0, 34);
+  const range = parsePaddleTimeHours(text);
+  if (!range) return text.split(/[;,]/)[0].trim();
+  const useMinutes = range.max <= 1;
+  const scale = useMinutes ? 60 : 1;
+  const min = Number((range.min * scale).toFixed(2));
+  const max = Number((range.max * scale).toFixed(2));
+  return `About ${min === max ? min : `${min}–${max}`} ${useMinutes ? 'min' : 'hr'}`;
 }
 
 function difficultyLabel(value) {

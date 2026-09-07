@@ -21,8 +21,18 @@ const inferredMileageRiver = {
   accessPoints: demoRiver.accessPoints.map((point) => ({ ...point, mileFromStart: 0 })),
 };
 
+const segmentedRiver = {
+  ...demoRiver,
+  slug: 'segmented-river',
+  accessPoints: [
+    demoRiver.accessPoints[0],
+    { id: 'middle', name: 'Middle launch', latitude: 44.05, longitude: -92.05, mileFromStart: 4, segmentKind: 'creek' as const },
+    demoRiver.accessPoints[1],
+  ],
+};
+
 vi.mock('../../lib/rivers', () => ({
-  getRiverBySlug: (slug: string) => [demoRiver, inferredMileageRiver].find((river) => river.slug === slug),
+  getRiverBySlug: (slug: string) => [demoRiver, inferredMileageRiver, segmentedRiver].find((river) => river.slug === slug),
 }));
 
 vi.mock('./river-geometry', () => ({
@@ -36,6 +46,12 @@ vi.mock('./river-geometry', () => ({
 
 function mockResponse() {
   return { writeHead: vi.fn(), end: vi.fn() } as unknown as ServerResponse;
+}
+
+function calendarTimestamp(body: string, key: string) {
+  const value = body.match(new RegExp(`${key}:(\\d{4})(\\d{2})(\\d{2})T(\\d{2})(\\d{2})(\\d{2})Z`))!;
+  expect(value).not.toBeNull();
+  return Date.UTC(Number(value[1]), Number(value[2]) - 1, Number(value[3]), Number(value[4]), Number(value[5]), Number(value[6]));
 }
 
 describe('trip-pack route', () => {
@@ -64,6 +80,52 @@ describe('trip-pack route', () => {
     expect(String(vi.mocked(response.end).mock.calls[0]?.[0])).toContain('BEGIN:VCALENDAR');
   });
 
+  it.each([
+    ['30 to 90 minutes', 150],
+    ['2 hr 30 min', 210],
+    ['2 hr 30 min to 4 hr', 300],
+  ])('uses duration units in default calendar schedule: %s', async (label, minutes) => {
+    const previousLabel = demoRiver.logistics.estimatedPaddleTime;
+    demoRiver.logistics.estimatedPaddleTime = label;
+    try {
+      const response = mockResponse();
+      await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/demo-river/trip.ics'), response, 'req_trip', true, 'demo-river', 'ics');
+      const body = String(vi.mocked(response.end).mock.calls[0]?.[0]);
+      expect((calendarTimestamp(body, 'DTEND') - calendarTimestamp(body, 'DTSTART')) / 60_000).toBe(minutes);
+    } finally {
+      demoRiver.logistics.estimatedPaddleTime = previousLabel;
+    }
+  });
+
+  it.each([
+    ['putin=put-in&takeout=take-out', 300],
+    ['putin=middle&takeout=take-out', 180],
+    ['putin=middle&takeout=take-out&start=2026-09-05T14:00:00Z&end=2026-09-05T18:00:00Z', 240],
+  ])('respects the selected segment and explicit schedule: %s', async (query, minutes) => {
+    const response = mockResponse();
+    await handleRiverTripPack(new URL(`https://paddletoday.com/api/rivers/segmented-river/trip.ics?${query}`), response, 'req_trip', true, 'segmented-river', 'ics');
+    const body = String(vi.mocked(response.end).mock.calls[0]?.[0]);
+    expect((calendarTimestamp(body, 'DTEND') - calendarTimestamp(body, 'DTSTART')) / 60_000).toBe(minutes);
+    expect(body).toContain(query.startsWith('putin=middle') ? 'Middle launch' : 'Put-in');
+    const unfolded = body.replace(/\r\n[ \t]/g, '');
+    expect(unfolded).toContain(query.startsWith('putin=middle')
+      ? 'Estimated paddle time: About 90–120 min for selected segment'
+      : 'Estimated paddle time: About 3 to 4 hr');
+  });
+
+  it('labels unconvertible duration notes as a full-route estimate for a segment', async () => {
+    const previousLabel = segmentedRiver.logistics.estimatedPaddleTime;
+    segmentedRiver.logistics.estimatedPaddleTime = 'One long day with stops';
+    try {
+      const response = mockResponse();
+      await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/segmented-river/trip.ics?putin=middle&takeout=take-out'), response, 'req_trip', true, 'segmented-river', 'ics');
+      const body = String(vi.mocked(response.end).mock.calls[0]?.[0]).replace(/\r\n[ \t]/g, '');
+      expect(body).toContain('Estimated paddle time: Full route: One long day with stops');
+    } finally {
+      segmentedRiver.logistics.estimatedPaddleTime = previousLabel;
+    }
+  });
+
   it('rejects a partially specified calendar schedule', async () => {
     const response = mockResponse();
     await handleRiverTripPack(new URL('https://paddletoday.com/api/rivers/demo-river/trip.ics?start=2026-09-05T14:00:00Z'), response, 'req_trip', true, 'demo-river', 'ics');
@@ -83,6 +145,20 @@ describe('trip-pack route', () => {
     expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({ 'content-type': 'application/gpx+xml; charset=utf-8' }));
     expect(String(vi.mocked(response.end).mock.calls[0]?.[0])).toContain('<gpx');
   });
+
+  for (const format of ['gpx', 'ics'] as const) {
+    it.each(['putin=old-launch', 'takeout=old-takeout', 'putin=old-launch&takeout=old-takeout'])(
+      `rejects stale access IDs instead of substituting endpoints for ${format}: %s`,
+      async (query) => {
+        const response = mockResponse();
+        await handleRiverTripPack(new URL(`https://paddletoday.com/api/rivers/demo-river/trip.${format}?${query}`), response, 'req_trip', true, 'demo-river', format);
+        expect(response.writeHead).toHaveBeenCalledWith(400, expect.objectContaining({ 'content-type': 'application/json; charset=utf-8' }));
+        expect(JSON.parse(String(vi.mocked(response.end).mock.calls[0]?.[0]))).toMatchObject({
+          error: 'invalid_access_selection', message: expect.stringContaining('Choose available access points'),
+        });
+      },
+    );
+  }
 
   it('rejects a reversed access selection', async () => {
     const response = mockResponse();

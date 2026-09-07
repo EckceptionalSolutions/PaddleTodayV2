@@ -1,4 +1,5 @@
-import { routeHazardLabels, type RiverSummaryApiItem } from './index';
+import type { RiverSummaryApiItem } from './index';
+import { routeHazardLabels } from './route-hazards';
 
 export interface SavedRouteSnapshot {
   generatedAt: string;

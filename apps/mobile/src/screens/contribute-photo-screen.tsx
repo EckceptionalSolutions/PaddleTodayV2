@@ -28,11 +28,18 @@ import {
 } from '../lib/report-photos';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { colors, radius, spacing } from '../theme/tokens';
+import { selectionKeyboardProps } from '../lib/selection-keyboard';
 
 export default function ContributePhotoScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const insets = useSafeAreaInsets();
   const scrollRef = useRef<ScrollView | null>(null);
+  const nameInput = useRef<TextInput | null>(null);
+  const emailInput = useRef<TextInput | null>(null);
+  const submissionInFlight = useRef(false);
+  const pickerInFlight = useRef(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [pickingPhotos, setPickingPhotos] = useState(false);
   const formPanelOffset = useRef(0);
   const inputOffsets = useRef<Record<string, number>>({});
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
@@ -66,6 +73,7 @@ export default function ContributePhotoScreen() {
       <AppErrorState
         title="This route did not load"
         body="Check your connection, then try again."
+        retrying={detailQuery.isFetching}
         onRetry={() => detailQuery.refetch()}
       />
     );
@@ -76,12 +84,15 @@ export default function ContributePhotoScreen() {
   }
 
   async function pickPhotos(source: 'camera' | 'library') {
+    if (pickerInFlight.current || submissionInFlight.current) return;
     const remainingSlots = ROUTE_REPORT_MAX_PHOTOS - photos.length;
     if (remainingSlots <= 0) {
       setStatus(`You can attach up to ${ROUTE_REPORT_MAX_PHOTOS} photos.`);
       return;
     }
 
+    pickerInFlight.current = true;
+    setPickingPhotos(true);
     try {
       const permission = source === 'camera'
         ? await ImagePicker.requestCameraPermissionsAsync()
@@ -130,14 +141,19 @@ export default function ContributePhotoScreen() {
       }
     } catch {
       setStatus(source === 'camera' ? 'The camera could not be opened.' : 'Photos could not be opened.');
+    } finally {
+      pickerInFlight.current = false;
+      setPickingPhotos(false);
     }
   }
 
   function removePhoto(id: string) {
+    if (submissionInFlight.current) return;
     setPhotos((current) => current.filter((photo) => photo.id !== id));
   }
 
   async function submitPhotos() {
+    if (submissionInFlight.current || pickerInFlight.current) return;
     const contributorName = name.trim();
     const contributorEmail = email.trim().toLowerCase();
     const cleanCaption = caption.trim();
@@ -149,11 +165,13 @@ export default function ContributePhotoScreen() {
 
     if (contributorName.length < 2) {
       setStatus('Add your name or paddling handle.');
+      nameInput.current?.focus();
       return;
     }
 
     if (!isValidEmailAddress(contributorEmail)) {
       setStatus('Enter a valid email address for follow-up questions.');
+      emailInput.current?.focus();
       return;
     }
 
@@ -167,6 +185,8 @@ export default function ContributePhotoScreen() {
       return;
     }
 
+    submissionInFlight.current = true;
+    setSubmitting(true);
     try {
       setStatus('Sending photos...');
       trackAppEvent('route_photo_contribution_submitted', {
@@ -207,6 +227,9 @@ export default function ContributePhotoScreen() {
           ? error.message
           : 'Could not send these photos.'
       );
+    } finally {
+      submissionInFlight.current = false;
+      setSubmitting(false);
     }
   }
 
@@ -226,7 +249,7 @@ export default function ContributePhotoScreen() {
           style={styles.screen}
           contentContainerStyle={[styles.content, { paddingBottom: keyboardBottomPadding }]}
           keyboardShouldPersistTaps="handled"
-          keyboardDismissMode={Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
+          keyboardDismissMode={Platform.OS === 'web' ? 'none' : Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
         >
           <RoutePhotoCard
             river={detail.river}
@@ -235,23 +258,27 @@ export default function ContributePhotoScreen() {
           />
 
           <View style={styles.panel}>
-            <Text style={styles.title}>Add route photos</Text>
+            <Text accessibilityRole="header" style={styles.title}>Add route photos</Text>
             <Text style={styles.body}>
               Photos help paddlers spot access points, conditions, strainers, and route character.
             </Text>
 
             <View style={styles.actionRow}>
               <Pressable
-                style={[styles.sourceButton, photoLimitReached ? styles.disabledButton : null]}
-                disabled={photoLimitReached}
+                style={[styles.sourceButton, photoLimitReached || pickingPhotos || submitting ? styles.disabledButton : null]}
+                disabled={photoLimitReached || pickingPhotos || submitting}
+                accessibilityRole="button"
+                accessibilityLabel="Take photo"
                 onPress={() => void pickPhotos('camera')}
               >
                 <MaterialCommunityIcons name="camera" color={colors.surfaceStrong} size={18} />
                 <Text style={styles.sourceButtonText}>Take photo</Text>
               </Pressable>
               <Pressable
-                style={[styles.sourceButtonSecondary, photoLimitReached ? styles.disabledButton : null]}
-                disabled={photoLimitReached}
+                style={[styles.sourceButtonSecondary, photoLimitReached || pickingPhotos || submitting ? styles.disabledButton : null]}
+                disabled={photoLimitReached || pickingPhotos || submitting}
+                accessibilityRole="button"
+                accessibilityLabel="Upload photos"
                 onPress={() => void pickPhotos('library')}
               >
                 <MaterialCommunityIcons name="image-multiple" color={colors.accent} size={18} />
@@ -270,6 +297,7 @@ export default function ContributePhotoScreen() {
                       onPress={() => removePhoto(photo.id)}
                       accessibilityRole="button"
                       accessibilityLabel={`Remove ${photo.name}`}
+                      disabled={submitting}
                     >
                       <Text style={styles.removeButtonText}>Remove</Text>
                     </Pressable>
@@ -294,6 +322,8 @@ export default function ContributePhotoScreen() {
               placeholderTextColor={colors.textMuted}
               style={[styles.input, styles.captionInput]}
               value={caption}
+              accessibilityLabel="Photo caption (optional)"
+              editable={!submitting}
               onChangeText={setCaption}
               onFocus={() => scrollFocusedInputIntoView('caption')}
               onLayout={(event) => recordInputOffset('caption', event)}
@@ -305,6 +335,9 @@ export default function ContributePhotoScreen() {
               placeholderTextColor={colors.textMuted}
               style={styles.input}
               value={name}
+              ref={nameInput}
+              accessibilityLabel="Name or paddling handle"
+              editable={!submitting}
               onChangeText={setName}
               onFocus={() => scrollFocusedInputIntoView('name')}
               onLayout={(event) => recordInputOffset('name', event)}
@@ -317,6 +350,9 @@ export default function ContributePhotoScreen() {
               placeholderTextColor={colors.textMuted}
               style={styles.input}
               value={email}
+              ref={emailInput}
+              accessibilityLabel="Email for follow-up questions"
+              editable={!submitting}
               onChangeText={setEmailDraft}
               onFocus={() => scrollFocusedInputIntoView('email')}
               onLayout={(event) => recordInputOffset('email', event)}
@@ -324,25 +360,29 @@ export default function ContributePhotoScreen() {
 
             <ConsentRow
               checked={rightsConfirmed}
+              disabled={submitting}
               label="I own these photos or have permission to share them."
               onPress={() => setRightsConfirmed((current) => !current)}
             />
             <ConsentRow
               checked={contactConsent}
+              disabled={submitting}
               label="I agree to follow-up questions."
               onPress={() => setContactConsent((current) => !current)}
             />
 
             <Pressable
-              style={[styles.submitButton, createContributionMutation.isPending ? styles.disabledButton : null]}
-              disabled={createContributionMutation.isPending}
+              style={[styles.submitButton, submitting || pickingPhotos ? styles.disabledButton : null]}
+              disabled={submitting || pickingPhotos}
+              accessibilityRole="button"
+              aria-busy={submitting}
               onPress={() => void submitPhotos()}
             >
               <Text style={styles.submitButtonText}>
-                {createContributionMutation.isPending ? 'Sending...' : 'Submit photos'}
+                {submitting ? 'Sending...' : pickingPhotos ? 'Preparing photos...' : 'Submit photos'}
               </Text>
             </Pressable>
-            <Text style={styles.status}>{status}</Text>
+            <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -364,10 +404,12 @@ export default function ContributePhotoScreen() {
 
 function ConsentRow({
   checked,
+  disabled,
   label,
   onPress,
 }: {
   checked: boolean;
+  disabled: boolean;
   label: string;
   onPress: () => void;
 }) {
@@ -375,9 +417,12 @@ function ConsentRow({
     <Pressable
       style={styles.consentRow}
       onPress={onPress}
+      disabled={disabled}
       accessibilityRole="checkbox"
       accessibilityLabel={label}
       accessibilityState={{ checked }}
+      aria-checked={checked}
+      {...selectionKeyboardProps(onPress, disabled)}
     >
       <View style={[styles.checkbox, checked ? styles.checkboxChecked : null]}>
         {checked ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={15} /> : null}

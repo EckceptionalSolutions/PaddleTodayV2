@@ -51,7 +51,7 @@ export interface GaugeReviewEntry {
   relationship: GaugeRelationship;
   checkedAt: string | null;
   decisionReason: string;
-  decisionSource: 'derived_route_inventory' | 'saturation_audit' | 'manual' | 'manual_gauge_review' | 'manual_route_worker_review';
+  decisionSource: 'derived_route_inventory' | 'saturation_audit' | 'manual' | 'manual_gauge_review' | 'manual_route_worker_review' | 'manual_route_worker_no_add';
   routeSlugs: string[];
   scoredRouteSlugs: string[];
   routeFamilies: string[];
@@ -71,7 +71,7 @@ const deferredPattern = /retry only (?:if|when|with)|materially new evidence|pub
 export function classifyGaugeRouteReadiness(
   review: Omit<GaugeReviewEntry, 'routeReadiness'> | GaugeReviewEntry,
 ): GaugeRouteReadiness {
-  if (review.routeReadiness === 'implementation_ready') return 'implementation_ready';
+  if ('routeReadiness' in review && review.routeReadiness === 'implementation_ready') return 'implementation_ready';
   if (review.status === 'covered') return 'published';
   if (review.status === 'screened_out') return 'screened_out';
   if (review.status === 'stale_or_unsupported') return 'unsupported';

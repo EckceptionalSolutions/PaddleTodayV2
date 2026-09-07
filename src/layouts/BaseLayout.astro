@@ -146,6 +146,7 @@ const appDownloadConfigJson = JSON.stringify({
   </head>
   <body class={pageClass}>
     <div class="page-shell">
+      <a class="skip-link" href="#main-content">Skip to content</a>
       <header class="site-header">
         <a class="brand" href="/">
           <picture>
@@ -252,7 +253,7 @@ const appDownloadConfigJson = JSON.stringify({
         </div>
       </aside>
 
-      <main class="main-shell">
+      <main class="main-shell" id="main-content" tabindex="-1">
         <slot />
       </main>
 
@@ -294,11 +295,12 @@ const appDownloadConfigJson = JSON.stringify({
               type="search"
               placeholder="Search a river, route, town, or area"
               data-site-search-input
+              aria-describedby="site-search-hint"
               autocomplete="off"
             />
           </label>
 
-          <p class="muted site-search-dialog__hint" data-site-search-hint>Try Snake, Root, Faribault, or Pine City.</p>
+          <p class="muted site-search-dialog__hint" id="site-search-hint" data-site-search-hint role="status">Try Snake, Root, Faribault, or Pine City.</p>
           <div class="site-search-dialog__results" data-site-search-results aria-live="polite"></div>
         </div>
       </section>

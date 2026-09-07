@@ -823,6 +823,7 @@ const routeFaqStructuredData = {
                 name="email"
                 placeholder="you@example.com"
                 autocomplete="email"
+                aria-describedby="river-alert-status"
                 data-alert-email
               />
             </label>
@@ -835,7 +836,7 @@ const routeFaqStructuredData = {
               </button>
             </div>
             <input type="text" name="company" tabindex="-1" autocomplete="off" hidden data-alert-company />
-            <p class="river-alerts__status muted" data-alert-status aria-live="polite">
+            <p id="river-alert-status" class="river-alerts__status muted" data-alert-status aria-live="polite">
               We only email on a new threshold crossing.
             </p>
           </form>
@@ -1122,7 +1123,7 @@ const routeFaqStructuredData = {
       </details>
     </section>
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--overview" id="route-overview" data-detail-section="route-overview" data-detail-nav-group="conditions" aria-label="Route overview chapter">
+    <section class="river-detail__chapter-head river-detail__chapter-head--overview" id="route-overview" data-detail-section="route-overview" data-detail-nav-group="overview" aria-label="Route overview chapter">
       <p class="eyebrow section-label">Route overview</p>
       <h2 class="river-detail__chapter-title">Quick facts and what&apos;s next</h2>
       <p class="muted river-detail__chapter-copy">
@@ -1130,7 +1131,7 @@ const routeFaqStructuredData = {
       </p>
     </section>
 
-    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="conditions">
+    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="overview">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         Quick facts
@@ -1346,6 +1347,7 @@ const routeFaqStructuredData = {
           <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
         </div>
         <p class="muted river-trip-pack__status" data-trip-status aria-live="polite"></p>
+        <textarea class="route-action-menu__manual-copy" data-trip-manual-copy aria-label="Float plan to copy" rows="8" readonly hidden></textarea>
       </section>
 
       <div class="river-launch-plan__body">
@@ -1495,6 +1497,7 @@ const routeFaqStructuredData = {
                   decoding="async"
                   data-route-gallery-image
                 />
+                <div class="route-gallery__image-fallback" data-route-gallery-image-fallback role="status" hidden>Photo unavailable. You can still read its caption below.</div>
                 <figcaption class="route-gallery__caption">
                   <div class="route-gallery__caption-copy">
                     <strong data-route-gallery-caption>{routeGalleryPhotos[0].caption}</strong>

@@ -1,5 +1,6 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-contract';
+import { useState } from 'react';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { callForRating, normalizeApiText } from '../lib/format';
 import { routePreviewFactItems } from '../lib/route-facts';
@@ -24,6 +25,9 @@ export function WeekendRiverCard({
 }) {
   const riskExplanation = cardRiskExplanation(river);
   const photo = routePhotoForRiver(river.river);
+  const [failedUri, setFailedUri] = useState<string | null>(null);
+  const unavailable = failedUri === photo.uri;
+  const showFallback = photo.isPlaceholder || unavailable;
 
   return (
     <Pressable
@@ -35,18 +39,19 @@ export function WeekendRiverCard({
       accessibilityHint="Opens the weekend route details."
     >
       <ImageBackground
-        source={photo.isPlaceholder ? undefined : { uri: photo.uri }}
+        source={showFallback ? undefined : { uri: photo.uri }}
+        onError={() => setFailedUri(photo.uri)}
         style={styles.media}
         imageStyle={styles.mediaImage}
       >
-        {photo.isPlaceholder ? <RoutePhotoFallback compact /> : null}
-        <View style={[styles.mediaOverlay, photo.isPlaceholder ? styles.mediaOverlayPlaceholder : null]}>
+        {showFallback ? <RoutePhotoFallback compact label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : null}
+        <View style={[styles.mediaOverlay, showFallback ? styles.mediaOverlayPlaceholder : null]}>
           <View style={styles.scoreBlock}>
             <Text style={styles.callLabel}>{callForRating(river.weekend.rating, 'weekend', true)}</Text>
             <Text style={styles.score}>{river.weekend.score}</Text>
           </View>
           <View style={styles.actions}>
-            {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
+            {onToggleSaved ? <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
             <QualityPill rating={river.weekend.rating} />
           </View>
         </View>

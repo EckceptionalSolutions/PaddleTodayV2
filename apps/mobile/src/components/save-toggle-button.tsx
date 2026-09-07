@@ -5,11 +5,13 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export function SaveToggleButton({
   saved,
+  routeLabel,
   onPress,
   compact = false,
   primary = false,
 }: {
   saved: boolean;
+  routeLabel: string;
   onPress: () => void;
   compact?: boolean;
   primary?: boolean;
@@ -26,9 +28,10 @@ export function SaveToggleButton({
         onPress={handlePress}
         hitSlop={10}
         accessibilityRole="button"
-        accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
+        accessibilityLabel={`${saved ? 'Remove saved route' : 'Save route'}: ${routeLabel}`}
         accessibilityHint={saved ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
         accessibilityState={{ selected: saved }}
+        aria-pressed={saved}
         android_ripple={{ color: colors.canvasMuted, borderless: true }}
       >
         <MaterialCommunityIcons
@@ -45,9 +48,10 @@ export function SaveToggleButton({
       style={[styles.button, saved ? styles.buttonSaved : null]}
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
+      accessibilityLabel={`${saved ? 'Remove saved route' : 'Save route'}: ${routeLabel}`}
       accessibilityHint={saved ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
       accessibilityState={{ selected: saved }}
+      aria-pressed={saved}
       android_ripple={{ color: colors.accentSoft }}
     >
       <View style={styles.row}>
@@ -66,6 +70,8 @@ export function SaveToggleButton({
 
 const styles = StyleSheet.create({
   button: {
+    minHeight: 44,
+    justifyContent: 'center',
     alignSelf: 'flex-start',
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -77,9 +83,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   compactButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.surface,

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Alert, Modal, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { Modal, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
 import { buildFloatPlanMessage, estimateSegmentDurationMinutes, parseDistanceMiles, type TripPlanInput } from '@paddletoday/trip-pack';
 import { resolveApiUrl } from '../lib/api-base-url';
@@ -28,48 +28,140 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   const [vehicle, setVehicle] = useState('');
   const [note, setNote] = useState('');
   const [status, setStatus] = useState('');
+  const [calendarPending, setCalendarPending] = useState(false);
+  const calendarRequest = useRef<object | null>(null);
+  const [gpxPending, setGpxPending] = useState(false);
+  const [sharePending, setSharePending] = useState(false);
+  const [shareFallback, setShareFallback] = useState<string | null>(null);
+  const shareRequest = useRef<object | null>(null);
+  const gpxRequest = useRef<AbortController | null>(null);
+  const draftRoute = useRef<string | null>(null);
+  const launchRef = useRef<TextInput>(null);
+  const expectedRef = useRef<TextInput>(null);
+  const checkInRef = useRef<TextInput>(null);
+  const groupSizeRef = useRef<TextInput>(null);
 
   useEffect(() => {
-    if (!visible) return;
+    if (!visible || draftRoute.current === detail.river.slug) return;
+    draftRoute.current = detail.river.slug;
     const next = defaultTimes(estimated?.max ?? 240);
     setLaunch(next.launch);
     setExpected(next.expected);
     setCheckIn(next.checkIn);
+    setGroupSize('');
+    setBoat('');
+    setVehicle('');
+    setNote('');
     setStatus('');
-  }, [visible, detail.river.slug, putIn?.id, takeOut?.id, estimated?.max]);
+  }, [visible, detail.river.slug, estimated?.max]);
+
+  useEffect(() => {
+    setGpxPending(false);
+    setSharePending(false);
+    setCalendarPending(false);
+    return () => {
+      shareRequest.current = null;
+      calendarRequest.current = null;
+      const request = gpxRequest.current;
+      gpxRequest.current = null;
+      request?.abort();
+    };
+  }, [visible, detail.river.slug, putIn?.id, takeOut?.id]);
+
+  useEffect(() => {
+    setShareFallback(null);
+  }, [launch, expected, checkIn, groupSize, boat, vehicle, note, detail.river.slug, putIn?.id, takeOut?.id]);
 
   const plan = buildPlan(detail, putIn, takeOut, distanceMiles, launch, expected, checkIn, groupSize, boat, vehicle, note);
-  const validation = validate(plan);
+  const validation = validate(plan, checkIn);
+
+  function validateForExport() {
+    if (validation.ok) return true;
+    setStatus(validation.message);
+    if ('field' in validation && validation.field) {
+      const refs = { launch: launchRef, expected: expectedRef, checkIn: checkInRef, groupSize: groupSizeRef };
+      refs[validation.field].current?.focus();
+    }
+    return false;
+  }
 
   async function exportCalendar() {
-    if (!validation.ok) return setStatus(validation.message);
-    onAction?.('calendar');
-    const query = new URLSearchParams({ putin: plan.putIn.id ?? '', takeout: plan.takeOut.id ?? '', start: plan.launchAt!.toISOString(), end: plan.expectedTakeOutAt!.toISOString() });
-    await openExternalUrl(resolveApiUrl(`/api/rivers/${detail.river.slug}/trip.ics?${query.toString()}`), 'Calendar export');
+    if (calendarRequest.current || !validateForExport()) return;
+    const request = {};
+    calendarRequest.current = request;
+    setCalendarPending(true);
+    setStatus('');
+    try {
+      onAction?.('calendar');
+      const query = new URLSearchParams({ putin: plan.putIn.id ?? '', takeout: plan.takeOut.id ?? '', start: plan.launchAt!.toISOString(), end: plan.expectedTakeOutAt!.toISOString() });
+      const opened = await openExternalUrl(resolveApiUrl(`/api/rivers/${detail.river.slug}/trip.ics?${query.toString()}`), 'Calendar export');
+      if (!opened && calendarRequest.current === request) setStatus('The calendar file could not be opened. Please try again.');
+    } catch {
+      if (calendarRequest.current === request) setStatus('The calendar file could not be opened. Please try again.');
+    } finally {
+      if (calendarRequest.current === request) {
+        calendarRequest.current = null;
+        setCalendarPending(false);
+      }
+    }
   }
 
   async function exportGpx() {
+    if (gpxRequest.current) return;
     if (!putIn || !takeOut || !putIn.id || !takeOut.id || !hasCoordinates(putIn) || !hasCoordinates(takeOut)) return setStatus('Choose mapped access points with coordinates first.');
-    onAction?.('gpx');
+    const request = new AbortController();
+    gpxRequest.current = request;
+    setGpxPending(true);
+    setStatus('');
+    const timeout = setTimeout(() => request.abort(), 15_000);
     const query = new URLSearchParams({ putin: putIn.id, takeout: takeOut.id });
     const url = resolveApiUrl(`/api/rivers/${detail.river.slug}/trip.gpx?${query.toString()}`);
     try {
-      const response = await fetch(url, { method: 'HEAD' });
-      if (!response.ok) return setStatus('GPX is not available for this route yet.');
-      await openExternalUrl(url, 'GPX export');
+      onAction?.('gpx');
+      const response = await fetch(url, { method: 'HEAD', signal: request.signal });
+      if (gpxRequest.current !== request || request.signal.aborted) return;
+      clearTimeout(timeout);
+      if (!response.ok) return setStatus(response.status === 400 ? 'These access points are no longer available. Refresh the route and choose your put-in and take-out again.' : 'GPX is not available for this route yet.');
+      const opened = await openExternalUrl(url, 'GPX export');
+      if (!opened && gpxRequest.current === request) setStatus('The GPX file could not be opened. Please try again.');
     } catch {
-      setStatus('GPX export is unavailable while offline.');
+      if (gpxRequest.current === request) {
+        setStatus(request.signal.aborted ? 'The GPX check timed out. Please try again.' : 'GPX export is unavailable while offline.');
+      }
+    } finally {
+      clearTimeout(timeout);
+      if (gpxRequest.current === request) {
+        gpxRequest.current = null;
+        setGpxPending(false);
+      }
     }
   }
 
   async function shareFloatPlan() {
-    if (!validation.ok) return setStatus(validation.message);
-    onAction?.('float_plan');
+    if (shareRequest.current || !validateForExport()) return;
+    const request = {};
+    shareRequest.current = request;
+    setSharePending(true);
+    setShareFallback(null);
+    setStatus('');
+    const message = buildFloatPlanMessage(plan);
     try {
-      await Share.share({ title: `Float plan - ${detail.river.name}`, message: buildFloatPlanMessage(plan) });
-      setStatus('Float plan ready to share.');
-    } catch {
-      Alert.alert('Share unavailable', 'The device share sheet could not be opened.');
+      onAction?.('float_plan');
+      const result = await Share.share({ title: `Float plan - ${detail.river.name}`, message });
+      if (shareRequest.current === request) setStatus(result?.action === Share.dismissedAction ? 'Sharing cancelled.' : 'Float plan ready to share.');
+    } catch (error) {
+      if (shareRequest.current !== request) return;
+      if (error instanceof Error && error.name === 'AbortError') {
+        setStatus('Sharing cancelled.');
+      } else {
+        setStatus('Sharing is unavailable. You can copy the float plan below.');
+        setShareFallback(message);
+      }
+    } finally {
+      if (shareRequest.current === request) {
+        shareRequest.current = null;
+        setSharePending(false);
+      }
     }
   }
 
@@ -83,20 +175,31 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           <Text style={styles.sectionTitle}>Timing</Text>
           <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
-          <Field label="Launch (YYYY-MM-DD HH:MM)" value={launch} onChangeText={setLaunch} />
-          <Field label="Expected take-out (YYYY-MM-DD HH:MM)" value={expected} onChangeText={setExpected} />
-          <Field label="Check-in time (optional)" value={checkIn} onChangeText={setCheckIn} />
+          <Field editable={!sharePending} label="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChangeText={setLaunch} />
+          <Field editable={!sharePending} label="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChangeText={setExpected} />
+          <Field editable={!sharePending} label="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChangeText={setCheckIn} />
           <Text style={styles.estimate}>{estimated ? `Planning estimate: ${estimated.min}–${estimated.max} minutes on the water, before shuttle or staging time.` : 'Planning estimate unavailable; confirm timing with the group.'}</Text>
           <Text style={styles.sectionTitle}>Group details</Text>
-          <Field label="Group size (optional)" value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
-          <Field label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
-          <Field label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
-          <Field label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
-          {status ? <Text style={styles.status}>{status}</Text> : null}
+          <Field editable={!sharePending} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
+          <Field editable={!sharePending} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
+          <Field editable={!sharePending} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
+          <Field editable={!sharePending} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
+          {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
+          {shareFallback ? (
+            <TextInput
+              accessibilityLabel="Float plan to copy"
+              value={shareFallback}
+              editable={false}
+              multiline
+              autoFocus
+              selectTextOnFocus
+              style={[styles.input, styles.multiline, { minHeight: 180, maxHeight: 240 }]}
+            />
+          ) : null}
           <View style={styles.actions}>
-            <ActionButton label="Add to calendar" detail="Download an .ics event" onPress={() => void exportCalendar()} />
-            <ActionButton label="Download GPX" detail="Load the canonical river line" onPress={() => void exportGpx()} />
-            <ActionButton label="Share float plan" detail="Send the plan to your group" onPress={() => void shareFloatPlan()} primary />
+            <ActionButton pending={calendarPending} pendingLabel="Opening calendar…" label="Add to calendar" detail="Download an .ics event" onPress={() => void exportCalendar()} />
+            <ActionButton pending={gpxPending} label="Download GPX" detail="Load the canonical river line" onPress={() => void exportGpx()} />
+            <ActionButton pending={sharePending} pendingLabel="Opening share sheet…" label="Share float plan" detail="Send the plan to your group" onPress={() => void shareFloatPlan()} primary />
           </View>
           <Text style={styles.footer}>Confirm current gauge, weather, access, hazards, and an offline check-in plan before launching.</Text>
         </ScrollView>
@@ -105,12 +208,12 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   );
 }
 
-function Field({ label, multiline, keyboardType, value, onChangeText }: { label: string; value: string; onChangeText: (value: string) => void; multiline?: boolean; keyboardType?: 'number-pad' }) {
-  return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} /></View>;
+function Field({ label, multiline, keyboardType, value, onChangeText, inputRef, editable = true }: { editable?: boolean; inputRef?: RefObject<TextInput | null>; label: string; value: string; onChangeText: (value: string) => void; multiline?: boolean; keyboardType?: 'number-pad' }) {
+  return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={editable} ref={inputRef} accessibilityLabel={label} value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} /></View>;
 }
 
-function ActionButton({ label, detail, onPress, primary }: { label: string; detail: string; onPress: () => void; primary?: boolean }) {
-  return <Pressable style={[styles.actionButton, primary ? styles.actionButtonPrimary : null]} onPress={onPress} accessibilityRole="button"><Text style={[styles.actionLabel, primary ? styles.actionLabelPrimary : null]}>{label}</Text><Text style={[styles.actionDetail, primary ? styles.actionDetailPrimary : null]}>{detail}</Text></Pressable>;
+function ActionButton({ label, detail, onPress, primary, pending = false, pendingLabel = 'Checking GPX…' }: { pending?: boolean; pendingLabel?: string; label: string; detail: string; onPress: () => void; primary?: boolean }) {
+  return <Pressable style={[styles.actionButton, primary ? styles.actionButtonPrimary : null]} disabled={pending} aria-busy={pending} accessibilityState={{ disabled: pending, busy: pending }} onPress={onPress} accessibilityRole="button" accessibilityLabel={label}><Text style={[styles.actionLabel, primary ? styles.actionLabelPrimary : null]}>{pending ? pendingLabel : label}</Text><Text style={[styles.actionDetail, primary ? styles.actionDetailPrimary : null]}>{detail}</Text></Pressable>;
 }
 
 function defaultTimes(durationMinutes: number) {
@@ -136,9 +239,12 @@ function parseLocal(value: string) {
 }
 
 function selectedDistance(points: RiverRouteAccessPoint[], putIn: RiverAccessPoint | undefined, takeOut: RiverAccessPoint | undefined, detail: RiverDetailApiResult) {
-  const start = points.find((point) => point.id === putIn?.id), end = points.find((point) => point.id === takeOut?.id);
-  const distance = start && end ? end.mileFromStart - start.mileFromStart : parseDistanceMiles(detail.river.distanceLabel);
-  return distance && distance > 0 ? distance : null;
+  const start = points.find((point) => point.id === putIn?.id);
+  const end = points.find((point) => point.id === takeOut?.id);
+  const measuredDistance = start && end ? end.mileFromStart - start.mileFromStart : null;
+  if (measuredDistance && Number.isFinite(measuredDistance) && measuredDistance > 0) return measuredDistance;
+  const isFullRoute = putIn?.id === detail.river.putIn?.id && takeOut?.id === detail.river.takeOut?.id;
+  return isFullRoute ? parseDistanceMiles(detail.river.distanceLabel) : null;
 }
 
 function buildPlan(detail: RiverDetailApiResult, putIn: RiverAccessPoint | undefined, takeOut: RiverAccessPoint | undefined, distanceMiles: number | null, launch: string, expected: string, checkIn: string, groupSize: string, boat: string, vehicle: string, note: string): TripPlanInput {
@@ -146,11 +252,13 @@ function buildPlan(detail: RiverDetailApiResult, putIn: RiverAccessPoint | undef
 }
 
 function pointForPlan(point: RiverAccessPoint | undefined) { return { id: point?.id, name: point?.name ?? 'Access point', latitude: point?.latitude ?? 0, longitude: point?.longitude ?? 0 }; }
-function validate(plan: TripPlanInput) {
-  if (!plan.launchAt || !plan.expectedTakeOutAt) return { ok: false as const, message: 'Enter launch and expected take-out as YYYY-MM-DD HH:MM.' };
-  if (plan.expectedTakeOutAt <= plan.launchAt) return { ok: false as const, message: 'Expected take-out must be after launch.' };
-  if (plan.checkInAt && plan.checkInAt <= plan.expectedTakeOutAt) return { ok: false as const, message: 'Check-in time should be after the expected take-out.' };
-  if (plan.groupSize !== null && plan.groupSize !== undefined && (!Number.isInteger(plan.groupSize) || plan.groupSize < 1 || plan.groupSize > 100)) return { ok: false as const, message: 'Group size must be a whole number from 1 to 100.' };
+function validate(plan: TripPlanInput, checkIn: string) {
+  if (!plan.launchAt) return { ok: false as const, field: 'launch' as const, message: 'Enter launch as YYYY-MM-DD HH:MM.' };
+  if (!plan.expectedTakeOutAt) return { ok: false as const, field: 'expected' as const, message: 'Enter expected take-out as YYYY-MM-DD HH:MM.' };
+  if (plan.expectedTakeOutAt <= plan.launchAt) return { ok: false as const, field: 'expected' as const, message: 'Expected take-out must be after launch.' };
+  if (checkIn.trim() && !plan.checkInAt) return { ok: false as const, field: 'checkIn' as const, message: 'Enter check-in as YYYY-MM-DD HH:MM, or leave it blank.' };
+  if (plan.checkInAt && plan.checkInAt <= plan.expectedTakeOutAt) return { ok: false as const, field: 'checkIn' as const, message: 'Check-in time should be after the expected take-out.' };
+  if (plan.groupSize !== null && plan.groupSize !== undefined && (!Number.isInteger(plan.groupSize) || plan.groupSize < 1 || plan.groupSize > 100)) return { ok: false as const, field: 'groupSize' as const, message: 'Group size must be a whole number from 1 to 100.' };
   if (!plan.putIn.id || !plan.takeOut.id) return { ok: false as const, message: 'Choose mapped access points before exporting.' };
   return { ok: true as const };
 }

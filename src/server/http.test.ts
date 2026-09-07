@@ -45,6 +45,23 @@ describe('server response helpers', () => {
     expect(result).toBe(response);
   });
 
+  it.each(['gzip;q=0', '*;q=1, gzip;q=0', 'br', '', 'gzip;q=invalid', 'not-gzip'])('preserves plain JSON and cache variation for %s', (encoding) => {
+    const response = Object.assign(mockResponse(), { req: { headers: { 'accept-encoding': encoding } } });
+    const payload = { value: 'river '.repeat(500) };
+    sendJson(response, 200, payload);
+    const headers = vi.mocked(response.writeHead).mock.calls[0][1] as Record<string, unknown>;
+    expect(headers['content-encoding']).toBeUndefined();
+    expect(headers.vary).toBe('Accept-Encoding');
+    expect(JSON.parse((vi.mocked(response.end).mock.calls[0][0] as Buffer).toString())).toEqual(payload);
+  });
+
+  it.each(['GZIP; Q=0.5', '*;q=0.8', '*;q=0, gzip;q=1'])('negotiates compressed HEAD headers for %s', (encoding) => {
+    const response = Object.assign(mockResponse(), { req: { headers: { 'accept-encoding': encoding } } });
+    sendJson(response, 200, { value: 'river '.repeat(500) }, false);
+    expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({ 'content-encoding': 'gzip', vary: 'Accept-Encoding' }));
+    expect(response.end).toHaveBeenCalledWith(undefined);
+  });
+
   it('adds baseline browser security headers to API responses', () => {
     const response = mockResponse();
 
@@ -53,7 +70,7 @@ describe('server response helpers', () => {
     expect(response.writeHead).toHaveBeenCalledWith(200, expect.objectContaining({
       'x-content-type-options': 'nosniff',
       'referrer-policy': 'strict-origin-when-cross-origin',
-      'permissions-policy': 'geolocation=(), microphone=(), camera=()',
+      'permissions-policy': 'geolocation=(self), microphone=(), camera=()',
     }));
   });
 

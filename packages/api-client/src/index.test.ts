@@ -1,7 +1,89 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaddleTodayApiError, createPaddleTodayApiClient } from './index';
 
 describe('@paddletoday/api-client', () => {
+  afterEach(() => vi.useRealTimers());
+
+  it.each([200, 429, 502])('keeps proxy response text out of user guidance for HTTP %s', async (status) => {
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com',
+      fetchImpl: async () => new Response('<html>upstream proxy diagnostic</html>', { status }),
+    });
+    await expect(client.getSummary()).rejects.toMatchObject({
+      name: 'PaddleTodayApiError', status,
+      message: status === 502 ? 'PaddleToday is temporarily unavailable. Please try again shortly.'
+        : status === 429 ? 'PaddleToday is receiving too many requests. Wait a moment and try again.'
+          : 'PaddleToday could not read the response. Please try again.',
+    });
+  });
+
+  it.each([
+    new Headers({ 'X-Client': 'shared', Accept: 'application/problem+json' }),
+    [['X-Client', 'shared'], ['Accept', 'application/problem+json']] as [string, string][],
+    { 'X-Client': 'shared', Accept: 'application/problem+json' },
+  ])('merges standard header inputs with case-insensitive request overrides', async (headers) => {
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com', headers,
+      fetchImpl: async (_url, init) => {
+        expect(init?.headers).toEqual({ accept: 'application/problem+json', 'x-client': 'request', 'x-request-test': 'local-only' });
+        return Response.json({ rivers: [] });
+      },
+    });
+    await client.getSummary({ headers: new Headers({ 'x-client': 'request', 'X-Request-Test': 'local-only' }) });
+    expect(new Headers(headers).get('x-client')).toBe('shared');
+  });
+
+  function stalledBody(signal: AbortSignal) {
+    return new Response(new ReadableStream({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode('{"rivers":'));
+        signal.addEventListener('abort', () => controller.error(signal.reason), { once: true });
+      },
+    }), { status: 200 });
+  }
+
+  it('times out a body that stalls after successful response headers', async () => {
+    vi.useFakeTimers();
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com', timeoutMs: 1000,
+      fetchImpl: async (_url, init) => stalledBody(init!.signal!),
+    });
+    const assertion = expect(client.getSummary()).rejects.toMatchObject({
+      name: 'PaddleTodayApiError', code: 'request_timeout', status: 0,
+    });
+    await vi.advanceTimersByTimeAsync(1000);
+    await assertion;
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('keeps caller cancellation connected while the body is downloading', async () => {
+    const controller = new AbortController();
+    let bodyStarted!: () => void;
+    const started = new Promise<void>((resolve) => { bodyStarted = resolve; });
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com', timeoutMs: 1000,
+      fetchImpl: async (_url, init) => {
+        const response = stalledBody(init!.signal!);
+        bodyStarted();
+        return response;
+      },
+    });
+    const assertion = expect(client.getSummary({ signal: controller.signal })).rejects.toMatchObject({ name: 'AbortError' });
+    await started;
+    controller.abort();
+    await assertion;
+  });
+
+  it('cleans up the deadline after a successful response', async () => {
+    vi.useFakeTimers();
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com', timeoutMs: 1000,
+      fetchImpl: async () => Response.json({ rivers: [] }),
+    });
+    await expect(client.getSummary()).resolves.toEqual({ rivers: [] });
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
   it('parses successful JSON responses and forwards request options', async () => {
     const fetchImpl = async (_input: URL | RequestInfo, init?: RequestInit) => {
       expect(String(_input)).toBe('https://api.example.com/api/rivers/summary.json');
@@ -88,7 +170,7 @@ describe('@paddletoday/api-client', () => {
     await expect(client.getRiverDetail('test-river')).rejects.toMatchObject({
       name: 'PaddleTodayApiError',
       status: 500,
-      message: 'PaddleToday API returned invalid JSON for HTTP 500: {not valid json',
+      message: 'PaddleToday is temporarily unavailable. Please try again shortly.',
     });
   });
 

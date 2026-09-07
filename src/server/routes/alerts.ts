@@ -3,7 +3,7 @@ import type { ServerResponse } from 'node:http';
 import type { RiverAlertThreshold } from '../../lib/alerts';
 import { initialAlertStateForSnapshot } from '../../lib/alert-policy';
 import type { ApiRequest } from '../http';
-import { clean, readJsonBody, sendBodyLimitResponse, sendJson } from '../http';
+import { clean, readJsonBody, sendRequestBodyErrorResponse, sendJson } from '../http';
 import { consumeRateLimit, getIp, rateLimitHeaders } from '../rate-limit';
 import { parseRiverAlertThreshold } from '../request-parsers';
 import { verifyRiverAlertActionToken } from '../../lib/alert-links';
@@ -137,8 +137,8 @@ export async function handleRiverAlertCreate(
       'no-store'
     );
   } catch (error) {
-    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
-    if (bodyLimitResponse) return bodyLimitResponse;
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
 
     console.error('[alerts] create failed', { requestId, error });
     return sendJson(
@@ -243,6 +243,8 @@ export async function handleRiverAlertUnsubscribe(
       'no-store'
     );
   } catch (error) {
+    const bodyErrorResponse = sendRequestBodyErrorResponse(error, response, requestId, includeBody);
+    if (bodyErrorResponse) return bodyErrorResponse;
     console.error('[alerts] unsubscribe failed', { requestId, error });
     return sendJson(
       response,

@@ -26,6 +26,7 @@ export function readCachedPayload(key) {
       !parsed ||
       parsed.version !== CACHE_VERSION ||
       typeof parsed.fetchedAt !== 'number' ||
+      !Number.isFinite(new Date(parsed.fetchedAt).getTime()) ||
       !('payload' in parsed)
     ) {
       return null;
@@ -61,8 +62,8 @@ export function writeCachedPayload(key, payload) {
 }
 
 export function freshnessLabel(fetchedAt) {
-  if (typeof fetchedAt !== 'number' || !Number.isFinite(fetchedAt)) {
-    return 'Updated recently';
+  if (typeof fetchedAt !== 'number' || !Number.isFinite(new Date(fetchedAt).getTime())) {
+    return 'Update time unavailable';
   }
 
   const elapsedMs = Math.max(0, Date.now() - fetchedAt);

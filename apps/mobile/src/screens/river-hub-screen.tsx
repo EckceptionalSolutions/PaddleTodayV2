@@ -1,3 +1,4 @@
+import { PaddleTodayApiError } from '@paddletoday/api-client';
 import {
   buildSourceStrengthViewModel,
   callStateForDecision,
@@ -12,7 +13,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
-import { AppErrorState, AppLoadingState } from '../components/app-state';
+import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { QualityPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
@@ -37,6 +38,7 @@ import {
   type HubDistanceFilter,
 } from '../lib/river-hub-filters';
 import { androidBottomInset } from '../lib/safe-area';
+import { radioKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { trackAppEvent } from '../lib/observability';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
@@ -150,6 +152,18 @@ export default function RiverHubScreen() {
   if (groupQuery.isLoading && !result) {
     return (
       <AppLoadingState title="Loading river hub" body="Comparing the routes on this river." />
+    );
+  }
+
+  if (!result && groupQuery.error instanceof PaddleTodayApiError && groupQuery.error.status === 404) {
+    return (
+      <AppErrorState
+        title="River not found"
+        body="This river page may have moved or is no longer available. Explore current routes to choose another trip."
+        icon="map-marker-question-outline"
+        actionLabel="Explore routes"
+        onRetry={() => router.replace('/explore')}
+      />
     );
   }
 
@@ -278,9 +292,17 @@ export default function RiverHubScreen() {
         }
         ListHeaderComponent={
           <View style={styles.headerStack}>
+            <AppRefreshNotice
+              isError={groupQuery.isError}
+              retrying={groupQuery.isFetching}
+              dataUpdatedAt={groupQuery.dataUpdatedAt}
+              label="Showing the last available routes on this river."
+              actionLabel="Retry river hub"
+              onRetry={() => void groupQuery.refetch()}
+            />
             <View style={styles.hero}>
               <ImageBackground
-                source={{ uri: heroPhoto ? resolveApiUrl(heroPhoto.src) : photoForRiver(allRoutes[0].river) }}
+                source={{ uri: heroPhoto ? resolveApiUrl(heroPhoto.src) : photoForRiver(allRoutes[0]?.river ?? { slug: riverId, riverId }) }}
                 style={styles.heroPhoto}
                 imageStyle={styles.heroPhotoImage}
                 accessibilityRole="image"
@@ -296,7 +318,7 @@ export default function RiverHubScreen() {
               </ImageBackground>
               <View style={styles.heroCopy}>
                 <Text style={styles.kicker}>{result.group.stateSummary} · River guide</Text>
-                <Text style={styles.title}>{result.group.name}</Text>
+                <Text accessibilityRole="header" style={styles.title}>{result.group.name}</Text>
                 <Text style={styles.subtitle}>
                   {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare paddle length, difficulty, and today’s conditions.
                 </Text>
@@ -320,6 +342,8 @@ export default function RiverHubScreen() {
                   onPress={() => setShowMoreFilters((current) => !current)}
                   accessibilityRole="button"
                   accessibilityState={{ expanded: showMoreFilters }}
+                  accessibilityLabel="More river filters"
+                  aria-expanded={showMoreFilters}
                 >
                   <MaterialCommunityIcons name="tune-variant" color={colors.accent} size={16} />
                   <Text style={styles.moreFiltersButtonText}>
@@ -376,18 +400,21 @@ export default function RiverHubScreen() {
                   ) : null}
                 </View>
               ) : null}
-              <Text style={styles.resultCount}>
+              <Text accessibilityLiveRegion="polite" style={styles.resultCount}>
                 Showing {routes.length} of {allRoutes.length} routes
                 {filterCount ? ` · ${filterCount} active ${filterCount === 1 ? 'filter' : 'filters'}` : ''}
               </Text>
-              <View style={styles.sortTabs}>
-                {SORT_MODES.map((mode) => (
+              <View accessibilityRole="radiogroup" accessibilityLabel="Sort river routes" style={styles.sortTabs}>
+                {SORT_MODES.map((mode, index) => (
                   <Pressable
+                    {...radioKeyboardProps(index, sortMode === mode, SORT_MODES.length, (next) => setSortMode(SORT_MODES[next]))}
                     key={mode}
                     style={[styles.sortTab, sortMode === mode ? styles.sortTabSelected : null]}
                     onPress={() => setSortMode(mode)}
-                    accessibilityRole="tab"
-                    accessibilityState={{ selected: sortMode === mode }}
+                    accessibilityRole="radio"
+                    accessibilityLabel={mode}
+                    accessibilityState={{ checked: sortMode === mode }}
+                    aria-checked={sortMode === mode}
                   >
                     <MaterialCommunityIcons name={sortIcon(mode) as never} color={sortMode === mode ? colors.surfaceStrong : colors.accent} size={15} />
                     <Text style={[styles.sortTabText, sortMode === mode ? styles.sortTabTextSelected : null]}>{mode}</Text>
@@ -424,8 +451,8 @@ export default function RiverHubScreen() {
         ListEmptyComponent={(
           <View style={styles.emptyResults}>
             <MaterialCommunityIcons name="filter-remove-outline" color={colors.textMuted} size={30} />
-            <Text style={styles.emptyResultsTitle}>No routes match</Text>
-            <Text style={styles.emptyResultsBody}>Clear a filter to see more of this river.</Text>
+            <Text style={styles.emptyResultsTitle}>{allRoutes.length ? 'No routes match' : 'No routes available'}</Text>
+            <Text style={styles.emptyResultsBody}>{allRoutes.length ? 'Clear a filter to see more of this river.' : 'This river hub has no routes to show right now.'}</Text>
           </View>
         )}
       />
@@ -458,7 +485,7 @@ function RouteChoiceCard({
 }) {
   return (
     <View style={[styles.routeCard, recommended ? styles.routeCardRecommended : null, selected ? styles.routeCardSelected : null]}>
-      <Pressable style={styles.routeMainRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+      <Pressable accessibilityRole="button" accessibilityLabel={`View route: ${route.river.name}, ${route.river.reach}`} style={styles.routeMainRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
         <View style={styles.routeThumb}>
           <ImageBackground
             source={{ uri: photoForRiver(route.river) }}
@@ -476,7 +503,7 @@ function RouteChoiceCard({
           <View style={styles.routeBadgeRow}>
             {recommended ? <Text style={styles.recommendedBadge}>Recommended today</Text> : null}
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
-            <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
+            <SaveToggleButton routeLabel={`${route.river.name}: ${route.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
           </View>
           {recommended ? <Text style={styles.recommendationReason}>{recommendationReason(route)}</Text> : null}
           <View style={styles.routeCallRow}>
@@ -501,7 +528,14 @@ function RouteChoiceCard({
       {expanded && route.river.scoreEligibility !== 'planning' ? <ScoreBreakdownPanel route={route} /> : null}
 
       <View style={styles.routeFooter}>
-        <Pressable onPress={onToggleExpanded} hitSlop={8}>
+        <Pressable
+          onPress={route.river.scoreEligibility === 'planning' ? onOpen : onToggleExpanded}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel={`${route.river.scoreEligibility === 'planning' ? 'View planning details' : 'Score details'}: ${route.river.reach}`}
+          accessibilityState={route.river.scoreEligibility === 'planning' ? undefined : { expanded }}
+          aria-expanded={route.river.scoreEligibility === 'planning' ? undefined : expanded}
+        >
           <Text style={styles.whyButton}>{route.river.scoreEligibility === 'planning' ? 'View planning details' : expanded ? 'Hide score details' : 'Why this score?'}</Text>
         </Pressable>
       </View>
@@ -590,6 +624,7 @@ function FilterChip({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityState={{ selected }}
+      aria-pressed={selected}
     >
       <Text style={[styles.filterChipText, selected ? styles.filterChipTextSelected : null]}>{label}</Text>
     </Pressable>

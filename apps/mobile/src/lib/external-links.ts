@@ -13,3 +13,13 @@ export async function openExternalUrl(url: string, label = 'Link') {
     return false;
   }
 }
+
+export async function openDeviceSettings() {
+  try {
+    await Linking.openSettings();
+    return true;
+  } catch {
+    Alert.alert('Settings unavailable', 'Open your device settings and choose PaddleToday to manage permissions.');
+    return false;
+  }
+}

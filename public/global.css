@@ -1,6 +1,13 @@
 @import url("/styles/warnings.css");
 @import url("/styles/semantic-tokens.css");
 
+/* Important rules in this layer preserve hidden state over layout overrides. */
+@layer visibility {
+  [hidden]:not([hidden="until-found"]) {
+    display: none !important;
+  }
+}
+
 :root {
   color-scheme: light;
   --bg: #f6f1e8;
@@ -55,6 +62,33 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10001;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  background: var(--river-deep);
+  color: white;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip-path: none;
+  outline: 3px solid white;
+  outline-offset: 2px;
 }
 
 html,
@@ -1733,6 +1767,7 @@ a {
 
 .main-shell {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   padding: 0.35rem 0 0;
 }
@@ -1781,8 +1816,10 @@ body.site-search-open {
   inset: 0;
   z-index: 80;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: start center;
   padding: 4.5rem 1rem 1rem;
+  overflow-y: auto;
 }
 
 .site-search-dialog[hidden] {
@@ -1798,6 +1835,7 @@ body.site-search-open {
 
 .site-search-dialog__panel {
   position: relative;
+  min-width: 0;
   width: min(100%, 46rem);
   display: grid;
   gap: 0.9rem;
@@ -1819,6 +1857,7 @@ body.site-search-open {
 
 .site-search-dialog__title-wrap {
   display: grid;
+  min-width: 0;
   gap: 0.18rem;
 }
 
@@ -1831,10 +1870,12 @@ body.site-search-open {
 
 .site-search-dialog__field {
   display: block;
+  min-width: 0;
 }
 
 .site-search-dialog__input {
   width: 100%;
+  min-width: 0;
   min-height: 3rem;
   padding: 0.7rem 1rem;
   border-radius: 18px;
@@ -1999,6 +2040,15 @@ body.site-search-open {
   align-items: start;
 }
 
+.info-grid--about-scores > .info-card {
+  min-width: 0;
+}
+
+.about-score-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .request-layout {
   grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
 }
@@ -2055,6 +2105,10 @@ body.site-search-open {
 
 .route-photo-form__checkbox--quiet {
   opacity: 0.88;
+}
+
+.contribute-upload-list[hidden] {
+  display: none;
 }
 
 .contribute-upload-list {
@@ -6937,6 +6991,17 @@ html body.page-weekend .weekend-map-empty__card h3 {
   box-shadow: 0 22px 44px rgba(16, 35, 45, 0.1);
 }
 
+.route-gallery__image-fallback {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  background: rgba(16, 35, 45, 0.06);
+  border-radius: 24px;
+}
+
 .route-gallery__caption {
   display: flex;
   flex-wrap: wrap;
@@ -8146,6 +8211,23 @@ html body.page-weekend .weekend-map-empty__card h3 {
   z-index: 30;
 }
 
+.route-action-menu__item[hidden] {
+  display: none;
+}
+
+/* The hero's backdrop filter creates a stacking context around action menus. */
+.page-route-detail .river-detail__hero:has(.route-action-menu[open]) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 760px) {
+  .page-route-detail .route-action-menu--share .route-action-menu__panel {
+    left: 0;
+    right: auto;
+  }
+}
+
 .route-action-menu > summary {
   list-style: none;
 }
@@ -8313,6 +8395,10 @@ html body.page-weekend .weekend-map-empty__card h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+}
+
+.alert-manage__actions [hidden] {
+  display: none;
 }
 
 .alert-manage__status--success {
@@ -10762,6 +10848,15 @@ html body.page-weekend .weekend-map-empty__card h3 {
   object-fit: cover;
 }
 
+.state-route-card__photo-fallback {
+  display: grid;
+  place-items: center;
+  height: 10rem;
+  padding: 1rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 .state-route-card__body,
 .state-route-card .route-choice__facts-section,
 .state-route-card .route-choice__footer {
@@ -12191,6 +12286,7 @@ html body.page-weekend .weekend-map-empty__card h3 {
 }
 
 .favorites-page__map-shell[hidden],
+[data-favorites-refresh][hidden],
 .favorites-page__grid[hidden],
 .favorites-page__empty[hidden] {
   display: none !important;
@@ -12580,6 +12676,12 @@ html body.page-weekend .weekend-map-empty__card h3 {
   font-weight: 400;
   line-height: 1.28;
   min-height: 0;
+}
+
+.request-form__error {
+  color: #9c3426;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .river-card__details {
@@ -15248,11 +15350,26 @@ html body.page-weekend .weekend-map-empty__card h3 {
 
 .home-location-bar__clear {
   min-height: 2.25rem;
-  padding-inline: 0.875rem;
+  padding-inline: 0.9rem;
   font-size: 0.82rem;
-  border-color: transparent;
-  color: var(--muted);
-  box-shadow: none;
+  border: 1px solid rgba(30, 115, 151, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--river-deep);
+  font-weight: 750;
+  box-shadow: 0 4px 12px rgba(16, 35, 45, 0.06);
+}
+
+.home-location-bar__clear:hover {
+  border-color: rgba(30, 115, 151, 0.35);
+  background: rgba(233, 245, 250, 0.9);
+  color: var(--river-deep);
+  box-shadow: 0 7px 16px rgba(16, 35, 45, 0.09);
+}
+
+.home-location-bar__clear:focus-visible {
+  outline: 2px solid rgba(30, 115, 151, 0.4);
+  outline-offset: 3px;
 }
 
 .home-location-bar__refine {
@@ -18971,10 +19088,12 @@ html body.page-weekend .weekend-map-empty__card h3 {
   html body.page-home .home-location-bar__clear {
     min-height: 2.48rem !important;
     padding-top: 0.18rem !important;
-    border: 1px solid rgba(16, 35, 45, 0.1) !important;
-    background: rgba(255, 255, 255, 0.76) !important;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
-    color: var(--muted) !important;
+    border: 1px solid rgba(30, 115, 151, 0.2) !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    box-shadow: 0 4px 12px rgba(16, 35, 45, 0.06) !important;
+    color: var(--river-deep) !important;
+    font-weight: 750 !important;
   }
 
   html body.page-home .home-featured {

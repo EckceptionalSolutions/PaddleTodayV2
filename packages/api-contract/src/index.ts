@@ -1,4 +1,6 @@
 import type { CampingClassification } from './camping';
+import { routeHazardLabels, type RouteHazard } from './route-hazards';
+export { routeHazardLabels, type RouteHazard } from './route-hazards';
 
 export type ScoreRating = 'Strong' | 'Good' | 'Fair' | 'No-go';
 export type ConfidenceLabel = 'Low' | 'Medium' | 'High';
@@ -19,25 +21,6 @@ export type SourceProvider =
   | 'manual';
 export type RouteType = 'recreational' | 'whitewater';
 export type RouteRiskLevel = 'standard' | 'caution' | 'advanced';
-export type RouteHazard =
-  | 'dam'
-  | 'low_head_dam'
-  | 'mandatory_takeout'
-  | 'strainers'
-  | 'whitewater'
-  | 'fast_rise'
-  | 'low_water'
-  | 'flash_flood'
-  | 'cold_water'
-  | 'remote'
-  | 'urban_water_quality'
-  | 'dam_release'
-  | 'access_uncertain'
-  | 'private_banks'
-  | 'wind'
-  | 'portage'
-  | 'waterfall'
-  | 'wildlife';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type RiverAlertDeliveryMethod = 'email' | 'push';
@@ -256,27 +239,6 @@ export interface RouteSafetyProfile {
   safetyNotes: string[];
   reviewStatus: 'reviewed' | 'needs_review';
 }
-
-export const routeHazardLabels: Record<RouteHazard, string> = {
-  dam: 'Dam',
-  low_head_dam: 'Low-head dam',
-  mandatory_takeout: 'Mandatory takeout',
-  strainers: 'Strainers',
-  whitewater: 'Whitewater',
-  fast_rise: 'Fast rise',
-  low_water: 'Low water',
-  flash_flood: 'Flash flood',
-  cold_water: 'Cold water',
-  remote: 'Remote',
-  urban_water_quality: 'Water quality',
-  dam_release: 'Dam release',
-  access_uncertain: 'Access uncertain',
-  private_banks: 'Private banks',
-  wind: 'Wind exposure',
-  portage: 'Portage',
-  waterfall: 'Waterfall',
-  wildlife: 'Wildlife',
-};
 
 export const routeSafetyLevelLabels: Record<RouteRiskLevel, string> = {
   standard: 'Safety check',
@@ -985,3 +947,6 @@ export interface CreateRouteContributionResponse {
 }
 
 export * from './saved-route-changes';
+
+export { parsePaddleTimeHours } from './paddle-duration';
+export { normalizeSearchText } from './search-text';

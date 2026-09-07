@@ -1,3 +1,4 @@
+import { parsePaddleTimeHours } from './paddle-duration';
 import type { CampingClassification, RiverAccessPoint, RiverRouteAccessPoint } from './index';
 
 export type PaddleLengthFilter = 'under-5' | '5-to-10' | '10-plus' | '';
@@ -221,14 +222,8 @@ function segmentMatchesFilters(segment: RouteSegment, filters: SegmentFilterSele
   return true;
 }
 
-function parsePaddleTimeRange(label: string) {
-  const numbers = String(label).match(/\d+(?:\.\d+)?/g)?.map(Number) ?? [];
-  if (numbers.length === 0) return null;
-  return { min: numbers[0], max: numbers.length > 1 ? numbers[1] : numbers[0] };
-}
-
 export function paddleTimeBucketForRoute(river: RoutePlanningRiver): PaddleTimeFilter {
-  const range = parsePaddleTimeRange(river.estimatedPaddleTime ?? river.logistics?.estimatedPaddleTime ?? '');
+  const range = parsePaddleTimeHours(river.estimatedPaddleTime ?? river.logistics?.estimatedPaddleTime ?? '');
   if (!range) return '';
   if (range.max <= 3) return 'up-to-3';
   if (range.min >= 7) return '7-plus';

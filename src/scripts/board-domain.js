@@ -6,6 +6,8 @@ import {
   callStateForDecision,
   distancePenalty,
   estimateTravelMinutes,
+  parsePaddleTimeHours,
+  normalizeSearchText,
 } from '@paddletoday/api-contract';
 import {
   buildRoutePlannerHref,
@@ -218,8 +220,8 @@ export function matchesBoardRouteFilters(
     const aliases =
       includeAliases && Array.isArray(river.aliases) ? river.aliases.join(' ') : '';
     const haystack =
-      `${river.name ?? ''} ${river.reach ?? ''} ${aliases} ${river.state ?? ''} ${river.region ?? ''}`.toLowerCase();
-    if (!haystack.includes(String(filters.search).toLowerCase())) {
+      normalizeSearchText(`${river.name ?? ''} ${river.reach ?? ''} ${aliases} ${river.state ?? ''} ${river.region ?? ''}`);
+    if (!haystack.includes(normalizeSearchText(String(filters.search)))) {
       return false;
     }
   }
@@ -431,22 +433,8 @@ export function formatHomeChoiceSummary(values, formatter, fallbackLabel) {
 }
 
 export function parseEstimatedPaddleTimeRange(label) {
-  if (typeof label !== 'string' || label.trim().length === 0) {
-    return null;
-  }
-
-  const matches = Array.from(label.matchAll(/(\d+)\s*hr(?:\s*(\d+)\s*min)?/gi))
-    .map((match) => Number(match[1]) * 60 + Number(match[2] || 0))
-    .filter((value) => Number.isFinite(value));
-
-  if (matches.length === 0) {
-    return null;
-  }
-
-  return {
-    minMinutes: matches[0],
-    maxMinutes: matches[matches.length - 1],
-  };
+  const range = parsePaddleTimeHours(label);
+  return range ? { minMinutes: range.min * 60, maxMinutes: range.max * 60 } : null;
 }
 
 export function paddleTimeBucketForLabel(label) {

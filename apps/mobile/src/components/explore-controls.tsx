@@ -32,6 +32,7 @@ export function ExploreSearchBar({
         autoCapitalize="none"
         autoCorrect={false}
         placeholder="Search river, route, region"
+        accessibilityLabel="Search routes"
         placeholderTextColor={colors.textMuted}
         value={query}
         onChangeText={onQueryChange}
@@ -126,6 +127,7 @@ export function ChoiceChip({
       accessibilityRole="button"
       accessibilityLabel={label}
       accessibilityState={{ selected }}
+      aria-pressed={selected}
       android_ripple={{ color: colors.canvasMuted }}
     >
       <Text style={[styles.choiceChipText, selected ? styles.choiceChipTextSelected : null]}>{label}</Text>

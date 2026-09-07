@@ -11,16 +11,18 @@ import {
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useMemo, useRef, useState } from 'react';
+import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
 import { AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
+import { SaveToggleButton } from '../components/save-toggle-button';
 import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
 import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { androidBottomInset } from '../lib/safe-area';
+import { tabKeyboardProps } from '../lib/selection-keyboard';
 import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -33,10 +35,11 @@ export default function SavedScreen() {
   const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
   const createAlertMutation = useCreateRiverAlertMutation();
-  const { savedRivers, isHydrated, isSaved, toggleSavedRiver } = useSavedRivers();
+  const { savedRivers, isHydrated, hasLoadError, isSaved, toggleSavedRiver } = useSavedRivers();
   const { routeAlerts, recordRouteAlert, alertForRiver } = useAlertPreferences();
   const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
+  const alertSubmissionInFlight = useRef(false);
   const [activeTab, setActiveTab] = useState<SavedTab>('routes');
   const [notesRiver, setNotesRiver] = useState<SavedRiverRecord | null>(null);
 
@@ -53,6 +56,8 @@ export default function SavedScreen() {
   const savedGroups = groupSavedRoutes(savedSummaries);
 
   async function submitSavedRouteAlert(river: RiverSummaryApiItem, threshold: RiverAlertThreshold) {
+    if (alertSubmissionInFlight.current) return;
+    alertSubmissionInFlight.current = true;
     const key = `${river.river.slug}:${threshold}`;
     setPendingAlertKey(key);
     setAlertStatus(`Saving ${alertThresholdLabel(threshold)} alert for ${river.river.name}...`);
@@ -78,6 +83,7 @@ export default function SavedScreen() {
           : `Could not save the ${alertThresholdLabel(threshold)} alert right now.`
       );
     } finally {
+      alertSubmissionInFlight.current = false;
       setPendingAlertKey(null);
     }
   }
@@ -91,6 +97,7 @@ export default function SavedScreen() {
   return (
     <ScrollView
       style={styles.screen}
+      refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
       contentContainerStyle={[
         styles.content,
         {
@@ -101,11 +108,12 @@ export default function SavedScreen() {
     >
       <AppRefreshNotice
         label="Your saved-route list is still available."
-        isError={summaryQuery.isRefetchError}
+        isError={summaryQuery.isError}
+        retrying={summaryQuery.isFetching}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
       />
-      <Text style={styles.title}>Saved routes</Text>
+      <Text accessibilityRole="header" style={styles.title}>Saved routes</Text>
       <Text style={styles.subtitle}>
         A status board for rivers you check often.
       </Text>
@@ -118,7 +126,7 @@ export default function SavedScreen() {
         </View>
       ) : null}
 
-      {savedRivers.length === 0 ? (
+      {savedRivers.length === 0 && !hasLoadError ? (
         <View style={styles.emptyPanel}>
           <View style={styles.emptyIcon}>
             <MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} />
@@ -128,10 +136,10 @@ export default function SavedScreen() {
             Save repeat routes here, then turn on alerts for the conditions you care about.
           </Text>
           <View style={styles.emptyActions}>
-            <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
+            <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => router.push('/')}>
               <Text style={styles.primaryButtonText}>Find today's picks</Text>
             </Pressable>
-            <Pressable style={styles.secondaryButton} onPress={() => router.push('/explore')}>
+            <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => router.push('/explore')}>
               <Text style={styles.secondaryButtonText}>Open map</Text>
             </Pressable>
           </View>
@@ -200,8 +208,8 @@ export default function SavedScreen() {
 
       {activeTab === 'routes' && savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
         <SectionCard
-          title="Saved routes without a call"
-          subtitle="Still saved, but missing from today's calls."
+          title={summaryQuery.isPending ? 'Checking saved routes' : 'Saved routes without a call'}
+          subtitle={summaryQuery.isPending ? 'Your list is ready while current calls load.' : 'Still saved. You can open route details or try refreshing the calls.'}
         >
           <View style={styles.list}>
             {savedRivers
@@ -209,12 +217,19 @@ export default function SavedScreen() {
               .map((river) => (
                 <View key={river.slug} style={styles.savedFallbackCard}>
                   <View style={styles.savedFallbackCopy}>
-                    <Text style={styles.savedFallbackName}>{river.name}</Text>
-                    <Text style={styles.savedFallbackReach}>{river.reach}</Text>
+                    <Pressable
+                      accessibilityRole="link"
+                      accessibilityLabel={`Open ${river.name}: ${river.reach}`}
+                      onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.slug } })}
+                    >
+                      <Text style={styles.savedFallbackName}>{river.name}</Text>
+                      <Text style={styles.savedFallbackReach}>{river.reach}</Text>
+                    </Pressable>
                     <Text style={styles.savedFallbackNote}>
-                      No call is available today.
+                      {summaryQuery.isPending ? 'Loading current call…' : 'Current call unavailable.'}
                     </Text>
                     <SavedRouteNotes river={river} onEdit={setNotesRiver} />
+                    <SaveToggleButton routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
                   </View>
                 </View>
               ))}
@@ -239,7 +254,7 @@ export default function SavedScreen() {
               />
             ))}
           </View>
-          <Text style={styles.alertStatus}>{alertStatus}</Text>
+          <Text accessibilityLiveRegion="polite" style={styles.alertStatus}>{alertStatus}</Text>
         </SectionCard>
       ) : null}
 
@@ -258,15 +273,6 @@ export default function SavedScreen() {
             </View>
           </View>
         </SectionCard>
-      ) : null}
-
-      {summaryQuery.isError ? (
-        <View style={styles.offlineNote}>
-          <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={18} />
-          <Text style={styles.footnote}>
-            Saved-route calls did not refresh. Your list is still here.
-          </Text>
-        </View>
       ) : null}
 
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
@@ -294,14 +300,16 @@ function SavedTabs({
   onChange: (tab: SavedTab) => void;
 }) {
   return (
-    <View style={styles.tabs}>
+    <View accessibilityRole="tablist" accessibilityLabel="Saved route sections" style={styles.tabs}>
       <SavedTabButton
+        keyboardProps={tabKeyboardProps(0, activeTab === 'routes', 2, (index) => onChange(index === 0 ? 'routes' : 'alerts'))}
         icon="bookmark-outline"
         label="Saved routes"
         active={activeTab === 'routes'}
         onPress={() => onChange('routes')}
       />
       <SavedTabButton
+        keyboardProps={tabKeyboardProps(1, activeTab === 'alerts', 2, (index) => onChange(index === 0 ? 'routes' : 'alerts'))}
         icon="bell-outline"
         label="Alerts"
         active={activeTab === 'alerts'}
@@ -312,11 +320,13 @@ function SavedTabs({
 }
 
 function SavedTabButton({
+  keyboardProps,
   icon,
   label,
   active,
   onPress,
 }: {
+  keyboardProps: ReturnType<typeof tabKeyboardProps>;
   icon: string;
   label: string;
   active: boolean;
@@ -324,9 +334,12 @@ function SavedTabButton({
 }) {
   return (
     <Pressable
+      {...keyboardProps}
       style={[styles.tabButton, active ? styles.tabButtonActive : null]}
       onPress={onPress}
       accessibilityRole="tab"
+      accessibilityLabel={label}
+      aria-selected={active}
       accessibilityState={{ selected: active }}
     >
       <MaterialCommunityIcons name={icon as never} color={active ? colors.surfaceStrong : colors.accent} size={18} />
@@ -359,7 +372,7 @@ function SavedAlertRow({
 }) {
   return (
     <View style={styles.savedAlertRow}>
-      <Pressable style={styles.savedAlertCopy} onPress={onOpen}>
+      <Pressable accessibilityRole="button" accessibilityLabel={`Open ${river.river.name}: ${river.river.reach}`} style={styles.savedAlertCopy} onPress={onOpen}>
         <Text style={styles.savedAlertName}>{river.river.name}</Text>
         <Text style={styles.savedAlertReach} numberOfLines={1}>{river.river.reach}</Text>
         <Text style={styles.savedAlertState}>
@@ -373,8 +386,13 @@ function SavedAlertRow({
           return (
             <Pressable
               key={threshold}
-              style={[styles.alertMiniButton, selected ? styles.alertMiniButtonSelected : null, pending ? styles.alertMiniButtonDisabled : null]}
-              disabled={pending}
+              style={[styles.alertMiniButton, selected ? styles.alertMiniButtonSelected : null, pendingAlertKey ? styles.alertMiniButtonDisabled : null]}
+              accessibilityRole="button"
+              accessibilityLabel={`${alertThresholdLabel(threshold)} phone alert for ${river.river.name}: ${river.river.reach}`}
+              accessibilityState={{ disabled: Boolean(pendingAlertKey), busy: pending, selected }}
+              aria-busy={pending}
+              aria-pressed={selected}
+              disabled={Boolean(pendingAlertKey)}
               onPress={() => onSubmitAlert(threshold)}
             >
               <Text style={[styles.alertMiniButtonText, selected ? styles.alertMiniButtonTextSelected : null]}>
@@ -625,7 +643,7 @@ const styles = StyleSheet.create({
   },
   alertMiniButton: {
     minWidth: 54,
-    minHeight: 34,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.border,
@@ -763,19 +781,5 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
-  },
-  footnote: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 19,
-    flex: 1,
-  },
-  offlineNote: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: '#F2DDD6',
-    padding: spacing.md,
   },
 });

@@ -9,6 +9,20 @@ describe('personal saved-route notes', () => {
     toggleFavorite({ slug: 'river', name: 'River', savedAt: 123, url: '/rivers/river/?putin=a&takeout=b' });
   });
   afterEach(() => vi.unstubAllGlobals());
+  it.each(['{"unfinished":', '{"version":2,"items":[]}', '[{}]'])('preserves unreadable data during every update: %s', (raw) => {
+    stored.set('paddletoday:favorites:v1', raw);
+    expect(readFavorites()).toEqual([]);
+    for (const update of [() => toggleFavorite({ slug: 'river' }), () => restoreFavorite({ slug: 'river' }), () => updateFavoriteNotes('river', 'Draft')]) {
+      expect(update).toThrow();
+      expect(stored.get('paddletoday:favorites:v1')).toBe(raw);
+    }
+  });
+  it('does not overwrite saved routes when reads fail but writes are available', () => {
+    const original = stored.get('paddletoday:favorites:v1');
+    window.localStorage.getItem = () => { throw new Error('Read failed'); };
+    expect(() => toggleFavorite({ slug: 'another' })).toThrow('Read failed');
+    expect(stored.get('paddletoday:favorites:v1')).toBe(original);
+  });
   it('preserves route details, notes, and order through removal and Undo', () => {
     const original = readFavorites()[0];
     updateFavoriteNotes('river', '  Parking at the bridge.\nBring a shuttle bike.  ');

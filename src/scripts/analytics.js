@@ -111,11 +111,15 @@ function eventProperties(target) {
 }
 
 export function trackEvent(name, properties = {}) {
-  if (!name || !analyticsEnabled()) {
-    return;
+  try {
+    if (!name || !analyticsEnabled()) return;
+    const pending = window.umami.track(name, cleanProperties({ ...pageContext(), ...properties }));
+    // Analytics must not interrupt navigation or make a received submission look
+    // failed. The provider can fail synchronously or reject its network request.
+    if (pending && typeof pending.catch === 'function') pending.catch(() => {});
+  } catch {
+    // Tracking is optional; keep the user's action successful.
   }
-
-  window.umami.track(name, cleanProperties({ ...pageContext(), ...properties }));
 }
 
 document.addEventListener('click', (event) => {

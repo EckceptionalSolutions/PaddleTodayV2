@@ -4,6 +4,19 @@ export function readArgValue(flag: string): string | null {
   return index >= 0 ? args[index + 1] ?? null : null;
 }
 
+export function parseRequestUrl(target: string | undefined, host: string | undefined): URL {
+  if (host) {
+    if (/[\s\/?#@]/.test(host)) throw new Error('Invalid Host header.');
+    const parsedHost = new URL(`http://${host}`);
+    if (!parsedHost.hostname || parsedHost.pathname !== '/') throw new Error('Invalid Host header.');
+  }
+  // Routing uses only path/query; a client-supplied Host must not affect it.
+  const url = new URL(target || '/', 'http://paddletoday.internal');
+  // Validate escapes before route-specific decoding, without changing the path.
+  decodeURIComponent(url.pathname);
+  return url;
+}
+
 export function shouldLogRequest(pathname: string, statusCode: number): boolean {
   return pathname === '/' || pathname.startsWith('/api/') || pathname.startsWith('/health') || statusCode >= 400;
 }

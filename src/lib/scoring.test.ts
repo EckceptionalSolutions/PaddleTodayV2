@@ -161,6 +161,19 @@ describe('scoreRiverCondition', () => {
     expect(result.outlooks[0]?.availability).toBe('available');
   });
 
+  it('withholds a forecast without a start date while retaining current conditions', () => {
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: { ...makeGauge(480, 'steady', 15), observedAt: '2026-05-10T11:00:00Z' },
+      weather: { ...weather, observedAt: '2026-05-10T11:15:00Z', tomorrow: { ...weather.tomorrow!, startDate: null } },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+    expect(result.liveData.overall).toBe('live');
+    expect(result.outlooks.find((outlook) => outlook.id === 'tomorrow')).toMatchObject({
+      availability: 'withheld', score: null, explanation: expect.stringContaining('forecast coverage'),
+    });
+  });
+
   it('only reaches 100 when gauge and weather are both excellent', () => {
     const now = new Date('2026-05-10T12:00:00Z');
     const result = scoreRiverCondition({

@@ -19,6 +19,7 @@ export interface SavedRiverRecord {
 
 interface SavedRiversContextValue {
   isHydrated: boolean;
+  hasLoadError: boolean;
   savedRivers: SavedRiverRecord[];
   isSaved: (slug: string) => boolean;
   toggleSavedRiver: (river: Omit<SavedRiverRecord, 'savedAt'>) => Promise<void>;
@@ -32,7 +33,11 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   const [isHydrated, setIsHydrated] = useState(false);
   const current = useRef<SavedRiverRecord[]>([]);
   const hydrated = useRef(false);
+  const hydrationInFlight = useRef(false);
+  const [loadError, setLoadError] = useState(false);
+  const [retryingLoad, setRetryingLoad] = useState(false);
   const queue = useRef(Promise.resolve());
+  const pendingSlugs = useRef(new Set<string>());
   const [feedback, setFeedback] = useState<{ message: string; removed?: SavedRiverRecord } | null>(null);
   const insets = useSafeAreaInsets();
 
@@ -47,24 +52,38 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   }, []);
 
   async function hydrateSavedRivers() {
+    if (hydrationInFlight.current) return;
+    hydrationInFlight.current = true;
+    setRetryingLoad(true);
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
       const parsed = parseJson(raw);
+      if (raw !== null && (!Array.isArray(parsed) || !parsed.every(isSavedRiverRecord))) {
+        throw new Error('Saved routes could not be read.');
+      }
       if (Array.isArray(parsed)) {
         current.current = uniqueSavedRiversBySlug(parsed.filter(isSavedRiverRecord).map((river) => ({
           ...river, notes: typeof river.notes === 'string' ? river.notes.slice(0, 2000) : undefined,
         })).sort(sortSavedRiversByRecency));
         setSavedRivers(current.current);
       }
-    } catch {
-      // Leave saved rivers empty if local state is corrupt.
-    } finally {
       hydrated.current = true;
+      setLoadError(false);
+      setFeedback(null);
+    } catch {
+      // A failed read must not authorize overwriting an existing saved list.
+      hydrated.current = false;
+      setLoadError(true);
+    } finally {
+      hydrationInFlight.current = false;
+      setRetryingLoad(false);
       setIsHydrated(true);
     }
   }
 
   function updateSavedRivers(river: Omit<SavedRiverRecord, 'savedAt'>, restore?: SavedRiverRecord) {
+    if (pendingSlugs.current.has(river.slug)) return queue.current;
+    pendingSlugs.current.add(river.slug);
     queue.current = queue.current.then(async () => {
       if (!hydrated.current) {
         setFeedback({ message: 'Saved routes are still loading. Please try again.' });
@@ -85,7 +104,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       } catch {
         setFeedback({ message: 'Could not update Saved routes. Please try again.', removed: restore });
       }
-    });
+    }).finally(() => { pendingSlugs.current.delete(river.slug); });
     return queue.current;
   }
 
@@ -114,29 +133,34 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   const value = useMemo<SavedRiversContextValue>(
     () => ({
       isHydrated,
+      hasLoadError: loadError,
       savedRivers,
       isSaved: (slug) => savedRivers.some((item) => item.slug === slug),
       toggleSavedRiver,
       updateSavedRiverNotes,
     }),
-    [isHydrated, savedRivers]
+    [isHydrated, loadError, savedRivers]
   );
 
   return (
     <SavedRiversContext.Provider value={value}>
       {children}
-      {feedback ? (
+      {loadError || feedback ? (
         <View style={[feedbackStyles.panel, { bottom: 80 + insets.bottom }]}>
-          <Text accessibilityLiveRegion="polite" role="status" style={feedbackStyles.message}>{feedback.message}</Text>
+          <Text accessibilityLiveRegion="polite" role="status" style={feedbackStyles.message}>{loadError ? 'Could not load Saved routes from this device. Retry loading before changing your saved list.' : feedback?.message}</Text>
           <View style={feedbackStyles.actions}>
-            {feedback.removed ? (
+            {loadError ? (
+              <Pressable accessibilityRole="button" accessibilityLabel="Retry loading saved routes" disabled={retryingLoad} aria-busy={retryingLoad} accessibilityState={{ disabled: retryingLoad, busy: retryingLoad }} style={feedbackStyles.button} onPress={() => void hydrateSavedRivers()}>
+                <Text style={feedbackStyles.label}>{retryingLoad ? 'Loading…' : 'Retry loading'}</Text>
+              </Pressable>
+            ) : feedback?.removed ? (
               <Pressable accessibilityRole="button" style={feedbackStyles.button} onPress={() => void updateSavedRivers(feedback.removed!, feedback.removed)}>
                 <Text style={feedbackStyles.label}>Undo</Text>
               </Pressable>
             ) : null}
-            <Pressable accessibilityRole="button" style={feedbackStyles.button} onPress={() => setFeedback(null)}>
+            {!loadError ? <Pressable accessibilityRole="button" style={feedbackStyles.button} onPress={() => setFeedback(null)}>
               <Text style={feedbackStyles.label}>Dismiss</Text>
-            </Pressable>
+            </Pressable> : null}
           </View>
         </View>
       ) : null}

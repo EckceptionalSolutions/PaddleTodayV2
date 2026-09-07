@@ -600,6 +600,7 @@ function contributionsStorage(): BinaryStorage {
       readJson: (blobName) => jsonStorage.readJson(blobName),
       readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
       writeJson: jsonStorage.writeJson,
+      listJsonNames: jsonStorage.listJsonNames,
       async readBytes(blobName: string) {
         const response = await fetch(blobUrl(container, blobName), { method: 'GET' });
         if (response.status === 404) return null;
@@ -617,7 +618,7 @@ function contributionsStorage(): BinaryStorage {
             'x-ms-blob-type': 'BlockBlob',
             'content-type': contentType || 'application/octet-stream',
           },
-          body: value,
+          body: new Uint8Array(value),
         });
         if (!response.ok) throw new Error(`Failed to write contribution file ${blobName}: HTTP ${response.status}`);
       },
@@ -635,6 +636,7 @@ function contributionsStorage(): BinaryStorage {
     readJson: (blobName) => jsonStorage.readJson(blobName),
     readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
     writeJson: jsonStorage.writeJson,
+    listJsonNames: jsonStorage.listJsonNames,
     async readBytes(blobName: string) {
       const filePath = localPathFor(blobName);
       try {

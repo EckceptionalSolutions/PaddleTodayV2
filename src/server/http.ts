@@ -13,6 +13,13 @@ export class RequestBodyTooLargeError extends Error {
   }
 }
 
+export class InvalidJsonBodyError extends Error {
+  constructor() {
+    super('Request body is not valid JSON.');
+    this.name = 'InvalidJsonBodyError';
+  }
+}
+
 export function sendJson(
   response: ServerResponse,
   status: number,
@@ -23,7 +30,7 @@ export function sendJson(
 ) {
   const body = JSON.stringify(payload);
   const bodyBuffer = Buffer.from(body);
-  const acceptsGzip = /\bgzip\b/i.test(String(response.req?.headers['accept-encoding'] ?? ''));
+  const acceptsGzip = acceptsGzipEncoding(String(response.req?.headers['accept-encoding'] ?? ''));
   const compressedBody = acceptsGzip && bodyBuffer.length >= JSON_COMPRESSION_THRESHOLD_BYTES
     ? gzipSync(bodyBuffer)
     : null;
@@ -33,13 +40,29 @@ export function sendJson(
     'content-type': 'application/json; charset=utf-8',
     'cache-control': cacheControl,
     'content-length': responseBody.length,
-    ...(compressedBody ? { 'content-encoding': 'gzip', vary: 'Accept-Encoding' } : {}),
+    ...(bodyBuffer.length >= JSON_COMPRESSION_THRESHOLD_BYTES ? { vary: 'Accept-Encoding' } : {}),
+    ...(compressedBody ? { 'content-encoding': 'gzip' } : {}),
     'x-request-id': requestIdFromPayload(payload),
     'access-control-allow-origin': '*',
     ...extraHeaders,
   });
   response.end(includeBody ? responseBody : undefined);
   return response;
+}
+
+function acceptsGzipEncoding(header: string): boolean {
+  let wildcard = false;
+  for (const entry of header.split(',')) {
+    const [rawName, ...parameters] = entry.trim().toLowerCase().split(';');
+    const name = rawName.trim();
+    if (name !== 'gzip' && name !== '*') continue;
+    const qualityParameter = parameters.map((part) => part.trim()).find((part) => /^q\s*=/.test(part));
+    const quality = qualityParameter === undefined ? 1 : Number(qualityParameter.split('=')[1]?.trim());
+    const accepted = Number.isFinite(quality) && quality > 0 && quality <= 1;
+    if (name === 'gzip') return accepted;
+    wildcard = accepted;
+  }
+  return wildcard;
 }
 
 export function sendEmpty(response: ServerResponse, status: number, headers: Record<string, string>) {
@@ -78,7 +101,9 @@ export function securityHeaders(response: ServerResponse): Record<string, string
   return {
     'x-content-type-options': 'nosniff',
     'referrer-policy': 'strict-origin-when-cross-origin',
-    'permissions-policy': 'geolocation=(), microphone=(), camera=()',
+    // Nearby-route controls need same-origin location access; the browser still
+    // asks for permission. Embedded third-party pages do not inherit access.
+    'permissions-policy': 'geolocation=(self), microphone=(), camera=()',
     ...(isTls ? { 'strict-transport-security': 'max-age=31536000; includeSubDomains' } : {}),
   };
 }
@@ -116,19 +141,31 @@ export async function readJsonBody(
     return {};
   }
 
-  return JSON.parse(raw);
+  try {
+    return JSON.parse(raw);
+  } catch {
+    throw new InvalidJsonBodyError();
+  }
 }
 
 export function clean(value: unknown, max = 5000) {
   return String(value || '').trim().slice(0, max);
 }
 
-export function sendBodyLimitResponse(
+export function sendRequestBodyErrorResponse(
   error: unknown,
   response: ServerResponse,
   requestId: string,
   includeBody: boolean
 ) {
+  if (error instanceof InvalidJsonBodyError) {
+    return sendJson(response, 400, {
+      requestId,
+      error: 'invalid_json',
+      message: 'This submission could not be read. Please try again.',
+    }, includeBody, 'no-store');
+  }
+
   if (!(error instanceof RequestBodyTooLargeError)) {
     return null;
   }
