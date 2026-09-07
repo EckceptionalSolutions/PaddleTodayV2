@@ -160,6 +160,16 @@ export async function installMapLibreHarness(page: Page) {
       getContainer() { return this.container; }
       getCanvas() { return this.canvas; }
       getZoom() { return this.zoom; }
+      getCenter() {
+        if (this.bounds.points.length === 2 && this.bounds.points[0][0] === -180) {
+          const center = this.options.center || [0, 0];
+          return { lng: center[0], lat: center[1] };
+        }
+        const [sw, ne] = this.bounds.toArray();
+        return { lng: (sw[0] + ne[0]) / 2, lat: (sw[1] + ne[1]) / 2 };
+      }
+      getBearing() { return Number(this.options.bearing || 0); }
+      getPitch() { return Number(this.options.pitch || 0); }
       getBounds() { return this.bounds; }
       move(zoom: number, bounds: Array<[number, number]>) {
         this.zoom = zoom;

@@ -102,7 +102,7 @@ export function ExploreRouteDrawer({
           hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel={isSaved(selectedRiver.river.slug) ? 'Remove saved route' : 'Save route'}
-          accessibilityHint={isSaved(selectedRiver.river.slug) ? 'Removes this route from My Routes.' : 'Adds this route to My Routes.'}
+          accessibilityHint={isSaved(selectedRiver.river.slug) ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
           accessibilityState={{ selected: isSaved(selectedRiver.river.slug) }}
         >
           <MaterialCommunityIcons

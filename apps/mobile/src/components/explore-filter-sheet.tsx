@@ -47,16 +47,16 @@ export const defaultFilters: ExploreFilters = {
 
 const ratingOptions: Array<{ value: RatingFilter; label: string }> = [
   { value: 'any', label: 'Any score' },
-  { value: 'Strong', label: 'Strong' },
-  { value: 'Good', label: 'Good' },
-  { value: 'Fair', label: 'Fair' },
-  { value: 'No-go', label: 'No-go' },
+  { value: 'Strong', label: 'Strong conditions' },
+  { value: 'Good', label: 'Good conditions' },
+  { value: 'Fair', label: 'Watch closely' },
+  { value: 'No-go', label: 'Skip' },
 ];
 
 const statusOptions: Array<{ value: StatusFilter; label: string }> = [
   { value: 'any', label: 'Any call' },
-  { value: 'clean', label: 'Clean' },
-  { value: 'watch', label: 'Watch' },
+  { value: 'clean', label: 'Paddle' },
+  { value: 'watch', label: 'Watch closely' },
   { value: 'no-call', label: 'No call' },
   { value: 'skip', label: 'Skip' },
 ];
@@ -137,7 +137,7 @@ const callQualityOptions: Array<{
   },
   {
     value: 'fair',
-    label: 'Watch',
+    label: 'Watch closely',
     apply: (filters) => ({ ...filters, status: 'watch', rating: 'any' }),
     selected: (filters) => filters.status === 'watch' && filters.rating === 'any',
   },
@@ -627,12 +627,12 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   if (filters.query.trim()) labels.push(`Search: ${filters.query.trim()}`);
   if (filters.state) labels.push(filters.state);
   if (filters.status === 'clean') labels.push('Paddle');
-  if (filters.status === 'watch') labels.push('Watch');
+  if (filters.status === 'watch') labels.push('Watch closely');
   if (filters.status === 'no-call') labels.push('No call');
   if (filters.status === 'skip') labels.push('Skip');
   if (filters.rating === 'Strong') labels.push('Strong conditions');
   if (filters.rating === 'Good') labels.push('Good conditions');
-  if (filters.rating === 'Fair') labels.push('Watch');
+  if (filters.rating === 'Fair') labels.push('Watch closely');
   if (filters.rating === 'No-go') labels.push('Skip');
   if (filters.difficulty === 'easy-moderate') {
     labels.push('Easy/Moderate');

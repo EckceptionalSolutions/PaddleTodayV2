@@ -56,7 +56,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="saved"
         options={{
-          title: 'My Routes',
+          title: 'Saved routes',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bookmark-outline" color={color} size={size} />
           ),

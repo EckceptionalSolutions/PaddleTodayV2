@@ -1,3 +1,4 @@
+import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 import {
   bindMarkerPopup,
   clearMapMarkers,
@@ -37,18 +38,10 @@ const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
 const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
 const LOCATION_STORAGE_KEY = 'paddletoday:user-location';
-const FALLBACK_ROUTE_PHOTOS = [
-  {
-    src: '/gallery/fallbacks/river-fallback-stream.jpg',
-    alt: 'A representative river scene used as a placeholder until a route photo is available.',
-  },
-  {
-    src: '/gallery/fallbacks/river-fallback-wide.jpg',
-    alt: 'A representative wide river scene used as a placeholder until a route photo is available.',
-  },
-];
+
 
 const snapshotLine = document.querySelector('[data-weekend-snapshot]');
+const retryButton = document.querySelector('[data-weekend-retry]');
 const weekendDates = document.querySelector('[data-weekend-dates]');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
@@ -122,6 +115,7 @@ const featuredFactsSection = document.querySelector('[data-weekend-featured-fact
 const featuredFacts = document.querySelector('[data-weekend-featured-facts]');
 const featuredGallery = document.querySelector('[data-weekend-featured-gallery]');
 const featuredGalleryImage = document.querySelector('[data-weekend-featured-gallery-image]');
+const featuredGalleryFallback = document.querySelector('[data-weekend-featured-gallery-fallback]');
 const featuredGalleryPlaceholder = document.querySelector('[data-weekend-featured-gallery-placeholder]');
 const featuredGalleryContribute = document.querySelector('[data-weekend-featured-gallery-contribute]');
 
@@ -725,10 +719,13 @@ function updateFeaturedSummaryToggle(text) {
     : 'Details';
 }
 
-function fallbackRoutePhotoForSlug(slug = '') {
-  const index = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0) % FALLBACK_ROUTE_PHOTOS.length;
-  return FALLBACK_ROUTE_PHOTOS[index] || FALLBACK_ROUTE_PHOTOS[0];
-}
+featuredGalleryImage?.addEventListener('error', () => {
+  featuredGalleryImage.hidden = true;
+  featuredGalleryImage.removeAttribute('src');
+  featuredGallery.classList.add('route-photo-preview--placeholder');
+  if (featuredGalleryFallback) featuredGalleryFallback.hidden = false;
+  if (featuredGalleryPlaceholder) featuredGalleryPlaceholder.hidden = true;
+});
 
 function updateFeaturedGallery(item) {
   if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
@@ -746,12 +743,16 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const photo = fallbackRoutePhotoForSlug(river.slug);
+  const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
-  featuredGalleryImage.src = photo.src;
+  if (photo.isPlaceholder) featuredGalleryImage.removeAttribute('src');
+  else featuredGalleryImage.src = photo.src;
+  featuredGalleryImage.hidden = photo.isPlaceholder;
+  featuredGallery.classList.toggle('route-photo-preview--placeholder', photo.isPlaceholder);
+  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !photo.isPlaceholder;
   featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
   if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = false;
+    featuredGalleryPlaceholder.hidden = photo.sourceKind !== 'river';
   }
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
@@ -766,6 +767,11 @@ function renderFeatured(
     hasExpandedPicks = false,
   } = {},
 ) {
+  if (featuredPanel instanceof HTMLElement) {
+    featuredPanel.setAttribute('aria-busy', 'false');
+    featuredPanel.removeAttribute('aria-hidden');
+    featuredPanel.querySelectorAll('.decision-hero__actions a').forEach((link) => link.removeAttribute('tabindex'));
+  }
   if (!item) {
     updateFeaturedGallery(null);
     setText(featuredLabel, 'Paddle this weekend');
@@ -919,7 +925,7 @@ function createWeekendCard(item, index, options = {}) {
   }
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
-  setText(card.querySelector('[data-field="rating"]'), conditionTierDisplayLabel(item.weekend.rating));
+  setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(card.querySelector('[data-field="meta-line"]'), '');
   setText(card.querySelector('[data-field="card-summary-main"]'), item.weekend.summary);
 
@@ -1499,6 +1505,17 @@ function hydrateFromCache() {
 
 async function loadWeekend({ silent = false } = {}) {
   const { requestId, controller } = weekendRequestGuard.begin();
+  if (retryButton instanceof HTMLButtonElement) {
+    retryButton.hidden = true;
+    retryButton.disabled = true;
+  }
+  if (!latestWeekendPayload && featuredPanel instanceof HTMLElement) {
+    featuredPanel.setAttribute('aria-busy', 'true');
+    featuredPanel.setAttribute('aria-hidden', 'true');
+    featuredPanel.querySelectorAll('.decision-hero__actions a').forEach((link) => link.setAttribute('tabindex', '-1'));
+    updateFeaturedGallery(null);
+    setText(snapshotLine, 'Checking the weekend outlook…');
+  }
 
   try {
     if (silent && lastGeneratedAt) {
@@ -1523,6 +1540,7 @@ async function loadWeekend({ silent = false } = {}) {
       return;
     }
     console.error('Failed to load weekend river scores.', error);
+    if (retryButton instanceof HTMLButtonElement) retryButton.hidden = false;
 
     if (latestWeekendItems.length > 0) {
       updateFreshness({ generatedAt: lastGeneratedAt, fallback: true });
@@ -1531,6 +1549,13 @@ async function loadWeekend({ silent = false } = {}) {
 
     updateSnapshotLine({ riverCount: 0, withheldCount: 0 });
     renderFeatured(null);
+    setText(snapshotLine, 'The weekend outlook could not be loaded. Try again.');
+    setText(featuredName, 'Weekend outlook unavailable');
+    setText(featuredReach, 'We couldn’t fetch the latest forecast and river readings.');
+    setText(featuredState, 'Connection issue');
+    setText(featuredVerdict, 'Check again before planning');
+    setText(featuredReason, 'Retry to check whether there are routes worth planning around.');
+    setText(featuredSignal, 'Current outlook unavailable');
     renderGrid([]);
     if (weekendPlanner instanceof HTMLElement) {
       weekendPlanner.hidden = false;
@@ -1540,8 +1565,13 @@ async function loadWeekend({ silent = false } = {}) {
       weekendMapEmpty.hidden = false;
     }
   } finally {
+    if (weekendRequestGuard.isCurrent(requestId) && retryButton instanceof HTMLButtonElement) retryButton.disabled = false;
     weekendRequestGuard.finish(controller);
   }
+}
+
+if (retryButton instanceof HTMLButtonElement) {
+  retryButton.addEventListener('click', () => void loadWeekend());
 }
 
 if (featuredToggle instanceof HTMLButtonElement && featuredExplanation instanceof HTMLElement) {

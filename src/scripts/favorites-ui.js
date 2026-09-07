@@ -3,8 +3,11 @@ import {
   normalizeFavoriteEntry,
   subscribeFavorites,
   toggleFavorite,
+  readFavorites,
+  restoreFavorite,
 } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
+import { showActionFeedback } from './action-feedback.js';
 
 const FAVORITE_BUTTON_SELECTOR = '[data-favorite-button]';
 const boundRoots = new WeakSet();
@@ -111,7 +114,17 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
       return;
     }
 
-    const saved = toggleFavorite(favorite);
+    const original = readFavorites().find((item) => item.slug === favorite.slug);
+    let saved;
+    try {
+      saved = toggleFavorite(favorite);
+    } catch {
+      showActionFeedback('Could not update Saved routes. Browser storage is unavailable.');
+      return;
+    }
+    showActionFeedback(saved ? `${favorite.name || 'Route'} saved.` : `${favorite.name || 'Route'} removed from Saved routes.`, {
+      undo: !saved && original ? () => restoreFavorite(original) : undefined,
+    });
     refreshFavoriteButtons(root);
     trackEvent('Toggle favorite', {
       route: favorite.slug,
@@ -126,6 +139,10 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
         favorite,
         saved,
       });
+    }
+    if (!saved && !button.isConnected) {
+      // Removing the card also removes keyboard focus; put it on its recovery action.
+      document.querySelector('.action-feedback button')?.focus({ preventScroll: true });
     }
   };
 

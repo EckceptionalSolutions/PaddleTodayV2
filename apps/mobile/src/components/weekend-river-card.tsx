@@ -3,10 +3,11 @@ import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-c
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { callForRating, normalizeApiText } from '../lib/format';
 import { routePreviewFactItems } from '../lib/route-facts';
-import { photoForRiver } from '../lib/route-photos';
+import { routePhotoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
 import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
+import { RoutePhotoFallback } from './route-photo-fallback';
 
 export function WeekendRiverCard({
   river,
@@ -22,6 +23,7 @@ export function WeekendRiverCard({
   onPress: () => void;
 }) {
   const riskExplanation = cardRiskExplanation(river);
+  const photo = routePhotoForRiver(river.river);
 
   return (
     <Pressable
@@ -33,11 +35,12 @@ export function WeekendRiverCard({
       accessibilityHint="Opens the weekend route details."
     >
       <ImageBackground
-        source={{ uri: photoForRiver(river.river) }}
+        source={photo.isPlaceholder ? undefined : { uri: photo.uri }}
         style={styles.media}
         imageStyle={styles.mediaImage}
       >
-        <View style={styles.mediaOverlay}>
+        {photo.isPlaceholder ? <RoutePhotoFallback compact /> : null}
+        <View style={[styles.mediaOverlay, photo.isPlaceholder ? styles.mediaOverlayPlaceholder : null]}>
           <View style={styles.scoreBlock}>
             <Text style={styles.callLabel}>{callForRating(river.weekend.rating, 'weekend', true)}</Text>
             <Text style={styles.score}>{river.weekend.score}</Text>
@@ -111,6 +114,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     gap: spacing.md,
   },
+  mediaOverlayPlaceholder: { ...StyleSheet.absoluteFillObject, backgroundColor: 'transparent' },
   header: {
     flexDirection: 'row',
     gap: spacing.md,

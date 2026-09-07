@@ -308738,6 +308738,15 @@
         "docs/local-development.md"
       ],
       "readyTasksAfter": 1
+    },
+    {
+      "id": "daily-operations-report-20260906-evening-workflow-brief",
+      "kind": "daily_operations_report",
+      "startedAt": "2026-09-07T01:01:12.2357952Z",
+      "completedAt": "2026-09-07T01:03:54.868Z",
+      "status": "completed_with_findings",
+      "summary": "All three consolidated refreshes and brief succeeded. New Snapshot Worker run repeats existing Azure monitoring permission failure; API/frontend and pending Android preview succeeded. No ready tasks; recorded blocker retry conditions and unchanged analytics/history limitations.",
+      "reportPath": "docs/operations/daily-reports/2026-09-06.md"
     }
   ]
 }

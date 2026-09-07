@@ -1,4 +1,5 @@
 import { escapeHtml } from './map-runtime.js';
+import { ratingDisplayLabel } from './ui-taxonomy.js';
 import { joinWithBullet } from './board-domain.js';
 import {
   breakdownValueToneClass,
@@ -391,7 +392,9 @@ export function createBoardRiverCardRenderer({
       segmentLabel.hidden = !viewModel.segment;
     }
     setCardText(card, 'score', viewModel.score);
-    setCardText(card, 'rating', viewModel.rating);
+    setCardText(card, 'rating', isCurrentCallUnavailable(item.cardRoute)
+      ? viewModel.rating
+      : ratingDisplayLabel(item.cardRoute.rating, { compact: true }));
     setCardText(card, 'card-verdict', viewModel.verdict);
     setCardText(card, 'meta-line', viewModel.meta);
     setCardText(card, 'card-summary-main', viewModel.summary);
@@ -475,7 +478,7 @@ export function createBoardRiverCardRenderer({
         const target = event.target;
         if (
           !(target instanceof Element)
-          || target.closest('a, button, input, select, textarea, label')
+          || target.closest('a, button, input, select, textarea, label, details')
         ) {
           return;
         }

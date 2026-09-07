@@ -86,22 +86,22 @@ const trackedRiverCount = riverGroups.length;
                     <span class="explore-location-quick__location" data-explore-location-quick-label></span>
                   </div>
                   <div class="explore-location-quick__actions" aria-label="Quick route filters">
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="best-nearby" aria-pressed="false">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="best-nearby" aria-pressed="false" disabled data-explore-wait>
                       Best near me
                     </button>
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="closest-paddle" aria-pressed="false">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="closest-paddle" aria-pressed="false" disabled data-explore-wait>
                       Closest paddle
                     </button>
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="quick-float" aria-pressed="false">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="quick-float" aria-pressed="false" disabled data-explore-wait>
                       Quick float
                     </button>
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="full-day" aria-pressed="false">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="full-day" aria-pressed="false" disabled data-explore-wait>
                       Full day
                     </button>
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="long-camping" aria-pressed="false">
+                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="long-camping" aria-pressed="false" disabled data-explore-wait>
                       Long camping route
                     </button>
-                    <button class="filter-chip filter-chip--quiet explore-location-quick__button" type="button" data-explore-preset="all-routes" aria-pressed="false">
+                    <button class="filter-chip filter-chip--quiet explore-location-quick__button" type="button" data-explore-preset="all-routes" aria-pressed="false" disabled data-explore-wait>
                       All routes
                     </button>
                   </div>
@@ -126,7 +126,7 @@ const trackedRiverCount = riverGroups.length;
               <div class="board-filters__controls board-filters__controls--primary">
                 <label class="filter-select filter-select--sort">
                   <span class="sr-only">Sort the board</span>
-                  <select class="filter-select__input" data-sort-select>
+                  <select class="filter-select__input" data-sort-select disabled data-explore-wait>
                     <option value="best-now">Top picks today</option>
                     <option value="near-you">Best nearby</option>
                     <option value="nearest">Closest first</option>
@@ -141,23 +141,23 @@ const trackedRiverCount = riverGroups.length;
                 </span>
                 <label class="filter-search">
                     <span class="sr-only">Search results</span>
-                    <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search />
+                    <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search disabled data-explore-wait />
                 </label>
               </div>
 
               <div class="score-filter" role="group" aria-labelledby="explore-score-filter-label">
                 <span class="score-filter__label" id="explore-score-filter-label">Scores</span>
                 <div class="score-filter__options">
-                  <button class="score-filter__option score-filter__option--active" type="button" data-filter-rating-button="" aria-pressed="true">
+                  <button class="score-filter__option score-filter__option--active" type="button" data-filter-rating-button="" aria-pressed="true" disabled data-explore-wait>
                     Paddle routes
                   </button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="false">All</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false">Strong conditions</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false">Good conditions</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false">Watch closely</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false">Skip</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="false" disabled data-explore-wait>All</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false" disabled data-explore-wait>Strong conditions</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false" disabled data-explore-wait>Good conditions</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false" disabled data-explore-wait>Watch closely</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false" disabled data-explore-wait>Skip</button>
                 </div>
-                <select class="sr-only" data-filter-rating aria-label="Show scores">
+                <select class="sr-only" data-filter-rating aria-label="Show scores" disabled data-explore-wait>
                   <option value="">Paddle routes</option>
                   <option value="all">All scores</option>
                   <option value="Strong">Strong conditions only</option>
@@ -167,7 +167,7 @@ const trackedRiverCount = riverGroups.length;
                 </select>
               </div>
 
-              <details class="board-filters__advanced" data-explore-advanced open>
+              <details class="board-filters__advanced" data-explore-advanced>
                 <summary class="board-filters__advanced-header">
                   <h4 class="board-filters__advanced-heading">More filters</h4>
                   <span class="board-filters__advanced-note">State, difficulty, route type, camping, distance, time, score</span>
@@ -175,14 +175,14 @@ const trackedRiverCount = riverGroups.length;
                 <div class="board-filters__controls board-filters__controls--secondary">
                   <label class="filter-select">
                     <span class="sr-only">Filter by state</span>
-                    <select class="filter-select__input" data-filter-state>
+                    <select class="filter-select__input" data-filter-state disabled data-explore-wait>
                       <option value="">All states</option>
                       {states.map((state) => <option value={state}>{state}</option>)}
                     </select>
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by difficulty</span>
-                    <select class="filter-select__input" data-filter-difficulty>
+                    <select class="filter-select__input" data-filter-difficulty disabled data-explore-wait>
                       <option value="">Any difficulty</option>
                       <option value="easy">Easy</option>
                       <option value="moderate">Moderate</option>
@@ -191,7 +191,7 @@ const trackedRiverCount = riverGroups.length;
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by whitewater routes</span>
-                    <select class="filter-select__input" data-filter-route-type>
+                    <select class="filter-select__input" data-filter-route-type disabled data-explore-wait>
                       <option value="non-whitewater" selected>Non-whitewater routes</option>
                       <option value="whitewater">Whitewater only</option>
                       <option value="all">All route types</option>
@@ -199,7 +199,7 @@ const trackedRiverCount = riverGroups.length;
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by camping options</span>
-                    <select class="filter-select__input" data-filter-camping>
+                    <select class="filter-select__input" data-filter-camping disabled data-explore-wait>
                       <option value="">Any camping option</option>
                       <option value="any-support">Camping available</option>
                       <option value="overnight">On-route or overnight</option>
@@ -209,7 +209,7 @@ const trackedRiverCount = riverGroups.length;
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by drive distance</span>
-                    <select class="filter-select__input" data-filter-distance>
+                    <select class="filter-select__input" data-filter-distance disabled data-explore-wait>
                       <option value="">Any drive distance</option>
                       <option value="25">Within 25 miles</option>
                       <option value="50">Within 50 miles</option>
@@ -221,7 +221,7 @@ const trackedRiverCount = riverGroups.length;
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by paddle time</span>
-                    <select class="filter-select__input" data-filter-paddle-time>
+                    <select class="filter-select__input" data-filter-paddle-time disabled data-explore-wait>
                       <option value="">Any paddle time</option>
                       <option value="up-to-3">Under 3 hr</option>
                       <option value="3-to-5">3-5 hr</option>
@@ -231,7 +231,7 @@ const trackedRiverCount = riverGroups.length;
                   </label>
                   <label class="filter-select">
                     <span class="sr-only">Filter by paddle length</span>
-                    <select class="filter-select__input" data-filter-paddle-length>
+                    <select class="filter-select__input" data-filter-paddle-length disabled data-explore-wait>
                       <option value="">Any paddle length</option>
                       <option value="under-5">Under 5 mi</option>
                       <option value="5-to-10">5–10 mi</option>
@@ -242,7 +242,9 @@ const trackedRiverCount = riverGroups.length;
               </details>
 
               <div class="board-filters__actions">
-                <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset>Reset all filters</button>
+                <button class="filter-chip filter-chip--quiet" type="button" data-explore-share disabled data-explore-wait>Copy search link</button>
+                <input class="explore-share-link" type="text" readonly hidden aria-label="Search link to copy" data-explore-share-link />
+                <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset disabled data-explore-wait>Reset all filters</button>
                 <button class="filter-chip filter-chip--quiet" type="button" data-board-refresh>Refresh data</button>
               </div>
             </section>
@@ -299,14 +301,8 @@ const trackedRiverCount = riverGroups.length;
         <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
       </section>
 
-      <section class="river-group-page__panel explore-state-links" aria-labelledby="explore-state-links-title">
-        <div class="section-head section-head--stacked">
-          <div>
-            <p class="eyebrow">Browse by state</p>
-            <h2 class="section-title" id="explore-state-links-title">State route pages</h2>
-          </div>
-          <a class="river-link river-link--inline river-link--ghost" href="/states/">View all states</a>
-        </div>
+      <details class="river-group-page__panel explore-state-links" data-explore-states>
+        <summary class="explore-state-links__summary">Browse by state <span class="muted">{stateGroups.length} states</span></summary>
         <div class="explore-state-links__grid">
           {stateGroups.map((state) => (
             <a class="explore-state-link" href={`/states/${state.slug}/`}>
@@ -318,7 +314,8 @@ const trackedRiverCount = riverGroups.length;
             </a>
           ))}
         </div>
-      </section>
+        <a class="river-link river-link--inline river-link--ghost" href="/states/">View all states</a>
+      </details>
 
       <section class="home-board-inline home-board-inline--wide guide-link-strip" aria-label="Paddling guides">
         <p class="home-board-inline__copy">Want a filtered weekend shortlist?</p>

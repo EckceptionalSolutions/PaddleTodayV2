@@ -165,8 +165,8 @@ export function callLabelForDecision(
 export function qualityTierLabel(rating: ScoreRating) {
   if (rating === 'Strong') return 'Strong conditions';
   if (rating === 'Good') return 'Good conditions';
-  if (rating === 'Fair') return 'Watch conditions';
-  return 'Skip conditions';
+  if (rating === 'Fair') return 'Watch closely';
+  return 'Skip';
 }
 
 export function buildTodayBoardSnapshot(rivers: TodayBoardItem[]): TodayBoardSnapshot {

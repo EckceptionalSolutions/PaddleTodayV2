@@ -2,6 +2,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ImageBackground, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { routePhotoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
+import { RoutePhotoFallback } from './route-photo-fallback';
 
 interface RoutePhotoCardProps {
   river: {
@@ -29,24 +30,24 @@ export function RoutePhotoCard({
 
   return (
     <ImageBackground
-      source={{ uri: photo.uri }}
+      source={photo.isPlaceholder ? undefined : { uri: photo.uri }}
       style={[styles.photo, { height }, compact ? styles.photoCompact : null]}
       imageStyle={styles.photoImage}
     >
-      <View style={styles.scrim} />
-      {photo.isPlaceholder || photo.sourceKind === 'river' ? (
+      {photo.isPlaceholder ? <RoutePhotoFallback compact={compact} /> : <View style={styles.scrim} />}
+      {photo.sourceKind === 'river' ? (
         <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
           <MaterialCommunityIcons
-            name={photo.isPlaceholder ? 'image-plus' : 'image'}
+            name="image"
             color={colors.surfaceStrong}
             size={compact ? 13 : 14}
           />
           <Text style={[styles.placeholderBadgeText, compact ? styles.placeholderBadgeTextCompact : null]}>
-            {photo.isPlaceholder ? 'Needs route photo' : 'River photo'}
+            River photo
           </Text>
         </View>
       ) : null}
-      {!compact && showCaption ? (
+      {!photo.isPlaceholder && !compact && showCaption ? (
         <View style={[styles.caption, narrowLayout ? styles.captionNarrow : null]}>
           <Text style={styles.captionKicker}>Route photos</Text>
           <Text style={styles.captionTitle} numberOfLines={narrowLayout ? 3 : 2}>
@@ -55,14 +56,14 @@ export function RoutePhotoCard({
         </View>
       ) : null}
       <Pressable
-        style={[styles.contributeButton, compact ? styles.contributeButtonCompact : null]}
+        style={[styles.contributeButton, compact ? styles.contributeButtonCompact : null, photo.isPlaceholder ? styles.contributeButtonPlaceholder : null]}
         onPress={onContributePhotos}
         accessibilityRole="button"
-        accessibilityLabel={`Contribute photos for ${river.reach ?? river.name ?? 'this route'}`}
+        accessibilityLabel={`Add a photo of ${river.reach ?? river.name ?? 'this route'}`}
       >
-        <MaterialCommunityIcons name="camera-plus" color={colors.surfaceStrong} size={compact ? 17 : 18} />
-        <Text style={[styles.contributeText, compact ? styles.contributeTextCompact : null]}>
-          Contribute Photos
+        <MaterialCommunityIcons name="camera-plus" color={photo.isPlaceholder ? colors.accentDeep : colors.surfaceStrong} size={compact ? 17 : 18} />
+        <Text style={[styles.contributeText, compact ? styles.contributeTextCompact : null, photo.isPlaceholder ? styles.contributeTextPlaceholder : null]}>
+          Add a photo
         </Text>
       </Pressable>
     </ImageBackground>
@@ -162,4 +163,6 @@ const styles = StyleSheet.create({
   contributeTextCompact: {
     fontSize: 11,
   },
+  contributeButtonPlaceholder: { backgroundColor: colors.surfaceStrong, borderColor: colors.border },
+  contributeTextPlaceholder: { color: colors.accentDeep, fontWeight: '600' },
 });

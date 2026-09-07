@@ -37,6 +37,7 @@ test.describe('mobile shared header', () => {
       await expect(page.locator('.site-header__nav-link[href="/weekend/"]')).toBeVisible();
       await expect(page.locator('.site-header__nav-link[href="/explore/"]')).toBeVisible();
       await expect(page.locator('[data-site-favorites-link]')).toBeVisible();
+      await expect(page.locator('[data-site-favorites-link]')).toHaveAccessibleName(/^Saved routes/);
       await expect(page.locator('.site-header__search')).toContainText('Search Routes');
       await expect(page.locator('.site-header__action')).toBeVisible();
 
@@ -54,6 +55,42 @@ test.describe('mobile shared header', () => {
         borderTopWidth: '0px',
         boxShadow: 'none',
       });
+    });
+  }
+
+  for (const width of [320, 360, 390]) {
+    test(`navigation fits without overlap at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto('/');
+      await expect(page.locator('[data-site-favorites-link]')).toBeVisible();
+      const layout = await page.locator('.site-header').evaluate((header) => {
+        const bounds = (selector: string) => {
+          const rect = header.querySelector(selector)!.getBoundingClientRect();
+          return { x: rect.x, y: rect.y, right: rect.right, bottom: rect.bottom };
+        };
+        return {
+          search: bounds('.site-header__search'),
+          nav: bounds('.site-header__nav'),
+          request: bounds('.site-header__action'),
+          links: [...header.querySelectorAll('.site-header__nav-link')].map((link) => {
+            const r = link.getBoundingClientRect();
+            return { x: r.x, right: r.right };
+          }),
+        };
+      });
+      expect(layout.request.right).toBeLessThanOrEqual(width);
+      for (const [index, link] of layout.links.entries()) {
+        expect(link.x).toBeGreaterThanOrEqual(layout.nav.x - 1);
+        expect(link.right).toBeLessThanOrEqual(layout.nav.right + 1);
+        if (index > 0) expect(link.x).toBeGreaterThanOrEqual(layout.links[index - 1].right);
+      }
+      if (width >= 380) {
+        expect(Math.abs(layout.search.y - layout.request.y)).toBeLessThan(2);
+        expect(layout.nav.right).toBeLessThanOrEqual(layout.request.x);
+      } else {
+        expect(layout.nav.y).toBeGreaterThanOrEqual(layout.request.bottom);
+      }
+      await page.locator('.site-header').screenshot({ path: test.info().outputPath(`header-${width}.png`) });
     });
   }
 });

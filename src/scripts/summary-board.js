@@ -1,3 +1,6 @@
+import { exploreFilterOptions, readExploreSearch, writeExploreSearch } from './explore-search-url.js';
+import { readExplorePosition, writeExplorePosition } from './explore-position.js';
+import { showActionFeedback } from './action-feedback.js';
 ﻿import {
   bindMarkerPopup,
   createMapStatusController,
@@ -364,16 +367,7 @@ let activeExplorePreset = '';
 const EXPLORE_RADIUS_OPTIONS = ['25', '50', '75', '100', '150', '200'];
 const EXPLORE_MIN_PRESET_RESULTS = 2;
 
-const exploreFilterOptions = {
-  rating: ['', 'all', 'Strong', 'Good', 'Fair', 'No-go'],
-  difficulty: ['', 'easy', 'moderate', 'hard'],
-  routeType: ['non-whitewater', 'whitewater', 'all'],
-  camping: ['', 'any-support', 'overnight', 'endpoint', 'nearby'],
-  distance: ['', '25', '50', '75', '100', '150', '200'],
-  paddleTime: ['', 'up-to-3', '3-to-5', '5-to-7', '7-plus'],
-  paddleLength: ['', 'under-5', '5-to-10', '10-plus'],
-  sort: ['best-now', 'near-you', 'nearest', 'highest-confidence', 'lowest-risk', 'a-z'],
-};
+
 
 function storedSelectValue(value, options, fallback = '') {
   return typeof value === 'string' && options.includes(value) ? value : fallback;
@@ -402,6 +396,7 @@ function loadStoredExploreFilters() {
 }
 
 function saveStoredExploreFilters() {
+  syncExploreSearchUrl();
   try {
     window.localStorage.setItem(STORAGE_EXPLORE_FILTERS_KEY, JSON.stringify(activeFilters));
   } catch {
@@ -410,6 +405,7 @@ function saveStoredExploreFilters() {
 }
 
 function removeStoredExploreFilters() {
+  syncExploreSearchUrl();
   try {
     window.localStorage.removeItem(STORAGE_EXPLORE_FILTERS_KEY);
   } catch {
@@ -588,6 +584,36 @@ let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
 let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches ? 'list' : 'map';
 let initialized = false;
+let restoredExplorePosition = null;
+let restoredExploreList = false;
+let pendingExploreScroll = null;
+const exploreScrollSelectors = ['[data-explore-shell]', '.explore-workspace__board', '[data-summary-map-results]'];
+
+function saveExplorePosition() {
+  if (summaryMapMode !== 'explore') return;
+  const center = mapRuntime?.getCenter?.();
+  writeExplorePosition(window.history, window.location.href, {
+    page: currentExplorePage,
+    scrollY: window.scrollY,
+    scrolls: exploreScrollSelectors.map((selector) => document.querySelector(selector)?.scrollTop || 0),
+    view: summaryMapMobileView,
+    collapsed: summaryMapCollapsed,
+    advanced: exploreAdvancedFilters?.open || false,
+    camera: center ? { center: [center.lng, center.lat], zoom: mapRuntime.getZoom(), bearing: mapRuntime.getBearing(), pitch: mapRuntime.getPitch() } : null,
+  });
+}
+
+function restoreExploreScroll() {
+  if (!pendingExploreScroll || !restoredExploreList) return;
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+    if (!pendingExploreScroll) return;
+    exploreScrollSelectors.forEach((selector, index) => {
+      const element = document.querySelector(selector);
+      if (element) element.scrollTop = pendingExploreScroll.scrolls[index] || 0;
+    });
+    window.scrollTo({ top: pendingExploreScroll.scrollY, behavior: 'instant' });
+  }));
+}
 let cachedDistanceLocationKey = '';
 let cachedResultDistances = new WeakMap();
 
@@ -1367,6 +1393,10 @@ function supportingReasonList(item, nearbyReady) {
 }
 
 function renderExploreList(items) {
+  if (restoredExplorePosition && !restoredExploreList && (items.length || hasLoadedBoardOnce)) {
+    currentExplorePage = restoredExplorePosition.page;
+    restoredExploreList = true;
+  }
   const explorePaginationState = paginateItems(items, EXPLORE_PAGE_SIZE, currentExplorePage);
   currentExplorePage = explorePaginationState.currentPage;
   updateExplorePagination(explorePaginationState);
@@ -1376,6 +1406,7 @@ function renderExploreList(items) {
   });
   updateSummaryMapSelection(selectedSummaryMapKey, { preserveZone: true });
   syncExploreShellHeight();
+  restoreExploreScroll();
 }
 
 function currentExploreLayoutKey() {
@@ -2188,7 +2219,8 @@ function updateFilterSummary(exploreItems) {
     userLocationState === 'ready' && userLocation && (activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest')
       ? ` from ${shortLocationLabel()}`
       : '';
-  const ratingLabel = activeFilters.rating ? ` / ${ratingDisplayLabel(activeFilters.rating)} only` : '';
+  const ratingLabel = activeFilters.rating && activeFilters.rating !== 'all'
+    ? ` / ${conditionTierDisplayLabel(activeFilters.rating)}` : '';
   filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
 }
 
@@ -2249,6 +2281,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.search) {
     pills.push({
+      key: 'search',
       label: `Search: ${activeFilters.search}`,
       tone: 'filter',
     });
@@ -2256,6 +2289,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.state) {
     pills.push({
+      key: 'state',
       label: activeFilters.state,
       tone: 'filter',
     });
@@ -2263,6 +2297,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.difficulty) {
     pills.push({
+      key: 'difficulty',
       label: titleCase(activeFilters.difficulty),
       tone: 'filter',
     });
@@ -2270,17 +2305,14 @@ function buildExploreFilterPills() {
 
   if (activeFilters.routeType === 'non-whitewater') {
     pills.push({
+      key: 'routeType',
       label: 'Non-whitewater',
       tone: 'filter',
     });
   } else if (activeFilters.routeType === 'whitewater') {
     pills.push({
+      key: 'routeType',
       label: 'Whitewater only',
-      tone: 'filter',
-    });
-  } else if (activeFilters.routeType === 'all') {
-    pills.push({
-      label: 'All route types',
       tone: 'filter',
     });
   }
@@ -2294,6 +2326,7 @@ function buildExploreFilterPills() {
     };
     pills.push({
       label: campingLabels[activeFilters.camping] ?? 'Camping',
+      key: 'camping',
       tone: 'filter',
     });
   }
@@ -2301,6 +2334,7 @@ function buildExploreFilterPills() {
   if (activeFilters.distance && userLocation) {
     pills.push({
       label: `Within ${activeFilters.distance} mi`,
+      key: 'distance',
       tone: 'filter',
     });
   }
@@ -2308,6 +2342,7 @@ function buildExploreFilterPills() {
   if (activeFilters.paddleTime) {
     pills.push({
       label: paddleTimePreferenceLabel(activeFilters.paddleTime),
+      key: 'paddleTime',
       tone: 'filter',
     });
   }
@@ -2320,6 +2355,7 @@ function buildExploreFilterPills() {
     };
     pills.push({
       label: labels[activeFilters.paddleLength] ?? 'Paddle length',
+      key: 'paddleLength',
       tone: 'filter',
     });
   }
@@ -2327,13 +2363,15 @@ function buildExploreFilterPills() {
   if (activeFilters.paddleable && !activeFilters.rating) {
     pills.push({
       label: 'Paddle routes',
+      key: 'rating',
       tone: 'filter',
     });
   }
 
-  if (activeFilters.rating) {
+  if (activeFilters.rating && activeFilters.rating !== 'all') {
     pills.push({
-      label: activeFilters.rating === 'all' ? 'All scores' : `${activeFilters.rating} only`,
+      label: conditionTierDisplayLabel(activeFilters.rating),
+      key: 'rating',
       tone: 'filter',
     });
   }
@@ -2347,9 +2385,20 @@ function updateExploreFilterPills() {
   }
 
   const pills = buildExploreFilterPills();
+  const focusedKey = filterPills.contains(document.activeElement)
+    ? document.activeElement?.getAttribute('data-remove-filter')
+    : null;
   filterPills.innerHTML = pills
-    .map(({ label, tone }) => `<span class="explore-workspace__filter-pill explore-workspace__filter-pill--${tone}">${escapeHtml(label)}</span>`)
+    .map(({ label, tone, key }) => key
+      ? `<button type="button" class="explore-workspace__filter-pill explore-workspace__filter-pill--${tone}" data-remove-filter="${key}" aria-label="Remove ${escapeHtml(label)} filter">${escapeHtml(label)} <span aria-hidden="true">×</span></button>`
+      : `<span class="explore-workspace__filter-pill explore-workspace__filter-pill--${tone}">${escapeHtml(label)}</span>`)
     .join('');
+  if (focusedKey) {
+    const nextFocus = filterPills.querySelector(`[data-remove-filter="${focusedKey}"]`)
+      || filterPills.querySelector('[data-remove-filter]')
+      || exploreAdvancedFilters?.querySelector('summary');
+    if (nextFocus instanceof HTMLElement) nextFocus.focus({ preventScroll: true });
+  }
 }
 
 function updateBoardStatusBanner(items) {
@@ -3721,6 +3770,7 @@ function requestSummaryRouteDetails() {
 }
 
 async function renderSummaryMap(items, { preserveViewport = false } = {}) {
+  preserveViewport = preserveViewport || Boolean(restoredExplorePosition?.camera);
   if (!(summaryMap instanceof HTMLElement)) {
     return;
   }
@@ -3747,6 +3797,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         zoom: 5.2,
         minZoom: 3.4,
         maxZoom: 12,
+        ...(restoredExplorePosition?.camera || {}),
       });
       if (isRiverFirstExploreMap()) summaryScoreLayer = createExploreScoreLayer(mapRuntime);
       bindSummaryMapLayerRefresh();
@@ -3883,6 +3934,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         preserveViewport: shouldPreserveViewport,
       });
       mapRuntime.resize();
+      restoreExploreScroll();
       updateSummaryMarkerZoomMode();
       if (!mapItems.some((item) => item.key === selectedSummaryMapKey)) {
         updateSummaryMapSelection(null);
@@ -3927,7 +3979,20 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
   }
 }
 
+function syncExploreSearchUrl() {
+  if (summaryMapMode !== 'explore' || !initialized) return;
+  const url = writeExploreSearch(window.location.href, activeFilters, userLocation);
+  if (restoredExplorePosition && url !== restoredExplorePosition.url) {
+    restoredExplorePosition = null;
+    pendingExploreScroll = null;
+  }
+  if (url !== window.location.href) window.history.replaceState(window.history.state, '', url);
+  const field = document.querySelector('[data-explore-share-link]');
+  if (field instanceof HTMLInputElement && !field.hidden) field.value = url;
+}
+
 function renderHomepage(results, { preserveMapViewport = false, renderReason = 'initial' } = {}) {
+  syncExploreSearchUrl();
   const renderStartedAt = renderReason === 'filter' && typeof performance !== 'undefined'
     ? performance.now()
     : null;
@@ -4047,8 +4112,18 @@ function applyHomePreset(preset) {
 }
 
 function setupFilters() {
-  if (exploreAdvancedFilters instanceof HTMLDetailsElement) {
-    exploreAdvancedFilters.open = !phoneBreakpoint.matches;
+  if (filterPills instanceof HTMLElement && filterPills.dataset.filterBound !== 'true') {
+    filterPills.dataset.filterBound = 'true';
+    filterPills.addEventListener('click', (event) => {
+      const button = event.target instanceof Element ? event.target.closest('[data-remove-filter]') : null;
+      if (!(button instanceof HTMLButtonElement)) return;
+      const key = button.dataset.removeFilter;
+      if (!['search', 'state', 'difficulty', 'routeType', 'camping', 'distance', 'paddleTime', 'paddleLength', 'rating'].includes(key)) return;
+      activeFilters[key] = key === 'routeType' || key === 'rating' ? 'all' : '';
+      if (key === 'rating') activeFilters.paddleable = true;
+      syncExploreFilterControls();
+      commitExploreFilterChange();
+    });
   }
 
   if (exploreLocationQuickExpand instanceof HTMLButtonElement && exploreLocationQuickExpand.dataset.filterBound !== 'true') {
@@ -4119,6 +4194,7 @@ function setupFilters() {
     filterRating.dataset.filterBound = 'true';
     filterRating.addEventListener('change', () => {
       activeFilters.rating = filterRating.value;
+      activeFilters.paddleable = true;
       commitExploreFilterChange();
     });
   }
@@ -4153,6 +4229,7 @@ function setupFilters() {
     button.dataset.filterBound = 'true';
     button.addEventListener('click', () => {
       activeFilters.rating = button.dataset.filterRatingButton || '';
+      activeFilters.paddleable = true;
       if (filterRating instanceof HTMLSelectElement) {
         filterRating.value = activeFilters.rating;
       }
@@ -4335,12 +4412,45 @@ export function initSummaryBoard() {
     return;
   }
   initialized = true;
+  if (summaryMapMode === 'explore') {
+    restoredExplorePosition = readExplorePosition(window.history.state, window.location.href);
+    if (restoredExplorePosition) {
+      pendingExploreScroll = restoredExplorePosition;
+      currentExplorePage = restoredExplorePosition.page;
+      summaryMapMobileView = restoredExplorePosition.view;
+      summaryMapCollapsed = restoredExplorePosition.collapsed;
+      if (exploreAdvancedFilters) exploreAdvancedFilters.open = restoredExplorePosition.advanced;
+      window.history.scrollRestoration = 'manual';
+      // Fonts and late route rows can change the layout after the first paint.
+      const resizeObserver = new ResizeObserver(() => restoreExploreScroll());
+      resizeObserver.observe(document.body);
+      document.fonts?.ready.then(() => restoreExploreScroll());
+      const stopRestoring = () => {
+        pendingExploreScroll = null;
+        resizeObserver.disconnect();
+      };
+      for (const eventName of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+        window.addEventListener(eventName, stopRestoring, { passive: true, once: true });
+      }
+    }
+    window.addEventListener('pagehide', saveExplorePosition);
+    document.addEventListener('click', (event) => {
+      const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (link) saveExplorePosition();
+    }, true);
+    // Stop adjusting the scroll as soon as the visitor starts interacting again.
+    for (const eventName of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+      window.addEventListener(eventName, () => { pendingExploreScroll = null; }, { passive: true });
+    }
+  }
 
-  const hasStoredExploreFilters = loadStoredExploreFilters();
+  const sharedSearch = summaryMapMode === 'explore' ? readExploreSearch(window.location.href) : null;
+  const hasStoredExploreFilters = sharedSearch ? true : loadStoredExploreFilters();
+  if (sharedSearch) Object.assign(activeFilters, sharedSearch.filters);
   setupFilters();
   setupLocationControls();
 
-  const storedLocation = loadStoredLocation();
+  const storedLocation = sharedSearch ? sharedSearch.location : loadStoredLocation();
   selectedRadiusMiles = loadStoredRadiusMiles();
   selectedHomeDifficulties = loadStoredHomeDifficultyFilter();
   selectedHomePaddleTimes = loadStoredHomePaddleTimeFilter();
@@ -4363,7 +4473,25 @@ export function initSummaryBoard() {
   }
 
   updateLocationStatus();
-  maybeUseGrantedLocation();
+  if (!sharedSearch) maybeUseGrantedLocation();
+
+  document.querySelector('[data-explore-share]')?.addEventListener('click', async () => {
+    syncExploreSearchUrl();
+    const link = writeExploreSearch(window.location.href, activeFilters, userLocation);
+    try {
+      await navigator.clipboard.writeText(link);
+      showActionFeedback('Search link copied.');
+    } catch {
+      const field = document.querySelector('[data-explore-share-link]');
+      if (field instanceof HTMLInputElement) {
+        field.hidden = false;
+        field.value = link;
+        field.focus();
+        field.select();
+      }
+      showActionFeedback('Copy the selected search link.');
+    }
+  });
 
   if (boardRefreshButton instanceof HTMLButtonElement) {
     boardRefreshButton.addEventListener('click', () => {

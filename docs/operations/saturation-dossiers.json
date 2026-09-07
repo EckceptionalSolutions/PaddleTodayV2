@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T13:49:16.145Z",
+  "generatedAt": "2026-09-07T01:01:14.892Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -30,9 +30,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 51,
-        "scoredCount": 46,
-        "planningCount": 5,
-        "scoredCoveragePercent": 90
+        "scoredCount": 45,
+        "planningCount": 6,
+        "scoredCoveragePercent": 88
       },
       "discoveryTasks": [
         {
@@ -430,9 +430,9 @@
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
         "inventoryCount": 39,
-        "scoredCount": 38,
-        "planningCount": 1,
-        "scoredCoveragePercent": 97
+        "scoredCount": 24,
+        "planningCount": 15,
+        "scoredCoveragePercent": 62
       },
       "discoveryTasks": [
         {
@@ -4323,22 +4323,6 @@
       ],
       "recentEvidenceRuns": [
         {
-          "id": "orchestrator-20260822044500",
-          "kind": "orchestrator_plan",
-          "startedAt": "2026-08-22T04:45:00Z",
-          "status": "planned",
-          "taskId": "ks-gauge-review-batch-42",
-          "workerRole": "gauge-coverage",
-          "stateId": "KS",
-          "inventoryId": "provider-baseline-2026-08-14",
-          "gaugeKeys": [
-            "usgs:07187600",
-            "usgs:375350097262800",
-            "usgs:391905095442100"
-          ],
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
-        },
-        {
           "id": "orchestrator-20260821201259",
           "kind": "orchestrator_plan",
           "startedAt": "2026-08-21T20:12:59.685Z",
@@ -4477,6 +4461,24 @@
             "rollback": "passed"
           },
           "summary": "Verified discovery evidence, safety, independent verification, tests, and rollback."
+        },
+        {
+          "id": "orchestrator-20260822011500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-22T01:15:00Z",
+          "status": "planned",
+          "taskId": "ks-gauge-review-batch-28",
+          "workerRole": "gauge-coverage",
+          "stateId": "KS",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:07143310",
+            "usgs:07143330",
+            "usgs:07143375",
+            "usgs:07143665",
+            "usgs:07143672"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         }
       ],
       "doneOnlyWhen": [
@@ -4917,6 +4919,47 @@
           "summary": "high priority route_research task selected from the ready lane; WIP policy permits assignment."
         }
       ],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "ME",
+      "stateName": "Maine",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "ME",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 100,
+        "scoredCount": 0,
+        "planningCount": 100,
+        "scoredCoveragePercent": 0
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
       "doneOnlyWhen": [
         "provider-wide gauge inventory frozen and fully adjudicated",
         "every route-capable gauge is covered or has an accepted blocker",
@@ -5509,9 +5552,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 258,
-        "scoredCount": 145,
-        "planningCount": 113,
-        "scoredCoveragePercent": 56
+        "scoredCount": 138,
+        "planningCount": 120,
+        "scoredCoveragePercent": 53
       },
       "discoveryTasks": [
         {
@@ -6226,10 +6269,10 @@
       "discoveryComplete": false,
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
-        "inventoryCount": 14,
+        "inventoryCount": 45,
         "scoredCount": 13,
-        "planningCount": 1,
-        "scoredCoveragePercent": 93
+        "planningCount": 32,
+        "scoredCoveragePercent": 29
       },
       "discoveryTasks": [
         {
@@ -7295,6 +7338,30 @@
       ],
       "recentEvidenceRuns": [
         {
+          "id": "gatekeeper-202608221910-nd-usgs-06332000",
+          "kind": "gatekeeper",
+          "startedAt": "2026-08-22T19:10:00Z",
+          "completedAt": "2026-08-22T19:15:00Z",
+          "status": "passed",
+          "taskId": "route-opportunity-nd-usgs-06332000",
+          "workerRole": "gatekeeper",
+          "stateId": "ND",
+          "gaugeKeys": [
+            "usgs:06332000"
+          ],
+          "routesAdded": 0,
+          "checks": {
+            "evidence": "passed",
+            "safety": "passed",
+            "independentVerification": "passed",
+            "tests": "not_applicable_no_route_change",
+            "typecheck": "not_applicable_no_route_change",
+            "build": "not_applicable_no_route_change",
+            "rollback": "passed"
+          },
+          "summary": "Reconciled no-add disposition passed gate review; no route or product data changed."
+        },
+        {
           "id": "orchestrator-20260822183127",
           "kind": "orchestrator_plan",
           "startedAt": "2026-08-22T18:31:27.788Z",
@@ -7307,20 +7374,6 @@
             "usgs:05116000"
           ],
           "summary": "high priority route_research task selected from the ready lane; WIP policy permits assignment."
-        },
-        {
-          "id": "orchestrator-20260822201500",
-          "kind": "orchestrator_plan",
-          "startedAt": "2026-08-22T20:15:00Z",
-          "status": "planned",
-          "taskId": "route-opportunity-nd-usgs-05114000",
-          "workerRole": "route-research",
-          "stateId": "ND",
-          "inventoryId": "provider-baseline-2026-08-14",
-          "gaugeKeys": [
-            "usgs:05114000"
-          ],
-          "summary": "Advanced the bounded route-opportunity queue to North Dakota Souris River near Sherwood after closing the Apple River no-add review."
         },
         {
           "id": "orchestrator-20260822183626",
@@ -7529,8 +7582,8 @@
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
         "inventoryCount": 302,
-        "scoredCount": 36,
-        "planningCount": 266,
+        "scoredCount": 35,
+        "planningCount": 267,
         "scoredCoveragePercent": 12
       },
       "discoveryTasks": [],
@@ -7932,109 +7985,6 @@
       ],
       "recentEvidenceRuns": [
         {
-          "id": "independent-verifier-202608230700-oh-gauge-review-batch-57",
-          "kind": "independent_verifier",
-          "startedAt": "2026-08-23T07:00:00Z",
-          "completedAt": "2026-08-23T07:00:00Z",
-          "status": "passed",
-          "taskId": "oh-gauge-review-batch-57",
-          "workerRole": "independent-verifier",
-          "checks": {
-            "ledger": "passed",
-            "evidence": "passed",
-            "routeDataUnchanged": "passed"
-          },
-          "summary": "Verified five durable Ohio dispositions and confirmed route data was unchanged."
-        },
-        {
-          "id": "gatekeeper-202608230700-oh-gauge-review-batch-57",
-          "kind": "gatekeeper",
-          "startedAt": "2026-08-23T07:00:00Z",
-          "completedAt": "2026-08-23T07:00:00Z",
-          "status": "passed",
-          "taskId": "oh-gauge-review-batch-57",
-          "workerRole": "gatekeeper",
-          "checks": {
-            "evidence": "passed",
-            "safety": "passed",
-            "independentVerification": "passed",
-            "tests": "passed",
-            "rollback": "passed"
-          },
-          "summary": "Verified durable no-add dispositions, safety, independent verification, tests, and rollback."
-        },
-        {
-          "id": "orchestrator-20260823070000",
-          "kind": "orchestrator_plan",
-          "startedAt": "2026-08-23T07:00:00Z",
-          "status": "planned",
-          "taskId": "oh-gauge-review-batch-58",
-          "workerRole": "gauge-coverage",
-          "stateId": "OH",
-          "inventoryId": "provider-baseline-2026-08-14",
-          "gaugeKeys": [
-            "usgs:412624081450700",
-            "usgs:413217083492900",
-            "usgs:414037083452300"
-          ],
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
-        },
-        {
-          "id": "orchestrator-20260821225817",
-          "kind": "orchestrator_plan",
-          "startedAt": "2026-08-21T22:58:17.733Z",
-          "status": "planned",
-          "taskId": "oh-gauge-review-batch-58",
-          "workerRole": "gauge-coverage",
-          "stateId": "OH",
-          "inventoryId": "provider-baseline-2026-08-14",
-          "gaugeKeys": [
-            "usgs:412624081450700",
-            "usgs:413217083492900",
-            "usgs:414037083452300"
-          ],
-          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
-        },
-        {
-          "id": "route-worker-202608230715-oh-gauge-review-batch-58",
-          "kind": "route_worker",
-          "startedAt": "2026-08-23T07:15:00Z",
-          "completedAt": "2026-08-23T07:15:00Z",
-          "status": "completed",
-          "taskId": "oh-gauge-review-batch-58",
-          "workerRole": "gauge-coverage",
-          "stateId": "OH",
-          "inventoryId": "provider-baseline-2026-08-14",
-          "gaugeKeys": [
-            "usgs:412624081450700",
-            "usgs:413217083492900",
-            "usgs:414037083452300"
-          ],
-          "dispositions": {
-            "blocked": 3,
-            "covered": 0,
-            "screened_out": 0,
-            "stale_or_unsupported": 0
-          },
-          "routesAdded": 0,
-          "summary": "Reviewed the final three Ohio gauges. All received durable blocked dispositions pending complete route evidence. No route was promoted and route data remained unchanged."
-        },
-        {
-          "id": "independent-verifier-202608230715-oh-gauge-review-batch-58",
-          "kind": "independent_verifier",
-          "startedAt": "2026-08-23T07:15:00Z",
-          "completedAt": "2026-08-23T07:15:00Z",
-          "status": "passed",
-          "taskId": "oh-gauge-review-batch-58",
-          "workerRole": "independent-verifier",
-          "checks": {
-            "ledger": "passed",
-            "evidence": "passed",
-            "routeDataUnchanged": "passed"
-          },
-          "summary": "Verified the final three durable Ohio dispositions and confirmed route data was unchanged."
-        },
-        {
           "id": "gatekeeper-202608230715-oh-gauge-review-batch-58",
           "kind": "gatekeeper",
           "startedAt": "2026-08-23T07:15:00Z",
@@ -8101,6 +8051,114 @@
             "rollback": "passed"
           },
           "summary": "Verified the bounded Ohio discovery conclusion, safety, tests, and rollback."
+        },
+        {
+          "id": "orchestrator-20260822193000",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-22T19:30:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-12",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:03126395",
+            "usgs:03126910",
+            "usgs:03127000",
+            "usgs:03127980",
+            "usgs:03127986"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260822201500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-22T20:15:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-15",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:03135000",
+            "usgs:03136500",
+            "usgs:03138500",
+            "usgs:03139000",
+            "usgs:03139850"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260822211500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-22T21:15:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-19",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:03145173",
+            "usgs:03145483",
+            "usgs:03145534",
+            "usgs:03146000",
+            "usgs:03146277"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260823001500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-23T00:15:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-31",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:03234000",
+            "usgs:03234300",
+            "usgs:03234500",
+            "usgs:03237020",
+            "usgs:03237280"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260823011500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-23T01:15:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-35",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:03259000",
+            "usgs:03260706",
+            "usgs:03261500",
+            "usgs:03261950",
+            "usgs:03262000"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
+        },
+        {
+          "id": "orchestrator-20260823041500",
+          "kind": "orchestrator_plan",
+          "startedAt": "2026-08-23T04:15:00Z",
+          "status": "planned",
+          "taskId": "oh-gauge-review-batch-47",
+          "workerRole": "gauge-coverage",
+          "stateId": "OH",
+          "inventoryId": "provider-baseline-2026-08-14",
+          "gaugeKeys": [
+            "usgs:04195820",
+            "usgs:04196000",
+            "usgs:04196500",
+            "usgs:04196800",
+            "usgs:04197100"
+          ],
+          "summary": "high priority state_coverage task selected from the ready lane; WIP policy permits assignment."
         }
       ],
       "doneOnlyWhen": [
@@ -8179,9 +8237,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 63,
-        "scoredCount": 45,
-        "planningCount": 18,
-        "scoredCoveragePercent": 71
+        "scoredCount": 42,
+        "planningCount": 21,
+        "scoredCoveragePercent": 67
       },
       "discoveryTasks": [
         {
@@ -9279,9 +9337,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 4,
-        "scoredCount": 4,
-        "planningCount": 0,
-        "scoredCoveragePercent": 100
+        "scoredCount": 3,
+        "planningCount": 1,
+        "scoredCoveragePercent": 75
       },
       "discoveryTasks": [
         {
@@ -9658,9 +9716,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 87,
-        "scoredCount": 86,
-        "planningCount": 1,
-        "scoredCoveragePercent": 99
+        "scoredCount": 84,
+        "planningCount": 3,
+        "scoredCoveragePercent": 97
       },
       "discoveryTasks": [
         {
@@ -10774,9 +10832,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 6,
-        "scoredCount": 6,
-        "planningCount": 0,
-        "scoredCoveragePercent": 100
+        "scoredCount": 5,
+        "planningCount": 1,
+        "scoredCoveragePercent": 83
       },
       "discoveryTasks": [
         {
@@ -11285,9 +11343,9 @@
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
         "inventoryCount": 35,
-        "scoredCount": 25,
-        "planningCount": 10,
-        "scoredCoveragePercent": 71
+        "scoredCount": 24,
+        "planningCount": 11,
+        "scoredCoveragePercent": 69
       },
       "discoveryTasks": [
         {
@@ -12140,9 +12198,9 @@
       "researchStatus": "saturated",
       "legacyRouteCoverage": {
         "inventoryCount": 185,
-        "scoredCount": 137,
-        "planningCount": 48,
-        "scoredCoveragePercent": 74
+        "scoredCount": 131,
+        "planningCount": 54,
+        "scoredCoveragePercent": 71
       },
       "discoveryTasks": [
         {

@@ -8,7 +8,7 @@ export function RatingPill({ rating }: { rating: ScoreRating }) {
 
   return (
     <View style={[styles.pill, { backgroundColor: tone.backgroundColor }]}>
-      <Text style={[styles.label, { color: tone.textColor }]}>{rating}</Text>
+      <Text style={[styles.label, { color: tone.textColor }]}>{qualityForRating(rating)}</Text>
     </View>
   );
 }

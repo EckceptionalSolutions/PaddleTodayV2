@@ -9,9 +9,10 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
+import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { QualityPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
@@ -148,20 +149,19 @@ export default function RiverHubScreen() {
 
   if (groupQuery.isLoading && !result) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading river hub</Text>
-        <Text style={styles.stateBody}>Comparing the routes on this river.</Text>
-      </View>
+      <AppLoadingState title="Loading river hub" body="Comparing the routes on this river." />
     );
   }
 
   if (groupQuery.isError && !result) {
     return (
-      <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>This river hub did not load.</Text>
-        <Text style={styles.stateBody}>Couldn't load river routes. Pull to retry from the previous screen.</Text>
-      </View>
+      <AppErrorState
+        title="This river hub did not load."
+        body="Couldn't load the routes on this river."
+        actionLabel="Retry"
+        retrying={groupQuery.isFetching}
+        onRetry={() => void groupQuery.refetch()}
+      />
     );
   }
 

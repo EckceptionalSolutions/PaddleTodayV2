@@ -31,16 +31,21 @@ import FavoriteButton from './FavoriteButton.astro';
         <span class="score-orb__rating" data-field="rating"></span>
       </div>
       <div class="river-card__score-copy">
-        <p class="river-card__meta-line" data-field="meta-line"></p>
         <div class="river-card__weather" data-field="card-weather" hidden></div>
-        <div class="river-card__signal-line river-card__signal-line--score" data-field="raw-signal"></div>
       </div>
     </div>
-    <p class="river-card__explanation" data-field="card-summary-main"></p>
     <section class="river-card__facts-section" data-field="card-facts-section" hidden>
-      <p class="river-card__facts-label">Route facts</p>
+      <p class="river-card__facts-label sr-only">Route facts</p>
       <div class="river-card__facts" data-field="card-facts"></div>
     </section>
+    <p class="river-card__explanation" data-field="card-summary-main"></p>
+    <details class="river-card__details">
+      <summary>Condition details</summary>
+      <div class="river-card__details-body">
+        <p class="river-card__meta-line" data-field="meta-line"></p>
+        <div class="river-card__signal-line" data-field="raw-signal"></div>
+      </div>
+    </details>
 
     <a class="river-link river-link--wide" href="/" data-card-link>View route</a>
   </article>

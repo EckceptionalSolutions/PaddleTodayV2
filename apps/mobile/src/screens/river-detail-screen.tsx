@@ -271,7 +271,7 @@ export default function RiverDetailScreen() {
     return (
       <AppErrorState
         title="River route is missing"
-        body="Open this route again from Today, Explore, Weekend, or My Routes."
+        body="Open this route again from Today, Explore, Weekend, or Saved routes."
       />
     );
   }

@@ -4,14 +4,13 @@ import FavoriteButton from '../components/FavoriteButton.astro';
 ---
 
 <BaseLayout
-  title="Paddle Today | My Routes"
+  title="Paddle Today | Saved routes"
   description="Check your saved routes and condition alerts in Paddle Today."
   noindex={true}
 >
   <section class="decision-section favorites-page" data-favorites-page>
     <div class="section-head section-head--stacked favorites-page__head">
       <div>
-        <p class="eyebrow">My Routes</p>
         <h1 class="section-title">Saved routes</h1>
       </div>
       <p class="muted section-head__note" data-favorites-summary>
@@ -43,11 +42,11 @@ import FavoriteButton from '../components/FavoriteButton.astro';
           <div class="summary-map-legend" aria-hidden="true">
             <span class="summary-map-legend__item">
               <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-              Great
+              Strong conditions
             </span>
             <span class="summary-map-legend__item">
               <span class="summary-map-legend__marker summary-map-legend__marker--good">70</span>
-              Good
+              Good conditions
             </span>
             <span class="summary-map-legend__item">
               <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
@@ -55,7 +54,7 @@ import FavoriteButton from '../components/FavoriteButton.astro';
             </span>
             <span class="summary-map-legend__item">
               <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-              No-go
+              Skip
             </span>
           </div>
           <p class="muted summary-map__status favorites-page__map-status" data-favorites-map-status>
@@ -106,21 +105,47 @@ import FavoriteButton from '../components/FavoriteButton.astro';
           <span class="score-orb__rating" data-field="favorite-rating"></span>
         </div>
         <div class="river-card__score-copy">
-          <p class="river-card__meta-line" data-field="favorite-meta"></p>
           <div class="river-card__weather" data-field="favorite-weather" hidden></div>
-          <div class="river-card__signal-line river-card__signal-line--score" data-field="favorite-signal"></div>
         </div>
       </div>
-      <p class="river-card__explanation" data-field="favorite-summary"></p>
       <section class="river-card__facts-section" data-field="favorite-facts-section" hidden>
-        <p class="river-card__facts-label">Route facts</p>
+        <p class="river-card__facts-label sr-only">Route facts</p>
         <div class="river-card__facts" data-field="favorite-facts"></div>
       </section>
+      <p class="river-card__explanation" data-field="favorite-summary"></p>
+      <p class="saved-route-changes" data-field="favorite-changes" hidden></p>
+          <details class="river-card__details">
+        <summary>Condition details</summary>
+        <div class="river-card__details-body">
+          <p class="river-card__meta-line" data-field="favorite-meta"></p>
+          <div class="river-card__signal-line" data-field="favorite-signal"></div>
+        </div>
+      </details>
       <p class="favorites-card__saved-at muted" data-field="favorite-saved-at"></p>
+
+      <div class="favorite-notes">
+        <p class="favorite-notes__text" data-field="favorite-notes-text" hidden></p>
+        <button class="filter-chip filter-chip--quiet" type="button" data-favorite-notes>Add personal note</button>
+      </div>
 
       <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>
     </article>
   </template>
+
+  <dialog class="favorite-notes-dialog" data-favorite-notes-dialog aria-labelledby="favorite-notes-title" aria-describedby="favorite-notes-help">
+    <form>
+      <h2 id="favorite-notes-title" data-notes-title>Personal notes</h2>
+      <p class="muted" id="favorite-notes-help">Only stored in this browser. Add parking, shuttle, or launch reminders.</p>
+      <label for="favorite-notes-input">Your note</label>
+      <textarea id="favorite-notes-input" rows="6" maxlength="2000" placeholder="Parking, shuttle arrangements, preferred launch…"></textarea>
+      <p class="muted">Up to 2,000 characters. Clear the note and save to remove it.</p>
+      <p class="favorite-notes-dialog__status" data-notes-status role="status"></p>
+      <div class="favorite-notes-dialog__actions">
+        <button class="filter-chip" type="button" data-notes-cancel>Cancel</button>
+        <button class="filter-chip" type="submit">Save note</button>
+      </div>
+    </form>
+  </dialog>
 
   <script>
     import '../scripts/favorites-page.js';

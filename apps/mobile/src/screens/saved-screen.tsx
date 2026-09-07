@@ -1,3 +1,6 @@
+import { SavedRouteNotes, SavedRouteNotesEditor } from '../components/saved-route-notes';
+import type { SavedRiverRecord } from '../providers/saved-rivers-provider';
+import { useSavedRouteChanges } from '../hooks/use-saved-route-changes';
 import {
   callStateForDecision,
   formatRouteSegmentLabel,
@@ -35,6 +38,7 @@ export default function SavedScreen() {
   const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<SavedTab>('routes');
+  const [notesRiver, setNotesRiver] = useState<SavedRiverRecord | null>(null);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const riverLookup = new Map(rivers.map((river) => [river.river.slug, river]));
@@ -45,6 +49,7 @@ export default function SavedScreen() {
     () => savedRivers.filter((river) => alertForRiver(river.slug)).length,
     [alertForRiver, savedRivers, routeAlerts]
   );
+  const changes = useSavedRouteChanges(savedRivers, rivers, isHydrated && summaryQuery.isSuccess && !summaryQuery.isFetching && summaryQuery.data?.snapshotStatus !== 'stale');
   const savedGroups = groupSavedRoutes(savedSummaries);
 
   async function submitSavedRouteAlert(river: RiverSummaryApiItem, threshold: RiverAlertThreshold) {
@@ -100,8 +105,7 @@ export default function SavedScreen() {
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
       />
-      <Text style={styles.kicker}>My Routes</Text>
-      <Text style={styles.title}>Saved routes and alerts</Text>
+      <Text style={styles.title}>Saved routes</Text>
       <Text style={styles.subtitle}>
         A status board for rivers you check often.
       </Text>
@@ -150,8 +154,10 @@ export default function SavedScreen() {
           <SavedRouteGroup
             title="Paddle today"
             subtitle="Saved routes with a current Paddle call."
+            changes={changes}
+            savedRivers={savedRivers}
+            onEditNotes={setNotesRiver}
             rivers={savedGroups.paddle}
-            empty="No saved route has a Paddle call right now."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -159,8 +165,10 @@ export default function SavedScreen() {
           <SavedRouteGroup
             title="Watch closely"
             subtitle="Saved routes that need a closer look."
+            changes={changes}
+            savedRivers={savedRivers}
+            onEditNotes={setNotesRiver}
             rivers={savedGroups.watch}
-            empty="No saved route is in the maybe range."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -168,8 +176,10 @@ export default function SavedScreen() {
           <SavedRouteGroup
             title="Call unavailable"
             subtitle="Saved routes that need current evidence before PaddleToday can make a call."
+            changes={changes}
+            savedRivers={savedRivers}
+            onEditNotes={setNotesRiver}
             rivers={savedGroups.unavailable}
-            empty="Every saved route has a current call."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -177,8 +187,10 @@ export default function SavedScreen() {
           <SavedRouteGroup
             title="Skip today"
             subtitle="Saved routes to recheck later."
+            changes={changes}
+            savedRivers={savedRivers}
+            onEditNotes={setNotesRiver}
             rivers={savedGroups.skip}
-            empty="No saved route is in skip mode."
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -202,6 +214,7 @@ export default function SavedScreen() {
                     <Text style={styles.savedFallbackNote}>
                       No call is available today.
                     </Text>
+                    <SavedRouteNotes river={river} onEdit={setNotesRiver} />
                   </View>
                 </View>
               ))}
@@ -256,6 +269,7 @@ export default function SavedScreen() {
         </View>
       ) : null}
 
+      {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
     </ScrollView>
   );
 }
@@ -283,7 +297,7 @@ function SavedTabs({
     <View style={styles.tabs}>
       <SavedTabButton
         icon="bookmark-outline"
-        label="Saved Routes"
+        label="Saved routes"
         active={activeTab === 'routes'}
         onPress={() => onChange('routes')}
       />
@@ -378,7 +392,9 @@ function SavedRouteGroup({
   title,
   subtitle,
   rivers,
-  empty,
+  changes,
+  savedRivers,
+  onEditNotes,
   isSaved,
   onToggleSaved,
   onOpen,
@@ -386,37 +402,39 @@ function SavedRouteGroup({
   title: string;
   subtitle: string;
   rivers: RiverSummaryApiItem[];
-  empty: string;
+  changes: Record<string, string[]>;
+  savedRivers: SavedRiverRecord[];
+  onEditNotes: (river: SavedRiverRecord) => void;
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: { slug: string; riverId?: string; name: string; reach: string }) => void | Promise<void>;
   onOpen: (slug: string) => void;
 }) {
+  if (rivers.length === 0) return null;
   return (
     <SectionCard title={title} subtitle={subtitle}>
-      {rivers.length > 0 ? (
-        <View style={styles.list}>
-          {rivers.map((river) => (
-            <RiverCard
-              key={river.river.slug}
-              river={river}
-              showPhoto
-              saved={isSaved(river.river.slug)}
-              onToggleSaved={() =>
-                void onToggleSaved({
-                  slug: river.river.slug,
-                  riverId: river.river.riverId,
-                  name: river.river.name,
-                  reach: river.river.reach,
-                })
-              }
-              onPress={() => onOpen(river.river.slug)}
-              segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
-            />
-          ))}
-        </View>
-      ) : (
-        <Text style={styles.emptyGroupText}>{empty}</Text>
-      )}
+      <View style={styles.list}>
+        {rivers.map((river) => (
+          <View key={river.river.slug}>
+          <RiverCard
+            river={river}
+            changes={changes[river.river.slug]}
+            showPhoto
+            saved={isSaved(river.river.slug)}
+            onToggleSaved={() =>
+              void onToggleSaved({
+                slug: river.river.slug,
+                riverId: river.river.riverId,
+                name: river.river.name,
+                reach: river.river.reach,
+              })
+            }
+            onPress={() => onOpen(river.river.slug)}
+            segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+          />
+          {savedRivers.find((item) => item.slug === river.river.slug) ? <SavedRouteNotes river={savedRivers.find((item) => item.slug === river.river.slug)!} onEdit={onEditNotes} /> : null}
+          </View>
+        ))}
+      </View>
     </SectionCard>
   );
 }
@@ -445,13 +463,6 @@ const styles = StyleSheet.create({
   content: {
     padding: spacing.md,
     gap: spacing.md,
-  },
-  kicker: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.6,
   },
   title: {
     color: colors.text,
@@ -570,11 +581,6 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.3,
-  },
-  emptyGroupText: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
   },
   body: {
     color: colors.text,

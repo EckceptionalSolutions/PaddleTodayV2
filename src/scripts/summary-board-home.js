@@ -207,6 +207,7 @@ const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-ta
   const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
   const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
+const homeRadiusValue = document.querySelector('[data-home-radius-value]');
 const homeMatchCount = document.querySelector('[data-home-match-count]');
 const homeLiveCounts = Array.from(document.querySelectorAll('[data-home-live-count]'));
 const homeDifficultySelect = document.querySelector('[data-home-difficulty-select]');
@@ -257,6 +258,7 @@ const featuredMapCaption = document.querySelector('[data-featured-map-caption]')
 const featuredGallery = document.querySelector('[data-featured-gallery]');
 const featuredGalleryImage = document.querySelector('[data-featured-gallery-image]');
 const featuredGalleryPlaceholder = document.querySelector('[data-featured-gallery-placeholder]');
+const featuredGalleryFallback = document.querySelector('[data-featured-gallery-fallback]');
 const featuredGalleryContribute = document.querySelector('[data-featured-gallery-contribute]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const exploreSection = document.querySelector('.decision-section--explore');
@@ -1106,7 +1108,7 @@ function updateSummaryScoreFilterButtons(counts = {}) {
         : rating === 'Fair'
           ? 'Fair conditions'
           : rating === 'No-go'
-            ? 'No-go conditions'
+            ? 'Skip'
             : rating;
     button.disabled = false;
     button.classList.toggle('summary-map-legend__toggle--active', active);
@@ -1371,11 +1373,15 @@ function updateFeaturedGallery(item) {
 
   const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
-  featuredGalleryImage.src = photo.src;
+  if (photo.isPlaceholder) featuredGalleryImage.removeAttribute('src');
+  else featuredGalleryImage.src = photo.src;
   featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
   if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = !photo.isPlaceholder;
+    featuredGalleryPlaceholder.hidden = photo.sourceKind !== 'river';
   }
+  featuredGalleryImage.hidden = photo.isPlaceholder;
+  featuredGallery.classList.toggle('route-photo-preview--placeholder', photo.isPlaceholder);
+  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !photo.isPlaceholder;
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
   }
@@ -1882,6 +1888,13 @@ function updateLocationStatus() {
   if (homeRadiusSlider instanceof HTMLInputElement) {
     homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
     homeRadiusSlider.setAttribute('aria-valuetext', `${selectedRadiusMiles} miles`);
+  }
+  const preferenceSummary = document.querySelector('[data-home-preferences-summary]');
+  if (preferenceSummary instanceof HTMLElement) {
+    preferenceSummary.textContent = `Within ${selectedRadiusMiles} miles · ${homePreferenceSummaryTextClean() || 'Any difficulty · Any time'}`;
+  }
+  if (homeRadiusValue instanceof HTMLElement) {
+    homeRadiusValue.textContent = `Within ${selectedRadiusMiles} miles`;
   }
 
   if (homeDifficultySelect instanceof HTMLSelectElement) {

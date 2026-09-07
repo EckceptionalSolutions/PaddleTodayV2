@@ -1,3 +1,5 @@
+import { savedRouteSnapshot, savedRouteChanges, parseSavedRouteSnapshots, advanceSavedRouteSnapshot } from '@paddletoday/api-contract';
+import { bindFavoriteNotes } from './favorite-notes.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, subscribeFavorites } from './favorites-store.js';
@@ -12,12 +14,30 @@ import {
   waitForMapReady,
 } from './map-runtime.js';
 import { createBoardMapMarker } from './board-map-controller.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { isCurrentCallUnavailable } from './board-presenters.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { buildRouteSegments, formatRouteSegmentLabel, routeSegmentSummary } from '../lib/route-segments.ts';
 import { callLabelForDecision, ratingToneKey } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
+
+const CHANGES_KEY = 'paddletoday:saved-route-changes:v1';
+let previousVisit;
+try { previousVisit = parseSavedRouteSnapshots(localStorage.getItem(CHANGES_KEY)); } catch { previousVisit = {}; }
+const nextVisit = { ...previousVisit };
+let hasFreshSummary = false;
+
+function recordSavedRouteVisit(results) {
+  if (!hasFreshSummary) return;
+  const lookup = new Map(results.map((item) => [item.river.slug, item]));
+  const favorites = readFavorites();
+  for (const favorite of favorites) {
+    const item = lookup.get(favorite.slug);
+    if (item) advanceSavedRouteSnapshot(nextVisit, favorite.slug, String(favorite.savedAt), savedRouteSnapshot(item));
+  }
+  const routes = Object.fromEntries(favorites.filter((item) => nextVisit[item.slug]).map((item) => [item.slug, nextVisit[item.slug]]));
+  try { localStorage.setItem(CHANGES_KEY, JSON.stringify({ version: 1, routes })); } catch {}
+}
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 const root = document.querySelector('[data-favorites-page]');
@@ -59,17 +79,7 @@ function difficultyLabel(item) {
 }
 
 function metaLine(item) {
-  const parts = [];
-  if (item?.confidence?.label) {
-    parts.push(confidenceDisplayLabel(item.confidence.label));
-  }
-  if (difficultyLabel(item)) {
-    parts.push(difficultyLabel(item));
-  }
-  if (item?.river?.estimatedPaddleTime) {
-    parts.push(item.river.estimatedPaddleTime);
-  }
-  return parts.join(' \u2022 ');
+  return item?.summary?.freshnessText || '';
 }
 
 function weatherLabel(item) {
@@ -347,6 +357,12 @@ function renderFavoriteCard(favorite, current) {
     return document.createElement('div');
   }
   card.dataset.favoriteCardSlug = favorite.slug;
+  const note = setText(card, 'favorite-notes-text', favorite.notes || '');
+  if (note) note.hidden = !favorite.notes;
+  const notesButton = card.querySelector('[data-favorite-notes]');
+  notesButton.dataset.favoriteNotes = favorite.slug;
+  notesButton.textContent = favorite.notes ? 'Edit personal note' : 'Add personal note';
+  notesButton.setAttribute('aria-label', `${notesButton.textContent}: ${favorite.name || 'Route'}`);
 
   const linkHref = favorite.url || `/rivers/${encodeURIComponent(favorite.slug)}/`;
   const titleLink = card.querySelector('[data-field="favorite-title-link"]');
@@ -394,6 +410,11 @@ function renderFavoriteCard(favorite, current) {
 
   const orb = card.querySelector('.score-orb');
   if (current) {
+    const previous = previousVisit[favorite.slug];
+    const changes = hasFreshSummary && previous?.savedAt === String(favorite.savedAt)
+      ? savedRouteChanges(previous.snapshot, savedRouteSnapshot(current)) : [];
+    const changeField = setText(card, 'favorite-changes', changes.length ? `Since your last visit: ${changes.join(' · ')}` : '');
+    if (changeField) changeField.hidden = changes.length === 0;
     const tone = ratingToneKey(current.rating);
     card.classList.add(`river-card--${tone}`);
     if (orb instanceof HTMLElement) {
@@ -402,8 +423,8 @@ function renderFavoriteCard(favorite, current) {
 
     const callUnavailable = isCurrentCallUnavailable(current);
     setText(card, 'favorite-score', callUnavailable ? '--' : String(current.score));
-    setText(card, 'favorite-rating', callUnavailable ? 'Not enough data' : callLabelForDecision(current.rating, current.readiness?.status, 'today', true));
-    setText(card, 'favorite-verdict', current.gaugeBandLabel || 'Current route read');
+    setText(card, 'favorite-rating', callUnavailable ? 'Not enough data' : ratingDisplayLabel(current.rating, { compact: true }));
+    setText(card, 'favorite-verdict', callLabelForDecision(current.rating, current.readiness?.status));
     setText(card, 'favorite-meta', metaLine(current));
     setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');
     setText(card, 'favorite-signal', current.summary?.rawSignalLine || current.summary?.gaugeNow || 'Live signal unavailable.');
@@ -429,6 +450,8 @@ function renderFavoriteCard(favorite, current) {
   }
 
   card.classList.add('favorites-card--missing');
+  const details = card.querySelector('.river-card__details');
+  if (details instanceof HTMLElement) details.hidden = true;
   setText(card, 'favorite-score', '--');
   setText(card, 'favorite-rating', 'Saved');
   setText(card, 'favorite-verdict', 'Current board unavailable');
@@ -469,6 +492,7 @@ function updateSummaryLine(favorites, { fallback = false } = {}) {
 }
 
 function renderFavorites(results = latestResults) {
+  recordSavedRouteVisit(results);
   if (!(grid instanceof HTMLElement) || !(empty instanceof HTMLElement)) {
     return;
   }
@@ -519,6 +543,7 @@ async function loadFavorites({ silent = false } = {}) {
     }
 
     latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
+    hasFreshSummary = payload.snapshotStatus !== 'stale';
     lastFetchedAt = Date.now();
     writeCachedPayload(SUMMARY_CACHE_KEY, payload);
     renderFavorites(latestResults);
@@ -531,6 +556,7 @@ async function loadFavorites({ silent = false } = {}) {
       return;
     }
 
+    hasFreshSummary = false;
     const cached = readCachedPayload(SUMMARY_CACHE_KEY);
     latestResults = Array.isArray(cached?.payload?.rivers) ? cached.payload.rivers : latestResults;
     lastFetchedAt = cached?.fetchedAt ?? lastFetchedAt;
@@ -556,5 +582,6 @@ bindFavoriteButtons(document, {
 subscribeFavorites(() => {
   renderFavorites(latestResults);
 });
+bindFavoriteNotes();
 renderFavorites();
 loadFavorites();

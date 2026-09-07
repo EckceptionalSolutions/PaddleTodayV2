@@ -34,6 +34,7 @@ export function normalizeFavoriteEntry(input) {
     region,
     url,
     savedAt,
+    ...(typeof input?.notes === 'string' && input.notes.trim() ? { notes: input.notes.trim().slice(0, 2000) } : {}),
   };
 }
 
@@ -72,7 +73,7 @@ function parseFavorites(raw) {
 function writeFavorites(items) {
   const store = storage();
   if (!store) {
-    return [];
+    throw new Error('Browser storage is unavailable.');
   }
 
   const normalized = items
@@ -80,17 +81,10 @@ function writeFavorites(items) {
     .filter(Boolean)
     .sort((left, right) => right.savedAt - left.savedAt);
 
-  try {
-    store.setItem(
-      STORAGE_KEY,
-      JSON.stringify({
-        version: STORAGE_VERSION,
-        items: normalized,
-      })
-    );
-  } catch {
-    // Ignore quota errors.
-  }
+  store.setItem(
+    STORAGE_KEY,
+    JSON.stringify({ version: STORAGE_VERSION, items: normalized })
+  );
 
   emitFavoritesChange(normalized);
   return normalized;
@@ -116,7 +110,29 @@ export function readFavorites() {
     return [];
   }
 
-  return parseFavorites(store.getItem(STORAGE_KEY));
+  try {
+    return parseFavorites(store.getItem(STORAGE_KEY));
+  } catch {
+    return [];
+  }
+}
+
+export function restoreFavorite(entry) {
+  const normalized = normalizeFavoriteEntry(entry);
+  if (!normalized) return;
+  const favorites = readFavorites();
+  if (!favorites.some((item) => item.slug === normalized.slug)) {
+    writeFavorites([...favorites, normalized]);
+  }
+}
+
+export function updateFavoriteNotes(slug, notes) {
+  const favorites = readFavorites();
+  const favorite = favorites.find((item) => item.slug === slug);
+  if (!favorite) throw new Error('This route is no longer saved. Your note has not been saved.');
+  if (typeof notes !== 'string' || notes.length > 2000) throw new Error('Keep your note within 2,000 characters.');
+  favorite.notes = notes.trim();
+  writeFavorites(favorites);
 }
 
 export function favoriteCount() {

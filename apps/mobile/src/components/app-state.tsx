@@ -23,12 +23,14 @@ export function AppErrorState({
   body,
   detail,
   actionLabel = 'Try again',
+  retrying = false,
   onRetry,
 }: {
   title: string;
   body: string;
   detail?: string;
   actionLabel?: string;
+  retrying?: boolean;
   onRetry?: () => void;
 }) {
   return (
@@ -44,9 +46,15 @@ export function AppErrorState({
         </Text>
       ) : null}
       {onRetry ? (
-        <Pressable style={styles.retryButton} onPress={onRetry}>
+        <Pressable
+          style={styles.retryButton}
+          onPress={onRetry}
+          disabled={retrying}
+          accessibilityRole="button"
+          accessibilityState={{ disabled: retrying, busy: retrying }}
+        >
           <MaterialCommunityIcons name="refresh" color={colors.surfaceStrong} size={18} />
-          <Text style={styles.retryButtonText}>{actionLabel}</Text>
+          <Text style={styles.retryButtonText}>{retrying ? 'Retrying…' : actionLabel}</Text>
         </Pressable>
       ) : null}
     </View>

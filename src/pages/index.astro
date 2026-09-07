@@ -136,11 +136,13 @@ const homepageStructuredData = [
           hidden
         ></p>
 
-        <div class="home-location-bar__refine" data-home-refine-row>
+        <details class="home-preferences" data-home-preferences>
+        <summary class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">
               Preferences (optional)
             </p>
+            <span class="home-preferences__summary" data-home-preferences-summary>Within 50 miles · Any difficulty · Any time</span>
             <p
               class="home-location-bar__refine-radius sr-only"
               data-home-radius-summary
@@ -155,7 +157,7 @@ const homepageStructuredData = [
                 <span class="home-location-bar__refine-pill">Any time</span>
               </div>
             </div>
-          </div>
+          </summary>
 
           <div class="home-radius-panel" id="home-radius-panel" data-home-radius-panel>
             <div class="home-radius-panel__mobile-head">
@@ -208,29 +210,32 @@ const homepageStructuredData = [
             >
               <div class="home-filter-group__head">
                 <span class="home-filter-group__icon" aria-hidden="true">
-                  <FeatureIcon name="car" size={16} />
+                  <FeatureIcon name="crosshair" size={16} />
                 </span>
                 <div>
                   <p
                     class="home-radius-panel__field-label"
                     id="home-filter-distance"
                   >
-                    Drive Distance
+                    Search radius
                   </p>
                 </div>
               </div>
 
               <div class="home-radius-panel__slider-stack">
+                <output class="home-radius-panel__value" for="home-radius-slider" data-home-radius-value>Within 50 miles</output>
                 <label class="home-radius-panel__slider-wrap">
-                  <span class="sr-only">Recommendation radius in miles</span>
+                  <span class="sr-only">Search radius in miles</span>
                   <input
                     class="home-radius-panel__slider"
+                    id="home-radius-slider"
                     type="range"
                     min="0"
                     max="5"
                     step="1"
                     value="1"
                     aria-valuetext="50 miles"
+                    aria-describedby="home-radius-help"
                     data-home-radius-slider
                   />
                 </label>
@@ -244,6 +249,7 @@ const homepageStructuredData = [
                   <span>200 mi</span>
                 </div>
               </div>
+              <p class="home-radius-panel__help muted" id="home-radius-help">Straight-line distance from your location. Driving distance may be longer.</p>
             </section>
 
             <div class="home-radius-panel__select-grid">
@@ -370,6 +376,7 @@ const homepageStructuredData = [
             </button>
           </div>
         </div>
+        </details>
       </section>
     </div>
 
@@ -491,8 +498,12 @@ const homepageStructuredData = [
               alt=""
               loading="lazy"
             />
+            <div class="route-photo-preview__fallback" data-featured-gallery-fallback hidden>
+              <span aria-hidden="true">≈</span>
+              <span>No photo yet</span>
+            </div>
             <span class="route-photo-preview__badge" data-featured-gallery-placeholder hidden>
-              Placeholder
+              River photo
             </span>
             <a
               class="route-photo-preview__contribute"
@@ -501,7 +512,7 @@ const homepageStructuredData = [
               data-analytics-event="Open photo contribution"
             >
               <span aria-hidden="true">+</span>
-              Contribute Photos
+              Add a photo
             </a>
           </figure>
 
@@ -613,11 +624,11 @@ const homepageStructuredData = [
           >
             <span class="home-radius-pill home-radius-pill--strong">
               <strong data-home-strong-count>0</strong>
-              <span>Paddle · Strong</span>
+              <span>Strong conditions</span>
             </span>
             <span class="home-radius-pill home-radius-pill--good">
               <strong data-home-good-count>0</strong>
-              <span>Paddle · Good</span>
+              <span>Good conditions</span>
             </span>
             <span class="home-radius-pill home-radius-pill--fair">
               <strong data-home-mixed-count>0</strong>

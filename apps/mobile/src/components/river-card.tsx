@@ -6,10 +6,12 @@ import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
+import { RoutePhotoFallback } from './route-photo-fallback';
 
 export function RiverCard({
   river,
   travelLabel,
+  changes,
   saved = false,
   showPhoto = false,
   onToggleSaved,
@@ -21,6 +23,7 @@ export function RiverCard({
 }: {
   river: RiverSummaryApiItem;
   travelLabel?: string;
+  changes?: string[];
   saved?: boolean;
   showPhoto?: boolean;
   onToggleSaved?: () => void;
@@ -72,6 +75,18 @@ export function RiverCard({
         </View>
       </View>
 
+      <View style={styles.factRow}>
+        {facts.slice(0, 3).map((fact) => (
+          <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
+        ))}
+      </View>
+
+      {changes?.length ? (
+        <View style={styles.changeNotice}>
+          <Text style={styles.changeTitle}>Since your last visit</Text>
+          {changes.map((change) => <Text key={change} style={styles.changeText}>{change}</Text>)}
+        </View>
+      ) : null}
       <View style={styles.metaRow}>
         <View style={styles.metaPill}>
           <Text style={styles.metaPillLabel}>Gauge</Text>
@@ -83,12 +98,6 @@ export function RiverCard({
         </View>
       </View>
 
-      <View style={styles.factRow}>
-        {facts.slice(0, 3).map((fact) => (
-          <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
-        ))}
-      </View>
-
       {showDataWarning ? (
         <View style={styles.warningRow}>
           <Text style={styles.warningLabel}>Check source</Text>
@@ -98,7 +107,6 @@ export function RiverCard({
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>{travelLabel ?? river.river.region}</Text>
-        <Text style={styles.footerText}>{river.gaugeBandLabel}</Text>
       </View>
     </Pressable>
   );
@@ -106,13 +114,16 @@ export function RiverCard({
 
 function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
   const photo = routePhotoForRiver(river.river);
+  if (photo.isPlaceholder) {
+    return <View style={styles.photo}><RoutePhotoFallback compact /></View>;
+  }
 
   return (
     <ImageBackground source={{ uri: photo.uri }} style={styles.photo} imageStyle={styles.photoImage}>
       <View style={styles.photoScrim} />
-      {photo.isPlaceholder || photo.sourceKind === 'river' ? (
+      {photo.sourceKind === 'river' ? (
         <View style={styles.photoBadge}>
-          <Text style={styles.photoBadgeText}>{photo.isPlaceholder ? 'Needs photo' : 'River photo'}</Text>
+          <Text style={styles.photoBadgeText}>River photo</Text>
         </View>
       ) : null}
     </ImageBackground>
@@ -120,6 +131,9 @@ function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
 }
 
 const styles = StyleSheet.create({
+  changeNotice: { padding: 12, backgroundColor: '#edf5f3', borderRadius: 8, gap: 4 },
+  changeTitle: { color: '#234c49', fontSize: 12, fontWeight: '700' },
+  changeText: { color: '#234c49', fontSize: 13, lineHeight: 19 },
   card: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -224,10 +238,10 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   explanation: {
-    color: colors.text,
+    color: colors.textMuted,
     fontSize: 14,
     lineHeight: 19,
-    fontWeight: '600',
+    fontWeight: '400',
   },
   metaRow: {
     flexDirection: 'row',
@@ -238,10 +252,7 @@ const styles = StyleSheet.create({
   metaPill: {
     flex: 1,
     minWidth: 110,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
     gap: 2,
   },
   metaPillLabel: {
@@ -252,9 +263,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   metaPillValue: {
-    color: colors.text,
+    color: colors.textMuted,
     fontSize: 13,
-    fontWeight: '900',
+    fontWeight: '500',
   },
   factRow: {
     flexDirection: 'row',

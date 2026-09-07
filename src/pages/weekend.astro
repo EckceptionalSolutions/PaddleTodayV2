@@ -42,35 +42,44 @@ const structuredData = [
       <p class="hero__lede">
         Early read from current river shape and the weekend forecast. Re-check before you commit to the drive.
       </p>
-      <p class="hero__snapshot" data-weekend-snapshot>
-        Checking weekend outlooks...
+      <p class="hero__snapshot" data-weekend-snapshot role="status">
+        Checking the weekend outlook…
       </p>
+      <button class="filter-chip" type="button" data-weekend-retry hidden>Retry</button>
     </div>
 
-    <aside class="hero-call decision-hero__featured weekend-hero__featured" aria-live="polite">
+    <aside class="hero-call decision-hero__featured weekend-hero__featured" aria-busy="true" aria-hidden="true">
       <p class="eyebrow" data-weekend-featured-label>Paddle this weekend</p>
-      <p class="hero-call__state" data-weekend-featured-state>Loading weekend read.</p>
-      <h2 class="hero-call__title" data-weekend-featured-name>Checking the board</h2>
-      <p class="hero-call__reach" data-weekend-featured-reach>Weekend forecast confidence is loading.</p>
-      <p class="hero-call__verdict" data-weekend-featured-verdict>Checking outlook</p>
+      <p class="hero-call__state" data-weekend-featured-state></p>
+      <h2 class="hero-call__title" data-weekend-featured-name></h2>
+      <p class="hero-call__reach" data-weekend-featured-reach></p>
+      <p class="hero-call__verdict" data-weekend-featured-verdict></p>
 
       <div class="hero-call__scoreline">
         <div class="score-orb score-orb--featured" aria-label="Weekend score">
-          <span class="score-orb__score" data-weekend-featured-score>--</span>
-          <span class="score-orb__rating" data-weekend-featured-rating>Loading</span>
+          <span class="score-orb__score" data-weekend-featured-score></span>
+          <span class="score-orb__rating" data-weekend-featured-rating></span>
         </div>
 
         <div class="hero-call__score-meta">
           <div class="weekend-featured__weather" data-weekend-featured-weather hidden></div>
-          <p class="hero-call__signal-line" data-weekend-featured-signal>Loading forecast signals</p>
+          <p class="hero-call__signal-line" data-weekend-featured-signal></p>
         </div>
       </div>
 
-      <p class="hero-call__reason" data-weekend-featured-reason>Loading summary</p>
+      <p class="hero-call__reason" data-weekend-featured-reason></p>
       <p class="hero-call__summary" data-weekend-featured-explanation hidden></p>
+      <figure class="weekend-featured__gallery route-photo-preview" data-weekend-featured-gallery hidden>
+        <img data-weekend-featured-gallery-image alt="" loading="lazy" decoding="async" hidden />
+        <div class="route-photo-preview__fallback" data-weekend-featured-gallery-fallback hidden>
+          <span aria-hidden="true">▧</span><span>No photo yet</span>
+        </div>
+        <span class="route-photo-preview__badge" data-weekend-featured-gallery-placeholder hidden>River photo</span>
+        <a class="route-photo-preview__contribute" data-weekend-featured-gallery-contribute href="/contribute/">Add a photo</a>
+      </figure>
       <div class="decision-hero__actions">
-        <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View route</a>
-        <a class="river-link river-link--inline river-link--ghost" href="#weekend-results">See shortlist</a>
+        <a class="river-link river-link--inline" href="/" data-weekend-featured-link tabindex="-1">View route</a>
+        <a class="river-link river-link--inline river-link--ghost" href="#weekend-results" tabindex="-1">See shortlist</a>
       </div>
     </aside>
 
@@ -79,11 +88,11 @@ const structuredData = [
       <ul class="hero__call-mix" data-weekend-call-mix>
         <li class="hero__call-mix-item hero__call-mix-item--strong">
           <strong data-weekend-strong-count>--</strong>
-          <span>Paddle · Strong</span>
+          <span>Strong conditions</span>
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--good">
           <strong data-weekend-good-count>--</strong>
-          <span>Paddle · Good</span>
+          <span>Good conditions</span>
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--mixed">
           <strong data-weekend-fair-count>--</strong>

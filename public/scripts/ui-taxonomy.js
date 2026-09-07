@@ -19,8 +19,8 @@ export function callLabelForRating(rating, context = 'today', compact = false) {
 export function qualityTierLabel(rating) {
   if (rating === 'Strong') return 'Strong conditions';
   if (rating === 'Good') return 'Good conditions';
-  if (rating === 'Fair') return 'Watch conditions';
-  return 'Skip conditions';
+  if (rating === 'Fair') return 'Watch closely';
+  return 'Skip';
 }
 
 export function confidenceDisplayLabel(label) {
@@ -40,6 +40,8 @@ export function ratingDisplayLabel(rating, options = {}) {
   if (rating === 'No-go' && liveData?.overall === 'offline') {
     return compact ? 'Manual check' : 'Manual check needed';
   }
+
+  if (rating === 'No-go') return 'Skip';
 
   return rating || 'Checking';
 }
