@@ -45,7 +45,7 @@ export function createBoardLoaderController({
     });
     setFetchBannerState(
       staleSnapshot ? 'stale' : 'hidden',
-      staleSnapshot ? 'The snapshot worker is delayed. Verify conditions before driving or launching.' : undefined,
+      staleSnapshot ? 'The latest board update is delayed. Verify conditions before driving or launching.' : undefined,
     );
     renderBoard(rivers);
     updateFreshness({
@@ -97,11 +97,11 @@ export function createBoardLoaderController({
       writeCache(cacheKey, payload);
       setFetchBannerState(
         staleSnapshot ? 'stale' : 'hidden',
-        staleSnapshot ? 'The snapshot worker is delayed. Verify conditions before driving or launching.' : undefined,
+        staleSnapshot ? 'The latest board update is delayed. Verify conditions before driving or launching.' : undefined,
       );
       setRefreshState(
         staleSnapshot ? 'error' : 'ready',
-        staleSnapshot ? 'Latest snapshot is stale. The board will recover automatically after a successful worker run.' : undefined,
+        staleSnapshot ? 'The latest board is out of date. Try refreshing again shortly.' : undefined,
       );
       renderBoard(results, { preserveMapViewport });
       updateFreshness({
@@ -134,7 +134,7 @@ export function createBoardLoaderController({
       );
       setRefreshState('error', 'Last refresh failed. Retry now.');
       showInitialFailure();
-      updateFreshness();
+      updateFreshness({ unavailable: true });
     } finally {
       requestGuard.finish(controller);
     }

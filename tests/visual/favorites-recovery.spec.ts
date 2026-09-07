@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import routeFixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://cloud.umami.is/**', (route) => route.abort());
@@ -9,6 +10,25 @@ test.beforeEach(async ({ page }) => {
       savedAt: Date.now(), notes: 'Bring the blue kayak',
     }] }));
   });
+});
+
+test('unavailable saved calls use neutral styling and their current limitation', async ({ page }) => {
+  const result = structuredClone(routeFixture.result);
+  result.readiness.reason = 'Gauge read is stale; check the source.';
+  await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: { rivers: [result] } }));
+  await page.goto('/favorites/');
+  const card = page.locator('.favorites-card');
+  await expect(card.locator('[data-field="favorite-summary"]')).toHaveText(result.readiness.reason);
+  await expect(card.locator('[data-field="favorite-weather"]')).toBeHidden();
+  await expect(card.locator('.score-orb')).not.toHaveClass(/score-orb--(great|good)/);
+  await expect(card.locator('[data-field="favorite-facts"]')).not.toContainText('High data confidence');
+  await expect(card.locator('[data-field="favorite-verdict"]')).toHaveText('Call unavailable');
+  result.readiness = { status: 'ready', label: 'Ready', reason: 'Synthetic current call.' };
+  result.explanation = 'Synthetic current call.';
+  await page.locator('[data-favorites-refresh]').click();
+  await expect(card.locator('[data-field="favorite-summary"]')).toHaveText('Synthetic current call.');
+  await expect(card.locator('[data-field="favorite-weather"]')).toBeVisible();
+  await expect(card.locator('.score-orb')).toHaveClass(/score-orb--good/);
 });
 
 test('saved routes survive a failed load and can retry without a reload', async ({ page }) => {

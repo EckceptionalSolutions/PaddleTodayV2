@@ -37,6 +37,7 @@ for (const blocked of ['read', 'write'] as const) {
     await page.locator('[name="state"]').fill('WI');
     await page.locator('[data-request-submit]').click();
     await expect(page.locator('[data-request-status]')).toHaveText('Request received. Thank you.');
+    await expect(page.locator('[data-request-status]')).toBeFocused();
     await expect(page.locator('[name="routeName"]')).toHaveValue('');
     await expect(page.locator('[data-request-submit]')).toBeEnabled();
     await page.locator('[data-request-submit]').click();
@@ -47,7 +48,7 @@ for (const blocked of ['read', 'write'] as const) {
 test('failed requests retain the draft and prepare an email fallback', async ({ page }) => {
   await page.route('**/api/route-request', (route) => route.fulfill({ status: 503, json: { error: 'Unavailable' } }));
   await page.goto('/request-river/?mode=update&routeName=St.%20Croix&state=WI&notes=Access%20closed');
-  await expect(page.locator('details')).toHaveAttribute('open');
+  await expect(page.locator('[data-request-form] details')).toHaveAttribute('open');
   await expect(page.locator('[name="notes"]')).toBeVisible();
   await page.locator('[data-request-submit]').click();
   await expect(page.locator('[data-request-status]')).toContainText('Your entries are still here');

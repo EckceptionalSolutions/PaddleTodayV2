@@ -99,7 +99,7 @@ export function createBoardStatusController({
 
     if (state === 'loading') {
       boardRefreshNote.textContent =
-        'Snapshot refreshes every 30 minutes. Checking for a newer board.';
+        'Board updates every 30 minutes. Checking for a newer board.';
       return;
     }
 

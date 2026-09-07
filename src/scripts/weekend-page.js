@@ -1470,6 +1470,8 @@ async function renderWeekendMap(routes) {
 }
 
 function renderWeekend(payload) {
+  delete document.body.dataset.weekendUnavailable;
+  if (retryButton instanceof HTMLButtonElement) retryButton.hidden = true;
   const items = Array.isArray(payload?.rivers) ? payload.rivers : [];
   const plan = buildWeekendPlan(items, {
     location: userLocation,
@@ -1510,8 +1512,8 @@ function hydrateFromCache() {
 async function loadWeekend({ silent = false } = {}) {
   const { requestId, controller } = weekendRequestGuard.begin();
   if (retryButton instanceof HTMLButtonElement) {
-    retryButton.hidden = true;
     retryButton.disabled = true;
+    retryButton.textContent = 'Retrying…';
   }
   if (!latestWeekendPayload && featuredPanel instanceof HTMLElement) {
     featuredPanel.setAttribute('aria-busy', 'true');
@@ -1546,11 +1548,13 @@ async function loadWeekend({ silent = false } = {}) {
     console.error('Failed to load weekend river scores.', error);
     if (retryButton instanceof HTMLButtonElement) retryButton.hidden = false;
 
-    if (latestWeekendItems.length > 0) {
+    if (latestWeekendPayload) {
       updateFreshness({ generatedAt: lastGeneratedAt, fallback: true });
       return;
     }
 
+    document.body.dataset.weekendUnavailable = 'true';
+    updateFreshness();
     updateSnapshotLine({ riverCount: 0, withheldCount: 0 });
     renderFeatured(null);
     setText(snapshotLine, 'The weekend outlook could not be loaded. Try again.');
@@ -1569,7 +1573,10 @@ async function loadWeekend({ silent = false } = {}) {
       weekendMapEmpty.hidden = false;
     }
   } finally {
-    if (weekendRequestGuard.isCurrent(requestId) && retryButton instanceof HTMLButtonElement) retryButton.disabled = false;
+    if (weekendRequestGuard.isCurrent(requestId) && retryButton instanceof HTMLButtonElement) {
+      retryButton.disabled = false;
+      retryButton.textContent = 'Retry weekend forecast';
+    }
     weekendRequestGuard.finish(controller);
   }
 }

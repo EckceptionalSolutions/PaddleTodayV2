@@ -42,7 +42,7 @@ const structuredData = {
   description="Browse Paddle Today guides for Midwest paddle trips, weekend route ideas, state route coverage, live water-level context, and source-backed planning notes."
   structuredData={structuredData}
 >
-  <section class="guide-hero guide-hero--flagship">
+  <section class="guide-hero guide-hero--flagship guide-hero--index">
     <div class="guide-hero__copy">
       <p class="hero__kicker">Guides</p>
       <h1>Paddling Guides</h1>
@@ -63,7 +63,7 @@ const structuredData = {
         <h2 class="section-title" id="featured-guides-title">Current trip guides</h2>
       </div>
     </div>
-    <div class="guide-explainer__grid">
+    <div class="guide-explainer__grid guide-explainer__grid--links">
       {guideLinks.map((guide) => (
         <article class="guide-explainer__item">
           <p class="eyebrow">{guide.label}</p>

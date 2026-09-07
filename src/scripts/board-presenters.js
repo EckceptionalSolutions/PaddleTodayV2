@@ -413,10 +413,10 @@ export function formatGeneratedFreshness(isoString) {
 
 export function formatBoardRefreshCopy(timestamp) {
   if (typeof timestamp === 'number' && Number.isFinite(timestamp)) {
-    return `Snapshot refreshes every 30 minutes. ${freshnessLabel(timestamp)}.`;
+    return `Board updates every 30 minutes. ${freshnessLabel(timestamp).replace(/^Updated/, 'Last checked')}.`;
   }
 
-  return 'Snapshot refreshes every 30 minutes.';
+  return 'Board updates every 30 minutes.';
 }
 
 export function regionStateText(item) {

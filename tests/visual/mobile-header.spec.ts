@@ -84,12 +84,12 @@ test.describe('mobile shared header', () => {
         expect(link.right).toBeLessThanOrEqual(layout.nav.right + 1);
         if (index > 0) expect(link.x).toBeGreaterThanOrEqual(layout.links[index - 1].right);
       }
-      if (width >= 380) {
-        expect(Math.abs(layout.search.y - layout.request.y)).toBeLessThan(2);
-        expect(layout.nav.right).toBeLessThanOrEqual(layout.request.x);
-      } else {
-        expect(layout.nav.y).toBeGreaterThanOrEqual(layout.request.bottom);
+      expect(Math.abs(layout.search.y - layout.request.y)).toBeLessThan(2);
+      expect(layout.nav.y).toBeGreaterThanOrEqual(layout.request.bottom);
+      for (const link of await page.locator('.site-header__nav-link').all()) {
+        expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
       }
+      await expect(page.locator('.site-header__nav-link[href="/"]')).toHaveAttribute('aria-current', 'page');
       await page.locator('.site-header').screenshot({ path: test.info().outputPath(`header-${width}.png`) });
     });
   }

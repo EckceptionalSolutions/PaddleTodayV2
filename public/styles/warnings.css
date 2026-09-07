@@ -77,3 +77,15 @@
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* The route warning sits at the right edge of its panel. */
+.pill--warning[data-field="live-warning"][data-tooltip]::after {
+  left: auto;
+  right: 0;
+  transform: translateY(0.2rem);
+}
+
+.pill--warning[data-field="live-warning"][data-tooltip]:hover::after,
+.pill--warning[data-field="live-warning"][data-tooltip]:focus-visible::after {
+  transform: translateY(0);
+}

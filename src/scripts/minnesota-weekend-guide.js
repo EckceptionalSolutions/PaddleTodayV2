@@ -9,6 +9,8 @@ const statusLine = document.querySelector('[data-guide-weekend-status]');
 const noteLine = document.querySelector('[data-guide-weekend-note]');
 const grid = document.querySelector('[data-guide-weekend-grid]');
 const emptyState = document.querySelector('[data-guide-weekend-empty]');
+const retry = document.querySelector('[data-guide-retry]');
+let pending = false;
 const cardTemplate = document.querySelector('[data-river-card-template]');
 const decentRatings = new Set(['Strong', 'Good']);
 
@@ -208,20 +210,31 @@ function renderGuide(payload) {
 }
 
 async function loadGuide() {
+  if (pending) return;
+  const fromRetry = document.activeElement === retry;
+  pending = true;
+  if (retry instanceof HTMLButtonElement) { retry.disabled = true; retry.textContent = 'Checking picks…'; }
   try {
     const payload = await getBrowserApiClient().getWeekendSummary({
       cache: 'no-store',
     });
     renderGuide(payload);
+    if (retry instanceof HTMLButtonElement) retry.hidden = true;
   } catch (error) {
     console.error('Failed to load Minnesota weekend guide.', error);
     setText(statusLine, 'Weekend recommendations are unavailable right now.');
-    setText(noteLine, 'Try the full weekend board or refresh this page in a few minutes.');
+    setText(noteLine, 'The weekend forecast could not be loaded. Retry to check for qualifying routes.');
+    if (retry instanceof HTMLButtonElement) retry.hidden = false;
     if (emptyState instanceof HTMLElement) {
-      emptyState.hidden = false;
+      emptyState.hidden = true;
     }
+  } finally {
+    pending = false;
+    if (retry instanceof HTMLButtonElement) { retry.disabled = false; retry.textContent = 'Retry weekend picks'; }
+    if (fromRetry && retry?.hidden && statusLine instanceof HTMLElement) statusLine.focus({ preventScroll: true });
   }
 }
 
+retry?.addEventListener('click', loadGuide);
 bindFavoriteButtons(document);
 loadGuide();

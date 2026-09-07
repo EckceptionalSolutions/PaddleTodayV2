@@ -300,6 +300,10 @@ if (
       setStatus(error instanceof Error ? error.message : 'Could not upload these photos right now.', 'error');
     } finally {
       setSubmitting(false);
+      if (statusNode instanceof HTMLElement && (document.activeElement === document.body || document.activeElement === submitButton)) {
+        statusNode.tabIndex = -1;
+        statusNode.focus({ preventScroll: true });
+      }
     }
   });
 }

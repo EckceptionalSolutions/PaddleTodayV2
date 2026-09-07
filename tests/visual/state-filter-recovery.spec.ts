@@ -1,5 +1,24 @@
 import { test, expect, type Route } from '@playwright/test';
 import { installMapLibreHarness } from './maplibre-harness';
+
+test('state name search combines with filters and resets the full route list', async ({ page }) => {
+  await installMapLibreHarness(page);
+  await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  await page.goto('/states/minnesota/');
+  const routes = page.locator('[data-state-route-item]');
+  const total = await routes.count();
+  const search = page.getByRole('searchbox', { name: 'Find a river or route' });
+  await search.fill('RICE creek');
+  const visible = page.locator('[data-state-route-item]:visible');
+  await expect(visible.first()).toContainText('Rice Creek');
+  expect(await visible.count()).toBeLessThan(total);
+  await search.fill('no-matching-river-here');
+  await expect(visible).toHaveCount(0);
+  await expect(page.locator('[data-state-filter-status]')).toContainText('No routes match');
+  await page.locator('[data-state-filter-reset]').click();
+  await expect(search).toHaveValue('');
+  await expect(visible).toHaveCount(total);
+});
 import fixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
 
 test('state filters keep zero-result lists and map markers aligned and reset by keyboard', async ({ page }) => {

@@ -1246,7 +1246,7 @@ function matchesHomeNearbyFilters(result) {
   return true;
 }
 
-function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
+function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false, unavailable = false } = {}) {
   const freshnessNodes = homeFreshnessNodes.filter((node) => node instanceof HTMLElement);
   if (freshnessNodes.length === 0) {
     return;
@@ -1258,7 +1258,7 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
     }
   }
 
-  const base = formatGeneratedFreshness(generatedAt);
+  const base = unavailable ? 'Latest refresh unavailable.' : formatGeneratedFreshness(generatedAt);
   if (refreshing && generatedAt) {
     for (const node of freshnessNodes) {
       node.textContent = `${base} Refreshing now...`;

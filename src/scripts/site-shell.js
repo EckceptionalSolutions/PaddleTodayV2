@@ -213,7 +213,9 @@ function renderSearchResults(query = '') {
 
   if (searchHint instanceof HTMLElement) {
     searchHint.textContent = trimmedQuery
-      ? `${results.length} ${results.length === 1 ? 'match' : 'matches'}`
+      ? results.length === 10
+        ? 'Top 10 matches. Add a town or route name to narrow your search.'
+        : `${results.length} ${results.length === 1 ? 'match' : 'matches'}`
       : 'All rivers and routes. Type to narrow by river, route, town, or area.';
   }
 
@@ -481,6 +483,7 @@ function bindAppDownloadPrompt() {
     }
 
     link.href = href;
+    link.classList.toggle('app-download-prompt__cta--secondary', enabledPlatforms.length > 0);
     link.dataset.analyticsLabel = linkPlatform;
     link.dataset.analyticsPlatform = linkPlatform;
     enabledPlatforms.push(linkPlatform);
@@ -492,6 +495,12 @@ function bindAppDownloadPrompt() {
 
   appDownloadPrompt.dataset.platform = platform || 'desktop';
   appDownloadPrompt.hidden = false;
+  const syncPromptClearance = () => {
+    const height = appDownloadPrompt.hidden ? 0 : Math.ceil(appDownloadPrompt.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--app-prompt-height', `${height}px`);
+  };
+  syncPromptClearance();
+  new ResizeObserver(syncPromptClearance).observe(appDownloadPrompt);
   trackEvent('View app download', {
     path,
     platform: platform || 'desktop',

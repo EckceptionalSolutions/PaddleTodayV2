@@ -42,7 +42,6 @@ const aboutStructuredData = {
       Minnesota, Wisconsin, and Iowa, with more rivers added as the data quality
       supports it.
     </p>
-    <p></p>
     <p class="muted">
       This project is new and still changing quickly, with direction shaped by
       community feedback.
@@ -67,7 +66,8 @@ const aboutStructuredData = {
         <strong>Bottom line:</strong> Water level/flow decides if a river is paddleable.
         Weather and other factors increase or decrease the score from there.
       </p>
-      <div class="about-score-table-scroll" role="region" aria-labelledby="how-scoring-works" tabindex="0">
+      <p class="about-score-table-hint" id="about-score-table-hint">Scroll sideways to compare all scoring criteria <span aria-hidden="true">→</span></p>
+      <div class="about-score-table-scroll" role="region" aria-labelledby="how-scoring-works" aria-describedby="about-score-table-hint" tabindex="0">
       <table class="about-score-table">
         <thead>
           <tr>

@@ -190,13 +190,6 @@ const homepageStructuredData = [
               >
                 Full day
               </button>
-              <button
-                class="filter-chip filter-chip--quiet home-radius-panel__preset"
-                type="button"
-                data-home-reset-filters
-              >
-                Clear filters
-              </button>
             </div>
           </div>
 
@@ -220,10 +213,10 @@ const homepageStructuredData = [
                     Search radius
                   </p>
                 </div>
+                <output class="home-radius-panel__value" for="home-radius-slider" data-home-radius-value>Within 50 miles</output>
               </div>
 
               <div class="home-radius-panel__slider-stack">
-                <output class="home-radius-panel__value" for="home-radius-slider" data-home-radius-value>Within 50 miles</output>
                 <label class="home-radius-panel__slider-wrap">
                   <span class="sr-only">Search radius in miles</span>
                   <input
@@ -314,13 +307,24 @@ const homepageStructuredData = [
                     <option value="7-plus">7+ hr</option>
                   </select>
                 </label>
+              </section>
+
+              <section class="home-filter-group" aria-labelledby="home-filter-paddle-length">
+                <div class="home-filter-group__head">
+                  <span class="home-filter-group__icon" aria-hidden="true">
+                    <FeatureIcon name="map" size={16} />
+                  </span>
+                  <div>
+                    <p class="home-radius-panel__field-label" id="home-filter-paddle-length">Paddle length</p>
+                  </div>
+                </div>
                 <label class="filter-select home-radius-panel__select">
                   <span class="sr-only">Filter by paddle length</span>
                   <select
                     class="filter-select__input"
                     data-home-paddle-length-select
                   >
-                    <option value="any">Any paddle length</option>
+                    <option value="any">Any length</option>
                     <option value="under-5">Under 5 mi</option>
                     <option value="5-to-10">5–10 mi</option>
                     <option value="10-plus">10+ mi</option>
@@ -386,10 +390,12 @@ const homepageStructuredData = [
         data-home-featured
       >
         <div class="home-featured__lock">
+          <span class="home-featured__lock-icon" aria-hidden="true"><FeatureIcon name="compass" size={36} /></span>
           <p class="home-featured__lock-label">Today&apos;s Best</p>
           <p class="home-featured__lock-copy">
             Add a city or ZIP to unlock the best nearby pick.
           </p>
+          <a class="river-link river-link--inline home-featured__lock-action" href="#home-location">Choose your location</a>
         </div>
 
         <div class="home-featured__body">
@@ -491,6 +497,27 @@ const homepageStructuredData = [
             </div>
           </div>
 
+          <div class="home-featured__actions">
+            <a
+              class="river-link river-link--inline river-link--wide river-link--primary home-featured__link"
+              href="#best-options"
+              data-featured-link
+            >
+              Set location first
+            </a>
+            <a
+              class="river-link river-link--inline river-link--wide river-link--ghost home-featured__compare-link"
+              href="#best-options"
+              data-featured-compare-link
+              hidden
+            >
+              Compare routes
+            </a>
+            <a class="home-featured__jump-link" href="#best-options" data-home-jump-target="best-options">
+              View more top picks
+            </a>
+          </div>
+
           <figure class="home-featured__gallery route-photo-preview" data-featured-gallery hidden>
             <img
               class="home-featured__gallery-image"
@@ -562,27 +589,11 @@ const homepageStructuredData = [
             </div>
           </section>
 
-          <ul class="hero-call__reasons" data-featured-reasons hidden></ul>
-          <div class="home-featured__actions">
-            <a
-              class="river-link river-link--inline river-link--wide river-link--primary home-featured__link"
-              href="#best-options"
-              data-featured-link
-            >
-              Set location first
-            </a>
-            <a
-              class="river-link river-link--inline river-link--wide river-link--ghost home-featured__compare-link"
-              href="#best-options"
-              data-featured-compare-link
-              hidden
-            >
-              Compare routes
-            </a>
-            <a class="home-featured__jump-link" href="#best-options" data-home-jump-target="best-options">
-              View more top picks
-            </a>
-          </div>
+          <details class="home-featured__rationale">
+            <summary>Why this route</summary>
+            <ul class="hero-call__reasons" data-featured-reasons hidden></ul>
+          </details>
+
         </div>
       </section>
     </aside>
@@ -646,6 +657,13 @@ const homepageStructuredData = [
         </div>
       </div>
 
+      <section class="status-banner status-banner--hidden" data-board-fetch-banner role="status" hidden>
+        <div class="status-banner__body">
+          <strong data-board-fetch-title></strong>
+          <p class="muted" data-board-fetch-detail></p>
+        </div>
+      </section>
+
       <div class="home-recommendations__setup" aria-live="polite">
         <p class="home-recommendations__setup-note" data-home-setup-note>
           These picks update as you change location and preferences.
@@ -670,11 +688,13 @@ const homepageStructuredData = [
             >
               Reset filters
             </button>
+            <button class="filter-chip home-recommendations__refresh" type="button" data-board-refresh>Refresh board</button>
           </div>
           <div class="home-recommendations__setup-pills" data-home-setup-pills>
           </div>
         </div>
       </div>
+      <p class="muted home-recommendations__refresh-note" data-board-refresh-note role="status"></p>
       <SummaryMapPanel
         id="home-results-map"
         mode="explore"

@@ -430,7 +430,7 @@ const routeFaqStructuredData = {
               <aside class="river-call-panel route-today-score" aria-label="Today's paddle score">
                 <p class="eyebrow">Trip quality</p>
                 <div class="river-call-panel__scoreline">
-                  <div class="score-orb score-orb--featured" aria-label="Live score loading">
+                  <div class="score-orb score-orb--featured" role="img" aria-label="Live score loading">
                     <span class="score-orb__score" data-field="score">--</span>
                     <span class="score-orb__rating" data-field="rating">Checking</span>
                   </div>
@@ -904,7 +904,7 @@ const routeFaqStructuredData = {
               </p>
               <h3 class="river-subtitle river-subtitle--compact" data-field="gauge-visual-title">Recent trend</h3>
             </div>
-            <p class="muted river-why-panel__section-note" data-field="chart-caption">
+            <p class="muted river-why-panel__section-note" data-field="chart-caption" id="gauge-chart-description">
               Checking preferred range.
             </p>
           </div>
@@ -914,21 +914,22 @@ const routeFaqStructuredData = {
           <div class="gauge-visual">
             <div class="gauge-visual__controls">
               <div class="segmented-control" role="group" aria-label="Gauge chart range">
-                <button class="segmented-control__button" type="button" data-chart-window="24">
+                <button class="segmented-control__button" type="button" data-chart-window="24" disabled>
                   24h
                 </button>
                 <button
                   class="segmented-control__button segmented-control__button--active"
                   type="button"
                   data-chart-window="72"
+                  disabled
                 >
                   72h
                 </button>
-                <button class="segmented-control__button" type="button" data-chart-window="168">
+                <button class="segmented-control__button" type="button" data-chart-window="168" disabled>
                   7d
                 </button>
               </div>
-              <p class="gauge-visual__trend muted" data-field="chart-trend-note">
+              <p class="gauge-visual__trend muted" data-field="chart-trend-note" id="gauge-chart-trend-description">
                 Checking trend.
               </p>
             </div>
@@ -942,6 +943,7 @@ const routeFaqStructuredData = {
                   height="210"
                   role="img"
                   aria-label="Recent gauge trend chart"
+                  aria-describedby="gauge-chart-description gauge-chart-trend-description"
                 >
                   <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
 
@@ -959,8 +961,8 @@ const routeFaqStructuredData = {
                   <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
                   <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
 
-                  <path data-chart-line d="M62 140 L392 90" />
-                  <circle data-chart-dot cx="392" cy="90" r="4" />
+                  <path data-chart-line d="" visibility="hidden" />
+                  <circle data-chart-dot cx="0" cy="0" r="4" visibility="hidden" />
 
                   <g class="gauge-chart__labels gauge-chart__labels--y">
                     <text x="12" y="31" data-chart-y-max>--</text>
@@ -1992,7 +1994,7 @@ const routeFaqStructuredData = {
               </label>
 
               <div class="request-form__actions">
-                <button class="filter-chip" type="submit" data-route-photo-submit>Upload photos</button>
+                <button class="filter-chip request-form__submit" type="submit" data-route-photo-submit>Upload photos</button>
               </div>
 
               <p class="muted request-form__status route-photo-form__status" data-route-photo-status aria-live="polite"></p>
@@ -2149,7 +2151,7 @@ const routeFaqStructuredData = {
               </label>
 
               <div class="request-form__actions">
-                <button class="filter-chip" type="submit" data-route-report-submit>Send condition report</button>
+                <button class="filter-chip request-form__submit" type="submit" data-route-report-submit>Send condition report</button>
               </div>
 
               <p class="muted request-form__status route-photo-form__status" data-route-report-status aria-live="polite"></p>

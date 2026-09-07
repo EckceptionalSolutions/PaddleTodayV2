@@ -83,7 +83,7 @@ const structuredData = [
           <a class="states-index-card" href={`/states/${state.slug}/`}>
             <span>
               <strong>{state.name}</strong>
-              <span>{state.regions.join(' / ')}</span>
+              <span>{state.riverCount} {state.riverCount === 1 ? 'river' : 'rivers'} to explore</span>
             </span>
             <span>
               {state.routeCount} {state.routeCount === 1 ? 'route' : 'routes'}

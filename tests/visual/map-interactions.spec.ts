@@ -181,6 +181,44 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-home-location-summary]')).toContainText('Milaca');
   });
 
+  test('home recommendations can recover from a failed initial load', async ({ page }) => {
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+    await page.goto('/');
+    const banner = page.locator('[data-board-fetch-banner]');
+    await expect(banner).toBeVisible();
+    await expect(banner).toContainText('Live board could not be loaded');
+    await expect(page.locator('[data-home-freshness]').first()).toHaveText('Latest refresh unavailable.');
+    await expect(page.locator('.summary-map-shell--home')).toBeHidden();
+    await expect(page.locator('[data-home-route-mix]')).toBeHidden();
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    await page.getByRole('button', { name: 'Refresh board', exact: true }).click();
+    await expect(banner).toBeHidden();
+    await expect(page.locator('[data-home-freshness]').first()).not.toHaveText('Latest refresh unavailable.');
+    await expect(page.locator('.summary-map-shell--home')).toBeVisible();
+    await expect(page.locator('[data-board-refresh-note]')).not.toContainText('failed');
+    await expect(page.locator('[data-home-strong-count]')).toHaveText('1');
+  });
+
+  test('Explore replaces failed placeholders with a working retry action', async ({ page }) => {
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+    await page.goto('/explore/');
+    await expect(page.locator('[data-board-fetch-banner]')).toBeVisible();
+    await expect(page.locator('.explore-workspace__body')).toBeHidden();
+    await expect(page.locator('.board-filters__group--controls')).toBeHidden();
+    await expect(page.locator('[data-location-input]')).toBeVisible();
+    const retry = page.getByRole('button', { name: 'Refresh data', exact: true });
+    await expect(retry).toBeVisible();
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    await retry.click();
+    await expect(page.locator('[data-board-fetch-banner]')).toBeHidden();
+    await expect(page.locator('.explore-workspace__body')).toBeVisible();
+    await expect(page.locator('[data-filter-search]')).toBeEnabled();
+    await page.locator('.board-filters__advanced-header').click();
+    await expect(page.locator('.explore-filter-label')).toHaveCount(7);
+    await expect(page.getByRole('combobox', { name: 'Filter by state', exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+
   test('radius readout and state directory follow their controls', async ({ page }) => {
     await page.goto('/');
     const preferences = page.locator('[data-home-preferences]');
@@ -561,9 +599,14 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-weekend-retry]')).toBeVisible();
     await expect(hero).toHaveAttribute('aria-busy', 'false');
     await expect(page.locator('[data-weekend-featured-name]')).toHaveText('Weekend outlook unavailable');
+    await expect(page.locator('.weekend-planner')).toBeHidden();
+    await expect(page.locator('[data-weekend-map-section]')).toBeHidden();
+    await expect(page.locator('.weekend-hero a[href="#weekend-results"]')).toBeHidden();
     fail = false;
     await page.locator('[data-weekend-retry]').click();
     await expect(page.locator('[data-weekend-featured-name]')).toHaveText('Rum River');
+    await expect(page.locator('.weekend-planner')).toBeVisible();
+    await expect(page.locator('[data-weekend-map-section]')).toBeVisible();
     await expect(hero).not.toHaveAttribute('aria-hidden');
     await expect(page.locator('[data-weekend-featured-link]')).toBeVisible();
     await expect(page.locator('[data-weekend-retry]')).not.toBeVisible();
@@ -588,7 +631,7 @@ test.describe('product polish interactions', () => {
     await expect(useLocation).toBeDisabled();
     await expect(useLocation).toHaveText('Finding...');
     await expect(page.locator('[data-weekend-location-hint]')).toHaveText('Finding your location...');
-    await page.evaluate(async () => { await (window as any).__weekendGps({ coords: { latitude: 45.75, longitude: -93.65 } }); });
+    await page.evaluate(() => { void (window as any).__weekendGps({ coords: { latitude: 45.75, longitude: -93.65 } }); });
     await expect(page.locator('[data-weekend-location-label]')).toHaveText('Planning from Milaca, MN');
     await expect(useLocation).toBeHidden();
     await page.locator('[data-weekend-location-clear]').click();

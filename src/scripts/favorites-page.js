@@ -138,7 +138,7 @@ function weatherBadgeMarkup(item) {
 
 function routeFactsMarkup(item) {
   const facts = [];
-  if (item?.confidence?.label) facts.push(confidenceDisplayLabel(item.confidence.label));
+  if (item?.confidence?.label && !isCurrentCallUnavailable(item)) facts.push(confidenceDisplayLabel(item.confidence.label));
   if (item?.river?.lengthMiles) facts.push(`${item.river.lengthMiles} mi on-water`);
   if (difficultyLabel(item)) facts.push(difficultyLabel(item));
   if (item?.river?.estimatedPaddleTime) facts.push(item.river.estimatedPaddleTime);
@@ -420,23 +420,24 @@ function renderFavoriteCard(favorite, current) {
       ? savedRouteChanges(previous.snapshot, savedRouteSnapshot(current)) : [];
     const changeField = setText(card, 'favorite-changes', changes.length ? `Since your last visit: ${changes.join(' · ')}` : '');
     if (changeField) changeField.hidden = changes.length === 0;
-    const tone = ratingToneKey(current.rating);
-    card.classList.add(`river-card--${tone}`);
-    if (orb instanceof HTMLElement) {
-      orb.classList.add(`score-orb--${tone}`);
-    }
-
     const callUnavailable = isCurrentCallUnavailable(current);
+    const tone = ratingToneKey(current.rating);
+    if (!callUnavailable) {
+      card.classList.add(`river-card--${tone}`);
+      if (orb instanceof HTMLElement) orb.classList.add(`score-orb--${tone}`);
+    }
     setText(card, 'favorite-score', callUnavailable ? '--' : String(current.score));
     setText(card, 'favorite-rating', callUnavailable ? 'Not enough data' : ratingDisplayLabel(current.rating, { compact: true }));
-    setText(card, 'favorite-verdict', callLabelForDecision(current.rating, current.readiness?.status));
+    setText(card, 'favorite-verdict', callUnavailable ? 'Call unavailable' : callLabelForDecision(current.rating, current.readiness?.status));
     setText(card, 'favorite-meta', metaLine(current));
-    setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');
+    setText(card, 'favorite-summary', callUnavailable
+      ? current.readiness?.reason || 'Current conditions cannot support a call. Open the route and verify its sources before you go.'
+      : current.summary?.shortExplanation || current.explanation || 'Current route read available.');
     setText(card, 'favorite-signal', current.summary?.rawSignalLine || current.summary?.gaugeNow || 'Live signal unavailable.');
     const weather = card.querySelector('[data-field="favorite-weather"]');
     if (weather instanceof HTMLElement) {
       weather.innerHTML = weatherBadgeMarkup(current);
-      weather.hidden = false;
+      weather.hidden = callUnavailable;
     }
     const facts = card.querySelector('[data-field="favorite-facts"]');
     const factsSection = card.querySelector('[data-field="favorite-facts-section"]');

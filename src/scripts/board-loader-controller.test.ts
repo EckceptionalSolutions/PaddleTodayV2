@@ -91,11 +91,11 @@ describe('board loader controller', () => {
     );
     expect(callbacks.setFetchBannerState).toHaveBeenCalledWith(
       'stale',
-      expect.stringContaining('snapshot worker is delayed'),
+      expect.stringContaining('latest board update is delayed'),
     );
     expect(callbacks.setRefreshState).toHaveBeenCalledWith(
       'error',
-      expect.stringContaining('Latest snapshot is stale'),
+      expect.stringContaining('latest board is out of date'),
     );
     expect(callbacks.updateFreshness).toHaveBeenLastCalledWith({
       generatedAt: '2026-07-27T08:00:00.000Z',
@@ -170,6 +170,6 @@ describe('board loader controller', () => {
       'Last refresh failed. Retry now.',
     );
     expect(callbacks.showInitialFailure).toHaveBeenCalledOnce();
-    expect(callbacks.updateFreshness).toHaveBeenLastCalledWith();
+    expect(callbacks.updateFreshness).toHaveBeenLastCalledWith({ unavailable: true });
   });
 });

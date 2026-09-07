@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
+import FeatureIcon from '../components/FeatureIcon.astro';
 ---
 
 <BaseLayout
@@ -66,7 +67,8 @@ import FavoriteButton from '../components/FavoriteButton.astro';
     </section>
 
     <div class="favorites-page__empty decision-placeholder" data-favorites-empty hidden>
-      <p class="favorites-page__empty-title">No saved routes yet.</p>
+      <span class="favorites-page__empty-icon" aria-hidden="true"><FeatureIcon name="map" size={28} /></span>
+      <h2 class="favorites-page__empty-title">No saved routes yet.</h2>
       <p class="muted favorites-page__empty-copy">
         Save a route from a route page or route card and it will show up here.
       </p>

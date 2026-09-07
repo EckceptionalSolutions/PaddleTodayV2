@@ -256,6 +256,7 @@ const structuredData = [
           Paddle Today only lists routes when the gauge, threshold, and source support are defensible enough for live route scoring.
         </p>
         <div class="river-group-page__actions">
+          <a class="river-link river-link--inline river-link--primary" href="#state-all-routes-title">Find a route</a>
           <a class="river-link river-link--inline" href={requestStateHref}>Request a missing {stateGroup.name} route</a>
           <a class="river-link river-link--inline river-link--ghost" href="/explore/">Browse all routes</a>
         </div>
@@ -474,7 +475,7 @@ const structuredData = [
           <h2 class="section-title" id="state-river-groups-title">Rivers and regions</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Compact directory links for crawlers and planners.
+          Expand a river or region to browse its routes.
         </p>
       </div>
       <nav class="state-browse-nav" aria-label={`${stateGroup.name} browse shortcuts`}>
@@ -490,7 +491,7 @@ const structuredData = [
               <h3 id="state-corridors-title">By corridor</h3>
               <div class="state-accordion-list">
                 {routePresentationFamilies.map((family) => (
-                  <details class="state-directory-group" open>
+                  <details class="state-directory-group">
                     <summary>
                       <span>{family.label}</span>
                       <span>{family.routes.length}</span>
@@ -510,7 +511,7 @@ const structuredData = [
           <h3 id="state-rivers-title">By river</h3>
           <div class="state-accordion-list">
             {routeGroupsByRiver.map((group) => (
-              <details class="state-directory-group" open>
+              <details class="state-directory-group">
                 <summary>
                   <span>{group.name}</span>
                   <span>{group.routes.length}</span>
@@ -531,7 +532,7 @@ const structuredData = [
           <h3 id="state-region-groups-title">By region</h3>
           <div class="state-accordion-list">
             {routesByRegion.map(({ region, routes }) => (
-              <details class="state-directory-group" id={`region-${slugifyFragment(region)}`} open>
+              <details class="state-directory-group" id={`region-${slugifyFragment(region)}`}>
                 <summary>
                   <span>{region}</span>
                   <span>{routes.length}</span>
@@ -569,8 +570,12 @@ const structuredData = [
         </p>
       </div>
       <form class="state-route-filters" data-state-route-filters aria-label={`${stateGroup.name} route filters`}>
+        <label class="state-route-filters__search">
+          <span class="state-route-filters__label">Find a river or route</span>
+          <input type="search" name="query" placeholder="River, route, or area" aria-controls="state-filtered-routes" />
+        </label>
         <label class="filter-select">
-          <span class="sr-only">Filter by difficulty</span>
+          <span class="state-route-filters__label">Filter by difficulty</span>
           <select class="filter-select__input" name="difficulty" data-state-filter="difficulty">
             <option value="">Any difficulty</option>
             <option value="easy">Easy</option>
@@ -579,21 +584,21 @@ const structuredData = [
           </select>
         </label>
         <label class="filter-select">
-          <span class="sr-only">Filter by region</span>
+          <span class="state-route-filters__label">Filter by region</span>
           <select class="filter-select__input" name="region" data-state-filter="region">
             <option value="">All regions</option>
             {stateGroup.regions.map((region) => <option value={region}>{region}</option>)}
           </select>
         </label>
         <label class="filter-select">
-          <span class="sr-only">Filter by river</span>
+          <span class="state-route-filters__label">Filter by river</span>
           <select class="filter-select__input" name="river" data-state-filter="river">
             <option value="">All rivers</option>
             {routeGroupsByRiver.map((group) => <option value={group.riverId}>{group.name}</option>)}
           </select>
         </label>
         <label class="filter-select">
-          <span class="sr-only">Filter by route type</span>
+          <span class="state-route-filters__label">Filter by route type</span>
           <select class="filter-select__input" name="routeType" data-state-filter="routeType">
             <option value="">All route types</option>
             <option value="recreational">Flatwater / moving water</option>
@@ -605,7 +610,7 @@ const structuredData = [
       <p class="muted state-route-filter-status" data-state-filter-status role="status" aria-live="polite" aria-atomic="true">
         Showing all {stateRouteCount} {routeLabel}.
       </p>
-      <div class="state-route-list state-route-list--all" data-state-route-list>
+      <div class="state-route-list state-route-list--all" data-state-route-list id="state-filtered-routes">
         {stateRoutes.map((route) => (
           <a
             class="state-route-list__item"

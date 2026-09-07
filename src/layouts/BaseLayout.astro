@@ -39,6 +39,7 @@ const {
 } =
   Astro.props as Props;
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const currentPage = Astro.url.pathname.replace(/\/$/, '') || '/';
 const socialImage = socialImageProp
   ? Astro.site
     ? new URL(socialImageProp, Astro.site).href
@@ -182,17 +183,17 @@ const appDownloadConfigJson = JSON.stringify({
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
             <nav class="site-header__nav" aria-label="Primary">
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/">Today</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/">Weekend</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/" aria-current={currentPage === '/' ? 'page' : undefined}>Today</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/" aria-current={currentPage === '/weekend' ? 'page' : undefined}>Weekend</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/" aria-current={currentPage === '/explore' ? 'page' : undefined}>
                 <span class="site-header__nav-label site-header__nav-label--full">Explore</span>
                 <span class="site-header__nav-label site-header__nav-label--short">Explore</span>
               </a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" data-site-favorites-link hidden>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" aria-current={currentPage === '/favorites' ? 'page' : undefined} data-site-favorites-link hidden>
                 Saved routes <span data-site-favorites-count></span>
               </a>
             </nav>
-            <a class="site-header__action" href="/request-river/" data-analytics-event="Open route request">
+            <a class="site-header__action" href="/request-river/" aria-current={currentPage === '/request-river' ? 'page' : undefined} data-analytics-event="Open route request">
               <span class="site-header__action-label site-header__action-label--full">Request</span>
               <span class="site-header__action-label site-header__action-label--short">Request</span>
             </a>
@@ -206,6 +207,10 @@ const appDownloadConfigJson = JSON.stringify({
           </p>
         </div>
       </header>
+
+      <main class="main-shell" id="main-content" tabindex="-1">
+        <slot />
+      </main>
 
       <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
         <button
@@ -253,10 +258,6 @@ const appDownloadConfigJson = JSON.stringify({
         </div>
       </aside>
 
-      <main class="main-shell" id="main-content" tabindex="-1">
-        <slot />
-      </main>
-
       <footer class="site-footer">
         <nav class="site-footer__nav" aria-label="Footer">
           <a class="site-footer__link" href="/about/">About</a>
@@ -269,12 +270,14 @@ const appDownloadConfigJson = JSON.stringify({
           <a class="site-footer__link" href="/privacy/">Privacy</a>
           <a class="site-footer__link" href="/terms/">Terms</a>
         </nav>
-        <nav class="site-footer__nav site-footer__nav--states" aria-label="State route pages">
-          <span class="site-footer__label">State pages</span>
-          {footerStateLinks.map((state) => (
-            <a class="site-footer__link" href={`/states/${state.slug}/`}>{state.name}</a>
-          ))}
-        </nav>
+        <details class="site-footer__states">
+          <summary>Browse routes by state</summary>
+          <nav class="site-footer__nav site-footer__nav--states" aria-label="State route pages">
+            {footerStateLinks.map((state) => (
+              <a class="site-footer__link" href={`/states/${state.slug}/`}>{state.name}</a>
+            ))}
+          </nav>
+        </details>
       </footer>
 
       <section class="site-search-dialog" data-site-search hidden>

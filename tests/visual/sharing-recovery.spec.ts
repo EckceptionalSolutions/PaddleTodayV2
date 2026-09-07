@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import routeFixture from '../mobile-web/fixtures/route-detail.json' with { type: 'json' };
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
@@ -10,6 +11,24 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+test('route warning tooltip stays inside tablet layouts', async ({ page }) => {
+  await page.goto('/rivers/rice-creek-peltier-to-long-lake/');
+  const warning = page.locator('[data-field="live-warning"]');
+  await expect(warning).toBeVisible();
+  for (const width of [768, 820, 1024]) {
+    await page.setViewportSize({ width, height: 900 });
+    await warning.focus();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
+    await expect(page.locator('.site-header__action')).toBeVisible();
+    const tooltip = await warning.evaluate(element => {
+      const style = getComputedStyle(element, '::after');
+      return { right: style.right, opacity: style.opacity };
+    });
+    expect(tooltip.right).toBe('0px');
+    await expect.poll(() => warning.evaluate(element => getComputedStyle(element, '::after').opacity)).toBe('1');
+  }
+});
+
 test('route overview navigation keeps the overview link active', async ({ page }) => {
   await page.goto('/rivers/rice-creek-peltier-to-long-lake/');
   const overview = page.locator('[data-detail-nav-link="overview"]');
@@ -17,6 +36,41 @@ test('route overview navigation keeps the overview link active', async ({ page }
   await overview.click();
   await expect(overview).toHaveClass(/river-detail__section-link--active/);
   await expect(gaugeHistory).not.toHaveClass(/river-detail__section-link--active/);
+  await expect(page.locator('#route-overview')).toBeFocused();
+  await expect.poll(() => page.locator('#route-overview').evaluate(element => Math.round(element.getBoundingClientRect().top))).toBe(22);
+});
+
+test('a failed route score stops checking and recovers through retry', async ({ page }) => {
+  await page.goto('/rivers/rice-creek-peltier-to-long-lake/');
+  const orb = page.locator('.river-call-panel .score-orb');
+  const breakdown = page.locator('.route-today-score__breakdown');
+  await expect(orb).toHaveAccessibleName('Live score unavailable');
+  await expect(page.locator('[data-chart-line]')).toHaveAttribute('visibility', 'hidden');
+  await expect(page.locator('[data-chart-window="72"]')).toBeDisabled();
+  await expect(orb.locator('[data-field="rating"]')).toHaveText('Unavailable');
+  await expect(breakdown).toBeHidden();
+  const recovered = structuredClone(routeFixture);
+  recovered.result.readiness = { status: 'ready', label: 'Ready', reason: 'Synthetic recovery fixture.' };
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json*', async route => {
+    await gate;
+    await route.fulfill({ json: recovered });
+  });
+  const retry = page.locator('[data-detail-fetch-retry]');
+  await retry.click();
+  await expect(retry).toBeDisabled();
+  await expect(retry).toHaveText('Retrying...');
+  release();
+  await expect(page.locator('[data-detail-fetch-banner]')).toBeHidden();
+  await expect(orb).toHaveAccessibleName(/Live score 88 out of 100/);
+  await expect(page.locator('[data-chart-line]')).toHaveAttribute('visibility', 'visible');
+  await expect(page.locator('[data-chart-window="72"]')).toBeEnabled();
+  await expect(breakdown).toBeVisible();
+  await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json*', route => route.fulfill({ json: routeFixture }));
+  await page.reload();
+  await expect(orb).toHaveAccessibleName('Live score unavailable: not enough data');
+  await expect(breakdown).toBeHidden();
 });
 
 test('blocked float-plan sharing leaves the full plan selected for manual copy', async ({ page }) => {

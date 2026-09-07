@@ -1833,6 +1833,7 @@ async function loadGroup({ silent = false } = {}) {
       throw new Error(`River group ${riverId} returned no routes.`);
     }
 
+    delete root.dataset.initialUnavailable;
     currentResult = {
       group: result.group,
       routes,
@@ -1885,6 +1886,13 @@ async function loadGroup({ silent = false } = {}) {
       return;
     }
     console.error('Failed to load river group page.', error);
+    if (!currentResult) {
+      root.dataset.initialUnavailable = 'true';
+      root.querySelectorAll('[data-group-initial-score]').forEach(element => { element.textContent = 'No data'; });
+      root.querySelectorAll('[data-group-route-select]').forEach(element => {
+        if (element instanceof HTMLButtonElement) element.disabled = true;
+      });
+    }
     setBanner(
       'offline',
       'Route comparison is unavailable right now.',

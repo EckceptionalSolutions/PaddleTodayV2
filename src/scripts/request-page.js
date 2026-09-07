@@ -77,6 +77,10 @@ if (form instanceof HTMLFormElement) {
       fallbackToEmail({ routeName, state, putIn, takeOut, sources, notes, replyEmail });
     } finally {
       setSubmitting(false);
+      if (status instanceof HTMLElement && (document.activeElement === document.body || document.activeElement === submitButton)) {
+        status.tabIndex = -1;
+        status.focus({ preventScroll: true });
+      }
     }
   });
 }

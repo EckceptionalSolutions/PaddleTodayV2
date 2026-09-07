@@ -48,6 +48,7 @@ test('a response that did not store the upload preserves photos and captions', a
   await page.locator('[data-contribute-consent]').check();
   await page.locator('[data-contribute-submit]').click();
   await expect(page.locator('[data-contribute-status]')).toContainText('not received');
+  await expect(page.locator('[data-contribute-status]')).toBeFocused();
   await expect(page.locator('[data-upload-caption]')).toHaveValue('The launch');
   await expect(page.locator('[data-contribute-submit]')).toBeEnabled();
 });

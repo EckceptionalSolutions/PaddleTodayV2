@@ -50,6 +50,10 @@ const trackedRiverCount = riverGroups.length;
         <h2 class="sr-only" id="explore-workspace-heading">Explore workspace</h2>
 
         <section class="board-filters board-filters--full board-filters--embedded" aria-label="Explore workspace controls">
+          <div class="explore-refresh">
+            <p class="muted" data-board-refresh-note role="status"></p>
+            <button class="filter-chip" type="button" data-board-refresh>Refresh data</button>
+          </div>
           <div class="board-filters__workspace">
             <section class="board-filters__group board-filters__group--location" aria-labelledby="explore-location-heading">
               <div class="board-filters__group-head">
@@ -174,14 +178,14 @@ const trackedRiverCount = riverGroups.length;
                 </summary>
                 <div class="board-filters__controls board-filters__controls--secondary">
                   <label class="filter-select">
-                    <span class="sr-only">Filter by state</span>
+                    <span class="explore-filter-label">Filter by state</span>
                     <select class="filter-select__input" data-filter-state disabled data-explore-wait>
                       <option value="">All states</option>
                       {states.map((state) => <option value={state}>{state}</option>)}
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by difficulty</span>
+                    <span class="explore-filter-label">Filter by difficulty</span>
                     <select class="filter-select__input" data-filter-difficulty disabled data-explore-wait>
                       <option value="">Any difficulty</option>
                       <option value="easy">Easy</option>
@@ -190,7 +194,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by whitewater routes</span>
+                    <span class="explore-filter-label">Route type</span>
                     <select class="filter-select__input" data-filter-route-type disabled data-explore-wait>
                       <option value="non-whitewater" selected>Non-whitewater routes</option>
                       <option value="whitewater">Whitewater only</option>
@@ -198,7 +202,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by camping options</span>
+                    <span class="explore-filter-label">Filter by camping options</span>
                     <select class="filter-select__input" data-filter-camping disabled data-explore-wait>
                       <option value="">Any camping option</option>
                       <option value="any-support">Camping available</option>
@@ -208,7 +212,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by drive distance</span>
+                    <span class="explore-filter-label">Filter by drive distance</span>
                     <select class="filter-select__input" data-filter-distance disabled data-explore-wait>
                       <option value="">Any drive distance</option>
                       <option value="25">Within 25 miles</option>
@@ -220,7 +224,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by paddle time</span>
+                    <span class="explore-filter-label">Filter by paddle time</span>
                     <select class="filter-select__input" data-filter-paddle-time disabled data-explore-wait>
                       <option value="">Any paddle time</option>
                       <option value="up-to-3">Under 3 hr</option>
@@ -230,7 +234,7 @@ const trackedRiverCount = riverGroups.length;
                     </select>
                   </label>
                   <label class="filter-select">
-                    <span class="sr-only">Filter by paddle length</span>
+                    <span class="explore-filter-label">Filter by paddle length</span>
                     <select class="filter-select__input" data-filter-paddle-length disabled data-explore-wait>
                       <option value="">Any paddle length</option>
                       <option value="under-5">Under 5 mi</option>
@@ -245,7 +249,6 @@ const trackedRiverCount = riverGroups.length;
                 <button class="filter-chip filter-chip--quiet" type="button" data-explore-share disabled data-explore-wait>Copy search link</button>
                 <input class="explore-share-link" type="text" readonly hidden aria-label="Search link to copy" data-explore-share-link />
                 <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset disabled data-explore-wait>Reset all filters</button>
-                <button class="filter-chip filter-chip--quiet" type="button" data-board-refresh>Refresh data</button>
               </div>
             </section>
           </div>

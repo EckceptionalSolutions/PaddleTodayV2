@@ -1115,7 +1115,7 @@ function matchesHomeNearbyFilters(result) {
   return true;
 }
 
-function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
+function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false, unavailable = false } = {}) {
   if (homeFreshnessNodes.length === 0) {
     return;
   }
@@ -1124,7 +1124,7 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
     if (wrap instanceof HTMLElement) wrap.hidden = false;
   });
 
-  const base = formatGeneratedFreshness(generatedAt);
+  const base = unavailable ? 'Latest refresh unavailable.' : formatGeneratedFreshness(generatedAt);
   let message = base;
   if (refreshing && generatedAt) {
     message = `${base} Refreshing now...`;

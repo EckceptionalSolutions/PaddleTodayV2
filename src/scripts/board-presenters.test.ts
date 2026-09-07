@@ -270,7 +270,7 @@ describe('board presenters', () => {
     const now = Date.now();
     expect(formatGeneratedFreshness(new Date(now).toISOString())).toBe('Updated just now.');
     expect(formatGeneratedFreshness('not-a-date')).toBe('Checking latest refresh...');
-    expect(formatBoardRefreshCopy(now)).toBe('Snapshot refreshes every 30 minutes. Updated just now.');
-    expect(formatBoardRefreshCopy(Number.NaN)).toBe('Snapshot refreshes every 30 minutes.');
+    expect(formatBoardRefreshCopy(now)).toBe('Board updates every 30 minutes. Last checked just now.');
+    expect(formatBoardRefreshCopy(Number.NaN)).toBe('Board updates every 30 minutes.');
   });
 });

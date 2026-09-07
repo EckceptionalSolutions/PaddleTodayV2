@@ -13,7 +13,7 @@ import {
   waitForMapReady,
 } from './map-runtime.js';
 import { createBoardMapMarker } from './board-map-controller.js';
-import { callLabelForDecision, compareTodayBoardQuality, ratingToneKey } from '@paddletoday/api-contract';
+import { callLabelForDecision, compareTodayBoardQuality, ratingToneKey, normalizeSearchText } from '@paddletoday/api-contract';
 import { canonicalRiverRouteLineFromFeature, loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import {
   coverageCenterForRoutes,
@@ -1107,10 +1107,11 @@ function currentFilterValue(name) {
   }
 
   const field = filterForm.elements.namedItem(name);
-  return field instanceof HTMLSelectElement ? field.value : '';
+  return field instanceof HTMLSelectElement || field instanceof HTMLInputElement ? field.value : '';
 }
 
 function applyFilters() {
+  const queryWords = normalizeSearchText(currentFilterValue('query')).split(/\s+/).filter(Boolean);
   const filters = {
     difficulty: currentFilterValue('difficulty'),
     region: currentFilterValue('region'),
@@ -1122,7 +1123,9 @@ function applyFilters() {
   for (const item of routeItems) {
     if (!(item instanceof HTMLElement)) continue;
 
-    const visible = Object.entries(filters).every(([key, value]) => !value || item.dataset[key] === value);
+    const searchText = normalizeSearchText(item.textContent || '');
+    const visible = Object.entries(filters).every(([key, value]) => !value || item.dataset[key] === value)
+      && queryWords.every(word => searchText.includes(word));
     item.hidden = !visible;
     if (visible) visibleCount += 1;
   }
@@ -1154,6 +1157,9 @@ function bindFilters() {
   }
 
   filterForm.addEventListener('change', applyFilters);
+  filterForm.addEventListener('input', event => {
+    if (event.target instanceof HTMLInputElement && event.target.name === 'query') applyFilters();
+  });
   filterForm.addEventListener('submit', (event) => event.preventDefault());
   filterForm.addEventListener('reset', () => {
     window.setTimeout(applyFilters, 0);

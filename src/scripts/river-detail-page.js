@@ -1459,8 +1459,11 @@ function bindScoreFeedbackButtons() {
 }
 
 function detailScrollOffset() {
+  const actionBarPosition = routeActionBar instanceof HTMLElement
+    ? window.getComputedStyle(routeActionBar).position
+    : '';
   const actionBarHeight =
-    routeActionBar instanceof HTMLElement && routeActionBar.getBoundingClientRect().height > 0
+    routeActionBar instanceof HTMLElement && ['fixed', 'sticky'].includes(actionBarPosition)
       ? routeActionBar.getBoundingClientRect().height
       : 0;
 
@@ -1473,6 +1476,8 @@ function scrollToDetailSection(section) {
   }
 
   const top = section.getBoundingClientRect().top + window.scrollY - detailScrollOffset();
+  if (!section.hasAttribute('tabindex')) section.setAttribute('tabindex', '-1');
+  section.focus({ preventScroll: true });
   window.scrollTo({
     top: Math.max(0, top),
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
@@ -1982,6 +1987,10 @@ function showManualShareCopy(text) {
 }
 
 function setDetailRefreshState(state, detail = '') {
+  if (detailFetchRetryButton instanceof HTMLButtonElement) {
+    detailFetchRetryButton.disabled = state === 'loading';
+    detailFetchRetryButton.textContent = state === 'loading' ? 'Retrying...' : 'Retry now';
+  }
   if (detailRefreshButton instanceof HTMLButtonElement) {
     detailRefreshButton.disabled = state === 'loading';
     detailRefreshButton.textContent = state === 'loading' ? 'Checking live data...' : 'Refresh river';
@@ -2341,7 +2350,10 @@ function applyBreakdownTone(field, value) {
 
 function renderScoreBreakdown(result) {
   const breakdown = result.scoreBreakdown;
-  if (!breakdown) {
+  const disclosure = root.querySelector('.route-today-score__breakdown');
+  const unavailable = !breakdown || currentCallReadiness(result) === 'withheld';
+  if (disclosure instanceof HTMLElement) disclosure.hidden = unavailable;
+  if (unavailable) {
     return;
   }
 
@@ -4105,12 +4117,13 @@ function chartTimeLabel(timestamp, hours) {
   return new Date(timestamp).toLocaleString([], options).toLowerCase();
 }
 
-function updateChartButtonStates() {
+function updateChartButtonStates(hasHistory) {
   for (const button of chartButtons) {
     if (!(button instanceof HTMLButtonElement)) continue;
     const active = Number(button.dataset.chartWindow) === currentChartWindowHours;
     button.classList.toggle('segmented-control__button--active', active);
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    button.disabled = !hasHistory;
   }
 }
 
@@ -4199,7 +4212,7 @@ function renderGaugeChart(result) {
   const xMidEl = root.querySelector('[data-chart-x-mid]');
   const xEndEl = root.querySelector('[data-chart-x-end]');
 
-  updateChartButtonStates();
+  updateChartButtonStates(parsedSamples.length > 1);
 
   if (
     !(lineEl instanceof SVGPathElement) ||
@@ -4730,7 +4743,7 @@ function renderDetailResult(result) {
   const decision = decisionLabel(result);
 
   root.classList.remove('river-detail--great', 'river-detail--good', 'river-detail--marginal', 'river-detail--no-go');
-  root.classList.add(`river-detail--${ratingKey}`);
+  if (!callWithheld) root.classList.add(`river-detail--${ratingKey}`);
 
   setText('score', callWithheld ? '--' : String(result.score));
   setText('rating', callWithheld ? 'Not enough data' : ratingLabel(result));
@@ -4742,7 +4755,10 @@ function renderDetailResult(result) {
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
     orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
-    orb.classList.add(`score-orb--${ratingKey}`);
+    if (!callWithheld) orb.classList.add(`score-orb--${ratingKey}`);
+    orb.setAttribute('aria-label', callWithheld
+      ? 'Live score unavailable: not enough data'
+      : `Live score ${result.score} out of 100: ${ratingLabel(result)}`);
   }
 
   const decisionPill = setText('decision', decision);
@@ -5004,6 +5020,11 @@ async function loadDetail({ silent = false } = {}) {
       "Live reads aren't available right now. Check the source links below before you go."
     );
     setText('decision-line', 'Live data is down right now, so check the source directly.');
+    setText('score', '--');
+    setText('rating', 'Unavailable');
+    root.querySelector('.score-orb')?.setAttribute('aria-label', 'Live score unavailable');
+    const breakdownDisclosure = root.querySelector('.route-today-score__breakdown');
+    if (breakdownDisclosure instanceof HTMLElement) breakdownDisclosure.hidden = true;
 
     const decisionPill = setText('decision', 'Check sources');
     if (decisionPill instanceof HTMLElement) {
@@ -5072,6 +5093,7 @@ async function loadDetail({ silent = false } = {}) {
     setFieldGroupHidden('rain', true);
     setFieldGroupHidden('weather-rain', true);
     renderHourlyWeather(null);
+    renderWeatherDayStrips(null);
     renderHistory(null);
     if (detailStatusBanner instanceof HTMLElement) {
       renderDetailBanner({

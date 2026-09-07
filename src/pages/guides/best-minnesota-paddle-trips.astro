@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeatureIcon from '../../components/FeatureIcon.astro';
 import {
   minnesotaPaddleGuideCategoryLabels,
   minnesotaPaddleGuideEntries,
@@ -82,10 +83,11 @@ const structuredData = [
       <p class="guide-hero__lede">
         Weekend routes, long day trips, canoe-camping ideas, and beginner-friendly paddles with live Paddle Today status where we track the route.
       </p>
-      <p class="guide-hero__status" data-minnesota-guide-status>
+      <p class="guide-hero__status" data-minnesota-guide-status role="status" tabindex="-1">
         Loading live Paddle Today scores for tracked routes...
       </p>
       <div class="guide-hero__actions">
+        <button class="river-link river-link--inline guide-retry" type="button" data-guide-retry hidden>Retry live scores</button>
         <a class="river-link river-link--inline" href="/states/minnesota/">Browse Minnesota live routes</a>
         <a class="river-link river-link--inline river-link--ghost" href="/guides/best-weekend-paddle-trips-minnesota/">Weekend picks</a>
       </div>
@@ -98,7 +100,7 @@ const structuredData = [
     </aside>
   </section>
 
-  <nav class="guide-jump-nav" aria-label="Minnesota guide sections">
+  <nav class="guide-jump-nav" id="guide-trip-ideas" tabindex="-1" aria-label="Minnesota guide sections">
     {categories.map((category) => (
       <a href={`#guide-${category}-title`}>{minnesotaPaddleGuideCategoryLabels[category]}</a>
     ))}
@@ -143,6 +145,7 @@ const structuredData = [
         </div>
       </div>
 
+      <p><a class="guide-return-link" href="#guide-trip-ideas">All trip ideas ↑</a></p>
       <div class="minnesota-guide-grid">
         {getEntriesForCategory(category).map((entry) => (
           <article class="minnesota-guide-card" data-minnesota-guide-entry data-guide-slug={entry.trackedSlug}>
@@ -157,6 +160,10 @@ const structuredData = [
                   aria-label={`Open ${entry.title}`}
                 >
                   <img src={photo.src} alt={photo.alt} loading="lazy" />
+                  <span class="minnesota-guide-card__photo-fallback" hidden>
+                    <FeatureIcon name="camera" size={28} />
+                    Photo unavailable
+                  </span>
                 </a>
               );
             })()}

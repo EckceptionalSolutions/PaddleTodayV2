@@ -87,9 +87,9 @@ const requestEmail = 'hello@paddletoday.com';
         </label>
 
         <div class="request-form__actions">
-          <button class="filter-chip" type="submit" data-request-submit>Send request</button>
+          <button class="filter-chip request-form__submit" type="submit" data-request-submit>Send request</button>
           <a
-            class="river-link river-link--inline"
+            class="river-link river-link--inline river-link--ghost"
             href={`mailto:${requestEmail}`}
             data-request-email-link
             data-analytics-event="Open request email"

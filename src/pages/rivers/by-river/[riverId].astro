@@ -320,7 +320,6 @@ const groupStructuredData = [
                       <span class="route-choice__eyebrow">
                         {active ? <span class="route-choice__on-map">On map</span> : <>{route.state} · {route.region}</>}
                       </span>
-                      {index === 0 ? <span class="route-choice__recommended">Recommended today</span> : null}
                       <strong class="route-choice__title">{route.reach}</strong>
                       <span class="route-choice__facts">
                         {route.logistics?.distanceLabel ? <span class="route-choice__fact route-choice__fact--distance">{route.logistics.distanceLabel}</span> : null}
@@ -330,7 +329,7 @@ const groupStructuredData = [
                     </span>
                     <span class="route-choice__score-compact">
                       <strong>--</strong>
-                      <span>Loading</span>
+                      <span data-group-initial-score>Loading</span>
                     </span>
                   </button>
                   <a class="river-link river-link--inline route-choice__details-link" href={`/rivers/${route.slug}/`}>
