@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { callStateForDecision, parsePaddleTimeHours, type DecisionReadinessStatus, type PaddleLengthFilter as SharedPaddleLengthFilter, type RouteType, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -514,7 +515,7 @@ function StatePickerModal({
   const filteredStates = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return states;
-    return states.filter((state) => state.toLowerCase().includes(normalized));
+    return states.filter((state) => `${state} ${stateAbbreviation(state)}`.toLowerCase().includes(normalized));
   }, [query, states]);
 
   return (

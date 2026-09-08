@@ -1,6 +1,17 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import type { AreaNotificationSubscriptionResponse } from '@paddletoday/api-contract';
 
+export function submissionFailureMessage(error: unknown, fallback: string): string {
+  if (!(error instanceof PaddleTodayApiError)) return fallback;
+  if (error.code === 'request_timeout') {
+    return 'No confirmation arrived in time. Your entries are still here. Check your connection before trying again.';
+  }
+  if (error.status >= 200 && error.status < 300) {
+    return 'We could not confirm whether your submission was received. Your entries are still here.';
+  }
+  return error.message || fallback;
+}
+
 export function requireConfirmedAreaSubscription<T extends AreaNotificationSubscriptionResponse>(response: T): T {
   const subscription = response?.subscription;
   if (

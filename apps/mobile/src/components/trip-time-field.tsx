@@ -4,18 +4,19 @@ import { TripTimePicker } from './trip-time-picker';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export interface TripTimeFieldHandle { focus: () => void }
-export function TripTimeField({ label, manualLabel, value, onChange, editable, inputRef, optional = false, dateOnly = false }: {
+export function TripTimeField({ label, manualLabel, value, onChange, editable, inputRef, optional = false, dateOnly = false, error }: {
   label: string; manualLabel: string; value: string; onChange: (value: string) => void; editable: boolean;
-  inputRef: RefObject<TripTimeFieldHandle | null>; optional?: boolean; dateOnly?: boolean;
+  inputRef: RefObject<TripTimeFieldHandle | null>; optional?: boolean; dateOnly?: boolean; error?: string;
 }) {
   const [manual, setManual] = useState(false);
   const input = useRef<TextInput>(null);
   useImperativeHandle(inputRef, () => ({ focus: () => { setManual(true); requestAnimationFrame(() => input.current?.focus()); } }), []);
   return <View style={styles.field}>
     <Text style={styles.label}>{label}{optional ? ' (optional)' : ''}</Text>
-    {manual ? <TextInput ref={input} accessibilityLabel={manualLabel} value={value} onChangeText={onChange} editable={editable}
+    {manual ? <TextInput ref={input} accessibilityLabel={manualLabel} accessibilityHint={error} aria-invalid={Boolean(error)} value={value} onChangeText={onChange} editable={editable}
       autoFocus autoCorrect={false} autoCapitalize="none" placeholder={dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD HH:MM"} style={styles.input} />
       : <TripTimePicker dateOnly={dateOnly} label={label} value={value} onChange={onChange} disabled={!editable} />}
+    {error ? <Text accessibilityLiveRegion="polite" style={styles.error}>{error}</Text> : null}
     <View style={styles.actions}>
       <Pressable accessibilityRole="button" accessibilityLabel={`${manual ? 'Use picker for' : 'Enter manually:'} ${label.toLowerCase()}`} disabled={!editable}
         accessibilityState={{ disabled: !editable }} style={styles.action} onPress={() => setManual(current => !current)}>
@@ -26,6 +27,7 @@ export function TripTimeField({ label, manualLabel, value, onChange, editable, i
   </View>;
 }
 const styles = StyleSheet.create({
+  error: { color: colors.noGo, fontSize: 13, lineHeight: 18 },
   field: { gap: spacing.xs }, label: { color: colors.textMuted, fontSize: 12, fontWeight: '800' },
   input: { minHeight: 48, padding: spacing.sm, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, backgroundColor: colors.surfaceStrong, color: colors.text, fontSize: 16 },
   actions: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: spacing.sm },

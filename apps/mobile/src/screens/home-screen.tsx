@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { RouteSearchModal } from '../components/route-search-modal';
 import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
@@ -65,19 +66,6 @@ const modeLabels: Record<BoardMode, string> = {
   closest: 'Closest',
   score: 'Score ranking',
   certain: 'Evidence first',
-};
-
-const stateAbbreviations: Record<string, string> = {
-  illinois: 'IL',
-  indiana: 'IN',
-  iowa: 'IA',
-  michigan: 'MI',
-  minnesota: 'MN',
-  missouri: 'MO',
-  'north dakota': 'ND',
-  ohio: 'OH',
-  'south dakota': 'SD',
-  wisconsin: 'WI',
 };
 
 export default function HomeScreen() {
@@ -297,7 +285,7 @@ export default function HomeScreen() {
         }}
         onRequestRoute={() => {
           setSearchOpen(false);
-          router.push('/request-route');
+          router.push({ pathname: '/request-route', params: { name: routeQuery.trim() } });
         }}
         onExploreState={(state) => {
           setSearchOpen(false);
@@ -840,10 +828,7 @@ function routeReachWithState(river: BoardItem | RiverSummaryApiItem) {
   return [river.river.reach, stateAbbreviation(river.river.state)].filter(Boolean).join(' - ');
 }
 
-function stateAbbreviation(state: string) {
-  const normalized = state.trim().toLowerCase();
-  return stateAbbreviations[normalized] ?? state;
-}
+
 
 function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
   return 'travelMinutes' in river;

@@ -17,7 +17,9 @@ it is not a source of current paddling conditions or native-map performance evid
   response supports it. Planning-only routes remain unscored.
 - **Access and preparation:** choose a shorter segment, reverse shuttle driving
   directions, prepare a trip, close it and resume the exact draft from Saved.
-  Date/time controls, sharing recovery and calendar/GPX errors are clearer.
+  Date/time errors appear beside the affected field and clear when corrected.
+  Calendar/GPX availability checks cancel immediately on Close, including while
+  a local draft save is pending.
 - **Compare routes:** use Compare saved routes to select up to three across
   different rivers, or compare reaches from a river’s page. Review access
   logistics, duration and current-call confidence before opening a route.
@@ -28,12 +30,19 @@ it is not a source of current paddling conditions or native-map performance evid
 - **Search and directories:** Today search keeps Close visible on narrow screens,
   wraps long route names and finds accented names without accents. More's river
   directory shows route counts without implying one score covers a whole river.
+  Postal state aliases work in Today, Saved, Explore and the state picker.
 - **Alerts and reports:** nearby switches explicitly show On/Off, report dates
   have a calendar/manual choice, and sheets support short layouts and reduced
   motion. Good/Strong saved-route alert thresholds are independent.
 - **Submission forms:** required labels remain visible after typing. Route requests
   and photo contributions show field errors in context and retain entries after
   failed submission; corrected photo entries clear obsolete validation feedback.
+  Back protects edited requests and photo contributions with Keep editing/Discard
+  choices, including attached photos. Sending forms wait for confirmation before leaving.
+  Reports offer Continue after closing an unsent draft; leaving the route protects it.
+  Missing report choices scroll into view. Character limits and optional date errors
+  appear in context. A failed photo encode retains the other selected images, and
+  uncertain submission confirmations keep entries available for deliberate retry.
 - **Feedback:** opening choices and store links remain reachable in short
   layouts. Typed feedback has Keep editing/Discard controls and survives a
   failed submission.

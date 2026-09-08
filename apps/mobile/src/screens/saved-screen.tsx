@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { RouteComparisonSheet } from '../components/route-comparison-sheet';
 import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -81,7 +82,7 @@ export default function SavedScreen() {
   const filtering = activeTab === 'routes' && searchTerms.length > 0;
   const visibleSavedRivers = searchTerms.length ? savedRivers.filter(record => {
     const details = riverLookup.get(record.slug)?.river;
-    const searchable = normalizeSearchText([record.name, record.reach, record.notes, details?.state, details?.region].filter(Boolean).join(' '));
+    const searchable = normalizeSearchText([record.name, record.reach, record.notes, details?.state, details?.state ? stateAbbreviation(details.state) : '', details?.region].filter(Boolean).join(' '));
     return searchTerms.every(term => searchable.includes(term));
   }) : savedRivers;
   const visibleSlugs = new Set(visibleSavedRivers.map(record => record.slug));

@@ -1,4 +1,4 @@
-import * as ImagePicker from 'expo-image-picker';
+import type * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
 import type { SelectedReportPhoto } from '../components/route-report-sheet';
 
@@ -7,6 +7,23 @@ export const ROUTE_REPORT_MAX_PHOTO_BYTES = 4 * 1024 * 1024;
 export const ROUTE_REPORT_ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const ROUTE_REPORT_MAX_IMAGE_EDGE = 1600;
 const ROUTE_REPORT_IMAGE_QUALITY = 0.8;
+
+export async function normalizeReportPhotoBatch(assets: ImagePicker.ImagePickerAsset[], remainingSlots: number) {
+  const selected: SelectedReportPhoto[] = [];
+  let skipped = 0;
+  // Process sequentially to avoid holding several full-sized encodes at once.
+  for (const [index, asset] of assets.slice(0, Math.max(0, remainingSlots)).entries()) {
+    try {
+      const photo = await normalizeReportPhotoAsset(asset, index);
+      if (photo) selected.push(photo);
+      else skipped++;
+    } catch {
+      // A damaged or unencodable image must not discard the other selections.
+      skipped++;
+    }
+  }
+  return { selected, skipped };
+}
 
 export async function normalizeReportPhotoAsset(asset: ImagePicker.ImagePickerAsset, index: number): Promise<SelectedReportPhoto | null> {
   const type = normalizeImageMimeType(asset.mimeType, asset.fileName, asset.uri);

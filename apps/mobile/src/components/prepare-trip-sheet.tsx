@@ -42,6 +42,7 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   const [closing, setClosing] = useState(false);
   const closingRequest = useRef(false);
   const [status, setStatus] = useState('');
+  const [validationAttempted, setValidationAttempted] = useState(false);
   const [calendarPending, setCalendarPending] = useState(false);
   const calendarRequest = useRef<AbortController | null>(null);
   const [gpxPending, setGpxPending] = useState(false);
@@ -54,8 +55,24 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   const checkInRef = useRef<TripTimeFieldHandle>(null);
   const groupSizeRef = useRef<TextInput>(null);
 
+  function cancelPendingRequests() {
+    shareRequest.current = null;
+    const calendar = calendarRequest.current;
+    calendarRequest.current = null;
+    calendar?.abort();
+    const gpx = gpxRequest.current;
+    gpxRequest.current = null;
+    gpx?.abort();
+  }
+
   async function closeSheet() {
     if (closingRequest.current) return;
+    // Stop external actions as soon as Close is requested, even if saving the
+    // local draft is slow or fails and the sheet must remain open for recovery.
+    cancelPendingRequests();
+    setCalendarPending(false);
+    setGpxPending(false);
+    setSharePending(false);
     if (!draftReady) { onClose(); return; }
     closingRequest.current = true;
     setClosing(true);
@@ -64,18 +81,13 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   }
 
   useEffect(() => {
+    setStatus('');
+    setValidationAttempted(false);
+    setShareFallback(null);
     setGpxPending(false);
     setSharePending(false);
     setCalendarPending(false);
-    return () => {
-      shareRequest.current = null;
-      const calendar = calendarRequest.current;
-      calendarRequest.current = null;
-      calendar?.abort();
-      const request = gpxRequest.current;
-      gpxRequest.current = null;
-      request?.abort();
-    };
+    return cancelPendingRequests;
   }, [visible, detail.river.slug, putIn?.id, takeOut?.id]);
 
   useEffect(() => {
@@ -84,11 +96,14 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
 
   const plan = buildPlan(detail, putIn, takeOut, distanceMiles, launch, expected, checkIn, groupSize, boat, vehicle, note);
   const validation = validate(plan, checkIn);
+  const validationError = validationAttempted && !validation.ok ? validation : null;
+  const errorFor = (field: string) => validationError && 'field' in validationError && validationError.field === field ? validationError.message : undefined;
 
   function validateForExport() {
     if (!draftReady) return false;
+    setValidationAttempted(true);
+    setStatus('');
     if (validation.ok) return true;
-    setStatus(validation.message);
     if ('field' in validation && validation.field) {
       const refs = { launch: launchRef, expected: expectedRef, checkIn: checkInRef, groupSize: groupSizeRef };
       refs[validation.field].current?.focus();
@@ -212,15 +227,16 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
             onClose={onClose} onReset={() => { setStatus(''); setShareFallback(null); }} />
           <Text style={styles.sectionTitle}>Timing</Text>
           <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Expected take-out" manualLabel="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChange={setExpected} />
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Check-in time" manualLabel="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChange={setCheckIn} optional />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('launch')} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('expected')} label="Expected take-out" manualLabel="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChange={setExpected} />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('checkIn')} label="Check-in time" manualLabel="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChange={setCheckIn} optional />
           <Text style={styles.estimate}>{estimated ? `Planning estimate: ${estimated.min}–${estimated.max} minutes on the water, before shuttle or staging time.` : 'Planning estimate unavailable; confirm timing with the group.'}</Text>
           <Text style={styles.sectionTitle}>Group details</Text>
-          <Field editable={draftReady && !sharePending && !closing} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
+          <Field editable={draftReady && !sharePending && !closing} error={errorFor('groupSize')} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
           <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
           <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
           <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
+          {validationError && !('field' in validationError) ? <Text accessibilityLiveRegion="polite" style={styles.status}>{validationError.message}</Text> : null}
           {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
           {shareFallback ? (
             <TextInput
@@ -245,8 +261,8 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   );
 }
 
-function Field({ label, multiline, keyboardType, value, onChangeText, inputRef, editable = true }: { editable?: boolean; inputRef?: RefObject<TextInput | null>; label: string; value: string; onChangeText: (value: string) => void; multiline?: boolean; keyboardType?: 'number-pad' }) {
-  return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={editable} ref={inputRef} accessibilityLabel={label} value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} /></View>;
+function Field({ label, multiline, keyboardType, value, onChangeText, inputRef, editable = true, error }: { error?: string; editable?: boolean; inputRef?: RefObject<TextInput | null>; label: string; value: string; onChangeText: (value: string) => void; multiline?: boolean; keyboardType?: 'number-pad' }) {
+  return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={editable} ref={inputRef} accessibilityLabel={label} aria-invalid={Boolean(error)} accessibilityHint={error} value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} />{error ? <Text accessibilityLiveRegion="polite" style={styles.status}>{error}</Text> : null}</View>;
 }
 
 function ActionButton({ label, detail, onPress, primary, pending = false, pendingLabel = 'Checking GPX…', disabled = false }: { disabled?: boolean; pending?: boolean; pendingLabel?: string; label: string; detail: string; onPress: () => void; primary?: boolean }) {

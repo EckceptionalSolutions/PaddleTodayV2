@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
   buildRoutePlannerParams,
@@ -1058,6 +1059,7 @@ function searchBlob(river: RiverSummaryApiItem) {
     river.river.name,
     river.river.reach,
     river.river.state,
+    stateAbbreviation(river.river.state),
     river.river.region,
     river.rating,
     river.gaugeBandLabel,

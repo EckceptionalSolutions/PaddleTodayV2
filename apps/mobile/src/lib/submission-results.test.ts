@@ -1,7 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from './submission-results';
+import { PaddleTodayApiError } from '@paddletoday/api-client';
+import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission, submissionFailureMessage } from './submission-results';
 
 describe('mobile submission confirmation', () => {
+  it('preserves actionable server errors and uses form-specific fallback for network failures', () => {
+    expect(submissionFailureMessage(new PaddleTodayApiError({ status: 429, message: 'Wait a moment.' }), 'Fallback')).toBe('Wait a moment.');
+    expect(submissionFailureMessage(new TypeError('Failed to fetch'), 'Entries remain.')).toBe('Entries remain.');
+    try { requireStoredSubmission({ ok: true, stored: false }); } catch (error) {
+      expect(submissionFailureMessage(error, 'Fallback')).toBe('Your submission was not saved. Please try again.');
+    }
+  });
+  it('distinguishes an absent confirmation from a confirmed rejection', () => {
+    expect(submissionFailureMessage(new PaddleTodayApiError({ status: 0, code: 'request_timeout', message: '12000ms' }), 'Fallback')).toContain('No confirmation arrived');
+    expect(submissionFailureMessage(new PaddleTodayApiError({ status: 200, message: 'Unreadable body' }), 'Fallback')).toContain('could not confirm whether');
+  });
   const confirmed = { ok: true as const, requestId: 'qa', created: false, subscription: {
     id: 'qa', managementToken: 'qa-token', locationLabel: 'Duluth', maxTravelMinutes: 120,
     todayEnabled: true, weekendEnabled: false, isActive: true,
