@@ -68,6 +68,7 @@
     "operations:tasks:check": "tsx scripts/operations-task-board.ts",
     "operations:gates:test": "vitest run src/lib/operations-gates.test.ts src/lib/operations-orchestrator.test.ts",
     "test:workspaces": "vitest run && npm run test --workspace @paddletoday/api-contract && npm run test --workspace @paddletoday/api-client && npm run test --workspace @paddletoday/geo && npm run test --workspace @paddletoday/trip-pack && npm run test --workspace @paddletoday/mobile",
+    "test:api": "npm run typecheck:routes && npm run typecheck:runtime && npm run scoring:sensitivity:check && vitest run src/server src/lib src/data packages/api-contract/src packages/geo/src packages/trip-pack/src",
     "operations:verify": "tsx scripts/operations-verify.ts",
     "operations:brief": "tsx scripts/operations-daily-brief.ts",
     "operations:ci:triage": "tsx scripts/operations-ci-triage.ts",

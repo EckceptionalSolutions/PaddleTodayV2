@@ -128,7 +128,9 @@ async function checkSecurityHeaders() {
       ['x-content-type-options', (value) => value === 'nosniff'],
       // same-origin is at least as restrictive as the documented baseline.
       ['referrer-policy', (value) => value === 'strict-origin-when-cross-origin' || value === 'same-origin'],
-      ['permissions-policy', (value) => value === 'geolocation=(), microphone=(), camera=()'],
+      // The API serves the one-origin app as well as JSON. Nearby-route controls
+      // require same-origin geolocation, while microphone and camera stay off.
+      ['permissions-policy', (value) => value === 'geolocation=(self), microphone=(), camera=()'],
     ];
     for (const [name, validate] of required) {
       if (!validate(response.headers.get(name))) {

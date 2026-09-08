@@ -10,6 +10,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - uses: actions/checkout@v4
@@ -29,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Run API tests
+        run: npm run test:api
 
       - name: Build app
         run: npm run build:app
@@ -82,20 +83,26 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: deploy-package
 
+      - name: Wait for deployment readiness
+        env:
+          DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
+        run: |
+          for attempt in $(seq 1 18); do
+            if curl --fail --silent --show-error --max-time 10 "${DEPLOYMENT_BASE_URL%/}/api/health/ready" > /dev/null; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 18 ]; then
+              echo "Deployment is not ready yet; retrying in 10 seconds."
+              sleep 10
+            fi
+          done
+
+          echo "Deployment did not become ready within 3 minutes."
+          exit 1
+
       - name: Smoke test deployment
         env:
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
           DEPLOYMENT_SMOKE_TIMEOUT_MS: '30000'
-        run: |
-          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
-            if npm run deployment:smoke; then
-              exit 0
-            fi
-
-            if [ "$attempt" -lt 12 ]; then
-              echo "Deployment is not ready yet; retrying in 15 seconds."
-              sleep 15
-            fi
-          done
-
-          exit 1
+        run: npm run deployment:smoke
