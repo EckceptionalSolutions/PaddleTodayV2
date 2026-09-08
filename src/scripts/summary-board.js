@@ -5,10 +5,14 @@ import { showActionFeedback } from './action-feedback.js';
   bindMarkerPopup,
   createMapStatusController,
   createPaddleMap,
+  clearMapMarkers,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
+  preferredMapScrollBehavior,
   fitMapBounds,
   isMapReady,
+  isMapStyleReady,
   markerClassForRating,
   removeMapOverlay,
   riverNameVariants,
@@ -63,23 +67,18 @@ import {
 } from '@paddletoday/api-contract';
 import {
   buildBoardRecommendationItems,
-  clampText,
   createBoardDisplayItemBuilder,
   createBoardResultFilter,
   DEFAULT_RADIUS_MILES,
-  difficultyPreferenceLabel,
-  estimatedPaddleMinutesForItem,
   formatHomeChoiceSummary,
   groupResultsByRiverId,
   HOME_DIFFICULTY_OPTIONS,
   HOME_PADDLE_TIME_OPTIONS,
   isChoiceSetAny,
   isGroupedItem,
-  isViableRecommendationItem,
   joinWithBullet,
   nextRadiusSuggestionMiles,
   normalizeBoardSortMode,
-  normalizeChoiceSet,
   normalizeHomeDifficultyFilters,
   normalizeHomePaddleTimeFilters,
   normalizeRadiusMiles,
@@ -90,9 +89,7 @@ import {
   radiusIndexForMiles,
   radiusMilesForIndex,
   recommendationPoolForNearby,
-  routeDifficultyRank,
   sortBoardItems,
-  sortNearbyResultsForDisplay,
   titleCase,
   toggleChoiceValue,
 } from './board-domain.js';
@@ -101,27 +98,18 @@ import {
   confidenceLabel,
   distanceBucketLabel,
   exploreSortSummaryLabel,
-  favoriteRecordForItem,
   formatBoardRefreshCopy,
   formatGeneratedFreshness,
   formatTravelLabel,
   isCurrentCallUnavailable,
-  liveReadWarning,
-  metaLineText,
-  parseTemperature,
   ratingToneKey,
-  recommendationSlotLabel,
   recommendationSummaryText,
-  recommendationTagLabels,
   recommendationVerdict,
   regionStateText,
   routeDifficultyLabel,
   routeEstimatedTimeLabel,
   routeLengthLabel,
   routeTypeLabel,
-  shortRouteLengthLabel,
-  summaryMentionsFlowShift,
-  summaryMentionsWeather,
 } from './board-presenters.js';
 import {
   createBoardCardGridRenderer,
@@ -129,19 +117,14 @@ import {
   createBoardRecommendationCardRenderer,
   createBoardRecommendationGridRenderer,
   createBoardRiverCardRenderer,
-  featuredConditionMarkup,
   renderScoreBreakdownDisclosure,
-  renderSourceBadges,
-  renderTagMarkup,
   signalRowMarkup,
-  weatherBadgeMarkup,
 } from './board-card-markup.js';
 import { createBoardPreferenceStorage } from './board-preference-storage.js';
 import { loadCanonicalRiverGeometries } from '../lib/canonical-river-geometries.js';
 import { endpointSnappedRiverGeometry, stitchRiverLines } from '../lib/endpoint-snapped-river-geometry.js';
 import {
   coverageAnchorForRoutes,
-  coverageCenterForRoutes,
   groupRoutesByConditionScore,
   routesForRiverItem,
 } from '../lib/river-coverage.js';
@@ -331,6 +314,8 @@ const summaryMapStatusController = createMapStatusController(summaryMapStatus, {
     : 'Map unavailable right now. Use the route list below.',
 });
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
+const summaryMapRecovery = document.querySelector('[data-summary-map-recovery]');
+const summaryMapRetry = document.querySelector('[data-summary-map-retry]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
 const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
@@ -532,6 +517,7 @@ let canonicalRiverOverviewCacheData = null;
 let summaryOverviewRiverDataCacheSignature = '';
 let summaryOverviewRiverDataCache = null;
 let canonicalRiverGeometryPromise = null;
+let canonicalRiverGeometryRetryAfter = 0;
 let canonicalRiverGeometryByRoute = new Map();
 let canonicalRiverGeometryState = 'idle';
 let summaryGeometryRevision = 0;
@@ -1412,13 +1398,6 @@ function renderExploreList(items) {
   restoreExploreScroll();
 }
 
-function currentExploreLayoutKey() {
-  if (window.innerWidth <= 760) return 'mobile';
-  if (window.innerWidth <= 1100) return 'tablet';
-  if (window.innerWidth >= 1480) return 'wide';
-  return 'desktop';
-}
-
 function syncExploreShellHeight() {
   if (!(exploreShell instanceof HTMLElement)) {
     return;
@@ -1858,7 +1837,7 @@ function scrollToExploreResults() {
     if (lastExploreItems.length === 0) return;
     const target = phoneBreakpoint.matches ? summaryMapMobileSwitch : exploreGrid;
     if (target instanceof HTMLElement) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: preferredMapScrollBehavior(), block: 'start' });
     }
   }, 60);
 }
@@ -2446,11 +2425,11 @@ function updateBoardStatusBanner(items) {
 }
 
 function isSummaryMapStyleReady() {
-  return isMapReady(mapRuntime);
+  return isMapStyleReady(mapRuntime);
 }
 
 async function waitForSummaryMapReady() {
-  await waitForMapReady(mapRuntime);
+  await waitForMapReady(mapRuntime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
 }
 
 function bindSummaryMapLayerRefresh() {
@@ -2459,7 +2438,7 @@ function bindSummaryMapLayerRefresh() {
   }
 
   const refresh = () => {
-    if (!isSummaryMapStyleReady()) {
+    if (!isMapReady(mapRuntime)) {
       return;
     }
     syncSummaryMapLayers(lastSummaryMapItems);
@@ -2702,11 +2681,16 @@ function canonicalRiverFeatureForItem(item) {
 }
 
 function ensureCanonicalRiverGeometries() {
+  // Filtering should not repeatedly hit an unavailable overview endpoint.
+  // Keep coordinate-based results usable until a subsequent interaction can retry.
+  if (Date.now() < canonicalRiverGeometryRetryAfter) return Promise.resolve(canonicalRiverGeometryByRoute);
   if (isRiverFirstExploreMap()) {
     if (!canonicalRiverGeometryPromise) {
       canonicalRiverGeometryState = 'loading';
       canonicalRiverGeometryPromise = exploreGeometryLoader.loadOverview().catch((error) => {
         canonicalRiverGeometryState = 'failed';
+        canonicalRiverGeometryPromise = null;
+        canonicalRiverGeometryRetryAfter = Date.now() + 30000;
         console.warn('Map overview unavailable; using route access coordinates.', error);
         return canonicalRiverGeometryByRoute;
       });
@@ -2734,6 +2718,8 @@ function ensureCanonicalRiverGeometries() {
     })
     .catch((error) => {
       canonicalRiverGeometryState = 'failed';
+      canonicalRiverGeometryPromise = null;
+      canonicalRiverGeometryRetryAfter = Date.now() + 30000;
       console.warn('Canonical river geometries unavailable; using map waterways.', error);
       return canonicalRiverGeometryByRoute;
     });
@@ -3174,6 +3160,13 @@ function syncSummaryRiverLabels(items) {
   });
 }
 
+function setSummaryMapSelectionStatus(message) {
+  // Selection text must not cancel initial-background feedback or replace a
+  // pending/unavailable state with a premature ready announcement.
+  if (summaryMapStatus?.dataset.mapState !== 'ready') return;
+  summaryMapStatusController.ready({ message, backgroundMap: mapRuntime });
+}
+
 function syncSummaryRouteLine() {
   if (!mapRuntime || !isSummaryMapStyleReady()) return;
 
@@ -3231,14 +3224,13 @@ function syncSummaryRouteLine() {
     });
     summaryTraceSignature = signature;
 
-    mapRuntime.setPaintProperty(layerId, 'line-color', SUMMARY_ROUTE_LINE_COLOR_SELECTED);
     if (isRiverFirstExploreMap() && summaryMapStatus instanceof HTMLElement && selectedItem) {
       const river = selectedItem.cardRoute.river;
-      summaryMapStatus.textContent = isGroupedItem(selectedItem)
-        ? `Showing ${(selectedZoneRoutes || routesForRiverItem(selectedItem)).length} mapped ${river.name} routes across ${selectedZoneRoutes ? 1 : groupRoutesByConditionScore(routesForRiverItem(selectedItem)).length} score zones.`
+      setSummaryMapSelectionStatus(isGroupedItem(selectedItem)
+        ? `Showing ${(selectedZoneRoutes || routesForRiverItem(selectedItem)).length} mapped ${river.name} routes.`
         : routeLine.properties?.traced
           ? `Tracing ${river.name}: ${river.reach} along the river line.`
-        : `Showing ${river.name}: ${river.reach}. Detailed river geometry was not available here, so the selected reach uses access coordinates.`;
+        : `Showing ${river.name}: ${river.reach}. Detailed river geometry was not available here, so the selected reach uses access coordinates.`);
     }
     return routeLine;
   }
@@ -3250,7 +3242,7 @@ function syncSummaryRouteLine() {
   summaryTraceSignature = '';
   if (isRiverFirstExploreMap() && summaryMapStatus instanceof HTMLElement && selectedItem) {
     const river = selectedItem.cardRoute.river;
-    summaryMapStatus.textContent = `River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`;
+    setSummaryMapSelectionStatus(`River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`);
   }
   return null;
 }
@@ -3536,13 +3528,13 @@ function updateSummaryMapSelection(key, { preserveZone = false, zoneKey, zoneRou
     const selectedItem = lastSummaryMapItems.find((item) => item.key === selectedSummaryMapKey);
     if (selectedItem) {
       const river = selectedItem.cardRoute.river;
-      summaryMapStatus.textContent = isGroupedItem(selectedItem)
-        ? `Showing ${routesForRiverItem(selectedItem).length} mapped ${river.name} routes across ${groupRoutesByConditionScore(routesForRiverItem(selectedItem)).length} score zones.`
+      setSummaryMapSelectionStatus(isGroupedItem(selectedItem)
+        ? `Showing ${routesForRiverItem(selectedItem).length} mapped ${river.name} routes.`
         : feature?.properties?.traced
           ? `Tracing ${river.name}: ${river.reach} along the river line.`
-        : `River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`;
+        : `River geometry for ${river.name} is not loaded at this zoom. Zoom in or try another route to trace it along the river.`);
     } else {
-      summaryMapStatus.textContent = summaryMapOverviewStatus(lastSummaryMapItems);
+      setSummaryMapSelectionStatus(summaryMapOverviewStatus(lastSummaryMapItems));
     }
   }
 
@@ -3575,11 +3567,10 @@ function summaryMapOverviewStatus(items) {
     (total, item) => total + (item.matchingRouteCount ?? 1),
     0
   );
-  const ratingCopy = activeFilters.paddleable ? 'Paddle routes' : 'all';
   const shortlistCopy = summaryMapViewportItemCount > items.length
     ? ` Showing ${items.length} of ${summaryMapViewportItemCount} results in this map area. Zoom in or show more results.`
     : ' Results follow the map area.';
-  return `Showing ${routeCount} ${ratingCopy} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}.${shortlistCopy} Zoom in to see individual route scores.`;
+  return `Showing ${routeCount} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}.${shortlistCopy} Zoom in to see individual route scores.`;
 }
 
 function updateSummaryMarkerZoomMode() {
@@ -3631,7 +3622,7 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
 
     if (active && shouldScrollCard) {
       card.scrollIntoView({
-        behavior: 'smooth',
+        behavior: preferredMapScrollBehavior(),
         block: 'nearest',
       });
       card.classList.remove('river-card--map-jump');
@@ -3706,7 +3697,7 @@ function scrollToHomeTarget(targetId) {
   expandMobileSectionsForTarget(targetId);
   window.setTimeout(() => {
     target.scrollIntoView({
-      behavior: 'smooth',
+      behavior: preferredMapScrollBehavior(),
       block: 'start',
     });
   }, 45);
@@ -3780,6 +3771,12 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
 
   const mapRenderStartedAt = typeof performance !== 'undefined' ? performance.now() : null;
   const renderVersion = ++summaryMapRenderVersion;
+  const retryHadFocus = document.activeElement === summaryMapRetry;
+  summaryMapShell?.removeAttribute('data-map-unavailable');
+  if (summaryMapRetry instanceof HTMLButtonElement) {
+    summaryMapRetry.disabled = true;
+    summaryMapRetry.textContent = 'Loading map…';
+  }
 
   summaryMapStatusController.loading({ nearby: isNearbySummaryMapMode() });
 
@@ -3807,7 +3804,6 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       mapRuntime.on('zoomend', () => {
         if (isRiverFirstExploreMap()) syncSummaryConditionMarkers();
       });
-      await waitForSummaryMapReady();
     }
     if (renderVersion !== summaryMapRenderVersion) {
       return;
@@ -3837,7 +3833,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       }
     }
 
-    if (preserveViewport && mapItems.length > 0
+    if (preserveViewport && summaryMapItemSetSignature !== '' && mapItems.length > 0
       && mapItems.length === lastSummaryMapItems.length
       && mapItems.every((item, index) => item === lastSummaryMapItems[index])) {
       // A camera move within the same results needs neither new DOM nor source data.
@@ -3853,7 +3849,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       }
       syncSummaryConditionMarkers();
       requestSummaryRouteDetails();
-      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems) });
+      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems), backgroundMap: mapRuntime });
       return;
     }
 
@@ -3943,7 +3939,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         updateSummaryMapSelection(null);
         summaryMapController.closePopups(mapMarkersByKey);
       }
-      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems) });
+      summaryMapStatusController.ready({ message: summaryMapOverviewStatus(mapItems), backgroundMap: mapRuntime });
       trackExplorePerformance('Explore map render', mapRenderStartedAt, {
         status: 'ready',
         result_count: summaryMapSourceItemCount,
@@ -3971,14 +3967,43 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       interactive_result_count: 0,
     });
   } catch (error) {
+    if (renderVersion !== summaryMapRenderVersion) return;
     console.error('Failed to load summary map.', error);
-    summaryMapController.renderResults([]);
+    summaryScoreLayer?.destroy();
+    summaryScoreLayer = null;
+    mapMarkers = clearMapMarkers(mapMarkers);
+    reconcileConditionMarkers({ mode: 'zone', records: [], items: [] });
+    mapConditionMarkers = [];
+    mapMarkersByKey = new Map();
+    summaryMapMarkerSignatures = new Map();
+    summaryMapItemSetSignature = '';
+    lastSummaryMapItems = [];
+    mapRuntime = destroyMapRuntime(mapRuntime);
+    summaryMapController.renderResults(items.slice(0, summaryMapInteractiveLimit));
     summaryMapStatusController.unavailable({ nearby: isNearbySummaryMapMode() });
+    if (phoneBreakpoint.matches) {
+      summaryMapController.setView('list');
+      summaryMapController.updateView();
+    }
     trackExplorePerformance('Explore map render', mapRenderStartedAt, {
       status: 'error',
       result_count: summaryMapSourceItemCount,
       interactive_result_count: 0,
     });
+  } finally {
+    if (renderVersion === summaryMapRenderVersion && summaryMapRetry instanceof HTMLButtonElement) {
+      const unavailable = summaryMapStatus?.getAttribute('data-map-state') === 'unavailable';
+      summaryMapShell?.toggleAttribute('data-map-unavailable', unavailable);
+      if (summaryMapRecovery instanceof HTMLElement) summaryMapRecovery.hidden = !unavailable;
+      summaryMapRetry.disabled = false;
+      summaryMapRetry.textContent = 'Retry map';
+      if (retryHadFocus && !unavailable
+        && (document.activeElement === summaryMapRetry || document.activeElement === document.body)) {
+        const target = summaryMapStatus?.getClientRects().length ? summaryMapStatus
+          : summaryMapMobileViewButtons.find(button => button.dataset.summaryMapMobileView === 'map');
+        if (target instanceof HTMLElement) target.focus({ preventScroll: true });
+      }
+    }
   }
 }
 
@@ -4536,6 +4561,12 @@ export function initSummaryBoard() {
       });
     });
   }
+
+  summaryMapRetry?.addEventListener('click', () => {
+    summaryMapController.setView('map');
+    summaryMapController.updateView();
+    void renderSummaryMap(lastExploreItems);
+  });
 
   if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
     summaryMapMobileBackButton.addEventListener('click', () => {

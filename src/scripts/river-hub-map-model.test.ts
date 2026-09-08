@@ -22,6 +22,8 @@ describe('river hub map model', () => {
     expect(riverHubRouteStatus({ rating: null })).toBe('planning');
     expect(riverHubRouteStatus({ rating: 'No-go' })).toBe('no-go');
     expect(riverHubRouteStatus({ rating: 'Good' })).toBe('good');
+    expect(riverHubRouteStatus({ rating: 'Good', readiness: { status: 'withheld' } })).toBe('unavailable');
+    expect(riverHubRouteStatus({ rating: 'Strong', liveData: { overall: 'offline' } })).toBe('unavailable');
   });
 
   it('adds relevant Mississippi portage and coverage notices only', () => {

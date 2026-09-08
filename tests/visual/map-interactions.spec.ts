@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { holdMapBackgroundTiles } from './map-background-fixture';
 import type {
   RiverSummaryApiItem,
   RiverSummaryResponse,
@@ -106,6 +107,18 @@ const summaryFixture: RiverSummaryResponse = {
   ],
 };
 
+function groupedHomeFixture() {
+  const second = structuredClone(summaryFixture.rivers[0]);
+  second.score = 74;
+  second.rating = 'Good';
+  second.river.slug = 'rum-river-second-choice';
+  second.river.reach = 'Second access stretch';
+  second.river.latitude += 0.12;
+  second.river.putIn.latitude += 0.12;
+  second.river.takeOut.latitude += 0.12;
+  return { ...summaryFixture, riverCount: 3, rivers: [...summaryFixture.rivers, second] };
+}
+
 const weekendFixture: WeekendSummaryResponse = {
   requestId: 'weekend-map-interaction-contract',
   generatedAt: summaryFixture.generatedAt,
@@ -150,12 +163,567 @@ const groupFixture = {
   },
 };
 
+for (const path of ['/', '/explore/']) {
+  test(`native results stay interactive while background tiles are delayed on ${path}`, async ({ page }) => {
+    const release = await holdMapBackgroundTiles(page);
+    await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
+    await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual' })));
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    try {
+      await page.goto(path);
+      const view = page.locator('[data-summary-map-mobile-view="map"]');
+      if (await view.isVisible()) await view.click();
+      const map = page.locator('[data-summary-map]');
+      await map.scrollIntoViewIfNeeded();
+      const status = page.locator('[data-summary-map-status]');
+      await expect(status).toHaveAttribute('data-map-state', 'ready');
+      await expect(status).toContainText('Background map is loading');
+      await expect(page.locator('.summary-map-loading')).toBeVisible();
+      await expect(page.locator('.summary-map-frame').getByRole('status').filter({ hasText: 'Background map is loading' })).toHaveCount(1);
+      await expect(page.locator('.summary-map-loading')).toContainText('Loading map background');
+      await page.locator('.summary-map-frame').screenshot({ path: test.info().outputPath('background-loading-label.png') });
+      const featured = page.locator('[data-featured-map-status]');
+      if (path === '/') {
+        await expect(featured).toHaveAttribute('data-map-state', 'ready');
+        await expect(featured).toContainText('Background map is loading');
+        await expect(page.locator('[data-featured-map] .detail-access-marker')).toHaveCount(2);
+      }
+      const canvas = await map.locator('canvas').elementHandle();
+      const immediateStatus = await map.locator('button.score-map-marker').first().evaluate(button => {
+        button.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+        return document.querySelector('[data-summary-map-status]')?.textContent;
+      });
+      expect(immediateStatus).toContain('Background map is loading');
+      await expect(map.locator('.maplibregl-popup')).toBeVisible();
+      const selectedRiver = await map.locator('.maplibregl-popup h3').textContent();
+      if (path === '/explore/') await expect(status).toContainText(selectedRiver!);
+      await expect(status).toContainText('Background map is loading');
+      await page.waitForTimeout(7400);
+      await expect(status).toHaveAttribute('data-map-state', 'ready');
+      await expect(map.locator('.maplibregl-popup')).toBeVisible();
+      expect(await canvas!.evaluate(node => node.isConnected)).toBe(true);
+      if (path === '/') await expect(featured).toHaveAttribute('data-map-state', 'ready');
+      release();
+      if (path === '/') await expect(featured).not.toContainText('Background map is loading');
+      await expect(status).not.toContainText('Background map is loading');
+      await expect(page.locator('.summary-map-loading')).toBeHidden();
+      expect(await canvas!.evaluate(node => node.isConnected)).toBe(true);
+      if (path === '/explore/') await expect(status).toContainText(selectedRiver!);
+    } finally { release(); }
+  });
+}
+
 test.describe('product polish interactions', () => {
   test.beforeEach(async ({ page }) => {
     await installMapLibreHarness(page);
     await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
     await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: summaryFixture }));
   });
+
+  for (const [path, control] of [['/', 'button'], ['/explore/', 'button'], ['/weekend/', 'button'], ['/weekend/', 'link']]) {
+    test(`automatic refresh keeps ${control} focus in the map results on ${path}`, async ({ page }) => {
+      test.skip(path === '/explore/' && (page.viewportSize()?.width ?? 1280) > 760, 'Desktop Explore uses its card grid.');
+      let refreshed = false;
+      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : '**/api/rivers/summary.json*', route => {
+        const payload: any = structuredClone(path === '/weekend/' ? weekendFixture : summaryFixture);
+        if (refreshed) for (const item of payload.rivers) {
+          if (item.weekend) item.weekend.score++;
+          else item.score++;
+        }
+        return route.fulfill({ json: payload });
+      });
+      await page.addInitScript(() => {
+        const interval = window.setInterval.bind(window);
+        window.setInterval = ((callback: TimerHandler, delay?: number, ...args: any[]) => {
+          if (delay === 300000 && typeof callback === 'function') (window as any).refreshBoard = () => callback(...args);
+          return interval(callback, delay, ...args);
+        }) as typeof window.setInterval;
+      });
+      await page.goto(path);
+      const row = page.locator(path === '/weekend/' ? '[data-weekend-result-key]' : '[data-summary-map-item]').first();
+      await expect(row).toBeAttached();
+      const list = page.locator('[data-summary-map-mobile-view="list"]');
+      if (await list.isVisible()) await list.click();
+      const target = path === '/weekend/' ? row.locator(control === 'link' ? 'a' : 'button') : row;
+      await page.keyboard.press('Tab');
+      await target.focus();
+      await expect(target).toBeFocused();
+      expect(await target.evaluate(element => element.matches(':focus-visible'))).toBe(true);
+      expect(await target.evaluate(element => parseFloat(getComputedStyle(element).outlineOffset))).toBeLessThan(0);
+      const scroll = await page.evaluate(() => scrollY);
+      const mapLabel = await page.locator('[data-summary-map]').getAttribute('aria-label');
+      const fitCount = async () => (await mapHarnessState(page)).fitCalls.filter((call: { label: string }) => call.label === mapLabel).length;
+      if (path === '/weekend/') await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+      const beforeFits = await fitCount();
+      refreshed = true;
+      await page.evaluate(() => (window as any).refreshBoard());
+      await expect(row).toContainText('88');
+      await expect(target).toBeFocused();
+      expect(await page.evaluate(() => scrollY)).toBe(scroll);
+      if (path === '/weekend/') {
+        await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+        expect(await fitCount()).toBe(beforeFits);
+      }
+    });
+  }
+
+  for (const [path, control] of [['/', 'button'], ['/weekend/', 'button'], ['/weekend/', 'link']]) {
+    test(`removed ${control} results retain keyboard position on ${path}`, async ({ page }) => {
+      let updated = false;
+      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : '**/api/rivers/summary.json*', route => {
+        const payload: any = structuredClone(path === '/weekend/' ? weekendFixture : summaryFixture);
+        if (updated) payload.rivers.shift();
+        return route.fulfill({ json: payload });
+      });
+      await page.addInitScript(() => {
+        const interval = window.setInterval.bind(window);
+        window.setInterval = ((callback: TimerHandler, delay?: number, ...args: any[]) => {
+          if (delay === 300000 && typeof callback === 'function') (window as any).refreshBoard = () => callback(...args);
+          return interval(callback, delay, ...args);
+        }) as typeof window.setInterval;
+      });
+      await page.goto(path);
+      const rows = page.locator(path === '/weekend/' ? '[data-weekend-result-key]' : '[data-summary-map-item]');
+      await expect(rows).toHaveCount(2);
+      const list = page.locator('[data-summary-map-mobile-view="list"]');
+      if (await list.isVisible()) await list.click();
+      const target = () => path === '/weekend/' ? rows.first().locator(control === 'link' ? 'a' : 'button') : rows.first();
+      await page.keyboard.press('Tab');
+      await target().focus();
+      updated = true;
+      await page.evaluate(() => (window as any).refreshBoard());
+      await expect(rows).toHaveCount(1);
+      await expect(target()).toBeFocused();
+      await expect(rows.first()).toContainText('Snake River');
+    });
+  }
+
+  test('Weekend route actions and details reflow with enlarged text', async ({ page }) => {
+    await page.route('**/api/weekend/summary.json*', route => route.fulfill({ json: weekendFixture }));
+    await page.goto('/weekend/');
+    await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+    const row = page.locator('[data-weekend-result-key]').first();
+    await expect(row).toBeAttached();
+    const list = page.locator('[data-summary-map-mobile-view="list"]');
+    if (await list.isVisible()) await list.click();
+    await expect(row).toBeVisible();
+    const dimensions = await row.evaluate(element => {
+      const body = element.querySelector('.weekend-result-row__body')!;
+      const link = element.querySelector('a')!;
+      const rect = link.getBoundingClientRect();
+      return {
+        bodyWidth: body.getBoundingClientRect().width,
+        linkWidth: rect.width,
+        linkHeight: rect.height,
+        fontSize: parseFloat(getComputedStyle(link).fontSize),
+        overflow: element.scrollWidth - element.clientWidth,
+      };
+    });
+    expect(dimensions.bodyWidth).toBeGreaterThan(150);
+    expect(dimensions.linkWidth).toBeGreaterThanOrEqual(44);
+    expect(dimensions.linkHeight).toBeGreaterThanOrEqual(44);
+    expect(dimensions.fontSize).toBeGreaterThanOrEqual(24);
+    expect(dimensions.overflow).toBeLessThanOrEqual(1);
+    for (const selector of ['.weekend-hero__featured', '.hero__call-mix']) {
+      expect(await page.locator(selector).evaluate(element => {
+        const bounds = element.getBoundingClientRect();
+        return [...element.children].every(child => child.getBoundingClientRect().right <= bounds.right + 1);
+      })).toBe(true);
+    }
+    const destination = await row.locator('a').getAttribute('href');
+    await row.locator('a').click();
+    await expect(page).toHaveURL(new RegExp(`${destination?.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$`));
+  });
+
+  for (const motion of ['reduce', 'no-preference'] as const) {
+  test(`Explore map navigation respects ${motion} motion preferences`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: motion });
+    await page.addInitScript(() => {
+      const original = Element.prototype.scrollIntoView;
+      (window as any).mapScrollBehaviors = [];
+      Element.prototype.scrollIntoView = function (options) {
+        (window as any).mapScrollBehaviors.push(typeof options === 'object' ? options.behavior : 'auto');
+        original.call(this, options);
+      };
+    });
+    await page.goto('/explore/');
+    const mapView = page.locator('[data-summary-map-mobile-view="map"]');
+    if (await mapView.isVisible()) await mapView.click();
+    const marker = page.locator('[data-summary-map] button.score-map-marker').first();
+    await expect(marker).toBeAttached();
+    await marker.evaluate((element: HTMLButtonElement) => element.click());
+    await page.waitForTimeout(100);
+    const behaviors = await page.evaluate(() => (window as any).mapScrollBehaviors);
+    expect(behaviors.length).toBeGreaterThan(0);
+    if (motion === 'reduce') expect(behaviors).not.toContain('smooth');
+    else expect(behaviors).toContain('smooth');
+  });
+  }
+
+  test('Explore labels the mobile list and map views accurately', async ({ page, isMobile }) => {
+    test.skip(!isMobile, 'The desktop layout shows the map and results together.');
+    await page.goto('/explore/');
+    const label = page.locator('.summary-map-copy__intro .eyebrow');
+    await expect(label).toHaveText(/^List view$/i, { useInnerText: true });
+    await page.locator('[data-summary-map-mobile-view="map"]').click();
+    await expect(label).toBeHidden();
+    await page.locator('[data-summary-map-mobile-view="list"]').click();
+    await expect(label).toHaveText(/^List view$/i, { useInnerText: true });
+  });
+
+  test('Explore filters remain within their panels with larger text', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({
+      latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual',
+    })));
+    await page.goto('/explore/');
+    await expect(page.locator('[data-location-clear]')).toBeVisible();
+    await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+    await page.locator('[data-explore-advanced] > summary').click();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await expect.poll(() => page.locator('.board-filters__group--location').evaluate(panel => panel.scrollWidth - panel.clientWidth)).toBeLessThanOrEqual(1);
+    for (const button of await page.locator('.score-filter__option').all()) {
+      expect(await button.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
+    }
+  });
+
+  for (const path of ['/', '/explore/']) {
+    test(`${path} makes unavailable weather explicit`, async ({ page, isMobile }) => {
+      test.skip(path === '/explore/' && isMobile, 'Explore uses compact map results instead of weather cards on mobile.');
+      const fixture = structuredClone(summaryFixture);
+      for (const item of fixture.rivers) {
+        item.liveData.weatherState = 'unavailable';
+        item.summary.shortExplanation = 'Stable flow';
+        item.summary.rawSignalLine = 'Gauge: 620 cfs';
+      }
+      await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({
+        latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual',
+      })));
+      await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: fixture }));
+      await page.goto(path);
+      const weather = path === '/' ? page.locator('[data-featured-weather]') : page.locator('.card-weather-badge:visible').first();
+      await expect(weather).toBeVisible();
+      await expect(weather).toHaveText('Weather unclear');
+      await expect(weather.locator('.weather-indicator--unknown')).toHaveCount(1);
+      await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+      expect(await weather.evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
+    });
+  }
+
+  test('saved route weather remains inside the card with larger text', async ({ page }) => {
+    await page.addInitScript(seed => localStorage.setItem('paddletoday:favorites:v1', JSON.stringify(seed)), favoriteSeed);
+    await page.goto('/favorites/');
+    const weather = page.locator('[data-field="favorite-weather"]');
+    await expect(weather).toBeVisible();
+    await expect(weather.locator('.card-weather-badge')).toHaveClass(/card-weather-badge--unknown/);
+    await expect(weather).toHaveText('Weather unclear');
+    await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+    await expect.poll(() => weather.evaluate(element => {
+      const card = element.closest('.favorites-card')!.getBoundingClientRect();
+      const label = element.querySelector('.card-weather-badge__label')!.getBoundingClientRect();
+      return label.left >= card.left && label.right <= card.right;
+    })).toBe(true);
+  });
+
+  test('home condition-zone popups retain route actions and keyboard selection', async ({ page }) => {
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: groupedHomeFixture() }));
+    await page.goto('/');
+    await page.locator('[data-summary-map]').scrollIntoViewIfNeeded();
+    const marker = page.locator('[data-summary-map] .score-map-marker--condition-zone').filter({ hasText: '87' });
+    await marker.press('Enter');
+    const popup = page.getByRole('dialog', { name: 'Rum River', exact: true });
+    await expect(popup).toBeVisible();
+    await expect(marker).toHaveAccessibleName(/Rum River.*score 87/);
+    await expect(marker).toHaveAttribute('aria-pressed', 'true');
+    await expect(popup.locator('.score-map-popup__verdict')).toHaveText('Paddle today');
+    await expect(popup.locator('.score-map-popup__access dt')).toHaveText(['Put-in', 'Take-out']);
+    await expect(popup.getByRole('link', { name: 'View route', exact: true })).toHaveAttribute('href', '/rivers/rum-river-wayside-milaca/');
+    await expect(popup.getByRole('link', { name: 'Compare 2 routes' })).toHaveAttribute('href', '/rivers/by-river/rum-river/');
+    await popup.getByRole('link', { name: 'View route', exact: true }).press('Escape');
+    await expect(popup).toHaveCount(0);
+    await expect(marker).toBeFocused();
+    await expect(marker).toHaveAttribute('aria-pressed', 'false');
+    const secondMarker = page.locator('[data-summary-map] .score-map-marker--condition-zone').filter({ hasText: '74' });
+    await secondMarker.press('Enter');
+    await expect(secondMarker).toHaveClass(/score-map-marker--selected/);
+    await expect(page.locator('[data-summary-map] .score-map-marker--selected')).toHaveCount(1);
+  });
+
+  test('featured access locations appear before slow river geometry arrives', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({
+      latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual',
+    })));
+    let release!: () => void;
+    const geometryPending = new Promise<void>(resolve => { release = resolve; });
+    await page.route('**/data/canonical-river-geometries/routes/*.json', async route => {
+      await geometryPending;
+      await route.fulfill({ status: 404, json: {} });
+    });
+    try {
+      await page.goto('/');
+      const map = page.locator('[data-featured-map]');
+      await map.scrollIntoViewIfNeeded();
+      await expect(map.locator('.detail-access-marker')).toHaveCount(2);
+      await expect(page.locator('[data-featured-map-status]')).toHaveAttribute('data-map-state', 'ready');
+      release();
+      await expect.poll(() => page.evaluate(() => {
+        const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-featured-map'));
+        return !!map?.getSource('featured-route-line');
+      })).toBe(true);
+      await expect(page.locator('[data-featured-map-caption]')).toHaveText('Dashed line connects access points.');
+      await expect(page.locator('[data-featured-map-caption]')).toBeVisible();
+      expect(await page.evaluate(() => {
+        const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-featured-map'));
+        return map.getLayer('featured-route-line').paint['line-dasharray'];
+      })).toEqual([2, 2]);
+      await expect(map.locator('.detail-access-marker')).toHaveCount(2);
+    } finally { release(); }
+  });
+
+  test('home score markers are usable before slow river geometry arrives', async ({ page }) => {
+    let release!: () => void;
+    const geometryPending = new Promise<void>(resolve => { release = resolve; });
+    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: groupedHomeFixture() }));
+    await page.route('**/data/canonical-river-geometries/routes/*.json', async route => {
+      await geometryPending;
+      await route.fulfill({ status: 404, json: {} });
+    });
+    try {
+      await page.goto('/');
+      await page.locator('[data-summary-map]').scrollIntoViewIfNeeded();
+      const marker = page.locator('[data-summary-map] .score-map-marker--condition-zone').filter({ hasText: '87' });
+      await expect(marker).toHaveCount(1);
+      await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+      await marker.press('Enter');
+      const popup = page.getByRole('dialog', { name: 'Rum River', exact: true });
+      await expect(popup).toBeVisible();
+      const popupNode = await popup.elementHandle();
+      release();
+      await expect.poll(() => page.evaluate(() => {
+        const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-summary-map'));
+        return map?.getSource('home-summary-route-lines')?.data?.features?.length ?? 0;
+      })).toBeGreaterThan(0);
+      await expect(popup).toBeVisible();
+      expect(await popupNode!.evaluate(node => node.isConnected)).toBe(true);
+    } finally { release(); }
+  });
+
+  test('Weekend markers remain usable while river geometry is pending', async ({ page }) => {
+    let release!: () => void;
+    const pending = new Promise<void>(resolve => { release = resolve; });
+    await page.route('**/api/weekend/summary.json*', route => route.fulfill({ json: weekendFixture }));
+    await page.route('**/data/canonical-river-geometries/routes/*.json', async route => {
+      await pending;
+      await route.fulfill({ status: 404, json: {} });
+    });
+    try {
+      await page.goto('/weekend/');
+      const mapView = page.locator('[data-summary-map-mobile-view="map"]');
+      if (await mapView.isVisible()) await mapView.click();
+      const map = page.locator('[data-summary-map]');
+      await map.scrollIntoViewIfNeeded();
+      const marker = map.locator('.score-map-marker').first();
+      await expect(marker).toBeVisible();
+      await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+      await marker.press('Enter');
+      const popup = page.locator('.maplibregl-popup');
+      await expect(popup).toBeVisible();
+      const originalPopup = await popup.elementHandle();
+      release();
+      await expect.poll(() => page.evaluate(() => {
+        const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-summary-map'));
+        return map?.getSource('weekend-route-spans')?.data?.features?.length ?? 0;
+      })).toBe(2);
+      expect(await originalPopup!.evaluate(element => element.isConnected)).toBe(true);
+      await expect(popup).toBeVisible();
+    } finally { release(); }
+  });
+
+  for (const failure of ['download', 'style']) {
+  test(`home map ${failure} failure preserves results and offers a working retry`, async ({ page }) => {
+    await page.addInitScript((failure) => {
+      (window as any).__retryMapRuntime = (window as any).maplibregl;
+      if (failure === 'download') delete (window as any).maplibregl;
+      else {
+        (window as any).maplibregl.Map.prototype.loaded = () => false;
+        (window as any).maplibregl.Map.prototype.isStyleLoaded = () => false;
+      }
+      localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now()));
+    }, failure);
+    await page.route('https://unpkg.com/maplibre-gl@*/dist/*', route => route.abort());
+    await page.goto('/');
+    const shell = page.locator('.summary-map-shell--home');
+    await shell.scrollIntoViewIfNeeded();
+    if (failure === 'style') await expect(shell.locator('.summary-map-loading')).toBeVisible();
+    const retry = page.getByRole('button', { name: 'Retry map', exact: true });
+    await expect(retry).toBeVisible({ timeout: 12000 });
+    await expect(shell.locator('.summary-map-loading')).toBeHidden();
+    await expect(shell.locator('[data-summary-map-results] .summary-map-result')).toHaveCount(2);
+    await expect(shell.locator('[data-summary-map-results] a.summary-map-result')).toHaveCount(2);
+    await expect(shell.locator('[data-summary-map-results] a.summary-map-result').first()).toHaveAttribute('href', /\/rivers\//);
+    await expect(shell.locator('[data-summary-map-results] a.summary-map-result').first()).not.toHaveAttribute('aria-pressed', /.*/);
+    await expect(shell.locator('[data-summary-map-status]')).toContainText('route results are still available');
+    await page.screenshot({ path: test.info().outputPath('map-download-failed.png') });
+    await page.evaluate(() => {
+      (window as any).maplibregl = (window as any).__retryMapRuntime;
+      (window as any).maplibregl.Map.prototype.loaded = () => true;
+      (window as any).maplibregl.Map.prototype.isStyleLoaded = () => true;
+    });
+    await retry.click();
+    await expect(retry).toBeHidden();
+    await expect(shell.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+    await expect(shell.locator('.summary-map-loading')).toBeHidden();
+    await expect(shell.locator('[data-summary-map-results] button.summary-map-result')).toHaveCount(2);
+    await expect(shell.locator('[data-summary-map] canvas')).toHaveCount(1);
+    await expect(shell.locator('[data-summary-map] .score-map-marker')).toHaveCount(2);
+    const focusTarget = (page.viewportSize()?.width ?? 1280) <= 760
+      ? shell.locator('[data-summary-map-mobile-view="map"]')
+      : shell.locator('[data-summary-map-status]');
+    await expect(focusTarget).toBeFocused();
+    expect(await shell.locator('.summary-map-frame').evaluate(node => getComputedStyle(node).backdropFilter)).toBe('none');
+  });
+  }
+
+  test('home route lines appear when tiles finish after the results camera moves', async ({ page }) => {
+    await page.addInitScript(() => {
+      const prototype = (window as any).maplibregl.Map.prototype;
+      const originalFit = prototype.fitBounds;
+      prototype.fitBounds = function (...args: any[]) {
+        const result = originalFit.apply(this, args);
+        if (this.container.hasAttribute('data-summary-map')) {
+          this.loaded = () => false;
+          this.isStyleLoaded = () => false;
+        }
+        return result;
+      };
+    });
+    await page.goto('/');
+    await page.locator('.summary-map-shell--home').scrollIntoViewIfNeeded();
+    await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+    await page.evaluate(() => {
+      const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-summary-map'));
+      map.loaded = () => true;
+      map.isStyleLoaded = () => true;
+      map.emit('idle');
+    });
+    await expect.poll(() => page.evaluate(() => {
+      const map = (window as any).__paddleMapInstances.find((map: any) => map.container.hasAttribute('data-summary-map'));
+      return map?.getSource('home-summary-route-lines')?.data?.features?.length ?? 0;
+    })).toBeGreaterThan(0);
+  });
+
+  for (const path of ['/', '/explore/', '/weekend/']) {
+    test(`keyboard users can skip the map controls on ${path}`, async ({ page }) => {
+      await page.route('**/api/weekend/summary.json*', route => route.fulfill({ json: weekendFixture }));
+      await page.goto(path);
+      const shell = page.locator('[data-summary-map-shell]');
+      await shell.scrollIntoViewIfNeeded();
+      const mapView = shell.locator('[data-summary-map-mobile-view="map"]');
+      if (await mapView.isVisible()) await mapView.click();
+      const skip = shell.getByRole('link', { name: 'Skip map', exact: true });
+      await skip.focus();
+      await expect(skip).toBeVisible();
+      expect(await skip.evaluate(node => getComputedStyle(node).clipPath)).toBe('none');
+      await skip.press('Enter');
+      await expect(shell.locator('.map-skip-target')).toBeFocused();
+      await page.keyboard.press('Tab');
+      expect(await shell.evaluate(node => node.contains(document.activeElement))).toBe(false);
+    });
+  }
+
+  test('empty weekend filters cancel pending map resize work', async ({ page }) => {
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.addInitScript(() => {
+      (window as any).maplibregl.Map.prototype.loaded = () => false;
+      (window as any).maplibregl.Map.prototype.isStyleLoaded = () => false;
+    });
+    await page.route('**/api/weekend/summary.json*', route => route.fulfill({ json: weekendFixture }));
+    await page.goto('/weekend/');
+    await expect(page.locator('[data-summary-map] canvas')).toHaveCount(1);
+    await page.locator('[data-weekend-filter="camping"]').click();
+    await expect(page.locator('[data-weekend-map-empty]')).toBeVisible();
+    await expect(page.locator('[data-summary-map] canvas')).toHaveCount(0);
+    await page.waitForTimeout(100);
+    expect(errors).toEqual([]);
+    await page.evaluate(() => {
+      (window as any).maplibregl.Map.prototype.loaded = () => true;
+      (window as any).maplibregl.Map.prototype.isStyleLoaded = () => true;
+    });
+    await page.locator('[data-weekend-filter="all"]').click();
+    await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+    await expect(page.locator('[data-summary-map] canvas')).toHaveCount(1);
+    await expect(page.locator('[data-weekend-result-key]')).toHaveCount(2);
+    expect(errors).toEqual([]);
+  });
+
+  test('a stalled weekend map preserves its shortlist and can retry', async ({ page }) => {
+    await page.clock.install();
+    await page.addInitScript(() => {
+      (window as any).maplibregl.Map.prototype.loaded = () => false;
+      (window as any).maplibregl.Map.prototype.isStyleLoaded = () => false;
+    });
+    await page.route('**/api/weekend/summary.json*', route => route.fulfill({ json: weekendFixture }));
+    await page.goto('/weekend/');
+    await expect(page.locator('[data-summary-map] canvas')).toHaveCount(1);
+    await page.clock.fastForward(7001);
+    const retry = page.locator('[data-summary-map-retry]');
+    await expect(retry).toBeVisible();
+    await expect(page.locator('[data-weekend-result-key]')).toHaveCount(2);
+    await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'unavailable');
+    expect(Math.round((await retry.boundingBox())!.height)).toBeGreaterThanOrEqual(44);
+    await page.locator('[data-summary-map-shell]').screenshot({ path: test.info().outputPath('weekend-map-unavailable.png') });
+    await page.evaluate(() => {
+      (window as any).maplibregl.Map.prototype.loaded = () => true;
+      (window as any).maplibregl.Map.prototype.isStyleLoaded = () => true;
+    });
+    await retry.click();
+    await expect(retry).toBeHidden();
+    await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+    await expect(page.locator('[data-summary-map] canvas')).toHaveCount(1);
+    await expect(page.locator('[data-summary-map-status]')).toBeVisible();
+    await expect(page.locator('[data-summary-map-status]')).toBeFocused();
+  });
+
+  for (const failure of ['assets', 'style']) {
+    test(`Explore can retry failed map ${failure} while retaining its route filters`, async ({ page }) => {
+      await page.addInitScript((failure) => {
+        history.replaceState({ ...history.state, paddletodayExplorePosition: {
+          version: 1, url: location.href, page: 1, scrollY: 0, scrolls: [],
+          camera: { center: [-93, 45], zoom: 7, bearing: 0, pitch: 0 },
+          view: 'map', advanced: false, collapsed: false,
+        } }, '');
+        (window as any).__retryMapLibrary = (window as any).maplibregl;
+        if (failure === 'assets') delete (window as any).maplibregl;
+        else {
+          (window as any).maplibregl.Map.prototype.loaded = () => false;
+          (window as any).maplibregl.Map.prototype.isStyleLoaded = () => false;
+        }
+      }, failure);
+      await page.route('https://unpkg.com/maplibre-gl@*/dist/*', route => route.abort());
+      await page.goto('/explore/?searchVersion=1&search=Rum&routeType=non-whitewater&sort=best-now&paddleable=true');
+      const retry = page.locator('[data-summary-map-retry]');
+      await expect(retry).toBeVisible({ timeout: 12000 });
+      await expect(page.locator('[data-filter-search]')).toHaveValue('Rum');
+      await expect(page.locator('[data-explore-grid] .river-card')).toHaveCount(1);
+      await expect(page.locator('[data-explore-grid] .river-card')).toBeVisible();
+      await page.locator('.explore-workspace__body').screenshot({ path: test.info().outputPath(`explore-map-${failure}-failed.png`) });
+      await page.evaluate(() => {
+        (window as any).maplibregl = (window as any).__retryMapLibrary;
+        (window as any).maplibregl.Map.prototype.loaded = () => true;
+        (window as any).maplibregl.Map.prototype.isStyleLoaded = () => true;
+      });
+      await retry.click();
+      await expect(retry).toBeHidden();
+      await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+      await expect(page.locator('[data-filter-search]')).toHaveValue('Rum');
+      await expect(page.locator('[data-summary-map] canvas')).toHaveCount(1);
+      await expect(page.locator('[data-summary-map] [aria-label="Map route scores"]')).toHaveCount(1);
+      await expect(page.locator('[data-summary-map] [aria-label="Map route scores"] button')).toHaveCount(1);
+      const status = page.locator('[data-summary-map-status]');
+      const target = await status.isVisible() ? status : page.locator('[data-summary-map-mobile-view="map"]');
+      await expect(target).toBeFocused();
+    });
+  }
 
   test('an early location submission waits for homepage hydration', async ({ page }) => {
     let release!: () => void;
@@ -558,9 +1126,15 @@ test.describe('product polish interactions', () => {
     else await page.locator('[data-explore-next]').click();
     await expect(page.locator('[data-explore-page]')).toContainText(mobile ? '1' : '2');
     await expect.poll(() => page.evaluate(() => (window as any).__paddleMapInstances.length)).toBeGreaterThan(0);
-    await page.evaluate(() => {
+    await page.evaluate(async () => {
       const map = (window as any).__paddleMapInstances.find((map: any) => map.container.matches('[data-summary-map]'));
       map.move(8.5, [[-94, 45], [-93, 46]]);
+      // Choose the departure position after the queued viewport render and font
+      // layout settle, so pagehide saves the same position this check records.
+      await document.fonts.ready;
+      await new Promise<void>(resolve => requestIdleCallback(() => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      }, { timeout: 1000 }));
       window.scrollTo({ top: 500, behavior: 'instant' });
       const shell = document.querySelector('[data-explore-shell]')!;
       shell.scrollTop = 160;

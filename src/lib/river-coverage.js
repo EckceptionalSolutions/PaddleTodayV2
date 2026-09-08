@@ -1,4 +1,9 @@
 import { coverageCenter, nearestPointOnLines } from '@paddletoday/geo';
+import { isCurrentCallUnavailable } from './current-call-availability.js';
+
+function currentConditionScore(result) {
+  return !isCurrentCallUnavailable(result) && Number.isFinite(result?.score) ? result.score : null;
+}
 
 function riverForResult(result) {
   return result?.river ?? result ?? {};
@@ -29,7 +34,7 @@ export function conditionScoreKey(result) {
     || river.riverId
     || river.slug
     || 'route';
-  const score = Number.isFinite(Number(result?.score)) ? Number(result.score) : 'pending';
+  const score = currentConditionScore(result) ?? 'pending';
   return `${zone}:${score}`;
 }
 
@@ -46,7 +51,7 @@ export function groupRoutesByConditionScore(results) {
 
     groups.set(key, {
       key,
-      score: Number.isFinite(Number(result?.score)) ? Number(result.score) : null,
+      score: currentConditionScore(result),
       rating: result?.rating ?? '',
       confidence: result?.confidence ?? null,
       region: riverForResult(result).region ?? '',

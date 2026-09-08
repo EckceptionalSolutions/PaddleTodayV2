@@ -1,6 +1,10 @@
 import type { Page } from '@playwright/test';
 
 export async function installMapLibreHarness(page: Page, { mapReady = true }: { mapReady?: boolean } = {}) {
+  // A reused Astro dev server may reload its first page after a source edit.
+  // Keep controlled fixtures in one document by isolating the local Vite socket.
+  await page.routeWebSocket(url => ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)
+    && url.pathname === '/' && url.searchParams.has('token'), socket => socket.send(JSON.stringify({ type: 'connected' })));
   await page.addInitScript(({ mapReady }) => {
     const harness = {
       maps: [] as Array<{ label: string }>,

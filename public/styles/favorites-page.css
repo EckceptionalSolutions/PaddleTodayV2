@@ -1,0 +1,286 @@
+/* Saved routes, map layout, and personal note dialog. Shared save toggles remain global. */
+
+.favorites-page__empty-actions > a:first-child {
+  background: var(--river-deep);
+  border-color: var(--river-deep);
+  color: #fff;
+  font-weight: 700;
+  min-height: 44px;
+}
+
+.favorites-page__empty-actions > a:first-child:hover {
+  background: #0d3f58;
+  border-color: #0d3f58;
+  color: #fff;
+}
+
+.favorites-page__empty-actions > a:focus-visible {
+  outline: 3px solid var(--river);
+  outline-offset: 3px;
+}
+
+.favorites-page__empty-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: var(--river-deep);
+  background: #e5f1f3;
+  border: 1px solid #c9dfe4;
+  border-radius: 16px;
+}
+
+.favorites-page .favorites-page__empty-title {
+  margin: 0.75rem 0 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.favorites-page {
+  gap: 0.65rem;
+}
+
+.favorites-page__head {
+  margin-bottom: 0;
+}
+
+.favorites-page__device-note {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.favorites-page__map-shell {
+  margin-inline: 0;
+  margin-bottom: 0.3rem;
+}
+
+html body.page-favorites .favorites-page__map-shell[data-map-unavailable="true"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.favorites-page__map-shell[data-map-unavailable="true"] .favorites-page__map-frame,
+.favorites-page__map-shell[data-map-unavailable="true"] .favorites-page__map-lede,
+.favorites-page__map-shell[data-map-unavailable="true"] .favorites-page__map-note {
+  display: none;
+}
+
+html body.page-favorites [data-favorites-map-retry] {
+  min-height: 44px;
+  flex-shrink: 0;
+}
+
+.favorites-page__map-title {
+  margin-bottom: 0;
+}
+
+.favorites-page__map-lede {
+  margin: 0;
+}
+
+.favorites-page__map-note {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.favorites-page__map-shell[hidden],
+[data-favorites-refresh][hidden],
+.favorites-page__grid[hidden],
+.favorites-page__empty[hidden] {
+  display: none !important;
+}
+
+.favorites-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.favorites-page__empty-title,
+.favorites-page__empty-copy {
+  margin: 0;
+}
+
+.favorites-page__empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.favorites-page__empty {
+  margin-top: 0;
+}
+
+.favorites-card__saved-at {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+.favorites-card--selected {
+  border-color: rgba(30, 115, 151, 0.24);
+  box-shadow: 0 18px 36px rgba(16, 35, 45, 0.1),
+    inset 0 0 0 1px rgba(30, 115, 151, 0.1);
+}
+
+.favorites-card--missing {
+  border-style: dashed;
+  border-color: rgba(16, 35, 45, 0.16);
+  background: linear-gradient(180deg, rgba(250, 247, 243, 0.95), rgba(255, 255, 255, 0.86)),
+    var(--panel);
+}
+
+.favorites-card--missing .score-orb {
+  background: rgba(247, 244, 238, 0.9);
+  color: var(--ink-soft);
+  border-color: rgba(16, 35, 45, 0.08);
+  box-shadow: none;
+}
+
+.page-favorites .main-shell > :first-child {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 980px) {
+  .favorites-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-favorites .favorites-page {
+    gap: 0.52rem !important;
+  }
+  html body.page-favorites .favorites-page__grid {
+    order: 1 !important;
+    gap: 0.56rem !important;
+  }
+  html body.page-favorites .favorites-page__map-shell {
+    order: 2 !important;
+    margin: 0 !important;
+  }
+  html body.page-favorites .favorites-page__map-lede {
+    display: none !important;
+  }
+  html body.page-favorites .favorites-page__map-title {
+    font-size: 1.02rem !important;
+  }
+  html body.page-favorites .favorites-card {
+    gap: 0.56rem !important;
+    padding: 0.82rem !important;
+  }
+  html body.page-favorites .favorites-card,
+  html body.page-favorites .favorites-card .river-card__scoreline,
+  html body.page-favorites .favorites-card .river-card__score-copy {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html body.page-favorites .favorites-card {
+    overflow: hidden !important;
+  }
+  html body.page-favorites .favorites-card .river-card__meta-line,
+  html body.page-favorites .favorites-card .river-card__signal-line,
+  html body.page-favorites .favorites-card .river-card__facts,
+  html body.page-favorites .favorites-card .river-card__facts > * {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+  html body.page-favorites .favorites-card .river-card__facts {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+.favorite-notes {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+
+.favorite-notes__text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 12px;
+  background: #f1f5f1;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.favorite-notes-dialog {
+  width: min(520px, calc(100% - 32px));
+  max-width: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
+  box-sizing: border-box;
+  overflow: auto;
+  border: 1px solid #cedad7;
+  border-radius: 16px;
+  padding: 24px;
+  color: #10232d;
+  background: #fffcf8;
+  container: favorite-notes / inline-size;
+}
+
+.favorite-notes-dialog::backdrop {
+  background: #10232d88;
+}
+
+.favorite-notes-dialog form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.favorite-notes-dialog h2,
+.favorite-notes-dialog p {
+  margin: 0;
+}
+
+.favorite-notes-dialog textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 140px;
+  padding: 12px;
+  border: 1px solid #97aeaa;
+  border-radius: 8px;
+  font: inherit;
+  font-size: max(16px, 1rem);
+}
+
+.favorite-notes-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.favorite-notes-dialog__actions button {
+  min-height: 44px;
+}
+
+.favorite-notes-dialog__actions button[type="submit"] {
+  background: var(--river-deep);
+  border-color: var(--river-deep);
+  color: #fff;
+  font-weight: 600;
+}
+
+.favorite-notes-dialog__status {
+  color: #9c302d;
+}
+
+@container favorite-notes (max-width: 14rem) {
+  .favorite-notes-dialog__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1200px) {
+  .favorites-page {
+    gap: 0.72rem;
+  }
+}

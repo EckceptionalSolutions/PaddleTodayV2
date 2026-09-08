@@ -1,3 +1,5 @@
+import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
+
 const EARTH_RADIUS_METERS = 6_371_000;
 
 function radians(value) {
@@ -55,6 +57,7 @@ export function routeGeometryMidpoint(geometry) {
 
 export function riverHubRouteStatus(route) {
   if (route?.scoreEligibility === 'planning') return 'planning';
+  if (isCurrentCallUnavailable(route)) return 'unavailable';
   if (route?.rating === 'Strong') return 'strong';
   if (route?.rating === 'Good') return 'good';
   if (route?.rating === 'Fair') return 'fair';

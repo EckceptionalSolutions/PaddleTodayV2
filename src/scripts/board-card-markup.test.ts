@@ -59,6 +59,20 @@ describe('board card markup', () => {
     });
   });
 
+  it('uses a neutral icon and label when weather is unavailable', () => {
+    const item = { cardRoute: { liveData: { weatherState: 'unavailable' }, summary: {
+      shortExplanation: 'Stable flow', rawSignalLine: 'Gauge: 620 cfs',
+    } } };
+    expect(weatherBadgeMarkup(item)).toContain('card-weather-badge--unknown');
+    expect(weatherBadgeMarkup(item)).toContain('Weather unclear');
+    expect(featuredWeatherViewModel(item)).toMatchObject({
+      label: 'Weather unclear',
+      iconClassName: expect.stringContaining('weather-indicator--unknown'),
+      iconMarkup: expect.stringContaining('aria-label="Weather unclear"'),
+    });
+    expect(weatherVisualMarkup('unknown')).not.toContain('r="4"');
+  });
+
   it('renders shared condition, tag, and source markup safely', () => {
     const item = {
       cardRoute: {

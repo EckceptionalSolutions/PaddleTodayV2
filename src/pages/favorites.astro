@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
+import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
 ---
 
 <BaseLayout
@@ -36,33 +37,29 @@ import FeatureIcon from '../components/FeatureIcon.astro';
         <p class="muted favorites-page__map-note" data-favorites-map-copy>
           Loading current saved-route locations.
         </p>
+        <div class="summary-map-recovery" data-favorites-map-recovery hidden>
+          <p>Map unavailable right now. Your saved routes and notes are still below.</p>
+          <button class="filter-chip" type="button" data-favorites-map-retry>Retry map</button>
+        </div>
       </div>
 
       <div class="summary-map-frame favorites-page__map-frame">
-        <div class="summary-map favorites-page__map" data-favorites-map aria-label="Map showing saved routes"></div>
+        <a class="map-skip-link" href="#saved-map-end">Skip map</a>
+        <div class="summary-map favorites-page__map" data-favorites-map aria-label="Map showing saved routes">
+          <span class="summary-map-loading" aria-hidden="true">
+            <span class="summary-map-loading__initial">Loading map…</span>
+            <span class="summary-map-loading__background">Loading map background…</span>
+          </span>
+        </div>
         <div class="summary-map-footer">
-          <div class="summary-map-legend" aria-hidden="true">
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-              Strong conditions
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--good">70</span>
-              Good conditions
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-              Watch closely
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-              Skip
-            </span>
+          <div class="summary-map-legend" aria-label="Map marker legend">
+            <MapScoreLegendItems showUnavailable={true} />
           </div>
-          <p class="muted summary-map__status favorites-page__map-status" data-favorites-map-status>
+          <p class="muted summary-map__status favorites-page__map-status" data-favorites-map-status role="status" tabindex="-1">
             Loading saved-route map.
           </p>
         </div>
+        <span class="map-skip-target" id="saved-map-end" tabindex="-1">End of map</span>
       </div>
     </section>
 

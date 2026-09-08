@@ -371,7 +371,8 @@ const groupStructuredData = [
               </div>
             ) : null}
           </div>
-          <div class="river-group-page__map-shell">
+          <div class="river-group-page__map-shell" data-map-skip-region>
+            <a class="map-skip-link" href="#trip-map-end">Skip map</a>
             <div class="river-group-page__map" data-group-map aria-label={`${group.name} trip map`}></div>
             <div class="river-hub-map-legend" aria-label="Trip map legend">
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--strong"></i>Strong conditions</span>
@@ -379,6 +380,7 @@ const groupStructuredData = [
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--fair"></i>Watch closely</span>
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--no-go"></i>Skip</span>
               <span><i class="river-hub-map-legend__line river-hub-map-legend__line--planning"></i>Planning only</span>
+              <span><i class="river-hub-map-legend__line river-hub-map-legend__line--unavailable"></i>Call unavailable</span>
               {group.riverId === 'mississippi-river' ? <span><i class="river-hub-map-legend__notice">!</i>Lock, portage, or coverage gap</span> : null}
             </div>
             <div class="river-route-picker__map-empty" data-group-map-empty role="status" hidden>
@@ -391,19 +393,12 @@ const groupStructuredData = [
                 </button>
               </div>
             </div>
-            <p class="muted river-group-page__map-status" data-group-map-status>
+            <p class="muted river-group-page__map-status" data-group-map-status role="status" tabindex="-1">
               Loading trip map.
             </p>
+            <button class="filter-chip river-group-page__map-retry" type="button" data-group-map-retry hidden>Retry trip map</button>
+            <span class="map-skip-target" id="trip-map-end" tabindex="-1">End of map</span>
           </div>
-          <button
-            class="filter-chip river-group-page__map-toggle"
-            type="button"
-            data-group-map-toggle
-            hidden
-            aria-expanded="true"
-          >
-            Hide map
-          </button>
         </div>
       </div>
     </section>

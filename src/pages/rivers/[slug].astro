@@ -369,11 +369,11 @@ const routeFaqStructuredData = {
               <div class="river-detail__hero-map-copy">
                 <div>
                   <p class="river-detail__hero-map-label">Route location</p>
-                  <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton>
+                  <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton role="status">
                     {isPlanningRoute ? 'Loading the route coverage map.' : 'Loading the route snapshot. This usually takes a few seconds.'}
                   </p>
                 </div>
-                <a class="river-link river-link--inline" href="#access-plan">Open access map</a>
+                <a class="river-link river-link--inline" href="#route-access-map" data-detail-open-map>Open access map</a>
               </div>
             </div>
           </div>
@@ -1421,7 +1421,7 @@ const routeFaqStructuredData = {
           </article>
         </div>
 
-        <div class="river-launch-plan__map-shell" data-detail-map-shell>
+        <div class="river-launch-plan__map-shell" id="route-access-map" tabindex="-1" data-detail-map-shell>
           <p class="river-launch-plan__map-label">Plan this segment</p>
           <button
             class="filter-chip river-launch-plan__map-toggle"
@@ -1432,11 +1432,15 @@ const routeFaqStructuredData = {
           >
             Hide map
           </button>
-          <div class="detail-map-frame detail-map-frame--launch-plan">
+          <div class="detail-map-frame detail-map-frame--launch-plan" data-map-skip-region>
+            <a class="map-skip-link" href="#access-map-end">Skip map</a>
             <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
-            <p class="detail-map__status muted" data-detail-map-status data-skeleton>
+            <p class="detail-map__status muted" data-detail-map-status data-skeleton role="status" tabindex="-1">
               Pulling access map tiles. Usually under 5 seconds.
             </p>
+            <button class="filter-chip detail-map__retry" type="button" data-detail-map-retry hidden>Retry access map</button>
+            <p class="detail-map__status muted" data-detail-map-line-key hidden></p>
+            <span class="map-skip-target" id="access-map-end" tabindex="-1">End of map</span>
           </div>
         </div>
 

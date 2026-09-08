@@ -20,7 +20,7 @@
     "dev:all": "node scripts/dev-all.mjs",
     "doctor": "node scripts/doctor.mjs",
     "predev": "npm run tokens:sync && npm run scripts:public:sync && npm run routes:overview:generate",
-    "typecheck": "npm run tokens:check && npm run scripts:public:check && npm run dry:check && node scripts/typecheck.mjs",
+    "typecheck": "npm run tokens:check && npm run styles:check && npm run scripts:public:check && npm run dry:check && node scripts/typecheck.mjs",
     "typecheck:routes": "tsc --noEmit -p tsconfig.route-data.json",
     "typecheck:gallery": "tsc --noEmit -p tsconfig.gallery.json",
     "typecheck:runtime": "tsc --noEmit -p tsconfig.runtime.json",
@@ -120,6 +120,7 @@
     "scripts:public:check": "node scripts/sync-public-scripts.mjs --check",
     "tokens:sync": "node scripts/sync-design-tokens.mjs",
     "tokens:check": "node scripts/sync-design-tokens.mjs --check",
+    "styles:check": "node scripts/check-public-css.mjs",
     "dry:check": "node scripts/check-dry-invariants.mjs"
   },
   "dependencies": {
@@ -138,6 +139,7 @@
     "eas-cli": "^18.13.0",
     "knip": "^5.0.0",
     "madge": "^8.0.0",
+    "postcss": "8.5.23",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"
   },

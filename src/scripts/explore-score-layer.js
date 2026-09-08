@@ -6,12 +6,15 @@ export function createExploreScoreLayer(map) {
   const dotId = `${sourceId}-dots`;
   const hitId = `${sourceId}-dot-targets`;
   const layerIds = [hitId, dotId, sourceId];
+  const touchTargets = globalThis.matchMedia?.('(pointer: coarse)');
   const markers = new Map();
   let nextId = 0;
   let signature = '';
   let data = { type: 'FeatureCollection', features: [] };
   let syncing = false;
   let ordering = false;
+  let destroyed = false;
+  let graphicsAvailable = true;
   const badgeImages = new Map();
   const controls = document.createElement('div');
   controls.setAttribute('role', 'group');
@@ -19,8 +22,8 @@ export function createExploreScoreLayer(map) {
   controls.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;';
   map.getContainer().append(controls);
 
-  function badgeImage(color, selected) {
-    const id = `explore-badge-${color.slice(1)}-${selected ? 'selected' : 'normal'}`;
+  function badgeImage(color, selected, label) {
+    const id = `explore-badge-${color.slice(1)}-${selected ? 'selected' : 'normal'}-${encodeURIComponent(label)}`;
     if (!map.hasImage(id)) {
       if (!badgeImages.has(id)) {
         const canvas = document.createElement('canvas');
@@ -35,6 +38,13 @@ export function createExploreScoreLayer(map) {
         context.lineWidth = selected ? 3 : 2;
         context.strokeStyle = selected ? '#2563eb' : '#ffffff';
         context.stroke();
+        // Keep scores independent of remote glyph downloads: one failed font
+        // request otherwise prevents MapLibre from drawing this whole source.
+        context.font = '700 12px Arial, sans-serif';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillStyle = '#ffffff';
+        context.fillText(label, size / 2, size / 2 + 0.5);
         badgeImages.set(id, context.getImageData(0, 0, canvas.width, canvas.height));
       }
       map.addImage(id, badgeImages.get(id), { pixelRatio: 2 });
@@ -56,26 +66,27 @@ export function createExploreScoreLayer(map) {
   map.on('styledata', bringToFront);
 
   function sync() {
-    if (syncing) return;
+    if (destroyed || syncing || !graphicsAvailable) return;
     syncing = true;
     try {
       const values = [...markers.values()].map((marker) => {
         const element = marker.getElement();
         const color = element.classList.contains('score-map-marker--pending') ? '#64748b'
-          : element.classList.contains('score-map-marker--marginal') ? '#ad752c'
-          : element.classList.contains('score-map-marker--no-go') ? '#bb5840' : '#2c8a54';
+          : element.classList.contains('score-map-marker--marginal') ? '#966220'
+          : element.classList.contains('score-map-marker--no-go') ? '#bb5840'
+          : element.classList.contains('score-map-marker--good') ? '#1c7770' : '#277b4b';
         return [marker.id, marker.point.lng, marker.point.lat, element.textContent, color,
           element.classList.contains('score-map-marker--selected') || marker.popup?.isOpen() || document.activeElement === element,
           document.activeElement === element];
       });
       const nextSignature = JSON.stringify(values);
       // A new style discards registered images even when the scores are unchanged.
-      for (const [, , , , color, selected] of values) badgeImage(color, selected);
+      for (const [, , , label, color, selected] of values) badgeImage(color, selected, label);
       if (nextSignature !== signature) {
         signature = nextSignature;
         data = { type: 'FeatureCollection', features: values.map(([id, lng, lat, label, color, selected, focused]) => ({
           type: 'Feature', id, properties: { label, color, selected,
-            image: badgeImage(color, selected), priority: focused ? -2 : selected ? -1 : id,
+            image: badgeImage(color, selected, label), priority: focused ? -2 : selected ? -1 : id,
           }, geometry: { type: 'Point', coordinates: [lng, lat] },
         })) };
       }
@@ -83,7 +94,7 @@ export function createExploreScoreLayer(map) {
         // Back every route with a dot. Opaque badges cover their own dots when
         // they fit; collision-hidden badges leave dots visible automatically.
         // This shares the source and needs no per-frame queries or uploads.
-        id: hitId, type: 'circle', paint: { 'circle-radius': 11, 'circle-opacity': 0 },
+        id: hitId, type: 'circle', paint: { 'circle-radius': touchTargets?.matches ? 22 : 11, 'circle-opacity': 0 },
       }, {
         id: dotId, type: 'circle', paint: {
           'circle-radius': 4, 'circle-color': ['get', 'color'],
@@ -93,11 +104,9 @@ export function createExploreScoreLayer(map) {
         id: sourceId, type: 'symbol', layout: {
           'icon-image': ['get', 'image'], 'icon-padding': 3,
           'icon-allow-overlap': false, 'icon-ignore-placement': false, 'icon-optional': false,
-          'text-field': ['get', 'label'], 'text-font': ['Noto Sans Bold'], 'text-size': 12,
-          'text-allow-overlap': false, 'text-ignore-placement': false, 'text-optional': false,
           'symbol-sort-key': ['get', 'priority'],
-          'icon-pitch-alignment': 'viewport', 'text-pitch-alignment': 'viewport',
-        }, paint: { 'text-color': '#ffffff' },
+          'icon-pitch-alignment': 'viewport',
+        },
       }] });
       bringToFront();
     } finally { syncing = false; }
@@ -161,5 +170,21 @@ export function createExploreScoreLayer(map) {
   });
   map.on('mouseenter', interactiveLayers, () => { map.getCanvas().style.cursor = 'pointer'; });
   map.on('mouseleave', interactiveLayers, () => { map.getCanvas().style.cursor = ''; });
-  return { Marker, sync };
+  function destroy() {
+    destroyed = true;
+    for (const marker of markers.values()) marker.getPopup()?.remove();
+    markers.clear();
+    badgeImages.clear();
+    controls.remove();
+    map.off('styledata', bringToFront);
+    map.off('webglcontextlost', graphicsLost);
+    map.off('style.load', styleLoaded);
+  }
+  function graphicsLost() { graphicsAvailable = false; }
+  function styleLoaded() { graphicsAvailable = true; sync(); }
+  // Re-register generated badge images when graphics recovery rebuilds style.
+  map.on('webglcontextlost', graphicsLost);
+  map.on('style.load', styleLoaded);
+  map.on('remove', destroy);
+  return { Marker, sync, destroy };
 }

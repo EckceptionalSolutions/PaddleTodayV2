@@ -1,0 +1,38 @@
+---
+const {
+  interactive = false,
+  showNoGo = true,
+  showUnavailable = false,
+  itemClass = 'summary-map-legend__item',
+} = Astro.props;
+
+const items = [
+  { rating: 'Strong', score: '90', label: 'Strong conditions', markerClass: 'summary-map-legend__marker--great', enabled: true },
+  { rating: 'Good', score: '70', label: 'Good conditions', markerClass: 'summary-map-legend__marker--good', enabled: true },
+  { rating: 'Fair', score: '55', label: 'Watch closely', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
+  { rating: 'No-go', score: '15', label: 'Skip', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
+].filter(item => showNoGo || item.rating !== 'No-go');
+---
+
+{items.map(item => interactive ? (
+  <button
+    class={`${itemClass} summary-map-legend__toggle`}
+    type="button"
+    data-summary-score-toggle={item.rating}
+    aria-pressed={item.enabled ? 'true' : 'false'}
+  >
+    <span class={`summary-map-legend__marker ${item.markerClass}`} aria-hidden="true">{item.score}</span>
+    {item.label}
+  </button>
+) : (
+  <span class={itemClass}>
+    <span class={`summary-map-legend__marker ${item.markerClass}`} aria-hidden="true">{item.score}</span>
+    {item.label}
+  </span>
+))}
+{showUnavailable && (
+  <span class={itemClass}>
+    <span class="summary-map-legend__marker score-map-marker--pending" aria-hidden="true">--</span>
+    Call unavailable
+  </span>
+)}

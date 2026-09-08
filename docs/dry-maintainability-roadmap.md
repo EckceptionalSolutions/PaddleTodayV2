@@ -1,5 +1,8 @@
 # DRY Maintainability Roadmap
 
+For the current public-map lifecycle, stylesheet ownership, and focused browser
+checks, see [Web map maintenance](web-map-maintenance.md).
+
 ## Goal
 
 A behavior change should be implemented once and reach every surface where that

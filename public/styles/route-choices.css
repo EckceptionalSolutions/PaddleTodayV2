@@ -1,0 +1,381 @@
+/* Shared route cards for State directories and river comparisons. */
+.route-choice__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.route-choice__recommended {
+  width: fit-content;
+  padding: 0.16rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(225, 242, 232, 0.92);
+  color: #246247;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.route-choice__recommendation-reason {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+
+.route-choice__on-map {
+  width: fit-content;
+  padding: 0.16rem 0.42rem;
+  border-radius: 999px;
+  background: #1f6577;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.route-choice__select {
+  width: 100%;
+  padding: 0.72rem 0.76rem;
+  padding-right: 5.4rem;
+  border: 0;
+  background: transparent;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.route-choice__select:hover {
+  background: rgba(230, 242, 245, 0.58);
+}
+
+.route-choice__select:focus-visible {
+  outline: 3px solid rgba(31, 101, 119, 0.28);
+  outline-offset: -3px;
+}
+
+.route-choice__copy {
+  display: grid;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+
+.route-choice__score-compact {
+  min-width: 3.75rem;
+  min-height: 3rem;
+  padding: 0.32rem 0.4rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.8);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.1rem;
+  text-align: center;
+}
+
+.route-choice__score-compact strong {
+  color: var(--ink);
+  font-size: 1.42rem;
+  line-height: 1;
+}
+
+.route-choice__score-compact span {
+  color: var(--muted);
+  font-size: 0.59rem;
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.route-choice__score-compact--great {
+  border-color: rgba(34, 110, 77, 0.25);
+  background: rgba(229, 245, 236, 0.9);
+}
+
+.route-choice__score-compact--good {
+  border-color: rgba(23, 109, 104, 0.24);
+  background: rgba(229, 245, 244, 0.9);
+}
+
+.route-choice__score-compact--marginal {
+  border-color: rgba(138, 90, 23, 0.25);
+  background: rgba(251, 243, 225, 0.92);
+}
+
+.route-choice__score-compact--no-go {
+  border-color: rgba(157, 62, 46, 0.24);
+  background: rgba(251, 235, 231, 0.92);
+}
+
+.route-choice__save {
+  position: absolute;
+  z-index: 1;
+  top: 0.42rem;
+  right: 0.48rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.route-choice__save .favorite-toggle__icon {
+  width: 0.82rem;
+  height: 0.82rem;
+}
+
+.route-choice__save .favorite-toggle__icon svg {
+  width: 0.82rem;
+  height: 0.82rem;
+}
+
+@media (max-width: 760px) {
+
+
+  .route-choice__select {
+    padding: 0.66rem 5rem 0.66rem 0.66rem !important;
+  }
+
+
+}
+
+.route-choice {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 18px;
+  background: rgba(248, 251, 252, 0.92);
+  padding: 0.9rem 0.95rem;
+  display: grid;
+  gap: 0.42rem;
+  min-height: 12rem;
+  align-content: start;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease;
+}
+
+.route-choice:hover,
+.route-choice:focus-visible {
+  border-color: rgba(47, 113, 133, 0.34);
+  box-shadow: 0 12px 26px rgba(16, 35, 45, 0.09);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.route-choice--active {
+  border-color: rgba(47, 113, 133, 0.42);
+  background: rgba(236, 247, 250, 0.98);
+  box-shadow: 0 14px 28px rgba(16, 35, 45, 0.1);
+}
+
+.route-choice__eyebrow {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.route-choice__title {
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.route-choice__verdict {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.route-choice__summary {
+  color: var(--ink);
+  font-size: 0.83rem;
+  font-weight: 700;
+  line-height: 1.28;
+  min-height: 2.9rem;
+}
+
+.route-choice__facts-section {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.route-choice__facts-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.route-choice__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.route-choice__fact {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.8rem;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.route-choice__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.15rem;
+}
+
+.route-choice__selection {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.route-choice__link {
+  padding: 0.36rem 0.75rem;
+}
+
+@media (min-width: 761px) {
+  .route-choice__link { min-height: 2rem; }
+}
+
+.route-choice__kind {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.3rem;
+  padding: 0.06rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.route-choice__kind {
+  border-color: rgba(168, 113, 47, 0.18);
+  background: rgba(249, 239, 226, 0.92);
+  color: #855620;
+}
+
+.route-choice__segment {
+  color: var(--color-accent-deep, #246b5d);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* Keep the base card inset before the shared responsive route-card rules. */
+.state-route-card {
+  padding: 0;
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+
+  .route-choice {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 760px) {
+
+  .route-choice {
+    padding: 0.88rem;
+    border-radius: 22px;
+  }
+
+  .route-choice {
+    min-height: auto;
+  }
+
+  .route-choice__summary {
+    min-height: 0;
+  }
+
+  .route-choice {
+    gap: 0.36rem;
+    padding: 0.82rem 0.86rem;
+  }
+
+  .route-choice__title,
+.route-choice__verdict {
+    font-size: 0.96rem;
+  }
+
+  .route-choice__summary {
+    font-size: 0.8rem;
+    line-height: 1.26;
+  }
+
+  .route-choice__footer {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .route-choice {
+    padding: 0.82rem;
+    border-radius: 20px;
+  }
+
+  .route-choice {
+    min-height: auto;
+    gap: 0.62rem;
+  }
+
+  .route-choice__summary {
+    min-height: 0;
+  }
+
+  .route-choice {
+    gap: 0.34rem;
+    padding: 0.76rem 0.8rem;
+  }
+
+  .route-choice__title,
+.route-choice__verdict {
+    font-size: 0.92rem;
+  }
+
+  .route-choice__summary {
+    font-size: 0.78rem;
+    line-height: 1.24;
+  }
+
+  .route-choice__footer {
+    gap: 0.5rem;
+  }
+}

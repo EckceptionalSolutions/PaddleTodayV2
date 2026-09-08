@@ -7,6 +7,7 @@ import {
   clearMapMarkers,
   createMapStatusController,
   createPaddleMap,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
@@ -54,6 +55,8 @@ const favoritesMapStatusController = createMapStatusController(favoritesMapStatu
   unavailable: 'Saved-route map unavailable right now.',
 });
 const favoritesMap = document.querySelector('[data-favorites-map]');
+const favoritesMapRetry = document.querySelector('[data-favorites-map-retry]');
+const favoritesMapRecovery = document.querySelector('[data-favorites-map-recovery]');
 
 const favoritesRequestGuard = createRequestGuard();
 const initialCache = readCachedPayload(SUMMARY_CACHE_KEY);
@@ -64,6 +67,10 @@ let loadFailed = false;
 let storageLoadFailed = false;
 let favoritesMapRuntime = null;
 let favoritesMapMarkers = [];
+const favoriteMarkerItems = new WeakMap();
+let favoritesMapRenderVersion = 0;
+let renderedMapResults = null;
+let renderedMapLocations = '';
 let selectedFavoriteSlug = '';
 
 function setText(scope, field, value) {
@@ -106,6 +113,7 @@ function weatherLabel(item) {
 
 function weatherTone(item) {
   const label = weatherLabel(item).toLowerCase();
+  if (label.includes('unclear')) return 'unknown';
   if (label.includes('storm')) return 'storm';
   if (label.includes('rain')) return 'rain';
   if (label.includes('wind')) return 'wind';
@@ -114,6 +122,9 @@ function weatherTone(item) {
 }
 
 function weatherIconMarkup(tone) {
+  if (tone === 'unknown') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 8.5a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4"></path><path d="M12 16h.01"></path></svg>';
+  }
   if (tone === 'wind') {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path><path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path><path d="M5 17h7"></path></svg>';
   }
@@ -215,7 +226,9 @@ function setFavoriteCardSelection(slug) {
 }
 
 function popupMetaLine(item) {
-  const parts = [`Score ${item.score}`, confidenceDisplayLabel(item.confidence.label)];
+  const parts = isCurrentCallUnavailable(item)
+    ? []
+    : [`Score ${item.score}`, confidenceDisplayLabel(item.confidence.label)];
   if (item?.river?.difficulty) {
     parts.push(`${String(item.river.difficulty).slice(0, 1).toUpperCase()}${String(item.river.difficulty).slice(1)} difficulty`);
   }
@@ -225,21 +238,60 @@ function popupMetaLine(item) {
   return parts.join(' • ');
 }
 
+function favoriteMapPopupFields(item) {
+  const unavailable = isCurrentCallUnavailable(item);
+  return {
+    state: `${item.river.state} | ${item.river.region}`,
+    name: item.river.name,
+    reach: item.river.reach || 'Route',
+    verdict: unavailable ? 'Call unavailable' : item.gaugeBandLabel || item.rating,
+    summary: unavailable
+      ? item.readiness?.reason || 'Current conditions cannot support a call. Open the route and verify its sources before you go.'
+      : item.summary?.shortExplanation || item.explanation || 'Current route read available.',
+    meta: popupMetaLine(item),
+  };
+}
+
 function favoriteMapPopupMarkup(item) {
+  const fields = favoriteMapPopupFields(item);
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(`${item.river.state} | ${item.river.region}`)}</p>
-      <h3>${escapeHtml(item.river.name)}</h3>
-      <p class="score-map-popup__reach">${escapeHtml(item.river.reach || 'Route')}</p>
-      <p class="score-map-popup__verdict">${escapeHtml(item.gaugeBandLabel || item.rating)}</p>
-      <p class="score-map-popup__summary">${escapeHtml(item.summary?.shortExplanation || item.explanation || 'Current route read available.')}</p>
-      <p class="score-map-popup__meta">${escapeHtml(popupMetaLine(item))}</p>
+      <p class="score-map-popup__state" data-favorite-popup="state">${escapeHtml(fields.state)}</p>
+      <h3 data-favorite-popup="name">${escapeHtml(fields.name)}</h3>
+      <p class="score-map-popup__reach" data-favorite-popup="reach">${escapeHtml(fields.reach)}</p>
+      <p class="score-map-popup__verdict" data-favorite-popup="verdict">${escapeHtml(fields.verdict)}</p>
+      <p class="score-map-popup__summary" data-favorite-popup="summary">${escapeHtml(fields.summary)}</p>
+      <p class="score-map-popup__meta" data-favorite-popup="meta">${escapeHtml(fields.meta)}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(item.river.slug)}/">View route</a>
     </article>
   `;
 }
 
+function favoriteMarkerClass(item) {
+  return markerClassForRating(isCurrentCallUnavailable(item) ? null : item.rating, item.confidence?.label);
+}
+
+function favoriteMarkerLabel(item) {
+  return isCurrentCallUnavailable(item) ? '--' : String(item.score);
+}
+
+function favoriteMarkerAriaLabel(item) {
+  return `${item.river.reach}: ${isCurrentCallUnavailable(item) ? 'current call unavailable' : `score ${item.score}, ${confidenceDisplayLabel(item.confidence.label).toLowerCase()}`}. Show route details.`;
+}
+
+function updateFavoriteMapPopup(marker) {
+  const item = favoriteMarkerItems.get(marker);
+  const element = marker.getPopup()?.getElement();
+  if (!item || !element) return;
+  // Retain the heading ID, close control, route link, and any keyboard focus.
+  for (const [field, value] of Object.entries(favoriteMapPopupFields(item))) {
+    const node = element.querySelector(`[data-favorite-popup="${field}"]`);
+    if (node && node.textContent !== String(value)) node.textContent = String(value);
+  }
+}
+
 async function renderFavoritesMap(results = latestResults) {
+  const renderVersion = ++favoritesMapRenderVersion;
   if (
     !(favoritesMapShell instanceof HTMLElement) ||
     !(favoritesMap instanceof HTMLElement) ||
@@ -250,14 +302,22 @@ async function renderFavoritesMap(results = latestResults) {
   }
 
   const mappable = favoriteMapItems(results);
+  const locations = JSON.stringify(mappable.map(({ current, location }) =>
+    [current.river.slug, location.longitude, location.latitude]));
   const totalFavorites = readFavorites().length;
   const hiddenCount = Math.max(totalFavorites - mappable.length, 0);
+  const restoreRetryFocus = document.activeElement === favoritesMapRetry;
+  if (favoritesMapRetry instanceof HTMLButtonElement) {
+    favoritesMapRetry.disabled = true;
+    favoritesMapRetry.textContent = 'Loading map…';
+  }
 
   if (totalFavorites === 0) {
     favoritesMapShell.hidden = true;
     favoritesMapStatusController.empty();
     favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route on this device.';
     favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
+    favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime);
     return;
   }
 
@@ -266,26 +326,40 @@ async function renderFavoritesMap(results = latestResults) {
     favoritesMapStatusController.unavailable();
     favoritesMapCopy.textContent = 'Saved routes exist, but none are available in the latest board snapshot yet.';
     favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
+    favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime);
     return;
   }
 
   favoritesMapShell.hidden = false;
+  delete favoritesMapShell.dataset.mapUnavailable;
   const mapReadyMessage = mappable.length === 1
     ? 'Showing 1 saved route.'
     : `Showing ${mappable.length} saved routes.`;
-  favoritesMapStatusController.loading({ message: mapReadyMessage });
   favoritesMapCopy.textContent =
     hiddenCount > 0
       ? `${mappable.length} saved routes are on the current board. ${hiddenCount} saved ${hiddenCount === 1 ? 'route is' : 'routes are'} not in the latest snapshot.`
       : 'All saved routes on this device are shown on the current board map.';
 
+  // Notes and other local card edits do not change the map's route data.
+  if (favoritesMapRuntime && results === renderedMapResults && locations === renderedMapLocations) {
+    favoritesMapStatusController.ready({ message: mapReadyMessage, backgroundMap: favoritesMapRuntime });
+    if (favoritesMapRetry instanceof HTMLButtonElement) {
+      favoritesMapRetry.disabled = false;
+      favoritesMapRetry.textContent = 'Retry map';
+    }
+    return;
+  }
+  favoritesMapStatusController.loading({ message: mapReadyMessage });
+
   try {
     const maplibregl = await ensureMapLibre();
+    if (renderVersion !== favoritesMapRenderVersion) return;
     if (!maplibregl) {
       favoritesMapStatusController.unavailable();
       return;
     }
 
+    const fitLocations = !favoritesMapRuntime || locations !== renderedMapLocations;
     if (!favoritesMapRuntime) {
       favoritesMapRuntime = createPaddleMap(maplibregl, {
         container: favoritesMap,
@@ -294,60 +368,103 @@ async function renderFavoritesMap(results = latestResults) {
         minZoom: 4.2,
         maxZoom: 12,
       });
-      await waitForMapReady(favoritesMapRuntime, {
-        timeoutMs: 7000,
-        rejectOnError: true,
-        rejectOnTimeout: true,
-      });
     }
 
-    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
+    await waitForMapReady(favoritesMapRuntime, {
+      timeoutMs: 7000,
+      rejectOnTimeout: true,
+      waitForTiles: false,
+    });
+    if (renderVersion !== favoritesMapRenderVersion) return;
+
+    const previousMarkers = new Map(favoritesMapMarkers.map(marker =>
+      [marker.getElement().dataset.favoriteMapMarker, marker]));
+    const nextMarkers = [];
 
     const bounds = new maplibregl.LngLatBounds();
     for (const entry of mappable) {
       const { current, location } = entry;
-      const marker = createBoardMapMarker({
-        maplibregl,
-        mapRuntime: favoritesMapRuntime,
-        item: current,
-        point: location,
-        markerClassFor: (item) => markerClassForRating(item.rating, item.confidence?.label),
-        markerLabel: (item) => String(item.score),
-        markerAriaLabel: (item) =>
-          `${item.river.reach}: score ${item.score}, ${confidenceDisplayLabel(item.confidence.label).toLowerCase()}`,
-        popupMarkup: favoriteMapPopupMarkup,
-        popupOptions: { maxWidth: '288px' },
-        configureMarkerNode: (node, item) => {
-          if (item.river.slug === selectedFavoriteSlug) {
-            node.classList.add('score-map-marker--selected');
-          }
-        },
-        onSelectedChange(selected, item) {
-          if (!selected) {
-            if (selectedFavoriteSlug === item.river.slug) {
-              setFavoriteCardSelection('');
+      let marker = previousMarkers.get(current.river.slug);
+      if (marker) {
+        previousMarkers.delete(current.river.slug);
+        marker.setLngLat([location.longitude, location.latitude]);
+        const node = marker.getElement();
+        for (const name of [...node.classList]) {
+          if (name.startsWith('score-map-marker--')) node.classList.remove(name);
+        }
+        node.classList.add(...favoriteMarkerClass(current).split(' '));
+        node.classList.toggle('score-map-marker--selected', marker.getPopup()?.isOpen() ?? false);
+        node.querySelector('span').textContent = favoriteMarkerLabel(current);
+        node.setAttribute('aria-label', favoriteMarkerAriaLabel(current));
+      } else {
+        marker = createBoardMapMarker({
+          maplibregl,
+          mapRuntime: favoritesMapRuntime,
+          item: current,
+          point: location,
+          markerClassFor: favoriteMarkerClass,
+          markerLabel: favoriteMarkerLabel,
+          markerAriaLabel: favoriteMarkerAriaLabel,
+          popupMarkup: favoriteMapPopupMarkup,
+          popupOptions: { maxWidth: '288px' },
+          configureMarkerNode: (node, item) => {
+            node.dataset.favoriteMapMarker = item.river.slug;
+            if (item.river.slug === selectedFavoriteSlug) {
+              node.classList.add('score-map-marker--selected');
             }
-            return;
-          }
+          },
+          onSelectedChange(selected, item) {
+            if (!selected) {
+              if (selectedFavoriteSlug === item.river.slug) {
+                setFavoriteCardSelection('');
+              }
+              return;
+            }
 
-          setFavoriteCardSelection(item.river.slug);
-        },
-      });
+            setFavoriteCardSelection(item.river.slug);
+          },
+        });
 
-      favoritesMapMarkers.push(marker);
+        marker.getPopup()?.on('open', () => updateFavoriteMapPopup(marker));
+        favoritesMapMarkers.push(marker);
+      }
+      favoriteMarkerItems.set(marker, current);
+      updateFavoriteMapPopup(marker);
+      nextMarkers.push(marker);
       bounds.extend([location.longitude, location.latitude]);
     }
 
-    fitMapBounds(favoritesMapRuntime, bounds, {
-      profile: 'favorites',
-      compact: window.matchMedia('(max-width: 760px)').matches,
-      maxZoom: mappable.length === 1 ? 9.8 : 10.2,
-    });
-    favoritesMapRuntime.resize();
-    favoritesMapStatusController.ready({ message: mapReadyMessage });
+    clearMapMarkers([...previousMarkers.values()]);
+    favoritesMapMarkers = nextMarkers;
+
+    if (fitLocations) {
+      fitMapBounds(favoritesMapRuntime, bounds, {
+        profile: 'favorites',
+        compact: window.matchMedia('(max-width: 760px)').matches,
+        maxZoom: mappable.length === 1 ? 9.8 : 10.2,
+      });
+    }
+    renderedMapResults = results;
+    renderedMapLocations = locations;
+    if (fitLocations) favoritesMapRuntime.resize();
+    favoritesMapStatusController.ready({ message: mapReadyMessage, backgroundMap: favoritesMapRuntime });
   } catch (error) {
+    if (renderVersion !== favoritesMapRenderVersion) return;
     console.error('Failed to load favorites map.', error);
+    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
+    favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime);
     favoritesMapStatusController.unavailable();
+  } finally {
+    if (renderVersion === favoritesMapRenderVersion && favoritesMapRetry instanceof HTMLButtonElement) {
+      favoritesMapShell.dataset.mapUnavailable = String(!favoritesMapRuntime);
+      if (favoritesMapRecovery instanceof HTMLElement) favoritesMapRecovery.hidden = Boolean(favoritesMapRuntime);
+      favoritesMapRetry.disabled = false;
+      favoritesMapRetry.textContent = 'Retry map';
+      if (favoritesMapRuntime && restoreRetryFocus
+        && (document.activeElement === favoritesMapRetry || document.activeElement === document.body)) {
+        favoritesMapStatus.focus({ preventScroll: true });
+      }
+    }
   }
 }
 
@@ -527,6 +644,9 @@ function renderFavorites(results = latestResults) {
   const favorites = stored.favorites;
   updateSummaryLine(favorites);
   if (storageLoadFailed) {
+    favoritesMapRenderVersion += 1;
+    favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
+    favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime);
     empty.hidden = true;
     grid.hidden = true;
     if (favoritesMapShell instanceof HTMLElement) favoritesMapShell.hidden = true;
@@ -624,5 +744,6 @@ subscribeFavorites(() => {
 });
 bindFavoriteNotes();
 refreshButton?.addEventListener('click', () => { void loadFavorites(); });
+favoritesMapRetry?.addEventListener('click', () => { void renderFavoritesMap(); });
 renderFavorites();
 loadFavorites();

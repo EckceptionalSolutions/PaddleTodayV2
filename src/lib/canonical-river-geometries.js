@@ -2,6 +2,7 @@ import { endpointSnappedRiverGeometry, stitchRiverLines } from './endpoint-snapp
 
 const canonicalGeometryPromises = new Map();
 const canonicalRouteGeometryPromises = new Map();
+const GEOMETRY_REQUEST_TIMEOUT_MS = 15_000;
 const routeStitchTolerances = new Map([
   ['little-miami-river-rogers-ballpark-carl-rahe', 0.0075],
   // The NHD named-fallback for this reach is split by a ~1.55-mile source
@@ -25,7 +26,9 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
 
   const promise = stateName
     ? loadGeometryCollection(`/data/canonical-river-geometries/states/${slugifyState(stateName)}.json`)
-    : fetch('/data/canonical-river-geometries.json', { cache: 'force-cache' })
+    : fetch('/data/canonical-river-geometries.json', {
+      cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS),
+    })
     .then((response) => {
       if (!response.ok) throw new Error(`Canonical river geometry manifest request failed (${response.status})`);
       return response.json();
@@ -40,12 +43,16 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
       return new Map(stateMaps.flatMap((stateMap) => [...stateMap.entries()]));
     });
 
-  canonicalGeometryPromises.set(scope, promise);
-  return promise;
+  const recoverable = promise.catch((error) => {
+    canonicalGeometryPromises.delete(scope);
+    throw error;
+  });
+  canonicalGeometryPromises.set(scope, recoverable);
+  return recoverable;
 }
 
 function loadGeometryCollection(assetPath) {
-  return fetch(assetPath, { cache: 'force-cache' })
+  return fetch(assetPath, { cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS) })
     .then((response) => {
       if (!response.ok) throw new Error(`Canonical river geometry request failed (${response.status})`);
       return response.json();
@@ -94,12 +101,15 @@ export async function loadCanonicalRiverRouteLine(routeId, routePoints, options 
   const existing = canonicalRouteGeometryPromises.get(routeId);
   const featurePromise = existing ?? fetch(
     `/data/canonical-river-geometries/routes/${encodeURIComponent(routeId)}.json`,
-    { cache: 'force-cache' },
+    { cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS) },
   )
     .then((response) => {
       if (response.status === 404) return null;
       if (!response.ok) throw new Error(`Canonical route geometry request failed (${response.status})`);
       return response.json();
+    }).catch((error) => {
+      canonicalRouteGeometryPromises.delete(routeId);
+      throw error;
     });
   if (!existing) canonicalRouteGeometryPromises.set(routeId, featurePromise);
 

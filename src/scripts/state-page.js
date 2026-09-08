@@ -1,4 +1,5 @@
 import {
+  bindMapPopup,
   clearMapMarkers,
   createMapStatusController,
   createPaddleMap,
@@ -6,6 +7,7 @@ import {
   escapeHtml,
   fitMapBounds,
   markerClassForRating,
+  mapCallLabelForRating,
   riverNameVariants,
   scoreZoneRouteLabel,
   syncActualRiverLayer,
@@ -20,6 +22,7 @@ import {
   groupRoutesByConditionScore,
 } from '../lib/river-coverage.js';
 import { getBrowserApiClient } from './browser-api-client.js';
+import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
 
 const root = document.querySelector('[data-state-page]')?.closest('.state-page');
 
@@ -29,6 +32,8 @@ if (!(root instanceof HTMLElement)) {
 
 const mapElement = root.querySelector('[data-state-map]');
 const mapStatus = root.querySelector('[data-state-map-status]');
+const mapRetry = root.querySelector('[data-state-map-retry]');
+let mapRequestPending = false;
 const mapStatusController = createMapStatusController(mapStatus, {
   loading: 'Loading supported river map.',
   empty: 'No route coordinates available.',
@@ -49,6 +54,7 @@ const routeTriggers = Array.from(root.querySelectorAll('[data-state-map-route]')
 let stateMap = null;
 let maplibreRuntime = null;
 let markers = [];
+let scoreMarkersByZone = new Map();
 let mapRoutes = [];
 let stateLiveResults = [];
 let selectedRouteSlug = '';
@@ -56,6 +62,7 @@ let selectedRiverKey = '';
 let previewRouteSlug = '';
 let activeRoutePopup = null;
 let canonicalStateGeometryState = 'idle';
+let canonicalStateGeometryRetryAfter = 0;
 let canonicalStateRouteFeatures = new Map();
 
 const emptyFeatureCollection = {
@@ -87,24 +94,27 @@ function weatherText(item) {
 }
 
 function compareLiveRoutes(left, right) {
+  const availabilityOrder = Number(isCurrentCallUnavailable(left)) - Number(isCurrentCallUnavailable(right));
+  if (availabilityOrder) return availabilityOrder;
   return compareTodayBoardQuality(left, right);
 }
 
 function liveCardMarkup(item) {
   const river = item.river || {};
+  const unavailable = isCurrentCallUnavailable(item);
   const facts = [
-    river.region,
     river.distanceLabel,
-    difficultyLabel(river.difficulty),
-    item.confidence?.label ? `${item.confidence.label} confidence` : '',
+    difficultyLabel(river.profile?.difficulty ?? river.difficulty),
+    !unavailable && item.confidence?.label ? `${item.confidence.label} confidence` : '',
   ].filter(Boolean);
-  const signals = [gaugeText(item), weatherText(item)].filter(Boolean);
-  const rating = callLabelForDecision(item.rating, item.readiness?.status, 'today', true);
+  const signals = unavailable ? [item.readiness?.reason || 'Current readings unavailable. Open the route sources before planning.']
+    : [gaugeText(item), weatherText(item)].filter(Boolean);
+  const rating = unavailable ? 'No call' : callLabelForDecision(item.rating, item.readiness?.status, 'today', true);
 
   return `
     <article class="state-live-card">
-      <div class="state-live-card__score score-orb score-orb--${escapeHtml(ratingToneKey(item.rating))}" aria-label="Current Paddle Today score">
-        <span>${escapeHtml(String(item.score ?? '--'))}</span>
+      <div class="state-live-card__score score-orb ${unavailable ? 'state-live-card__score--pending' : `score-orb--${escapeHtml(ratingToneKey(item.rating))}`}" aria-label="${unavailable ? 'Current call unavailable' : 'Current Paddle Today score'}">
+        <span>${escapeHtml(unavailable ? '--' : String(item.score ?? '--'))}</span>
         <span>${escapeHtml(rating)}</span>
       </div>
       <div class="state-live-card__body">
@@ -148,13 +158,16 @@ function stateScoreZonePopupMarkup(group) {
   const routeCount = group.routes.length;
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || river.region || '')}</p>
       <h3>${escapeHtml(river.name || 'River')}</h3>
+      <p class="score-map-popup__reach">${escapeHtml(river.reach || 'Mapped coverage')}</p>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, item))}</p>
+        <p class="score-map-popup__verdict">${escapeHtml(routeCount === 1 ? mapCallLabelForRating(group.rating) : scoreZoneRouteLabel(routeCount, item))}</p>
       </div>
-      <p class="score-map-popup__reach">${escapeHtml(river.reach || 'Mapped coverage')}</p>
+      ${routeCount === 1 ? `<dl class="score-map-popup__access">
+        <dt>Put-in</dt><dd>${escapeHtml(river.putIn?.name || 'Unavailable')}</dd>
+        <dt>Take-out</dt><dd>${escapeHtml(river.takeOut?.name || 'Unavailable')}</dd>
+      </dl>` : ''}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(river.slug || '')}/" aria-label="View route: ${escapeHtml([river.name, river.reach].filter(Boolean).join(': '))}">View route</a>
     </article>
   `;
@@ -166,8 +179,8 @@ function syncStateScoreMarkers() {
   const results = stateLiveResults.filter((item) => visible.has(item?.river?.slug));
   const riverGroups = stateRiverGroups(results);
 
-  markers = clearMapMarkers(markers);
-
+  const nextMarkers = [];
+  const nextZones = new Map();
   const selectedGroup = riverGroups.find((group) => group.key === selectedRiverKey);
   let zoneCount = 0;
   for (const group of riverGroups) {
@@ -180,7 +193,11 @@ function syncStateScoreMarkers() {
 
       const markerAriaLabel = `${river.name}, ${zone.regions.join(', ') || 'score zone'}: score ${zone.score}, ${zone.routes.length} ${zone.routes.length === 1 ? 'route' : 'routes'}`;
 
-      const marker = createBoardMapMarker({
+      const key = `${group.key}::${zone.key}`;
+      const existing = scoreMarkersByZone.get(key);
+      let marker = existing?.routes.length === zone.routes.length
+        && zone.routes.every((route, index) => route === existing.routes[index]) ? existing.marker : null;
+      if (!marker) marker = createBoardMapMarker({
         maplibregl: maplibreRuntime,
         mapRuntime: stateMap,
         item: zone,
@@ -191,29 +208,37 @@ function syncStateScoreMarkers() {
         markerAriaLabel: () => markerAriaLabel,
         popupMarkup: stateScoreZonePopupMarkup,
         popupOptions: { offset: 16, maxWidth: '280px' },
-        configureMarkerNode: (node) => {
-          node.classList.toggle('score-map-marker--river-expanded', group.key === selectedRiverKey);
-          node.classList.toggle('state-map-marker--muted', Boolean(selectedRiverKey) && group.key !== selectedRiverKey);
-          node.dataset.routeSlug = river.slug;
-          node.dataset.stateRiverKey = group.key;
-        },
-        onClick: () => {
+        onSelectedChange: (selected) => {
+          if (!selected) return;
           selectRiverCoverage(group.key);
           selectRoute(river.slug, { popup: false, preserveRiver: true });
         },
       });
-      markers.push(marker);
+      marker.setLngLat([point.longitude, point.latitude]);
+      const node = marker.getElement();
+      node.classList.toggle('score-map-marker--river-expanded', group.key === selectedRiverKey);
+      node.classList.toggle('state-map-marker--muted', Boolean(selectedRiverKey) && group.key !== selectedRiverKey);
+      node.dataset.routeSlug = river.slug;
+      node.dataset.stateRiverKey = group.key;
+      nextMarkers.push(marker);
+      nextZones.set(key, { routes: zone.routes, marker });
     }
   }
 
+  const retained = new Set(nextMarkers);
+  for (const marker of markers) if (!retained.has(marker)) marker.remove();
+  markers = nextMarkers;
+  scoreMarkersByZone = nextZones;
   updateMarkerZoomMode();
   if (selectedGroup) {
     const river = selectedGroup.representative?.river;
     mapStatusController.ready({
-      message: `Showing ${selectedGroup.routes.length} mapped ${river?.name || 'river'} routes across ${groupRoutesByConditionScore(selectedGroup.routes).length} score zones.`,
+      backgroundMap: stateMap,
+      message: `Showing ${selectedGroup.routes.length} mapped ${river?.name || 'river'} routes.`,
     });
   } else {
     mapStatusController.ready({
+      backgroundMap: stateMap,
       message: visible.size === 0 ? 'No routes match these filters. Reset the route filters to see all routes.' : `Showing ${zoneCount} condition ${zoneCount === 1 ? 'zone' : 'zones'} across ${riverGroups.length} supported ${riverGroups.length === 1 ? 'river' : 'rivers'}. Select a zone to highlight its river coverage.`,
     });
   }
@@ -256,9 +281,14 @@ async function hydrateLivePicks() {
 
     liveList.innerHTML = routes.map(liveCardMarkup).join('');
     const liveCount = routes.filter((item) => item?.liveData?.overall === 'live').length;
+    const unavailableCount = routes.filter(isCurrentCallUnavailable).length;
     setText(
       liveStatus,
-      liveCount === routes.length
+      unavailableCount === routes.length
+        ? `Current calls are unavailable for these ${state} routes. Open a route for source details.`
+        : unavailableCount > 0
+        ? `Showing ${routes.length} ${state} routes; ${unavailableCount} current ${unavailableCount === 1 ? 'call is' : 'calls are'} unavailable.`
+        : liveCount === routes.length
         ? `Showing the top ${routes.length} ${state} routes from current scores.`
         : `Showing the top ${routes.length} ${state} routes; some reads may be stale or partial.`
     );
@@ -362,7 +392,7 @@ function canonicalStateRouteFeature(route) {
 }
 
 async function hydrateCanonicalStateGeometry(routes) {
-  if (canonicalStateGeometryState !== 'idle') return;
+  if (!['idle', 'failed'].includes(canonicalStateGeometryState) || Date.now() < canonicalStateGeometryRetryAfter) return;
   canonicalStateGeometryState = 'loading';
   try {
     const geometries = await loadCanonicalRiverGeometries({ stateName: statePageElement?.dataset.stateName });
@@ -370,13 +400,14 @@ async function hydrateCanonicalStateGeometry(routes) {
       routes.map(async (route) => [route.slug, canonicalRiverRouteLineFromFeature(geometries.get(route.slug), routeCoordinates(route))]),
     );
     canonicalStateRouteFeatures = new Map(entries.filter(([, feature]) => feature));
-    canonicalStateGeometryState = canonicalStateRouteFeatures.size > 0 ? 'ready' : 'failed';
+    canonicalStateGeometryState = canonicalStateRouteFeatures.size > 0 ? 'ready' : 'empty';
     if (canonicalStateGeometryState === 'ready' && stateMap) {
       updateMapVisibility();
       refreshSelectedRouteReach();
     }
   } catch (error) {
     canonicalStateGeometryState = 'failed';
+    canonicalStateGeometryRetryAfter = Date.now() + 30000;
     console.warn('Canonical state river geometries unavailable; using map waterways.', error);
   }
 }
@@ -709,6 +740,7 @@ function updateMapVisibility() {
   }
 
   if (!stateMap) return;
+  if (canonicalStateGeometryState === 'failed') hydrateCanonicalStateGeometry(mapRoutes);
   if (selectedRouteSlug && !visible.has(selectedRouteSlug)) {
     selectedRouteSlug = '';
     selectedRiverKey = '';
@@ -731,13 +763,14 @@ function updateMapVisibility() {
     );
   }
 
-  const labelSource = stateMap.getSource('state-river-labels');
-  if (labelSource && typeof labelSource.setData === 'function') {
-    labelSource.setData(riverLabelData(selectedRiverKey ? routesForSelectedRiver() : visibleRoutes));
-  }
+  syncGeoJsonOverlay(stateMap, {
+    sourceId: 'state-river-labels',
+    data: riverLabelData(selectedRiverKey ? routesForSelectedRiver() : visibleRoutes),
+  });
 
   const riverCount = new Set(visibleRoutes.map((route) => route.riverId || route.name)).size;
   mapStatusController.ready({
+    backgroundMap: stateMap,
     message: visibleRoutes.length === 0 ? 'No routes match these filters. Reset the route filters to see all routes.' : `Showing ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'} and ${visibleRoutes.length} ${visibleRoutes.length === 1 ? 'route' : 'routes'}. Route dots are visible now; zoom in for labels or select a route to trace its reach.`,
   });
 
@@ -784,20 +817,21 @@ function riverCoverageFeatureCollection(routes) {
 }
 
 function setRouteReachData(feature) {
-  const source = stateMap?.getSource('state-route-lines');
-  if (!source || typeof source.setData !== 'function') return;
-  source.setData(
-    feature?.type === 'FeatureCollection'
+  if (!stateMap) return;
+  syncGeoJsonOverlay(stateMap, {
+    sourceId: 'state-route-lines',
+    data: feature?.type === 'FeatureCollection'
       ? feature
       : feature
         ? { type: 'FeatureCollection', features: [feature] }
-        : emptyFeatureCollection
-  );
+        : emptyFeatureCollection,
+  });
 }
 
 function setSelectedRouteStatus(route, feature) {
   if (!route) return;
   mapStatusController.ready({
+    backgroundMap: stateMap,
     message: feature?.properties?.traced
       ? `Tracing ${route.name}: ${route.reach} along the river line.`
       : `Showing ${route.name}: ${route.reach}. Detailed river geometry was not available here, so this selected reach uses access coordinates.`,
@@ -860,10 +894,7 @@ function selectRiverCoverage(key) {
   const routes = routesForSelectedRiver();
   const collection = riverCoverageFeatureCollection(routes);
   setRouteReachData(collection);
-  const labelSource = stateMap.getSource('state-river-labels');
-  if (labelSource && typeof labelSource.setData === 'function') {
-    labelSource.setData(riverLabelData(routes));
-  }
+  syncGeoJsonOverlay(stateMap, { sourceId: 'state-river-labels', data: riverLabelData(routes) });
   syncStateScoreMarkers();
 
   const bounds = routeFeaturesBounds(collection.features);
@@ -910,8 +941,9 @@ function selectRoute(slug, options = {}) {
       activeRoutePopup?.remove?.();
       activeRoutePopup = new maplibreRuntime.Popup({ closeButton: true, closeOnClick: true, maxWidth: '280px' })
         .setLngLat([point.longitude, point.latitude])
-        .setHTML(routePopupMarkup(route))
-        .addTo(stateMap);
+        .setHTML(routePopupMarkup(route));
+      bindMapPopup(activeRoutePopup, { map: stateMap });
+      activeRoutePopup.addTo(stateMap);
     }
   }
 
@@ -919,18 +951,25 @@ function selectRoute(slug, options = {}) {
 }
 
 async function renderMap(routes) {
-  if (!(mapElement instanceof HTMLElement)) {
+  if (!(mapElement instanceof HTMLElement) || mapRequestPending) {
     return;
   }
 
+  mapRequestPending = true;
+  const retryHadFocus = document.activeElement === mapRetry;
+  if (mapRetry instanceof HTMLButtonElement) {
+    mapRetry.disabled = true;
+    mapRetry.textContent = 'Loading map…';
+  }
   mapStatusController.loading();
 
+  let candidateMap = null;
   try {
     const maplibregl = await ensureMapLibre();
     if (!maplibregl) return;
     maplibreRuntime = maplibregl;
 
-    stateMap = createPaddleMap(maplibregl, {
+    candidateMap = createPaddleMap(maplibregl, {
       container: mapElement,
       center: [-93.6, 45.2],
       zoom: 5.2,
@@ -938,11 +977,16 @@ async function renderMap(routes) {
       maxZoom: 11.5,
     });
 
-    await waitForMapReady(stateMap, {
+    await waitForMapReady(candidateMap, {
       timeoutMs: 7000,
-      rejectOnError: true,
+      // Route overlays can render before background tiles arrive. Keep a
+      // strict deadline for a style that never becomes usable.
       rejectOnTimeout: true,
+      waitForTiles: false,
     });
+    // Route links and filters remain usable while the map style is loading.
+    // Publish the runtime only once layer operations are safe.
+    stateMap = candidateMap;
 
     mapRoutes = routes;
     const bounds = new maplibregl.LngLatBounds();
@@ -953,34 +997,40 @@ async function renderMap(routes) {
       lineOpacity: 0.58,
     });
 
+    const routeLineLayers = [{
+      id: 'state-route-lines-halo',
+      type: 'line',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': 'rgba(255, 255, 255, 0.94)',
+        'line-width': 8,
+        'line-opacity': 0.94,
+      },
+    }, {
+      id: 'state-route-lines-highlight',
+      type: 'line',
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-color': ['match', ['get', 'difficulty'], 'easy', '#2f7185', 'moderate', '#6f7f3f', '#9d4e38'],
+        'line-width': 5,
+        'line-opacity': 0.96,
+      },
+    }];
     syncGeoJsonOverlay(stateMap, {
       sourceId: 'state-route-lines',
       data: emptyFeatureCollection,
-      layers: [{
-        id: 'state-route-lines-halo',
-        type: 'line',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-        },
-        paint: {
-          'line-color': 'rgba(255, 255, 255, 0.94)',
-          'line-width': 8,
-          'line-opacity': 0.94,
-        },
-      }, {
-        id: 'state-route-lines-highlight',
-        type: 'line',
-        layout: {
-          'line-cap': 'round',
-          'line-join': 'round',
-        },
-        paint: {
-          'line-color': ['match', ['get', 'difficulty'], 'easy', '#2f7185', 'moderate', '#6f7f3f', '#9d4e38'],
-          'line-width': 5,
-          'line-opacity': 0.96,
-        },
-      }],
+      layers: [false, true].flatMap((traced) => routeLineLayers.map((layer) => ({
+        ...layer,
+        id: traced ? layer.id : `${layer.id}-connections`,
+        filter: ['==', ['get', 'traced'], traced],
+        paint: { ...layer.paint, ...(!traced ? { 'line-dasharray': [2, 2] } : {}) },
+      }))),
     });
 
     syncGeoJsonOverlay(stateMap, {
@@ -1005,14 +1055,17 @@ async function renderMap(routes) {
       }],
     });
 
-    stateMap.on('click', 'state-route-lines-highlight', (event) => {
+    const routeLineTargets = ['state-route-lines-highlight', 'state-route-lines-highlight-connections'];
+    stateMap.on('click', routeLineTargets, (event) => {
+      const target = event.originalEvent?.target;
+      if (target instanceof Element && target.closest('.maplibregl-marker, .maplibregl-popup')) return;
       const slug = event.features?.[0]?.properties?.slug;
       if (slug) selectRoute(slug, { popup: true, flyTo: false });
     });
-    stateMap.on('mouseenter', 'state-route-lines-highlight', () => {
+    stateMap.on('mouseenter', routeLineTargets, () => {
       stateMap.getCanvas().style.cursor = 'pointer';
     });
-    stateMap.on('mouseleave', 'state-route-lines-highlight', () => {
+    stateMap.on('mouseleave', routeLineTargets, () => {
       stateMap.getCanvas().style.cursor = '';
     });
     stateMap.on('moveend', refreshSelectedRouteReach);
@@ -1063,6 +1116,7 @@ async function renderMap(routes) {
       updateMarkerZoomMode();
       const riverCount = new Set(routes.map((route) => route.riverId || route.name)).size;
       mapStatusController.ready({
+        backgroundMap: stateMap,
         message: `Showing ${riverCount} supported rivers and ${markers.length} condition zones. Select a zone to open a representative route.`,
       });
       return;
@@ -1071,10 +1125,11 @@ async function renderMap(routes) {
     mapStatusController.empty();
   } catch (error) {
     console.error('Failed to render state map.', error);
-    const failedMap = stateMap;
+    const failedMap = candidateMap;
     stateMap = null;
     try {
       markers = clearMapMarkers(markers);
+      scoreMarkersByZone.clear();
       activeRoutePopup?.remove();
       activeRoutePopup = null;
       failedMap?.remove();
@@ -1082,6 +1137,18 @@ async function renderMap(routes) {
       console.error('Failed to clean up unavailable state map.', cleanupError);
     }
     mapStatusController.unavailable();
+  } finally {
+    mapRequestPending = false;
+    applyFilters();
+    if (mapRetry instanceof HTMLButtonElement) {
+      mapRetry.disabled = false;
+      mapRetry.hidden = Boolean(stateMap);
+      mapRetry.textContent = 'Retry map';
+      if (retryHadFocus && stateMap && mapStatus instanceof HTMLElement
+        && (document.activeElement === mapRetry || document.activeElement === document.body)) {
+        mapStatus.focus({ preventScroll: true });
+      }
+    }
   }
 }
 
@@ -1187,11 +1254,6 @@ function bindRouteFocus() {
     trigger.addEventListener('mouseleave', () => setHover(false));
     trigger.addEventListener('focus', () => setHover(true));
     trigger.addEventListener('blur', () => setHover(false));
-    trigger.addEventListener('click', (event) => {
-      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || !stateMap) return;
-      event.preventDefault();
-      selectRoute(slug, { popup: true });
-    });
   }
 }
 
@@ -1211,10 +1273,10 @@ function highlightHashTarget() {
 bindRoutePhotoFallbacks();
 bindFilters();
 liveRetry?.addEventListener('click', () => void hydrateLivePicks());
+mapRetry?.addEventListener('click', () => void renderMap(parseRoutes()));
 window.addEventListener('hashchange', highlightHashTarget);
 highlightHashTarget();
 hydrateLivePicks();
 renderMap(parseRoutes()).then(() => {
   bindRouteFocus();
-  applyFilters();
 });

@@ -251,6 +251,14 @@ describe('board presenters', () => {
     })).toBe('cold');
   });
 
+  it.each(['stale', 'unavailable'])('does not turn %s weather into a dry-weather claim', state => {
+    const item = { cardRoute: { liveData: { weatherState: state }, summary: {
+      shortExplanation: 'Stable flow', rawSignalLine: 'Gauge: 620 cfs',
+    } } };
+    expect(weatherVisualState(item)).toBe('unknown');
+    expect(weatherVisualLabel(weatherVisualState(item))).toBe('Weather unclear');
+  });
+
   it('formats shared board context and analysis labels', () => {
     const item = {
       cardRoute: {

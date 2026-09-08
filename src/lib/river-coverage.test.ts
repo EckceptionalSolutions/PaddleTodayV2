@@ -21,6 +21,20 @@ const route = (slug: string, score: number, conditionZoneId: string, longitude: 
 });
 
 describe('river coverage helpers', () => {
+  it('keeps missing or unavailable calls out of live score zones', () => {
+    const live = route('live', 74, 'shared', -94);
+    const withheld = { ...route('withheld', 74, 'shared', -93), readiness: { status: 'withheld' } };
+    const offline = { ...route('offline', 74, 'shared', -92), liveData: { overall: 'offline' } };
+    const missing = { ...route('missing', 74, 'shared', -91), score: null };
+    const groups = groupRoutesByConditionScore([live, withheld, offline, missing]);
+    expect(groups).toHaveLength(2);
+    expect(groups[0].routes).toEqual([live]);
+    expect(groups[1].score).toBeNull();
+    expect(groups[1].routes).toEqual([withheld, offline, missing]);
+    expect(conditionScoreKey(missing)).toBe('shared:pending');
+    expect(conditionScoreKey({ ...live, score: 0 })).toBe('shared:0');
+  });
+
   it('keeps distinct scores within a shared condition zone visible', () => {
     const routes = [
       route('one', 74, 'twin-cities', -94),

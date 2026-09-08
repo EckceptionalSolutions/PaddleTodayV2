@@ -3,10 +3,11 @@ import {
   createMapMarker,
   createMapStatusController,
   createPaddleMap,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
-  isMapReady,
+  isMapStyleReady,
   removeMapOverlay,
   syncGeoJsonOverlay,
   waitForMapReady,
@@ -49,7 +50,7 @@ export function createBoardFeaturedMapController({
   createMap = createPaddleMap,
   clearMarkers = clearMapMarkers,
   fitBounds = fitMapBounds,
-  isReady = isMapReady,
+  isReady = isMapStyleReady,
   waitUntilReady = waitForMapReady,
   documentObject = document,
   logError = (error) => console.error('Failed to load featured map.', error),
@@ -72,9 +73,11 @@ export function createBoardFeaturedMapController({
     const layerId = 'featured-route-line';
 
     if (routeLine) {
+      const dashArray = routeLine.properties?.traced === true ? [1, 0] : [2, 2];
       syncGeoJsonOverlay(runtime, {
         sourceId,
         data: routeLine,
+        updateLayerStyle: true,
         layers: [{
           id: layerId,
           type: 'line',
@@ -86,11 +89,11 @@ export function createBoardFeaturedMapController({
             'line-color': featuredRouteLineColor(rating),
             'line-width': 3,
             'line-opacity': 0.82,
+            'line-dasharray': dashArray,
           },
         }],
       });
 
-      runtime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(rating));
       return routeLine;
     }
 
@@ -184,18 +187,12 @@ export function createBoardFeaturedMapController({
           minZoom: 3.4,
           maxZoom: 12,
         });
-        await waitUntilReady(runtime);
       }
 
       if (currentRenderVersion !== renderVersion) {
         return;
       }
-      await waitUntilReady(runtime);
-      if (currentRenderVersion !== renderVersion) {
-        return;
-      }
-
-      const routeLine = await getRouteLine(item, accessPoints);
+      await waitUntilReady(runtime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
       if (currentRenderVersion !== renderVersion) {
         return;
       }
@@ -204,7 +201,7 @@ export function createBoardFeaturedMapController({
         runtime.resize();
       }
       clearFeaturedMapMarkers();
-      syncFeaturedRouteLine(routeLine, rating);
+      syncFeaturedRouteLine(null, rating);
 
       if (accessPoints.length > 0) {
         const bounds = new maplibregl.LngLatBounds();
@@ -224,7 +221,7 @@ export function createBoardFeaturedMapController({
           markers.push(marker);
         }
 
-        const focusPoints = featuredMapFocusPoints(item, accessPoints, routeLine);
+        const focusPoints = featuredMapFocusPoints(item, accessPoints, null);
         for (const point of focusPoints) {
           bounds.extend([point.longitude, point.latitude]);
         }
@@ -262,17 +259,40 @@ export function createBoardFeaturedMapController({
         runtime.resize();
       }
       if (elements.status instanceof HTMLElement) {
-        statusController.ready({ message: statusLabel(item) });
+        statusController.ready({ message: statusLabel(item), backgroundMap: runtime });
         elements.status.hidden = false;
       }
       if (elements.caption instanceof HTMLElement) {
         elements.caption.textContent = '';
         elements.caption.hidden = true;
       }
+
+      // Access locations are useful on their own. Keep them visible while the
+      // detailed river line loads, or if that optional request fails.
+      try {
+        const routeLine = await getRouteLine(item, accessPoints);
+        if (currentRenderVersion !== renderVersion) return;
+        if (!isReady(runtime)) await waitUntilReady(runtime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
+        if (currentRenderVersion !== renderVersion) return;
+        syncFeaturedRouteLine(routeLine, rating);
+        if (elements.caption instanceof HTMLElement && routeLine && routeLine.properties?.traced !== true) {
+          elements.caption.textContent = 'Dashed line connects access points.';
+          elements.caption.hidden = false;
+        }
+        const tracedCoordinates = getTracedCoordinates(routeLine);
+        if (tracedCoordinates.length > 1) {
+          const bounds = new maplibregl.LngLatBounds();
+          for (const coordinate of tracedCoordinates) bounds.extend(coordinate);
+          fitBounds(runtime, bounds, { profile: viewportProfile });
+        }
+      } catch (error) {
+        if (currentRenderVersion === renderVersion) logError(error);
+      }
     } catch (error) {
+      if (currentRenderVersion !== renderVersion) return;
       logError(error);
       clearFeaturedMapMarkers();
-      syncFeaturedRouteLine(null, rating);
+      runtime = destroyMapRuntime(runtime);
       elements.shell.hidden = true;
       statusController.unavailable({ message: '' });
       resetPresentation();

@@ -15,6 +15,8 @@ import {
   liveDataWarning,
 } from './ui-taxonomy.js';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
+import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
+export { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
 
 export function formatTravelLabel(minutes) {
   if (!Number.isFinite(minutes)) {
@@ -58,21 +60,6 @@ export function favoriteRecordForItem(item) {
     region: river.region,
     url: buildRoutePlannerHref(river.slug, item.selectedSegment ?? null),
   };
-}
-
-export function isCurrentCallUnavailable(route) {
-  if (!route) return false;
-  const readiness = route.readiness?.status;
-  if (readiness === 'withheld') return true;
-  const liveData = route.liveData;
-  return liveData?.overall !== 'live'
-    && (
-      liveData?.gaugeState === 'stale'
-      || liveData?.weatherState === 'stale'
-      || liveData?.gauge?.state === 'stale'
-      || liveData?.weather?.state === 'stale'
-      || liveData?.overall === 'offline'
-    );
 }
 
 export function coldWeatherDrivenCall(item) {
@@ -370,6 +357,8 @@ export function cardSummary(item) {
 }
 
 export function weatherVisualState(item) {
+  const weatherState = item?.cardRoute?.liveData?.weatherState;
+  if (weatherState === 'stale' || weatherState === 'unavailable') return 'unknown';
   const summary = cardSummary(item).toLowerCase();
   const temperature = parseTemperature(rawSignalLine(item));
   const coldSevere = typeof temperature === 'number' && temperature <= 35;
@@ -385,6 +374,8 @@ export function weatherVisualState(item) {
 
 export function weatherVisualLabel(state) {
   switch (state) {
+    case 'unknown':
+      return 'Weather unclear';
     case 'storm':
       return 'Storm risk';
     case 'rain':

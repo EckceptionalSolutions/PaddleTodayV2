@@ -1,10 +1,48 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createExploreGeometryLoader } from './explore-geometry-loader.js';
 
 const feature = (slug: string) => ({ type: 'Feature', properties: { routeId: slug }, geometry: { type: 'LineString', coordinates: [[0, 0], [1, 1]] } });
 const response = (value: unknown) => ({ ok: true, json: async () => value });
 
+afterEach(() => vi.restoreAllMocks());
+
 describe('progressive Explore geometry', () => {
+  it('releases a stalled detail slot and applies the normal retry cooldown', async () => {
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, 'timeout').mockReturnValueOnce(deadline.signal);
+    const now = vi.spyOn(Date, 'now').mockReturnValue(1000);
+    const fetchImpl = vi.fn().mockImplementationOnce((_path, { signal }) => new Promise((_resolve, reject) => {
+      signal.addEventListener('abort', () => reject(signal.reason), { once: true });
+    })).mockResolvedValueOnce(response(feature('b'))).mockResolvedValueOnce(response(feature('a')));
+    const loader = createExploreGeometryLoader({ fetchImpl, concurrency: 1 });
+    loader.features.set('a', feature('a'));
+    loader.setDetailRoutes(['a', 'b']);
+    deadline.abort(new DOMException('Deadline reached', 'TimeoutError'));
+    await vi.waitFor(() => expect(loader.features.has('b')).toBe(true));
+    expect(loader.features.get('a')).toEqual(feature('a'));
+    loader.setDetailRoutes(['a']);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    now.mockReturnValue(31001);
+    loader.setDetailRoutes(['a']);
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledTimes(3));
+  });
+
+  it('evicts a stalled overview request so it can be retried', async () => {
+    const deadline = new AbortController();
+    vi.spyOn(AbortSignal, 'timeout').mockReturnValueOnce(deadline.signal);
+    const fetchImpl = vi.fn().mockImplementationOnce((_path, { signal }) => new Promise((_resolve, reject) => {
+      if (!signal) { reject(new Error('No deadline')); return; }
+      signal.addEventListener('abort', () => reject(signal.reason), { once: true });
+    })).mockResolvedValueOnce(response({ features: [feature('a')] }));
+    const loader = createExploreGeometryLoader({ fetchImpl });
+    const initial = loader.loadOverview();
+    const rejected = expect(initial).rejects.toMatchObject({ name: 'TimeoutError' });
+    deadline.abort(new DOMException('Deadline reached', 'TimeoutError'));
+    await rejected;
+    expect((await loader.loadOverview()).has('a')).toBe(true);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
   it('loads one overview and fetches only requested routes, retaining overview bounds', async () => {
     const fetchImpl = vi.fn(async (path: string) => response(path.includes('overview')
       ? { features: [{ ...feature('a'), bbox: [0, 0, 1, 1], properties: { routeId: 'a', overview: true, anchor: [0.5, 0.5] } }] }

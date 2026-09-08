@@ -194,7 +194,11 @@ const structuredData = [
       itemNounSingular="route"
       itemNounPlural="routes"
       showNoGoLegend={false}
+      showRetry={true}
     >
+      <p class="weekend-map-line-key muted" slot="map-note">
+        Solid: river path. Dashed: connection between access points.
+      </p>
       <div class="weekend-map-empty" slot="map-overlay" data-weekend-map-empty role="status" hidden>
         <div class="weekend-map-empty__card">
           <p class="eyebrow">Nothing in this view</p>

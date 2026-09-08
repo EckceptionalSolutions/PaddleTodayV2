@@ -1,0 +1,885 @@
+/* Route-detail structure. Shared FAQ chapter headings remain in global.css. */
+.river-detail--planning .river-call-panel,
+.river-detail--planning [data-detail-section="river-conditions"],
+.river-detail--planning [data-detail-section="route-outlook"],
+.river-detail--planning [data-detail-section="why-this-call"],
+.river-detail--planning [data-detail-status-banner],
+.river-detail--planning [data-detail-fetch-banner] {
+  display: none;
+}
+
+.river-detail__summary {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.river-detail__hero,
+.river-detail__panel,
+.river-detail__factors,
+.river-detail__sources {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.65)),
+    var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.river-detail__title {
+  font-family: var(--serif);
+}
+
+.river-detail__meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.river-detail__gauge-note {
+  display: grid;
+  gap: 0.28rem;
+  margin-top: 0.85rem;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid rgba(16, 74, 104, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.river-detail__gauge-note p {
+  margin: 0;
+}
+
+.river-detail__gauge-note-label {
+  color: var(--river-deep);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.river-detail__route-context,
+.river-detail__conditions-details,
+.river-launch-plan__support-disclosure {
+  display: grid;
+  gap: 0.62rem;
+}
+
+.river-detail__route-context > summary,
+.river-detail__conditions-details > summary,
+.river-launch-plan__support-disclosure > summary,
+.river-detail__gauge-note > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.15rem;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--river-deep);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  list-style: none;
+}
+
+.river-detail__route-context > summary::-webkit-details-marker,
+.river-detail__conditions-details > summary::-webkit-details-marker,
+.river-launch-plan__support-disclosure > summary::-webkit-details-marker,
+.river-detail__gauge-note > summary::-webkit-details-marker {
+  display: none;
+}
+
+.river-detail__route-context > summary::after,
+.river-detail__conditions-details > summary::after,
+.river-launch-plan__support-disclosure > summary::after,
+.river-detail__gauge-note > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.river-detail__route-context[open] > summary::after,
+.river-detail__conditions-details[open] > summary::after,
+.river-launch-plan__support-disclosure[open] > summary::after,
+.river-detail__gauge-note[open] > summary::after {
+  content: "−";
+}
+
+.river-detail__route-context .route-seo-intro {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.river-detail__disclosure-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.river-detail__conditions-details,
+.river-launch-plan__support-disclosure {
+  padding: 0.62rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(248, 251, 252, 0.52);
+}
+
+.river-detail__conditions-details[open],
+.river-launch-plan__support-disclosure[open] {
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.river-detail__conditions-details .river-why-panel__visuals {
+  margin-top: 0;
+}
+
+@media (min-width: 761px) {
+  .river-detail__section-nav-inner {
+    gap: 0.24rem;
+    padding: 0.62rem;
+    border-radius: 18px;
+  }
+
+  .river-detail__section-nav-label {
+    margin-bottom: 0.05rem;
+    font-size: 0.65rem;
+  }
+
+  .river-detail__section-link {
+    min-height: 2rem;
+    padding: 0.38rem 0.54rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .river-detail__route-context {
+    display: none;
+  }
+
+  .river-detail__conditions-details,
+.river-launch-plan__support-disclosure {
+    padding: 0.48rem;
+  }
+}
+
+.river-detail__gauge-note-details {
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.river-detail__gauge-note-details > summary {
+  cursor: pointer;
+  padding: 0.58rem 0.72rem;
+  color: var(--river-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.route-overview-explanation .river-detail__summary,
+.river-detail__gauge-note-details > p {
+  margin: 0;
+  padding: 0 0.72rem 0.68rem;
+}
+
+.route-overview-explanation .river-detail__summary {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.river-detail__group-link {
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.river-detail__group-link a {
+  color: var(--river);
+  font-weight: 600;
+}
+
+.river-detail__title {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.river-detail__reach {
+  margin: 0.18rem 0 0;
+  color: var(--ink-soft);
+}
+
+.river-detail--great .river-call-panel {
+  border-color: rgba(35, 130, 90, 0.34);
+}
+
+.river-detail--good .river-call-panel {
+  border-color: rgba(28, 119, 112, 0.34);
+}
+
+.river-detail--marginal .river-call-panel {
+  border-color: rgba(185, 122, 32, 0.38);
+}
+
+.river-detail--no-go .river-call-panel {
+  border-color: rgba(190, 72, 48, 0.38);
+}
+
+.river-detail__hero,
+.river-detail__panel,
+.river-detail__factors,
+.river-detail__sources {
+  padding: 1.2rem;
+}
+
+.river-detail {
+  display: grid;
+  gap: 1rem;
+}
+
+.river-detail [data-detail-section] {
+  scroll-margin-top: 8.5rem;
+}
+
+.river-detail__layout {
+  display: grid;
+  grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.river-detail__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  min-width: 0;
+}
+
+.river-detail__section-nav {
+  position: sticky;
+  top: 0.75rem;
+  align-self: start;
+}
+
+.river-detail__section-nav-inner {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 0.85rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.66)),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.river-detail__section-nav-label {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.river-detail__chapter-copy {
+  margin: 0;
+  max-width: 58ch;
+  line-height: 1.48;
+}
+
+.river-detail__panel[data-detail-nav-group="plan"] {
+  background:
+    linear-gradient(180deg, rgba(244, 250, 252, 0.94), rgba(255, 255, 255, 0.9)),
+    var(--panel);
+  border-color: rgba(30, 115, 151, 0.12);
+}
+
+.river-detail__panel[data-detail-nav-group="understand"] {
+  background:
+    linear-gradient(180deg, rgba(248, 250, 251, 0.95), rgba(255, 255, 255, 0.9)),
+    var(--panel);
+  border-color: rgba(16, 35, 45, 0.1);
+}
+
+.river-detail__panel[data-detail-nav-group="contribute"] {
+  background:
+    linear-gradient(180deg, rgba(251, 248, 243, 0.95), rgba(255, 255, 255, 0.9)),
+    var(--panel);
+  border-color: rgba(173, 117, 44, 0.14);
+}
+
+.river-detail__panel[data-detail-nav-group="contribute"] .river-subtitle,
+.river-detail__panel[data-detail-nav-group="contribute"] .section-label {
+  color: var(--ink);
+}
+
+.river-detail__section-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0.42rem 0.65rem;
+  border-radius: 14px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.river-detail__section-link:hover {
+  background: rgba(233, 245, 250, 0.8);
+  color: var(--river-deep);
+}
+
+.river-detail__section-link--active {
+  background: rgba(233, 245, 250, 0.96);
+  color: var(--river-deep);
+  box-shadow: inset 0 0 0 1px rgba(30, 115, 151, 0.16);
+}
+
+.river-detail__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(270px, 0.8fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.river-detail__hero-main {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.river-detail__hero-warning {
+  max-width: 100%;
+  justify-self: end;
+  margin-bottom: -0.35rem;
+}
+
+.river-detail__hero-top {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.river-detail__hero-title-block {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.river-detail__hero-side {
+  display: grid;
+  gap: 0.72rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.river-detail__hero-side--sticky {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+.river-detail__jump-pill {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.river-detail__jump-pill:hover {
+  border-color: rgba(173, 117, 44, 0.26);
+  background: rgba(250, 242, 230, 0.94);
+  color: #8c5f21;
+}
+
+.river-detail__jump-pill:focus-visible {
+  outline: 2px solid rgba(173, 117, 44, 0.22);
+  outline-offset: 2px;
+}
+
+.river-detail__quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.river-detail__quick-grid--compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.river-detail__conditions-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.2fr) repeat(3, minmax(0, 0.95fr));
+}
+
+.river-detail__conditions-grid .snapshot-card {
+  min-height: 4.2rem;
+  align-content: start;
+  gap: 0.18rem;
+  padding: 0.82rem 0.88rem;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.river-detail__conditions-grid .snapshot-card small {
+  line-height: 1.32;
+}
+
+.river-detail__visuals {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1rem;
+}
+
+.river-launch-plan {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.river-launch-plan__hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.river-launch-plan__copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.river-launch-plan__body {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.95rem;
+  align-items: start;
+}
+
+.river-launch-plan__stack {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.river-launch-plan__support {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.river-launch-plan__support .river-logistics__notes {
+  padding: 0.88rem 0.92rem;
+  border-color: rgba(16, 35, 45, 0.07);
+  background: rgba(248, 244, 237, 0.46);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+
+.river-launch-plan__support .river-logistics__title {
+  margin-bottom: 0.5rem;
+  font-size: 0.96rem;
+}
+
+.river-launch-plan__support .compact-list {
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.river-detail__map-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.river-detail--loading [data-skeleton] {
+  position: relative;
+  color: transparent !important;
+  border-color: transparent;
+  overflow: hidden;
+}
+
+.river-detail--loading [data-skeleton]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(100deg, rgba(234, 240, 242, 0.88) 20%, rgba(255, 255, 255, 0.96) 50%, rgba(234, 240, 242, 0.88) 80%);
+  background-size: 220% 100%;
+  animation: river-skeleton-shimmer 1.25s ease-in-out infinite;
+}
+
+.river-detail--loading .river-detail__summary[data-skeleton] {
+  min-height: 1.2em;
+}
+
+.river-detail__columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+
+  .river-detail__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .river-detail__quick-grid--compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .river-detail__conditions-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .river-launch-plan__hero,
+.river-launch-plan__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .river-detail__hero,
+.river-detail__visuals,
+.river-detail__map-shell,
+.river-launch-plan__hero,
+.river-launch-plan__body,
+.river-detail__columns {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .river-detail__hero-side--sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .river-detail__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .river-detail__section-nav {
+    position: static;
+    top: auto;
+    overflow-x: auto;
+  }
+
+  .river-detail__section-nav-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    padding: 0.7rem;
+    overflow-x: auto;
+  }
+
+  .river-detail__section-nav-label {
+    display: none;
+  }
+
+  .river-detail__section-link {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 760px) {
+.river-detail__quick-grid,
+.river-detail__quick-grid--compact,
+.river-launch-plan__support,
+.river-detail__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .river-detail__conditions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .river-detail__hero,
+.river-detail__panel,
+.river-detail__factors,
+.river-detail__sources {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .river-detail__title {
+    font-size: 1.5rem;
+  }
+}
+
+.river-detail__decision-summary {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.river-detail__decision-summary p {
+  margin: 0;
+}
+
+.river-detail__decision-score {
+  display: inline;
+  margin-left: 0.35rem;
+  color: var(--muted);
+  font-size: 0.86em;
+  font-weight: 700;
+  white-space: normal;
+}
+
+.river-detail__section-nav--mobile {
+  display: none;
+}
+
+@media (min-width: 481px) and (max-width: 760px) {
+
+  .river-detail__panel {
+    padding: 0.88rem;
+    border-radius: 22px;
+  }
+
+  .river-detail__section-nav--desktop {
+    display: none;
+  }
+
+  .river-detail__section-nav--mobile {
+    position: static;
+    top: auto;
+    z-index: auto;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-inner {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.12rem 0 0.12rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    scrollbar-width: none;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-label,
+.river-detail__section-nav--mobile .river-detail__section-link {
+    flex: 0 0 auto;
+  }
+
+  .river-detail__hero {
+    gap: 0.72rem;
+  }
+
+  .river-detail__hero-main {
+    gap: 0.68rem;
+  }
+
+  .river-detail__title {
+    font-size: 1.45rem;
+  }
+
+  .river-detail__summary {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .river-detail__meta-row {
+    gap: 0.42rem;
+  }
+
+  .river-detail__meta-row .pill:nth-child(n + 5),
+.river-detail__meta-row .river-detail__jump-pill:nth-child(n + 5) {
+    display: none;
+  }
+
+  .river-detail__hero-warning {
+    margin-bottom: -0.18rem;
+  }
+
+  .river-detail__hero-side--sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .river-detail__hero-top {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.4rem 0.72rem;
+  }
+
+  .river-detail__conditions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+
+  .river-detail__panel {
+    padding: 0.82rem;
+    border-radius: 20px;
+  }
+
+.river-detail__meta-row {
+    gap: 0.42rem;
+  }
+
+  .river-detail__conditions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .river-detail__section-nav--desktop {
+    display: none;
+  }
+
+  .river-detail__section-nav--mobile {
+    position: static;
+    top: auto;
+    z-index: auto;
+    display: block;
+    margin-bottom: 0.28rem;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-inner {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.12rem 0 0.08rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    scrollbar-width: none;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .river-detail__section-nav--mobile .river-detail__section-nav-label,
+.river-detail__section-nav--mobile .river-detail__section-link {
+    flex: 0 0 auto;
+  }
+
+  .river-detail__section-link {
+    min-height: 2.55rem;
+  }
+
+  .river-detail__hero {
+    gap: 0.62rem;
+  }
+
+  .river-detail__hero-main {
+    gap: 0.58rem;
+  }
+
+  .river-detail__title {
+    font-size: 1.28rem;
+    line-height: 1.04;
+  }
+
+  .river-detail__summary {
+    font-size: 0.91rem;
+    line-height: 1.38;
+  }
+
+  .river-detail__meta-row {
+    gap: 0.36rem;
+  }
+
+  .river-detail__meta-row .pill:nth-child(n + 5),
+.river-detail__meta-row .river-detail__jump-pill:nth-child(n + 5) {
+    display: none;
+  }
+
+  .river-detail__hero-warning {
+    margin-bottom: -0.08rem;
+  }
+
+  .river-detail__hero-side--sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .river-detail__hero-top {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.34rem 0.58rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .river-detail {
+    gap: 0.88rem;
+  }
+
+  .river-detail__hero,
+.river-detail__panel,
+.river-detail__factors,
+.river-detail__sources {
+    padding: 0.96rem;
+  }
+
+  .river-detail__summary {
+    font-size: 0.96rem;
+  }
+
+  .river-detail__title {
+    font-size: 1.58rem;
+  }
+
+  .river-detail__layout,
+.river-detail__content,
+.river-detail__hero,
+.river-detail__hero-main {
+    gap: 0.88rem;
+  }
+}
+
+@media (max-width: 760px) {
+
+  html body:not(.page-home) .river-detail__summary {
+    font-size: 0.8rem !important;
+    line-height: 1.42 !important;
+  }
+}
+
+@media (max-width: 540px) {
+
+  html body:not(.page-home) .river-detail__summary {
+    font-size: 0.76rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .river-detail--loading [data-skeleton]::after { animation: none; }
+}

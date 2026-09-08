@@ -1,9 +1,18 @@
 export const MAP_STYLE_URL = 'https://tiles.openfreemap.org/styles/liberty';
 
+export function preferredMapScrollBehavior() {
+  return globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+}
+
 const MAP_SCRIPT_URL = 'https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js';
 const MAP_CSS_URL = 'https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.css';
 
 let maplibreLoadPromise = null;
+const assetLoads = new Map();
+const assetAttempts = new Map();
+const activeMapPopups = new WeakMap();
+const mapsWithLoadedBackground = new WeakSet();
+const MAP_ASSET_TIMEOUT_MS = 15000;
 
 export const MAP_PROFILES = Object.freeze({
   interactive: Object.freeze({
@@ -64,8 +73,8 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
   }),
   favorites: Object.freeze({
     padding: Object.freeze({
-      compact: Object.freeze({ top: 24, right: 24, bottom: 24, left: 24 }),
-      wide: Object.freeze({ top: 42, right: 42, bottom: 42, left: 42 }),
+      compact: Object.freeze({ top: 32, right: 84, bottom: 96, left: 32 }),
+      wide: Object.freeze({ top: 42, right: 64, bottom: 64, left: 42 }),
     }),
     maxZoom: 10.2,
     duration: 650,
@@ -96,8 +105,10 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
   }),
   detailAccess: Object.freeze({
     padding: Object.freeze({
-      compact: Object.freeze({ top: 44, right: 44, bottom: 44, left: 44 }),
-      wide: Object.freeze({ top: 44, right: 44, bottom: 44, left: 44 }),
+      // Reserve wrapped attribution before source metadata arrives, as well
+      // as access labels and zoom controls.
+      compact: Object.freeze({ top: 56, right: 76, bottom: 108, left: 44 }),
+      wide: Object.freeze({ top: 44, right: 76, bottom: 60, left: 44 }),
     }),
     maxZoom: 11.6,
     duration: 450,
@@ -129,46 +140,63 @@ export const MAP_VIEWPORT_PROFILES = Object.freeze({
 });
 
 function ensureAsset(tagName, attrs) {
-  return new Promise((resolve, reject) => {
-    const selector = Object.entries(attrs)
-      .map(([key, value]) => `[${key}="${String(value).replace(/"/g, '\\"')}"]`)
-      .join('');
-    const existing = document.head.querySelector(`${tagName}${selector}`);
-    if (existing) {
-      if (tagName.toLowerCase() !== 'script' || window.maplibregl) {
-        resolve(existing);
-        return;
-      }
+  const selector = tagName + Object.entries(attrs)
+    .map(([key, value]) => `[${key}="${String(value).replace(/"/g, '\\"')}"]`)
+    .join('');
+  if (assetLoads.has(selector)) return assetLoads.get(selector);
 
-      existing.addEventListener('load', () => resolve(existing), { once: true });
-      existing.addEventListener(
-        'error',
-        () => reject(new Error(`Failed to load ${attrs.href || attrs.src || tagName}`)),
-        {
-          once: true,
-        }
-      );
+  const attempt = assetAttempts.get(selector) ?? 0;
+  const promise = new Promise((resolve, reject) => {
+    const existing = document.head.querySelector(selector);
+    if (existing && (tagName === 'link' ? existing.sheet : window.maplibregl)) {
+      resolve(existing);
       return;
     }
-
-    const element = document.createElement(tagName);
-    Object.entries(attrs).forEach(([key, value]) => {
-      element.setAttribute(key, value);
-    });
-    element.addEventListener('load', () => resolve(element), { once: true });
-    element.addEventListener(
-      'error',
-      () => reject(new Error(`Failed to load ${attrs.href || attrs.src || tagName}`)),
-      {
-        once: true,
-      }
-    );
-    document.head.appendChild(element);
+    const element = existing ?? document.createElement(tagName);
+    const cleanup = () => {
+      globalThis.clearTimeout(timeout);
+      element.removeEventListener('load', loaded);
+      element.removeEventListener('error', failed);
+    };
+    const loaded = () => {
+      if (tagName === 'script' && !window.maplibregl) { failed(); return; }
+      cleanup();
+      resolve(element);
+    };
+    const failed = () => {
+      cleanup();
+      // A failed tag will never emit another load event. Remove it so a later
+      // user action can make a fresh request instead of waiting on a dead tag.
+      element.remove();
+      assetAttempts.set(selector, attempt + 1);
+      reject(new Error(`Failed to load ${attrs.href || attrs.src || tagName}`));
+    };
+    const timeout = globalThis.setTimeout(failed, MAP_ASSET_TIMEOUT_MS);
+    element.addEventListener('load', loaded);
+    element.addEventListener('error', failed);
+    if (!existing) {
+      Object.entries(attrs).forEach(([key, value]) => {
+        if (attempt && (key === 'href' || key === 'src')) {
+          // A removed script can keep downloading. Give retries their own URL
+          // so the browser cannot attach them to that stalled request.
+          const url = new URL(value, document.baseURI);
+          url.searchParams.set('paddle_retry', String(attempt));
+          value = url.href;
+        }
+        element.setAttribute(key, value);
+      });
+      document.head.appendChild(element);
+    }
+  }).catch((error) => {
+    assetLoads.delete(selector);
+    throw error;
   });
+  assetLoads.set(selector, promise);
+  return promise;
 }
 
 export async function ensureMapLibre() {
-  if (window.maplibregl) {
+  if (window.maplibregl && assetLoads.size === 0) {
     return window.maplibregl;
   }
 
@@ -176,10 +204,154 @@ export async function ensureMapLibre() {
     maplibreLoadPromise = Promise.all([
       ensureAsset('link', { rel: 'stylesheet', href: MAP_CSS_URL }),
       ensureAsset('script', { src: MAP_SCRIPT_URL }),
-    ]).then(() => window.maplibregl);
+    ]).then(() => {
+      if (!window.maplibregl) throw new Error('MapLibre runtime missing after download.');
+      return window.maplibregl;
+    }).catch((error) => {
+      maplibreLoadPromise = null;
+      throw error;
+    });
   }
 
   return maplibreLoadPromise;
+}
+
+function bindMapTileRecovery(runtime) {
+  if (typeof window === 'undefined' || typeof window.addEventListener !== 'function'
+    || typeof runtime.on !== 'function' || typeof runtime.off !== 'function') return;
+  const failedOfflineSources = new Set();
+  const retryTimes = new Map();
+  const retryTimers = new Map();
+  let failedGlyphUrl = null;
+  let hasLoaded = false;
+  const markLoaded = () => {
+    hasLoaded = true;
+    runtime.off('load', markLoaded);
+  };
+  const reloadSource = (id) => {
+    const specification = runtime.getStyle?.()?.sources?.[id];
+    if (!['vector', 'geojson'].includes(specification?.type)) return;
+    const source = runtime.getSource?.(id);
+    if (failedGlyphUrl) {
+      // Failed glyph promises remain cached in MapLibre 5.3. Clear that cache
+      // through its public API before retrying the affected source's tiles.
+      if (runtime.getGlyphs?.() === failedGlyphUrl) runtime.setGlyphs?.(failedGlyphUrl);
+      failedGlyphUrl = null;
+    }
+    // Public source APIs reload failed tiles while retaining route overlays and camera.
+    if (Array.isArray(specification.tiles) && typeof source?.setTiles === 'function') {
+      source.setTiles(specification.tiles);
+    } else if (typeof specification.url === 'string' && typeof source?.setUrl === 'function') {
+      source.setUrl(specification.url);
+    } else if (specification.type === 'geojson' && typeof source?.setData === 'function') {
+      source.setData(specification.data);
+    }
+  };
+  const rememberFailure = (event) => {
+    const id = event?.sourceId;
+    if (typeof id !== 'string') return;
+    const type = runtime.getSource?.(id)?.type;
+    if (!['vector', 'geojson'].includes(type)) return;
+    const glyphUrl = runtime.getGlyphs?.();
+    const prefix = typeof glyphUrl === 'string' ? glyphUrl.split('{')[0] : '';
+    const isGlyphFailure = prefix && typeof event?.error?.url === 'string' && event.error.url.startsWith(prefix);
+    if (type !== 'vector' && !isGlyphFailure) return;
+    if (globalThis.navigator?.onLine === false) {
+      if (isGlyphFailure) failedGlyphUrl = glyphUrl;
+      failedOfflineSources.add(id);
+      return;
+    }
+    const status = event?.error?.status;
+    if ((!hasLoaded && !isGlyphFailure) || !(status === 0 || status === 408 || (status >= 500 && status < 600))) return;
+    if (isGlyphFailure) failedGlyphUrl = glyphUrl;
+    const previous = retryTimes.get(id);
+    if (previous !== undefined && Date.now() - previous < 30000) return;
+    // Coalesce a failed viewport's tiles into one bounded retry, without a retry loop.
+    retryTimes.set(id, Date.now());
+    retryTimers.set(id, setTimeout(() => {
+      retryTimers.delete(id);
+      if (globalThis.navigator?.onLine === false) failedOfflineSources.add(id);
+      else reloadSource(id);
+    }, 1500));
+  };
+  const recoverOnline = () => {
+    if (!failedOfflineSources.size) return;
+    const pending = [...failedOfflineSources];
+    failedOfflineSources.clear();
+    for (const id of pending) {
+      clearTimeout(retryTimers.get(id));
+      retryTimers.delete(id);
+      retryTimes.delete(id);
+      reloadSource(id);
+    }
+  };
+  const cleanup = () => {
+    window.removeEventListener('online', recoverOnline);
+    runtime.off('load', markLoaded);
+    runtime.off('error', rememberFailure);
+    runtime.off('remove', cleanup);
+    for (const timer of retryTimers.values()) clearTimeout(timer);
+    retryTimers.clear();
+    retryTimes.clear();
+    failedOfflineSources.clear();
+    failedGlyphUrl = null;
+  };
+  runtime.on('load', markLoaded);
+  runtime.on('error', rememberFailure);
+  runtime.on('remove', cleanup);
+  window.addEventListener('online', recoverOnline);
+}
+
+const deferredMapStyleOperations = new WeakMap();
+
+function bindMapGraphicsRecovery(runtime) {
+  if (typeof runtime.on !== 'function' || typeof runtime.off !== 'function'
+    || typeof runtime.setStyle !== 'function') return;
+  const container = runtime.getContainer?.();
+  const status = typeof HTMLElement !== 'undefined' && container instanceof HTMLElement
+    ? document.createElement('p') : null;
+  if (status) {
+    status.className = 'map-graphics-status';
+    status.setAttribute('role', 'status');
+    container.append(status);
+  }
+  let contextLost = false;
+  const graphicsLost = () => {
+    contextLost = true;
+    if (status && !status.textContent) status.textContent = 'Restoring map display…';
+  };
+  const idle = () => {
+    if (!contextLost && !deferredMapStyleOperations.has(runtime) && status?.textContent) status.textContent = '';
+  };
+  const restore = () => {
+    contextLost = false;
+    const style = runtime.getStyle?.();
+    if (!style?.layers) return;
+    if (!deferredMapStyleOperations.has(runtime)) deferredMapStyleOperations.set(runtime, []);
+    // MapLibre 5.3 can retain invalid GPU resources after context restoration.
+    // Rebuild the current style, including route sources, without replacing the
+    // map, its camera, DOM markers, or open popups.
+    runtime.setStyle(style, { diff: false });
+  };
+  const styleLoaded = () => {
+    const pending = deferredMapStyleOperations.get(runtime);
+    deferredMapStyleOperations.delete(runtime);
+    for (const operation of pending ?? []) operation();
+  };
+  const cleanup = () => {
+    status?.remove();
+    deferredMapStyleOperations.delete(runtime);
+    runtime.off('webglcontextlost', graphicsLost);
+    runtime.off('webglcontextrestored', restore);
+    runtime.off('style.load', styleLoaded);
+    runtime.off('idle', idle);
+    runtime.off('remove', cleanup);
+  };
+  runtime.on('webglcontextlost', graphicsLost);
+  runtime.on('webglcontextrestored', restore);
+  runtime.on('style.load', styleLoaded);
+  runtime.on('idle', idle);
+  runtime.on('remove', cleanup);
 }
 
 export function createPaddleMap(maplibregl, options = {}) {
@@ -198,20 +370,60 @@ export function createPaddleMap(maplibregl, options = {}) {
     throw new Error(`Unknown map profile: ${profileName}`);
   }
 
-  const runtime = new maplibregl.Map({
-    style: MAP_STYLE_URL,
-    ...profile.mapOptions,
-    ...mapOptions,
-  });
-  const shouldAddNavigation = navigationControl ?? profile.navigationControl;
-  if (shouldAddNavigation) {
-    if (typeof maplibregl.NavigationControl !== 'function' || typeof runtime.addControl !== 'function') {
-      throw new Error('MapLibre navigation control missing.');
+  const container = typeof mapOptions.container === 'string' && typeof document !== 'undefined'
+    ? document.getElementById(mapOptions.container) : mapOptions.container;
+  const hasContainer = typeof HTMLElement !== 'undefined' && container instanceof HTMLElement;
+  const originalChildren = hasContainer ? new Set(container.childNodes) : null;
+  const hadMapClass = hasContainer && container.classList.contains('maplibregl-map');
+  let runtime;
+  try {
+    runtime = new maplibregl.Map({
+      style: MAP_STYLE_URL,
+      ...profile.mapOptions,
+      ...mapOptions,
+    });
+    const mapLabel = hasContainer && container.getAttribute('aria-label');
+    if (mapLabel) runtime.getCanvas?.()?.setAttribute('aria-label', mapLabel);
+    const shouldAddNavigation = navigationControl ?? profile.navigationControl;
+    if (shouldAddNavigation) {
+      if (typeof maplibregl.NavigationControl !== 'function' || typeof runtime.addControl !== 'function') {
+        throw new Error('MapLibre navigation control missing.');
+      }
+      runtime.addControl(new maplibregl.NavigationControl({ showCompass: false }), navigationPosition);
     }
-    runtime.addControl(new maplibregl.NavigationControl({ showCompass: false }), navigationPosition);
+    if (typeof runtime.on === 'function' && typeof runtime.off === 'function') {
+      const stopTracking = () => {
+        runtime.off('load', backgroundLoaded);
+        runtime.off('remove', stopTracking);
+      };
+      const backgroundLoaded = () => {
+        mapsWithLoadedBackground.add(runtime);
+        stopTracking();
+      };
+      runtime.on('load', backgroundLoaded);
+      runtime.on('remove', stopTracking);
+    }
+    bindMapTileRecovery(runtime);
+    bindMapGraphicsRecovery(runtime);
+    return runtime;
+  } catch (error) {
+    runtime?.remove?.();
+    // A constructor that fails to initialize WebGL has already inserted its
+    // canvas, but provides no runtime to remove. Preserve pre-existing fallback
+    // nodes and clear only the partial initialization before a later retry.
+    if (hasContainer) {
+      for (const child of [...container.childNodes]) {
+        if (!originalChildren.has(child)) child.remove();
+      }
+      if (!hadMapClass) container.classList.remove('maplibregl-map');
+    }
+    throw error;
   }
+}
 
-  return runtime;
+export function destroyMapRuntime(runtime) {
+  runtime?.remove?.();
+  return null;
 }
 
 export function isMapReady(runtime) {
@@ -224,26 +436,34 @@ export function isMapReady(runtime) {
   return mapLoaded && styleLoaded;
 }
 
+export function isMapStyleReady(runtime) {
+  return Boolean(runtime && (Array.isArray(runtime.getStyle?.()?.layers) || isMapReady(runtime)));
+}
+
 export function waitForMapReady(
   runtime,
   {
     timeoutMs = 2500,
     rejectOnError = false,
     rejectOnTimeout = false,
+    waitForTiles = true,
   } = {}
 ) {
   if (!runtime) {
     return Promise.reject(new Error('Map runtime missing.'));
   }
 
-  if (isMapReady(runtime)) {
+  // getStyle() becomes available once the style can accept route overlays,
+  // before its background tiles necessarily finish downloading.
+  const ready = () => waitForTiles ? isMapReady(runtime) : isMapStyleReady(runtime);
+  if (ready()) {
     return Promise.resolve(true);
   }
 
   return new Promise((resolve, reject) => {
     let settled = false;
     let timeoutId = null;
-    const events = ['load', 'styledata', 'idle'];
+    const events = ['load', 'style.load', 'styledata', 'idle'];
 
     const cleanup = () => {
       if (timeoutId !== null) {
@@ -254,6 +474,7 @@ export function waitForMapReady(
           runtime.off(eventName, handleProgress);
         }
         runtime.off('error', handleError);
+        runtime.off('remove', handleRemove);
       }
     };
     const settle = (callback, value) => {
@@ -265,7 +486,7 @@ export function waitForMapReady(
       callback(value);
     };
     const handleProgress = () => {
-      if (isMapReady(runtime)) {
+      if (ready()) {
         settle(resolve, true);
       }
     };
@@ -274,6 +495,7 @@ export function waitForMapReady(
         settle(reject, event?.error instanceof Error ? event.error : new Error('Map failed to load.'));
       }
     };
+    const handleRemove = () => settle(reject, new Error('Map removed before it became ready.'));
 
     if (typeof runtime.on === 'function') {
       for (const eventName of events) {
@@ -282,6 +504,7 @@ export function waitForMapReady(
       if (rejectOnError) {
         runtime.on('error', handleError);
       }
+      runtime.on('remove', handleRemove);
     }
 
     timeoutId = globalThis.setTimeout(() => {
@@ -294,24 +517,68 @@ export function waitForMapReady(
   });
 }
 
+export function captureMapResultFocus(container, keyAttribute = 'data-summary-map-item') {
+  if (typeof document === 'undefined' || typeof HTMLElement === 'undefined'
+    || !(container instanceof HTMLElement)) return () => {};
+  const focused = document.activeElement;
+  const row = focused instanceof HTMLElement && container.contains(focused)
+    ? focused.closest(`[${keyAttribute}]`) : null;
+  const key = row?.getAttribute(keyAttribute);
+  if (!key) return () => {};
+  const position = [...container.querySelectorAll(`[${keyAttribute}]`)].indexOf(row);
+  const controlTag = focused === row ? null : focused.tagName.toLowerCase();
+  return () => {
+    // Respect focus deliberately moved elsewhere by the caller while rendering.
+    if (document.activeElement !== document.body && document.activeElement !== focused) return;
+    const rows = [...container.querySelectorAll(`[${keyAttribute}]`)];
+    const replacement = rows.find(element => element.getAttribute(keyAttribute) === key)
+      ?? rows[Math.min(Math.max(position, 0), rows.length - 1)];
+    const target = controlTag ? replacement?.querySelector(controlTag) : replacement;
+    if (target instanceof HTMLElement) target.focus({ preventScroll: true });
+  };
+}
+
 export function createMapStatusController(element, messages = {}) {
+  let backgroundCleanup = null;
   const update = (state, context = {}) => {
+    backgroundCleanup?.();
     if (!element) {
       return false;
     }
 
     const configuredMessage = messages[state];
-    const message = Object.prototype.hasOwnProperty.call(context, 'message')
+    let message = Object.prototype.hasOwnProperty.call(context, 'message')
       ? context.message
       : typeof configuredMessage === 'function'
         ? configuredMessage(context)
         : configuredMessage;
 
-    if (typeof message === 'string' && 'textContent' in element) {
+    const backgroundMap = context.backgroundMap;
+    let backgroundLoading = false;
+    if (state === 'ready' && backgroundMap && !mapsWithLoadedBackground.has(backgroundMap)
+      && !isMapReady(backgroundMap) && typeof backgroundMap.on === 'function' && typeof backgroundMap.off === 'function') {
+      const baseMessage = typeof message === 'string' ? message : element.textContent || '';
+      const loaded = () => update('ready', { ...context, message: baseMessage, backgroundMap: null });
+      const cleanup = () => {
+        backgroundMap.off('load', loaded);
+        backgroundMap.off('remove', cleanup);
+        if (element.dataset) delete element.dataset.mapBackgroundLoading;
+        if (backgroundCleanup === cleanup) backgroundCleanup = null;
+      };
+      backgroundCleanup = cleanup;
+      backgroundMap.on('load', loaded);
+      backgroundMap.on('remove', cleanup);
+      backgroundLoading = true;
+      message = `${baseMessage}${baseMessage ? ' ' : ''}Background map is loading.`;
+    }
+
+    if (typeof message === 'string' && 'textContent' in element && element.textContent !== message) {
       element.textContent = message;
     }
     if (element.dataset) {
       element.dataset.mapState = state;
+      if (backgroundLoading) element.dataset.mapBackgroundLoading = 'true';
+      else delete element.dataset.mapBackgroundLoading;
     }
     if (typeof element.setAttribute === 'function') {
       element.setAttribute('aria-busy', state === 'loading' ? 'true' : 'false');
@@ -396,6 +663,7 @@ export function createMapMarker({
     throw new Error('Map marker requires MapLibre and an active map.');
   }
 
+  const accessibleLabel = element?.getAttribute?.('aria-label');
   let marker = new maplibregl.Marker({
     element,
     anchor: 'center',
@@ -415,6 +683,8 @@ export function createMapMarker({
   }
 
   marker = marker.addTo(mapRuntime);
+  // MapLibre initializes popup markers with the generic name "Map marker".
+  if (accessibleLabel != null) element.setAttribute('aria-label', accessibleLabel);
   if (bindPopup && popupHtml !== null) {
     bindMarkerPopup(marker, element, {
       map: mapRuntime,
@@ -434,6 +704,7 @@ export function syncGeoJsonOverlay(
     layers = [],
     updateData = true,
     skipUnchangedData = false,
+    updateLayerStyle = false,
   },
 ) {
   if (
@@ -449,6 +720,12 @@ export function syncGeoJsonOverlay(
     throw new Error('GeoJSON overlay requires a source id.');
   }
 
+  const deferred = deferredMapStyleOperations.get(runtime);
+  if (deferred) {
+    deferred.push(() => syncGeoJsonOverlay(runtime, { sourceId, data, layers, updateData, skipUnchangedData, updateLayerStyle }));
+    return true;
+  }
+
   const source = runtime.getSource(sourceId);
   if (source && updateData && typeof source.setData === 'function'
     && (!skipUnchangedData || overlaySourceData.get(source) !== data)) {
@@ -461,13 +738,21 @@ export function syncGeoJsonOverlay(
   }
 
   for (const layer of layers) {
-    if (!layer?.id || runtime.getLayer(layer.id)) {
-      continue;
+    if (!layer?.id) continue;
+    if (runtime.getLayer(layer.id)) {
+      // Keep data, selection filters, and appearance in the same recovery queue.
+      // Source-only callers retain their existing layer styling by default.
+      if (updateLayerStyle) {
+        for (const [property, value] of Object.entries(layer.paint ?? {})) runtime.setPaintProperty(layer.id, property, value);
+        for (const [property, value] of Object.entries(layer.layout ?? {})) runtime.setLayoutProperty(layer.id, property, value);
+        if (Object.prototype.hasOwnProperty.call(layer, 'filter')) runtime.setFilter(layer.id, layer.filter);
+      }
+    } else {
+      runtime.addLayer({
+        ...layer,
+        source: layer.source ?? sourceId,
+      });
     }
-    runtime.addLayer({
-      ...layer,
-      source: layer.source ?? sourceId,
-    });
   }
 
   return true;
@@ -482,6 +767,12 @@ export function removeMapOverlay(
 ) {
   if (!runtime) {
     return false;
+  }
+
+  const deferred = deferredMapStyleOperations.get(runtime);
+  if (deferred) {
+    deferred.push(() => removeMapOverlay(runtime, { layerIds, sourceIds }));
+    return true;
   }
 
   for (const layerId of layerIds) {
@@ -554,12 +845,22 @@ export function scoreZoneRouteLabel(routeCount, route) {
   return `IN: ${putIn} · OUT: ${takeOut}`;
 }
 
-export function bindMarkerPopup(marker, markerNode, options = {}) {
+export function bindMapPopup(popup, options = {}) {
+  const wiredPopupElements = new WeakSet();
+  const focusTarget = options.returnFocusTo ?? options.map?.getCanvas?.();
+  let openPopupMap = null;
+  const dismissPopup = (event) => {
+    if (!popup?.isOpen?.()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    popup.remove();
+    focusTarget?.focus?.({ preventScroll: true });
+  };
   const ensurePopupVisible = () => {
-    const popup = marker.getPopup();
-    const map = options.map ?? marker._map;
+    const map = options.map;
     if (
       !popup ||
+      (typeof popup.isOpen === 'function' && !popup.isOpen()) ||
       !map ||
       typeof popup.getElement !== 'function' ||
       typeof map.project !== 'function' ||
@@ -574,9 +875,36 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
       return;
     }
 
-    const popupRect = popupElement.getBoundingClientRect();
     const mapRect = mapElement.getBoundingClientRect();
     const padding = options.popupPadding ?? 20;
+    popupElement.style.setProperty('--map-popup-max-width', `${Math.max(80, mapRect.width - padding * 2)}px`);
+    const pageStyle = window.getComputedStyle(document.documentElement);
+    const viewportOffset = window.visualViewport?.offsetTop ?? 0;
+    const viewportTop = viewportOffset + (Number.parseFloat(pageStyle.scrollPaddingTop) || 0);
+    const viewportBottom = viewportOffset + (window.visualViewport?.height ?? window.innerHeight)
+      - (Number.parseFloat(pageStyle.scrollPaddingBottom) || 0);
+    const visibleTop = Math.max(mapRect.top, viewportTop);
+    const visibleBottom = Math.min(mapRect.bottom, viewportBottom);
+    // A nearly offscreen map cannot hold a readable popup. Avoid moving its
+    // camera repeatedly until the user brings more of the map into view.
+    const useVisibleBounds = visibleBottom - visibleTop >= 160;
+    const top = useVisibleBounds ? visibleTop : mapRect.top;
+    const bottom = useVisibleBounds ? visibleBottom : mapRect.bottom;
+    const tipHeight = popupElement.querySelector('.maplibregl-popup-tip')?.getBoundingClientRect().height ?? 10;
+    popupElement.style.setProperty('--map-popup-max-height', `${Math.max(80, bottom - top - padding * 2 - tipHeight)}px`);
+    const content = popupElement.querySelector('.maplibregl-popup-content');
+    if (content instanceof HTMLElement) {
+      const scrollable = content.scrollHeight > content.clientHeight;
+      content.classList.toggle('maplibregl-popup-content--scrollable', scrollable);
+    }
+    const focused = document.activeElement;
+    if (content instanceof HTMLElement && focused instanceof HTMLElement && content.contains(focused)) {
+      const contentRect = content.getBoundingClientRect();
+      const focusRect = focused.getBoundingClientRect();
+      if (focusRect.bottom > contentRect.bottom) content.scrollTop += focusRect.bottom - contentRect.bottom + 8;
+      else if (focusRect.top < contentRect.top) content.scrollTop -= contentRect.top - focusRect.top + 8;
+    }
+    const popupRect = popupElement.getBoundingClientRect();
 
     let shiftX = 0;
     let shiftY = 0;
@@ -587,18 +915,22 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
       shiftX = mapRect.right - padding - popupRect.right;
     }
 
-    if (popupRect.top < mapRect.top + padding) {
-      shiftY = mapRect.top + padding - popupRect.top;
-    } else if (popupRect.bottom > mapRect.bottom - padding) {
-      shiftY = mapRect.bottom - padding - popupRect.bottom;
+    if (popupRect.top < top + padding) {
+      shiftY = top + padding - popupRect.top;
+    } else if (popupRect.bottom > bottom - padding) {
+      shiftY = bottom - padding - popupRect.bottom;
     }
 
     if (Math.abs(shiftX) < 1 && Math.abs(shiftY) < 1) {
       return;
     }
 
-    const markerPoint = map.project(marker.getLngLat());
-    const targetCenter = map.unproject([markerPoint.x - shiftX, markerPoint.y - shiftY]);
+    // Pan from the current viewport center. Starting from the marker instead
+    // recenters an edge marker and moves much farther than the clipping requires.
+    const targetCenter = map.unproject([
+      mapElement.clientWidth / 2 - shiftX,
+      mapElement.clientHeight / 2 - shiftY,
+    ]);
 
     map.easeTo({
       center: targetCenter,
@@ -607,7 +939,6 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
   };
 
   const wirePopupControls = () => {
-    const popup = marker.getPopup();
     if (!popup || typeof popup.getElement !== 'function') {
       return;
     }
@@ -617,35 +948,62 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
       return;
     }
 
-    popupElement.addEventListener('click', (event) => {
-      event.stopPropagation();
-    });
+    const heading = popupElement.querySelector('.score-map-popup h3');
+    if (heading instanceof HTMLElement) {
+      if (!heading.id) heading.id = `map-popup-heading-${globalThis.crypto.randomUUID()}`;
+      popupElement.setAttribute('role', 'dialog');
+      popupElement.setAttribute('aria-labelledby', heading.id);
+    }
+
+    if (!wiredPopupElements.has(popupElement)) {
+      wiredPopupElements.add(popupElement);
+      popupElement.addEventListener('click', (event) => event.stopPropagation());
+      popupElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') dismissPopup(event);
+      });
+    }
 
     const closeButton = popupElement.querySelector('.maplibregl-popup-close-button');
+    if (closeButton instanceof HTMLButtonElement) {
+      const content = popupElement.querySelector('.maplibregl-popup-content');
+      if (content instanceof HTMLElement) {
+        // Keep native initial focus at the top, before route actions. Focusing
+        // the final link can scroll the route name underneath the sticky close row.
+        let closeRow = content.querySelector('.maplibregl-popup-close-row');
+        if (!closeRow) {
+          closeRow = document.createElement('div');
+          closeRow.className = 'maplibregl-popup-close-row';
+          content.prepend(closeRow);
+        }
+        if (closeButton.parentElement !== closeRow) {
+          const hadPopupFocus = popupElement.contains(document.activeElement);
+          closeRow.append(closeButton);
+          if (hadPopupFocus) closeButton.focus({ preventScroll: true });
+        }
+      }
+    }
     if (closeButton instanceof HTMLButtonElement && closeButton.dataset.popupBound !== 'true') {
       closeButton.dataset.popupBound = 'true';
       closeButton.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
         popup.remove();
+        focusTarget?.focus?.({ preventScroll: true });
       });
     }
   };
 
-  const applySelectedState = (selected) => {
-    markerNode.classList.toggle('score-map-marker--selected', selected);
-    markerNode.setAttribute('aria-pressed', selected ? 'true' : 'false');
-    if (typeof options.onSelectedChange === 'function') {
-      options.onSelectedChange(selected);
-    }
-  };
-
-  const popup = marker.getPopup();
   if (popup) {
     popup.on('open', () => {
-      applySelectedState(true);
+      if (options.map) {
+        const previous = activeMapPopups.get(options.map);
+        if (previous && previous !== popup) previous.remove();
+        activeMapPopups.set(options.map, popup);
+      }
+      wirePopupControls();
+      openPopupMap = options.map;
+      openPopupMap?.on?.('resize', ensurePopupVisible);
       window.setTimeout(() => {
-        wirePopupControls();
         ensurePopupVisible();
         window.requestAnimationFrame(() => {
           ensurePopupVisible();
@@ -655,11 +1013,54 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
         }, 180);
       }, 20);
     });
-    popup.on('close', () => applySelectedState(false));
+    popup.on('close', () => {
+      if (options.map && activeMapPopups.get(options.map) === popup) activeMapPopups.delete(options.map);
+      openPopupMap?.off?.('resize', ensurePopupVisible);
+      openPopupMap = null;
+    });
   }
+
+  return { dismiss: dismissPopup };
+}
+
+export function bindMarkerPopup(marker, markerNode, options = {}) {
+  const popup = marker.getPopup();
+  markerNode.addEventListener('focus', () => {
+    if (!markerNode.matches?.(':focus-visible')) return;
+    const map = options.map ?? marker._map;
+    const container = map?.getContainer?.();
+    const location = marker.getLngLat?.();
+    if (!location || !container?.clientWidth || !container.clientHeight
+      || typeof map.project !== 'function' || typeof map.panTo !== 'function') return;
+    const point = map.project(location);
+    const horizontalInset = markerNode.offsetWidth / 2 + 8;
+    const verticalInset = markerNode.offsetHeight / 2 + 8;
+    if (point.x < horizontalInset || point.x > container.clientWidth - horizontalInset
+      || point.y < verticalInset || point.y > container.clientHeight - verticalInset) {
+      // Keyboard focus must remain visible after the user zooms or pans.
+      map.panTo(location, { duration: 0 });
+    }
+  });
+  const applySelectedState = (selected) => {
+    markerNode.classList.toggle('score-map-marker--selected', selected);
+    markerNode.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    if (typeof options.onSelectedChange === 'function') options.onSelectedChange(selected);
+  };
+  popup?.on('open', () => applySelectedState(true));
+  popup?.on('close', () => applySelectedState(false));
+  const { dismiss: dismissPopup } = bindMapPopup(popup, {
+    ...options,
+    map: options.map ?? marker._map,
+    returnFocusTo: markerNode,
+  });
 
   markerNode.addEventListener('keydown', (event) => {
     if (!(event instanceof KeyboardEvent)) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      dismissPopup(event);
       return;
     }
 
@@ -676,9 +1077,6 @@ export function bindMarkerPopup(marker, markerNode, options = {}) {
     marker.togglePopup();
   });
 
-  markerNode.addEventListener('click', () => {
-    applySelectedState(true);
-  });
 }
 
 export function riverNameVariants(name) {

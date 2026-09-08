@@ -1,4 +1,6 @@
 /** Shared overview plus a bounded, replaceable queue of route detail requests. */
+const GEOMETRY_REQUEST_TIMEOUT_MS = 15_000;
+
 export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () => {}, concurrency = 4 } = {}) {
   const features = new Map();
   const detailed = new Set();
@@ -13,7 +15,8 @@ export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () =
       if (detailed.has(slug) || active.has(slug) || (retryAfter.get(slug) || 0) > Date.now()) continue;
       const controller = new AbortController();
       active.set(slug, controller);
-      fetchImpl(`/data/canonical-river-geometries/routes/${encodeURIComponent(slug)}.json`, { signal: controller.signal, cache: 'force-cache' })
+      const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS)]);
+      fetchImpl(`/data/canonical-river-geometries/routes/${encodeURIComponent(slug)}.json`, { signal, cache: 'force-cache' })
         .then((response) => {
           if (!response.ok) throw new Error(`Route geometry ${response.status}`);
           return response.json();
@@ -37,7 +40,9 @@ export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () =
   return {
     features,
     loadOverview() {
-      if (!overviewPromise) overviewPromise = fetchImpl('/data/explore-map-overview.json', { cache: 'force-cache' })
+      if (!overviewPromise) overviewPromise = fetchImpl('/data/explore-map-overview.json', {
+        cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS),
+      })
         .then((response) => {
           if (!response.ok) throw new Error(`Map overview ${response.status}`);
           return response.json();

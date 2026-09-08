@@ -137,13 +137,27 @@ const appDownloadConfigJson = JSON.stringify({
       )
     }
     {
-      umamiWebsiteId && <script defer src={umamiScriptSrc} data-website-id={umamiWebsiteId}></script>
+      import.meta.env.PROD && umamiWebsiteId && <script defer src={umamiScriptSrc} data-website-id={umamiWebsiteId}></script>
     }
     <script type="application/ld+json" set:html={structuredDataJson}></script>
     <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="shortcut icon" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="apple-touch-icon" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="stylesheet" href={`/global.css?v=${assetVersion}`} />
+    {pageClass.split(/\s+/).includes('page-home') && <link rel="stylesheet" href={`/styles/home-base.css?v=${assetVersion}`} />}
+    {(Astro.url.pathname.startsWith('/rivers/by-river/') || /^\/states\/[^/]+\/?$/.test(Astro.url.pathname)) && <link rel="stylesheet" href={`/styles/route-choices.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).some(name => ['page-home', 'page-explore', 'page-weekend', 'page-favorites'].includes(name)) && <link rel="stylesheet" href={`/styles/map-panels.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).includes('page-favorites') && <link rel="stylesheet" href={`/styles/favorites-page.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).includes('page-explore') && <link rel="stylesheet" href={`/styles/explore-page.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).includes('page-weekend') && <link rel="stylesheet" href={`/styles/weekend-page.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).includes('page-home') && <link rel="stylesheet" href={`/styles/home-map.css?v=${assetVersion}`} />}
+    {pageClass.split(/\s+/).includes('page-home') && <link rel="stylesheet" href={`/styles/home-page.css?v=${assetVersion}`} />}
+      {/^\/states\/[^/]+\/?$/.test(Astro.url.pathname) && <link rel="stylesheet" href={`/styles/state-map.css?v=${assetVersion}`} />}
+      {/^\/states(?:\/|$)/.test(Astro.url.pathname) && <link rel="stylesheet" href={`/styles/state-pages.css?v=${assetVersion}`} />}
+      {Astro.url.pathname.startsWith('/rivers/by-river/') && <link rel="stylesheet" href={`/styles/river-picker.css?v=${assetVersion}`} />}
+      {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-base.css?v=${assetVersion}`} />}
+      {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-maps.css?v=${assetVersion}`} />}
+      {pageClass.split(/\s+/).includes('page-route-detail') && <link rel="stylesheet" href={`/styles/route-page.css?v=${assetVersion}`} />}
   </head>
   <body class={pageClass}>
     <div class="page-shell">

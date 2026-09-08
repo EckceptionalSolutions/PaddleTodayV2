@@ -39,6 +39,34 @@ async function move(page: Page, zoom: number, bounds = [[-101, 44], [-99, 46]]) 
   await page.waitForTimeout(300);
 }
 
+test('Explore retries a failed overview on later filtering and restores river anchors', async ({ page }) => {
+  const payload = fixture();
+  payload.rivers = payload.rivers.slice(0, 1);
+  const anchor = [-99.997, 45.009];
+  let requests = 0;
+  await installMapLibreHarness(page);
+  await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: payload }));
+  await page.route('**/data/canonical-river-geometries/routes/*.json', route => route.fulfill({ status: 503, body: '' }));
+  await page.route('**/data/explore-map-overview.json', async route => {
+    requests++;
+    if (requests === 1) { await route.fulfill({ status: 503, json: {} }); return; }
+    await route.fulfill({ json: { features: [{ type: 'Feature',
+      properties: { routeId: payload.rivers[0].river.slug, overview: true, anchor },
+      bbox: [-100, 45, -99.99, 45.01], geometry: { type: 'LineString', coordinates: [[-100, 45], anchor, [-99.99, 45.01]] },
+    }] } });
+  });
+  await page.goto('/explore/');
+  await expect.poll(() => requests).toBe(1);
+  await expect(page.locator('[data-summary-map-status]')).toHaveAttribute('data-map-state', 'ready');
+  await page.locator('[data-filter-search]').fill('Performance');
+  expect(requests).toBe(1);
+  await page.evaluate(() => { const now = Date.now(); Date.now = () => now + 31000; });
+  await page.locator('[data-filter-search]').fill('Performance River');
+  await expect.poll(() => requests).toBe(2);
+  await expect.poll(() => page.evaluate(() => (window as any).__paddleMapInstances[0]
+    .getSource('explore-score-points')?.data.features[0]?.geometry.coordinates)).toEqual(anchor);
+});
+
 test('a late overview moves a single-route badge onto its river without closing its popup', async ({ page }) => {
   const payload = fixture();
   payload.rivers = payload.rivers.slice(0, 1);

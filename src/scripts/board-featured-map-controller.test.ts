@@ -26,7 +26,7 @@ describe('board featured map controller', () => {
     });
   });
 
-  it('renders access markers, route line, fit policy, and status through one lifecycle', async () => {
+  it('renders the current route and ignores a superseded geometry failure', async () => {
     class FakeElement {
       hidden = false;
       textContent = '';
@@ -57,8 +57,10 @@ describe('board featured map controller', () => {
       removeLayer: vi.fn(),
       removeSource: vi.fn(),
       setPaintProperty: vi.fn(),
+      setLayoutProperty: vi.fn(),
       resize: vi.fn(),
       jumpTo: vi.fn(),
+      remove: vi.fn(),
     };
     class FakeMarker {
       setLngLat = vi.fn(() => this);
@@ -80,25 +82,30 @@ describe('board featured map controller', () => {
       { longitude: -92, latitude: 46 },
     ]);
     const fitBounds = vi.fn();
+    const getRouteLine = vi.fn().mockResolvedValue(routeLine);
+    const logError = vi.fn();
+    const waitUntilReady = vi.fn().mockResolvedValue(true);
+    const createMap = vi.fn(() => runtime);
     const controller = createBoardFeaturedMapController({
       elements: { shell, container, status, caption },
       getAccessPoints: () => [
         { longitude: -93, latitude: 45, kind: 'putIn' },
         { longitude: -92, latitude: 46, kind: 'takeOut' },
       ],
-      getRouteLine: vi.fn().mockResolvedValue(routeLine),
+      getRouteLine,
       getTracedCoordinates: () => [],
       markerClassFor: () => 'score-marker',
       markerLabel: () => '87',
       statusLabel: () => 'Minnesota',
       viewportProfile: 'featuredHome',
       ensureMapLibreImpl: vi.fn().mockResolvedValue(maplibregl),
-      createMap: vi.fn(() => runtime),
+      createMap,
       clearMarkers: vi.fn(() => []),
       fitBounds,
       isReady: () => true,
-      waitUntilReady: vi.fn().mockResolvedValue(true),
+      waitUntilReady,
       documentObject: { createElement: () => new FakeElement() },
+      logError,
     });
     const item = {
       cardRoute: {
@@ -113,11 +120,9 @@ describe('board featured map controller', () => {
       'featured-route-line',
       { type: 'geojson', data: routeLine },
     );
-    expect(runtime.setPaintProperty).toHaveBeenCalledWith(
-      'featured-route-line',
-      'line-color',
-      '#2c8a54',
-    );
+    expect(runtime.addLayer).toHaveBeenCalledWith(expect.objectContaining({
+      id: 'featured-route-line', paint: expect.objectContaining({ 'line-color': '#2c8a54' }),
+    }));
     expect(fitBounds).toHaveBeenCalledWith(
       runtime,
       expect.any(FakeBounds),
@@ -129,5 +134,42 @@ describe('board featured map controller', () => {
     expect(status.textContent).toBe('Minnesota');
     expect(status.hidden).toBe(false);
     expect(controller.getRuntime()).toBe(runtime);
+    expect(waitUntilReady).toHaveBeenCalledExactlyOnceWith(runtime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
+
+    const geometryError = new Error('River detail unavailable');
+    getRouteLine.mockRejectedValueOnce(geometryError);
+    await controller.renderFeaturedMap(item, { visible: true });
+    expect(controller.getRuntime()).toBe(runtime);
+    expect(runtime.remove).not.toHaveBeenCalled();
+    expect(shell.hidden).toBe(false);
+    expect(status.textContent).toBe('Minnesota');
+    expect(logError).toHaveBeenCalledWith(geometryError);
+    logError.mockClear();
+
+    const geometryCallsBeforeStaleRender = getRouteLine.mock.calls.length;
+    let rejectEarlier!: (error: Error) => void;
+    getRouteLine.mockImplementationOnce(() => new Promise((_, reject) => { rejectEarlier = reject; }));
+    const earlierRender = controller.renderFeaturedMap(item, { visible: true });
+    await vi.waitFor(() => expect(getRouteLine).toHaveBeenCalledTimes(geometryCallsBeforeStaleRender + 1));
+    await controller.renderFeaturedMap(item, { visible: true });
+    const removalsBeforeStaleFailure = runtime.removeSource.mock.calls.length;
+    rejectEarlier(new Error('The previous route geometry timed out'));
+    await earlierRender;
+
+    expect(shell.hidden).toBe(false);
+    expect(status.textContent).toBe('Minnesota');
+    expect(status.hidden).toBe(false);
+    expect(runtime.removeSource).toHaveBeenCalledTimes(removalsBeforeStaleFailure);
+    expect(logError).not.toHaveBeenCalled();
+
+    waitUntilReady.mockRejectedValueOnce(new Error('Map readiness timed out'));
+    await controller.renderFeaturedMap(item, { visible: true });
+    expect(runtime.remove).toHaveBeenCalledOnce();
+    expect(controller.getRuntime()).toBeNull();
+    expect(shell.hidden).toBe(true);
+    await controller.renderFeaturedMap(item, { visible: true });
+    expect(createMap).toHaveBeenCalledTimes(2);
+    expect(controller.getRuntime()).toBe(runtime);
+    expect(shell.hidden).toBe(false);
   });
 });

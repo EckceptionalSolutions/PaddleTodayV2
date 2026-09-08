@@ -1,0 +1,329 @@
+.home-featured__map {
+  min-height: 10.4rem;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* Homepage map layout. Shared markers and popups live in map-markers.css.
+   Keep responsive changes here instead of appending overrides to global.css. */
+
+@media (min-width: 761px) {
+  html body.page-home .summary-map-shell--home[data-map-unavailable] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html body.page-home .summary-map-shell--home[data-map-unavailable] .summary-map-frame,
+  html body.page-home .summary-map-shell--home[data-map-unavailable] .summary-map-copy__intro {
+    display: none;
+  }
+
+  html body.page-home .summary-map-shell--home[data-map-unavailable] .summary-map-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 761px) {
+  .page-home .summary-map-shell--home .summary-map-frame {
+    grid-template-rows: minmax(22.5rem, 1fr) auto;
+  }
+
+  .page-home .summary-map-shell--home .summary-map {
+    height: auto;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    justify-items: start;
+    min-height: 5.4rem;
+  }
+
+  .page-home .summary-map-shell--home .summary-map__status {
+    width: 100%;
+    min-height: 1.45rem;
+    margin: 0;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-legend {
+    width: 100%;
+  }
+}
+
+.page-home .summary-map-shell--home .summary-map-legend {
+  gap: 0.35rem;
+  padding: 0.3rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(247, 250, 250, 0.86);
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle {
+  min-height: 2.5rem;
+  padding: 0.26rem 0.58rem 0.26rem 0.3rem;
+  border: 1px solid rgba(16, 35, 45, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(16, 35, 45, 0.06);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle:hover:not(:disabled) {
+  border-color: rgba(30, 115, 151, 0.28);
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(16, 35, 45, 0.09);
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle[aria-pressed='false'] {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink-soft);
+}
+
+.page-home .summary-map-shell--home .summary-map-legend__toggle .summary-map-legend__marker {
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.68rem;
+}
+
+.summary-map-shell--home {
+  grid-template-columns: 1fr;
+}
+
+.summary-map-shell--home .summary-map-mobile-switch {
+  display: none;
+}
+
+.summary-map-shell--home .summary-map-copy {
+  gap: 0.4rem;
+}
+
+.summary-map-shell--home .summary-map-copy__lede {
+  max-width: 56ch;
+}
+
+.summary-map-shell--home .summary-map {
+  min-height: 35rem;
+}
+
+@media (min-width: 761px) {
+  .page-home .summary-map-shell--home {
+    grid-template-columns: minmax(250px, 0.46fr) minmax(0, 1.54fr);
+  }
+
+  .page-home .summary-map-shell--home .summary-map-copy {
+    gap: 0.58rem;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-copy__lede {
+    max-width: 24ch;
+  }
+
+  .page-home .summary-map-shell--home .summary-map {
+    min-height: 22.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .summary-map-shell--home {
+    position: relative;
+    overflow: visible;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map {
+    gap: 0;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    width: auto;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-copy__intro,
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map__toggle {
+    display: none;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame {
+    position: relative;
+    padding: 0;
+  }
+
+  .summary-map-shell--home .summary-map {
+    min-height: 21rem;
+  }
+}
+
+@media (max-width: 760px) {
+
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
+    width: auto;
+    margin-inline: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(240, 248, 250, 0.98), rgba(225, 237, 242, 0.9)),
+      rgba(234, 243, 246, 0.92);
+  }
+
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    border: 0;
+    border-radius: 0;
+  }
+
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-footer {
+    display: contents;
+  }
+
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-legend {
+    display: none;
+  }
+
+  /* Keep the live status available when the visual footer is condensed. */
+  body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map__status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    position: sticky !important;
+    left: 0 !important;
+    right: auto !important;
+    z-index: 5 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    top: max(0.18rem, env(safe-area-inset-top)) !important;
+    margin: 0 0.18rem 0.08rem !important;
+    padding: 0.1rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__button {
+    padding: 0.18rem 0.42rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__count {
+    min-width: 1.04rem !important;
+    min-height: 1.04rem !important;
+    font-size: 0.58rem !important;
+  }
+}
+
+@media (max-width: 540px) {
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    margin-inline: 0.14rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__button {
+    padding-inline: 0.36rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
+    min-height: max(16.8rem, calc(var(--app-mobile-vh, 100svh) - 10.2rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(16.8rem, calc(var(--app-mobile-vh, 100svh) - 10.6rem - env(safe-area-inset-top))) !important;
+  }
+}
+
+@media (max-width: 540px) {
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
+    min-height: max(15.6rem, calc(var(--app-mobile-vh, 100svh) - 10.6rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(15.6rem, calc(var(--app-mobile-vh, 100svh) - 11rem - env(safe-area-inset-top))) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-home .summary-map-shell--home .summary-map-mobile-switch {
+    display: inline-grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.14rem !important;
+    width: 100% !important;
+    padding: 0.14rem !important;
+    border: 1px solid rgba(16, 35, 45, 0.08) !important;
+    border-radius: 999px !important;
+    background: rgba(250, 248, 243, 0.94) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82),
+      0 8px 20px rgba(16, 35, 45, 0.07) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-frame {
+    display: none !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-copy {
+    display: grid !important;
+    gap: 0.42rem !important;
+    border: 0 !important;
+  }
+
+  html body.page-home .summary-map-shell--home {
+    overflow-anchor: none !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    display: inline-grid !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-copy {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    padding: 0.68rem !important;
+    background: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    pointer-events: auto !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-results-panel {
+    position: static !important;
+    display: grid !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-results {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-results__back {
+    display: none !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__button {
+    font-size: 0.8rem !important;
+    min-height: 44px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  /* The List tab owns route results; Map mode has no bottom result overlay. */
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-copy {
+    display: none !important;
+  }
+}

@@ -564,6 +564,14 @@ export function weatherVisualMarkup(state) {
   const label = weatherVisualLabel(state);
 
   switch (state) {
+    case 'unknown':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M9.5 8.5a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4"></path>
+          <path d="M12 16h.01"></path>
+        </svg>
+      `;
     case 'storm':
       return `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">

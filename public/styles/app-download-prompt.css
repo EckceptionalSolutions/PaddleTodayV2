@@ -1,0 +1,244 @@
+/* App invitation: desktop corner card, prominent phone actions. */
+
+.app-download-prompt {
+  position: fixed;
+  z-index: 80;
+  right: 1rem;
+  bottom: 1rem;
+  left: auto;
+  width: min(32rem, calc(100vw - 2rem));
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.72rem;
+  padding: 0.86rem;
+  border: 1px solid rgba(22, 45, 57, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 252, 248, 0.97);
+  box-shadow: 0 18px 44px rgba(16, 35, 45, 0.18);
+  color: var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.app-download-prompt[hidden] {
+  display: none;
+}
+
+.app-download-prompt__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.2rem;
+  padding: 0.1rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 115, 151, 0.14);
+  background: rgba(233, 245, 250, 0.82);
+  color: var(--river);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.app-download-prompt__icon {
+  width: 2.72rem;
+  height: 2.72rem;
+  border-radius: 0.9rem;
+  background: rgba(233, 245, 250, 0.68);
+  border: 1px solid rgba(16, 74, 104, 0.12);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.app-download-prompt__icon img {
+  width: 2.28rem;
+  height: 2.28rem;
+  object-fit: contain;
+  display: block;
+}
+
+.app-download-prompt__copy {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
+  padding-right: 1.35rem;
+}
+
+.app-download-prompt__headline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.app-download-prompt__headline strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.12;
+}
+
+.app-download-prompt__copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.app-download-prompt__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.app-download-prompt__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.34rem 0.76rem;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 74, 104, 0.16);
+  background: var(--river-deep);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.app-download-prompt__cta:hover {
+  background: #0d3f58;
+  color: #fff;
+}
+
+.app-download-prompt__cta[hidden] {
+  display: none;
+}
+
+.app-download-prompt__cta--secondary {
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--river-deep);
+}
+
+.app-download-prompt__cta--secondary:hover {
+  background: rgba(233, 245, 250, 0.92);
+  color: var(--river-deep);
+}
+
+.app-download-prompt__cta:focus-visible,
+.app-download-prompt__dismiss:focus-visible {
+  outline: 2px solid rgba(30, 115, 151, 0.26);
+  outline-offset: 2px;
+}
+
+.app-download-prompt__dismiss {
+  position: absolute;
+  top: 0.52rem;
+  right: 0.52rem;
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.app-download-prompt__dismiss:hover {
+  background: rgba(16, 35, 45, 0.06);
+  color: var(--ink);
+}
+
+@media (min-width: 761px) {
+  .app-download-prompt {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 1rem 4rem 1rem 1rem;
+  }
+
+  .app-download-prompt__actions {
+    grid-column: auto;
+  }
+
+  .app-download-prompt__dismiss {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 760px) {
+  .app-download-prompt {
+    right: 0.7rem;
+    bottom: calc(0.7rem + env(safe-area-inset-bottom));
+    left: 0.7rem;
+    width: auto;
+    gap: 0.62rem;
+    padding: 0.82rem;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(16, 35, 45, 0.24);
+  }
+
+  .app-download-prompt__badge {
+    min-height: initial;
+  }
+
+  .app-download-prompt__copy {
+    padding-right: 2rem;
+  }
+
+  .app-download-prompt__headline strong {
+    font-size: 1rem;
+  }
+
+  .app-download-prompt__copy p {
+    font-size: 0.86rem;
+  }
+
+  .app-download-prompt__actions {
+    gap: 0.5rem;
+  }
+
+  .app-download-prompt__cta {
+    flex: 1 1 9rem;
+    min-height: 48px;
+    font-size: 0.82rem;
+  }
+
+  .app-download-prompt__dismiss {
+    min-height: 44px;
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+
+  html:has(.app-download-prompt:not([hidden])) {
+    scroll-padding-bottom: calc(var(--app-prompt-height, 0px) + 1.5rem + env(safe-area-inset-bottom));
+  }
+
+  html body:has(.app-download-prompt:not([hidden])) .page-shell {
+    padding-bottom: calc(var(--app-prompt-height, 0px) + 3rem + env(safe-area-inset-bottom));
+  }
+
+  html body:has(.app-download-prompt:not([hidden])) .action-feedback {
+    bottom: calc(var(--app-prompt-height, 0px) + 1.5rem + env(safe-area-inset-bottom));
+  }
+
+  body:has(:is(input:not([type]), input[type="text"], input[type="search"], input[type="email"], textarea):focus) .app-download-prompt {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 540px) {
+  .app-download-prompt__cta {
+    padding-inline: 0.62rem;
+  }
+}

@@ -15,7 +15,7 @@ import {
   waitForMapReady,
 } from './map-runtime.js';
 
-type Listener = (event?: { error?: Error }) => void;
+type Listener = (event?: { error?: Error & { status?: number; url?: string }; sourceId?: string }) => void;
 
 class FakeMap {
   controls: Array<{ control: FakeNavigationControl; position: string }> = [];
@@ -30,6 +30,7 @@ class FakeMap {
   removedSources: string[] = [];
   filterCalls: Array<{ layerId: string; filter: unknown }> = [];
   paintCalls: Array<{ layerId: string; property: string; value: unknown }> = [];
+  layoutCalls: Array<{ layerId: string; property: string; value: unknown }> = [];
 
   constructor(readonly options: Record<string, unknown>) {}
 
@@ -39,6 +40,10 @@ class FakeMap {
 
   fitBounds(bounds: unknown, options: Record<string, unknown>) {
     this.fitCalls.push({ bounds, options });
+  }
+
+  getStyle() {
+    return { sources: Object.fromEntries(this.sources) };
   }
 
   getSource(sourceId: string) {
@@ -76,6 +81,10 @@ class FakeMap {
     this.paintCalls.push({ layerId, property, value });
   }
 
+  setLayoutProperty(layerId: string, property: string, value: unknown) {
+    this.layoutCalls.push({ layerId, property, value });
+  }
+
   loaded() {
     return this.loadedValue;
   }
@@ -94,7 +103,7 @@ class FakeMap {
     this.listeners.get(eventName)?.delete(listener);
   }
 
-  emit(eventName: string, event?: { error?: Error }) {
+  emit(eventName: string, event?: { error?: Error & { status?: number; url?: string }; sourceId?: string }) {
     for (const listener of this.listeners.get(eventName) ?? []) {
       listener(event);
     }
@@ -118,6 +127,175 @@ afterEach(() => {
 });
 
 describe('createPaddleMap', () => {
+  it('recovers initial glyph failures once without retrying unrelated or permanent errors', () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('window', new EventTarget());
+    vi.stubGlobal('navigator', { onLine: true });
+    class FontMap extends FakeMap {
+      getGlyphs() { return 'https://example.test/fonts/{fontstack}/{range}.pbf'; }
+      setGlyphs = vi.fn();
+    }
+    const runtime = createPaddleMap({ ...fakeMapLibre(), Map: FontMap });
+    const data = { type: 'FeatureCollection', features: [] };
+    const source = { type: 'geojson', data, setData: vi.fn() };
+    runtime.addSource('labels', source);
+    const failure = (status: number, url = 'https://example.test/fonts/Regular/0-255.pbf') => ({
+      sourceId: 'labels', error: Object.assign(new Error('Font unavailable'), { status, url }),
+    });
+    runtime.emit('error', failure(403));
+    runtime.emit('error', failure(503, 'https://example.test/routes.json'));
+    vi.advanceTimersByTime(1500);
+    expect(source.setData).not.toHaveBeenCalled();
+    runtime.emit('error', failure(503));
+    runtime.emit('error', failure(503));
+    vi.advanceTimersByTime(1500);
+    expect(runtime.setGlyphs).toHaveBeenCalledExactlyOnceWith(runtime.getGlyphs());
+    expect(source.setData).toHaveBeenCalledExactlyOnceWith(data);
+    runtime.emit('error', failure(503));
+    vi.advanceTimersByTime(30000);
+    expect(source.setData).toHaveBeenCalledOnce();
+  });
+
+  it('clears failed glyph requests on reconnect before reloading a label source', () => {
+    const browser = new EventTarget();
+    const navigator = { onLine: false };
+    vi.stubGlobal('window', browser);
+    vi.stubGlobal('navigator', navigator);
+    class FontMap extends FakeMap {
+      getGlyphs() { return 'https://example.test/fonts/{fontstack}/{range}.pbf'; }
+      setGlyphs = vi.fn();
+    }
+    const runtime = createPaddleMap({ ...fakeMapLibre(), Map: FontMap });
+    const source = { type: 'geojson', data: {}, setData: vi.fn() };
+    runtime.addSource('labels', source);
+    runtime.emit('error', { sourceId: 'labels', error: Object.assign(new Error('Offline'), {
+      status: 0, url: 'https://example.test/fonts/Regular/0-255.pbf',
+    }) });
+    navigator.onLine = true;
+    browser.dispatchEvent(new Event('online'));
+    browser.dispatchEvent(new Event('online'));
+    expect(runtime.setGlyphs).toHaveBeenCalledExactlyOnceWith(runtime.getGlyphs());
+    expect(source.setData).toHaveBeenCalledOnce();
+    expect(runtime.setGlyphs.mock.invocationCallOrder[0]).toBeLessThan(source.setData.mock.invocationCallOrder[0]);
+  });
+
+  it('retains ordered overlay changes during graphics recovery and discards them on removal', () => {
+    class RecoverableMap extends FakeMap {
+      getStyle() { return { ...super.getStyle(), layers: [] }; }
+      setStyle = vi.fn();
+    }
+    const runtime = createPaddleMap({ ...fakeMapLibre(), Map: RecoverableMap });
+    const overlay = { sourceId: 'late-route', data: { type: 'FeatureCollection', features: [] }, layers: [{ id: 'late-line', type: 'line' }] };
+    runtime.emit('webglcontextrestored');
+    syncGeoJsonOverlay(runtime, overlay);
+    removeMapOverlay(runtime, { layerIds: ['late-line'], sourceIds: ['late-route'] });
+    expect(runtime.addedLayers).toEqual([]);
+    runtime.emit('style.load');
+    expect(runtime.addedLayers).toHaveLength(1);
+    expect(runtime.removedLayers).toEqual(['late-line']);
+    expect(runtime.getSource('late-route')).toBeUndefined();
+    runtime.emit('webglcontextrestored');
+    syncGeoJsonOverlay(runtime, overlay);
+    runtime.emit('remove');
+    runtime.emit('style.load');
+    expect(runtime.addedLayers).toHaveLength(1);
+  });
+
+  it('rebuilds the current style after graphics restoration and detaches on removal', () => {
+    const style = { version: 8, sources: { route: { type: 'geojson' } }, layers: [{ id: 'route' }] };
+    class RecoverableMap extends FakeMap {
+      getStyle() { return style; }
+      setStyle = vi.fn();
+    }
+    const runtime = createPaddleMap({ ...fakeMapLibre(), Map: RecoverableMap });
+    runtime.emit('webglcontextlost');
+    expect(runtime.setStyle).not.toHaveBeenCalled();
+    runtime.emit('webglcontextrestored');
+    expect(runtime.setStyle).toHaveBeenCalledExactlyOnceWith(style, { diff: false });
+    runtime.emit('remove');
+    runtime.emit('webglcontextrestored');
+    expect(runtime.setStyle).toHaveBeenCalledOnce();
+    expect(runtime.listeners.get('webglcontextrestored')?.size).toBe(0);
+  });
+
+  it('retries only failed offline vector sources when connectivity returns', () => {
+    const browser = new EventTarget();
+    const navigator = { onLine: false };
+    vi.stubGlobal('window', browser);
+    vi.stubGlobal('navigator', navigator);
+    const runtime = createPaddleMap(fakeMapLibre());
+    const base = { type: 'vector', url: 'https://example.test/tiles.json', setUrl: vi.fn() };
+    const unaffected = { type: 'vector', tiles: ['https://example.test/{z}/{x}/{y}.pbf'], setTiles: vi.fn() };
+    const route = { type: 'geojson', setData: vi.fn() };
+    runtime.addSource('base', base);
+    runtime.addSource('unaffected', unaffected);
+    runtime.addSource('route', route);
+    runtime.emit('error', { sourceId: 'base' });
+    runtime.emit('error', { sourceId: 'base' });
+    runtime.emit('error', { sourceId: 'route' });
+    navigator.onLine = true;
+    browser.dispatchEvent(new Event('online'));
+    browser.dispatchEvent(new Event('online'));
+    expect(base.setUrl).toHaveBeenCalledExactlyOnceWith(base.url);
+    expect(unaffected.setTiles).not.toHaveBeenCalled();
+    expect(route.setData).not.toHaveBeenCalled();
+    expect(runtime.fitCalls).toEqual([]);
+    navigator.onLine = false;
+    runtime.emit('error', { sourceId: 'unaffected' });
+    navigator.onLine = true;
+    browser.dispatchEvent(new Event('online'));
+    expect(unaffected.setTiles).toHaveBeenCalledExactlyOnceWith(unaffected.tiles);
+  });
+
+  it('coalesces transient loaded-tile retries and cancels them on removal', () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('window', new EventTarget());
+    vi.stubGlobal('navigator', { onLine: true });
+    const runtime = createPaddleMap(fakeMapLibre());
+    const source = { type: 'vector', url: 'https://example.test/tiles.json', setUrl: vi.fn() };
+    runtime.addSource('base', source);
+    const failure = { sourceId: 'base', error: Object.assign(new Error('Service unavailable'), { status: 503 }) };
+    runtime.emit('error', failure);
+    vi.advanceTimersByTime(1500);
+    expect(source.setUrl).not.toHaveBeenCalled();
+    runtime.emit('load');
+    runtime.emit('error', failure);
+    runtime.emit('error', failure);
+    vi.advanceTimersByTime(1500);
+    expect(source.setUrl).toHaveBeenCalledOnce();
+    runtime.emit('error', failure);
+    vi.advanceTimersByTime(30000);
+    expect(source.setUrl).toHaveBeenCalledOnce();
+    runtime.emit('error', { sourceId: 'base', error: Object.assign(new Error('Forbidden'), { status: 403 }) });
+    vi.advanceTimersByTime(1500);
+    expect(source.setUrl).toHaveBeenCalledOnce();
+    runtime.emit('error', failure);
+    runtime.emit('remove');
+    vi.runAllTimers();
+    expect(source.setUrl).toHaveBeenCalledOnce();
+  });
+
+  it('does not retry online errors or retain recovery listeners after removal', () => {
+    const browser = new EventTarget();
+    const navigator = { onLine: true };
+    vi.stubGlobal('window', browser);
+    vi.stubGlobal('navigator', navigator);
+    const runtime = createPaddleMap(fakeMapLibre());
+    const source = { type: 'vector', tiles: ['https://example.test/{z}/{x}/{y}.pbf'], setTiles: vi.fn() };
+    runtime.addSource('base', source);
+    runtime.emit('error', { sourceId: 'base' });
+    browser.dispatchEvent(new Event('online'));
+    expect(source.setTiles).not.toHaveBeenCalled();
+    navigator.onLine = false;
+    runtime.emit('error', { sourceId: 'base' });
+    runtime.emit('remove');
+    navigator.onLine = true;
+    browser.dispatchEvent(new Event('online'));
+    expect(source.setTiles).not.toHaveBeenCalled();
+    expect(runtime.listeners.get('error')?.size ?? 0).toBe(0);
+    expect(runtime.listeners.get('remove')?.size ?? 0).toBe(0);
+  });
+
   it('applies interactive defaults and one navigation control', () => {
     const runtime = createPaddleMap(fakeMapLibre(), {
       container: 'map',
@@ -178,6 +356,29 @@ describe('createPaddleMap', () => {
 });
 
 describe('map readiness', () => {
+  it('releases a pending readiness wait immediately when its map is removed', async () => {
+    vi.useFakeTimers();
+    const runtime = new FakeMap({});
+    const ready = waitForMapReady(runtime, { timeoutMs: 7000 });
+    const rejected = expect(ready).rejects.toThrow('Map removed before it became ready');
+    runtime.emit('remove');
+    await rejected;
+    expect(vi.getTimerCount()).toBe(0);
+    expect([...runtime.listeners.values()].every(listeners => listeners.size === 0)).toBe(true);
+  });
+
+  it('can accept a parsed style while its background tiles are pending', async () => {
+    vi.useFakeTimers();
+    const runtime = new FakeMap({});
+    const ready = waitForMapReady(runtime, { waitForTiles: false, rejectOnTimeout: true });
+    runtime.getStyle = () => ({ version: 8, layers: [], sources: {} });
+    runtime.emit('style.load');
+    await expect(ready).resolves.toBe(true);
+    expect(isMapReady(runtime)).toBe(false);
+    expect(vi.getTimerCount()).toBe(0);
+    expect([...runtime.listeners.values()].every(listeners => listeners.size === 0)).toBe(true);
+  });
+
   it('recognizes a loaded map with a loaded style', () => {
     const runtime = new FakeMap({});
     runtime.loadedValue = true;
@@ -233,6 +434,48 @@ describe('map readiness', () => {
 });
 
 describe('map status', () => {
+  it('clears background feedback after the initial load and ignores later tile work', () => {
+    const runtime = createPaddleMap(fakeMapLibre());
+    const element = { textContent: '', dataset: { mapState: '' } };
+    const status = createMapStatusController(element);
+    status.ready({ message: 'Showing 2 routes.', backgroundMap: runtime });
+    expect(element.textContent).toBe('Showing 2 routes. Background map is loading.');
+    expect(element.dataset).toHaveProperty('mapBackgroundLoading', 'true');
+    runtime.emit('load');
+    expect(element.textContent).toBe('Showing 2 routes.');
+    expect(element.dataset).not.toHaveProperty('mapBackgroundLoading');
+    status.ready({ message: 'Showing 3 routes.', backgroundMap: runtime });
+    expect(element.textContent).toBe('Showing 3 routes.');
+    expect([...runtime.listeners.values()].every(listeners => listeners.size === 0)).toBe(true);
+  });
+
+  it('does not let a previous background load overwrite newer map feedback', () => {
+    const runtime = createPaddleMap(fakeMapLibre());
+    const element = { textContent: '', dataset: { mapState: '' } };
+    const status = createMapStatusController(element);
+    status.ready({ message: 'Showing routes.', backgroundMap: runtime });
+    status.unavailable({ message: 'Map unavailable.' });
+    expect(element.dataset).not.toHaveProperty('mapBackgroundLoading');
+    runtime.emit('load');
+    expect(element.textContent).toBe('Map unavailable.');
+    expect(element.dataset.mapState).toBe('unavailable');
+  });
+
+  it('does not repeat a text mutation when the announced message is unchanged', () => {
+    let text = 'Routes are ready.';
+    const write = vi.fn((value: string) => { text = value; });
+    const element = {
+      get textContent() { return text; },
+      set textContent(value: string) { write(value); },
+    };
+    const status = createMapStatusController(element);
+    status.ready({ message: text });
+    status.ready({ message: text });
+    expect(write).not.toHaveBeenCalled();
+    status.unavailable({ message: 'Map unavailable.' });
+    expect(write).toHaveBeenCalledExactlyOnceWith('Map unavailable.');
+  });
+
   it('applies shared lifecycle state while allowing page-specific copy', () => {
     const attributes = new Map<string, string>();
     const element = {
@@ -353,7 +596,7 @@ describe('map viewport and marker lifecycle', () => {
       duration: 125,
     });
     expect(mapViewportOptions('favorites', { compact: true })).toEqual({
-      padding: { top: 24, right: 24, bottom: 24, left: 24 },
+      padding: { top: 32, right: 84, bottom: 96, left: 32 },
       maxZoom: 10.2,
       duration: 650,
     });
@@ -444,6 +687,34 @@ describe('map viewport and marker lifecycle', () => {
 });
 
 describe('GeoJSON overlay lifecycle', () => {
+  it('updates requested layer styling with its data after graphics recovery', () => {
+    class RecoverableMap extends FakeMap {
+      getStyle() { return { ...super.getStyle(), layers: [...this.layers.values()] }; }
+      setStyle = vi.fn();
+    }
+    const runtime = createPaddleMap({ ...fakeMapLibre(), Map: RecoverableMap });
+    const initial = { sourceId: 'route', data: { type: 'FeatureCollection', features: [] },
+      layers: [{ id: 'route-line', type: 'line', paint: { 'line-color': '#123456' } }] };
+    syncGeoJsonOverlay(runtime, initial);
+    const source = runtime.getSource('route');
+    source.setData = vi.fn();
+    const changed = { ...initial, layers: [{ ...initial.layers[0], paint: { 'line-color': '#654321' },
+      layout: { visibility: 'visible' }, filter: ['==', ['get', 'slug'], 'new-selection'] }] };
+    syncGeoJsonOverlay(runtime, changed);
+    expect(runtime.paintCalls).toEqual([]);
+    source.setData.mockClear();
+    runtime.emit('webglcontextrestored');
+    syncGeoJsonOverlay(runtime, { ...changed, updateLayerStyle: true });
+    expect(runtime.paintCalls).toEqual([]);
+    expect(source.setData).not.toHaveBeenCalled();
+    runtime.emit('style.load');
+    expect(source.setData).toHaveBeenCalledOnce();
+    expect(runtime.paintCalls).toEqual([{ layerId: 'route-line', property: 'line-color', value: '#654321' }]);
+    expect(runtime.layoutCalls).toEqual([{ layerId: 'route-line', property: 'visibility', value: 'visible' }]);
+    expect(runtime.filterCalls).toEqual([{ layerId: 'route-line', filter: changed.layers[0].filter }]);
+    expect(runtime.addedLayers).toHaveLength(1);
+  });
+
   it('skips identical cached data, updates changed data, and restores a replaced source', () => {
     const runtime = new FakeMap({});
     const data = { type: 'FeatureCollection', features: [] };
@@ -611,6 +882,7 @@ describe('marker popup interaction', () => {
     }
 
     vi.stubGlobal('KeyboardEvent', FakeKeyboardEvent);
+    vi.stubGlobal('window', { setTimeout: vi.fn() });
 
     const nodeListeners = new Map<string, (event: FakeKeyboardEvent) => void>();
     const classToggles: Array<{ className: string; selected: boolean }> = [];
@@ -628,10 +900,10 @@ describe('marker popup interaction', () => {
         nodeListeners.set(eventName, listener);
       },
     };
-    const popupListeners = new Map<string, () => void>();
+    const popupListeners = new Map<string, Array<() => void>>();
     const popup = {
       on(eventName: string, listener: () => void) {
-        popupListeners.set(eventName, listener);
+        popupListeners.set(eventName, [...(popupListeners.get(eventName) || []), listener]);
       },
     };
     const marker = {
@@ -649,14 +921,16 @@ describe('marker popup interaction', () => {
     expect(enterEvent.defaultPrevented).toBe(true);
     expect(marker.togglePopup).toHaveBeenCalledOnce();
 
-    nodeListeners.get('click')?.(new FakeKeyboardEvent(''));
+    popupListeners.get('open')?.forEach(listener => listener());
     expect(attributes.get('aria-pressed')).toBe('true');
     expect(classToggles.at(-1)).toEqual({
       className: 'score-map-marker--selected',
       selected: true,
     });
 
-    popupListeners.get('close')?.();
+    popupListeners.get('close')?.forEach(listener => listener());
+    // The closing pointer event must not reselect a now-closed popup.
+    nodeListeners.get('click')?.(new FakeKeyboardEvent(''));
     expect(attributes.get('aria-pressed')).toBe('false');
     expect(selectedChanges).toEqual([true, false]);
   });

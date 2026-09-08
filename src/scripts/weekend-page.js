@@ -1,13 +1,16 @@
 import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 import {
   bindMarkerPopup,
+  captureMapResultFocus,
   clearMapMarkers,
   createMapMarker,
   createMapStatusController,
   createPaddleMap,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
+  isMapStyleReady,
   markerClassForRating,
   syncGeoJsonOverlay,
   waitForMapReady,
@@ -73,6 +76,8 @@ const weekendMapSection = document.querySelector('[data-weekend-map-section]');
 const weekendMap = document.querySelector('[data-summary-map]');
 const weekendMapStatus = document.querySelector('[data-summary-map-status]');
 const weekendMapShell = document.querySelector('[data-summary-map-shell]');
+const weekendMapRecovery = document.querySelector('[data-summary-map-recovery]');
+const weekendMapRetry = document.querySelector('[data-summary-map-retry]');
 const weekendResults = document.querySelector('[data-summary-map-results]');
 const weekendResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const weekendResultsNote = document.querySelector('[data-summary-map-results-note]');
@@ -134,6 +139,7 @@ let weekendLocationPending = false;
 let weekendMapRuntime = null;
 let weekendMapMarkers = [];
 let weekendMapRenderVersion = 0;
+let weekendMapLocations = '';
 const weekendRequestGuard = createRequestGuard();
 const weekendLocationService = createBoardLocationService({
   fetchImpl: (...args) => fetch(...args),
@@ -541,26 +547,6 @@ function favoriteRecord(item) {
     region: item.river.region,
     url: `/rivers/${encodeURIComponent(item.river.slug)}/`,
   };
-}
-
-function weekendMetaText(item) {
-  const parts = [
-    item.travelLabel,
-    confidenceDisplayLabel(item.weekend.confidence),
-    `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`,
-  ].filter(Boolean);
-
-  if (difficultyLabel(item)) {
-    parts.push(difficultyLabel(item));
-  }
-  if (item?.river?.estimatedPaddleTime) {
-    parts.push(item.river.estimatedPaddleTime);
-  }
-  if (campingFactLabel(item)) {
-    parts.push(campingFactLabel(item));
-  }
-
-  return parts.join(' \u2022 ');
 }
 
 function weekendFactsMarkup(item) {
@@ -1058,7 +1044,10 @@ function setWeekendMobileView(view) {
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
   }
   if (weekendMobileView === 'map' && weekendMapRuntime) {
-    window.setTimeout(() => weekendMapRuntime.resize(), 40);
+    const runtime = weekendMapRuntime;
+    window.setTimeout(() => {
+      if (weekendMobileView === 'map' && weekendMapRuntime === runtime) runtime.resize();
+    }, 40);
   }
 }
 
@@ -1104,6 +1093,7 @@ function renderWeekendResults(routes) {
     return;
   }
 
+  const restoreFocus = captureMapResultFocus(weekendResults, 'data-weekend-result-key');
   weekendResults.innerHTML = '';
   if (weekendResultsTitle instanceof HTMLElement) {
     weekendResultsTitle.textContent = `${routes.length} ${routes.length === 1 ? 'route' : 'routes'} in this view`;
@@ -1140,57 +1130,7 @@ function renderWeekendResults(routes) {
     ? selectedWeekendMapKey
     : routes[0]?.river.slug;
   updateWeekendMapSelection(selected);
-}
-
-function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false } = {}) {
-  if (!(weekendEmpty instanceof HTMLElement)) {
-    return;
-  }
-
-  if (worthWatchingCount > 0) {
-    weekendEmpty.hidden = false;
-      setText(weekendEmptyTitle, 'No weekend picks yet');
-      setText(
-        weekendEmptyCopy,
-        worthWatchingCount === 1
-          ? '1 tradeoff route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
-        : `${worthWatchingCount} tradeoff routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
-    );
-    return;
-  }
-
-  weekendEmpty.hidden = false;
-  setText(weekendEmptyTitle, hasWithheld ? 'No weekend picks yet' : 'No reliable weekend picks yet');
-  setText(
-    weekendEmptyCopy,
-    hasWithheld
-      ? 'Current river shape and forecast confidence are still too low to surface a confident weekend pick.'
-      : 'Forecast evidence is still too weak to recommend weekend picks.'
-  );
-}
-
-function renderWatchGrid(items, { forceVisible = false } = {}) {
-  if (!(weekendWatchSection instanceof HTMLElement) || !(weekendWatchGrid instanceof HTMLElement)) {
-    return;
-  }
-
-  weekendWatchSection.hidden = items.length <= 0 && !forceVisible;
-  renderCardGrid(weekendWatchGrid, items, { watchCards: true, limit: 10 });
-  if (weekendWatchEmpty instanceof HTMLElement) {
-    weekendWatchEmpty.hidden = items.length > 0 || !forceVisible;
-  }
-}
-
-function renderCampingGrid(items, { forceVisible = false } = {}) {
-  if (!(weekendCampingSection instanceof HTMLElement)) {
-    return;
-  }
-
-  weekendCampingSection.hidden = items.length <= 0 && !forceVisible;
-  renderCardGrid(weekendCampingGrid, items);
-  if (weekendCampingEmpty instanceof HTMLElement) {
-    weekendCampingEmpty.hidden = items.length > 0 || !forceVisible;
-  }
+  restoreFocus();
 }
 
 function weekendFallbackRouteLine(point) {
@@ -1254,44 +1194,51 @@ function syncWeekendRouteLines(features) {
     features,
   };
 
+  const lineLayers = [{
+    id: casingLayerId,
+    type: 'line',
+    layout: {
+      'line-cap': 'round',
+      'line-join': 'round',
+    },
+    paint: {
+      'line-color': '#ffffff',
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.8, 8, 6.2, 12, 8],
+      'line-opacity': 0.76,
+    },
+  }, {
+    id: layerId,
+    type: 'line',
+    layout: {
+      'line-cap': 'round',
+      'line-join': 'round',
+    },
+    paint: {
+      'line-color': [
+        'match',
+        ['get', 'rating'],
+        'Strong',
+        '#2c8a54',
+        'Good',
+        '#1c7770',
+        'Fair',
+        '#ad752c',
+        '#1e7397',
+      ],
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.8, 8, 3.4, 12, 4.8],
+      'line-opacity': 0.82,
+    },
+  }];
+
   syncGeoJsonOverlay(weekendMapRuntime, {
     sourceId,
     data,
-    layers: [{
-      id: casingLayerId,
-      type: 'line',
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': '#ffffff',
-        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 3.8, 8, 6.2, 12, 8],
-        'line-opacity': 0.76,
-      },
-    }, {
-      id: layerId,
-      type: 'line',
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round',
-      },
-      paint: {
-        'line-color': [
-          'match',
-          ['get', 'rating'],
-          'Strong',
-          '#2c8a54',
-          'Good',
-          '#1c7770',
-          'Fair',
-          '#ad752c',
-          '#1e7397',
-        ],
-        'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1.8, 8, 3.4, 12, 4.8],
-        'line-opacity': 0.82,
-      },
-    }],
+    layers: [false, true].flatMap((traced) => lineLayers.map((layer) => ({
+      ...layer,
+      id: traced ? layer.id : `${layer.id}-connections`,
+      filter: ['==', ['get', 'traced'], traced],
+      paint: { ...layer.paint, ...(!traced ? { 'line-dasharray': [2, 2] } : {}) },
+    }))),
   });
 }
 
@@ -1324,7 +1271,13 @@ async function renderWeekendMap(routes) {
   }
 
   const points = weekendRouteMapPoints(routes);
+  const locations = JSON.stringify(points.map((point) => [
+    point.id, point.longitude, point.latitude,
+    point.span.map(({ longitude, latitude }) => [longitude, latitude]),
+  ]).sort((left, right) => String(left[0]).localeCompare(String(right[0]))));
   const renderVersion = ++weekendMapRenderVersion;
+  weekendMapShell?.removeAttribute('data-map-unavailable');
+  const retryHadFocus = document.activeElement === weekendMapRetry;
   renderWeekendResults(routes);
   if (weekendMapEmpty instanceof HTMLElement) {
     weekendMapEmpty.hidden = points.length > 0;
@@ -1334,12 +1287,16 @@ async function renderWeekendMap(routes) {
   }
 
   if (points.length === 0) {
+    weekendMapLocations = '';
+    if (weekendMapRecovery instanceof HTMLElement) weekendMapRecovery.hidden = true;
     setWeekendMobileView('map');
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
     weekendMapMarkersByKey = new Map();
     updateWeekendMapSelection(null);
-    if (weekendMapRuntime) {
+    if (isMapStyleReady(weekendMapRuntime)) {
       syncWeekendRouteLines([]);
+    } else {
+      weekendMapRuntime = destroyMapRuntime(weekendMapRuntime);
     }
     weekendMapStatusController.empty();
     const emptyLabels = {
@@ -1368,6 +1325,10 @@ async function renderWeekendMap(routes) {
   }
 
   weekendMapStatusController.loading();
+  if (weekendMapRetry instanceof HTMLButtonElement) {
+    weekendMapRetry.disabled = true;
+    weekendMapRetry.textContent = 'Loading map…';
+  }
 
   try {
     const maplibregl = await ensureMapLibre();
@@ -1375,6 +1336,7 @@ async function renderWeekendMap(routes) {
       return;
     }
 
+    const fitLocations = !weekendMapRuntime || locations !== weekendMapLocations;
     if (!weekendMapRuntime) {
       weekendMapRuntime = createPaddleMap(maplibregl, {
         container: weekendMap,
@@ -1385,7 +1347,7 @@ async function renderWeekendMap(routes) {
       });
     }
 
-    await waitForMapReady(weekendMapRuntime);
+    await waitForMapReady(weekendMapRuntime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
     if (renderVersion !== weekendMapRenderVersion) {
       return;
     }
@@ -1393,14 +1355,7 @@ async function renderWeekendMap(routes) {
     weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
     weekendMapMarkersByKey = new Map();
     const routesBySlug = new Map(routes.map((item) => [item.river.slug, item]));
-    const routeLines = (await Promise.all(points.map((point) => {
-      const item = routesBySlug.get(point.id);
-      return item ? weekendRouteLine(item, point) : null;
-    }))).filter(Boolean);
-    if (renderVersion !== weekendMapRenderVersion) {
-      return;
-    }
-    syncWeekendRouteLines(routeLines);
+    syncWeekendRouteLines([]);
     const bounds = new maplibregl.LngLatBounds();
 
     for (const point of points) {
@@ -1448,10 +1403,13 @@ async function renderWeekendMap(routes) {
       }
     }
 
-    fitMapBounds(weekendMapRuntime, bounds, {
-      profile: 'weekendResults',
-      compact: window.matchMedia('(max-width: 720px)').matches,
-    });
+    if (fitLocations) {
+      fitMapBounds(weekendMapRuntime, bounds, {
+        profile: 'weekendResults',
+        compact: window.matchMedia('(max-width: 720px)').matches,
+      });
+    }
+    weekendMapLocations = locations;
     weekendMapRuntime.resize();
     updateWeekendMapSelection(
       points.some((point) => point.id === selectedWeekendMapKey)
@@ -1460,12 +1418,45 @@ async function renderWeekendMap(routes) {
     );
 
     weekendMapStatusController.ready({
+      backgroundMap: weekendMapRuntime,
       count: points.length,
       label: weekendFilterLabel(selectedWeekendFilter),
     });
+    // Route outlines are optional detail; keep markers usable while they load.
+    void Promise.all(points.map((point) => {
+      const item = routesBySlug.get(point.id);
+      return item ? weekendRouteLine(item, point) : null;
+    })).then((routeLines) => {
+      if (renderVersion !== weekendMapRenderVersion) return;
+      syncWeekendRouteLines(routeLines.filter(Boolean));
+    }).catch((error) => {
+      if (renderVersion === weekendMapRenderVersion) {
+        console.warn('Weekend route outlines could not update.', error);
+      }
+    });
   } catch (error) {
+    if (renderVersion !== weekendMapRenderVersion) return;
     console.error('Failed to load the weekend route map.', error);
+    weekendMapMarkers = clearMapMarkers(weekendMapMarkers);
+    weekendMapMarkersByKey = new Map();
+    weekendMapRuntime = destroyMapRuntime(weekendMapRuntime);
     weekendMapStatusController.unavailable();
+    setText(weekendResultsNote, 'Open a route from the shortlist, or retry the map.');
+    if (window.matchMedia('(max-width: 760px)').matches) setWeekendMobileView('list');
+  } finally {
+    if (renderVersion === weekendMapRenderVersion && weekendMapRetry instanceof HTMLButtonElement) {
+      const unavailable = weekendMapStatus?.getAttribute('data-map-state') === 'unavailable';
+      weekendMapShell?.toggleAttribute('data-map-unavailable', unavailable);
+      if (weekendMapRecovery instanceof HTMLElement) weekendMapRecovery.hidden = !unavailable;
+      weekendMapRetry.disabled = false;
+      weekendMapRetry.textContent = 'Retry map';
+      if (retryHadFocus && !unavailable
+        && (document.activeElement === weekendMapRetry || document.activeElement === document.body)) {
+        const target = weekendMapStatus?.getClientRects().length ? weekendMapStatus
+          : weekendMobileViewButtons.find(button => button.dataset.summaryMapMobileView === 'map');
+        if (target instanceof HTMLElement) target.focus({ preventScroll: true });
+      }
+    }
   }
 }
 
@@ -1727,6 +1718,15 @@ for (const button of weekendMobileViewButtons) {
 
 bindFavoriteButtons(document);
 setWeekendMobileView('list');
+weekendMapRetry?.addEventListener('click', () => {
+  setWeekendMobileView('map');
+  const plan = buildWeekendPlan(latestWeekendItems, {
+    location: userLocation,
+    distanceLimit: selectedWeekendDistance,
+    filter: selectedWeekendFilter,
+  });
+  void renderWeekendMap(plan.mapRoutes);
+});
 window.addEventListener('resize', () => setWeekendMobileView(weekendMobileView));
 updateWeekendControls(buildWeekendPlan([], {
   location: userLocation,

@@ -10,8 +10,10 @@ import {
 } from './board-presenters.js';
 import {
   bindMarkerPopup,
+  captureMapResultFocus,
   createMapMarker,
   escapeHtml,
+  preferredMapScrollBehavior,
   markerClassForRating,
 } from './map-runtime.js';
 import { buildRoutePlannerHref } from '../lib/route-segments.ts';
@@ -190,6 +192,9 @@ export function createBoardMapController({
   defaultResultsTitle = 'Results',
   resultsRenderer = null,
 }) {
+  let viewUpdateVersion = 0;
+  let viewScrollVersion = 0;
+
   function activeView() {
     if (!(supportsMobileViews && isPhone())) {
       return 'map';
@@ -356,7 +361,7 @@ export function createBoardMapController({
     return context;
   }
 
-  function renderResults(items) {
+  function renderResults(items, { hrefForItem = null } = {}) {
     if (!resultsRenderer) {
       return null;
     }
@@ -380,6 +385,7 @@ export function createBoardMapController({
       return null;
     }
 
+    const restoreFocus = captureMapResultFocus(container);
     setItems?.(items);
     updateResultsContext(items);
     container.innerHTML = '';
@@ -391,11 +397,13 @@ export function createBoardMapController({
 
     const fragment = document.createDocumentFragment();
     for (const item of items) {
-      const button = document.createElement('button');
-      button.type = 'button';
+      const href = hrefForItem?.(item);
+      const button = document.createElement(href ? 'a' : 'button');
+      if (href) button.href = href;
+      else button.type = 'button';
       button.className = 'summary-map-result';
       button.dataset.summaryMapItem = item.key;
-      button.setAttribute('aria-pressed', getSelectedKey() === item.key ? 'true' : 'false');
+      if (!href) button.setAttribute('aria-pressed', getSelectedKey() === item.key ? 'true' : 'false');
       button.innerHTML = `
         <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${escapeHtml(mapMarkerLabel(item))}</span></span>
         <span class="summary-map-result__body">
@@ -409,10 +417,10 @@ export function createBoardMapController({
             : joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
         </span>
       `;
-      button.addEventListener('click', () => {
+      if (!href) button.addEventListener('click', () => {
         onOpen(item.key);
       });
-      if (onHover) {
+      if (onHover && !href) {
         button.addEventListener('mouseenter', () => onHover(item.key));
         button.addEventListener('mouseleave', () => onHover(null));
         button.addEventListener('focus', () => onHover(item.key));
@@ -422,10 +430,15 @@ export function createBoardMapController({
     }
 
     container.appendChild(fragment);
+    if (hrefForItem) {
+      restoreFocus();
+      return null;
+    }
     const activeKey = resolveSelection(items, getSelectedKey(), {
       fallback: selectionFallback,
     });
     onSelection(activeKey, selectionOptions);
+    restoreFocus();
     return activeKey;
   }
 
@@ -437,12 +450,13 @@ export function createBoardMapController({
     }
 
     shell.scrollIntoView({
-      behavior: 'smooth',
+      behavior: preferredMapScrollBehavior(),
       block: 'start',
     });
   }
 
   function setViewAndSync(nextView, { scrollIntoView = false } = {}) {
+    const scrollVersion = ++viewScrollVersion;
     const view = setView(nextView);
     if (view === null) {
       return null;
@@ -455,6 +469,7 @@ export function createBoardMapController({
 
     if (scrollIntoView && view === 'map') {
       window.setTimeout(() => {
+        if (scrollVersion !== viewScrollVersion || activeView() !== 'map') return;
         scrollShellIntoView();
       }, 45);
     }
@@ -462,7 +477,18 @@ export function createBoardMapController({
     return view;
   }
 
+  function scheduleVisibleMapResize(mapRuntime) {
+    const version = viewUpdateVersion;
+    window.setTimeout(() => {
+      const current = presentation(getCollapsed());
+      if (version !== viewUpdateVersion || getMapRuntime() !== mapRuntime
+        || current.mobileListActive || current.collapsedMap) return;
+      mapRuntime.resize();
+    }, 30);
+  }
+
   function updateView() {
+    viewUpdateVersion += 1;
     const {
       shell,
       toggle,
@@ -509,9 +535,7 @@ export function createBoardMapController({
       }
       toggle.hidden = true;
       if (mobileView === 'map' && mapRuntime) {
-        window.setTimeout(() => {
-          mapRuntime.resize();
-        }, 30);
+        scheduleVisibleMapResize(mapRuntime);
       }
       return viewPresentation;
     }
@@ -526,9 +550,7 @@ export function createBoardMapController({
     toggle.textContent = collapsePresentation.toggleLabel;
 
     if (!collapsePresentation.collapsedMap && mapRuntime) {
-      window.setTimeout(() => {
-        mapRuntime.resize();
-      }, 30);
+      scheduleVisibleMapResize(mapRuntime);
     }
     return collapsePresentation;
   }

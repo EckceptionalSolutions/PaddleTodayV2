@@ -405,6 +405,7 @@ describe('board map controller', () => {
     const listButton = new FakeButton();
     listButton.dataset.summaryMapMobileView = 'list';
     const resize = vi.fn();
+    let runtime = { resize };
     const controller = createBoardMapController({
       supportsMobileViews: true,
       isPhone: () => true,
@@ -412,7 +413,7 @@ describe('board map controller', () => {
       setMobileView: (next: string) => {
         view = next;
       },
-      getMapRuntime: () => ({ resize }),
+      getMapRuntime: () => runtime,
       elements: {
         shell,
         toggle,
@@ -436,5 +437,27 @@ describe('board map controller', () => {
     controller.setViewAndSync('list');
     expect(view).toBe('list');
     expect(shell.classList.values).toContain('summary-map-shell--mobile-list');
+
+    resize.mockClear();
+    controller.setViewAndSync('map', { scrollIntoView: true });
+    controller.setViewAndSync('list');
+    vi.runAllTimers();
+    expect(resize).not.toHaveBeenCalled();
+    expect(shell.scrollIntoView).not.toHaveBeenCalled();
+
+    controller.setViewAndSync('map');
+    runtime = { resize: vi.fn() };
+    vi.runAllTimers();
+    expect(resize).not.toHaveBeenCalled();
+    expect(runtime.resize).not.toHaveBeenCalled();
+
+    controller.updateView();
+    controller.updateView();
+    vi.runAllTimers();
+    expect(runtime.resize).toHaveBeenCalledOnce();
+    controller.setViewAndSync('map', { scrollIntoView: true });
+    controller.updateView();
+    vi.runAllTimers();
+    expect(shell.scrollIntoView).toHaveBeenCalledOnce();
   });
 });

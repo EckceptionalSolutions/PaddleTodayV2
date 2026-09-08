@@ -1,8 +1,9 @@
 ---
 import FeatureIcon from './FeatureIcon.astro';
+import MapScoreLegendItems from './MapScoreLegendItems.astro';
 
 const {
-  id,
+  id = 'route-map',
   mode = 'explore',
   className = '',
   mobileLayout = 'collapse',
@@ -19,18 +20,13 @@ const {
   showRiverLegend = false,
   interactiveScoreLegend = false,
   showNoGoLegend = true,
+  showRetry = false,
 } = Astro.props;
 
 const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
   .filter(Boolean)
   .join(' ');
 
-const scoreLegendItems = [
-  { rating: 'Strong', score: '90', label: 'Strong conditions', markerClass: 'summary-map-legend__marker--great', enabled: true },
-  { rating: 'Good', score: '70', label: 'Good conditions', markerClass: 'summary-map-legend__marker--good', enabled: true },
-  { rating: 'Fair', score: '55', label: 'Watch closely', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
-  { rating: 'No-go', score: '15', label: 'Skip', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
-].filter((item) => showNoGoLegend || item.rating !== 'No-go');
 ---
 
 <section
@@ -42,6 +38,12 @@ const scoreLegendItems = [
   data-summary-map-item-singular={itemNounSingular}
   data-summary-map-item-plural={itemNounPlural}
 >
+  {showRetry && (
+    <div class="summary-map-recovery" data-summary-map-recovery hidden>
+      <p>Map unavailable right now. Your route results are still available.</p>
+      <button class="filter-chip summary-map__retry" type="button" data-summary-map-retry>Retry map</button>
+    </div>
+  )}
   {mobileLayout === 'list-map' && (
     <div class="summary-map-mobile-switch" data-summary-map-mobile-switch hidden>
       <button
@@ -68,7 +70,8 @@ const scoreLegendItems = [
     <div class="summary-map-copy__intro">
       <p class="eyebrow section-label">
         <FeatureIcon name="map" size={16} />
-        {eyebrow}
+        <span class="summary-map-copy__default-label">{eyebrow}</span>
+        <span class="summary-map-copy__list-label">List view</span>
       </p>
       <h2 class="section-title">{title}</h2>
       {lede && <p class="muted summary-map-copy__lede">{lede}</p>}
@@ -111,10 +114,16 @@ const scoreLegendItems = [
   </div>
 
   <div class="summary-map-frame">
-    <div class="summary-map" data-summary-map aria-label={ariaLabel}></div>
+    <a class="map-skip-link" href={`#${id}-end`}>Skip map</a>
+    <div class="summary-map" data-summary-map aria-label={ariaLabel}>
+      <span class="summary-map-loading" aria-hidden="true">
+        <span class="summary-map-loading__initial">Loading map…</span>
+        <span class="summary-map-loading__background">Loading map background…</span>
+      </span>
+    </div>
     <slot name="map-overlay" />
     <div class="summary-map-footer">
-      <p class="summary-map__status muted" data-summary-map-status>{status}</p>
+      <p class="summary-map__status muted" data-summary-map-status role="status" tabindex="-1">{status}</p>
       <div class="summary-map-legend" aria-label="Map marker legend">
         {showRiverLegend && (
           <>
@@ -128,23 +137,10 @@ const scoreLegendItems = [
             </span>
           </>
         )}
-        {scoreLegendItems.map((item) => interactiveScoreLegend ? (
-          <button
-            class="summary-map-legend__item summary-map-legend__toggle"
-            type="button"
-            data-summary-score-toggle={item.rating}
-            aria-pressed={item.enabled ? 'true' : 'false'}
-          >
-            <span class={`summary-map-legend__marker ${item.markerClass}`}>{item.score}</span>
-            {item.label}
-          </button>
-        ) : (
-          <span class="summary-map-legend__item">
-            <span class={`summary-map-legend__marker ${item.markerClass}`}>{item.score}</span>
-            {item.label}
-          </span>
-        ))}
+        <MapScoreLegendItems interactive={interactiveScoreLegend} showNoGo={showNoGoLegend} />
       </div>
+      <slot name="map-note" />
     </div>
+    <span class="map-skip-target" id={`${id}-end`} tabindex="-1">End of map</span>
   </div>
 </section>

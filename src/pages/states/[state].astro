@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
+import MapScoreLegendItems from '../../components/MapScoreLegendItems.astro';
 import { getRoutePreviewPhoto } from '../../data/route-gallery';
 import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '../../lib/route-segments';
@@ -270,7 +271,8 @@ const structuredData = [
     </section>
 
     <section class="river-group-page__panel state-page__panel state-coverage" aria-labelledby="state-coverage-title" data-state-page data-state-name={stateGroup.name}>
-      <div class="state-coverage__map-shell">
+      <div class="state-coverage__map-shell" data-map-skip-region>
+        <a class="map-skip-link" href="#state-map-end">Skip map</a>
         <div class="state-coverage__map" data-state-map aria-label={`${stateGroup.name} tracked route map`}>
           <div class="state-coverage__map-fallback" aria-hidden="true">
             {stateMapFallbackMarkers.map((marker) => (
@@ -285,9 +287,11 @@ const structuredData = [
             ))}
           </div>
         </div>
-        <p class="muted state-coverage__map-status" data-state-map-status>
+        <p class="muted state-coverage__map-status" data-state-map-status role="status" tabindex="-1">
           Loading supported rivers and route reaches.
         </p>
+        <button class="filter-chip state-coverage__map-retry" type="button" data-state-map-retry hidden>Retry map</button>
+        <span class="map-skip-target" id="state-map-end" tabindex="-1">End of map</span>
       </div>
       <div class="state-coverage__copy">
         <p class="eyebrow section-label">
@@ -313,17 +317,10 @@ const structuredData = [
             Selected reach
           </span>
           <span class="state-map-legend__item">
-            <span class="summary-map-legend__marker summary-map-legend__marker--great">80</span>
-            Strong conditions
+            <span class="state-map-legend__line state-map-legend__line--connection"></span>
+            Access-point connection
           </span>
-          <span class="state-map-legend__item">
-            <span class="summary-map-legend__marker summary-map-legend__marker--marginal">60</span>
-            Tradeoffs
-          </span>
-          <span class="state-map-legend__item">
-            <span class="summary-map-legend__marker score-map-marker--no-go">40</span>
-            Skip today
-          </span>
+          <MapScoreLegendItems itemClass="state-map-legend__item" />
         </div>
         <div class="state-region-chips" aria-label={`${stateGroup.name} region shortcuts`}>
           {featuredRegions.map(({ region, routes }) => (

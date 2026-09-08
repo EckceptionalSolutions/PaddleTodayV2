@@ -3,9 +3,11 @@
   createMapMarker,
   createMapStatusController,
   createPaddleMap,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
   fitMapBounds,
+  mapViewportOptions,
   removeMapOverlay,
   syncGeoJsonOverlay,
   waitForMapReady,
@@ -13,6 +15,7 @@
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
+import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
 import {
   callDisplayLabel,
   confidenceDisplayLabel,
@@ -53,6 +56,8 @@ if (!slug) {
 
 const detailMap = root.querySelector('[data-detail-map]');
 const detailMapStatus = root.querySelector('[data-detail-map-status]');
+const detailMapLineKey = root.querySelector('[data-detail-map-line-key]');
+const detailMapRetry = root.querySelector('[data-detail-map-retry]');
 const detailMapStatusController = createMapStatusController(detailMapStatus, {
   unavailable: 'Map unavailable right now. Use the access links above for location context.',
 });
@@ -77,6 +82,7 @@ const detailRefreshButton = root.querySelector('[data-detail-refresh]');
 const detailRefreshNote = root.querySelector('[data-detail-refresh-note]');
 const readinessGrid = root.querySelector('[data-readiness-grid]');
 const copyCoordButtons = Array.from(root.querySelectorAll('[data-copy-coords]'));
+const coordinateCopyRequests = new WeakMap();
 const accessPlanner = root.querySelector('[data-access-planner]');
 const accessPointData = root.querySelector('[data-access-points]');
 const accessPutInSelect = root.querySelector('[data-access-putin]');
@@ -104,6 +110,7 @@ const tripStatus = root.querySelector('[data-trip-status]');
 const tripManualCopy = root.querySelector('[data-trip-manual-copy]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
+let pendingDetailSectionNavigation = null;
 const detailJumpLinks = Array.from(root.querySelectorAll('[data-detail-jump]'));
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const weatherDayStrips = Array.from(root.querySelectorAll('[data-weather-day-strip]'));
@@ -309,6 +316,15 @@ function updateAlertCtaCopy(result) {
 
 function setDetailLoadingState(isLoading) {
   root.classList.toggle('river-detail--loading', isLoading);
+  const requestedSection = pendingDetailSectionNavigation;
+  if (!isLoading && requestedSection) {
+    window.requestAnimationFrame(() => {
+      if (pendingDetailSectionNavigation !== requestedSection || document.activeElement !== requestedSection) return;
+      pendingDetailSectionNavigation = null;
+      // Data can change the height above a chapter while an anchor jump is in flight.
+      scrollToDetailSection(requestedSection, { behavior: 'instant' });
+    });
+  }
 }
 
 function dataAgeLabel(fetchedAt) {
@@ -336,13 +352,6 @@ function dataAgeLabel(fetchedAt) {
 
 function shouldShowStaleDetailBanner(fetchedAt) {
   return typeof fetchedAt === 'number' && Number.isFinite(fetchedAt) && Date.now() - fetchedAt >= STALE_DETAIL_BANNER_MS;
-}
-
-function destroyMapRuntime(runtime) {
-  if (runtime && typeof runtime.remove === 'function') {
-    runtime.remove();
-  }
-  return null;
 }
 
 function setFieldGroupHidden(field, hidden) {
@@ -1470,23 +1479,30 @@ function detailScrollOffset() {
   return actionBarHeight + 22;
 }
 
-function scrollToDetailSection(section) {
+function scrollToDetailSection(section, { behavior } = {}) {
   if (!(section instanceof HTMLElement)) {
     return;
   }
 
+  pendingDetailSectionNavigation = root.classList.contains('river-detail--loading') ? section : null;
+  setActiveDetailSection(section.dataset.detailNavGroup || section.dataset.detailSection || '');
   const top = section.getBoundingClientRect().top + window.scrollY - detailScrollOffset();
   if (!section.hasAttribute('tabindex')) section.setAttribute('tabindex', '-1');
   section.focus({ preventScroll: true });
   window.scrollTo({
     top: Math.max(0, top),
-    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    behavior: behavior ?? (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'),
   });
 }
 
 function setupDetailSectionNav() {
   if (sectionNavLinks.length === 0 || detailSections.length === 0) {
     return;
+  }
+
+  const cancelPendingNavigation = () => { pendingDetailSectionNavigation = null; };
+  for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+    window.addEventListener(event, cancelPendingNavigation, { passive: true });
   }
 
   for (const link of sectionNavLinks) {
@@ -1529,6 +1545,10 @@ function setupDetailSectionNav() {
   }
 
   const syncActiveDetailSection = () => {
+    if (pendingDetailSectionNavigation && document.activeElement === pendingDetailSectionNavigation) {
+      setActiveDetailSection(pendingDetailSectionNavigation.dataset.detailNavGroup || pendingDetailSectionNavigation.dataset.detailSection || '');
+      return;
+    }
     const topOffset = Math.max(detailScrollOffset(), 24) + 12;
     const orderedSections = detailSections
       .map((section) => ({ section, rect: section.getBoundingClientRect() }))
@@ -3303,7 +3323,7 @@ function fullRouteAccessPoints() {
 function buildAccessRouteLine(points) {
   return {
     type: 'Feature',
-    properties: {},
+    properties: { traced: false },
     geometry: {
       type: 'LineString',
       coordinates: points.map((point) => [point.longitude, point.latitude]),
@@ -3315,9 +3335,12 @@ function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, 
   if (!mapRuntime) return;
 
   if (routeLine?.geometry?.coordinates?.length >= 2) {
+    const traced = routeLine.properties?.traced === true;
+    const dashArray = traced ? [1, 0] : [2, 2];
     syncGeoJsonOverlay(mapRuntime, {
       sourceId,
       data: routeLine,
+      updateLayerStyle: true,
       layers: [{
         id: layerId,
         type: 'line',
@@ -3326,12 +3349,16 @@ function syncRouteGeoJsonLine(mapRuntime, sourceId, layerId, routeLine, result, 
           'line-color': routeLineColor(result),
           'line-width': paint.lineWidth ?? 4,
           'line-opacity': paint.lineOpacity ?? 0.88,
+          'line-dasharray': dashArray,
         },
       }],
     });
-    mapRuntime.setPaintProperty(layerId, 'line-color', routeLineColor(result));
-    if (typeof paint.lineWidth === 'number') mapRuntime.setPaintProperty(layerId, 'line-width', paint.lineWidth);
-    if (typeof paint.lineOpacity === 'number') mapRuntime.setPaintProperty(layerId, 'line-opacity', paint.lineOpacity);
+    if (layerId === 'detail-route-line' && detailMapLineKey instanceof HTMLElement) {
+      detailMapLineKey.textContent = traced
+        ? 'Solid line follows the mapped river path.'
+        : 'Dashed line connects access points.';
+      detailMapLineKey.hidden = false;
+    }
     return;
   }
 
@@ -3413,6 +3440,7 @@ function setCopyButtonState(button, point, label) {
     return;
   }
 
+  coordinateCopyRequests.delete(button);
   const defaultLabel = button.dataset.defaultLabel || 'Copy coordinates';
   button.textContent = defaultLabel;
 
@@ -3469,16 +3497,23 @@ async function copyCoordinates(button) {
   }
 
   const original = button.dataset.defaultLabel || button.textContent || 'Copy coordinates';
+  const request = {};
+  coordinateCopyRequests.set(button, request);
+  const isCurrent = () => coordinateCopyRequests.get(button) === request && button.dataset.copyValue === value;
 
   try {
     await navigator.clipboard.writeText(value);
+    if (!isCurrent()) return;
     button.textContent = `${label} copied`;
   } catch (error) {
+    if (!isCurrent()) return;
     console.error('Failed to copy coordinates.', error);
     button.textContent = 'Copy failed';
   }
 
   window.setTimeout(() => {
+    if (!isCurrent()) return;
+    coordinateCopyRequests.delete(button);
     button.textContent = original;
   }, 1600);
 }
@@ -3679,7 +3714,7 @@ function routeLineColor(result) {
 function detailMapPopupMarkup(kind, point, result) {
   const kindLabel = kind === 'putIn' ? 'Put-in' : 'Take-out';
   const summary =
-    typeof result?.score === 'number' && result?.rating
+    !isCurrentCallUnavailable(result) && typeof result?.score === 'number' && result?.rating
       ? `Today's score is ${result.score} - ${result.rating}. Confirm parking and access rules before you launch.`
       : 'Access reference only. Confirm parking and access rules before you launch.';
   const query = encodeURIComponent(`${point.latitude},${point.longitude}`);
@@ -3744,6 +3779,7 @@ async function renderDetailHeroMap(result = null) {
 
   try {
     const maplibregl = await ensureMapLibre();
+    if (renderVersion !== detailHeroMapRenderVersion) return;
     if (!maplibregl) {
       detailHeroMapShell.hidden = true;
       return;
@@ -3759,59 +3795,54 @@ async function renderDetailHeroMap(result = null) {
         minZoom: 5,
         maxZoom: 13,
       });
+    }
 
-        await waitForMapReady(detailHeroMapRuntime, {
-          timeoutMs: 7000,
-          rejectOnError: true,
-          rejectOnTimeout: true,
-        });
-      }
+    await waitForMapReady(detailHeroMapRuntime, {
+      timeoutMs: 7000,
+      rejectOnTimeout: true,
+      waitForTiles: false,
+    });
+    if (renderVersion !== detailHeroMapRenderVersion) return;
 
-      await waitForMapReady(detailHeroMapRuntime, {
-        timeoutMs: 7000,
-        rejectOnError: true,
-        rejectOnTimeout: true,
-      });
-
-      detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
-      // Keep the complete river corridor visible as context, then emphasize
-      // the currently selected segment on top of it (matching the access map).
-      syncAccessRouteLine(
-        detailHeroMapRuntime,
-        'detail-hero-full-route-line',
-        'detail-hero-full-route-line',
-        fullRoutePoints,
-        result,
-        { lineWidth: 6, lineOpacity: 0.28 },
-      );
-      syncAccessRouteLine(
-        detailHeroMapRuntime,
-        'detail-hero-route-line',
-        'detail-hero-route-line',
-        points,
-        result,
-        { lineWidth: 3, lineOpacity: 0.8 },
-      );
-      loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
-        .then((routeLine) => {
-          if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
-            syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-full-route-line', 'detail-hero-full-route-line', routeLine, result, {
-              lineWidth: 6,
-              lineOpacity: 0.28,
-            });
-          }
-        })
-        .catch((error) => console.warn('Canonical hero full-route geometry unavailable.', error));
-      loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
-        .then((routeLine) => {
-          if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
-            syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-route-line', 'detail-hero-route-line', routeLine, result, {
-              lineWidth: 3,
-              lineOpacity: 0.8,
-            });
-          }
-        })
-        .catch((error) => console.warn('Canonical hero selected-route geometry unavailable.', error));
+    detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
+    // Keep the complete river corridor visible as context, then emphasize
+    // the currently selected segment on top of it (matching the access map).
+    syncAccessRouteLine(
+      detailHeroMapRuntime,
+      'detail-hero-full-route-line',
+      'detail-hero-full-route-line',
+      fullRoutePoints,
+      result,
+      { lineWidth: 6, lineOpacity: 0.28 },
+    );
+    syncAccessRouteLine(
+      detailHeroMapRuntime,
+      'detail-hero-route-line',
+      'detail-hero-route-line',
+      points,
+      result,
+      { lineWidth: 3, lineOpacity: 0.8 },
+    );
+    loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
+      .then((routeLine) => {
+        if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
+          syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-full-route-line', 'detail-hero-full-route-line', routeLine, result, {
+            lineWidth: 6,
+            lineOpacity: 0.28,
+          });
+        }
+      })
+      .catch((error) => console.warn('Canonical hero full-route geometry unavailable.', error));
+    loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
+      .then((routeLine) => {
+        if (detailHeroMapRuntime && routeLine && renderVersion === detailHeroMapRenderVersion) {
+          syncRouteGeoJsonLine(detailHeroMapRuntime, 'detail-hero-route-line', 'detail-hero-route-line', routeLine, result, {
+            lineWidth: 3,
+            lineOpacity: 0.8,
+          });
+        }
+      })
+      .catch((error) => console.warn('Canonical hero selected-route geometry unavailable.', error));
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of points) {
@@ -3843,8 +3874,9 @@ async function renderDetailHeroMap(result = null) {
     }
     detailHeroMapRuntime.resize();
 
-    detailHeroMapStatusController.ready({ message: heroMapStatusText(points) });
+    detailHeroMapStatusController.ready({ message: heroMapStatusText(points), backgroundMap: detailHeroMapRuntime });
   } catch (error) {
+    if (renderVersion !== detailHeroMapRenderVersion) return;
     console.error('Failed to load hero detail map.', error);
     detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
     detailHeroMapMarkers = clearMapMarkers(detailHeroMapMarkers);
@@ -3855,8 +3887,16 @@ async function renderDetailHeroMap(result = null) {
 
 async function renderDetailMap(result = null) {
   const renderVersion = ++detailMapRenderVersion;
+  if (detailMapLineKey instanceof HTMLElement) detailMapLineKey.hidden = true;
   if (!(detailMap instanceof HTMLElement)) {
     return;
+  }
+
+  const retryHadFocus = document.activeElement === detailMapRetry;
+  detailMapShell?.removeAttribute('data-map-unavailable');
+  if (detailMapRetry instanceof HTMLButtonElement) {
+    detailMapRetry.disabled = true;
+    detailMapRetry.hidden = true;
   }
 
   const accessContext = activeAccessContext;
@@ -3878,13 +3918,14 @@ async function renderDetailMap(result = null) {
   if (!detailMapRuntime) {
     detailMapStatusController.loading({
       message: accessContext.mapMode === 'Selected segment'
-        ? 'Pulling access map tiles for the selected segment. Usually under 5 seconds.'
-        : 'Pulling access map tiles for the stored access points. Usually under 5 seconds.',
+        ? 'Loading the selected segment map.'
+        : 'Loading the access-point map.',
     });
   }
 
   try {
     const maplibregl = await ensureMapLibre();
+    if (renderVersion !== detailMapRenderVersion) return;
     if (!maplibregl) {
       return;
     }
@@ -3898,44 +3939,40 @@ async function renderDetailMap(result = null) {
         minZoom: 5,
         maxZoom: 14,
       });
-        await waitForMapReady(detailMapRuntime, {
-          timeoutMs: 7000,
-          rejectOnError: true,
-          rejectOnTimeout: true,
-        });
-      }
+    }
 
-      await waitForMapReady(detailMapRuntime, {
-        timeoutMs: 7000,
-        rejectOnError: true,
-        rejectOnTimeout: true,
-      });
+    await waitForMapReady(detailMapRuntime, {
+      timeoutMs: 7000,
+      rejectOnTimeout: true,
+      waitForTiles: false,
+    });
+    if (renderVersion !== detailMapRenderVersion) return;
 
-      detailMapMarkers = clearMapMarkers(detailMapMarkers);
-      // The canonical route line is requested below. Keep the access-point
-      // fallback only while that static geometry is loading.
-      syncAccessRouteLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', fullRoutePoints, result, {
-        lineWidth: 3,
-        lineOpacity: 0.26,
-      });
-      syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
-      loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
-        .then((routeLine) => {
-          if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
-            syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', routeLine, result, {
-              lineWidth: 6,
-              lineOpacity: 0.3,
-            });
-          }
-        })
-        .catch((error) => console.warn('Canonical full-route river geometry unavailable.', error));
-      loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
-        .then((routeLine) => {
-          if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
-            syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', routeLine, result);
-          }
-        })
-        .catch((error) => console.warn('Canonical selected river geometry unavailable.', error));
+    detailMapMarkers = clearMapMarkers(detailMapMarkers);
+    // The canonical route line is requested below. Keep the access-point
+    // fallback only while that static geometry is loading.
+    syncAccessRouteLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', fullRoutePoints, result, {
+      lineWidth: 3,
+      lineOpacity: 0.26,
+    });
+    syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
+    loadCanonicalRiverRouteLine(slug, fullRoutePoints, { stateName: riverContext.state })
+      .then((routeLine) => {
+        if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
+          syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-full-line', 'detail-route-full-line', routeLine, result, {
+            lineWidth: 6,
+            lineOpacity: 0.3,
+          });
+        }
+      })
+      .catch((error) => console.warn('Canonical full-route river geometry unavailable.', error));
+    loadCanonicalRiverRouteLine(slug, points, { stateName: riverContext.state })
+      .then((routeLine) => {
+        if (detailMapRuntime && routeLine && renderVersion === detailMapRenderVersion) {
+          syncRouteGeoJsonLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', routeLine, result);
+        }
+      })
+      .catch((error) => console.warn('Canonical selected river geometry unavailable.', error));
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of fullRoutePoints) {
@@ -3965,8 +4002,11 @@ async function renderDetailMap(result = null) {
     }
 
     if (points.length > 1 || fullRoutePoints.length > 1) {
+      const viewport = mapViewportOptions('detailAccess', { compact: phoneBreakpoint.matches });
+      const attributionHeight = detailMap.querySelector('.maplibregl-ctrl-attrib')?.getBoundingClientRect().height ?? 0;
       fitMapBounds(detailMapRuntime, bounds, {
-        profile: 'detailAccess',
+        ...viewport,
+        padding: { ...viewport.padding, bottom: Math.max(viewport.padding.bottom, attributionHeight + 40) },
       });
     } else {
       detailMapRuntime.easeTo({
@@ -3979,10 +4019,12 @@ async function renderDetailMap(result = null) {
 
     if (accessContext.mapMode === 'Selected segment') {
       detailMapStatusController.ready({
+        backgroundMap: detailMapRuntime,
         message: 'Selected segment map is using the chosen put-in and take-out. Confirm parking and launch rules on the ground.',
       });
     } else if (accessContext.mapMode === 'Selected segment (partial map)') {
       detailMapStatusController.ready({
+        backgroundMap: detailMapRuntime,
         message:
           points.length > 1
             ? 'Selected segment map is partial because some intermediate landings still need confirmed coordinates.'
@@ -3990,6 +4032,7 @@ async function renderDetailMap(result = null) {
       });
     } else {
       detailMapStatusController.ready({
+        backgroundMap: detailMapRuntime,
         message:
           points.length > 1
             ? 'Put-in and take-out markers come from carried-over route data. Confirm launch and parking rules on the ground.'
@@ -3997,10 +4040,23 @@ async function renderDetailMap(result = null) {
       });
     }
   } catch (error) {
+    if (renderVersion !== detailMapRenderVersion) return;
     console.error('Failed to load detail map.', error);
+    if (detailMapLineKey instanceof HTMLElement) detailMapLineKey.hidden = true;
     detailMapRuntime = destroyMapRuntime(detailMapRuntime);
     detailMapMarkers = clearMapMarkers(detailMapMarkers);
     detailMapStatusController.unavailable();
+  } finally {
+    if (renderVersion === detailMapRenderVersion && detailMapRetry instanceof HTMLButtonElement) {
+      const unavailable = detailMapStatus?.getAttribute('data-map-state') === 'unavailable';
+      detailMapShell?.toggleAttribute('data-map-unavailable', unavailable);
+      detailMapRetry.disabled = false;
+      detailMapRetry.hidden = !unavailable;
+      if (retryHadFocus && (document.activeElement === document.body || document.activeElement === detailMapRetry)) {
+        if (unavailable) detailMapRetry.focus({ preventScroll: true });
+        else if (detailMapStatus instanceof HTMLElement) detailMapStatus.focus({ preventScroll: true });
+      }
+    }
   }
 }
 
@@ -5379,6 +5435,7 @@ bindTripPackActions();
 renderActiveAccessContext();
 updateChartButtonStates();
 setupLazyAccessMaps();
+detailMapRetry?.addEventListener('click', () => requestDetailMapRender());
 setupLazyCommunityContent();
 renderAccessMaps(null);
 renderApprovedRouteGallery();
@@ -5416,6 +5473,20 @@ if (detailMapToggle instanceof HTMLButtonElement) {
     updateDetailMapToggle();
   });
 }
+
+function revealAccessMap() {
+  const wasCollapsed = detailMapCollapsed;
+  detailMapCollapsed = false;
+  updateDetailMapToggle();
+  if (wasCollapsed || !detailMapRequested) requestDetailMapRender();
+}
+
+root.querySelector('[data-detail-open-map]')?.addEventListener('click', event => {
+  if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) revealAccessMap();
+});
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#route-access-map') revealAccessMap();
+});
 
 function renderPlanningRoute(result) {
   root.classList.add('river-detail--planning');
@@ -5458,6 +5529,7 @@ const hydratedDetail = hydrateDetailFromCache();
 setDetailLoadingState(!hydratedDetail);
 hydrateHistoryFromCache();
 updateDetailMapToggle();
+if (window.location.hash === '#route-access-map') revealAccessMap();
 loadDetail({ silent: hydratedDetail });
 window.setInterval(() => {
   loadDetail({ silent: true });

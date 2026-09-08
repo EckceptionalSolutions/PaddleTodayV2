@@ -1,15 +1,17 @@
 import {
+  bindMapPopup,
   clearMapMarkers,
   createMapMarker,
   createMapStatusController,
   createPaddleMap,
+  destroyMapRuntime,
   ensureMapLibre,
   escapeHtml,
+  preferredMapScrollBehavior,
   fitMapBounds,
   waitForMapReady,
   markerClassForRating,
   mapCallLabelForRating,
-  scoreZoneRouteLabel,
   syncActualRiverLayer,
   syncGeoJsonOverlay,
 } from './map-runtime.js';
@@ -17,8 +19,6 @@ import { createBoardMapMarker } from './board-map-controller.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import {
-  confidenceDisplayLabel,
-  ratingDisplayLabel,
 } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { callLabelForDecision, callStateForDecision, ratingToneKey, parsePaddleTimeHours, todayBoardConfidenceWeight } from '@paddletoday/api-contract';
@@ -31,6 +31,7 @@ import {
 } from '../lib/river-hub-planning.js';
 import { getBrowserApiClient } from './browser-api-client.js';
 import { trackEvent } from './analytics.js';
+import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
 import {
   riverHubMapNotices,
   riverHubRouteStatus,
@@ -57,12 +58,12 @@ const refreshNote = root.querySelector('[data-group-refresh-note]');
 const groupMap = root.querySelector('[data-group-map]');
 const groupMapShell = groupMap?.closest('.river-group-page__map-shell');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
+const groupMapRetry = root.querySelector('[data-group-map-retry]');
 const groupMapStatusController = createMapStatusController(groupMapStatus, {
   loading: 'Loading route map.',
   empty: 'No routes match these filters.',
   unavailable: 'Route map unavailable right now.',
 });
-const groupMapToggle = root.querySelector('[data-group-map-toggle]');
 const resultsSummary = root.querySelector('[data-group-results-summary]');
 const distanceFilterButtons = Array.from(root.querySelectorAll('[data-group-distance-filter]'));
 const regionFilterSelect = root.querySelector('[data-group-region-filter]');
@@ -95,11 +96,13 @@ let currentResult = null;
 let riverHubViewTracked = false;
 let selectedSlug = initialSelectedSlug || null;
 let mapRuntime = null;
+let mapHasFittedResults = false;
 let maplibreRuntime = null;
 let mapReadyPromise = null;
+const mapsWithRouteLayerEvents = new WeakSet();
+let mapRenderVersion = 0;
 let mapMarkers = [];
-let conditionScoreMarkers = [];
-let groupMapCollapsed = false;
+let conditionScoreMarkers = new Map();
 let distanceFilter = distanceFilterValues.has(initialParams.get('distance'))
   ? initialParams.get('distance')
   : 'all';
@@ -111,6 +114,7 @@ let sortMode = sortModeValues.has(initialParams.get('sort'))
   ? initialParams.get('sort')
   : 'recommended';
 let mobileView = initialParams.get('view') === 'map' ? 'map' : 'list';
+let mobileViewVersion = 0;
 let availableFilters = {
   difficulty: false,
   camping: false,
@@ -122,14 +126,6 @@ let routeGeometryLoadVersion = 0;
 const routeGeometryBySlug = new Map();
 const groupRequestGuard = createRequestGuard();
 document.body.classList.add('page-river-hub');
-
-function setText(field, value) {
-  const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
-  for (const element of elements) {
-    element.textContent = value;
-  }
-  return elements[0] ?? null;
-}
 
 function activeAdvancedFilterTotal() {
   return Number(difficultyFilter !== 'all')
@@ -172,6 +168,7 @@ function syncPickerUrl() {
 }
 
 function setMobileView(view, { persist = true } = {}) {
+  const viewVersion = ++mobileViewVersion;
   mobileView = view === 'map' ? 'map' : 'list';
   const compact = phoneBreakpoint.matches;
 
@@ -190,8 +187,10 @@ function setMobileView(view, { persist = true } = {}) {
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
   }
   if (mobileView === 'map' && mapRuntime) {
+    const runtime = mapRuntime;
     window.setTimeout(() => {
-      mapRuntime?.resize();
+      if (viewVersion !== mobileViewVersion || mobileView !== 'map' || mapRuntime !== runtime) return;
+      runtime.resize();
       if (currentResult) {
         renderGroupMap(visiblePickerRoutes(currentResult.routes), {
           preserveViewport: false,
@@ -221,6 +220,7 @@ function resetPickerFilters({ render = true } = {}) {
 }
 
 function decisionLabel(route) {
+  if (isCurrentCallUnavailable(route)) return 'Call unavailable';
   return callLabelForDecision(route.rating, route.readiness?.status);
 }
 
@@ -230,22 +230,9 @@ function corridorKey(route) {
     : route.corridorId || route.conditionZoneId || route.riverId || route.slug;
 }
 
-function corridorGroups(routes) {
-  const groups = new Map();
-  for (const route of routes) {
-    const key = corridorKey(route);
-    const group = groups.get(key) || { key, routes: [] };
-    group.routes.push(route);
-    groups.set(key, group);
-  }
-
-  return [...groups.values()].map((group) => ({
-    ...group,
-    routes: [...group.routes].sort(compareRoutes),
-  }));
-}
-
 function compareRoutes(left, right) {
+  const availabilityOrder = Number(isCurrentCallUnavailable(left)) - Number(isCurrentCallUnavailable(right));
+  if (availabilityOrder) return availabilityOrder;
   if ((left?.score ?? 0) !== (right?.score ?? 0)) {
     return (right?.score ?? 0) - (left?.score ?? 0);
   }
@@ -380,10 +367,6 @@ function hasStrongerRouteOnRiver(route) {
   });
 }
 
-function confidenceLabelText(confidence) {
-  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading data confidence';
-}
-
 function coldWeatherDrivenRoute(route) {
   const weather = route.weather;
   const temp = weather?.temperatureF;
@@ -397,16 +380,6 @@ function coldWeatherDrivenRoute(route) {
     !weather?.next12hStormRisk &&
     (rainChance < 70 || wind < 20)
   );
-}
-
-function routeLengthText(route) {
-  return route.distanceLabel ? `${route.distanceLabel} on-water` : '';
-}
-
-function routeDifficultyText(route) {
-  return route.difficulty
-    ? `${String(route.difficulty).slice(0, 1).toUpperCase()}${String(route.difficulty).slice(1)} difficulty`
-    : '';
 }
 
 function favoriteButtonMarkup(route) {
@@ -427,19 +400,6 @@ function favoriteButtonMarkup(route) {
 
 function conditionsLine(route) {
   return [levelText(route), trendText(route), weatherSummary(route)].filter(Boolean).join(BULLET);
-}
-
-function routeFactsMarkup(route) {
-  const facts = [
-    confidenceLabelText(route.confidence),
-    routeLengthText(route),
-    routeDifficultyText(route),
-    route.estimatedPaddleTime,
-  ].filter(Boolean);
-
-  return facts
-    .map((fact) => `<span class="route-choice__fact">${escapeHtml(fact)}</span>`)
-    .join('');
 }
 
 function levelText(route) {
@@ -564,221 +524,6 @@ function decisionSummary(route) {
   return 'Check the full route if you want more detail.';
 }
 
-function supportingNote(route) {
-  const summary = summaryParts(route);
-  const summaryText = decisionSummary(route).toLowerCase();
-  const mainParts = typeof summary.main === 'string'
-    ? summary.main
-        .split(BULLET)
-        .map((part) => part.trim())
-        .filter(Boolean)
-    : [];
-  const weather = typeof summary.weather === 'string' ? summary.weather : '';
-
-  if (
-    weather &&
-    !summaryText.includes('weather') &&
-    !summaryText.includes('rain') &&
-    !summaryText.includes('storm') &&
-    !summaryText.includes('wind') &&
-    !summaryText.includes('cold')
-  ) {
-    return weather;
-  }
-
-  if (mainParts[1] && !summaryText.includes('rising') && !summaryText.includes('falling') && !summaryText.includes('changing flow')) {
-    return mainParts[1];
-  }
-
-  return '';
-}
-
-function signalIconMarkup(kind) {
-  switch (kind) {
-    case 'gauge':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 15c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
-          <path d="M3 19c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
-        </svg>
-      `;
-    case 'wind':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
-          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
-          <path d="M5 17h7"></path>
-        </svg>
-      `;
-    default:
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"></path>
-          <path d="M12 9v8"></path>
-        </svg>
-      `;
-  }
-}
-
-function signalRowMarkup(route) {
-  const items = [
-    { kind: 'gauge', value: formatGaugeValue(route.gauge?.current, route.gaugeUnit).replace(/^Gauge:\s*/, '') },
-    { kind: 'wind', value: windData(route).replace(/^Wind:\s*/, '') },
-    { kind: 'temp', value: temperatureData(route).replace(/^Temp:\s*/, '') },
-  ].filter((item) => item.value && !item.value.toLowerCase().includes('unclear') && item.value !== '--');
-
-  if (items.length === 0) {
-    return '<span class="river-card__signal-empty">Conditions loading</span>';
-  }
-
-  return items
-    .map(
-      (item) => `
-        <span class="river-card__signal-item">
-          <span class="river-card__signal-icon river-card__signal-icon--${item.kind}">
-            ${signalIconMarkup(item.kind)}
-          </span>
-          <span>${item.value}</span>
-        </span>
-      `
-    )
-    .join('');
-}
-
-function weatherVisualState(route) {
-  const weather = route.weather;
-  const rainChance = weather?.next12hPrecipProbabilityMax;
-  const precipStartsInHours = weather?.next12hPrecipStartsInHours;
-  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? null;
-  const temperature = weather?.temperatureF ?? null;
-  const coldSevere = typeof temperature === 'number' && temperature <= 35;
-  const coldNoticeable = typeof temperature === 'number' && temperature <= 40;
-
-  if (weather?.next12hStormRisk) return 'storm';
-  if (coldSevere) return 'cold';
-  if (
-    typeof rainChance === 'number' &&
-    rainChance >= 60 &&
-    (precipStartsInHours === null || precipStartsInHours === undefined || precipStartsInHours <= 12)
-  ) {
-    return 'rain';
-  }
-  if (coldNoticeable) return 'cold';
-  if (typeof wind === 'number' && wind >= 15) return 'wind';
-  return 'calm';
-}
-
-function weatherVisualLabel(state) {
-  switch (state) {
-    case 'storm':
-      return 'Storm risk';
-    case 'rain':
-      return 'Rain incoming';
-    case 'cold':
-      return 'Cold weather';
-    case 'wind':
-      return 'Windy';
-    default:
-      return 'Calm weather';
-  }
-}
-
-function weatherVisualMarkup(state) {
-  const label = weatherVisualLabel(state);
-
-  switch (state) {
-    case 'storm':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
-          <path d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z"></path>
-          <path d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z"></path>
-        </svg>
-      `;
-    case 'rain':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
-          <path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path>
-          <path d="M9 18.5l-.8 2"></path>
-          <path d="M13 18.5l-.8 2"></path>
-          <path d="M17 18.5l-.8 2"></path>
-        </svg>
-      `;
-    case 'cold':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
-          <path d="M12 3v18"></path>
-          <path d="M5.5 6.5 18.5 17.5"></path>
-          <path d="M5.5 17.5 18.5 6.5"></path>
-          <path d="M4 12h16"></path>
-        </svg>
-      `;
-    case 'wind':
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
-          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
-          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
-          <path d="M5 17h7"></path>
-        </svg>
-      `;
-    default:
-      return `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2.5v3"></path>
-          <path d="M12 18.5v3"></path>
-          <path d="m4.9 4.9 2.1 2.1"></path>
-          <path d="m17 17 2.1 2.1"></path>
-          <path d="M2.5 12h3"></path>
-          <path d="M18.5 12h3"></path>
-          <path d="m4.9 19.1 2.1-2.1"></path>
-          <path d="m17 7 2.1-2.1"></path>
-        </svg>
-      `;
-  }
-}
-
-function weatherBadgeMarkup(route) {
-  const state = weatherVisualState(route);
-  const label = weatherVisualLabel(state);
-
-  return `
-    <span class="card-weather-badge card-weather-badge--${state}">
-      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">
-        ${weatherVisualMarkup(state)}
-      </span>
-      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
-    </span>
-  `;
-}
-
-function formatGaugeValue(value, unit) {
-  if (typeof value !== 'number' || !Number.isFinite(value)) {
-    return 'Gauge: unavailable';
-  }
-
-  if (unit === 'ft') {
-    return `Gauge: ${value.toFixed(2).replace(/\.00$/, '')} ${unit}`;
-  }
-
-  return `Gauge: ${Math.round(value).toLocaleString('en-US')} ${unit}`;
-}
-
-function windData(route) {
-  const wind = route.weather?.next12hWindMphMax ?? route.weather?.windMph;
-  if (typeof wind !== 'number' || !Number.isFinite(wind)) return 'Wind: unclear';
-  return `Wind: ${Math.round(wind)} mph`;
-}
-
-function temperatureData(route) {
-  const temp = route.weather?.temperatureF;
-  if (typeof temp !== 'number' || !Number.isFinite(temp)) return 'Temp: unclear';
-  return `Temp: ${Math.round(temp)}${DEG_F}`;
-}
-
-function summaryLine(route) {
-  return decisionSummary(route);
-}
-
 function midpointForRoute(route) {
   const coordinates = routeSpanCoordinates(route);
   if (coordinates.length >= 2) {
@@ -836,45 +581,12 @@ function routePopupMarkup(route) {
       ${facts ? `<p class="score-map-popup__summary">${escapeHtml(facts)}</p>` : ''}
       ${isPlanningRoute(route)
         ? '<p class="score-map-popup__summary">Planning route · not scored because the available gauge is a proxy for this reach.</p>'
+        : isCurrentCallUnavailable(route)
+        ? `<p class="score-map-popup__verdict">Call unavailable</p><p class="score-map-popup__summary">${escapeHtml(route.readiness?.reason || 'Current readings are unavailable. Check the route sources before planning.')}</p>`
         : `<div class="score-map-popup__scoreline"><span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span><p class="score-map-popup__verdict">${escapeHtml(mapCallLabelForRating(route.rating))}</p></div><p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>`}
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
-}
-
-function updateGroupMapToggle() {
-  if (!(groupMap instanceof HTMLElement) || !(groupMapToggle instanceof HTMLButtonElement)) {
-    return;
-  }
-
-  if (mobileSwitch instanceof HTMLElement) {
-    groupMapCollapsed = false;
-    groupMapToggle.hidden = true;
-    const mapShell = groupMap.closest('.river-group-page__map-shell');
-    mapShell?.classList.remove('river-group-page__map-shell--collapsed');
-    return;
-  }
-
-  const compact = phoneBreakpoint.matches;
-  if (!compact) {
-    groupMapCollapsed = false;
-  }
-
-  const mapShell = groupMap.closest('.river-group-page__map-shell');
-  if (!(mapShell instanceof HTMLElement)) {
-    return;
-  }
-
-  groupMapToggle.hidden = !compact;
-  mapShell.classList.toggle('river-group-page__map-shell--collapsed', compact && groupMapCollapsed);
-  groupMapToggle.setAttribute('aria-expanded', compact && groupMapCollapsed ? 'false' : 'true');
-  groupMapToggle.textContent = compact && groupMapCollapsed ? 'Show map' : 'Hide map';
-
-  if (!(compact && groupMapCollapsed) && mapRuntime) {
-    window.setTimeout(() => {
-      mapRuntime?.resize();
-    }, 30);
-  }
 }
 
 function fallbackRouteLineFeature(route) {
@@ -968,10 +680,10 @@ function syncRouteLayers(routes) {
   const labelSourceId = 'river-group-trip-labels';
   const data = routeLineCollection(routes);
   const labelData = routeLabelCollection(routes);
-  const hadSource = Boolean(mapRuntime.getSource(sourceId));
   syncGeoJsonOverlay(mapRuntime, {
     sourceId,
     data,
+    updateLayerStyle: true,
     layers: [{
       id: 'river-group-trip-lines-base',
       type: 'line',
@@ -986,6 +698,7 @@ function syncRouteLayers(routes) {
           'strong', '#267457',
           'good', '#28798a',
           'fair', '#a36b22',
+          'unavailable', '#657782',
           '#a84b3c',
         ],
         'line-width': 4,
@@ -1051,6 +764,7 @@ function syncRouteLayers(routes) {
   syncGeoJsonOverlay(mapRuntime, {
     sourceId: labelSourceId,
     data: labelData,
+    updateLayerStyle: true,
     layers: [{
       id: 'river-group-trip-distance-selected',
       type: 'symbol',
@@ -1071,17 +785,21 @@ function syncRouteLayers(routes) {
     }],
   });
 
-  if (!hadSource) {
+  if (!mapsWithRouteLayerEvents.has(mapRuntime)) {
+    mapsWithRouteLayerEvents.add(mapRuntime);
     const selectRouteAtEvent = (event) => {
+      const target = event.originalEvent?.target;
+      if (target instanceof Element && target.closest('.maplibregl-marker, .maplibregl-popup')) return;
       const slug = event.features?.[0]?.properties?.slug;
       if (!slug) return;
-      selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
+      selectPickerRoute(slug, { focusMap: false });
       const route = currentResult?.routes.find((candidate) => candidate.slug === slug);
       if (route && event.lngLat && maplibreRuntime) {
-        new maplibreRuntime.Popup({ closeButton: true, closeOnClick: true, maxWidth: '288px' })
+        const popup = new maplibreRuntime.Popup({ closeButton: true, closeOnClick: true, maxWidth: '288px' })
           .setLngLat(event.lngLat)
-          .setHTML(routePopupMarkup(route))
-          .addTo(mapRuntime);
+          .setHTML(routePopupMarkup(route));
+        bindMapPopup(popup, { map: mapRuntime });
+        popup.addTo(mapRuntime);
       }
     };
     for (const layerId of ['river-group-trip-lines-base', 'river-group-trip-lines-planning']) {
@@ -1095,10 +813,6 @@ function syncRouteLayers(routes) {
     }
   }
 
-  mapRuntime.setFilter('river-group-trip-line-halo', ['==', ['get', 'slug'], selectedSlug || '']);
-  mapRuntime.setFilter('river-group-trip-line-selected', ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['!=', ['get', 'routeStatus'], 'planning']]);
-  mapRuntime.setFilter('river-group-trip-line-selected-planning', ['all', ['==', ['get', 'slug'], selectedSlug || ''], ['==', ['get', 'routeStatus'], 'planning']]);
-  mapRuntime.setFilter('river-group-trip-distance-selected', ['==', ['get', 'slug'], selectedSlug || '']);
 }
 
 function endpointMarkerNode(label, detail, kind) {
@@ -1170,37 +884,45 @@ function syncSelectedRouteEndpoints(route, routes, maplibregl) {
 }
 
 function clearConditionScoreMarkers() {
-  conditionScoreMarkers = clearMapMarkers(conditionScoreMarkers);
+  clearMapMarkers([...conditionScoreMarkers.values()].map(({ marker }) => marker));
+  conditionScoreMarkers.clear();
 }
 
 function conditionScorePopupMarkup(group) {
   const representative = group.representative;
-  const routeCount = group.routes.length;
-  const reachMarkup = routeCount === 1
-    ? ''
-    : `<p class="score-map-popup__reach">${escapeHtml(representative?.reach || 'Mapped river coverage')}</p>`;
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(group.regions.join(', ') || representative?.region || 'River score zone')}</p>
       <h3>${escapeHtml(representative?.name || currentResult?.group?.name || 'River')}</h3>
+      <p class="score-map-popup__reach">${escapeHtml(representative?.reach || 'Mapped river coverage')}</p>
       <div class="score-map-popup__scoreline">
         <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingToneKey(group.rating))}">${escapeHtml(String(group.score ?? '--'))}</span>
-        <p class="score-map-popup__verdict">${escapeHtml(scoreZoneRouteLabel(routeCount, representative))}</p>
+        <p class="score-map-popup__verdict">${escapeHtml(mapCallLabelForRating(group.rating))}</p>
       </div>
-      ${reachMarkup}
+      <dl class="score-map-popup__access">
+        <dt>Put-in</dt><dd>${escapeHtml(representative?.putIn?.name || 'Unavailable')}</dd>
+        <dt>Take-out</dt><dd>${escapeHtml(representative?.takeOut?.name || 'Unavailable')}</dd>
+      </dl>
       <button class="score-map-popup__link score-map-popup__link--button" type="button" data-score-zone-route="${escapeHtml(representative?.slug || '')}">Select this stretch</button>
     </article>
   `;
 }
 
 function syncConditionScoreMarkers(routes, maplibregl) {
-  clearConditionScoreMarkers();
   if (!mapRuntime) return;
+  const nextMarkers = new Map();
 
   for (const group of groupRoutesByConditionScore(routes)) {
     for (const route of group.routes) {
       const point = coverageAnchorForRoutes([route], routeGeometryBySlug);
       if (!point || group.score === null) continue;
+      const existing = conditionScoreMarkers.get(route.slug);
+      if (existing?.route === route) {
+        // A late river line or viewport update must not close an open popup.
+        existing.marker.setLngLat([point.longitude, point.latitude]);
+        nextMarkers.set(route.slug, existing);
+        continue;
+      }
+      existing?.marker.remove();
       const routeGroup = {
         ...group,
         routes: [route],
@@ -1208,7 +930,7 @@ function syncConditionScoreMarkers(routes, maplibregl) {
         regions: [...new Set([route.river?.region || route.region].filter(Boolean))],
       };
 
-      const markerAriaLabel = `${routeGroup.representative?.name || 'River'}, ${routeGroup.regions.join(', ') || 'score zone'}: score ${routeGroup.score}, 1 route`;
+      const markerAriaLabel = `${routeGroup.representative?.name || 'River'}, ${route.reach || routeGroup.regions.join(', ') || 'score zone'}: score ${routeGroup.score}, 1 route`;
 
       const marker = createBoardMapMarker({
         maplibregl,
@@ -1221,10 +943,6 @@ function syncConditionScoreMarkers(routes, maplibregl) {
         markerAriaLabel: () => markerAriaLabel,
         popupMarkup: conditionScorePopupMarkup,
         popupOptions: { maxWidth: '260px' },
-        onClick: (mapGroup) => {
-          const slug = mapGroup.representative?.slug;
-          if (slug) selectPickerRoute(slug, { focusMap: false, reveal: 'list', scrollToSelection: true });
-        },
       });
       marker.getPopup()?.on('open', () => {
         const button = marker.getPopup()?.getElement()?.querySelector('[data-score-zone-route]');
@@ -1236,9 +954,13 @@ function syncConditionScoreMarkers(routes, maplibregl) {
           });
         }
       });
-      conditionScoreMarkers.push(marker);
+      nextMarkers.set(route.slug, { route, marker });
     }
   }
+  for (const [slug, { marker }] of conditionScoreMarkers) {
+    if (!nextMarkers.has(slug)) marker.remove();
+  }
+  conditionScoreMarkers = nextMarkers;
 }
 
 async function hydrateRouteGeometries(routes) {
@@ -1257,7 +979,6 @@ async function hydrateRouteGeometries(routes) {
           const feature = await loadCanonicalRiverRouteLine(route.slug, routeSpanCoordinates(route));
           routeGeometryBySlug.set(route.slug, feature);
         } catch (error) {
-          routeGeometryBySlug.set(route.slug, null);
           console.warn(`Canonical geometry unavailable for ${route.slug}.`, error);
         }
       })
@@ -1271,8 +992,16 @@ async function hydrateRouteGeometries(routes) {
 }
 
 async function renderGroupMap(routes, { preserveViewport = false, focusSelected = false } = {}) {
+  const renderVersion = ++mapRenderVersion;
   if (!(groupMap instanceof HTMLElement)) {
     return;
+  }
+
+  const retryHadFocus = document.activeElement === groupMapRetry;
+  groupMapShell?.removeAttribute('data-map-unavailable');
+  if (groupMapRetry instanceof HTMLButtonElement) {
+    groupMapRetry.hidden = true;
+    groupMapRetry.disabled = true;
   }
 
   const empty = routes.length === 0;
@@ -1296,6 +1025,7 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     if (mapRuntime && mapReadyPromise) {
       try {
         await mapReadyPromise;
+        if (renderVersion !== mapRenderVersion) return;
         syncRouteLayers([]);
         syncActualRiverLayer(mapRuntime, 'river-group-actual-river-line', [], {
           lineColor: '#4f8795',
@@ -1304,8 +1034,13 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
         });
       } catch {
         // The replacement panel remains useful even if the prior map failed.
+        if (renderVersion === mapRenderVersion) {
+          mapRuntime = destroyMapRuntime(mapRuntime);
+          mapReadyPromise = null;
+        }
       }
     }
+    if (renderVersion !== mapRenderVersion) return;
     groupMapStatusController.empty();
     return;
   }
@@ -1314,11 +1049,13 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
 
   try {
     const maplibregl = await ensureMapLibre();
+    if (renderVersion !== mapRenderVersion) return;
     if (!maplibregl) {
       return;
     }
 
     if (!mapRuntime) {
+      mapHasFittedResults = false;
       mapRuntime = createPaddleMap(maplibregl, {
         container: groupMap,
         center: [-92.5, 44.2],
@@ -1326,9 +1063,10 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
         minZoom: 5,
         maxZoom: 12,
       });
-      mapReadyPromise = waitForMapReady(mapRuntime);
+      mapReadyPromise = waitForMapReady(mapRuntime, { timeoutMs: 7000, rejectOnTimeout: true, waitForTiles: false });
     }
     await mapReadyPromise;
+    if (renderVersion !== mapRenderVersion) return;
 
     maplibreRuntime = maplibregl;
     const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0] ?? null;
@@ -1341,28 +1079,50 @@ async function renderGroupMap(routes, { preserveViewport = false, focusSelected 
     syncSelectedRouteEndpoints(selectedRoute, routes, maplibregl);
     syncConditionScoreMarkers(routes.filter((route) => !isPlanningRoute(route)), maplibregl);
 
+    mapRuntime.resize();
     const fitRoutes = focusSelected && selectedRoute ? [selectedRoute] : routes;
     const bounds = boundsForRouteFeatures(maplibregl, fitRoutes);
     if (bounds) {
       const compact = window.matchMedia('(max-width: 720px)').matches;
-      fitMapBounds(mapRuntime, bounds, {
+      const fitted = fitMapBounds(mapRuntime, bounds, {
         profile: focusSelected ? 'riverGroupSelected' : 'riverGroupResults',
         compact,
-        preserveViewport: preserveViewport && !focusSelected,
+        preserveViewport: preserveViewport && !focusSelected && mapHasFittedResults,
+        ...(!mapHasFittedResults ? { duration: 0 } : {}),
       });
+      if (fitted) mapHasFittedResults = true;
     }
-    mapRuntime.resize();
-
     groupMapStatusController.ready({
+      backgroundMap: mapRuntime,
       message: routes.length === 1
         ? '1 route · mileage follows the mapped reach.'
-        : `${routes.length} routes · ${groupRoutesByConditionScore(routes).length} score zones · select one to zoom.`,
+        : `${routes.length} routes · Select a route or score marker to zoom.`,
     });
   } catch (error) {
+    if (renderVersion !== mapRenderVersion) return;
     console.error('Failed to load river group map.', error);
+    mapMarkers = clearMapMarkers(mapMarkers);
+    clearConditionScoreMarkers();
+    mapRuntime = destroyMapRuntime(mapRuntime);
+    mapReadyPromise = null;
     groupMapStatusController.unavailable();
+  } finally {
+    if (renderVersion === mapRenderVersion && groupMapRetry instanceof HTMLButtonElement) {
+      const unavailable = groupMapStatus?.getAttribute('data-map-state') === 'unavailable';
+      groupMapShell?.toggleAttribute('data-map-unavailable', unavailable);
+      groupMapRetry.hidden = !unavailable;
+      groupMapRetry.disabled = false;
+      if (retryHadFocus && (document.activeElement === document.body || document.activeElement === groupMapRetry)) {
+        if (unavailable) groupMapRetry.focus({ preventScroll: true });
+        else if (groupMapStatus instanceof HTMLElement) groupMapStatus.focus({ preventScroll: true });
+      }
+    }
   }
 }
+
+groupMapRetry?.addEventListener('click', () => {
+  if (currentResult) renderGroupMap(visiblePickerRoutes(currentResult.routes));
+});
 
 function setBanner(kind, title, detail) {
   if (!(banner instanceof HTMLElement)) return;
@@ -1430,7 +1190,7 @@ function renderRouteList(routes) {
         .filter(Boolean)
         .map((fact, factIndex) => `<span class="route-choice__fact${factIndex === 0 ? ' route-choice__fact--distance' : ''}">${escapeHtml(fact)}</span>`)
         .join('');
-      const bestMatch = !isPlanningRoute(route) && sortMode === 'recommended'
+      const bestMatch = !isPlanningRoute(route) && !isCurrentCallUnavailable(route) && sortMode === 'recommended'
         && distanceFilter === 'all'
         && regionFilter === 'all'
         && difficultyFilter === 'all'
@@ -1470,6 +1230,8 @@ function renderRouteList(routes) {
             </span>
             ${isPlanningRoute(route)
               ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Planning route</span></span>'
+              : isCurrentCallUnavailable(route)
+              ? '<span class="route-choice__score-compact route-choice__score-compact--planning"><strong>—</strong><span>Call unavailable</span></span>'
               : `<span class="route-choice__score-compact route-choice__score-compact--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></span>`}
           </button>
           <a class="river-link river-link--inline route-choice__details-link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
@@ -1543,11 +1305,13 @@ function renderSelectedSummary(route) {
       <span class="eyebrow">Your trip</span>
       <strong>${escapeHtml(route.reach)}</strong>
       <span>${escapeHtml(pickerFacts(route).join(BULLET))}</span>
-    <small>${escapeHtml(isPlanningRoute(route) ? 'Planning route · verify local conditions before launching' : conditionsLine(route))}</small>
+    <small>${escapeHtml(isPlanningRoute(route) ? 'Planning route · verify local conditions before launching' : isCurrentCallUnavailable(route) ? 'Current readings unavailable' : conditionsLine(route))}</small>
     </div>
     ${favoriteButtonMarkup(route).replace('favorite-toggle--inline', 'favorite-toggle--inline river-route-picker__selected-save')}
     ${isPlanningRoute(route)
       ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Planning route · not scored</span></div>'
+      : isCurrentCallUnavailable(route)
+      ? '<div class="river-route-picker__selected-decision river-route-picker__selected-decision--planning"><strong>—</strong><span>Call unavailable</span></div>'
       : `<div class="river-route-picker__selected-decision river-route-picker__selected-decision--${ratingToneKey(route.rating)}"><strong>${escapeHtml(String(route.score))}</strong><span>${escapeHtml(decisionLabel(route))}</span></div>`}
     <div class="river-route-picker__selected-actions">
       <a class="river-link river-link--inline" href="/rivers/${encodeURIComponent(route.slug)}/">View route details</a>
@@ -1746,6 +1510,7 @@ function renderPicker({ fitMap = false, focusSelected = false } = {}) {
 
 function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelection = false } = {}) {
   if (!currentResult) return;
+  const focusBeforeSelection = document.activeElement;
   const selectedRoute = currentResult.routes.find((route) => route.slug === slug);
   if (!selectedRoute) return;
   selectedSlug = slug;
@@ -1764,11 +1529,19 @@ function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelec
   } else {
     syncPickerUrl();
   }
-  if (scrollToSelection && phoneBreakpoint.matches) {
+  if (scrollToSelection) {
+    const viewVersion = mobileViewVersion;
     window.setTimeout(() => {
-      routeList?.querySelector(`[data-route-slug="${CSS.escape(slug)}"]`)?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+      if (viewVersion !== mobileViewVersion || selectedSlug !== slug
+        || (phoneBreakpoint.matches && mobileView !== 'list')
+        || (document.activeElement !== document.body && document.activeElement !== focusBeforeSelection)) return;
+      const card = routeList?.querySelector(`[data-route-slug="${CSS.escape(slug)}"]`);
+      const control = card?.querySelector('[data-group-route-select]');
+      if (!(control instanceof HTMLButtonElement)) return;
+      control.focus({ preventScroll: true });
+      card.scrollIntoView({
+        behavior: preferredMapScrollBehavior(),
+        block: phoneBreakpoint.matches ? 'start' : 'nearest',
       });
     }, 40);
   }
@@ -1801,6 +1574,7 @@ function normalizeRoutes(routes) {
     gaugeBand: route.gaugeBand,
     gaugeBandLabel: route.gaugeBandLabel,
     confidence: route.confidence,
+    readiness: route.readiness,
     liveData: route.liveData,
     putIn: route.river.putIn,
     takeOut: route.river.takeOut,
@@ -1864,7 +1638,8 @@ async function loadGroup({ silent = false } = {}) {
     const scoredRoutes = routes.filter((route) => !isPlanningRoute(route));
     const planningCount = routes.length - scoredRoutes.length;
     const liveCount = scoredRoutes.filter((route) => route.liveData?.overall === 'live').length;
-    const readyCount = scoredRoutes.filter((route) => callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length;
+    const readyCount = scoredRoutes.filter((route) => !isCurrentCallUnavailable(route)
+      && callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
       planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,
@@ -1943,20 +1718,11 @@ for (const button of mobileViewButtons) {
   });
 }
 
-if (groupMapToggle instanceof HTMLButtonElement) {
-  groupMapToggle.addEventListener('click', () => {
-    groupMapCollapsed = !groupMapCollapsed;
-    updateGroupMapToggle();
-  });
-}
-
 phoneBreakpoint.addEventListener('change', () => {
-  updateGroupMapToggle();
   setMobileView(mobileView);
 });
 
 bindFavoriteButtons(document);
-updateGroupMapToggle();
 setMobileView(mobileView, { persist: false });
 loadGroup();
 window.setInterval(() => {
