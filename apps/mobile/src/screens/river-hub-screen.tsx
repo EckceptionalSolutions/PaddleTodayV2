@@ -1,3 +1,7 @@
+import { AppButton } from '../components/app-button';
+import { RouteComparisonSheet } from '../components/route-comparison-sheet';
+import { useStoredLocation } from '../hooks/use-stored-location';
+import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import {
   buildSourceStrengthViewModel,
@@ -15,19 +19,19 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
-import { QualityPill } from '../components/rating-pill';
+import { QualityPill, decisionColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
-import { callForDecision, normalizeApiText, qualityForRating } from '../lib/format';
+import { callForDecision, normalizeApiText } from '../lib/format';
 import { resolveApiUrl } from '../lib/api-base-url';
 import { photoForRiver } from '../lib/route-photos';
+import { mapDecision } from '../lib/map-decision';
 import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import {
   conditionScoreKey,
   coverageAnchorForRoute,
-  coverageCenter,
   groupRoutesByConditionScore,
 } from '../lib/river-coverage';
 import {
@@ -61,6 +65,10 @@ type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
+  const { location } = useStoredLocation();
+  const [comparison, setComparison] = useState<{ riverId: string; slugs: string[] }>({ riverId: '', slugs: [] });
+  const [comparisonOpenFor, setComparisonOpenFor] = useState<string | null>(null);
+  const [comparisonBarHeight, setComparisonBarHeight] = useState(130);
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -80,6 +88,12 @@ export default function RiverHubScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const result = groupQuery.data?.result ?? null;
   const allRoutes = result?.routes ?? [];
+  const comparedRoutes = comparison.riverId === riverId
+    ? comparison.slugs.map(slug => allRoutes.find(route => route.river.slug === slug)).filter((route): route is RiverDetailApiResult => Boolean(route)) : [];
+  function toggleComparedRoute(slug: string) {
+    setComparison(current => ({ riverId, slugs: toggleRouteComparison(current.riverId === riverId ? current.slugs : [], slug, allRoutes.map(route => route.river.slug)) }));
+  }
+
   const filters = useMemo(() => ({
     distance: distanceFilter,
     difficulty: difficultyFilter,
@@ -149,7 +163,7 @@ export default function RiverHubScreen() {
     );
   }
 
-  if (groupQuery.isLoading && !result) {
+  if (groupQuery.isPending && !result) {
     return (
       <AppLoadingState title="Loading river hub" body="Comparing the routes on this river." />
     );
@@ -228,9 +242,14 @@ export default function RiverHubScreen() {
     return (
       <RouteChoiceCard
         route={route}
+        isStale={groupQuery.data?.snapshotStatus === 'stale'}
         groupedReachCount={groupedReachCountForRoute(route, allRoutes)}
+        comparisonAvailable={allRoutes.length > 1}
+        compared={comparedRoutes.some(item => item.river.slug === route.river.slug)}
+        comparisonFull={comparedRoutes.length >= ROUTE_COMPARISON_LIMIT}
+        onToggleComparison={() => toggleComparedRoute(route.river.slug)}
         rank={index + 1}
-        recommended={route.river.slug === bestRoute?.river.slug}
+        recommended={route.river.slug === bestRoute?.river.slug && mapDecision(route).call === 'paddle'}
         selected={route.river.slug === selectedRouteSlug}
         saved={isSaved(route.river.slug)}
         expanded={expandedRoutes.has(route.river.slug)}
@@ -259,7 +278,7 @@ export default function RiverHubScreen() {
         keyExtractor={(route) => route.river.slug}
         renderItem={renderRoute}
         style={styles.screen}
-        contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomContentInset }]}
+        contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + bottomContentInset + (comparedRoutes.length ? comparisonBarHeight : 0) }]}
         initialNumToRender={8}
         maxToRenderPerBatch={6}
         windowSize={7}
@@ -294,6 +313,7 @@ export default function RiverHubScreen() {
           <View style={styles.headerStack}>
             <AppRefreshNotice
               isError={groupQuery.isError}
+              isStale={groupQuery.data?.snapshotStatus === 'stale'}
               retrying={groupQuery.isFetching}
               dataUpdatedAt={groupQuery.dataUpdatedAt}
               label="Showing the last available routes on this river."
@@ -425,7 +445,7 @@ export default function RiverHubScreen() {
 
             {routes.length > 0 ? (
               <View style={styles.mapSection}>
-                <SectionCard title="Compare on the map" subtitle="Tap a score to focus its route, then choose when to view the card.">
+                <SectionCard title="Compare on the map" subtitle="Tap a marker to focus its route, then choose when to view the card.">
                   <View style={styles.mapFrame}>
                     <RoutePlotMap
                       points={routePoints}
@@ -456,13 +476,26 @@ export default function RiverHubScreen() {
           </View>
         )}
       />
+      {comparedRoutes.length ? <View onLayout={event => setComparisonBarHeight(Math.round(event.nativeEvent.layout.height))}
+        style={[styles.comparisonBar, { paddingBottom: bottomContentInset + spacing.sm }]}>
+        <Text accessibilityLiveRegion="polite" style={styles.comparisonCount}>{comparedRoutes.length} of {ROUTE_COMPARISON_LIMIT} routes selected{comparedRoutes.length === 1 ? ' · Choose one more' : ''}</Text>
+        <View style={styles.comparisonActions}>
+          <AppButton label="Compare routes" accessibilityLabel={`Compare ${comparedRoutes.length} selected routes`} disabled={comparedRoutes.length < 2} onPress={() => setComparisonOpenFor(riverId)} />
+          <AppButton label="Clear comparison" variant="secondary" onPress={() => setComparison({ riverId, slugs: [] })} />
+        </View>
+      </View> : null}
+      <RouteComparisonSheet visible={comparisonOpenFor === riverId} routes={comparedRoutes} location={location}
+        isStale={groupQuery.data?.snapshotStatus === 'stale'} onClose={() => setComparisonOpenFor(null)}
+        onRemove={slug => setComparison(current => ({ ...current, slugs: current.slugs.filter(id => id !== slug) }))} onOpen={route => { setComparisonOpenFor(null); openHubRoute(route, 'river_hub_list'); }} />
     </>
   );
 }
 
 function RouteChoiceCard({
   route,
+  isStale,
   groupedReachCount,
+  comparisonAvailable, compared, comparisonFull, onToggleComparison,
   rank,
   recommended = false,
   selected,
@@ -473,7 +506,9 @@ function RouteChoiceCard({
   onOpen,
 }: {
   route: RiverDetailApiResult;
+  isStale: boolean;
   groupedReachCount: number;
+  comparisonAvailable: boolean; compared: boolean; comparisonFull: boolean; onToggleComparison: () => void;
   rank?: number;
   recommended?: boolean;
   selected: boolean;
@@ -483,8 +518,15 @@ function RouteChoiceCard({
   onToggleSaved: () => void;
   onOpen: () => void;
 }) {
+  const decision = mapDecision(route);
+  const tone = decisionColors(route.rating, route.river.scoreEligibility === 'planning' ? 'withheld' : route.readiness.status);
   return (
     <View style={[styles.routeCard, recommended ? styles.routeCardRecommended : null, selected ? styles.routeCardSelected : null]}>
+      <View style={styles.routeBadgeRow}>
+        {recommended ? <Text style={styles.recommendedBadge}>Recommended today</Text> : null}
+        {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
+        <SaveToggleButton routeSlug={route.river.slug} routeLabel={`${route.river.name}: ${route.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
+      </View>
       <Pressable accessibilityRole="button" accessibilityLabel={`View route: ${route.river.name}, ${route.river.reach}`} style={styles.routeMainRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
         <View style={styles.routeThumb}>
           <ImageBackground
@@ -492,41 +534,40 @@ function RouteChoiceCard({
             style={styles.routeThumbImage}
             imageStyle={styles.routeThumbRadius}
           >
-            <View style={[styles.routeThumbScore, route.river.scoreEligibility === 'planning' ? styles.routeThumbScorePlanning : toneScoreBox(route.rating)]}>
-              <Text style={styles.routeThumbScoreValue}>{route.river.scoreEligibility === 'planning' ? '—' : route.score}</Text>
-              <Text style={styles.routeThumbScoreLabel}>{route.river.scoreEligibility === 'planning' ? 'Planning' : 'Score'}</Text>
+            <View style={[styles.routeThumbScore, { backgroundColor: tone.backgroundColor }]}>
+              <Text style={[styles.routeThumbScoreValue, { color: tone.textColor }]}>{decision.score ?? '—'}</Text>
+              <Text style={[styles.routeThumbScoreLabel, { color: tone.textColor }]}>{route.river.scoreEligibility === 'planning' ? 'Planning' : decision.call === 'unavailable' ? 'No call' : 'Score'}</Text>
             </View>
           </ImageBackground>
         </View>
 
         <View style={styles.routeCopy}>
-          <View style={styles.routeBadgeRow}>
-            {recommended ? <Text style={styles.recommendedBadge}>Recommended today</Text> : null}
-            {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
-            <SaveToggleButton routeLabel={`${route.river.name}: ${route.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
-          </View>
           {recommended ? <Text style={styles.recommendationReason}>{recommendationReason(route)}</Text> : null}
           <View style={styles.routeCallRow}>
             <Text style={styles.routeVerdict}>{route.river.scoreEligibility === 'planning' ? 'Planning only' : callForDecision(route.rating, route.readiness.status)}</Text>
-            {route.river.scoreEligibility !== 'planning' ? <QualityPill rating={route.rating} /> : null}
+            {route.river.scoreEligibility !== 'planning' ? <QualityPill rating={route.rating} readiness={route.readiness.status} /> : null}
           </View>
-          <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
-          <Text style={styles.routeMeta} numberOfLines={2}>
-            {groupedReachCount} {groupedReachCount === 1 ? 'route uses' : 'routes share'} these conditions · {routeMetaLine(route)}
-          </Text>
+          <Text style={styles.routeName}>{route.river.reach}</Text>
         </View>
       </Pressable>
+      <Text style={styles.routeMeta}>
+        {groupedReachCount} {groupedReachCount === 1 ? 'route uses' : 'routes share'} these conditions · {routeMetaLine(route)}
+      </Text>
 
+      {isStale ? <Text style={styles.savedConditionsNotice}>Saved conditions · update needed</Text> : null}
       <View style={styles.reasonChips}>
         {route.river.scoreEligibility !== 'planning' ? <StatusPill status={route.liveData.overall} /> : null}
-        <ReasonChip label={normalizeApiText(route.gaugeBandLabel)} />
-        {route.river.scoreEligibility !== 'planning' ? <ReasonChip label={`${route.confidence.label} confidence`} /> : null}
+        <ReasonChip label={`${isStale ? 'Previous water level: ' : ''}${normalizeApiText(route.gaugeBandLabel)}`} />
+        {route.river.scoreEligibility !== 'planning' ? <ReasonChip label={`${isStale ? 'Previous ' : ''}${route.confidence.label} confidence`} /> : null}
         <ReasonChip label={buildSourceStrengthViewModel(route.river.profile.thresholdSourceStrength).waterLevelLabel} />
-        {route.weather?.windMph ? <ReasonChip label={`${Math.round(route.weather.windMph)} mph wind`} /> : null}
+        {route.weather?.windMph ? <ReasonChip label={`${isStale ? 'Previous wind: ' : ''}${Math.round(route.weather.windMph)} mph${isStale ? '' : ' wind'}`} /> : null}
       </View>
 
-      {expanded && route.river.scoreEligibility !== 'planning' ? <ScoreBreakdownPanel route={route} /> : null}
+      {expanded && route.river.scoreEligibility !== 'planning' ? <ScoreBreakdownPanel route={route} isStale={isStale} /> : null}
 
+      {comparisonAvailable ? <AppButton label={compared ? 'In comparison · Remove' : 'Add to comparison'}
+        accessibilityLabel={`${compared ? 'Remove from' : 'Add to'} comparison: ${route.river.reach}`}
+        icon={compared ? 'check' : 'plus'} variant="secondary" disabled={!compared && comparisonFull} onPress={onToggleComparison} /> : null}
       <View style={styles.routeFooter}>
         <Pressable
           onPress={route.river.scoreEligibility === 'planning' ? onOpen : onToggleExpanded}
@@ -536,14 +577,14 @@ function RouteChoiceCard({
           accessibilityState={route.river.scoreEligibility === 'planning' ? undefined : { expanded }}
           aria-expanded={route.river.scoreEligibility === 'planning' ? undefined : expanded}
         >
-          <Text style={styles.whyButton}>{route.river.scoreEligibility === 'planning' ? 'View planning details' : expanded ? 'Hide score details' : 'Why this score?'}</Text>
+          <Text style={styles.whyButton}>{route.river.scoreEligibility === 'planning' ? 'View planning details' : expanded ? 'Hide score details' : isStale ? 'View saved score details' : 'Why this score?'}</Text>
         </Pressable>
       </View>
     </View>
   );
 }
 
-function ScoreBreakdownPanel({ route }: { route: RiverDetailApiResult }) {
+function ScoreBreakdownPanel({ route, isStale }: { route: RiverDetailApiResult; isStale: boolean }) {
   const breakdown = route.scoreBreakdown;
   const rows = scoreBreakdownRows(breakdown);
   const capReasons = breakdown.capReasons
@@ -553,7 +594,9 @@ function ScoreBreakdownPanel({ route }: { route: RiverDetailApiResult }) {
   return (
     <View style={styles.scoreBreakdownPanel}>
       <Text style={styles.scoreBreakdownSummary}>
-        River quality starts at {breakdown.riverQuality}. Weather shifts it to {breakdown.finalScore} today.
+        {isStale
+          ? `The saved calculation started at ${breakdown.riverQuality} for river quality and ended at ${breakdown.finalScore}. It does not describe current conditions.`
+          : `River quality starts at ${breakdown.riverQuality}. Weather shifts it to ${breakdown.finalScore} today.`}
       </Text>
       <View style={styles.scoreBreakdownRows}>
         {rows.map((row) => (
@@ -567,7 +610,7 @@ function ScoreBreakdownPanel({ route }: { route: RiverDetailApiResult }) {
       </View>
       {capReasons.length > 0 ? (
         <View style={styles.scoreCapPanel}>
-          <Text style={styles.scoreCapTitle}>What held today's score back</Text>
+          <Text style={styles.scoreCapTitle}>{isStale ? 'What limited the saved score' : "What held today's score back"}</Text>
           {capReasons.map((reason) => (
             <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
           ))}
@@ -635,6 +678,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
   routes = routes.filter((route) => route.river.scoreEligibility !== 'planning');
   if (zoomLevel >= 8.5) {
     return routes.map((route) => {
+      const decision = mapDecision(route);
       const span = routeSpanCoordinates(route);
       const markerCoordinate = coverageAnchorForRoute(route, span) ?? mapMarkerCoordinate(route, span);
       return {
@@ -642,18 +686,20 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
         label: route.river.reach,
         latitude: markerCoordinate.latitude,
         longitude: markerCoordinate.longitude,
-        score: route.score,
-        rating: route.rating,
-        markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
+        score: decision.score,
+        rating: decision.rating,
+        markerLabel: decision.markerLabel,
+        markerAccessibilityLabel: `${route.river.reach}, ${decision.description}`,
         routeCount: 1,
         spanSegments: span ? [span] : [],
-        meta: [route.river.reach, `${route.score} · ${callForDecision(route.rating, route.readiness.status)} · ${qualityForRating(route.rating)}`].filter(Boolean).join(' - '),
+        meta: [route.river.reach, decision.description].filter(Boolean).join(' - '),
       };
     });
   }
 
   return groupRoutesByConditionScore(routes).map((group) => {
     const route = group.representative;
+    const decision = mapDecision(route);
     const spanSegments = group.routes
       .map(routeSpanCoordinates)
       .filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2));
@@ -663,15 +709,16 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
       label: group.regions.join(', ') || route.river.reach,
       latitude: markerCoordinate.latitude,
       longitude: markerCoordinate.longitude,
-      score: route.score,
-      rating: route.rating,
-      markerAccessibilityLabel: `${group.routes.length} ${group.routes.length === 1 ? 'route shares' : 'routes share'} score ${route.score}`,
+      score: decision.score,
+      rating: decision.rating,
+      markerLabel: decision.markerLabel,
+      markerAccessibilityLabel: `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}, ${decision.description}`,
       routeCount: group.routes.length,
       spanSegments,
       meta: [
         `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
         accessPointCountLabel(route),
-        `${route.score} · ${callForDecision(route.rating, route.readiness.status)} · ${qualityForRating(route.rating)}`,
+        decision.description,
       ]
         .filter(Boolean)
         .join(' - '),
@@ -791,8 +838,8 @@ function hubStatusLine(summary: { paddleable: number; watch: number; unavailable
 }
 
 function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResult) {
-  if (left.river.scoreEligibility === 'planning') return 1;
-  if (right.river.scoreEligibility === 'planning') return -1;
+  const planningDifference = Number(left.river.scoreEligibility === 'planning') - Number(right.river.scoreEligibility === 'planning');
+  if (planningDifference) return planningDifference;
   const callDifference = decisionCallRank(right) - decisionCallRank(left);
   if (callDifference !== 0) return callDifference;
   return right.score - left.score || right.confidence.score - left.confidence.score || comparableDistance(left) - comparableDistance(right);
@@ -831,31 +878,6 @@ function difficultyRank(route: RiverDetailApiResult) {
   if (route.river.profile.difficulty === 'easy') return 0;
   if (route.river.profile.difficulty === 'moderate') return 1;
   return 2;
-}
-
-function distanceRangeForRoutes(routes: RiverDetailApiResult[]) {
-  const distances = routes
-    .map(routeDistanceMiles)
-    .filter((distance): distance is number => distance !== null);
-  if (distances.length === 0) {
-    return null;
-  }
-
-  const min = Math.min(...distances);
-  const max = Math.max(...distances);
-  return `${formatDistance(min)}–${formatDistance(max)} mi`;
-}
-
-function formatDistance(distance: number) {
-  return Number.isInteger(distance) ? String(distance) : String(Number(distance.toFixed(1)));
-}
-
-function difficultySummary(difficulties: Array<'easy' | 'moderate' | 'hard'>) {
-  const present = new Set(difficulties);
-  return (['easy', 'moderate', 'hard'] as const)
-    .filter((difficulty) => present.has(difficulty))
-    .map((difficulty) => `${difficulty.charAt(0).toUpperCase()}${difficulty.slice(1)}`)
-    .join(' · ') || 'Varies';
 }
 
 function sortIcon(sortMode: SortMode) {
@@ -919,19 +941,11 @@ function scoreBreakdownValueTone(value: number) {
   return { color: colors.textMuted };
 }
 
-function toneScoreBox(rating: RiverDetailApiResult['rating']) {
-  if (rating === 'Strong' || rating === 'Good') {
-    return { backgroundColor: colors.accentSoft };
-  }
-
-  if (rating === 'Fair') {
-    return { backgroundColor: '#EFE7D0' };
-  }
-
-  return { backgroundColor: '#F0DDD3' };
-}
-
 const styles = StyleSheet.create({
+  comparisonBar: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: spacing.md, gap: spacing.sm, backgroundColor: colors.surfaceStrong, borderTopWidth: 1, borderColor: colors.border },
+  comparisonCount: { color: colors.text, fontSize: 13, lineHeight: 19, fontWeight: '700' },
+  comparisonActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  savedConditionsNotice: { color: colors.textMuted, fontSize: 13, lineHeight: 18, paddingHorizontal: spacing.md, paddingTop: spacing.sm },
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -1002,41 +1016,6 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 15,
     lineHeight: 21,
-  },
-  heroFacts: {
-    flexDirection: 'row',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: colors.border,
-    paddingVertical: spacing.sm,
-  },
-  heroFactsCompact: {
-    flexWrap: 'wrap',
-    rowGap: spacing.sm,
-  },
-  heroFact: {
-    flex: 1,
-    minHeight: 48,
-    paddingHorizontal: 8,
-    justifyContent: 'center',
-    gap: 2,
-  },
-  heroFactCompact: {
-    flexBasis: '46%',
-    minWidth: '46%',
-  },
-  heroFactLabel: {
-    color: colors.textMuted,
-    fontSize: 9,
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  heroFactValue: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 17,
-    fontWeight: '900',
   },
   routeCalls: {
     color: colors.accentDeep,
@@ -1247,9 +1226,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 4,
   },
-  routeThumbScorePlanning: {
-    backgroundColor: colors.canvasMuted,
-  },
   routeThumbScoreValue: {
     color: colors.accentDeep,
     fontSize: 18,
@@ -1310,8 +1286,8 @@ const styles = StyleSheet.create({
   },
   routeMeta: {
     color: colors.textMuted,
-    fontSize: 11,
-    lineHeight: 15,
+    fontSize: 13,
+    lineHeight: 18,
     fontWeight: '700',
   },
   routeRank: {
@@ -1336,17 +1312,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 11,
     fontWeight: '800',
-  },
-  factRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  factText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '700',
   },
   routeFooter: {
     flexDirection: 'row',
@@ -1432,11 +1397,5 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '800',
     textAlign: 'center',
-  },
-  stateBody: {
-    color: colors.textMuted,
-    fontSize: 15,
-    textAlign: 'center',
-    lineHeight: 22,
   },
 });

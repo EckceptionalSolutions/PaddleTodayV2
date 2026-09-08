@@ -14,12 +14,14 @@ export function WeekendRiverCard({
   river,
   travelLabel,
   saved = false,
+  isStale = false,
   onToggleSaved,
   onPress,
 }: {
   river: WeekendSummaryApiItem;
   travelLabel?: string | null;
   saved?: boolean;
+  isStale?: boolean;
   onToggleSaved?: () => void;
   onPress: () => void;
 }) {
@@ -35,7 +37,7 @@ export function WeekendRiverCard({
       onPress={onPress}
       android_ripple={{ color: colors.canvasMuted }}
       accessibilityRole="button"
-      accessibilityLabel={`${river.river.name}, ${river.river.reach}, ${callForRating(river.weekend.rating, 'weekend')}, score ${river.weekend.score}`}
+      accessibilityLabel={`${river.river.name}, ${river.river.reach}, ${isStale ? 'saved forecast, update needed, ' : ''}${callForRating(river.weekend.rating, 'weekend')}, score ${river.weekend.score}`}
       accessibilityHint="Opens the weekend route details."
     >
       <ImageBackground
@@ -46,16 +48,21 @@ export function WeekendRiverCard({
       >
         {showFallback ? <RoutePhotoFallback compact label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : null}
         <View style={[styles.mediaOverlay, showFallback ? styles.mediaOverlayPlaceholder : null]}>
-          <View style={styles.scoreBlock}>
-            <Text style={styles.callLabel}>{callForRating(river.weekend.rating, 'weekend', true)}</Text>
-            <Text style={styles.score}>{river.weekend.score}</Text>
+          <View style={[styles.scoreBlock, isStale && styles.savedScore]}>
+            <Text style={[styles.callLabel, isStale && styles.savedScoreText]}>{isStale ? 'Saved' : callForRating(river.weekend.rating, 'weekend', true)}</Text>
+            <Text style={[styles.score, isStale && styles.savedScoreText]}>{river.weekend.score}</Text>
           </View>
           <View style={styles.actions}>
-            {onToggleSaved ? <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
-            <QualityPill rating={river.weekend.rating} />
+            {onToggleSaved ? <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
+            {!isStale ? <QualityPill rating={river.weekend.rating} /> : null}
           </View>
         </View>
       </ImageBackground>
+
+      {isStale ? <View style={styles.savedNotice}>
+        <Text style={styles.savedNoticeTitle}>Saved forecast · update needed</Text>
+        <Text style={styles.savedNoticeBody}>This score and outlook are from an older update. Refresh before planning.</Text>
+      </View> : null}
 
       <View style={styles.header}>
         <View style={styles.copy}>
@@ -79,8 +86,8 @@ export function WeekendRiverCard({
       </View>
 
       {riskExplanation ? (
-        <View style={[styles.riskPanel, riskToneStyle(river)]}>
-          <Text style={styles.riskLabel}>{planRiskLabel(river)}</Text>
+        <View style={[styles.riskPanel, !isStale && riskToneStyle(river)]}>
+          <Text style={styles.riskLabel}>{isStale ? 'Previous outlook' : planRiskLabel(river)}</Text>
           <Text style={styles.explanation}>{riskExplanation}</Text>
         </View>
       ) : null}
@@ -95,6 +102,11 @@ export function WeekendRiverCard({
 }
 
 const styles = StyleSheet.create({
+  savedScore: { backgroundColor: colors.canvasMuted },
+  savedScoreText: { color: colors.textMuted },
+  savedNotice: { marginHorizontal: spacing.md, padding: spacing.sm, gap: 4, borderRadius: radius.sm, backgroundColor: colors.canvasMuted },
+  savedNoticeTitle: { color: colors.text, fontSize: 13, fontWeight: '800' },
+  savedNoticeBody: { color: colors.textMuted, fontSize: 13, lineHeight: 18 },
   card: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
@@ -144,12 +156,6 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.3,
-  },
-  scoreLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   copy: {
     flex: 1,

@@ -1,6 +1,6 @@
-import type { ScoreRating } from '@paddletoday/api-contract';
+import type { DecisionReadinessStatus, ScoreRating } from '@paddletoday/api-contract';
 import { StyleSheet, Text, View } from 'react-native';
-import { qualityForRating } from '../lib/format';
+import { callStateForDecision, qualityForDecision, qualityForRating } from '../lib/format';
 import { colors, radius } from '../theme/tokens';
 
 export function RatingPill({ rating }: { rating: ScoreRating }) {
@@ -13,15 +13,21 @@ export function RatingPill({ rating }: { rating: ScoreRating }) {
   );
 }
 
-/** Secondary tier label. The primary action remains the call shown beside it. */
-export function QualityPill({ rating }: { rating: ScoreRating }) {
-  const tone = ratingColors(rating);
+/** Tier label when evidence is ready; otherwise repeats the gated public call. */
+export function QualityPill({ rating, readiness = 'ready' }: { rating: ScoreRating; readiness?: DecisionReadinessStatus }) {
+  const tone = decisionColors(rating, readiness);
 
   return (
     <View style={[styles.pill, styles.qualityPill, { backgroundColor: tone.backgroundColor }]}>
-      <Text style={[styles.label, { color: tone.textColor }]}>{qualityForRating(rating)}</Text>
+      <Text style={[styles.label, { color: tone.textColor }]}>{qualityForDecision(rating, readiness)}</Text>
     </View>
   );
+}
+
+export function decisionColors(rating: ScoreRating, readiness: DecisionReadinessStatus) {
+  const call = callStateForDecision(rating, readiness);
+  if (call === 'unavailable') return { backgroundColor: colors.canvasMuted, textColor: colors.textMuted };
+  return ratingColors(call === 'skip' ? 'No-go' : call === 'watch' ? 'Fair' : rating);
 }
 
 export function ratingColors(rating: string | null | undefined) {

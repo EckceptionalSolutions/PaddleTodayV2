@@ -16,6 +16,12 @@ export interface AreaNotificationPreferences {
   isActive: boolean;
 }
 
+export type AreaLocationSyncState = { status: 'idle' } | {
+  status: 'pending' | 'error';
+  subscriptionId: string;
+  locationLabel: string;
+};
+
 interface AreaNotificationPreferencesContextValue {
   preferences: AreaNotificationPreferences | null;
   isHydrated: boolean;
@@ -25,6 +31,10 @@ interface AreaNotificationPreferencesContextValue {
   retryLoad: () => Promise<void>;
   savePreferences: (value: AreaNotificationPreferences) => Promise<void>;
   clearPreferences: () => Promise<void>;
+  locationSync: AreaLocationSyncState;
+  setLocationSync: (state: AreaLocationSyncState) => void;
+  locationSyncRetry: number;
+  retryLocationSync: () => void;
 }
 
 const Context = createContext<AreaNotificationPreferencesContextValue | null>(null);
@@ -36,6 +46,9 @@ export function AreaNotificationPreferencesProvider({ children }: PropsWithChild
   const [loadError, setLoadError] = useState(false);
   const [loadingPreferences, setLoadingPreferences] = useState(false);
   const loadInFlight = useRef(false);
+  const [locationSync, setLocationSync] = useState<AreaLocationSyncState>({ status: 'idle' });
+  const [locationSyncRetry, setLocationSyncRetry] = useState(0);
+  const retryLocationSync = useCallback(() => setLocationSyncRetry(value => value + 1), []);
 
   const retryLoad = useCallback(async () => {
     if (loadInFlight.current) return;
@@ -76,7 +89,7 @@ export function AreaNotificationPreferencesProvider({ children }: PropsWithChild
     await AsyncStorage.removeItem(STORAGE_KEY);
   }
 
-  const value = useMemo(() => ({ preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, savePreferences, clearPreferences }), [preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad]);
+  const value = useMemo(() => ({ preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, savePreferences, clearPreferences, locationSync, setLocationSync, locationSyncRetry, retryLocationSync }), [preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, locationSync, locationSyncRetry, retryLocationSync]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 

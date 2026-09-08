@@ -19,7 +19,7 @@ const DEFAULT_TRAVEL_MINUTES = 120;
 
 export function AreaNotificationOnboarding({ active }: { active: boolean }) {
   const { location } = useStoredLocation();
-  const { preferences, isHydrated, loadError, savePreferences } = useAreaNotificationPreferences();
+  const { preferences, isHydrated, loadError, savePreferences, setLocationSync, locationSyncRetry } = useAreaNotificationPreferences();
   const createMutation = useCreateAreaNotificationSubscriptionMutation();
   const updateMutation = useUpdateAreaNotificationSubscriptionMutation();
   const permissionAttemptStarted = useRef(false);
@@ -115,9 +115,11 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
       updateMutation.isPending
     ) return;
 
-    const syncKey = `${preferences.id}:${location.latitude}:${location.longitude}`;
+    const syncKey = `${preferences.id}:${location.latitude}:${location.longitude}:${locationSyncRetry}`;
     if (lastLocationSyncAttempt.current === syncKey) return;
     lastLocationSyncAttempt.current = syncKey;
+    const target = { subscriptionId: preferences.id, locationLabel: location.label };
+    setLocationSync({ ...target, status: 'pending' });
 
     void updateMutation.mutateAsync({
       subscriptionId: preferences.id,
@@ -126,12 +128,18 @@ export function AreaNotificationOnboarding({ active }: { active: boolean }) {
       longitude: location.longitude,
       locationLabel: location.label,
     }).then(async (response) => {
-      await savePreferences(areaNotificationPreferencesFromResponse(response));
+      // A confirmed server update and a local-storage failure are different:
+      // the provider already exposes the latter through storageError.
+      await savePreferences(areaNotificationPreferencesFromResponse(response)).catch(error => {
+        captureAppException(error, { name: 'area_notification_location_persistence_failed' });
+      });
+      if (lastLocationSyncAttempt.current === syncKey) setLocationSync({ status: 'idle' });
       trackAppEvent('area_notification_location_updated', { source: 'planning_location' });
     }).catch((error) => {
+      if (lastLocationSyncAttempt.current === syncKey) setLocationSync({ ...target, status: 'error' });
       captureAppException(error, { name: 'area_notification_location_update_failed' });
     });
-  }, [active, isHydrated, loadError, location, preferences, savePreferences, updateMutation]);
+  }, [active, isHydrated, loadError, location, preferences, savePreferences, updateMutation, locationSyncRetry, setLocationSync]);
 
   return null;
 }

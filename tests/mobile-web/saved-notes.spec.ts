@@ -7,6 +7,9 @@ test('personal notes retain the draft on storage failure, survive reload, and ca
       localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{
         slug: 'rice-creek-peltier-to-long-lake', name: 'Rice Creek', reach: 'Peltier to Long Lake',
         savedAt: '2026-09-06T12:00:00.000Z', notes: 'Original parking note.',
+      }, {
+        slug: 'rice-creek-other-reach', name: 'Rice Creek', reach: 'Other reach',
+        savedAt: '2026-09-05T12:00:00.000Z', notes: 'Keep this other reach note.',
       }]));
       localStorage.setItem('qa:notes-seeded', '1');
       localStorage.setItem('qa:fail-note-storage', '1');
@@ -22,10 +25,26 @@ test('personal notes retain the draft on storage failure, survive reload, and ca
   });
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.goto('/saved');
-  const edit = page.getByRole('button', { name: 'Edit personal note: Rice Creek', exact: true });
+  const edit = page.getByRole('button', { name: 'Edit personal note: Rice Creek, Peltier to Long Lake', exact: true });
+  await expect(page.getByRole('button', { name: 'Edit personal note: Rice Creek, Other reach', exact: true })).toBeVisible();
   await edit.click();
   const dialog = page.getByRole('dialog');
   const input = dialog.getByRole('textbox', { name: 'Your note', exact: true });
+  await expect(input).toHaveValue('Original parking note.');
+  await input.fill('Unsaved parking instructions');
+  await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+  await expect(dialog.getByRole('heading', { name: 'Discard your unsaved changes?', exact: true })).toBeVisible();
+  await expect(dialog).toBeInViewport({ ratio: 1 });
+  await page.screenshot({ path: `tmp/note-discard-${page.viewportSize()!.width}.png` });
+  await dialog.getByRole('button', { name: 'Keep editing', exact: true }).click();
+  await expect(input).toHaveValue('Unsaved parking instructions');
+  await expect(input).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog.getByRole('heading', { name: 'Discard your unsaved changes?', exact: true })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Discard changes', exact: true }).click();
+  await expect(dialog).toBeHidden();
+  expect(await page.evaluate(() => localStorage.getItem('qa:note-write-attempts'))).toBeNull();
+  await edit.click();
   await expect(input).toHaveValue('Original parking note.');
   const note = 'Meet at 9:00 — bring the spare paddle.\nShuttle: café parking lot.';
   await input.fill(note);
@@ -45,6 +64,7 @@ test('personal notes retain the draft on storage failure, survive reload, and ca
   await input.fill('');
   await save.click();
   await expect(dialog).toBeHidden();
-  await expect(page.getByRole('button', { name: 'Add personal note: Rice Creek', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Add personal note: Rice Creek, Peltier to Long Lake', exact: true })).toBeVisible();
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('paddletoday:saved-rivers')!)[0].notes)).toBeUndefined();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('paddletoday:saved-rivers')!).find((route: { slug: string }) => route.slug === 'rice-creek-other-reach').notes)).toBe('Keep this other reach note.');
 });

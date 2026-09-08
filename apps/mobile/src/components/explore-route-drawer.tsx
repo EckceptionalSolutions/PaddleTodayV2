@@ -7,14 +7,17 @@ import {
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
-import { PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import Animated, { cancelAnimation, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { ActivityIndicator, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import Animated, { cancelAnimation, ReduceMotion, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { useSavedRivers } from '../providers/saved-rivers-provider';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
+import { routeDecisionPresentation } from '../lib/map-decision';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { openExternalUrl } from '../lib/external-links';
 import { routeDecisionLine } from '../lib/route-facts';
-import { callForDecision, formatPaddleTimeRange, qualityForRating } from '../lib/format';
+import { formatPaddleTimeRange } from '../lib/format';
 import { RoutePhotoCard } from './route-photo-card';
-import { ratingColors } from './rating-pill';
+import { decisionColors } from './rating-pill';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export type MapSheetSnap = 'peek' | 'half' | 'full';
@@ -31,6 +34,7 @@ interface ExploreRouteDrawerProps {
   sheetSnap: MapSheetSnap;
   setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>;
   bottomInset?: number;
+  availableHeight?: number;
   routeCount?: number;
   isSaved: (slug: string) => boolean;
   onClose: () => void;
@@ -45,6 +49,7 @@ export function ExploreRouteDrawer({
   sheetSnap,
   setSheetSnap,
   bottomInset = 0,
+  availableHeight,
   routeCount = 1,
   isSaved,
   onClose,
@@ -53,13 +58,21 @@ export function ExploreRouteDrawer({
   onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
+  const { isUpdatingSavedRiver } = useSavedRivers();
+  const saving = isUpdatingSavedRiver(selectedRiver.river.slug);
   const { height: windowHeight } = useWindowDimensions();
-  const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round((windowHeight - bottomInset) * 0.86));
-  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, onClose);
+  const maxSheetHeight = Math.max(0, availableHeight ?? Math.round((windowHeight - bottomInset) * 0.86));
+  const compactLayout = maxSheetHeight < 480;
+  const collapsedHeight = drawerCollapsedHeight(maxSheetHeight, routeCount > 1 && Boolean(onOpenRiverRoutes) && !selectedRiver.selectedSegment);
+  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight, collapsedHeight, onClose);
   const selectedPutIn = selectedRiver.selectedSegment?.putIn ?? selectedRiver.river.putIn;
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedPutIn);
   const full = sheetSnap === 'full';
+  const decision = routeDecisionPresentation(selectedRiver);
+  const tone = decisionColors(selectedRiver.rating, decision.readiness);
   const segmentLabel = formatRouteSegmentLabel(selectedRiver.segmentSummary ?? null, selectedRiver.selectedSegment ?? null);
+  const photo = <RoutePhotoCard key={`photo:${selectedRiver.river.slug}`} river={selectedRiver.river} compact
+    height={full ? 86 : 78} onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)} />;
 
   return (
     <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetGesture.animatedStyle]}>
@@ -77,12 +90,12 @@ export function ExploreRouteDrawer({
       </View>
       <View style={styles.mapPreviewHeader}>
         <View style={styles.mapPreviewDragRegion} collapsable={false} {...sheetGesture.panHandlers}>
-          <View style={[styles.mapPreviewScore, { backgroundColor: ratingColors(selectedRiver.rating).backgroundColor }]}>
-            <Text style={[styles.mapPreviewScoreText, { color: ratingColors(selectedRiver.rating).textColor }]} selectable={false}>{selectedRiver.score}</Text>
+          <View style={[styles.mapPreviewScore, { backgroundColor: tone.backgroundColor }]}>
+            <Text style={[styles.mapPreviewScoreText, { color: tone.textColor }]} accessibilityLabel={decision.description} selectable={false}>{decision.score ?? '—'}</Text>
           </View>
           <View style={styles.mapPreviewCopy}>
             <Text style={styles.mapPreviewLabel} selectable={false}>
-              {`${callForDecision(selectedRiver.rating, selectedRiver.readiness.status)} · ${qualityForRating(selectedRiver.rating)}`}
+              {decision.label}
             </Text>
             <Text style={styles.mapPreviewTitle} numberOfLines={1} selectable={false}>
               {selectedRiver.river.name}
@@ -106,13 +119,15 @@ export function ExploreRouteDrawer({
           accessibilityRole="button"
           accessibilityLabel={isSaved(selectedRiver.river.slug) ? 'Remove saved route' : 'Save route'}
           accessibilityHint={isSaved(selectedRiver.river.slug) ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
-          accessibilityState={{ selected: isSaved(selectedRiver.river.slug) }}
+          disabled={saving}
+          aria-busy={saving}
+          accessibilityState={{ selected: isSaved(selectedRiver.river.slug), disabled: saving, busy: saving }}
         >
-          <MaterialCommunityIcons
+          {saving ? <ActivityIndicator size="small" color={colors.accent} /> : <MaterialCommunityIcons
             name={isSaved(selectedRiver.river.slug) ? 'bookmark' : 'bookmark-outline'}
             color={colors.accent}
             size={22}
-          />
+          />}
         </Pressable>
         <Pressable
           style={styles.mapPreviewClose}
@@ -124,13 +139,7 @@ export function ExploreRouteDrawer({
           <MaterialCommunityIcons name="close" color={colors.textMuted} size={21} />
         </Pressable>
       </View>
-      <RoutePhotoCard
-        key={`photo:${selectedRiver.river.slug}`}
-        river={selectedRiver.river}
-        compact
-        height={full ? 86 : 78}
-        onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
-      />
+      {!compactLayout ? photo : null}
       <View style={styles.mapSheetActions}>
         <View style={styles.mapSheetPrimaryActions}>
           <Pressable
@@ -222,6 +231,7 @@ export function ExploreRouteDrawer({
               </View>
             ))}
           </View>
+          {compactLayout ? photo : null}
         </ScrollView>
       ) : (
         <Text style={styles.mapPreviewReason} numberOfLines={2}>
@@ -254,17 +264,20 @@ function useMapSheetPanResponder(
   sheetSnap: MapSheetSnap,
   setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>,
   maxSheetHeight: number,
+  collapsedHeight: number,
   onClose: () => void
 ) {
-  const animatedHeight = useSharedValue(sheetHeightValue(sheetSnap, maxSheetHeight));
+  const reducedMotion = useReducedMotion();
+  const animatedHeight = useSharedValue(sheetHeightValue(sheetSnap, maxSheetHeight, collapsedHeight));
   const animatedStyle = useAnimatedStyle(() => ({ height: animatedHeight.value }));
   const currentSnapRef = useRef(sheetSnap);
 
   useEffect(() => {
     currentSnapRef.current = sheetSnap;
-    animatedHeight.value = withSpring(sheetHeightValue(sheetSnap, maxSheetHeight), SHEET_SPRING);
+    const target = sheetHeightValue(sheetSnap, maxSheetHeight, collapsedHeight);
+    animatedHeight.value = reducedMotion ? target : withSpring(target, SHEET_SPRING);
     return () => cancelAnimation(animatedHeight);
-  }, [animatedHeight, maxSheetHeight, sheetSnap]);
+  }, [animatedHeight, maxSheetHeight, collapsedHeight, sheetSnap, reducedMotion]);
 
   const panResponder = useMemo(
     () =>
@@ -276,8 +289,8 @@ function useMapSheetPanResponder(
           cancelAnimation(animatedHeight);
         },
         onPanResponderMove: (_event, gestureState) => {
-          const baseHeight = sheetHeightValue(currentSnapRef.current, maxSheetHeight);
-          animatedHeight.value = clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight);
+          const baseHeight = sheetHeightValue(currentSnapRef.current, maxSheetHeight, collapsedHeight);
+          animatedHeight.value = clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight, collapsedHeight);
         },
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
@@ -292,25 +305,34 @@ function useMapSheetPanResponder(
           setSheetSnap(nextSnap);
           // A changed snap starts its spring in the effect. A short drag back
           // to the same snap still needs to settle, without two competing springs.
-          if (!changed) animatedHeight.value = withSpring(sheetHeightValue(nextSnap, maxSheetHeight), SHEET_SPRING);
+          if (!changed) {
+            const target = sheetHeightValue(nextSnap, maxSheetHeight, collapsedHeight);
+            animatedHeight.value = reducedMotion ? target : withSpring(target, SHEET_SPRING);
+          }
         },
         onPanResponderTerminate: () => {
-          animatedHeight.value = withSpring(sheetHeightValue(currentSnapRef.current, maxSheetHeight), SHEET_SPRING);
+          const target = sheetHeightValue(currentSnapRef.current, maxSheetHeight, collapsedHeight);
+          animatedHeight.value = reducedMotion ? target : withSpring(target, SHEET_SPRING);
         },
       }),
-    [animatedHeight, maxSheetHeight, onClose, setSheetSnap]
+    [animatedHeight, maxSheetHeight, collapsedHeight, onClose, setSheetSnap, reducedMotion]
   );
 
   return { panHandlers: panResponder.panHandlers, animatedStyle };
 }
 
-const SHEET_SPRING = { damping: 22, stiffness: 210, mass: 0.75 };
+// The live preference hook owns reduced motion, including changes after launch.
+const SHEET_SPRING = { damping: 22, stiffness: 210, mass: 0.75, reduceMotion: ReduceMotion.Never };
 
-export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
+export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510, collapsedHeight = 304) {
   // Keep the expanded tray close to its content height. The previous 500pt
   // cap left a large dead zone above the tab bar on phone-sized screens.
   if (value === 'full') return Math.min(430, maxHeight);
-  return Math.min(268, Math.max(252, maxHeight - 246));
+  return Math.min(maxHeight, collapsedHeight);
+}
+
+export function drawerCollapsedHeight(availableHeight: number, hasComparison: boolean) {
+  return (availableHeight < 480 ? 252 : 304) + (hasComparison ? 44 : 0);
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -331,12 +353,12 @@ function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap | 
   return value;
 }
 
-function clampSheetHeight(height: number, maxSheetHeight: number) {
-  return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight), height));
+function clampSheetHeight(height: number, maxSheetHeight: number, collapsedHeight: number) {
+  return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight, collapsedHeight), height));
 }
 
 function drawerDecisionLine(river: ExploreDrawerRiver) {
-  return routeDecisionLine(river.rating, river.summary.shortExplanation);
+  return routeDecisionPresentation(river).call === 'unavailable' ? river.readiness.reason : routeDecisionLine(river.summary.shortExplanation);
 }
 
 function drawerConditionItems(river: ExploreDrawerRiver) {
@@ -443,17 +465,17 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   mapPreviewSave: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: colors.canvasMuted,
     alignItems: 'center',
     justifyContent: 'center',
   },
   mapPreviewClose: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
@@ -482,7 +504,8 @@ const styles = StyleSheet.create({
   },
   conditionChipLabel: {
     color: colors.textMuted,
-    fontSize: 9,
+    fontSize: 11,
+    lineHeight: 15,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.25,
@@ -497,7 +520,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
-    minHeight: 40,
+    minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -512,7 +535,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.accent,
     backgroundColor: colors.surfaceStrong,
-    minHeight: 40,
+    minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -542,7 +565,7 @@ const styles = StyleSheet.create({
     width: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
-    minHeight: 40,
+    minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -569,7 +592,8 @@ const styles = StyleSheet.create({
   },
   drawerDetailLabel: {
     color: colors.textMuted,
-    fontSize: 9,
+    fontSize: 11,
+    lineHeight: 15,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.25,
@@ -597,21 +621,6 @@ const styles = StyleSheet.create({
     color: colors.accent,
     flexShrink: 1,
     fontSize: 11,
-    fontWeight: '900',
-  },
-  drawerOpenRouteButton: {
-    minHeight: 40,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.md,
-  },
-  drawerOpenRouteText: {
-    color: colors.accent,
-    fontSize: 13,
     fontWeight: '900',
   },
   selectedNote: {

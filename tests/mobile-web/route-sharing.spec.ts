@@ -71,4 +71,10 @@ test('changing the segment invalidates an old share result and the next copy use
   await expect(copy).toBeVisible();
   await expect(copy).toHaveValue(/Baldwin Lake carry-in/);
   await expect(copy).toHaveValue(/putin=baldwin-lake/);
+  const lines = (await copy.inputValue()).split('\n');
+  const appLink = new URL(lines.find(line => line.startsWith('Open in app: '))!.slice('Open in app: '.length));
+  const webLink = new URL(lines.find(line => line.startsWith('Web link: '))!.slice('Web link: '.length));
+  expect(appLink.searchParams.get('putin')).toBe('baldwin-lake');
+  expect(appLink.searchParams.get('takeout')).toBeTruthy();
+  expect(appLink.search).toBe(webLink.search);
 });

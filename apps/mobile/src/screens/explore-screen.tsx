@@ -1,3 +1,4 @@
+import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
   buildRoutePlannerParams,
   normalizeSearchText,
@@ -15,10 +16,11 @@ import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { FlatList, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { riverDetailQueryOptions, riverGroupQueryOptions, useRiverGeometryQuery, useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
+import { AppButton } from '../components/app-button';
 import { ExploreSearchBar } from '../components/explore-controls';
 import {
   ExploreFilterSheet,
@@ -35,10 +37,13 @@ import {
 import {
   ExploreRouteDrawer,
   sheetHeightValue,
+  drawerCollapsedHeight,
   type MapSheetSnap,
 } from '../components/explore-route-drawer';
-import { RoutePlotMap, type RoutePlotMapHandle } from '../components/route-plot-map';
+import type { RoutePlotMapHandle } from '../components/route-plot-map';
+import { ExploreRouteMap } from '../components/explore-route-map';
 import { RiverCard } from '../components/river-card';
+import { useExploreSearch } from '../hooks/use-explore-search';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { requestFailureMessage } from '../lib/request-failure';
 import { tabKeyboardProps } from '../lib/selection-keyboard';
@@ -48,12 +53,11 @@ import {
   EXPLORE_PREFERENCES_STORAGE_KEY,
   filtersForExploreIntent,
   isExploreIntentId,
-  type ExploreIntentId,
 } from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { buildExploreMapPoints, dedupeExploreRoutes, routeSpanCoordinatesForRiver, type ExploreRiver } from '../lib/explore-map-model';
-import { exploreCameraAction, type ExploreCameraState } from '../lib/explore-camera';
+import type { ExploreViewportSnapshot } from '../lib/explore-camera';
 import {
   buildRouteGroupMeta,
   routeGroupMetaForRoute,
@@ -67,17 +71,15 @@ interface ExplorePreferences {
   viewMode?: 'list' | 'map';
 }
 
+type CallRecovery = { count: number; label: string; onShowAll: () => void };
+const callFilterLabel = (status: ExploreFilters['status']) => ({ any: 'All calls', clean: 'Paddle', watch: 'Watch', 'no-call': 'No call', skip: 'Skip' })[status];
+
 const confidenceRank = {
   High: 3,
   Medium: 2,
   Low: 1,
 };
 
-const liveRank = {
-  live: 3,
-  degraded: 2,
-  offline: 1,
-};
 
 export default function ExploreScreen() {
   const router = useRouter();
@@ -91,7 +93,7 @@ export default function ExploreScreen() {
   const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [filters, setFilters] = useState<ExploreFilters>(defaultFilters);
+  const { filters, query: searchQuery, setFilters, setQuery: setSearchQuery, applySearch } = useExploreSearch(defaultFilters);
   const [draftFilters, setDraftFilters] = useState<ExploreFilters>(defaultFilters);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
@@ -123,6 +125,11 @@ export default function ExploreScreen() {
     () => applyExploreFilters(rivers, filters, location),
     [rivers, filters, location]
   );
+  const otherCallCount = useMemo(() => results.length || filters.status === 'any' ? 0
+    : applyExploreFilters(rivers, { ...filters, status: 'any' }, location).length,
+  [rivers, filters, location, results.length]);
+  const callRecovery: CallRecovery | null = otherCallCount ? { count: otherCallCount, label: callFilterLabel(filters.status),
+    onShowAll: () => setFilters(current => ({ ...current, status: 'any' })) } : null;
   const draftResults = useMemo(
     () => filtersOpen ? applyExploreFilters(rivers, draftFilters, location) : results,
     [rivers, draftFilters, location, filtersOpen, results]
@@ -246,7 +253,7 @@ export default function ExploreScreen() {
     }
   }, [results, selectedSlug]);
 
-  if (summaryQuery.isLoading && !summaryQuery.data) {
+  if (summaryQuery.isPending && !summaryQuery.data) {
     return (
       <AppLoadingState title="Loading explore map" body="Loading routes and filters." />
     );
@@ -289,8 +296,11 @@ export default function ExploreScreen() {
   return (
     <>
       <FullScreenExploreMap
+        callRecovery={callRecovery}
         activeFilterCount={activeFilterCount}
         filters={filters}
+        searchQuery={searchQuery}
+        onSearchSubmit={applySearch}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
         mapHeight={windowHeight}
@@ -303,10 +313,11 @@ export default function ExploreScreen() {
         userLocation={location}
         routeCounts={routeCounts}
         isRefetchError={summaryQuery.isRefetchError}
+        isStale={summaryQuery.data?.snapshotStatus === 'stale'}
         retrying={summaryQuery.isFetching}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
-        onFilterPress={() => setFiltersOpen(true)}
+        onFilterPress={() => { applySearch(); setFiltersOpen(true); }}
         onContributePhotos={(slug) => {
           trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
           router.push({ pathname: '/contribute-photo/[slug]', params: { slug } });
@@ -314,7 +325,7 @@ export default function ExploreScreen() {
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={openExploreRoute}
         onPrepareRoute={prepareExploreRoute}
-        onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
+        onSearchChange={setSearchQuery}
         onSelectSlug={setSelectedSlug}
         onUseLocation={() => void requestLocation()}
         isSaved={isSaved}
@@ -398,8 +409,11 @@ export default function ExploreScreen() {
 }
 
 function FullScreenExploreMap({
+  callRecovery,
   activeFilterCount,
   filters,
+  searchQuery,
+  onSearchSubmit,
   viewMode,
   onViewModeChange,
   mapHeight,
@@ -412,6 +426,7 @@ function FullScreenExploreMap({
   userLocation,
   routeCounts,
   isRefetchError,
+  isStale,
   retrying,
   dataUpdatedAt,
   onRetry,
@@ -427,8 +442,11 @@ function FullScreenExploreMap({
   onUseLocation,
   isSaved,
 }: {
+  callRecovery: CallRecovery | null;
   activeFilterCount: number;
   filters: ExploreFilters;
+  searchQuery: string;
+  onSearchSubmit: () => void;
   viewMode: 'map' | 'list';
   onViewModeChange: (mode: 'map' | 'list') => void;
   mapHeight: number;
@@ -441,6 +459,7 @@ function FullScreenExploreMap({
   userLocation: { latitude: number; longitude: number; label: string } | null;
   routeCounts: ReadonlyMap<string, number>;
   isRefetchError: boolean;
+  isStale: boolean;
   retrying: boolean;
   dataUpdatedAt?: number;
   onRetry: () => void;
@@ -457,11 +476,11 @@ function FullScreenExploreMap({
   isSaved: (slug: string) => boolean;
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('half');
+  const [controlsHeight, setControlsHeight] = useState(topInset + 200);
+  const [mapFrameHeight, setMapFrameHeight] = useState(mapHeight);
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
-  const [mapReady, setMapReady] = useState(false);
-  const onMapReady = useCallback(() => setMapReady(true), []);
+  const viewportMemory = useRef<ExploreViewportSnapshot | null>(null);
   const isFocused = useIsFocused();
-  const cameraStateRef = useRef<ExploreCameraState | null>(null);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   // Load the representative route geometry for grouped results too. Without
   // this, a grouped river selection only had access-point chords to draw,
@@ -485,8 +504,9 @@ function FullScreenExploreMap({
     [selectedCanonicalSpan, selectedMapPointId]
   );
   const requesting = status === 'requesting';
-  const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
-  const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
+  const collapsedHeight = drawerCollapsedHeight(mapFrameHeight, selectedRouteCount > 1 && !selectedRiver?.selectedSegment);
+  const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap, mapFrameHeight, collapsedHeight) : 0) + spacing.md;
+  const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0 && !callRecovery);
   const filterFocusSignature = [
     filters.query,
     filters.state,
@@ -500,27 +520,9 @@ function FullScreenExploreMap({
     filters.camping,
     filters.sort,
   ].join('|');
-  const overlayTop = topInset + 216;
+  const overlayTop = controlsHeight + spacing.md;
 
   const cameraContext = `${filterFocusSignature}|${userLocation?.latitude ?? ''}|${userLocation?.longitude ?? ''}`;
-  const hasPoints = points.length > 0;
-  useEffect(() => {
-    if (viewMode !== 'map' || !hasPoints) {
-      setMapReady(false);
-      cameraStateRef.current = null;
-    }
-  }, [hasPoints, viewMode]);
-  useEffect(() => {
-    if (!isFocused || viewMode !== 'map' || !hasPoints || !mapReady) return;
-    const frame = requestAnimationFrame(() => {
-      const next = { context: cameraContext, selectedSlug };
-      const action = exploreCameraAction(cameraStateRef.current, next, activeFilterCount > 0, Boolean(userLocation));
-      cameraStateRef.current = next;
-      if (action === 'all') mapRef.current?.focusAll();
-      else if (action === 'user') mapRef.current?.focusUserArea();
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [activeFilterCount, cameraContext, hasPoints, isFocused, mapReady, selectedSlug, viewMode]);
 
   function handleGpsFocus() {
     if (userLocation) {
@@ -533,11 +535,15 @@ function FullScreenExploreMap({
   if (viewMode === 'list') {
     return (
       <ExploreListView
+        callRecovery={callRecovery}
         activeFilterCount={activeFilterCount}
         bottomInset={bottomInset}
         dataUpdatedAt={dataUpdatedAt}
         filters={filters}
+        searchQuery={searchQuery}
+        onSearchSubmit={onSearchSubmit}
         isRefetchError={isRefetchError}
+        isStale={isStale}
         retrying={retrying}
         results={results}
         routeCounts={routeCounts}
@@ -555,16 +561,49 @@ function FullScreenExploreMap({
     );
   }
 
+  const locationControl = (!userLocation ? (
+        <Pressable
+          style={[styles.fullMapLocationPrompt, results.length > 0 ? { bottom: floatingControlBottom } : { position: 'relative', right: undefined, alignSelf: 'center' }]}
+          disabled={requesting}
+          onPress={onUseLocation}
+          accessibilityRole="button"
+          accessibilityLabel={requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
+          accessibilityState={{ disabled: requesting, busy: requesting }}
+          aria-busy={requesting}
+        >
+          <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
+          <Text style={styles.fullMapLocationText}>
+            {requesting ? 'Finding location' : status === 'denied' ? 'Location off · Retry' : status === 'error' ? 'Location unavailable · Retry' : 'Use location'}
+          </Text>
+        </Pressable>
+      ) : (
+        <Pressable
+          style={[styles.fullMapLocationPrompt, results.length > 0 ? { bottom: floatingControlBottom } : { position: 'relative', right: undefined, alignSelf: 'center' }]}
+          onPress={handleGpsFocus}
+          disabled={requesting}
+          accessibilityRole="button"
+          accessibilityLabel="Focus nearest rivers"
+          accessibilityState={{ disabled: requesting, busy: requesting }}
+          aria-busy={requesting}
+        >
+          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
+          <Text style={styles.fullMapLocationText}>Near you</Text>
+        </Pressable>
+      ));
+
   return (
-    <View style={styles.fullMapScreen}>
+    <View style={styles.fullMapScreen} onLayout={event => setMapFrameHeight(Math.round(event.nativeEvent.layout.height))}>
       {results.length > 0 ? (
-          <RoutePlotMap
-            ref={mapRef}
-            onReady={onMapReady}
+          <ExploreRouteMap
+            mapRef={mapRef}
+            viewportMemory={viewportMemory}
+            cameraContext={cameraContext}
+            selectedSlug={selectedSlug}
+            hasFilters={activeFilterCount > 0}
             points={points}
             selectedId={selectedMapPointId}
             canonicalSpans={canonicalSpans}
-            selectedFocusBottomInset={selectedRiver ? sheetHeightValue(sheetSnap) + bottomInset : 0}
+            selectedFocusBottomInset={selectedRiver ? sheetHeightValue(sheetSnap, mapFrameHeight, collapsedHeight) + bottomInset : 0}
           userLocation={userLocation}
             onSelectPoint={(point) => {
             if (!selectedSlug) setSheetSnap('half');
@@ -578,21 +617,23 @@ function FullScreenExploreMap({
           refitOnPointChanges={false}
         />
       ) : (
-        <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
-          <MaterialCommunityIcons name="map-search-outline" color={colors.textMuted} size={32} />
-          <Text style={styles.mapEmptyTitle}>No routes on this map</Text>
-          <Text style={styles.mapEmptyText}>Broaden filters or clear search.</Text>
-        </View>
+        <ScrollView style={{ position: 'absolute', top: controlsHeight + spacing.md, bottom: 0, left: 0, right: 0, backgroundColor: colors.canvasMuted }}
+          contentContainerStyle={[styles.fullMapEmptyCanvas, { flexGrow: 1, paddingBottom: bottomInset + spacing.xl }]}>
+          <ExploreEmptyResults map callRecovery={callRecovery} query={filters.query} onClear={() => onSearchChange('')} onFilterPress={onFilterPress} />
+          {locationControl}
+        </ScrollView>
       )}
 
-      <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
+      <View onLayout={event => setControlsHeight(Math.round(event.nativeEvent.layout.height))} style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
+        <LocationStorageNotice />
         <AppRefreshNotice
           isError={isRefetchError}
+          isStale={isStale}
           retrying={retrying}
           dataUpdatedAt={dataUpdatedAt}
           onRetry={onRetry}
         />
-        <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
+        <ExploreSearchBar query={searchQuery} onQueryChange={onSearchChange} onSubmit={onSearchSubmit} />
         <View style={styles.mapUnderSearchRow}>
           <Pressable
             style={[styles.mapFilterButton, activeFilterCount > 0 ? styles.mapFilterButtonActive : null]}
@@ -624,7 +665,11 @@ function FullScreenExploreMap({
               </Text>
            </View>
          </View>
-        <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.sm }}>
+          <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
+          <AppButton label={callFilterLabel(filters.status)} accessibilityLabel={`Change call filter, currently ${callFilterLabel(filters.status)}`}
+            variant="secondary" icon="filter-outline" onPress={onFilterPress} />
+        </View>
       </View>
 
       {userOutOfRange ? (
@@ -636,7 +681,7 @@ function FullScreenExploreMap({
         </View>
       ) : null}
 
-      <View style={[styles.mapOverlayActions, { top: overlayTop + (userOutOfRange ? 56 : 0) }]}>
+      {results.length > 0 ? <View style={[styles.mapOverlayActions, { top: overlayTop + (userOutOfRange ? 56 : 0) }]}>
         {selectedRiver ? <Pressable
           style={styles.mapFab}
           onPress={() => mapRef.current?.focusSelected()}
@@ -664,37 +709,9 @@ function FullScreenExploreMap({
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
         </Pressable>
-      </View>
+      </View> : null}
 
-      {!userLocation ? (
-        <Pressable
-          style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
-          disabled={requesting}
-          onPress={onUseLocation}
-          accessibilityRole="button"
-          accessibilityLabel={requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
-          accessibilityState={{ disabled: requesting, busy: requesting }}
-          aria-busy={requesting}
-        >
-          <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
-          <Text style={styles.fullMapLocationText}>
-            {requesting ? 'Finding location' : status === 'denied' ? 'Location off · Retry' : status === 'error' ? 'Location unavailable · Retry' : 'Use location'}
-          </Text>
-        </Pressable>
-      ) : (
-        <Pressable
-          style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
-          onPress={handleGpsFocus}
-          disabled={requesting}
-          accessibilityRole="button"
-          accessibilityLabel="Focus nearest rivers"
-          accessibilityState={{ disabled: requesting, busy: requesting }}
-          aria-busy={requesting}
-        >
-          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
-          <Text style={styles.fullMapLocationText}>Near you</Text>
-        </Pressable>
-      )}
+      {results.length > 0 ? locationControl : null}
 
       {selectedRiver ? (
         <ExploreRouteDrawer
@@ -702,6 +719,7 @@ function FullScreenExploreMap({
           sheetSnap={sheetSnap}
           setSheetSnap={setSheetSnap}
           bottomInset={bottomInset}
+          availableHeight={mapFrameHeight}
           routeCount={selectedRouteCount}
           isSaved={isSaved}
           onClose={() => {
@@ -727,11 +745,15 @@ function FullScreenExploreMap({
 }
 
 function ExploreListView({
+  callRecovery,
   activeFilterCount,
   bottomInset,
   dataUpdatedAt,
   filters,
+  searchQuery,
+  onSearchSubmit,
   isRefetchError,
+  isStale,
   retrying,
   results,
   routeCounts,
@@ -746,11 +768,15 @@ function ExploreListView({
   onViewModeChange,
   isSaved,
 }: {
+  callRecovery: CallRecovery | null;
   activeFilterCount: number;
   bottomInset: number;
   dataUpdatedAt?: number;
   filters: ExploreFilters;
+  searchQuery: string;
+  onSearchSubmit: () => void;
   isRefetchError: boolean;
+  isStale: boolean;
   retrying: boolean;
   results: ExploreRiver[];
   routeCounts: ReadonlyMap<string, number>;
@@ -792,8 +818,10 @@ function ExploreListView({
         ]}
         ListHeaderComponent={(
           <View style={styles.exploreListHeader}>
+            <LocationStorageNotice />
             <AppRefreshNotice
               isError={isRefetchError}
+              isStale={isStale}
               retrying={retrying}
               dataUpdatedAt={dataUpdatedAt}
               onRetry={onRetry}
@@ -802,12 +830,12 @@ function ExploreListView({
               <View style={styles.exploreListTitleCopy}>
                 <Text accessibilityRole="header" style={styles.exploreListTitle}>Explore routes</Text>
                 <Text style={styles.exploreListSubtitle}>
-                  {groupedResults.length} matching {groupedResults.length === 1 ? 'river' : 'rivers'}
+                  {groupedResults.length} matching {groupedResults.length === 1 ? 'river' : 'rivers'} · {callFilterLabel(filters.status)}
                 </Text>
               </View>
               <ExploreViewToggle mode="list" onChange={onViewModeChange} />
             </View>
-            <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
+            <ExploreSearchBar query={searchQuery} onQueryChange={onSearchChange} onSubmit={onSearchSubmit} />
             <Pressable
               style={[styles.listFilterButton, activeFilterCount > 0 ? styles.listFilterButtonActive : null]}
               onPress={onFilterPress}
@@ -823,9 +851,7 @@ function ExploreListView({
         )}
         ListEmptyComponent={(
           <View style={styles.exploreListEmpty}>
-            <MaterialCommunityIcons name="map-search-outline" color={colors.textMuted} size={32} />
-            <Text style={styles.mapEmptyTitle}>No matching routes</Text>
-            <Text style={styles.mapEmptyText}>Broaden filters or clear search.</Text>
+            <ExploreEmptyResults callRecovery={callRecovery} query={filters.query} onClear={() => onSearchChange('')} onFilterPress={onFilterPress} />
           </View>
         )}
         renderItem={({ item }) => (
@@ -844,6 +870,33 @@ function ExploreListView({
         )}
         ItemSeparatorComponent={() => <View style={styles.exploreListSeparator} />}
       />
+    </View>
+  );
+}
+
+function ExploreEmptyResults({ map = false, query, callRecovery, onClear, onFilterPress }: {
+  map?: boolean;
+  query: string;
+  callRecovery: CallRecovery | null;
+  onClear: () => void;
+  onFilterPress: () => void;
+}) {
+  const hasQuery = Boolean(query.trim());
+  return (
+    <View style={styles.emptyResultsCopy}>
+      <MaterialCommunityIcons name="map-search-outline" color={colors.textMuted} size={32} />
+      <Text accessibilityRole="header" style={styles.mapEmptyTitle}>{callRecovery ? callRecovery.label === 'No call' ? 'Matching routes have other calls' : `No ${callRecovery.label} calls match` : map ? 'No routes on this map' : 'No matching routes'}</Text>
+      <Text style={styles.mapEmptyText}>
+        {callRecovery ? `${callRecovery.count} matching ${callRecovery.count === 1 ? 'route has' : 'routes have'} other calls. Show all calls to review them.` : hasQuery ? 'Try another name, or clear the search and keep your filters.' : 'Try a wider area or fewer filters to find more routes.'}
+      </Text>
+      {callRecovery ? <AppButton label="Show all matching calls" onPress={callRecovery.onShowAll} /> : null}
+      <Pressable
+        accessibilityRole="button"
+        onPress={hasQuery ? onClear : onFilterPress}
+        style={({ pressed }) => [styles.emptyResultsAction, pressed ? { opacity: 0.75 } : null]}
+      >
+        <Text style={styles.emptyResultsActionText}>{hasQuery ? 'Clear route search' : 'Adjust filters'}</Text>
+      </Pressable>
     </View>
   );
 }
@@ -1040,10 +1093,6 @@ function isExplorePreferences(value: unknown): value is ExplorePreferences {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-  },
   fullMapScreen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -1230,6 +1279,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     padding: spacing.xl,
+  },
+  emptyResultsCopy: {
+    alignItems: 'center',
+    gap: spacing.sm,
+    maxWidth: 360,
+  },
+  emptyResultsAction: {
+    minHeight: 44,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyResultsActionText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '800',
+    textAlign: 'center',
   },
   fullMapLocationPrompt: {
     position: 'absolute',

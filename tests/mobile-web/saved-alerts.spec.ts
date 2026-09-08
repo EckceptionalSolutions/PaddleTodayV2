@@ -1,6 +1,36 @@
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
+test('saved alerts show both independent phone thresholds and distinguish email records', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    const slug = 'rice-creek-peltier-to-long-lake';
+    localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{ slug, name: 'Rice Creek', reach: 'Peltier to Long Lake', savedAt: '2026-09-06T12:00:00Z' }]));
+    localStorage.setItem('paddletoday:alert-preferences', JSON.stringify({ email: 'qa@example.test', routeAlerts: [
+      { riverSlug: slug, threshold: 'strong', deliveryMethod: 'email', updatedAt: '2026-09-08T12:00:00Z' },
+      { riverSlug: slug, threshold: 'strong', deliveryMethod: 'push', updatedAt: '2026-09-07T12:00:00Z' },
+      { riverSlug: slug, threshold: 'good', deliveryMethod: 'push', updatedAt: '2026-09-06T12:00:00Z' },
+    ] }));
+  });
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+    summary: { gaugeNow: 'QA', shortExplanation: 'Stored QA fixture' }, liveData: { overall: 'stale', summary: 'QA' },
+  }] } }));
+  await page.goto('/saved?tab=alerts');
+  const summary = page.getByText('Phone alerts: Good, Strong · Email alerts: Strong', { exact: true });
+  await expect(summary).toBeVisible();
+  for (const threshold of ['Good', 'Strong']) {
+    const button = page.getByRole('button', { name: `${threshold} phone alert for Rice Creek: ${fixture.result.river.reach}`, exact: true });
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
+    await expect(button).toContainText(`${threshold} · On`);
+    await button.scrollIntoViewIfNeeded();
+    await expect(button).toBeInViewport({ ratio: 1 });
+  }
+  await page.screenshot({ path: `tmp/saved-multiple-alerts-${page.viewportSize()!.width}.png` });
+  await page.reload();
+  await expect(summary).toBeVisible();
+});
+
 test('saved alert controls identify their route and retain the current selection when setup is unavailable', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('paddletoday:welcome-completed:v1', '1');

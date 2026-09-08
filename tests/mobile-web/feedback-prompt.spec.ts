@@ -27,6 +27,13 @@ test('eligible automatic feedback still opens and can be dismissed without sendi
   await expect(message).toHaveValue('Keep my draft while I check the choices.');
   await dialog.getByRole('button', { name: 'Back', exact: true }).press('Space');
   await dialog.getByRole('button', { name: 'Not now', exact: true }).press('Space');
+  await expect(dialog.getByRole('heading', { name: 'Discard feedback draft?', exact: true })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Keep editing', exact: true }).click();
+  await expect(message).toHaveValue('Keep my draft while I check the choices.');
+  await expect(message).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog.getByRole('heading', { name: 'Discard feedback draft?', exact: true })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Discard draft', exact: true }).click();
   await expect(dialog).toBeHidden();
   await expect.poll(() => page.evaluate(() => {
     const state = JSON.parse(localStorage.getItem('paddletoday:feedback-usage:v1')!);
@@ -82,4 +89,46 @@ test('a failed store-review link leaves the feedback sheet open for retry', asyn
   await apple.press('Space');
   await expect(dialog).toBeHidden();
   expect(await page.evaluate(() => localStorage.getItem('qa:opened-store-url'))).toContain('apps.apple.com/app/id6769542734');
+});
+
+test('feedback retains message and email after failure and closes normally after confirmation', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:feedback-usage:v1', JSON.stringify({
+      firstOpenedAt: Date.now() - 8 * 86400000, openCount: 5, meaningfulActionCount: 3,
+    }));
+  });
+  await page.route('**/api/**', route => route.fulfill({ json: { rivers: [] } }));
+  let pending: import('@playwright/test').Route | null = null;
+  let submissions = 0;
+  await page.route('**/api/feedback', route => { pending = route; submissions++; });
+  await page.goto('/');
+  const dialog = page.getByRole('dialog');
+  await dialog.getByRole('button', { name: 'Send private feedback', exact: true }).click();
+  const message = dialog.getByRole('textbox', { name: 'What should we know?', exact: true });
+  const email = dialog.getByRole('textbox', { name: 'Email for follow-up (optional)', exact: true });
+  await message.fill('The route picker could explain the selected access points.');
+  await email.fill('paddler@example.com');
+  const send = dialog.getByRole('button', { name: 'Send feedback', exact: true });
+  await send.click();
+  await expect.poll(() => Boolean(pending)).toBe(true);
+  await expect(send).toBeDisabled();
+  await expect(dialog.getByRole('button', { name: 'Close feedback form', exact: true })).toBeDisabled();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeVisible();
+  await pending!.fulfill({ status: 503, json: { error: 'offline', message: 'Please retry feedback later.' } });
+  await expect(send).toBeEnabled();
+  await expect(message).toHaveValue('The route picker could explain the selected access points.');
+  await expect(email).toHaveValue('paddler@example.com');
+  await dialog.getByRole('button', { name: 'Close feedback form', exact: true }).click();
+  await dialog.getByRole('button', { name: 'Keep editing', exact: true }).click();
+  await expect(email).toHaveValue('paddler@example.com');
+  pending = null;
+  await send.click();
+  await expect.poll(() => Boolean(pending)).toBe(true);
+  await pending!.fulfill({ json: { requestId: 'qa', ok: true, stored: true } });
+  await expect(dialog.getByText('Feedback received', { exact: true })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Done', exact: true }).click();
+  await expect(dialog).toBeHidden();
+  expect(submissions).toBe(2);
 });

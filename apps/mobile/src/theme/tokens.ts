@@ -37,6 +37,16 @@ export const radius = {
   pill: semanticRadii.native.pill,
 };
 
+// Shared roles for touched components; existing screens can migrate gradually.
+export const typography = {
+  title: { fontSize: 22, lineHeight: 28, fontWeight: '800' as const },
+  section: { fontSize: 17, lineHeight: 23, fontWeight: '800' as const },
+  body: { fontSize: 15, lineHeight: 22 },
+  supporting: { fontSize: 13, lineHeight: 19 },
+  label: { fontSize: 14, lineHeight: 20, fontWeight: '700' as const },
+  caption: { fontSize: 12, lineHeight: 17 },
+};
+
 export const shadow = Platform.select({
   ios: {
     shadowColor: colors.shadow,

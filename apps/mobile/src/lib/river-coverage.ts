@@ -1,5 +1,6 @@
 import type { RiverDetailApiResult, RiverSummaryApiItem, ScoreRating } from '@paddletoday/api-contract';
 import { coverageCenter as sharedCoverageCenter, nearestPointOnLines } from '@paddletoday/geo';
+import { mapDecision } from './map-decision';
 
 export type RiverCoverageResult = RiverSummaryApiItem | RiverDetailApiResult;
 
@@ -21,7 +22,7 @@ export function conditionScoreKey(result: RiverCoverageResult) {
     || result.river.corridorId
     || result.river.riverId
     || result.river.slug;
-  return `${zone}:${result.score}`;
+  return `${zone}:${result.score}:${mapDecision(result).call}`;
 }
 
 export function groupRoutesByConditionScore<Result extends RiverCoverageResult>(

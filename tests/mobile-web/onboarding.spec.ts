@@ -25,7 +25,7 @@ for (const mode of ['analytics', 'progress']) {
       await page.evaluate(() => localStorage.removeItem('qa:fail-storage'));
       await proceed.click();
     }
-    await expect(page).toHaveURL('http://127.0.0.1:8082/');
+    await expect(page).toHaveURL('/');
     expect(errors).toEqual([]);
   });
 }

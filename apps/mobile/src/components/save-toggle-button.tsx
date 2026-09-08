@@ -1,24 +1,29 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { GestureResponderEvent } from 'react-native';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export function SaveToggleButton({
   saved,
   routeLabel,
+  routeSlug,
   onPress,
   compact = false,
   primary = false,
 }: {
   saved: boolean;
   routeLabel: string;
+  routeSlug: string;
   onPress: () => void;
   compact?: boolean;
   primary?: boolean;
 }) {
+  const { isUpdatingSavedRiver } = useSavedRivers();
+  const busy = isUpdatingSavedRiver(routeSlug);
   function handlePress(event: GestureResponderEvent) {
     event.stopPropagation();
-    onPress();
+    if (!busy) onPress();
   }
 
   if (compact) {
@@ -30,15 +35,17 @@ export function SaveToggleButton({
         accessibilityRole="button"
         accessibilityLabel={`${saved ? 'Remove saved route' : 'Save route'}: ${routeLabel}`}
         accessibilityHint={saved ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
-        accessibilityState={{ selected: saved }}
+        disabled={busy}
+        aria-busy={busy}
+        accessibilityState={{ selected: saved, disabled: busy, busy }}
         aria-pressed={saved}
         android_ripple={{ color: colors.canvasMuted, borderless: true }}
       >
-        <MaterialCommunityIcons
+        {busy ? <ActivityIndicator size="small" color={saved ? colors.surfaceStrong : colors.accent} /> : <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={20}
           color={saved ? colors.surfaceStrong : primary ? colors.accent : colors.textMuted}
-        />
+        />}
       </Pressable>
     );
   }
@@ -50,18 +57,20 @@ export function SaveToggleButton({
       accessibilityRole="button"
       accessibilityLabel={`${saved ? 'Remove saved route' : 'Save route'}: ${routeLabel}`}
       accessibilityHint={saved ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
-      accessibilityState={{ selected: saved }}
+      disabled={busy}
+      aria-busy={busy}
+      accessibilityState={{ selected: saved, disabled: busy, busy }}
       aria-pressed={saved}
       android_ripple={{ color: colors.accentSoft }}
     >
       <View style={styles.row}>
-        <MaterialCommunityIcons
+        {busy ? <ActivityIndicator size="small" color={saved ? colors.surfaceStrong : colors.accent} /> : <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={18}
           color={saved ? colors.surfaceStrong : colors.accent}
-        />
+        />}
         <Text style={[styles.label, saved ? styles.labelSaved : null]}>
-          {saved ? 'Saved' : 'Save'}
+          {busy ? saved ? 'Removing…' : 'Saving…' : saved ? 'Saved' : 'Save'}
         </Text>
       </View>
     </Pressable>

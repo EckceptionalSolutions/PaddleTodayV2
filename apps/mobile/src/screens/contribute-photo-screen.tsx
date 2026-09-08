@@ -1,3 +1,4 @@
+import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams } from 'expo-router';
@@ -30,6 +31,9 @@ import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 import { selectionKeyboardProps } from '../lib/selection-keyboard';
 
+type PhotoValidationField = 'photos' | 'name' | 'email' | 'rights' | 'contact';
+const PHOTO_FORM_GUIDANCE = 'Photos are reviewed before they appear publicly.';
+
 export default function ContributePhotoScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const insets = useSafeAreaInsets();
@@ -52,7 +56,20 @@ export default function ContributePhotoScreen() {
   const [photos, setPhotos] = useState<SelectedReportPhoto[]>([]);
   const [rightsConfirmed, setRightsConfirmed] = useState(false);
   const [contactConsent, setContactConsent] = useState(false);
-  const [status, setStatus] = useState('Photos are reviewed before they appear publicly.');
+  const [status, setStatus] = useState(PHOTO_FORM_GUIDANCE);
+  const [validation, setValidation] = useState<PhotoValidationField | null>(null);
+  const validationErrors = {
+    photos: photos.length === 0 ? 'Add at least one route photo.' : '',
+    name: name.trim().length < 2 ? 'Add your name or paddling handle.' : '',
+    email: !isValidEmailAddress(email.trim()) ? 'Enter a valid email address for follow-up questions.' : '',
+    rights: !rightsConfirmed ? 'Confirm that you own or have permission to share these photos.' : '',
+    contact: !contactConsent ? "Confirm that it's okay to contact you about this contribution." : '',
+  };
+  const validationMessage = validation ? validationErrors[validation] : '';
+  function showValidation(field: PhotoValidationField) {
+    setValidation(field);
+    setStatus(PHOTO_FORM_GUIDANCE);
+  }
 
   const detail = detailQuery.data?.result ?? null;
 
@@ -64,7 +81,7 @@ export default function ContributePhotoScreen() {
     return <AppErrorState title="Route is missing" body="Open photo contribution from a route." />;
   }
 
-  if (detailQuery.isLoading && !detail) {
+  if (detailQuery.isPending && !detail) {
     return <AppLoadingState title="Loading route" body="Loading the photo form." />;
   }
 
@@ -159,32 +176,33 @@ export default function ContributePhotoScreen() {
     const cleanCaption = caption.trim();
 
     if (photos.length === 0) {
-      setStatus('Add at least one route photo.');
+      showValidation('photos');
       return;
     }
 
     if (contributorName.length < 2) {
-      setStatus('Add your name or paddling handle.');
+      showValidation('name');
       nameInput.current?.focus();
       return;
     }
 
     if (!isValidEmailAddress(contributorEmail)) {
-      setStatus('Enter a valid email address for follow-up questions.');
+      showValidation('email');
       emailInput.current?.focus();
       return;
     }
 
     if (!rightsConfirmed) {
-      setStatus('Confirm that you own or have permission to share these photos.');
+      showValidation('rights');
       return;
     }
 
     if (!contactConsent) {
-      setStatus("Confirm that it's okay to contact you about this contribution.");
+      showValidation('contact');
       return;
     }
 
+    setValidation(null);
     submissionInFlight.current = true;
     setSubmitting(true);
     try {
@@ -251,6 +269,7 @@ export default function ContributePhotoScreen() {
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode={Platform.OS === 'web' ? 'none' : Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
         >
+          <AlertPreferencesNotice />
           <RoutePhotoCard
             river={detail.river}
             height={164}
@@ -315,6 +334,7 @@ export default function ContributePhotoScreen() {
           <View style={styles.panel} onLayout={(event) => {
             formPanelOffset.current = event.nativeEvent.layout.y;
           }}>
+            <Text style={styles.fieldLabel}>Photo caption (optional)</Text>
             <TextInput
               autoCapitalize="sentences"
               multiline
@@ -329,6 +349,7 @@ export default function ContributePhotoScreen() {
               onLayout={(event) => recordInputOffset('caption', event)}
               textAlignVertical="top"
             />
+            <Text style={styles.fieldLabel}>Name or paddling handle *</Text>
             <TextInput
               autoCapitalize="words"
               placeholder="Name or paddling handle"
@@ -337,11 +358,16 @@ export default function ContributePhotoScreen() {
               value={name}
               ref={nameInput}
               accessibilityLabel="Name or paddling handle"
+              aria-invalid={validation === 'name' && Boolean(validationErrors.name)}
+              accessibilityHint="Required field."
+              aria-required
               editable={!submitting}
               onChangeText={setName}
               onFocus={() => scrollFocusedInputIntoView('name')}
               onLayout={(event) => recordInputOffset('name', event)}
             />
+            {validation === 'name' && validationErrors.name ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{validationErrors.name}</Text> : null}
+            <Text style={styles.fieldLabel}>Email for follow-up questions *</Text>
             <TextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -352,11 +378,15 @@ export default function ContributePhotoScreen() {
               value={email}
               ref={emailInput}
               accessibilityLabel="Email for follow-up questions"
+              aria-invalid={validation === 'email' && Boolean(validationErrors.email)}
+              accessibilityHint="Required field."
+              aria-required
               editable={!submitting}
               onChangeText={setEmailDraft}
               onFocus={() => scrollFocusedInputIntoView('email')}
               onLayout={(event) => recordInputOffset('email', event)}
             />
+            {validation === 'email' && validationErrors.email ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{validationErrors.email}</Text> : null}
 
             <ConsentRow
               checked={rightsConfirmed}
@@ -376,13 +406,14 @@ export default function ContributePhotoScreen() {
               disabled={submitting || pickingPhotos}
               accessibilityRole="button"
               aria-busy={submitting}
+              accessibilityState={{ disabled: submitting || pickingPhotos, busy: submitting }}
               onPress={() => void submitPhotos()}
             >
               <Text style={styles.submitButtonText}>
                 {submitting ? 'Sending...' : pickingPhotos ? 'Preparing photos...' : 'Submit photos'}
               </Text>
             </Pressable>
-            <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text>
+            <Text accessibilityLiveRegion="polite" style={styles.status}>{validationMessage || status}</Text>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -420,7 +451,7 @@ function ConsentRow({
       disabled={disabled}
       accessibilityRole="checkbox"
       accessibilityLabel={label}
-      accessibilityState={{ checked }}
+      accessibilityState={{ checked, disabled }}
       aria-checked={checked}
       {...selectionKeyboardProps(onPress, disabled)}
     >
@@ -442,6 +473,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
+    width: '100%',
+    maxWidth: 640,
+    alignSelf: 'center',
     padding: spacing.lg,
     gap: spacing.lg,
   },
@@ -470,7 +504,7 @@ const styles = StyleSheet.create({
   },
   sourceButton: {
     flex: 1,
-    minHeight: 42,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     alignItems: 'center',
@@ -485,7 +519,7 @@ const styles = StyleSheet.create({
   },
   sourceButtonSecondary: {
     flex: 1,
-    minHeight: 42,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.surfaceStrong,
     borderWidth: 1,
@@ -523,7 +557,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvasMuted,
   },
   removeButton: {
-    minHeight: 30,
+    minHeight: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
     alignItems: 'center',
@@ -549,6 +583,8 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     textAlign: 'center',
   },
+  fieldError: { color: colors.noGo, fontSize: 13, lineHeight: 18, marginTop: -spacing.sm },
+  fieldLabel: { color: colors.text, fontSize: 14, fontWeight: '800', marginBottom: -spacing.sm },
   input: {
     borderRadius: radius.md,
     borderWidth: 1,
@@ -558,7 +594,7 @@ const styles = StyleSheet.create({
     minHeight: 46,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '700',
   },
   captionInput: {
@@ -566,6 +602,8 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   consentRow: {
+    minHeight: 44,
+    paddingVertical: spacing.xs,
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: spacing.sm,

@@ -1,7 +1,8 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { useState } from 'react';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { callForDecision, normalizeApiText } from '../lib/format';
+import { normalizeApiText } from '../lib/format';
+import { routeDecisionPresentation } from '../lib/map-decision';
 import { routePhotoForRiver } from '../lib/route-photos';
 import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -34,6 +35,7 @@ export function RiverCard({
   segmentEndpointLabel?: string;
   routeCount?: number;
 }) {
+  const decision = routeDecisionPresentation(river);
   const facts = routePreviewFactItems(river.river, {
     includeNoCamping: true,
   }).filter((fact) => fact !== river.summary.gaugeNow);
@@ -52,15 +54,15 @@ export function RiverCard({
 
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
-          <Text style={styles.cardVerdict} numberOfLines={2}>{callForDecision(river.rating, river.readiness.status)}</Text>
-          <Text style={styles.scoreLabel} numberOfLines={1}>Score {river.score}</Text>
+          <Text style={styles.cardVerdict} numberOfLines={2}>{decision.label}</Text>
+          <Text style={styles.scoreLabel} numberOfLines={1}>{decision.scoreLabel}</Text>
         </View>
         <View style={styles.copy}>
           <View style={styles.topRow}>
             <Text style={styles.name}>{river.river.name}</Text>
             <View style={styles.actions}>
-              {onToggleSaved ? <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
-              <QualityPill rating={river.rating} />
+              {onToggleSaved ? <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
+              <QualityPill rating={river.rating} readiness={decision.readiness} />
             </View>
           </View>
           <Text style={styles.reach}>
@@ -72,7 +74,7 @@ export function RiverCard({
               {segmentEndpointLabel ? <Text style={styles.segmentEndpoint} numberOfLines={2}>{segmentEndpointLabel}</Text> : null}
             </View>
           ) : null}
-          <Text style={styles.explanation}>{routeDecisionLine(river.rating, river.summary.shortExplanation)}</Text>
+          <Text style={styles.explanation}>{decision.call === 'unavailable' ? river.readiness.reason : routeDecisionLine(river.summary.shortExplanation)}</Text>
         </View>
       </View>
 

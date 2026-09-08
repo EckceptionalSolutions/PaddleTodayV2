@@ -9,11 +9,26 @@ function route(slug: string, riverId: string, zone: string, score = 80): Explore
       region: zone, putIn: { latitude: 45, longitude: -93 },
       takeOut: { latitude: 45.2, longitude: -93.2 },
     },
-    score, rating: 'Good', selectedSegment: null,
+    score, rating: 'Good', readiness: { status: 'ready', label: 'Ready', reason: 'Fixture' }, selectedSegment: null,
   } as ExploreRiver;
 }
 
 describe('Explore map grouping', () => {
+  it('keeps different calls separate even when their zone and raw score match', () => {
+    const current = route('current', 'river', 'zone', 95);
+    const withheld: ExploreRiver = { ...route('withheld', 'river', 'zone', 95), readiness: { status: 'withheld', label: 'Withheld', reason: 'Missing evidence' } };
+    const inputs = [current, withheld];
+    for (const individual of [false, true]) {
+      const points = buildExploreMapPoints(inputs, buildRouteGroupMeta(inputs), inputs, individual);
+      expect(points).toHaveLength(2);
+      expect(points.find(point => point.routeSlug === 'current')?.score).toBe(95);
+      const missing = points.find(point => point.routeSlug === 'withheld');
+      expect(missing?.score).toBeNull();
+      expect(missing?.rating).toBe('unavailable');
+      expect(missing?.markerLabel).toBe('—');
+      expect(missing?.markerAccessibilityLabel).not.toContain('95');
+    }
+  });
   const routes = [route('a', 'river-1', 'north'), route('b', 'river-1', 'north'), route('c', 'river-1', 'south', 70), route('d', 'river-2', 'east')];
   const counts = buildRouteGroupMeta(routes);
 

@@ -1,3 +1,9 @@
+import { AlertSetupSheet } from '../components/alert-setup-sheet';
+import { AccessPointSelector } from '../components/access-point-selector';
+import { routeDecisionPresentation } from '../lib/map-decision';
+import { currentWeatherView, weatherHourLabel } from '../lib/weather-view';
+import { AppButton } from '../components/app-button';
+import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import {
   buildHourlyWeatherTimingViewModel,
   buildRiverDetailLogisticsViewModel,
@@ -5,14 +11,14 @@ import {
   buildRouteSafetyViewModel,
   buildScoreBreakdownViewModel,
   campingClassificationLabel,
-  callLabelForDecision,
-  formatHourlyWeatherLabel,
+  callStateForDecision,
   routeAccessPoints,
   parsePaddleTimeHours,
   signedPoints,
   type ApprovedCommunityPhoto,
   type ApprovedTripReport,
   type DecisionChecklistItem,
+  type DecisionReadinessStatus,
   type HourlyWeatherRisk,
   type HourlyWeatherTimingViewModel,
   type RiverAccessPoint,
@@ -32,13 +38,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
-  Modal,
-  Platform,
   Pressable,
   RefreshControl,
   Share,
   ScrollView,
-  StyleProp,
   StyleSheet,
   Text,
   TextInput,
@@ -59,7 +62,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppRefreshNotice } from '../components/app-state';
-import { QualityPill, ratingColors } from '../components/rating-pill';
+import { QualityPill, decisionColors, ratingColors } from '../components/rating-pill';
 import { RoutePhotoCard } from '../components/route-photo-card';
 import { RoutePhotoFallback } from '../components/route-photo-fallback';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
@@ -93,6 +96,7 @@ import {
 import { androidBottomInset } from '../lib/safe-area';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
+import { useRecentRoute } from '../hooks/use-recent-route';
 import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
@@ -120,6 +124,7 @@ export default function RiverDetailScreen() {
     slug?: string | string[];
     putin?: string | string[];
     takeout?: string | string[];
+    prepare?: string | string[];
     source?: string | string[];
   }>();
   const router = useRouter();
@@ -128,6 +133,9 @@ export default function RiverDetailScreen() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const deepLinkPutInId = firstParamValue(params.putin);
   const deepLinkTakeOutId = firstParamValue(params.takeout);
+  const prepareRequest = firstParamValue(params.prepare);
+  const handledPrepareRequest = useRef<string | null>(null);
+  const [draftResumeError, setDraftResumeError] = useState('');
   const routeSource = firstParamValue(params.source);
   const recommendationSourceLabel = routeSource === 'today'
     ? 'Recommended from Today'
@@ -203,6 +211,7 @@ export default function RiverDetailScreen() {
   }, [summaryQuery.data?.rivers, summaryRoute]);
 
   const detail = detailQuery.data?.result ?? null;
+  useRecentRoute(detail?.river);
   const isPlanningRoute = detail?.river.scoreEligibility === 'planning';
   const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '', summarySiblingCount === null);
   const history = historyQuery.data?.result ?? null;
@@ -244,6 +253,7 @@ export default function RiverDetailScreen() {
     }
 
     const points = routeAccessPoints(detail.river);
+    setDraftResumeError('');
     const linkedPutIn = points.find((point) => point.id === deepLinkPutInId);
     const linkedTakeOut = points.find((point) => point.id === deepLinkTakeOutId);
     const validDeepLink = Boolean(
@@ -277,6 +287,24 @@ export default function RiverDetailScreen() {
       source: validDeepLink ? 'deep_link' : 'default',
     });
   }, [detailSlug]);
+
+  useEffect(() => {
+    if (!prepareRequest || !detail || detail.river.slug !== slug) return;
+    const requestKey = `${slug}:${prepareRequest}`;
+    if (handledPrepareRequest.current === requestKey) return;
+    handledPrepareRequest.current = requestKey;
+    setDraftResumeError('');
+    setActiveSection('Access');
+    const putIn = accessPoints.find(point => point.id === deepLinkPutInId);
+    const takeOut = accessPoints.find(point => point.id === deepLinkTakeOutId);
+    if (!putIn || !takeOut || putIn.mileFromStart >= takeOut.mileFromStart) {
+      setDraftResumeError('This draft’s access points are no longer available on the route. The draft is still saved. Review the access points before starting a new plan.');
+      return;
+    }
+    setSelectedPutInId(putIn.id);
+    setSelectedTakeOutId(takeOut.id);
+    setPrepareTripVisible(true);
+  }, [prepareRequest, detail, slug, accessPoints, deepLinkPutInId, deepLinkTakeOutId]);
 
   useEffect(() => {
     if (pendingSectionScrollRef.current !== activeSection) {
@@ -335,7 +363,12 @@ export default function RiverDetailScreen() {
   }
 
   const readiness = buildRiverReadinessViewModel(detail);
+  const decisionReadiness: DecisionReadinessStatus = readiness.verdict === 'go' ? 'ready' : readiness.verdict === 'watch' ? 'verify' : readiness.verdict;
+  const isStaleSnapshot = detailQuery.data?.snapshotStatus === 'stale';
+  const decisionPresentation = routeDecisionPresentation({ ...detail, readiness: { ...detail.readiness, status: decisionReadiness } });
+  const currentScoreUnavailable = isStaleSnapshot || decisionPresentation.score === null;
   const effectiveLiveData = readiness.effectiveLiveData;
+  const weatherView = currentWeatherView(detail.weather, isStaleSnapshot || effectiveLiveData.weather.state !== 'live');
   const riverSlug = detail.river.slug;
   const riverId = detail.river.riverId;
   function updatePlannerParams(putInId: string | null, takeOutId: string | null, distanceMiles: number | null) {
@@ -407,12 +440,12 @@ export default function RiverDetailScreen() {
       return;
     }
 
-    const message = buildRouteShareMessage(detail, selectedPutIn, selectedTakeOut);
+    const message = buildRouteShareMessage(detail, selectedPutIn, selectedTakeOut, isStaleSnapshot);
     const request = {};
     shareRequest.current = request;
     setSharePending(true);
     setShareCopy('');
-    setShareStatus(isPlanningRoute ? 'Opening share sheet with planning details and access links.' : 'Opening share sheet with score, reason, and access links.');
+    setShareStatus(isPlanningRoute ? 'Opening share sheet with planning details and access links.' : 'Opening share sheet with the route call and access links.');
     trackAppEvent('route_share_started', {
       slug: riverSlug,
       rating: detail.rating,
@@ -682,8 +715,10 @@ export default function RiverDetailScreen() {
           />
         }
       >
+        <AlertPreferencesNotice />
         <AppRefreshNotice
           isError={detailQuery.isError}
+          isStale={detailQuery.data?.snapshotStatus === 'stale'}
           retrying={detailQuery.isFetching}
           dataUpdatedAt={detailQuery.dataUpdatedAt}
           label="Showing the last available route details. Check current conditions before launching."
@@ -707,10 +742,10 @@ export default function RiverDetailScreen() {
                 <Text style={styles.planningHeroMark}>—</Text>
               </View>
             ) : (
-              <View style={[styles.heroScore, { backgroundColor: ratingColors(detail.rating).backgroundColor }]}>
+              <View style={[styles.heroScore, { backgroundColor: decisionColors(detail.rating, decisionReadiness).backgroundColor }]}>
                 <MaterialCommunityIcons
-                  name={verdictIconForRating(detail.rating)}
-                  color={ratingColors(detail.rating).textColor}
+                  name={verdictIconForDecision(detail.rating, decisionReadiness)}
+                  color={decisionColors(detail.rating, decisionReadiness).textColor}
                   size={28}
                 />
               </View>
@@ -740,6 +775,7 @@ export default function RiverDetailScreen() {
                     onPress={() => void shareRouteCall()}
                   />
                   <SaveToggleButton
+                    routeSlug={detail.river.slug}
                     routeLabel={`${detail.river.name}: ${detail.river.reach}`}
                     compact
                     primary
@@ -756,11 +792,11 @@ export default function RiverDetailScreen() {
                 </View>
               </View>
               {recommendationSourceLabel ? <Text style={styles.todayRecommendationLabel}>{recommendationSourceLabel}</Text> : null}
-              <Text style={styles.heroVerdictTitle}>{isPlanningRoute ? 'Planning route' : decisionStatement(detail)}</Text>
-              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : `Trip quality: ${qualityForRating(detail.rating)} · ${detail.score}`}</Text>
+              <Text style={styles.heroVerdictTitle}>{isPlanningRoute ? 'Planning route' : readiness.verdictLabel}</Text>
+              <Text style={styles.subtitle}>{isPlanningRoute ? 'Not scored today' : currentScoreUnavailable ? 'Current score unavailable' : decisionPresentation.scoreLabel}</Text>
               <Text style={styles.routeMetaLine} numberOfLines={3}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
-                {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <QualityPill rating={detail.rating} />}
+                {isPlanningRoute ? <Text style={styles.planningLabel}>Proxy gauge · verify local conditions</Text> : <QualityPill rating={detail.rating} readiness={decisionReadiness} />}
                 {!isPlanningRoute ? <StatusPill status={effectiveLiveData.overall} /> : null}
               </View>
               {shareStatus ? <Text accessibilityLiveRegion="polite" style={styles.shareStatus}>{shareStatus}</Text> : null}
@@ -768,9 +804,9 @@ export default function RiverDetailScreen() {
             </View>
           </View>
           {isPlanningRoute ? (
-            <PlanningStatusCard detail={detail} />
+            <PlanningStatusCard detail={detail} referenceWeather={weatherView.reference} />
           ) : null}
-          {!isPlanningRoute ? <DecisionSummary detail={detail} /> : null}
+          {!isPlanningRoute ? <DecisionSummary detail={detail} stale={detailQuery.data?.snapshotStatus === 'stale'} /> : null}
           <RouteSafetyPanel detail={detail} />
           {!isPlanningRoute && effectiveLiveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
@@ -782,6 +818,8 @@ export default function RiverDetailScreen() {
         {detail.river.riverId && siblingRouteCount > 1 ? (
           <Pressable
             style={styles.riverHubLink}
+            accessibilityRole="button"
+            accessibilityLabel={`Compare ${siblingRouteCount} routes on ${detail.river.name}`}
             onPress={() => router.push({ pathname: '/river-hub/[riverId]', params: { riverId: detail.river.riverId ?? '' } })}
           >
             <View style={styles.riverHubLinkIcon}>
@@ -819,7 +857,7 @@ export default function RiverDetailScreen() {
             }}
           >
             {!isPlanningRoute ? <View>
-              <SectionCard title="Current conditions" subtitle={normalizeApiText(effectiveLiveData.summary)}>
+              <SectionCard title={isStaleSnapshot ? 'Saved conditions' : 'Current conditions'} subtitle={normalizeApiText(effectiveLiveData.summary)}>
                 <Text style={styles.conditionFreshness}>{conditionFreshnessText(detail)}</Text>
                 <View style={styles.conditionList}>
                   <ConditionRow
@@ -841,13 +879,13 @@ export default function RiverDetailScreen() {
                   />
                   <ConditionRow
                     icon="weather-partly-cloudy"
-                    label="Weather"
+                    label={weatherView.reference ? 'Weather reference' : 'Weather'}
                     value={readiness.weather.compactValue}
                     subvalue={readiness.weather.conditionLabel}
                     detail={normalizeApiText(effectiveLiveData.weather.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                   />
-                  <WeatherDecisionCard detail={detail} />
+                  <WeatherDecisionCard view={weatherView} refreshing={detailQuery.isFetching} onRefresh={() => void detailQuery.refetch({ cancelRefetch: false })} />
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
@@ -926,6 +964,8 @@ export default function RiverDetailScreen() {
               </View>
               <Pressable
                 style={styles.reportCtaButton}
+                accessibilityRole="button"
+                accessibilityLabel="Contribute route photos"
                 onPress={() => {
                   trackAppEvent('route_photo_contribution_started', { slug: riverSlug, source: 'reports_section' });
                   router.push({ pathname: '/contribute-photo/[slug]', params: { slug: riverSlug } });
@@ -944,6 +984,8 @@ export default function RiverDetailScreen() {
               </View>
               <Pressable
                 style={styles.reportCtaButton}
+                accessibilityRole="button"
+                accessibilityLabel="Send route report"
                 onPress={() => {
                   trackAppEvent('route_report_started', { slug: riverSlug });
                   setReportSheetVisible(true);
@@ -968,6 +1010,8 @@ export default function RiverDetailScreen() {
             >
               <Pressable
                 style={styles.alertCta}
+                accessibilityRole="button"
+                accessibilityLabel="Manage this route’s alerts"
                 onPress={() => {
                   trackAppEvent('route_alert_sheet_opened', { slug: riverSlug, source: 'more' });
                   setAlertSheetVisible(true);
@@ -1001,20 +1045,20 @@ export default function RiverDetailScreen() {
               </View>
             </SectionCard>
 
-            {!isPlanningRoute ? <ScoreExplanationCard breakdown={detail.scoreBreakdown} /> : null}
+            {!isPlanningRoute ? <ScoreExplanationCard breakdown={detail.scoreBreakdown} isStale={isStaleSnapshot} unavailable={currentScoreUnavailable} /> : null}
 
             <SectionCard
-              title="Upcoming outlook"
-              subtitle="Weekend forecasts are more cautious."
+              title={isStaleSnapshot ? "Saved outlook" : "Upcoming outlook"}
+              subtitle={isStaleSnapshot ? "Forecasts from the saved update. Refresh before using them to plan." : "Weekend forecasts are more cautious."}
             >
-              <OutlookRows outlooks={detail.outlooks} />
+              <OutlookRows outlooks={detail.outlooks} isStale={isStaleSnapshot} />
             </SectionCard>
 
             <SectionCard
-              title="Weather through today"
-              subtitle="Hourly weather for timing."
+              title={isStaleSnapshot ? "Weather in the saved update" : weatherView.reference ? 'Weather reference' : "Weather through today"}
+              subtitle={weatherView.reference ? "Reference weather. Refresh before timing your trip." : "Hourly weather for timing."}
             >
-              <HourlyWeatherStrip detail={detail} />
+              <HourlyWeatherStrip view={weatherView} />
             </SectionCard>
 
             <SectionCard
@@ -1108,6 +1152,7 @@ export default function RiverDetailScreen() {
                 ) : null}
               </View>
               <RouteDirectionActions putIn={selectedPutIn} takeOut={selectedTakeOut} />
+              {draftResumeError ? <Text accessibilityLiveRegion="polite" style={styles.subtitle}>{draftResumeError}</Text> : null}
               <Pressable
                 style={styles.prepareTripButton}
                 onPress={() => {
@@ -1204,6 +1249,7 @@ export default function RiverDetailScreen() {
       />
 
       <AlertSetupSheet
+        routeSlug={riverSlug}
         visible={alertSheetVisible && !isPlanningRoute}
         routeName={detail.river.name}
         routeReach={detail.river.reach}
@@ -1327,7 +1373,8 @@ function compactRouteDistanceLabel(value: string) {
 function buildRouteShareMessage(
   detail: RiverDetailApiResult,
   putIn: RiverAccessPoint | undefined,
-  takeOut: RiverAccessPoint | undefined
+  takeOut: RiverAccessPoint | undefined,
+  isStale: boolean
 ) {
   const putInUrl = mapUrlForAccessPoint(putIn);
   const takeOutUrl = mapUrlForAccessPoint(takeOut);
@@ -1336,12 +1383,14 @@ function buildRouteShareMessage(
     routeUrl.searchParams.set('putin', putIn.id);
     routeUrl.searchParams.set('takeout', takeOut.id);
   }
-  const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}`;
+  const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}${routeUrl.search ? routeUrl.search : ''}`;
+  const readiness = buildRiverReadinessViewModel(detail);
+  const hasCurrentScore = !isStale && readiness.verdict !== 'withheld';
   const isPlanning = detail.river.scoreEligibility === 'planning';
   const lines = [
     `PaddleToday - ${detail.river.name}`,
     `${detail.river.reach}`,
-    isPlanning ? 'Planning route - no same-day score' : `${detail.score} · ${callLabelForDecision(detail.rating, detail.readiness.status)} · ${qualityForRating(detail.rating)}`,
+    isPlanning ? 'Planning route - no same-day score' : `${hasCurrentScore ? `Score ${detail.score}` : 'Current score unavailable'} · ${readiness.verdictLabel}`,
     routeHeroLine(detail),
     `Open in app: ${appUrl}`,
     `Web link: ${routeUrl.toString()}`,
@@ -1387,13 +1436,11 @@ function compactHeroPaddleTime(value: string) {
   return `${compact.slice(0, 67).trimEnd()}…`;
 }
 
-function decisionStatement(detail: RiverDetailApiResult) {
-  return callLabelForDecision(detail.rating, detail.readiness.status);
-}
-
-function verdictIconForRating(rating: RiverDetailApiResult['rating']) {
-  if (rating === 'Strong' || rating === 'Good') return 'check-circle-outline';
-  if (rating === 'Fair') return 'alert-circle-outline';
+function verdictIconForDecision(rating: RiverDetailApiResult['rating'], readiness: DecisionReadinessStatus) {
+  const call = callStateForDecision(rating, readiness);
+  if (call === 'unavailable') return 'help-circle-outline';
+  if (call === 'paddle') return 'check-circle-outline';
+  if (call === 'watch') return 'alert-circle-outline';
   return 'close-circle-outline';
 }
 
@@ -1429,7 +1476,18 @@ function conditionFreshnessText(detail: RiverDetailApiResult) {
   return updates.length > 0 ? updates.join(' · ') : 'Update timing unavailable';
 }
 
-function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
+function DecisionSummary({ detail, stale = false }: { detail: RiverDetailApiResult; stale?: boolean }) {
+  const [showPrevious, setShowPrevious] = useState(false);
+  if (stale) return <View style={styles.decisionSummary}>
+    <Text style={styles.decisionSummaryLabel}>Saved conditions</Text>
+    <Text style={styles.decisionBulletText}>These observations are from an older snapshot. Refresh before relying on them.</Text>
+    {detail.readiness.status === 'skip' || detail.readiness.status === 'verify' ? <Text style={styles.decisionBulletText}>Last recorded caution: {normalizeApiText(detail.readiness.reason)}</Text> : null}
+    <Pressable accessibilityRole="button" accessibilityState={{ expanded: showPrevious }} aria-expanded={showPrevious}
+      style={styles.decisionDisclosure} onPress={() => setShowPrevious(current => !current)}>
+      <Text style={styles.decisionBulletLabel}>{showPrevious ? 'Hide saved explanation' : 'Show saved explanation'}</Text>
+    </Pressable>
+    {showPrevious ? <Text style={styles.decisionBulletText}>{normalizeApiText(detail.explanation)}</Text> : null}
+  </View>;
   const items = decisionSummaryItems(detail).slice(0, 2);
   return (
     <View style={styles.decisionSummary}>
@@ -1449,7 +1507,7 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
-function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
+function ScoreExplanationCard({ breakdown, isStale, unavailable }: { breakdown: ScoreBreakdown; isStale: boolean; unavailable: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const model = buildScoreBreakdownViewModel(breakdown);
   const labels = {
@@ -1472,8 +1530,8 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
         style={styles.scoreWhyHeader}
       >
         <View style={styles.scoreWhyHeaderCopy}>
-          <Text style={styles.scoreWhyTitle}>Why this score?</Text>
-          <Text style={styles.scoreWhySubtitle}>How today’s score was calculated.</Text>
+          <Text style={styles.scoreWhyTitle}>{isStale ? 'Saved score calculation' : unavailable ? 'Score calculation' : 'Why this score?'}</Text>
+          <Text style={styles.scoreWhySubtitle}>{isStale ? 'Reference from the saved update, not current conditions.' : unavailable ? 'These factors do not establish a current call.' : 'How today’s score was calculated.'}</Text>
         </View>
         <View style={styles.scoreWhyToggle}>
           <MaterialCommunityIcons
@@ -1631,13 +1689,13 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
       </View>
       <View style={styles.sourceActionsButtons}>
         {sourceUrl ? (
-          <Pressable style={styles.sourceActionButton} onPress={() => openGaugeSource(detail, sourceUrl, 'detail')}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Open gauge source" style={styles.sourceActionButton} onPress={() => openGaugeSource(detail, sourceUrl, 'detail')}>
             <MaterialCommunityIcons name="open-in-new" color={colors.accent} size={16} />
             <Text style={styles.sourceActionText}>Source</Text>
           </Pressable>
         ) : null}
         {hydrographUrl ? (
-          <Pressable style={styles.sourceActionButton} onPress={() => openGaugeSource(detail, hydrographUrl, 'hydrograph')}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Open gauge graph" style={styles.sourceActionButton} onPress={() => openGaugeSource(detail, hydrographUrl, 'hydrograph')}>
             <MaterialCommunityIcons name="chart-line" color={colors.accent} size={16} />
             <Text style={styles.sourceActionText}>Graph</Text>
           </Pressable>
@@ -1827,7 +1885,7 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
-function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
+function OutlookRows({ outlooks, isStale }: { outlooks: RiverOutlook[]; isStale: boolean }) {
   if (outlooks.length === 0) {
     return <Text style={styles.emptyText}>No forecasts are available for this route yet.</Text>;
   }
@@ -1840,13 +1898,13 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
             <View style={styles.outlookTitleWrap}>
               <Text style={styles.outlookLabel}>{outlook.label}</Text>
               <Text style={styles.outlookAvailability}>
-                {outlook.availability === 'available' ? 'Available' : 'No forecast'}
+                {outlook.availability === 'available' ? isStale ? 'Saved forecast' : 'Available' : 'No forecast'}
               </Text>
             </View>
-            <View style={[styles.outlookScore, outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
-              <Text style={[styles.outlookScoreValue, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : (outlook.score ?? '--')}</Text>
-              <Text style={[styles.outlookScoreLabel, outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>
-                {outlook.rating
+            <View style={[styles.outlookScore, !isStale && outlook.rating ? ratingBackground(outlook.rating) : styles.outlookScoreMuted]}>
+              <Text style={[styles.outlookScoreValue, !isStale && outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>{outlook.scoreRange ? `${outlook.scoreRange.min}-${outlook.scoreRange.max}` : (outlook.score ?? '--')}</Text>
+              <Text style={[styles.outlookScoreLabel, !isStale && outlook.rating ? { color: ratingColors(outlook.rating).textColor } : null]}>
+                {isStale ? 'Saved forecast score' : outlook.rating
                   ? `${callForRating(outlook.rating, outlook.id === 'weekend' ? 'weekend' : 'today', true)} · ${qualityForRating(outlook.rating)}`
                   : 'No forecast yet'}
               </Text>
@@ -1865,8 +1923,8 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
   );
 }
 
-function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
-  const points = (detail.weather?.todayHourly ?? []).slice(0, 10);
+function HourlyWeatherStrip({ view }: { view: ReturnType<typeof currentWeatherView> }) {
+  const points = (view.weather?.todayHourly ?? []).slice(0, 10);
 
   if (points.length === 0) {
     return <Text style={styles.emptyText}>Hourly weather is unavailable right now.</Text>;
@@ -1879,10 +1937,10 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
           key={`${point.time}-${index}`}
           style={[
             styles.weatherCard,
-            index === 0 ? styles.weatherCardCurrent : null,
+            index === 0 && !view.reference ? styles.weatherCardCurrent : null,
           ]}
         >
-          <Text style={styles.weatherHour}>{formatHourlyWeatherLabel(point.time, point.label)}</Text>
+          <Text style={styles.weatherHour}>{weatherHourLabel(point.time, view.reference, view.now)}</Text>
           <Text style={styles.weatherTemp}>{formatTemperature(point.temperatureF, '--')}</Text>
           <Text style={styles.weatherCondition}>
             {normalizeApiText(point.conditionLabel || 'Mixed')}
@@ -1899,11 +1957,15 @@ function HourlyWeatherStrip({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
-function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
-  const model = buildHourlyWeatherTimingViewModel(detail.weather);
+function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType<typeof currentWeatherView>; refreshing: boolean; onRefresh: () => void }) {
+  const model = buildHourlyWeatherTimingViewModel(view.weather);
 
   if (!model) {
-    return null;
+    return <View style={styles.weatherDecisionPanel}>
+      <Text style={styles.weatherDecisionTitle}>Hourly forecast unavailable</Text>
+      <Text style={styles.weatherDecisionText}>This update has no hourly forecast to help time your trip.</Text>
+      <AppButton label="Refresh weather" variant="secondary" busy={refreshing} busyLabel="Refreshing weather…" onPress={onRefresh} />
+    </View>;
   }
 
   const badge = mobileWeatherDecisionBadge(model);
@@ -1912,15 +1974,16 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
     <View style={styles.weatherDecisionPanel}>
       <View style={styles.weatherDecisionHeader}>
         <View style={styles.weatherDecisionTitleWrap}>
-          <Text style={styles.weatherDecisionKicker}>Paddle window</Text>
-          <Text style={styles.weatherDecisionTitle}>{model.title}</Text>
+          <Text style={styles.weatherDecisionKicker}>{view.reference ? 'Weather reference' : 'Paddle window'}</Text>
+          <Text style={styles.weatherDecisionTitle}>{view.reference ? 'Current paddle window unavailable' : model.title}</Text>
         </View>
-        <View style={[styles.weatherDecisionBadge, badge.style]}>
-          <MaterialCommunityIcons name={badge.icon} color={colors.surfaceStrong} size={15} />
-          <Text style={styles.weatherDecisionBadgeText}>{model.badgeLabel}</Text>
+        <View style={[styles.weatherDecisionBadge, view.reference ? { backgroundColor: colors.textMuted } : badge.style]}>
+          <MaterialCommunityIcons name={view.reference ? 'history' : badge.icon} color={colors.surfaceStrong} size={15} />
+          <Text style={styles.weatherDecisionBadgeText}>{view.reference ? 'Reference' : model.badgeLabel}</Text>
         </View>
       </View>
-      <Text style={styles.weatherDecisionText}>{model.summary}</Text>
+      <Text style={styles.weatherDecisionText}>{view.reference ? 'These weather values do not establish a current launch window. Refresh the forecast before timing your trip.' : model.summary}</Text>
+      {view.reference ? <AppButton label="Refresh weather" variant="secondary" busy={refreshing} busyLabel="Refreshing weather…" onPress={onRefresh} /> : null}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherTimeline}>
         {model.points.map((point, index) => {
           const risk = point.risk;
@@ -1930,13 +1993,14 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
               key={`${point.time}-${index}`}
               style={[
                 styles.weatherTimelineCell,
-                index === 0 ? styles.weatherTimelineCellCurrent : null,
-                risk.level === 'watch' ? styles.weatherTimelineCellWatch : null,
-                risk.level === 'skip' ? styles.weatherTimelineCellSkip : null,
+                view.reference ? { width: 112 } : null,
+                !view.reference && index === 0 ? styles.weatherTimelineCellCurrent : null,
+                !view.reference && risk.level === 'watch' ? styles.weatherTimelineCellWatch : null,
+                !view.reference && risk.level === 'skip' ? styles.weatherTimelineCellSkip : null,
               ]}
             >
-              <Text style={styles.weatherTimelineHour}>{index === 0 ? 'Now' : point.displayLabel}</Text>
-              <MaterialCommunityIcons name={riskVisual.icon} color={riskVisual.color} size={18} />
+              <Text style={styles.weatherTimelineHour}>{weatherHourLabel(point.time, view.reference, view.now)}</Text>
+              <MaterialCommunityIcons name={riskVisual.icon} color={view.reference ? colors.textMuted : riskVisual.color} size={18} />
               <Text style={styles.weatherTimelineRain}>{formatPercent(point.precipProbability, 'Rain chance unavailable')}</Text>
               <Text style={styles.weatherTimelineWind}>{typeof point.windMph === 'number' && Number.isFinite(point.windMph) ? `${Math.round(point.windMph)} mph` : 'Wind unavailable'}</Text>
             </View>
@@ -1947,13 +2011,13 @@ function WeatherDecisionCard({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
-function PlanningStatusCard({ detail }: { detail: RiverDetailApiResult }) {
+function PlanningStatusCard({ detail, referenceWeather }: { detail: RiverDetailApiResult; referenceWeather: boolean }) {
   const weather = detail.weather;
   const weatherSummary = weather
     ? [
         formatTemperature(weather.temperatureF),
         weather.windMph !== null ? `${Math.round(weather.windMph)} mph wind` : null,
-        weather.rainTimingLabel,
+        referenceWeather ? null : weather.rainTimingLabel,
       ].filter(Boolean).join(' · ')
     : 'Check the local forecast before launching.';
 
@@ -1976,20 +2040,23 @@ function PlanningStatusCard({ detail }: { detail: RiverDetailApiResult }) {
       </View>
       <View style={styles.planningWeatherBox}>
         <View style={styles.planningWeatherHeader}>
-          <Text style={styles.planningWeatherLabel}>Local weather context</Text>
+          <Text style={styles.planningWeatherLabel}>{referenceWeather ? 'Reference weather' : 'Local weather context'}</Text>
           <Text style={styles.planningWeatherNote}>Not used for a score</Text>
         </View>
         <Text style={styles.planningWeatherCondition}>{weather?.conditionLabel ?? 'Forecast unavailable'}</Text>
         <Text style={styles.planningWeatherSummary}>{weatherSummary}</Text>
+        {referenceWeather ? <Text style={styles.planningWeatherSummary}>Refresh the forecast before timing your trip.</Text> : null}
       </View>
       <Pressable
         style={styles.planningPrimaryAction}
+        accessibilityRole="button"
         onPress={() => void openExternalUrl(detail.river.gaugeSource.detailUrl ?? resolveWebUrl('/about/#proxy-gauges'), 'Source gauge')}
       >
         <Text style={styles.planningPrimaryActionText}>Open source gauge</Text>
       </Pressable>
       <Pressable
         style={styles.planningMethodologyAction}
+        accessibilityRole="button"
         onPress={() => void openExternalUrl(resolveWebUrl('/about/#proxy-gauges'), 'Gauge methodology')}
       >
         <Text style={styles.planningMethodologyActionText}>Why proxy routes are not scored</Text>
@@ -2136,91 +2203,6 @@ function DetailSectionTabs({
   );
 }
 
-function AlertSetupSheet({
-  visible,
-  routeName,
-  routeReach,
-  status,
-  bottomInset,
-  pendingThreshold,
-  onClose,
-  onNativeAlert,
-}: {
-  visible: boolean;
-  routeName: string;
-  routeReach: string;
-  status: string;
-  bottomInset: number;
-  pendingThreshold: RiverAlertThreshold | null;
-  onClose: () => void;
-  onNativeAlert: (threshold: RiverAlertThreshold) => void;
-}) {
-  return (
-    <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
-      <View style={styles.alertSheetScrim}>
-        <View style={[styles.alertSheet, { paddingBottom: spacing.md + bottomInset }]}>
-          <View style={styles.alertSheetHandle} />
-          <View style={styles.alertSheetHeader}>
-            <View style={styles.alertSheetTitleWrap}>
-              <Text style={styles.alertSheetKicker}>{routeName}</Text>
-              <Text accessibilityRole="header" style={styles.alertSheetTitle}>Route alerts</Text>
-              <Text style={styles.alertSheetSubtitle} numberOfLines={2}>
-                Get notified when {routeReach} reaches Good or Strong.
-              </Text>
-            </View>
-            <Pressable style={styles.alertSheetClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route alerts">
-              <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
-            </Pressable>
-          </View>
-
-          <View style={styles.alertSheetSection}>
-            <Text accessibilityRole="header" style={styles.alertSheetSectionTitle}>Phone notifications</Text>
-            <View style={styles.alertButtonRow}>
-              {(['good', 'strong'] as const).map((threshold) => {
-                const isPending = pendingThreshold === threshold;
-                const busy = pendingThreshold !== null;
-                return (
-                  <Pressable
-                    key={`native-${threshold}`}
-                    style={[styles.alertButton, busy ? styles.alertButtonDisabled : null]}
-                    disabled={busy}
-                    accessibilityRole="button"
-                    accessibilityLabel={`Phone alert at ${alertThresholdLabel(threshold)}`}
-                    accessibilityState={{ disabled: busy, busy: isPending }}
-                    aria-busy={isPending}
-                    onPress={() => onNativeAlert(threshold)}
-                  >
-                    <MaterialCommunityIcons name="bell-ring-outline" color={colors.surfaceStrong} size={16} />
-                    <Text style={styles.alertButtonText}>
-                      {isPending ? 'Saving...' : `At ${alertThresholdLabel(threshold)}`}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-          </View>
-
-          {status ? <Text accessibilityLiveRegion="polite" style={styles.alertStatus}>{status}</Text> : null}
-        </View>
-      </View>
-    </Modal>
-  );
-}
-
-function ChecklistRow({ item }: { item: DecisionChecklistItem }) {
-  return (
-    <View style={styles.checklistRow}>
-      <View style={[styles.checkStatus, checklistTone(item.status)]}>
-        <Text style={styles.checkStatusText}>{item.status}</Text>
-      </View>
-      <View style={styles.checkCopy}>
-        <Text style={styles.checkTitle}>{item.label}</Text>
-        <Text style={styles.checkDetail}>{normalizeApiText(item.detail)}</Text>
-      </View>
-    </View>
-  );
-}
-
 function AccessCard({
   label,
   point,
@@ -2313,89 +2295,6 @@ function AccessPlanner({
         {selectedPutIn.note || selectedTakeOut.note ? ` - ${selectedPutIn.note ?? selectedTakeOut.note}` : ''}
       </Text>
       <Text style={styles.accessPlannerRoute}>Full route: {detail.river.distanceLabel || 'distance not tracked'}.</Text>
-    </View>
-  );
-}
-
-function AccessPointSelector({
-  label,
-  points,
-  selectedId,
-  onSelect,
-}: {
-  label: string;
-  points: RiverRouteAccessPoint[];
-  selectedId: string | null;
-  onSelect: (point: RiverRouteAccessPoint) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const selectedPoint = points.find((point) => point.id === selectedId) ?? points[0];
-
-  return (
-    <View style={styles.accessSelector}>
-      <Text style={styles.accessSelectorLabel}>{label}</Text>
-      <Pressable
-        style={styles.accessDropdownButton}
-        onPress={() => setOpen(true)}
-        accessibilityRole="button"
-        accessibilityLabel={`Select ${label}, currently ${selectedPoint?.name ?? 'not selected'}`}
-        accessibilityState={{ expanded: open }}
-        aria-expanded={open}
-      >
-        <View style={styles.accessDropdownCopy}>
-          <Text style={styles.accessDropdownValue} numberOfLines={2}>
-            {selectedPoint?.name ?? 'Select access'}
-          </Text>
-          <Text style={styles.accessDropdownMeta}>
-            {selectedPoint ? formatSegmentMile(selectedPoint.mileFromStart) : 'Choose an access point'}
-          </Text>
-        </View>
-        <MaterialCommunityIcons name="chevron-down" color={colors.accent} size={22} />
-      </Pressable>
-      <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
-        <Pressable style={styles.accessDropdownBackdrop} onPress={() => setOpen(false)}>
-          <Pressable style={styles.accessDropdownSheet}>
-            <View style={styles.accessDropdownSheetHeader}>
-              <Text accessibilityRole="header" style={styles.accessDropdownSheetTitle}>{label}</Text>
-              <Pressable style={styles.accessDropdownClose} onPress={() => setOpen(false)} accessibilityRole="button" accessibilityLabel={`Close ${label} selection`}>
-                <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
-              </Pressable>
-            </View>
-            <ScrollView style={styles.accessDropdownList} contentContainerStyle={styles.accessDropdownListContent}>
-              {points.map((point) => {
-                const selected = point.id === selectedPoint?.id;
-                return (
-                  <Pressable
-                    key={`${label}-${point.id}`}
-                    style={[styles.accessDropdownItem, selected ? styles.accessDropdownItemSelected : null]}
-                    accessibilityRole="button"
-                    accessibilityLabel={`${label}: ${point.name}`}
-                    accessibilityState={{ selected }}
-                    aria-pressed={selected}
-                    onPress={() => {
-                      onSelect(point);
-                      setOpen(false);
-                    }}
-                  >
-                    <View style={styles.accessDropdownItemCopy}>
-                      <Text
-                        style={[styles.accessDropdownItemName, selected ? styles.accessDropdownItemNameSelected : null]}
-                        numberOfLines={2}
-                      >
-                        {point.name}
-                      </Text>
-                      <Text style={[styles.accessDropdownItemMeta, selected ? styles.accessDropdownItemMetaSelected : null]}>
-                        {formatSegmentMile(point.mileFromStart)}
-                      </Text>
-                    </View>
-                    {selected ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={19} /> : null}
-                  </Pressable>
-                );
-              })}
-            </ScrollView>
-          </Pressable>
-        </Pressable>
-      </Modal>
     </View>
   );
 }
@@ -2527,13 +2426,6 @@ function formatSegmentDistance(distance: number) {
   return `${distance.toFixed(distance >= 10 ? 0 : 1).replace(/\.0$/, '')} mi`;
 }
 
-function formatSegmentMile(mile: number) {
-  if (!Number.isFinite(mile)) {
-    return 'Mile --';
-  }
-
-  return `Mile ${mile.toFixed(mile >= 10 ? 0 : 1).replace(/\.0$/, '')}`;
-}
 
 function estimateSegmentPaddleTime(detail: RiverDetailApiResult, distanceMiles: number) {
   const fullDistance =
@@ -2697,13 +2589,6 @@ function compactGaugeSample(value: number, unit: RiverDetailApiResult['river']['
   return `${rounded}`;
 }
 
-function routeTypeLabel(value: RiverDetailApiResult['river']['routeType']) {
-  return value
-    .split('-')
-    .map(capitalize)
-    .join(' ');
-}
-
 function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualModel | null {
   const gauge = detail.gauge;
   const unit = detail.river.gaugeSource.unit;
@@ -2802,12 +2687,6 @@ function ratingBackground(rating: string) {
   return { backgroundColor: ratingColors(rating).backgroundColor };
 }
 
-function checklistTone(status: DecisionChecklistItem['status']) {
-  if (status === 'go') return { backgroundColor: '#E0EFE9' };
-  if (status === 'watch') return { backgroundColor: '#F3E8CC' };
-  return { backgroundColor: '#F2DDD6' };
-}
-
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
@@ -2865,6 +2744,7 @@ function ageLabel(value: string) {
 }
 
 const styles = StyleSheet.create({
+  decisionDisclosure: { minHeight: 44, justifyContent: 'center' },
   loadingPlaceholder: {
     backgroundColor: colors.canvasMuted,
     borderRadius: radius.lg,
@@ -2990,25 +2870,6 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     fontWeight: '800',
-  },
-  planningBanner: {
-    marginTop: spacing.sm,
-    padding: spacing.sm,
-    borderRadius: radius.md,
-    backgroundColor: colors.canvasMuted,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: 4,
-  },
-  planningBannerTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  planningBannerText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
   planningStatusCard: {
     marginTop: spacing.sm,
@@ -3198,12 +3059,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
   },
-  scoreWhySummary: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: '700',
-  },
   scoreWhyRows: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -3272,10 +3127,6 @@ const styles = StyleSheet.create({
     paddingTop: spacing.sm,
     borderTopWidth: 1,
     borderTopColor: colors.border,
-  },
-  heroFooterText: {
-    color: colors.textMuted,
-    fontSize: 13,
   },
   heroFooterWarning: {
     color: colors.noGo,
@@ -3528,7 +3379,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   sourceActionButton: {
-    minHeight: 38,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.accent,
@@ -3813,39 +3664,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
-  checklist: {
-    gap: spacing.md,
-  },
-  checklistRow: {
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  checkStatus: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  checkStatusText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-  },
-  checkCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  checkTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  checkDetail: {
-    color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
-  },
   accessBlock: {
     gap: spacing.md,
   },
@@ -3935,121 +3753,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
     fontWeight: '700',
-  },
-  accessSelector: {
-    gap: spacing.xs,
-  },
-  accessSelectorLabel: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  accessDropdownButton: {
-    minHeight: 58,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  accessDropdownCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  accessDropdownValue: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 18,
-    fontWeight: '900',
-  },
-  accessDropdownMeta: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  accessDropdownBackdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(15, 23, 42, 0.36)',
-    justifyContent: 'flex-end',
-  },
-  accessDropdownSheet: {
-    maxHeight: '72%',
-    backgroundColor: colors.surfaceStrong,
-    borderTopLeftRadius: radius.lg,
-    borderTopRightRadius: radius.lg,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  accessDropdownSheetHeader: {
-    minHeight: 36,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  accessDropdownSheetTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '900',
-  },
-  accessDropdownClose: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  accessDropdownList: {
-    maxHeight: 420,
-  },
-  accessDropdownListContent: {
-    gap: spacing.sm,
-    paddingBottom: spacing.md,
-  },
-  accessDropdownItem: {
-    minHeight: 62,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    padding: spacing.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  accessDropdownItemSelected: {
-    borderColor: colors.accent,
-    backgroundColor: colors.accent,
-  },
-  accessDropdownItemCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  accessDropdownItemName: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 18,
-    fontWeight: '900',
-  },
-  accessDropdownItemNameSelected: {
-    color: colors.surfaceStrong,
-  },
-  accessDropdownItemMeta: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  accessDropdownItemMetaSelected: {
-    color: colors.surfaceStrong,
   },
   accessPlannerSummary: {
     color: colors.text,
@@ -4147,113 +3850,10 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     fontWeight: '900',
   },
-  alertCtaText: {
-    color: colors.text,
-    fontSize: 12,
-    lineHeight: 17,
-    fontWeight: '700',
-  },
-  alertSheetScrim: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'rgba(10, 24, 29, 0.34)',
-  },
-  alertSheet: {
-    maxHeight: '88%',
-    backgroundColor: colors.surfaceStrong,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    padding: spacing.md,
-    paddingBottom: spacing.lg,
-    gap: spacing.md,
-  },
-  alertSheetHandle: {
-    alignSelf: 'center',
-    width: 42,
-    height: 5,
-    borderRadius: 999,
-    backgroundColor: colors.border,
-  },
-  alertSheetHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.md,
-  },
-  alertSheetTitleWrap: {
-    flex: 1,
-    minWidth: 0,
-    gap: 3,
-  },
-  alertSheetKicker: {
-    color: colors.accentDeep,
-    fontSize: 11,
-    lineHeight: 15,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  alertSheetTitle: {
-    color: colors.text,
-    fontSize: 20,
-    lineHeight: 25,
-    fontWeight: '900',
-  },
-  alertSheetSubtitle: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  alertSheetClose: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  alertSheetSection: {
-    gap: spacing.sm,
-  },
-  alertSheetSectionTitle: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 18,
-    fontWeight: '900',
-  },
-  alertButtonRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-    flexWrap: 'wrap',
-  },
-  alertButton: {
-    flex: 1,
-    minWidth: 140,
-    backgroundColor: colors.accent,
-    borderRadius: radius.pill,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 6,
-  },
-  alertButtonDisabled: {
-    opacity: 0.6,
-  },
-  alertButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
-  },
   alertStatus: {
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
-  },
-  alertHelper: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
   communityPhotoStrip: {
     gap: spacing.sm,
@@ -4346,144 +3946,6 @@ const styles = StyleSheet.create({
     color: colors.accentDeep,
     fontSize: 12,
     fontWeight: '700',
-  },
-  quickPhotoForm: {
-    gap: spacing.sm,
-  },
-  quickPhotoInputGrid: {
-    gap: spacing.sm,
-  },
-  quickPhotoInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    color: colors.text,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 15,
-  },
-  quickPhotoPanel: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  quickPhotoHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  quickPhotoCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  quickPhotoTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  quickPhotoMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 16,
-  },
-  quickPhotoAddButton: {
-    minHeight: 38,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  quickPhotoAddText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  quickPhotoButtonDisabled: {
-    opacity: 0.6,
-  },
-  quickPhotoStrip: {
-    gap: spacing.sm,
-    paddingRight: spacing.sm,
-  },
-  quickPhotoThumbCard: {
-    width: 104,
-    gap: 6,
-  },
-  quickPhotoThumb: {
-    width: 104,
-    height: 82,
-    borderRadius: radius.md,
-    backgroundColor: colors.canvasMuted,
-  },
-  quickPhotoRemove: {
-    alignItems: 'center',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingVertical: 6,
-    backgroundColor: colors.surfaceStrong,
-  },
-  quickPhotoRemoveText: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  quickPhotoEmpty: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  quickPhotoConsentRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
-  quickPhotoCheckbox: {
-    width: 22,
-    height: 22,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 1,
-  },
-  quickPhotoCheckboxChecked: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
-  },
-  quickPhotoConsentText: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  quickPhotoSubmitButton: {
-    minHeight: 42,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.lg,
-  },
-  quickPhotoSubmitText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  quickPhotoStatus: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
   reportCta: {
     backgroundColor: colors.accentSoft,
@@ -4762,44 +4224,5 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 14,
     lineHeight: 20,
-  },
-  centerState: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    padding: spacing.xl,
-  },
-  stateTitle: {
-    color: colors.text,
-    fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  stateBody: {
-    color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
-    textAlign: 'center',
-  },
-  stateMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-    textAlign: 'center',
-  },
-  stateButton: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: spacing.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  stateButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
   },
 });

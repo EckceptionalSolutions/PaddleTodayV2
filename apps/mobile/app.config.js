@@ -61,6 +61,7 @@ module.exports = ({ config }) => {
       ...baseConfig,
       plugins: [
         ...(baseConfig.plugins ?? []),
+        '@react-native-community/datetimepicker',
         ...(firebaseDiagnosticsEnabled
           ? ['@react-native-firebase/app', '@react-native-firebase/crashlytics']
           : []),

@@ -1,4 +1,5 @@
 import type { CampingClassification } from './camping';
+export { SNAPSHOT_MAX_AGE_MS, SNAPSHOT_MAX_CLOCK_SKEW_MS, snapshotFreshnessMetadata, staleSnapshotReadiness } from './snapshot-freshness';
 import { routeHazardLabels, type RouteHazard } from './route-hazards';
 export { routeHazardLabels, type RouteHazard } from './route-hazards';
 

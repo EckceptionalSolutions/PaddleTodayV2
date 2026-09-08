@@ -22,6 +22,7 @@ interface SavedRiversContextValue {
   hasLoadError: boolean;
   savedRivers: SavedRiverRecord[];
   isSaved: (slug: string) => boolean;
+  isUpdatingSavedRiver: (slug: string) => boolean;
   toggleSavedRiver: (river: Omit<SavedRiverRecord, 'savedAt'>) => Promise<void>;
   updateSavedRiverNotes: (slug: string, notes: string) => Promise<boolean>;
 }
@@ -38,6 +39,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   const [retryingLoad, setRetryingLoad] = useState(false);
   const queue = useRef(Promise.resolve());
   const pendingSlugs = useRef(new Set<string>());
+  const [pending, setPending] = useState<ReadonlySet<string>>(new Set());
   const [feedback, setFeedback] = useState<{ message: string; removed?: SavedRiverRecord } | null>(null);
   const insets = useSafeAreaInsets();
 
@@ -84,6 +86,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   function updateSavedRivers(river: Omit<SavedRiverRecord, 'savedAt'>, restore?: SavedRiverRecord) {
     if (pendingSlugs.current.has(river.slug)) return queue.current;
     pendingSlugs.current.add(river.slug);
+    setPending(new Set(pendingSlugs.current));
     queue.current = queue.current.then(async () => {
       if (!hydrated.current) {
         setFeedback({ message: 'Saved routes are still loading. Please try again.' });
@@ -104,7 +107,10 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       } catch {
         setFeedback({ message: 'Could not update Saved routes. Please try again.', removed: restore });
       }
-    }).finally(() => { pendingSlugs.current.delete(river.slug); });
+    }).finally(() => {
+      pendingSlugs.current.delete(river.slug);
+      setPending(new Set(pendingSlugs.current));
+    });
     return queue.current;
   }
 
@@ -136,10 +142,11 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       hasLoadError: loadError,
       savedRivers,
       isSaved: (slug) => savedRivers.some((item) => item.slug === slug),
+      isUpdatingSavedRiver: (slug) => pending.has(slug),
       toggleSavedRiver,
       updateSavedRiverNotes,
     }),
-    [isHydrated, loadError, savedRivers]
+    [isHydrated, loadError, savedRivers, pending]
   );
 
   return (
@@ -154,8 +161,8 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
                 <Text style={feedbackStyles.label}>{retryingLoad ? 'Loading…' : 'Retry loading'}</Text>
               </Pressable>
             ) : feedback?.removed ? (
-              <Pressable accessibilityRole="button" style={feedbackStyles.button} onPress={() => void updateSavedRivers(feedback.removed!, feedback.removed)}>
-                <Text style={feedbackStyles.label}>Undo</Text>
+              <Pressable accessibilityRole="button" disabled={pending.has(feedback.removed.slug)} aria-busy={pending.has(feedback.removed.slug)} accessibilityState={{ disabled: pending.has(feedback.removed.slug), busy: pending.has(feedback.removed.slug) }} style={feedbackStyles.button} onPress={() => void updateSavedRivers(feedback.removed!, feedback.removed)}>
+                <Text style={feedbackStyles.label}>{pending.has(feedback.removed.slug) ? 'Restoring…' : 'Undo'}</Text>
               </Pressable>
             ) : null}
             {!loadError ? <Pressable accessibilityRole="button" style={feedbackStyles.button} onPress={() => setFeedback(null)}>

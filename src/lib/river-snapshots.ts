@@ -24,7 +24,7 @@ import {
   type RiverSummaryApiItem,
   type WeekendSummaryApiItem,
 } from './api-contract';
-import { todayBoardConfidenceWeight } from '@paddletoday/api-contract';
+import { todayBoardConfidenceWeight, snapshotFreshnessMetadata, staleSnapshotReadiness as markReadinessStale } from '@paddletoday/api-contract';
 import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
 import { getRiverBySlug, listRiverGroups } from './rivers';
 import { gaugeDisplayForSource } from './source-adapters';
@@ -34,12 +34,6 @@ import { mapWithConcurrency } from './async-concurrency';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
-// Scheduled snapshots are expected every 30 minutes. After two hours they are
-// stale and must be presented as degraded, but public request handlers may
-// still use them rather than fan out to every upstream provider during an
-// outage.
-const MAX_STORED_SNAPSHOT_AGE_MS = 2 * 60 * 60 * 1000;
-const MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS = 5 * 60 * 1000;
 const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
 
 function isRiverSummaryApiItem(value: unknown): value is RiverSummaryApiItem {
@@ -579,20 +573,7 @@ export function isStoredSnapshotFresh(snapshot: { generatedAt: string }) {
 }
 
 export function storedSnapshotMetadata(snapshot: { generatedAt: string }): StoredSnapshotMetadata | null {
-  const generatedAt = Date.parse(snapshot.generatedAt);
-  if (!Number.isFinite(generatedAt)) {
-    return null;
-  }
-
-  const ageMs = Date.now() - generatedAt;
-  if (ageMs < -MAX_STORED_SNAPSHOT_CLOCK_SKEW_MS) {
-    return null;
-  }
-
-  return {
-    snapshotStatus: ageMs <= MAX_STORED_SNAPSHOT_AGE_MS ? 'fresh' : 'stale',
-    snapshotAgeSeconds: Math.max(0, Math.floor(ageMs / 1000)),
-  };
+  return snapshotFreshnessMetadata(snapshot);
 }
 
 function markSummarySnapshotItemStale(item: RiverSummaryApiItem): RiverSummaryApiItem {
@@ -648,16 +629,6 @@ function markDetailSnapshotResultStale(result: RiverDetailApiResult): RiverDetai
         detail: `${result.liveData.weather.detail} ${staleSummary}`,
       },
     },
-  };
-}
-
-function markReadinessStale<T extends { status: 'ready' | 'verify' | 'withheld' | 'skip'; label: string; reason: string }>(readiness: T): T {
-  if (readiness.status !== 'ready') return readiness;
-  return {
-    ...readiness,
-    status: 'withheld',
-    label: 'Not enough data',
-    reason: `${readiness.reason} This stored snapshot is stale, so Paddle Today is withholding a current call until the live sources refresh.`,
   };
 }
 

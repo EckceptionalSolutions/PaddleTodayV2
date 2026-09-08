@@ -1,3 +1,4 @@
+import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
   hasCampingSupport as classificationHasCampingSupport,
   type WeekendSummaryApiItem,
@@ -55,6 +56,7 @@ export default function WeekendScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const weekendQuery = useWeekendSummaryQuery();
+  const isStale = weekendQuery.data?.snapshotStatus === 'stale';
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
@@ -109,7 +111,7 @@ export default function WeekendScreen() {
           ? [...(!hasWeekendPlan ? nearbyWatch : []), ...watchList]
           : allWeekendRoutes
   );
-  const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes);
+  const weekendMapPoints = weekendRouteMapPoints(weekendMapRoutes, isStale);
   const weekendMapSpans = weekendMapPoints.flatMap((point) => point.spanSegments ?? []);
   const locationLabel = location?.label ?? null;
 
@@ -125,7 +127,7 @@ export default function WeekendScreen() {
     void AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distanceLimit)).catch(() => {});
   }, [distanceHydrated, distanceLimit]);
 
-  if (weekendQuery.isLoading && !weekendQuery.data) {
+  if (weekendQuery.isPending && !weekendQuery.data) {
     return (
       <AppLoadingState title="Loading weekend routes" body="Checking the weekend outlook." />
     );
@@ -160,16 +162,18 @@ export default function WeekendScreen() {
         />
       }
     >
+      <LocationStorageNotice />
       <AppRefreshNotice
         isError={weekendQuery.isRefetchError}
+        isStale={weekendQuery.data?.snapshotStatus === 'stale'}
         dataUpdatedAt={weekendQuery.dataUpdatedAt}
         retrying={weekendQuery.isFetching}
         onRetry={() => void weekendQuery.refetch()}
       />
       <View style={styles.hero}>
-        <Text accessibilityRole="header" style={styles.title}>Plan the weekend</Text>
+        <Text accessibilityRole="header" style={styles.title}>{isStale ? 'Saved weekend outlook' : 'Plan the weekend'}</Text>
         <Text style={styles.subtitle}>
-          {location
+          {isStale ? 'These forecasts need a fresh update before you make a plan.' : location
             ? 'Sorted by forecast, river conditions, and drive time.'
             : 'Add your location to sort by drive time.'}
         </Text>
@@ -199,7 +203,7 @@ export default function WeekendScreen() {
             <Text style={styles.heroLabel} numberOfLines={compactHeader ? 2 : 1}>
               {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across available routes'}
             </Text>
-            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No Paddle plan'}</Text>
+            <Text style={styles.heroFreshness}>{isStale ? 'Previous forecast counts' : location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No Paddle plan'}</Text>
           </View>
 
           <View style={styles.snapshotRow}>
@@ -211,6 +215,8 @@ export default function WeekendScreen() {
           {!hasWeekendPlan && featured ? (
             <Pressable
               style={styles.featuredBlock}
+              accessibilityRole="button"
+              accessibilityLabel={`View route: ${featured.river.name}, ${featured.river.reach}`}
               onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
               android_ripple={{ color: colors.canvasMuted }}
             >
@@ -249,8 +255,8 @@ export default function WeekendScreen() {
 
       {weekendMapPoints.length > 0 ? (
         <SectionCard
-          title="Weekend routes on the map"
-          subtitle={`Showing all ${weekendMapPoints.length} ${weekendFilter === 'all' ? 'weekend routes below' : `${weekendFilterLabel(weekendFilter)} routes`}. Tap a score to open the route.`}
+          title={isStale ? 'Saved forecast on the map' : 'Weekend routes on the map'}
+          subtitle={isStale ? 'Scores are from the previous forecast. Tap a route to review its details.' : `Showing all ${weekendMapPoints.length} ${weekendFilter === 'all' ? 'weekend routes below' : `${weekendFilterLabel(weekendFilter)} routes`}. Tap a score to open the route.`}
         >
           <View style={styles.mapFrame}>
             <RoutePlotMap
@@ -278,14 +284,15 @@ export default function WeekendScreen() {
 
       {(weekendFilter === 'all' || weekendFilter === 'day-trips') && topPicks.length > 0 ? (
         <SectionCard
-          title={location ? 'Best near you' : 'Best weekend'}
-          subtitle={location ? 'Paddle this weekend options with drive time included.' : 'Paddle this weekend options.'}
+          title={isStale ? 'Top routes in the saved forecast' : location ? 'Best near you' : 'Best weekend'}
+          subtitle={isStale ? 'Previous rankings, awaiting a current forecast.' : location ? 'Paddle this weekend options with drive time included.' : 'Paddle this weekend options.'}
         >
           <View style={styles.list}>
             {topPicks.map((river) => (
               <WeekendRiverCard
                 key={river.river.slug}
                 river={river}
+                isStale={isStale}
                 travelLabel={river.travelLabel}
                 saved={isSaved(river.river.slug)}
                 onToggleSaved={() =>
@@ -378,6 +385,7 @@ export default function WeekendScreen() {
       <WeekendRiverCard
         key={river.river.slug}
         river={river}
+        isStale={isStale}
         travelLabel={route.travelLabel}
         saved={isSaved(river.river.slug)}
         onToggleSaved={() =>
@@ -633,7 +641,7 @@ function weekendFilterLabel(filter: WeekendFilter) {
   return 'weekend';
 }
 
-function weekendRouteMapPoints(rivers: WeekendSummaryApiItem[]): RoutePlotPoint[] {
+function weekendRouteMapPoints(rivers: WeekendSummaryApiItem[], isStale: boolean): RoutePlotPoint[] {
   return rivers.map((river) => {
     const span = weekendRouteSpan(river);
     const center = span.length > 0
@@ -649,8 +657,8 @@ function weekendRouteMapPoints(rivers: WeekendSummaryApiItem[]): RoutePlotPoint[
       latitude: center.latitude,
       longitude: center.longitude,
       score: river.weekend.score,
-      rating: river.weekend.rating,
-      markerAccessibilityLabel: `${river.river.reach}, weekend score ${river.weekend.score}`,
+      rating: isStale ? 'stale' : river.weekend.rating,
+      markerAccessibilityLabel: `${river.river.reach}, ${isStale ? 'saved forecast, update needed, ' : ''}weekend score ${river.weekend.score}`,
       spanSegments: span.length >= 2 ? [span] : [],
       meta: [river.river.reach, river.river.distanceLabel].filter(Boolean).join(' - '),
     };
@@ -832,13 +840,6 @@ const styles = StyleSheet.create({
   },
   hero: {
     gap: spacing.md,
-  },
-  kicker: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 0.7,
-    textTransform: 'uppercase',
   },
   title: {
     color: colors.text,
@@ -1080,9 +1081,6 @@ const styles = StyleSheet.create({
   snapshotStrong: {
     backgroundColor: '#E0EFE9',
   },
-  snapshotGood: {
-    backgroundColor: '#E6EDD9',
-  },
   snapshotWatch: {
     backgroundColor: '#F3E8CC',
   },
@@ -1218,41 +1216,5 @@ const styles = StyleSheet.create({
   },
   planLaneLabelActive: {
     color: colors.surfaceStrong,
-  },
-  requestCallout: {
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.lg,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-  },
-  requestCalloutCopy: {
-    flex: 1,
-    gap: 4,
-  },
-  requestCalloutLabel: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  requestCalloutTitle: {
-    color: colors.text,
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  requestCalloutBody: {
-    color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
-  },
-  requestCalloutAction: {
-    color: colors.accent,
-    fontSize: 14,
-    fontWeight: '900',
   },
 });

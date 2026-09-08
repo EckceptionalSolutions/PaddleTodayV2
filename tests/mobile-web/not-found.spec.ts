@@ -10,7 +10,7 @@ for (const [label, path] of [["Go to today's routes", '/'], ['Explore routes', '
     const link = page.getByRole('link', { name: label, exact: true });
     await expect(link).toBeVisible();
     await link.press('Enter');
-    await expect(page).toHaveURL(`http://127.0.0.1:8082${path}`);
+    await expect(page).toHaveURL(path);
     await expect(page.getByRole('heading', { name: 'Page not found', exact: true })).toBeHidden();
     expect(await page.evaluate(() => history.length)).toBe(historyLength);
   });
@@ -27,5 +27,5 @@ test('missing route has an Explore recovery action without repeated requests', a
   expect(requests).toBe(1);
   await expect(page.getByText('Check your connection, then try again.', { exact: true })).toBeHidden();
   await page.getByRole('button', { name: 'Explore routes', exact: true }).press('Enter');
-  await expect(page).toHaveURL('http://127.0.0.1:8082/explore');
+  await expect(page).toHaveURL('/explore');
 });

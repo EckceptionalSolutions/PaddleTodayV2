@@ -1,9 +1,10 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack } from 'expo-router';
 import { useRef, useState, type Ref } from 'react';
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
+import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
 import { isValidEmailAddress } from '../lib/alerts';
 import { androidBottomInset } from '../lib/safe-area';
@@ -17,6 +18,7 @@ export default function RequestRouteScreen() {
   const riverInput = useRef<TextInput>(null);
   const areaInput = useRef<TextInput>(null);
   const emailInput = useRef<TextInput>(null);
+  const [validationAttempted, setValidationAttempted] = useState(false);
   const [riverName, setRiverName] = useState('');
   const [area, setArea] = useState('');
   const [accessPoints, setAccessPoints] = useState('');
@@ -24,8 +26,15 @@ export default function RequestRouteScreen() {
   const [replyEmail, setReplyEmail] = useState('');
   const [status, setStatus] = useState('City, state, access points, and gauge links help most.');
 
+  const errors = validationAttempted ? {
+    river: riverName.trim().length < 3 ? 'Add a river or route name with at least three characters.' : undefined,
+    area: !area.trim() ? 'Add a state, city, or general area. A state abbreviation is enough.' : undefined,
+    email: replyEmail.trim() && !isValidEmailAddress(replyEmail.trim()) ? 'Enter a valid email address or leave this field blank.' : undefined,
+  } : {};
+
   async function submitRequest() {
     if (submitting.current) return;
+    setValidationAttempted(true);
     const cleanRiverName = riverName.trim();
     const cleanArea = area.trim();
     const cleanAccessPoints = accessPoints.trim();
@@ -63,6 +72,7 @@ export default function RequestRouteScreen() {
       });
 
       setStatus('Request received. Thanks for the lead.');
+      setValidationAttempted(false);
 
       setRiverName('');
       setArea('');
@@ -105,9 +115,10 @@ export default function RequestRouteScreen() {
 
         <SectionCard title="Route basics" subtitle="Required fields are marked.">
           <View style={styles.form}>
-            <Field label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" inputRef={riverInput} editable={!createRequestMutation.isPending} />
+            <Field error={errors.river} label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" inputRef={riverInput} editable={!createRequestMutation.isPending} />
             <Field
               label="City, state, or general area *"
+              error={errors.area}
               inputRef={areaInput}
               editable={!createRequestMutation.isPending}
               value={area}
@@ -132,6 +143,7 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Your email"
+              error={errors.email}
               inputRef={emailInput}
               editable={!createRequestMutation.isPending}
               value={replyEmail}
@@ -141,15 +153,8 @@ export default function RequestRouteScreen() {
               autoCapitalize="none"
             />
 
-            <Pressable
-              style={[styles.submitButton, createRequestMutation.isPending ? styles.submitButtonDisabled : null]}
-              disabled={createRequestMutation.isPending}
-              accessibilityRole="button"
-              accessibilityState={{ disabled: createRequestMutation.isPending, busy: createRequestMutation.isPending }}
-              onPress={() => void submitRequest()}
-            >
-              <Text style={styles.submitButtonText}>{createRequestMutation.isPending ? 'Sending...' : 'Send request'}</Text>
-            </Pressable>
+            <AppButton label="Send request" busyLabel="Sending…" busy={createRequestMutation.isPending}
+              style={styles.submitButton} onPress={() => void submitRequest()} />
             <Text style={styles.statusText} accessibilityLiveRegion="polite">{status}</Text>
           </View>
         </SectionCard>
@@ -169,6 +174,7 @@ function Field({
   autoCapitalize,
   inputRef,
   editable = true,
+  error,
 }: {
   label: string;
   value: string;
@@ -179,6 +185,7 @@ function Field({
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
   inputRef?: Ref<TextInput>;
   editable?: boolean;
+  error?: string;
 }) {
   return (
     <View style={styles.field}>
@@ -186,19 +193,22 @@ function Field({
       <TextInput
         ref={inputRef}
         editable={editable}
-        style={[styles.input, multiline ? styles.textarea : null]}
+        style={[styles.input, multiline ? styles.textarea : null, error ? styles.inputError : null]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={colors.textMuted}
         accessibilityLabel={label.replace(' *', '')}
-        accessibilityHint={label.includes('*') ? 'Required field.' : undefined}
+        accessibilityHint={error ?? (label.includes('*') ? 'Required field.' : undefined)}
+        aria-required={label.includes('*')}
+        aria-invalid={Boolean(error)}
         multiline={multiline}
         textAlignVertical={multiline ? 'top' : 'center'}
         keyboardType={keyboardType}
         autoCapitalize={autoCapitalize}
         autoCorrect={keyboardType === 'email-address' ? false : undefined}
       />
+      {error ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{error}</Text> : null}
     </View>
   );
 }
@@ -213,6 +223,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
+    width: '100%',
+    maxWidth: 640,
+    alignSelf: 'center',
     paddingHorizontal: spacing.lg,
     gap: spacing.lg,
   },
@@ -262,21 +275,9 @@ const styles = StyleSheet.create({
     minHeight: 110,
     lineHeight: 22,
   },
-  submitButton: {
-    alignSelf: 'flex-start',
-    backgroundColor: colors.accent,
-    borderRadius: radius.pill,
-    paddingHorizontal: 18,
-    paddingVertical: 12,
-  },
-  submitButtonDisabled: {
-    opacity: 0.65,
-  },
-  submitButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
-  },
+  inputError: { borderColor: colors.noGo },
+  fieldError: { color: colors.noGo, fontSize: 13, lineHeight: 18 },
+  submitButton: { alignSelf: 'flex-start' },
   statusText: {
     color: colors.textMuted,
     fontSize: 14,

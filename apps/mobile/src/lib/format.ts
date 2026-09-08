@@ -90,6 +90,12 @@ export function qualityForRating(rating: ScoreRating) {
   return qualityTierLabel(rating);
 }
 
+// Same-day badges must respect evidence gates just like the primary call.
+// Forecast-only views can continue to use qualityForRating explicitly.
+export function qualityForDecision(rating: ScoreRating, readiness: DecisionReadinessStatus) {
+  return readiness === 'ready' ? qualityTierLabel(rating) : callLabelForDecision(rating, readiness);
+}
+
 export { callStateForDecision, callStateForRating };
 
 export function detailMessageForRating(rating: ScoreRating) {

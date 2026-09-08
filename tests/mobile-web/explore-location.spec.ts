@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 test('Explore focuses a saved planning city without replacing it with GPS', async ({ page }) => {
   const location = { latitude: 46.78, longitude: -92.1, label: 'Duluth', source: 'search' };
@@ -11,7 +12,13 @@ test('Explore focuses a saved planning city without replacing it with GPS', asyn
       (window as unknown as { gpsCalls: number }).gpsCalls += 1;
     } });
   }, location);
-  await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const generatedAt = new Date().toISOString();
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+    ...fixture.result, generatedAt, readiness: { status: 'ready', label: 'Ready', reason: 'QA fixture' },
+    summary: { shortExplanation: 'QA fixture', gaugeNow: 'QA reading' },
+    liveData: { overall: 'live', summary: 'Fixture', gaugeState: 'live', weatherState: 'live' },
+  }] } }));
   await page.goto('/explore');
   const controls = page.getByRole('button', { name: 'Focus nearest rivers', exact: true });
   await expect(controls).toHaveCount(2);
@@ -32,7 +39,13 @@ test('Explore location controls share pending state and expose failed retry', as
       state.failGps = () => failure({ code: 2, message: 'QA unavailable' } as GeolocationPositionError);
     } });
   });
-  await page.route('**/api/**', (route) => route.fulfill({ json: { rivers: [] } }));
+  const generatedAt = new Date().toISOString();
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+    ...fixture.result, generatedAt, readiness: { status: 'ready', label: 'Ready', reason: 'QA fixture' },
+    summary: { shortExplanation: 'QA fixture', gaugeNow: 'QA reading' },
+    liveData: { overall: 'live', summary: 'Fixture', gaugeState: 'live', weatherState: 'live' },
+  }] } }));
   await page.goto('/explore');
   const focus = page.getByRole('button', { name: 'Focus nearest rivers', exact: true });
   await focus.press('Space');

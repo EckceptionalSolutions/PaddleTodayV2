@@ -27,8 +27,31 @@ test('supported rivers retry directly and state tabs work by keyboard', async ({
   await minnesota.press('ArrowRight');
   await expect(wisconsin).toBeFocused();
   await expect(wisconsin).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByRole('button', { name: /^Open QA Wisconsin River,/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Browse QA Wisconsin River:/ })).toBeVisible();
   await wisconsin.press('Home');
   await expect(minnesota).toBeFocused();
-  await expect(page.getByRole('button', { name: /^Open Rice Creek,/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Browse Rice Creek:/ })).toBeVisible();
+});
+
+test('the river directory shows full names and route counts without implying a river-wide condition score', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  const name = 'A very long northern branch of the wandering Minnesota River';
+  const generatedAt = '2020-01-01T00:00:00Z';
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [1, 2].map(number => ({
+    ...fixture.result, generatedAt, score: 95, rating: 'Strong',
+    river: { ...fixture.result.river, name, riverId: 'directory-test', slug: `directory-${number}` },
+  })) } }));
+  await page.goto('/more');
+  const row = page.getByRole('button', { name: `Browse ${name}: 2 routes`, exact: true });
+  await row.scrollIntoViewIfNeeded();
+  await expect(row).toBeVisible();
+  await expect(row).toContainText('2 routes');
+  await expect(row).not.toContainText('95');
+  await expect(row).not.toContainText('Strong');
+  const title = row.getByText(name, { exact: true });
+  expect(await title.evaluate(element => element.scrollHeight <= element.clientHeight + 1)).toBe(true);
+  await page.screenshot({ path: `tmp/support-directory-${page.viewportSize()!.width}.png` });
+  await row.press('Enter');
+  await expect(page).toHaveURL('/river-hub/directory-test');
 });

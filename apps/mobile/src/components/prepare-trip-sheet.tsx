@@ -1,9 +1,15 @@
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
-import { Modal, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
 import { buildFloatPlanMessage, estimateSegmentDurationMinutes, parseDistanceMiles, type TripPlanInput } from '@paddletoday/trip-pack';
 import { resolveApiUrl } from '../lib/api-base-url';
 import { openExternalUrl } from '../lib/external-links';
+import { useTripDraft } from '../hooks/use-trip-draft';
+import { localTripTime as localInput, parseTripTime as parseLocal } from '../lib/trip-time';
+import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
+import { TripDraftNotice } from './trip-draft-notice';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type PrepareTripSheetProps = {
@@ -17,43 +23,45 @@ type PrepareTripSheetProps = {
 };
 
 export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
+  const insets = useSafeAreaInsets();
+  const reducedMotion = useReducedMotion();
   const distanceMiles = selectedDistance(accessPoints, putIn, takeOut, detail);
   const estimated = distanceMiles ? estimateSegmentDurationMinutes(detail.river.distanceLabel, detail.river.estimatedPaddleTime, distanceMiles) : null;
-  const defaults = useMemo(() => defaultTimes(estimated?.max ?? 240), [estimated?.max]);
-  const [launch, setLaunch] = useState(defaults.launch);
-  const [expected, setExpected] = useState(defaults.expected);
-  const [checkIn, setCheckIn] = useState(defaults.checkIn);
-  const [groupSize, setGroupSize] = useState('');
-  const [boat, setBoat] = useState('');
-  const [vehicle, setVehicle] = useState('');
-  const [note, setNote] = useState('');
+  const defaults = useMemo(() => ({ ...defaultTimes(estimated?.max ?? 240), groupSize: '', boat: '', vehicle: '', note: '' }), [estimated?.max, visible]);
+  const { session: draftSession, state: draftState } = useTripDraft({ routeSlug: detail.river.slug, putInId: putIn?.id ?? null, takeOutId: takeOut?.id ?? null,
+    routeName: detail.river.name, putInName: putIn?.name, takeOutName: takeOut?.name }, defaults, visible);
+  const { launch, expected, checkIn, groupSize, boat, vehicle, note } = draftState.draft;
+  const setLaunch = (launch: string) => draftSession.update({ launch });
+  const setExpected = (expected: string) => draftSession.update({ expected });
+  const setCheckIn = (checkIn: string) => draftSession.update({ checkIn });
+  const setGroupSize = (groupSize: string) => draftSession.update({ groupSize });
+  const setBoat = (boat: string) => draftSession.update({ boat });
+  const setVehicle = (vehicle: string) => draftSession.update({ vehicle });
+  const setNote = (note: string) => draftSession.update({ note });
+  const draftReady = draftState.phase === 'ready';
+  const [closing, setClosing] = useState(false);
+  const closingRequest = useRef(false);
   const [status, setStatus] = useState('');
   const [calendarPending, setCalendarPending] = useState(false);
-  const calendarRequest = useRef<object | null>(null);
+  const calendarRequest = useRef<AbortController | null>(null);
   const [gpxPending, setGpxPending] = useState(false);
   const [sharePending, setSharePending] = useState(false);
   const [shareFallback, setShareFallback] = useState<string | null>(null);
   const shareRequest = useRef<object | null>(null);
   const gpxRequest = useRef<AbortController | null>(null);
-  const draftRoute = useRef<string | null>(null);
-  const launchRef = useRef<TextInput>(null);
-  const expectedRef = useRef<TextInput>(null);
-  const checkInRef = useRef<TextInput>(null);
+  const launchRef = useRef<TripTimeFieldHandle>(null);
+  const expectedRef = useRef<TripTimeFieldHandle>(null);
+  const checkInRef = useRef<TripTimeFieldHandle>(null);
   const groupSizeRef = useRef<TextInput>(null);
 
-  useEffect(() => {
-    if (!visible || draftRoute.current === detail.river.slug) return;
-    draftRoute.current = detail.river.slug;
-    const next = defaultTimes(estimated?.max ?? 240);
-    setLaunch(next.launch);
-    setExpected(next.expected);
-    setCheckIn(next.checkIn);
-    setGroupSize('');
-    setBoat('');
-    setVehicle('');
-    setNote('');
-    setStatus('');
-  }, [visible, detail.river.slug, estimated?.max]);
+  async function closeSheet() {
+    if (closingRequest.current) return;
+    if (!draftReady) { onClose(); return; }
+    closingRequest.current = true;
+    setClosing(true);
+    try { if (await draftSession.save()) onClose(); }
+    finally { closingRequest.current = false; setClosing(false); }
+  }
 
   useEffect(() => {
     setGpxPending(false);
@@ -61,7 +69,9 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
     setCalendarPending(false);
     return () => {
       shareRequest.current = null;
+      const calendar = calendarRequest.current;
       calendarRequest.current = null;
+      calendar?.abort();
       const request = gpxRequest.current;
       gpxRequest.current = null;
       request?.abort();
@@ -76,6 +86,7 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   const validation = validate(plan, checkIn);
 
   function validateForExport() {
+    if (!draftReady) return false;
     if (validation.ok) return true;
     setStatus(validation.message);
     if ('field' in validation && validation.field) {
@@ -87,18 +98,34 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
 
   async function exportCalendar() {
     if (calendarRequest.current || !validateForExport()) return;
-    const request = {};
+    const request = new AbortController();
     calendarRequest.current = request;
     setCalendarPending(true);
     setStatus('');
+    const timeout = setTimeout(() => request.abort(), 15_000);
+    const query = new URLSearchParams({ putin: plan.putIn.id ?? '', takeout: plan.takeOut.id ?? '', start: plan.launchAt!.toISOString(), end: plan.expectedTakeOutAt!.toISOString() });
+    const url = resolveApiUrl(`/api/rivers/${detail.river.slug}/trip.ics?${query.toString()}`);
     try {
       onAction?.('calendar');
-      const query = new URLSearchParams({ putin: plan.putIn.id ?? '', takeout: plan.takeOut.id ?? '', start: plan.launchAt!.toISOString(), end: plan.expectedTakeOutAt!.toISOString() });
-      const opened = await openExternalUrl(resolveApiUrl(`/api/rivers/${detail.river.slug}/trip.ics?${query.toString()}`), 'Calendar export');
+      const response = await fetch(url, { method: 'HEAD', signal: request.signal });
+      if (calendarRequest.current !== request || request.signal.aborted) return;
+      clearTimeout(timeout);
+      if (!response.ok) {
+        const message = response.status === 400 ? 'The calendar could not be prepared. Review your access points and trip times, then try again.'
+          : response.status === 404 ? 'This route could not be found for export. Refresh the route and try again.'
+          : response.status === 429 ? 'Too many export requests. Wait a moment, then try again.'
+          : response.status >= 500 ? 'Calendar export is temporarily unavailable. Please try again shortly.'
+          : 'The calendar file could not be checked. Please try again.';
+        return setStatus(message);
+      }
+      const opened = await openExternalUrl(url, 'Calendar export');
       if (!opened && calendarRequest.current === request) setStatus('The calendar file could not be opened. Please try again.');
     } catch {
-      if (calendarRequest.current === request) setStatus('The calendar file could not be opened. Please try again.');
+      if (calendarRequest.current === request) setStatus(request.signal.aborted
+        ? 'The calendar check timed out. Please try again.'
+        : 'The calendar file could not be checked. Check your connection and try again.');
     } finally {
+      clearTimeout(timeout);
       if (calendarRequest.current === request) {
         calendarRequest.current = null;
         setCalendarPending(false);
@@ -107,7 +134,7 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   }
 
   async function exportGpx() {
-    if (gpxRequest.current) return;
+    if (!draftReady || gpxRequest.current) return;
     if (!putIn || !takeOut || !putIn.id || !takeOut.id || !hasCoordinates(putIn) || !hasCoordinates(takeOut)) return setStatus('Choose mapped access points with coordinates first.');
     const request = new AbortController();
     gpxRequest.current = request;
@@ -121,12 +148,20 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
       const response = await fetch(url, { method: 'HEAD', signal: request.signal });
       if (gpxRequest.current !== request || request.signal.aborted) return;
       clearTimeout(timeout);
-      if (!response.ok) return setStatus(response.status === 400 ? 'These access points are no longer available. Refresh the route and choose your put-in and take-out again.' : 'GPX is not available for this route yet.');
+      if (!response.ok) {
+        const message = response.status === 400 ? 'These access points are no longer available. Refresh the route and choose your put-in and take-out again.'
+          : response.status === 409 ? 'A GPX track is not available for these access points yet.'
+          : response.status === 404 ? 'This route could not be found for export. Refresh the route and try again.'
+          : response.status === 429 ? 'Too many export requests. Wait a moment, then try again.'
+          : response.status >= 500 ? 'GPX export is temporarily unavailable. Please try again shortly.'
+          : 'The GPX file could not be checked. Please try again.';
+        return setStatus(message);
+      }
       const opened = await openExternalUrl(url, 'GPX export');
       if (!opened && gpxRequest.current === request) setStatus('The GPX file could not be opened. Please try again.');
     } catch {
       if (gpxRequest.current === request) {
-        setStatus(request.signal.aborted ? 'The GPX check timed out. Please try again.' : 'GPX export is unavailable while offline.');
+        setStatus(request.signal.aborted ? 'The GPX check timed out. Please try again.' : 'The GPX file could not be checked. Check your connection and try again.');
       }
     } finally {
       clearTimeout(timeout);
@@ -166,24 +201,26 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   }
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <View style={styles.screen}>
+    <Modal visible={visible} animationType={reducedMotion ? "none" : "slide"} presentationStyle="pageSheet" onRequestClose={() => void closeSheet()}>
+      <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View style={styles.header}>
           <View style={styles.headerCopy}><Text style={styles.kicker}>Prepare trip</Text><Text style={styles.title}>{detail.river.name}</Text><Text style={styles.subtitle}>{putIn?.name ?? 'Put-in'} to {takeOut?.name ?? 'take-out'} · {distanceMiles ? `${distanceMiles.toFixed(1)} mi` : 'distance unknown'}</Text></View>
-          <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel="Close prepare trip"><Text style={styles.close}>Close</Text></Pressable>
+          <Pressable onPress={() => void closeSheet()} disabled={closing} accessibilityState={{ disabled: closing, busy: closing }} style={styles.closeButton} accessibilityRole="button" accessibilityLabel="Close prepare trip"><Text style={styles.close}>Close</Text></Pressable>
         </View>
-        <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+        <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Math.max(spacing.lg, insets.bottom) }]} keyboardShouldPersistTaps="handled">
+          <TripDraftNotice state={draftState} session={draftSession} defaults={defaults} locked={closing || sharePending || calendarPending}
+            onClose={onClose} onReset={() => { setStatus(''); setShareFallback(null); }} />
           <Text style={styles.sectionTitle}>Timing</Text>
           <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
-          <Field editable={!sharePending} label="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChangeText={setLaunch} />
-          <Field editable={!sharePending} label="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChangeText={setExpected} />
-          <Field editable={!sharePending} label="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChangeText={setCheckIn} />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Expected take-out" manualLabel="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChange={setExpected} />
+          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} label="Check-in time" manualLabel="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChange={setCheckIn} optional />
           <Text style={styles.estimate}>{estimated ? `Planning estimate: ${estimated.min}–${estimated.max} minutes on the water, before shuttle or staging time.` : 'Planning estimate unavailable; confirm timing with the group.'}</Text>
           <Text style={styles.sectionTitle}>Group details</Text>
-          <Field editable={!sharePending} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
-          <Field editable={!sharePending} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
-          <Field editable={!sharePending} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
-          <Field editable={!sharePending} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
+          <Field editable={draftReady && !sharePending && !closing} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
+          <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
+          <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
+          <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
           {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
           {shareFallback ? (
             <TextInput
@@ -197,13 +234,13 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
             />
           ) : null}
           <View style={styles.actions}>
-            <ActionButton pending={calendarPending} pendingLabel="Opening calendar…" label="Add to calendar" detail="Download an .ics event" onPress={() => void exportCalendar()} />
-            <ActionButton pending={gpxPending} label="Download GPX" detail="Load the canonical river line" onPress={() => void exportGpx()} />
-            <ActionButton pending={sharePending} pendingLabel="Opening share sheet…" label="Share float plan" detail="Send the plan to your group" onPress={() => void shareFloatPlan()} primary />
+            <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
+            <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
+            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share float plan" detail="Send the plan to your group" onPress={() => void shareFloatPlan()} primary />
           </View>
           <Text style={styles.footer}>Confirm current gauge, weather, access, hazards, and an offline check-in plan before launching.</Text>
         </ScrollView>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
@@ -212,8 +249,8 @@ function Field({ label, multiline, keyboardType, value, onChangeText, inputRef, 
   return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput editable={editable} ref={inputRef} accessibilityLabel={label} value={value} onChangeText={onChangeText} multiline={multiline} keyboardType={keyboardType} placeholderTextColor={colors.textMuted} style={[styles.input, multiline ? styles.multiline : null]} /></View>;
 }
 
-function ActionButton({ label, detail, onPress, primary, pending = false, pendingLabel = 'Checking GPX…' }: { pending?: boolean; pendingLabel?: string; label: string; detail: string; onPress: () => void; primary?: boolean }) {
-  return <Pressable style={[styles.actionButton, primary ? styles.actionButtonPrimary : null]} disabled={pending} aria-busy={pending} accessibilityState={{ disabled: pending, busy: pending }} onPress={onPress} accessibilityRole="button" accessibilityLabel={label}><Text style={[styles.actionLabel, primary ? styles.actionLabelPrimary : null]}>{pending ? pendingLabel : label}</Text><Text style={[styles.actionDetail, primary ? styles.actionDetailPrimary : null]}>{detail}</Text></Pressable>;
+function ActionButton({ label, detail, onPress, primary, pending = false, pendingLabel = 'Checking GPX…', disabled = false }: { disabled?: boolean; pending?: boolean; pendingLabel?: string; label: string; detail: string; onPress: () => void; primary?: boolean }) {
+  return <Pressable style={[styles.actionButton, primary ? styles.actionButtonPrimary : null]} disabled={disabled || pending} aria-busy={pending} accessibilityState={{ disabled: disabled || pending, busy: pending }} onPress={onPress} accessibilityRole="button" accessibilityLabel={label}><Text style={[styles.actionLabel, primary ? styles.actionLabelPrimary : null]}>{pending ? pendingLabel : label}</Text><Text style={[styles.actionDetail, primary ? styles.actionDetailPrimary : null]}>{detail}</Text></Pressable>;
 }
 
 function defaultTimes(durationMinutes: number) {
@@ -221,21 +258,6 @@ function defaultTimes(durationMinutes: number) {
   launchDate.setMinutes(0, 0, 0);
   const expectedDate = new Date(launchDate.getTime() + Math.max(60, durationMinutes + 60) * 60 * 1000);
   return { launch: localInput(launchDate), expected: localInput(expectedDate), checkIn: localInput(new Date(expectedDate.getTime() + 30 * 60 * 1000)) };
-}
-
-function localInput(value: Date) {
-  const pad = (part: number) => String(part).padStart(2, '0');
-  return `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())} ${pad(value.getHours())}:${pad(value.getMinutes())}`;
-}
-
-function parseLocal(value: string) {
-  const match = value.trim().match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{1,2}):(\d{2})$/);
-  if (!match) return null;
-  const [, yearText, monthText, dayText, hourText, minuteText] = match;
-  const year = Number(yearText), month = Number(monthText), day = Number(dayText), hour = Number(hourText), minute = Number(minuteText);
-  if (month < 1 || month > 12 || day < 1 || day > 31 || hour > 23 || minute > 59) return null;
-  const date = new Date(year, month - 1, day, hour, minute);
-  return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day && date.getHours() === hour && date.getMinutes() === minute ? date : null;
 }
 
 function selectedDistance(points: RiverRouteAccessPoint[], putIn: RiverAccessPoint | undefined, takeOut: RiverAccessPoint | undefined, detail: RiverDetailApiResult) {
@@ -265,5 +287,6 @@ function validate(plan: TripPlanInput, checkIn: string) {
 function hasCoordinates(point: RiverAccessPoint): point is RiverAccessPoint & { latitude: number; longitude: number } { return Number.isFinite(point.latitude) && Number.isFinite(point.longitude); }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.canvas }, header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', padding: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.border, backgroundColor: colors.surface }, headerCopy: { flex: 1, gap: 3 }, kicker: { color: colors.accent, fontSize: 11, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 }, title: { color: colors.text, fontSize: 22, fontWeight: '900' }, subtitle: { color: colors.textMuted, fontSize: 12 }, close: { color: colors.accent, fontWeight: '900', padding: spacing.xs }, content: { padding: spacing.lg, gap: spacing.sm, paddingBottom: spacing.xl * 2 }, sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: spacing.sm }, help: { color: colors.textMuted, fontSize: 12, lineHeight: 17 }, field: { gap: 4 }, label: { color: colors.textMuted, fontSize: 11, fontWeight: '800' }, input: { minHeight: 44, borderRadius: radius.sm, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, paddingHorizontal: spacing.sm, color: colors.text, fontSize: 14 }, multiline: { minHeight: 72, paddingTop: spacing.sm, textAlignVertical: 'top' }, estimate: { color: colors.accentDeep, backgroundColor: colors.accentSoft, borderRadius: radius.sm, padding: spacing.sm, fontSize: 12, lineHeight: 17 }, status: { color: colors.noGo, fontSize: 12, fontWeight: '800' }, actions: { gap: spacing.sm, marginTop: spacing.sm }, actionButton: { borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, padding: spacing.md, gap: 3 }, actionButtonPrimary: { backgroundColor: colors.accent, borderColor: colors.accent }, actionLabel: { color: colors.text, fontSize: 14, fontWeight: '900' }, actionLabelPrimary: { color: colors.surfaceStrong }, actionDetail: { color: colors.textMuted, fontSize: 12 }, actionDetailPrimary: { color: colors.accentSoft }, footer: { color: colors.textMuted, fontSize: 11, lineHeight: 16, marginTop: spacing.sm },
+  closeButton: { minHeight: 44, minWidth: 44, alignItems: 'center', justifyContent: 'center' },
+  screen: { flex: 1, backgroundColor: colors.canvas }, header: { width: '100%', maxWidth: 640, alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', padding: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.border, backgroundColor: colors.surface }, headerCopy: { flex: 1, gap: 3 }, kicker: { color: colors.accent, fontSize: 11, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 }, title: { color: colors.text, fontSize: 22, fontWeight: '900' }, subtitle: { color: colors.textMuted, fontSize: 12 }, close: { color: colors.accent, fontWeight: '900', padding: spacing.xs }, content: { width: '100%', maxWidth: 640, alignSelf: 'center', padding: spacing.lg, gap: spacing.sm, paddingBottom: spacing.xl * 2 }, sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: spacing.sm }, help: { color: colors.textMuted, fontSize: 12, lineHeight: 17 }, field: { gap: 4 }, label: { color: colors.textMuted, fontSize: 11, fontWeight: '800' }, input: { minHeight: 44, borderRadius: radius.sm, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, paddingHorizontal: spacing.sm, color: colors.text, fontSize: 14 }, multiline: { minHeight: 72, paddingTop: spacing.sm, textAlignVertical: 'top' }, estimate: { color: colors.accentDeep, backgroundColor: colors.accentSoft, borderRadius: radius.sm, padding: spacing.sm, fontSize: 12, lineHeight: 17 }, status: { color: colors.noGo, fontSize: 12, fontWeight: '800' }, actions: { gap: spacing.sm, marginTop: spacing.sm }, actionButton: { borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, padding: spacing.md, gap: 3 }, actionButtonPrimary: { backgroundColor: colors.accent, borderColor: colors.accent }, actionLabel: { color: colors.text, fontSize: 14, fontWeight: '900' }, actionLabelPrimary: { color: colors.surfaceStrong }, actionDetail: { color: colors.textMuted, fontSize: 12 }, actionDetailPrimary: { color: colors.accentSoft }, footer: { color: colors.textMuted, fontSize: 11, lineHeight: 16, marginTop: spacing.sm },
 });
