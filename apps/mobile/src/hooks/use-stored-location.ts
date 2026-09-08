@@ -3,6 +3,8 @@ import * as Location from 'expo-location';
 import { createContext, createElement, useCallback, useContext, useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { hasValidLocationCoordinates, type StoredLocation } from '../lib/location';
 import { createLocationRequest } from '../lib/location-request';
+import { locationCandidates } from '../lib/location-candidates';
+import { createLocationPersistence } from '../lib/location-persistence';
 import { isRecord, parseJson } from '../lib/storage';
 
 const STORAGE_KEY = 'paddletoday:user-location';
@@ -19,18 +21,25 @@ interface StoredLocationContextValue {
   location: StoredLocation | null;
   status: LocationStatus;
   requestLocation: () => Promise<LocationRequestResult>;
-  setLocationFromQuery: (query: string) => Promise<StoredLocation | null>;
+  searchLocations: (query: string) => Promise<StoredLocation[]>;
+  selectPlanningLocation: (location: StoredLocation) => Promise<boolean>;
   clearLocation: () => Promise<void>;
   cancelLocationRequest: () => void;
+  storageState: { saving: boolean; error: boolean };
+  retryLocationSave: () => Promise<void>;
 }
 
 const StoredLocationContext = createContext<StoredLocationContextValue | null>(null);
 
 export function StoredLocationProvider({ children }: PropsWithChildren) {
   const [location, setLocation] = useState<StoredLocation | null>(null);
+  const locationRef = useRef<StoredLocation | null>(null);
   const [status, setStatus] = useState<LocationStatus>('loading');
   const activeRequest = useRef<ReturnType<typeof createLocationRequest> | null>(null);
   const revision = useRef(0);
+  const [storageState, setStorageState] = useState({ saving: false, error: false });
+  const persistLocation = useMemo(() => createLocationPersistence(AsyncStorage, setStorageState), []);
+  const retryLocationSave = useCallback(() => persistLocation(locationRef.current), [persistLocation]);
 
   const hydrateLocation = useCallback(async () => {
     const initialRevision = revision.current;
@@ -39,6 +48,7 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
       if (revision.current !== initialRevision) return;
       const parsed = parseJson(raw);
       if (isStoredLocation(parsed)) {
+        locationRef.current = parsed;
         setLocation(parsed);
         setStatus('ready');
         return;
@@ -72,8 +82,8 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
     activeRequest.current?.cancel();
     activeRequest.current = null;
     revision.current += 1;
-    setStatus(location ? 'ready' : 'idle');
-  }, [location]);
+    setStatus(locationRef.current ? 'ready' : 'idle');
+  }, []);
 
   const requestLocation = useCallback(async (): Promise<LocationRequestResult> => {
     const request = beginRequest();
@@ -104,9 +114,10 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
         source: 'device',
       };
 
+      locationRef.current = nextLocation;
       setLocation(nextLocation);
       setStatus('ready');
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation)).catch(() => undefined);
+      await persistLocation(nextLocation);
       return {
         location: nextLocation,
         permission: 'granted',
@@ -123,112 +134,77 @@ export function StoredLocationProvider({ children }: PropsWithChildren) {
       request.finish();
       if (activeRequest.current === request) activeRequest.current = null;
     }
-  }, [beginRequest, location]);
+  }, [beginRequest, location, persistLocation]);
 
-  const setLocationFromQuery = useCallback(async (query: string) => {
+  const searchLocations = useCallback(async (query: string): Promise<StoredLocation[]> => {
     const cleanQuery = query.trim();
-    if (!cleanQuery) {
-      return null;
-    }
-
+    if (!cleanQuery) return [];
     const request = beginRequest();
-
     try {
-      const remoteResult = await request.run(geocodeWithOpenMeteo(cleanQuery, request.signal));
-      const [result] = remoteResult ? [remoteResult] : await request.run(Location.geocodeAsync(cleanQuery));
-      if (activeRequest.current !== request) return null;
-      if (!hasValidLocationCoordinates(result)) {
-        setStatus(location ? 'ready' : 'idle');
-        return null;
+      const remoteResults = await request.run(geocodeWithOpenMeteo(cleanQuery, request.signal));
+      if (activeRequest.current !== request) return [];
+      if (remoteResults.length) {
+        setStatus(locationRef.current ? 'ready' : 'idle');
+        return remoteResults;
       }
-
-      const resolvedLabel = 'label' in result && typeof result.label === 'string'
-        ? result.label
-        : await request.run(reverseGeocodeLabel(result.latitude, result.longitude));
-      if (activeRequest.current !== request) return null;
-      const nextLocation: StoredLocation = {
-        latitude: result.latitude,
-        longitude: result.longitude,
-        label: resolvedLabel === 'Current location' ? cleanQuery : resolvedLabel,
-        source: 'search',
-      };
-
-      setLocation(nextLocation);
-      setStatus('ready');
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(nextLocation)).catch(() => undefined);
-      return nextLocation;
+      const [result] = await request.run(Location.geocodeAsync(cleanQuery));
+      if (activeRequest.current !== request) return [];
+      if (!hasValidLocationCoordinates(result)) {
+        setStatus(locationRef.current ? 'ready' : 'idle');
+        return [];
+      }
+      const label = await request.run(reverseGeocodeLabel(result.latitude, result.longitude));
+      if (activeRequest.current !== request) return [];
+      setStatus(locationRef.current ? 'ready' : 'idle');
+      return [{ latitude: result.latitude, longitude: result.longitude,
+        label: label === 'Current location' ? cleanQuery : label, source: 'search' }];
     } catch {
-      if (activeRequest.current === request) setStatus(location ? 'ready' : 'error');
-      return null;
+      if (activeRequest.current === request) setStatus(locationRef.current ? 'ready' : 'error');
+      return [];
     } finally {
       request.finish();
       if (activeRequest.current === request) activeRequest.current = null;
     }
-  }, [beginRequest, location]);
+  }, [beginRequest]);
+
+  const selectPlanningLocation = useCallback(async (candidate: StoredLocation) => {
+    if (!isStoredLocation(candidate)) return false;
+    activeRequest.current?.cancel();
+    activeRequest.current = null;
+    revision.current += 1;
+    const next = { ...candidate, source: 'search' as const };
+    locationRef.current = next;
+    setLocation(next);
+    setStatus('ready');
+    await persistLocation(next);
+    return true;
+  }, [persistLocation]);
 
   const clearLocation = useCallback(async () => {
     activeRequest.current?.cancel();
     activeRequest.current = null;
     revision.current += 1;
+    locationRef.current = null;
     setLocation(null);
     setStatus('idle');
-    await AsyncStorage.removeItem(STORAGE_KEY).catch(() => undefined);
-  }, []);
+    await persistLocation(null);
+  }, [persistLocation]);
 
   const value = useMemo(
-    () => ({ location, status, requestLocation, setLocationFromQuery, clearLocation, cancelLocationRequest }),
-    [location, status, requestLocation, setLocationFromQuery, clearLocation, cancelLocationRequest]
+    () => ({ location, status, requestLocation, searchLocations, selectPlanningLocation, clearLocation, cancelLocationRequest, storageState, retryLocationSave }),
+    [location, status, requestLocation, searchLocations, selectPlanningLocation, clearLocation, cancelLocationRequest, storageState, retryLocationSave]
   );
 
   return createElement(StoredLocationContext.Provider, { value }, children);
 }
 
-async function geocodeWithOpenMeteo(query: string, signal: AbortSignal): Promise<{
-  latitude: number;
-  longitude: number;
-  label: string;
-} | null> {
+async function geocodeWithOpenMeteo(query: string, signal: AbortSignal): Promise<StoredLocation[]> {
   const response = await fetch(
     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
     { headers: { accept: 'application/json' }, signal }
   );
-  if (!response.ok) {
-    return null;
-  }
-
-  const payload: unknown = await response.json();
-  if (!isRecord(payload) || !Array.isArray(payload.results)) {
-    return null;
-  }
-
-  const candidates = payload.results.filter(isGeocodeCandidate);
-  const match = candidates
-    .sort((left, right) => (right.population ?? 0) - (left.population ?? 0))[0];
-  if (!match) {
-    return null;
-  }
-
-  const state = match.admin1 || match.country || '';
-  return {
-    latitude: match.latitude,
-    longitude: match.longitude,
-    label: state ? `${match.name}, ${state}` : match.name,
-  };
-}
-
-function isGeocodeCandidate(value: unknown): value is {
-  latitude: number;
-  longitude: number;
-  name: string;
-  admin1?: string;
-  country?: string;
-  population?: number;
-} {
-  return (
-    isRecord(value) &&
-    typeof value.name === 'string' &&
-    hasValidLocationCoordinates(value)
-  );
+  if (!response.ok) return [];
+  return locationCandidates(await response.json());
 }
 
 export function useStoredLocation() {

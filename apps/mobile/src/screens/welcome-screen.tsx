@@ -3,20 +3,23 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   Animated,
   Image,
   ImageBackground,
   PanResponder,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   useWindowDimensions,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { useRiverSummaryQuery } from '../api/queries';
+import { WebReady } from '../components/web-ready';
+import { AppButton } from '../components/app-button';
 import {
   completeWelcome,
 } from '../lib/onboarding';
@@ -50,6 +53,11 @@ const appFeatures: Feature[] = [
 ];
 
 export default function WelcomeScreen() {
+  return <WebReady title="Loading Paddle Today"><WelcomeContent /></WebReady>;
+}
+
+function WelcomeContent() {
+  const reducedMotion = useReducedMotion();
   const insets = useSafeAreaInsets();
   const { height: windowHeight, width: windowWidth } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -67,7 +75,7 @@ export default function WelcomeScreen() {
   const compactExplainer = windowHeight < 860;
   const slideWidth = carouselWidth || Math.max(280, windowWidth - 36);
   const bestPicks = useMemo(
-    () => selectBestNowPicks(rivers, undefined, 3),
+    () => selectBestNowPicks(rivers.filter(river => river.readiness?.status === 'ready'), undefined, 3),
     [rivers],
   );
   const previewRoute = useMemo(
@@ -78,7 +86,7 @@ export default function WelcomeScreen() {
   const previewTone = scoreTone(previewRating);
   const previewRouteMeta = previewRoute
     ? previewRoute.river.reach
-    : 'Nearby river route';
+    : 'Sample values · not current conditions';
   const previewAccessLabel = previewRoute
     ? previewRoute.river.accessPoints && previewRoute.river.accessPoints.length > 1
       ? `${previewRoute.river.accessPoints.length} access points`
@@ -96,7 +104,7 @@ export default function WelcomeScreen() {
   ];
   const previewBreakdown = previewRoute?.scoreBreakdown;
   const previewScoreFactors = [
-    { label: 'Water', value: previewBreakdown?.riverQuality ?? 84 },
+    { label: 'Water', value: previewBreakdown?.riverQuality ?? 82 },
     { label: 'Wind', value: previewBreakdown?.windAdjustment ?? 0 },
     { label: 'Temp', value: previewBreakdown?.temperatureAdjustment ?? 0 },
     {
@@ -142,7 +150,7 @@ export default function WelcomeScreen() {
         },
         onPanResponderTerminationRequest: () => false,
       }),
-    [carouselTranslateX, slideWidth],
+    [carouselTranslateX, slideWidth, reducedMotion],
   );
 
   useEffect(() => {
@@ -150,8 +158,9 @@ export default function WelcomeScreen() {
   }, []);
 
   useEffect(() => {
+    carouselTranslateX.stopAnimation();
     carouselTranslateX.setValue(-carouselIndexRef.current * slideWidth);
-  }, [carouselTranslateX, slideWidth]);
+  }, [carouselTranslateX, slideWidth, reducedMotion]);
 
   async function finishOnboarding() {
     if (saving) return;
@@ -178,6 +187,11 @@ export default function WelcomeScreen() {
   function showCarouselSlide(index: number) {
     const nextIndex = Math.max(0, Math.min(2, index));
     updateCarouselIndex(nextIndex);
+    carouselTranslateX.stopAnimation();
+    if (reducedMotion) {
+      carouselTranslateX.setValue(-slideWidth * nextIndex);
+      return;
+    }
     Animated.timing(carouselTranslateX, {
       toValue: -slideWidth * nextIndex,
       duration: 220,
@@ -222,12 +236,14 @@ export default function WelcomeScreen() {
         {...carouselPanResponder.panHandlers}
       >
         <Animated.View
+          testID="welcome-carousel-track"
           style={[
             styles.carouselContent,
             { width: slideWidth * 3, transform: [{ translateX: carouselTranslateX }] },
           ]}
         >
-        <View style={[styles.slide, { width: slideWidth }]}>
+        <ScrollView style={[styles.slide, { width: slideWidth }]} contentContainerStyle={styles.slideContent}
+          testID="welcome-slide-1" accessibilityElementsHidden={carouselIndex !== 0} importantForAccessibility={carouselIndex === 0 ? 'auto' : 'no-hide-descendants'} aria-hidden={carouselIndex !== 0}>
           <View
             style={[
               styles.slideHeading,
@@ -236,7 +252,7 @@ export default function WelcomeScreen() {
             ]}
           >
             <Text style={styles.slideEyebrow}>WELCOME</Text>
-            <Text style={[styles.title, compactLayout ? styles.titleCompact : null]}>
+            <Text accessibilityRole="header" style={[styles.title, compactLayout ? styles.titleCompact : null]}>
               Welcome to Paddle Today
             </Text>
             <Text style={[styles.body, compactLayout ? styles.bodyCompact : null]}>
@@ -246,7 +262,7 @@ export default function WelcomeScreen() {
 
           <View
             accessible
-            accessibilityLabel="A river route preview with an example paddle score"
+            accessibilityLabel={previewRoute ? `${previewRoute.river.name}, current route preview, score ${previewRoute.score}` : 'Illustrative route preview. Sample score 82, not current conditions.'}
             style={[
               styles.welcomePreview,
               compactLayout ? styles.welcomePreviewCompact : null,
@@ -279,11 +295,11 @@ export default function WelcomeScreen() {
               </View>
             </ImageBackground>
             <View style={[styles.routeScoreCopy, shortLayout ? styles.routeScoreCopyShort : null]}>
-              <Text style={styles.routeScoreKicker}>ROUTE PREVIEW</Text>
+              <Text style={styles.routeScoreKicker}>{previewRoute ? 'CURRENT ROUTE PREVIEW' : 'ILLUSTRATIVE EXAMPLE'}</Text>
               <Text style={styles.routeScoreTitle} numberOfLines={1}>
-                {previewRoute?.river.name ?? 'Nearby river route'}
+                {previewRoute?.river.name ?? 'Example river route'}
               </Text>
-              <Text style={styles.routeScoreMeta} numberOfLines={1}>
+              <Text style={styles.routeScoreMeta}>
                 {previewRouteMeta}
               </Text>
               <View style={styles.routeFactGrid}>
@@ -298,7 +314,7 @@ export default function WelcomeScreen() {
                 <View style={styles.routeInfoPill}>
                   <MaterialCommunityIcons name="waves" size={11} color={colors.accent} />
                   <Text style={styles.routeInfoText} numberOfLines={1}>
-                    {previewRoute?.gaugeBandLabel ?? 'Stable flow'}
+                    {previewRoute?.gaugeBandLabel ?? 'Example flow'}
                   </Text>
                 </View>
                 <View style={styles.routeInfoPill}>
@@ -315,9 +331,10 @@ export default function WelcomeScreen() {
               <Text style={styles.welcomeSwipeCueText}>Swipe to see how Paddle Today works</Text>
             </View>
           ) : null}
-        </View>
+        </ScrollView>
 
-        <View style={[styles.slide, styles.explainerSlide, { width: slideWidth }]}>
+        <ScrollView style={[styles.slide, { width: slideWidth }]} contentContainerStyle={styles.slideContent}
+          testID="welcome-slide-2" accessibilityElementsHidden={carouselIndex !== 1} importantForAccessibility={carouselIndex === 1 ? 'auto' : 'no-hide-descendants'} aria-hidden={carouselIndex !== 1}>
           <View
             style={[
               styles.slideHeading,
@@ -368,7 +385,7 @@ export default function WelcomeScreen() {
                   </View>
                   <View style={styles.signalCopy}>
                     <Text style={styles.signalTitle}>{signal.title}</Text>
-                    <Text style={styles.signalLabel} numberOfLines={veryShortLayout ? 1 : 2}>{signal.label}</Text>
+                    <Text style={styles.signalLabel}>{signal.label}</Text>
                   </View>
                 </View>
               ))}
@@ -395,24 +412,20 @@ export default function WelcomeScreen() {
                   { backgroundColor: previewTone.background },
                 ]}
               >
-                {previewRoute ? (
                   <>
-                    <Text style={[styles.scoreValue, { color: previewTone.text }]}>{previewRoute.score}</Text>
+                    <Text style={[styles.scoreValue, { color: previewTone.text }]}>{previewRoute?.score ?? 82}</Text>
                     <Text style={[styles.scoreLabel, { color: previewTone.text }]}>
-                      {previewRoute.rating.toUpperCase()}
+                      {previewRating.toUpperCase()}
                     </Text>
                   </>
-                ) : (
-                  <ActivityIndicator color={colors.accent} />
-                )}
               </View>
               <View style={styles.scoreResultCopy}>
-                <Text style={styles.scoreResultKicker}>EXAMPLE FROM TODAY</Text>
+                <Text style={styles.scoreResultKicker}>{previewRoute ? 'EXAMPLE FROM TODAY' : 'ILLUSTRATIVE EXAMPLE'}</Text>
                 <Text style={styles.scoreResultTitle}>
-                  {previewRoute?.river.name ?? 'Checking today’s routes'}
+                  {previewRoute?.river.name ?? 'Example river route'}
                 </Text>
-                <Text style={styles.scoreResultReach} numberOfLines={1}>
-                  {previewRoute?.river.reach ?? 'Loading current conditions'}
+                <Text style={styles.scoreResultReach}>
+                  {previewRoute?.river.reach ?? 'Sample values · not current conditions'}
                 </Text>
               </View>
               <View style={styles.scoreExampleSection}>
@@ -436,9 +449,10 @@ export default function WelcomeScreen() {
               </View>
             </View>
           </View>
-        </View>
+        </ScrollView>
 
-        <View style={[styles.slide, styles.featuresSlide, { width: slideWidth }]}>
+        <ScrollView style={[styles.slide, { width: slideWidth }]} contentContainerStyle={styles.slideContent}
+          testID="welcome-slide-3" accessibilityElementsHidden={carouselIndex !== 2} importantForAccessibility={carouselIndex === 2 ? 'auto' : 'no-hide-descendants'} aria-hidden={carouselIndex !== 2}>
           <View style={[styles.slideHeading, veryShortLayout ? styles.slideHeadingShort : null]}>
             <Text style={styles.slideEyebrow}>MORE THAN A SCORE</Text>
             <Text
@@ -482,12 +496,12 @@ export default function WelcomeScreen() {
                 </View>
                 <View style={styles.featureCopy}>
                   <Text style={styles.featureTitle}>{feature.title}</Text>
-                  <Text style={styles.featureLabel} numberOfLines={shortLayout ? 1 : 2}>{feature.label}</Text>
+                  <Text style={styles.featureLabel}>{feature.label}</Text>
                 </View>
               </View>
             ))}
           </View>
-        </View>
+        </ScrollView>
         </Animated.View>
       </View>
 
@@ -543,22 +557,17 @@ export default function WelcomeScreen() {
           </Text>
         ) : null}
 
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={carouselIndex < 2 ? "Skip to today's best routes" : "See today's best routes"}
-          disabled={saving}
+        <AppButton
+          label={carouselIndex < 2 ? "Skip to today's best routes" : "See today's best routes"}
+          busy={saving}
+          busyLabel="Opening routes…"
+          icon="arrow-right"
           onPress={viewBestPaddles}
-          style={({ pressed }) => [
+          style={[
             styles.primaryButton,
             shortLayout ? styles.primaryButtonShort : null,
-            pressed ? styles.primaryButtonPressed : null,
           ]}
-        >
-          <Text style={styles.primaryButtonText}>
-            {carouselIndex < 2 ? "Skip to today's best routes" : "See today's best routes"}
-          </Text>
-          <MaterialCommunityIcons name="arrow-right" size={20} color={colors.surfaceStrong} />
-        </Pressable>
+        />
       </View>
     </View>
   );
@@ -612,12 +621,10 @@ const styles = StyleSheet.create({
   carouselContent: { height: '100%', flexDirection: 'row' },
   slide: {
     height: '100%',
-    paddingTop: spacing.xs,
+    flexShrink: 0,
   },
-  explainerSlide: { justifyContent: 'flex-start' },
-  featuresSlide: { justifyContent: 'flex-start' },
+  slideContent: { paddingTop: spacing.xs, paddingBottom: spacing.sm },
   slideHeading: { alignItems: 'center', marginTop: spacing.lg },
-  slideHeadingCompact: { marginTop: spacing.md },
   slideHeadingShort: { marginTop: spacing.sm },
   explainerHeadingCompact: { marginTop: spacing.sm },
   slideEyebrow: {
@@ -647,7 +654,6 @@ const styles = StyleSheet.create({
   },
   slideIntroCompact: { fontSize: 14, lineHeight: 19, marginTop: 6 },
   slideIntroShort: { fontSize: 12, lineHeight: 16, marginTop: spacing.xs },
-  content: { flexGrow: 1, paddingHorizontal: 18 },
   topRow: { minHeight: 42, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
   brandLockup: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   brandLogo: { width: 40, height: 40 },
@@ -887,8 +893,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accentSoft,
   },
   featureCopy: { flex: 1, minWidth: 0 },
-  featureTitle: { color: colors.text, fontSize: 12, lineHeight: 15, fontWeight: '900' },
-  featureLabel: { color: colors.textMuted, fontSize: 10, lineHeight: 14, marginTop: 2 },
+  featureTitle: { color: colors.text, fontSize: 14, lineHeight: 18, fontWeight: '900' },
+  featureLabel: { color: colors.textMuted, fontSize: 12, lineHeight: 17, marginTop: 2 },
   carouselFooter: { gap: spacing.sm, paddingTop: spacing.sm },
   paginationRow: {
     minHeight: 24,
@@ -908,7 +914,7 @@ const styles = StyleSheet.create({
   swipeLabel: { width: 112, color: colors.textMuted, fontSize: 10, fontWeight: '700', textAlign: 'right' },
   nextPageButton: {
     width: 112,
-    minHeight: 28,
+    minHeight: 44,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
@@ -924,6 +930,4 @@ const styles = StyleSheet.create({
   completionError: { color: colors.noGo, fontSize: 11, lineHeight: 15, fontWeight: '700', textAlign: 'center' },
   primaryButton: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm, minHeight: 54, paddingHorizontal: spacing.lg, borderRadius: radius.md, backgroundColor: colors.accent },
   primaryButtonShort: { minHeight: 50 },
-  primaryButtonPressed: { opacity: 0.8 },
-  primaryButtonText: { color: colors.surfaceStrong, fontSize: 16, fontWeight: '800' },
 });

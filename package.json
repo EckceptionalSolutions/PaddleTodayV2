@@ -100,6 +100,7 @@
     "test": "npm run typecheck && npm run scoring:sensitivity:check && npm run test:workspaces",
     "test:maps": "playwright test tests/visual/map-interactions.spec.ts tests/visual/explore-map-performance.spec.ts tests/visual/explore-score-badges.spec.ts --project=desktop-chromium --workers=1",
     "test:mobile:web": "playwright test --config=playwright.mobile.config.ts",
+    "test:mobile:web:export": "node scripts/test-mobile-web-export.mjs",
     "mobile:start": "npm run start --workspace @paddletoday/mobile",
     "mobile:android": "npm run android --workspace @paddletoday/mobile",
     "mobile:ios": "npm run ios --workspace @paddletoday/mobile",

@@ -91,6 +91,9 @@ test('trip drafts survive reopening and invalid timing focuses the field to corr
   const checkIn = dialog.getByRole('textbox', { name: 'Check-in time (optional)', exact: true });
   const group = dialog.getByRole('textbox', { name: 'Group size (optional)', exact: true });
   const note = dialog.getByRole('textbox', { name: 'Note for your group (optional)', exact: true });
+  for (const label of ['launch', 'expected take-out', 'check-in time']) {
+    await dialog.getByRole('button', { name: `Enter manually: ${label}`, exact: true }).click();
+  }
   await launch.fill('2030-06-15 09:00');
   await expected.fill('2030-06-15 12:00');
   await checkIn.fill('2030-06-15 13:00');
@@ -124,8 +127,8 @@ test('trip drafts survive reopening and invalid timing focuses the field to corr
   await expect(dialog.getByText('Group size must be a whole number from 1 to 100.', { exact: true })).toBeVisible();
 });
 
-for (const outcome of ['close', 'timeout']) {
-  test(`GPX checks recover after ${outcome} without opening a stale export`, async ({ page }) => {
+for (const format of ['GPX', 'calendar'] as const) for (const outcome of ['close', 'timeout']) {
+  test(`${format} checks recover after ${outcome} without opening a stale export`, async ({ page }) => {
     await page.addInitScript(() => {
       localStorage.setItem('paddletoday:welcome-completed:v1', '1');
       window.open = () => {
@@ -137,19 +140,19 @@ for (const outcome of ['close', 'timeout']) {
     await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
     let pending: Route | null = null;
     let requests = 0;
-    await page.route('**/trip.gpx?*', (route) => { requests++; pending = route; });
+    await page.route(`**/trip.${format === 'GPX' ? 'gpx' : 'ics'}?*`, (route) => { requests++; pending = route; });
     await page.goto('/river/rice-creek-peltier-to-long-lake');
     await page.getByText('Access', { exact: true }).click();
     const prepare = page.getByRole('button', { name: 'Prepare this trip', exact: true });
     await prepare.click();
     const dialog = page.getByRole('dialog');
-    const gpx = dialog.getByRole('button', { name: 'Download GPX', exact: true });
-    await gpx.click();
+    const exportButton = dialog.getByRole('button', { name: format === 'GPX' ? 'Download GPX' : 'Add to calendar', exact: true });
+    await exportButton.click();
     await expect.poll(() => pending !== null).toBe(true);
-    await expect(gpx).toBeDisabled();
-    await expect(gpx).toHaveAttribute('aria-busy', 'true');
-    await expect(gpx).toContainText('Checking GPX…');
-    await gpx.dispatchEvent('click');
+    await expect(exportButton).toBeDisabled();
+    await expect(exportButton).toHaveAttribute('aria-busy', 'true');
+    await expect(exportButton).toContainText(`Checking ${format}…`);
+    await exportButton.dispatchEvent('click');
     expect(requests).toBe(1);
     if (outcome === 'close') {
       await dialog.getByRole('button', { name: 'Close prepare trip', exact: true }).click();
@@ -157,23 +160,23 @@ for (const outcome of ['close', 'timeout']) {
       await pending!.fulfill({ status: 200, body: '' });
       await prepare.click();
     } else {
-      await expect(dialog.getByText('The GPX check timed out. Please try again.', { exact: true })).toBeVisible({ timeout: 20_000 });
+      await expect(dialog.getByText(`The ${format} check timed out. Please try again.`, { exact: true })).toBeVisible({ timeout: 20_000 });
       await pending!.fulfill({ status: 200, body: '' });
     }
-    await expect(gpx).toBeEnabled();
+    await expect(exportButton).toBeEnabled();
     pending = null;
-    await gpx.click();
+    await exportButton.click();
     await expect.poll(() => pending !== null).toBe(true);
     expect(requests).toBe(2);
     await pending!.fulfill({ status: 503, body: '' });
-    await expect(gpx).toBeEnabled();
-    await expect(dialog.getByText('GPX is not available for this route yet.', { exact: true })).toBeVisible();
+    await expect(exportButton).toBeEnabled();
+    await expect(dialog.getByText(`${format === 'GPX' ? 'GPX' : 'Calendar'} export is temporarily unavailable. Please try again shortly.`, { exact: true })).toBeVisible();
     pending = null;
-    await gpx.click();
+    await exportButton.click();
     await expect.poll(() => pending !== null).toBe(true);
     await pending!.fulfill({ status: 400, body: '' });
-    await expect(gpx).toBeEnabled();
-    await expect(dialog.getByText('These access points are no longer available. Refresh the route and choose your put-in and take-out again.', { exact: true })).toBeVisible();
+    await expect(exportButton).toBeEnabled();
+    await expect(dialog.getByText(format === 'GPX' ? 'These access points are no longer available. Refresh the route and choose your put-in and take-out again.' : 'The calendar could not be prepared. Review your access points and trip times, then try again.', { exact: true })).toBeVisible();
     expect(await page.evaluate(() => localStorage.getItem('qa:unexpected-export'))).toBeNull();
   });
 }
@@ -191,6 +194,9 @@ test('full-route planning uses known distance when access mileage is unavailable
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByText(/15.2 mi/)).toBeVisible();
   await expect(dialog.getByText('Planning estimate: 300–420 minutes on the water, before shuttle or staging time.', { exact: true })).toBeVisible();
+  for (const label of ['launch', 'expected take-out']) {
+    await dialog.getByRole('button', { name: `Enter manually: ${label}`, exact: true }).click();
+  }
   const launch = await dialog.getByRole('textbox', { name: 'Launch (YYYY-MM-DD HH:MM)', exact: true }).inputValue();
   const expected = await dialog.getByRole('textbox', { name: 'Expected take-out (YYYY-MM-DD HH:MM)', exact: true }).inputValue();
   expect((Date.parse(expected.replace(' ', 'T')) - Date.parse(launch.replace(' ', 'T'))) / 60_000).toBe(480);
@@ -209,11 +215,13 @@ test('calendar opening blocks duplicate activation and keeps a failed draft retr
   });
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
+  await page.route('**/trip.ics?*', route => route.fulfill({ status: 200, body: '' }));
   await page.goto('/river/rice-creek-peltier-to-long-lake');
   await page.getByText('Access', { exact: true }).click();
   await page.getByRole('button', { name: 'Prepare this trip', exact: true }).click();
   const dialog = page.getByRole('dialog');
   const launch = dialog.getByRole('textbox', { name: 'Launch (YYYY-MM-DD HH:MM)', exact: true });
+  await dialog.getByRole('button', { name: 'Enter manually: launch', exact: true }).click();
   const original = await launch.inputValue();
   const calendar = dialog.getByRole('button', { name: 'Add to calendar', exact: true });
   await calendar.evaluate((element: HTMLElement) => { element.click(); element.click(); });
@@ -226,7 +234,7 @@ test('calendar opening blocks duplicate activation and keeps a failed draft retr
   await page.evaluate(() => localStorage.setItem('qa:calendar-success', '1'));
   await calendar.press('Space');
   await expect(failure).toBeHidden();
-  expect(await page.evaluate(() => localStorage.getItem('qa:calendar-calls'))).toBe('2');
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('qa:calendar-calls'))).toBe('2');
   const url = new URL((await page.evaluate(() => localStorage.getItem('qa:calendar-url')))!);
   expect(url.pathname).toContain('/trip.ics');
   expect(url.searchParams.get('start')).toBeTruthy();

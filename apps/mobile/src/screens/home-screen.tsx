@@ -1,5 +1,8 @@
+import { RouteSearchModal } from '../components/route-search-modal';
+import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
   formatRouteSegmentLabel,
+  normalizeSearchText,
   routeSegmentSummary,
   type RiverSummaryApiItem,
 } from '@paddletoday/api-contract';
@@ -10,32 +13,31 @@ import type { ComponentProps, ReactNode } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ImageBackground,
-  KeyboardAvoidingView,
-  Modal,
   Platform,
   Pressable,
   RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
-import { QualityPill, ratingColors } from '../components/rating-pill';
+import { ManualLocationModal } from '../components/manual-location-modal';
+import { AppButton } from '../components/app-button';
+import { decisionColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation, type LocationRequestResult } from '../hooks/use-stored-location';
 import { requestFailureMessage } from '../lib/request-failure';
-import { callForDecision, callStateForDecision, normalizeApiText, qualityForRating } from '../lib/format';
-import { formatTravelTime } from '../lib/location';
+import { normalizeApiText } from '../lib/format';
+import { routeDecisionPresentation } from '../lib/map-decision';
 import { type ExploreIntentId } from '../lib/explore-intents';
 import { photoForRiver } from '../lib/route-photos';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { isRecord, parseJson } from '../lib/storage';
-import { routePreviewFactItems, routePreviewFactLine } from '../lib/route-facts';
+import { routePreviewFactItems } from '../lib/route-facts';
 import {
   buildBoardSnapshot,
   HOME_NEARBY_DISTANCE_MILES,
@@ -83,7 +85,7 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const summaryQuery = useRiverSummaryQuery();
-  const { location, status, requestLocation, setLocationFromQuery, cancelLocationRequest } = useStoredLocation();
+  const { location, status, requestLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
@@ -127,7 +129,7 @@ export default function HomeScreen() {
   const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
   const headlineMode = data[0] ? mode : 'best';
   const knownRouteMatches = useMemo(
-    () => uniqueRoutesByRiver(findKnownRouteMatches(rivers, routeQuery, 18)).slice(0, 10),
+    () => uniqueRoutesByRiver(findKnownRouteMatches(rivers, routeQuery)).slice(0, 10),
     [rivers, routeQuery]
   );
   const supportedStates = useMemo(
@@ -152,7 +154,7 @@ export default function HomeScreen() {
     ).catch(() => {});
   }, [mode, preferencesHydrated]);
 
-  if (summaryQuery.isLoading && !summaryQuery.data) {
+  if (summaryQuery.isPending && !summaryQuery.data) {
     return (
       <AppLoadingState title="Loading today’s routes" body="Checking river conditions." />
     );
@@ -190,8 +192,10 @@ export default function HomeScreen() {
       }
     >
       <View style={styles.headerStack}>
+        <LocationStorageNotice />
         <AppRefreshNotice
           isError={summaryQuery.isRefetchError}
+          isStale={summaryQuery.data?.snapshotStatus === 'stale'}
           dataUpdatedAt={summaryQuery.dataUpdatedAt}
           retrying={summaryQuery.isFetching}
           onRetry={() => void summaryQuery.refetch()}
@@ -251,8 +255,10 @@ export default function HomeScreen() {
         )}
         {zeroReady ? (
           <ZeroReadyActions
+            watchCount={snapshot.watch}
+            unavailableCount={snapshot.unavailable}
             onWeekend={() => router.push('/weekend')}
-            onExplore={() => openExploreIntent('watch')}
+            onExplore={() => openExploreIntent(snapshot.watch > 0 ? 'watch' : snapshot.unavailable > 0 ? 'no-call' : 'skip')}
           />
         ) : null}
         <ExploreActionStrip
@@ -305,10 +311,8 @@ export default function HomeScreen() {
           cancelLocationRequest();
           setLocationSearchOpen(false);
         }}
-        onSubmit={async (query) => {
-          const nextLocation = await setLocationFromQuery(query);
-          return Boolean(nextLocation);
-        }}
+        onSearch={searchLocations}
+        onSelect={selectPlanningLocation}
       />
     </ScrollView>
   );
@@ -381,36 +385,36 @@ function BoardHero({
       <ImageBackground source={{ uri: imageUri }} style={[styles.heroImage, !headline && styles.heroImageEmpty]} imageStyle={styles.heroImageRadius}>
         <View style={[styles.heroOverlay, !headline && styles.heroOverlayEmpty]}>
           <View style={styles.topBar}>
-            <View>
+            <View style={styles.topBarCopy}>
               <Text style={styles.appName}>Today</Text>
               <Text style={styles.freshness}>Score, reliability, and drive time</Text>
             </View>
             <View style={styles.liveBadge}>
-              <Text style={styles.liveBadgeText}>{snapshot.paddleable} routes to paddle</Text>
+              <Text style={styles.liveBadgeText}>{snapshot.unavailable > 0 && snapshot.paddleable === 0 && snapshot.watch === 0 && snapshot.skip === 0 ? 'Calls unavailable' : `${snapshot.paddleable} routes to paddle`}</Text>
             </View>
           </View>
 
           {headline ? (
             <Pressable accessibilityRole="button" accessibilityLabel={`View ${headline.river.name}: ${headline.river.reach}`} style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
-                <View style={[styles.scoreOrb, { backgroundColor: ratingColors(headline.rating).backgroundColor }]}>
-                  <Text style={[styles.heroVerdictText, { color: ratingColors(headline.rating).textColor }]}>
-                    {callForDecision(headline.rating, headline.readiness.status)}
+                <View style={[styles.scoreOrb, { backgroundColor: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).backgroundColor }]}>
+                  <Text style={[styles.heroVerdictText, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).textColor }]}>
+                    {routeDecisionPresentation(headline).label}
                   </Text>
-                  <Text style={[styles.heroVerdictMeta, { color: ratingColors(headline.rating).textColor }]}>Score {headline.score}</Text>
+                  <Text style={[styles.heroVerdictMeta, { color: decisionColors(headline.rating, routeDecisionPresentation(headline).readiness).textColor }]}>{routeDecisionPresentation(headline).scoreLabel}</Text>
                 </View>
-                {onToggleSaved ? <SaveToggleButton routeLabel={`${headline.river.name}: ${headline.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
+                {onToggleSaved ? <SaveToggleButton routeSlug={headline.river.slug} routeLabel={`${headline.river.name}: ${headline.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>{hasLocation ? headlineLabelForMode(mode, headline) : 'Best across all routes'}</Text>
+                <Text style={styles.headlineKicker}>{routeDecisionPresentation(headline).call === 'unavailable' ? 'Route details to review' : hasLocation ? headlineLabelForMode(mode, headline) : 'Best across all routes'}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
-                <Text style={styles.headlineReach} numberOfLines={1}>
+                <Text style={styles.headlineReach} numberOfLines={2}>
                   {routeCount > 1
-                    ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)} · ${qualityForRating(headline.rating)}`
+                    ? `${routeChoiceLabelForMode(mode)}: ${routeReachWithState(headline)}`
                     : routeReachWithState(headline)}
                 </Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
-                  {normalizeApiText(headline.summary.shortExplanation)}
+                  {routeDecisionPresentation(headline).call === 'unavailable' ? 'A current call is unavailable. Open the route to review its evidence and access details.' : normalizeApiText(headline.summary.shortExplanation)}
                 </Text>
               </View>
             </Pressable>
@@ -431,33 +435,33 @@ function BoardHero({
                 : 'Set a starting point to rank routes and counts within 100 miles.'}
             </Text>
             <View style={styles.heroLocationActions}>
-              <Pressable
-                style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
-                disabled={requestingLocation}
+              <AppButton
+                label="Use my location"
+                busy={requestingLocation}
+                busyLabel="Finding you…"
+                icon="crosshairs-gps"
                 onPress={onUseLocation}
-                android_ripple={{ color: colors.accentSoft }}
-              >
-                <MaterialCommunityIcons name="crosshairs-gps" color={colors.surfaceStrong} size={18} />
-                <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding you…' : 'Use my location'}</Text>
-              </Pressable>
-              <Pressable
-                style={styles.heroLocationSearchAction}
+              />
+              <AppButton
+                label="City or ZIP"
+                variant="secondary"
                 onPress={onSetLocation}
-                accessibilityRole="button"
                 accessibilityLabel="Set city or ZIP code"
-              >
-                <Text style={styles.heroLocationSearchActionText}>City or ZIP</Text>
-              </Pressable>
+              />
             </View>
           </View>
         </View>
       ) : null}
 
       <View style={styles.snapshotSummary}>
-        <Text style={styles.snapshotContext}>{snapshotContext}</Text>
+        <View style={styles.snapshotContextRow}>
+          <Text style={styles.snapshotContext}>{snapshotContext}</Text>
+          {hasLocation ? <AppButton label="Change" accessibilityLabel="Change planning location" variant="secondary" onPress={onSetLocation} /> : null}
+        </View>
         <View style={styles.snapshotRow}>
           <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
           <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} onPress={() => onOpenStatus('watch')} />
+          <SnapshotPill label="No call" value={snapshot.unavailable} tone={styles.snapshotUnavailable} onPress={() => onOpenStatus('no-call')} />
           <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
@@ -535,10 +539,10 @@ function RiverImageCard({
         <View style={styles.imageCardOverlay}>
           <View style={styles.imageCardTop}>
             <View style={styles.imageScore}>
-              <Text style={styles.imageVerdictText}>{callForDecision(river.rating, river.readiness.status)}</Text>
-              <Text style={styles.imageScoreLabel}>Score {river.score}</Text>
+              <Text style={styles.imageVerdictText}>{routeDecisionPresentation(river).label}</Text>
+              <Text style={styles.imageScoreLabel}>{routeDecisionPresentation(river).scoreLabel}</Text>
             </View>
-            <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
+            <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
           </View>
           <View style={styles.imageCardCopy}>
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
@@ -555,7 +559,7 @@ function RiverImageCard({
       </ImageBackground>
       <View style={styles.imageCardBody}>
         <Text style={styles.imageCardReason} numberOfLines={2}>
-          {normalizeApiText(river.summary.shortExplanation)}
+          {routeDecisionPresentation(river).call === 'unavailable' ? 'A current call is unavailable. Review the route evidence before choosing it.' : normalizeApiText(river.summary.shortExplanation)}
         </Text>
         <View style={styles.imageCardFooter}>
           {homeFactItems(river).slice(0, 3).map((fact) => (
@@ -567,114 +571,18 @@ function RiverImageCard({
   );
 }
 
-function QuickScanList({
-  mode,
-  rivers,
-  routeCounts,
-  isSaved,
-  onToggleSaved,
-  onOpen,
-  onViewAll,
-}: {
-  mode: BoardMode;
-  rivers: BoardItem[];
-  routeCounts: ReadonlyMap<string, number>;
-  isSaved: (slug: string) => boolean;
-  onToggleSaved: (river: BoardItem) => void;
-  onOpen: (river: BoardItem) => void;
-  onViewAll: () => void;
-}) {
-  return (
-    <View style={styles.sectionStack}>
-      <SectionHeading
-        title={boardIntroTitleForMode(mode)}
-        subtitle={sectionSubtitleForMode(mode)}
-        actionLabel="View all"
-        onAction={onViewAll}
-      />
-      <View key={mode} style={styles.quickList}>
-        {rivers.map((river) => (
-          <CompactRiverRow
-            key={river.river.slug}
-            river={river}
-            routeCount={routeGroupMetaForRoute(river, routeCounts).routeCount}
-            saved={isSaved(river.river.slug)}
-            onToggleSaved={() => onToggleSaved(river)}
-            onOpen={() => onOpen(river)}
-          />
-        ))}
-      </View>
-    </View>
-  );
-}
-
-function CompactRiverRow({
-  river,
-  routeCount,
-  saved,
-  onToggleSaved,
-  onOpen,
-}: {
-  river: BoardItem;
-  routeCount: number;
-  saved: boolean;
-  onToggleSaved: () => void;
-  onOpen: () => void;
-}) {
-  return (
-    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
-      <View style={styles.quickThumb}>
-        <ImageBackground source={{ uri: photoForRiver(river.river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
-          <View style={styles.quickScore}>
-            <Text style={styles.quickScoreText}>{river.score}</Text>
-          </View>
-        </ImageBackground>
-      </View>
-      <View style={styles.quickCopy}>
-        <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
-        <Text style={styles.quickMeta} numberOfLines={1}>
-          {[
-            routeCount > 1 ? `Score ${river.score}` : routeReachWithState(river),
-            distanceLabelForRiver(river),
-            routeCount > 1 ? `${routeCount} routes` : null,
-          ].filter(Boolean).join(' - ')}
-        </Text>
-        {routeSegmentSummary(river.river) ? (
-          <Text style={styles.quickSegment} numberOfLines={1}>
-            {formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
-          </Text>
-        ) : null}
-        <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
-      </View>
-      <View style={styles.quickActions}>
-        <QualityPill rating={river.rating} />
-        <SaveToggleButton routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} />
-      </View>
-    </Pressable>
-  );
-}
-
 function SectionHeading({
   title,
   subtitle,
-  actionLabel,
-  onAction,
 }: {
   title: string;
   subtitle: string;
-  actionLabel?: string;
-  onAction?: () => void;
 }) {
   return (
     <View style={styles.sectionHeading}>
       <View style={styles.sectionHeadingTop}>
         <Text accessibilityRole="header" style={styles.sectionTitle}>{title}</Text>
-        {actionLabel && onAction ? (
-          <Pressable style={styles.sectionAction} onPress={onAction} android_ripple={{ color: colors.canvasMuted }}>
-            <MaterialCommunityIcons name="map-outline" color={colors.accent} size={15} />
-            <Text style={styles.sectionActionText}>{actionLabel}</Text>
-          </Pressable>
-        ) : null}
+
       </View>
       <Text style={styles.sectionSubtitle}>{subtitle}</Text>
     </View>
@@ -782,277 +690,24 @@ function KnownRouteSearch({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-function ManualLocationModal({
-  visible,
-  onDismiss,
-  onSubmit,
-}: {
-  visible: boolean;
-  onDismiss: () => void;
-  onSubmit: (query: string) => Promise<boolean>;
-}) {
-  const [query, setQuery] = useState('');
-  const [message, setMessage] = useState('');
-  const [submitting, setSubmitting] = useState(false);
-  const submission = useRef<object | null>(null);
-
-  useEffect(() => {
-    submission.current = null;
-    if (visible) {
-      setQuery('');
-      setMessage('');
-      setSubmitting(false);
-    }
-    return () => { submission.current = null; };
-  }, [visible]);
-
-  async function submitLocation() {
-    if (!query.trim() || submission.current) return;
-    const request = {};
-    submission.current = request;
-    setSubmitting(true);
-    setMessage('');
-    try {
-      const found = await onSubmit(query);
-      if (submission.current !== request) return;
-      if (found) onDismiss();
-      else setMessage("We couldn't find that city or ZIP code.");
-    } catch {
-      if (submission.current === request) setMessage('Location search is unavailable. Please try again.');
-    } finally {
-      if (submission.current === request) {
-        submission.current = null;
-        setSubmitting(false);
-      }
-    }
-  }
-
-  return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onDismiss}>
-      <KeyboardAvoidingView style={styles.locationModalScrim} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Pressable style={StyleSheet.absoluteFill} onPress={onDismiss} accessibilityLabel="Close location search" />
-        <View style={styles.locationModalCard}>
-          <View style={styles.locationModalHeader}>
-            <View style={styles.locationModalHeaderCopy}>
-              <Text accessibilityRole="header" style={styles.locationModalTitle}>Set your planning location</Text>
-              <Text style={styles.locationModalSubtitle}>Enter a city or ZIP code to rank nearby routes.</Text>
-            </View>
-            <Pressable hitSlop={10} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close location search">
-              <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
-            </Pressable>
-          </View>
-          <View style={styles.locationModalInputRow}>
-            <MaterialCommunityIcons name="map-marker-outline" color={colors.accent} size={19} />
-            <TextInput
-              autoFocus
-              value={query}
-              onChangeText={setQuery}
-              placeholder="City, state, or ZIP code"
-              accessibilityLabel="City, state, or ZIP code"
-              placeholderTextColor={colors.textMuted}
-              autoCapitalize="words"
-              autoCorrect={false}
-              returnKeyType="search"
-              editable={!submitting}
-              onSubmitEditing={() => void submitLocation()}
-              style={styles.locationModalInput}
-            />
-          </View>
-          {message ? <Text style={styles.locationModalMessage} accessibilityLiveRegion="polite">{message}</Text> : null}
-          <Pressable
-            style={[styles.locationModalSubmit, (!query.trim() || submitting) ? styles.heroActionDisabled : null]}
-            disabled={!query.trim() || submitting}
-            accessibilityState={{ disabled: !query.trim() || submitting, busy: submitting }}
-            accessibilityLabel="Use this location"
-            aria-busy={submitting}
-            onPress={() => void submitLocation()}
-            accessibilityRole="button"
-          >
-            <Text style={styles.locationModalSubmitText}>{submitting ? 'Finding location' : 'Use this location'}</Text>
-          </Pressable>
-        </View>
-      </KeyboardAvoidingView>
-    </Modal>
-  );
-}
-
-function RouteSearchModal({
-  visible,
-  query,
-  results,
-  routeCounts,
-  states,
-  topInset,
-  bottomInset,
-  onChange,
-  onClose,
-  onOpenRiver,
-  onExplore,
-  onRequestRoute,
-  onExploreState,
-}: {
-  visible: boolean;
-  query: string;
-  results: RiverSummaryApiItem[];
-  routeCounts: ReadonlyMap<string, number>;
-  states: string[];
-  topInset: number;
-  bottomInset: number;
-  onChange: (query: string) => void;
-  onClose: () => void;
-  onOpenRiver: (river: RiverSummaryApiItem) => void;
-  onExplore: () => void;
-  onRequestRoute: () => void;
-  onExploreState: (state: string) => void;
-}) {
-  const active = query.trim().length > 0;
-
-  return (
-    <Modal visible={visible} animationType="slide" presentationStyle="fullScreen" onRequestClose={onClose}>
-      <KeyboardAvoidingView
-        style={styles.searchModalScreen}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
-        <View style={[styles.searchModalContent, { paddingTop: spacing.md + topInset, paddingBottom: spacing.md + bottomInset }]}>
-          <View style={styles.searchModalHeader}>
-            <View>
-              <Text accessibilityRole="header" style={styles.searchModalTitle}>Find a route</Text>
-              <Text style={styles.searchModalSubtitle}>Search rivers, routes, states, and access points.</Text>
-            </View>
-            <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
-              <MaterialCommunityIcons name="close" color={colors.accent} size={20} />
-            </Pressable>
-          </View>
-
-          <View style={styles.searchModalInputRow}>
-            <MaterialCommunityIcons name="magnify" color={colors.accent} size={19} />
-            <TextInput
-              autoFocus
-              autoCapitalize="none"
-              autoCorrect={false}
-              value={query}
-              onChangeText={onChange}
-              placeholder="River, route, region, or state"
-              accessibilityLabel="Search rivers and routes"
-              placeholderTextColor={colors.textMuted}
-              returnKeyType="search"
-              onSubmitEditing={() => {
-                if (results[0]) {
-                  onOpenRiver(results[0]);
-                  return;
-                }
-
-                onExplore();
-              }}
-              style={styles.searchModalInput}
-            />
-            {active ? (
-              <Pressable hitSlop={10} onPress={() => onChange('')} accessibilityRole="button" accessibilityLabel="Clear search">
-                <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={19} />
-              </Pressable>
-            ) : null}
-          </View>
-
-          <ScrollView
-            style={styles.searchModalResults}
-            contentContainerStyle={styles.searchModalResultsContent}
-            keyboardDismissMode={Platform.OS === 'web' ? 'none' : 'on-drag'}
-            keyboardShouldPersistTaps="handled"
-          >
-            {!active ? (
-              <>
-                <View style={styles.searchModalEmpty}>
-                  <Text style={styles.searchModalEmptyTitle}>Start typing to search routes</Text>
-                  <Text style={styles.searchModalEmptyText}>Try a river name, nearby city, state, put-in, or take-out.</Text>
-                </View>
-                <View style={styles.searchStateSection}>
-                  <Text accessibilityRole="header" style={styles.searchStateTitle}>Browse by state</Text>
-                  <View style={styles.searchStateGrid}>
-                    {states.map((state) => (
-                      <Pressable
-                        key={state}
-                        accessibilityRole="button"
-                        accessibilityLabel={`Browse ${stateLabel(state)} routes`}
-                        style={styles.searchStateChip}
-                        onPress={() => onExploreState(state)}
-                        android_ripple={{ color: colors.canvasMuted }}
-                      >
-                        <Text style={styles.searchStateText}>{stateLabel(state)}</Text>
-                      </Pressable>
-                    ))}
-                  </View>
-                </View>
-              </>
-            ) : results.length > 0 ? (
-              <View style={styles.knownSearchResults}>
-                {results.map((river) => {
-                  const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
-                  return (
-                    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
-                      <View style={[styles.knownSearchScore, searchScoreTone(river.rating).score]}>
-                        <Text style={[styles.knownSearchScoreText, searchScoreTone(river.rating).text]}>{river.score}</Text>
-                      </View>
-                      <View style={styles.knownSearchCopy}>
-                        <View style={styles.knownSearchTopLine}>
-                          <Text style={styles.knownSearchName} numberOfLines={1}>{river.river.name}</Text>
-                          <QualityPill rating={river.rating} />
-                        </View>
-                        <Text style={styles.knownSearchMeta} numberOfLines={1}>
-                          {[
-                            stateLabel(river.river.state),
-                            river.river.region,
-                            routeCount > 1 ? `Score ${river.score} · ${routeCount} routes` : '1 route',
-                          ].filter(Boolean).join(' - ')}
-                        </Text>
-                        <Text style={styles.knownSearchReach} numberOfLines={1}>{river.river.reach}</Text>
-                        <View style={styles.knownSearchFacts}>
-                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.river.estimatedPaddleTime}</Text>
-                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.river.difficulty}</Text>
-                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.gaugeBandLabel}</Text>
-                        </View>
-                      </View>
-                      <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={21} />
-                    </Pressable>
-                  );
-                })}
-              </View>
-            ) : (
-              <View style={styles.knownSearchEmpty}>
-                <Text style={styles.knownSearchEmptyTitle}>No route found</Text>
-                <Text style={styles.searchModalEmptyText}>Open Explore to browse all rivers.</Text>
-                <Pressable accessibilityRole="button" onPress={onExplore}>
-                  <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
-                </Pressable>
-                <Pressable accessibilityRole="button" style={styles.knownSearchRequestButton} onPress={onRequestRoute}>
-                  <Text style={styles.knownSearchRequestText}>Request a Route</Text>
-                </Pressable>
-              </View>
-            )}
-          </ScrollView>
-        </View>
-      </KeyboardAvoidingView>
-    </Modal>
-  );
-}
-
 function ZeroReadyActions({
+  watchCount,
+  unavailableCount,
   onWeekend,
   onExplore,
 }: {
+  watchCount: number;
+  unavailableCount: number;
   onWeekend: () => void;
   onExplore: () => void;
 }) {
   return (
     <View style={styles.zeroReadyCard}>
-      <Text style={styles.zeroReadyTitle}>No clean paddles nearby right now</Text>
-      <Text style={styles.zeroReadyText}>Watch routes may improve as levels and weather change.</Text>
+      <Text style={styles.zeroReadyTitle}>{watchCount === 0 && unavailableCount > 0 ? 'Current calls need more evidence' : 'No Paddle calls right now'}</Text>
+      <Text style={styles.zeroReadyText}>{watchCount > 0 ? 'Watch routes need a closer look at levels and weather.' : unavailableCount > 0 ? 'Review the routes and check current sources before planning a launch.' : 'Review the reasons to skip before choosing another window.'}</Text>
       <View style={styles.zeroReadyActions}>
-        <Pressable style={styles.zeroReadyPrimary} onPress={onWeekend}>
-          <Text style={styles.zeroReadyPrimaryText}>Check Weekend</Text>
-        </Pressable>
-        <Pressable style={styles.zeroReadySecondary} onPress={onExplore}>
-          <Text style={styles.zeroReadySecondaryText}>Explore Watch Routes</Text>
-        </Pressable>
+        <AppButton label="Check Weekend" onPress={onWeekend} />
+        <AppButton label={watchCount > 0 ? 'Explore watch routes' : unavailableCount > 0 ? 'Review routes without a call' : 'Review skip reasons'} variant="secondary" onPress={onExplore} />
       </View>
     </View>
   );
@@ -1148,10 +803,10 @@ function OutOfRangeState({
         PaddleToday covers selected Midwest rivers. Browse the list or request one near you.
       </Text>
       <View style={styles.emptyActions}>
-        <Pressable style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
+        <Pressable accessibilityRole="button" style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
           <Text style={styles.emptyPrimaryButtonText}>Request a Route</Text>
         </Pressable>
-        <Pressable style={styles.emptySecondaryButton} onPress={onBrowseRoutes}>
+        <Pressable accessibilityRole="button" style={styles.emptySecondaryButton} onPress={onBrowseRoutes}>
           <Text style={styles.emptySecondaryButtonText}>Browse all rivers</Text>
         </Pressable>
       </View>
@@ -1161,7 +816,8 @@ function OutOfRangeState({
 
 function SnapshotPill({ label, value, tone, onPress }: { label: string; value: number; tone: object; onPress: () => void }) {
   return (
-    <Pressable style={[styles.snapshotPill, tone]} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
+    <Pressable style={[styles.snapshotPill, tone]} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}
+      accessibilityRole="button" accessibilityLabel={`${value} ${label} ${value === 1 ? 'route' : 'routes'}`} accessibilityHint={`Show ${label.toLowerCase()} routes in Explore.`}>
       <View>
         <Text style={styles.snapshotValue}>{value}</Text>
         <Text style={styles.snapshotLabel}>{label}</Text>
@@ -1169,34 +825,6 @@ function SnapshotPill({ label, value, tone, onPress }: { label: string; value: n
       <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={17} />
     </Pressable>
   );
-}
-
-function searchScoreTone(rating: RiverSummaryApiItem['rating']) {
-  if (rating === 'Strong') {
-    return {
-      score: { backgroundColor: '#E0EFE9' },
-      text: { color: colors.strong },
-    };
-  }
-
-  if (rating === 'Good') {
-    return {
-      score: { backgroundColor: '#E8EFD9' },
-      text: { color: colors.good },
-    };
-  }
-
-  if (rating === 'Fair') {
-    return {
-      score: { backgroundColor: '#F3E8CC' },
-      text: { color: colors.fair },
-    };
-  }
-
-  return {
-    score: { backgroundColor: '#F2DDD6' },
-    text: { color: colors.noGo },
-  };
 }
 
 function toSavedRiver(river: BoardItem) {
@@ -1212,13 +840,6 @@ function routeReachWithState(river: BoardItem | RiverSummaryApiItem) {
   return [river.river.reach, stateAbbreviation(river.river.state)].filter(Boolean).join(' - ');
 }
 
-function stateLabel(state: string) {
-  return state
-    .split(/\s+/)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-}
-
 function stateAbbreviation(state: string) {
   const normalized = state.trim().toLowerCase();
   return stateAbbreviations[normalized] ?? state;
@@ -1226,10 +847,6 @@ function stateAbbreviation(state: string) {
 
 function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
   return 'travelMinutes' in river;
-}
-
-function travelLabelForRiver(river: BoardItem) {
-  return isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region;
 }
 
 function distanceLabelForRiver(river: BoardItem) {
@@ -1272,8 +889,8 @@ function compareHomeCertainty(left: BoardItem, right: BoardItem) {
   return compareHomeScore(left, right);
 }
 
-function findKnownRouteMatches(rivers: RiverSummaryApiItem[], query: string, limit: number) {
-  const normalized = query.trim().toLowerCase();
+function findKnownRouteMatches(rivers: RiverSummaryApiItem[], query: string) {
+  const normalized = normalizeSearchText(query);
   if (!normalized) {
     return [];
   }
@@ -1282,12 +899,11 @@ function findKnownRouteMatches(rivers: RiverSummaryApiItem[], query: string, lim
     .filter((river) => searchableRouteText(river).includes(normalized))
     .sort((left, right) => {
       return searchRank(left, normalized) - searchRank(right, normalized) || compareHomeScore(left, right);
-    })
-    .slice(0, limit);
+    });
 }
 
 function searchableRouteText(river: RiverSummaryApiItem) {
-  return [
+  return normalizeSearchText([
     river.river.name,
     river.river.reach,
     river.river.region,
@@ -1303,17 +919,16 @@ function searchableRouteText(river: RiverSummaryApiItem) {
     river.gaugeBandLabel,
   ]
     .filter(Boolean)
-    .join(' ')
-    .toLowerCase();
+    .join(' '));
 }
 
 function searchRank(river: RiverSummaryApiItem, query: string) {
-  const name = river.river.name.toLowerCase();
-  const reach = river.river.reach.toLowerCase();
-  const region = river.river.region.toLowerCase();
-  const state = river.river.state.toLowerCase();
-  const stateAbbr = stateAbbreviation(river.river.state).toLowerCase();
-  const access = [river.river.putIn?.name, river.river.takeOut?.name].filter(Boolean).join(' ').toLowerCase();
+  const name = normalizeSearchText(river.river.name);
+  const reach = normalizeSearchText(river.river.reach);
+  const region = normalizeSearchText(river.river.region);
+  const state = normalizeSearchText(river.river.state);
+  const stateAbbr = normalizeSearchText(stateAbbreviation(river.river.state));
+  const access = normalizeSearchText([river.river.putIn?.name, river.river.takeOut?.name].filter(Boolean).join(' '));
 
   if (name === query) return 0;
   if (name.startsWith(query)) return 1;
@@ -1331,7 +946,7 @@ function sectionSubtitleForMode(mode: BoardMode) {
 
 function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   if (!headline) return 'Today';
-  const call = callStateForDecision(headline.rating, headline.readiness.status);
+  const call = routeDecisionPresentation(headline).call;
   if (call === 'skip') return isNearbyPick(headline) ? 'Best recheck nearby' : 'Best recheck today';
   if (call === 'unavailable') return 'Call unavailable';
   if (call === 'watch') return isNearbyPick(headline) ? 'Watch nearby' : 'Watch closely';
@@ -1348,25 +963,11 @@ function routeChoiceLabelForMode(mode: BoardMode) {
   return 'Best route on this river';
 }
 
-function quickScanSubtitleForMode(mode: BoardMode) {
-  if (mode === 'closest') return 'Nearby routes with key planning facts.';
-  if (mode === 'score') return 'Rivers ordered by score.';
-  if (mode === 'certain') return 'Most reliable routes first, then score.';
-  return 'Today\'s routes, including ones to check again.';
-}
-
 function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest routes';
   if (mode === 'score') return 'Rivers ordered by score';
   if (mode === 'certain') return 'Most reliable routes';
   return 'Today\'s Calls';
-}
-
-function exploreIntentForMode(mode: BoardMode, hasLocation: boolean): ExploreIntentId {
-  if (mode === 'closest') return 'best-nearby';
-  if (mode === 'score') return 'clean-now';
-  if (mode === 'certain') return 'clean-now';
-  return hasLocation ? 'best-nearby' : 'clean-now';
 }
 
 function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus: string) {
@@ -1379,14 +980,6 @@ function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus
 
 function homeFactItems(river: BoardItem) {
   return routePreviewFactItems(river.river, {
-    travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
-    includeNoCamping: true,
-    driveDistanceLabel: isNearbyPick(river) ? distanceLabelForRiver(river) : null,
-  });
-}
-
-function homeFactLine(river: BoardItem) {
-  return routePreviewFactLine(river.river, {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
     driveDistanceLabel: isNearbyPick(river) ? distanceLabelForRiver(river) : null,
@@ -1428,6 +1021,7 @@ const styles = StyleSheet.create({
   },
   heroOverlay: {
     minHeight: 310,
+    gap: spacing.md,
     justifyContent: 'space-between',
     padding: spacing.md,
     backgroundColor: 'rgba(15, 25, 22, 0.34)',
@@ -1438,10 +1032,12 @@ const styles = StyleSheet.create({
   },
   topBar: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: spacing.md,
   },
+  topBarCopy: { flexGrow: 1, minWidth: 0, maxWidth: '100%' },
   appName: {
     color: colors.surfaceStrong,
     fontSize: 34,
@@ -1455,6 +1051,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   liveBadge: {
+    maxWidth: '100%',
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
     borderRadius: radius.pill,
     paddingHorizontal: 12,
@@ -1483,72 +1080,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
-  },
-  locationModalScrim: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: spacing.lg,
-    backgroundColor: 'rgba(10, 24, 29, 0.52)',
-  },
-  locationModalCard: {
-    borderRadius: radius.lg,
-    backgroundColor: colors.surfaceStrong,
-    padding: spacing.lg,
-    gap: spacing.md,
-  },
-  locationModalHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  locationModalHeaderCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  locationModalTitle: {
-    color: colors.text,
-    fontSize: 19,
-    fontWeight: '900',
-  },
-  locationModalSubtitle: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  locationModalInputRow: {
-    minHeight: 48,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-  },
-  locationModalInput: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 16,
-  },
-  locationModalMessage: {
-    color: colors.noGo,
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  locationModalSubmit: {
-    minHeight: 46,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.md,
-  },
-  locationModalSubmitText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
   },
   heroVerdictText: {
     fontSize: 16,
@@ -1586,36 +1117,21 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     fontWeight: '700',
   },
-  heroPrimaryAction: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 7,
-    paddingHorizontal: spacing.md,
-  },
-  heroActionDisabled: {
-    opacity: 0.65,
-  },
-  heroPrimaryActionText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
-  },
   snapshotSummary: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.md,
     gap: spacing.xs,
   },
   snapshotContext: {
+    flexGrow: 1,
+    flexBasis: 140,
     color: colors.textMuted,
     fontSize: 11,
     fontWeight: '800',
     textTransform: 'uppercase',
     letterSpacing: 0.3,
   },
+  snapshotContextRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.sm },
   snapshotRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -1623,7 +1139,7 @@ const styles = StyleSheet.create({
   },
   snapshotPill: {
     flexGrow: 1,
-    flexBasis: '28%',
+    flexBasis: '45%',
     minWidth: 92,
     borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
@@ -1698,28 +1214,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 6,
   },
-  exploreActionPrimary: {
-    minHeight: 40,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    paddingHorizontal: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-  },
   exploreActionDisabled: {
     opacity: 0.65,
   },
   exploreActionText: {
     color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  exploreActionPrimaryText: {
-    color: colors.surfaceStrong,
     fontSize: 12,
     fontWeight: '900',
   },
@@ -1749,229 +1248,11 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     paddingHorizontal: spacing.md,
   },
-  knownSearchInput: {
-    flex: 1,
-    minWidth: 0,
-    color: colors.text,
-    fontSize: 15,
-    paddingVertical: 9,
-  },
   knownSearchPlaceholder: {
     flex: 1,
     color: colors.textMuted,
     fontSize: 15,
     paddingVertical: 9,
-  },
-  knownSearchResults: {
-    gap: spacing.xs,
-  },
-  knownSearchResult: {
-    minHeight: 92,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    padding: spacing.md,
-  },
-  knownSearchScore: {
-    width: 42,
-    height: 42,
-    borderRadius: 12,
-    backgroundColor: colors.accentSoft,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  knownSearchScoreText: {
-    color: colors.accentDeep,
-    fontSize: 16,
-    fontWeight: '900',
-  },
-  knownSearchCopy: {
-    flex: 1,
-    minWidth: 0,
-    gap: 3,
-  },
-  knownSearchTopLine: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  knownSearchName: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  knownSearchMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  knownSearchReach: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  knownSearchFacts: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 5,
-    marginTop: 2,
-  },
-  knownSearchFact: {
-    maxWidth: '100%',
-    borderRadius: radius.pill,
-    backgroundColor: colors.canvasMuted,
-    color: colors.text,
-    fontSize: 11,
-    fontWeight: '800',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  knownSearchEmpty: {
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    padding: spacing.md,
-    gap: 4,
-  },
-  knownSearchEmptyTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '800',
-  },
-  knownSearchEmptyAction: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  knownSearchRequestButton: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 13,
-    paddingVertical: 8,
-    marginTop: 4,
-  },
-  knownSearchRequestText: {
-    color: colors.surfaceStrong,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  searchModalScreen: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-  },
-  searchModalContent: {
-    flex: 1,
-    paddingHorizontal: spacing.md,
-    gap: spacing.md,
-  },
-  searchModalHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  searchModalTitle: {
-    color: colors.text,
-    fontSize: 24,
-    lineHeight: 29,
-    fontWeight: '900',
-  },
-  searchModalSubtitle: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '700',
-    marginTop: 3,
-  },
-  searchModalClose: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  searchModalInputRow: {
-    minHeight: 48,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-  },
-  searchModalInput: {
-    flex: 1,
-    minWidth: 0,
-    color: colors.text,
-    fontSize: 16,
-    paddingVertical: 10,
-  },
-  searchModalResults: {
-    flex: 1,
-  },
-  searchModalResultsContent: {
-    gap: spacing.sm,
-    paddingBottom: spacing.lg,
-  },
-  searchModalEmpty: {
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceStrong,
-    padding: spacing.lg,
-    gap: spacing.xs,
-  },
-  searchModalEmptyTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '900',
-  },
-  searchModalEmptyText: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '700',
-  },
-  searchStateSection: {
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceStrong,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  searchStateTitle: {
-    color: colors.text,
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  searchStateGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
-  searchStateChip: {
-    minHeight: 36,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  searchStateText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
   },
   zeroReadyCard: {
     borderRadius: radius.lg,
@@ -1996,30 +1277,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-  },
-  zeroReadyPrimary: {
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-  },
-  zeroReadyPrimaryText: {
-    color: colors.surfaceStrong,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  zeroReadySecondary: {
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-  },
-  zeroReadySecondaryText: {
-    color: colors.accent,
-    fontSize: 12,
-    fontWeight: '900',
   },
   previewSortCard: {
     backgroundColor: colors.surfaceStrong,
@@ -2072,9 +1329,6 @@ const styles = StyleSheet.create({
   todayCallsSection: {
     gap: spacing.sm,
   },
-  sectionStack: {
-    gap: spacing.sm,
-  },
   sectionHeading: {
     paddingHorizontal: 2,
     gap: 2,
@@ -2090,23 +1344,6 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.text,
     fontSize: 19,
-    fontWeight: '900',
-  },
-  sectionAction: {
-    minHeight: 32,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 5,
-    paddingHorizontal: 10,
-  },
-  sectionActionText: {
-    color: colors.accent,
-    fontSize: 12,
     fontWeight: '900',
   },
   sectionSubtitle: {
@@ -2200,21 +1437,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: spacing.xs,
   },
-  heroLocationSearchAction: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 11,
-  },
-  heroLocationSearchActionText: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '900',
-  },
   imageScoreLabel: {
     color: colors.accentDeep,
     fontSize: 9,
@@ -2267,79 +1489,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     paddingHorizontal: 9,
     paddingVertical: 5,
-  },
-  quickList: {
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    overflow: 'hidden',
-  },
-  quickRow: {
-    minHeight: 82,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    padding: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  quickThumb: {
-    width: 64,
-    height: 64,
-    borderRadius: radius.md,
-    overflow: 'hidden',
-    backgroundColor: colors.canvasMuted,
-  },
-  quickThumbImage: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-    padding: 6,
-  },
-  quickThumbRadius: {
-    borderRadius: radius.md,
-  },
-  quickScore: {
-    minWidth: 28,
-    height: 24,
-    borderRadius: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 5,
-  },
-  quickScoreText: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  quickCopy: {
-    flex: 1,
-    gap: 2,
-  },
-  quickName: {
-    color: colors.text,
-    fontSize: 15,
-    fontWeight: '900',
-  },
-  quickMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-  },
-  quickSegment: {
-    color: colors.accentDeep,
-    fontSize: 11,
-    fontWeight: '900',
-  },
-  quickReason: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  quickActions: {
-    alignItems: 'flex-end',
-    gap: spacing.xs,
   },
   emptyCard: {
     backgroundColor: colors.surfaceStrong,

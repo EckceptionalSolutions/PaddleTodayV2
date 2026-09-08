@@ -47,7 +47,7 @@ export function routePreviewFactLine(river: FactRiver, options: RoutePreviewFact
   return routePreviewFactItems(river, options).join(' - ');
 }
 
-export function routeDecisionLine(rating: string, explanation: string | null | undefined) {
+export function routeDecisionLine(explanation: string | null | undefined) {
   return normalizeApiText(explanation);
 }
 

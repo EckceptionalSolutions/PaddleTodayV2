@@ -5,10 +5,8 @@ import { FlatList, Modal, Platform, Pressable, StyleSheet, Text, View, useWindow
 import { clusterFocusRegion, isMapCluster, mapViewportPoints, mapScoreLayout, type MapViewport } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
-  clamp,
   finiteSpanCoordinates,
   getBounds,
-  isFiniteCoordinate,
   isFinitePoint,
   markerTextForPoint,
   projectPoint,
@@ -17,6 +15,7 @@ import {
   shouldShowProjectedScoreMarkers,
   shouldShowScoreMarkers,
   toneForRating,
+  legendItemsForPoints,
   type RoutePlotPoint,
   type RouteSpanCoordinate,
 } from './route-plot-map-model';
@@ -38,6 +37,8 @@ export interface RoutePlotMapHandle {
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points: RoutePlotPoint[];
   onReady?: () => void;
+  initialViewport?: MapViewport;
+  onViewportChange?: (viewport: MapViewport) => void;
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
@@ -63,6 +64,8 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 }>(function RoutePlotMap({
   points,
   onReady,
+  initialViewport,
+  onViewportChange,
   selectedId,
   userLocation,
   backgroundSpanCoordinates,
@@ -115,7 +118,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const mapRef = useRef<NativeMapView | null>(null);
   const previousPointSignatureRef = useRef<string | null>(null);
   const didFitAllOnReadyRef = useRef(false);
-  const initialRegion = regionFromBounds(bounds);
+  const initialRegion = initialViewport ?? regionFromBounds(bounds);
   // Route geometry can arrive after the summary markers. Updating that overlay
   // should not change the user's camera position.
   const pointSignature = useMemo(() => nativeMarkerPoints.map(mapPointSignature).join('|'), [nativeMarkerPoints]);
@@ -310,6 +313,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           rotateEnabled={!declutterScores}
           pitchEnabled={!declutterScores}
           onRegionChangeComplete={(region) => {
+            onViewportChange?.(region);
             onZoomLevelChange?.(Math.log2(360 / Math.max(region.longitudeDelta, 0.0001)));
             setRegionDelta((current) => {
               if (
@@ -619,20 +623,7 @@ function MapFooter({
   );
 }
 
-function legendItemsForPoints(points: RoutePlotPoint[]) {
-  const ratings = new Set(points.map((point) => point.rating));
-  return [
-    ratings.has('Strong') || ratings.has('Good')
-      ? { color: colors.strong, label: 'Paddle' }
-      : null,
-    ratings.has('Fair')
-      ? { color: colors.fair, label: 'Watch' }
-      : null,
-    [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair')
-      ? { color: colors.noGo, label: 'Skip' }
-      : null,
-  ].filter((item): item is { color: string; label: string } => item !== null);
-}
+
 
 function LegendDot({ color, label }: { color: string; label: string }) {
   return (
@@ -746,15 +737,7 @@ function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
     return SELECTED_MARKER_COLOR;
   }
 
-  if (point.rating === 'Strong' || point.rating === 'Good') {
-    return colors.strong;
-  }
-
-  if (point.rating === 'Fair') {
-    return colors.fair;
-  }
-
-  return colors.noGo;
+  return toneForRating(point.rating).backgroundColor;
 }
 
 const styles = StyleSheet.create({

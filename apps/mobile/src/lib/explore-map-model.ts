@@ -2,6 +2,7 @@ import type { RiverSummaryApiItem, RouteSegment, RouteSegmentSummary } from '@pa
 import type { RoutePlotPoint } from '../components/route-plot-map-model';
 import { coverageAnchorForRoute, coverageCenter, groupRoutesByConditionScore } from './river-coverage';
 import { riverGroupKeyForRoute, routeGroupMetaForRoute } from './route-groups';
+import { mapDecision } from './map-decision';
 
 export interface ExploreRiver extends RiverSummaryApiItem {
   distanceMiles: number | null;
@@ -43,6 +44,7 @@ export function buildExploreMapPoints(
 
     if (individualRoutes) {
       return matchingRiverRoutes.map((route) => {
+        const decision = mapDecision(route);
         const center = coverageAnchorForRoute(route, routeSpanCoordinatesForRiver(route));
         if (!center) return null;
         return {
@@ -52,18 +54,20 @@ export function buildExploreMapPoints(
           label: route.river.name,
           latitude: center.latitude,
           longitude: center.longitude,
-          score: route.score,
-          rating: route.rating,
-          markerAccessibilityLabel: `${route.river.reach}, score ${route.score}`,
+          score: decision.score,
+          rating: decision.rating,
+          markerLabel: decision.markerLabel,
+          markerAccessibilityLabel: `${route.river.reach}, ${decision.description}`,
           routeCount: 1,
           spanSegments: [routeSpanCoordinatesForRiver(route)].filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
-          meta: [route.river.reach, `${route.score} ${route.rating}`].filter(Boolean).join(' - '),
+          meta: [route.river.reach, decision.description].filter(Boolean).join(' - '),
         };
       }).filter(Boolean) as ExploreMapPoint[];
     }
 
     return groupRoutesByConditionScore(matchingRiverRoutes).flatMap((group) => {
       const representative = group.representative;
+      const decision = mapDecision(representative);
       const center = coverageCenter(group.routes);
       if (!representative || !center || group.score === null) return [];
       const spanSegments = group.routes
@@ -77,9 +81,10 @@ export function buildExploreMapPoints(
         label: representative.river.name,
         latitude: center.latitude,
         longitude: center.longitude,
-        score: group.score,
-        rating: group.rating,
-        markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, score ${group.score}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
+        score: decision.score,
+        rating: decision.rating,
+        markerLabel: decision.markerLabel,
+        markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, ${decision.description}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
         routeCount,
         spanSegments,
         meta: [

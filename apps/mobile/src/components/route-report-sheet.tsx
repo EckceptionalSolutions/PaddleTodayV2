@@ -16,6 +16,8 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { androidBottomInset } from '../lib/safe-area';
 import { selectionKeyboardProps } from '../lib/selection-keyboard';
+import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export interface SelectedReportPhoto {
@@ -96,6 +98,8 @@ export function RouteReportSheet({
   onToggleContactConsent,
   onSubmit,
 }: RouteReportSheetProps) {
+  const dateInput = useRef<TripTimeFieldHandle>(null);
+  const reducedMotion = useReducedMotion();
   const photoLimitReached = photos.length >= maxPhotos;
   const insets = useSafeAreaInsets();
   const bottomSheetInset = androidBottomInset(insets.bottom);
@@ -108,7 +112,7 @@ export function RouteReportSheet({
   const keyboardBottomPadding = Platform.OS === 'android' ? 280 : 180 + insets.bottom;
 
   return (
-    <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
+    <Modal animationType={reducedMotion ? "none" : "slide"} transparent visible={visible} onRequestClose={onClose}>
       <View style={styles.sheetScrim}>
         <KeyboardAvoidingView
           style={styles.keyboardWrap}
@@ -138,6 +142,7 @@ export function RouteReportSheet({
               <Text style={styles.reviewText}>
                 Your email is only for follow-up. Reports and photos stay private until reviewed.
               </Text>
+              <Text style={styles.reviewText}>Required fields are marked *.</Text>
             </View>
             <View
               style={styles.reportForm}
@@ -146,12 +151,15 @@ export function RouteReportSheet({
               }}
             >
               <View style={styles.reportGrid}>
+                <Text style={styles.choiceLabel}>Name or paddling handle *</Text>
                 <TextInput
                   autoCapitalize="words"
                   placeholder="Name or paddling handle"
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
                   accessibilityLabel="Contributor name or paddling handle"
+                  accessibilityHint="Required"
+                  aria-required
                   value={name}
                   ref={nameInput}
                   editable={!isSubmitting}
@@ -159,6 +167,7 @@ export function RouteReportSheet({
                   onFocus={() => scrollFocusedInputIntoView('name')}
                   onLayout={(event) => recordInputOffset('name', event)}
                 />
+                <Text style={styles.choiceLabel}>Email for follow-up *</Text>
                 <TextInput
                   autoCapitalize="none"
                   autoCorrect={false}
@@ -167,6 +176,8 @@ export function RouteReportSheet({
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
                   accessibilityLabel="Email address"
+                  accessibilityHint="Required"
+                  aria-required
                   value={email}
                   ref={emailInput}
                   editable={!isSubmitting}
@@ -175,17 +186,11 @@ export function RouteReportSheet({
                   onLayout={(event) => recordInputOffset('email', event)}
                 />
               </View>
-              <TextInput
-                placeholder="Trip date, optional"
-                placeholderTextColor={colors.textMuted}
-                style={styles.reportInput}
-                accessibilityLabel="Trip date, optional"
-                value={tripDate}
-                editable={!isSubmitting}
-                onChangeText={onTripDateChange}
-                onFocus={() => scrollFocusedInputIntoView('tripDate')}
-                onLayout={(event) => recordInputOffset('tripDate', event)}
-              />
+              <View onLayout={(event) => recordInputOffset('tripDate', event)}>
+                <TripTimeField label="Trip date" manualLabel="Trip date (optional)" value={tripDate} onChange={onTripDateChange}
+                  editable={visible && !isSubmitting} inputRef={dateInput} optional dateOnly />
+              </View>
+              <Text style={styles.choiceLabel}>Trip experience (optional)</Text>
               <SentimentPicker value={sentiment ?? ''} disabled={isSubmitting} onChange={onSentimentChange} />
               <ChoicePicker
                 label="Observed water level"
@@ -226,6 +231,8 @@ export function RouteReportSheet({
                 ]}
                 onChange={onOverallVerdictChange}
               />
+              <Text style={styles.choiceLabel}>Route report</Text>
+              <Text style={styles.reviewText}>Write at least a sentence, or attach photos below.</Text>
               <TextInput
                 multiline
                 placeholder="What did you see? Access, wood, level, crowding, pace, or anything useful."
@@ -240,9 +247,10 @@ export function RouteReportSheet({
                 onLayout={(event) => recordInputOffset('report', event)}
                 textAlignVertical="top"
               />
+              <Text style={styles.choiceLabel}>Extra notes (optional)</Text>
               <TextInput
                 multiline
-                placeholder="Extra notes, optional"
+                placeholder="Add any other details"
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportNotesArea]}
                 accessibilityLabel="Extra notes, optional"
@@ -357,7 +365,7 @@ export function RouteReportSheet({
     const fieldOffset = inputOffsets.current[key] ?? 0;
     const targetY = Math.max(0, fieldOffset - 80);
     setTimeout(() => {
-      scrollRef.current?.scrollTo({ y: targetY, animated: true });
+      scrollRef.current?.scrollTo({ y: targetY, animated: !reducedMotion });
     }, 80);
   }
 }
@@ -392,6 +400,7 @@ function SentimentPicker({
             accessibilityRole="button"
             accessibilityLabel={`Trip rating: ${option.label}`}
             aria-pressed={selected}
+              accessibilityState={{ selected, disabled }}
           >
             <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
               {option.label}
@@ -431,6 +440,7 @@ function ChoicePicker<T extends string>({
               accessibilityRole="button"
               accessibilityLabel={`${label}: ${option.label}`}
               aria-pressed={selected}
+              accessibilityState={{ selected, disabled }}
             >
               <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
                 {option.label}
@@ -450,6 +460,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(10, 24, 29, 0.34)',
   },
   keyboardWrap: {
+    width: '100%',
+    maxWidth: 640,
+    alignSelf: 'center',
     maxHeight: '88%',
   },
   reportSheet: {
@@ -491,6 +504,8 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   sheetCloseButton: {
+    minHeight: 44,
+    justifyContent: 'center',
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.border,

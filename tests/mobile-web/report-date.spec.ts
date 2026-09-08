@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+import fixture from './fixtures/route-detail.json' with { type: 'json' };
+
+test('report date supports calendar, manual entry, clearing and reopening', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', route => route.fulfill({ json: fixture }));
+  await page.goto('/river/rice-creek-peltier-to-long-lake');
+  await page.getByRole('button', { name: 'Show Reports section', exact: true }).first().click();
+  await page.getByRole('button', { name: 'Send route report', exact: true }).click();
+  const dialog = page.getByRole('dialog');
+  expect((await dialog.getByRole('button', { name: 'Close route report', exact: true }).boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  const date = dialog.locator('input[type="date"]');
+  await date.fill('2026-09-06');
+  await dialog.getByRole('button', { name: 'Enter manually: trip date', exact: true }).click();
+  const manual = dialog.getByRole('textbox', { name: 'Trip date (optional)', exact: true });
+  await expect(manual).toHaveValue('2026-09-06');
+  await manual.fill('2026-09-05');
+  await dialog.getByRole('button', { name: 'Use picker for trip date', exact: true }).click();
+  await expect(date).toHaveValue('2026-09-05');
+  await date.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: `tmp/report-date-${page.viewportSize()!.width}.png` });
+  await dialog.getByRole('button', { name: 'Close route report', exact: true }).click();
+  await page.getByRole('button', { name: 'Send route report', exact: true }).click();
+  await expect(date).toHaveValue('2026-09-05');
+  await dialog.getByRole('button', { name: 'Clear trip date', exact: true }).click();
+  await expect(date).toHaveValue('');
+  await expect(dialog.getByRole('button', { name: 'Clear trip date', exact: true })).toBeHidden();
+});

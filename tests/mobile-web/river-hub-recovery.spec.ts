@@ -100,5 +100,5 @@ test('a missing river hub offers Explore without repeating its request', async (
   expect(requests).toBe(1);
   await expect(page.getByRole('button', { name: 'Retry', exact: true })).toBeHidden();
   await page.getByRole('button', { name: 'Explore routes', exact: true }).press('Enter');
-  await expect(page).toHaveURL('http://127.0.0.1:8082/explore');
+  await expect(page).toHaveURL(/\/explore$/);
 });

@@ -1,20 +1,18 @@
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { mapScoreLayout } from '../lib/map-viewport';
+import { mapScoreLayout, type MapViewport } from '../lib/map-viewport';
 import { colors, radius, spacing } from '../theme/tokens';
 import {
-  clamp,
   finiteSpanCoordinates,
   getBounds,
-  isFiniteCoordinate,
   isFinitePoint,
   markerTextForPoint,
   projectPoint,
   projectPointNumber,
   routeSpanSegments,
   shouldShowProjectedScoreMarkers,
-  shouldShowScoreMarkers,
   toneForRating,
+  legendItemsForPoints,
   type RoutePlotPoint,
   type RouteSpanCoordinate,
 } from './route-plot-map-model';
@@ -30,6 +28,9 @@ export interface RoutePlotMapHandle {
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   points: RoutePlotPoint[];
   onReady?: () => void;
+  // The projected web fallback has no native geographic camera to restore.
+  initialViewport?: MapViewport;
+  onViewportChange?: (viewport: MapViewport) => void;
   selectedId?: string | null;
   userLocation?: { latitude: number; longitude: number; label?: string | null } | null;
   backgroundSpanCoordinates?: RouteSpanCoordinate[] | null;
@@ -250,20 +251,7 @@ function MapFooter({
   );
 }
 
-function legendItemsForPoints(points: RoutePlotPoint[]) {
-  const ratings = new Set(points.map((point) => point.rating));
-  return [
-    ratings.has('Strong') || ratings.has('Good')
-      ? { color: colors.strong, label: 'Paddle' }
-      : null,
-    ratings.has('Fair')
-      ? { color: colors.fair, label: 'Watch' }
-      : null,
-    [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair')
-      ? { color: colors.noGo, label: 'Skip' }
-      : null,
-  ].filter((item): item is { color: string; label: string } => item !== null);
-}
+
 
 function LegendDot({ color, label }: { color: string; label: string }) {
   return (

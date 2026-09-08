@@ -16,14 +16,17 @@ const DEFAULT_TRAVEL_MINUTES = 120;
 export function AreaNotificationCard({ location }: { location: StoredLocation | null }) {
   const createMutation = useCreateAreaNotificationSubscriptionMutation();
   const updateMutation = useUpdateAreaNotificationSubscriptionMutation();
-  const { preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, savePreferences } = useAreaNotificationPreferences();
+  const { preferences, isHydrated, storageError, loadError, loadingPreferences, retryLoad, savePreferences, locationSync, retryLocationSync } = useAreaNotificationPreferences();
   const [message, setMessage] = useState('');
   const [operationPending, setOperationPending] = useState(false);
   const operationInFlight = useRef(false);
   const promptTracked = useRef(false);
   const selectedLocation = location;
   const active = Boolean(preferences?.isActive);
-  const busy = operationPending || createMutation.isPending || updateMutation.isPending;
+  const areaSyncPending = locationSync.status === 'pending' && locationSync.subscriptionId === preferences?.id;
+  const areaSyncFailed = locationSync.status === 'error' && locationSync.subscriptionId === preferences?.id
+    && locationSync.locationLabel === selectedLocation?.label && preferences?.locationLabel !== selectedLocation?.label;
+  const busy = operationPending || createMutation.isPending || updateMutation.isPending || areaSyncPending;
 
   useEffect(() => {
     if (isHydrated && !loadError && selectedLocation && !preferences?.isActive && !promptTracked.current) {
@@ -146,8 +149,21 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
       <View style={styles.copy}>
         <Text style={styles.title}>{active ? 'Nearby paddle alerts' : selectedLocation ? `Get alerts near ${selectedLocation.label}` : 'Nearby paddle alerts'}</Text>
         <Text style={styles.body}>
-          {active ? 'We will check routes within about 2 hours of your planning location.' : 'We’ll let you know when routes within about 2 hours look good. Usually no more than twice a week.'}
+          {active ? `We will check routes within about ${Math.round((preferences?.maxTravelMinutes ?? 120) / 60 * 10) / 10} hours of ${preferences?.locationLabel || 'your saved alert area'}.` : 'We’ll let you know when routes within about 2 hours look good. Usually no more than twice a week.'}
         </Text>
+            {active && areaSyncPending ? <Text accessibilityLiveRegion="polite" style={styles.message}>Updating your alert area…</Text> : null}
+            {active && areaSyncFailed ? (
+              <View style={styles.syncNotice}>
+                <Text accessibilityLiveRegion="polite" style={styles.message}>Could not update the alert area. Alerts still use {preferences?.locationLabel}.</Text>
+                <Pressable style={styles.button} accessibilityRole="button" accessibilityLabel="Retry alert area update" accessibilityState={{ disabled: busy }} disabled={busy} onPress={retryLocationSync}>
+                  <Text style={styles.buttonText}>Retry area update</Text>
+                </Pressable>
+              </View>
+            ) : null}
+        {active && !preferences?.todayEnabled && !preferences?.weekendEnabled ? (
+          <Text accessibilityLiveRegion="polite" style={styles.body}>Today and Weekend updates are both off. Turn on either one to receive nearby paddle alerts.</Text>
+        ) : null}
+        {active && operationPending ? <Text accessibilityLiveRegion="polite" style={styles.message}>Saving your alert settings…</Text> : null}
         {active ? (
           <View style={styles.controls}>
             <Toggle label="Today" value={preferences?.todayEnabled ?? false} disabled={busy} onPress={() => void update({ todayEnabled: !(preferences?.todayEnabled ?? false) })} />
@@ -194,8 +210,8 @@ export function AreaNotificationCard({ location }: { location: StoredLocation | 
 
 function Toggle({ label, value, disabled, onPress }: { label: string; value: boolean; disabled: boolean; onPress: () => void }) {
   return (
-    <Pressable style={[styles.toggle, value ? styles.toggleOn : null]} disabled={disabled} onPress={onPress} accessibilityRole="switch" accessibilityLabel={`${label} alerts`} aria-checked={value} accessibilityState={{ checked: value, disabled }} {...selectionKeyboardProps(onPress, disabled)}>
-      <Text style={[styles.toggleText, value ? styles.toggleTextOn : null]}>{label}</Text>
+    <Pressable style={[styles.toggle, value ? styles.toggleOn : null]} disabled={disabled} onPress={onPress} accessibilityRole="switch" accessibilityLabel={`${label} alerts`} aria-checked={value} aria-busy={disabled} accessibilityState={{ checked: value, disabled, busy: disabled }} {...selectionKeyboardProps(onPress, disabled)}>
+      <Text style={[styles.toggleText, value ? styles.toggleTextOn : null]}>{label} · {value ? 'On' : 'Off'}</Text>
     </Pressable>
   );
 }
@@ -213,8 +229,9 @@ const styles = StyleSheet.create({
   toggle: { minHeight: 44, justifyContent: 'center', paddingHorizontal: 10, paddingVertical: 7, borderRadius: radius.pill, backgroundColor: colors.surfaceStrong, borderWidth: 1, borderColor: colors.border },
   disableButton: { minHeight: 44, justifyContent: 'center' },
   toggleOn: { backgroundColor: colors.accent, borderColor: colors.accent },
-  toggleText: { color: colors.textMuted, fontSize: 11, fontWeight: '800' },
+  toggleText: { color: colors.textMuted, fontSize: 12, fontWeight: '800' },
   toggleTextOn: { color: colors.surfaceStrong },
-  disableText: { color: colors.textMuted, fontSize: 11, fontWeight: '800', padding: 7 },
+  disableText: { color: colors.textMuted, fontSize: 12, fontWeight: '800', padding: 7 },
   message: { color: colors.textMuted, fontSize: 11, lineHeight: 15 },
+  syncNotice: { gap: spacing.sm, paddingVertical: spacing.sm },
 });

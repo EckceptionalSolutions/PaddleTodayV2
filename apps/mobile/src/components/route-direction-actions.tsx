@@ -1,7 +1,8 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { openExternalUrl } from '../lib/external-links';
 import { colors, radius, spacing } from '../theme/tokens';
+import { AppButton } from './app-button';
 
 export interface RouteDirectionPoint {
   name: string;
@@ -18,11 +19,13 @@ export function RouteDirectionActions({
 }) {
   const [status, setStatus] = useState('');
   const [pending, setPending] = useState<string | null>(null);
+  const [reversed, setReversed] = useState(false);
   const request = useRef<object | null>(null);
   useEffect(() => {
     request.current = null;
     setStatus('');
     setPending(null);
+    setReversed(false);
     return () => { request.current = null; };
   }, [putIn?.latitude, putIn?.longitude, takeOut?.latitude, takeOut?.longitude]);
 
@@ -47,40 +50,41 @@ export function RouteDirectionActions({
     return null;
   }
 
-  const origin = `${putIn.latitude},${putIn.longitude}`;
-  const destination = `${takeOut.latitude},${takeOut.longitude}`;
+  const from = reversed ? takeOut : putIn;
+  const to = reversed ? putIn : takeOut;
+  const origin = `${from.latitude},${from.longitude}`;
+  const destination = `${to.latitude},${to.longitude}`;
   const appleUrl = `https://maps.apple.com/?saddr=${encodeURIComponent(origin)}&daddr=${encodeURIComponent(destination)}&dirflg=d`;
-  const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
+  const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
 
   return (
     <View style={styles.directionsPanel}>
       <View style={styles.directionsCopy}>
         <Text style={styles.directionsTitle}>Shuttle directions</Text>
-        <Text style={styles.directionsText}>Open driving directions from {putIn.name} to {takeOut.name}.</Text>
+        <Text accessibilityLiveRegion="polite" style={styles.directionsText}>Drive from {from.name} to {to.name}.</Text>
+        <Text style={styles.directionsText}>{reversed ? 'Take-out to put-in' : 'Put-in to take-out'} · Driving only; your paddle route stays the same.</Text>
       </View>
+      <AppButton label="Reverse shuttle direction" variant="secondary" icon="swap-horizontal" disabled={Boolean(pending)}
+        onPress={() => { setReversed(value => !value); setStatus(''); }} />
       <View style={styles.directionsActions}>
-        <Pressable
-          style={styles.directionButton}
+        <AppButton
+          label="Apple Maps"
           onPress={() => void openDirections(appleUrl, 'Apple Maps')}
           disabled={Boolean(pending)}
-          aria-busy={pending === 'Apple Maps'}
-          accessibilityState={{ disabled: Boolean(pending), busy: pending === 'Apple Maps' }}
-          accessibilityRole="button"
+          busy={pending === 'Apple Maps'}
+          busyLabel="Opening Apple Maps…"
           accessibilityLabel="Open shuttle directions in Apple Maps"
-        >
-          <Text style={styles.directionButtonText}>Apple</Text>
-        </Pressable>
-        <Pressable
           style={styles.directionButton}
+        />
+        <AppButton
+          label="Google Maps"
           onPress={() => void openDirections(googleUrl, 'Google Maps')}
           disabled={Boolean(pending)}
-          aria-busy={pending === 'Google Maps'}
-          accessibilityState={{ disabled: Boolean(pending), busy: pending === 'Google Maps' }}
-          accessibilityRole="button"
+          busy={pending === 'Google Maps'}
+          busyLabel="Opening Google Maps…"
           accessibilityLabel="Open shuttle directions in Google Maps"
-        >
-          <Text style={styles.directionButtonText}>Google</Text>
-        </Pressable>
+          style={styles.directionButton}
+        />
       </View>
       {status ? <Text accessibilityLiveRegion="polite" style={styles.directionsText}>{status}</Text> : null}
     </View>
@@ -106,15 +110,7 @@ const styles = StyleSheet.create({
   },
   directionsCopy: { gap: 3 },
   directionsTitle: { color: colors.text, fontSize: 14, fontWeight: '900' },
-  directionsText: { color: colors.textMuted, fontSize: 12, lineHeight: 17 },
-  directionsActions: { flexDirection: 'row', gap: spacing.sm },
-  directionButton: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  directionButtonText: { color: colors.surfaceStrong, fontSize: 12, fontWeight: '900' },
+  directionsText: { color: colors.textMuted, fontSize: 13, lineHeight: 19 },
+  directionsActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  directionButton: { flexGrow: 1, flexBasis: 110 },
 });

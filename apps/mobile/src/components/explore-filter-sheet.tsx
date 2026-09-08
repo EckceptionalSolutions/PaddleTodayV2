@@ -3,6 +3,7 @@ import { callStateForDecision, parsePaddleTimeHours, type DecisionReadinessStatu
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { ChoiceChip, isExploreSort, type ExploreSort } from './explore-controls';
 import { androidBottomInset } from '../lib/safe-area';
 import { isRecord } from '../lib/storage';
@@ -237,10 +238,16 @@ export function ExploreFilterSheet({
   const insets = useSafeAreaInsets();
   const bottomInset = androidBottomInset(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const translateY = useRef(new Animated.Value(0)).current;
-  const panResponder = useRef(
+  const reducedMotion = useReducedMotion();
+  useEffect(() => {
+    translateY.stopAnimation();
+    translateY.setValue(0);
+  }, [visible, reducedMotion, translateY]);
+  const panResponder = useMemo(() =>
     PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponder: () => false,
       onMoveShouldSetPanResponder: (_, gesture) => gesture.dy > 6 && Math.abs(gesture.dy) > Math.abs(gesture.dx),
+      onPanResponderGrant: () => translateY.stopAnimation(),
       onPanResponderMove: (_, gesture) => {
         translateY.setValue(Math.max(0, gesture.dy));
       },
@@ -251,6 +258,7 @@ export function ExploreFilterSheet({
           return;
         }
 
+        if (reducedMotion) { translateY.setValue(0); return; }
         Animated.spring(translateY, {
           toValue: 0,
           useNativeDriver: true,
@@ -259,6 +267,7 @@ export function ExploreFilterSheet({
         }).start();
       },
       onPanResponderTerminate: () => {
+        if (reducedMotion) { translateY.setValue(0); return; }
         Animated.spring(translateY, {
           toValue: 0,
           useNativeDriver: true,
@@ -266,19 +275,19 @@ export function ExploreFilterSheet({
           stiffness: 190,
         }).start();
       },
-    })
-  ).current;
+    }), [translateY, reducedMotion, onDismiss]
+  );
 
   return (
-    <Modal animationType="slide" transparent visible={visible} onRequestClose={onDismiss}>
+    <Modal animationType={reducedMotion ? 'none' : 'slide'} transparent visible={visible} onRequestClose={onDismiss}>
       <View style={styles.sheetScrim}>
         <Animated.View style={[styles.filterSheet, { transform: [{ translateY }] }]}>
           <View style={styles.sheetDragZone} {...panResponder.panHandlers}>
             <View style={styles.sheetHandle} />
           </View>
-          <View style={styles.sheetHeader} {...panResponder.panHandlers}>
-            <View style={styles.sheetTitleCopy}>
-              <Text style={styles.sheetTitle}>Filters</Text>
+          <View style={styles.sheetHeader}>
+            <View style={styles.sheetTitleCopy} {...panResponder.panHandlers}>
+              <Text accessibilityRole="header" style={styles.sheetTitle}>Filters</Text>
             <Text style={styles.sheetSubtitle}>{matchCount} routes match these filters</Text>
             </View>
             <Pressable style={styles.sheetCancelButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Cancel filters">
@@ -495,6 +504,7 @@ function StatePickerModal({
   onDismiss: () => void;
 }) {
   const [query, setQuery] = useState('');
+  const reducedMotion = useReducedMotion();
   useEffect(() => {
     if (visible) {
       setQuery('');
@@ -508,12 +518,12 @@ function StatePickerModal({
   }, [query, states]);
 
   return (
-    <Modal animationType="fade" transparent visible={visible} onRequestClose={onDismiss}>
+    <Modal animationType={reducedMotion ? 'none' : 'fade'} transparent visible={visible} onRequestClose={onDismiss}>
       <View style={styles.pickerScrim}>
         <View style={styles.statePicker}>
           <View style={styles.statePickerHeader}>
-            <Text style={styles.statePickerTitle}>Choose state</Text>
-            <Pressable hitSlop={10} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close state picker">
+            <Text accessibilityRole="header" style={styles.statePickerTitle}>Choose state</Text>
+            <Pressable style={styles.statePickerClose} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close state picker">
               <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
             </Pressable>
           </View>
@@ -523,6 +533,7 @@ function StatePickerModal({
               value={query}
               onChangeText={setQuery}
               placeholder="Search states"
+              accessibilityLabel="Search states"
               placeholderTextColor={colors.textMuted}
               autoCapitalize="characters"
               autoCorrect={false}
@@ -530,6 +541,7 @@ function StatePickerModal({
             />
           </View>
           <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+            {query.trim() && !filteredStates.length ? <Text accessibilityLiveRegion="polite" style={styles.sheetSubtitle}>No states match your search. Try another name or clear the search.</Text> : null}
             <StatePickerOption label="All states" selected={!selectedState} onPress={() => onSelect('')} />
             {filteredStates.map((state) => (
               <StatePickerOption
@@ -548,7 +560,7 @@ function StatePickerModal({
 
 function StatePickerOption({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   return (
-    <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" aria-pressed={selected} accessibilityState={{ selected }}>
+    <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" accessibilityLabel={label} aria-pressed={selected} accessibilityState={{ selected }}>
       <Text style={[styles.stateOptionText, selected ? styles.stateOptionTextSelected : null]}>{label}</Text>
       {selected ? <MaterialCommunityIcons name="check" color={colors.accent} size={19} /> : null}
     </Pressable>
@@ -1046,6 +1058,15 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 18,
     fontWeight: '900',
+  },
+  statePickerClose: {
+    width: 44,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   stateSearch: {
     minHeight: 44,

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SNAPSHOT_MAX_AGE_MS } from '@paddletoday/api-contract';
 import Constants from 'expo-constants';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { focusManager, MutationCache, QueryCache, QueryClient } from '@tanstack/react-query';
@@ -12,6 +13,7 @@ import { AreaNotificationPreferencesProvider } from './area-notification-prefere
 import { SavedRiversProvider } from './saved-rivers-provider';
 import { StoredLocationProvider } from '../hooks/use-stored-location';
 import { QUERY_CACHE_STORAGE_KEY, queryCacheBuster } from '../lib/query-cache';
+import { refreshFreshnessClock } from '../hooks/use-freshness-clock';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
@@ -61,6 +63,7 @@ export function AppProviders({ children }: PropsWithChildren) {
     trackAppEvent('app_opened');
 
     const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active') refreshFreshnessClock();
       focusManager.setFocused(state === 'active');
     });
 
@@ -75,7 +78,7 @@ export function AppProviders({ children }: PropsWithChildren) {
         buster: QUERY_CACHE_BUSTER,
         // Persisted route and board responses must not look current after a
         // full day offline; the API snapshot SLA is two hours.
-        maxAge: 2 * 60 * 60 * 1000,
+        maxAge: SNAPSHOT_MAX_AGE_MS,
         dehydrateOptions: {
           shouldDehydrateQuery: (query) => query.state.status === 'success',
         },

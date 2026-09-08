@@ -20,5 +20,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvasMuted,
     padding: spacing.sm,
   },
-  label: { color: colors.textMuted, fontSize: 12, fontWeight: '500' },
+  label: { color: colors.textMuted, fontSize: 12, fontWeight: '500', textAlign: 'center' },
 });

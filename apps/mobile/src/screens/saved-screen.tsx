@@ -1,18 +1,26 @@
+import { RouteComparisonSheet } from '../components/route-comparison-sheet';
+import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
+import { useStoredLocation } from '../hooks/use-stored-location';
+import { selectionKeyboardProps } from '../lib/selection-keyboard';
+import { AppButton } from '../components/app-button';
+import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import { SavedRouteNotes, SavedRouteNotesEditor } from '../components/saved-route-notes';
+import { SavedTripDrafts } from '../components/saved-trip-drafts';
+import { RecentRoutes } from '../components/recent-routes';
 import type { SavedRiverRecord } from '../providers/saved-rivers-provider';
 import { useSavedRouteChanges } from '../hooks/use-saved-route-changes';
 import {
-  callStateForDecision,
   formatRouteSegmentLabel,
+  normalizeSearchText,
   routeSegmentSummary,
   type RiverAlertThreshold,
   type RiverSummaryApiItem,
 } from '@paddletoday/api-contract';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useMemo, useRef, useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Keyboard, KeyboardAvoidingView, Platform, TextInput, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
 import { AppLoadingState, AppRefreshNotice } from '../components/app-state';
@@ -20,6 +28,7 @@ import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
+import { routeDecisionPresentation } from '../lib/map-decision';
 import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { androidBottomInset } from '../lib/safe-area';
 import { tabKeyboardProps } from '../lib/selection-keyboard';
@@ -28,22 +37,36 @@ import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type SavedTab = 'routes' | 'alerts';
+interface SavedComparisonSelection { slugs: string[]; toggle: (slug: string) => void }
 
 export default function SavedScreen() {
   const router = useRouter();
+  const { location } = useStoredLocation();
+  const [comparisonMode, setComparisonMode] = useState(false);
+  const [comparedSlugs, setComparedSlugs] = useState<string[]>([]);
+  const [comparisonVisible, setComparisonVisible] = useState(false);
+  const [comparisonBarHeight, setComparisonBarHeight] = useState(130);
+  const compareStart = useRef<View>(null);
+  const searchInput = useRef<TextInput>(null);
+  const [savedSearch, setSavedSearch] = useState('');
+  const params = useLocalSearchParams<{ tab?: string | string[] }>();
+  const requestedTab = Array.isArray(params.tab) ? params.tab[0] : params.tab;
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverSummaryQuery();
   const createAlertMutation = useCreateRiverAlertMutation();
   const { savedRivers, isHydrated, hasLoadError, isSaved, toggleSavedRiver } = useSavedRivers();
-  const { routeAlerts, recordRouteAlert, alertForRiver } = useAlertPreferences();
+  const { routeAlerts, recordRouteAlert, alertForRiver, isHydrated: alertsHydrated, loadError: alertsLoadError } = useAlertPreferences();
   const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const alertSubmissionInFlight = useRef(false);
   const [activeTab, setActiveTab] = useState<SavedTab>('routes');
+  useEffect(() => {
+    if (requestedTab === 'alerts' || requestedTab === 'routes') setActiveTab(requestedTab);
+  }, [requestedTab]);
   const [notesRiver, setNotesRiver] = useState<SavedRiverRecord | null>(null);
 
-  const rivers = summaryQuery.data?.rivers ?? [];
+  const rivers = useMemo(() => summaryQuery.data?.rivers ?? [], [summaryQuery.data?.rivers]);
   const riverLookup = new Map(rivers.map((river) => [river.river.slug, river]));
   const savedSummaries = savedRivers
     .map((savedRiver) => riverLookup.get(savedRiver.slug))
@@ -54,6 +77,36 @@ export default function SavedScreen() {
   );
   const changes = useSavedRouteChanges(savedRivers, rivers, isHydrated && summaryQuery.isSuccess && !summaryQuery.isFetching && summaryQuery.data?.snapshotStatus !== 'stale');
   const savedGroups = groupSavedRoutes(savedSummaries);
+  const searchTerms = normalizeSearchText(savedSearch).split(' ').filter(Boolean);
+  const filtering = activeTab === 'routes' && searchTerms.length > 0;
+  const visibleSavedRivers = searchTerms.length ? savedRivers.filter(record => {
+    const details = riverLookup.get(record.slug)?.river;
+    const searchable = normalizeSearchText([record.name, record.reach, record.notes, details?.state, details?.region].filter(Boolean).join(' '));
+    return searchTerms.every(term => searchable.includes(term));
+  }) : savedRivers;
+  const visibleSlugs = new Set(visibleSavedRivers.map(record => record.slug));
+  const visibleSummaries = savedSummaries.filter(route => visibleSlugs.has(route.river.slug));
+  const visibleGroups = groupSavedRoutes(visibleSummaries);
+
+  useEffect(() => {
+    setComparedSlugs(current => {
+      const next = current.filter(slug => savedRivers.some(route => route.slug === slug) && rivers.some(route => route.river.slug === slug));
+      return next.length === current.length ? current : next;
+    });
+  }, [savedRivers, rivers]);
+  const comparedRoutes = comparedSlugs.flatMap(slug => riverLookup.has(slug) ? [riverLookup.get(slug)!] : []);
+  const compareSelection: SavedComparisonSelection | undefined = comparisonMode ? {
+    slugs: comparedSlugs,
+    toggle: slug => { Keyboard.dismiss(); setComparedSlugs(current => toggleRouteComparison(current, slug, savedSummaries.map(route => route.river.slug))); },
+  } : undefined;
+  const showComparisonBar = comparisonMode && activeTab === 'routes';
+  function cancelComparison() {
+    setComparisonMode(false);
+    setComparedSlugs([]);
+    setComparisonVisible(false);
+    requestAnimationFrame(() => compareStart.current?.focus());
+  }
+
 
   async function submitSavedRouteAlert(river: RiverSummaryApiItem, threshold: RiverAlertThreshold) {
     if (alertSubmissionInFlight.current) return;
@@ -95,20 +148,24 @@ export default function SavedScreen() {
   }
 
   return (
+    <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : Platform.OS === 'android' ? 'height' : undefined}>
     <ScrollView
+      keyboardShouldPersistTaps="handled"
       style={styles.screen}
       refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
       contentContainerStyle={[
         styles.content,
         {
           paddingTop: spacing.md + insets.top,
-          paddingBottom: spacing.xl + bottomContentInset,
+          paddingBottom: spacing.xl + bottomContentInset + (showComparisonBar ? comparisonBarHeight : 0),
         },
       ]}
     >
+      <AlertPreferencesNotice />
       <AppRefreshNotice
         label="Your saved-route list is still available."
         isError={summaryQuery.isError}
+        isStale={summaryQuery.data?.snapshotStatus === 'stale'}
         retrying={summaryQuery.isFetching}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
@@ -117,12 +174,40 @@ export default function SavedScreen() {
       <Text style={styles.subtitle}>
         A status board for rivers you check often.
       </Text>
+      <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
+      {activeTab === 'routes' && (savedRivers.length > 1 || savedSearch.length > 0) ? <View style={styles.searchBox}>
+        <MaterialCommunityIcons name="magnify" size={22} color={colors.textMuted} accessible={false} />
+        <TextInput ref={searchInput} style={styles.searchInput} accessibilityLabel="Search saved routes" placeholder="River, reach, area, or note"
+          placeholderTextColor={colors.textMuted} value={savedSearch} onChangeText={setSavedSearch}
+          autoCorrect={false} autoCapitalize="none" returnKeyType="search" onSubmitEditing={() => Keyboard.dismiss()} />
+        {savedSearch ? <Pressable accessibilityRole="button" accessibilityLabel="Clear saved route search" style={styles.searchClear}
+          onPress={() => { setSavedSearch(''); searchInput.current?.focus(); }}>
+          <MaterialCommunityIcons name="close" size={20} color={colors.textMuted} />
+        </Pressable> : null}
+      </View> : null}
+      {filtering ? <Text accessibilityLiveRegion="polite" style={styles.compareHelp}>Showing {visibleSavedRivers.length} of {savedRivers.length} saved routes.</Text> : null}
+      {filtering && savedRivers.length > 0 && visibleSavedRivers.length === 0 ? <SectionCard title="No saved routes match" subtitle="Try a river name, reach, area, or words from your personal notes.">
+        <AppButton label="Show all saved routes" variant="secondary" onPress={() => { setSavedSearch(''); Keyboard.dismiss(); }} />
+      </SectionCard> : null}
+      {activeTab === 'routes' && savedSummaries.length >= 2 && !comparisonMode ? (
+        <Pressable ref={compareStart} accessibilityRole="button" accessibilityLabel="Compare saved routes" style={styles.compareStart} onPress={() => setComparisonMode(true)}>
+          <MaterialCommunityIcons name="compare-horizontal" accessible={false} size={20} color={colors.accentDeep} />
+          <Text style={styles.compareStartText}>Compare saved routes</Text>
+        </Pressable>
+      ) : null}
+      {activeTab === 'alerts' ? <SectionCard title="Nearby alerts and delivery" subtitle="Manage area-wide Today and Weekend updates, planning location, and device notification settings.">
+        <AppButton label="Open notification settings" variant="secondary" icon="bell-outline" onPress={() => router.push('/notifications')} />
+      </SectionCard> : null}
+      {!filtering ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
+        onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
+          putin: record.target.putInId ?? '', takeout: record.target.takeOutId ?? '', prepare: Date.now().toString() } })} /> : null}
+      {activeTab === 'routes' && !filtering ? <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /> : null}
 
-      {savedRivers.length > 0 ? (
+      {savedRivers.length > 0 && !filtering ? (
         <View style={styles.savedOverview}>
           <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
-          <OverviewTile icon="bell-ring-outline" label="Alerts" value={`${savedAlertCount}/${savedRivers.length}`} />
-          <OverviewTile icon="waves" label="Calls" value={`${savedSummaries.length}/${savedRivers.length}`} />
+          <OverviewTile icon="bell-ring-outline" label="Alerts" value={alertsHydrated && !alertsLoadError ? `${savedAlertCount}/${savedRivers.length}` : 'Unknown'} />
+          <OverviewTile icon="waves" label="Current calls" value={`${savedGroups.paddle.length + savedGroups.watch.length + savedGroups.skip.length}/${savedRivers.length}`} />
         </View>
       ) : null}
 
@@ -146,59 +231,61 @@ export default function SavedScreen() {
         </View>
       ) : null}
 
-      {savedRivers.length > 0 ? (
-        <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
-      ) : null}
 
-      {activeTab === 'routes' && savedSummaries.length > 0 ? (
+
+      {activeTab === 'routes' && visibleSummaries.length > 0 ? (
         <>
           <View style={styles.statusBoard}>
-            <StatusTile label="Paddle" value={savedGroups.paddle.length} tone={styles.statusPaddle} />
-            <StatusTile label="Watch" value={savedGroups.watch.length} tone={styles.statusWatch} />
-            <StatusTile label="No call" value={savedGroups.unavailable.length} tone={styles.statusUnavailable} />
-            <StatusTile label="Skip" value={savedGroups.skip.length} tone={styles.statusSkip} />
+            <StatusTile label="Paddle" value={visibleGroups.paddle.length} tone={styles.statusPaddle} />
+            <StatusTile label="Watch" value={visibleGroups.watch.length} tone={styles.statusWatch} />
+            <StatusTile label="No call" value={visibleGroups.unavailable.length} tone={styles.statusUnavailable} />
+            <StatusTile label="Skip" value={visibleGroups.skip.length} tone={styles.statusSkip} />
           </View>
 
           <SavedRouteGroup
+            comparison={compareSelection}
             title="Paddle today"
             subtitle="Saved routes with a current Paddle call."
             changes={changes}
             savedRivers={savedRivers}
             onEditNotes={setNotesRiver}
-            rivers={savedGroups.paddle}
+            rivers={visibleGroups.paddle}
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
           />
           <SavedRouteGroup
+            comparison={compareSelection}
             title="Watch closely"
             subtitle="Saved routes that need a closer look."
             changes={changes}
             savedRivers={savedRivers}
             onEditNotes={setNotesRiver}
-            rivers={savedGroups.watch}
+            rivers={visibleGroups.watch}
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
           />
           <SavedRouteGroup
+            comparison={compareSelection}
             title="Call unavailable"
             subtitle="Saved routes that need current evidence before PaddleToday can make a call."
             changes={changes}
             savedRivers={savedRivers}
             onEditNotes={setNotesRiver}
-            rivers={savedGroups.unavailable}
+            rivers={visibleGroups.unavailable}
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
           />
           <SavedRouteGroup
+            comparison={compareSelection}
             title="Skip today"
             subtitle="Saved routes to recheck later."
             changes={changes}
             savedRivers={savedRivers}
             onEditNotes={setNotesRiver}
-            rivers={savedGroups.skip}
+            rivers={visibleGroups.skip}
             isSaved={isSaved}
             onToggleSaved={toggleSavedRiver}
             onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
@@ -206,13 +293,13 @@ export default function SavedScreen() {
         </>
       ) : null}
 
-      {activeTab === 'routes' && savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
+      {activeTab === 'routes' && visibleSavedRivers.some(route => !riverLookup.has(route.slug)) ? (
         <SectionCard
           title={summaryQuery.isPending ? 'Checking saved routes' : 'Saved routes without a call'}
           subtitle={summaryQuery.isPending ? 'Your list is ready while current calls load.' : 'Still saved. You can open route details or try refreshing the calls.'}
         >
           <View style={styles.list}>
-            {savedRivers
+            {visibleSavedRivers
               .filter((river) => !riverLookup.has(river.slug))
               .map((river) => (
                 <View key={river.slug} style={styles.savedFallbackCard}>
@@ -229,7 +316,7 @@ export default function SavedScreen() {
                       {summaryQuery.isPending ? 'Loading current call…' : 'Current call unavailable.'}
                     </Text>
                     <SavedRouteNotes river={river} onEdit={setNotesRiver} />
-                    <SaveToggleButton routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
+                    <SaveToggleButton routeSlug={river.slug} routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
                   </View>
                 </View>
               ))}
@@ -240,14 +327,15 @@ export default function SavedScreen() {
       {activeTab === 'alerts' && savedSummaries.length > 0 ? (
         <SectionCard
           title="Condition alerts"
-          subtitle="Get notified when saved routes reach Good or Strong."
+          subtitle="Good and Strong are separate phone alerts. You can enable either or both."
         >
           <View style={styles.alertRouteList}>
             {savedSummaries.map((river) => (
               <SavedAlertRow
                 key={river.river.slug}
                 river={river}
-                alert={alertForRiver(river.river.slug)}
+                alerts={routeAlerts.filter(alert => alert.riverSlug === river.river.slug)}
+                preferencesReady={alertsHydrated && !alertsLoadError}
                 pendingAlertKey={pendingAlertKey}
                 onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
                 onSubmitAlert={(threshold) => void submitSavedRouteAlert(river, threshold)}
@@ -261,14 +349,14 @@ export default function SavedScreen() {
       {activeTab === 'alerts' && savedRivers.length > 0 && savedSummaries.length === 0 ? (
         <SectionCard
           title="Condition alerts"
-          subtitle="Alerts need a current route call before they can be configured."
+          subtitle="Load route details to configure an alert."
         >
           <View style={styles.alertEmptyPanel}>
             <MaterialCommunityIcons name="bell-alert-outline" color={colors.accent} size={24} />
             <View style={styles.alertEmptyCopy}>
-              <Text style={styles.alertEmptyTitle}>No current calls for saved routes</Text>
+              <Text style={styles.alertEmptyTitle}>Saved route details unavailable</Text>
               <Text style={styles.alertEmptyBody}>
-                Your saved routes are still here. Once route calls refresh for them, alert controls will appear here.
+                Your saved routes are still here. Refresh to load their alert controls.
               </Text>
             </View>
           </View>
@@ -277,12 +365,25 @@ export default function SavedScreen() {
 
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
     </ScrollView>
+    {showComparisonBar ? <View style={styles.comparisonBar} onLayout={event => setComparisonBarHeight(event.nativeEvent.layout.height)}>
+      <Text accessibilityLiveRegion="polite" style={styles.compareHelp}>{comparedRoutes.length} of {ROUTE_COMPARISON_LIMIT} selected. {savedSummaries.length < 2 ? 'Two saved routes with details are needed.' : comparedRoutes.length < 2 ? 'Select at least two saved routes.' : 'Ready to compare.'}</Text>
+      <View style={styles.comparisonActions}>
+        <AppButton label={`Compare (${comparedRoutes.length})`} accessibilityLabel={`Compare ${comparedRoutes.length} selected saved ${comparedRoutes.length === 1 ? 'route' : 'routes'}`}
+          disabled={comparedRoutes.length < 2} onPress={() => { Keyboard.dismiss(); setComparisonVisible(true); }} />
+        <AppButton label="Cancel comparison" variant="secondary" onPress={cancelComparison} />
+      </View>
+    </View> : null}
+    <RouteComparisonSheet visible={comparisonVisible} routes={comparedRoutes} location={location}
+      isStale={summaryQuery.data?.snapshotStatus === 'stale'} onClose={() => setComparisonVisible(false)}
+      onRemove={slug => setComparedSlugs(current => current.filter(value => value !== slug))}
+      onOpen={route => { setComparisonVisible(false); router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } }); }} />
+    </KeyboardAvoidingView>
   );
 }
 
 function OverviewTile({ icon, label, value }: { icon: string; label: string; value: string }) {
   return (
-    <View style={styles.overviewTile}>
+    <View style={styles.overviewTile} accessible accessibilityLabel={`${label}: ${value}`}>
       <MaterialCommunityIcons name={icon as never} color={colors.accent} size={18} />
       <View style={styles.overviewCopy}>
         <Text style={styles.overviewLabel}>{label}</Text>
@@ -359,30 +460,37 @@ function StatusTile({ label, value, tone }: { label: string; value: number; tone
 
 function SavedAlertRow({
   river,
-  alert,
+  alerts,
+  preferencesReady,
   pendingAlertKey,
   onOpen,
   onSubmitAlert,
 }: {
   river: RiverSummaryApiItem;
-  alert?: SavedRouteAlertRecord;
+  alerts: SavedRouteAlertRecord[];
+  preferencesReady: boolean;
   pendingAlertKey: string | null;
   onOpen: () => void;
   onSubmitAlert: (threshold: RiverAlertThreshold) => void;
 }) {
+  const thresholds = ['good', 'strong'] as const;
+  const labelsFor = (method: 'push' | 'email') => thresholds.filter(threshold => alerts.some(alert => alert.threshold === threshold && alert.deliveryMethod === method)).map(alertThresholdLabel).join(', ');
+  const phone = labelsFor('push');
+  const email = labelsFor('email');
+  const summary = [phone ? `Phone alerts: ${phone}` : null, email ? `Email alerts: ${email}` : null].filter(Boolean).join(' · ');
   return (
     <View style={styles.savedAlertRow}>
       <Pressable accessibilityRole="button" accessibilityLabel={`Open ${river.river.name}: ${river.river.reach}`} style={styles.savedAlertCopy} onPress={onOpen}>
         <Text style={styles.savedAlertName}>{river.river.name}</Text>
-        <Text style={styles.savedAlertReach} numberOfLines={1}>{river.river.reach}</Text>
+        <Text style={styles.savedAlertReach}>{river.river.reach}</Text>
         <Text style={styles.savedAlertState}>
-          {alert ? `${alertThresholdLabel(alert.threshold)} alert is on` : 'No alert set'}
+          {summary || (preferencesReady ? 'No alert set' : 'Saved alert choice unavailable')}
         </Text>
       </Pressable>
       <View style={styles.savedAlertActions}>
         {(['good', 'strong'] as const).map((threshold) => {
           const pending = pendingAlertKey === `${river.river.slug}:${threshold}`;
-          const selected = alert?.threshold === threshold && alert.deliveryMethod === 'push';
+          const selected = alerts.some(alert => alert.threshold === threshold && alert.deliveryMethod === 'push');
           return (
             <Pressable
               key={threshold}
@@ -396,7 +504,7 @@ function SavedAlertRow({
               onPress={() => onSubmitAlert(threshold)}
             >
               <Text style={[styles.alertMiniButtonText, selected ? styles.alertMiniButtonTextSelected : null]}>
-                {pending ? '...' : alertThresholdLabel(threshold)}
+                {pending ? '...' : `${alertThresholdLabel(threshold)}${selected ? ' · On' : ''}`}
               </Text>
             </Pressable>
           );
@@ -407,6 +515,7 @@ function SavedAlertRow({
 }
 
 function SavedRouteGroup({
+  comparison,
   title,
   subtitle,
   rivers,
@@ -419,6 +528,7 @@ function SavedRouteGroup({
 }: {
   title: string;
   subtitle: string;
+  comparison?: SavedComparisonSelection;
   rivers: RiverSummaryApiItem[];
   changes: Record<string, string[]>;
   savedRivers: SavedRiverRecord[];
@@ -449,6 +559,7 @@ function SavedRouteGroup({
             onPress={() => onOpen(river.river.slug)}
             segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
           />
+          {comparison ? <SavedCompareChoice river={river} comparison={comparison} /> : null}
           {savedRivers.find((item) => item.slug === river.river.slug) ? <SavedRouteNotes river={savedRivers.find((item) => item.slug === river.river.slug)!} onEdit={onEditNotes} /> : null}
           </View>
         ))}
@@ -457,10 +568,23 @@ function SavedRouteGroup({
   );
 }
 
+function SavedCompareChoice({ river, comparison }: { river: RiverSummaryApiItem; comparison: SavedComparisonSelection }) {
+  const selected = comparison.slugs.includes(river.river.slug);
+  const disabled = !selected && comparison.slugs.length >= ROUTE_COMPARISON_LIMIT;
+  const toggle = () => comparison.toggle(river.river.slug);
+  return <Pressable accessibilityRole="checkbox" accessibilityLabel={`Compare route: ${river.river.name}: ${river.river.reach}`}
+    accessibilityHint={disabled ? 'Remove a route from the comparison to choose another.' : 'Select up to three saved routes.'}
+    aria-checked={selected} accessibilityState={{ checked: selected, disabled }} disabled={disabled}
+    onPress={toggle} {...selectionKeyboardProps(toggle, disabled)} style={[styles.compareChoice, disabled ? styles.compareChoiceDisabled : null]}>
+    <MaterialCommunityIcons name={selected ? 'checkbox-marked-outline' : 'checkbox-blank-outline'} size={22} color={colors.accent} />
+    <Text style={styles.compareStartText}>{selected ? 'In comparison' : 'Compare this route'}</Text>
+  </Pressable>;
+}
+
 function groupSavedRoutes(rivers: RiverSummaryApiItem[]) {
   return rivers.reduce(
     (groups, river) => {
-      groups[callStateForDecision(river.rating, river.readiness.status)].push(river);
+      groups[routeDecisionPresentation(river).call].push(river);
 
       return groups;
     },
@@ -474,6 +598,16 @@ function groupSavedRoutes(rivers: RiverSummaryApiItem[]) {
 }
 
 const styles = StyleSheet.create({
+  searchBox: { flexDirection: 'row', alignItems: 'center', minHeight: 48, paddingLeft: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, gap: spacing.xs },
+  searchInput: { flex: 1, minWidth: 0, minHeight: 48, color: colors.text, fontSize: 15, paddingVertical: spacing.sm, paddingRight: spacing.sm },
+  searchClear: { width: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
+  compareStart: { minHeight: 44, padding: spacing.sm, borderRadius: radius.md, borderWidth: 1, borderColor: colors.accent, backgroundColor: colors.surfaceStrong, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  compareStartText: { color: colors.accentDeep, fontSize: 14, lineHeight: 20, fontWeight: '700', flexShrink: 1 },
+  compareChoice: { minHeight: 44, paddingHorizontal: spacing.sm, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  compareChoiceDisabled: { opacity: 0.5 },
+  comparisonBar: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: spacing.md, gap: spacing.sm, borderTopWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong },
+  comparisonActions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  compareHelp: { color: colors.textMuted, fontSize: 13, lineHeight: 19 },
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
@@ -600,11 +734,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.3,
   },
-  body: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
-  },
   alertRouteList: {
     gap: spacing.sm,
   },
@@ -615,11 +744,13 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.sm,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: spacing.sm,
   },
   savedAlertCopy: {
     flex: 1,
+    minWidth: 150,
     gap: 2,
   },
   savedAlertName: {
@@ -638,6 +769,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   savedAlertActions: {
+    flexWrap: 'wrap',
     flexDirection: 'row',
     gap: 6,
   },

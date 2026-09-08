@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, radius, shadow, spacing } from '../theme/tokens';
+import { colors, radius, shadow, spacing, typography } from '../theme/tokens';
 
 export function SectionCard({
   title,
@@ -38,21 +38,21 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     gap: spacing.md,
   },
   headerCopy: {
     flex: 1,
+    minWidth: 140,
     gap: 4,
   },
   title: {
+    ...typography.section,
     color: colors.text,
-    fontSize: 17,
-    fontWeight: '800',
   },
   subtitle: {
+    ...typography.supporting,
     color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
 });

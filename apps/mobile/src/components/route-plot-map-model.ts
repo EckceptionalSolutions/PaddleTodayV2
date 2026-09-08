@@ -112,7 +112,25 @@ export function shouldShowProjectedScoreMarkers(bounds: MapBounds, pointCount: n
 }
 
 export function toneForRating(rating: string | null | undefined) {
+  if (rating === 'stale' || rating === 'unavailable') return { backgroundColor: colors.textMuted };
   if (rating === 'Strong' || rating === 'Good') return { backgroundColor: colors.strong };
   if (rating === 'Fair') return { backgroundColor: colors.fair };
   return { backgroundColor: colors.noGo };
+}
+
+export function legendItemsForPoints(points: RoutePlotPoint[]) {
+  const ratings = new Set(points.map((point) => point.rating));
+  return [
+    ratings.has('Strong') || ratings.has('Good')
+      ? { color: colors.strong, label: 'Paddle' }
+      : null,
+    ratings.has('Fair')
+      ? { color: colors.fair, label: 'Watch' }
+      : null,
+    [...ratings].some((rating) => rating && rating !== 'Strong' && rating !== 'Good' && rating !== 'Fair' && rating !== 'stale' && rating !== 'unavailable')
+      ? { color: colors.noGo, label: 'Skip' }
+      : null,
+    ratings.has('stale') ? { color: colors.textMuted, label: 'Saved forecast' } : null,
+    ratings.has('unavailable') ? { color: colors.textMuted, label: 'No call' } : null,
+  ].filter((item): item is { color: string; label: string } => item !== null);
 }

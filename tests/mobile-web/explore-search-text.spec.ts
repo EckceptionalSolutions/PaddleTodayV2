@@ -12,9 +12,9 @@ test('Explore matches accents and repeated spaces without changing the typed que
   })) } }));
   await page.goto('/explore?intent=best-nearby');
   const input = page.getByRole('textbox', { name: 'Search routes', exact: true });
-  await expect(page.getByRole('button', { name: /^Cañon Creek,.*score 80/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Cañon Creek,.*Call unavailable/ })).toBeVisible();
   await input.fill('  CANON   creek ');
-  await expect(page.getByRole('button', { name: /^Cañon Creek,.*score 80/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Cañon Creek,.*Call unavailable/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /^Other Creek,/ })).toHaveCount(0);
   await expect(input).toHaveValue('  CANON   creek ');
 });

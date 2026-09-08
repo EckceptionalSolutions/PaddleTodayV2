@@ -102,6 +102,8 @@ test('alert controls recover after a failed update', async ({ page }) => {
   await today.press('Space');
   await expect.poll(() => Boolean(pending)).toBe(true);
   await expect(today).toBeDisabled();
+  await expect(today).toHaveAttribute('aria-busy', 'true');
+  await expect(page.getByText('Saving your alert settings…', { exact: true })).toBeVisible();
   await expect(weekend).toBeDisabled();
   await expect(turnOff).toBeDisabled();
   expect(count).toBe(1);
@@ -165,3 +167,29 @@ for (const action of ['toggle', 'turn off']) {
 }
 
 
+
+
+test('both nearby update types off explain how to resume delivery', async ({ page }) => {
+  await page.addInitScript((subscription) => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:area-notification-preferences', JSON.stringify({ ...subscription, todayEnabled: false, weekendEnabled: false }));
+  }, subscription);
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/notification-subscriptions/qa-only', route => route.fulfill({ json: {
+    ok: true, subscription: { ...subscription, weekendEnabled: false },
+  } }));
+  await page.goto('/notifications');
+  const today = page.getByRole('switch', { name: 'Today alerts', exact: true });
+  const weekend = page.getByRole('switch', { name: 'Weekend alerts', exact: true });
+  await expect(today).toHaveText('Today · Off');
+  await expect(weekend).toHaveText('Weekend · Off');
+  const guidance = page.getByText('Today and Weekend updates are both off. Turn on either one to receive nearby paddle alerts.', { exact: true });
+  await expect(guidance).toBeVisible();
+  await today.click();
+  await expect(today).toHaveText('Today · On');
+  await expect(today).toBeChecked();
+  await expect(weekend).not.toBeChecked();
+  await expect(guidance).toBeHidden();
+  await today.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: `tmp/alert-toggle-labels-${page.viewportSize()!.width}.png` });
+});

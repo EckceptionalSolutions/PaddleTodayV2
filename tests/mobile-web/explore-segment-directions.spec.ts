@@ -23,7 +23,7 @@ test('shortened Explore route directions target the selected launch', async ({ p
     liveData: { overall: 'stale', summary: 'Check current conditions.' },
   }] } }));
   await page.goto('/explore?intent=quick-float');
-  await page.getByRole('button', { name: /^Rice Creek,.*score 80/ }).press('Enter');
+  await page.getByRole('button', { name: /^Rice Creek,.*Call unavailable/ }).press('Enter');
   const directions = page.getByRole('button', { name: `Directions to ${launch.name} put-in`, exact: true });
   await expect(directions).toBeVisible();
   await directions.press('Space');

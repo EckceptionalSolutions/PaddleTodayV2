@@ -1,16 +1,27 @@
+import { LocationStorageNotice } from '../components/location-storage-notice';
+import { WebReady } from '../components/web-ready';
+import { useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AreaNotificationCard } from '../components/area-notification-card';
+import { ManualLocationModal } from '../components/manual-location-modal';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { androidBottomInset } from '../lib/safe-area';
 import { openDeviceSettings } from '../lib/external-links';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function NotificationSettingsScreen() {
+  return <WebReady title="Loading notification settings"><NotificationSettingsContent /></WebReady>;
+}
+
+function NotificationSettingsContent() {
+  const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
-  const { location, status, requestLocation } = useStoredLocation();
+  const { location, status, requestLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
+  const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const requestingLocation = status === 'requesting';
 
   return (
@@ -21,6 +32,7 @@ export default function NotificationSettingsScreen() {
         { paddingBottom: spacing.xl + bottomContentInset },
       ]}
     >
+      <LocationStorageNotice />
       <View style={styles.hero}>
         <View style={styles.heroIcon}>
           <MaterialCommunityIcons name="bell-outline" color={colors.accentDeep} size={26} />
@@ -40,7 +52,7 @@ export default function NotificationSettingsScreen() {
           <View style={styles.locationCopy}>
             <Text style={styles.locationTitle}>Choose an alert area</Text>
             <Text style={styles.locationBody}>
-              Alerts use your planning location. You can use this device now or set a city or ZIP from Today.
+              Alerts use your planning location. Use this device or choose a city or ZIP without GPS access.
             </Text>
             <Pressable
               style={[styles.primaryButton, requestingLocation ? styles.buttonDisabled : null]}
@@ -57,15 +69,49 @@ export default function NotificationSettingsScreen() {
             {status === 'denied' || status === 'error' ? (
               <Text accessibilityLiveRegion="polite" style={styles.locationBody}>
                 {status === 'denied'
-                  ? 'Location access is off. Enable it in device settings, or set a city or ZIP from Today.'
-                  : 'Your location could not be found. Try again, or set a city or ZIP from Today.'}
+                  ? 'Location access is off. You can choose a city or ZIP below.'
+                  : 'Your location could not be found. Try again, or choose a city or ZIP below.'}
               </Text>
             ) : null}
           </View>
         </View>
       ) : null}
 
+      <Pressable
+        style={styles.systemSettingsRow}
+        onPress={() => setLocationSearchOpen(true)}
+        accessibilityRole="button"
+        accessibilityLabel={location ? 'Change planning location' : 'Choose city or ZIP'}
+      >
+        <View style={styles.systemSettingsIcon}>
+          <MaterialCommunityIcons name="map-marker-outline" color={colors.accent} size={24} />
+        </View>
+        <View style={styles.systemSettingsCopy}>
+          <Text style={styles.systemSettingsTitle}>{location ? 'Change planning location' : 'Choose city or ZIP'}</Text>
+          <Text style={styles.systemSettingsBody}>{location ? `${location.label} · Also used for nearby route recommendations.` : 'Set your planning location without GPS permission.'}</Text>
+        </View>
+        <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
+      </Pressable>
+
       <AreaNotificationCard location={location} />
+
+      <Pressable style={styles.systemSettingsRow} accessibilityRole="button" accessibilityLabel="Manage saved-route alerts"
+        onPress={() => router.push({ pathname: '/saved', params: { tab: 'alerts' } })}>
+        <View style={styles.systemSettingsIcon}><MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={24} /></View>
+        <View style={styles.systemSettingsCopy}>
+          <Text style={styles.systemSettingsTitle}>Saved-route alerts</Text>
+          <Text style={styles.systemSettingsBody}>Choose Good or Strong alerts for individual routes you have saved.</Text>
+        </View>
+        <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
+      </Pressable>
+
+      <ManualLocationModal
+        visible={locationSearchOpen}
+        subtitle="Choose a planning location for nearby routes. Active alerts follow this location."
+        onDismiss={() => { cancelLocationRequest(); setLocationSearchOpen(false); }}
+        onSearch={searchLocations}
+        onSelect={selectPlanningLocation}
+      />
 
       <Pressable
         style={styles.systemSettingsRow}
@@ -126,7 +172,7 @@ const styles = StyleSheet.create({
   locationBody: { color: colors.textMuted, fontSize: 12, lineHeight: 17 },
   primaryButton: {
     alignSelf: 'flex-start',
-    minHeight: 42,
+    minHeight: 44,
     marginTop: 4,
     paddingHorizontal: 14,
     borderRadius: radius.pill,

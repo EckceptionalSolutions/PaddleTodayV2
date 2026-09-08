@@ -21,9 +21,11 @@ export function isExploreSort(value: unknown): value is ExploreSort {
 export function ExploreSearchBar({
   query,
   onQueryChange,
+  onSubmit,
 }: {
   query: string;
   onQueryChange: (query: string) => void;
+  onSubmit?: () => void;
 }) {
   return (
     <View style={styles.searchBar}>
@@ -36,6 +38,7 @@ export function ExploreSearchBar({
         placeholderTextColor={colors.textMuted}
         value={query}
         onChangeText={onQueryChange}
+        onSubmitEditing={onSubmit}
         {...webInputProps(onQueryChange)}
         style={styles.searchInput}
         returnKeyType="search"

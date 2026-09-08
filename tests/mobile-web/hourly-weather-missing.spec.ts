@@ -1,8 +1,21 @@
 import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
-test('broader storm risk remains visible beside calm hourly readings', async ({ page }) => {
+function freshDetail() {
   const detail = structuredClone(fixture);
+  const now = new Date().toISOString();
+  detail.generatedAt = now;
+  detail.result.generatedAt = now;
+  detail.result.gauge.observedAt = now;
+  detail.result.liveData.weather.state = 'live';
+  detail.result.weather.todayHourly = detail.result.weather.todayHourly.map((point, index) => ({ ...point,
+    time: new Date(Math.floor(Date.now() / 3600000) * 3600000 + index * 3600000).toISOString(),
+  }));
+  return detail;
+}
+
+test('broader storm risk remains visible beside calm hourly readings', async ({ page }) => {
+  const detail = freshDetail();
   detail.result.weather.next12hStormRisk = true;
   detail.result.weather.todayHourly = [{ ...detail.result.weather.todayHourly[0], precipProbability: 0, windMph: 0, windGustMph: 0, precipitationIn: 0, conditionLabel: 'Clear', weatherCode: 0 }];
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
@@ -15,7 +28,7 @@ test('broader storm risk remains visible beside calm hourly readings', async ({ 
 
 for (const reading of [null, 0]) {
   test(`hourly weather distinguishes ${reading === null ? 'missing readings' : 'real zero readings'}`, async ({ page }) => {
-    const detail = structuredClone(fixture);
+    const detail = freshDetail();
     detail.result.weather.todayHourly = [{ ...detail.result.weather.todayHourly[0], precipProbability: reading, windMph: reading }];
     await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));

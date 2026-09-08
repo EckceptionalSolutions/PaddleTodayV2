@@ -1,3 +1,4 @@
+import { WebReady } from '../components/web-ready';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -29,6 +30,10 @@ const FREQUENT_SOURCES = [
 ];
 
 export default function SupportScreen() {
+  return <WebReady title="Loading app help"><SupportContent /></WebReady>;
+}
+
+function SupportContent() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
@@ -167,14 +172,14 @@ export default function SupportScreen() {
             });
           }}
         />
-        {summaryQuery.isLoading && !summaryQuery.data && !summaryRetrying ? (
+        {summaryQuery.isPending && !summaryQuery.data && !summaryRetrying ? (
           <Text style={styles.supportedEmptyText}>Loading supported rivers.</Text>
         ) : summaryQuery.data ? (
           <View style={styles.supportedStates}>
             <View style={styles.supportedSummary}>
               <Text style={styles.supportedSummaryValue}>{rivers.length}</Text>
               <Text style={styles.supportedSummaryText}>
-                route updates across {supportedStates.length} states
+                {rivers.length === 1 ? 'route' : 'routes'} across {supportedStates.length} {supportedStates.length === 1 ? 'state' : 'states'}
               </Text>
             </View>
             <View style={styles.supportedStateChips} accessibilityRole="tablist" accessibilityLabel="Supported river states">
@@ -203,7 +208,7 @@ export default function SupportScreen() {
               <View style={styles.supportedStateGroup}>
                 <View style={styles.supportedStateHeader}>
                   <Text style={styles.supportedStateTitle}>{stateLabel(activeSupportedState.state)}</Text>
-                  <Text style={styles.supportedStateCount}>{activeSupportedState.rivers.length} rivers</Text>
+                  <Text style={styles.supportedStateCount}>{activeSupportedState.rivers.length} {activeSupportedState.rivers.length === 1 ? 'river' : 'rivers'}</Text>
                 </View>
                 <View style={styles.supportedRiverList}>
                   {activeSupportedState.rivers.map((river) => {
@@ -215,15 +220,15 @@ export default function SupportScreen() {
                         onPress={() => openSupportedRiver(router, river, routeCount)}
                         android_ripple={{ color: colors.canvasMuted }}
                         accessibilityRole="button"
-                        accessibilityLabel={`Open ${river.river.name}, ${river.river.reach}`}
+                        accessibilityLabel={`Browse ${river.river.name}: ${routeCount} ${routeCount === 1 ? 'route' : 'routes'}`}
                       >
-                        <View style={[styles.supportedScore, supportScoreTone(river.rating).score]}>
-                          <Text style={[styles.supportedScoreText, supportScoreTone(river.rating).text]}>{river.score}</Text>
+                        <View style={styles.supportedRiverIcon}>
+                          <MaterialCommunityIcons name="waves" color={colors.accent} size={22} accessible={false} />
                         </View>
                         <View style={styles.supportedRiverCopy}>
-                          <Text style={styles.supportedRiverName} numberOfLines={1}>{river.river.name}</Text>
-                          <Text style={styles.supportedRiverMeta} numberOfLines={1}>
-                            {[river.river.region, routeCount > 1 ? `${routeCount} routes` : '1 route', river.rating].join(' - ')}
+                          <Text style={styles.supportedRiverName}>{river.river.name}</Text>
+                          <Text style={styles.supportedRiverMeta}>
+                            {[river.river.region, routeCount > 1 ? `${routeCount} routes` : '1 route'].filter(Boolean).join(' · ')}
                           </Text>
                         </View>
                         <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={21} />
@@ -451,34 +456,6 @@ function stateLabel(state: string) {
     .join(' ');
 }
 
-function supportScoreTone(rating: RiverSummaryApiItem['rating']) {
-  if (rating === 'Strong') {
-    return {
-      score: { backgroundColor: '#E0EFE9' },
-      text: { color: colors.strong },
-    };
-  }
-
-  if (rating === 'Good') {
-    return {
-      score: { backgroundColor: '#E8EFD9' },
-      text: { color: colors.good },
-    };
-  }
-
-  if (rating === 'Fair') {
-    return {
-      score: { backgroundColor: '#F3E8CC' },
-      text: { color: colors.fair },
-    };
-  }
-
-  return {
-    score: { backgroundColor: '#F2DDD6' },
-    text: { color: colors.noGo },
-  };
-}
-
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -604,16 +581,13 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     padding: spacing.sm,
   },
-  supportedScore: {
+  supportedRiverIcon: {
+    backgroundColor: colors.accentSoft,
     width: 40,
     height: 40,
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  supportedScoreText: {
-    fontSize: 16,
-    fontWeight: '900',
   },
   supportedRiverCopy: {
     flex: 1,

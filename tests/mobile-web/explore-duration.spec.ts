@@ -16,7 +16,7 @@ test('Full day excludes minute-based and mixed-unit short routes', async ({ page
     liveData: { overall: 'stale', summary: 'Check current conditions.' },
   })) } }));
   await page.goto('/explore?intent=full-day');
-  await expect(page.getByRole('button', { name: /^Day Creek,.*score 80/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Day Creek,.*Call unavailable/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /^Minute Creek,/ })).toHaveCount(0);
   await expect(page.getByRole('button', { name: /^Mixed Creek,/ })).toHaveCount(0);
 });

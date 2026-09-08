@@ -12,7 +12,7 @@ const legalCopy = {
     title: 'Privacy',
     kicker: 'PaddleToday',
     heading: 'Privacy Policy',
-    updated: 'Last updated: July 16, 2026',
+    updated: 'Last updated: September 8, 2026',
     intro:
       'PaddleToday uses only the information needed to provide route recommendations, feedback and support, alerts, and app diagnostics.',
     sections: [
@@ -25,6 +25,11 @@ const legalCopy = {
         title: 'How it is used',
         body:
           'Location is used to estimate drive-aware route recommendations. Submitted feedback, route, alert, support, and report details are used to operate PaddleToday, improve the app and route data, and respond when needed.',
+      },
+      {
+        title: 'Planning data on your device',
+        body:
+          'Saved routes, personal route notes, trip drafts, and recent-route shortcuts are stored on your device. You can remove notes and drafts in Saved, and use Clear history under Recently viewed to remove recent-route shortcuts. The recent list does not sync to an account. Trip sharing and exports include the plan details you choose to share.',
       },
       {
         title: 'Diagnostics',

@@ -31,7 +31,7 @@ try {
     // of this projected fallback. Device hit-testing requires a native pass.
     for (const marker of [second, first, second, first]) {
       await marker.evaluate((element) => element.click());
-      await expect(page.getByRole('button', { name: /^Contribute photos for / })).toHaveCount(1);
+      await expect(page.getByRole('button', { name: /^Add a photo of / })).toHaveCount(1);
       await expect(page.getByRole('button', { name: 'Collapse route drawer', exact: true }).last()).toBeVisible();
       expect(await firstHandle.evaluate((element) => element.isConnected)).toBe(true);
       expect(await first.boundingBox()).toEqual(position);

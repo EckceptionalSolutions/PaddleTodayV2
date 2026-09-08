@@ -36,7 +36,7 @@ export function RoutePhotoCard({
     <ImageBackground
       source={showFallback ? undefined : { uri: photo.uri }}
       onError={() => setFailedUri(photo.uri)}
-      style={[styles.photo, { height }, compact ? styles.photoCompact : null]}
+      style={[styles.photo, showFallback ? { minHeight: height } : { height }, compact ? styles.photoCompact : null, showFallback ? styles.photoFallback : null]}
       imageStyle={styles.photoImage}
     >
       {showFallback ? <RoutePhotoFallback compact={compact} label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : <View style={styles.scrim} />}
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   photoCompact: {
     borderRadius: radius.md,
   },
+  photoFallback: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   photoImage: {
     borderRadius: radius.lg,
   },
@@ -161,6 +162,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   contributeText: {
+    flexShrink: 1,
     color: colors.surfaceStrong,
     fontSize: 12,
     fontWeight: '900',
@@ -168,6 +170,6 @@ const styles = StyleSheet.create({
   contributeTextCompact: {
     fontSize: 11,
   },
-  contributeButtonPlaceholder: { backgroundColor: colors.surfaceStrong, borderColor: colors.border },
+  contributeButtonPlaceholder: { position: 'relative', right: 0, bottom: 0, marginRight: spacing.sm, marginVertical: spacing.sm, maxWidth: '55%', backgroundColor: colors.surfaceStrong, borderColor: colors.border },
   contributeTextPlaceholder: { color: colors.accentDeep, fontWeight: '600' },
 });

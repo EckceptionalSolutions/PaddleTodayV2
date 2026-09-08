@@ -24,6 +24,8 @@ import {
   webStoreDestination,
   type WebStoreDestination,
 } from '../lib/store-review';
+import { AppButton } from './app-button';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type FeedbackView = 'choice' | 'form' | 'success';
@@ -40,11 +42,13 @@ export function FeedbackSheet({
   onClose: () => void;
 }) {
   const insets = useSafeAreaInsets();
+  const reducedMotion = useReducedMotion();
   const mutation = useCreateAppFeedbackMutation();
   const [view, setView] = useState<FeedbackView>('choice');
   const [message, setMessage] = useState('');
   const [replyEmail, setReplyEmail] = useState('');
   const [status, setStatus] = useState('');
+  const [confirmDiscard, setConfirmDiscard] = useState(false);
   const [storeChooserVisible, setStoreChooserVisible] = useState(false);
   const [reviewPending, setReviewPending] = useState(false);
   const openingReview = useRef(false);
@@ -60,6 +64,7 @@ export function FeedbackSheet({
     }
 
     setView('choice');
+    setConfirmDiscard(false);
     setMessage('');
     setReplyEmail('');
     setStatus('');
@@ -115,6 +120,15 @@ export function FeedbackSheet({
   }
 
   function dismiss() {
+    if (submitting.current) return;
+    if (view !== 'success' && (message.trim() || replyEmail.trim())) {
+      setConfirmDiscard(true);
+      return;
+    }
+    finishDismiss();
+  }
+
+  function finishDismiss() {
     presentation.current += 1;
     if (automatic && view !== 'success') {
       void snoozeFeedbackPrompt();
@@ -172,19 +186,22 @@ export function FeedbackSheet({
   }
 
   return (
-    <Modal animationType="slide" transparent visible={visible} onRequestClose={dismiss}>
+    <Modal animationType={reducedMotion ? "none" : "slide"} transparent visible={visible} onRequestClose={dismiss}>
       <KeyboardAvoidingView
         style={styles.modal}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <Pressable style={styles.backdrop} onPress={dismiss} accessibilityLabel="Close feedback form" />
-        <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, spacing.lg) }]}>
+        <Pressable style={styles.backdrop} onPress={dismiss} accessible={false} focusable={false} aria-hidden />
+        <View style={styles.sheet}>
+        <ScrollView style={styles.sheetScroll} contentContainerStyle={[styles.sheetContent, { paddingBottom: Math.max(insets.bottom, spacing.lg) }]} keyboardShouldPersistTaps="handled">
           <View style={styles.handle} />
           <View style={styles.header}>
-            {view === 'form' ? (
+            {view === 'form' && !confirmDiscard ? (
               <Pressable
                 style={styles.headerButton}
                 onPress={returnToChoices}
+                disabled={mutation.isPending}
+                accessibilityState={{ disabled: mutation.isPending }}
                 accessibilityRole="button"
                 accessibilityLabel="Back to feedback choices"
               >
@@ -198,12 +215,17 @@ export function FeedbackSheet({
                 {headerSubtitle(view)}
               </Text>
             </View>
-            <Pressable style={styles.headerButton} onPress={dismiss} accessibilityRole="button" accessibilityLabel="Close feedback form">
+            <Pressable style={styles.headerButton} onPress={dismiss} disabled={mutation.isPending} accessibilityState={{ disabled: mutation.isPending }} accessibilityRole="button" accessibilityLabel="Close feedback form">
               <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
             </Pressable>
           </View>
 
-          {view === 'success' ? (
+          {confirmDiscard ? <View style={styles.form}>
+            <Text accessibilityRole="header" style={styles.title}>Discard feedback draft?</Text>
+            <Text style={styles.subtitle}>Your message and follow-up email will be cleared.</Text>
+            <AppButton label="Keep editing" onPress={() => { setConfirmDiscard(false); setView('form'); }} />
+            <AppButton label="Discard draft" variant="secondary" onPress={finishDismiss} />
+          </View> : view === 'success' ? (
             <View style={styles.successPanel}>
               <View style={styles.successIcon}>
                 <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={26} />
@@ -303,11 +325,7 @@ export function FeedbackSheet({
               </Pressable>
             </View>
           ) : (
-            <ScrollView
-              style={styles.formScroll}
-              contentContainerStyle={styles.form}
-              keyboardShouldPersistTaps="handled"
-            >
+            <View style={styles.form}>
               <View style={styles.field}>
                 <View style={styles.labelRow}>
                   <Text style={styles.label}>What should we know?</Text>
@@ -315,6 +333,7 @@ export function FeedbackSheet({
                 </View>
                 <TextInput
                   ref={messageInput}
+                  autoFocus
                   accessibilityLabel="What should we know?"
                   editable={!mutation.isPending}
                   style={[styles.input, styles.textarea]}
@@ -366,12 +385,13 @@ export function FeedbackSheet({
                     {mutation.isPending ? 'Sending...' : 'Send feedback'}
                   </Text>
                 </Pressable>
-                <Pressable style={styles.secondaryButton} onPress={returnToChoices} accessibilityRole="button">
+                <Pressable style={styles.secondaryButton} onPress={returnToChoices} disabled={mutation.isPending} accessibilityState={{ disabled: mutation.isPending }} accessibilityRole="button">
                   <Text style={styles.secondaryButtonText}>Back</Text>
                 </Pressable>
               </View>
-            </ScrollView>
+            </View>
           )}
+        </ScrollView>
         </View>
       </KeyboardAvoidingView>
     </Modal>
@@ -414,10 +434,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceStrong,
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.sm,
-    gap: spacing.lg,
+    width: '100%',
+    maxWidth: 560,
+    alignSelf: 'center',
   },
+  sheetScroll: { flexGrow: 0 },
+  sheetContent: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, gap: spacing.lg },
   handle: {
     width: 42,
     height: 4,
@@ -453,15 +475,12 @@ const styles = StyleSheet.create({
     lineHeight: 19,
   },
   headerButton: {
-    width: 38,
-    height: 38,
+    width: 44,
+    height: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  formScroll: {
-    flexGrow: 0,
   },
   form: {
     gap: spacing.lg,
