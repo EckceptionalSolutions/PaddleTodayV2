@@ -22,10 +22,7 @@
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts and nearby paddling opportunities when conditions match your choices.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",
         "ITSAppUsesNonExemptEncryption": false
-      },
-      "associatedDomains": [
-        "applinks:paddletoday.com"
-      ]
+      }
     },
     "android": {
       "adaptiveIcon": {
