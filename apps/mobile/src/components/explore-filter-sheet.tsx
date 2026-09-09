@@ -126,28 +126,10 @@ const callQualityOptions: Array<{
     selected: (filters) => filters.status === 'clean' && filters.rating === 'any',
   },
   {
-    value: 'strong',
-    label: 'Strong conditions',
-    apply: (filters) => ({ ...filters, status: 'any', rating: 'Strong' }),
-    selected: (filters) => filters.rating === 'Strong',
-  },
-  {
-    value: 'good',
-    label: 'Good conditions',
-    apply: (filters) => ({ ...filters, status: 'any', rating: 'Good' }),
-    selected: (filters) => filters.rating === 'Good',
-  },
-  {
     value: 'fair',
     label: 'Watch closely',
     apply: (filters) => ({ ...filters, status: 'watch', rating: 'any' }),
     selected: (filters) => filters.status === 'watch' && filters.rating === 'any',
-  },
-  {
-    value: 'no-call',
-    label: 'No call',
-    apply: (filters) => ({ ...filters, status: 'no-call', rating: 'any' }),
-    selected: (filters) => filters.status === 'no-call' && filters.rating === 'any',
   },
   {
     value: 'no-go',

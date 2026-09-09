@@ -719,15 +719,17 @@ const styles = StyleSheet.create({
   statusBoard: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
   statusTile: {
     flexGrow: 1,
-    flexBasis: '45%',
+    flexBasis: '20%',
+    minWidth: 60,
+    alignItems: 'center',
     borderRadius: radius.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    gap: 3,
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.sm,
+    gap: 2,
   },
   statusPaddle: {
     backgroundColor: '#E0EFE9',
@@ -743,15 +745,14 @@ const styles = StyleSheet.create({
   },
   statusValue: {
     color: colors.text,
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: '900',
   },
   statusLabel: {
     color: colors.textMuted,
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
+    textAlign: 'center',
   },
   alertRouteList: {
     gap: spacing.sm,

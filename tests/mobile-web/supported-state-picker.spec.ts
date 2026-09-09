@@ -4,13 +4,13 @@ import fixture from './fixtures/route-detail.json' with { type: 'json' };
 test('a compact directory chooser searches postal aliases and keeps state selection on close', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
-  const states = ['Arkansas', 'Colorado', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Michigan', 'Minnesota', 'Missouri', 'Nebraska', 'North Carolina', 'North Dakota', 'Ohio', 'Pennsylvania', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Virginia', 'West Virginia', 'Wisconsin'];
+  const states = ['Arkansas', 'Colorado', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Michigan', 'Minnesota', 'Missouri', 'Nebraska', 'North Carolina', 'North Dakota', 'New York', 'Ohio', 'Pennsylvania', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Virginia', 'West Virginia', 'Wisconsin'];
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
   let requests = 0;
-  await page.route('**/api/rivers/summary.json', route => {
+  await page.route('**/api/rivers/catalog.json', route => {
     requests++;
     return route.fulfill({ json: { rivers: states.map(state => ({ ...fixture.result, river: {
-      ...fixture.result.river, state, name: `${state} River`, riverId: state, slug: state.toLowerCase().replaceAll(' ', '-'),
+      ...fixture.result.river, state, name: `${state} River`, riverId: 'shared-cross-state-river', slug: state.toLowerCase().replaceAll(' ', '-'),
     } })) } });
   });
   await page.goto('/more');
@@ -22,6 +22,8 @@ test('a compact directory chooser searches postal aliases and keeps state select
   await trigger.click();
   const dialog = page.getByRole('dialog');
   const search = dialog.getByRole('textbox', { name: 'Search supported states', exact: true });
+  await search.fill('NY');
+  await expect(dialog.getByRole('button', { name: 'Use New York, 1 river', exact: true })).toBeVisible();
   await search.fill('IN');
   await expect(dialog.getByRole('button', { name: /^Use / })).toHaveCount(1);
   await expect(dialog.getByRole('button', { name: 'Use Indiana, 1 river', exact: true })).toBeVisible();
@@ -35,14 +37,14 @@ test('a compact directory chooser searches postal aliases and keeps state select
   await expect(dialog.getByRole('button', { name: /^Use / })).toHaveCount(1);
   await westVirginia.click();
   await expect(trigger).toHaveAccessibleName('Choose supported state, West Virginia');
-  await expect(page.getByRole('button', { name: 'Browse West Virginia River: 1 route', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Browse West Virginia River: 23 routes', exact: true })).toBeVisible();
   await trigger.click();
   await expect(search).toHaveValue('');
   await search.fill('no such state');
   await expect(dialog.getByText(/No supported states match/)).toBeVisible();
   await dialog.getByRole('button', { name: 'Clear state search', exact: true }).click();
   await expect(search).toBeFocused();
-  await expect(dialog.getByRole('button', { name: /^Use / })).toHaveCount(22);
+  await expect(dialog.getByRole('button', { name: /^Use / })).toHaveCount(23);
   await dialog.getByRole('button', { name: 'Close state chooser', exact: true }).click();
   await expect(trigger).toHaveAccessibleName('Choose supported state, West Virginia');
   await expect(trigger).toBeFocused();

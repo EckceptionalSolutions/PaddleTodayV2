@@ -10,6 +10,7 @@ import {
   handleRiverGroup,
   handleRiverHistory,
   handleRiverSummary,
+  handleRiverCatalog,
   handleWeekendSummary,
 } from './routes/public-rivers';
 import { handleRiverRequest } from './routes/route-requests';
@@ -98,6 +99,10 @@ const server = createServer(async (request, response) => {
 
     if (requestUrl.pathname === '/health/ready' || requestUrl.pathname === '/api/health/ready') {
       return handleReady(response, requestId, includeBody, staticDir);
+    }
+
+    if (requestUrl.pathname === '/api/rivers/catalog.json') {
+      return handleRiverCatalog(response, requestId, includeBody);
     }
 
     if (requestUrl.pathname === '/api/rivers/summary.json') {

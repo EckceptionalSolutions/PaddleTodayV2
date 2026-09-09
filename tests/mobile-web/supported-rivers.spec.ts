@@ -9,7 +9,7 @@ test('supported rivers retry directly and state selection works by keyboard', as
   await expect(retry).toBeVisible();
   let pending: Route | null = null;
   let requests = 0;
-  await page.route('**/api/rivers/summary.json', (route) => { pending = route; requests += 1; });
+  await page.route('**/api/rivers/catalog.json', (route) => { pending = route; requests += 1; });
   await retry.press('Space');
   await expect(retry).toBeDisabled();
   await expect(retry).toHaveAttribute('aria-busy', 'true');
@@ -38,7 +38,7 @@ test('the river directory shows full names and route counts without implying a r
   const name = 'A very long northern branch of the wandering Minnesota River';
   const generatedAt = '2020-01-01T00:00:00Z';
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [1, 2].map(number => ({
+  await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { generatedAt, rivers: [1, 2].map(number => ({
     ...fixture.result, generatedAt, score: 95, rating: 'Strong',
     river: { ...fixture.result.river, name, riverId: 'directory-test', slug: `directory-${number}` },
   })) } }));

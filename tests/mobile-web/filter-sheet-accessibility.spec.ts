@@ -11,6 +11,12 @@ test('state search explains no matches and cancel discards draft filters', async
   }] } }));
   await page.goto('/explore?intent=no-call');
   await page.getByRole('button', { name: '1 active filters', exact: true }).click();
+  for (const label of ['Any call', 'Paddle', 'Watch closely', 'Skip']) {
+    await expect(page.getByRole('button', { name: label, exact: true })).toBeVisible();
+  }
+  for (const label of ['No call', 'Strong conditions', 'Good conditions']) {
+    await expect(page.getByRole('button', { name: label, exact: true })).toHaveCount(0);
+  }
   const easy = page.getByRole('button', { name: 'Easy', exact: true });
   expect((await easy.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await easy.click();

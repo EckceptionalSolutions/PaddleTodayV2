@@ -51,19 +51,16 @@ export function RiverCard({
     >
       {showPhoto ? <RouteCardPhoto river={river} /> : null}
 
-      <View style={styles.header}>
-        <View style={styles.scoreBlock}>
-          <Text style={styles.cardVerdict} numberOfLines={2}>{decision.label}</Text>
-          <Text style={styles.scoreLabel} numberOfLines={1}>{decision.scoreLabel}</Text>
+      <View style={styles.topRow}>
+        <View style={styles.actions}>
+          <QualityPill rating={river.rating} readiness={decision.readiness} />
+          <Text style={styles.scoreLabel}>{decision.scoreLabel}</Text>
         </View>
+        {onToggleSaved ? <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
+      </View>
+      <View style={styles.header}>
         <View style={styles.copy}>
-          <View style={styles.topRow}>
-            <Text style={styles.name}>{river.river.name}</Text>
-            <View style={styles.actions}>
-              {onToggleSaved ? <SaveToggleButton routeSlug={river.river.slug} routeLabel={`${river.river.name}: ${river.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
-              <QualityPill rating={river.rating} readiness={decision.readiness} />
-            </View>
-          </View>
+          <Text style={styles.name}>{river.river.name}</Text>
           <Text style={styles.reach}>
             {routeCount > 1 ? `Best matching route: ${river.river.reach}` : river.river.reach}
           </Text>
@@ -179,26 +176,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.sm,
   },
-  scoreBlock: {
-    width: 78,
-    minHeight: 58,
-    borderRadius: 16,
-    backgroundColor: colors.accentSoft,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   scoreLabel: {
     color: colors.textMuted,
     fontSize: 11,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
-  },
-  cardVerdict: {
-    color: colors.accentDeep,
-    fontSize: 11,
-    lineHeight: 13,
-    fontWeight: '900',
-    textAlign: 'center',
   },
   copy: {
     flex: 1,
@@ -211,14 +193,16 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   actions: {
+    flex: 1,
+    flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
   },
   name: {
-    flex: 1,
     color: colors.text,
-    fontSize: 16,
+    fontSize: 18,
+    lineHeight: 24,
     fontWeight: '700',
   },
   reach: {

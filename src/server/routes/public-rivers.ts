@@ -67,6 +67,13 @@ export function handleReady(
   }, includeBody, 'no-store');
 }
 
+export function handleRiverCatalog(response: ServerResponse, requestId: string, includeBody: boolean) {
+  const rivers = listRivers().map(({ slug, riverId, name, state, region }) => ({
+    river: { slug, riverId, name, state, region },
+  }));
+  return sendJson(response, 200, { requestId, rivers }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+}
+
 export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
   const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
   if (snapshot) {

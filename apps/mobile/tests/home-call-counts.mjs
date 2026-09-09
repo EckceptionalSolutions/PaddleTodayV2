@@ -21,13 +21,14 @@ try {
     }] } }));
     await page.goto(new URL('/', process.argv[2] ?? 'http://127.0.0.1:4391').href);
     const categoryButton = page.getByRole('button', { name: `1 ${category} route`, exact: true });
-    await expect(categoryButton).toBeVisible();
+    if (status === 'withheld') await expect(categoryButton).toHaveCount(0);
+    else await expect(categoryButton).toBeVisible();
     await expect(page.getByRole('button', { name: '0 Paddle routes', exact: true })).toBeVisible();
     const box = await categoryButton.boundingBox();
-    expect(box.x + box.width).toBeLessThanOrEqual(width);
+    if (box) expect(box.x + box.width).toBeLessThanOrEqual(width);
     if (status === 'withheld') {
       await expect(page.getByText('Calls unavailable', { exact: true })).toBeVisible();
-      await categoryButton.scrollIntoViewIfNeeded();
+
       await page.screenshot({ path: `apps/mobile/.expo/mobile-home-no-call-${width}.png` });
     }
     await page.getByRole('button', { name: action, exact: true }).click();

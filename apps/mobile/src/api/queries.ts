@@ -29,6 +29,15 @@ export const riverQueryKeys = {
   community: (slug: string) => ['river-community', slug] as const,
 };
 
+export function useRiverCatalogQuery() {
+  return useQuery({
+    queryKey: ['river-catalog'],
+    queryFn: ({ signal }) => apiClient.getCatalog({ signal }),
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
 export function useRiverSummaryQuery(enabled = true) {
   const now = useFreshnessClock();
   return useQuery({

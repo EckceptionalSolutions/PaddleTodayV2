@@ -137,16 +137,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   scoreBlock: {
-    width: 62,
-    height: 62,
-    borderRadius: 17,
+    minWidth: 52,
+    minHeight: 48,
+    padding: spacing.xs,
+    borderRadius: 12,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   score: {
     color: colors.accentDeep,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '800',
   },
   callLabel: {

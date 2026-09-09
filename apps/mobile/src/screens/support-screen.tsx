@@ -4,8 +4,8 @@ import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
-import { useRiverSummaryQuery } from '../api/queries';
+import type { RiverCatalogItem } from '@paddletoday/api-contract';
+import { useRiverCatalogQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { AppRefreshNotice } from '../components/app-state';
 import { SupportedStatePicker } from '../components/supported-state-picker';
@@ -37,7 +37,7 @@ function SupportContent() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
-  const summaryQuery = useRiverSummaryQuery();
+  const summaryQuery = useRiverCatalogQuery();
   const [summaryRetrying, setSummaryRetrying] = useState(false);
   const summaryRetryInFlight = useRef(false);
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
@@ -417,11 +417,10 @@ function buildDiagnosticsEmailUrl() {
   return `mailto:hello@paddletoday.com?subject=${encodeURIComponent('PaddleToday app issue')}&body=${encodeURIComponent(body)}`;
 }
 
-function supportedRiverStates(rivers: RiverSummaryApiItem[]) {
-  const uniqueRivers = uniqueRoutesByRiver(rivers);
-  const grouped = new Map<string, RiverSummaryApiItem[]>();
+function supportedRiverStates(rivers: RiverCatalogItem[]) {
+  const grouped = new Map<string, RiverCatalogItem[]>();
 
-  uniqueRivers.forEach((river) => {
+  rivers.forEach((river) => {
     const state = river.river.state;
     grouped.set(state, [...(grouped.get(state) ?? []), river]);
   });
@@ -429,14 +428,14 @@ function supportedRiverStates(rivers: RiverSummaryApiItem[]) {
   return [...grouped.entries()]
     .map(([state, stateRivers]) => ({
       state,
-      rivers: stateRivers.sort((left, right) => left.river.name.localeCompare(right.river.name)),
+      rivers: uniqueRoutesByRiver(stateRivers).sort((left, right) => left.river.name.localeCompare(right.river.name)),
     }))
     .sort((left, right) => left.state.localeCompare(right.state));
 }
 
 function openSupportedRiver(
   router: ReturnType<typeof useRouter>,
-  river: RiverSummaryApiItem,
+  river: RiverCatalogItem,
   routeCount: number
 ) {
   if (river.river.riverId && routeCount > 1) {
