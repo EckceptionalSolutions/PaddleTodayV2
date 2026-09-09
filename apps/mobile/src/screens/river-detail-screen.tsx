@@ -1370,7 +1370,8 @@ function buildRouteShareMessage(
     routeUrl.searchParams.set('putin', putIn.id);
     routeUrl.searchParams.set('takeout', takeOut.id);
   }
-  const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}${routeUrl.search ? routeUrl.search : ''}`;
+  const appUrl = new URL(routeUrl);
+  appUrl.searchParams.set('openApp', '1');
   const readiness = buildRiverReadinessViewModel(detail);
   const hasCurrentScore = !isStale && readiness.verdict !== 'withheld';
   const isPlanning = detail.river.scoreEligibility === 'planning';

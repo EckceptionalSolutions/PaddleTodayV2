@@ -1,5 +1,6 @@
 import { LocationStorageNotice } from '../components/location-storage-notice';
 import { AppButton } from '../components/app-button';
+import { ManualLocationModal } from '../components/manual-location-modal';
 import {
   hasCampingSupport as classificationHasCampingSupport,
   type WeekendSummaryApiItem,
@@ -58,7 +59,8 @@ export default function WeekendScreen() {
   const bottomContentInset = androidBottomInset(insets.bottom);
   const weekendQuery = useWeekendSummaryQuery();
   const isStale = weekendQuery.data?.snapshotStatus === 'stale';
-  const { location, status, requestLocation, clearLocation } = useStoredLocation();
+  const { location, status, requestLocation, clearLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
+  const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
   const [distanceSaveError, setDistanceSaveError] = useState(false);
@@ -198,6 +200,7 @@ export default function WeekendScreen() {
           status={status}
           onUseLocation={() => void requestLocation()}
           onClear={() => void clearLocation()}
+          onChooseCity={() => { cancelLocationRequest(); setLocationSearchOpen(true); }}
         />
 
         {location ? (
@@ -396,6 +399,10 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
+      <ManualLocationModal visible={locationSearchOpen}
+        subtitle="Enter a city or ZIP code to plan weekend routes and estimate drive times."
+        onDismiss={() => { cancelLocationRequest(); setLocationSearchOpen(false); }}
+        onSearch={searchLocations} onSelect={selectPlanningLocation} />
     </ScrollView>
   );
 
@@ -428,26 +435,29 @@ function WeekendLocationStrip({
   status,
   onUseLocation,
   onClear,
+  onChooseCity,
 }: {
   locationLabel: string | null;
   status: string;
   onUseLocation: () => void;
   onClear: () => void;
+  onChooseCity: () => void;
 }) {
   const requesting = status === 'requesting';
 
   return (
     <View style={styles.locationStrip}>
+      <View style={styles.locationRow}>
       <View style={styles.locationCopy}>
-        <Text style={styles.locationLabel} numberOfLines={1}>
+        <Text style={styles.locationLabel}>
           {locationLabel ? `Planning from ${locationLabel}` : 'Plan from your location'}
         </Text>
         <Text style={styles.locationHint} accessibilityLiveRegion="polite">
           {locationLabel ? 'Drive times included.'
             : requesting ? 'Finding your location to estimate drive times.'
-              : status === 'denied' ? 'Location permission was denied. Allow location access and retry, or set a city on Today.'
-                : status === 'error' ? 'Could not find your location. Try again or set a city on Today.'
-                  : 'Use your location to sort by drive time.'}
+              : status === 'denied' ? 'Location permission was denied. Choose a city below or allow location access and retry.'
+                : status === 'error' ? 'Could not find your location. Try again or choose a city below.'
+                  : 'Use GPS or choose a city to sort by drive time.'}
         </Text>
       </View>
       <Pressable
@@ -463,6 +473,8 @@ function WeekendLocationStrip({
           {requesting ? 'Finding' : locationLabel ? 'Clear' : status === 'denied' || status === 'error' ? 'Retry' : 'Use'}
         </Text>
       </Pressable>
+      </View>
+      <AppButton label={locationLabel ? 'Change planning city' : 'Choose a city or ZIP'} variant="secondary" icon="map-search-outline" onPress={onChooseCity} />
     </View>
   );
 }
@@ -865,10 +877,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     padding: spacing.md,
-    flexDirection: 'row',
-    alignItems: 'center',
     gap: spacing.md,
   },
+  locationRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
   locationCopy: {
     flex: 1,
     minWidth: 0,

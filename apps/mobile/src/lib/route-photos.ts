@@ -694,3 +694,9 @@ export function routePhotoForRiver(river: PhotoRiver) {
 export function photoForRiver(river: PhotoRiver) {
   return routePhotoForRiver(river).uri;
 }
+
+export function illustrativePhotoForRiver(river: PhotoRiver) {
+  let hash = 0;
+  for (const character of river.slug) hash = (hash * 31 + character.charCodeAt(0)) % placeholderImages.length;
+  return resolveApiUrl(placeholderImages[hash]);
+}

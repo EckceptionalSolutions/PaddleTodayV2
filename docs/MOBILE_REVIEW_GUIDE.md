@@ -16,9 +16,15 @@ it is not a source of current paddling conditions or native-map performance evid
   focus in the search field.
 - **Weekend:** range changes stay applied if device storage fails, with a
   Retry saving range action. A slow preference read cannot replace a new choice.
+  Choose a city or ZIP directly on Weekend, including after denying GPS.
 - **Route decisions:** old conditions and hourly forecasts are marked as saved
   reference information. Refresh restores current presentation only when the
   response supports it. Planning-only routes remain unscored.
+- **Photos and sharing:** scenic fallback images are restored and labeled
+  Illustrative photo. A failed assigned photo tries that image before showing
+  Photo unavailable. Shared Open in app links use HTTPS and offer Open PaddleToday
+  on the route website, retaining the chosen access points. The handoff panel
+  needs the website update; until then, the link still opens the route page.
 - **Access and preparation:** choose a shorter segment, reverse shuttle driving
   directions, prepare a trip, close it and resume the exact draft from Saved.
   Date/time errors appear beside the affected field and clear when corrected.
@@ -69,3 +75,6 @@ screen readers and platform date pickers still require device QA. Automatic
 approval review blocked the local Expo development-server command. Offline trip
 packets remain deferred until the native baseline and freshness boundaries are
 verified, as required by the [implementation plan](audits/mobile-improvement-plan-2026-09-08.md).
+The Android marker snapshot correction is now included in clean installs and
+native build archives. It requires a rebuilt app and device verification; a web
+preview cannot confirm whether native score-bubble clipping is resolved.

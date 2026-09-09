@@ -871,3 +871,46 @@ No shorter Codex window was reported; paid credits were not used.
 - Typecheck/all-platform export and six range/category checks pass at 320px and 768px. Verified delayed initial reads, overlapping writes, failed-save preservation and retry of the latest choice; reviewed narrow recovery layout.
 
 - Full checkpoint after batch 92: 193/193 exported-app browser checks and 154 mobile unit tests pass. Saving batches 85–92 locally on the review branch; no push or deployment.
+
+## Batch 93 — preserve active Explore preferences
+
+- Late preference reads no longer replace active search, view changes or an open filter draft. Preference writes serialize, and unreadable stored settings remain untouched until an explicit choice. Hydration ignores results after unmount.
+- Typecheck/all-platform export and seven search/view/recovery checks pass at 320px and 768px, covering delayed reads/writes and existing saved-filter restoration.
+
+## Batch 94 — choose a Weekend planning city in place
+
+- Weekend now reuses the city/ZIP chooser, including after GPS denial, with Change planning city and existing Clear controls. Location names wrap instead of truncating.
+- Typecheck/all-platform export and four location/range checks pass at 320px and 768px: denied GPS recovery, city selection, cancel preserving the previous city, reload and range persistence.
+- User reported shared app-link failure, removed photo fallbacks and returning map-bubble clipping. Prioritizing these regressions over further autonomous polish.
+
+## Batch 95 — user-reported mobile regressions
+
+- Restored scenic placeholder photos in route, Saved and Weekend cards, labeled Illustrative photo. Failed assigned photos try the scenic fallback before the offline/unavailable panel. Six photo scenarios pass at 320px and 768px; reviewed restored imagery and action spacing.
+- Shared Open in app text now uses the existing HTTPS route URL with openApp=1. The web route offers an explicit custom-scheme Open PaddleToday link, store links and Continue on the website; access choices survive both paths. No automatic app launch or new URL route is required. Main-site deployment is needed for the handoff panel; older deployed pages still open as a valid web fallback.
+- Found an untracked local modification in installed react-native-maps 1.20.1 that expanded Android marker snapshot bounds. Added a reproducible postinstall patch, EAS archive inclusion and release checks. Compared against the original offline npm tarball; verified pristine and legacy inputs converge, repeat application is unchanged, and unexpected upstream source is rejected. No library upgrade.
+- Root typecheck, all-platform Expo export, 2,429-page Astro build and two desktop/mobile web-handoff checks pass. Native clipping and actual OS app-link opening remain unverified: automatic approval review previously blocked the Expo development server. The marker fix requires a new native build; no deployment/build service was triggered.
+
+
+- Full production-export checkpoint after batch 95: 200/200 mobile browser checks pass. Focused sharing/photo checks: 9/9 at both widths. Release readiness: 59/59. User clarification about platform and clipping shape remains pending.
+
+## Batch 96 — escape an empty Today sort
+
+- Reproduced Nearest removing all sort controls after GPS denial. The carousel now retains its sort controls when empty, with guidance to choose another sort or city. Browser pending state preserves focus while ignoring repeat GPS actions.
+- Typecheck/all-platform export and four Today/search checks pass at 320px and 768px. Additional pending-permission check at 320px verifies one request and retained focus after denial, then recovery to Recommended and Evidence first.
+
+## Batch 97 — current coverage and alert copy
+
+- Removed outdated Midwest-only coverage wording. Notification settings now describe route alerts without requiring bookmarks. Today labels its confidence-based ordering as evidence strength instead of implying route reliability.
+- Typecheck/all-platform export and six alert/nearby/Today navigation checks pass at 320px and 768px.
+
+## Batch 98 — durable Today sort preferences
+
+- Today keeps a newly chosen sort when an earlier preference read finishes, serializes device saves, and offers Retry saving sort after a failure. Opening Today no longer overwrites an unreadable stored choice with defaults.
+- Typecheck/all-platform export and three sort/recovery checks pass at 320px and 768px, including overlapping saves, late reads, current-choice retry and GPS-denial escape.
+
+## Batch 99 — visible Explore save recovery
+
+- Explore offers a compact local-save retry in both Map and List. Applied filters remain active, writes stay ordered, and simply opening the screen no longer rewrites preferences. Stale failures cannot replace the latest save result.
+- Typecheck/all-platform export and focused preference/short-layout checks pass at 320px and 768px, including save failure, retry, reload and current Map/List choice. Reviewed the short phone layout.
+
+- Full checkpoint after batch 99: 205/205 production-export browser checks and 154 mobile unit tests pass. Account usage is 21% remaining; paid credit balance is unchanged. Changes remain local and native regression verification still requires a rebuilt app.

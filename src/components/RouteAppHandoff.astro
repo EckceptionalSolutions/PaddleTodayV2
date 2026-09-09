@@ -1,0 +1,38 @@
+---
+const { slug } = Astro.props as { slug: string };
+---
+<section class="route-app-handoff" data-route-app-handoff data-route-slug={slug} hidden aria-label="Open shared route">
+  <h2>Open this route in PaddleToday</h2>
+  <p>Your shared put-in and take-out choices will come with you.</p>
+  <div class="route-app-handoff__actions">
+    <a class="river-link river-link--inline" data-open-native-route href={`paddletoday://river/${encodeURIComponent(slug)}`}>Open PaddleToday</a>
+    <a class="river-link river-link--inline river-link--ghost" data-continue-route href={`/rivers/${slug}/`}>Continue on the website</a>
+  </div>
+  <p class="route-app-handoff__help">App didn’t open? Get it for <a href="https://apps.apple.com/app/id6769542734">iPhone</a> or <a href="https://play.google.com/store/apps/details?id=com.paddletoday.mobile">Android</a>, or continue on the website.</p>
+</section>
+
+<script>
+  const panel = document.querySelector<HTMLElement>('[data-route-app-handoff]');
+  const current = new URL(window.location.href);
+  if (panel?.dataset.routeSlug && current.searchParams.get('openApp') === '1') {
+    const appUrl = new URL(`paddletoday://river/${encodeURIComponent(panel.dataset.routeSlug)}`);
+    for (const key of ['putin', 'takeout']) {
+      const value = current.searchParams.get(key);
+      if (value && value.length <= 200) appUrl.searchParams.set(key, value);
+    }
+    panel.querySelector<HTMLAnchorElement>('[data-open-native-route]')!.href = appUrl.href;
+    current.searchParams.delete('openApp');
+    panel.querySelector<HTMLAnchorElement>('[data-continue-route]')!.href = current.href;
+    panel.hidden = false;
+  }
+</script>
+
+<style>
+  .route-app-handoff { padding: 1rem; margin-bottom: 1rem; border: 1px solid #b4d4ca; border-radius: 20px; background: #f2faf6; }
+  .route-app-handoff[hidden] { display: none; }
+  h2 { margin: 0 0 .5rem; font-size: 1.25rem; }
+  p { margin: .5rem 0; }
+  .route-app-handoff__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0; }
+  .route-app-handoff__actions a { min-height: 44px; text-align: center; }
+  .route-app-handoff__help { font-size: .9rem; line-height: 1.5; }
+</style>

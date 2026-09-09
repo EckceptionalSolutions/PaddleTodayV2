@@ -2,7 +2,8 @@ import { test, expect } from '@playwright/test';
 import fixture from './fixtures/route-detail.json' with { type: 'json' };
 
 for (const path of ['/river/rice-creek-peltier-to-long-lake', '/saved', '/weekend']) {
-  test(`failed route photos have a clear fallback on ${path}`, async ({ page }) => {
+  for (const scenicAvailable of [false, true]) {
+  test(`failed route photos have a ${scenicAvailable ? 'scenic' : 'clear offline'} fallback on ${path}`, async ({ page }) => {
     await page.addInitScript(() => {
       localStorage.setItem('paddletoday:welcome-completed:v1', '1');
       localStorage.setItem('paddletoday:saved-rivers', JSON.stringify([{
@@ -24,8 +25,26 @@ for (const path of ['/river/rice-creek-peltier-to-long-lake', '/saved', '/weeken
       generatedAt: new Date().toISOString(),
     }] } }));
     let imagesRequested = 0;
-    await page.route('**/gallery/**', (route) => { imagesRequested += 1; return route.abort(); });
+    await page.route('**/gallery/**', (route) => {
+      imagesRequested += 1;
+      return scenicAvailable && route.request().url().includes('/fallbacks/')
+        ? route.fulfill({ path: 'public/gallery/fallbacks/river-fallback-stream.jpg', contentType: 'image/jpeg' }) : route.abort();
+    });
     await page.goto(path);
+    if (scenicAvailable) {
+      const label = page.getByText('Illustrative photo', { exact: true }).first();
+      await expect(label).toBeVisible();
+      await expect.poll(() => page.locator('img').evaluateAll(images => images.some(image => image.src.includes('/fallbacks/') && image.complete && image.naturalWidth > 0))).toBe(true);
+      await expect(page.getByText('Photo unavailable', { exact: true })).toBeHidden();
+      await label.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: `tmp/scenic-fallback-${path.split('/')[1]}-${page.viewportSize()!.width}.png` });
+      if (path.startsWith('/river/')) {
+        const badge = (await label.boundingBox())!;
+        const action = (await page.getByRole('button', { name: 'Add a photo of Peltier Lake to Long Lake', exact: true }).boundingBox())!;
+        expect(badge.x + badge.width <= action.x || badge.y + badge.height <= action.y).toBe(true);
+      }
+      return;
+    }
     await expect(page.getByText('Photo unavailable', { exact: true }).first()).toBeVisible();
     expect(imagesRequested).toBeGreaterThan(0);
     await expect(page.getByText('No photo yet', { exact: true })).toBeHidden();
@@ -42,4 +61,5 @@ for (const path of ['/river/rice-creek-peltier-to-long-lake', '/saved', '/weeken
       await expect(page).toHaveURL(/contribute-photo\/rice-creek-peltier-to-long-lake/);
     }
   });
+  }
 }

@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import { useQueryClient } from '@tanstack/react-query';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type SetStateAction, type ReactNode } from 'react';
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { riverDetailQueryOptions, riverGroupQueryOptions, useRiverGeometryQuery, useRiverSummaryQuery } from '../api/queries';
@@ -94,10 +94,26 @@ export default function ExploreScreen() {
   const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const { filters, query: searchQuery, setFilters, setQuery: setSearchQuery, applySearch } = useExploreSearch(defaultFilters);
+  const preferencesChanged = useRef(false);
+  const preferenceWrites = useRef(Promise.resolve());
+  const preferenceWriteVersion = useRef(0);
+  const [preferenceSaveError, setPreferenceSaveError] = useState(false);
+  const { filters, query: searchQuery, setFilters: applyFilters, setQuery: updateSearchQuery, applySearch } = useExploreSearch(defaultFilters);
+  const setFilters = useCallback((update: SetStateAction<ExploreFilters>) => {
+    preferencesChanged.current = true;
+    applyFilters(update);
+  }, [applyFilters]);
+  const setSearchQuery = useCallback((query: string) => {
+    preferencesChanged.current = true;
+    updateSearchQuery(query);
+  }, [updateSearchQuery]);
   const [draftFilters, setDraftFilters] = useState<ExploreFilters>(defaultFilters);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
+  const [viewMode, updateViewMode] = useState<'map' | 'list'>('map');
+  const setViewMode = useCallback((mode: 'map' | 'list') => {
+    preferencesChanged.current = true;
+    updateViewMode(mode);
+  }, []);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
@@ -154,7 +170,9 @@ export default function ExploreScreen() {
   }, [isFocused, queryClient, selectedSlug, viewMode]);
 
   useEffect(() => {
-    void hydrateExplorePreferences();
+    let active = true;
+    void hydrateExplorePreferences(() => active);
+    return () => { active = false; preferenceWriteVersion.current++; };
   }, []);
 
   useEffect(() => {
@@ -171,7 +189,7 @@ export default function ExploreScreen() {
     }
 
     appliedStoredLocationDefaultRef.current = true;
-    setFilters((current) => {
+    applyFilters((current) => {
       if (current.sort !== defaultFilters.sort || countActiveFilters(current) > 0) {
         return current;
       }
@@ -237,11 +255,19 @@ export default function ExploreScreen() {
       return;
     }
 
-    void AsyncStorage.setItem(
-      EXPLORE_PREFERENCES_STORAGE_KEY,
-      JSON.stringify({ filters, viewMode })
-    ).catch(() => {});
+    if (!preferencesChanged.current) return;
+    savePreferences();
   }, [filters, preferencesHydrated, viewMode]);
+
+  function savePreferences() {
+    const serialized = JSON.stringify({ filters, viewMode });
+    const version = ++preferenceWriteVersion.current;
+    setPreferenceSaveError(false);
+    preferenceWrites.current = preferenceWrites.current.then(async () => {
+      try { await AsyncStorage.setItem(EXPLORE_PREFERENCES_STORAGE_KEY, serialized); }
+      catch { if (version === preferenceWriteVersion.current) setPreferenceSaveError(true); }
+    });
+  }
 
   useEffect(() => {
     if (results.length === 0) {
@@ -297,6 +323,8 @@ export default function ExploreScreen() {
   return (
     <>
       <FullScreenExploreMap
+        preferenceNotice={preferenceSaveError ? <AppButton label="Filters not saved · Retry" accessibilityLabel="Retry saving Explore filters"
+          hint="Your filters are applied, but could not be saved on this device." variant="secondary" onPress={savePreferences} /> : null}
         callRecovery={callRecovery}
         activeFilterCount={activeFilterCount}
         filters={filters}
@@ -318,7 +346,7 @@ export default function ExploreScreen() {
         retrying={summaryQuery.isFetching}
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
-        onFilterPress={() => { applySearch(); setFiltersOpen(true); }}
+        onFilterPress={() => { preferencesChanged.current = true; applySearch(); setFiltersOpen(true); }}
         onContributePhotos={(slug) => {
           trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
           router.push({ pathname: '/contribute-photo/[slug]', params: { slug } });
@@ -348,17 +376,19 @@ export default function ExploreScreen() {
     </>
   );
 
-  async function hydrateExplorePreferences() {
+  async function hydrateExplorePreferences(isActive: () => boolean) {
     try {
-      const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
-      if (isExplorePreferences(parsed) && !requestedIntent && !requestedReset && !requestedState) {
-        setFilters(normalizeExploreFilters(parsed.filters));
-        setViewMode(parsed.viewMode ?? 'map');
+      const raw = await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY);
+      const parsed = parseJson(raw);
+      if (!isActive()) return;
+      if (isExplorePreferences(parsed) && !preferencesChanged.current && !requestedIntent && !requestedReset && !requestedState) {
+        applyFilters(normalizeExploreFilters(parsed.filters));
+        updateViewMode(parsed.viewMode ?? 'map');
       }
     } catch {
       // Leave the default Explore setup if local preferences are unavailable.
     } finally {
-      setPreferencesHydrated(true);
+      if (isActive()) setPreferencesHydrated(true);
     }
   }
 
@@ -410,6 +440,7 @@ export default function ExploreScreen() {
 }
 
 function FullScreenExploreMap({
+  preferenceNotice,
   callRecovery,
   activeFilterCount,
   filters,
@@ -443,6 +474,7 @@ function FullScreenExploreMap({
   onUseLocation,
   isSaved,
 }: {
+  preferenceNotice: ReactNode;
   callRecovery: CallRecovery | null;
   activeFilterCount: number;
   filters: ExploreFilters;
@@ -536,6 +568,7 @@ function FullScreenExploreMap({
   if (viewMode === 'list') {
     return (
       <ExploreListView
+        preferenceNotice={preferenceNotice}
         callRecovery={callRecovery}
         activeFilterCount={activeFilterCount}
         bottomInset={bottomInset}
@@ -626,6 +659,7 @@ function FullScreenExploreMap({
       )}
 
       <View onLayout={event => setControlsHeight(Math.round(event.nativeEvent.layout.height))} style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
+        {preferenceNotice}
         <LocationStorageNotice />
         <AppRefreshNotice
           isError={isRefetchError}
@@ -677,7 +711,7 @@ function FullScreenExploreMap({
         <View style={[styles.coverageBanner, { top: overlayTop }]}>
           <MaterialCommunityIcons name="map-marker-distance" color={colors.accent} size={18} />
           <Text style={styles.coverageBannerText}>
-            PaddleToday covers selected Midwest rivers.
+            Explore supported rivers or request a route near you.
           </Text>
         </View>
       ) : null}
@@ -746,6 +780,7 @@ function FullScreenExploreMap({
 }
 
 function ExploreListView({
+  preferenceNotice,
   callRecovery,
   activeFilterCount,
   bottomInset,
@@ -769,6 +804,7 @@ function ExploreListView({
   onViewModeChange,
   isSaved,
 }: {
+  preferenceNotice: ReactNode;
   callRecovery: CallRecovery | null;
   activeFilterCount: number;
   bottomInset: number;
@@ -819,6 +855,7 @@ function ExploreListView({
         ]}
         ListHeaderComponent={(
           <View style={styles.exploreListHeader}>
+            {preferenceNotice}
             <LocationStorageNotice />
             <AppRefreshNotice
               isError={isRefetchError}
