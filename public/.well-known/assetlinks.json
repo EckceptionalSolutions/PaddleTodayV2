@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.paddletoday.mobile",
+      "sha256_cert_fingerprints": [
+        "3D:B5:18:D0:49:53:9B:74:8C:BB:13:17:5D:BE:70:4A:5F:83:8B:55:D3:71:80:48:9C:08:A2:E9:4A:51:1E:86",
+        "89:27:EE:95:F5:5F:30:E3:26:7E:24:3C:2A:5A:56:6B:D3:59:89:A0:CE:5B:C0:37:F5:76:AD:F8:F6:6F:95:72"
+      ]
+    }
+  }
+]

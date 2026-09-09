@@ -1,4 +1,4 @@
-import { callStateForDecision, type RiverSummaryApiItem } from '@paddletoday/api-contract';
+import { callStateForDecision, type RiverCatalogItem, type RiverSummaryApiItem } from '@paddletoday/api-contract';
 
 export interface RiverRouteGroupMeta {
   routeCount: number;
@@ -11,7 +11,7 @@ export function matchingRiverReadiness(routes: RiverSummaryApiItem[]) {
   };
 }
 
-export function buildRouteGroupMeta(rivers: RiverSummaryApiItem[]) {
+export function buildRouteGroupMeta(rivers: RiverCatalogItem[]) {
   const counts = new Map<string, number>();
 
   rivers.forEach((item) => {
@@ -23,7 +23,7 @@ export function buildRouteGroupMeta(rivers: RiverSummaryApiItem[]) {
 }
 
 export function routeGroupMetaForRoute(
-  route: RiverSummaryApiItem,
+  route: RiverCatalogItem,
   routeCounts: ReadonlyMap<string, number>
 ): RiverRouteGroupMeta {
   const key = riverGroupKeyForRoute(route);
@@ -33,7 +33,7 @@ export function routeGroupMetaForRoute(
   return { routeCount: riverId ? routeCount : 1 };
 }
 
-export function uniqueRoutesByRiver<Item extends RiverSummaryApiItem>(routes: Item[]): Item[] {
+export function uniqueRoutesByRiver<Item extends RiverCatalogItem>(routes: Item[]): Item[] {
   const seen = new Set<string>();
 
   return routes.filter((route) => {
@@ -61,7 +61,7 @@ export function uniqueRoutesByCorridor<Item extends RiverSummaryApiItem>(routes:
   });
 }
 
-export function riverGroupKeyForRoute(route: RiverSummaryApiItem) {
+export function riverGroupKeyForRoute(route: RiverCatalogItem) {
   return route.river.riverId || route.river.slug;
 }
 

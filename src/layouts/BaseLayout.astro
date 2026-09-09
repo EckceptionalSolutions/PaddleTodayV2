@@ -28,9 +28,9 @@ const {
   socialTitle = title,
   socialDescription = description,
   socialImage: socialImageProp,
-  socialImageAlt = 'Paddle Today social preview',
-  socialImageWidth,
-  socialImageHeight,
+  socialImageAlt = 'PaddleToday — Find the best paddle near you today. River conditions, weather, and local routes beside a sunlit river.',
+  socialImageWidth = socialImageProp ? undefined : 1200,
+  socialImageHeight = socialImageProp ? undefined : 630,
   ogType = 'website',
   twitterCard = 'summary_large_image',
   bodyClass = '',
@@ -45,7 +45,7 @@ const socialImage = socialImageProp
     ? new URL(socialImageProp, Astro.site).href
     : socialImageProp
   : Astro.site
-    ? new URL('/brand/paddle-today-share-card-v2-1200x630.png', Astro.site).href
+    ? new URL('/brand/paddle-today-share-card-v3-1200x630.png', Astro.site).href
     : undefined;
 const siteUrl = Astro.site ? Astro.site.href : `${Astro.url.origin}/`;
 const organizationId = new URL('/#organization', siteUrl).href;

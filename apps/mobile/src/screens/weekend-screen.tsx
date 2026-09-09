@@ -510,7 +510,7 @@ function WeekendFilters({
           <Text style={styles.filterValue}>{rangeFreshnessLabel(distance)}</Text>
         </View>
         <View style={styles.rangeControl}>
-          <View style={styles.rangeTrack} />
+          <View testID="weekend-range-track" style={styles.rangeTrack} />
           <View
             style={[
               styles.rangeTrackActive,
@@ -532,7 +532,9 @@ function WeekendFilters({
                   {...radioKeyboardProps(index, selected, weekendDistanceOptions.length, (nextIndex) => onSelectDistance(weekendDistanceOptions[nextIndex].value))}
                   accessibilityLabel={`Weekend range ${option.label}`}
                 >
-                  <View style={[styles.rangeStop, active ? styles.rangeStopActive : null, selected ? styles.rangeThumb : null]} />
+                  <View style={styles.rangeMarkerSlot}>
+                    <View testID={`weekend-range-marker-${index}`} style={[styles.rangeStop, active ? styles.rangeStopActive : null, selected ? styles.rangeThumb : null]} />
+                  </View>
                   <Text style={[styles.rangeStopLabel, selected ? styles.rangeStopLabelActive : null]}>{option.label}</Text>
                 </Pressable>
               );
@@ -949,7 +951,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.border,
   },
   rangeControl: {
-    height: 52,
+    minHeight: 52,
     justifyContent: 'flex-start',
     paddingTop: 2,
     marginHorizontal: 2,
@@ -989,6 +991,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.border,
     backgroundColor: colors.surfaceStrong,
+  },
+  rangeMarkerSlot: {
+    height: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   rangeStopActive: {
     borderColor: colors.accent,

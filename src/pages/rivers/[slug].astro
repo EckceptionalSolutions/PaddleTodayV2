@@ -190,7 +190,7 @@ const routePreviewCaption =
       ? `${routePreviewPhoto.caption} — not necessarily this exact reach.`
       : 'Representative river image — not this exact route.';
 const routeSocialCard = getRouteSocialCard(river.slug);
-const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png';
+const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v3-1200x630.png';
 const routeGalleryPhotosJson = JSON.stringify(routeGalleryPhotos);
 const breadcrumbItems = [
   {
@@ -277,7 +277,7 @@ const routeFaqStructuredData = {
   structuredData={[routeStructuredData, routeFaqStructuredData]}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
-  socialImage={routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png'}
+  socialImage={routeSocialCard?.src ?? '/brand/paddle-today-share-card-v3-1200x630.png'}
   socialImageAlt={routeSocialCard?.alt ?? 'Paddle Today route share preview'}
   socialImageWidth={routeSocialCard?.width ?? 1200}
   socialImageHeight={routeSocialCard?.height ?? 630}

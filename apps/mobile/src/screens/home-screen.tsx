@@ -440,7 +440,6 @@ function BoardHero({
         <View style={styles.snapshotRow}>
           <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
           <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} onPress={() => onOpenStatus('watch')} />
-          <SnapshotPill label="No call" value={snapshot.unavailable} tone={styles.snapshotUnavailable} onPress={() => onOpenStatus('no-call')} />
           <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
@@ -1145,9 +1144,6 @@ const styles = StyleSheet.create({
   },
   snapshotFair: {
     backgroundColor: '#F3E8CC',
-  },
-  snapshotUnavailable: {
-    backgroundColor: '#E7E5E0',
   },
   snapshotNoGo: {
     backgroundColor: '#F2DDD6',

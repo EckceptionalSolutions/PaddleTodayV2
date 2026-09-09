@@ -308827,6 +308827,15 @@
       "taskRecordsChanged": false,
       "queueRecordsChanged": false,
       "rollbackEvidence": "Only this no-work run record was appended. Revert by removing independent-verifier-20260908080402-no-work from docs/operations/runs.json; preserve all pre-existing shared working-tree changes."
+    },
+    {
+      "id": "daily-operations-report-20260908-evening-workflow-brief",
+      "kind": "daily_operations_report",
+      "startedAt": "2026-09-09T01:01:16.7748544Z",
+      "completedAt": "2026-09-09T01:03:17.475Z",
+      "status": "completed_with_findings",
+      "summary": "All consolidated refreshes passed. Latest API deployment and smoke test succeeded; new Snapshot Worker failure repeats missing monitoring write permissions. Queue unchanged with no ready tasks; overlap remains stale and two consecutive consolidation no-work runs are recorded.",
+      "reportPath": "docs/operations/daily-reports/2026-09-08.md"
     }
   ]
 }

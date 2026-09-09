@@ -702,8 +702,6 @@ function FullScreenExploreMap({
          </View>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.sm }}>
           <ExploreViewToggle mode={viewMode} onChange={onViewModeChange} />
-          <AppButton label={callFilterLabel(filters.status)} accessibilityLabel={`Change call filter, currently ${callFilterLabel(filters.status)}`}
-            variant="secondary" icon="filter-outline" onPress={onFilterPress} />
         </View>
       </View>
 

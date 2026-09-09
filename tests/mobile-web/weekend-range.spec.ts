@@ -28,6 +28,20 @@ test('Weekend range supports keyboard navigation and storage recovery', async ({
   await expect(options.last()).toBeChecked();
   await expect(options.first()).toHaveAttribute('tabindex', '-1');
   await expect(options.last()).toHaveAttribute('tabindex', '0');
+  for (let selected = 0; selected < 5; selected++) {
+    await options.nth(selected).click();
+    const track = (await page.getByTestId('weekend-range-track').boundingBox())!;
+    const labelTops: number[] = [];
+    for (let index = 0; index < 5; index++) {
+      const marker = (await page.getByTestId(`weekend-range-marker-${index}`).boundingBox())!;
+      expect(Math.abs(marker.y + marker.height / 2 - track.y - track.height / 2)).toBeLessThanOrEqual(1);
+      const label = (await options.nth(index).getByText(['100 mi', '200 mi', '300 mi', '500 mi', 'Any'][index], { exact: true }).boundingBox())!;
+      labelTops.push(label.y);
+    }
+    expect(Math.max(...labelTops) - Math.min(...labelTops)).toBeLessThanOrEqual(1);
+  }
+  await options.nth(2).click();
+  await page.getByRole('radiogroup', { name: 'Weekend range' }).screenshot({ path: `tmp/weekend-range-alignment-${page.viewportSize()!.width}.png` });
   expect(errors).toEqual([]);
   console.log('Weekend range changes by keyboard and tolerates unavailable preference storage.');
 });

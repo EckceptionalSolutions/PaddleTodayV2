@@ -914,3 +914,10 @@ No shorter Codex window was reported; paid credits were not used.
 - Typecheck/all-platform export and focused preference/short-layout checks pass at 320px and 768px, including save failure, retry, reload and current Map/List choice. Reviewed the short phone layout.
 
 - Full checkpoint after batch 99: 205/205 production-export browser checks and 154 mobile unit tests pass. Account usage is 21% remaining; paid credit balance is unchanged. Changes remain local and native regression verification still requires a rebuilt app.
+
+## September 9 — simpler call controls and complete route directory
+
+- Removed Today's No call count tile. Explore now offers Any call, Paddle, Watch closely, and Skip; legacy links remain supported and Any call keeps unavailable routes discoverable.
+- More now reads a public metadata-only catalog endpoint instead of the conditions snapshot. The current published catalog includes 2,065 routes across 31 states, including New York; the production conditions feed contained only 22 states. Grouping within each state also preserves rivers sharing IDs across state boundaries.
+- Validation: root/mobile typechecks, catalog endpoint regression test, 14 API-client tests, four focused browser checks at 320px and five at 768px pass. Reviewed narrow state chooser screenshot. No native device verification or deployment performed.
+- Release dependency: deploy the API catalog endpoint before distributing the updated mobile build. Changes are on codex/mobile-directory-call-filters; unrelated operations reports are untouched.
