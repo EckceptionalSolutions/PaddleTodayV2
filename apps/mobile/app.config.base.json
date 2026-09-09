@@ -17,7 +17,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.paddletoday.mobile",
       "appStoreUrl": "https://apps.apple.com/app/id6769542734",
-      "buildNumber": "31",
+      "buildNumber": "32",
       "infoPlist": {
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts and nearby paddling opportunities when conditions match your choices.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",
@@ -37,7 +37,7 @@
       "predictiveBackGestureEnabled": false,
       "package": "com.paddletoday.mobile",
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.paddletoday.mobile",
-      "versionCode": 23,
+      "versionCode": 24,
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION",
