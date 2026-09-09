@@ -1,4 +1,8 @@
 import { AlertSetupSheet } from '../components/alert-setup-sheet';
+import { FormExitGuard } from '../components/form-exit-guard';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
+import { validateRouteReport } from '../lib/route-report-validation';
+import { submissionFailureMessage } from '../lib/submission-results';
 import { AccessPointSelector } from '../components/access-point-selector';
 import { routeDecisionPresentation } from '../lib/map-decision';
 import { currentWeatherView, weatherHourLabel } from '../lib/weather-view';
@@ -72,7 +76,7 @@ import { RoutePlotMap, type RoutePlotPoint, type RouteSpanCoordinate } from '../
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
-import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
+import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
 import { resolveApiUrl, resolveWebUrl } from '../lib/api-base-url';
 import {
   callForRating,
@@ -90,7 +94,7 @@ import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
-  normalizeReportPhotoAsset,
+  normalizeReportPhotoBatch,
   ROUTE_REPORT_MAX_PHOTOS,
 } from '../lib/report-photos';
 import { androidBottomInset } from '../lib/safe-area';
@@ -118,6 +122,7 @@ type GaugeBandVisualModel = {
 };
 
 export default function RiverDetailScreen() {
+  const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 360;
   const params = useLocalSearchParams<{
@@ -157,6 +162,7 @@ export default function RiverDetailScreen() {
   const alertSubmissionInFlight = useRef(false);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
+  const [reportContactBaseline, setReportContactBaseline] = useState({ name: '', email: storedEmail });
   const [reportDate, setReportDate] = useState('');
   const [reportSentiment, setReportSentiment] = useState<CreateRouteContributionRequest['tripSentiment']>('');
   const [reportWaterLevel, setReportWaterLevel] = useState<NonNullable<CreateRouteContributionRequest['scoringOutcome']>['observedWaterLevel'] | ''>('');
@@ -168,9 +174,16 @@ export default function RiverDetailScreen() {
   const [reportPhotoRights, setReportPhotoRights] = useState(false);
   const [reportConsent, setReportConsent] = useState(false);
   const [reportStatus, setReportStatus] = useState('We review reports before publishing.');
+  const [reportValidationAttempted, setReportValidationAttempted] = useState(false);
+  const reportValidationError = validateRouteReport({ name: reportName, email: reportEmail, tripDate: reportDate, report: reportText,
+    photoCount: reportPhotos.length, waterLevel: reportWaterLevel, completion: reportCompletion, verdict: reportVerdict,
+    consent: reportConsent, rights: reportPhotoRights });
   const [reportSubmitting, setReportSubmitting] = useState(false);
   const reportSubmissionInFlight = useRef(false);
   const [reportPickingPhotos, setReportPickingPhotos] = useState(false);
+  const hasReportChanges = reportName !== reportContactBaseline.name || reportEmail !== reportContactBaseline.email
+    || [reportDate, reportSentiment, reportWaterLevel, reportCompletion, reportVerdict, reportText, reportNotes].some(value => Boolean(value?.trim()))
+    || reportPhotos.length > 0 || reportPhotoRights || reportConsent;
   const reportPickerInFlight = useRef(false);
   const [shareStatus, setShareStatus] = useState('');
   const [communityRetrying, setCommunityRetrying] = useState(false);
@@ -244,7 +257,10 @@ export default function RiverDetailScreen() {
   const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
-    setReportEmail((current) => current || storedEmail);
+    if (!reportEmail) {
+      setReportEmail(storedEmail);
+      setReportContactBaseline(current => ({ ...current, email: storedEmail }));
+    }
   }, [storedEmail]);
 
   useEffect(() => {
@@ -506,17 +522,7 @@ export default function RiverDetailScreen() {
         return;
       }
 
-      const selected: SelectedReportPhoto[] = [];
-      let skipped = 0;
-
-      for (const [index, asset] of result.assets.slice(0, remainingSlots).entries()) {
-        const normalized = await normalizeReportPhotoAsset(asset, index);
-        if (normalized) {
-          selected.push(normalized);
-        } else {
-          skipped += 1;
-        }
-      }
+      const { selected, skipped } = await normalizeReportPhotoBatch(result.assets, remainingSlots);
 
       if (selected.length > 0) {
         setReportPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
@@ -545,7 +551,7 @@ export default function RiverDetailScreen() {
     requestAnimationFrame(() => {
       scrollRef.current?.scrollTo({
         y: Math.max(y - spacing.sm, 0),
-        animated: true,
+        animated: !reducedMotion,
       });
     });
   }
@@ -584,35 +590,13 @@ export default function RiverDetailScreen() {
     const contributorEmail = reportEmail.trim().toLowerCase();
     const tripReport = reportText.trim();
 
-    if (contributorName.length < 2) {
-      setReportStatus('Add your name or paddling handle.');
-      return 'name' as const;
+    setReportValidationAttempted(true);
+    if (reportValidationError) {
+      setReportStatus('We review reports before publishing.');
+      return reportValidationError.field;
     }
-
-    if (!isValidEmailAddress(contributorEmail)) {
-      setReportStatus('Enter a valid email address for follow-up questions.');
-      return 'email' as const;
-    }
-
-    if (tripReport.length < 12 && reportPhotos.length === 0) {
-      setReportStatus('Add at least a sentence or attach route photos.');
-      return 'report' as const;
-    }
-
-    if (!reportWaterLevel || !reportCompletion || !reportVerdict) {
-      setReportStatus('Choose the observed water level, trip outcome, and overall verdict.');
-      return;
-    }
-
-    if (!reportConsent) {
-      setReportStatus("Confirm that it's okay to contact you about this report.");
-      return;
-    }
-
-    if (reportPhotos.length > 0 && !reportPhotoRights) {
-      setReportStatus('Confirm that you own or have permission to share the attached photos.');
-      return;
-    }
+    // Keep the API payload narrowed to actual choices after field validation.
+    if (!reportWaterLevel || !reportCompletion || !reportVerdict) return;
 
     reportSubmissionInFlight.current = true;
     setReportSubmitting(true);
@@ -667,6 +651,9 @@ export default function RiverDetailScreen() {
       setReportPhotos([]);
       setReportPhotoRights(false);
       setReportConsent(false);
+      setReportEmail(contributorEmail);
+      setReportContactBaseline({ name: reportName, email: contributorEmail });
+      setReportValidationAttempted(false);
       setReportStatus('Thank you. Your report was sent for review.');
       void communityQuery.refetch();
     } catch (error) {
@@ -678,11 +665,7 @@ export default function RiverDetailScreen() {
           photoCount: reportPhotos.length,
         },
       });
-      setReportStatus(
-        error instanceof PaddleTodayApiError && error.message
-          ? error.message
-          : 'Could not send this route report right now.'
-      );
+      setReportStatus(submissionFailureMessage(error, 'Could not send this report. Your entries and photos are still here; please try again.'));
     } finally {
       reportSubmissionInFlight.current = false;
       setReportSubmitting(false);
@@ -692,6 +675,9 @@ export default function RiverDetailScreen() {
   return (
     <SafeAreaView edges={['bottom']} style={styles.screenSafeArea}>
       <Stack.Screen options={{ title: detail.river.name }} />
+      <FormExitGuard title="Leave this unsent report?" hasChanges={hasReportChanges} busy={reportSubmitting}
+        message="Your route report has not been sent. Leaving this route will discard its entries and photos."
+        stayLabel={reportSubmitting ? 'Stay on this route' : 'Keep report'} />
       <ScrollView
         ref={scrollRef}
         style={styles.screen}
@@ -977,21 +963,21 @@ export default function RiverDetailScreen() {
 
             <View style={styles.reportCta}>
               <View style={styles.reportCtaCopy}>
-                <Text style={styles.reportCtaTitle}>Add a full report</Text>
+                <Text style={styles.reportCtaTitle}>{reportSubmitting ? 'Report sending' : hasReportChanges ? 'Your unsent report' : 'Add a full report'}</Text>
                 <Text style={styles.reportCtaText}>
-                  Send access notes, wood, pace, water level, or optional photos. We review reports before publishing.
+                  {reportSubmitting ? 'Your report is still sending. Open it to check the result.' : hasReportChanges ? 'Continue editing the report you started for this route.' : 'Send access notes, wood, pace, water level, or optional photos. We review reports before publishing.'}
                 </Text>
               </View>
               <Pressable
                 style={styles.reportCtaButton}
                 accessibilityRole="button"
-                accessibilityLabel="Send route report"
+                accessibilityLabel={reportSubmitting ? 'View pending route report' : hasReportChanges ? 'Continue route report' : 'Send route report'}
                 onPress={() => {
                   trackAppEvent('route_report_started', { slug: riverSlug });
                   setReportSheetVisible(true);
                 }}
               >
-                <Text style={styles.reportCtaButtonText}>Report</Text>
+                <Text style={styles.reportCtaButtonText}>{reportSubmitting ? 'View' : hasReportChanges ? 'Continue' : 'Report'}</Text>
               </Pressable>
             </View>
           </View>
@@ -1214,6 +1200,7 @@ export default function RiverDetailScreen() {
       />
 
       <RouteReportSheet
+        validationError={reportValidationAttempted ? reportValidationError : null}
         visible={reportSheetVisible}
         name={reportName}
         email={reportEmail}
@@ -1383,7 +1370,8 @@ function buildRouteShareMessage(
     routeUrl.searchParams.set('putin', putIn.id);
     routeUrl.searchParams.set('takeout', takeOut.id);
   }
-  const appUrl = `paddletoday://river/${encodeURIComponent(detail.river.slug)}${routeUrl.search ? routeUrl.search : ''}`;
+  const appUrl = new URL(routeUrl);
+  appUrl.searchParams.set('openApp', '1');
   const readiness = buildRiverReadinessViewModel(detail);
   const hasCurrentScore = !isStale && readiness.verdict !== 'withheld';
   const isPlanning = detail.river.scoreEligibility === 'planning';

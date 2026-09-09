@@ -1,6 +1,7 @@
 import { AppButton } from '../components/app-button';
 import { RouteComparisonSheet } from '../components/route-comparison-sheet';
 import { useStoredLocation } from '../hooks/use-stored-location';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import {
@@ -65,6 +66,7 @@ type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
+  const reducedMotion = useReducedMotion();
   const { location } = useStoredLocation();
   const [comparison, setComparison] = useState<{ riverId: string; slugs: string[] }>({ riverId: '', slugs: [] });
   const [comparisonOpenFor, setComparisonOpenFor] = useState<string | null>(null);
@@ -82,6 +84,7 @@ export default function RiverHubScreen() {
   const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const routeCardScrollRequestRef = useRef<{ index: number; retries: number } | null>(null);
+  const routeCardScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const trackedHubIdRef = useRef<string | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
@@ -102,6 +105,11 @@ export default function RiverHubScreen() {
   const filteredRoutes = useMemo(() => filterRiverHubRoutes(allRoutes, filters), [allRoutes, filters]);
   const bestRoute = useMemo(() => [...filteredRoutes].sort(compareBestRoute)[0] ?? null, [filteredRoutes]);
   const routes = useMemo(() => sortedRoutes(filteredRoutes, sortMode), [filteredRoutes, sortMode]);
+  useEffect(() => () => {
+    routeCardScrollRequestRef.current = null;
+    if (routeCardScrollTimerRef.current !== null) clearTimeout(routeCardScrollTimerRef.current);
+    routeCardScrollTimerRef.current = null;
+  }, [routes, reducedMotion]);
   const routePoints = useMemo(() => routeMapPoints(routes, mapZoomLevel), [routes, mapZoomLevel]);
   const coverageSpans = useMemo(
     () => routes.map(routeSpanCoordinates).filter((span): span is MapCoordinate[] => Boolean(span && span.length >= 2)),
@@ -220,8 +228,10 @@ export default function RiverHubScreen() {
   function viewRouteCard(slug: string) {
     const index = routes.findIndex((route) => route.river.slug === slug);
     if (index >= 0) {
+      if (routeCardScrollTimerRef.current !== null) clearTimeout(routeCardScrollTimerRef.current);
+      routeCardScrollTimerRef.current = null;
       routeCardScrollRequestRef.current = { index, retries: 0 };
-      listRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.08 });
+      listRef.current?.scrollToIndex({ index, animated: !reducedMotion, viewPosition: 0.08 });
     }
   }
 
@@ -286,7 +296,7 @@ export default function RiverHubScreen() {
         onScrollToIndexFailed={({ index, averageItemLength }) => {
           listRef.current?.scrollToOffset({
             offset: Math.max(0, averageItemLength * index),
-            animated: true,
+            animated: !reducedMotion,
           });
           const request = routeCardScrollRequestRef.current;
           if (!request || request.index !== index || request.retries >= 1) {
@@ -294,10 +304,12 @@ export default function RiverHubScreen() {
           }
 
           request.retries += 1;
-          setTimeout(() => {
+          routeCardScrollTimerRef.current = setTimeout(() => {
+            routeCardScrollTimerRef.current = null;
+            if (routeCardScrollRequestRef.current !== request) return;
             listRef.current?.scrollToIndex({
               index,
-              animated: true,
+              animated: !reducedMotion,
               viewPosition: 0.08,
             });
           }, 180);

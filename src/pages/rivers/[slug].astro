@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
@@ -284,6 +285,7 @@ const routeFaqStructuredData = {
   twitterCard="summary_large_image"
   bodyClass="page-route-detail"
 >
+  <RouteAppHandoff slug={river.slug} />
   <article
     class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
     data-river-detail

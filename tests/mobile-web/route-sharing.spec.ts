@@ -76,5 +76,9 @@ test('changing the segment invalidates an old share result and the next copy use
   const webLink = new URL(lines.find(line => line.startsWith('Web link: '))!.slice('Web link: '.length));
   expect(appLink.searchParams.get('putin')).toBe('baldwin-lake');
   expect(appLink.searchParams.get('takeout')).toBeTruthy();
+  expect(appLink.protocol).toBe('https:');
+  expect(appLink.pathname).toBe(webLink.pathname);
+  expect(appLink.searchParams.get('openApp')).toBe('1');
+  appLink.searchParams.delete('openApp');
   expect(appLink.search).toBe(webLink.search);
 });

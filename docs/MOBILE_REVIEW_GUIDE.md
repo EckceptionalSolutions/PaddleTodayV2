@@ -12,12 +12,24 @@ it is not a source of current paddling conditions or native-map performance evid
   Failed device saves have an explicit local retry.
 - **Explore:** switch Map/List, expand the route drawer, change filters and
   recover from an empty call filter. Short layouts retain reachable actions.
+  Filter choices and search clearing have larger touch targets; clearing keeps
+  focus in the search field.
+- **Weekend:** range changes stay applied if device storage fails, with a
+  Retry saving range action. A slow preference read cannot replace a new choice.
+  Choose a city or ZIP directly on Weekend, including after denying GPS.
 - **Route decisions:** old conditions and hourly forecasts are marked as saved
   reference information. Refresh restores current presentation only when the
   response supports it. Planning-only routes remain unscored.
+- **Photos and sharing:** scenic fallback images are restored and labeled
+  Illustrative photo. A failed assigned photo tries that image before showing
+  Photo unavailable. Shared Open in app links use HTTPS and offer Open PaddleToday
+  on the route website, retaining the chosen access points. The handoff panel
+  needs the website update; until then, the link still opens the route page.
 - **Access and preparation:** choose a shorter segment, reverse shuttle driving
   directions, prepare a trip, close it and resume the exact draft from Saved.
-  Date/time controls, sharing recovery and calendar/GPX errors are clearer.
+  Date/time errors appear beside the affected field and clear when corrected.
+  Calendar/GPX availability checks cancel immediately on Close, including while
+  a local draft save is pending.
 - **Compare routes:** use Compare saved routes to select up to three across
   different rivers, or compare reaches from a river’s page. Review access
   logistics, duration and current-call confidence before opening a route.
@@ -25,15 +37,29 @@ it is not a source of current paddling conditions or native-map performance evid
   reaches, protect unsaved edits and survive failed writes. Removal has Undo;
   delayed storage shows pending feedback. Search names, areas or personal notes
   without losing comparison selections.
+  Long notes have a compact preview with Show full note; search still includes
+  the complete note. Recorded alerts remain visible without bookmarks or route details.
 - **Search and directories:** Today search keeps Close visible on narrow screens,
   wraps long route names and finds accented names without accents. More's river
   directory shows route counts without implying one score covers a whole river.
+  Its compact state chooser supports full names/postal codes, large targets and
+  short layouts.
+  Postal state aliases work in Today, Saved, Explore and the state picker.
+  More's connection check explains failures and supports a deliberate retry.
+  River-hub View card jumps respect changes to the reduced-motion setting.
+  Route-section jumps and photo-field scrolling also honor reduced motion.
 - **Alerts and reports:** nearby switches explicitly show On/Off, report dates
   have a calendar/manual choice, and sheets support short layouts and reduced
   motion. Good/Strong saved-route alert thresholds are independent.
 - **Submission forms:** required labels remain visible after typing. Route requests
   and photo contributions show field errors in context and retain entries after
   failed submission; corrected photo entries clear obsolete validation feedback.
+  Back protects edited requests and photo contributions with Keep editing/Discard
+  choices, including attached photos. Sending forms wait for confirmation before leaving.
+  Reports offer Continue after closing an unsent draft; leaving the route protects it.
+  Missing report choices scroll into view. Character limits and optional date errors
+  appear in context. A failed photo encode retains the other selected images, and
+  uncertain submission confirmations keep entries available for deliberate retry.
 - **Feedback:** opening choices and store links remain reachable in short
   layouts. Typed feedback has Keep editing/Discard controls and survives a
   failed submission.
@@ -49,3 +75,6 @@ screen readers and platform date pickers still require device QA. Automatic
 approval review blocked the local Expo development-server command. Offline trip
 packets remain deferred until the native baseline and freshness boundaries are
 verified, as required by the [implementation plan](audits/mobile-improvement-plan-2026-09-08.md).
+The Android marker snapshot correction is now included in clean installs and
+native build archives. It requires a rebuilt app and device verification; a web
+preview cannot confirm whether native score-bubble clipping is resolved.

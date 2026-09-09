@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { RouteSearchModal } from '../components/route-search-modal';
 import { LocationStorageNotice } from '../components/location-storage-notice';
 import {
@@ -67,19 +68,6 @@ const modeLabels: Record<BoardMode, string> = {
   certain: 'Evidence first',
 };
 
-const stateAbbreviations: Record<string, string> = {
-  illinois: 'IL',
-  indiana: 'IN',
-  iowa: 'IA',
-  michigan: 'MI',
-  minnesota: 'MN',
-  missouri: 'MO',
-  'north dakota': 'ND',
-  ohio: 'OH',
-  'south dakota': 'SD',
-  wisconsin: 'WI',
-};
-
 export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -91,7 +79,10 @@ export default function HomeScreen() {
   const [routeQuery, setRouteQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
-  const [preferencesHydrated, setPreferencesHydrated] = useState(false);
+  const [modeSaveError, setModeSaveError] = useState(false);
+  const modeChosen = useRef(false);
+  const modeWrites = useRef(Promise.resolve());
+  const modeWriteVersion = useRef(0);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -140,19 +131,24 @@ export default function HomeScreen() {
   const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
 
   useEffect(() => {
-    void hydrateBoardPreferences();
+    let active = true;
+    void AsyncStorage.getItem(BOARD_PREFERENCES_STORAGE_KEY).then(raw => {
+      const parsed = parseJson(raw);
+      if (active && !modeChosen.current && isBoardPreferences(parsed)) setMode(parsed.mode);
+    }).catch(() => { /* Keep defaults without overwriting the stored choice. */ });
+    return () => { active = false; modeWriteVersion.current++; };
   }, []);
 
-  useEffect(() => {
-    if (!preferencesHydrated) {
-      return;
-    }
-
-    void AsyncStorage.setItem(
-      BOARD_PREFERENCES_STORAGE_KEY,
-      JSON.stringify({ mode })
-    ).catch(() => {});
-  }, [mode, preferencesHydrated]);
+  function chooseMode(nextMode: BoardMode) {
+    modeChosen.current = true;
+    setMode(nextMode);
+    setModeSaveError(false);
+    const version = ++modeWriteVersion.current;
+    modeWrites.current = modeWrites.current.then(async () => {
+      try { await AsyncStorage.setItem(BOARD_PREFERENCES_STORAGE_KEY, JSON.stringify({ mode: nextMode })); }
+      catch { if (version === modeWriteVersion.current) setModeSaveError(true); }
+    });
+  }
 
   if (summaryQuery.isPending && !summaryQuery.data) {
     return (
@@ -170,6 +166,13 @@ export default function HomeScreen() {
       />
     );
   }
+
+  const modeTabs = <ModeTabs mode={mode} hasLocation={Boolean(location)} locationStatus={status}
+    saveError={modeSaveError} onRetrySave={() => chooseMode(mode)}
+    onChange={(nextMode) => {
+      chooseMode(nextMode);
+      if (nextMode === 'closest' && !location) void requestLocation();
+    }} />;
 
   return (
     <ScrollView
@@ -229,7 +232,7 @@ export default function HomeScreen() {
             onRequestRoute={() => router.push('/request-route')}
             onBrowseRoutes={() => router.push('/explore')}
           />
-        ) : data.length > 0 ? (
+        ) : (
           <RiverCarousel
             mode={mode}
             rivers={data.slice(0, 10)}
@@ -237,21 +240,10 @@ export default function HomeScreen() {
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
             onOpen={openBoardRoute}
+            emptyState={<EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />}
           >
-            <ModeTabs
-              mode={mode}
-              hasLocation={Boolean(location)}
-              locationStatus={status}
-              onChange={(nextMode) => {
-                setMode(nextMode);
-                if (nextMode === 'closest' && !location) {
-                  void requestLocation();
-                }
-              }}
-            />
+            {modeTabs}
           </RiverCarousel>
-        ) : (
-          <EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />
         )}
         {zeroReady ? (
           <ZeroReadyActions
@@ -297,7 +289,7 @@ export default function HomeScreen() {
         }}
         onRequestRoute={() => {
           setSearchOpen(false);
-          router.push('/request-route');
+          router.push({ pathname: '/request-route', params: { name: routeQuery.trim() } });
         }}
         onExploreState={(state) => {
           setSearchOpen(false);
@@ -316,19 +308,6 @@ export default function HomeScreen() {
       />
     </ScrollView>
   );
-
-  async function hydrateBoardPreferences() {
-    try {
-      const parsed = parseJson(await AsyncStorage.getItem(BOARD_PREFERENCES_STORAGE_KEY));
-      if (isBoardPreferences(parsed)) {
-        setMode(parsed.mode);
-      }
-    } catch {
-      // Keep the default route view if local preferences are unavailable.
-    } finally {
-      setPreferencesHydrated(true);
-    }
-  }
 
   function openBoardRoute(river: BoardItem) {
     router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug, source: 'today' } });
@@ -477,6 +456,7 @@ function RiverCarousel({
   onToggleSaved,
   onOpen,
   children,
+  emptyState,
 }: {
   mode: BoardMode;
   rivers: BoardItem[];
@@ -485,6 +465,7 @@ function RiverCarousel({
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
   children: ReactNode;
+  emptyState: ReactNode;
 }) {
   return (
     <View style={styles.todayCallsSection}>
@@ -493,7 +474,7 @@ function RiverCarousel({
         subtitle={sectionSubtitleForMode(mode)}
       />
       {children}
-      <ScrollView
+      {rivers.length > 0 ? <ScrollView
         key={mode}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -511,7 +492,7 @@ function RiverCarousel({
             onOpen={() => onOpen(river)}
           />
         ))}
-      </ScrollView>
+      </ScrollView> : emptyState}
     </View>
   );
 }
@@ -718,11 +699,15 @@ function ModeTabs({
   hasLocation,
   locationStatus,
   onChange,
+  saveError,
+  onRetrySave,
 }: {
   mode: BoardMode;
   hasLocation: boolean;
   locationStatus: string;
   onChange: (mode: BoardMode) => void;
+  saveError: boolean;
+  onRetrySave: () => void;
 }) {
   return (
     <View style={styles.previewSortCard}>
@@ -743,11 +728,13 @@ function ModeTabs({
                 active ? styles.modeTabActive : null,
                 requestingLocation ? styles.modeTabDisabled : null,
               ]}
-              disabled={requestingLocation}
+              disabled={Platform.OS !== 'web' && requestingLocation}
               accessibilityRole="button"
               accessibilityState={{ selected: active, disabled: requestingLocation }}
+              aria-disabled={requestingLocation}
+              aria-busy={requestingLocation}
               aria-pressed={active}
-              onPress={() => onChange(item)}
+              onPress={() => { if (!requestingLocation) onChange(item); }}
               android_ripple={{ color: colors.border, borderless: true }}
             >
               <Text style={[styles.modeTabText, active ? styles.modeTabTextActive : null]}>
@@ -757,6 +744,10 @@ function ModeTabs({
           );
         })}
       </ScrollView>
+      {saveError ? <>
+        <Text style={styles.emptyText} accessibilityLiveRegion="polite">Your sort is applied, but could not be saved on this device.</Text>
+        <AppButton label="Retry saving sort" variant="secondary" onPress={onRetrySave} />
+      </> : null}
     </View>
   );
 }
@@ -775,8 +766,8 @@ function EmptyMode({
         ? locationStatus === 'requesting'
           ? 'Finding nearby routes.'
           : locationStatus === 'denied'
-            ? 'Location is off. You can still use Recommended, Score, or Most reliable first.'
-            : 'Allow location to show nearby routes.'
+            ? 'Location is off. Choose another sort above or set a city to find nearby routes.'
+            : 'Choose another sort above or set a city to find nearby routes.'
         : 'No routes match this view.';
 
   return (
@@ -800,7 +791,7 @@ function OutOfRangeState({
     <View style={styles.outOfRangeCard}>
       <Text style={styles.emptyTitle}>No routes near {locationLabel}</Text>
       <Text style={styles.emptyText}>
-        PaddleToday covers selected Midwest rivers. Browse the list or request one near you.
+        Browse supported rivers or request a route near you.
       </Text>
       <View style={styles.emptyActions}>
         <Pressable accessibilityRole="button" style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
@@ -840,10 +831,7 @@ function routeReachWithState(river: BoardItem | RiverSummaryApiItem) {
   return [river.river.reach, stateAbbreviation(river.river.state)].filter(Boolean).join(' - ');
 }
 
-function stateAbbreviation(state: string) {
-  const normalized = state.trim().toLowerCase();
-  return stateAbbreviations[normalized] ?? state;
-}
+
 
 function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
   return 'travelMinutes' in river;
@@ -940,7 +928,7 @@ function searchRank(river: RiverSummaryApiItem, query: string) {
 function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';
-  if (mode === 'certain') return 'Most reliable routes first, then score.';
+  if (mode === 'certain') return 'Stronger evidence first, then score.';
   return 'Best routes first. Routes to skip stay visible to check again later.';
 }
 
@@ -952,21 +940,21 @@ function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   if (call === 'watch') return isNearbyPick(headline) ? 'Watch nearby' : 'Watch closely';
   if (mode === 'closest') return 'Best nearby';
   if (mode === 'score') return 'Best conditions';
-  if (mode === 'certain') return 'Most reliable pick';
+  if (mode === 'certain') return 'Strongest evidence';
   return isNearbyPick(headline) ? 'Best mix today' : 'Best conditions today';
 }
 
 function routeChoiceLabelForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest route on this river';
   if (mode === 'score') return 'Highest-scoring route on this river';
-  if (mode === 'certain') return 'Most reliable route on this river';
+  if (mode === 'certain') return 'Strongest evidence on this river';
   return 'Best route on this river';
 }
 
 function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest routes';
   if (mode === 'score') return 'Rivers ordered by score';
-  if (mode === 'certain') return 'Most reliable routes';
+  if (mode === 'certain') return 'Routes by evidence strength';
   return 'Today\'s Calls';
 }
 

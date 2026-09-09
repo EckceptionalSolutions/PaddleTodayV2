@@ -8,7 +8,7 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { useRiverSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { AppRefreshNotice } from '../components/app-state';
-import { tabKeyboardProps } from '../lib/selection-keyboard';
+import { SupportedStatePicker } from '../components/supported-state-picker';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
@@ -41,6 +41,12 @@ function SupportContent() {
   const [summaryRetrying, setSummaryRetrying] = useState(false);
   const summaryRetryInFlight = useRef(false);
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
+  const diagnosticRequest = useRef<AbortController | null>(null);
+  useEffect(() => () => {
+    const request = diagnosticRequest.current;
+    diagnosticRequest.current = null;
+    request?.abort();
+  }, []);
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
   const [selectedSupportedState, setSelectedSupportedState] = useState<string | null>(null);
   const rivers = summaryQuery.data?.rivers ?? [];
@@ -58,14 +64,16 @@ function SupportContent() {
   }, [activeSupportedState, selectedSupportedState]);
 
   async function runDiagnostic() {
+    if (diagnosticRequest.current) return;
+    const controller = new AbortController();
+    diagnosticRequest.current = controller;
     trackAppEvent('api_diagnostic_started', {
       apiBaseUrl: resolveApiBaseUrl(),
     });
     setDiagnosticState('checking');
-    setDiagnosticText(`Checking ${resolveApiBaseUrl()}`);
+    setDiagnosticText('Checking route availability…');
 
     const startedAt = Date.now();
-    const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
 
     try {
@@ -74,12 +82,14 @@ function SupportContent() {
         headers: { Accept: 'application/json' },
       });
       const text = await response.text();
+      if (diagnosticRequest.current !== controller) return;
       const elapsed = Date.now() - startedAt;
       clearTimeout(timeout);
 
       if (!response.ok) {
         setDiagnosticState('error');
-        setDiagnosticText(`HTTP ${response.status} from ${resolveApiBaseUrl()} in ${elapsed}ms`);
+        setDiagnosticText(response.status === 429 ? 'Too many connection checks. Wait a moment and try again.'
+          : 'PaddleToday could not load routes right now. Please try again shortly.');
         trackAppEvent('api_diagnostic_failed', {
           status: response.status,
           elapsedMs: elapsed,
@@ -94,22 +104,29 @@ function SupportContent() {
       const riverCount = parsed.rivers.length;
       setDiagnosticState('ok');
       setDiagnosticText(
-        `Connected in ${elapsed}ms. Routes: ${riverCount}.`
+        riverCount === 0 ? 'Connected. No routes were returned.' : `Connected. ${riverCount} ${riverCount === 1 ? 'route' : 'routes'} available.`
       );
       trackAppEvent('api_diagnostic_succeeded', {
         elapsedMs: elapsed,
         riverCount,
       });
     } catch (error) {
+      if (diagnosticRequest.current !== controller) return;
       clearTimeout(timeout);
       setDiagnosticState('error');
-      setDiagnosticText(controller.signal.aborted ? 'The connection check timed out. Please try again.' : error instanceof Error ? error.message : 'Could not reach PaddleToday.');
+      setDiagnosticText(controller.signal.aborted ? 'The connection check timed out. Please try again.'
+        : error instanceof SyntaxError ? 'PaddleToday returned unreadable route information. Please try again shortly.'
+        : error instanceof Error && error.message === 'The server responded, but the route feed was missing. Please try again.' ? error.message
+        : 'Could not reach PaddleToday. Check your internet connection and try again.');
       captureAppException(error, {
         name: 'api_diagnostic_failed',
         extra: {
           apiBaseUrl: resolveApiBaseUrl(),
         },
       });
+    } finally {
+      clearTimeout(timeout);
+      if (diagnosticRequest.current === controller) diagnosticRequest.current = null;
     }
   }
 
@@ -182,28 +199,9 @@ function SupportContent() {
                 {rivers.length === 1 ? 'route' : 'routes'} across {supportedStates.length} {supportedStates.length === 1 ? 'state' : 'states'}
               </Text>
             </View>
-            <View style={styles.supportedStateChips} accessibilityRole="tablist" accessibilityLabel="Supported river states">
-              {supportedStates.map((state, index) => {
-                const active = state.state === activeSupportedState?.state;
-                return (
-                  <Pressable
-                    key={state.state}
-                    style={[styles.supportedStateChip, active ? styles.supportedStateChipActive : null]}
-                    onPress={() => setSelectedSupportedState(state.state)}
-                    accessibilityRole="tab"
-                    accessibilityLabel={`${stateLabel(state.state)} supported rivers`}
-                    accessibilityState={{ selected: active }}
-                    aria-selected={active}
-                    {...tabKeyboardProps(index, active, supportedStates.length, (next) => setSelectedSupportedState(supportedStates[next].state))}
-                    android_ripple={{ color: colors.canvasMuted }}
-                  >
-                    <Text style={[styles.supportedStateChipText, active ? styles.supportedStateChipTextActive : null]}>
-                      {stateLabel(state.state)}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
+            {activeSupportedState && supportedStates.length > 1 ? <SupportedStatePicker
+              options={supportedStates.map(state => ({ value: state.state, label: stateLabel(state.state), count: state.rivers.length }))}
+              value={activeSupportedState.state} onChange={setSelectedSupportedState} /> : null}
             {activeSupportedState ? (
               <View style={styles.supportedStateGroup}>
                 <View style={styles.supportedStateHeader}>
@@ -519,33 +517,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     fontWeight: '700',
-  },
-  supportedStateChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 7,
-  },
-  supportedStateChip: {
-    minHeight: 32,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  supportedStateChipActive: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
-  },
-  supportedStateChipText: {
-    color: colors.text,
-    fontSize: 11,
-    fontWeight: '900',
-  },
-  supportedStateChipTextActive: {
-    color: colors.surfaceStrong,
   },
   supportedStateGroup: {
     gap: spacing.sm,

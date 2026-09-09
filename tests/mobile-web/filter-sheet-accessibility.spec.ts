@@ -11,6 +11,11 @@ test('state search explains no matches and cancel discards draft filters', async
   }] } }));
   await page.goto('/explore?intent=no-call');
   await page.getByRole('button', { name: '1 active filters', exact: true }).click();
+  const easy = page.getByRole('button', { name: 'Easy', exact: true });
+  expect((await easy.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  await easy.click();
+  await expect(easy).toHaveAttribute('aria-pressed', 'true');
+  await page.screenshot({ path: `tmp/explore-filter-targets-${page.viewportSize()!.width}.png` });
   await page.getByRole('button', { name: 'Choose state', exact: true }).click();
   const search = page.getByRole('textbox', { name: 'Search states', exact: true });
   await search.fill('zzzz');
@@ -31,4 +36,14 @@ test('state search explains no matches and cancel discards draft filters', async
   await expect(search).toBeHidden();
   await page.getByRole('button', { name: 'Cancel filters', exact: true }).press('Enter');
   await expect(page.getByRole('button', { name: /^Rice Creek,.*Call unavailable/ })).toBeVisible();
+  const routeSearch = page.getByRole('textbox', { name: 'Search routes', exact: true });
+  await routeSearch.fill('Rice');
+  const clear = page.getByRole('button', { name: 'Clear search', exact: true });
+  const clearBounds = (await clear.boundingBox())!;
+  expect(clearBounds.width).toBeGreaterThanOrEqual(44);
+  expect(clearBounds.height).toBeGreaterThanOrEqual(44);
+  await clear.press('Enter');
+  await expect(routeSearch).toBeFocused();
+  await expect(routeSearch).toHaveValue('');
+  await page.screenshot({ path: `tmp/explore-controls-${page.viewportSize()!.width}.png` });
 });

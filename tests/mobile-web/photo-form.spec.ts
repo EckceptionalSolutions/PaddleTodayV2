@@ -42,7 +42,13 @@ test('photo submission preserves drafts and supports retry', async ({ page }) =>
   await expect(page.getByRole('button', { name: 'Upload photos' })).toBeDisabled();
   await expect(page.getByRole('button', { name: 'Sending...', exact: true })).toBeDisabled();
   expect(requests).toBe(1);
+  await page.getByRole('link', { name: 'Go back', exact: true }).click();
+  const exit = page.getByRole('dialog');
+  await expect(exit.getByText('Submission in progress', { exact: true })).toBeVisible();
+  await expect(exit.getByRole('button', { name: 'Discard changes', exact: true })).toHaveCount(0);
   await pending!.fulfill({ json: { ok: true, stored: false } });
+  await expect(exit.getByText('Leave photo contribution?', { exact: true })).toBeVisible();
+  await exit.getByRole('button', { name: 'Keep editing', exact: true }).click();
   await expect(page.getByText('Your submission was not saved. Please try again.', { exact: true })).toBeVisible();
   await expect(name).toHaveValue('QA Paddler');
   await expect(page.getByText('1/4 attached', { exact: true })).toBeVisible();
@@ -52,7 +58,38 @@ test('photo submission preserves drafts and supports retry', async ({ page }) =>
   await pending!.fulfill({ json: { ok: true, stored: true } });
   await expect(page.getByText('Thank you. Your photos were sent for review.', { exact: true })).toBeVisible();
   await expect(page.getByText('0/4 attached', { exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'Go back', exact: true }).click();
+  await expect(page).not.toHaveURL(/contribute-photo/);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
   console.log('Photo form validation, pending locks, draft preservation, and retry passed with mocked uploads.');
+});
+
+test('photo-only edits survive Back and can be explicitly discarded', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.addInitScript(() => {
+    localStorage.setItem('paddletoday:welcome-completed:v1', '1');
+    localStorage.setItem('paddletoday:alert-preferences', JSON.stringify({ email: 'saved@example.test', routeAlerts: [] }));
+  });
+  await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.route('**/api/rivers/qa-route.json', route => route.fulfill({ json: fixture }));
+  await page.goto('/contribute-photo/qa-route');
+  await expect(page.getByRole('textbox', { name: 'Email for follow-up questions', exact: true })).toHaveValue('saved@example.test');
+  const back = page.getByRole('link', { name: 'Go back', exact: true });
+  await back.click();
+  await expect(page).not.toHaveURL(/contribute-photo/);
+  await page.goto('/contribute-photo/qa-route');
+  const chooser = page.waitForEvent('filechooser');
+  await page.getByRole('button', { name: 'Upload photos', exact: true }).click();
+  await (await chooser).setFiles({ name: 'qa.png', mimeType: 'image/png', buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6ioAAAAASUVORK5CYII=', 'base64') });
+  await expect(page.getByText('1/4 attached', { exact: true })).toBeVisible();
+  await back.click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog.getByText('Leave photo contribution?', { exact: true })).toBeVisible();
+  await dialog.getByRole('button', { name: 'Keep editing', exact: true }).click();
+  await expect(page.getByText('1/4 attached', { exact: true })).toBeVisible();
+  await back.click();
+  await dialog.getByRole('button', { name: 'Discard changes', exact: true }).click();
+  await expect(page).not.toHaveURL(/contribute-photo/);
 });
 
 

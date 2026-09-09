@@ -752,3 +752,165 @@ No shorter Codex window was reported; paid credits were not used.
 - Main website (4323) and mobile reference preview (4391) both respond successfully and remain running. The mobile preview uses recorded responses, not current conditions.
 - Native device QA remains unverified because automatic approval review blocked the local Expo development server. The added native date/time picker requires rebuilding the app; offline trip packets remain deferred under the implementation plan.
 - Usage at the final checkpoint: 43% weekly remaining, no shorter Codex window reported, paid-credit balance unchanged at 2009.5977750000. No reset redeemed or deployment started.
+
+## Batch 73 — resume: cancel exports before a slow close
+
+- Resumed at the user's request with 42% weekly remaining and unchanged paid credits. The prior checkpoint is committed/pushed as `d7965a57` on the review branch.
+- Reproduced both export checks remaining active while Close waited for slow draft storage. Close now invalidates pending share results and aborts GPX/calendar checks immediately, while still waiting to save the draft before dismissal.
+- Typecheck/all-platform export and regressions at 320px and 768px pass. Slow storage failure keeps the note and sheet available, a late export response opens nothing, and a deliberate export/save retry succeeds.
+
+## Batch 74 — trip validation beside the field
+
+- Time and group-size validation now appears beside the affected field and clears as the form is corrected. Manual fields expose invalid state. Reopening the sheet clears prior operational feedback and share fallback, retaining the saved draft.
+- Typecheck/all-platform export and four focused trip/report-date/slow-close cases pass at 320px and 768px. Reviewed the narrow invalid-timing layout; the report date picker remains unchanged.
+
+## Batch 75 — consistent postal state search
+
+- Replaced Today's ten-state lookup with a shared mobile alias helper covering all states and DC. Today, Saved, Explore text search and the state picker accept postal aliases while retaining full source labels. Unknown area names are preserved.
+- Typecheck, 148 unit tests and all-platform export pass. Five browser cases pass at 320px and 390px, covering an “NJ” search across the four entry points plus existing grouped/clear/filter search behavior.
+
+- Full production-export checkpoint after batch 75: 168/168 browser checks pass at 390px.
+
+## Batch 76 — request context and visible limits
+
+- Request a Route from an empty Today search carries the query into the editable name field. Direct links hydrate safely, and the prefill does not return after confirmed submission or replace edited values.
+- Form inputs now match the server's existing limits and show counts near the limit, avoiding silent server truncation. No requests are sent just by opening the form.
+- Typecheck/all-platform export and three form/prefill/recovery cases pass at 320px and 768px, including long pasted notes, direct links and exact submitted content.
+
+## Batch 77 — protect route requests on Back
+
+- Edited route requests now offer Keep editing/Discard changes before leaving. Untouched forms leave normally. A pending submission explains that it is still sending; a failed request retains the form, while confirmed success completes the waiting Back action.
+- Typecheck/all-platform export and five form/navigation cases pass at 320px and 768px. Reviewed the narrow confirmation layout. Native Back/gestures remain device-QA work; these checks cover the exported app's navigation.
+
+## Batch 78 — protect photo contributions on Back
+
+- The shared exit guard also protects photo attachments, contact edits, captions and consent choices. Stored email autofill is not treated as an edit; confirmed submission resets the baseline. The pending action offers Stay on this form while sending.
+- Typecheck/all-platform export and six navigation/photo/local-storage recovery checks pass at 320px and 768px. Photo-only drafts survive Keep editing, explicit discard leaves, failed uploads retain attachments, and successful uploads allow normal Back navigation.
+
+- Full production-export checkpoint after batch 78: 173/173 browser checks pass at 390px.
+
+## Batch 79 — contribution text limits
+
+- Photo captions, names, email, route reports and extra notes now match the existing contribution API limits. A shared near-limit counter also serves route requests, and clears when shortened or successfully submitted.
+- Typecheck/all-platform export and seven contribution/request cases pass at 320px and 768px. Verified exact long report/note payloads and reviewed the narrow counter layout; no server behavior changed.
+
+## Batch 80 — route report validation in context
+
+- Report validation identifies the exact missing choice or entry, shows feedback beside it, and scrolls missing choice groups into view. Correcting a value removes its message without leaving obsolete validation text in the submission status.
+- Typecheck, 151 unit tests, all-platform export and four report/date/limit browser cases pass at 320px and 768px. Reviewed narrow choice feedback; text-only and photo-only report requirements are preserved.
+
+## Batch 81 — discover and protect closed report drafts
+
+- The Reports section offers Continue for an unsent report and View while sending. Leaving the route protects the draft with Keep report/Discard choices, including after the report sheet has closed. Confirmed success resets the contact baseline while retaining contact convenience for another report.
+- Typecheck/all-platform export and seven form/navigation checks pass at 320px and 768px. Verified stored-email startup, close/resume, explicit discard and normal Back after successful submission; reviewed the narrow confirmation.
+
+## Batch 82 — uncertain submission confirmation
+
+- Route requests, photo contributions and reports explain timeout/unreadable success responses without showing API timing details or asserting that the server definitely rejected the submission. Entries remain available; retry is deliberate. Actionable server errors keep their existing messages.
+- Typecheck, 153 unit tests, all-platform export and six form/recovery cases pass at 320px and 768px, including a real client timeout deadline, unreadable response, retained fields, no automatic resend, and successful retry.
+
+## Batch 83 — partial photo-processing recovery
+
+- Reproduced one encoding failure dropping an entire selection in both contribution flows. Shared sequential batch processing now skips only failed/unsupported photos and retains the others, with the existing partial-add notice.
+- Typecheck/all-platform export and five photo/report cases pass at 320px and 768px. Verified failed first encode, preserved second photo, retry, four-photo cap and freeing a slot after removal. No upload/API behavior changed.
+
+## Batch 84 — valid optional report dates
+
+- Manual report dates reject impossible dates and ambiguous formats, focus the date field and offer the existing picker/clear controls. Blank dates remain optional and valid leap days are accepted. The report submit action also exposes native busy state during submission/photo preparation.
+- Typecheck, 154 unit tests, all-platform export and four date/report/photo cases pass at 320px and 768px, including correction from February 30 to a valid leap day and clearing afterward.
+
+- Full production-export checkpoint after batch 84: 180/180 browser checks pass at 390px. Batches 73–84 saved as a local review-branch checkpoint; no deployment or paid credits used.
+
+## Batch 85 — compact supported-state chooser
+
+- Measured More's 22-state chip group at 305px high with 32px targets on a 320px screen. Replaced it with a compact selected-state control and a searchable chooser with 56px rows, counts and selection feedback. Postal codes match exactly, including a clear unsupported-state result.
+- Typecheck/all-platform export and three directory checks pass at 320px and 768px. Verified keyboard selection/focus return, close without changing selection, search/clear, no extra feed requests and reachable choices/Close at 320px height. Reviewed before/after and short-sheet captures.
+
+## Batch 86 — recorded alerts independent of bookmarks
+
+- Reproduced alerts disappearing from Saved → Alerts without a bookmark or when route details were unavailable. The tab now includes recorded alert routes alongside bookmarks, retains readable threshold/delivery records for missing routes, and offers route-opening recovery. Its empty state explains alert setup; trip drafts and bookmark-only summaries stay on the routes tab.
+- Typecheck/all-platform export and focused alert/navigation/draft checks pass at 320px and 768px. Verified partial/missing feeds, no bookmarks, unchanged alert storage, no subscription writes and existing saved-alert controls. Reviewed narrow layout.
+
+## Pause requested after batch 86
+
+- Stopped new work at the user's request. Since last push `d7965a57`, batches 73–84 are saved locally in `5cdfc60a`; batches 85–86 remain uncommitted. No new push or deployment.
+- Latest full checkpoint: 180/180 exported-app browser checks through batch 84; batches 85–86 have focused checks at 320px and 768px. Latest mobile unit checkpoint: 154 passing. All-platform export includes batch 86.
+- 33% weekly usage remains; no shorter Codex window reported. Paid-credit balance unchanged at 2009.5977750000. Main site and mobile preview remain running. Native device QA remains blocked as previously documented.
+
+## Batch 87 — resumed: readable connection checks
+
+- Resumed at the user's request with 33% weekly remaining and unchanged paid credits. More's connection check now explains server, unreadable-response, timeout and network failures in user-facing terms while retaining diagnostic details in telemetry. Success reports the actual returned route count.
+- Added an immediate in-flight guard and unmount cancellation to avoid duplicate checks and stale updates. Typecheck/all-platform export and six connection/chooser checks pass at 320px and 768px, including retry after each failure type.
+
+## Batch 88 — compact personal-note previews
+
+- Long/multiline saved notes now show a bounded excerpt with Show full note/Show less controls. Short notes stay fully visible. Full text remains searchable and editable; expanding/collapsing does not write storage.
+- Typecheck/all-platform export and three note/search/recovery cases pass at 320px and 768px. Verified hidden-tail search, full editor contents, unchanged storage and existing failed-save/cancel behavior; reviewed the narrow preview.
+
+## Batch 89 — river-card scroll recovery
+
+- River-hub View card scrolling follows live reduced-motion preferences. Pending measurement retries are cancelled when routes, motion preferences or the screen change, and superseded requests cannot scroll a different selection.
+- Typecheck/all-platform export and six hub navigation/recovery checks pass at 320px and 768px. Browser instrumentation verifies actual scroll behavior through preference changes; native scrolling still needs device QA.
+
+
+- Full production-export checkpoint after batch 89: 189/189 browser checks pass at 390px.
+
+## Batch 90 — calmer section and form navigation
+
+- Route-section jumps and photo-field scrolling respect reduced motion. Rapid focus changes cancel the prior photo-field scroll; unmount and preference changes also clear pending timers.
+- Typecheck/all-platform export and seven form/section checks pass at 320px and 768px, including live motion changes, rapid focus, field validation and existing submission recovery.
+
+## Batch 91 — easier Explore touch controls
+
+- Filter choices and search clearing now have 44px targets. Clear returns focus to the search input; search text uses 16px sizing and can shrink within narrow rows. Fixed singular route counts found during visual review.
+- Typecheck/all-platform export and five focused filter/search/keyboard checks pass at 320px and 768px; final wording checked at 320px. Reviewed map search and filter-sheet captures at 320px.
+
+## Batch 92 — durable Weekend range choices
+
+- Weekend range selections survive late hydration and serialize device writes. Opening the screen no longer rewrites the stored preference. Failed saves keep the applied range and expose a local Retry saving range action.
+- Typecheck/all-platform export and six range/category checks pass at 320px and 768px. Verified delayed initial reads, overlapping writes, failed-save preservation and retry of the latest choice; reviewed narrow recovery layout.
+
+- Full checkpoint after batch 92: 193/193 exported-app browser checks and 154 mobile unit tests pass. Saving batches 85–92 locally on the review branch; no push or deployment.
+
+## Batch 93 — preserve active Explore preferences
+
+- Late preference reads no longer replace active search, view changes or an open filter draft. Preference writes serialize, and unreadable stored settings remain untouched until an explicit choice. Hydration ignores results after unmount.
+- Typecheck/all-platform export and seven search/view/recovery checks pass at 320px and 768px, covering delayed reads/writes and existing saved-filter restoration.
+
+## Batch 94 — choose a Weekend planning city in place
+
+- Weekend now reuses the city/ZIP chooser, including after GPS denial, with Change planning city and existing Clear controls. Location names wrap instead of truncating.
+- Typecheck/all-platform export and four location/range checks pass at 320px and 768px: denied GPS recovery, city selection, cancel preserving the previous city, reload and range persistence.
+- User reported shared app-link failure, removed photo fallbacks and returning map-bubble clipping. Prioritizing these regressions over further autonomous polish.
+
+## Batch 95 — user-reported mobile regressions
+
+- Restored scenic placeholder photos in route, Saved and Weekend cards, labeled Illustrative photo. Failed assigned photos try the scenic fallback before the offline/unavailable panel. Six photo scenarios pass at 320px and 768px; reviewed restored imagery and action spacing.
+- Shared Open in app text now uses the existing HTTPS route URL with openApp=1. The web route offers an explicit custom-scheme Open PaddleToday link, store links and Continue on the website; access choices survive both paths. No automatic app launch or new URL route is required. Main-site deployment is needed for the handoff panel; older deployed pages still open as a valid web fallback.
+- Found an untracked local modification in installed react-native-maps 1.20.1 that expanded Android marker snapshot bounds. Added a reproducible postinstall patch, EAS archive inclusion and release checks. Compared against the original offline npm tarball; verified pristine and legacy inputs converge, repeat application is unchanged, and unexpected upstream source is rejected. No library upgrade.
+- Root typecheck, all-platform Expo export, 2,429-page Astro build and two desktop/mobile web-handoff checks pass. Native clipping and actual OS app-link opening remain unverified: automatic approval review previously blocked the Expo development server. The marker fix requires a new native build; no deployment/build service was triggered.
+
+
+- Full production-export checkpoint after batch 95: 200/200 mobile browser checks pass. Focused sharing/photo checks: 9/9 at both widths. Release readiness: 59/59. User clarification about platform and clipping shape remains pending.
+
+## Batch 96 — escape an empty Today sort
+
+- Reproduced Nearest removing all sort controls after GPS denial. The carousel now retains its sort controls when empty, with guidance to choose another sort or city. Browser pending state preserves focus while ignoring repeat GPS actions.
+- Typecheck/all-platform export and four Today/search checks pass at 320px and 768px. Additional pending-permission check at 320px verifies one request and retained focus after denial, then recovery to Recommended and Evidence first.
+
+## Batch 97 — current coverage and alert copy
+
+- Removed outdated Midwest-only coverage wording. Notification settings now describe route alerts without requiring bookmarks. Today labels its confidence-based ordering as evidence strength instead of implying route reliability.
+- Typecheck/all-platform export and six alert/nearby/Today navigation checks pass at 320px and 768px.
+
+## Batch 98 — durable Today sort preferences
+
+- Today keeps a newly chosen sort when an earlier preference read finishes, serializes device saves, and offers Retry saving sort after a failure. Opening Today no longer overwrites an unreadable stored choice with defaults.
+- Typecheck/all-platform export and three sort/recovery checks pass at 320px and 768px, including overlapping saves, late reads, current-choice retry and GPS-denial escape.
+
+## Batch 99 — visible Explore save recovery
+
+- Explore offers a compact local-save retry in both Map and List. Applied filters remain active, writes stay ordered, and simply opening the screen no longer rewrites preferences. Stale failures cannot replace the latest save result.
+- Typecheck/all-platform export and focused preference/short-layout checks pass at 320px and 768px, including save failure, retry, reload and current Map/List choice. Reviewed the short phone layout.
+
+- Full checkpoint after batch 99: 205/205 production-export browser checks and 154 mobile unit tests pass. Account usage is 21% remaining; paid credit balance is unchanged. Changes remain local and native regression verification still requires a rebuilt app.

@@ -1,9 +1,8 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
-import { useState } from 'react';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { routeDecisionPresentation } from '../lib/map-decision';
-import { routePhotoForRiver } from '../lib/route-photos';
+import { useRoutePhoto } from '../hooks/use-route-photo';
 import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { QualityPill } from './rating-pill';
@@ -116,18 +115,17 @@ export function RiverCard({
 }
 
 function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
-  const photo = routePhotoForRiver(river.river);
-  const [failedUri, setFailedUri] = useState<string | null>(null);
-  if (photo.isPlaceholder || failedUri === photo.uri) {
-    return <View style={styles.photo}><RoutePhotoFallback compact label={failedUri === photo.uri ? 'Photo unavailable' : 'No photo yet'} /></View>;
+  const { photo, unavailable, onError } = useRoutePhoto(river.river);
+  if (unavailable) {
+    return <View style={styles.photo}><RoutePhotoFallback compact label="Photo unavailable" /></View>;
   }
 
   return (
-    <ImageBackground source={{ uri: photo.uri }} onError={() => setFailedUri(photo.uri)} style={styles.photo} imageStyle={styles.photoImage}>
+    <ImageBackground source={{ uri: photo.uri }} onError={onError} style={styles.photo} imageStyle={styles.photoImage}>
       <View style={styles.photoScrim} />
-      {photo.sourceKind === 'river' ? (
+      {photo.sourceKind !== 'route' ? (
         <View style={styles.photoBadge}>
-          <Text style={styles.photoBadgeText}>River photo</Text>
+          <Text style={styles.photoBadgeText}>{photo.isPlaceholder ? 'Illustrative photo' : 'River photo'}</Text>
         </View>
       ) : null}
     </ImageBackground>

@@ -95,12 +95,12 @@ function NotificationSettingsContent() {
 
       <AreaNotificationCard location={location} />
 
-      <Pressable style={styles.systemSettingsRow} accessibilityRole="button" accessibilityLabel="Manage saved-route alerts"
+      <Pressable style={styles.systemSettingsRow} accessibilityRole="button" accessibilityLabel="Manage route alerts"
         onPress={() => router.push({ pathname: '/saved', params: { tab: 'alerts' } })}>
         <View style={styles.systemSettingsIcon}><MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={24} /></View>
         <View style={styles.systemSettingsCopy}>
-          <Text style={styles.systemSettingsTitle}>Saved-route alerts</Text>
-          <Text style={styles.systemSettingsBody}>Choose Good or Strong alerts for individual routes you have saved.</Text>
+          <Text style={styles.systemSettingsTitle}>Route alerts</Text>
+          <Text style={styles.systemSettingsBody}>Review recorded route alerts and choose Good or Strong thresholds.</Text>
         </View>
         <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
       </Pressable>

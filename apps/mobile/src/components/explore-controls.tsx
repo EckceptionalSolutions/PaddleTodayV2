@@ -1,4 +1,5 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useRef } from 'react';
 import { Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -27,10 +28,12 @@ export function ExploreSearchBar({
   onQueryChange: (query: string) => void;
   onSubmit?: () => void;
 }) {
+  const inputRef = useRef<TextInput | null>(null);
   return (
     <View style={styles.searchBar}>
       <MaterialCommunityIcons name="magnify" color={colors.textMuted} size={20} />
       <TextInput
+        ref={inputRef}
         autoCapitalize="none"
         autoCorrect={false}
         placeholder="Search river, route, region"
@@ -45,8 +48,8 @@ export function ExploreSearchBar({
       />
       {query.trim() ? (
         <Pressable
-          hitSlop={10}
-          onPress={() => onQueryChange('')}
+          style={styles.clearSearch}
+          onPress={() => { onQueryChange(''); inputRef.current?.focus(); }}
           accessibilityRole="button"
           accessibilityLabel="Clear search"
         >
@@ -181,9 +184,16 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
+    minWidth: 0,
     color: colors.text,
-    fontSize: 15,
+    fontSize: 16,
     paddingVertical: 10,
+  },
+  clearSearch: {
+    minWidth: 44,
+    minHeight: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   toolbar: {
     flexDirection: 'row',
@@ -198,7 +208,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   filterButton: {
-    minHeight: 38,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: colors.accent,
@@ -220,7 +230,7 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
   },
   choiceChip: {
-    minHeight: 38,
+    minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: '#C8BDAB',

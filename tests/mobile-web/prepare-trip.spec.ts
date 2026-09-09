@@ -111,11 +111,17 @@ test('trip drafts survive reopening and invalid timing focuses the field to corr
   await calendar.click();
   await expect(launch).toBeFocused();
   await expect(dialog.getByText('Enter launch as YYYY-MM-DD HH:MM.', { exact: true })).toBeVisible();
+  await expect(launch).toHaveAttribute('aria-invalid', 'true');
   await launch.fill('2030-06-15 09:00');
+  await expect(launch).toHaveAttribute('aria-invalid', 'false');
+  await expect(dialog.getByText('Enter launch as YYYY-MM-DD HH:MM.', { exact: true })).toHaveCount(0);
   await expected.fill('2030-06-15 08:00');
   await calendar.click();
   await expect(expected).toBeFocused();
+  await expect(expected).toHaveAttribute('aria-invalid', 'true');
+  await page.screenshot({ path: `tmp/trip-validation-${page.viewportSize()!.width}.png` });
   await expected.fill('2030-06-15 12:00');
+  await expect(dialog.getByText('Expected take-out must be after launch.', { exact: true })).toHaveCount(0);
   await checkIn.fill('later');
   await dialog.getByRole('button', { name: 'Share float plan', exact: true }).click();
   await expect(checkIn).toBeFocused();
@@ -125,6 +131,16 @@ test('trip drafts survive reopening and invalid timing focuses the field to corr
   await calendar.click();
   await expect(group).toBeFocused();
   await expect(dialog.getByText('Group size must be a whole number from 1 to 100.', { exact: true })).toBeVisible();
+  await group.fill('3');
+  await expect(group).toHaveAttribute('aria-invalid', 'false');
+  await expect(dialog.getByText('Group size must be a whole number from 1 to 100.', { exact: true })).toHaveCount(0);
+  await calendar.click();
+  const exportError = dialog.getByText('Calendar export is temporarily unavailable. Please try again shortly.', { exact: true });
+  await expect(exportError).toBeVisible();
+  await dialog.getByRole('button', { name: 'Close prepare trip', exact: true }).click();
+  await prepare.click();
+  await expect(group).toHaveValue('3');
+  await expect(exportError).toHaveCount(0);
 });
 
 for (const format of ['GPX', 'calendar'] as const) for (const outcome of ['close', 'timeout']) {

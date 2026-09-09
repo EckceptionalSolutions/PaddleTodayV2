@@ -17,6 +17,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { androidBottomInset } from '../lib/safe-area';
 import { selectionKeyboardProps } from '../lib/selection-keyboard';
 import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
+import { CharacterCount } from './character-count';
+import type { RouteReportValidationError, RouteReportValidationField } from '../lib/route-report-validation';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -30,6 +32,7 @@ export interface SelectedReportPhoto {
 }
 
 interface RouteReportSheetProps {
+  validationError: RouteReportValidationError | null;
   visible: boolean;
   name: string;
   email: string;
@@ -61,10 +64,11 @@ interface RouteReportSheetProps {
   onRemovePhoto: (id: string) => void;
   onTogglePhotoRights: () => void;
   onToggleContactConsent: () => void;
-  onSubmit: () => Promise<'name' | 'email' | 'report' | void>;
+  onSubmit: () => Promise<RouteReportValidationField | void>;
 }
 
 export function RouteReportSheet({
+  validationError,
   visible,
   name,
   email,
@@ -110,6 +114,9 @@ export function RouteReportSheet({
   const formOffset = useRef(0);
   const inputOffsets = useRef<Record<string, number>>({});
   const keyboardBottomPadding = Platform.OS === 'android' ? 280 : 180 + insets.bottom;
+  const errorFor = (field: RouteReportValidationField) => validationError?.field === field ? validationError.message : '';
+  const fieldError = (field: RouteReportValidationField) => errorFor(field)
+    ? <Text accessibilityLiveRegion="polite" style={styles.fieldError}>{errorFor(field)}</Text> : null;
 
   return (
     <Modal animationType={reducedMotion ? "none" : "slide"} transparent visible={visible} onRequestClose={onClose}>
@@ -158,7 +165,9 @@ export function RouteReportSheet({
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
                   accessibilityLabel="Contributor name or paddling handle"
-                  accessibilityHint="Required"
+                  aria-invalid={Boolean(errorFor('name'))}
+                  accessibilityHint="Required. Up to 120 characters."
+                  maxLength={120}
                   aria-required
                   value={name}
                   ref={nameInput}
@@ -167,6 +176,8 @@ export function RouteReportSheet({
                   onFocus={() => scrollFocusedInputIntoView('name')}
                   onLayout={(event) => recordInputOffset('name', event)}
                 />
+                <CharacterCount value={name} limit={120} />
+                {fieldError('name')}
                 <Text style={styles.choiceLabel}>Email for follow-up *</Text>
                 <TextInput
                   autoCapitalize="none"
@@ -176,7 +187,9 @@ export function RouteReportSheet({
                   placeholderTextColor={colors.textMuted}
                   style={styles.reportInput}
                   accessibilityLabel="Email address"
-                  accessibilityHint="Required"
+                  aria-invalid={Boolean(errorFor('email'))}
+                  accessibilityHint="Required. Up to 160 characters."
+                  maxLength={160}
                   aria-required
                   value={email}
                   ref={emailInput}
@@ -185,15 +198,19 @@ export function RouteReportSheet({
                   onFocus={() => scrollFocusedInputIntoView('email')}
                   onLayout={(event) => recordInputOffset('email', event)}
                 />
+                <CharacterCount value={email} limit={160} />
+                {fieldError('email')}
               </View>
               <View onLayout={(event) => recordInputOffset('tripDate', event)}>
                 <TripTimeField label="Trip date" manualLabel="Trip date (optional)" value={tripDate} onChange={onTripDateChange}
-                  editable={visible && !isSubmitting} inputRef={dateInput} optional dateOnly />
+                  editable={visible && !isSubmitting} inputRef={dateInput} optional dateOnly error={errorFor('tripDate')} />
               </View>
               <Text style={styles.choiceLabel}>Trip experience (optional)</Text>
               <SentimentPicker value={sentiment ?? ''} disabled={isSubmitting} onChange={onSentimentChange} />
               <ChoicePicker
                 label="Observed water level"
+                error={errorFor('waterLevel')}
+                onLayout={event => recordInputOffset('waterLevel', event)}
                 disabled={isSubmitting}
                 value={observedWaterLevel}
                 options={[
@@ -208,6 +225,8 @@ export function RouteReportSheet({
               />
               <ChoicePicker
                 label="Trip outcome"
+                error={errorFor('completion')}
+                onLayout={event => recordInputOffset('completion', event)}
                 disabled={isSubmitting}
                 value={tripCompletion}
                 options={[
@@ -220,6 +239,8 @@ export function RouteReportSheet({
               />
               <ChoicePicker
                 label="Overall verdict"
+                error={errorFor('verdict')}
+                onLayout={event => recordInputOffset('verdict', event)}
                 disabled={isSubmitting}
                 value={overallVerdict}
                 options={[
@@ -239,6 +260,9 @@ export function RouteReportSheet({
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportTextArea]}
                 accessibilityLabel="Route report"
+                aria-invalid={Boolean(errorFor('report'))}
+                accessibilityHint="Up to 1800 characters."
+                maxLength={1800}
                 value={report}
                 ref={reportInput}
                 editable={!isSubmitting}
@@ -247,6 +271,8 @@ export function RouteReportSheet({
                 onLayout={(event) => recordInputOffset('report', event)}
                 textAlignVertical="top"
               />
+              <CharacterCount value={report} limit={1800} />
+              {fieldError('report')}
               <Text style={styles.choiceLabel}>Extra notes (optional)</Text>
               <TextInput
                 multiline
@@ -254,6 +280,8 @@ export function RouteReportSheet({
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportNotesArea]}
                 accessibilityLabel="Extra notes, optional"
+                accessibilityHint="Up to 1200 characters."
+                maxLength={1200}
                 value={notes}
                 editable={!isSubmitting}
                 onChangeText={onNotesChange}
@@ -261,6 +289,7 @@ export function RouteReportSheet({
                 onLayout={(event) => recordInputOffset('notes', event)}
                 textAlignVertical="top"
               />
+              <CharacterCount value={notes} limit={1200} />
               <View style={styles.reportPhotoPanel}>
                 <View style={styles.reportPhotoHeader}>
                   <View style={styles.reportPhotoCopy}>
@@ -304,6 +333,8 @@ export function RouteReportSheet({
                   accessibilityLabel="I own these photos or have permission to share them with Paddle Today."
                   accessibilityState={{ checked: photoRightsConfirmed }}
                   aria-checked={photoRightsConfirmed}
+                  aria-invalid={Boolean(errorFor('rights'))}
+                  onLayout={event => recordInputOffset('rights', event)}
                   disabled={isSubmitting}
                   {...selectionKeyboardProps(onTogglePhotoRights, isSubmitting)}
                 >
@@ -315,6 +346,7 @@ export function RouteReportSheet({
                   </Text>
                 </Pressable>
               ) : null}
+              {fieldError('rights')}
               <Pressable
                 style={styles.reportConsentRow}
                 onPress={onToggleContactConsent}
@@ -322,6 +354,8 @@ export function RouteReportSheet({
                 accessibilityLabel="I agree to follow-up questions."
                 accessibilityState={{ checked: contactConsentConfirmed }}
                 aria-checked={contactConsentConfirmed}
+                aria-invalid={Boolean(errorFor('consent'))}
+                onLayout={event => recordInputOffset('consent', event)}
                 disabled={isSubmitting}
                 {...selectionKeyboardProps(onToggleContactConsent, isSubmitting)}
               >
@@ -332,12 +366,14 @@ export function RouteReportSheet({
                   I agree to follow-up questions.
                 </Text>
               </Pressable>
+              {fieldError('consent')}
               <Pressable
                 style={[styles.reportSubmitButton, isSubmitting || isPickingPhotos ? styles.reportSubmitButtonDisabled : null]}
                 disabled={isSubmitting || isPickingPhotos}
                 onPress={() => void submitAndFocusInvalidField()}
                 accessibilityRole="button"
-                aria-busy={isSubmitting}
+                aria-busy={isSubmitting || isPickingPhotos}
+                accessibilityState={{ busy: isSubmitting || isPickingPhotos, disabled: isSubmitting || isPickingPhotos }}
               >
                 <Text style={styles.reportSubmitText}>{isSubmitting ? 'Sending...' : isPickingPhotos ? 'Preparing photos...' : 'Send report'}</Text>
               </Pressable>
@@ -359,6 +395,8 @@ export function RouteReportSheet({
     if (invalidField === 'name') nameInput.current?.focus();
     if (invalidField === 'email') emailInput.current?.focus();
     if (invalidField === 'report') reportInput.current?.focus();
+    if (invalidField === 'tripDate') dateInput.current?.focus();
+    if (invalidField && !['name', 'email', 'report'].includes(invalidField)) scrollFocusedInputIntoView(invalidField);
   }
 
   function scrollFocusedInputIntoView(key: string) {
@@ -414,20 +452,25 @@ function SentimentPicker({
 
 function ChoicePicker<T extends string>({
   label,
+  error,
+  onLayout,
   disabled,
   value,
   options,
   onChange,
 }: {
   label: string;
+  error?: string;
+  onLayout?: (event: LayoutChangeEvent) => void;
   disabled: boolean;
   value: T | '';
   options: ReadonlyArray<{ value: T; label: string }>;
   onChange: (value: T | '') => void;
 }) {
   return (
-    <View style={styles.choiceGroup}>
+    <View style={styles.choiceGroup} onLayout={onLayout}>
       <Text style={styles.choiceLabel}>{label} *</Text>
+      {error ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{error}</Text> : null}
       <View style={styles.sentimentRow}>
         {options.map((option) => {
           const selected = value === option.value;
@@ -454,6 +497,7 @@ function ChoicePicker<T extends string>({
 }
 
 const styles = StyleSheet.create({
+  fieldError: { color: colors.noGo, fontSize: 13, lineHeight: 19 },
   sheetScrim: {
     flex: 1,
     justifyContent: 'flex-end',

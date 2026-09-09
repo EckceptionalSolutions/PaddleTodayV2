@@ -1,5 +1,8 @@
 import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
-import { PaddleTodayApiError } from '@paddletoday/api-client';
+import { FormExitGuard } from '../components/form-exit-guard';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
+import { CharacterCount } from '../components/character-count';
+import { submissionFailureMessage } from '../lib/submission-results';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
@@ -24,7 +27,7 @@ import type { SelectedReportPhoto } from '../components/route-report-sheet';
 import { isValidEmailAddress } from '../lib/alerts';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
-  normalizeReportPhotoAsset,
+  normalizeReportPhotoBatch,
   ROUTE_REPORT_MAX_PHOTOS,
 } from '../lib/report-photos';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
@@ -35,6 +38,12 @@ type PhotoValidationField = 'photos' | 'name' | 'email' | 'rights' | 'contact';
 const PHOTO_FORM_GUIDANCE = 'Photos are reviewed before they appear publicly.';
 
 export default function ContributePhotoScreen() {
+  const reducedMotion = useReducedMotion();
+  const focusScrollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => {
+    if (focusScrollTimer.current !== null) clearTimeout(focusScrollTimer.current);
+    focusScrollTimer.current = null;
+  }, [reducedMotion]);
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const insets = useSafeAreaInsets();
   const scrollRef = useRef<ScrollView | null>(null);
@@ -52,6 +61,7 @@ export default function ContributePhotoScreen() {
   const { email: storedEmail, setEmail } = useAlertPreferences();
   const [name, setName] = useState('');
   const [email, setEmailDraft] = useState(storedEmail);
+  const [initialEmail, setInitialEmail] = useState(storedEmail);
   const [caption, setCaption] = useState('');
   const [photos, setPhotos] = useState<SelectedReportPhoto[]>([]);
   const [rightsConfirmed, setRightsConfirmed] = useState(false);
@@ -74,7 +84,10 @@ export default function ContributePhotoScreen() {
   const detail = detailQuery.data?.result ?? null;
 
   useEffect(() => {
-    setEmailDraft((current) => current || storedEmail);
+    if (!email) {
+      setEmailDraft(storedEmail);
+      setInitialEmail(storedEmail);
+    }
   }, [storedEmail]);
 
   if (!slug) {
@@ -139,16 +152,7 @@ export default function ContributePhotoScreen() {
         return;
       }
 
-      const selected: SelectedReportPhoto[] = [];
-      let skipped = 0;
-      for (const [index, asset] of result.assets.slice(0, remainingSlots).entries()) {
-        const normalized = await normalizeReportPhotoAsset(asset, index);
-        if (normalized) {
-          selected.push(normalized);
-        } else {
-          skipped += 1;
-        }
-      }
+      const { selected, skipped } = await normalizeReportPhotoBatch(result.assets, remainingSlots);
 
       if (selected.length > 0) {
         setPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
@@ -233,6 +237,8 @@ export default function ContributePhotoScreen() {
       setPhotos([]);
       setCaption('');
       setName('');
+      setEmailDraft(contributorEmail);
+      setInitialEmail(contributorEmail);
       setRightsConfirmed(false);
       setContactConsent(false);
     } catch (error) {
@@ -240,11 +246,7 @@ export default function ContributePhotoScreen() {
         name: 'route_photo_contribution_failed',
         extra: { slug, photoCount: photos.length },
       });
-      setStatus(
-        error instanceof PaddleTodayApiError && error.message
-          ? error.message
-          : 'Could not send these photos.'
-      );
+      setStatus(submissionFailureMessage(error, 'Could not send these photos. Your entries and photos are still here; please try again.'));
     } finally {
       submissionInFlight.current = false;
       setSubmitting(false);
@@ -257,6 +259,8 @@ export default function ContributePhotoScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Contribute photos' }} />
+      <FormExitGuard title="Leave photo contribution?" busy={submitting}
+        hasChanges={photos.length > 0 || Boolean(name.trim() || caption.trim()) || email !== initialEmail || rightsConfirmed || contactConsent} />
       <KeyboardAvoidingView
         style={styles.keyboardWrap}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -343,12 +347,15 @@ export default function ContributePhotoScreen() {
               style={[styles.input, styles.captionInput]}
               value={caption}
               accessibilityLabel="Photo caption (optional)"
+              accessibilityHint="Up to 1200 characters."
+              maxLength={1200}
               editable={!submitting}
               onChangeText={setCaption}
               onFocus={() => scrollFocusedInputIntoView('caption')}
               onLayout={(event) => recordInputOffset('caption', event)}
               textAlignVertical="top"
             />
+            <CharacterCount value={caption} limit={1200} />
             <Text style={styles.fieldLabel}>Name or paddling handle *</Text>
             <TextInput
               autoCapitalize="words"
@@ -359,13 +366,15 @@ export default function ContributePhotoScreen() {
               ref={nameInput}
               accessibilityLabel="Name or paddling handle"
               aria-invalid={validation === 'name' && Boolean(validationErrors.name)}
-              accessibilityHint="Required field."
+              accessibilityHint="Required field. Up to 120 characters."
+              maxLength={120}
               aria-required
               editable={!submitting}
               onChangeText={setName}
               onFocus={() => scrollFocusedInputIntoView('name')}
               onLayout={(event) => recordInputOffset('name', event)}
             />
+            <CharacterCount value={name} limit={120} />
             {validation === 'name' && validationErrors.name ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{validationErrors.name}</Text> : null}
             <Text style={styles.fieldLabel}>Email for follow-up questions *</Text>
             <TextInput
@@ -379,13 +388,15 @@ export default function ContributePhotoScreen() {
               ref={emailInput}
               accessibilityLabel="Email for follow-up questions"
               aria-invalid={validation === 'email' && Boolean(validationErrors.email)}
-              accessibilityHint="Required field."
+              accessibilityHint="Required field. Up to 160 characters."
+              maxLength={160}
               aria-required
               editable={!submitting}
               onChangeText={setEmailDraft}
               onFocus={() => scrollFocusedInputIntoView('email')}
               onLayout={(event) => recordInputOffset('email', event)}
             />
+            <CharacterCount value={email} limit={160} />
             {validation === 'email' && validationErrors.email ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{validationErrors.email}</Text> : null}
 
             <ConsentRow
@@ -425,10 +436,12 @@ export default function ContributePhotoScreen() {
   }
 
   function scrollFocusedInputIntoView(key: string) {
+    if (focusScrollTimer.current !== null) clearTimeout(focusScrollTimer.current);
     const fieldOffset = inputOffsets.current[key] ?? 0;
     const targetY = Math.max(0, fieldOffset - 80);
-    setTimeout(() => {
-      scrollRef.current?.scrollTo({ y: targetY, animated: true });
+    focusScrollTimer.current = setTimeout(() => {
+      focusScrollTimer.current = null;
+      scrollRef.current?.scrollTo({ y: targetY, animated: !reducedMotion });
     }, 80);
   }
 }

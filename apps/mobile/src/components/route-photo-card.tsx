@@ -1,7 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useState } from 'react';
 import { ImageBackground, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { routePhotoForRiver } from '../lib/route-photos';
+import { useRoutePhoto } from '../hooks/use-route-photo';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RoutePhotoFallback } from './route-photo-fallback';
 
@@ -27,20 +26,18 @@ export function RoutePhotoCard({
 }: RoutePhotoCardProps) {
   const { width: windowWidth } = useWindowDimensions();
   const narrowLayout = windowWidth < 360;
-  const photo = routePhotoForRiver(river);
-  const [failedUri, setFailedUri] = useState<string | null>(null);
-  const unavailable = failedUri === photo.uri;
-  const showFallback = photo.isPlaceholder || unavailable;
+  const { photo, unavailable, onError } = useRoutePhoto(river);
+  const showFallback = unavailable;
 
   return (
     <ImageBackground
       source={showFallback ? undefined : { uri: photo.uri }}
-      onError={() => setFailedUri(photo.uri)}
+      onError={onError}
       style={[styles.photo, showFallback ? { minHeight: height } : { height }, compact ? styles.photoCompact : null, showFallback ? styles.photoFallback : null]}
       imageStyle={styles.photoImage}
     >
       {showFallback ? <RoutePhotoFallback compact={compact} label={unavailable ? 'Photo unavailable' : 'No photo yet'} /> : <View style={styles.scrim} />}
-      {!showFallback && photo.sourceKind === 'river' ? (
+      {!showFallback && photo.sourceKind !== 'route' ? (
         <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
           <MaterialCommunityIcons
             name="image"
@@ -48,7 +45,7 @@ export function RoutePhotoCard({
             size={compact ? 13 : 14}
           />
           <Text style={[styles.placeholderBadgeText, compact ? styles.placeholderBadgeTextCompact : null]}>
-            River photo
+            {photo.isPlaceholder ? 'Illustrative photo' : 'River photo'}
           </Text>
         </View>
       ) : null}

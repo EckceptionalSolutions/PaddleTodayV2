@@ -7,11 +7,22 @@ import { type SavedRiverRecord, useSavedRivers } from '../providers/saved-rivers
 import { colors } from '../theme/tokens';
 
 export function SavedRouteNotes({ river, onEdit }: { river: SavedRiverRecord; onEdit: (river: SavedRiverRecord) => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const note = river.notes || '';
+  const preview = Array.from(note).slice(0, 180).join('').split('\n').slice(0, 3).join('\n').trimEnd();
+  const truncated = preview.length < note.trimEnd().length;
+  const routeLabel = `${river.name}${river.reach ? `, ${river.reach}` : ''}`;
   return <View style={styles.preview}>
-    {river.notes ? <Text style={styles.note}>{river.notes}</Text> : null}
+    {note ? <Text style={styles.note}>{expanded || !truncated ? note : `${preview}…`}</Text> : null}
+    <View style={styles.previewActions}>
+    {truncated ? <Pressable accessibilityRole="button" accessibilityLabel={`${expanded ? 'Show less' : 'Show full'} personal note: ${routeLabel}`}
+      accessibilityState={{ expanded }} aria-expanded={expanded} style={styles.button} onPress={() => setExpanded(current => !current)}>
+      <Text style={styles.buttonText}>{expanded ? 'Show less' : 'Show full note'}</Text>
+    </Pressable> : null}
     <Pressable accessibilityRole="button" accessibilityLabel={`${river.notes ? 'Edit' : 'Add'} personal note: ${river.name}${river.reach ? `, ${river.reach}` : ''}`} style={styles.button} onPress={() => onEdit(river)}>
       <Text style={styles.buttonText}>{river.notes ? 'Edit personal note' : 'Add personal note'}</Text>
     </Pressable>
+    </View>
   </View>;
 }
 
@@ -76,6 +87,7 @@ export function SavedRouteNotesEditor({ river, onClose }: { river: SavedRiverRec
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.canvas },
   preview: { padding: 12, gap: 8 },
+  previewActions: { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
   note: { color: colors.text, fontSize: 14, lineHeight: 21 },
   button: { minHeight: 44, paddingHorizontal: 12, justifyContent: 'center', alignSelf: 'flex-start' },
   buttonText: { color: colors.accent, fontSize: 14, fontWeight: '700' },

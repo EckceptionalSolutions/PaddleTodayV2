@@ -1,3 +1,4 @@
+import { stateAbbreviation } from '../lib/state-labels';
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { callStateForDecision, parsePaddleTimeHours, type DecisionReadinessStatus, type PaddleLengthFilter as SharedPaddleLengthFilter, type RouteType, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -288,7 +289,7 @@ export function ExploreFilterSheet({
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy} {...panResponder.panHandlers}>
               <Text accessibilityRole="header" style={styles.sheetTitle}>Filters</Text>
-            <Text style={styles.sheetSubtitle}>{matchCount} routes match these filters</Text>
+            <Text style={styles.sheetSubtitle}>{matchCount === 1 ? '1 route matches' : `${matchCount} routes match`} these filters</Text>
             </View>
             <Pressable style={styles.sheetCancelButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Cancel filters">
               <Text style={styles.sheetCancelText}>Cancel</Text>
@@ -312,7 +313,7 @@ export function ExploreFilterSheet({
               <Text style={styles.sheetResetText}>Clear filters</Text>
             </Pressable>
             <Pressable style={styles.sheetShowButton} onPress={onApply} accessibilityRole="button">
-              <Text style={styles.sheetShowText}>Show {matchCount} routes</Text>
+              <Text style={styles.sheetShowText}>Show {matchCount} {matchCount === 1 ? 'route' : 'routes'}</Text>
             </Pressable>
           </View>
         </Animated.View>
@@ -514,7 +515,7 @@ function StatePickerModal({
   const filteredStates = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return states;
-    return states.filter((state) => state.toLowerCase().includes(normalized));
+    return states.filter((state) => `${state} ${stateAbbreviation(state)}`.toLowerCase().includes(normalized));
   }, [query, states]);
 
   return (

@@ -14,13 +14,13 @@ for (const saved of [false, true]) {
       return route.fulfill({ status: 503, json: { error: 'offline' } });
     });
     await page.goto('/notifications');
-    await page.getByRole('button', { name: 'Manage saved-route alerts', exact: true }).press('Enter');
+    await page.getByRole('button', { name: 'Manage route alerts', exact: true }).press('Enter');
     await expect(page).toHaveURL('/saved?tab=alerts');
     const alerts = page.getByRole('tab', { name: 'Alerts', exact: true });
     await expect(alerts).toHaveAttribute('aria-selected', 'true');
     await page.getByRole('button', { name: 'Open notification settings', exact: true }).press('Enter');
     await expect(page).toHaveURL('/notifications');
-    await page.getByRole('button', { name: 'Manage saved-route alerts', exact: true }).click();
+    await page.getByRole('button', { name: 'Manage route alerts', exact: true }).click();
     await page.reload();
     await expect(alerts).toHaveAttribute('aria-selected', 'true');
     await alerts.press('ArrowLeft');

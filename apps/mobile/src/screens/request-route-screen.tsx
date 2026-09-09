@@ -1,6 +1,8 @@
-import { PaddleTodayApiError } from '@paddletoday/api-client';
-import { Stack } from 'expo-router';
-import { useRef, useState, type Ref } from 'react';
+import { FormExitGuard } from '../components/form-exit-guard';
+import { CharacterCount } from '../components/character-count';
+import { submissionFailureMessage } from '../lib/submission-results';
+import { Stack, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef, useState, type Ref } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
@@ -11,6 +13,9 @@ import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function RequestRouteScreen() {
+  const params = useLocalSearchParams<{ name?: string | string[] }>();
+  const requestedName = (Array.isArray(params.name) ? params.name[0] : params.name)?.trim().slice(0, 240) ?? '';
+  const prefillApplied = useRef(false);
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const createRequestMutation = useCreateRiverRequestMutation();
@@ -20,11 +25,18 @@ export default function RequestRouteScreen() {
   const emailInput = useRef<TextInput>(null);
   const [validationAttempted, setValidationAttempted] = useState(false);
   const [riverName, setRiverName] = useState('');
+  const [initialName, setInitialName] = useState('');
   const [area, setArea] = useState('');
   const [accessPoints, setAccessPoints] = useState('');
   const [notes, setNotes] = useState('');
   const [replyEmail, setReplyEmail] = useState('');
   const [status, setStatus] = useState('City, state, access points, and gauge links help most.');
+
+  useEffect(() => {
+    if (!requestedName || prefillApplied.current) return;
+    prefillApplied.current = true;
+    if (!riverName) { setInitialName(requestedName); setRiverName(requestedName); }
+  }, [requestedName, riverName]);
 
   const errors = validationAttempted ? {
     river: riverName.trim().length < 3 ? 'Add a river or route name with at least three characters.' : undefined,
@@ -74,17 +86,14 @@ export default function RequestRouteScreen() {
       setStatus('Request received. Thanks for the lead.');
       setValidationAttempted(false);
 
+      setInitialName('');
       setRiverName('');
       setArea('');
       setAccessPoints('');
       setNotes('');
       setReplyEmail('');
     } catch (error) {
-      setStatus(
-        error instanceof PaddleTodayApiError && error.message
-          ? error.message
-          : 'Could not send this request. Your entries are still here; please try again.'
-      );
+      setStatus(submissionFailureMessage(error, 'Could not send this request. Your entries are still here; please try again.'));
     } finally {
       submitting.current = false;
     }
@@ -93,6 +102,8 @@ export default function RequestRouteScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Request route' }} />
+      <FormExitGuard title="Leave route request?" busy={createRequestMutation.isPending}
+        hasChanges={riverName !== initialName || [area, accessPoints, notes, replyEmail].some(value => Boolean(value.trim()))} />
       <KeyboardAvoidingView style={styles.keyboardWrap} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView
           style={styles.screen}
@@ -115,9 +126,10 @@ export default function RequestRouteScreen() {
 
         <SectionCard title="Route basics" subtitle="Required fields are marked.">
           <View style={styles.form}>
-            <Field error={errors.river} label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" inputRef={riverInput} editable={!createRequestMutation.isPending} />
+            <Field maxLength={240} error={errors.river} label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" inputRef={riverInput} editable={!createRequestMutation.isPending} />
             <Field
               label="City, state, or general area *"
+              maxLength={64}
               error={errors.area}
               inputRef={areaInput}
               editable={!createRequestMutation.isPending}
@@ -127,6 +139,7 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Access points"
+              maxLength={240}
               editable={!createRequestMutation.isPending}
               value={accessPoints}
               onChangeText={setAccessPoints}
@@ -135,6 +148,7 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Notes"
+              maxLength={4000}
               editable={!createRequestMutation.isPending}
               value={notes}
               onChangeText={setNotes}
@@ -143,6 +157,7 @@ export default function RequestRouteScreen() {
             />
             <Field
               label="Your email"
+              maxLength={240}
               error={errors.email}
               inputRef={emailInput}
               editable={!createRequestMutation.isPending}
@@ -175,6 +190,7 @@ function Field({
   inputRef,
   editable = true,
   error,
+  maxLength,
 }: {
   label: string;
   value: string;
@@ -186,6 +202,7 @@ function Field({
   inputRef?: Ref<TextInput>;
   editable?: boolean;
   error?: string;
+  maxLength: number;
 }) {
   return (
     <View style={styles.field}>
@@ -193,13 +210,14 @@ function Field({
       <TextInput
         ref={inputRef}
         editable={editable}
+        maxLength={maxLength}
         style={[styles.input, multiline ? styles.textarea : null, error ? styles.inputError : null]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={colors.textMuted}
         accessibilityLabel={label.replace(' *', '')}
-        accessibilityHint={error ?? (label.includes('*') ? 'Required field.' : undefined)}
+        accessibilityHint={[error, label.includes('*') ? 'Required field.' : '', `Up to ${maxLength} characters.`].filter(Boolean).join(' ')}
         aria-required={label.includes('*')}
         aria-invalid={Boolean(error)}
         multiline={multiline}
@@ -208,6 +226,7 @@ function Field({
         autoCapitalize={autoCapitalize}
         autoCorrect={keyboardType === 'email-address' ? false : undefined}
       />
+      <CharacterCount value={value} limit={maxLength} />
       {error ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{error}</Text> : null}
     </View>
   );
