@@ -1,11 +1,12 @@
 import { LocationStorageNotice } from '../components/location-storage-notice';
+import { AppButton } from '../components/app-button';
 import {
   hasCampingSupport as classificationHasCampingSupport,
   type WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
@@ -60,7 +61,10 @@ export default function WeekendScreen() {
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
-  const [distanceHydrated, setDistanceHydrated] = useState(false);
+  const [distanceSaveError, setDistanceSaveError] = useState(false);
+  const distanceChanged = useRef(false);
+  const distanceWriteQueue = useRef(Promise.resolve());
+  const distanceWriteVersion = useRef(0);
   const [weekendFilter, setWeekendFilter] = useState<WeekendFilter>('all');
 
   const rivers = useMemo(
@@ -116,16 +120,27 @@ export default function WeekendScreen() {
   const locationLabel = location?.label ?? null;
 
   useEffect(() => {
-    void hydrateDistanceLimit();
+    let active = true;
+    void AsyncStorage.getItem(WEEKEND_DISTANCE_STORAGE_KEY).then(raw => {
+      const parsed = parseDistanceLimit(raw);
+      if (active && !distanceChanged.current && parsed !== undefined) setDistanceLimit(parsed);
+    }).catch(() => { /* Keep the default without overwriting the stored preference. */ });
+    return () => { active = false; distanceWriteVersion.current++; };
   }, []);
 
-  useEffect(() => {
-    if (!distanceHydrated) {
-      return;
-    }
-
-    void AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distanceLimit)).catch(() => {});
-  }, [distanceHydrated, distanceLimit]);
+  function chooseDistance(value: number | null) {
+    distanceChanged.current = true;
+    setDistanceLimit(value);
+    const version = ++distanceWriteVersion.current;
+    setDistanceSaveError(false);
+    distanceWriteQueue.current = distanceWriteQueue.current.then(async () => {
+      try {
+        await AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(value));
+      } catch {
+        if (version === distanceWriteVersion.current) setDistanceSaveError(true);
+      }
+    });
+  }
 
   if (weekendQuery.isPending && !weekendQuery.data) {
     return (
@@ -188,7 +203,7 @@ export default function WeekendScreen() {
         {location ? (
           <WeekendFilters
             distance={distanceLimit}
-            onSelectDistance={setDistanceLimit}
+            onSelectDistance={chooseDistance}
             totalRoutes={allWeekendRoutes.length}
             dayTrips={topPicks.length + lowerCommitment.length + expandedPicks.length}
             campingRoutes={campingPicks.length}
@@ -197,6 +212,11 @@ export default function WeekendScreen() {
             onSelectRouteType={setWeekendFilter}
           />
         ) : null}
+
+        {distanceSaveError ? <View style={{ gap: spacing.sm }}>
+          <Text style={styles.emptyText} accessibilityLiveRegion="polite">Your range is applied, but could not be saved on this device.</Text>
+          <AppButton label="Retry saving range" variant="secondary" onPress={() => chooseDistance(distanceLimit)} />
+        </View> : null}
 
         <View style={styles.heroPanel}>
           <View style={[styles.heroHeader, compactHeader ? styles.heroHeaderCompact : null]}>
@@ -401,19 +421,6 @@ export default function WeekendScreen() {
     );
   }
 
-  async function hydrateDistanceLimit() {
-    try {
-      const raw = await AsyncStorage.getItem(WEEKEND_DISTANCE_STORAGE_KEY);
-      const parsed = parseDistanceLimit(raw);
-      if (parsed !== undefined) {
-        setDistanceLimit(parsed);
-      }
-    } catch {
-      // Keep the default range if saved preferences are unavailable.
-    } finally {
-      setDistanceHydrated(true);
-    }
-  }
 }
 
 function WeekendLocationStrip({

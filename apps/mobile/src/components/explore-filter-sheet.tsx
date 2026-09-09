@@ -289,7 +289,7 @@ export function ExploreFilterSheet({
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy} {...panResponder.panHandlers}>
               <Text accessibilityRole="header" style={styles.sheetTitle}>Filters</Text>
-            <Text style={styles.sheetSubtitle}>{matchCount} routes match these filters</Text>
+            <Text style={styles.sheetSubtitle}>{matchCount === 1 ? '1 route matches' : `${matchCount} routes match`} these filters</Text>
             </View>
             <Pressable style={styles.sheetCancelButton} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Cancel filters">
               <Text style={styles.sheetCancelText}>Cancel</Text>
@@ -313,7 +313,7 @@ export function ExploreFilterSheet({
               <Text style={styles.sheetResetText}>Clear filters</Text>
             </Pressable>
             <Pressable style={styles.sheetShowButton} onPress={onApply} accessibilityRole="button">
-              <Text style={styles.sheetShowText}>Show {matchCount} routes</Text>
+              <Text style={styles.sheetShowText}>Show {matchCount} {matchCount === 1 ? 'route' : 'routes'}</Text>
             </Pressable>
           </View>
         </Animated.View>

@@ -12,6 +12,10 @@ it is not a source of current paddling conditions or native-map performance evid
   Failed device saves have an explicit local retry.
 - **Explore:** switch Map/List, expand the route drawer, change filters and
   recover from an empty call filter. Short layouts retain reachable actions.
+  Filter choices and search clearing have larger touch targets; clearing keeps
+  focus in the search field.
+- **Weekend:** range changes stay applied if device storage fails, with a
+  Retry saving range action. A slow preference read cannot replace a new choice.
 - **Route decisions:** old conditions and hourly forecasts are marked as saved
   reference information. Refresh restores current presentation only when the
   response supports it. Planning-only routes remain unscored.
@@ -27,10 +31,17 @@ it is not a source of current paddling conditions or native-map performance evid
   reaches, protect unsaved edits and survive failed writes. Removal has Undo;
   delayed storage shows pending feedback. Search names, areas or personal notes
   without losing comparison selections.
+  Long notes have a compact preview with Show full note; search still includes
+  the complete note. Recorded alerts remain visible without bookmarks or route details.
 - **Search and directories:** Today search keeps Close visible on narrow screens,
   wraps long route names and finds accented names without accents. More's river
   directory shows route counts without implying one score covers a whole river.
+  Its compact state chooser supports full names/postal codes, large targets and
+  short layouts.
   Postal state aliases work in Today, Saved, Explore and the state picker.
+  More's connection check explains failures and supports a deliberate retry.
+  River-hub View card jumps respect changes to the reduced-motion setting.
+  Route-section jumps and photo-field scrolling also honor reduced motion.
 - **Alerts and reports:** nearby switches explicitly show On/Off, report dates
   have a calendar/manual choice, and sheets support short layouts and reduced
   motion. Good/Strong saved-route alert thresholds are independent.

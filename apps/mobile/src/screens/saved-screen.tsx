@@ -72,6 +72,9 @@ export default function SavedScreen() {
   const savedSummaries = savedRivers
     .map((savedRiver) => riverLookup.get(savedRiver.slug))
     .filter((river): river is NonNullable<typeof river> => Boolean(river));
+  const alertSlugs = [...new Set([...savedRivers.map(route => route.slug), ...routeAlerts.map(alert => alert.riverSlug)])];
+  const alertSummaries = alertSlugs.flatMap(slug => riverLookup.has(slug) ? [riverLookup.get(slug)!] : []);
+  const missingAlertSlugs = alertSlugs.filter(slug => !riverLookup.has(slug));
   const savedAlertCount = useMemo(
     () => savedRivers.filter((river) => alertForRiver(river.slug)).length,
     [alertForRiver, savedRivers, routeAlerts]
@@ -164,7 +167,7 @@ export default function SavedScreen() {
     >
       <AlertPreferencesNotice />
       <AppRefreshNotice
-        label="Your saved-route list is still available."
+        label={activeTab === 'alerts' ? 'Recorded alert choices remain on this device.' : hasLoadError ? 'Route details could not be refreshed.' : 'Your saved-route list is still available.'}
         isError={summaryQuery.isError}
         isStale={summaryQuery.data?.snapshotStatus === 'stale'}
         retrying={summaryQuery.isFetching}
@@ -199,12 +202,12 @@ export default function SavedScreen() {
       {activeTab === 'alerts' ? <SectionCard title="Nearby alerts and delivery" subtitle="Manage area-wide Today and Weekend updates, planning location, and device notification settings.">
         <AppButton label="Open notification settings" variant="secondary" icon="bell-outline" onPress={() => router.push('/notifications')} />
       </SectionCard> : null}
-      {!filtering ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
+      {activeTab === 'routes' && !filtering ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
         onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
           putin: record.target.putInId ?? '', takeout: record.target.takeOutId ?? '', prepare: Date.now().toString() } })} /> : null}
       {activeTab === 'routes' && !filtering ? <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /> : null}
 
-      {savedRivers.length > 0 && !filtering ? (
+      {activeTab === 'routes' && savedRivers.length > 0 && !filtering ? (
         <View style={styles.savedOverview}>
           <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
           <OverviewTile icon="bell-ring-outline" label="Alerts" value={alertsHydrated && !alertsLoadError ? `${savedAlertCount}/${savedRivers.length}` : 'Unknown'} />
@@ -212,7 +215,7 @@ export default function SavedScreen() {
         </View>
       ) : null}
 
-      {savedRivers.length === 0 && !hasLoadError ? (
+      {activeTab === 'routes' && savedRivers.length === 0 && !hasLoadError ? (
         <View style={styles.emptyPanel}>
           <View style={styles.emptyIcon}>
             <MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} />
@@ -325,13 +328,13 @@ export default function SavedScreen() {
         </SectionCard>
       ) : null}
 
-      {activeTab === 'alerts' && savedSummaries.length > 0 ? (
+      {activeTab === 'alerts' && alertSummaries.length > 0 ? (
         <SectionCard
           title="Condition alerts"
-          subtitle="Good and Strong are separate phone alerts. You can enable either or both."
+          subtitle="Alert choices recorded on this device. Good and Strong are separate phone alerts; you can enable either or both."
         >
           <View style={styles.alertRouteList}>
-            {savedSummaries.map((river) => (
+            {alertSummaries.map((river) => (
               <SavedAlertRow
                 key={river.river.slug}
                 river={river}
@@ -347,22 +350,33 @@ export default function SavedScreen() {
         </SectionCard>
       ) : null}
 
-      {activeTab === 'alerts' && savedRivers.length > 0 && savedSummaries.length === 0 ? (
+      {activeTab === 'alerts' && missingAlertSlugs.length > 0 ? (
         <SectionCard
-          title="Condition alerts"
-          subtitle="Load route details to configure an alert."
+          title="Alert routes without current details"
+          subtitle="Recorded choices remain available. Open a route or refresh to load its controls."
         >
-          <View style={styles.alertEmptyPanel}>
+          {missingAlertSlugs.map(slug => {
+            const saved = savedRivers.find(route => route.slug === slug);
+            const name = saved?.name ?? slug.replace(/-/g, ' ');
+            const summary = recordedAlertSummary(routeAlerts.filter(alert => alert.riverSlug === slug));
+            return <View key={slug} style={styles.list}><View style={styles.alertEmptyPanel}>
             <MaterialCommunityIcons name="bell-alert-outline" color={colors.accent} size={24} />
             <View style={styles.alertEmptyCopy}>
-              <Text style={styles.alertEmptyTitle}>Saved route details unavailable</Text>
+              <Text style={styles.alertEmptyTitle}>{name}</Text>
+              {saved?.reach ? <Text style={styles.alertEmptyBody}>{saved.reach}</Text> : null}
               <Text style={styles.alertEmptyBody}>
-                Your saved routes are still here. Refresh to load their alert controls.
+                {summary || (alertsHydrated && !alertsLoadError ? 'No recorded alert on this device.' : 'Recorded alert choice unavailable.')}
               </Text>
             </View>
-          </View>
+          </View><AppButton label="Open route" accessibilityLabel={`Open alert route: ${name}`} variant="secondary"
+            onPress={() => router.push({ pathname: '/river/[slug]', params: { slug } })} /></View>;
+          })}
         </SectionCard>
       ) : null}
+      {activeTab === 'alerts' && alertSlugs.length === 0 && alertsHydrated && !alertsLoadError && !hasLoadError ? <SectionCard
+        title="No route alerts recorded" subtitle="Open a route to choose Good or Strong alerts. Nearby alerts are managed separately above.">
+        <AppButton label="Browse routes for alerts" variant="secondary" onPress={() => router.push('/explore')} />
+      </SectionCard> : null}
 
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
     </ScrollView>
@@ -459,6 +473,14 @@ function StatusTile({ label, value, tone }: { label: string; value: number; tone
   );
 }
 
+function recordedAlertSummary(alerts: SavedRouteAlertRecord[]) {
+  const thresholds = ['good', 'strong'] as const;
+  const labelsFor = (method: 'push' | 'email') => thresholds.filter(threshold => alerts.some(alert => alert.threshold === threshold && alert.deliveryMethod === method)).map(alertThresholdLabel).join(', ');
+  const phone = labelsFor('push');
+  const email = labelsFor('email');
+  return [phone ? `Phone alerts: ${phone}` : null, email ? `Email alerts: ${email}` : null].filter(Boolean).join(' · ');
+}
+
 function SavedAlertRow({
   river,
   alerts,
@@ -474,11 +496,7 @@ function SavedAlertRow({
   onOpen: () => void;
   onSubmitAlert: (threshold: RiverAlertThreshold) => void;
 }) {
-  const thresholds = ['good', 'strong'] as const;
-  const labelsFor = (method: 'push' | 'email') => thresholds.filter(threshold => alerts.some(alert => alert.threshold === threshold && alert.deliveryMethod === method)).map(alertThresholdLabel).join(', ');
-  const phone = labelsFor('push');
-  const email = labelsFor('email');
-  const summary = [phone ? `Phone alerts: ${phone}` : null, email ? `Email alerts: ${email}` : null].filter(Boolean).join(' · ');
+  const summary = recordedAlertSummary(alerts);
   return (
     <View style={styles.savedAlertRow}>
       <Pressable accessibilityRole="button" accessibilityLabel={`Open ${river.river.name}: ${river.river.reach}`} style={styles.savedAlertCopy} onPress={onOpen}>

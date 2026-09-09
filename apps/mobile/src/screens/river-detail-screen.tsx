@@ -1,5 +1,6 @@
 import { AlertSetupSheet } from '../components/alert-setup-sheet';
 import { FormExitGuard } from '../components/form-exit-guard';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { validateRouteReport } from '../lib/route-report-validation';
 import { submissionFailureMessage } from '../lib/submission-results';
 import { AccessPointSelector } from '../components/access-point-selector';
@@ -121,6 +122,7 @@ type GaugeBandVisualModel = {
 };
 
 export default function RiverDetailScreen() {
+  const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
   const compactHeader = windowWidth < 360;
   const params = useLocalSearchParams<{
@@ -549,7 +551,7 @@ export default function RiverDetailScreen() {
     requestAnimationFrame(() => {
       scrollRef.current?.scrollTo({
         y: Math.max(y - spacing.sm, 0),
-        animated: true,
+        animated: !reducedMotion,
       });
     });
   }

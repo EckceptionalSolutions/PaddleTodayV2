@@ -820,3 +820,54 @@ No shorter Codex window was reported; paid credits were not used.
 - Typecheck, 154 unit tests, all-platform export and four date/report/photo cases pass at 320px and 768px, including correction from February 30 to a valid leap day and clearing afterward.
 
 - Full production-export checkpoint after batch 84: 180/180 browser checks pass at 390px. Batches 73–84 saved as a local review-branch checkpoint; no deployment or paid credits used.
+
+## Batch 85 — compact supported-state chooser
+
+- Measured More's 22-state chip group at 305px high with 32px targets on a 320px screen. Replaced it with a compact selected-state control and a searchable chooser with 56px rows, counts and selection feedback. Postal codes match exactly, including a clear unsupported-state result.
+- Typecheck/all-platform export and three directory checks pass at 320px and 768px. Verified keyboard selection/focus return, close without changing selection, search/clear, no extra feed requests and reachable choices/Close at 320px height. Reviewed before/after and short-sheet captures.
+
+## Batch 86 — recorded alerts independent of bookmarks
+
+- Reproduced alerts disappearing from Saved → Alerts without a bookmark or when route details were unavailable. The tab now includes recorded alert routes alongside bookmarks, retains readable threshold/delivery records for missing routes, and offers route-opening recovery. Its empty state explains alert setup; trip drafts and bookmark-only summaries stay on the routes tab.
+- Typecheck/all-platform export and focused alert/navigation/draft checks pass at 320px and 768px. Verified partial/missing feeds, no bookmarks, unchanged alert storage, no subscription writes and existing saved-alert controls. Reviewed narrow layout.
+
+## Pause requested after batch 86
+
+- Stopped new work at the user's request. Since last push `d7965a57`, batches 73–84 are saved locally in `5cdfc60a`; batches 85–86 remain uncommitted. No new push or deployment.
+- Latest full checkpoint: 180/180 exported-app browser checks through batch 84; batches 85–86 have focused checks at 320px and 768px. Latest mobile unit checkpoint: 154 passing. All-platform export includes batch 86.
+- 33% weekly usage remains; no shorter Codex window reported. Paid-credit balance unchanged at 2009.5977750000. Main site and mobile preview remain running. Native device QA remains blocked as previously documented.
+
+## Batch 87 — resumed: readable connection checks
+
+- Resumed at the user's request with 33% weekly remaining and unchanged paid credits. More's connection check now explains server, unreadable-response, timeout and network failures in user-facing terms while retaining diagnostic details in telemetry. Success reports the actual returned route count.
+- Added an immediate in-flight guard and unmount cancellation to avoid duplicate checks and stale updates. Typecheck/all-platform export and six connection/chooser checks pass at 320px and 768px, including retry after each failure type.
+
+## Batch 88 — compact personal-note previews
+
+- Long/multiline saved notes now show a bounded excerpt with Show full note/Show less controls. Short notes stay fully visible. Full text remains searchable and editable; expanding/collapsing does not write storage.
+- Typecheck/all-platform export and three note/search/recovery cases pass at 320px and 768px. Verified hidden-tail search, full editor contents, unchanged storage and existing failed-save/cancel behavior; reviewed the narrow preview.
+
+## Batch 89 — river-card scroll recovery
+
+- River-hub View card scrolling follows live reduced-motion preferences. Pending measurement retries are cancelled when routes, motion preferences or the screen change, and superseded requests cannot scroll a different selection.
+- Typecheck/all-platform export and six hub navigation/recovery checks pass at 320px and 768px. Browser instrumentation verifies actual scroll behavior through preference changes; native scrolling still needs device QA.
+
+
+- Full production-export checkpoint after batch 89: 189/189 browser checks pass at 390px.
+
+## Batch 90 — calmer section and form navigation
+
+- Route-section jumps and photo-field scrolling respect reduced motion. Rapid focus changes cancel the prior photo-field scroll; unmount and preference changes also clear pending timers.
+- Typecheck/all-platform export and seven form/section checks pass at 320px and 768px, including live motion changes, rapid focus, field validation and existing submission recovery.
+
+## Batch 91 — easier Explore touch controls
+
+- Filter choices and search clearing now have 44px targets. Clear returns focus to the search input; search text uses 16px sizing and can shrink within narrow rows. Fixed singular route counts found during visual review.
+- Typecheck/all-platform export and five focused filter/search/keyboard checks pass at 320px and 768px; final wording checked at 320px. Reviewed map search and filter-sheet captures at 320px.
+
+## Batch 92 — durable Weekend range choices
+
+- Weekend range selections survive late hydration and serialize device writes. Opening the screen no longer rewrites the stored preference. Failed saves keep the applied range and expose a local Retry saving range action.
+- Typecheck/all-platform export and six range/category checks pass at 320px and 768px. Verified delayed initial reads, overlapping writes, failed-save preservation and retry of the latest choice; reviewed narrow recovery layout.
+
+- Full checkpoint after batch 92: 193/193 exported-app browser checks and 154 mobile unit tests pass. Saving batches 85–92 locally on the review branch; no push or deployment.

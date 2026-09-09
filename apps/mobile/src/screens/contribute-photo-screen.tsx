@@ -1,5 +1,6 @@
 import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import { FormExitGuard } from '../components/form-exit-guard';
+import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { CharacterCount } from '../components/character-count';
 import { submissionFailureMessage } from '../lib/submission-results';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -37,6 +38,12 @@ type PhotoValidationField = 'photos' | 'name' | 'email' | 'rights' | 'contact';
 const PHOTO_FORM_GUIDANCE = 'Photos are reviewed before they appear publicly.';
 
 export default function ContributePhotoScreen() {
+  const reducedMotion = useReducedMotion();
+  const focusScrollTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => {
+    if (focusScrollTimer.current !== null) clearTimeout(focusScrollTimer.current);
+    focusScrollTimer.current = null;
+  }, [reducedMotion]);
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const insets = useSafeAreaInsets();
   const scrollRef = useRef<ScrollView | null>(null);
@@ -429,10 +436,12 @@ export default function ContributePhotoScreen() {
   }
 
   function scrollFocusedInputIntoView(key: string) {
+    if (focusScrollTimer.current !== null) clearTimeout(focusScrollTimer.current);
     const fieldOffset = inputOffsets.current[key] ?? 0;
     const targetY = Math.max(0, fieldOffset - 80);
-    setTimeout(() => {
-      scrollRef.current?.scrollTo({ y: targetY, animated: true });
+    focusScrollTimer.current = setTimeout(() => {
+      focusScrollTimer.current = null;
+      scrollRef.current?.scrollTo({ y: targetY, animated: !reducedMotion });
     }, 80);
   }
 }
