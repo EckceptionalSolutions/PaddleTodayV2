@@ -210,9 +210,9 @@ export function FeedbackSheet({
             ) : null}
             <View style={styles.headerCopy}>
               <Text style={styles.kicker}>{headerKicker(view, automatic)}</Text>
-              <Text style={styles.title}>{headerTitle(view)}</Text>
+              <Text style={styles.title}>{headerTitle(view, automatic)}</Text>
               <Text style={styles.subtitle}>
-                {headerSubtitle(view)}
+                {headerSubtitle(view, automatic)}
               </Text>
             </View>
             <Pressable style={styles.headerButton} onPress={dismiss} disabled={mutation.isPending} accessibilityState={{ disabled: mutation.isPending }} accessibilityRole="button" accessibilityLabel="Close feedback form">
@@ -255,7 +255,7 @@ export function FeedbackSheet({
                   <MaterialCommunityIcons name="message-text-outline" color={colors.accent} size={24} />
                 </View>
                 <View style={styles.choiceCopy}>
-                  <Text style={styles.choiceTitle}>Send feedback</Text>
+                  <Text style={styles.choiceTitle}>{automatic ? 'Share feedback' : 'Send feedback'}</Text>
                   <Text style={styles.choiceText}>
                     Send a private note directly to the developer behind PaddleToday.
                   </Text>
@@ -276,7 +276,7 @@ export function FeedbackSheet({
                   <MaterialCommunityIcons name="star" color={colors.fair} size={24} />
                 </View>
                 <View style={styles.choiceCopy}>
-                  <Text style={styles.choiceTitle}>Rate PaddleToday</Text>
+                  <Text style={styles.choiceTitle}>{automatic ? 'Write a review' : 'Rate PaddleToday'}</Text>
                   <Text style={styles.choiceText}>
                     Leave a public rating in the App Store or Google Play.
                   </Text>
@@ -321,7 +321,7 @@ export function FeedbackSheet({
 
               {status ? <Text style={styles.status} accessibilityLiveRegion="polite">{status}</Text> : null}
               <Pressable style={styles.secondaryButton} onPress={dismiss} accessibilityRole="button">
-                <Text style={styles.secondaryButtonText}>{automatic ? 'Not now' : 'Close'}</Text>
+                <Text style={styles.secondaryButtonText}>{automatic ? 'Maybe later' : 'Close'}</Text>
               </Pressable>
             </View>
           ) : (
@@ -404,20 +404,22 @@ function headerKicker(view: FeedbackView, automatic: boolean) {
   return automatic ? 'A quick question' : 'Help PaddleToday';
 }
 
-function headerTitle(view: FeedbackView) {
+function headerTitle(view: FeedbackView, automatic: boolean) {
   if (view === 'form') return 'Send feedback';
   if (view === 'success') return 'Feedback sent';
-  return 'How would you like to help?';
+  return automatic ? 'Help make PaddleToday better' : 'How would you like to help?';
 }
 
-function headerSubtitle(view: FeedbackView) {
+function headerSubtitle(view: FeedbackView, automatic: boolean) {
   if (view === 'form') {
     return "I'm Jeff, the developer behind PaddleToday. I value your feedback and will follow up ASAP if you include your email.";
   }
   if (view === 'success') {
     return 'Your note will help guide future improvements.';
   }
-  return 'Share a private note with the developer or leave a public store rating.';
+  return automatic
+    ? "Finding PaddleToday useful? A quick review helps other paddlers discover it. Have an idea or spotted a problem? We’d love your feedback."
+    : 'Share a private note with the developer or leave a public store rating.';
 }
 
 const styles = StyleSheet.create({
