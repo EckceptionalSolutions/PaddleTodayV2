@@ -1121,13 +1121,11 @@ const styles = StyleSheet.create({
   snapshotContextRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.sm },
   snapshotRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     gap: spacing.sm,
   },
   snapshotPill: {
-    flexGrow: 1,
-    flexBasis: '45%',
-    minWidth: 92,
+    flex: 1,
+    minWidth: 0,
     borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
