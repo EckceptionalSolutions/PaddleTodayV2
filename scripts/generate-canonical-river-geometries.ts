@@ -2591,9 +2591,12 @@ async function main() {
   const metadata = {
     routeCount: outputRoutes.length,
     matchedRouteCount: features.length,
-    networkTracedRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'network-traced').length,
-    namedFallbackRouteCount: features.filter((feature) => feature.properties.source === 'USGS NHD Flowline' && feature.properties.traceMode === 'named-fallback').length,
-    curatedRouteCount: features.filter((feature) => feature.properties.source !== 'USGS NHD Flowline').length,
+    networkTracedRouteCount: features.filter((feature) => feature.properties.traceMode === 'network-traced').length,
+    namedFallbackRouteCount: features.filter((feature) => feature.properties.traceMode === 'named-fallback').length,
+    // Count the mutually exclusive trace modes rather than relying on the
+    // source label. Some reviewed traces retain a USGS source label while
+    // using a route-specific connector or other curated geometry.
+    curatedRouteCount: features.filter((feature) => feature.properties.traceMode === 'curated-access-fallback').length,
     unmatchedRouteIds,
     routeDataFingerprint: sourceFingerprint,
   };
