@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-09-09",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["little-pee-dee-carmichaels-huggins"],
+  "sourceAttempts": [
+    { "family": "SCDNR Little Pee Dee guide", "result": "The guide lists Carmichael's Bridge / Heritage Trust at river mile 6 and Huggins Bridge at river mile 0, a six-mile route. It states normal water is 3–7 ft and the river may be traveled between 2–9 ft at Galivants Ferry gauge 02135000." },
+    { "family": "USGS", "result": "Direct 00065 stage telemetry is available from Galivants Ferry station 02135000. The route uses the guide-linked local stage series and does not transfer the discontinued Dillon record." },
+    { "family": "SCDNR public access GIS", "result": "Current access records list Carmichael's Bridge / Heritage Trust and S-41/Huggins Bridge Landing as Active/Open. The former is a limited drop-in; Huggins is county dirt parking." },
+    { "family": "USGS NHD / coordinate audit", "result": "The scoped trace follows the named channel and both endpoints sit on mapped waterbody. The Carmichael's point is 364 ft from the nearest NHD centerline because the broad floodplain/waterbody geometry is not the access bank; this is retained as a review-level offset with no endpoint relocation claimed." }
+  ],
+  "thresholdEvidence": { "station": "02135000", "metric": "00065 gage height feet", "minimum": 2, "idealMin": 2, "idealMax": 9, "tooHigh": 9, "model": "two-sided", "source": "https://www.dnr.sc.gov/assets/maps/LittlePeeDeeTrailGuide.pdf", "reachApplicability": "SCDNR directly names Galivants Ferry for the Little Pee Dee water trail and publishes the 2–9 ft travel range; it also describes 3–7 ft as normal."
+  },
+  "endpointAudit": "tmp/sc-little-coordinate.json",
+  "validation": ["Route-data typecheck passed.", "Targeted scored-route safety and geometry tests passed.", "Scoped endpoint audit: Huggins ok; Carmichael's review due to 364-ft NHD centerline offset while on mapped waterbody.", "Live direct gauge provider is configured and ready for route-day scoring."],
+  "pending": ["Full build/browser verification after the third scored route", "Deployment and production verification", "Recheck Carmichael's bank position from current imagery before release"],
+  "notes": "The selected route remains a six-mile SCDNR water-trail segment. The NHD review is documented and does not imply the public launch is 364 ft from navigable water."
+}

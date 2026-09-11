@@ -1,0 +1,101 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "black-creek-big-creek-old-highway-49",
+    "black-creek-janice-cypress",
+    "black-creek-cypress-fairley",
+    "black-creek-big-creek-cypress",
+    "black-creek-janice-fairley",
+    "black-creek-big-creek-fairley"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "RiverScout",
+      "method": "Black Creek flow and reach page",
+      "result": "Ties a 200–1,200 cfs optimal band and Class I–II context to USGS 02479130 near Brooklyn; notes Wild and Scenic and DeSoto National Forest context."
+    },
+    {
+      "family": "Seven Rivers Canoe Club",
+      "method": "Black Creek landing guide",
+      "result": "Documents Big Creek, Old Highway 49, Janice, Cypress Creek and Fairley Bridge landings with route distances, ramp types and shuttle logistics."
+    },
+    {
+      "family": "U.S. Forest Service",
+      "method": "Wild and Scenic river and recreation access",
+      "result": "Confirms National Forest management and dispersed-camping context for the selected corridor."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 02479130 is the direct Black Creek gauge near Brooklyn; current page provides discharge and gage-height telemetry."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline endpoint audit",
+      "result": "Canonical geometries were generated with route-scoped Black Creek aliases and endpoint-bounded traces."
+    },
+    {
+      "family": "Mississippi inland and coastal discovery",
+      "method": "Pascagoula, Pearl, Leaf and additional Black Creek screen",
+      "result": "Reviewed remaining public-access leads against the direct 02479130 Black Creek package; no distinct endpoint pair with documented reach-specific threshold and clean hazard boundary cleared."
+    },
+    {
+      "family": "Scored-first saturation screen",
+      "method": "Black Creek access-combination review",
+      "result": "The six routes exhaust the documented four-anchor Black Creek combinations; remaining variants are duplicates or lack direct threshold support."
+    }
+  ],
+  "sources": [
+    "https://riverscout.app/rivers/mississippi/black-creek",
+    "https://www.sevenriverscanoe.com/black-creek",
+    "https://www.fs.usda.gov/recarea/mississippi/recarea/?recid=82488",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02479130/"
+  ],
+  "thresholdEvidence": {
+    "station": "02479130",
+    "metric": "discharge_cfs",
+    "source": "https://riverscout.app/rivers/mississippi/black-creek",
+    "minimum": 200,
+    "idealReference": 200,
+    "idealMaximum": 1200,
+    "maximum": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Black Creek near Brooklyn and the connected DeSoto National Forest corridor. RiverScout notes that lower reaches widen toward flatwater; do not treat this as a universal safety limit."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/ms-black-creek-big-creek-old-highway-49-audit.json",
+      "tmp/ms-black-creek-janice-cypress-audit.json",
+      "tmp/ms-black-creek-cypress-fairley-audit.json",
+      "tmp/ms-black-creek-big-creek-cypress-audit.json",
+      "tmp/ms-black-creek-janice-fairley-audit.json",
+      "tmp/ms-black-creek-big-creek-fairley-audit.json"
+    ],
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 12,
+      "review": 0,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All twelve endpoints are documented public landings refined to mapped Black Creek water edges."
+  },
+  "validation": [
+    "Route-data typecheck and focused Mississippi route safety test passed.",
+    "Canonical geometries generated for 2,127 matched routes and 48 state assets.",
+    "All twelve endpoint audits returned OK.",
+    "Full route safety audit returned 0 issues across 1,187 scored routes; route data audit passed for 2,241 routes with 102 planning issues and 79 deferred checks tracked.",
+    "Canonical geometry audit passed for 2,127 of 2,140 public-indexed route assets; production build passed with 2,541 pages.",
+    "Bounded Mississippi discovery pass completed with no additional scored route; Black Creek remains at six scored starter routes."
+  ],
+  "pending": [
+    "Confirm current Forest Service road, parking and landing conditions before deployment.",
+    "Recheck the Brooklyn gauge trend, rainfall and local obstruction reports before launch.",
+    "Retry Pascagoula, Pearl, Leaf or another corridor when direct reach-specific thresholds and documented public endpoints are available."
+  ]
+}

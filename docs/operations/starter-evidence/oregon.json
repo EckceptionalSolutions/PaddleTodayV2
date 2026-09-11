@@ -1,0 +1,509 @@
+{
+  "reviewedAt": "2026-09-10",
+  "deployed": false,
+  "status": "validated_not_deployed",
+  "sourceAttempts": [
+    {
+      "family": "Willamette Water Trail",
+      "result": "Read both reach itineraries and all four launch pages; verified mileage, current/wood hazards and Hyak landing constraints."
+    },
+    {
+      "family": "Tualatin Water Trail",
+      "result": "Read Jurgens and Community access pages; confirmed river miles 10.6/8.9, carry lengths, steep gangway and the faster/shallow section below Cook Park."
+    },
+    {
+      "family": "Oregon State Marine Board",
+      "result": "Followed current homepage to Boat Oregon map and queried its public access, obstruction and dam layers. The former obstruction app URL is retired; the replacement map supplies current layers."
+    },
+    {
+      "family": "Oregon State Marine Board",
+      "result": "Access query returned all 11 matching records without transfer truncation. Selected six named launch facilities; none had an open-access closure status in the returned attributes. Null status is not proof of suitability."
+    },
+    {
+      "family": "Oregon State Marine Board",
+      "result": "Reviewed all 214 obstruction and 163 dam records without transfer truncation. Two river-right tree reports lie downstream of Crystal Lake and upstream of Michael’s Landing, outside both selected reaches. No reported obstruction in the selected Tualatin corridor; changing/unreported hazards remain possible."
+    },
+    {
+      "family": "Linn County / Corvallis / Benton County",
+      "result": "Manager pages confirm public facilities, boat ramps and park restrictions. Hyak is dawn-dusk with no overnight camping or parking. Peoria one-night river-traveler camping requires coordination; itinerary remains a day trip."
+    },
+    {
+      "family": "City of Tualatin",
+      "result": "City water-trail directory confirms accesses. Indexed current projects page describes fall 2026 Community playground renovation; direct page fetch returned 403. Marine Board access status and trail launch pages also checked; no claim of a blanket all-clear."
+    },
+    {
+      "family": "USGS",
+      "result": "Instantaneous-values API returned 2026-09-09 observations for Corvallis 14171600 (4440 cfs, 07:15 PDT) and West Linn 14207500 (289 cfs, 07:20 PDT). Both are proxy context outside these exact reaches; no verified recreational scoring range transferred."
+    },
+    {
+      "family": "Georeferenced imagery / NHD",
+      "result": "Inspected all six launch areas using World Imagery exports with returned EPSG:4326 extents. Refined four access-area points to approximate ramp water entries. Peoria requires an alcove connector around a wooded island; its nearest NHD mainstem cannot be used as a launch shortcut."
+    },
+    {
+      "family": "Second-batch Willamette combinations",
+      "result": "Added Peoria–Michael’s, Crystal Lake–Michael’s and Peoria–Hyak as planning-only combinations using the already reviewed public launches, adjacent Water Trail itinerary guidance and the prior coordinate/obstruction audit. No new scoring threshold was inferred."
+    }
+  ],
+  "launchInventory": [
+    {
+      "id": 22,
+      "name": "Jurgens Park Paddle Launch",
+      "alias": "Jurgens Landing",
+      "geometry": {
+        "x": -122.78481609699998,
+        "y": 45.39822518300008
+      },
+      "accessStatus": null,
+      "accessNote": null
+    },
+    {
+      "id": 219,
+      "name": "Willamette Boat Landing",
+      "alias": "Crystal Lake",
+      "geometry": {
+        "x": -123.25169586099996,
+        "y": 44.55158704200005
+      },
+      "accessStatus": null,
+      "accessNote": null
+    },
+    {
+      "id": 384,
+      "name": "Tualatin Community Park",
+      "alias": null,
+      "geometry": {
+        "x": -122.76282446799996,
+        "y": 45.38711544900008
+      },
+      "accessStatus": null,
+      "accessNote": null
+    },
+    {
+      "id": 392,
+      "name": "Peoria Park",
+      "alias": null,
+      "geometry": {
+        "x": -123.21006434999998,
+        "y": 44.454005349000056
+      },
+      "accessStatus": null,
+      "accessNote": null
+    },
+    {
+      "id": 1018,
+      "name": "Hyak Park",
+      "alias": null,
+      "geometry": {
+        "x": -123.16027152799995,
+        "y": 44.63812212200003
+      },
+      "accessStatus": null,
+      "accessNote": null
+    },
+    {
+      "id": 1027,
+      "name": "North Riverfront Park",
+      "alias": "Michaels Landing, Aquathusiast, Riverfront Park",
+      "geometry": {
+        "x": -123.25584767999999,
+        "y": 44.56968868100006
+      },
+      "accessStatus": null,
+      "accessNote": null
+    }
+  ],
+  "nearbyObstructionsOutsideRoutes": [
+    {
+      "id": 694,
+      "location": {
+        "x": -123.25584721153754,
+        "y": 44.55453970365557
+      },
+      "description": "Tree",
+      "bank": "River-Right",
+      "status": "Reviewed",
+      "reportedAt": "2026-09-04T19:06:00.000Z"
+    },
+    {
+      "id": 569,
+      "location": {
+        "x": -123.2583275637681,
+        "y": 44.55501186279784
+      },
+      "description": "Tree",
+      "bank": "River-Right",
+      "status": "Reviewed",
+      "reportedAt": "2024-07-19T02:07:00.000Z"
+    }
+  ],
+  "endpointAudits": [
+    {
+      "generatedAt": "2026-09-09T14:48:08.685Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 0,
+        "review": 2,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "reach": "Peoria Park boat ramp to Crystal Lake / Willamette Boat Landing",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "endpointName": "Crystal Lake / Willamette Boat Landing",
+          "latitude": 44.551595,
+          "longitude": -123.251708,
+          "matchedRiverName": "Willamette River",
+          "distanceFeetToMatchedRiver": 273.2449571263693,
+          "nearestMatchedLatitude": 44.552235,
+          "nearestMatchedLongitude": -123.251162,
+          "nearestWaterwayName": "Willamette River",
+          "distanceFeetToNearestWaterway": 273.2449571263693,
+          "nearestWaterwayLatitude": 44.552235,
+          "nearestWaterwayLongitude": -123.251162,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 52.29044471038867,
+          "nearestWaterbodyLatitude": 44.55171548175672,
+          "nearestWaterbodyLongitude": -123.25159904380624,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 52 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "reach": "Peoria Park boat ramp to Crystal Lake / Willamette Boat Landing",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "endpointName": "Peoria Park boat ramp",
+          "latitude": 44.45372,
+          "longitude": -123.210155,
+          "matchedRiverName": "Willamette River",
+          "distanceFeetToMatchedRiver": 206.07598555668073,
+          "nearestMatchedLatitude": 44.45360748562461,
+          "nearestMatchedLongitude": -123.21093048759364,
+          "nearestWaterwayName": "Willamette River",
+          "distanceFeetToNearestWaterway": 206.07598555668073,
+          "nearestWaterwayLatitude": 44.45360748562461,
+          "nearestWaterwayLongitude": -123.21093048759364,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 2.2554895212242045,
+          "nearestWaterbodyLatitude": 44.45371934556834,
+          "nearestWaterbodyLongitude": -123.21016361256821,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 2 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    },
+    {
+      "generatedAt": "2026-09-09T14:48:08.828Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 0,
+        "review": 2,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "reach": "Michael’s Landing / North Riverfront Park to Hyak Park boat ramp",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "endpointName": "Michael’s Landing / North Riverfront Park",
+          "latitude": 44.56939,
+          "longitude": -123.25592,
+          "matchedRiverName": "Willamette River",
+          "distanceFeetToMatchedRiver": 197.46352551444159,
+          "nearestMatchedLatitude": 44.56921993856819,
+          "nearestMatchedLongitude": -123.25519869711793,
+          "nearestWaterwayName": "Willamette River",
+          "distanceFeetToNearestWaterway": 197.46352551444159,
+          "nearestWaterwayLatitude": 44.56921993856819,
+          "nearestWaterwayLongitude": -123.25519869711793,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 0,
+          "nearestWaterbodyLatitude": 44.56939,
+          "nearestWaterbodyLongitude": -123.25592,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "reach": "Michael’s Landing / North Riverfront Park to Hyak Park boat ramp",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "endpointName": "Hyak Park boat ramp",
+          "latitude": 44.638123,
+          "longitude": -123.16067,
+          "matchedRiverName": "Willamette River",
+          "distanceFeetToMatchedRiver": 153.4025445170864,
+          "nearestMatchedLatitude": 44.637706,
+          "nearestMatchedLongitude": -123.160746,
+          "nearestWaterwayName": "Willamette River",
+          "distanceFeetToNearestWaterway": 153.4025445170864,
+          "nearestWaterwayLatitude": 44.637706,
+          "nearestWaterwayLongitude": -123.160746,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 32.83329869254851,
+          "nearestWaterbodyLatitude": 44.63803429636091,
+          "nearestWaterbodyLongitude": -123.1606913854874,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 33 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    },
+    {
+      "generatedAt": "2026-09-09T14:48:09.524Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 1,
+        "review": 1,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "reach": "Jurgens Park paddle dock to Tualatin Community Park boat ramp",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "endpointName": "Tualatin Community Park boat ramp",
+          "latitude": 45.386935,
+          "longitude": -122.762839,
+          "matchedRiverName": "Tualatin River",
+          "distanceFeetToMatchedRiver": 175.98075508119808,
+          "nearestMatchedLatitude": 45.387061,
+          "nearestMatchedLongitude": -122.76217599999998,
+          "nearestWaterwayName": "Tualatin River",
+          "distanceFeetToNearestWaterway": 175.98075508119808,
+          "nearestWaterwayLatitude": 45.387061,
+          "nearestWaterwayLongitude": -122.76217599999998,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 117.18636737690686,
+          "nearestWaterbodyLatitude": 45.387001680484246,
+          "nearestWaterbodyLongitude": -122.76239159021095,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 117 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "reach": "Jurgens Park paddle dock to Tualatin Community Park boat ramp",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "endpointName": "Jurgens Park paddle dock",
+          "latitude": 45.398225,
+          "longitude": -122.784816,
+          "matchedRiverName": "Tualatin River",
+          "distanceFeetToMatchedRiver": 71.70716770847112,
+          "nearestMatchedLatitude": 45.39841405604755,
+          "nearestMatchedLongitude": -122.78489259117053,
+          "nearestWaterwayName": "Tualatin River",
+          "distanceFeetToNearestWaterway": 71.70716770847112,
+          "nearestWaterwayLatitude": 45.39841405604755,
+          "nearestWaterwayLongitude": -122.78489259117053,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 40.679737727808195,
+          "nearestWaterbodyLatitude": 45.39833264748664,
+          "nearestWaterbodyLongitude": -122.78485742032517,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "ok",
+          "note": "Endpoint is within 41 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    }
+  ],
+  "coordinateMethod": {
+    "source": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+    "method": "Approximate infrastructure water entries read from georeferenced imagery, cross-identified with manager/trail pages and Marine Board launch records. Canopy and changing waterline limit precision; no claim of survey accuracy.",
+    "peoriaConnector": "Reviewed alcove channel east of island; joins NHD at -123.211383,44.456202. Do not substitute straight-line nearest-mainstem snap across island.",
+    "imageryAcquisitionDate": "Not established; retrieval and review occurred 2026-09-09. Imagery identifies infrastructure, not current water levels or operational status.",
+    "refinements": [
+      {
+        "launch": "Peoria",
+        "bbox": [
+          -123.21109,
+          44.45302,
+          -123.20909,
+          44.45502
+        ],
+        "imageSize": [
+          800,
+          800
+        ],
+        "waterEntryPixel": [
+          374,
+          520
+        ],
+        "latitude": 44.45372,
+        "longitude": -123.210155
+      },
+      {
+        "launch": "Crystal Lake",
+        "bbox": [
+          -123.25287,
+          44.55077,
+          -123.25087,
+          44.55277
+        ],
+        "imageSize": [
+          800,
+          800
+        ],
+        "waterEntryPixel": [
+          465,
+          470
+        ],
+        "latitude": 44.551595,
+        "longitude": -123.251708
+      },
+      {
+        "launch": "Hyak",
+        "bbox": [
+          -123.16147,
+          44.63741,
+          -123.15947,
+          44.63941
+        ],
+        "imageSize": [
+          800,
+          800
+        ],
+        "waterEntryPixel": [
+          320,
+          515
+        ],
+        "latitude": 44.638123,
+        "longitude": -123.16067
+      },
+      {
+        "launch": "Community Park",
+        "bbox": [
+          -122.763824,
+          45.386115,
+          -122.761824,
+          45.388115
+        ],
+        "imageSize": [
+          800,
+          800
+        ],
+        "waterEntryPixel": [
+          394,
+          472
+        ],
+        "latitude": 45.386935,
+        "longitude": -122.762839
+      }
+    ],
+    "reviewLimit": "Approximate positions, with canopy, image registration and changing waterline uncertainty; use the named managed launch and current posted access. Hydrography offsets are retained honestly rather than forcing coordinates onto the centerline."
+  },
+  "routeIds": [
+    "willamette-river-peoria-crystal-lake",
+    "willamette-river-michaels-hyak",
+    "tualatin-river-jurgens-community",
+    "willamette-river-peoria-michaels",
+    "willamette-river-crystal-lake-michaels",
+    "willamette-river-crystal-lake-hyak"
+  ],
+  "validation": [
+    "Full npm run build passed, including route/runtime/workspace/mobile typechecks, route-data audit, geometry audit and gallery audit; 2439 static pages generated.",
+    "23 tests passed across starter route publication/safety/geometry, campaign, control-plane and publication suites.",
+    "Six desktop/iPhone browser checks passed: Oregon and Florida state discovery, filters, request-state context, planning metadata and route directions.",
+    "Six Oregon endpoints independently audited: one ok and five review; no suspicious, failure or unknown endpoints. Named facilities and imagery corroborate reviewed bank/launch positions. NHD centerline offsets are 70–273 feet and do not imply relocation to the centerline.",
+    "Geometry audit passed: 2058/2071 public routes matched and 33 state bundles present. Thirteen pre-existing unmatched routes remain. New traces are continuous, oriented, within 300 feet of endpoints and within 25 percent of documented mileage.",
+    "Peoria alcove connector visually overlaid on georeferenced imagery and verified around the island; no cross-island shortcut. Willamette route interiors do not overlap.",
+    "Coordinate aggregate and access registry regenerated for the new cohort. Existing unrelated withholding decisions preserved; none of the Oregon additions is withheld.",
+    "Second batch adds three reviewed-access Willamette combinations, bringing Oregon to six public planning routes. Existing USGS gauges remain proxy context; no reach-specific recreational cutoff was transferred.",
+    "Canonical geometry regenerated: 2142/2155 public-indexed routes matched, 48 state bundles present; all three new Oregon traces are endpoint-bounded named Willamette geometry.",
+    "Full npm run build passed after second batch; 2556 static pages generated with route/runtime/workspace/mobile typechecks, route-data audit, geometry audit and gallery audit."
+  ],
+  "pending": [
+    "Deployment, then verification of actual production state/route visibility and release date. Recheck access notices and telemetry when releasing."
+  ],
+  "baselineLimitations": [
+    "The existing route-data audit retains 102 planning issues and 79 deferred items outside the starter cohort.",
+    "Existing global overlap and scored-safety scripts omit planning routes; the starter tests explicitly cover these new planning routes.",
+    "State and route geometry totals remain close to their existing 32 MiB caps; further additions must continue to pass those gates."
+  ]
+}

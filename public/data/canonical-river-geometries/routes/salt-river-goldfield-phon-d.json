@@ -1,0 +1,1 @@
+{"type":"Feature","properties":{"routeId":"salt-river-goldfield-phon-d","riverId":"salt-river-arizona","name":"Salt River","state":"Arizona","source":"USGS NHD Flowline"},"geometry":{"type":"MultiLineString","coordinates":[[[-111.622295,33.556544],[-111.634581,33.55515],[-111.644161,33.549015],[-111.660426,33.547037]]]}}

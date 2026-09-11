@@ -211,7 +211,7 @@ const riverContext = {
   },
   defaultPutInNote: activePutInNote instanceof HTMLElement ? activePutInNote.textContent ?? '' : '',
   defaultTakeOutNote: activeTakeOutNote instanceof HTMLElement ? activeTakeOutNote.textContent ?? '' : '',
-  defaultDistanceLabel: activeFactDistance instanceof HTMLElement ? activeFactDistance.textContent ?? '' : '',
+  defaultDistanceLabel: root.dataset.riverDistance || (activeFactDistance instanceof HTMLElement ? activeFactDistance.textContent ?? '' : ''),
 };
 const routeShareContext = {
   title: root.dataset.routeShareTitle || `${riverContext.name}: ${riverContext.reach} | Paddle Today`,
@@ -3473,7 +3473,15 @@ function renderActiveAccessContext() {
   setElementText(activeFactTakeOut, context.takeOut?.name || 'Check source links');
   setElementText(activeFactDistance, context.distanceLabel || 'Check source links');
   setElementText(overviewDistance, context.distanceLabel || 'Check source');
-  setElementText(overviewTime, context.distanceLabel ? `About ${formatDuration(Math.max(0.5, Number.parseFloat(context.distanceLabel) / 3))}` : 'Check source');
+  const isFullRoute = context.putIn?.latitude === riverContext.putIn.latitude
+    && context.putIn?.longitude === riverContext.putIn.longitude
+    && context.takeOut?.latitude === riverContext.takeOut.latitude
+    && context.takeOut?.longitude === riverContext.takeOut.longitude;
+  const distance = Number(context.distanceLabel?.match(/\d+(?:\.\d+)?/)?.[0]);
+  const estimatedTime = Number.isFinite(distance) && distance > 0
+    ? `About ${formatDuration(Math.max(0.5, distance / 3))}` : 'Check route notes';
+  setElementText(overviewTime, isFullRoute && riverContext.paddleTimeLabel
+    ? riverContext.paddleTimeLabel.split(/[;,]/)[0].trim() : estimatedTime);
 
   setCopyButtonState(activePutInCopy, context.putIn, 'Put-in');
   setCopyButtonState(activeTakeOutCopy, context.takeOut, 'Take-out');

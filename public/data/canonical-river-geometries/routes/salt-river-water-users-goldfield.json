@@ -1,0 +1,1 @@
+{"type":"Feature","properties":{"routeId":"salt-river-water-users-goldfield","riverId":"salt-river-arizona","name":"Salt River","state":"Arizona","source":"USGS NHD Flowline"},"geometry":{"type":"MultiLineString","coordinates":[[[-111.540256,33.556767],[-111.56627,33.549129],[-111.589619,33.553376],[-111.622295,33.556544]]]}}

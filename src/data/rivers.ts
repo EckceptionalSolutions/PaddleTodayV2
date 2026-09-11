@@ -33,8 +33,74 @@ import { georgiaRoutes } from './routes/georgia';
 import { maineRoutes } from './routes/maine';
 import { maineBatchTwoRoutes } from './routes/maine-batch-two';
 import { maineBatchThreeRoutes } from './routes/maine-batch-three';
+import { floridaRoutes } from './routes/florida';
+import { floridaIchetuckneeRoutes } from './routes/florida-ichetucknee';
+import { floridaSuwanneeRoutes } from './routes/florida-suwannee';
+import { oregonRoutes } from './routes/oregon';
+import { southCarolinaRoutes } from './routes/south-carolina';
+import { southCarolinaEdistoRoutes } from './routes/south-carolina-edisto';
+import { southCarolinaLittlePeeDeeRoutes } from './routes/south-carolina-little-pee-dee';
+import { southCarolinaSaludaRoutes } from './routes/south-carolina-saluda';
+import { alabamaHatchetRoutes } from './routes/alabama-hatchet';
+import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
+import { arizonaVerdeRoutes } from './routes/arizona-verde';
+import { arizonaSaltRoutes } from './routes/arizona-salt';
+import { californiaAmericanRoutes } from './routes/california-american';
+import { californiaRussianRoutes } from './routes/california-russian';
+import { californiaSouthForkAmericanRoutes } from './routes/california-american';
+import { connecticutFarmingtonRoutes } from './routes/connecticut-farmington';
+import { connecticutHousatonicRoutes } from './routes/connecticut-housatonic';
+import { connecticutQuinebaugRoutes } from './routes/connecticut-quinebaug';
+import { louisianaBogueChittoRoutes } from './routes/louisiana-bogue-chitto';
+import { massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
+import { mississippiBlackCreekRoutes } from './routes/mississippi-black-creek';
+import { montanaClarkForkRoutes } from './routes/montana-clark-fork';
+import { nevadaColoradoBlackCanyonRoutes } from './routes/nevada-colorado-black-canyon';
+import { nevadaTruckeeRoutes } from './routes/nevada-truckee';
+import { newHampshirePemigewassetRoutes } from './routes/new-hampshire-pemigewasset';
+import { newHampshireContoocookRoutes } from './routes/new-hampshire-contoocook';
+import { newMexicoRioGrandeRoutes } from './routes/new-mexico-rio-grande';
+import { rhodeIslandWoodPawcatuckRoutes } from './routes/rhode-island-wood-pawcatuck';
+import { vermontWinooskiRoutes } from './routes/vermont-winooski';
+import { vermontMissisquoiRoutes } from './routes/vermont-missisquoi';
+import { washingtonYakimaCanyonRoutes } from './routes/washington-yakima-canyon';
+import { washingtonSnoqualmieRoutes } from './routes/washington-snoqualmie';
+import { alabamaFlintRoutes } from './routes/alabama-flint';
 
 const stateRoutes: River[] = [
+  ...southCarolinaRoutes,
+  ...southCarolinaEdistoRoutes,
+  ...southCarolinaLittlePeeDeeRoutes,
+  ...southCarolinaSaludaRoutes,
+  ...alabamaHatchetRoutes,
+  ...alabamaCahabaRoutes,
+  ...arizonaVerdeRoutes,
+  ...arizonaSaltRoutes,
+  ...californiaAmericanRoutes,
+  ...californiaRussianRoutes,
+  ...californiaSouthForkAmericanRoutes,
+  ...connecticutFarmingtonRoutes,
+  ...connecticutHousatonicRoutes,
+  ...connecticutQuinebaugRoutes,
+  ...louisianaBogueChittoRoutes,
+  ...massachusettsDeerfieldRoutes,
+  ...mississippiBlackCreekRoutes,
+  ...montanaClarkForkRoutes,
+  ...nevadaColoradoBlackCanyonRoutes,
+  ...nevadaTruckeeRoutes,
+  ...newHampshirePemigewassetRoutes,
+  ...newHampshireContoocookRoutes,
+  ...newMexicoRioGrandeRoutes,
+  ...rhodeIslandWoodPawcatuckRoutes,
+  ...vermontWinooskiRoutes,
+  ...vermontMissisquoiRoutes,
+  ...washingtonYakimaCanyonRoutes,
+  ...washingtonSnoqualmieRoutes,
+  ...alabamaFlintRoutes,
+  ...floridaRoutes,
+  ...floridaIchetuckneeRoutes,
+  ...floridaSuwanneeRoutes,
+  ...oregonRoutes,
   ...arkansasRoutes,
   ...coloradoRoutes,
   ...illinoisRoutes,
@@ -77,6 +143,39 @@ stateRoutes.forEach(enforceHighConsequencePlanning);
 
 const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
+  ...southCarolinaRoutes.map(route => route.id),
+  ...southCarolinaEdistoRoutes.map(route => route.id),
+  ...southCarolinaLittlePeeDeeRoutes.map(route => route.id),
+  ...southCarolinaSaludaRoutes.map(route => route.id),
+  ...alabamaHatchetRoutes.map(route => route.id),
+  ...alabamaCahabaRoutes.map(route => route.id),
+  ...arizonaVerdeRoutes.map(route => route.id),
+  ...arizonaSaltRoutes.map(route => route.id),
+  ...californiaAmericanRoutes.map(route => route.id),
+  ...californiaRussianRoutes.map(route => route.id),
+  ...californiaSouthForkAmericanRoutes.map(route => route.id),
+  ...connecticutFarmingtonRoutes.map(route => route.id),
+  ...connecticutHousatonicRoutes.map(route => route.id),
+  ...connecticutQuinebaugRoutes.map(route => route.id),
+  ...louisianaBogueChittoRoutes.map(route => route.id),
+  ...massachusettsDeerfieldRoutes.map(route => route.id),
+  ...mississippiBlackCreekRoutes.map(route => route.id),
+  ...montanaClarkForkRoutes.map(route => route.id),
+  ...nevadaColoradoBlackCanyonRoutes.map(route => route.id),
+  ...nevadaTruckeeRoutes.map(route => route.id),
+  ...newHampshirePemigewassetRoutes.map(route => route.id),
+  ...newHampshireContoocookRoutes.map(route => route.id),
+  ...newMexicoRioGrandeRoutes.map(route => route.id),
+  ...rhodeIslandWoodPawcatuckRoutes.map(route => route.id),
+  ...vermontWinooskiRoutes.map(route => route.id),
+  ...vermontMissisquoiRoutes.map(route => route.id),
+  ...washingtonYakimaCanyonRoutes.map(route => route.id),
+  ...washingtonSnoqualmieRoutes.map(route => route.id),
+  ...alabamaFlintRoutes.map(route => route.id),
+  ...floridaRoutes.map((route) => route.id),
+  ...floridaIchetuckneeRoutes.map((route) => route.id),
+  ...floridaSuwanneeRoutes.map((route) => route.id),
+  ...oregonRoutes.map((route) => route.id),
   "chattahoochee-river-ga115-duncan-bridge",
   "chattahoochee-river-powers-island-paces-mill",
   "chattahoochee-river-columbus-whitewater-park",

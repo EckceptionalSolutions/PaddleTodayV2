@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-30T02:08:52.401Z",
+  "updatedAt": "2026-09-11T00:37:50.163Z",
   "claims": [
     {
       "id": "sd-20260729115958",
@@ -220,6 +220,1440 @@
       "blocker": "No candidate clears every gate: Rifle, Lower Huron, and Pere Marquette lack accepted numeric thresholds; Flint lacks a product-live gauge and coordinates; the corrected northern Maple lead lacks gauge, thresholds, legal endpoint confirmation, and coordinates; Clinton lacks current gauge data and official safe Yates take-out/portage geometry during active restoration.",
       "retryCondition": "Retry only when a responsible manager or accepted route source publishes the missing gauge-calibrated numeric guidance, the selected USGS site resumes product-current data, source-backed public endpoint coordinates/parking become available, or Oakland County/CRWC formally documents current safe Yates geometry and restoration status.",
       "notes": "Completed six Michigan candidate touches using eight attempts across seven external source families plus the local inventory. Used API-to-page/search recovery for USGS and PDF-to-HTML/alternate-manager recovery for the inaccessible Clinton plan. Exactly two touches (Rifle and Pere Marquette) were treated as stale-candidate rechecks; the other four were new source/fact discovery. No app route was implemented because no candidate met all access, coordinate, gauge, threshold, safety, and duplication gates."
+    },
+    {
+      "id": "az-20260910225445",
+      "state": "Arizona",
+      "stateCode": "AZ",
+      "mode": "research",
+      "claimedAt": "2026-09-10T22:54:45.255Z",
+      "leaseExpiresAt": "2026-09-11T01:54:45.255Z",
+      "status": "completed",
+      "candidateIds": [
+        "az-salt-river-water-users-goldfield",
+        "az-salt-river-goldfield-phon-d",
+        "az-salt-river-phon-d-granite-reef"
+      ],
+      "completedAt": "2026-09-10T22:54:50.799Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "HikeArizona",
+          "method": "Lower Salt River guide page",
+          "result": "Confirmed the 12-mile Water Users-to-Granite Reef corridor, named access sequence, section mileage, 500 cfs minimum and 1,000 cfs desired planning band."
+        },
+        {
+          "family": "Tonto National Forest",
+          "method": "Mesa Ranger District recreation PDF",
+          "result": "Confirmed Water Users, Goldfield, Phon D. Sutton and Granite Reef are named public recreation sites in the managed Lower Salt corridor."
+        },
+        {
+          "family": "Saguaro Lake Guest Ranch",
+          "method": "Current operator access page",
+          "result": "Confirmed active permitted launch access below Stewart Mountain Dam and current seasonal water-use posture."
+        },
+        {
+          "family": "USGS",
+          "method": "09502000 current observations and metadata",
+          "result": "Confirmed direct, high-data-rate discharge telemetry below Stewart Mountain Dam for the selected reach."
+        },
+        {
+          "family": "Hydrography",
+          "method": "NHD route geometry and endpoint audit",
+          "result": "Refined all six access-area pins to mapped river-entry edges; all six coordinate audits returned OK."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Dam, heat, crowding and closure screen",
+          "result": "Recorded the early Class II riffle, low-water shallows, dam exclusion zones, heat, heavy summer use, slower Granite Reef water and current closure checks."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Lower Salt River routes to the Arizona catalog.",
+        "Added direct USGS 09502000 scoring profile with 500–1,000 cfs community band.",
+        "Added route-scoped geometries, endpoint audit artifacts, campaign evidence and state memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Arizona now has nine scored starter routes. The three Lower Salt routes are validated-not-deployed; route-data, safety, geometry and production-build checks passed. Confirm current access and release conditions before any deployment."
+    },
+    {
+      "id": "ca-20260910230053",
+      "state": "California",
+      "stateCode": "CA",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:00:53.089Z",
+      "leaseExpiresAt": "2026-09-11T02:00:53.089Z",
+      "status": "completed",
+      "candidateIds": [
+        "ca-russian-river-forestville-steelhead",
+        "ca-russian-river-steelhead-sunset",
+        "ca-russian-river-forestville-sunset"
+      ],
+      "completedAt": "2026-09-10T23:01:10.569Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "California State Parks",
+          "method": "Russian River boating-facility directory",
+          "result": "Confirmed Sunset Beach public boating access and manager contact."
+        },
+        {
+          "family": "Sonoma County Regional Parks",
+          "method": "Current recreation and access pages",
+          "result": "Confirmed Forestville, Steelhead and Sunset public paddling access, seasonal launch and parking posture."
+        },
+        {
+          "family": "California Creeks",
+          "method": "Russian River below Healdsburg route guide",
+          "result": "Confirmed the Class I Healdsburg-to-Forestville corridor and 300–1,500 cfs planning band."
+        },
+        {
+          "family": "USGS",
+          "method": "11464000 station metadata and current observations",
+          "result": "Confirmed direct Russian River discharge telemetry near Healdsburg."
+        },
+        {
+          "family": "California OSPR / hydrography",
+          "method": "Protected-site coordinate PDF and NHD endpoint audit",
+          "result": "Confirmed access-area coordinates and six endpoint results with no suspicious or failed finding."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Seasonal dam, low-water, water-quality and closure screen",
+          "result": "Recorded seasonal structures, shallow bars, storm debris, cold water, heat, crowds, private banks and water-quality notices."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Russian River routes to the California catalog.",
+        "Added direct USGS 11464000 scoring profile with 300–1,500 cfs community band.",
+        "Added route-scoped geometries, endpoint audit artifacts, campaign evidence and state memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "California now has nine scored starter routes. The three Russian River routes are validated-not-deployed; route-data, safety, geometry and production-build checks passed. Confirm current access and river conditions before any deployment."
+    },
+    {
+      "id": "ct-20260910231402",
+      "state": "Connecticut",
+      "stateCode": "CT",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:14:02.713Z",
+      "leaseExpiresAt": "2026-09-11T02:14:02.713Z",
+      "status": "completed",
+      "candidateIds": [
+        "ct-quinebaug-river-fabyan-west-thompson",
+        "ct-quinebaug-river-simonzi-cotton-bridge",
+        "ct-quinebaug-river-cotton-bridge-route-101"
+      ],
+      "completedAt": "2026-09-10T23:14:32.625Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "Connecticut Trail Finder",
+          "method": "Quinebaug River Water Trail section review",
+          "result": "Documents the National Recreation Trail, public access chain, section distances, river character, dam boundaries and USGS gauge-check requirement."
+        },
+        {
+          "family": "The Last Green Valley",
+          "method": "Quinebaug River Paddle Guide PDF",
+          "result": "Provides exact launch coordinates, access notes and route-mile distances for Fabyan, West Thompson, Simonzi, Cotton Bridge and Route 101; publishes 225 cfs for the West Thompson reach and 300–600 cfs moderate flow / 200 cfs minimum for the Putnam reach."
+        },
+        {
+          "family": "Connecticut DEEP",
+          "method": "State boat-launch directory and boater access rules",
+          "result": "Confirms DEEP operates public launches statewide and that access status, parking and seasonal notices must be checked before launch."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct Quinebaug station metadata and current observations",
+          "result": "01124000 at Quinebaug/Route 197 and 01125500 at Putnam are direct discharge stations on the same river corridor; both provide continuous telemetry."
+        },
+        {
+          "family": "Access and hydrography audit",
+          "method": "NHD flowline/waterbody endpoint checks",
+          "result": "All six refined water-entry endpoints are documented public launch edges; reviews are informational where a launch sits inside the mapped West Thompson or Quinebaug waterbody."
+        },
+        {
+          "family": "Hazard review",
+          "method": "Dam, current, strainer and take-out boundary review",
+          "result": "Scored routes stop at public accesses before West Thompson, Cargill, Rogers and other documented hazards. Rogers Dam downstream of Route 101 is explicitly excluded."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Quinebaug River routes to the Connecticut catalog.",
+        "Added direct USGS 01124000 and 01125500 scoring profiles with guide-backed flow bands.",
+        "Added route-scoped geometries, endpoint audit artifacts, campaign evidence and state memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Connecticut now has nine starter routes, six scored. The three Quinebaug routes are validated-not-deployed; route-data, safety, geometry and production-build checks passed. Confirm current access and release conditions before any deployment."
+    },
+    {
+      "id": "nv-20260910232145",
+      "state": "Nevada",
+      "stateCode": "NV",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:21:45.170Z",
+      "leaseExpiresAt": "2026-09-11T02:21:45.170Z",
+      "status": "completed",
+      "candidateIds": [
+        "nv-truckee-river-mayberry-wingfield",
+        "nv-truckee-river-wingfield-cottonwood",
+        "nv-truckee-river-mayberry-cottonwood"
+      ],
+      "completedAt": "2026-09-10T23:22:02.302Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "American Whitewater",
+          "method": "Mayberry Park to Cottonwood Park reach page",
+          "result": "Documents the 10-mile Reno I–III reach, direct Reno gauge, spring-runoff character, city-park access and downstream features."
+        },
+        {
+          "family": "City of Reno",
+          "method": "Truckee River Whitewater Park page",
+          "result": "Confirms Wingfield’s managed 2,600-foot Class II–III course and mandatory helmet/flotation posture."
+        },
+        {
+          "family": "Truckee Meadows Water Authority",
+          "method": "Truckee River recreation map",
+          "result": "Identifies Mayberry, Wingfield/downtown and Cottonwood public access sequence and urban logistics."
+        },
+        {
+          "family": "Nevada Trail Finder",
+          "method": "Mayberry-to-Cottonwood trail listing",
+          "result": "Confirms the family-friendly Reno corridor and public park context."
+        },
+        {
+          "family": "USGS",
+          "method": "10348000 station metadata and current observations",
+          "result": "Confirms direct Truckee River discharge telemetry at Reno."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Diversion, whitewater, cold-water, closure and endpoint screen",
+          "result": "Recorded engineered features, diversion structures, strainers, bridge debris, urban access constraints, cold water and closure checks; route endpoints use named park entries."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Truckee River routes to the Nevada catalog.",
+        "Added direct USGS 10348000 scoring profile with conservative 250 cfs floor and 400–1,200 cfs planning band.",
+        "Added route-scoped geometries, endpoint audit artifacts, campaign evidence and state memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Nevada now has nine starter routes, all scored. The three Truckee routes are validated-not-deployed; route-data, endpoint and geometry checks passed. Confirm current Reno access, releases, whitewater features and cold-water conditions before any deployment."
+    },
+    {
+      "id": "fl-20260910233429",
+      "state": "Florida",
+      "stateCode": "FL",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:34:29.334Z",
+      "leaseExpiresAt": "2026-09-11T02:34:29.334Z",
+      "status": "completed",
+      "candidateIds": [
+        "fl-suwannee-river-stephen-foster-woods-ferry",
+        "fl-suwannee-river-woods-ferry-spirit",
+        "fl-suwannee-river-stephen-foster-spirit"
+      ],
+      "completedAt": "2026-09-10T23:34:50.053Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "Suwannee River Water Management District",
+          "method": "Boating and canoeing guidance review",
+          "result": "Confirmed the White Springs stage bands used for scoring: 51–58 ft ideal, 59–63 ft swift/caution, below 50 ft too low and 64 ft or higher not recommended."
+        },
+        {
+          "family": "Florida DEP",
+          "method": "Suwannee Wilderness Trail data book",
+          "result": "Confirmed Stephen Foster, Woods Ferry and Spirit endpoints and access-chain mileposts."
+        },
+        {
+          "family": "Florida Paddling Trails Association",
+          "method": "Stephen Foster to Spirit paddle guide",
+          "result": "Confirmed the approximately 20.2-mile advanced itinerary and long-distance logistics."
+        },
+        {
+          "family": "Florida State Parks / managed access",
+          "method": "Stephen Foster launch and endpoint review",
+          "result": "Confirmed public canoe-launch access and the need to recheck hours, fees and facility status."
+        },
+        {
+          "family": "USGS",
+          "method": "02315500 station metadata and current series",
+          "result": "Confirmed direct continuous White Springs gage-height telemetry."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Endpoint, wilderness and consequence screen",
+          "result": "Recorded remote shoreline, strainers, steep banks, fast rises, cold water, private-bank and limited-bailout hazards; endpoint audits found no suspicious or failed pins."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Suwannee River routes to the Florida catalog.",
+        "Added direct USGS 02315500 stage scoring with official White Springs thresholds.",
+        "Added route-scoped geometries, endpoint audit artifacts, campaign evidence and Florida memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Florida now has nine starter routes, including six scored routes across Ichetucknee and Suwannee. The Suwannee routes are validated-not-deployed; recheck current White Springs stage, weather, access and shuttle conditions before release."
+    },
+    {
+      "id": "la-20260910233647",
+      "state": "Louisiana",
+      "stateCode": "LA",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:36:47.461Z",
+      "leaseExpiresAt": "2026-09-11T02:36:47.461Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-10T23:37:05.884Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Louisiana Department of Wildlife and Fisheries",
+          "method": "Bogue Chitto WMA and scenic-rivers access review",
+          "result": "Confirmed additional WMA access near Enon, but no complete public paddling endpoint pair with route-specific threshold evidence was established."
+        },
+        {
+          "family": "Louisiana State Parks",
+          "method": "Bogue Chitto State Park access and map review",
+          "result": "The existing State Park endpoint is already represented in the six scored route combinations; no distinct additional managed endpoint was verified."
+        },
+        {
+          "family": "Pearl Riverkeeper / local outfitters",
+          "method": "Water-trail and outfitter access review",
+          "result": "Found general Bogue Chitto popularity and access context, but no independently verified new public endpoint pair suitable for another scored card."
+        },
+        {
+          "family": "USGS",
+          "method": "02492000 station review",
+          "result": "Direct Bush telemetry remains available, but extending the existing Franklinton–State Park–Sun threshold context to new upstream or refuge reaches would be unsupported."
+        },
+        {
+          "family": "RiverDates",
+          "method": "Same-gauge flow-context review",
+          "result": "Existing 650–3,400 cfs community band applies to the current selected corridor; no stronger distinct reach calibration was found."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Endpoint and consequence screen",
+          "result": "Rejected speculative combinations because public water entry, downstream consequence, or threshold reach applicability was unresolved."
+        }
+      ],
+      "factsChanged": [
+        "No routes added; retained Louisiana at six scored public starter routes.",
+        "Recorded that the existing six routes exhaust the currently verified public endpoint combinations for the selected Bogue Chitto corridor."
+      ],
+      "blocker": "No additional Bogue Chitto route currently satisfies both verified public endpoint access and same-gauge numeric threshold applicability without duplicating the existing six combinations.",
+      "retryCondition": "Recheck when Louisiana publishes a new managed launch or reach-specific Bogue Chitto flow guidance, or when a responsible manager verifies an additional endpoint pair and downstream hazard boundary.",
+      "notes": "Rotate to the next state; do not manufacture a tenth Louisiana route from unsupported access or threshold transfer."
+    },
+    {
+      "id": "nm-20260910233719",
+      "state": "New Mexico",
+      "stateCode": "NM",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:37:19.096Z",
+      "leaseExpiresAt": "2026-09-11T02:37:19.096Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-10T23:37:37.478Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "BLM",
+          "method": "Rio Grande del Norte and Rio Chama segment review",
+          "result": "Confirmed the current Orilla Verde and Racecourse access chain is already represented by six scored route combinations; no distinct additional managed endpoint was verified."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "New Mexico reach index review",
+          "result": "Confirmed the documented Racecourse and Orilla Verde reaches, but no additional access-bounded reach with stronger same-gauge coverage was established."
+        },
+        {
+          "family": "BoaterBeta",
+          "method": "Racecourse flow-history review",
+          "result": "Existing 200–3,000 cfs community band remains applicable to the selected corridor; no new reach-specific calibration was found."
+        },
+        {
+          "family": "USGS",
+          "method": "08276500 station review",
+          "result": "Direct Taos Junction telemetry remains available, but transferring its scoring band to distant Rio Chama, Albuquerque, or San Juan reaches would be unsupported."
+        },
+        {
+          "family": "Recreation.gov / BLM access",
+          "method": "Managed endpoint and fee review",
+          "result": "Rechecked named access and camping context; no additional public endpoint pair met the current release bar."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Class III, private-bank and consequence screen",
+          "result": "Rejected speculative additions because access, downstream consequence, or gauge-reach applicability was unresolved."
+        }
+      ],
+      "factsChanged": [
+        "No routes added; retained New Mexico at six scored public starter routes.",
+        "Recorded that the current BLM/American Whitewater access chain is exhausted for this scored pass without unsupported threshold transfer."
+      ],
+      "blocker": "No additional New Mexico route currently satisfies verified public endpoint access and same-gauge numeric threshold applicability beyond the six existing Rio Grande del Norte combinations.",
+      "retryCondition": "Recheck when BLM or a responsible local source publishes a new managed access pair or reach-specific flow guidance for Rio Grande, Rio Chama, Albuquerque bosque or San Juan water.",
+      "notes": "Rotate to the next state; preserve the Class III Racecourse skill and access controls."
+    },
+    {
+      "id": "ma-20260910233749",
+      "state": "Massachusetts",
+      "stateCode": "MA",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:37:49.015Z",
+      "leaseExpiresAt": "2026-09-11T02:37:49.015Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-10T23:38:08.411Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Deerfield River Watershed Association",
+          "method": "Boating and access guidance review",
+          "result": "Confirmed the existing Fife Brook, Zoar Picnic, Shunpike and East Charlemont access chain and popular reach context."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "Deerfield reach index review",
+          "result": "Confirmed the current six access-bounded scored combinations; additional reaches would duplicate endpoints or enter the Dryway/dam consequence zone."
+        },
+        {
+          "family": "SafeWaters",
+          "method": "Fife Brook release and flow review",
+          "result": "Existing 125 cfs base and scheduled 800 cfs release context remains the only qualified numeric planning band for the selected corridor."
+        },
+        {
+          "family": "USGS",
+          "method": "01168500 station review",
+          "result": "Direct Charlemont telemetry remains available; no distinct reach-specific threshold was found for a new corridor."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Dam, Zoar Gap and endpoint consequence screen",
+          "result": "Rejected speculative additions because they would duplicate the current access combinations or cross the documented Dryway/dam boundary."
+        },
+        {
+          "family": "Local launch review",
+          "method": "Parking, water-entry and shuttle screen",
+          "result": "No additional independently managed public endpoint pair met the scored route release bar."
+        }
+      ],
+      "factsChanged": [
+        "No routes added; retained Massachusetts at six scored public starter routes.",
+        "Recorded that the current Deerfield access chain is exhausted for this pass without duplicating routes or extending into higher-consequence water."
+      ],
+      "blocker": "No additional Massachusetts route currently satisfies distinct public endpoint access and qualified same-gauge threshold evidence beyond the six Deerfield combinations.",
+      "retryCondition": "Recheck when a new managed Deerfield access opens or a direct gauge and reach-specific flow source supports a separate corridor such as the Connecticut or Millers River.",
+      "notes": "Rotate to the next state; preserve Fife Brook, dam, Zoar Gap, cold-water and release controls."
+    },
+    {
+      "id": "ms-20260910233819",
+      "state": "Mississippi",
+      "stateCode": "MS",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:38:19.696Z",
+      "leaseExpiresAt": "2026-09-11T02:38:19.696Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-10T23:38:37.125Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "U.S. Forest Service",
+          "method": "Black Creek Wild and Scenic access review",
+          "result": "Confirmed the existing Big Creek, Old Highway 49, Janice, Cypress and Fairley access chain; the current six scored combinations cover the documented corridor."
+        },
+        {
+          "family": "Seven Rivers Canoe Club",
+          "method": "Landing guide and shuttle review",
+          "result": "Confirmed named landings and distances already represented; no distinct additional public endpoint pair was verified."
+        },
+        {
+          "family": "RiverScout",
+          "method": "Flow guidance review",
+          "result": "Existing 200–1,200 cfs community band remains the only qualified numeric planning cue for USGS 02479130."
+        },
+        {
+          "family": "USGS",
+          "method": "02479130 station review",
+          "result": "Direct Brooklyn telemetry remains available, but no new reach-specific calibration supports another corridor."
+        },
+        {
+          "family": "Louisiana / Mississippi local access",
+          "method": "WMA and outfitter lead review",
+          "result": "General access leads lack a complete verified endpoint pair or defensible same-gauge threshold applicability."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Forest-road, strainer and consequence screen",
+          "result": "Rejected speculative additions because access, downstream consequence or threshold reach applicability was unresolved."
+        }
+      ],
+      "factsChanged": [
+        "No routes added; retained Mississippi at six scored public starter routes.",
+        "Recorded that the current Black Creek access chain is exhausted for this scored pass without duplicating routes or transferring thresholds."
+      ],
+      "blocker": "No additional Mississippi route currently satisfies distinct public endpoint access and qualified same-gauge numeric threshold evidence beyond the six Black Creek combinations.",
+      "retryCondition": "Recheck when Forest Service or a responsible local source verifies another managed landing and a reach-specific flow cue for Black Creek or another Mississippi corridor.",
+      "notes": "Rotate to the next state; preserve Forest Service access, fast-rise, strainer and remote-road controls."
+    },
+    {
+      "id": "ri-20260910234341",
+      "state": "Rhode Island",
+      "stateCode": "RI",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:43:41.977Z",
+      "leaseExpiresAt": "2026-09-11T02:43:41.977Z",
+      "status": "completed",
+      "candidateIds": [
+        "ri-blackstone-river-rivers-edge-sycamore",
+        "ri-blackstone-river-manville-albion",
+        "ri-blackstone-river-rivers-edge-albion"
+      ],
+      "completedAt": "2026-09-10T23:45:16.225Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "Blackstone River Watershed Council",
+          "method": "River access and portage map review",
+          "result": "Confirmed Rivers Edge, Manville, Sycamore and Albion public access sequence and above-dam take-out boundaries."
+        },
+        {
+          "family": "RiverScout",
+          "method": "Blackstone flow and reach review",
+          "result": "Confirmed a 200–1,200 cfs Class I–II planning window tied to direct USGS 01112500."
+        },
+        {
+          "family": "Rhode Island DEM / ExploreRI",
+          "method": "Managed launch and parking review",
+          "result": "Confirmed the public access context and need to recheck parking, water entry and municipal notices."
+        },
+        {
+          "family": "USGS",
+          "method": "01112500 station review",
+          "result": "Confirmed direct Woonsocket discharge telemetry for the Blackstone corridor."
+        },
+        {
+          "family": "National Park Service / watershed sources",
+          "method": "Dam-portage consequence review",
+          "result": "Preserved mandatory portages at Manville and Albion and excluded dam hydraulics from route boundaries."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Endpoint and water-quality screen",
+          "result": "Endpoint audits returned six ok and six informational review results, with no suspicious or failure findings; mill structures, private property and water quality remain explicit hazards."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Blackstone River routes to the Rhode Island catalog.",
+        "Extended the direct USGS 01112500 and RiverScout 200–1,200 cfs profile across nonredundant access combinations.",
+        "Updated canonical geometries, endpoint audits, campaign evidence and state memory."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Rhode Island now has nine scored public starter routes. Keep routes validated-not-deployed until current DEM and watershed access, dam-portage and water-quality checks are complete."
+    },
+    {
+      "id": "mt-20260910234549",
+      "state": "Montana",
+      "stateCode": "MT",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:45:49.740Z",
+      "leaseExpiresAt": "2026-09-11T02:45:49.740Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-10T23:46:07.309Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Destination Missoula",
+          "method": "Clark Fork float-map review",
+          "result": "Confirmed the Milltown, Sha-Ron, Jacobs Island and Silver Park access chain and the existing seven scored route combinations."
+        },
+        {
+          "family": "Montana FWP / City of Missoula",
+          "method": "Managed access and landing review",
+          "result": "Confirmed current named access rules, gate hours, parking limits and Silver Park take-out-only control; no distinct additional managed endpoint was verified."
+        },
+        {
+          "family": "RiverScout",
+          "method": "Clark Fork flow guidance review",
+          "result": "Existing 2,000–10,000 cfs community band remains the only qualified numeric planning cue for USGS 12340500."
+        },
+        {
+          "family": "USGS",
+          "method": "12340500 station review",
+          "result": "Direct Clark Fork telemetry remains available, but no separate reach-specific calibration supports another route."
+        },
+        {
+          "family": "Access and hazard review",
+          "method": "Milltown and Grass Valley diversion consequence screen",
+          "result": "Rejected speculative additions that would duplicate endpoint combinations or approach diversion and dam hazards."
+        },
+        {
+          "family": "Local corridor review",
+          "method": "Route overlap and quality screen",
+          "result": "Montana already meets the target with seven scored routes; no high-quality nonredundant addition survived this pass."
+        }
+      ],
+      "factsChanged": [
+        "No routes added; retained Montana at seven scored public starter routes.",
+        "Recorded that the current Missoula Clark Fork access chain meets the 3–10 target without an additional distinct route."
+      ],
+      "blocker": "No additional Montana route currently satisfies distinct public endpoint access and qualified same-gauge numeric threshold evidence beyond the seven Clark Fork combinations.",
+      "retryCondition": "Recheck when Montana FWP or a responsible local source verifies another public launch and reach-specific flow guidance for Clark Fork or another Montana corridor.",
+      "notes": "Rotate to the next state; preserve Milltown, Grass Valley, Silver Park, cold-water and urban-access controls."
+    },
+    {
+      "id": "nh-20260910235731",
+      "state": "New Hampshire",
+      "stateCode": "NH",
+      "mode": "research",
+      "claimedAt": "2026-09-10T23:57:31.877Z",
+      "leaseExpiresAt": "2026-09-11T02:57:31.877Z",
+      "status": "completed",
+      "candidateIds": [
+        "nh-contoocook-federal-riverway-park",
+        "nh-contoocook-riverway-canoe-company",
+        "nh-contoocook-federal-canoe-company"
+      ],
+      "completedAt": "2026-09-10T23:59:00.547Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "Forest Society",
+          "method": "Contoocook River paddle guide",
+          "result": "Verified the named nine-mile Riverway Park to Canoe Company day trip and endpoint context."
+        },
+        {
+          "family": "Merrimack Valley Paddlers",
+          "method": "NH public access directory",
+          "result": "Verified the coordinate-backed Henniker Federal Corps public access."
+        },
+        {
+          "family": "American Whitewater / USACE",
+          "method": "Henniker stage and difficulty review",
+          "result": "Verified direct gauge 01085000, 9 ft warning/high-water cue, 4.75 ft low cue and broken-dam consequence; synthesized a conservative 5–8.5 ft planning band."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Endpoint and geometry audit",
+          "result": "All six endpoints returned review with no suspicious or failure findings; documented Canoe Company access-anchor offset was accepted as review evidence."
+        },
+        {
+          "family": "New Hampshire public access review",
+          "method": "Endpoint identity and logistics screen",
+          "result": "Confirmed the Federal Corps facility, Riverway Park and Canoe Company are distinct named access anchors; retained parking, carry-in and take-out-hour rechecks."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first corridor selection",
+          "result": "Selected three nonduplicate public endpoint combinations and excluded the private/technical Freight Train section because its access and difficulty bar were not met."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Contoocook River routes to the New Hampshire catalog.",
+        "Added direct USGS 01085000 stage telemetry and source-backed Henniker warning/low cues.",
+        "Updated canonical route/state geometries, endpoint audits and campaign evidence."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "New Hampshire now has nine scored public starter routes across Pemigewasset and Contoocook. Keep routes validated-not-deployed until current access, take-out, dam and live-stage checks are complete."
+    },
+    {
+      "id": "az-20260911000050",
+      "state": "Arizona",
+      "stateCode": "AZ",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:00:50.106Z",
+      "leaseExpiresAt": "2026-09-11T03:00:50.106Z",
+      "status": "completed",
+      "candidateIds": [
+        "az-verde-river-lower-tapco-89a-bridge"
+      ],
+      "completedAt": "2026-09-11T00:04:02.367Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "Friends of the Verde River",
+          "method": "Access-point map review",
+          "result": "Confirmed Lower TAPCO, Tuzigoot and Highway 89A public access sequence and coordinates."
+        },
+        {
+          "family": "USFS",
+          "method": "Verde River Paddle Trail guide",
+          "result": "Confirmed the access sequence, shallow riffles, diversion cautions and private-bank controls."
+        },
+        {
+          "family": "RiverScout",
+          "method": "Clarkdale flow guidance review",
+          "result": "Confirmed the existing direct-gauge 300–2,000 cfs planning band for the Clarkdale corridor."
+        },
+        {
+          "family": "USGS",
+          "method": "09504000 station review",
+          "result": "Confirmed direct Verde River discharge telemetry near Clarkdale."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route-scoped geometry and endpoint audit",
+          "result": "The new route geometry matched the named Verde network and both endpoint audits returned ok."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first overlap review",
+          "result": "Selected the nonduplicate Lower TAPCO-to-Highway 89A combination, retained Tuzigoot as an intermediate bail-out, and stopped Arizona at ten scored routes."
+        }
+      ],
+      "factsChanged": [
+        "Added one scored Verde River route to bring Arizona to ten scored starter routes.",
+        "Extended the existing direct USGS 09504000 profile across a documented public access combination.",
+        "Updated canonical geometry, endpoint evidence and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Arizona now meets the 3–10 target with ten scored public starter routes. Keep routes validated-not-deployed pending current Forest Service access, telemetry, weather and hazard checks."
+    },
+    {
+      "id": "or-20260911000546",
+      "state": "Oregon",
+      "stateCode": "OR",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:05:46.430Z",
+      "leaseExpiresAt": "2026-09-11T03:05:46.430Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:05:54.669Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Willamette Water Trail",
+          "method": "Reach itinerary and launch-page review",
+          "result": "Existing Peoria, Crystal Lake, Michael’s and Hyak access chain is documented; existing six routes cover the distinct researched combinations."
+        },
+        {
+          "family": "Tualatin Water Trail",
+          "method": "Jurgens and Community access review",
+          "result": "Existing short route has named access, carry and shallow-section controls; no additional direct-gauge scored reach was established."
+        },
+        {
+          "family": "Oregon State Marine Board",
+          "method": "Boat Oregon access/obstruction/dam map review",
+          "result": "Current access and hazard layers were reviewed; no new endpoint pair with a verified scoring calibration survived the screen."
+        },
+        {
+          "family": "Linn County / Corvallis / Benton County",
+          "method": "Managed facility and parking review",
+          "result": "Existing facilities remain usable planning leads with current parking, hours and ramp caveats; no additional scored telemetry was identified."
+        },
+        {
+          "family": "City of Tualatin",
+          "method": "Current notices and access recheck",
+          "result": "Existing Community/Jurgens route retains construction and gangway rechecks; no independent stage threshold supports another scored card."
+        },
+        {
+          "family": "USGS",
+          "method": "Corvallis and West Linn station review",
+          "result": "14171600 and 14207500 provide proxy context outside the exact reaches; no verified station-specific recreational cutoff is transferable."
+        }
+      ],
+      "factsChanged": [
+        "No route added; retained Oregon at six public planning routes while preserving the scored-first threshold bar.",
+        "Confirmed that further Willamette/Tualatin combinations require direct-gauge recreational thresholds before they can be scored."
+      ],
+      "blocker": "No verified direct-gauge recreational threshold currently supports an additional scored Oregon route.",
+      "retryCondition": "Retry when Oregon Water Trail, Marine Board, OWRD or a responsible local source publishes a direct station/reach flow or stage band for a documented public access corridor.",
+      "notes": "Rotate to the next state; retain current access, wood, ramp, proxy-gauge and construction caveats."
+    },
+    {
+      "id": "sc-20260911000757",
+      "state": "South Carolina",
+      "stateCode": "SC",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:07:57.858Z",
+      "leaseExpiresAt": "2026-09-11T03:07:57.858Z",
+      "status": "completed",
+      "candidateIds": [
+        "sc-saluda-saluda-shoals-hope-ferry",
+        "sc-saluda-hope-ferry-gardendale",
+        "sc-saluda-hope-ferry-i26"
+      ],
+      "completedAt": "2026-09-11T00:08:22.647Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "SCDNR Lower Saluda guide",
+          "method": "Public access and flow-envelope review",
+          "result": "Confirmed Hope Ferry as a named public ramp and retained SCDNR's 400–18,000 cfs direct-gauge planning envelope."
+        },
+        {
+          "family": "USGS",
+          "method": "02168504 station review",
+          "result": "Confirmed direct below-dam telemetry for the release-sensitive reach."
+        },
+        {
+          "family": "SCDNR overview",
+          "method": "Rapid, cold-water and dam-boundary review",
+          "result": "Kept the I-26 overpass as the conservative turn-around and excluded downstream Class IV–V water."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route-scoped geometry and endpoint audit",
+          "result": "All six new endpoints returned informational review on mapped waterbodies with no suspicious or failure findings."
+        },
+        {
+          "family": "Local access review",
+          "method": "Hope Ferry ramp and shuttle screen",
+          "result": "Confirmed Hope Ferry is a distinct public endpoint between Saluda Shoals and Gardendale."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first overlap review",
+          "result": "Added three nonduplicate Hope Ferry combinations and kept all routes validated-not-deployed."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Lower Saluda routes using Hope Ferry Landing.",
+        "Extended the official SCDNR flow envelope and direct USGS 02168504 profile across distinct endpoint combinations.",
+        "Updated geometries, endpoint evidence and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "South Carolina now has nine scored public starter routes. Keep current access, release, rapid, cold-water and I-26 turn-around controls explicit."
+    },
+    {
+      "id": "nv-20260911001005",
+      "state": "Nevada",
+      "stateCode": "NV",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:10:05.713Z",
+      "leaseExpiresAt": "2026-09-11T03:10:05.713Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:10:20.575Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "NPS Black Canyon National Water Trail",
+          "method": "Black Canyon access-chain review",
+          "result": "Existing Hoover Dam, Willow Beach, Eldorado Canyon and Cottonwood Cove combinations cover the verified Nevada-access corridor."
+        },
+        {
+          "family": "City of Reno / Truckee Meadows Water Authority",
+          "method": "Reno Truckee access review",
+          "result": "Existing Mayberry, Wingfield and Cottonwood access combinations cover the documented public urban corridor."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "Reno Truckee reach and hazard review",
+          "result": "Existing direct-gauge reach context and Class II–III whitewater controls were rechecked; no additional managed endpoint pair was verified."
+        },
+        {
+          "family": "NPS / local access managers",
+          "method": "Black Canyon take-out and closure review",
+          "result": "Existing endpoints retain dam, launch, shuttle and closure controls; speculative downstream additions were excluded."
+        },
+        {
+          "family": "USGS",
+          "method": "10348000 and Black Canyon telemetry review",
+          "result": "Direct telemetry remains available for existing scored corridors, but no new distinct access reach with a separately qualified threshold was found."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first overlap review",
+          "result": "Nevada already has nine scored public starter routes; no additional high-quality nonduplicate route survived the access and threshold screen."
+        }
+      ],
+      "factsChanged": [
+        "No route added; retained Nevada at nine scored public starter routes.",
+        "Confirmed additional Truckee, Carson or Black Canyon cards would require a new verified public endpoint and reach-specific threshold."
+      ],
+      "blocker": "No additional Nevada route currently satisfies distinct public endpoint access and qualified same-gauge numeric threshold evidence beyond the nine existing routes.",
+      "retryCondition": "Retry when NPS, Nevada, Reno or a responsible river source verifies another public launch and reach-specific flow guidance.",
+      "notes": "Rotate to the next state; preserve Black Canyon dam, urban Truckee, cold-water, diversion and closure controls."
+    },
+    {
+      "id": "vt-20260911001507",
+      "state": "Vermont",
+      "stateCode": "VT",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:15:07.702Z",
+      "leaseExpiresAt": "2026-09-11T03:15:07.702Z",
+      "status": "completed",
+      "candidateIds": [
+        "vt-winooski-marshfield-winooski-street",
+        "vt-winooski-middlesex-gateway-park",
+        "vt-winooski-marshfield-middlesex"
+      ],
+      "completedAt": "2026-09-11T00:15:34.688Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "American Whitewater",
+          "method": "Winooski reach and runnable-level review",
+          "result": "Confirmed the central Winooski Class I–III reach context and published runnable readings around 470–575 cfs."
+        },
+        {
+          "family": "Northern Forest Canoe Trail",
+          "method": "Trail access and portage review",
+          "result": "Confirmed the day-paddle planning model and portage-aware public access context."
+        },
+        {
+          "family": "Winooski River access inventory",
+          "method": "Four-anchor access-chain review",
+          "result": "Confirmed Marshfield, Middlesex, Waterbury and Gateway public access anchors and dam constraints."
+        },
+        {
+          "family": "USGS",
+          "method": "04286000 station review",
+          "result": "Confirmed direct Winooski telemetry at Montpelier."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route-scoped geometry and endpoint audit",
+          "result": "All six new endpoints returned ok or informational review with no suspicious or failure findings."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first combination review",
+          "result": "Added the three missing nonduplicate combinations and preserved explicit quickwater, dam, cold-water and portage controls."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Winooski River routes using direct USGS 04286000 telemetry.",
+        "Extended the existing American Whitewater 200–1,200 cfs planning band across the four-anchor access chain.",
+        "Updated canonical geometry, endpoint evidence and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Vermont now has nine scored public starter routes across Winooski and Missisquoi. Keep routes validated-not-deployed pending current municipal/conservation access, hydro release, dam and weather checks."
+    },
+    {
+      "id": "wa-20260911001929",
+      "state": "Washington",
+      "stateCode": "WA",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:19:29.353Z",
+      "leaseExpiresAt": "2026-09-11T03:19:29.353Z",
+      "status": "completed",
+      "candidateIds": [
+        "wa-yakima-umtanum-big-pines",
+        "wa-yakima-lmuma-roza",
+        "wa-yakima-umtanum-roza"
+      ],
+      "completedAt": "2026-09-11T00:19:56.047Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "BLM Yakima River Canyon",
+          "method": "Access and diversion-boundary review",
+          "result": "Confirmed the Umtanum, Lmuma Creek, Big Pines and Roza BLM access sequence and mandatory Roza endpoint above the diversion."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "Yakima Canyon difficulty review",
+          "result": "Confirmed the Class I–II canyon context and family-friendly lower-class reach."
+        },
+        {
+          "family": "Wilderness Portal",
+          "method": "Flow-guidance review",
+          "result": "Confirmed the existing 1,500–5,000 cfs planning range tied to direct Umtanum telemetry."
+        },
+        {
+          "family": "USGS",
+          "method": "12484500 station review",
+          "result": "Confirmed direct Yakima Canyon discharge telemetry at Umtanum."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route-scoped geometry and endpoint audit",
+          "result": "All six new endpoints returned ok with no suspicious or failure findings."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first combination review",
+          "result": "Added three nonduplicate combinations and retained BLM wood, wind, private-bank, cold-water and diversion controls."
+        }
+      ],
+      "factsChanged": [
+        "Added three scored Yakima River routes using direct USGS 12484500 telemetry.",
+        "Extended the existing BLM/American Whitewater/Wilderness Portal access and flow evidence across the complete four-anchor combination set.",
+        "Updated canonical geometry, endpoint evidence and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Washington now has nine scored public starter routes across Yakima Canyon and Snoqualmie Valley. Keep routes validated-not-deployed pending current BLM access, telemetry, weather, wood and Roza diversion checks."
+    },
+    {
+      "id": "nm-20260911002112",
+      "state": "New Mexico",
+      "stateCode": "NM",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:21:12.982Z",
+      "leaseExpiresAt": "2026-09-11T03:21:12.982Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:21:27.176Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "BLM Rio Grande del Norte",
+          "method": "Existing access and permit review",
+          "result": "Existing Taos Junction, Quartzite, Lone Juniper and County Line public endpoint combinations cover the verified corridor."
+        },
+        {
+          "family": "New Mexico tourism and river guides",
+          "method": "Rio Grande/Rio Chama corridor discovery",
+          "result": "Rio Chama and Albuquerque bosque remain leads, but no new endpoint pair with the existing qualified threshold evidence was verified."
+        },
+        {
+          "family": "American Whitewater / local outfitters",
+          "method": "Reach difficulty and access review",
+          "result": "Technical or permit-dependent sections were excluded from general starter cards pending stronger access and safety documentation."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct gauge and telemetry review",
+          "result": "Existing Rio Grande station remains the only qualified same-gauge numeric source for the six current routes; no defensible transfer was identified."
+        },
+        {
+          "family": "BLM and land-manager access review",
+          "method": "Private, permit and seasonal-boundary screen",
+          "result": "Potential Rio Chama and bosque additions retain permit, seasonal or urban-access gaps and were not promoted to scored routes."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first overlap review",
+          "result": "New Mexico already has six scored public starter routes; no additional high-quality nonduplicate route met the direct-gauge, access and safety bar."
+        }
+      ],
+      "factsChanged": [
+        "No route added; retained New Mexico at six scored public starter routes.",
+        "Confirmed that further Rio Chama or Albuquerque additions require independent direct-gauge thresholds and verified public access."
+      ],
+      "blocker": "No additional New Mexico route currently satisfies distinct public endpoint access and qualified same-gauge numeric threshold evidence beyond the six existing Rio Grande routes.",
+      "retryCondition": "Retry when BLM, New Mexico agencies or a responsible local source verifies a new public endpoint pair and reach-specific telemetry threshold.",
+      "notes": "Rotate to the next state; retain permit, seasonal, technical, private-bank and urban-access controls."
+    },
+    {
+      "id": "ca-20260911002148",
+      "state": "California",
+      "stateCode": "CA",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:21:48.920Z",
+      "leaseExpiresAt": "2026-09-11T03:21:48.920Z",
+      "status": "completed",
+      "candidateIds": [
+        "ca-american-river-sailor-bar-watt"
+      ],
+      "completedAt": "2026-09-11T00:26:42.891Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "California State Parks / Sacramento County",
+          "method": "Lower American public access chain review",
+          "result": "Confirmed Sailor Bar / Illinois, Harrington and Watt Avenue as the public Parkway access sequence for a full scored run."
+        },
+        {
+          "family": "California Division of Boating and Waterways",
+          "method": "Safety and dam-boundary review",
+          "result": "Retained cold-water, current, seasonal restriction and 150-foot Nimbus exclusion controls."
+        },
+        {
+          "family": "Wilderness Portal",
+          "method": "Lower American flow-band review",
+          "result": "Reused the reach-specific 1,400–3,100 cfs comfortable planning band and 5,000 cfs maximum reference tied to Fair Oaks."
+        },
+        {
+          "family": "USGS",
+          "method": "11446500 station review",
+          "result": "Confirmed direct Fair Oaks discharge telemetry for the Lower American Parkway corridor."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route-scoped geometry and endpoint audit",
+          "result": "Sailor Bar and Watt endpoints are on mapped water; one flowline-distance review and no suspicious or failure findings."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first nonduplication review",
+          "result": "Added the complete Sailor Bar-to-Watt run as a distinct fourth Lower American scored itinerary, retaining Harrington as bailout context."
+        }
+      ],
+      "factsChanged": [
+        "Added scored American River Sailor Bar / Illinois to Watt Avenue BTAF route.",
+        "Updated California American evidence, canonical geometry, state manifest, root manifest and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "California now has ten scored public starter routes across Lower American, South Fork American and Russian corridors. Keep validated-not-deployed pending current Parkway access, telemetry, weather and Nimbus-boundary checks."
+    },
+    {
+      "id": "ct-20260911002848",
+      "state": "Connecticut",
+      "stateCode": "CT",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:28:48.217Z",
+      "leaseExpiresAt": "2026-09-11T03:28:48.217Z",
+      "status": "completed",
+      "candidateIds": [
+        "ct-quinebaug-river-simonzi-route-101"
+      ],
+      "completedAt": "2026-09-11T00:31:30.928Z",
+      "outcome": "implemented",
+      "sourceAttempts": [
+        {
+          "family": "The Last Green Valley / Connecticut Trail Finder",
+          "method": "Quinebaug access-chain and mileage review",
+          "result": "Confirmed the Simonzi, Cotton Bridge and Route 101 public access sequence and 5.9-mile full-run context."
+        },
+        {
+          "family": "Connecticut DEEP",
+          "method": "Launch and dam-boundary review",
+          "result": "Retained named public endpoint, parking and seasonal-notice checks and excluded Rogers Dam below Route 101."
+        },
+        {
+          "family": "USGS",
+          "method": "01125500 direct telemetry review",
+          "result": "Confirmed the Putnam gauge is the direct same-reach discharge source."
+        },
+        {
+          "family": "USGS NHD",
+          "method": "Route geometry and endpoint audit",
+          "result": "Both endpoints are on mapped water; one informational review and no suspicious or failure finding."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first nonduplication review",
+          "result": "Added the complete Simonzi-to-Route 101 itinerary as a distinct scored route while retaining the two shorter access-chain cards."
+        },
+        {
+          "family": "Safety review",
+          "method": "Current, strainer and Rogers Dam screen",
+          "result": "Kept quick-water, bridge turbulence, narrow landing, cold-water and downstream dam controls in the route package."
+        }
+      ],
+      "factsChanged": [
+        "Added scored Quinebaug River Simonzi Park to Route 101 full run.",
+        "Updated Connecticut Quinebaug evidence, canonical geometry, state/root manifests and campaign state."
+      ],
+      "blocker": null,
+      "retryCondition": null,
+      "notes": "Connecticut now has ten starter routes, seven scored. Keep validated-not-deployed pending current access, gauge trend, weather, strainers and Rogers Dam checks."
+    },
+    {
+      "id": "ri-20260911003247",
+      "state": "Rhode Island",
+      "stateCode": "RI",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:32:47.744Z",
+      "leaseExpiresAt": "2026-09-11T03:32:47.744Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:33:42.217Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Rhode Island DEM / Pawtuxet watershed",
+          "method": "Public endpoint and corridor screen",
+          "result": "No additional Pawtuxet endpoint pair with a distinct direct-gauge recreational threshold and clean dam/tidal boundary was verified."
+        },
+        {
+          "family": "ExploreRI / Wood-Pawcatuck",
+          "method": "Access-chain saturation review",
+          "result": "Existing nine routes cover the verified Wood, Pawcatuck and Blackstone public access combinations; remaining alternates are near duplicates or tidal/urban transitions."
+        },
+        {
+          "family": "RiverScout",
+          "method": "Reach-specific threshold review",
+          "result": "Existing 01118500 and 01112500 bands are documented for current route families; no defensible transfer to a new corridor was found."
+        },
+        {
+          "family": "Rhode Island DEM",
+          "method": "Launch and dam review",
+          "result": "Potential Pawtuxet or alternate Blackstone additions retain endpoint, dam, portage or access-status gaps."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct telemetry review",
+          "result": "No new state route qualified for a reach-specific numeric band beyond the existing direct-gauge packages."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first saturation decision",
+          "result": "Kept Rhode Island at nine scored starter routes rather than force a tenth near-duplicate or unsupported corridor."
+        }
+      ],
+      "factsChanged": [
+        "No Rhode Island route added; retained nine scored public starter routes.",
+        "Recorded Pawtuxet and alternate-access blockers in starter evidence and campaign qualification."
+      ],
+      "blocker": "No distinct Rhode Island route currently satisfies documented public endpoints, direct-gauge threshold evidence and clean dam/tidal boundaries beyond the nine existing routes.",
+      "retryCondition": "Retry when Rhode Island DEM, a watershed manager or a responsible local source verifies a new public endpoint pair and reach-specific direct telemetry threshold.",
+      "notes": "Rotate to the next state; keep all nine routes validated-not-deployed pending current launch, portage, water-quality, tide and gauge checks."
+    },
+    {
+      "id": "fl-20260911003357",
+      "state": "Florida",
+      "stateCode": "FL",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:33:57.550Z",
+      "leaseExpiresAt": "2026-09-11T03:33:57.550Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:34:57.440Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Florida DEP / Florida State Parks",
+          "method": "Wekiva, Blackwater and Hillsborough corridor recheck",
+          "result": "Wekiva and Santa Fe/Peace lack verified transferable numeric thresholds; Blackwater retains a downstream blockage/take-out gap; Hillsborough Sargeant-to-Trout Creek remains manager-closed."
+        },
+        {
+          "family": "Florida DEP",
+          "method": "Direct-gauge and minimum-flow evidence review",
+          "result": "Official numeric evidence supports the existing Ichetucknee package only; no new reach-specific scoring band was established."
+        },
+        {
+          "family": "USGS",
+          "method": "Telemetry review",
+          "result": "Candidate gauges have live observations, but no defensible recreation threshold was found for a new route."
+        },
+        {
+          "family": "Florida State Parks / county managers",
+          "method": "Access and safety review",
+          "result": "Potential additions retain closure, blockage, capacity, seasonal or endpoint-consequence gaps."
+        },
+        {
+          "family": "Route quality screen",
+          "method": "Scored-first saturation decision",
+          "result": "Kept Florida at nine starter routes, six scored, rather than publish an unsupported or unsafe tenth route."
+        },
+        {
+          "family": "Campaign review",
+          "method": "State ceiling check",
+          "result": "Santa Fe and Peace remain planning-only until direct threshold evidence improves; existing Ichetucknee and Suwannee scored routes remain validated-not-deployed."
+        }
+      ],
+      "factsChanged": [
+        "No Florida route added; retained nine public starter routes and six scored routes.",
+        "Recorded Wekiva, Blackwater, Hillsborough and Santa Fe/Peace retry conditions in starter evidence and campaign state."
+      ],
+      "blocker": "No additional Florida route currently satisfies reach-specific numeric threshold evidence and resolved public-access/safety gates beyond the six scored routes.",
+      "retryCondition": "Retry when official or responsible local sources publish a reach-specific threshold and resolve the candidate's access, blockage, closure or capacity issue.",
+      "notes": "Rotate to the next state; keep current routes validated-not-deployed pending current park, gauge, weather, shuttle and downstream-boundary checks."
+    },
+    {
+      "id": "la-20260911003508",
+      "state": "Louisiana",
+      "stateCode": "LA",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:35:08.213Z",
+      "leaseExpiresAt": "2026-09-11T03:35:08.213Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:35:45.523Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Louisiana State Parks / Louisiana DEQ",
+          "method": "Managed corridor discovery",
+          "result": "No new non-tidal public endpoint pair with same-gauge scored threshold evidence cleared beyond the Bogue Chitto package."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct-gauge review",
+          "result": "Existing 02492000 evidence remains specific to Bogue Chitto; no defensible transfer was found for other Louisiana rivers."
+        },
+        {
+          "family": "Louisiana State Parks",
+          "method": "Atchafalaya, Bayou Teche, Tangipahoa and Tickfaw access screen",
+          "result": "Potential managed trails retain threshold, endpoint, tidal or logistics gaps."
+        },
+        {
+          "family": "Scored-first route screen",
+          "method": "Bogue Chitto combination saturation",
+          "result": "The six current routes exhaust the documented four-anchor combinations; further variants would be near duplicates."
+        },
+        {
+          "family": "Safety review",
+          "method": "Dam, flood and tidal boundary screen",
+          "result": "No new candidate cleared the non-tidal public-access and hazard bar."
+        },
+        {
+          "family": "Campaign review",
+          "method": "State ceiling check",
+          "result": "Kept Louisiana at six scored starter routes and recorded retry conditions for future managed-corridor research."
+        }
+      ],
+      "factsChanged": [
+        "No Louisiana route added; retained six scored Bogue Chitto routes.",
+        "Recorded retry conditions for managed Atchafalaya, Bayou Teche, Tangipahoa and Tickfaw leads."
+      ],
+      "blocker": "No additional Louisiana route currently satisfies distinct public endpoints, direct reach-specific threshold evidence and a non-tidal safety package.",
+      "retryCondition": "Retry when a state manager or responsible local source documents a new public endpoint pair and direct telemetry threshold.",
+      "notes": "Rotate to the next state; keep current routes validated-not-deployed pending gauge, water-quality, access and flood checks."
+    },
+    {
+      "id": "nv-20260911003555",
+      "state": "Nevada",
+      "stateCode": "NV",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:35:55.615Z",
+      "leaseExpiresAt": "2026-09-11T03:35:55.615Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:36:29.971Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "NPS / BLM / Nevada managers",
+          "method": "Black Canyon and Colorado access saturation review",
+          "result": "Existing six routes exhaust the documented four-anchor combinations; additional variants retain dam, permit or access uncertainty."
+        },
+        {
+          "family": "City of Reno / TMWA / Nevada Trail Finder",
+          "method": "Additional Truckee corridor review",
+          "result": "Existing three scored routes cover the Mayberry, Wingfield and Cottonwood access chain; further combinations are near duplicates or introduce urban endpoint uncertainty."
+        },
+        {
+          "family": "USGS",
+          "method": "10348000 and 09421500 direct-gauge review",
+          "result": "Existing direct telemetry remains specific to the selected Truckee and Black Canyon reaches; no defensible threshold transfer to Carson or another basin was found."
+        },
+        {
+          "family": "American Whitewater",
+          "method": "Reach difficulty and hazard review",
+          "result": "Potential Carson and alternate Truckee sections retain technical, diversion, closure or access gaps."
+        },
+        {
+          "family": "Scored-first route screen",
+          "method": "State ceiling decision",
+          "result": "Kept Nevada at nine scored starter routes rather than force a duplicate or unsupported tenth."
+        },
+        {
+          "family": "Campaign review",
+          "method": "Retry-condition capture",
+          "result": "Recorded Carson and additional Truckee retry conditions for future direct-gauge research."
+        }
+      ],
+      "factsChanged": [
+        "No Nevada route added; retained nine scored public starter routes.",
+        "Recorded Carson and alternate Truckee retry conditions in the campaign state."
+      ],
+      "blocker": "No additional Nevada route currently satisfies distinct public endpoints, direct-gauge threshold evidence and resolved dam/diversion/access hazards beyond the nine existing routes.",
+      "retryCondition": "Retry when a responsible manager or source verifies a distinct endpoint pair and reach-specific direct telemetry threshold.",
+      "notes": "Rotate to the next state; keep current routes validated-not-deployed pending current gauge, closure, diversion, weather and access checks."
+    },
+    {
+      "id": "ma-20260911003643",
+      "state": "Massachusetts",
+      "stateCode": "MA",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:36:43.145Z",
+      "leaseExpiresAt": "2026-09-11T03:36:43.145Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:37:12.811Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Massachusetts inland corridor discovery",
+          "method": "Charles, Concord, Sudbury, Connecticut and Ipswich screen",
+          "result": "No new endpoint pair with distinct direct-gauge threshold and resolved dam/tidal access evidence cleared."
+        },
+        {
+          "family": "Massachusetts state access directory",
+          "method": "Public launch and seasonal-access review",
+          "result": "Remaining candidate corridors retain seasonal, tidal, dam or endpoint gaps."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct telemetry review",
+          "result": "Existing 01168500 Deerfield evidence remains reach-specific; no defensible transfer was found."
+        },
+        {
+          "family": "American Whitewater / local guides",
+          "method": "Difficulty and hazard review",
+          "result": "Potential new corridors retain technical or access uncertainty."
+        },
+        {
+          "family": "Scored-first route screen",
+          "method": "Deerfield combination saturation",
+          "result": "The six current routes exhaust the documented four-anchor combinations; further variants would be near duplicates."
+        },
+        {
+          "family": "Campaign review",
+          "method": "State ceiling check",
+          "result": "Kept Massachusetts at six scored starter routes and recorded retry conditions."
+        }
+      ],
+      "factsChanged": [
+        "No Massachusetts route added; retained six scored Deerfield routes.",
+        "Recorded retry conditions for additional inland corridors."
+      ],
+      "blocker": "No additional Massachusetts route currently satisfies distinct public endpoints, direct reach-specific threshold evidence and resolved dam/tidal access beyond the six existing routes.",
+      "retryCondition": "Retry when a responsible state, municipal or river source documents a new public endpoint pair and direct telemetry threshold.",
+      "notes": "Rotate to the next state; keep current routes validated-not-deployed pending current release, weather, access and hazard checks."
+    },
+    {
+      "id": "ms-20260911003729",
+      "state": "Mississippi",
+      "stateCode": "MS",
+      "mode": "research",
+      "claimedAt": "2026-09-11T00:37:29.693Z",
+      "leaseExpiresAt": "2026-09-11T03:37:29.693Z",
+      "status": "completed",
+      "candidateIds": [],
+      "completedAt": "2026-09-11T00:37:50.163Z",
+      "outcome": "no_change",
+      "sourceAttempts": [
+        {
+          "family": "Mississippi corridor discovery",
+          "method": "Pascagoula, Pearl, Leaf and Black Creek screen",
+          "result": "No distinct endpoint pair with reach-specific direct threshold and clean hazard boundary cleared."
+        },
+        {
+          "family": "Mississippi access managers",
+          "method": "Public launch and flood/dam review",
+          "result": "Remaining leads retain endpoint, flood, dam or private-bank gaps."
+        },
+        {
+          "family": "USGS",
+          "method": "Direct telemetry review",
+          "result": "Existing 02479130 evidence remains reach-specific; no defensible transfer was found."
+        },
+        {
+          "family": "Scored-first route screen",
+          "method": "Black Creek combination saturation",
+          "result": "The six current routes exhaust the documented four-anchor combinations."
+        },
+        {
+          "family": "Safety review",
+          "method": "Flood, dam and private-bank screen",
+          "result": "No new candidate cleared the safety bar."
+        },
+        {
+          "family": "Campaign review",
+          "method": "State ceiling check",
+          "result": "Kept Mississippi at six scored starter routes and recorded retry conditions."
+        }
+      ],
+      "factsChanged": [
+        "No Mississippi route added; retained six scored Black Creek routes.",
+        "Recorded retry conditions for additional Mississippi corridors."
+      ],
+      "blocker": "No additional Mississippi route currently satisfies distinct public endpoints, direct reach-specific threshold evidence and resolved flood/dam/private-bank hazards.",
+      "retryCondition": "Retry when a responsible source verifies a new public endpoint pair and direct telemetry threshold.",
+      "notes": "Rotate to the next state; keep current routes validated-not-deployed pending current gauge, weather, flood and access checks."
     }
   ]
 }

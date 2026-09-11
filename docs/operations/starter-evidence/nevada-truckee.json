@@ -1,0 +1,19 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["truckee-river-mayberry-wingfield", "truckee-river-wingfield-cottonwood", "truckee-river-mayberry-cottonwood"],
+  "sourceAttempts": [
+    {"family": "American Whitewater", "method": "Mayberry Park to Cottonwood Park reach page", "result": "Documents the 10-mile Reno I–III reach, direct Reno gauge, spring-runoff character, city-park access and downstream features."},
+    {"family": "City of Reno", "method": "Truckee River Whitewater Park page", "result": "Confirms Wingfield’s managed 2,600-foot Class II–III course and mandatory helmet/flotation posture."},
+    {"family": "Truckee Meadows Water Authority", "method": "Truckee River recreation map", "result": "Identifies Mayberry, Wingfield/downtown and Cottonwood public access sequence and urban logistics."},
+    {"family": "Nevada Trail Finder", "method": "Mayberry-to-Cottonwood trail listing", "result": "Confirms the family-friendly Reno corridor and public park context."},
+    {"family": "USGS", "method": "10348000 station metadata and current observations", "result": "Confirms direct Truckee River discharge telemetry at Reno."},
+    {"family": "Access and hazard review", "method": "Diversion, whitewater, cold-water, closure and endpoint screen", "result": "Recorded engineered features, diversion structures, strainers, bridge debris, urban access constraints, cold water and closure checks; route endpoints use named park entries."}
+  ],
+  "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/4137/main", "https://reno.gov/parks-and-recreation/parks-facilities/whitewater-park.php", "https://tmwa.com/wp-content/uploads/docs/your_water/2007_truckee_river_rec_map.pdf", "https://www.nvtrailfinder.com/trails/trail/truckee-river-mayberry-park-to-idlewild-park", "https://waterdata.usgs.gov/monitoring-location/USGS-10348000/"],
+  "thresholdEvidence": {"station": "10348000", "metric": "discharge_cfs", "source": "https://www.americanwhitewater.org/content/River/view/river-detail/4137/main", "minimum": 250, "idealReference": 800, "idealMaximum": 1200, "maximum": 2000, "model": "two-sided", "strength": "community", "reachApplicability": "Conservative Reno-corridor planning band for the three access-bounded Truckee routes; verify direct gauge, feature scouting and city park conditions before launch."},
+  "endpointAudit": {"artifacts": ["tmp/truckee-river-mayberry-wingfield-audit.json", "tmp/truckee-river-wingfield-cottonwood-audit.json", "tmp/truckee-river-mayberry-cottonwood-audit.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 4, "review": 2, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All pins are sourced public park or river-entry anchors. The two reviews are informational waterbody-edge results at Mayberry; no suspicious or failure findings."},
+  "validation": ["Route-data typecheck passed.", "Focused Nevada Truckee route safety test passed.", "Canonical route-scoped geometries generated for all three Truckee routes.", "Coordinate audits returned 4 ok, 2 informational review, 0 suspicious or failure findings.", "Full route audit passed for 2284 inventory routes; 1227 scored and 1057 planning.", "Full route safety audit returned 0 issues across 1227 scored routes.", "Canonical geometry audit passed for 2170 of 2183 public-indexed route assets; 48 state assets and the 32 MiB route cap passed."],
+  "pending": ["Run endpoint audits with per-route reports, verify current Reno park access and whitewater-park notices, and keep all routes validated-not-deployed until release and cold-water checks are current."]
+}

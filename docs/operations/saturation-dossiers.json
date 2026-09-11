@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T01:01:17.933Z",
+  "generatedAt": "2026-09-11T01:00:37.508Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -12418,6 +12418,252 @@
           "summary": "high priority route_research task selected from the ready lane; WIP policy permits assignment."
         }
       ],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "ID",
+      "stateName": "Idaho",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "ID",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 163,
+        "scoredCount": 47,
+        "planningCount": 116,
+        "scoredCoveragePercent": 29
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "WV",
+      "stateName": "West Virginia",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "WV",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 59,
+        "scoredCount": 30,
+        "planningCount": 29,
+        "scoredCoveragePercent": 51
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "WY",
+      "stateName": "Wyoming",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "WY",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 23,
+        "scoredCount": 5,
+        "planningCount": 18,
+        "scoredCoveragePercent": 22
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "FL",
+      "stateName": "Florida",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "FL",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 9,
+        "scoredCount": 6,
+        "planningCount": 3,
+        "scoredCoveragePercent": 67
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "OR",
+      "stateName": "Oregon",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "OR",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 6,
+        "scoredCount": 0,
+        "planningCount": 6,
+        "scoredCoveragePercent": 0
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
+      "doneOnlyWhen": [
+        "provider-wide gauge inventory frozen and fully adjudicated",
+        "every route-capable gauge is covered or has an accepted blocker",
+        "existing route inventory quality audit passes",
+        "bounded fresh discovery sweep finds no actionable gauge or corridor family"
+      ]
+    },
+    {
+      "stateId": "SC",
+      "stateName": "South Carolina",
+      "gaugeInventoryId": "provider-baseline-202608272235",
+      "gaugeInventoryScope": "provider_baseline",
+      "gaugeCoverage": {
+        "stateId": "SC",
+        "inventoryId": "provider-baseline-202608272235",
+        "baselineComplete": false,
+        "knownGaugeCount": 0,
+        "eligibleGaugeCount": 0,
+        "reviewedGaugeCount": 0,
+        "unreviewedGaugeCount": 0,
+        "coveredGaugeCount": 0,
+        "blockedGaugeCount": 0,
+        "screenedOutGaugeCount": 0,
+        "staleGaugeCount": 0,
+        "routeCapableGaugeCount": 0,
+        "uncoveredRouteCapableGaugeCount": 0,
+        "unresolvedRouteCapableGaugeCount": 0,
+        "reviewCoveragePercent": 0,
+        "routeCoveragePercent": 0,
+        "routeFamilyCount": 0
+      },
+      "discoveryComplete": false,
+      "researchStatus": "gauge_baseline_pending",
+      "legacyRouteCoverage": {
+        "inventoryCount": 9,
+        "scoredCount": 9,
+        "planningCount": 0,
+        "scoredCoveragePercent": 100
+      },
+      "discoveryTasks": [],
+      "recentEvidenceRuns": [],
       "doneOnlyWhen": [
         "provider-wide gauge inventory frozen and fully adjudicated",
         "every route-capable gauge is covered or has an accepted blocker",

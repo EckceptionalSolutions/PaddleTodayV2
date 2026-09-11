@@ -1,0 +1,139 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "pawcatuck-river-bradford-westerly",
+    "wood-river-switch-bradford",
+    "pawcatuck-river-bradford-main-street",
+    "wood-river-switch-westerly",
+    "blackstone-river-rivers-edge-manville",
+    "blackstone-river-sycamore-albion",
+    "blackstone-river-rivers-edge-sycamore",
+    "blackstone-river-manville-albion",
+    "blackstone-river-rivers-edge-albion"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "RiverScout",
+      "method": "Pawcatuck flow and reach page",
+      "result": "Publishes a Class I–II 200–600 cfs planning window tied to USGS 01118500 and describes the Wood-Pawcatuck Wild and Scenic corridor."
+    },
+    {
+      "family": "ExploreRI",
+      "method": "Wood-Pawcatuck Blueways access reports",
+      "result": "Documents Bradford Landing, Switch Road Wood River Access and Westerly Municipal Boat Ramp coordinates and public-access characteristics."
+    },
+    {
+      "family": "Rhode Island DEM",
+      "method": "Current public boat launching sites directory",
+      "result": "Confirms Wood River and Bradford Landing are state-operated public access sites and identifies the Westerly-area access context."
+    },
+    {
+      "family": "Wood-Pawcatuck Wild and Scenic Rivers",
+      "method": "Water-trail story map",
+      "result": "Confirms the watershed's connected canoe and kayak trail system and warns about access, confluence, dams and changing river conditions."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline and waterbody endpoint audit",
+      "result": "Canonical geometries were generated with route-scoped Wood/Pawcatuck aliases. Six endpoints returned three OK and three review results, with no suspicious, failure or unknown results."
+    },
+    {
+      "family": "Second-batch Wood–Pawcatuck extension",
+      "method": "Switch Road to Westerly municipal reach",
+      "result": "Added a longer nonredundant scored itinerary by joining two already audited public endpoints. Reused direct USGS 01118500 and RiverScout 200–600 cfs band; retained confluence, portage, strainer and tidal cautions."
+    },
+    {
+      "family": "Blackstone River Watershed Council / RiverScout",
+      "method": "Rivers Edge–Manville and Sycamore–Albion access and flow review",
+      "result": "RiverScout publishes a 200–1,200 cfs Class I–II window tied to direct USGS 01112500. The Watershed Council documents public launches and dam boundaries; both routes stop at managed above-dam take-outs and retain explicit portage and water-quality cautions."
+    },
+    {
+      "family": "Blackstone River Watershed Council / RiverScout",
+      "method": "Second Blackstone access-chain extension",
+      "result": "Added three nonredundant Rivers Edge�Sycamore, Manville�Albion and Rivers Edge�Albion combinations using documented public launches, above-dam boundaries and the direct 01112500 200�1,200 cfs planning window."
+    },
+    {
+      "family": "Rhode Island DEM / Pawtuxet watershed",
+      "method": "Pawtuxet corridor discovery and public-access screen",
+      "result": "Reviewed statewide launch listings and corridor leads; no additional Pawtuxet endpoint pair with a distinct direct-gauge recreational threshold and clean dam/tidal boundary was verified."
+    },
+    {
+      "family": "Route quality screen",
+      "method": "Scored-first saturation review",
+      "result": "Existing nine routes already cover the verified Wood, Pawcatuck and Blackstone access chains. Pawtuxet and alternate tidal/urban combinations remain research leads rather than publishable scored routes."
+    }
+  ],
+  "sources": [
+    "https://riverscout.app/rivers/rhode-island/pawcatuck-river",
+    "https://exploreri.org/siteReport.php?siteID=153&src=criteria",
+    "https://exploreri.org/siteReport.php?siteID=249&src=criteria",
+    "https://exploreri.org/siteReport.php?siteID=204&src=criteria",
+    "https://dem.ri.gov/natural-resources-bureau/fish-wildlife/freshwater-fishing/public-boat-launching-sites",
+    "https://storymaps.arcgis.com/stories/743b5add243a461e97093727bf6d6c5f",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01118500/",
+    "https://blackstoneriver.org/resources/river-access/",
+    "https://riverscout.app/rivers/rhode-island/blackstone-river"
+  ],
+  "thresholdEvidence": {
+    "station": "01118500",
+    "metric": "discharge_cfs",
+    "source": "https://riverscout.app/rivers/rhode-island/pawcatuck-river",
+    "minimum": 100,
+    "idealReference": 200,
+    "idealMaximum": 600,
+    "maximum": 1200,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Wood-Pawcatuck freshwater corridor. RiverScout's 200–600 cfs band is a planning cue; verify live gauge trend, rain, dams, strainers and tide influence before travel."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/ri-pawcatuck-bradford-westerly-audit.json",
+      "tmp/ri-wood-switch-bradford-audit.json",
+      "tmp/ri-pawcatuck-bradford-main-audit.json",
+      "tmp/ri-wood-switch-westerly-audit.json",
+      "tmp/ri-blackstone-rivers-edge-manville-audit.json",
+      "tmp/ri-blackstone-sycamore-albion-audit.json",
+      "tmp/blackstone-river-rivers-edge-sycamore-audit.json",
+      "tmp/blackstone-river-manville-albion-audit.json",
+      "tmp/blackstone-river-rivers-edge-albion-audit.json"
+    ],
+    "routeCount": 9,
+    "endpointCount": 18,
+    "bySeverity": {
+      "ok": 6,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "Review endpoints are named public launch or above-dam anchors on mapped Blackstone, Wood or Pawcatuck waterbodies; flowline distance is informational for bank and ramp access."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Rhode Island Wood-Pawcatuck route safety test passed.",
+    "Canonical geometries generated and all six endpoint audits returned OK or review with no suspicious, failure or unknown results.",
+    "Production build passed with 2,503 pages; canonical geometry audit passed for 2,097 of 2,110 routes with 46 state assets.",
+    "Full route safety audit returned 0 issues across 1,156 routes.",
+    "Second batch adds Switch Road Wood River to Westerly Municipal, bringing Rhode Island to four scored routes on the direct 01118500 gauge.",
+    "Production build passed after second batch; 2557 static pages generated with route/runtime/workspace/mobile typechecks, route-data and geometry audits.",
+    "Canonical geometry audit now passes for 2143/2156 public-indexed routes with 48 state bundles; the new Switch Road–Westerly trace is matched and endpoint-bounded.",
+    "Full route safety audit returned 0 issues across 1200 scored routes.",
+    "Second batch adds two scored Blackstone routes, bringing Rhode Island to six scored direct-gauge routes.",
+    "Production build passed after the Blackstone extension; 2,560 static pages generated.",
+    "Canonical geometry audit passed for 2,145 of 2,158 public-indexed routes with 48 state bundles.",
+    "Full route safety audit returned 0 issues across 1,202 scored routes.",
+    "Second Blackstone extension focused route safety test passed.",
+    "Three additional route-scoped geometries generated and endpoint audits returned six ok and six informational review results with no suspicious or failure findings.",
+    "Full route audit passed for 2290 inventory routes; 1233 scored and 1057 planning.",
+    "Full route safety audit returned 0 issues across 1233 scored routes.",
+    "Canonical geometry audit passed for 2176 of 2189 public-indexed route assets; 48 state assets and the 32 MiB route cap passed.",
+    "Bounded Rhode Island saturation pass completed; no route added because no distinct scored Pawtuxet or nonduplicate Wood-Pawcatuck route met the direct-gauge, public-access and hazard bar."
+  ],
+  "pending": [
+    "Recheck DEM and Watershed Council parking, launch status, dam and fish-weir portages, water-quality notices, live 01118500/01112500 trends and downstream tide before deployment.",
+    "Retry Pawtuxet only after a manager-backed endpoint pair and reach-specific direct telemetry threshold are documented."
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "reviewedAt": "2026-09-09",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "lynches-river-indigo-wicklow"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "SCDNR",
+      "method": "Search and PDF download/local extraction",
+      "result": "Guide printed page 6 explicitly gives 2–9 ft on Effingham 02132000, separate from historic extrema. Access table gives Indigo RM39 to US 378 RM34. Web PDF line retrieval failed intermittently; direct PDF and local extraction succeeded."
+    },
+    {
+      "family": "SCDNR",
+      "method": "Current scenic-river access directory",
+      "result": "Confirmed Indigo and landing above US 378 by named roads; backwater and complex lower confluence are outside selected reach."
+    },
+    {
+      "family": "Florence County",
+      "method": "Current park home and rental pages",
+      "result": "County Park–Hwy52 candidate held: current rental range 3 to below 6.5 ft does not explicitly identify reference gauge. Do not assume those cutoffs belong to Effingham without corroboration. Current site gives 9AM–sunset and rental/shuttle rules."
+    },
+    {
+      "family": "SCDNR public access GIS",
+      "method": "Followed current official Maps page to ArcGIS app, then queried public view",
+      "result": "1030 records returned without transfer truncation. Indigo object938 and Wicklow431 both Active/Open. Hwy52/Jeffords also screened but their guide mileage needs reconciliation; not selected."
+    },
+    {
+      "family": "USGS",
+      "method": "Instantaneous values API, metric 00065",
+      "result": "Effingham returned gage height 1.47 ft at 2026-09-09T09:00:00-05:00. Do not substitute separate NAVD1988 elevation metric. This observed low reading is below the published travel floor."
+    },
+    {
+      "family": "Esri imagery / USGS NHD",
+      "method": "Georeferenced endpoint imagery exports and route network tracing",
+      "result": "Reviewed named access locations. Wicklow shifted from official inventory pin to visible ramp edge. Indigo official bank point retained under canopy, within20ft of mapped water area. NHD network is continuous5.09mi with max endpoint snap 98 ft, matching official5mi. Reviewed route overlay; no crossing US 378."
+    }
+  ],
+  "sources": [
+    "https://www.dnr.sc.gov/assets/maps/LynchesRiverGuideLowRes.pdf",
+    "https://www.dnr.sc.gov/water/river/scenic/lynches.html",
+    "https://experience.arcgis.com/experience/2352618096134f5ca6d1acc363f2592f",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02132000/"
+  ],
+  "thresholdEvidence": {
+    "station": "02132000",
+    "metric": "00065 gage height feet",
+    "source": "https://www.dnr.sc.gov/assets/maps/LynchesRiverGuideLowRes.pdf",
+    "printedPage": 6,
+    "minimum": 2,
+    "maximum": 9,
+    "model": "two-sided with collapsed shoulders; published travel range, not independently established optimum",
+    "reachApplicability": "Guide provides river-wide Effingham reference; selected RM39–34 is upstream of the confluence backwater problem. Direct upstream same-river gauge does not establish local depth or obstruction clearance."
+  },
+  "launchInventory": [
+    {
+      "attributes": {
+        "OBJECTID": 431,
+        "GlobalID": "503debae-d75b-4cad-aefa-55ee5f16717d",
+        "PropertyID": null,
+        "RelatedPropertyID": null,
+        "SpeciesID": "SPRS041",
+        "WaterAccessID": "BR213",
+        "WaterAccessType": "Boat Ramp",
+        "WaterAccessSubType": "Unimproved",
+        "WaterAccessName": "Wicklow Landing",
+        "WaterAccessMaterial": "Dirt",
+        "WaterAccessDescription": null,
+        "Waterbody": "Lynches River",
+        "WaterbodyType": "River",
+        "WaterType": "Freshwater",
+        "TroutWater": "No",
+        "Parking": "Limited parking.",
+        "ParkingSurface": "Dirt",
+        "LaunchLanes": 1,
+        "CourtesyDock": "No",
+        "FishingPier": "No",
+        "PicnicArea": "None",
+        "Camping": "No",
+        "Accessible": "No",
+        "AccessibleDescription": null,
+        "Restrooms": "No",
+        "Owner": null,
+        "Maintenance": null,
+        "GameZone": "4",
+        "SCDNR_Region": "2",
+        "County": "Florence",
+        "Address": null,
+        "Directions": null,
+        "Latitude": 33.92116075,
+        "Longitude": -79.65682315,
+        "Status": "Active",
+        "PublicAccess": "Open",
+        "Comments": null,
+        "SpeciesList": "Largemouth Bass, Redbreast Sunfish, Bluegill, Redear Sunfish, Spotted Sunfish, Warmouth, Blue Catfish, Flathead Catfish, American Shad",
+        "SpeciesCodes": "LMB, RBS, BLG, RES, SOS, WAR, BCF, FCF, AMS",
+        "StateLake": null,
+        "TroutID": null
+      },
+      "geometry": {
+        "x": -79.65682315298379,
+        "y": 33.92116075327168
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 938,
+        "GlobalID": "d427f872-af0d-4881-9e03-e2fc0e00cba7",
+        "PropertyID": null,
+        "RelatedPropertyID": null,
+        "SpeciesID": "SPRS041",
+        "WaterAccessID": "PL105",
+        "WaterAccessType": "Paddle Launch",
+        "WaterAccessSubType": "Ramp",
+        "WaterAccessName": "Indigo Landing",
+        "WaterAccessMaterial": null,
+        "WaterAccessDescription": null,
+        "Waterbody": "Lynches River",
+        "WaterbodyType": "River",
+        "WaterType": "Freshwater",
+        "TroutWater": "No",
+        "Parking": null,
+        "ParkingSurface": null,
+        "LaunchLanes": null,
+        "CourtesyDock": null,
+        "FishingPier": null,
+        "PicnicArea": null,
+        "Camping": "No",
+        "Accessible": null,
+        "AccessibleDescription": null,
+        "Restrooms": null,
+        "Owner": null,
+        "Maintenance": null,
+        "GameZone": "4",
+        "SCDNR_Region": "2",
+        "County": "Florence",
+        "Address": null,
+        "Directions": null,
+        "Latitude": 33.95374434,
+        "Longitude": -79.67905224,
+        "Status": "Active",
+        "PublicAccess": "Open",
+        "Comments": null,
+        "SpeciesList": "Largemouth Bass, Redbreast Sunfish, Bluegill, Redear Sunfish, Spotted Sunfish, Warmouth, Blue Catfish, Flathead Catfish, American Shad",
+        "SpeciesCodes": "LMB, RBS, BLG, RES, SOS, WAR, BCF, FCF, AMS",
+        "StateLake": null,
+        "TroutID": null
+      },
+      "geometry": {
+        "x": -79.67905223508224,
+        "y": 33.95374433623395
+      }
+    }
+  ],
+  "coordinateMethod": {
+    "source": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+    "reviewedAt": "2026-09-09",
+    "acquisitionDate": "unknown",
+    "wicklow": {
+      "original": [
+        -79.656823153,
+        33.921160753
+      ],
+      "exportExtent": {
+        "xmin": -79.65782315300002,
+        "ymin": 33.920160753,
+        "xmax": -79.65582315300001,
+        "ymax": 33.92216075300001,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "imageSize": [
+        800,
+        800
+      ],
+      "selectedPixel": [
+        345,
+        426
+      ],
+      "stored": [
+        -79.65696065,
+        33.92109575
+      ]
+    },
+    "indigo": "Retained SCDNR bank access point; canopy limits visual water-entry precision. Official open status and NHD water-area proximity corroborate it."
+  },
+  "endpointAudit": {
+    "generatedAt": "2026-09-09T15:07:35.340Z",
+    "source": {
+      "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      }
+    },
+    "thresholdsFeet": {
+      "ok": 100,
+      "review": 300,
+      "suspicious": 800
+    },
+    "routeCount": 1,
+    "endpointCount": 2,
+    "bySeverity": {
+      "ok": 2,
+      "review": 0,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "endpoints": [
+      {
+        "routeId": "lynches-river-indigo-wicklow",
+        "routeName": "Lynches River",
+        "reach": "Indigo Landing to Wicklow Landing",
+        "state": "South Carolina",
+        "endpoint": "takeOut",
+        "endpointName": "Wicklow Landing above US 378",
+        "latitude": 33.92109575,
+        "longitude": -79.65696065,
+        "matchedRiverName": "Lynches River",
+        "distanceFeetToMatchedRiver": 98.2574920903693,
+        "nearestMatchedLatitude": 33.92111468422162,
+        "nearestMatchedLongitude": -79.65728442105168,
+        "nearestWaterwayName": "Lynches River",
+        "distanceFeetToNearestWaterway": 98.2574920903693,
+        "nearestWaterwayLatitude": 33.92111468422162,
+        "nearestWaterwayLongitude": -79.65728442105168,
+        "nearestWaterbodyName": null,
+        "distanceFeetToNearestWaterbody": 0,
+        "nearestWaterbodyLatitude": 33.92109575,
+        "nearestWaterbodyLongitude": -79.65696065,
+        "endpointOnWaterbody": true,
+        "matchedHydrographyMode": "named-flowline",
+        "coordinateEvidenceRole": null,
+        "coordinateEvidenceSourceUrl": null,
+        "coordinateEvidenceDetail": null,
+        "severity": "ok",
+        "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+      },
+      {
+        "routeId": "lynches-river-indigo-wicklow",
+        "routeName": "Lynches River",
+        "reach": "Indigo Landing to Wicklow Landing",
+        "state": "South Carolina",
+        "endpoint": "putIn",
+        "endpointName": "Indigo Landing",
+        "latitude": 33.95374434,
+        "longitude": -79.67905224,
+        "matchedRiverName": "Lynches River",
+        "distanceFeetToMatchedRiver": 53.64100923423709,
+        "nearestMatchedLatitude": 33.95378262791225,
+        "nearestMatchedLongitude": -79.67922338508721,
+        "nearestWaterwayName": "Lynches River",
+        "distanceFeetToNearestWaterway": 53.64100923423709,
+        "nearestWaterwayLatitude": 33.95378262791225,
+        "nearestWaterwayLongitude": -79.67922338508721,
+        "nearestWaterbodyName": null,
+        "distanceFeetToNearestWaterbody": 20.442793876083634,
+        "nearestWaterbodyLatitude": 33.95376645158769,
+        "nearestWaterbodyLongitude": -79.67911431281847,
+        "endpointOnWaterbody": true,
+        "matchedHydrographyMode": "named-flowline",
+        "coordinateEvidenceRole": null,
+        "coordinateEvidenceSourceUrl": null,
+        "coordinateEvidenceDetail": null,
+        "severity": "ok",
+        "note": "Endpoint is within 20 ft of NHD waterbody; flowline distance is informational."
+      }
+    ]
+  },
+  "validation": [
+    "Full build passed after the live-page logistics fix: 2441 pages, route/runtime/workspace/mobile checks, route-data and geometry audits.",
+    "20 targeted route, publication, safety, geometry and campaign/control-plane tests passed.",
+    "12 desktop/iPhone/Android checks passed across the final-build runs; three South Carolina tests were rerun successfully after an initial test run overlapped static page generation.",
+    "Real local API returned live gauge and weather, score 50 and Skip readiness below the 2 ft floor at 1.47 ft. Desktop and mobile pages rendered the live reading.",
+    "Live-page review caught an existing logistics display bug. The client now retains source-backed full-route mileage and duration; final browser assertions verify About 5 river miles and Allow 2–4 hours.",
+    "Both scoped endpoint audits are ok. Reviewed trace is 5.09 mi, continuous, oriented downstream, with maximum endpoint snap 98 ft and no extension beyond the US 378 landing.",
+    "Global scored safety audit: 1121 routes, zero issues. No overlap audit rows involve the new route.",
+    "Geometry audit: 2059/2072 matched, 34 state assets, 31.73 MiB states and 31.76 MiB routes within existing 32 MiB caps.",
+    "Existing withholding list preserved; the new route is present in the non-withheld scored catalog."
+  ],
+  "pending": [
+    "Deployment and production verification; recheck access notices and telemetry at release."
+  ],
+  "nextResearch": [
+    "Clarify County Park rental gauge reference before promoting it to qualified",
+    "Screen Black/Little Pee Dee/Edisto numeric guidance for another river system; no state exhaustion conclusion"
+  ],
+  "baselineLimitations": [
+    "102 pre-existing planning audit issues and 79 deferred checks remain outside this cohort.",
+    "13 pre-existing unmatched geometry routes remain.",
+    "Imagery acquisition dates are unknown; canopy limits Indigo precision. Open access status does not establish an unobstructed channel."
+  ]
+}

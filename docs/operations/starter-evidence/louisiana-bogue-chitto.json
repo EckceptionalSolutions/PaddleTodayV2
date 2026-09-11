@@ -1,0 +1,107 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "bogue-chitto-river-pearl-street-boat-ramp-road",
+    "bogue-chitto-river-boat-ramp-road-state-park",
+    "bogue-chitto-river-state-park-highway-21-sun",
+    "bogue-chitto-river-pearl-street-state-park",
+    "bogue-chitto-river-boat-ramp-road-highway-21-sun",
+    "bogue-chitto-river-pearl-street-highway-21-sun"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Louisiana State Parks",
+      "method": "Bogue Chitto State Park page",
+      "result": "Confirms canoeing/kayaking, canoe-launch use, park hours and camping context."
+    },
+    {
+      "family": "Louisiana DEQ",
+      "method": "Public-access advisory location PDF",
+      "result": "Publishes Pearl Street and Boat Ramp Road in Franklinton plus the Highway 21 launch near Sun with decimal coordinates."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 02492000 near Bush is the direct Bogue Chitto gauge for the selected Louisiana corridor."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline and waterbody endpoint audit",
+      "result": "All six refined endpoints are on mapped Bogue Chitto water; the access anchors remain review-level because they are waterbody-edge launch points."
+    },
+    {
+      "family": "RiverScout",
+      "method": "Flow-band reconciliation",
+      "result": "Rejected direct transfer of the 300–2,000 cfs band because the page cites 07375085, which USGS identifies as Bogue Falaya rather than Bogue Chitto."
+    },
+    {
+      "family": "RiverDates",
+      "method": "Same-gauge historical flow context",
+      "result": "Reads USGS 02492000 for the Franklinton through State Park to Bush corridor and reports a roughly 650–3,400 cfs middle-half context. Used as a community scoring band, with explicit no-safety-guarantee language."
+    },
+    {
+      "family": "Louisiana State Parks / Louisiana DEQ",
+      "method": "Ouachita, Tangipahoa, Tickfaw, Bayou Teche and Atchafalaya discovery",
+      "result": "Reviewed managed-trail leads and public-access entry points; no new non-tidal endpoint pair with same-gauge scored threshold evidence cleared the Bogue Chitto package."
+    },
+    {
+      "family": "Scored-first saturation screen",
+      "method": "Bogue Chitto access-combination review",
+      "result": "The six routes exhaust the documented four-anchor Bogue Chitto combinations. Additional variants would be near duplicates or require unsupported threshold transfer."
+    }
+  ],
+  "sources": [
+    "https://www.lastateparks.com/parks-preserves/bogue-chitto-state-park",
+    "https://www.deq.louisiana.gov/assets/docs/Water/Fish_Swim_Advisories/Statewide_Advisory_Sign_Status_9-17-18.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02492000/",
+    "https://riverscout.app/rivers/louisiana/bogue-chitto-river"
+  ],
+  "thresholdEvidence": {
+    "station": "02492000",
+    "metric": "discharge_cfs",
+    "source": "https://riverdates.com/river/louisiana/bogue-chitto-river-franklinton/",
+    "minimum": 650,
+    "idealReference": 1000,
+    "idealMaximum": 3400,
+    "maximum": 10000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "RiverDates reads the same USGS 02492000 gauge and describes the Franklinton through Bogue Chitto State Park to Bush corridor; the band is a historical conditions context, not a safety guarantee."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/la-bogue-chitto-river-pearl-street-boat-ramp-road-audit.json",
+      "tmp/la-bogue-chitto-river-boat-ramp-road-state-park-audit.json",
+      "tmp/la-bogue-chitto-river-state-park-highway-21-sun-audit.json",
+      "tmp/la-bogue-chitto-river-pearl-street-state-park-audit.json",
+      "tmp/la-bogue-chitto-river-boat-ramp-road-highway-21-sun-audit.json",
+      "tmp/la-bogue-chitto-river-pearl-street-highway-21-sun-audit.json"
+    ],
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 0,
+      "review": 12,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All endpoints are on mapped waterbody edges; the state-park launch point and DEQ launch anchors remain map-level access points requiring field confirmation."
+  },
+  "validation": [
+    "Route-data typecheck and focused Bogue Chitto test passed.",
+    "Canonical geometries generated for 2,121 matched routes and 48 state assets.",
+    "All twelve endpoint audits completed with review-only map-edge findings and no suspicious or failure findings.",
+    "Full route safety audit returned 0 issues across 1,181 scored routes.",
+    "Route data audit passed for 2,235 routes; 1,181 scored and 1,054 planning, with 102 planning issues and 79 deferred checks tracked.",
+    "Canonical geometry audit passed for 2,121 of 2,134 public-indexed route assets.",
+    "Production build passed with 2,535 pages.",
+    "Bounded Louisiana discovery pass completed with no new route; Bogue Chitto remains at six scored routes pending a distinct direct-gauge managed corridor."
+  ],
+  "pending": [
+    "Confirm current gauge trend, outfitter high-water closures, access hours, water-quality advisories and deployment timing before release.",
+    "Retry managed Atchafalaya, Bayou Teche, Tangipahoa or Tickfaw leads only after a direct reach-specific threshold and public non-tidal endpoint package is documented."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "missisquoi-river-lowell-lane-road",
+    "missisquoi-river-lowell-river-road",
+    "missisquoi-river-lane-river-road"
+  ],
+  "sourceAttempts": [
+    { "family": "Northern Forest Canoe Trail", "result": "NFCT documents the Rabion Farm–Lane Road half-day paddle, quickwater and a short Class II rapid, and instructs paddlers to look for the Troy gauge above 180 cfs." },
+    { "family": "UMATR and Vermont River Conservancy", "result": "UMATR publishes Lowell VT 100, Lane Road and River Road access coordinates; River Road is explicitly above a dam and is a mandatory take-out." },
+    { "family": "USGS", "result": "USGS 04293000 provides direct Missisquoi discharge and gage-height telemetry near North Troy." },
+    { "family": "USGS NHD / endpoint geometry", "result": "All three route-scoped traces follow the named Missisquoi channel and the coordinate audits returned two OK endpoints per route." }
+  ],
+  "thresholdEvidence": {
+    "station": "04293000",
+    "metric": "discharge_cfs",
+    "minimum": 180,
+    "model": "minimum-only",
+    "source": "https://shop.northernforestcanoetrail.org/product/6143FD7-COPY10-COPY/downloadable-map-missisquoi-river-rabion-farm-to-lane-road-westfield",
+    "reachApplicability": "NFCT's 180 cfs floor is tied to the Troy gauge for the upper Missisquoi paddle; the same conservative floor is used for these adjacent access combinations. Verify trend, wood, channel changes and the River Road dam boundary before travel."
+  },
+  "endpointAudit": {
+    "routeCount": 3,
+    "endpointCount": 6,
+    "bySeverity": { "ok": 6, "review": 0, "suspicious": 0, "failure": 0, "unknown": 0 },
+    "artifacts": [
+      "tmp/vt-missisquoi-lowell-lane-coordinate.json",
+      "tmp/vt-missisquoi-lowell-river-coordinate.json",
+      "tmp/vt-missisquoi-lane-river-coordinate.json"
+    ]
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Route-data audit passed for 2,265 routes; the three routes are scored and public-indexed.",
+    "Full scored safety audit returned 0 issues across 1,208 scored routes.",
+    "Canonical geometry audit passed for 2,151 of 2,164 public-indexed routes with 48 state assets; all three Missisquoi traces are present and endpoint-bounded.",
+    "Production build passed after the Vermont extension; 2,568 static pages generated with route/runtime/workspace/mobile checks, route-data and geometry audits.",
+    "The three Missisquoi routes were included in the public catalog and direct-gauge scored population."
+  ],
+  "pending": [
+    "Complete browser verification and recheck current NFCT/UMATR access notes, 04293000 trend, wood, changing channels and the River Road dam boundary before deployment."
+  ]
+}

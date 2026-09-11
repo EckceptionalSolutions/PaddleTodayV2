@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-09",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["north-fork-edisto-baughmans-orangeburg"],
+  "sourceAttempts": [
+    { "family": "SCDNR Edisto guide", "result": "The North Fork access table lists Baughman's Landing at river mile 37.9 and Orangeburg City Landing at 28.6, 9.2 miles apart. The North Fork index states best boating conditions are at least 3.5 feet at Orangeburg gauge 02173500." },
+    { "family": "USGS", "result": "Current 00065 gage-height telemetry is available from station 02173500. The 2026-09-09 reading was 3.49 ft, just below the published 3.5 ft floor; the route therefore correctly presents a skip/wait condition." },
+    { "family": "SCDNR Maps & Access", "result": "The current SCDNR access map was checked as the manager entry point. The guide's endpoint coordinates, road directions and boat-ramp descriptions remain the selected access evidence; recheck parking and status at release." },
+    { "family": "Esri imagery / USGS NHD", "result": "The route-scoped trace follows the named North Fork channel between the guide coordinates. Both endpoints passed the coordinate audit with no review or failure severity." }
+  ],
+  "thresholdEvidence": { "station": "02173500", "metric": "00065 gage height feet", "minimum": 3.5, "model": "minimum-only", "source": "https://www.dnr.sc.gov/water/river/pdf/edistoboatingguide.pdf", "reachApplicability": "SCDNR identifies the Orangeburg gauge for North Fork Edisto boating conditions; no upper threshold is inferred because the same guide warns that high water can make channels difficult and hazardous." },
+  "endpointAudit": "tmp/sc-edisto-coordinate.json",
+  "validation": ["Route-data typecheck passed.", "Scoped coordinate audit: 2 endpoints, both ok.", "Targeted scored-route safety and geometry tests passed.", "Live local API verified the direct gauge, minimum-only score behavior, and current below-floor reading."],
+  "pending": ["Full build/browser verification after the second scored route", "Deployment and production verification"],
+  "notes": "SCDNR guide coordinates are approximate map values, not a survey of ramp water-entry edges. This route remains within the North Fork and does not imply tidal or coastal conditions."
+}

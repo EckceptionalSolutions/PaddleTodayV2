@@ -1,0 +1,340 @@
+{
+  "reviewedAt": "2026-09-11",
+  "sourceAttempts": [
+    {
+      "family": "Florida DEP",
+      "method": "Current trail directory and PDF guide text/map inspection",
+      "result": "Located named launches, printed launch coordinates and route mileposts for Santa Fe and Peace; inspected map pages visually."
+    },
+    {
+      "family": "Florida DEP",
+      "method": "Minimum-flow chart review",
+      "result": "No verified transferable calibration for these exact gauge/reach combinations; planning only."
+    },
+    {
+      "family": "Columbia County",
+      "method": "Current Rum Island page and park rules",
+      "result": "Verified managed park, fees/hours, marked parking and swimming-area exclusion. General park camping prohibited."
+    },
+    {
+      "family": "Gilchrist County",
+      "method": "Santa Fe Park manager page",
+      "result": "Verified county park and separate commercial access controls."
+    },
+    {
+      "family": "DeSoto County",
+      "method": "Current Brownville and Veterans Memorial facilities pages",
+      "result": "Verified ramps, day access and Brownville campground; flagged conflicting Sunday hours for pre-trip confirmation."
+    },
+    {
+      "family": "USGS",
+      "method": "Instantaneous-values API, 24-hour series",
+      "result": "2026-09-09: 02321975 stage 31.13 ft at 08:45 -05:00; 02296750 discharge 742 cfs at 08:30 -05:00. Both have current discharge/stage observations; no numeric scoring threshold inferred."
+    },
+    {
+      "family": "FWC",
+      "method": "Current Santa Fe restriction table",
+      "result": "Current table did not list an active zone restriction for US 27 to SR 47; status is not a safety determination."
+    },
+    {
+      "family": "Hillsborough County",
+      "method": "Current Morris Bridge manager notice",
+      "result": "Sargeant-to-Trout Creek access closed until further notice. Candidate held, not published."
+    },
+    {
+      "family": "Florida State Parks",
+      "method": "Current Blackwater amenities and endpoint warning",
+      "result": "Major blockage/no access below Deaton requires additional take-out consequence review; omitted from first set."
+    },
+    {
+      "family": "Florida DEP / Florida State Parks",
+      "method": "Wekiva, Blackwater and Hillsborough scored-route recheck",
+      "result": "Rechecked candidate corridors. Wekiva and Santa Fe/Peace remain without a verified transferable numeric threshold; Blackwater retains a downstream blockage/take-out consequence gap; Hillsborough Sargeant-to-Trout Creek remains manager-closed."
+    },
+    {
+      "family": "Scored-first saturation screen",
+      "method": "State ceiling review",
+      "result": "Florida already has nine high-quality starter routes, including six scored routes tied to direct telemetry and official Ichetucknee minimum-flow evidence. No additional route cleared the scored bar in this pass."
+    }
+  ],
+  "endpointAudits": [
+    {
+      "generatedAt": "2026-09-09T14:12:30.283Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 1,
+        "review": 1,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "reach": "US 27 public boat ramp to Rum Island Park boat launch",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "endpointName": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "matchedRiverName": "Santa Fe River",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "nearestMatchedLatitude": 29.833083000000002,
+          "nearestMatchedLongitude": -82.67854,
+          "nearestWaterwayName": "Santa Fe River",
+          "distanceFeetToNearestWaterway": 123.8435264416333,
+          "nearestWaterwayLatitude": 29.833083000000002,
+          "nearestWaterwayLongitude": -82.67854,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 2.127938892573666,
+          "nearestWaterbodyLatitude": 29.83339953437847,
+          "nearestWaterbodyLongitude": -82.67839329746836,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 2 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "reach": "US 27 public boat ramp to Rum Island Park boat launch",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "endpointName": "US 27 public boat ramp",
+          "latitude": 29.8441,
+          "longitude": -82.6308,
+          "matchedRiverName": "Santa Fe River",
+          "distanceFeetToMatchedRiver": 37.907531118686556,
+          "nearestMatchedLatitude": 29.844135745601037,
+          "nearestMatchedLongitude": -82.6306875162671,
+          "nearestWaterwayName": "Santa Fe River",
+          "distanceFeetToNearestWaterway": 37.907531118686556,
+          "nearestWaterwayLatitude": 29.844135745601037,
+          "nearestWaterwayLongitude": -82.6306875162671,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 0,
+          "nearestWaterbodyLatitude": 29.8441,
+          "nearestWaterbodyLongitude": -82.6308,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "ok",
+          "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    },
+    {
+      "generatedAt": "2026-09-09T14:12:43.996Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 0,
+        "review": 2,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "reach": "Rum Island Park boat launch to Santa Fe River Park SR 47 boat ramp",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "endpointName": "Santa Fe River Park SR 47 boat ramp",
+          "latitude": 29.8646,
+          "longitude": -82.7399,
+          "matchedRiverName": "Santa Fe River",
+          "distanceFeetToMatchedRiver": 125.26868872825563,
+          "nearestMatchedLatitude": 29.864938999999996,
+          "nearestMatchedLongitude": -82.739837,
+          "nearestWaterwayName": "Santa Fe River",
+          "distanceFeetToNearestWaterway": 125.26868872825563,
+          "nearestWaterwayLatitude": 29.864938999999996,
+          "nearestWaterwayLongitude": -82.739837,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 43.346870518662186,
+          "nearestWaterbodyLatitude": 29.86471515584155,
+          "nearestWaterbodyLongitude": -82.739866244716,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 43 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "reach": "Rum Island Park boat launch to Santa Fe River Park SR 47 boat ramp",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "endpointName": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "matchedRiverName": "Santa Fe River",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "nearestMatchedLatitude": 29.833083000000002,
+          "nearestMatchedLongitude": -82.67854,
+          "nearestWaterwayName": "Santa Fe River",
+          "distanceFeetToNearestWaterway": 123.8435264416333,
+          "nearestWaterwayLatitude": 29.833083000000002,
+          "nearestWaterwayLongitude": -82.67854,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 2.127938892573666,
+          "nearestWaterbodyLatitude": 29.83339953437847,
+          "nearestWaterbodyLongitude": -82.67839329746836,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "review",
+          "note": "Endpoint is within 2 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    },
+    {
+      "generatedAt": "2026-09-09T14:12:49.480Z",
+      "source": {
+        "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+        "urls": {
+          "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+          "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+          "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+        }
+      },
+      "thresholdsFeet": {
+        "ok": 100,
+        "review": 300,
+        "suspicious": 800
+      },
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": {
+        "ok": 2,
+        "review": 0,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0
+      },
+      "endpoints": [
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "reach": "Brownville Park boat ramp to DeSoto Veterans Memorial Park boat ramp",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "endpointName": "Brownville Park boat ramp",
+          "latitude": 27.2979,
+          "longitude": -81.8465,
+          "matchedRiverName": "Peace River",
+          "distanceFeetToMatchedRiver": 41.967682090829825,
+          "nearestMatchedLatitude": 27.297974787693285,
+          "nearestMatchedLongitude": -81.84659836423789,
+          "nearestWaterwayName": "Peace River",
+          "distanceFeetToNearestWaterway": 41.967682090829825,
+          "nearestWaterwayLatitude": 27.297974787693285,
+          "nearestWaterwayLongitude": -81.84659836423789,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 0,
+          "nearestWaterbodyLatitude": 27.2979,
+          "nearestWaterbodyLongitude": -81.8465,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "ok",
+          "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+        },
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "reach": "Brownville Park boat ramp to DeSoto Veterans Memorial Park boat ramp",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "endpointName": "DeSoto Veterans Memorial Park boat ramp",
+          "latitude": 27.2242,
+          "longitude": -81.8819,
+          "matchedRiverName": "Peace River",
+          "distanceFeetToMatchedRiver": 11.781605507981286,
+          "nearestMatchedLatitude": 27.224232283390915,
+          "nearestMatchedLongitude": -81.88189904411394,
+          "nearestWaterwayName": "Peace River",
+          "distanceFeetToNearestWaterway": 11.781605507981286,
+          "nearestWaterwayLatitude": 27.224232283390915,
+          "nearestWaterwayLongitude": -81.88189904411394,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 0,
+          "nearestWaterbodyLatitude": 27.2242,
+          "nearestWaterbodyLongitude": -81.8819,
+          "endpointOnWaterbody": true,
+          "matchedHydrographyMode": "named-flowline",
+          "coordinateEvidenceRole": null,
+          "coordinateEvidenceSourceUrl": null,
+          "coordinateEvidenceDetail": null,
+          "severity": "ok",
+          "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+        }
+      ]
+    }
+  ],
+  "notes": "Santa Fe flowline offsets of 124–125 feet are on/near mapped river waterbody (2–43 feet); independently checked against DEP canoe-launch symbols and printed waypoints. Coordinates were not moved to force a hydrography pass. NHD traces were trimmed to selected endpoints and visually reviewed against the guide corridor. These remain planning routes, not live safety assessments.",
+  "validation": {
+    "checkedAt": "2026-09-09T14:31:15.790Z",
+    "deployed": false,
+    "checks": [
+      "Route typecheck and full build prerequisites passed; final Astro build produced 2434 pages.",
+      "22 targeted tests passed: campaign rotation, control plane, publication and starter safety/geometry checks.",
+      "4 browser checks passed across desktop and iPhone emulation: state discovery, filters, state-aware requests, detail metadata, FAQ and endpoint directions.",
+      "Canonical geometry audit passed: 2055 of 2068 public routes matched, with 32 state bundles. The same 13 pre-existing unmatched routes remain.",
+      "All new traces are continuous, oriented put-in to take-out, within 150 feet of each endpoint and within 25 percent of documented river mileage. Santa Fe interiors do not overlap.",
+      "Scoped coordinate audits merged with retained prior results; access registry regenerated. No new route is withheld.",
+      "Existing scored safety audit passed; separate safety audit of these three planning routes also passed.",
+      "Bounded Wekiva, Blackwater and Hillsborough recheck completed with no additional scored route added; Santa Fe and Peace remain planning-only pending reach-specific threshold evidence and/or access resolution."
+    ],
+    "baselineCaveats": [
+      "Route-data audit passes with 102 pre-existing planning issues (100 incomplete Maine logistics and two distances) and 79 deferred issues.",
+      "Global overlap audit covers scored routes and retains existing findings; new planning traces were checked separately.",
+      "Withholding generator input is stale relative to the committed output: it would remove four existing holds and add two unrelated holds. That output was discarded and the original 40-route hold list preserved. Resolve this baseline drift separately before a future global withholding regeneration.",
+      "Geometry assets total 31.70 MiB for states and 31.73 MiB for routes against existing 32 MiB limits. Future batches must address payload growth before exceeding the build gate.",
+      "Retry Wekiva or Santa Fe/Peace when official or responsible local sources publish a reach-specific numeric threshold; retry Blackwater after take-out blockage mitigation is documented; retry Hillsborough after manager reopening."
+    ],
+    "releaseGate": "Recheck current access notices and telemetry when releasing, deploy through the normal workflow, and verify the deployed public catalog before setting firstReleaseAt. No release has occurred."
+  }
+}

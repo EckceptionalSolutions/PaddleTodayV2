@@ -4,7 +4,15 @@ Use this checklist when deciding whether a new Paddle Today route is ready to ad
 
 ## Minimum Standard
 
-A route needs an official live gauge, defensible level thresholds, named and locatable public endpoints, and enough route context to make a trust-first same-day call.
+A scored route needs an official live gauge, defensible level thresholds, named and locatable public endpoints, and enough route context to make a trust-first same-day call.
+
+### Reviewed Planning Routes
+
+The public catalog also supports explicitly authored `scoreEligibility: 'planning'` routes under `src/data/route-publication.ts`. These may lack verified numeric thresholds or a qualifying direct gauge, but must have a completed `safetyProfile.reviewStatus: 'reviewed'` review, source-backed public access, actual launch/landing coordinates, specific route distance, verified geometry, and useful logistics. All access, closure, hazard, and redundancy gates below still apply.
+
+Link a real, relevant supported gauge as direct or clearly labeled proxy context when available; never fabricate a station or transfer a threshold to make a planning route scoreable. The current route schema requires a gauge reference; candidates without a defensible reference remain research leads pending separate product support. Do not put placeholder numeric thresholds into planning data. Planning routes must be visibly labeled as lacking a live route score and must not appear in live-score recommendations or alerts. Class IV+ routes remain planning-only under the existing publication gate.
+
+The live-gauge and numeric-threshold requirements below govern scored publication and promotion from planning to scored. A planning route is not a workaround for unresolved access, closure, geometry, or safety. Count reviewed planning and scored coverage separately; use the non-withheld public catalog for user-visible coverage.
 
 ## Required Inputs
 

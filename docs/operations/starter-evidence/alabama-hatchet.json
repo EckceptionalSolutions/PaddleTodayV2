@@ -1,0 +1,78 @@
+{
+  "reviewedAt": "2026-09-09",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["hatchet-creek-highway-280-highway-231", "hatchet-creek-highway-280-kings-bridge", "hatchet-creek-highway-231-kings-bridge"],
+  "sourceAttempts": [
+    {
+      "family": "Outdoor Alabama",
+      "method": "Official Hatchet Creek river guide",
+      "result": "Names County Road 4, Highway 280, Highway 231 and Highway 29 access points; says Highway 280 to Highway 231 can be completed in one day; warns that below around 400 cfs boaters should expect dragging over rocks and shallow flats and that adjacent land may be private."
+    },
+    {
+      "family": "Alabama Scenic River Trail",
+      "method": "Published Hatchet Creek paddle-camp trip page",
+      "result": "Publishes Highway 280 put-in 33.03596,-86.12289, Highway 231 take-out 32.94369,-86.20339, approximately 12.8 miles for the day section, Class I–II character, and 600 cfs as an ideal reference."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and instantaneous values API",
+      "result": "USGS 02408540 Hatchet Creek below Rockford is an active continuous station. The route uses it as a direct discharge source and requires a current telemetry/trend check before travel."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline, area and waterbody endpoint audit",
+      "result": "Put-in is 7.5 ft from the matched Hatchet Creek flowline and on mapped water. Take-out is on mapped water and 106 ft from the matched flowline, a review-level trace; retain the published coordinate and require field-side access confirmation rather than silently moving it."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Second route named-flowline endpoint audit",
+      "result": "Kings Bridge take-out is on the published Hatchet Creek corridor and 261 ft from the matched flowline, a review-level access-anchor trace. Retain the trail-published coordinate and require field-side legal-access confirmation."
+    },
+    {
+      "family": "Alabama Scenic River Trail",
+      "method": "Lower-segment itinerary extraction",
+      "result": "Highway 231 is a named stop, the breached concrete dam is documented 0.33 mile downstream, a primitive campsite follows, and the continuation to Kings Bridge is 5.34 miles; this supports a distinct approximately 11.3-mile lower day route."
+    }
+  ],
+  "sources": [
+    "https://www.outdooralabama.com/rivers-and-mobile-delta/hatchet-creek",
+    "https://www.alabamascenicrivertrail.com/52-weekends-on-the-water/hatchet-creek-paddle-camp/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02408540/"
+  ],
+  "thresholdEvidence": {
+    "station": "02408540",
+    "metric": "discharge_cfs",
+    "source": "https://www.outdooralabama.com/rivers-and-mobile-delta/hatchet-creek",
+    "minimum": 400,
+    "idealReference": 600,
+    "model": "minimum-only",
+    "reachApplicability": "Outdoor Alabama's approximately 400 cfs low-water warning applies to Hatchet Creek generally; the route deliberately does not claim a high-water ceiling or convert the 600 cfs trail ideal into a hard threshold."
+  },
+  "endpointAudit": {
+    "artifact": "tmp/al-hatchet-coordinate.json",
+    "routeCount": 1,
+    "endpointCount": 2,
+    "bySeverity": {"ok": 1, "review": 1, "suspicious": 0, "failure": 0, "unknown": 0},
+    "reviewNote": "Highway 231 take-out is 106 ft from the matched named flowline but 67 ft from an NHD waterbody and remains on mapped water. Confirm the legal roadside pull-off and landing during release review.",
+    "lowerRouteReview": "The lower Highway 231 to Kings Bridge route retains the same published access anchors; its audit is review-level at both put-in (106 ft) and take-out (261 ft) with no suspicious or failure result."
+  },
+  "geometryReview": {
+    "routeTraces": [
+      {"routeId": "hatchet-creek-highway-280-highway-231", "mappedMiles": 12.83, "publishedMiles": 12.8, "assessment": "aligned"},
+      {"routeId": "hatchet-creek-highway-280-kings-bridge", "mappedMiles": 19.26, "publishedMiles": 24, "assessment": "review; NHD trace is shorter than the ASRT trip mileage"},
+      {"routeId": "hatchet-creek-highway-231-kings-bridge", "mappedMiles": 6.46, "publishedMiles": 11.3, "assessment": "review; NHD trace is shorter than cumulative ASRT stop mileage"}
+    ],
+    "decision": "Keep the source-published distances in route copy, expose the routes as scored candidates, and require route-trace reconciliation before deployment of either Kings Bridge route."
+  },
+  "validation": [
+    "Route-data typecheck passed for both Hatchet Creek routes.",
+    "Scoped canonical geometries generated and endpoint audits completed; the two Kings Bridge take-outs are review-level access anchors with no suspicious or failure results.",
+    "Targeted route, safety, campaign and control-plane tests passed (22 tests).",
+    "Production build passed with 2,445 pages and 35 state geometry assets.",
+    "Five desktop starter coverage checks and the full 15-check desktop/iPhone/Android matrix passed, including Alabama state and detail rendering for the first route."
+  ],
+  "pending": [
+    "Recheck current access notices, parking and gauge trend before deployment."
+  ]
+}

@@ -122,7 +122,10 @@ type OfficialMapControls = {
 
 const root = process.cwd();
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
-const reportPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
+const reportOutputArg = process.argv.find((arg) => arg.startsWith('--output='));
+const reportPath = reportOutputArg
+  ? path.resolve(root, reportOutputArg.slice('--output='.length))
+  : path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const officialMapControlsPath = path.join(root, 'src', 'data', 'route-access-official-map-controls.json');
 const nhdFlowlineQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query';
 const nhdWaterbodyQueryUrl = 'https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12/query';
@@ -167,6 +170,12 @@ const acceptedAlternateWaterwayDistanceFeet: Record<string, number> = {
   'middle-fork-salmon-boundary-cache-bar': 1000,
 };
 const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
+  // The Forest Society Contoocook guide identifies the Canoe Company as the
+  // public take-out. Its outfitter/parking anchor is about 390 ft from the
+  // generalized NHD flowline, so retain the documented endpoint as review
+  // evidence instead of treating the access pin as a channel error.
+  'contoocook-riverway-park-canoe-company': 700,
+  'contoocook-river-federal-canoe-company': 700,
   // Minnesota DNR's Friberg/Hwy 210 access is an official river landing;
   // the access anchor is outside the generalized NHD polygon.
   'otter-tail-river-friberg-hwy-210': 1200,
@@ -435,7 +444,7 @@ const concurrency = Math.max(1, Math.min(8, Number(concurrencyArg?.slice('--conc
 
 function usage() {
   console.log([
-    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--no-cache] [--route=<route-id>] [--concurrency=<1-8>]',
+    'Usage: tsx scripts/audit-route-coordinate-river-distance.ts [--refresh] [--no-cache] [--route=<route-id>] [--concurrency=<1-8>] [--output=<report.json>]',
     '',
     'Audits put-in and take-out coordinates against USGS NHD named flowlines and waterbody/area polygons.',
     `Writes ${path.relative(root, reportPath)}.`,

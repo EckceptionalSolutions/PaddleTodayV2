@@ -1,0 +1,107 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "deerfield-river-fife-brook-zoar-picnic",
+    "deerfield-river-zoar-picnic-shunpike",
+    "deerfield-river-shunpike-east-charlemont",
+    "deerfield-river-fife-brook-shunpike",
+    "deerfield-river-zoar-picnic-east-charlemont",
+    "deerfield-river-fife-brook-east-charlemont"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Deerfield River Watershed Association",
+      "method": "Boating and tubing guidance",
+      "result": "Identifies Fife Brook to Shunpike as the most popular section, names Zoar Picnic, Shunpike and the dam/whitewater hazards, and directs paddlers to current release information."
+    },
+    {
+      "family": "American Whitewater",
+      "method": "Deerfield reach and access guide",
+      "result": "Documents Zoar Picnic, Shunpike and East Charlemont public access points and the Zoar Picnic to East Charlemont reach."
+    },
+    {
+      "family": "SafeWaters / Brookfield Renewable",
+      "method": "Live Fife Brook flow and 2026 release schedule",
+      "result": "Publishes current outflow and scheduled 800 cfs releases with a 125 cfs base-flow period; warns that schedules can change without notice."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata",
+      "result": "USGS 01168500 Deerfield River at Charlemont provides direct discharge telemetry for the selected corridor."
+    },
+    {
+      "family": "Massachusetts DFW / water-quality records",
+      "method": "Access-coordinate corroboration",
+      "result": "Records Fife Brook access below the dam and Zoar-area river access coordinates; endpoint anchors were refined to water-edge points."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline endpoint audit",
+      "result": "Canonical geometries were generated with route-scoped Deerfield River aliases and endpoint-bounded traces."
+    },
+    {
+      "family": "Massachusetts inland corridor discovery",
+      "method": "Charles, Concord, Sudbury, Connecticut and Ipswich scored-route screen",
+      "result": "Reviewed remaining inland leads against the existing direct 01168500 Deerfield package; no new endpoint pair with distinct threshold and resolved dam/tidal access evidence cleared."
+    },
+    {
+      "family": "Scored-first saturation screen",
+      "method": "Deerfield access-combination review",
+      "result": "The six routes exhaust the documented four-anchor Deerfield combinations; additional variants would be near duplicates or transfer unsupported threshold assumptions."
+    }
+  ],
+  "sources": [
+    "https://deerfieldriver.org/boating",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/10162/main",
+    "https://www.safewaters.com/facility/fife-brook/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01168500/",
+    "https://www.mass.gov/doc/2022-integrated-list-of-waters-appendix-9-deerfield-river-basin-assessment-and-listing-decision-summary/download"
+  ],
+  "thresholdEvidence": {
+    "station": "01168500",
+    "metric": "discharge_cfs",
+    "source": "https://www.safewaters.com/facility/fife-brook/",
+    "minimum": 125,
+    "idealReference": 800,
+    "maximum": 1500,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Deerfield River Fife Brook / Charlemont recreation corridor; 800 cfs is the scheduled release reference and 125 cfs is the base-flow period. Do not treat this band as a universal whitewater safety limit."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/ma-deerfield-river-fife-brook-zoar-picnic-audit.json",
+      "tmp/ma-deerfield-river-zoar-picnic-shunpike-audit.json",
+      "tmp/ma-deerfield-river-shunpike-east-charlemont-audit.json",
+      "tmp/ma-deerfield-river-fife-brook-shunpike-audit.json",
+      "tmp/ma-deerfield-river-zoar-picnic-east-charlemont-audit.json",
+      "tmp/ma-deerfield-river-fife-brook-east-charlemont-audit.json"
+    ],
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 12,
+      "review": 0,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All twelve endpoints are on mapped Deerfield River water or the documented access edge."
+  },
+  "validation": [
+    "Route-data typecheck and focused Massachusetts route safety test passed.",
+    "Canonical geometries generated for 2,124 matched routes and 48 state assets.",
+    "All twelve endpoint audits returned OK.",
+    "Full route safety audit and route data audit passed with existing planning issues tracked.",
+    "Canonical geometry audit passed for 2,124 of 2,137 public-indexed route assets.",
+    "Production build passed with 2,538 pages.",
+    "Bounded Massachusetts discovery pass completed with no additional scored route; Deerfield remains at six scored starter routes."
+  ],
+  "pending": [
+    "Confirm current parking, launch carry and release timing at each access before deployment.",
+    "Recheck the Charlemont gauge trend and local whitewater advisories before launch.",
+    "Retry Charles, Concord, Sudbury, Connecticut or Ipswich when direct reach-specific threshold and documented public endpoint evidence are available."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["contoocook-river-federal-riverway-park", "contoocook-riverway-park-canoe-company", "contoocook-river-federal-canoe-company"],
+  "sourceAttempts": [
+    {"family": "Forest Society", "method": "Contoocook River paddle guide review", "result": "Documents the nine-mile Contoocook Riverway Park to Contoocook River Canoe Company flatwater trip, named endpoints, four-to-five-hour estimate and precipitation/weather sensitivity."},
+    {"family": "Merrimack Valley Paddlers / New Hampshire access directory", "method": "Public access coordinate review", "result": "Provides coordinate-backed Henniker Contoocook River Shorebank and Federal Corps access entries; the Federal facility was selected as the upstream public launch."},
+    {"family": "American Whitewater", "method": "Contoocook Henniker reach review", "result": "Identifies the direct Contoocook near Henniker gauge, a 2.1-mile Class II(III) reach, high-water difficulty above 9 ft and a broken-dam consequence near the take-out."},
+    {"family": "USACE", "method": "Henniker river-status review", "result": "Publishes a 9.0-foot warning stage and 11.5-foot flood stage for the Contoocook near Henniker; these bounds support a conservative 5–8.5 ft planning band."},
+    {"family": "USGS NHD", "method": "Named-flowline and endpoint audit", "result": "Canonical geometries were generated with route-scoped Contoocook aliases. All six endpoints returned review with no suspicious, failure or unknown results; the Canoe Company outfitter/parking anchor is retained as documented access evidence where the generalized flowline is offset."}
+  ],
+  "sources": [
+    "https://www.forestsociety.org/document/contoocook-river-paddleedited2023pdf.pdf",
+    "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/3688/main",
+    "https://reservoircontrol.usace.army.mil/nae_ords/cwmsweb/apistatus.riverstatus",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01085000/"
+  ],
+  "thresholdEvidence": {"station": "01085000", "metric": "gage_height_ft", "source": "https://reservoircontrol.usace.army.mil/nae_ords/cwmsweb/apistatus.riverstatus", "minimum": 4.75, "idealReference": 5, "idealMaximum": 8.5, "maximum": 9, "model": "two-sided", "strength": "official", "reachApplicability": "Selected public Contoocook access chain near Henniker and downstream Riverway Park/Canoe Company reach. The band conservatively synthesizes American Whitewater's Henniker low/high cues and USACE warning stage; verify live stage, trend, weather and dam notices before travel."},
+  "endpointAudit": {"artifacts": ["tmp/nh-contoocook-federal-riverway-audit.json", "tmp/nh-contoocook-riverway-canoe-audit.json", "tmp/nh-contoocook-federal-canoe-audit.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All six endpoints are on the mapped Contoocook waterbody/network or documented public access anchors. The Canoe Company endpoint is an outfitter/parking anchor about 390 ft from generalized NHD flowline and is explicitly retained as review evidence."},
+  "validation": ["Focused Contoocook route safety test passed.", "Canonical geometry audit passed for 2,179 of 2,192 route assets and 48 state assets; route and state payload caps passed.", "All six endpoint audits returned review with no suspicious, failure or unknown results."],
+  "pending": ["Run the full route-data audit, full route-safety audit and production build before deployment.", "Recheck current municipal/federal access rules, Canoe Company take-out hours, parking, broken-dam boundaries and live Henniker stage trend before launch."]
+}

@@ -1,0 +1,21 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["farmington-river-riverton-peoples-forest", "farmington-river-peoples-forest-181-318", "farmington-river-181-318-lake-mcdonough"],
+  "sourceAttempts": [
+    {"family": "Farmington River Coordinating Committee", "method": "Wild & Scenic recreation access map", "result": "Publishes named Access Points 6, 7, 8 and 9 with coordinates and Class I–III upper-river context."},
+    {"family": "Riverton CT", "method": "Canoeing and kayaking guidance", "result": "Publishes downriver canoeing minimum 250 cfs and optimum 360–980 cfs guidance for the upper Farmington corridor."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 01186000 West Branch Farmington River at Riverton is the direct gauge for the selected upper corridor."},
+    {"family": "USGS NHD", "method": "Named-flowline endpoint audit", "result": "Route geometry generation and endpoint audits completed for the six named access anchors."}
+  ],
+  "sources": [
+    "https://uploads-ssl.webflow.com/60be5c593edf8d9a6066a398/60d4eb52a81056715b382435_FarmRivMapInsidePRINT2020.pdf",
+    "https://www.rivertonct.com/product/canoeing-kayaking",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01186000/"
+  ],
+  "thresholdEvidence": {"station": "01186000", "metric": "discharge_cfs", "source": "https://www.rivertonct.com/product/canoeing-kayaking", "minimum": 250, "idealReference": 360, "maximum": 980, "model": "two-sided", "strength": "community", "reachApplicability": "Upper West Branch Farmington River / Riverton gauge corridor only; do not transfer to lower Farmington, Connecticut River or another basin reach."},
+  "endpointAudit": {"artifacts": ["tmp/ct-farmington-river-riverton-peoples-forest-audit.json", "tmp/ct-farmington-river-peoples-forest-181-318-audit.json", "tmp/ct-farmington-lake-audit.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 6, "review": 0, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All six refined endpoints are on mapped West Branch Farmington water."},
+  "validation": ["Route-data typecheck passed.", "Canonical geometries generated and all six endpoint audits returned OK.", "Production build passed with 2,463 pages.", "Starter visual suite passed all 21 desktop, iPhone and Android checks.", "Full route safety audit returned 0 issues across 1,135 routes."],
+  "pending": ["Recheck current launch notices, parking and gauge trend before deployment."]
+}

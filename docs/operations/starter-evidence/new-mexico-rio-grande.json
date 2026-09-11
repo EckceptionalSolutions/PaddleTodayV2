@@ -1,0 +1,27 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["rio-grande-taos-junction-quartzite", "rio-grande-taos-junction-lone-juniper", "rio-grande-quartzite-county-line", "rio-grande-taos-junction-county-line", "rio-grande-lone-juniper-county-line", "rio-grande-lone-juniper-quartzite"],
+  "sourceAttempts": [
+    {"family": "Bureau of Land Management", "method": "Rio Grande and Red River Wild and Scenic River page", "result": "Documents the Orilla Verde and Wild Rivers recreation areas, Class II Orilla Verde and Class III–IV Racecourse context, named BLM access management, day-use fees, private-boater rules and no public take-out below County Line."},
+    {"family": "Bureau of Land Management", "method": "Rio Grande and Rio Chama river segment descriptions PDF", "result": "Names Taos Junction Bridge, Lone Juniper, Quartzite and County Line as designated access sites, gives Orilla Verde 6-mile Class II and Racecourse 5-mile Class III–IV descriptions, and warns about high-water bridge hazards and parking restrictions."},
+    {"family": "American Whitewater", "method": "Taos Junction–Quartzite and Quartzite–County Line reach pages", "result": "Provides 6.6-mile Class II and 4.4-mile Class III reach descriptions tied to USGS 08276500, including the large Taos Junction ramp, Quartzite hand-carry access and Racecourse popularity."},
+    {"family": "BoaterBeta", "method": "Racecourse flow history", "result": "Publishes a 200 cfs minimum and 3,000 cfs maximum planning range for Quartzite–County Line tied to USGS 08276500."},
+    {"family": "Recreation.gov", "method": "Rio Bravo managed access details", "result": "Confirms the Orilla Verde area has a small carry-in boat launch, parking and facilities, supporting the access-management posture used in route notes."},
+    {"family": "USGS NHD", "method": "Named-flowline and waterbody endpoint audit", "result": "Canonical geometries were generated with route-scoped Rio Grande aliases. Six endpoints returned three OK and three review results, with no suspicious, failure or unknown results."}
+  ],
+  "sources": [
+    "https://www.blm.gov/programs/national-conservation-lands/new-mexico/rio-grande-wsr",
+    "https://www.blm.gov/sites/blm.gov/files/NM_Rio_Grande_and_Rio_Chama_River_Segments.pdf",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/11231/main",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/1228/main",
+    "https://www.boaterbetaco.com/segment_detail/riog-22_rio-grande_race-course-pilar/",
+    "https://www.recreation.gov/camping/campgrounds/10382450",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-08276500"
+  ],
+  "thresholdEvidence": {"station": "08276500", "metric": "discharge_cfs", "source": "https://www.boaterbetaco.com/segment_detail/riog-22_rio-grande_race-course-pilar/", "minimum": 200, "idealReference": 400, "idealMaximum": 1200, "maximum": 3000, "model": "two-sided", "strength": "community", "reachApplicability": "Taos Junction–Quartzite Orilla Verde and Quartzite–County Line Racecourse corridor. Flow ranges are community planning cues; verify live telemetry, wind, storms, BLM notices, parking and segment-specific hazards before travel."},
+  "endpointAudit": {"artifacts": ["tmp/nm-rio-grande-taos-quartzite-audit.json", "tmp/nm-rio-grande-taos-lone-audit.json", "tmp/nm-rio-grande-quartzite-county-audit.json", "tmp/nm-rio-grande-taos-junction-county-line-audit.json", "tmp/nm-rio-grande-lone-juniper-county-line-audit.json", "tmp/nm-rio-grande-lone-juniper-quartzite-audit.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 6, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All review endpoints are named County Line, Quartzite or hand-carry access anchors on mapped Rio Grande waterbodies; NHD flowline distance is informational for shoreline access. No endpoint was suspicious, failed or unknown."},
+  "validation": ["Route-data typecheck and focused New Mexico Rio Grande route safety test passed.", "Canonical geometries generated for 2,139 matched routes and 48 state assets.", "All twelve endpoint audits returned OK or review with no suspicious, failure or unknown results.", "Full route safety audit returned 0 issues across 1,199 scored routes; route data audit passed for 2,253 routes with 102 planning issues and 79 deferred checks tracked.", "Canonical geometry audit passed for 2,139 of 2,152 public-indexed route assets; production build passed with 2,553 pages."],
+  "pending": ["Run the production build and full route-safety audit before deployment.", "Recheck current BLM fees, parking, quiet-zone and private-bank rules, Quartzite and County Line access conditions, live 08276500 trend, wind and storm forecasts before launch."]
+}

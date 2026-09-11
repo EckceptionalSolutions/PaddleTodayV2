@@ -10,11 +10,13 @@ Do not add or promote a route when any of these are unresolved:
 - A mandatory take-out or portage is dam-adjacent and lacks strong official safety infrastructure, signage, and source-backed guidance.
 - Public access legitimacy is unclear, including uncertain launch rights, parking, private-bank conflicts, or closed facilities.
 - The route depends on an active closure being resolved.
-- The selected live gauge is unsupported, stale, or too indirect for the current product.
-- Numeric gauge thresholds are missing or not tied to the selected gauge.
+- For scored publication: the selected live gauge is unsupported, stale, or too indirect for the current product.
+- For scored publication: numeric gauge thresholds are missing or not tied to the selected gauge.
 - Endpoint coordinates are inferred from river geometry, bridge names, or broad park boundaries instead of source-backed access points.
 
 Prefer rejection or `blocked_until_date` over warning copy when the route failure mode is severe.
+
+Reviewed planning publication follows the planning-route section of `route-addition-requirements.md` and the existing publication code. Missing calibration can prevent scoring without preventing a well-supported planning itinerary. It never excuses unresolved access, closures, launch coordinates, or high-consequence hazards. Do not imply that a contextual gauge provides a route safety assessment.
 
 ## Warning Taxonomy
 

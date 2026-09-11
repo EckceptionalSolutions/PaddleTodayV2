@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-05T22:19:14.078Z",
-  "auditGeneratedAt": "2026-09-05T19:58:22.878Z",
+  "generatedAt": "2026-09-09T15:10:07.091Z",
+  "auditGeneratedAt": "2026-09-09T14:49:33.845Z",
   "summary": {
-    "entryCount": 3577,
-    "repeatedEntryCount": 824,
+    "entryCount": 3602,
+    "repeatedEntryCount": 833,
     "conflictCount": 0,
     "distinctLocationNameCount": 2,
-    "derivedWaterEntryCount": 1975,
+    "derivedWaterEntryCount": 1989,
     "authoritativeAccessCount": 1212,
     "authoritativeWaterEntryCount": 562,
     "areaAnchorOnlyCount": 1,
@@ -15564,6 +15564,448 @@
           "distanceFeetToMatchedRiver": 186.31685127351182,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
+        }
+      ]
+    },
+    {
+      "id": "florida--brownville-park-boat-ramp",
+      "state": "Florida",
+      "name": "Brownville Park boat ramp",
+      "aliases": [
+        "Brownville Park boat ramp"
+      ],
+      "sourceIds": [
+        "peace-river-brownville-desoto-veterans-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 27.2979,
+        "longitude": -81.8465
+      },
+      "accessCoordinate": {
+        "latitude": 27.2979,
+        "longitude": -81.8465
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 27.2979,
+        "longitude": -81.8465
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "27.29790,-81.84650",
+          "coordinate": {
+            "latitude": 27.2979,
+            "longitude": -81.8465
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "peace-river-brownville-desoto-veterans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "peace-river-brownville-desoto-veterans-put-in",
+          "name": "Brownville Park boat ramp",
+          "latitude": 27.2979,
+          "longitude": -81.8465,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.967682090829825,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Brownville Park boat ramp",
+          "latitude": 27.2979,
+          "longitude": -81.8465,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 41.967682090829825,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "florida--desoto-veterans-memorial-park-boat-ramp",
+      "state": "Florida",
+      "name": "DeSoto Veterans Memorial Park boat ramp",
+      "aliases": [
+        "DeSoto Veterans Memorial Park boat ramp"
+      ],
+      "sourceIds": [
+        "peace-river-brownville-desoto-veterans-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 27.2242,
+        "longitude": -81.8819
+      },
+      "accessCoordinate": {
+        "latitude": 27.2242,
+        "longitude": -81.8819
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 27.2242,
+        "longitude": -81.8819
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "27.22420,-81.88190",
+          "coordinate": {
+            "latitude": 27.2242,
+            "longitude": -81.8819
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "peace-river-brownville-desoto-veterans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "peace-river-brownville-desoto-veterans-take-out",
+          "name": "DeSoto Veterans Memorial Park boat ramp",
+          "latitude": 27.2242,
+          "longitude": -81.8819,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 11.781605507981286,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "peace-river-brownville-desoto-veterans",
+          "routeName": "Peace River",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "DeSoto Veterans Memorial Park boat ramp",
+          "latitude": 27.2242,
+          "longitude": -81.8819,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 11.781605507981286,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "florida--rum-island-park-boat-launch",
+      "state": "Florida",
+      "name": "Rum Island Park boat launch",
+      "aliases": [
+        "Rum Island Park boat launch"
+      ],
+      "sourceIds": [
+        "santa-fe-river-rum-island-sr47-put-in",
+        "santa-fe-river-us27-rum-island-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.8334,
+        "longitude": -82.6784
+      },
+      "accessCoordinate": {
+        "latitude": 29.8334,
+        "longitude": -82.6784
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 29.8334,
+        "longitude": -82.6784
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "29.83340,-82.67840",
+          "coordinate": {
+            "latitude": 29.8334,
+            "longitude": -82.6784
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "santa-fe-river-rum-island-sr47",
+            "santa-fe-river-us27-rum-island"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "santa-fe-river-rum-island-sr47-put-in",
+          "name": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "santa-fe-river-us27-rum-island-take-out",
+          "name": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Rum Island Park boat launch",
+          "latitude": 29.8334,
+          "longitude": -82.6784,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 123.8435264416333,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "florida--santa-fe-river-park-sr-47-boat-ramp",
+      "state": "Florida",
+      "name": "Santa Fe River Park SR 47 boat ramp",
+      "aliases": [
+        "Santa Fe River Park SR 47 boat ramp"
+      ],
+      "sourceIds": [
+        "santa-fe-river-rum-island-sr47-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.8646,
+        "longitude": -82.7399
+      },
+      "accessCoordinate": {
+        "latitude": 29.8646,
+        "longitude": -82.7399
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.86460,-82.73990",
+          "coordinate": {
+            "latitude": 29.8646,
+            "longitude": -82.7399
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "santa-fe-river-rum-island-sr47"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "santa-fe-river-rum-island-sr47-take-out",
+          "name": "Santa Fe River Park SR 47 boat ramp",
+          "latitude": 29.8646,
+          "longitude": -82.7399,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 125.26868872825563,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "santa-fe-river-rum-island-sr47",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Santa Fe River Park SR 47 boat ramp",
+          "latitude": 29.8646,
+          "longitude": -82.7399,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 125.26868872825563,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "florida--us-27-public-boat-ramp",
+      "state": "Florida",
+      "name": "US 27 public boat ramp",
+      "aliases": [
+        "US 27 public boat ramp"
+      ],
+      "sourceIds": [
+        "santa-fe-river-us27-rum-island-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 29.8441,
+        "longitude": -82.6308
+      },
+      "accessCoordinate": {
+        "latitude": 29.8441,
+        "longitude": -82.6308
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 29.8441,
+        "longitude": -82.6308
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "29.84410,-82.63080",
+          "coordinate": {
+            "latitude": 29.8441,
+            "longitude": -82.6308
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "santa-fe-river-us27-rum-island"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "accessPoint",
+          "sourceId": "santa-fe-river-us27-rum-island-put-in",
+          "name": "US 27 public boat ramp",
+          "latitude": 29.8441,
+          "longitude": -82.6308,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 37.907531118686556,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "santa-fe-river-us27-rum-island",
+          "routeName": "Santa Fe River",
+          "state": "Florida",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "US 27 public boat ramp",
+          "latitude": 29.8441,
+          "longitude": -82.6308,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 37.907531118686556,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -263362,6 +263804,119 @@
       ]
     },
     {
+      "id": "north-carolina--burch-station-at-mitchell-river-access",
+      "state": "North Carolina",
+      "name": "Burch Station at Mitchell River Access",
+      "aliases": [
+        "Burch Station at Mitchell River Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-burch-shore-put-in",
+        "yadkin-river-crater-burch-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.27553,
+        "longitude": -80.7686
+      },
+      "accessCoordinate": {
+        "latitude": 36.27553,
+        "longitude": -80.7686
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.27553,
+        "longitude": -80.7686
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.27553,-80.76860",
+          "coordinate": {
+            "latitude": 36.27553,
+            "longitude": -80.7686
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-burch-shore",
+            "yadkin-river-crater-burch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-burch-shore",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-burch-shore-put-in",
+          "name": "Burch Station at Mitchell River Access",
+          "latitude": 36.27553,
+          "longitude": -80.7686,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.42841457900454,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-burch-shore",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Burch Station at Mitchell River Access",
+          "latitude": 36.27553,
+          "longitude": -80.7686,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.42841457900454,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-crater-burch",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-crater-burch-take-out",
+          "name": "Burch Station at Mitchell River Access",
+          "latitude": 36.27553,
+          "longitude": -80.7686,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.42841457900454,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-crater-burch",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Burch Station at Mitchell River Access",
+          "latitude": 36.27553,
+          "longitude": -80.7686,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.42841457900454,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--business-220-access",
       "state": "North Carolina",
       "name": "Business 220 Access",
@@ -263537,6 +264092,89 @@
       ]
     },
     {
+      "id": "north-carolina--crater-park-access",
+      "state": "North Carolina",
+      "name": "Crater Park Access",
+      "aliases": [
+        "Crater Park Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-crater-burch-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.2417,
+        "longitude": -80.8469
+      },
+      "accessCoordinate": {
+        "latitude": 36.2417,
+        "longitude": -80.8469
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.2417,
+        "longitude": -80.8469
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.24170,-80.84690",
+          "coordinate": {
+            "latitude": 36.2417,
+            "longitude": -80.8469
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yadkin-river-crater-burch"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-crater-burch",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-crater-burch-put-in",
+          "name": "Crater Park Access",
+          "latitude": 36.2417,
+          "longitude": -80.8469,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 1.5426161455135678,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-crater-burch",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Crater Park Access",
+          "latitude": 36.2417,
+          "longitude": -80.8469,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 1.5426161455135678,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--crater-park-river-access",
       "state": "North Carolina",
       "name": "Crater Park River Access",
@@ -263595,6 +264233,119 @@
           "longitude": -80.84789,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 205.35375030999535,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--donnaha-yadkin-river-access",
+      "state": "North Carolina",
+      "name": "Donnaha Yadkin River Access",
+      "aliases": [
+        "Donnaha Yadkin River Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-donnaha-old-421-put-in",
+        "yadkin-river-shoals-donnaha-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.215616,
+        "longitude": -80.434332
+      },
+      "accessCoordinate": {
+        "latitude": 36.215616,
+        "longitude": -80.434332
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.215616,
+        "longitude": -80.434332
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.21562,-80.43433",
+          "coordinate": {
+            "latitude": 36.215616,
+            "longitude": -80.434332
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-donnaha-old-421",
+            "yadkin-river-shoals-donnaha"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-donnaha-old-421",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-donnaha-old-421-put-in",
+          "name": "Donnaha Yadkin River Access",
+          "latitude": 36.215616,
+          "longitude": -80.434332,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 212.22635944511222,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-donnaha-old-421",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Donnaha Yadkin River Access",
+          "latitude": 36.215616,
+          "longitude": -80.434332,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 212.22635944511222,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shoals-donnaha",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-shoals-donnaha-take-out",
+          "name": "Donnaha Yadkin River Access",
+          "latitude": 36.215616,
+          "longitude": -80.434332,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 212.22602957715762,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shoals-donnaha",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Donnaha Yadkin River Access",
+          "latitude": 36.215616,
+          "longitude": -80.434332,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 212.22602957715762,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -264454,6 +265205,119 @@
       ]
     },
     {
+      "id": "north-carolina--huntsville-yadkin-river-access",
+      "state": "North Carolina",
+      "name": "Huntsville Yadkin River Access",
+      "aliases": [
+        "Huntsville Yadkin River Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-huntsville-tanglewood-put-in",
+        "yadkin-river-old-421-huntsville-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.0932,
+        "longitude": -80.5166
+      },
+      "accessCoordinate": {
+        "latitude": 36.0932,
+        "longitude": -80.5166
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.0932,
+        "longitude": -80.5166
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.09320,-80.51660",
+          "coordinate": {
+            "latitude": 36.0932,
+            "longitude": -80.5166
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-huntsville-tanglewood",
+            "yadkin-river-old-421-huntsville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-huntsville-tanglewood",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-huntsville-tanglewood-put-in",
+          "name": "Huntsville Yadkin River Access",
+          "latitude": 36.0932,
+          "longitude": -80.5166,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 254.253666507734,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-huntsville-tanglewood",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Huntsville Yadkin River Access",
+          "latitude": 36.0932,
+          "longitude": -80.5166,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 254.253666507734,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-old-421-huntsville",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-old-421-huntsville-take-out",
+          "name": "Huntsville Yadkin River Access",
+          "latitude": 36.0932,
+          "longitude": -80.5166,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 254.253488195708,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-old-421-huntsville",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Huntsville Yadkin River Access",
+          "latitude": 36.0932,
+          "longitude": -80.5166,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 254.253488195708,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--indian-valley-paddle-access",
       "state": "North Carolina",
       "name": "Indian Valley Paddle Access",
@@ -265089,6 +265953,395 @@
           "longitude": -79.0012908,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 215.86563231473508,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--mayo-river-state-park-anglin-mill-mayo-beach-river-access",
+      "state": "North Carolina",
+      "name": "Mayo River State Park Anglin Mill / Mayo Beach River Access",
+      "aliases": [
+        "Mayo River State Park Anglin Mill / Mayo Beach River Access"
+      ],
+      "sourceIds": [
+        "mayo-river-anglin-hickory-put-in",
+        "mayo-river-deshazo-anglin-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.535389,
+        "longitude": -79.990588
+      },
+      "accessCoordinate": {
+        "latitude": 36.535389,
+        "longitude": -79.990588
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.535389,
+        "longitude": -79.990588
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.53539,-79.99059",
+          "coordinate": {
+            "latitude": 36.535389,
+            "longitude": -79.990588
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "mayo-river-anglin-hickory",
+            "mayo-river-deshazo-anglin"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "mayo-river-anglin-hickory",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-anglin-hickory-put-in",
+          "name": "Mayo River State Park Anglin Mill / Mayo Beach River Access",
+          "latitude": 36.535389,
+          "longitude": -79.990588,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.65188169293015,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-anglin-hickory",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Mayo River State Park Anglin Mill / Mayo Beach River Access",
+          "latitude": 36.535389,
+          "longitude": -79.990588,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.65188169293015,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-deshazo-anglin",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-deshazo-anglin-take-out",
+          "name": "Mayo River State Park Anglin Mill / Mayo Beach River Access",
+          "latitude": 36.535389,
+          "longitude": -79.990588,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.65172477875366,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-deshazo-anglin",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Mayo River State Park Anglin Mill / Mayo Beach River Access",
+          "latitude": 36.535389,
+          "longitude": -79.990588,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.65172477875366,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--mayo-river-state-park-deshazo-mill-access",
+      "state": "North Carolina",
+      "name": "Mayo River State Park Deshazo Mill Access",
+      "aliases": [
+        "Mayo River State Park Deshazo Mill Access"
+      ],
+      "sourceIds": [
+        "mayo-river-deshazo-anglin-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.5362,
+        "longitude": -79.994
+      },
+      "accessCoordinate": {
+        "latitude": 36.5362,
+        "longitude": -79.994
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.53620,-79.99400",
+          "coordinate": {
+            "latitude": 36.5362,
+            "longitude": -79.994
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "mayo-river-deshazo-anglin"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "mayo-river-deshazo-anglin",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-deshazo-anglin-put-in",
+          "name": "Mayo River State Park Deshazo Mill Access",
+          "latitude": 36.5362,
+          "longitude": -79.994,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 299.0191604608749,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-deshazo-anglin",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Mayo River State Park Deshazo Mill Access",
+          "latitude": 36.5362,
+          "longitude": -79.994,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 299.0191604608749,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--mayo-river-state-park-hickory-creek-river-landing",
+      "state": "North Carolina",
+      "name": "Mayo River State Park Hickory Creek River Landing",
+      "aliases": [
+        "Mayo River State Park Hickory Creek River Landing"
+      ],
+      "sourceIds": [
+        "mayo-river-anglin-hickory-take-out",
+        "mayo-river-hickory-mayodan-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.512227,
+        "longitude": -79.996394
+      },
+      "accessCoordinate": {
+        "latitude": 36.512227,
+        "longitude": -79.996394
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.512227,
+        "longitude": -79.996394
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.51223,-79.99639",
+          "coordinate": {
+            "latitude": 36.512227,
+            "longitude": -79.996394
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "mayo-river-anglin-hickory",
+            "mayo-river-hickory-mayodan"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "mayo-river-anglin-hickory",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-anglin-hickory-take-out",
+          "name": "Mayo River State Park Hickory Creek River Landing",
+          "latitude": 36.512227,
+          "longitude": -79.996394,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-anglin-hickory",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Mayo River State Park Hickory Creek River Landing",
+          "latitude": 36.512227,
+          "longitude": -79.996394,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-hickory-mayodan",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-hickory-mayodan-put-in",
+          "name": "Mayo River State Park Hickory Creek River Landing",
+          "latitude": 36.512227,
+          "longitude": -79.996394,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-hickory-mayodan",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Mayo River State Park Hickory Creek River Landing",
+          "latitude": 36.512227,
+          "longitude": -79.996394,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 0,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--mayo-river-state-park-mayodan-river-access",
+      "state": "North Carolina",
+      "name": "Mayo River State Park Mayodan River Access",
+      "aliases": [
+        "Mayo River State Park Mayodan River Access"
+      ],
+      "sourceIds": [
+        "mayo-river-hickory-mayodan-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.407205,
+        "longitude": -79.965383
+      },
+      "accessCoordinate": {
+        "latitude": 36.407205,
+        "longitude": -79.965383
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.407205,
+        "longitude": -79.965383
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.40720,-79.96538",
+          "coordinate": {
+            "latitude": 36.407205,
+            "longitude": -79.965383
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "mayo-river-hickory-mayodan"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "mayo-river-hickory-mayodan",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "mayo-river-hickory-mayodan-take-out",
+          "name": "Mayo River State Park Mayodan River Access",
+          "latitude": 36.407205,
+          "longitude": -79.965383,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 97.73511773334953,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "mayo-river-hickory-mayodan",
+          "routeName": "Mayo River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Mayo River State Park Mayodan River Access",
+          "latitude": 36.407205,
+          "longitude": -79.965383,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 97.73511773334953,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -265922,6 +267175,116 @@
           "distanceFeetToMatchedRiver": 132.93383980657853,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--old-u-s-421-river-park-access",
+      "state": "North Carolina",
+      "name": "Old U.S. 421 River Park Access",
+      "aliases": [
+        "Old U.S. 421 River Park Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-donnaha-old-421-take-out",
+        "yadkin-river-old-421-huntsville-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.1323,
+        "longitude": -80.4439
+      },
+      "accessCoordinate": {
+        "latitude": 36.1323,
+        "longitude": -80.4439
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.13230,-80.44390",
+          "coordinate": {
+            "latitude": 36.1323,
+            "longitude": -80.4439
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-donnaha-old-421",
+            "yadkin-river-old-421-huntsville"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-donnaha-old-421",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-donnaha-old-421-take-out",
+          "name": "Old U.S. 421 River Park Access",
+          "latitude": 36.1323,
+          "longitude": -80.4439,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 344.0261959473555,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-donnaha-old-421",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Old U.S. 421 River Park Access",
+          "latitude": 36.1323,
+          "longitude": -80.4439,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 344.0261959473555,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-old-421-huntsville",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-old-421-huntsville-put-in",
+          "name": "Old U.S. 421 River Park Access",
+          "latitude": 36.1323,
+          "longitude": -80.4439,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 344.0261959473555,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-old-421-huntsville",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Old U.S. 421 River Park Access",
+          "latitude": 36.1323,
+          "longitude": -80.4439,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 344.0261959473555,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -266761,6 +268124,119 @@
       ]
     },
     {
+      "id": "north-carolina--shoals-access-at-pilot-mountain-state-park",
+      "state": "North Carolina",
+      "name": "Shoals Access at Pilot Mountain State Park",
+      "aliases": [
+        "Shoals Access at Pilot Mountain State Park"
+      ],
+      "sourceIds": [
+        "yadkin-river-shoals-donnaha-put-in",
+        "yadkin-river-shore-shoals-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.2574,
+        "longitude": -80.5172
+      },
+      "accessCoordinate": {
+        "latitude": 36.2574,
+        "longitude": -80.5172
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.2574,
+        "longitude": -80.5172
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.25740,-80.51720",
+          "coordinate": {
+            "latitude": 36.2574,
+            "longitude": -80.5172
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-shoals-donnaha",
+            "yadkin-river-shore-shoals"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-shoals-donnaha",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-shoals-donnaha-put-in",
+          "name": "Shoals Access at Pilot Mountain State Park",
+          "latitude": 36.2574,
+          "longitude": -80.5172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 376.87795496867375,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shoals-donnaha",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Shoals Access at Pilot Mountain State Park",
+          "latitude": 36.2574,
+          "longitude": -80.5172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 376.87795496867375,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shore-shoals",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-shore-shoals-take-out",
+          "name": "Shoals Access at Pilot Mountain State Park",
+          "latitude": 36.2574,
+          "longitude": -80.5172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 376.8779549686496,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shore-shoals",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Shoals Access at Pilot Mountain State Park",
+          "latitude": 36.2574,
+          "longitude": -80.5172,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 376.8779549686496,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--smoot-park-access",
       "state": "North Carolina",
       "name": "Smoot Park Access",
@@ -267059,6 +268535,86 @@
           "longitude": -79.3672,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 308.4894884357133,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--tanglewood-park-access",
+      "state": "North Carolina",
+      "name": "Tanglewood Park Access",
+      "aliases": [
+        "Tanglewood Park Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-huntsville-tanglewood-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.0133,
+        "longitude": -80.4164
+      },
+      "accessCoordinate": {
+        "latitude": 36.0133,
+        "longitude": -80.4164
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.01330,-80.41640",
+          "coordinate": {
+            "latitude": 36.0133,
+            "longitude": -80.4164
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yadkin-river-huntsville-tanglewood"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-huntsville-tanglewood",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-huntsville-tanglewood-take-out",
+          "name": "Tanglewood Park Access",
+          "latitude": 36.0133,
+          "longitude": -80.4164,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 307.23880157132254,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-huntsville-tanglewood",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Tanglewood Park Access",
+          "latitude": 36.0133,
+          "longitude": -80.4164,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 307.23880157132254,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -267735,6 +269291,119 @@
           "longitude": -82.5416243,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 199.90619924868946,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--yadkin-shore-access",
+      "state": "North Carolina",
+      "name": "Yadkin/Shore Access",
+      "aliases": [
+        "Yadkin/Shore Access"
+      ],
+      "sourceIds": [
+        "yadkin-river-burch-shore-take-out",
+        "yadkin-river-shore-shoals-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.26941,
+        "longitude": -80.72127
+      },
+      "accessCoordinate": {
+        "latitude": 36.26941,
+        "longitude": -80.72127
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 36.26941,
+        "longitude": -80.72127
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.26941,-80.72127",
+          "coordinate": {
+            "latitude": 36.26941,
+            "longitude": -80.72127
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yadkin-river-burch-shore",
+            "yadkin-river-shore-shoals"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yadkin-river-burch-shore",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-burch-shore-take-out",
+          "name": "Yadkin/Shore Access",
+          "latitude": 36.26941,
+          "longitude": -80.72127,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.9800725396915,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-burch-shore",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Yadkin/Shore Access",
+          "latitude": 36.26941,
+          "longitude": -80.72127,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.9800725396915,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shore-shoals",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "yadkin-river-shore-shoals-put-in",
+          "name": "Yadkin/Shore Access",
+          "latitude": 36.26941,
+          "longitude": -80.72127,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.9800725396915,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yadkin-river-shore-shoals",
+          "routeName": "Yadkin River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Yadkin/Shore Access",
+          "latitude": 36.26941,
+          "longitude": -80.72127,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 195.9800725396915,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -270861,6 +272530,489 @@
           "longitude": -94.5726944,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 153.7327305033915,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--crystal-lake-willamette-boat-landing",
+      "state": "Oregon",
+      "name": "Crystal Lake / Willamette Boat Landing",
+      "aliases": [
+        "Crystal Lake / Willamette Boat Landing"
+      ],
+      "sourceIds": [
+        "willamette-river-peoria-crystal-lake-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.551595,
+        "longitude": -123.251708
+      },
+      "accessCoordinate": {
+        "latitude": 44.551595,
+        "longitude": -123.251708
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.55159,-123.25171",
+          "coordinate": {
+            "latitude": 44.551595,
+            "longitude": -123.251708
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "willamette-river-peoria-crystal-lake"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "willamette-river-peoria-crystal-lake-take-out",
+          "name": "Crystal Lake / Willamette Boat Landing",
+          "latitude": 44.551595,
+          "longitude": -123.251708,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 273.2449571263693,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Crystal Lake / Willamette Boat Landing",
+          "latitude": 44.551595,
+          "longitude": -123.251708,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 273.2449571263693,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--hyak-park-boat-ramp",
+      "state": "Oregon",
+      "name": "Hyak Park boat ramp",
+      "aliases": [
+        "Hyak Park boat ramp"
+      ],
+      "sourceIds": [
+        "willamette-river-michaels-hyak-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.638123,
+        "longitude": -123.16067
+      },
+      "accessCoordinate": {
+        "latitude": 44.638123,
+        "longitude": -123.16067
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.63812,-123.16067",
+          "coordinate": {
+            "latitude": 44.638123,
+            "longitude": -123.16067
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "willamette-river-michaels-hyak"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "willamette-river-michaels-hyak-take-out",
+          "name": "Hyak Park boat ramp",
+          "latitude": 44.638123,
+          "longitude": -123.16067,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 153.4025445170864,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Hyak Park boat ramp",
+          "latitude": 44.638123,
+          "longitude": -123.16067,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 153.4025445170864,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--jurgens-park-paddle-dock",
+      "state": "Oregon",
+      "name": "Jurgens Park paddle dock",
+      "aliases": [
+        "Jurgens Park paddle dock"
+      ],
+      "sourceIds": [
+        "tualatin-river-jurgens-community-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 45.398225,
+        "longitude": -122.784816
+      },
+      "accessCoordinate": {
+        "latitude": 45.398225,
+        "longitude": -122.784816
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 45.398225,
+        "longitude": -122.784816
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "45.39822,-122.78482",
+          "coordinate": {
+            "latitude": 45.398225,
+            "longitude": -122.784816
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "tualatin-river-jurgens-community"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "tualatin-river-jurgens-community-put-in",
+          "name": "Jurgens Park paddle dock",
+          "latitude": 45.398225,
+          "longitude": -122.784816,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.70716770847112,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Jurgens Park paddle dock",
+          "latitude": 45.398225,
+          "longitude": -122.784816,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.70716770847112,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--michael-s-landing-north-riverfront-park",
+      "state": "Oregon",
+      "name": "Michael’s Landing / North Riverfront Park",
+      "aliases": [
+        "Michael’s Landing / North Riverfront Park"
+      ],
+      "sourceIds": [
+        "willamette-river-michaels-hyak-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.56939,
+        "longitude": -123.25592
+      },
+      "accessCoordinate": {
+        "latitude": 44.56939,
+        "longitude": -123.25592
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.56939,-123.25592",
+          "coordinate": {
+            "latitude": 44.56939,
+            "longitude": -123.25592
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "willamette-river-michaels-hyak"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "willamette-river-michaels-hyak-put-in",
+          "name": "Michael’s Landing / North Riverfront Park",
+          "latitude": 44.56939,
+          "longitude": -123.25592,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 197.46352551444159,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "willamette-river-michaels-hyak",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Michael’s Landing / North Riverfront Park",
+          "latitude": 44.56939,
+          "longitude": -123.25592,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 197.46352551444159,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--peoria-park-boat-ramp",
+      "state": "Oregon",
+      "name": "Peoria Park boat ramp",
+      "aliases": [
+        "Peoria Park boat ramp"
+      ],
+      "sourceIds": [
+        "willamette-river-peoria-crystal-lake-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.45372,
+        "longitude": -123.210155
+      },
+      "accessCoordinate": {
+        "latitude": 44.45372,
+        "longitude": -123.210155
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.45372,-123.21016",
+          "coordinate": {
+            "latitude": 44.45372,
+            "longitude": -123.210155
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "willamette-river-peoria-crystal-lake"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "willamette-river-peoria-crystal-lake-put-in",
+          "name": "Peoria Park boat ramp",
+          "latitude": 44.45372,
+          "longitude": -123.210155,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 206.07598555668073,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "willamette-river-peoria-crystal-lake",
+          "routeName": "Willamette River",
+          "state": "Oregon",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Peoria Park boat ramp",
+          "latitude": 44.45372,
+          "longitude": -123.210155,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 206.07598555668073,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "oregon--tualatin-community-park-boat-ramp",
+      "state": "Oregon",
+      "name": "Tualatin Community Park boat ramp",
+      "aliases": [
+        "Tualatin Community Park boat ramp"
+      ],
+      "sourceIds": [
+        "tualatin-river-jurgens-community-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 45.386935,
+        "longitude": -122.762839
+      },
+      "accessCoordinate": {
+        "latitude": 45.386935,
+        "longitude": -122.762839
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "45.38694,-122.76284",
+          "coordinate": {
+            "latitude": 45.386935,
+            "longitude": -122.762839
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "tualatin-river-jurgens-community"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "state": "Oregon",
+          "endpoint": "accessPoint",
+          "sourceId": "tualatin-river-jurgens-community-take-out",
+          "name": "Tualatin Community Park boat ramp",
+          "latitude": 45.386935,
+          "longitude": -122.762839,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 175.98075508119808,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "tualatin-river-jurgens-community",
+          "routeName": "Tualatin River",
+          "state": "Oregon",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Tualatin Community Park boat ramp",
+          "latitude": 45.386935,
+          "longitude": -122.762839,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 175.98075508119808,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -278433,6 +280585,166 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 219.97136797653948,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "south-carolina--indigo-landing",
+      "state": "South Carolina",
+      "name": "Indigo Landing",
+      "aliases": [
+        "Indigo Landing"
+      ],
+      "sourceIds": [
+        "lynches-river-indigo-wicklow-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 33.95374434,
+        "longitude": -79.67905224
+      },
+      "accessCoordinate": {
+        "latitude": 33.95374434,
+        "longitude": -79.67905224
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "33.95374,-79.67905",
+          "coordinate": {
+            "latitude": 33.95374434,
+            "longitude": -79.67905224
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lynches-river-indigo-wicklow"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lynches-river-indigo-wicklow",
+          "routeName": "Lynches River",
+          "state": "South Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "lynches-river-indigo-wicklow-put-in",
+          "name": "Indigo Landing",
+          "latitude": 33.95374434,
+          "longitude": -79.67905224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lynches-river-indigo-wicklow",
+          "routeName": "Lynches River",
+          "state": "South Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Indigo Landing",
+          "latitude": 33.95374434,
+          "longitude": -79.67905224,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "south-carolina--wicklow-landing-above-us-378",
+      "state": "South Carolina",
+      "name": "Wicklow Landing above US 378",
+      "aliases": [
+        "Wicklow Landing above US 378"
+      ],
+      "sourceIds": [
+        "lynches-river-indigo-wicklow-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 33.92109575,
+        "longitude": -79.65696065
+      },
+      "accessCoordinate": {
+        "latitude": 33.92109575,
+        "longitude": -79.65696065
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "33.92110,-79.65696",
+          "coordinate": {
+            "latitude": 33.92109575,
+            "longitude": -79.65696065
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "lynches-river-indigo-wicklow"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "lynches-river-indigo-wicklow",
+          "routeName": "Lynches River",
+          "state": "South Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "lynches-river-indigo-wicklow-take-out",
+          "name": "Wicklow Landing above US 378",
+          "latitude": 33.92109575,
+          "longitude": -79.65696065,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "lynches-river-indigo-wicklow",
+          "routeName": "Lynches River",
+          "state": "South Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Wicklow Landing above US 378",
+          "latitude": 33.92109575,
+          "longitude": -79.65696065,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

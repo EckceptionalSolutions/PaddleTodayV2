@@ -1,0 +1,121 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "quinebaug-river-fabyan-west-thompson",
+    "quinebaug-river-simonzi-cotton-bridge",
+    "quinebaug-river-cotton-bridge-route-101",
+    "quinebaug-river-simonzi-route-101"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Connecticut Trail Finder",
+      "method": "Quinebaug River Water Trail section review",
+      "result": "Documents the National Recreation Trail, public access chain, section distances, river character, dam boundaries and USGS gauge-check requirement."
+    },
+    {
+      "family": "The Last Green Valley",
+      "method": "Quinebaug River Paddle Guide PDF",
+      "result": "Provides exact launch coordinates, access notes and route-mile distances for Fabyan, West Thompson, Simonzi, Cotton Bridge and Route 101; publishes 225 cfs for the West Thompson reach and 300–600 cfs moderate flow / 200 cfs minimum for the Putnam reach."
+    },
+    {
+      "family": "Connecticut DEEP",
+      "method": "State boat-launch directory and boater access rules",
+      "result": "Confirms DEEP operates public launches statewide and that access status, parking and seasonal notices must be checked before launch."
+    },
+    {
+      "family": "USGS",
+      "method": "Direct Quinebaug station metadata and current observations",
+      "result": "01124000 at Quinebaug/Route 197 and 01125500 at Putnam are direct discharge stations on the same river corridor; both provide continuous telemetry."
+    },
+    {
+      "family": "Access and hydrography audit",
+      "method": "NHD flowline/waterbody endpoint checks",
+      "result": "All six refined water-entry endpoints are documented public launch edges; reviews are informational where a launch sits inside the mapped West Thompson or Quinebaug waterbody."
+    },
+    {
+      "family": "Hazard review",
+      "method": "Dam, current, strainer and take-out boundary review",
+      "result": "Scored routes stop at public accesses before West Thompson, Cargill, Rogers and other documented hazards. Rogers Dam downstream of Route 101 is explicitly excluded."
+    },
+    {
+      "family": "The Last Green Valley / Connecticut Trail Finder",
+      "method": "Simonzi-to-Route 101 full-run review",
+      "result": "Confirmed the full 5.9-mile public access chain through Cotton Bridge and the last take-out before Rogers Dam; retained the dam exclusion and same Putnam gauge band."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Route-scoped geometry and endpoint audit",
+      "result": "Both new full-run endpoints are on mapped water with one informational waterbody-edge review and no suspicious or failure finding."
+    }
+  ],
+  "sources": [
+    "https://www.cttrailfinder.com/trails/trail/quinebaug-river-water-trail",
+    "https://www.brooklynct.gov/DocumentCenter/View/237/Quinebaug-River-Paddle-Guide-PDF?bidId=",
+    "https://portal.ct.gov/DEEP/Boating/Boat-Launches/Boat-Launches-in-Connecticut",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01124000",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01125500/all-graphs"
+  ],
+  "thresholdEvidence": {
+    "stations": [
+      "01124000",
+      "01125500"
+    ],
+    "metric": "discharge_cfs",
+    "source": "https://www.brooklynct.gov/DocumentCenter/View/237/Quinebaug-River-Paddle-Guide-PDF?bidId=",
+    "bands": [
+      {
+        "routeIds": [
+          "quinebaug-river-fabyan-west-thompson"
+        ],
+        "minimum": 225,
+        "idealReference": 225,
+        "idealMaximum": 800,
+        "maximum": 1200
+      },
+      {
+        "routeIds": [
+          "quinebaug-river-simonzi-cotton-bridge",
+          "quinebaug-river-cotton-bridge-route-101",
+          "quinebaug-river-simonzi-route-101"
+        ],
+        "minimum": 200,
+        "idealReference": 450,
+        "idealMaximum": 600,
+        "maximum": 1000
+      }
+    ],
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Keep each band tied to its named direct gauge and documented Quinebaug reach; do not transfer across impoundments, dams or tidal water."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/quinebaug-river-fabyan-west-thompson-audit.json",
+      "tmp/quinebaug-river-simonzi-cotton-bridge-audit.json",
+      "tmp/quinebaug-river-cotton-bridge-route-101-audit.json",
+      "tmp/ct-quinebaug-simonzi-route-101-audit.json"
+    ],
+    "routeCount": 4,
+    "endpointCount": 8,
+    "bySeverity": {
+      "ok": 3,
+      "review": 5,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All endpoints are documented public water-entry anchors. Five review results are informational because a mapped launch edge is within the named NHD waterbody and flowline distance is not meaningful there."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Connecticut Quinebaug route test passed with four scored routes.",
+    "Canonical route-scoped geometry generated for the scored Simonzi-to-Route 101 full run.",
+    "Targeted coordinate audit returned 1 ok and 1 informational review, with no suspicious or failure finding.",
+    "Full route and safety audits, geometry audit and production build passed after the addition."
+  ],
+  "pending": [
+    "Confirm current launch hours, parking, dam releases, weather, cold-water conditions and local notices before travel; keep all three routes validated-not-deployed until release timing is approved."
+  ]
+}

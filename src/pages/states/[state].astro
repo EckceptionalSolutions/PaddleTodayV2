@@ -17,7 +17,10 @@ export function getStaticPaths() {
 }
 
 const { stateGroup } = Astro.props;
-const stateRoutes = stateGroup.routes.filter((route) => route.scoreEligibility === 'scored');
+const stateRoutes = stateGroup.routes;
+const scoredRoutes = stateRoutes.filter((route) => route.scoreEligibility === 'scored');
+const reviewedPlanningCount = stateRoutes.length - scoredRoutes.length;
+const conditionLabel = (route: River) => route.scoreEligibility === 'planning' ? 'Planning only · no live score' : 'Live score supported';
 const stateRouteCount = stateRoutes.length;
 const stateRiverCount = new Set(stateRoutes.map((route) => route.riverId ?? route.name)).size;
 const allRiverGroups = listRiverGroups();
@@ -28,8 +31,10 @@ const routeLabel = stateRouteCount === 1 ? 'route' : 'routes';
 const riverLabel = stateRiverCount === 1 ? 'river' : 'rivers';
 const regionLabel = stateGroup.regions.length === 1 ? 'region' : 'regions';
 const stateRouteNames = stateRoutes.map((route) => `${route.name}: ${route.reach}`);
-const stateTitle = `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`;
-const stateDescription = `Compare ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with live paddle conditions, water levels, weather, route scores, and coverage across ${stateGroup.regions.length} ${regionLabel}.`;
+const stateTitle = scoredRoutes.length
+  ? `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`
+  : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
+const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
 const requestStateHref = `/request-river/?state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
@@ -40,7 +45,7 @@ const slugifyFragment = (value: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 const routeFacts = (route: River) =>
-  [formatDifficulty(route.profile.difficulty), route.logistics?.distanceLabel, route.logistics?.estimatedPaddleTime]
+  [formatDifficulty(route.profile.difficulty), route.logistics?.distanceLabel, route.logistics?.estimatedPaddleTime, conditionLabel(route)]
     .filter(Boolean)
     .join(' | ');
 const routeCardSummary = (route: River) => route.logistics?.summary || route.summary;
@@ -91,7 +96,7 @@ const planningRoutes = [...stateRoutes]
 const routeGroupsByRiver = allRiverGroups
   .map((group) => ({
     ...group,
-    routes: group.routes.filter((route) => route.state === stateGroup.name && route.scoreEligibility === 'scored'),
+    routes: group.routes.filter((route) => route.state === stateGroup.name),
   }))
   .filter((group) => group.routes.length > 0)
   .sort((left, right) => {
@@ -179,15 +184,15 @@ const guideLinks =
 const faqItems = [
   {
     question: `How does Paddle Today choose ${stateGroup.name} paddle routes?`,
-    answer: `Paddle Today lists ${stateGroup.name} routes when the route has enough defensible gauge, threshold, source, and logistics support to make a live route score useful. The current ${stateGroup.name} page includes ${stateRouteCount} scored ${routeLabel} across ${stateRiverCount} ${riverLabel}.`,
+    answer: `Paddle Today lists source-backed routes with reviewed access and trip information. This page includes ${scoredRoutes.length} routes with live-score support and ${reviewedPlanningCount} planning-only routes across ${stateRiverCount} ${riverLabel}. Planning-only routes do not have a live route score.`,
   },
   {
     question: `Are these ${stateGroup.name} river conditions live?`,
-    answer: `Open a route page for the latest available gauge readings, weather, water-level context, and route score. Check the update times and any missing-data notices, then verify conditions with the linked sources before leaving.`,
+    answer: `Scored routes show the latest available conditions, subject to data availability. Planning-only routes provide trip information and source links without a live route score. Check update times and missing-data notices, and verify conditions with the linked managers before leaving.`,
   },
   {
     question: `Can I request another ${stateGroup.name} route?`,
-    answer: `Yes. Use the request form to send the river, reach, access points, and any source links. Paddle Today prioritizes routes where a public gauge or defensible threshold support can back the live score.`,
+    answer: `Yes. Use the request form to send the river, reach, access points, and any source links. Requests help prioritize useful additions with verified public access and route evidence.`,
   },
 ];
 const structuredData = [
@@ -254,7 +259,7 @@ const structuredData = [
           Compare {stateRouteCount} tracked {stateGroup.name} paddle {routeLabel} with route links, water-level context, difficulty, and access planning details.
         </p>
         <p class="muted river-group-page__summary">
-          Paddle Today only lists routes when the gauge, threshold, and source support are defensible enough for live route scoring.
+          {scoredRoutes.length} routes support live scores. {reviewedPlanningCount} planning-only routes provide trip details and source links without a live route score.
         </p>
         <div class="river-group-page__actions">
           <a class="river-link river-link--inline river-link--primary" href="#state-all-routes-title">Find a route</a>
@@ -332,7 +337,7 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="river-group-page__panel state-page__panel state-live-picks" aria-labelledby="state-live-picks-title" data-state-live-root>
+    {scoredRoutes.length > 0 && <section class="river-group-page__panel state-page__panel state-live-picks" aria-labelledby="state-live-picks-title" data-state-live-root>
       <div class="river-group-page__section-head">
         <div>
           <p class="eyebrow section-label">
@@ -347,7 +352,7 @@ const structuredData = [
       </div>
       <button class="filter-chip filter-chip--quiet" type="button" data-state-live-retry hidden>Retry live conditions</button>
       <div class="state-live-picks__grid" data-state-live-list>
-        {bestRoutes.slice(0, 4).map((route) => (
+        {scoredRoutes.slice(0, 4).map((route) => (
           <article class="state-live-card state-live-card--static">
             <div class="state-live-card__score state-live-card__score--pending" aria-label="Live score loads when available">
               <span>--</span>
@@ -366,7 +371,7 @@ const structuredData = [
       <p class="muted state-live-picks__note">
         Current scores load here when available. You can still open the route links to check details and sources if this update fails.
       </p>
-    </section>
+    </section>}
 
     <section class="river-group-page__panel state-page__panel" aria-labelledby="state-best-routes-title">
       <div class="river-group-page__section-head">
@@ -404,7 +409,7 @@ const structuredData = [
               </div>
             </div>
             <div class="route-choice__footer">
-              <span class="route-choice__selection">Live score on route page</span>
+              <span class="route-choice__selection">{route.scoreEligibility === 'planning' ? 'Planning details on route page' : 'Live score on route page'}</span>
               <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`} aria-label={`View route: ${route.name}: ${route.reach}`}>View route</a>
             </div>
           </article>
@@ -623,7 +628,7 @@ const structuredData = [
               <strong>{route.name}</strong>
               <span>{route.reach}</span>
             </span>
-            <span>{route.region} | {formatDifficulty(route.profile.difficulty)}</span>
+            <span>{route.region} | {formatDifficulty(route.profile.difficulty)} | {conditionLabel(route)}</span>
           </a>
         ))}
       </div>

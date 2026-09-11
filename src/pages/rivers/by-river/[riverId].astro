@@ -21,8 +21,12 @@ const regionSummary = group.regions.join(', ');
 const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
 const scoredRouteCount = group.routes.filter((route) => route.scoreEligibility === 'scored').length;
 const planningRouteCount = group.routes.filter((route) => route.scoreEligibility === 'planning').length;
-const groupTitle = `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`;
-const groupDescription = `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`;
+const groupTitle = scoredRouteCount
+  ? `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`
+  : `${group.name} Paddle Routes & Trip Planning | Paddle Today`;
+const groupDescription = scoredRouteCount
+  ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
+  : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
 const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.difficulty))]
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))

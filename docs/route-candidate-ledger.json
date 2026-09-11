@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-31T00:00:00Z",
+  "updatedAt": "2026-09-09T15:11:58.471249+00:00",
   "notes": "North Carolina bounded window 29 recorded five durable no-add gauge dispositions; Reddies, Yadkin, and Ararat remain blocked route-capable leads and Little Yadkin is screened out.",
   "candidates": [
     {
@@ -97622,6 +97622,506 @@
       "retryCondition": "Fresh manager-grade endpoint coordinates and public-access terms for Poor Farm/Hidden Valley plus a route-specific threshold, or a validated multi-gauge Low Moor-to-James package with current hazard, camping, imagery, and cross-river geometry evidence.",
       "updatedAt": "2026-09-02T22:30:00Z",
       "reviewCount": 1
+    },
+    {
+      "candidateId": "fl-santa-fe-river-us27-rum-island",
+      "river": "Santa Fe River",
+      "route": "US 27 public boat ramp to Rum Island Park boat launch",
+      "state": "FL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://floridadep.gov/sites/default/files/Santa%20Fe%20Guide_1.pdf",
+        "https://www.columbiacountyfla.com/ParkView.aspx?id=4",
+        "https://www.columbiacountyfla.com/ws/ws.asmx/DownloadDocument?Id=7194",
+        "https://myfwc.com/boating/waterway/river-restrictions/suwannee-and-santa-fe-rivers/",
+        "https://www.floridastateparks.org/learn/camp-oleno",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02321975/"
+      ],
+      "aliases": [],
+      "v2Slug": "santa-fe-river-us27-rum-island",
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The upstream US 441 station is context only; spring inflows change downstream conditions. DEP guidance uses an SRWMD stage reference; its datum has not been reconciled with this USGS series. No numeric paddling range is transferred."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning publication only; no numeric thresholds authored."
+      },
+      "endpoints": {
+        "putIn": "US 27 public boat ramp",
+        "takeOut": "Rum Island Park boat launch",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout. Not deployed. Evidence and coordinate review: docs/operations/starter-evidence/florida.json. Endpoint-bounded route trace, publication/safety checks and desktop/mobile review passed. Release verification remains pending."
+    },
+    {
+      "candidateId": "fl-santa-fe-river-rum-island-sr47",
+      "river": "Santa Fe River",
+      "route": "Rum Island Park boat launch to Santa Fe River Park SR 47 boat ramp",
+      "state": "FL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://floridadep.gov/sites/default/files/Santa%20Fe%20Guide_1.pdf",
+        "https://www.columbiacountyfla.com/ParkView.aspx?id=4",
+        "https://www.columbiacountyfla.com/ws/ws.asmx/DownloadDocument?Id=7194",
+        "https://myfwc.com/boating/waterway/river-restrictions/suwannee-and-santa-fe-rivers/",
+        "https://www.floridastateparks.org/learn/camp-oleno",
+        "https://gilchrist.fl.us/santa-fe-park/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02321975/"
+      ],
+      "aliases": [],
+      "v2Slug": "santa-fe-river-rum-island-sr47",
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The upstream US 441 station is context only; spring inflows change downstream conditions. DEP guidance uses an SRWMD stage reference; its datum has not been reconciled with this USGS series. No numeric paddling range is transferred."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning publication only; no numeric thresholds authored."
+      },
+      "endpoints": {
+        "putIn": "Rum Island Park boat launch",
+        "takeOut": "Santa Fe River Park SR 47 boat ramp",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout. Not deployed. Evidence and coordinate review: docs/operations/starter-evidence/florida.json. Endpoint-bounded route trace, publication/safety checks and desktop/mobile review passed. Release verification remains pending."
+    },
+    {
+      "candidateId": "fl-peace-river-brownville-desoto-veterans",
+      "river": "Peace River",
+      "route": "Brownville Park boat ramp to DeSoto Veterans Memorial Park boat ramp",
+      "state": "FL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://floridadep.gov/sites/default/files/Peace_R_Guide_6.pdf",
+        "https://www.desotobocc.com/Facilities/Facility/Details/Brownville-Park-Boat-Ramp-1",
+        "https://www.desotobocc.com/Facilities/Facility/Details/DeSoto-Veterans-Memorial-Park-3",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02296750/"
+      ],
+      "aliases": [],
+      "v2Slug": "peace-river-brownville-desoto-veterans",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The Arcadia station is at the downstream end of this river corridor. Current telemetry was available at review, but no verified recreational threshold range supports a live route score."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning publication only; no numeric thresholds authored."
+      },
+      "endpoints": {
+        "putIn": "Brownville Park boat ramp",
+        "takeOut": "DeSoto Veterans Memorial Park boat ramp",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout. Not deployed. Evidence and coordinate review: docs/operations/starter-evidence/florida.json. Endpoint-bounded route trace, publication/safety checks and desktop/mobile review passed. Release verification remains pending."
+    },
+    {
+      "candidateId": "or-willamette-river-peoria-crystal-lake",
+      "river": "Willamette River",
+      "route": "Peoria Park boat ramp to Crystal Lake / Willamette Boat Landing",
+      "state": "OR",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://willamettewatertrail.org/itineraries/peoria-to-corvallis/",
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+        "https://services.arcgis.com/uUvqNMGPm7axC2dD/arcgis/rest/services/Boating_Access_Sites_OA/FeatureServer/0",
+        "https://experience.arcgis.com/experience/72308dd6b893451690a14437cde89be8",
+        "https://www.oregon.gov/osmb/boater-info/Pages/AIS-FAQs.aspx",
+        "https://www.linncountyor.gov/parksrec/park/peoria-boat-ramp",
+        "https://www.corvallisoregon.gov/parksrec/page/willamette-boat-landing",
+        "https://willamettewatertrail.org/map/crystal-lake-boat-ramp/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-14171600/"
+      ],
+      "aliases": [],
+      "v2Slug": "willamette-river-peoria-crystal-lake",
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The Corvallis gauge is nearby same-river context outside this exact reach. It does not assess launch conditions or wood hazards. No verified station-specific recreational cutoff supports a live score."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning route; no fabricated thresholds."
+      },
+      "endpoints": {
+        "putIn": "Peoria Park boat ramp",
+        "takeOut": "Crystal Lake / Willamette Boat Landing",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout, not deployed. Evidence: docs/operations/starter-evidence/oregon.json."
+    },
+    {
+      "candidateId": "or-willamette-river-michaels-hyak",
+      "river": "Willamette River",
+      "route": "Michael’s Landing / North Riverfront Park to Hyak Park boat ramp",
+      "state": "OR",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://willamettewatertrail.org/itineraries/michaels-landing-to-hyak-park/",
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+        "https://services.arcgis.com/uUvqNMGPm7axC2dD/arcgis/rest/services/Boating_Access_Sites_OA/FeatureServer/0",
+        "https://experience.arcgis.com/experience/72308dd6b893451690a14437cde89be8",
+        "https://www.oregon.gov/osmb/boater-info/Pages/AIS-FAQs.aspx",
+        "https://willamettewatertrail.org/map/michaels-landing/",
+        "https://willamettewatertrail.org/map/hyak-park/",
+        "https://nape.bentoncountyor.gov/directory/hyak-park/",
+        "https://www.corvallisoregon.gov/parksrec/page/riverfront-commemorative-park",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-14171600/"
+      ],
+      "aliases": [],
+      "v2Slug": "willamette-river-michaels-hyak",
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The Corvallis gauge is nearby same-river context outside this exact reach. It does not assess launch conditions or wood hazards. No verified station-specific recreational cutoff supports a live score."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning route; no fabricated thresholds."
+      },
+      "endpoints": {
+        "putIn": "Michael’s Landing / North Riverfront Park",
+        "takeOut": "Hyak Park boat ramp",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout, not deployed. Evidence: docs/operations/starter-evidence/oregon.json."
+    },
+    {
+      "candidateId": "or-tualatin-river-jurgens-community",
+      "river": "Tualatin River",
+      "route": "Jurgens Park paddle dock to Tualatin Community Park boat ramp",
+      "state": "OR",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://tualatinwatertrail.org/access-site/tualatin-community-park/",
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+        "https://services.arcgis.com/uUvqNMGPm7axC2dD/arcgis/rest/services/Boating_Access_Sites_OA/FeatureServer/0",
+        "https://experience.arcgis.com/experience/72308dd6b893451690a14437cde89be8",
+        "https://www.oregon.gov/osmb/boater-info/Pages/AIS-FAQs.aspx",
+        "https://tualatinwatertrail.org/access-site/jurgens-park/",
+        "https://www.tualatinoregon.gov/recreation/tualatin-river-water-trail",
+        "https://www.tualatinoregon.gov/recreation/updates-announcements",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-14207500/"
+      ],
+      "aliases": [],
+      "v2Slug": "tualatin-river-jurgens-community",
+      "gauge": {
+        "quality": "proxy",
+        "notes": "West Linn is a downstream basin-flow reference beyond the Oswego diversion area, not a local depth or current measurement. The trail’s closer stage station is operated by OWRD. No stage or paddling threshold is transferred to this USGS series."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Explicit planning route; no fabricated thresholds."
+      },
+      "endpoints": {
+        "putIn": "Jurgens Park paddle dock",
+        "takeOut": "Tualatin Community Park boat ramp",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented in checkout, not deployed. Evidence: docs/operations/starter-evidence/oregon.json."
+    },
+    {
+      "candidateId": "sc-lynches-river-indigo-wicklow",
+      "river": "Lynches River",
+      "route": "Indigo Landing to Wicklow Landing",
+      "state": "SC",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://www.dnr.sc.gov/assets/maps/LynchesRiverGuideLowRes.pdf",
+        "https://www.dnr.sc.gov/water/river/scenic/lynches.html",
+        "https://experience.arcgis.com/experience/2352618096134f5ca6d1acc363f2592f",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02132000/"
+      ],
+      "aliases": [],
+      "v2Slug": "lynches-river-indigo-wicklow",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Exact Effingham station02132000,00065 gage height; upstream on the same river."
+      },
+      "thresholdSupport": {
+        "strength": "official",
+        "notes": "SCDNR printed page6:2\u20139ft Effingham travel guidance; two-sided collapsed shoulders."
+      },
+      "endpoints": {
+        "putIn": "Indigo Landing",
+        "takeOut": "Wicklow Landing",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented locally, not deployed. Evidence: docs/operations/starter-evidence/south-carolina.json."
+    },
+    {
+      "candidateId": "sc-north-fork-edisto-baughmans-orangeburg",
+      "river": "North Fork Edisto River",
+      "route": "Baughman's Landing to Orangeburg City Landing",
+      "state": "SC",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": ["https://www.dnr.sc.gov/water/river/pdf/edistoboatingguide.pdf", "https://www.dnr.sc.gov/maps.html", "https://waterdata.usgs.gov/monitoring-location/USGS-02173500/"],
+      "aliases": [],
+      "v2Slug": "north-fork-edisto-baughmans-orangeburg",
+      "gauge": { "quality": "direct", "notes": "Orangeburg USGS 02173500, gage height 00065." },
+      "thresholdSupport": { "strength": "official", "notes": "SCDNR Edisto guide: best North Fork boating conditions at least 3.5 ft at Orangeburg gauge; minimum-only model." },
+      "endpoints": { "putIn": "Baughman's Landing", "takeOut": "Orangeburg City Landing", "coordinatesPresent": true },
+      "notes": "Implemented locally, not deployed. Evidence: docs/operations/starter-evidence/south-carolina-edisto.json."
+    },
+    {
+      "candidateId": "sc-little-pee-dee-carmichaels-huggins",
+      "river": "Little Pee Dee River",
+      "route": "Carmichael's Bridge to Huggins Bridge",
+      "state": "SC",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck Carmichael's bank position from current imagery before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://www.dnr.sc.gov/assets/maps/LittlePeeDeeTrailGuide.pdf", "https://www.dnr.sc.gov/maps.html", "https://waterdata.usgs.gov/monitoring-location/USGS-02135000/"],
+      "aliases": [],
+      "v2Slug": "little-pee-dee-carmichaels-huggins",
+      "gauge": { "quality": "direct", "notes": "Galivants Ferry USGS 02135000, gage height 00065." },
+      "thresholdSupport": { "strength": "official", "notes": "SCDNR guide: 2–9 ft travel range and 3–7 ft normal range at Galivants Ferry gauge; two-sided model." },
+      "endpoints": { "putIn": "Carmichael's Bridge / Heritage Trust Landing", "takeOut": "Huggins Bridge (S.C. Highway 41) Landing", "coordinatesPresent": true },
+      "notes": "Implemented locally, not deployed. Evidence: docs/operations/starter-evidence/south-carolina-little-pee-dee.json."
+    },
+    {
+      "candidateId": "al-hatchet-creek-highway-280-highway-231",
+      "river": "Hatchet Creek",
+      "route": "Highway 280 Bridge to Highway 231 Bridge",
+      "state": "AL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck legal pull-offs, parking and take-out conditions at both bridge right-of-ways before release.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://www.outdooralabama.com/rivers-and-mobile-delta/hatchet-creek",
+        "https://www.alabamascenicrivertrail.com/52-weekends-on-the-water/hatchet-creek-paddle-camp/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02408540/"
+      ],
+      "aliases": [],
+      "v2Slug": "hatchet-creek-highway-280-highway-231",
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 02408540 Hatchet Creek below Rockford provides continuous discharge for the selected corridor."
+      },
+      "thresholdSupport": {
+        "strength": "official",
+        "notes": "Outdoor Alabama warns that below around 400 cfs paddlers should expect dragging over rocks and shallow flats; the 400 cfs value is used as a conservative minimum-only score floor."
+      },
+      "endpoints": {
+        "putIn": "Highway 280 Bridge access",
+        "takeOut": "Highway 231 Bridge access",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented locally, not deployed. Take-out trace is review-level at 106 ft from the named flowline and 67 ft from NHD waterbody; endpoint remains on mapped water and is documented for field confirmation. Evidence: docs/operations/starter-evidence/alabama-hatchet.json."
+    },
+    {
+      "candidateId": "al-hatchet-creek-highway-280-kings-bridge",
+      "river": "Hatchet Creek",
+      "route": "Highway 280 Bridge to Kings Bridge take-out",
+      "state": "AL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Reconcile the shorter NHD trace against the published 24-mile trip, then recheck legal pull-offs, Kings Bridge landing and primitive campsite status before release.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://www.outdooralabama.com/rivers-and-mobile-delta/hatchet-creek",
+        "https://www.alabamascenicrivertrail.com/52-weekends-on-the-water/hatchet-creek-paddle-camp/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02408540/"
+      ],
+      "aliases": [],
+      "v2Slug": "hatchet-creek-highway-280-kings-bridge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 02408540 Hatchet Creek below Rockford provides continuous discharge for the selected corridor."
+      },
+      "thresholdSupport": {
+        "strength": "official",
+        "notes": "Outdoor Alabama warns that below around 400 cfs paddlers should expect dragging over rocks and shallow flats; the 400 cfs value is used as a conservative minimum-only score floor."
+      },
+      "endpoints": {
+        "putIn": "Highway 280 Bridge access",
+        "takeOut": "Kings Bridge take-out above Coosa County Road 18",
+        "coordinatesPresent": true
+      },
+      "notes": "Implemented locally, not deployed. Kings Bridge take-out trace is review-level at 261 ft from the named flowline, and the generated NHD trace is 19.26 mi versus the published 24 mi trip; retain the source distance while reconciling geometry before release. Evidence: docs/operations/starter-evidence/alabama-hatchet.json."
+    },
+    {
+      "candidateId": "al-hatchet-creek-highway-231-kings-bridge",
+      "river": "Hatchet Creek",
+      "route": "Highway 231 Bridge to Kings Bridge take-out",
+      "state": "AL",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Reconcile the shorter NHD trace against cumulative published stop mileage, then recheck legal pull-offs, breached-dam portage line and Kings Bridge landing before release.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "https://www.outdooralabama.com/rivers-and-mobile-delta/hatchet-creek",
+        "https://www.alabamascenicrivertrail.com/52-weekends-on-the-water/hatchet-creek-paddle-camp/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-02408540/"
+      ],
+      "aliases": [],
+      "v2Slug": "hatchet-creek-highway-231-kings-bridge",
+      "gauge": { "quality": "direct", "notes": "USGS 02408540 Hatchet Creek below Rockford provides continuous discharge for the selected corridor." },
+      "thresholdSupport": { "strength": "official", "notes": "Outdoor Alabama warns that below around 400 cfs paddlers should expect dragging over rocks and shallow flats; the 400 cfs value is used as a conservative minimum-only score floor." },
+      "endpoints": { "putIn": "Highway 231 Bridge access", "takeOut": "Kings Bridge take-out above Coosa County Road 18", "coordinatesPresent": true },
+      "notes": "Implemented locally, not deployed. Lower segment includes the published breached-dam hazard and primitive-campsite corridor; generated NHD trace is 6.46 mi versus approximately 11.3 mi of cumulative source mileage, so reconcile before release. Evidence: docs/operations/starter-evidence/alabama-hatchet.json."
+    },
+    {
+      "candidateId": "az-verde-river-lower-tapco-tuzigoot",
+      "river": "Verde River",
+      "route": "Lower TAPCO RAP to Tuzigoot Bridge",
+      "state": "AZ",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck public launch parking and current Clarkdale gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf", "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-09504000/", "https://riverscout.app/rivers/arizona/verde-river"],
+      "aliases": [],
+      "v2Slug": "verde-river-lower-tapco-tuzigoot",
+      "gauge": {"quality": "direct", "notes": "USGS 09504000 near Clarkdale."},
+      "thresholdSupport": {"strength": "community", "notes": "RiverScout reports a 300–2,000 cfs same-gauge planning band; modeled as a conservative two-sided cue."},
+      "endpoints": {"putIn": "Lower TAPCO RAP", "takeOut": "Tuzigoot Bridge", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; published access pins refined to NHD water-entry edges. Evidence: docs/operations/starter-evidence/arizona-verde.json."
+    },
+    {
+      "candidateId": "az-verde-river-tuzigoot-89a-bridge",
+      "river": "Verde River",
+      "route": "Tuzigoot Bridge to Highway 89A Bridge",
+      "state": "AZ",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck public launch parking, diversion conditions and current Clarkdale gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf", "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-09504000/", "https://riverscout.app/rivers/arizona/verde-river"],
+      "aliases": [],
+      "v2Slug": "verde-river-tuzigoot-89a-bridge",
+      "gauge": {"quality": "direct", "notes": "USGS 09504000 near Clarkdale."},
+      "thresholdSupport": {"strength": "community", "notes": "RiverScout reports a 300–2,000 cfs same-gauge planning band; modeled as a conservative two-sided cue."},
+      "endpoints": {"putIn": "Tuzigoot Bridge", "takeOut": "Highway 89A Bridge", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; USFS guide hazards and private-bank restrictions retained. Evidence: docs/operations/starter-evidence/arizona-verde.json."
+    },
+    {
+      "candidateId": "az-verde-river-89a-skidmore",
+      "river": "Verde River",
+      "route": "Highway 89A Bridge to Skidmore RAP",
+      "state": "AZ",
+      "status": "implemented",
+      "lastReviewed": "2026-09-09",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck public launch parking, shallow-riffle conditions and current Clarkdale gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf", "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-09504000/", "https://riverscout.app/rivers/arizona/verde-river"],
+      "aliases": [],
+      "v2Slug": "verde-river-89a-skidmore",
+      "gauge": {"quality": "direct", "notes": "USGS 09504000 near Clarkdale."},
+      "thresholdSupport": {"strength": "community", "notes": "RiverScout reports a 300–2,000 cfs same-gauge planning band; modeled as a conservative two-sided cue."},
+      "endpoints": {"putIn": "Highway 89A Bridge", "takeOut": "Skidmore RAP", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; published access pins refined to NHD water-entry edges. Evidence: docs/operations/starter-evidence/arizona-verde.json."
+    },
+    {
+      "candidateId": "ca-american-river-sailor-bar-harrington",
+      "river": "American River",
+      "route": "Sailor Bar / Illinois to Harrington BTAF",
+      "state": "CA",
+      "status": "implemented",
+      "lastReviewed": "2026-09-10",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck Sailor Bar gate, parking and current Fair Oaks gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://www.parks.ca.gov/BoatingFacilities/Body-of-Water/American%20River", "https://dbw.parks.ca.gov/?page_id=29488", "https://www.wildernessportal.com/routes/american-lower-american", "https://waterdata.usgs.gov/monitoring-location/USGS-11446500/"],
+      "aliases": [],
+      "v2Slug": "american-river-sailor-bar-harrington",
+      "gauge": {"quality": "direct", "notes": "USGS 11446500 at Fair Oaks."},
+      "thresholdSupport": {"strength": "community", "notes": "Wilderness Portal reports a 1,400–3,100 cfs comfortable window and 5,000 cfs maximum reference."},
+      "endpoints": {"putIn": "Sailor Bar / Illinois BTAF", "takeOut": "Harrington BTAF", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; Sailor Bar point refined to NHD water-entry edge. Evidence: docs/operations/starter-evidence/california-american.json."
+    },
+    {
+      "candidateId": "ca-american-river-harrington-watt",
+      "river": "American River",
+      "route": "Harrington BTAF to Watt Avenue BTAF",
+      "state": "CA",
+      "status": "implemented",
+      "lastReviewed": "2026-09-10",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck Harrington and Watt access notices, parking and current Fair Oaks gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://www.parks.ca.gov/BoatingFacilities/Body-of-Water/American%20River", "https://dbw.parks.ca.gov/?page_id=29488", "https://www.wildernessportal.com/routes/american-lower-american", "https://waterdata.usgs.gov/monitoring-location/USGS-11446500/"],
+      "aliases": [],
+      "v2Slug": "american-river-harrington-watt",
+      "gauge": {"quality": "direct", "notes": "USGS 11446500 at Fair Oaks."},
+      "thresholdSupport": {"strength": "community", "notes": "Wilderness Portal reports a 1,400–3,100 cfs comfortable window and 5,000 cfs maximum reference."},
+      "endpoints": {"putIn": "Harrington BTAF", "takeOut": "Watt Avenue BTAF", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; official facility directory and boating guide retained. Evidence: docs/operations/starter-evidence/california-american.json."
+    },
+    {
+      "candidateId": "ca-american-river-watt-howe",
+      "river": "American River",
+      "route": "Watt Avenue BTAF to Howe Avenue BLF",
+      "state": "CA",
+      "status": "implemented",
+      "lastReviewed": "2026-09-10",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Recheck Watt and Howe gate/parking status and current Fair Oaks gauge trend before release.",
+      "retryDate": null,
+      "sourcesChecked": ["https://www.parks.ca.gov/BoatingFacilities/Body-of-Water/American%20River", "https://dbw.parks.ca.gov/?page_id=29488", "https://www.wildernessportal.com/routes/american-lower-american", "https://waterdata.usgs.gov/monitoring-location/USGS-11446500/"],
+      "aliases": [],
+      "v2Slug": "american-river-watt-howe",
+      "gauge": {"quality": "direct", "notes": "USGS 11446500 at Fair Oaks."},
+      "thresholdSupport": {"strength": "community", "notes": "Wilderness Portal reports a 1,400–3,100 cfs comfortable window and 5,000 cfs maximum reference."},
+      "endpoints": {"putIn": "Watt Avenue BTAF", "takeOut": "Howe Avenue BLF", "coordinatesPresent": true},
+      "notes": "Implemented locally, not deployed; short connector route retained for Sacramento access coverage. Evidence: docs/operations/starter-evidence/california-american.json."
     }
   ],
   "entries": [

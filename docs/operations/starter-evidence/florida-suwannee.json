@@ -1,0 +1,25 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["suwannee-river-stephen-foster-woods-ferry", "suwannee-river-woods-ferry-spirit", "suwannee-river-stephen-foster-spirit"],
+  "sourceAttempts": [
+    {"family": "Suwannee River Water Management District", "method": "Boating and canoeing guidance review", "result": "Confirmed the Suwannee Wilderness Trail, river-camp network and White Springs stage bands: 51–58 ft ideal, 59–63 ft swift/caution, below 50 ft too low, and 64 ft or higher not recommended."},
+    {"family": "Florida DEP", "method": "Suwannee River Wilderness Trail data book and access map", "result": "Confirmed Stephen Foster, Woods Ferry and Spirit of the Suwannee access anchors and published mileposts for the two bounded reaches."},
+    {"family": "Florida Paddling Trails Association", "method": "Stephen Foster to Spirit paddle guide", "result": "Confirmed the approximately 20.2-mile advanced itinerary, long-distance logistics and high-stage caution."},
+    {"family": "Florida State Parks / managed access", "method": "Stephen Foster launch and endpoint review", "result": "Confirmed a public state-park canoe launch, operating-hour and access-check requirements; Spirit access remains subject to current facility rules."},
+    {"family": "USGS", "method": "White Springs station metadata and current series", "result": "Confirmed direct continuous gage-height telemetry at station 02315500 for the upper Suwannee corridor."},
+    {"family": "Access and hazard review", "method": "Endpoint, wilderness and consequence screen", "result": "Recorded remote shoreline, strainers, steep banks, fast rises, cold water, private-bank and limited-bailout hazards. Endpoint audits returned no suspicious or failure findings."}
+  ],
+  "sources": [
+    "https://www.mysuwanneeriver.com/64/Boating-Canoeing",
+    "https://floridadep.gov/sites/default/files/Suwannee%20River%20Wilderness%20Trail%20overview%20and%20data%20book_0.pdf",
+    "https://static1.squarespace.com/static/5eb75b731e54267d65bab94d/t/6136306e34f08f2f257d407a/1630941296039/S27SR%2B-%2BStephen%2BFoster%2BFolk%2BCulture%2BCenter%2BState%2BPark%2Bto%2BSpirit%2Bof%2Bthe%2BSuwannee%2BMusic%2BPark%2BPaddle.pdf",
+    "https://www.floridastateparks.org/parks-and-trails/stephen-foster-folk-culture-center-state-park",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02315500/"
+  ],
+  "thresholdEvidence": {"station": "02315500", "metric": "gage_height_ft", "source": "https://www.mysuwanneeriver.com/64/Boating-Canoeing", "minimum": 50, "idealReference": 51, "idealMaximum": 58, "maximum": 64, "model": "two-sided", "strength": "official", "reachApplicability": "White Springs stage planning band for the upper Suwannee Wilderness Trail; verify live stage, trend, weather and local access before launch."},
+  "endpointAudit": {"artifacts": ["tmp/suwannee-river-stephen-foster-woods-ferry-audit.json", "tmp/suwannee-river-woods-ferry-spirit-audit.json", "tmp/suwannee-river-stephen-foster-spirit-audit.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 4, "review": 2, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Spirit of the Suwannee take-out is an official managed-facility anchor within the NHD waterbody; the 72 ft informational review does not indicate a suspicious or failed endpoint."},
+  "validation": ["Route-data typecheck passed.", "Focused Florida Suwannee safety test passed.", "Canonical route-scoped geometries generated for all three Suwannee routes.", "Coordinate audits returned 4 ok, 2 informational review, 0 suspicious or failure findings.", "Full route audit passed for 2287 inventory routes; 1230 scored and 1057 planning.", "Full route safety audit returned 0 issues across 1230 scored routes.", "Canonical geometry audit passed for 2173 of 2186 public-indexed route assets; 48 state assets and the 32 MiB route cap passed."],
+  "pending": ["Keep routes validated-not-deployed until current White Springs stage, weather, facility access and shuttle conditions are rechecked at release time."]
+}

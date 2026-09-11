@@ -40,6 +40,9 @@ interface CanonicalFeature {
 
 const root = process.cwd();
 const reviewMode = process.argv.includes('--review-all');
+// Explicitly retain reviewed route assets when assembling a small new batch.
+// Omit this flag whenever existing route coordinates or trace inputs changed.
+const reuseExisting = process.argv.includes('--reuse-existing');
 const routeIdArgIndex = process.argv.indexOf('--route-id');
 const requestedRouteId = routeIdArgIndex >= 0 ? process.argv[routeIdArgIndex + 1] : null;
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
@@ -71,7 +74,266 @@ const officialNamedRouteAliases: Record<string, string[]> = {
   'horicon-marsh-greenhead-nebraska': ['Rock River', 'East Branch Rock River'],
   'nine-mile-creek-munro-pumphouse': ['Ninemile Creek', 'Nine Mile Creek'],
   'prime-hook-creek-foords-waples': ['Primehook Creek', 'Prime Hook Creek'],
+  'bogue-chitto-river-pearl-street-boat-ramp-road': ['Bogue Chitto'],
+  'bogue-chitto-river-boat-ramp-road-state-park': ['Bogue Chitto'],
+  'bogue-chitto-river-state-park-highway-21-sun': ['Bogue Chitto'],
+  'bogue-chitto-river-pearl-street-state-park': ['Bogue Chitto'],
+  'bogue-chitto-river-boat-ramp-road-highway-21-sun': ['Bogue Chitto'],
+  'bogue-chitto-river-pearl-street-highway-21-sun': ['Bogue Chitto'],
+  'deerfield-river-fife-brook-zoar-picnic': ['Deerfield River'],
+  'deerfield-river-zoar-picnic-shunpike': ['Deerfield River'],
+  'deerfield-river-shunpike-east-charlemont': ['Deerfield River'],
+  'deerfield-river-fife-brook-shunpike': ['Deerfield River'],
+  'deerfield-river-zoar-picnic-east-charlemont': ['Deerfield River'],
+  'deerfield-river-fife-brook-east-charlemont': ['Deerfield River'],
+  'black-creek-big-creek-old-highway-49': ['Black Creek'],
+  'black-creek-janice-cypress': ['Black Creek'],
+  'black-creek-cypress-fairley': ['Black Creek'],
+  'black-creek-big-creek-cypress': ['Black Creek'],
+  'black-creek-janice-fairley': ['Black Creek'],
+  'black-creek-big-creek-fairley': ['Black Creek'],
+  'clark-fork-river-milltown-sharon': ['Clark Fork', 'Clark Fork River'],
+  'clark-fork-river-sharon-jacobs-island': ['Clark Fork', 'Clark Fork River'],
+  'clark-fork-river-jacobs-silver-park': ['Clark Fork', 'Clark Fork River'],
+  'clark-fork-river-milltown-jacobs-island': ['Clark Fork', 'Clark Fork River'],
+  'clark-fork-river-sharon-silver-park': ['Clark Fork', 'Clark Fork River'],
+  'clark-fork-river-milltown-silver-park': ['Clark Fork', 'Clark Fork River'],
+  'colorado-river-hoover-dam-willow-beach': ['Colorado River'],
+  'colorado-river-willow-beach-eldorado-canyon': ['Colorado River'],
+  'colorado-river-eldorado-canyon-cottonwood-cove': ['Colorado River'],
+  'colorado-river-hoover-dam-eldorado-canyon': ['Colorado River'],
+  'colorado-river-willow-beach-cottonwood-cove': ['Colorado River'],
+  'colorado-river-hoover-dam-cottonwood-cove': ['Colorado River'],
+  'pemigewasset-river-livermore-falls-plymouth': ['Pemigewasset River'],
+  'pemigewasset-river-plymouth-coolidge-woods': ['Pemigewasset River'],
+  'pemigewasset-river-coolidge-woods-shaw-cove': ['Pemigewasset River'],
+  'pemigewasset-river-livermore-falls-coolidge-woods': ['Pemigewasset River'],
+  'pemigewasset-river-plymouth-shaw-cove': ['Pemigewasset River'],
+  'pemigewasset-river-livermore-falls-shaw-cove': ['Pemigewasset River'],
+  'contoocook-river-federal-riverway-park': ['Contoocook River'],
+  'contoocook-riverway-park-canoe-company': ['Contoocook River'],
+  'contoocook-river-federal-canoe-company': ['Contoocook River'],
+  'rio-grande-taos-junction-quartzite': ['Rio Grande'],
+  'rio-grande-taos-junction-lone-juniper': ['Rio Grande'],
+  'rio-grande-quartzite-county-line': ['Rio Grande'],
+  'rio-grande-taos-junction-county-line': ['Rio Grande'],
+  'rio-grande-lone-juniper-county-line': ['Rio Grande'],
+  'rio-grande-lone-juniper-quartzite': ['Rio Grande'],
+  'pawcatuck-river-bradford-westerly': ['Pawcatuck River'],
+  'wood-river-switch-bradford': ['Wood River', 'Pawcatuck River'],
+  'pawcatuck-river-bradford-main-street': ['Pawcatuck River'],
+  'winooski-river-marshfield-gateway-park': ['Winooski River'],
+  'winooski-river-winooski-street-gateway-park': ['Winooski River'],
+  'winooski-river-middlesex-waterbury': ['Winooski River'],
+  'winooski-river-marshfield-winooski-street': ['Winooski River'],
+  'winooski-river-middlesex-gateway-park': ['Winooski River'],
+  'winooski-river-marshfield-middlesex': ['Winooski River'],
+  'yakima-river-umtanum-lmuma-creek': ['Yakima River'],
+  'yakima-river-lmuma-creek-big-pines': ['Yakima River'],
+  'yakima-river-big-pines-roza': ['Yakima River'],
+  'yakima-river-umtanum-big-pines': ['Yakima River'],
+  'yakima-river-lmuma-roza': ['Yakima River'],
+  'yakima-river-umtanum-roza': ['Yakima River'],
+  'snoqualmie-river-plum-fall-city': ['Snoqualmie River'],
+  'snoqualmie-river-fall-city-neal': ['Snoqualmie River'],
+  'snoqualmie-river-plum-neal': ['Snoqualmie River'],
+  'flint-river-ryland-talado': ['Flint River'],
+  'flint-river-talado-little-cove': ['Flint River'],
+  'flint-river-little-cove-hays': ['Flint River'],
+  'flint-river-ryland-little-cove': ['Flint River'],
+  'cahaba-river-moon-grants-mill': ['Cahaba River'],
+  'cahaba-river-grants-mill-old-overton': ['Cahaba River'],
+  'cahaba-river-old-overton-highway-280': ['Cahaba River'],
+  'south-fork-american-coloma-henningsen': ['South Fork American River', 'American River'],
+  'south-fork-american-henningsen-greenwood': ['South Fork American River', 'American River'],
+  'south-fork-american-coloma-greenwood': ['South Fork American River', 'American River'],
+  'russian-river-forestville-steelhead': ['Russian River'],
+  'russian-river-steelhead-sunset': ['Russian River'],
+  'russian-river-forestville-sunset': ['Russian River'],
+  'housatonic-river-route-7-112-housatonic-meadows': ['Housatonic River', 'Housatonic'],
+  'housatonic-river-housatonic-meadows-kent-wma': ['Housatonic River', 'Housatonic'],
+  'housatonic-river-falls-village-housatonic-meadows': ['Housatonic River', 'Housatonic'],
+  'quinebaug-river-fabyan-west-thompson': ['Quinebaug River', 'Quinebaug'],
+  'quinebaug-river-simonzi-cotton-bridge': ['Quinebaug River', 'Quinebaug'],
+  'quinebaug-river-cotton-bridge-route-101': ['Quinebaug River', 'Quinebaug'],
+  'quinebaug-river-simonzi-route-101': ['Quinebaug River', 'Quinebaug'],
+  'truckee-river-mayberry-wingfield': ['Truckee River', 'Truckee'],
+  'truckee-river-wingfield-cottonwood': ['Truckee River', 'Truckee'],
+  'truckee-river-mayberry-cottonwood': ['Truckee River', 'Truckee'],
+  'ichetucknee-river-north-launch-south-takeout': ['Ichetucknee River'],
+  'ichetucknee-river-north-launch-dampiers': ['Ichetucknee River'],
+  'ichetucknee-river-dampiers-south-takeout': ['Ichetucknee River'],
+  'suwannee-river-stephen-foster-woods-ferry': ['Suwannee River'],
+  'suwannee-river-woods-ferry-spirit': ['Suwannee River'],
+  'suwannee-river-stephen-foster-spirit': ['Suwannee River'],
+  'blackstone-river-rivers-edge-sycamore': ['Blackstone River'],
+  'blackstone-river-manville-albion': ['Blackstone River'],
+  'blackstone-river-rivers-edge-albion': ['Blackstone River'],
+  'verde-river-white-bridge-clear-creek': ['Verde River'],
+  'verde-river-clear-creek-beasley-flat': ['Verde River'],
+  'verde-river-white-bridge-beasley-flat': ['Verde River'],
+  'salt-river-water-users-goldfield': ['Salt River'],
+  'salt-river-goldfield-phon-d': ['Salt River'],
+  'salt-river-phon-d-granite-reef': ['Salt River'],
+  'willamette-river-peoria-michaels': ['Willamette River'],
+  'willamette-river-crystal-lake-michaels': ['Willamette River'],
+  'willamette-river-crystal-lake-hyak': ['Willamette River'],
+  'wood-river-switch-westerly': ['Wood River', 'Pawcatuck River'],
+  'blackstone-river-rivers-edge-manville': ['Blackstone River'],
+  'blackstone-river-sycamore-albion': ['Blackstone River'],
+  'missisquoi-river-lowell-lane-road': ['Missisquoi River'],
+  'missisquoi-river-lowell-river-road': ['Missisquoi River'],
+  'missisquoi-river-lane-river-road': ['Missisquoi River'],
+  'saluda-river-saluda-shoals-gardendale': ['Saluda River'],
+  'saluda-river-saluda-shoals-i26': ['Saluda River'],
+  'saluda-river-gardendale-i26': ['Saluda River'],
+  'saluda-river-saluda-shoals-hope-ferry': ['Saluda River'],
+  'saluda-river-hope-ferry-gardendale': ['Saluda River'],
+  'saluda-river-hope-ferry-i26': ['Saluda River'],
 };
+
+// Starter reaches must end at their selected launches; the surrounding named
+// river query is useful input but is not itself the published route geometry.
+const endpointBoundedNamedRoutes = new Set([
+  'lynches-river-indigo-wicklow',
+  'north-fork-edisto-baughmans-orangeburg',
+  'little-pee-dee-carmichaels-huggins',
+  'saluda-river-saluda-shoals-gardendale',
+  'saluda-river-saluda-shoals-i26',
+  'saluda-river-gardendale-i26',
+  'saluda-river-saluda-shoals-hope-ferry',
+  'saluda-river-hope-ferry-gardendale',
+  'saluda-river-hope-ferry-i26',
+  'missisquoi-river-lowell-lane-road',
+  'missisquoi-river-lowell-river-road',
+  'missisquoi-river-lane-river-road',
+  'hatchet-creek-highway-280-highway-231',
+  'hatchet-creek-highway-280-kings-bridge',
+  'hatchet-creek-highway-231-kings-bridge',
+  'verde-river-lower-tapco-tuzigoot',
+  'verde-river-tuzigoot-89a-bridge',
+  'verde-river-89a-skidmore',
+  'verde-river-lower-tapco-89a-bridge',
+  'verde-river-white-bridge-clear-creek',
+  'verde-river-clear-creek-beasley-flat',
+  'verde-river-white-bridge-beasley-flat',
+  'salt-river-water-users-goldfield',
+  'salt-river-goldfield-phon-d',
+  'salt-river-phon-d-granite-reef',
+  'south-fork-american-coloma-henningsen',
+  'south-fork-american-henningsen-greenwood',
+  'south-fork-american-coloma-greenwood',
+  'quinebaug-river-fabyan-west-thompson',
+  'quinebaug-river-simonzi-cotton-bridge',
+  'quinebaug-river-cotton-bridge-route-101',
+  'quinebaug-river-simonzi-route-101',
+  'truckee-river-mayberry-wingfield',
+  'truckee-river-wingfield-cottonwood',
+  'truckee-river-mayberry-cottonwood',
+  'american-river-sailor-bar-harrington',
+  'american-river-harrington-watt',
+  'american-river-watt-howe',
+  'russian-river-forestville-steelhead',
+  'russian-river-steelhead-sunset',
+  'russian-river-forestville-sunset',
+  'farmington-river-riverton-peoples-forest',
+  'farmington-river-peoples-forest-181-318',
+  'farmington-river-181-318-lake-mcdonough',
+  'housatonic-river-route-7-112-housatonic-meadows',
+  'housatonic-river-housatonic-meadows-kent-wma',
+  'housatonic-river-falls-village-housatonic-meadows',
+  'ichetucknee-river-north-launch-south-takeout',
+  'ichetucknee-river-north-launch-dampiers',
+  'ichetucknee-river-dampiers-south-takeout',
+  'suwannee-river-stephen-foster-woods-ferry',
+  'suwannee-river-woods-ferry-spirit',
+  'suwannee-river-stephen-foster-spirit',
+  'blackstone-river-rivers-edge-sycamore',
+  'blackstone-river-manville-albion',
+  'blackstone-river-rivers-edge-albion',
+  'bogue-chitto-river-pearl-street-boat-ramp-road',
+  'bogue-chitto-river-boat-ramp-road-state-park',
+  'bogue-chitto-river-state-park-highway-21-sun',
+  'bogue-chitto-river-pearl-street-state-park',
+  'bogue-chitto-river-boat-ramp-road-highway-21-sun',
+  'bogue-chitto-river-pearl-street-highway-21-sun',
+  'deerfield-river-fife-brook-zoar-picnic',
+  'deerfield-river-zoar-picnic-shunpike',
+  'deerfield-river-shunpike-east-charlemont',
+  'deerfield-river-fife-brook-shunpike',
+  'deerfield-river-zoar-picnic-east-charlemont',
+  'deerfield-river-fife-brook-east-charlemont',
+  'black-creek-big-creek-old-highway-49',
+  'black-creek-janice-cypress',
+  'black-creek-cypress-fairley',
+  'black-creek-big-creek-cypress',
+  'black-creek-janice-fairley',
+  'black-creek-big-creek-fairley',
+  'clark-fork-river-milltown-sharon',
+  'clark-fork-river-sharon-jacobs-island',
+  'clark-fork-river-jacobs-silver-park',
+  'clark-fork-river-milltown-jacobs-island',
+  'clark-fork-river-sharon-silver-park',
+  'clark-fork-river-milltown-silver-park',
+  'colorado-river-hoover-dam-willow-beach',
+  'colorado-river-willow-beach-eldorado-canyon',
+  'colorado-river-eldorado-canyon-cottonwood-cove',
+  'colorado-river-hoover-dam-eldorado-canyon',
+  'colorado-river-willow-beach-cottonwood-cove',
+  'colorado-river-hoover-dam-cottonwood-cove',
+  'pemigewasset-river-livermore-falls-plymouth',
+  'pemigewasset-river-plymouth-coolidge-woods',
+  'pemigewasset-river-coolidge-woods-shaw-cove',
+  'pemigewasset-river-livermore-falls-coolidge-woods',
+  'pemigewasset-river-plymouth-shaw-cove',
+  'pemigewasset-river-livermore-falls-shaw-cove',
+  'contoocook-river-federal-riverway-park',
+  'contoocook-riverway-park-canoe-company',
+  'contoocook-river-federal-canoe-company',
+  'rio-grande-taos-junction-quartzite',
+  'rio-grande-taos-junction-lone-juniper',
+  'rio-grande-quartzite-county-line',
+  'rio-grande-taos-junction-county-line',
+  'rio-grande-lone-juniper-county-line',
+  'rio-grande-lone-juniper-quartzite',
+  'pawcatuck-river-bradford-westerly',
+  'wood-river-switch-bradford',
+  'pawcatuck-river-bradford-main-street',
+  'winooski-river-marshfield-gateway-park',
+  'winooski-river-winooski-street-gateway-park',
+  'winooski-river-middlesex-waterbury',
+  'winooski-river-marshfield-winooski-street',
+  'winooski-river-middlesex-gateway-park',
+  'winooski-river-marshfield-middlesex',
+  'yakima-river-umtanum-lmuma-creek',
+  'yakima-river-lmuma-creek-big-pines',
+  'yakima-river-big-pines-roza',
+  'yakima-river-umtanum-big-pines',
+  'yakima-river-lmuma-roza',
+  'yakima-river-umtanum-roza',
+  'snoqualmie-river-plum-fall-city',
+  'snoqualmie-river-fall-city-neal',
+  'snoqualmie-river-plum-neal',
+  'flint-river-ryland-talado',
+  'flint-river-talado-little-cove',
+  'flint-river-little-cove-hays',
+  'flint-river-ryland-little-cove',
+  'cahaba-river-moon-grants-mill',
+  'cahaba-river-grants-mill-old-overton',
+  'cahaba-river-old-overton-highway-280',
+  'santa-fe-river-us27-rum-island',
+  'santa-fe-river-rum-island-sr47',
+  'peace-river-brownville-desoto-veterans',
+  'willamette-river-peoria-crystal-lake',
+  'willamette-river-michaels-hyak',
+  'tualatin-river-jurgens-community',
+  'willamette-river-peoria-michaels',
+  'willamette-river-crystal-lake-michaels',
+  'willamette-river-crystal-lake-hyak',
+  'wood-river-switch-westerly',
+  'blackstone-river-rivers-edge-manville',
+  'blackstone-river-sycamore-albion',
+]);
 
 // These reaches have defensible public access anchors and route evidence, but
 // the current NHD name query does not return a usable named flowline. Keep the
@@ -2124,10 +2386,13 @@ async function main() {
     .filter((route) => !requestedRouteId || route.id === requestedRouteId);
   const outputRoutes = requestedRouteId && !reviewMode ? allRoutes : routes;
   const sourceFingerprint = routeDataFingerprint(outputRoutes);
+  const preservedUnmatched = new Set<string>(reuseExisting && !reviewMode
+    ? (JSON.parse(await readFile(outputPath, 'utf8')).unmatchedRouteIds ?? [])
+    : []);
   const features: CanonicalFeature[] = [];
   const existingFeatures = await loadCuratedRouteGeometries(
     outputRoutes,
-    Boolean(requestedRouteId && !reviewMode),
+    Boolean((requestedRouteId || reuseExisting) && !reviewMode),
   );
   const builtInCuratedFeatures: CanonicalFeature[] = outputRoutes.flatMap((route) => {
     const coordinates = officialCuratedRouteCoordinates[route.id];
@@ -2154,7 +2419,15 @@ async function main() {
     }];
   });
   const curatedFeatures = [
-    ...existingFeatures.filter((feature) => !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)),
+    ...existingFeatures.filter((feature) =>
+      !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)
+      // A route-scoped refresh must preserve every existing asset except the
+      // requested route. Full generation still rebuilds endpoint-bounded
+      // routes so their traces follow current source coordinates.
+      && (requestedRouteId
+        ? feature.properties.routeId !== requestedRouteId
+        : !(endpointBoundedNamedRoutes.has(feature.properties.routeId)
+          || (feature.properties.source === 'USGS NHD Flowline' && feature.properties.routeId === requestedRouteId)))),
     ...builtInCuratedFeatures,
   ];
   let matchedRoutes = 0;
@@ -2164,6 +2437,8 @@ async function main() {
     while (nextRouteIndex < routes.length) {
       const route = routes[nextRouteIndex];
       nextRouteIndex += 1;
+    if (reuseExisting && curatedFeatures.some(feature => feature.properties.routeId === route.id)) continue;
+    if (preservedUnmatched.has(route.id) && route.id !== requestedRouteId) continue;
     const bounds = routeBounds(route);
     if (!bounds || !route.riverId) continue;
     const namedFeatures = await loadNhdFeatures(route);
@@ -2192,7 +2467,7 @@ async function main() {
       : null;
     const namedErrors = traceEndpointErrors(namedTrace?.coordinates ?? [], route);
     let trustedNetworkTrace: ReturnType<typeof endpointSnappedRiverNetwork> = null;
-    if (namedErrors.startFeet > 500 || namedErrors.endFeet > 500) {
+    if (namedErrors.startFeet > 500 || namedErrors.endFeet > 500 || route.id === 'willamette-river-peoria-crystal-lake') {
       const networkFeatures = await loadNhdNetworkFeatures(route);
       const networkLines = networkFeatures.flatMap((feature) =>
         (feature.geometry?.paths ?? [])
@@ -2243,13 +2518,30 @@ async function main() {
         ? namedTrace.coordinates
         : [...namedTrace.coordinates].reverse())
       : null;
-    const lines = trustedNetworkTrace
+    let lines = trustedNetworkTrace
       ? [trustedNetworkTrace.coordinates]
-      : route.id === 'crystal-river-marble-redstone' && namedFallbackCoordinates
+      : (route.id === 'crystal-river-marble-redstone' || endpointBoundedNamedRoutes.has(route.id))
+        && namedErrors.startFeet <= 500 && namedErrors.endFeet <= 500 && namedFallbackCoordinates
         ? [namedFallbackCoordinates]
         : namedLines;
     if (lines.length === 0) continue;
-    const publishedErrors = trustedNetworkTrace
+    // Peoria launches into the narrow alcove east of a wooded island. NHD's
+    // nearest centerline is west of that island. These imagery-reviewed
+    // channel vertices connect the actual ramp north around the island to the
+    // NHD mainstem; never draw a shortcut across the island. Review imagery:
+    // World_Imagery MapServer export bbox -123.214,44.452,-123.207,44.459,
+    // EPSG:4326, inspected 2026-09-09 against the Water Trail launch guide.
+    const peoriaConnector = route.id === 'willamette-river-peoria-crystal-lake';
+    if (peoriaConnector) {
+      const join = lines[0].findIndex(point => pointDistanceMiles(point, [-123.211383,44.456202]) * 5280 < 20);
+      if (lines.length !== 1 || join < 0) throw new Error('Peoria launch connector requires review against the changed NHD trace.');
+      lines = [[
+        [-123.210155,44.45372],[-123.21022,44.4541],[-123.210321,44.454527],
+        [-123.21039,44.454924],[-123.210469,44.455228],[-123.21057,44.455531],
+        [-123.210733,44.455749],...lines[0].slice(join),
+      ]];
+    }
+    const publishedErrors = peoriaConnector ? traceEndpointErrors(lines[0], route) : trustedNetworkTrace
       ? traceEndpointErrors(trustedNetworkTrace.coordinates, route)
       : namedErrors;
     matchedRoutes += 1;
@@ -2260,7 +2552,7 @@ async function main() {
         riverId: route.riverId,
         name: route.name,
         state: route.state,
-        source: 'USGS NHD Flowline',
+        source: peoriaConnector ? 'USGS NHD Flowline with imagery-reviewed Peoria launch connector' : 'USGS NHD Flowline',
         traceMode: trustedNetworkTrace ? 'network-traced' : 'named-fallback',
         endpointSnapMaxFeet: Number.isFinite(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))
           ? Math.round(Math.max(publishedErrors.startFeet, publishedErrors.endFeet))

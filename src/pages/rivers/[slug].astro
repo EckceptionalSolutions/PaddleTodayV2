@@ -169,11 +169,17 @@ const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
-const routeSeoTitle = `${river.name} Paddle Conditions, Water Levels & Route Info | Paddle Today`;
-const routeSeoDescription = `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
+const routeSeoTitle = isPlanningRoute
+  ? `${river.name} Paddle Route & Trip Planning | Paddle Today`
+  : `${river.name} Paddle Conditions, Water Levels & Route Info | Paddle Today`;
+const routeSeoDescription = isPlanningRoute
+  ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
+  : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
 const routeIntro = `Check current paddling conditions for this ${river.name} route, including water level, recent gauge trend, weather, and route details.`;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
-const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, evidence strength, access details, and today's paddle score before you drive.`;
+const routeShareDescription = isPlanningRoute
+  ? routeSeoDescription
+  : `Check ${river.name} for ${river.reach}. Live gauge, weather, evidence strength, access details, and today's paddle score before you drive.`;
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, evidence strength, access, and a clear paddle call.`;
 const routeGalleryPhotos = getRouteGalleryPhotos(river);
 const routePreviewPhoto = getRoutePreviewPhoto(river);
@@ -227,11 +233,15 @@ const routeAccessAnswer =
   putIn?.name && takeOut?.name
     ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`
     : `This route covers ${river.reach}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`;
-const waterLevelAnswer = isMinimumOnlyRoute
+const waterLevelAnswer = isPlanningRoute
+  ? `This planning route has no verified scoring range or live route score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
+  : isMinimumOnlyRoute
   ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
   : `Paddle Today watches ${river.gaugeSource.siteName} and treats ${targetBandValue} as the target band for this route, with weather and recent trend included in the final score.`;
 const beginnerAnswer =
-  river.profile.difficulty === 'easy'
+  isPlanningRoute
+    ? `This is listed as a ${river.profile.difficulty} route. Review the difficulty notes, hazards and current access conditions against your group's skills. No live score assesses this trip.`
+    : river.profile.difficulty === 'easy'
     ? `This is listed as an easy route, but conditions still matter. Check today's score, water level, weather, and access notes before you go.`
     : river.profile.difficulty === 'moderate'
       ? `This is listed as a moderate route. Expect more planning than an easy float, and use the live score, route notes, and source links before committing.`

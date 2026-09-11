@@ -2,6 +2,7 @@ import { open, readFile, rename, rm, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import { pathToFileURL } from 'node:url';
+import { starterCampaignWindow, type StarterCampaign } from '../src/operations/starter-campaign';
 
 type Difficulty = 'standard' | 'difficult';
 type WorkMode = 'implementation' | 'research';
@@ -491,8 +492,32 @@ async function plan(claim: boolean, requestedMode?: WorkMode, requestedState?: s
   const execute = async () => {
     const now = new Date();
     const { profiles, inbox, controlState } = await loadInputs(now);
+    const campaign = await readJson<StarterCampaign>(path.join(root, 'docs/operations/lower-48-starter-campaign.json'))
+      .catch((error: NodeJS.ErrnoException) => { if (error.code === 'ENOENT') return null; throw error; });
+    const window = campaign?.active
+      ? starterCampaignWindow(campaign, (await import('../src/lib/rivers')).listRivers(), now)
+      : null;
+    if (window) {
+      if (!window.eligible.length) throw new Error('Starter campaign has no eligible state. Review completed sets and paused gaps before resuming other expansion.');
+      for (const profile of profiles.states) {
+        profile.enabled = profile.enabled && window.eligible.some(state => state.code === profile.code);
+      }
+    }
     const selected = selectState(profiles, inbox, controlState, now, requestedMode, requestedState);
     const order = buildWorkOrder(selected, profiles, controlState, now, requestedMode);
+    if (window) {
+      const state = window.eligible.find(entry => entry.code === selected.profile.code)!;
+      order.selection.reasons.unshift(`Lower 48 starter campaign: ${state.count} public routes; current pass target ${window.target}. Add at most ${state.batchLimit} routes before rotating.`);
+      if (campaign?.selectionPolicy === 'scored-first') {
+        order.selection.reasons.unshift('Scored-first: qualify direct live telemetry and same-gauge numeric paddling guidance before selecting new routes.');
+        order.executionContract.requiredBehavior.unshift(
+          'Prefer qualified scored routes over planning-only candidates, regardless of research convenience. Screen scoring evidence first, then complete access, safety and geometry review.',
+          'Use planning-only additions only after recording a bounded scored-candidate search and the distinct user value of the fallback. Never infer thresholds from flood records or transfer gauge datums.',
+          'Report scored additions separately from public coverage. Review existing campaign planning routes for evidence-backed promotion without adding duplicate routes or consuming new-route slots.',
+        );
+      }
+      if (order.mode === 'implementation') order.candidates = order.candidates.slice(0, state.batchLimit);
+    }
 
     if (claim) {
       controlState.claims.push({

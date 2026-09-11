@@ -1,0 +1,28 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["clark-fork-river-milltown-sharon", "clark-fork-river-sharon-jacobs-island", "clark-fork-river-jacobs-silver-park", "clark-fork-river-milltown-jacobs-island", "clark-fork-river-sharon-silver-park", "clark-fork-river-milltown-silver-park"],
+  "sourceAttempts": [
+    {"family": "RiverScout", "method": "Clark Fork flow and reach page", "result": "Ties a 2,000–10,000 cfs community planning band and Class I–III context to USGS 12340500 above Missoula; identifies the Missoula urban float and Alberton Gorge context."},
+    {"family": "Destination Missoula / Three Rivers Collaborative", "method": "Current Clark Fork river guide and map PDF", "result": "Documents Milltown State Park, Sha-Ron, Jacobs Island and Silver Park access points and common float times of 2 hours, 2 hours and 1 hour respectively, plus parking, gate and launch limitations."},
+    {"family": "Montana FWP", "method": "Milltown State Park and fishing-access pages", "result": "Confirms Milltown river access and park coordinates; FWP FAS detail confirms Sha-Ron coordinates and access identity."},
+    {"family": "City of Missoula", "method": "Silver Park boat landing rules", "result": "Confirms the public downtown landing is take-out only, day-use only, and downstream diversion, shallow-channel and in-stream hazards require conservative use."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 12340500 is the direct Clark Fork above Missoula gauge; current page provides discharge telemetry for the Missoula corridor."},
+    {"family": "Montana FWP restrictions", "method": "Current waterbody restrictions and closure review", "result": "No Clark Fork closure was listed on the current restrictions page; the separate Blackfoot construction closure was screened out of this batch."},
+    {"family": "USGS NHD", "method": "Named-flowline and waterbody endpoint audit", "result": "Canonical geometries were generated with route-scoped Clark Fork aliases and endpoint-bounded traces. All six refined endpoints sit on mapped Clark Fork waterbody edges; flowline distance is informational where the access is a bank or walk-in point."}
+  ],
+  "sources": [
+    "https://riverscout.app/rivers/montana/clark-fork",
+    "https://destinationmissoula.org/files/downtown-river-map.pdf",
+    "https://fwp.mt.gov/stateparks/milltown",
+    "https://myfwp.mt.gov/fishMT/fas/39754199",
+    "https://www.ci.missoula.mt.us/1227/Silver-Park-Boat-Landing",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-12340500/",
+    "https://fwp.mt.gov/news/current-closures-restrictions/waterbody-closures"
+  ],
+  "thresholdEvidence": {"station": "12340500", "metric": "discharge_cfs", "source": "https://riverscout.app/rivers/montana/clark-fork", "minimum": 2000, "idealReference": 2000, "idealMaximum": 10000, "maximum": 15000, "model": "two-sided", "strength": "community", "reachApplicability": "Missoula-area Clark Fork corridor. RiverScout's broad band is a community planning cue tied to the direct above-Missoula gauge, not a safety guarantee; check live trend, temperature, weather and closures."},
+  "endpointAudit": {"artifacts": ["tmp/mt-clark-fork-milltown-sharon-audit.json", "tmp/mt-clark-fork-sharon-jacobs-island-audit.json", "tmp/mt-clark-fork-jacobs-silver-park-audit.json", "tmp/mt-clark-fork-river-milltown-jacobs-island-audit.json", "tmp/mt-clark-fork-river-sharon-silver-park-audit.json", "tmp/mt-clark-fork-river-milltown-silver-park-audit.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 0, "review": 12, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All twelve endpoints are on mapped Clark Fork waterbody edges. NHD reports flowline distance as informational for bank and walk-in access points; the named access sources and endpoint-bounded traces were reviewed."},
+  "validation": ["Route-data typecheck and focused Montana route safety test passed.", "Canonical geometries generated for 2,130 matched routes and 48 state assets.", "All twelve endpoint audits returned review with no unknown, suspicious or failure results.", "Full route safety audit returned 0 issues across 1,190 scored routes; route data audit passed for 2,244 routes with 102 planning issues and 79 deferred checks tracked.", "Canonical geometry audit passed for 2,130 of 2,143 public-indexed route assets; production build passed with 2,544 pages."],
+  "pending": ["Run the production build and full route-safety audit before deployment.", "Confirm current Milltown gate, Sha-Ron parking, Jacobs Island walk-in access, Silver Park event closures and live gauge trend before launch."]
+}

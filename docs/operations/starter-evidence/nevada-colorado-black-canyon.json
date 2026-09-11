@@ -1,0 +1,26 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["colorado-river-hoover-dam-willow-beach", "colorado-river-willow-beach-eldorado-canyon", "colorado-river-eldorado-canyon-cottonwood-cove", "colorado-river-hoover-dam-eldorado-canyon", "colorado-river-willow-beach-cottonwood-cove", "colorado-river-hoover-dam-cottonwood-cove"],
+  "sourceAttempts": [
+    {"family": "RiverScout", "method": "Nevada Colorado River flow and reach page", "result": "Publishes a 6,800–20,300 cfs optimal band tied to USGS 09421500, describes the 109-mile Clark County river as Class I, and identifies the Black Canyon and Eldorado-to-Avi water-trail reaches."},
+    {"family": "National Park Service", "method": "Black Canyon National Water Trail page", "result": "Documents the 30-mile trail, Hoover permit requirement, Willow Beach river mile 52½, Eldorado Canyon river mile 39, the ¼-mile carry at Eldorado, and the 17-mile continuation to Cottonwood Cove with open-water and wind warnings."},
+    {"family": "Bureau of Reclamation", "method": "USBR RISE Cottonwood Cove location", "result": "Confirms the Nevada marina location and WGS84 coordinate for the southern take-out."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 09421500 is the direct Colorado River below Hoover Dam AZ-NV gauge in Nevada's Clark County district with continuous data through 2026-09-09."},
+    {"family": "OpenStreetMap ramp references", "method": "Nelson's Landing and Willow Beach access coordinate review", "result": "Nelson's Landing public-ramp and Willow Beach marina coordinates were used as access anchors and then checked against NHD waterbody geometry."},
+    {"family": "USGS NHD", "method": "Named-flowline and waterbody endpoint audit", "result": "Canonical geometries were generated with route-scoped Colorado River aliases. All six endpoints returned OK or review, with no suspicious, failure or unknown results; flowline distance is informational where marina or shoreline access is mapped as Lake Mohave waterbody."}
+  ],
+  "sources": [
+    "https://riverscout.app/rivers/nevada/colorado-river",
+    "https://home.nps.gov/lake/planyourvisit/black-canyon-water-trail.htm",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09421500/",
+    "https://data.usbr.gov/location/3535",
+    "https://mapcarta.com/23363786",
+    "https://www.boatlaunchmap.com/ramps/willow-beach-marina-willow-beach-arizona-boat-launch-10922"
+  ],
+  "thresholdEvidence": {"station": "09421500", "metric": "discharge_cfs", "source": "https://riverscout.app/rivers/nevada/colorado-river", "minimum": 6800, "idealReference": 6800, "idealMaximum": 20300, "maximum": 30000, "model": "two-sided", "strength": "community", "reachApplicability": "Black Canyon and Lake Mohave corridor below Hoover Dam. RiverScout's band is a community planning cue; verify live releases, wind, heat, permits and NPS restrictions before travel."},
+  "endpointAudit": {"artifacts": ["tmp/nv-colorado-hoover-willow-audit.json", "tmp/nv-colorado-willow-eldorado-audit.json", "tmp/nv-colorado-eldorado-cottonwood-audit.json", "tmp/nv-colorado-river-hoover-dam-eldorado-canyon-audit.json", "tmp/nv-colorado-river-willow-beach-cottonwood-cove-audit.json", "tmp/nv-colorado-river-hoover-dam-cottonwood-cove-audit.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 3, "review": 9, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All endpoints are named NPS, marina or public-ramp access anchors on mapped Colorado River/Lake Mohave waterbodies. NHD reports flowline distance as informational for reservoir shore and marina points."},
+  "validation": ["Route-data typecheck and focused Nevada route safety test passed.", "Canonical geometries generated for 2,133 matched routes and 48 state assets.", "All twelve endpoint audits returned OK or review with no suspicious, failure or unknown results.", "Full route safety audit returned 0 issues across 1,193 scored routes; route data audit passed for 2,247 routes with 102 planning issues and 79 deferred checks tracked.", "Canonical geometry audit passed for 2,133 of 2,146 public-indexed route assets; production build passed with 2,547 pages."],
+  "pending": ["Run the production build and full route-safety audit before deployment.", "Confirm Hoover launch permits/outfitter reservation, Willow Beach marina access, Eldorado ¼-mile carry, Cottonwood Cove marina rules, live gauge trend and desert weather before launch."]
+}

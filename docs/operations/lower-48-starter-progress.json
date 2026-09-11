@@ -1,0 +1,307 @@
+{
+  "generatedAt": "2026-09-10T18:42:24.555Z",
+  "selectionPolicy": "scored-first",
+  "countsDescribe": "Non-withheld public checkout catalog; not proof of deployment, completed research, or quality review.",
+  "nextPassTarget": 3,
+  "nextEligibleStates": [
+    "Montana",
+    "Washington",
+    "New Hampshire",
+    "Vermont",
+    "Nevada",
+    "Rhode Island",
+    "New Mexico"
+  ],
+  "states": [
+    {
+      "state": "Florida",
+      "code": "FL",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [
+        "santa-fe-river-us27-rum-island",
+        "santa-fe-river-rum-island-sr47",
+        "peace-river-brownville-desoto-veterans"
+      ],
+      "planning": 3,
+      "recreational": 3,
+      "riverSystems": 2,
+      "routeIds": [
+        "santa-fe-river-us27-rum-island",
+        "santa-fe-river-rum-island-sr47",
+        "peace-river-brownville-desoto-veterans"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Oregon",
+      "code": "OR",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [
+        "willamette-river-peoria-crystal-lake",
+        "willamette-river-michaels-hyak",
+        "tualatin-river-jurgens-community"
+      ],
+      "planning": 3,
+      "recreational": 3,
+      "riverSystems": 2,
+      "routeIds": [
+        "willamette-river-peoria-crystal-lake",
+        "willamette-river-michaels-hyak",
+        "tualatin-river-jurgens-community"
+      ],
+      "pause": null
+    },
+    {
+      "state": "South Carolina",
+      "code": "SC",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 3,
+      "routeIds": [
+        "lynches-river-indigo-wicklow",
+        "north-fork-edisto-baughmans-orangeburg",
+        "little-pee-dee-carmichaels-huggins"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Massachusetts",
+      "code": "MA",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "deerfield-river-fife-brook-zoar-picnic",
+        "deerfield-river-zoar-picnic-shunpike",
+        "deerfield-river-shunpike-east-charlemont"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Arizona",
+      "code": "AZ",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "verde-river-lower-tapco-tuzigoot",
+        "verde-river-tuzigoot-89a-bridge",
+        "verde-river-89a-skidmore"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Alabama",
+      "code": "AL",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "hatchet-creek-highway-280-highway-231",
+        "hatchet-creek-highway-280-kings-bridge",
+        "hatchet-creek-highway-231-kings-bridge"
+      ],
+      "pause": null
+    },
+    {
+      "state": "California",
+      "code": "CA",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "american-river-sailor-bar-harrington",
+        "american-river-harrington-watt",
+        "american-river-watt-howe"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Connecticut",
+      "code": "CT",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "farmington-river-riverton-peoples-forest",
+        "farmington-river-peoples-forest-181-318",
+        "farmington-river-181-318-lake-mcdonough"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Montana",
+      "code": "MT",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "Louisiana",
+      "code": "LA",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [
+        "bogue-chitto-river-pearl-street-boat-ramp-road",
+        "bogue-chitto-river-boat-ramp-road-state-park",
+        "bogue-chitto-river-state-park-highway-21-sun"
+      ],
+      "planning": 3,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "bogue-chitto-river-pearl-street-boat-ramp-road",
+        "bogue-chitto-river-boat-ramp-road-state-park",
+        "bogue-chitto-river-state-park-highway-21-sun"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Washington",
+      "code": "WA",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "New Hampshire",
+      "code": "NH",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "Mississippi",
+      "code": "MS",
+      "inventory": 3,
+      "publicCheckout": 3,
+      "scored": 3,
+      "needsScoredCoverage": false,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 3,
+      "riverSystems": 1,
+      "routeIds": [
+        "black-creek-big-creek-old-highway-49",
+        "black-creek-janice-cypress",
+        "black-creek-cypress-fairley"
+      ],
+      "pause": null
+    },
+    {
+      "state": "Vermont",
+      "code": "VT",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "Nevada",
+      "code": "NV",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "Rhode Island",
+      "code": "RI",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    },
+    {
+      "state": "New Mexico",
+      "code": "NM",
+      "inventory": 0,
+      "publicCheckout": 0,
+      "scored": 0,
+      "needsScoredCoverage": true,
+      "promotionReviewRouteIds": [],
+      "planning": 0,
+      "recreational": 0,
+      "riverSystems": 0,
+      "routeIds": [],
+      "pause": null
+    }
+  ]
+}

@@ -208,6 +208,482 @@
       "primarySourceFamilies": ["Wisconsin DNR and county access maps", "USGS current conditions", "Wisconsin Trail Guide"],
       "fallbackSourceFamilies": ["American Whitewater", "Wisconsin River Trips", "Miles Paddled"],
       "mandatoryChecks": ["dam and portage boundaries", "public landing legitimacy", "corridor overlap"]
+    },
+    {
+      "state": "Florida",
+      "code": "FL",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/florida.md",
+      "primarySourceFamilies": [
+        "Florida DEP designated trails and guides",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which managed river trips have current access guidance and a defensible scoring or planning treatment? Check spring-run operating restrictions and flood conditions.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Oregon",
+      "code": "OR",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/oregon.md",
+      "primarySourceFamilies": [
+        "Oregon State Parks Willamette water trail",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Can public access pairs provide diverse day trips without crossing whitewater or dam boundaries?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "code": "SC",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/south-carolina.md",
+      "primarySourceFamilies": [
+        "SCDNR river guide directory",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which guide segments have verified launches, manageable logistics, and current water-level evidence?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Massachusetts",
+      "code": "MA",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/massachusetts.md",
+      "primarySourceFamilies": [
+        "Massachusetts canoeing and kayaking directory",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which metropolitan and inland options avoid unresolved dams, tidal effects, and seasonal access limits?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Arizona",
+      "code": "AZ",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/arizona.md",
+      "primarySourceFamilies": [
+        "USFS-hosted Verde River paddle trail guide",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "How many distinct trips remain after checking releases, diversion hazards, access permissions, and overlap? Assess a possible shortfall early.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Alabama",
+      "code": "AL",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/alabama.md",
+      "primarySourceFamilies": [
+        "Outdoor Alabama canoe trails",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which officially documented trips offer straightforward access and broad recreational appeal? Separate delta navigation from river scoring.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "California",
+      "code": "CA",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/california.md",
+      "primarySourceFamilies": [
+        "California American River boating facilities",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Can the set represent more than one population center while excluding technical reaches and unsupported release assumptions?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Connecticut",
+      "code": "CT",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/connecticut.md",
+      "primarySourceFamilies": [
+        "CT DEEP boat launches",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which access chains have clear dam boundaries and non-tidal options appropriate for initial discovery?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Montana",
+      "code": "MT",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/montana.md",
+      "primarySourceFamilies": [
+        "Montana FWP fishing access",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which day floats have current access and use rules, manageable remoteness, and suitable reach-specific conditions?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "code": "LA",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/louisiana.md",
+      "primarySourceFamilies": [
+        "Bogue Chitto State Park",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Can managed river and bayou trips be represented accurately without treating discharge as a complete swamp or tidal conditions model?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Washington",
+      "code": "WA",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/washington.md",
+      "primarySourceFamilies": [
+        "BLM Yakima River Canyon",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which bounded reaches avoid dam take-out risk and have clear cold-water, wood, and flow guidance?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "New Hampshire",
+      "code": "NH",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/new-hampshire.md",
+      "primarySourceFamilies": [
+        "Visit NH paddling leads",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Can official access managers substantiate these discovery leads and keep recreational segments separate from rapids and dams?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Mississippi",
+      "code": "MS",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/mississippi.md",
+      "primarySourceFamilies": [
+        "USFS Mississippi recreation directory",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which reaches have source-backed public landings, useful shuttle distances, and reliable flood/access information?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Vermont",
+      "code": "VT",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "standard",
+      "playbookPath": "docs/state-route-memories/vermont.md",
+      "primarySourceFamilies": [
+        "Northern Forest Canoe Trail",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which trail and municipal sources establish usable day-trip segments, current launches, and verified dam boundaries?",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Nevada",
+      "code": "NV",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/nevada.md",
+      "primarySourceFamilies": [
+        "NPS Black Canyon National Water Trail",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Are ten distinct river trips supportable without redundant cards, difficult access, or unsupported conditions models? Accept fewer if necessary.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "Rhode Island",
+      "code": "RI",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/rhode-island.md",
+      "primarySourceFamilies": [
+        "ExploreRI water trails and access maps",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "How many distinct inland trips survive dam, access, and overlap review? ExploreRI also includes neighboring-state waters; verify attribution.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
+    },
+    {
+      "state": "New Mexico",
+      "code": "NM",
+      "enabled": true,
+      "weight": 1,
+      "difficulty": "difficult",
+      "playbookPath": "docs/state-route-memories/new-mexico.md",
+      "primarySourceFamilies": [
+        "BLM Rio Chama",
+        "USGS station and current observations",
+        "Local public access managers"
+      ],
+      "fallbackSourceFamilies": [
+        "Official water-trail partners",
+        "American Whitewater where reach-matched",
+        "County and municipal GIS"
+      ],
+      "mandatoryChecks": [
+        "Which reaches have suitable access, permit/release evidence, and seasonal viability? Avoid forcing ten through technical or remote additions.",
+        "Actual public launch and landing coordinates",
+        "Planning/scored policy and default discovery",
+        "Distinct itinerary and canonical state attribution"
+      ],
+      "sourceRecoveryTactics": [
+        "Try official PDF, GIS export, and manager pages before declaring a source unavailable.",
+        "Record missing evidence and a specific retry condition; do not fabricate endpoints or thresholds."
+      ]
     }
   ]
 }

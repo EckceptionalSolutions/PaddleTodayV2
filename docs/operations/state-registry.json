@@ -28,7 +28,13 @@
     { "id": "TX", "name": "Texas", "frontierTier": 5, "frontierLabel": "Distant expansion" },
     { "id": "UT", "name": "Utah", "frontierTier": 5, "frontierLabel": "Distant expansion" },
     { "id": "VA", "name": "Virginia", "frontierTier": 6, "frontierLabel": "New-state expansion" },
-    { "id": "WI", "name": "Wisconsin", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" }
+    { "id": "WI", "name": "Wisconsin", "frontierTier": 1, "frontierLabel": "Upper Midwest frontier" },
+    { "id": "ID", "name": "Idaho", "frontierTier": 6, "frontierLabel": "New-state expansion" },
+    { "id": "WV", "name": "West Virginia", "frontierTier": 6, "frontierLabel": "New-state expansion" },
+    { "id": "WY", "name": "Wyoming", "frontierTier": 6, "frontierLabel": "New-state expansion" },
+    { "id": "FL", "name": "Florida", "frontierTier": 6, "frontierLabel": "New-state expansion" },
+    { "id": "OR", "name": "Oregon", "frontierTier": 6, "frontierLabel": "New-state expansion" },
+    { "id": "SC", "name": "South Carolina", "frontierTier": 6, "frontierLabel": "New-state expansion" }
   ],
   "aliases": {
     "Arkansas": "AR",
@@ -58,6 +64,12 @@
     "Texas": "TX",
     "Utah": "UT",
     "Virginia": "VA",
-    "Wisconsin": "WI"
+    "Wisconsin": "WI",
+    "Idaho": "ID",
+    "West Virginia": "WV",
+    "Wyoming": "WY",
+    "Florida": "FL",
+    "Oregon": "OR",
+    "South Carolina": "SC"
   }
 }

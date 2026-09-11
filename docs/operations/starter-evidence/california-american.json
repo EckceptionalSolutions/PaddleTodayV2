@@ -1,0 +1,93 @@
+{
+  "reviewedAt": "2026-09-11",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "american-river-sailor-bar-harrington",
+    "american-river-harrington-watt",
+    "american-river-watt-howe",
+    "american-river-sailor-bar-watt"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "California State Parks",
+      "method": "American River boating facilities directory",
+      "result": "Lists Sailor Bar / Illinois, Harrington, Watt Avenue and Howe Avenue as public launch facilities."
+    },
+    {
+      "family": "California Division of Boating and Waterways",
+      "method": "Lower American boating trail guide",
+      "result": "Documents Parkway recreation, cold-water and current hazards, the 150-foot Nimbus Dam exclusion and public park access."
+    },
+    {
+      "family": "Wilderness Portal",
+      "method": "Lower American route and flow review",
+      "result": "Provides the 1,400–3,100 cfs comfortable window, 5,000 cfs maximum reference, Class I(II) context and Fair Oaks gauge relationship."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 11446500 American River at Fair Oaks is the direct gauge for the selected Parkway corridor."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Named-flowline, area and waterbody endpoint audit",
+      "result": "All six refined endpoints are on mapped water with no suspicious or failure result; Sailor Bar remains a review-level flowline anchor at 161 ft while on mapped water."
+    },
+    {
+      "family": "California State Parks / Sacramento County",
+      "method": "Sailor Bar-to-Watt access-chain review",
+      "result": "Confirmed Sailor Bar / Illinois, Harrington and Watt Avenue as the public access sequence for a full Lower American Parkway run; retained Harrington as a bailout and the Nimbus exclusion."
+    },
+    {
+      "family": "USGS NHD",
+      "method": "Sailor Bar and Watt endpoint audit",
+      "result": "Both refined endpoints are on mapped water with no suspicious or failure result; Sailor Bar is a review-level flowline anchor at 161 ft."
+    }
+  ],
+  "sources": [
+    "https://www.parks.ca.gov/BoatingFacilities/Body-of-Water/American%20River",
+    "https://dbw.parks.ca.gov/?page_id=29488",
+    "https://www.wildernessportal.com/routes/american-lower-american",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-11446500/"
+  ],
+  "thresholdEvidence": {
+    "station": "11446500",
+    "metric": "discharge_cfs",
+    "source": "https://www.wildernessportal.com/routes/american-lower-american",
+    "minimum": 1400,
+    "idealReference": 2400,
+    "maximum": 5000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Lower American River Parkway / Fair Oaks gauge corridor only; do not transfer to the forks or another American River basin reach."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/ca-audit1-refined.json",
+      "tmp/ca-audit2.json",
+      "tmp/ca-audit3.json",
+      "tmp/ca-american-sailor-watt-audit.json"
+    ],
+    "routeCount": 4,
+    "endpointCount": 8,
+    "bySeverity": {
+      "ok": 6,
+      "review": 2,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "Sailor Bar put-in remains 161 ft from the named flowline but on mapped water; retain the refined entry and confirm the access edge in field review."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Canonical geometries generated and endpoint audits completed.",
+    "The starter visual suite passed all 21 desktop, iPhone and Android checks, including California state and detail rendering.",
+    "The scored fourth route uses the same direct Fair Oaks gauge, published Lower American planning band and public Parkway access chain.",
+    "Targeted endpoint audit passed for Sailor Bar-to-Watt with 1 OK and 1 review result; no suspicious, failure or unknown endpoints."
+  ],
+  "pending": [
+    "Recheck current launch notices, parking and gauge trend before deployment."
+  ]
+}

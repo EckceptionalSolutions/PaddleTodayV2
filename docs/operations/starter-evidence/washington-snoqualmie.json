@@ -1,0 +1,29 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "snoqualmie-river-plum-fall-city",
+    "snoqualmie-river-fall-city-neal",
+    "snoqualmie-river-plum-neal"
+  ],
+  "sourceAttempts": [
+    {"family": "American Whitewater", "method": "Snoqualmie Falls to Fall City reach, Plum Landing and Neal Road access pages", "result": "Documents the Class I–II+ high-use corridor, Plum Landing access, Neal Road access, beginner float reports and a low-runnable reference near 467 cfs."},
+    {"family": "Fall City Metropolitan Park District and Float Snoqualmie", "method": "Community Park page and entry/exit guide", "result": "Documents public Fall City Community Park river access immediately below the SR-202 bridge, with a trail to the park parking area; the route endpoint was placed at the mapped river-entry trail rather than the park centroid."},
+    {"family": "Washington Department of Fish and Wildlife", "method": "Richter water-access site", "result": "Confirms Richter / Neal Road as a year-round WDFW access site with a concrete ramp and parking."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 12149000 near Carnation supplies direct Snoqualmie River discharge telemetry for the valley corridor."}
+  ],
+  "sources": [
+    "https://www.americanwhitewater.org/content/River/view/river-detail/2216/main",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/101239",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/101242",
+    "https://www.fallcityparks.org/fall-city-community-park.html",
+    "https://floatsnoqualmie.wordpress.com/entry-and-exit-the-river/",
+    "https://wdfw.wa.gov/places-to-go/water-access-sites/richter-628",
+    "https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=12149000"
+  ],
+  "thresholdEvidence": {"station": "12149000", "metric": "discharge_cfs", "source": "https://www.americanwhitewater.org/content/River/view/river-detail/2216/main", "minimum": 400, "idealReference": 500, "idealMaximum": 1600, "maximum": 3000, "model": "two-sided", "strength": "community", "reachApplicability": "Snoqualmie Falls–Fall City–Neal Valley corridor. American Whitewater identifies about 467 cfs as low runnable and documents beginner floats plus higher-flow reports around 1,100–1,600 cfs. Verify live 12149000 telemetry, trend, recent rain, wood, weather and access notices before travel."},
+  "endpointAudit": {"artifacts": ["tmp/snoqualmie-river-plum-fall-city-coordinate.json", "tmp/snoqualmie-river-fall-city-neal-coordinate.json", "tmp/snoqualmie-river-plum-neal-coordinate.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 2, "review": 4, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Plum and Neal endpoints are documented ramp or water-entry locations and receive the audit's expected review classification for access-edge offsets. The Fall City endpoint was moved from the park centroid to the documented river-entry trail below SR-202; no endpoint is suspicious or failed."},
+  "validation": ["Route-data typecheck passed.", "Focused Washington Snoqualmie and Yakima route safety tests passed.", "Canonical geometries generated for all three Snoqualmie routes; endpoint audits returned no suspicious or failed findings.", "Canonical geometry audit passed with 2,154 of 2,167 route assets matched and 48 state assets present.", "Full route safety audit returned 0 issues across 1,211 scored routes.", "Production build passed with 2,572 static pages and included the Washington Snoqualmie routes."],
+  "pending": ["Confirm current WDFW and park access, parking, closures, flow trend, recent rain, wood, weather, cold-water and crowding conditions before launch; no deployment has been performed."]
+}

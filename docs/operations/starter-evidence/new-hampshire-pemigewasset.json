@@ -1,0 +1,26 @@
+{
+  "reviewedAt": "2026-09-10",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["pemigewasset-river-livermore-falls-plymouth", "pemigewasset-river-plymouth-coolidge-woods", "pemigewasset-river-coolidge-woods-shaw-cove", "pemigewasset-river-livermore-falls-coolidge-woods", "pemigewasset-river-plymouth-shaw-cove", "pemigewasset-river-livermore-falls-shaw-cove"],
+  "sourceAttempts": [
+    {"family": "RiverScout", "method": "New Hampshire Pemigewasset flow and reach page", "result": "Publishes a 400–2,000 cfs community planning band tied to USGS 01076500, describes the river as Class I–III, and identifies the popular Lincoln–Woodstock and Plymouth–Bristol recreational context."},
+    {"family": "Lakes Region Planning Commission", "method": "Pemigewasset River Corridor Management Plan 2024", "result": "Documents public access points including Livermore Falls walk-in, Plymouth cartop, Coolidge Woods cartop and Shaw Cove cartop facilities, plus portage paths around the corridor dams."},
+    {"family": "Merrimack Valley Paddlers / New Hampshire access directory", "method": "Public boating and fishing access entries", "result": "Provides coordinate-backed access anchors for the three selected reaches and identifies the Franklin ramp as closed, which was excluded."},
+    {"family": "Wilderness Portal", "method": "Bristol Gorge route flow and difficulty guide", "result": "Adds a reach-specific 700 cfs minimum, 900–1,500 cfs sweet spot and 2,500 cfs maximum reference for the Pemi's Class II(III) features and Rodeo Hole."},
+    {"family": "Visit NH", "method": "Kayak With a View paddling guide", "result": "Confirms the Pemigewasset as a popular New Hampshire paddling river and describes an 8-mile Class II Ayers Island stretch, supporting demand while requiring explicit dam-portage treatment."},
+    {"family": "USGS NHD", "method": "Named-flowline and waterbody endpoint audit", "result": "Canonical geometries were generated with route-scoped Pemigewasset aliases. All six endpoints returned review with no suspicious, failure or unknown results; access-center flowline distance is informational where the mapped waterbody is the correct anchor."}
+  ],
+  "sources": [
+    "https://riverscout.app/rivers/new-hampshire/pemigewasset-river",
+    "https://lakesrpc.nh.gov/wp-content/uploads/2026/03/Pemi-River-Corridor-Mgmt-Plan-2024.pdf",
+    "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html",
+    "https://www.wildernessportal.com/routes/pemigewasset-bristol-gorge",
+    "https://www.visitnh.gov/blog/kayak-with-a-view",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01076500/"
+  ],
+  "thresholdEvidence": {"station": "01076500", "metric": "discharge_cfs", "source": "https://riverscout.app/rivers/new-hampshire/pemigewasset-river", "minimum": 400, "idealReference": 400, "idealMaximum": 2000, "maximum": 3000, "model": "two-sided", "strength": "community", "reachApplicability": "Selected Pemigewasset valley corridor. RiverScout's band and Wilderness Portal's Bristol Gorge range are planning cues, not safety guarantees; verify live telemetry, trend, weather, dam notices and access status before travel."},
+  "endpointAudit": {"artifacts": ["tmp/nh-pemi-livermore-plymouth-audit.json", "tmp/nh-pemi-plymouth-coolidge-audit.json", "tmp/nh-pemi-coolidge-shaw-audit.json", "tmp/nh-pemigewasset-river-livermore-falls-coolidge-woods-audit.json", "tmp/nh-pemigewasset-river-plymouth-shaw-cove-audit.json", "tmp/nh-pemigewasset-river-livermore-falls-shaw-cove-audit.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 0, "review": 12, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All twelve endpoints are on mapped Pemigewasset waterbodies and named public access facilities. NHD reports flowline distance as informational for walk-in and cartop access anchors; the 2024 corridor plan and endpoint-bounded traces were reviewed."},
+  "validation": ["Route-data typecheck and focused New Hampshire Pemigewasset route safety test passed.", "Canonical geometries generated for 2,136 matched routes and 48 state assets.", "All twelve endpoint audits returned review with no suspicious, failure or unknown results.", "Full route safety audit returned 0 issues across 1,196 scored routes; route data audit passed for 2,250 routes with 102 planning issues and 79 deferred checks tracked.", "Canonical geometry audit passed for 2,136 of 2,149 public-indexed route assets; production build passed with 2,550 pages."],
+  "pending": ["Run the production build and full route-safety audit before deployment.", "Recheck current NH Fish and Game, municipal and federal access rules, walk-in craft suitability at Livermore Falls, mandatory dam portages, parking and live gauge trend before launch."]
+}
