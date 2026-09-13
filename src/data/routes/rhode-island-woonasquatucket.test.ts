@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { rhodeIslandWoonasquatucketRoutes } from './rhode-island-woonasquatucket';
 
 describe('Rhode Island Woonasquatucket routes', () => {
-  it('publishes eight scored public-access reaches with gauge evidence', () => {
-    expect(rhodeIslandWoonasquatucketRoutes).toHaveLength(8);
+  it('publishes scored public-access reaches with gauge evidence', () => {
+    expect(rhodeIslandWoonasquatucketRoutes.length).toBeGreaterThanOrEqual(11);
     for (const route of rhodeIslandWoonasquatucketRoutes) {
       expect(route.state).toBe('Rhode Island');
       expect(route.scoreEligibility).toBe('scored');

@@ -4,8 +4,8 @@ import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('New Hampshire Saco scored starter', () => {
-  it('registers a direct-gauge public-access reach with safety and camping guidance', () => {
-  expect(newHampshireSacoRoutes).toHaveLength(8);
+  it('registers direct-gauge public-access reaches with safety and camping guidance', () => {
+    expect(newHampshireSacoRoutes.length).toBeGreaterThanOrEqual(10);
     expect(newHampshireSacoRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(newHampshireSacoRoutes.every(route => route.gaugeSource?.siteId === '01064500')).toBe(true);
     expect(newHampshireSacoRoutes.every(route => route.logistics?.campingClassification === 'none')).toBe(true);
