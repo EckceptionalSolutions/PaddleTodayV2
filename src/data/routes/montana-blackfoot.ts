@@ -147,7 +147,7 @@ function makeBlackfootShortReach(spec: {
   };
 }
 
-type BlackfootEndpointKey = 'russell' | 'scotty' | 'roundup' | 'whitaker' | 'johnsrud' | 'weigh';
+type BlackfootEndpointKey = 'russell' | 'scotty' | 'roundup' | 'whitaker' | 'johnsrud' | 'weigh' | 'kross' | 'angevine' | 'marco';
 const blackfootEndpointCatalog: Record<BlackfootEndpointKey, { name: string; latitude: number; longitude: number }> = {
   russell: { name: 'Russell Gates Memorial Fishing Access Site (water-entry edge)', latitude: 47.0234361031, longitude: -113.306023437 },
   scotty: { name: 'Scotty Brown Bridge Fishing Access Site (water-entry edge)', latitude: 47.0184, longitude: -113.2402 },
@@ -155,6 +155,9 @@ const blackfootEndpointCatalog: Record<BlackfootEndpointKey, { name: string; lat
   whitaker: { name: 'Whitaker Bridge Fishing Access Site (water-entry edge)', latitude: 46.9430, longitude: -113.6000 },
   johnsrud: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9164, longitude: -113.6785 },
   weigh: { name: 'Weigh Station Fishing Access Site (water-entry edge)', latitude: 46.8797, longitude: -113.8525 },
+  kross: { name: 'K. Ross Toole Fishing Access Site (water-entry edge)', latitude: 46.90393, longitude: -113.72594 },
+  angevine: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
+  marco: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
 };
 
 function makeBlackfootCorridorVariant(spec: {
@@ -568,4 +571,14 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootCorridorVariant({id:'blackfoot-river-scotty-brown-weigh-station',from:'scotty',to:'weigh',miles:42.2,summary:'A long staged Blackfoot itinerary from Scotty Brown Bridge to Weigh Station through the full Recreation Corridor.',time:'Plan two staged days with designated camping, a reliable shuttle and current closure checks.'}),
   makeBlackfootCorridorVariant({id:'blackfoot-river-roundup-weigh-station',from:'roundup',to:'weigh',miles:27,summary:'A 27-mile Blackfoot reach from Roundup through Whitaker and Johnsrud to the Weigh Station take-out.',time:'Allow 10–14 hours or stage a lawful overnight at designated FWP float-in campsites.'}),
   makeBlackfootCorridorVariant({id:'blackfoot-river-whitaker-weigh-station',from:'whitaker',to:'weigh',miles:16.6,summary:'A 16.6-mile lower Blackfoot reach from Whitaker Bridge to the Weigh Station public take-out.',time:'Allow 6–9 hours with current, wood and bridge-work closure checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-roundup-k-ross-toole',from:'roundup',to:'kross',miles:18.7,summary:'An 18.7-mile Blackfoot reach from Roundup through Whitaker and Johnsrud to the K. Ross Toole public access.',time:'Allow 7–10 hours with Roundup Rapid, spring wood and shuttle checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-roundup-angevine',from:'roundup',to:'angevine',miles:20.6,summary:'A 20.6-mile Blackfoot Recreation Corridor reach from Roundup through Whitaker, Johnsrud and K. Ross Toole to Angevine.',time:'Allow 8–11 hours with current, access stops and shuttle margin.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-roundup-marco-flats',from:'roundup',to:'marco',miles:24.2,summary:'A 24.2-mile Blackfoot reach from Roundup through the documented lower access chain to Marco Flats.',time:'Plan a full daylight run with spring wood, bridge and access checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-whitaker-k-ross-toole',from:'whitaker',to:'kross',miles:9.7,summary:'A 9.7-mile lower Blackfoot reach from Whitaker Bridge through Johnsrud to K. Ross Toole.',time:'Allow 4–6 hours with current, wood and access checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-whitaker-angevine',from:'whitaker',to:'angevine',miles:11.6,summary:'An 11.6-mile Blackfoot reach from Whitaker Bridge through Johnsrud and K. Ross Toole to Angevine.',time:'Allow 5–7 hours with current, access stops and shuttle margin.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-whitaker-marco-flats',from:'whitaker',to:'marco',miles:15.2,summary:'A 15.2-mile lower Blackfoot reach from Whitaker Bridge through Johnsrud and Angevine to Marco Flats.',time:'Allow 6–9 hours with current, wood and bridge-work closure checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-russell-gates-k-ross-toole',from:'russell',to:'kross',miles:31.2,summary:'A long 31.2-mile Blackfoot corridor itinerary from Russell Gates through the upper and lower public access chain to K. Ross Toole.',time:'Plan a full daylight run or lawful staged itinerary with designated-campsite and shuttle margin.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-russell-gates-angevine',from:'russell',to:'angevine',miles:33.1,summary:'A long 33.1-mile Blackfoot corridor itinerary from Russell Gates through the documented access chain to Angevine.',time:'Plan a full daylight run or lawful staged itinerary with designated-campsite and closure checks.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-scotty-brown-k-ross-toole',from:'scotty',to:'kross',miles:33.0,summary:'A long 33-mile Blackfoot corridor reach from Scotty Brown Bridge through Roundup, Whitaker and Johnsrud to K. Ross Toole.',time:'Plan a full daylight run with a reliable shuttle, spring wood review and designated-campsite fallback.'}),
+  makeBlackfootCorridorVariant({id:'blackfoot-river-scotty-brown-angevine',from:'scotty',to:'angevine',miles:34.9,summary:'A long 34.9-mile Blackfoot corridor reach from Scotty Brown Bridge through the documented public access chain to Angevine.',time:'Plan a full daylight run with substantial shuttle margin and current closure checks.'}),
 ];

@@ -72,6 +72,7 @@
     "operations:verify": "tsx scripts/operations-verify.ts",
     "operations:brief": "tsx scripts/operations-daily-brief.ts",
     "operations:lower-48-expansion": "tsx scripts/report-lower-48-expansion.ts",
+    "operations:lower-48-expansion-40": "tsx scripts/report-lower-48-expansion-40.ts",
     "operations:ci:triage": "tsx scripts/operations-ci-triage.ts",
     "verify": "npm run test && npm run build:app",
     "operations:dossiers": "tsx scripts/operations-dossiers.ts",
