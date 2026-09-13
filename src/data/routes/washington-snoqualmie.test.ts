@@ -4,8 +4,8 @@ import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Washington Snoqualmie Valley starter routes', () => {
-  it('provides three scored direct-gauge routes', () => {
-    expect(washingtonSnoqualmieRoutes).toHaveLength(3);
+  it('provides six scored direct-gauge routes', () => {
+    expect(washingtonSnoqualmieRoutes).toHaveLength(6);
     expect(washingtonSnoqualmieRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(washingtonSnoqualmieRoutes.every(route => route.gaugeSource?.siteId === '12149000')).toBe(true);
     expect(washingtonSnoqualmieRoutes.every(route => rivers.some(candidate => candidate.id === route.id))).toBe(true);

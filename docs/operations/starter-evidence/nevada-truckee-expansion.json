@@ -1,0 +1,74 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "truckee-river-crystal-peak-wingfield",
+    "truckee-river-crystal-peak-idlewild",
+    "truckee-river-crystal-peak-cottonwood",
+    "truckee-river-idlewild-cottonwood",
+    "truckee-river-cottonwood-lockwood",
+    "truckee-river-mayberry-lockwood",
+    "truckee-river-wingfield-lockwood",
+    "truckee-river-crystal-peak-lockwood",
+    "truckee-river-idlewild-lockwood"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "American Whitewater and TMWA",
+      "result": "Existing Reno Truckee reach guidance and the official TMWA recreation map document the Crystal Peak, Mayberry, Idlewild, Wingfield and Cottonwood public-access sequence and the Class I–III corridor."
+    },
+    {
+      "family": "City of Reno",
+      "result": "City whitewater-park information supports the managed Wingfield access and feature-scouting requirement."
+    },
+    {
+      "family": "USGS",
+      "result": "Direct telemetry from USGS 10348000 at Reno is retained for all four same-corridor combinations."
+    },
+    {
+      "family": "Access coordinate review",
+      "result": "Endpoints reuse the reviewed water-entry anchors from the existing Truckee route module; intermediate parks remain explicit bailout options."
+    },
+    {
+      "family": "Nevada Trail Finder / TMWA access-chain gap fill",
+      "method": "Idlewild-to-Lockwood reach review",
+      "result": "Added the final missing forward endpoint combination across Idlewild, Wingfield, Cottonwood and Lockwood public river accesses. The route retains direct USGS 10348000 telemetry and the reviewed Reno feature, railroad-bridge and Lockwood Ditch controls."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "10348000",
+    "metric": "discharge_cfs",
+    "minimum": 250,
+    "preferredMinimum": 400,
+    "preferredMaximum": 1200,
+    "reviewAbove": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "source": "https://www.americanwhitewater.org/content/River/view/river-detail/4137/main",
+    "reachApplicability": "Conservative Reno-corridor planning cues; feature conditions, cold water, closures and urban hazards still control."
+  },
+  "endpointAudit": {
+    "routeCount": 9,
+    "endpointCount": 18,
+    "bySeverity": {
+      "ok": 0,
+      "review": 16,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": [
+      "tmp/nv-truckee-expansion-endpoint-audit.json"
+    ]
+  },
+  "validation": [
+    "Focused Truckee expansion safety test passed.",
+    "Canonical geometry generation and audit passed for the full route catalog.",
+    "Full route-data, safety and gallery audits passed.",
+    "Added Idlewild-to-Lockwood scored reach; route-data, safety and canonical-geometry audits pass."
+  ],
+  "pending": [
+    "Recheck live gauge trend, park closures, water quality, engineered features, weather and cold-water conditions before deployment."
+  ]
+}

@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-06T00:31:08.179Z.
+Generated 2026-09-12T11:55:21.419Z.
 
 - Defined corridors: 216
 - Routes covered by a corridor definition: 508
-- Remaining multi-route families: 265
+- Remaining multi-route families: 296
 
 ## Defined corridors
 
@@ -286,6 +286,6 @@ Generated 2026-09-06T00:31:08.179Z.
 | Wisconsin | Fox River | 7 |
 | New York | Genesee River | 7 |
 | Texas | Guadalupe River | 7 |
-| Additional families omitted | See route data and overlap audit | 225 |
+| Additional families omitted | See route data and overlap audit | 256 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-11",
+  "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
@@ -11,7 +11,17 @@
     "blackstone-river-sycamore-albion",
     "blackstone-river-rivers-edge-sycamore",
     "blackstone-river-manville-albion",
-    "blackstone-river-rivers-edge-albion"
+    "blackstone-river-rivers-edge-albion",
+    "blackstone-river-manville-sycamore",
+    "blackstone-river-sycamore-kelly-house",
+    "blackstone-river-kelly-house-central-falls",
+    "blackstone-river-rivers-edge-kelly-house",
+    "blackstone-river-rivers-edge-central-falls",
+    "blackstone-river-manville-kelly-house",
+    "blackstone-river-manville-central-falls",
+    "blackstone-river-sycamore-central-falls",
+    "blackstone-river-albion-kelly-house",
+    "blackstone-river-albion-central-falls"
   ],
   "sourceAttempts": [
     {
@@ -63,6 +73,16 @@
       "family": "Route quality screen",
       "method": "Scored-first saturation review",
       "result": "Existing nine routes already cover the verified Wood, Pawcatuck and Blackstone access chains. Pawtuxet and alternate tidal/urban combinations remain research leads rather than publishable scored routes."
+    },
+    {
+      "family": "Blackstone River Watershed Council / RiverScout",
+      "method": "Manville–Sycamore gap-fill screen",
+      "result": "Confirmed Manville Landing and Sycamore Landing as consecutive public access anchors above Albion Dam; RiverScout direct 01112500 200–1,200 cfs band and Watershed Council portage map apply."
+    },
+    {
+      "family": "Route quality screen",
+      "method": "Access-chain expansion",
+      "result": "Added seven distinct Blackstone combinations from Rivers Edge, Manville, Sycamore and Albion to Kelly House and Central Falls, preserving documented dam-portage boundaries and the direct Woonsocket gauge."
     }
   ],
   "sources": [
@@ -98,10 +118,11 @@
       "tmp/ri-blackstone-sycamore-albion-audit.json",
       "tmp/blackstone-river-rivers-edge-sycamore-audit.json",
       "tmp/blackstone-river-manville-albion-audit.json",
-      "tmp/blackstone-river-rivers-edge-albion-audit.json"
+      "tmp/blackstone-river-rivers-edge-albion-audit.json",
+      "tmp/blackstone-river-manville-sycamore-audit.json"
     ],
-    "routeCount": 9,
-    "endpointCount": 18,
+    "routeCount": 19,
+    "endpointCount": 38,
     "bySeverity": {
       "ok": 6,
       "review": 6,
@@ -130,7 +151,9 @@
     "Full route audit passed for 2290 inventory routes; 1233 scored and 1057 planning.",
     "Full route safety audit returned 0 issues across 1233 scored routes.",
     "Canonical geometry audit passed for 2176 of 2189 public-indexed route assets; 48 state assets and the 32 MiB route cap passed.",
-    "Bounded Rhode Island saturation pass completed; no route added because no distinct scored Pawtuxet or nonduplicate Wood-Pawcatuck route met the direct-gauge, public-access and hazard bar."
+    "Bounded Rhode Island saturation pass completed; no route added because no distinct scored Pawtuxet or nonduplicate Wood-Pawcatuck route met the direct-gauge, public-access and hazard bar.",
+    "Added the missing Manville-to-Sycamore 1.2-mile scored connector; direct Woonsocket gauge, named public endpoints and above-dam portage boundary remain explicit.",
+    "Added 7 distinct scored access-chain routes with direct gauges, public water-entry endpoints, dam/urban safety controls, day-use camping posture and canonical geometry."
   ],
   "pending": [
     "Recheck DEM and Watershed Council parking, launch status, dam and fish-weir portages, water-quality notices, live 01118500/01112500 trends and downstream tide before deployment.",

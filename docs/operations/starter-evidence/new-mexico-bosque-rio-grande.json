@@ -1,0 +1,16 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["rio-grande-county-line-embudo-gauge"],
+  "sourceAttempts": [
+    {"family": "BLM Rio Grande segment guide", "result": "BLM rates the Bosque Class II, documents 6.5 miles to Embudo Station and names County Line, BLM Beach and Embudo Station as designated sites. It warns of private land, a quiet zone, designated access requirements and bridge hazards above 6,000 cfs."},
+    {"family": "Southwest Paddler Bosque description", "result": "Documents the County Line to Embudo Station 6.5-mile reach, a 300 cfs minimum planning cue and public access below the Embudo gauging bridge."},
+    {"family": "USGS", "result": "USGS 08279500 at Embudo is a direct Rio Grande discharge station and is used for downstream telemetry."},
+    {"family": "Access screening", "result": "Embudo Station restaurant is reserved for patrons and Lovers Lane/Embudo South are not treated as verified public endpoints; both routes use only County Line or Quartzite and the documented public gauging-station access."}
+  ],
+  "thresholdEvidence": {"station": "08279500", "metric": "discharge_cfs", "minimum": 300, "idealMinimum": 500, "model": "minimum-only", "strength": "community", "source": "https://southwestpaddler.com/docs/riograndenm9.html", "reachApplicability": "The 300 cfs cue is a Bosque planning minimum from a reach-specific paddling description; verify live gauge, trend, weather and channel conditions before launch."},
+  "endpointAudit": {"routeCount": 1, "endpointCount": 2, "bySeverity": {"ok": 0, "review": 2, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": []},
+  "validation": ["Focused Bosque Rio Grande route safety test passed.", "Typecheck, route audit, safety audit, gallery audit and geometry generation/audit passed after integration."],
+  "pending": ["Recheck BLM parking/access notices, quiet-zone and private-bank rules, Embudo carry conditions, weather and live USGS 08279500 trend before deployment."]
+}

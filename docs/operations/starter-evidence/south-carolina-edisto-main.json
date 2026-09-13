@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["edisto-river-mars-oldfield-givhans", "edisto-river-givhans-messervy", "edisto-river-messervy-good-hope", "edisto-river-mars-oldfield-messervy", "edisto-river-givhans-good-hope", "edisto-river-mars-oldfield-good-hope"],
+  "sourceAttempts": [
+    {"family": "SCDNR Edisto River Basin Boating Guide", "result": "The official guide identifies Givhans gauge 02175000 and states best Edisto paddling conditions are 2–10 ft; below 2 ft requires portage and above 10 ft is flood/not recommended."},
+    {"family": "Edisto River Canoe and Kayak Trail access sites", "result": "ERCK documents public Colleton County, SCDNR and Givhans Ferry State Park access at all six selected endpoints, including parking, ramps and nearby state-park camping."},
+    {"family": "Edisto River Canoe and Kayak Trail sections", "result": "ERCK lists distinct Mars Oldfield–Givhans (6.5 mi), Givhans–Messervy (3 mi) and Messervy–Good Hope (4 mi) sections; the three longer routes combine those contiguous public sections with intermediate bailouts. It identifies Givhans–Messervy as a high-use summer float and New Cut as challenging."},
+    {"family": "USGS and route geometry", "result": "USGS 02175000 is the direct stage station. Route-scoped aliases and endpoint-bounded traces follow the named Edisto River channel between the documented public access anchors."},
+    {"family": "River-specific gallery", "result": "Edisto River image is credited to KenB via Wikimedia Commons under CC BY-SA 3.0 and is labeled same-river context."}
+  ],
+  "thresholdEvidence": {"station": "02175000", "metric": "gage_height_ft", "minimum": 2, "idealReference": 4, "idealMaximum": 7, "maximum": 10, "model": "two-sided", "strength": "official", "source": "https://www.dnr.sc.gov/water/river/pdf/edistoboatingguide.pdf", "reachApplicability": "Direct Givhans gauge guidance applies to this upper/middle non-tidal batch; ERCK's 4–7 ft cue is used for easier New Cut passage."},
+  "endpointAudit": {"routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 0, "review": 12, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/sc-edisto-mars-oldfield-givhans-audit.json", "tmp/sc-edisto-givhans-messervy-audit.json", "tmp/sc-edisto-messervy-good-hope-audit.json"]},
+  "validation": ["Focused Edisto route safety test passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data, safety and gallery audits passed.", "Production build passed."],
+  "pending": ["Recheck current ramp status, park hours/fees, weather, gauge trend and any flood or tidal notices immediately before deployment."]
+}

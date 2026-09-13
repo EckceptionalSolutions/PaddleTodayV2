@@ -1,0 +1,92 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "carson-river-east-silver-saddle-carson-river-park",
+    "carson-river-east-silver-saddle-morgan-mill",
+    "carson-river-carson-river-park-morgan-mill",
+    "carson-river-carson-river-park-santa-maria",
+    "carson-river-morgan-mill-santa-maria",
+    "carson-river-east-silver-saddle-santa-maria"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Nevada Trail Finder",
+      "method": "Carson River Aquatic Trail listing",
+      "result": "Documents the 14-mile trail, public access sequence, upper 3.3-mile Class I–II section, 400 cfs ideal cue, lower Morgan Mill section and 1000 cfs minimum cue, plus dam and rapid warnings."
+    },
+    {
+      "family": "American Whitewater",
+      "method": "Carson River Silver Saddle Ranch to Santa Maria Ranch reach page",
+      "result": "Documents the 14.5-mile Class II(III) corridor, direct Carson gauge, Morgan Mill access, Train Wreck, dam, Rock Garden and public/private shoreline context."
+    },
+    {
+      "family": "Nevada Department of Wildlife",
+      "method": "Carson River access and navigation page",
+      "result": "Confirms navigability below average high water and public launch/take-out context at Camp Carson and Morgan Mill."
+    },
+    {
+      "family": "Carson City",
+      "method": "Carson River Aquatic Trail plan",
+      "result": "Provides local aquatic-trail planning context for the Eagle Valley and Carson City public access sequence."
+    },
+    {
+      "family": "Nevada Trail Finder KML",
+      "method": "TrailPoints75.kml",
+      "result": "Supplies coordinates for East Silver Saddle Ranch, Carson River Park, Morgan Mill, Santa Maria and named hazard points used as route anchors."
+    },
+    {
+      "family": "USGS",
+      "method": "10311000 station metadata and current observations",
+      "result": "Confirms direct Carson River near Carson City discharge telemetry."
+    },
+    {
+      "family": "Access and hazard review",
+      "method": "Endpoint, safety, camping and imagery screen",
+      "result": "Each route has two named public water-entry edges, explicit dam/rapid/private-bank controls, nearby basecamp guidance, and a Carson River Commons context image."
+    }
+  ],
+  "sources": [
+    "https://www.nvtrailfinder.com/trails/trail/carson-river-aquatic-trail",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/4145/main",
+    "https://www.ndow.org/waters/carson-river/",
+    "https://www.carsoncity.gov/home/showpublisheddocument/60711/636621418739370000",
+    "https://www.nvtrailfinder.com/docs/kml/TrailPoints75.kml",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-10311000/",
+    "https://commons.wikimedia.org/wiki/File:Carson_River_East_of_Dayton,_Nevada_(15702627385).jpg"
+  ],
+  "thresholdEvidence": {
+    "station": "10311000",
+    "metric": "discharge_cfs",
+    "upperMinimum": 250,
+    "upperIdealReference": 400,
+    "lowerMinimum": 1000,
+    "lowerIdealMaximum": 1500,
+    "model": "two-sided",
+    "strength": "official",
+    "reachApplicability": "Upper Carson River Park–Morgan Mill planning cue and lower Morgan Mill–Santa Maria planning cue; verify direct gauge, releases, weather, scouting and craft suitability before launch."
+  },
+  "endpointAudit": {
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 0,
+      "review": 12,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All pins are public park, preserve or ranch water-entry anchors from Nevada Trail Finder and NDOW. Confirm current signs, parking, carry paths and temporary closures."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Nevada Carson route tests passed.",
+    "Canonical route-scoped geometries generated for all six Carson routes.",
+    "Full route, safety and gallery audits passed with no scored-route safety issues.",
+    "Canonical geometry audit and production build passed."
+  ],
+  "pending": [
+    "Run endpoint audits with per-route reports and verify current access, release, weather and hazard conditions before deployment."
+  ]
+}

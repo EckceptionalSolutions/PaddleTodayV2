@@ -1,0 +1,127 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "locust-fork-five-points-hwy-79",
+    "locust-fork-five-points-taylor-ford",
+    "locust-fork-county-14-cold-branch",
+    "locust-fork-swann-nectar",
+    "locust-fork-taylor-ford-hwy-79"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Friends of the Locust Fork River",
+      "method": "Section 2 river guide and linked Google My Maps KML",
+      "result": "Documents the Five Points Road, Taylor Ford Road, County Highway 14, Cold Branch Road, Swann Covered Bridge and Covered Bridge Road near Nectar public access sequence, section lengths, difficulty and stage cues; linked Google My Maps KML supplies endpoint and Section 4 centerline coordinates."
+    },
+    {
+      "family": "USGS",
+      "method": "Locust Fork near Cleveland monitoring location",
+      "result": "Provides the direct 02455000 stage gauge for the selected corridor."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline route geometry generation",
+      "result": "Generated compact network-traced geometry bounded to both documented water-entry endpoints with 6 ft maximum endpoint snap."
+    }
+  ],
+  "sources": [
+    "https://www.friendsofthelocustforkriver.org/river-guide.html",
+    "https://www.google.com/maps/d/viewer?ll=34.03854237064424,-86.53351306915283&mid=1N-j5LGzSwFt-g4_5uBllcHArf1Y&z=14",
+    "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-ALB",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02455000/",
+    "https://commons.wikimedia.org/wiki/File:Locust_Fork_River.jpg"
+  ],
+  "thresholdEvidence": {
+    "station": "02455000",
+    "metric": "gage_height_ft",
+    "source": "https://www.friendsofthelocustforkriver.org/river-guide.html",
+    "minimum": 1.4,
+    "idealReference": 1.8,
+    "idealMaximum": 2.4,
+    "maximum": 3.0,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Friends of the Locust Fork publishes 1.5 ft as the minimum to float and about 2 ft as an easy-float cue for this section. Product bounds are conservative planning guards and must be confirmed against current stage and trend."
+  },
+  "endpointEvidence": {
+    "note": "The linked Friends of the Locust Fork maps mark all listed endpoints as public put-in/take-out points; private map markers are excluded.",
+    "routes": [
+      {
+        "takeOut": {
+          "longitude": -86.5732097626,
+          "name": "Kings Bend Scenic Overlook Park / Highway 79 public take-out",
+          "latitude": 34.0236404659
+        },
+        "routeId": "locust-fork-five-points-hwy-79",
+        "putIn": {
+          "longitude": -86.4938163757,
+          "name": "Five Points Road public put-in",
+          "latitude": 34.0436987447
+        }
+      },
+      {
+        "takeOut": {
+          "longitude": -86.5275478363,
+          "name": "Taylor Ford Road public take-out",
+          "latitude": 34.0475391507
+        },
+        "routeId": "locust-fork-five-points-taylor-ford",
+        "putIn": {
+          "longitude": -86.4938163757,
+          "name": "Five Points Road public put-in",
+          "latitude": 34.0436987447
+        }
+      },
+      {
+        "takeOut": {
+          "longitude": -86.4936447144,
+          "name": "Cold Branch Road public take-out",
+          "latitude": 34.0438409851
+        },
+        "routeId": "locust-fork-county-14-cold-branch",
+        "putIn": {
+          "longitude": -86.4388847351,
+          "name": "County Highway 14 public put-in",
+          "latitude": 34.1142206655
+        }
+      },
+      {
+        "putIn": {
+          "latitude": 34.0475391507,
+          "name": "Taylor Ford Road public put-in",
+          "longitude": -86.5275478363
+        },
+        "takeOut": {
+          "latitude": 34.0236404659,
+          "name": "Kings Bend Scenic Overlook Park / Highway 79 public take-out",
+          "longitude": -86.5732097626
+        },
+        "routeId": "locust-fork-taylor-ford-hwy-79"
+      }
+    ]
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "whitewater",
+      "private_banks",
+      "cold_water"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use Class II reach with a documented waterfall and rapids; no on-route overnight campsite is promoted."
+  },
+  "validation": [
+    "Route-data typecheck and focused Locust Fork/gallery tests passed.",
+    "Compact network-traced geometry generated for four reaches; endpoint snaps are 6, 41, 44 and 41 ft. The Swann-to-Nectar route uses a reviewed curated sample of the source map centerline because named NHD returned an unrelated fallback.",
+    "Route data audit, geometry audit and overlap audit pass after aggregate regeneration.",
+    "A river-specific Wikimedia Commons image is attached with CC BY-SA 4.0 attribution."
+  ],
+  "pending": [
+    "Confirm current stage, rainfall, wood, park hours, dirt-road access and parking before launch."
+  ]
+}

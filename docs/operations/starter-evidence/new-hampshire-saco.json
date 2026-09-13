@@ -1,0 +1,253 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "saco-river-bartlett-cooks-crossing",
+    "saco-river-first-bridge-davis-park",
+    "saco-river-davis-park-smith-eastman",
+    "saco-river-first-bridge-smith-eastman",
+    "saco-river-bartlett-davis-park",
+    "saco-river-bartlett-smith-eastman",
+    "saco-river-cooks-crossing-davis-park",
+    "saco-river-cooks-crossing-smith-eastman",
+    "saco-river-bartlett-first-bridge",
+    "saco-river-cooks-crossing-first-bridge"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Wilderness Portal / American Whitewater",
+      "method": "Saco River Bartlett to Cooks Crossing reach guide",
+      "result": "Documents the 5.3-mile Class I–II White Mountain route, endpoint coordinates, recreational use and public route context."
+    },
+    {
+      "family": "Wilderness Portal / USGS",
+      "method": "Route-specific flow guidance and station 01064500",
+      "result": "Provides 200 cfs minimum, 200–1,000 cfs float band and 2,000 cfs maximum reference tied to the direct Conway Saco gauge."
+    },
+    {
+      "family": "New Hampshire DES",
+      "method": "Saco-Swift River corridor management plan",
+      "result": "Confirms the Saco as a managed public paddling corridor with multiple public access sites and rain-fed flow variability."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated compact canonical geometry for the Bartlett-to-Cooks Crossing route and audited both endpoints."
+    },
+    {
+      "family": "Appalachian Mountain Club",
+      "method": "North Conway to Conway day-paddle guide",
+      "result": "Documents the popular 8.5-mile First Bridge to Davis Park Class I itinerary, River Road parking context, current/crowding notes and one-way distance."
+    },
+    {
+      "family": "Appalachian Mountain Club",
+      "method": "Davis Park to Smith-Eastman day-paddle guide",
+      "result": "Documents the 2.5-mile Class II reach, Conway Rips and Powerline Rapid, the lack of an easy take-out before Powerline and the Smith-Eastman endpoint."
+    },
+    {
+      "family": "Town of Conway / NH public access directory",
+      "method": "Municipal access and coordinate review",
+      "result": "Lists First Bridge, Davis Park and Smith-Eastman as public-use town properties or canoe-access shorebank sites and supplies coordinate-backed water-entry anchors for the downstream parks."
+    },
+    {
+      "family": "Wilderness Portal / AMC combined-itinerary screen",
+      "method": "Distinct endpoint-pair review",
+      "result": "Combined documented Bartlett-to-Cooks and AMC Conway day reaches into four distinct public-access day itineraries, retaining Cooks Crossing and Davis Park as intermediate bailouts and the Smith-Eastman rapid boundary."
+    },
+    {
+      "family": "Appalachian Mountain Club / Town of Conway",
+      "method": "Saco endpoint-pair gap fill",
+      "result": "Added the two remaining downstream combinations among Bartlett, Cooks Crossing and First Bridge public water-entry anchors. Both retain direct USGS 01064500 telemetry, the 200–1,000 cfs planning band, Class I cold-water and strainer controls, and day-use camping guidance."
+    }
+  ],
+  "sources": [
+    "https://www.wildernessportal.com/routes/saco-river-bartlett-to-cooks-crossing",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/1182/main",
+    "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/saco-swift-plan.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01064500/",
+    "https://www.outdoors.org/resources/amc-outdoors/destinations-travel/5-easy-day-paddles-on-the-saco-river/",
+    "https://ecode360.com/29475968",
+    "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html"
+  ],
+  "thresholdEvidence": {
+    "station": "01064500",
+    "metric": "discharge_cfs",
+    "source": "https://www.wildernessportal.com/routes/saco-river-bartlett-to-cooks-crossing",
+    "minimum": 200,
+    "idealReference": 200,
+    "idealMaximum": 1000,
+    "maximum": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Bartlett to Cooks Crossing Saco River reach and AMC North Conway/Conway day reaches; verify live telemetry, trend, crowding and mountain-rain conditions before launch."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/nh-saco-bartlett-cooks-audit.json",
+      "tmp/nh-saco-first-bridge-davis-audit.json",
+      "tmp/nh-saco-davis-smith-eastman-audit.json",
+      "tmp/nh-saco-bartlett-davis-audit.json",
+      "tmp/nh-saco-bartlett-smith-eastman-audit.json",
+      "tmp/nh-saco-cooks-davis-audit.json",
+      "tmp/nh-saco-cooks-smith-eastman-audit.json"
+    ],
+    "routeCount": 10,
+    "endpointCount": 20,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All endpoints are on the mapped Saco waterbody/network or documented public access anchors. First Bridge is the North Conway River Access Conservation Area named by the Town of Conway and AMC; Mapcarta provides the park coordinate anchor. Davis Park and Smith-Eastman are documented NH public canoe-access shorebank sites.",
+    "routes": [
+      {
+        "routeId": "saco-river-bartlett-cooks-crossing",
+        "putIn": {
+          "name": "Bartlett River Street access",
+          "latitude": 44.08372,
+          "longitude": -71.28521,
+          "source": "Wilderness Portal"
+        },
+        "takeOut": {
+          "name": "Cooks Crossing access",
+          "latitude": 44.08979,
+          "longitude": -71.20563,
+          "source": "Wilderness Portal / NH DES corridor plan"
+        }
+      },
+      {
+        "routeId": "saco-river-first-bridge-davis-park",
+        "putIn": {
+          "name": "First Bridge River Access Conservation Area, North Conway",
+          "latitude": 44.05704,
+          "longitude": -71.13699,
+          "source": "Town of Conway / Mapcarta park map"
+        },
+        "takeOut": {
+          "name": "Davis Park and Beach, Conway",
+          "latitude": 43.982113,
+          "longitude": -71.113689,
+          "source": "NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-davis-park-smith-eastman",
+        "putIn": {
+          "name": "Davis Park and Beach, Conway",
+          "latitude": 43.982113,
+          "longitude": -71.113689,
+          "source": "NH public access directory"
+        },
+        "takeOut": {
+          "name": "Smith-Eastman Recreation Area, Redstone Village",
+          "latitude": 44.000982,
+          "longitude": -71.083071,
+          "source": "NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-first-bridge-smith-eastman",
+        "putIn": {
+          "name": "First Bridge River Access Conservation Area, North Conway",
+          "latitude": 44.05704,
+          "longitude": -71.13699,
+          "source": "Town of Conway / Mapcarta park map"
+        },
+        "takeOut": {
+          "name": "Smith-Eastman Recreation Area, Redstone Village",
+          "latitude": 44.000982,
+          "longitude": -71.083071,
+          "source": "NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-bartlett-davis-park",
+        "putIn": {
+          "name": "Bartlett River Street access",
+          "latitude": 44.08372,
+          "longitude": 43.982113,
+          "source": "Wilderness Portal / NH public access directory"
+        },
+        "takeOut": {
+          "name": -71.28521,
+          "latitude": "Davis Park and Beach, Conway",
+          "longitude": -71.113689,
+          "source": "AMC / NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-bartlett-smith-eastman",
+        "putIn": {
+          "name": "Bartlett River Street access",
+          "latitude": 44.08372,
+          "longitude": 44.000982,
+          "source": "Wilderness Portal / NH public access directory"
+        },
+        "takeOut": {
+          "name": -71.28521,
+          "latitude": "Smith-Eastman Recreation Area, Redstone Village",
+          "longitude": -71.083071,
+          "source": "AMC / NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-cooks-crossing-davis-park",
+        "putIn": {
+          "name": "Cooks Crossing access",
+          "latitude": 44.08979,
+          "longitude": 43.982113,
+          "source": "Wilderness Portal / NH public access directory"
+        },
+        "takeOut": {
+          "name": -71.20563,
+          "latitude": "Davis Park and Beach, Conway",
+          "longitude": -71.113689,
+          "source": "AMC / NH public access directory"
+        }
+      },
+      {
+        "routeId": "saco-river-cooks-crossing-smith-eastman",
+        "putIn": {
+          "name": "Cooks Crossing access",
+          "latitude": 44.08979,
+          "longitude": 44.000982,
+          "source": "Wilderness Portal / NH public access directory"
+        },
+        "takeOut": {
+          "name": -71.20563,
+          "latitude": "Smith-Eastman Recreation Area, Redstone Village",
+          "longitude": -71.083071,
+          "source": "AMC / NH public access directory"
+        }
+      }
+    ]
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "private_banks"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use Class I–II routes; follow AMC rapid/crowding guidance, use established campgrounds and keep clear of private banks and access landings."
+  },
+  "validation": [
+    "Route-data typecheck and focused safety/gallery tests passed.",
+    "Route data audit passed with the new routes scored.",
+    "Compact endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "A Saco-specific Wilderness Portal image with CC BY-SA 4.0 attribution is assigned to the new riverId.",
+    "Added AMC-documented First Bridge–Davis Park Class I and Davis Park–Smith-Eastman Class II reaches plus their 11-mile combined itinerary with direct 01064500 gauge, municipal access controls, rapid/crowding hazards and day-use camping posture.",
+    "Added four distinct Bartlett/Cooks Crossing to Davis Park/Smith-Eastman itineraries, preserving documented intermediate exits, Conway Rips boundary, direct 01064500 gauge and day-use camping posture.",
+    "Added two distinct scored Saco access combinations; route-data, safety and canonical-geometry audits pass."
+  ],
+  "pending": [
+    "Confirm current First Bridge, Davis Park and Smith-Eastman parking/access status, Conway gauge trend, weather, water temperature, crowding and storm debris before launch."
+  ]
+}

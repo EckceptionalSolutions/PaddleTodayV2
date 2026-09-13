@@ -1,0 +1,34 @@
+import type { River } from '../../lib/types';
+import { buildStarterPlanningRoute } from './starter-planning';
+
+const trailGuide = { label: 'Androscoggin River Trail and access map', url: 'https://www.androscogginwatershedcouncil.org/general-2', provider: 'local' as const };
+const selfGuidedGuide = { label: 'Androscoggin River self-guided paddles', url: 'https://www.androscogginwatershedcouncil.org/about-6-1', provider: 'local' as const };
+const accessGuide = { label: 'New Hampshire public-access boating and fishing sites', url: 'https://www.merrimackvalleypaddlers.com/access/public-access-2015.html', provider: 'local' as const };
+const safetyGuide = { label: 'Androscoggin River Trail ethics and boating safety', url: 'https://www.androscogginwatershedcouncil.org/about-6-3', provider: 'local' as const };
+const gaugeErrol = { id: 'usgs-01052500', provider: 'usgs' as const, siteId: '01052500', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Androscoggin River near Errol, NH', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01052500/' };
+const gaugeGorham = { id: 'usgs-01053500', provider: 'usgs' as const, siteId: '01053500', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Androscoggin River at Gorham, NH', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01053500/' };
+
+const errol = { name: 'Errol Androscoggin River boat ramp (water-entry edge)', latitude: 44.787396, longitude: -71.120933 };
+const dummer = { name: 'Dummer Route 16 cartop facility (water-entry edge)', latitude: 44.614845, longitude: -71.221881 };
+const shelburne = { name: 'Shelburne Canoe Launch (water-entry edge)', latitude: 44.404991, longitude: -71.067182 };
+
+const commonSafety = ['Wear a properly fitted PFD and carry a whistle, spare paddle, throw line, communication and offline navigation.', 'The North Woods reach can be remote with cold water, wind and few alternate exits; keep an emergency plan and turn around when conditions or group skill are not suitable.', 'Scout rapids, strainers, bridge debris and the Pontook Dam/rapids boundary. Portage all marked dams and never rely on an unverified shoreline landing.', 'Use only named public access points, respect private and conservation shorelines, pack out waste and confirm road, parking and seasonal gate conditions.'];
+
+function route(spec: { id: string; start: typeof errol; end: typeof dummer; miles: number; gauge: typeof gaugeErrol; summary: string; camping: string; reach: string; notes: string; }): River {
+  return buildStarterPlanningRoute({
+    id: spec.id, name: 'Androscoggin River', riverId: 'androscoggin-river-new-hampshire', state: 'New Hampshire', region: 'North Woods / Coos County',
+    putIn: spec.start, takeOut: spec.end, miles: spec.miles, summary: spec.summary, difficulty: 'moderate',
+    difficultyNotes: 'The Androscoggin Trail describes this as a scenic river with quickwater and, below Pontook Dam, serious whitewater. This card stays planning-only until a route-specific recreational flow band and current manager review are established.',
+    seasonMonths: [5,6,7,8,9,10], seasonNotes: 'Snowmelt, hydropower releases, wind and rain change the river quickly. Check direct telemetry, release notices, weather and road access immediately before departure.',
+    gauge: spec.gauge, conditionsNote: `Planning only: ${spec.reach}. The Androscoggin River Trail and New Hampshire access directory support the public endpoints, but this pass does not transfer a numeric recreational cutoff to the ${spec.gauge.siteId} station.`,
+    hazards: ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'dam', 'private_banks'], safetyNotes: commonSafety,
+    logistics: { estimatedPaddleTime: 'Allow a full day with a long rural shuttle and scouting margin', shuttle: 'Stage the downstream public access first, then drive to the upstream launch. Confirm road, parking and carry conditions at both ends.', permits: 'Confirm New Hampshire boating requirements, town/state access rules and any utility or dam notices before launch.', camping: spec.camping, campingClassification: 'nearby_basecamp', accessCaveats: [spec.notes, 'Use only the named public water-entry edges; do not land on private shoreline.', 'The route remains planning-only until a route-specific threshold and current access review are completed.'], watchFor: ['Cold water, wind and fast release changes', 'Strainers, shallow gravel bars and bridge debris', 'Pontook Dam/rapids boundary and limited exits'] },
+    guide: trailGuide, sources: [selfGuidedGuide, accessGuide, safetyGuide], coordinateNote: 'Coordinates are taken from the New Hampshire public-access directory entries for the named public launches.', coordinateSourceUrl: accessGuide.url, reviewDate: '2026-09-13',
+  });
+}
+
+export const newHampshireAndroscogginRoutes: River[] = [
+  route({ id: 'androscoggin-river-errol-dummer', start: errol, end: dummer, miles: 22, gauge: gaugeErrol, reach: 'Errol public boat ramp to Dummer Route 16 cartop facility', summary: 'A remote North Woods Androscoggin itinerary from the Errol ramp toward Dummer, with reservoir, quickwater and dam-boundary checks.', camping: 'No on-route camping is included. Use an established Errol, Dummer or Umbagog-area campground or lodging; never camp at an unmarked access.', notes: 'The watershed council describes the Errol-area source paddle as remote with few alternate take-outs; the access directory confirms the Errol ramp and Dummer cartop facility.' }),
+  route({ id: 'androscoggin-river-dummer-shelburne', start: dummer, end: shelburne, miles: 24, gauge: gaugeGorham, reach: 'Dummer Route 16 cartop facility to Shelburne Canoe Launch', summary: 'A scenic upper Androscoggin reach through the Gorham and Shelburne corridor with quickwater, cold water and limited public exits.', camping: 'No on-route camping is included. Use established campgrounds or lodging near Gorham and Shelburne; do not camp on private or conservation shoreline.', notes: 'The watershed council identifies the North Woods corridor as scenic and remote and lists Shelburne among the public access sites; the New Hampshire directory supplies both access anchors.' }),
+  route({ id: 'androscoggin-river-errol-shelburne', start: errol, end: shelburne, miles: 46, gauge: gaugeGorham, reach: 'Errol public boat ramp to Shelburne Canoe Launch', summary: 'A long staged Androscoggin North Woods itinerary joining the Errol and Shelburne public access corridors.', camping: 'Plan only as a staged multi-day or very long day itinerary using established campgrounds near Errol, Dummer, Gorham or Shelburne; no informal river camping is assumed.', notes: 'Dummer and other public sites are intermediate bailout options. This long route crosses changing river character and remains planning-only pending a route-specific flow model and current road/access review.' }),
+];

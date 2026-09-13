@@ -1,0 +1,52 @@
+{
+  "reviewedAt": "2026-09-13",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "east-walker-river-squeeze-skull",
+    "east-walker-river-skull-riverbend",
+    "east-walker-river-riverbend-last-call"
+  ],
+  "sourceAttempts": [
+    { "family": "Nevada State Parks", "method": "Walker River State Recreation Area page", "result": "Confirms the public Pitchfork Ranch unit, nearly 30 miles of East Walker River, kayaking, Riverbend and Quail Run campgrounds, and current access/park contact context." },
+    { "family": "Nevada State Parks", "method": "Pitchfork Ranch Water Trail map PDF", "result": "Publishes Squeeze Chute, Skull Rock, Riverbend and Last Call hand-carry access points, 2.8/0.8/2.0-mile distances, 0–200 cfs not recommended, 201–500 cfs sufficient floating level, >500 cfs expert cue, Class II/III rapids, dam and private-property warnings." },
+    { "family": "Nevada Trail Finder", "method": "Pitchfork Ranch Water Trail listing and KML", "result": "Confirms the 5.6-mile public paddling trail, easiest Skull Rock–Riverbend segment, campgrounds, flow link and exact named access coordinates from TrailPoints100.kml." },
+    { "family": "USGS", "method": "10293500 station metadata and current observations", "result": "Confirms direct East Walker River near Mason discharge telemetry for the selected corridor." },
+    { "family": "Access, safety and imagery review", "method": "Endpoint, safety, camping and gallery screen", "result": "Each route has two named hand-carry water-entry edges, explicit PFD/rapid/dam/private-property controls, nearby-basecamp camping at Riverbend/Quail Run, and an East Walker River Commons context image." }
+  ],
+  "sources": [
+    "https://parks.nv.gov/parks/walker-river",
+    "https://parks.nv.gov/uploads/documents/PITCHFORK_water_trail_map.pdf",
+    "https://www.nvtrailfinder.com/trails/trail/pitchfork-ranch-water-trail",
+    "https://www.nvtrailfinder.com/docs/kml/TrailPoints100.kml",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-10293500/",
+    "https://commons.wikimedia.org/wiki/File:East_Walker_River,_Mason_Valley,_Nevada_(15700694231).jpg"
+  ],
+  "thresholdEvidence": {
+    "station": "10293500",
+    "metric": "discharge_cfs",
+    "notRecommendedBelow": 200,
+    "sufficientFloatingMin": 201,
+    "sufficientFloatingMax": 500,
+    "expertAbove": 500,
+    "model": "two-sided",
+    "strength": "official",
+    "reachApplicability": "Pitchfork Ranch Water Trail from Squeeze Chute to Last Call; verify direct gauge, trend, weather, scouting and craft suitability before launch."
+  },
+  "endpointAudit": {
+    "routeCount": 3,
+    "endpointCount": 6,
+    "bySeverity": { "ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0 },
+    "reviewNote": "All pins are named Nevada State Parks/Nevada Trail Finder hand-carry access points. Confirm current signs, parking, gates, carries and temporary closures."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Nevada East Walker route tests passed.",
+    "Canonical route-scoped geometries generated for all three Walker routes.",
+    "Full route, safety and gallery audits passed with no scored-route safety issues.",
+    "Canonical geometry audit and production build passed."
+  ],
+  "pending": [
+    "Run endpoint audits with per-route reports and verify current access, release, weather and hazard conditions before deployment."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["rio-grande-calabacillas-central", "rio-grande-central-rio-bravo", "rio-grande-calabacillas-rio-bravo"],
+  "sourceAttempts": [
+    {"family": "City of Albuquerque boating guidance", "result": "The City describes the Albuquerque Rio Grande as generally calm with no technical rapids, identifies legal non-motorized boating, names Calabacillas, Central Avenue and Rio Bravo access, and gives a roughly 400–500 cfs feasible-paddling reference for the broader corridor."},
+    {"family": "Rio Grande Valley State Park", "result": "The City identifies the public park facilities, sunrise-to-sunset access, bosque setting and Rio Bravo Riverside Picnic Area; overnight riverbank camping is not assumed."},
+    {"family": "Quiet Waters access and outing review", "result": "Quiet Waters publishes water-entry coordinate references, carry and diversion cautions, and distinct RGVSP North, South and Full Run itineraries."},
+    {"family": "USGS", "result": "USGS 08329918 at Alameda Bridge is a direct Rio Grande discharge and stage station with current telemetry and a long record; it is used as the upstream corridor reference."},
+    {"family": "River-specific gallery", "result": "The existing Rio Grande New Mexico Commons photograph is retained as same-river context and is attributed to the Bureau of Land Management via Wikimedia Commons."}
+  ],
+  "thresholdEvidence": {"station": "08329918", "metric": "discharge_cfs", "minimum": 400, "idealMinimum": 500, "model": "minimum-only", "strength": "official", "source": "https://www.cabq.gov/parksandrecreation/open-space/enjoying-the-rio-grande", "reachApplicability": "City guidance says roughly 400–500 cfs generally provides feasible paddling conditions from the north Rio Grande Valley State Park corridor toward the southern boundary; low and high flows, wind, cold water and channel conditions still require an on-site decision."},
+  "endpointAudit": {"routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": []},
+  "validation": ["Focused Albuquerque Rio Grande route safety test passed."],
+  "pending": ["Recheck City/MRGCD gate and carry conditions, park hours, diversion notices, weather and live USGS 08329918 trend before deployment."]
+}

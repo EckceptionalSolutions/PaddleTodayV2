@@ -6,6 +6,10 @@ Prepared: 2026-09-09. Status: execution started with user approval. The campaign
 
 Give paddlers in every lower 48 state a useful starting selection, then use engagement and route requests to direct deeper coverage. Target approximately 10 high-quality, distinct public routes in each of the 17 uncovered states, for roughly 170 additions if the evidence supports them. Ten is a target, not a publication quota.
 
+## Follow-on expansion target — 30 routes per starter state
+
+The starter pass reached 20 public route cards in each of the 17 states. The active follow-on goal is to work toward 30 high-quality public routes per state, counting the existing cards. Keep the scored-first rubric and all publication gates from this plan: prioritize new scored corridors with direct gauges and reach-specific numeric guidance, then add planning routes only when they provide distinct practical value. Stop below 30 in a state after a documented bounded search establishes that additional routes would be weak, redundant, inaccessible, or unsupported. The generated progress artifact is `docs/operations/lower-48-expansion-30-progress.json`.
+
 Baseline verified with `npm.cmd run routes:report:universe` at repository commit `44fad0bf`:
 
 - 31 states have public routes; the 17 states in the queue below have zero inventory routes and zero public routes.

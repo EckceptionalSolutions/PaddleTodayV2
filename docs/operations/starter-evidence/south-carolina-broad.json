@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["broad-river-peak-harbison", "broad-river-ninety-nine-islands-daltons", "broad-river-daltons-lockhart", "broad-river-lockhart-broad-river-landing", "broad-river-broad-river-landing-neal-shoals", "broad-river-neal-shoals-sandy", "broad-river-sandy-shelton", "broad-river-shelton-strother", "broad-river-lockhart-neal-shoals", "broad-river-lockhart-sandy", "broad-river-lockhart-shelton", "broad-river-lockhart-strother", "broad-river-broad-river-landing-sandy", "broad-river-broad-river-landing-shelton", "broad-river-broad-river-landing-strother"],
+  "sourceAttempts": [
+    {"family": "Paddle SC Broad River trip pages", "result": "The state paddling trail lists twelve suggested trips with named public endpoints, distances, difficulty, access notes, dam/portage warnings and numeric flow or stage cues. Eight direct reaches plus seven contiguous combinations were selected to bring South Carolina to thirty total routes without crossing a dam or inventing a new access point."},
+    {"family": "Paddle SC access KML", "result": "Downloaded PaddlePoints116.kml and matched Peake-Alston, Harbison, Ninety-Nine Islands, Daltons, Lockhart, Broad River Landing, Neal Shoals, Sandy, Shelton and Strother coordinates and access notes."},
+    {"family": "SCDNR Broad Scenic River", "result": "SCDNR documents the 15-mile Ninety-Nine Islands Dam to Pacolet confluence scenic river and public access network. It corroborates the upper corridor's public-river context and dam hazards."},
+    {"family": "USGS", "result": "Used direct Broad River telemetry at Alston (02161000), near Carlisle (02156500), and below Ninety-Nine Islands Reservoir (02153551). Paddle SC's published thresholds remain the scoring evidence."},
+    {"family": "River-specific gallery", "result": "Added separate Wikimedia Commons Broad River photographs for the Columbia and Blacksburg corridors, including public-domain and NOAA-sourced images."}
+  ],
+  "thresholdEvidence": {"stations": ["02161000", "02156500", "02153551"], "metric": "discharge_cfs or gage_height_ft", "publishedCues": ["500–10000 cfs for most Broad River trips", "2.5–5.6 ft for Ninety-Nine Islands to Daltons"], "model": "two-sided", "strength": "community", "source": "https://www.gopaddlesc.com/waterways/trail/broad-river", "reachApplicability": "Paddle SC publishes trip-specific flow cues. Gauge readings are direct same-river telemetry but do not clear dams, wood, private banks, weather or access conditions."},
+  "endpointAudit": {"routeCount": 15, "endpointCount": 30, "bySeverity": {"ok": 0, "review": 30, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/sc-broad-endpoint-audit.json"]},
+  "validation": ["Focused Broad River route safety test passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data, safety and gallery audits passed.", "Production build passed."],
+  "pending": ["Recheck live gauge trends, current dam releases, access gates, forest permissions, ramp condition, weather, wood and private-bank boundaries before deployment."]
+}

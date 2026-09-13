@@ -128,8 +128,8 @@ describe('Delaware expansion package', () => {
     expect(corridorForSlug(broadCreekRoute.slug)?.continuityStatus).toBe('partial');
     expect(getApprovedRoutePhotos(broadCreekRoute.slug)).toEqual([
       expect.objectContaining({
-        id: 'broad-creek-nanticoke-vienna-commons',
-        takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+        id: 'broad-creek-laurel-delaware-state',
+        takenLabel: 'State of Delaware public-agency image',
       }),
     ]);
   });

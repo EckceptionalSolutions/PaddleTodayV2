@@ -4,8 +4,8 @@ import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('New Hampshire Contoocook scored starter', () => {
-  it('registers three direct-stage public-access reaches', () => {
-    expect(newHampshireContoocookRoutes).toHaveLength(3);
+  it('registers five direct-stage public-access reaches', () => {
+  expect(newHampshireContoocookRoutes).toHaveLength(6);
     expect(newHampshireContoocookRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(newHampshireContoocookRoutes.every(route => rivers.some(candidate => candidate.slug === route.slug))).toBe(true);
     expect(newHampshireContoocookRoutes.every(route => route.gaugeSource?.siteId === '01085000')).toBe(true);

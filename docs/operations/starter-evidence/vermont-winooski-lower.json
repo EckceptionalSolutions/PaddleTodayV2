@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["winooski-river-bolton-canoe-jonesville", "winooski-river-bolton-canoe-floodplain", "winooski-river-bolton-dam-jonesville", "winooski-river-bolton-dam-bolton-canoe", "winooski-river-jonesville-floodplain", "winooski-river-bolton-dam-floodplain"],
+  "sourceAttempts": [
+    {"family": "Town of Richmond", "method": "Water Recreation public access page", "result": "Names Bolton Dam, Bolton Canoe Access Area, Jonesville and Floodplain Preserve as public Winooski launch or takeout points."},
+    {"family": "Winooski paddling guide", "method": "Bolton-to-Richmond route guide", "result": "Documents the approximately 10.5-mile day paddle, public access sequence, the rapid below Bolton Dam, portage option and Floodplain Preserve short carry."},
+    {"family": "Friends of the Winooski", "method": "Public access inventory", "result": "Corroborates the Bolton–Richmond corridor, dam boundary and access needs; informal or private alternatives were excluded."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 04290500 near Essex Junction supplies direct Winooski River discharge telemetry for the lower corridor."}
+  ],
+  "sources": ["https://www.richmondvt.gov/community/recreation/default-title/river-access", "https://bostonkayaker.com/winooskicmontpelier/PaddlingGuide3-31-2011.pdf", "https://winooskiriver.org/images/userfiles/files/Public_Access_Inventory_And_Assessment_Final.pdf", "https://waterdata.usgs.gov/monitoring-location/USGS-04290500/"],
+  "thresholdEvidence": {"station": "04290500", "metric": "discharge_cfs", "source": "https://bostonkayaker.com/winooskicmontpelier/PaddlingGuide3-31-2011.pdf", "minimum": 200, "idealReference": 400, "idealMaximum": 1200, "maximum": 3000, "model": "two-sided", "strength": "community", "reachApplicability": "Conservative planning band for the documented Bolton–Richmond day-paddle corridor; verify live Essex Junction telemetry, trend, weather, wood and dam conditions."},
+  "endpointAudit": {"artifacts": ["tmp/winooski-river-bolton-canoe-jonesville-coordinate.json", "tmp/winooski-river-bolton-canoe-floodplain-coordinate.json", "tmp/winooski-river-bolton-dam-jonesville-coordinate.json", "tmp/winooski-river-bolton-dam-bolton-canoe-coordinate.json", "tmp/winooski-river-jonesville-floodplain-coordinate.json", "tmp/winooski-river-bolton-dam-floodplain-coordinate.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 0, "review": 12, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Bolton, Jonesville and Floodplain are public access-area edges; the audit's review classification is expected. Floodplain is a sandy-bar landing with a short carry to parking, and Bolton Dam has a marked portage approach."},
+  "safetyAndCamping": "All six routes carry PFD, cold-water, strainer, fast-rise, dam, private-bank and current-access controls. The Bolton rapid is explicitly scouted and portaged when needed. No route includes overnight camping; established campgrounds outside the day-use access points are the only camping option.",
+  "validation": ["Focused Vermont Winooski tests passed.", "Canonical geometries generated for all six routes; endpoint audits returned no suspicious or failed findings.", "Route safety and gallery audits passed.", "Production build passed after registration and geometry refresh."],
+  "pending": ["Confirm current municipal/GMP access, parking, dam notices, flow trend, weather and wood before launch; no deployment has been performed."]
+}

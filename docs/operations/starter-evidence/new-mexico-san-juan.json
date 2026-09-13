@@ -1,0 +1,73 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "san-juan-river-navajo-dam-blanco",
+    "san-juan-river-blanco-vereda",
+    "san-juan-river-vereda-among-waters",
+    "san-juan-river-navajo-dam-vereda",
+    "san-juan-river-navajo-dam-among-waters",
+    "san-juan-river-blanco-among-waters"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "New Mexico Tourism",
+      "result": "Describes the San Juan from Navajo Dam to Blanco as a relaxing 17-mile float runnable any time of year and notes diversion dams downstream toward Shiprock."
+    },
+    {
+      "family": "Southwest Paddler San Juan guide",
+      "result": "Provides exact public access coordinates and river-mile sequence for Navajo Dam, Blanco, Vereda del Rio and Among the Waters Park; documents Class I–II character, year-round planning, diversion dams and hidden fences."
+    },
+    {
+      "family": "New Mexico State Parks",
+      "result": "Provides statewide PFD, weather and float-plan guidance and warns that low-head dams and strainers can be deadly; San Juan is specifically included among rivers with low-head dams."
+    },
+    {
+      "family": "USGS",
+      "result": "USGS 09355500 near Archuleta and 09365000 at Farmington provide direct discharge and stage telemetry for the selected upper and lower reaches."
+    },
+    {
+      "family": "Gallery",
+      "result": "Added a San Juan-specific U.S. Bureau of Reclamation Navajo Dam photograph instead of reusing the Rio Grande image."
+    },
+    {
+      "family": "Southwest Paddler / access-chain combinations",
+      "result": "The published Navajo Dam, Blanco, Vereda del Rio and Among the Waters sequence supports three additional distinct day or staged multi-day combinations while retaining named intermediate bailouts and the appropriate upper/lower direct gauges."
+    }
+  ],
+  "thresholdEvidence": {
+    "stations": [
+      "09355500",
+      "09365000"
+    ],
+    "metric": "discharge_cfs",
+    "minimum": 300,
+    "idealMinimum": 500,
+    "model": "minimum-only",
+    "strength": "community",
+    "source": "https://southwestpaddler.com/docs/sanjuannm2.html",
+    "reachApplicability": "The 300 cfs cue is a conservative, reach-specific planning floor from the San Juan guide; verify live discharge, release trend, weather and local hazards before launch."
+  },
+  "endpointAudit": {
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": []
+  },
+  "validation": [
+    "Focused route safety tests passed.",
+    "Route data audit passed with direct gauges and scored eligibility.",
+    "Endpoint-bounded canonical geometry generated; compact curated traces retain the reviewed access sequence.",
+    "Published access, flow, safety, camping and gallery evidence remains route-specific."
+  ],
+  "pending": [
+    "Recheck Navajo Dam releases, diversion/fence conditions, park and municipal access, weather and live USGS trends before deployment."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-09-13",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["gila-river-old-safford-dry-canyon"],
+  "sourceAttempts": [
+    { "family": "Bureau of Land Management", "method": "Gila River Boat Put-In and Dry Canyon Boat Take-Out pages", "result": "Confirms the public BLM Old Safford Bridge launch, Dry Canyon take-out, 23-mile Gila Box float corridor, day-use facilities, overnight parking at Dry Canyon and permit/access contacts." },
+    { "family": "American Whitewater", "method": "Gila Box RNCA reach guide", "result": "Documents the 22-mile Old Safford Bridge to Dry Canyon Class II+ reach, direct Gila River near Clifton gauge, 60 cfs small-craft floor, 200 cfs navigation cue, 2,000 cfs high-flow warning, overnight character and sparse exits." },
+    { "family": "USGS", "method": "09442000 station metadata and current observations", "result": "Confirms direct Gila River near Clifton discharge telemetry used by the Gila Box reach guide." },
+    { "family": "Access, safety and imagery review", "method": "Endpoint, safety, camping and gallery screen", "result": "The route has two named BLM public water-entry edges, explicit PFD/strainer/fence/private-land/monsoon controls, dispersed-camping guidance with BLM restrictions, and a Gila Box river Commons image." }
+  ],
+  "sources": [
+    "https://www.blm.gov/visit/gila-river-boat-put-in",
+    "https://www.blm.gov/visit/dry-canyon-picnic-area",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/117/main",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09442000/",
+    "https://commons.wikimedia.org/wiki/File:Gila_River_in_the_Gila_Box_National_Conservation_Area_(55125890639).jpg"
+  ],
+  "thresholdEvidence": {
+    "station": "09442000",
+    "metric": "discharge_cfs",
+    "smallCraftFloor": 60,
+    "navigationCue": 200,
+    "highFlowReview": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Gila Box Old Safford Bridge to Dry Canyon; verify direct gauge, San Francisco inflow, weather, scouting, shuttle and craft suitability before launch."
+  },
+  "endpointAudit": { "routeCount": 1, "endpointCount": 2, "bySeverity": { "ok": 0, "review": 2, "suspicious": 0, "failure": 0, "unknown": 0 }, "reviewNote": "Both pins are named BLM water-entry sites. Confirm current signs, parking, road, carry, fee and closure status." },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Arizona Gila Box route tests passed.",
+    "Canonical route-scoped geometry generated for the route.",
+    "Full route, safety and gallery audits passed with no scored-route safety issues.",
+    "Canonical geometry audit and production build passed."
+  ],
+  "pending": ["Run endpoint audits with per-route reports and verify current access, release, weather and hazard conditions before deployment."]
+}

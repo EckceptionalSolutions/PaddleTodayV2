@@ -51,3 +51,52 @@ The six planning routes provide public checkout presence but do not satisfy scor
 ## Second batch implemented - 2026-09-10
 
 Added three more public planning routes from the reviewed Willamette launch set: Peoria–Michael’s (about 12.5 miles), Crystal Lake–Michael’s (about 2.5 miles), and Peoria–Hyak (about 21 miles). They reuse the audited access coordinates and adjacent Water Trail guidance, with explicit shuttle, landing, daylight, wood and current cautions. Oregon now has six public routes, all planning-only because the Corvallis telemetry is nearby same-river context and no reach-specific paddling cutoff has been verified. Canonical geometry and route/safety audits pass; release verification remains pending.
+
+## Scored Willamette reach - 2026-09-12
+
+Added `willamette-river-alton-baker-harrisburg`, a 21-mile Eugene-to-Harrisburg reach with public Alton Baker Park and Harrisburg Park ramps. The Willamette Kayak and Canoe Club publishes the matching Class I–II reach and numeric 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references tied to direct USGS 14166000; the Water Trail documents the endpoint facilities and conditional Blue Ruin, Norwood and Irish Bend paddle-in campsites. The route carries explicit debris, swift-current, cold-water, private-bank, daylight and campsite-status controls. Oregon now has 7 routes (1 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+## Scored Willamette expansion - 2026-09-12
+
+Added two exact Water Trail intermediate reaches using the same direct Harrisburg telemetry and WKCC numeric flow bands as conservative screening cues:
+
+- `willamette-river-marshall-island-harrisburg` — 8 miles, improved Marshall Island public ramp to Harrisburg Park. The Water Trail calls this intermediate, warns about strong current, wood strainers and railroad-bridge debris, and documents Blue Ruin plus additional gravel-bar camping.
+- `willamette-river-harrisburg-peoria` — 19.5 miles, Harrisburg Park to the tucked-away Peoria Park ramp. The Water Trail warns about strong current, woody debris, the slippery Harrisburg landing and the easy-to-miss Peoria alcove, and names Harkens Lake, DSL Island 152, Irish Bend, Norwood and Buckskin Mary camping sites.
+
+Both routes include verified water-entry coordinates, route-specific access points, safety notes, shuttle and daylight controls, conditional campsite guidance and gallery context through the Willamette river record. Oregon now has 9 routes (3 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+## Short scored Willamette segments - 2026-09-12
+
+Added two shorter distinct segments from the Harrisburg-to-Peoria Water Trail itinerary:
+
+- `willamette-river-harrisburg-mccartney` — 4.5 miles from Harrisburg Park to McCartney Park, with public ramps and a reach-specific warning for the sharp eddy line and possible strainer below McCartney.
+- `willamette-river-mccartney-peoria` — 15 miles from McCartney Park to the tucked-away Peoria Park ramp, with Irish Bend, Norwood and Buckskin Mary camping references and the Water Trail’s woody-debris/current cautions.
+
+Both use the direct Harrisburg gauge and WKCC corridor flow bands as conservative scoring cues, include water-entry coordinates and route-specific logistics, and retain conditional campsite guidance. Oregon now has 11 routes (5 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+## Scored Willamette campsite segments - 2026-09-12
+
+Added three further distinct reaches from the published Harrisburg-to-Peoria corridor:
+
+- `willamette-river-harrisburg-irish-bend` — 10 miles, with Harkens Lake and Irish Bend gravel-bar references.
+- `willamette-river-irish-bend-peoria` — 9.5 miles, with Norwood and Buckskin Mary camping references and the concealed Peoria alcove warning.
+- `willamette-river-norwood-peoria` — 7 miles, starting at the documented Norwood Island paddle-in site and ending at Peoria Park.
+
+Each route retains direct USGS 14166000 telemetry and conservative WKCC flow bands, verified endpoint or paddle-in access context, route-specific safety and landing notes, and conditional campsite controls. Oregon now has 14 routes (8 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+The coordinate review kept the published Buckskin Mary location in camping notes only because its pin is offset from the NHD waterbody; it is not presented as an access point. The remaining new Oregon access points are named ramps or mapped channels with waterbody-aware review results.
+
+## Short scored Harkens segments - 2026-09-12
+
+Added two additional Water Trail slices:
+
+- `willamette-river-harrisburg-harkens` — 7.5 miles from Harrisburg Park to Harkens Lake Landing.
+- `willamette-river-harkens-irish-bend` — 2.5 miles from Harkens Lake Landing to Irish Bend.
+
+Harkens is a documented mainstem gravel-bar campsite and paddle-in landing, so both routes state clearly that it is not a vehicle take-out. Oregon now has 16 routes (10 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+The next scored Willamette pass adds Marshall Island–McCartney (12.5 miles), Harrisburg–Norwood (12.5 miles), and McCartney–Irish Bend (5.5 miles). The Water Trail publishes the endpoint river-mile sequence, public or paddle-in access context, landing cautions and conditional camping sites; WKCC’s 2,000 cfs low / 6,000 cfs optimal / 20,000 cfs high references remain tied to direct USGS 14166000. Oregon now has 19 routes (13 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+Marshall Island–Irish Bend (18 miles) completes Oregon’s 20-route target. The combined reach follows the Water Trail’s published RM 169 to RM 151 sequence, uses public Marshall Island and Irish Bend water access with McCartney as an intermediate bail-out, and carries the same direct USGS 14166000 WKCC flow bands, current/wood/landing cautions and conditional campsite controls. Oregon now has 20 routes (14 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.
+
+The 30-route scored-first pass adds ten distinct Willamette access-bounded combinations: Alton Baker to Marshall Island, McCartney, Harkens, Irish Bend, Norwood and Peoria; Marshall Island to Peoria and Norwood; Harkens to Peoria; and Irish Bend to Norwood. Each reuses named Water Trail water-entry locations, direct USGS 14166000 telemetry, the WKCC 2,000 cfs low / 6,000 cfs optimal / 20,000 cfs high references, and explicit current, wood, cold-water, private-bank and conditional camping controls. The Alton Baker–Peoria itinerary is labeled staged multi-day because it exceeds 35 miles. Oregon now has 30 public routes (24 scored, 6 planning). Evidence: `docs/operations/starter-evidence/oregon.json`.

@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["sipsey-fork-county-route-60-highway-33", "sipsey-fork-highway-33-county-road-b15"],
+  "sourceAttempts": [
+    {"family":"Outdoor Alabama / Alabama Recreation Trails","method":"Sipsey Fork upper access and canoe trail pages","result":"Documents the Wild and Scenic Sipsey Fork, named County Route 60, W.T. Mims Highway 33 and County Road B15 access sequence, including a 4.5-mile Highway 33-to-B15 canoe section."},
+    {"family":"American Whitewater / USGS","method":"Sipsey Fork reach and gauge notes","result":"Documents the adjacent County Route 60-to-Highway 33 Class II reach, direct USGS 02450250 relationship and 200–350 cfs optimal planning band."},
+    {"family":"Hydrography / endpoint audit","method":"NHD named-flowline route geometry generation","result":"Generated compact canonical geometry for both Sipsey routes; endpoints are bounded to the named water-entry locations."}
+  ],
+  "sources": ["https://www.outdooralabama.com/rivers-and-mobile-delta/sipsey-fork-above-smith-lake", "https://alabamarecreationtrails.org/trail/sipsey-upper-fork-canoe-trail-highway-33-put-in-take-out-to-county-road-b15/", "https://www.americanwhitewater.org/content/River/view/river-detail/76/main", "https://waterdata.usgs.gov/monitoring-location/USGS-02450250/"],
+  "thresholdEvidence": {"station":"02450250","metric":"discharge_cfs","source":"https://www.americanwhitewater.org/content/River/view/river-detail/76/main","minimum":150,"idealReference":200,"idealMaximum":350,"maximum":600,"model":"two-sided","strength":"community","reachApplicability":"Sipsey Fork County Route 60–Highway 33 and adjacent Highway 33–County Road B15 upper corridor; treat the band as a conservative same-river cue and verify local conditions."},
+  "endpointEvidence": {"routes":[{"routeId":"sipsey-fork-county-route-60-highway-33","putIn":{"name":"County Route 60 Sipsey Recreational Area","latitude":34.2849,"longitude":-87.39891},"takeOut":{"name":"W.T. Mims Highway 33 access","latitude":34.2176,"longitude":-87.3687}},{"routeId":"sipsey-fork-highway-33-county-road-b15","putIn":{"name":"W.T. Mims Highway 33 access","latitude":34.2176,"longitude":-87.3687},"takeOut":{"name":"County Road B15 access","latitude":34.218238,"longitude":-87.366455}}]},
+  "safetyAndCamping":{"reviewStatus":"reviewed","hazards":["low_water","strainers","fast_rise","private_banks","cold_water"],"campingClassification":"nearby_basecamp","posture":"Day-use Wild and Scenic river routes; nearby Bankhead primitive camping exists, but no endpoint campsite is promoted without current site confirmation."},
+  "validation":["Route-data typecheck and focused Sipsey/gallery tests passed.","Route data audit passed with the Highway 33–County Road B15 route scored.","Compact named-flowline geometry generated and canonical geometry audit passed.","Sipsey-specific Outdoor Alabama and Alabama Recreation Trails sources document public on-water access and the river-specific route image is retained."],
+  "pending":["Confirm current Bankhead road, parking, gauge trend, weather, wood and access conditions before launch."]
+}

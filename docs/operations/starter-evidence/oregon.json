@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-12",
   "deployed": false,
   "status": "validated_not_deployed",
   "sourceAttempts": [
@@ -21,7 +21,7 @@
     },
     {
       "family": "Oregon State Marine Board",
-      "result": "Reviewed all 214 obstruction and 163 dam records without transfer truncation. Two river-right tree reports lie downstream of Crystal Lake and upstream of Michael’s Landing, outside both selected reaches. No reported obstruction in the selected Tualatin corridor; changing/unreported hazards remain possible."
+      "result": "Reviewed all 214 obstruction and 163 dam records without transfer truncation. Two river-right tree reports lie downstream of Crystal Lake and upstream of Michaelâ€™s Landing, outside both selected reaches. No reported obstruction in the selected Tualatin corridor; changing/unreported hazards remain possible."
     },
     {
       "family": "Linn County / Corvallis / Benton County",
@@ -41,7 +41,35 @@
     },
     {
       "family": "Second-batch Willamette combinations",
-      "result": "Added Peoria–Michael’s, Crystal Lake–Michael’s and Peoria–Hyak as planning-only combinations using the already reviewed public launches, adjacent Water Trail itinerary guidance and the prior coordinate/obstruction audit. No new scoring threshold was inferred."
+      "result": "Added Peoriaâ€“Michaelâ€™s, Crystal Lakeâ€“Michaelâ€™s and Peoriaâ€“Hyak as planning-only combinations using the already reviewed public launches, adjacent Water Trail itinerary guidance and the prior coordinate/obstruction audit. No new scoring threshold was inferred."
+    },
+    {
+      "family": "Willamette Kayak and Canoe Club / Willamette Water Trail",
+      "result": "Qualified the Alton Baker Park to Harrisburg Park reach as scored: WKCC publishes 21 miles, Class I–II, 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references tied to USGS 14166000; Water Trail pages verify both public ramps and paddle-in island/gravel-bar campsites."
+    },
+    {
+      "family": "Willamette Water Trail scored expansion",
+      "result": "Added the exact 8-mile Marshall Island Landing–Harrisburg and 19.5-mile Harrisburg–Peoria intermediate itineraries. The Water Trail supplies public ramp coordinates, reach-specific safety alerts, mileage, intermediate access points and conditional island/gravel-bar campsites; WKCC numeric flow bands remain tied to direct USGS 14166000 for conservative scoring."
+    },
+    {
+      "family": "Willamette Water Trail scored segment expansion",
+      "result": "Added shorter distinct public-access segments Harrisburg–McCartney (4.5 miles) and McCartney–Peoria (15 miles) using exact Water Trail river miles, ramp coordinates, landing hazards and downstream campsite references. Numeric WKCC flow bands remain conservative corridor cues tied to direct USGS 14166000."
+    },
+    {
+      "family": "Willamette Water Trail scored campsite segments",
+      "result": "Added Harrisburg–Irish Bend (10 miles), Irish Bend–Peoria (9.5 miles) and Norwood Island–Peoria (7 miles) as distinct intermediate reaches. The Water Trail publishes each river-mile span, public or paddle-in endpoint context, route hazards and named camping sites; WKCC numeric flow bands remain conservative corridor cues tied to direct USGS 14166000."
+    },
+    {
+      "family": "Willamette Water Trail short segment expansion",
+      "result": "Added Harrisburg–Harkens (7.5 miles) and Harkens–Irish Bend (2.5 miles) using the published river-mile sequence and water-edge campsite/access coordinates. Harkens is explicitly treated as paddle-in conditional access, not a vehicle take-out; current, wood, cold-water and campsite-status checks remain required."
+    },
+    {
+      "family": "Willamette Water Trail scored segment expansion",
+      "result": "Added Marshall Island–McCartney, Harrisburg–Norwood and McCartney–Irish Bend using published Water Trail river miles, named public or paddle-in access, landing cautions and conditional campsite guidance; WKCC bands remain tied to direct USGS 14166000."
+    },
+    {
+      "family": "Willamette Water Trail scored long segment expansion",
+      "result": "Added Marshall Island–Irish Bend as an 18-mile access-bounded scored reach using published Water Trail river miles, named public ramps, intermediate access/camping context and direct USGS 14166000 WKCC flow bands."
     }
   ],
   "launchInventory": [
@@ -250,10 +278,10 @@
         {
           "routeId": "willamette-river-michaels-hyak",
           "routeName": "Willamette River",
-          "reach": "Michael’s Landing / North Riverfront Park to Hyak Park boat ramp",
+          "reach": "Michaelâ€™s Landing / North Riverfront Park to Hyak Park boat ramp",
           "state": "Oregon",
           "endpoint": "putIn",
-          "endpointName": "Michael’s Landing / North Riverfront Park",
+          "endpointName": "Michaelâ€™s Landing / North Riverfront Park",
           "latitude": 44.56939,
           "longitude": -123.25592,
           "matchedRiverName": "Willamette River",
@@ -279,7 +307,7 @@
         {
           "routeId": "willamette-river-michaels-hyak",
           "routeName": "Willamette River",
-          "reach": "Michael’s Landing / North Riverfront Park to Hyak Park boat ramp",
+          "reach": "Michaelâ€™s Landing / North Riverfront Park to Hyak Park boat ramp",
           "state": "Oregon",
           "endpoint": "takeOut",
           "endpointName": "Hyak Park boat ramp",
@@ -484,22 +512,58 @@
     "tualatin-river-jurgens-community",
     "willamette-river-peoria-michaels",
     "willamette-river-crystal-lake-michaels",
-    "willamette-river-crystal-lake-hyak"
+    "willamette-river-crystal-lake-hyak",
+    "willamette-river-alton-baker-harrisburg",
+    "willamette-river-marshall-island-harrisburg",
+    "willamette-river-harrisburg-peoria",
+    "willamette-river-harrisburg-mccartney",
+    "willamette-river-mccartney-peoria",
+    "willamette-river-harrisburg-irish-bend",
+    "willamette-river-irish-bend-peoria",
+    "willamette-river-norwood-peoria",
+    "willamette-river-harrisburg-harkens",
+    "willamette-river-harkens-irish-bend",
+    "willamette-river-marshall-island-mccartney",
+    "willamette-river-harrisburg-norwood",
+    "willamette-river-mccartney-irish-bend",
+    "willamette-river-marshall-island-irish-bend",
+    "willamette-river-alton-baker-marshall-island",
+    "willamette-river-alton-baker-mccartney",
+    "willamette-river-alton-baker-harkens",
+    "willamette-river-alton-baker-irish-bend",
+    "willamette-river-alton-baker-norwood",
+    "willamette-river-alton-baker-peoria",
+    "willamette-river-marshall-island-peoria",
+    "willamette-river-marshall-island-norwood",
+    "willamette-river-harkens-peoria",
+    "willamette-river-irish-bend-norwood"
   ],
   "validation": [
     "Full npm run build passed, including route/runtime/workspace/mobile typechecks, route-data audit, geometry audit and gallery audit; 2439 static pages generated.",
     "23 tests passed across starter route publication/safety/geometry, campaign, control-plane and publication suites.",
     "Six desktop/iPhone browser checks passed: Oregon and Florida state discovery, filters, request-state context, planning metadata and route directions.",
-    "Six Oregon endpoints independently audited: one ok and five review; no suspicious, failure or unknown endpoints. Named facilities and imagery corroborate reviewed bank/launch positions. NHD centerline offsets are 70–273 feet and do not imply relocation to the centerline.",
+    "Six Oregon endpoints independently audited: one ok and five review; no suspicious, failure or unknown endpoints. Named facilities and imagery corroborate reviewed bank/launch positions. NHD centerline offsets are 70â€“273 feet and do not imply relocation to the centerline.",
     "Geometry audit passed: 2058/2071 public routes matched and 33 state bundles present. Thirteen pre-existing unmatched routes remain. New traces are continuous, oriented, within 300 feet of endpoints and within 25 percent of documented mileage.",
     "Peoria alcove connector visually overlaid on georeferenced imagery and verified around the island; no cross-island shortcut. Willamette route interiors do not overlap.",
     "Coordinate aggregate and access registry regenerated for the new cohort. Existing unrelated withholding decisions preserved; none of the Oregon additions is withheld.",
     "Second batch adds three reviewed-access Willamette combinations, bringing Oregon to six public planning routes. Existing USGS gauges remain proxy context; no reach-specific recreational cutoff was transferred.",
     "Canonical geometry regenerated: 2142/2155 public-indexed routes matched, 48 state bundles present; all three new Oregon traces are endpoint-bounded named Willamette geometry.",
-    "Full npm run build passed after second batch; 2556 static pages generated with route/runtime/workspace/mobile typechecks, route-data audit, geometry audit and gallery audit."
+    "Full npm run build passed after second batch; 2556 static pages generated with route/runtime/workspace/mobile typechecks, route-data audit, geometry audit and gallery audit.",
+    "Added the scored Alton Baker-to-Harrisburg route with direct USGS 14166000, WKCC numeric flow references, Water Trail public endpoints and conditional paddle-in camping notes; canonical geometry and route audits remain required before release.",
+    "Added the scored Marshall Island Landing–Harrisburg (8 miles) and Harrisburg–Peoria (19.5 miles) Water Trail reaches. Both include direct-gauge scoring cues, route-specific safety alerts, verified water-entry ramps, intermediate access/campsite notes and conservative cold-water/current guidance; canonical geometry and full route audits remain required before release.",
+    "Added scored Harrisburg–McCartney (4.5 miles) and McCartney–Peoria (15 miles) segments. Both carry exact Water Trail access/mileage, ramp-specific landing cautions, public-access evidence and conditional camping controls.",
+    "Added scored Harrisburg–Irish Bend (10 miles), Irish Bend–Peoria (9.5 miles) and Norwood Island–Peoria (7 miles) segments with exact Water Trail mileposts, endpoint/access notes, camping references and route-specific current, wood and landing cautions.",
+    "The coordinate audit screened the new Oregon endpoints against NHD waterbody and flowline data. The published Buckskin Mary campsite pin was retained only in camping prose after its 261-foot waterbody offset; it is no longer exposed as an access point. Route-data and safety audits pass with zero new issues.",
+    "A fresh full coordinate audit returned OK for both Harkens paddle-in endpoints and expected waterbody-aware reviews for the Harrisburg and Irish Bend public ramps; no suspicious or failed result occurred for the new routes.",
+    "Added scored Harrisburg–Harkens (7.5 miles) and Harkens–Irish Bend (2.5 miles) segments. Harkens is documented as a paddle-in gravel-bar landing and is explicitly not presented as a vehicle take-out.",
+    "Three additional scored Willamette reaches use published Water Trail access river miles, route-specific safety and camping notes, direct USGS 14166000 telemetry and endpoint-bounded geometry.",
+    "Marshall Island–Irish Bend completed Oregon’s 20-route target with direct-gauge scoring, route-specific access/safety/camping notes and endpoint-bounded geometry.",
+    "The 30-route scored-first pass adds ten distinct Willamette combinations using named Water Trail access, direct USGS 14166000 telemetry, conservative WKCC numeric flow references, route-specific safety/camping notes and endpoint-bounded geometry; the 40-mile Alton Baker–Peoria itinerary is explicitly staged multi-day.",
+    "Starter planning tests now filter scored routes correctly while continuing to verify all six planning traces and the Peoria alcove constraint."
   ],
   "pending": [
-    "Deployment, then verification of actual production state/route visibility and release date. Recheck access notices and telemetry when releasing."
+    "Deployment, then verification of actual production state/route visibility and release date. Recheck access notices and telemetry when releasing.",
+    "Recheck current Harrisburg gauge trend, debris reports, ramp condition and island campsite status before deployment."
   ],
   "baselineLimitations": [
     "The existing route-data audit retains 102 planning issues and 79 deferred items outside the starter cohort.",

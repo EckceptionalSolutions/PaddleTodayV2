@@ -1,0 +1,479 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "millers-river-erving-millers-falls",
+    "millers-river-erving-route-2-rest-area",
+    "millers-river-route-2-rest-area-millers-falls",
+    "millers-river-cass-meadow-orange-riverfront",
+    "millers-river-south-main-dam-arch-street",
+    "millers-river-cass-meadow-arch-street",
+    "millers-river-railroad-route-2",
+    "millers-river-railroad-millers-falls",
+    "millers-river-farley-route-2",
+    "millers-river-farley-millers-falls",
+    "millers-river-railroad-farley",
+    "millers-river-erving-farley",
+    "millers-river-cass-meadow-route-2",
+    "millers-river-cass-meadow-millers-falls",
+    "millers-river-cass-meadow-farley",
+    "millers-river-south-main-dam-farley",
+    "millers-river-south-main-dam-route-2",
+    "millers-river-south-main-dam-millers-falls",
+    "millers-river-south-main-dam-railroad",
+    "millers-river-erving-railroad",
+    "millers-river-erving-south-main-dam",
+    "millers-river-cass-meadow-railroad"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "American Whitewater",
+      "method": "Erving to Millers Falls reach guide",
+      "result": "Documents the 6.2-mile Class II–III Lower Millers run, the Route 2 rest-area alternate at about mile 4.51, and the Millers Falls public riverfront take-out at about mile 6.17."
+    },
+    {
+      "family": "Town of Erving / Massachusetts Paddler",
+      "method": "Millers River access pages",
+      "result": "Confirm public Erving Riverfront Park and Millers Falls Riverfront Public Access, plus roadside access context."
+    },
+    {
+      "family": "USGS",
+      "method": "Station 01166500 at Erving",
+      "result": "Direct Millers River telemetry used for the conservative 300–3,500 cfs guard and 600–2,000 cfs preferred planning band."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated canonical geometry for the parent reach and both documented shortened variants; endpoints snap to the same Millers River flowline."
+    },
+    {
+      "family": "Millers River Watershed Council / Massachusetts Paddler",
+      "method": "Millers River Blue Trail guide",
+      "result": "Documents the six-mile Class I Cass Meadow/Athol to Orange Riverfront Park Blue Trail, car-top launch, public ramp and dry-period impoundment."
+    },
+    {
+      "family": "Massachusetts Paddler Millers River Reach 6",
+      "method": "South Main Street Dam to Arch Street Bridge reach guide",
+      "result": "Documents the 5.5-mile Reach 6, below-dam portage put-in, Arch Street Bridge car-top access and Class I/II moving-water corridor."
+    },
+    {
+      "family": "Millers River Watershed Council / Massachusetts Paddler",
+      "method": "Cass Meadow-to-Arch Street combined reach screen",
+      "result": "Joined the documented six-mile Blue Trail to the published below-South-Main-Street-Dam Reach 6, preserving the mandatory land portage and named public endpoints."
+    },
+    {
+      "family": "American Whitewater / Town of Erving",
+      "method": "Lower Millers access-option screen",
+      "result": "American Whitewater documents the Railroad Bridge put-in at about river mile 0.89, Farley Road / Bridge Street at about mile 2.4, Route 2 rest-area alternate at about mile 4.51 and Millers Falls public take-out at about mile 6.17. Six distinct access-option routes were added with river-edge coordinates interpolated from the canonical Millers trace."
+    },
+    {
+      "family": "American Whitewater / Massachusetts Paddler / Town of Erving",
+      "method": "Millers River access-combination expansion",
+      "result": "Added ten distinct scored route combinations across Cass Meadow, South Main Street Dam below-dam, Erving Riverfront, Railroad Bridge, Farley, Route 2 and Millers Falls access points. Each route retains direct USGS 01166500 telemetry, public water-entry checks, dam/wood/cold-water controls and day-use camping posture."
+    }
+  ],
+  "sources": [
+    "https://www.americanwhitewater.org/content/River/view/river-detail/695/main",
+    "https://www.erving-ma.gov/210/Millers-River",
+    "https://massachusettspaddler.com/millers-river-access",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01166500/",
+    "https://millerswatershed.org/blue-trails/",
+    "https://massachusettspaddler.com/m5-athol-dam-to-south-main-st-dam-orange",
+    "https://www.townoforange.org/facilities/facility/details/River-Front-Park-18",
+    "https://massachusettspaddler.com/m6-south-main-st-dam-orange-to-archbridge-erving"
+  ],
+  "thresholdEvidence": {
+    "station": "01166500",
+    "metric": "discharge_cfs",
+    "source": "https://www.americanwhitewater.org/content/Gauge2/detail/id/5873/",
+    "minimum": 300,
+    "idealReference": 600,
+    "idealMaximum": 2000,
+    "maximum": 3500,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Lower Millers Erving Riverfront Park to Millers Falls Riverfront Public Access. Historical AW trip reports and gauge context support the conservative planning band; verify current telemetry, trend, wood and feature conditions before launch."
+  },
+  "endpointEvidence": {
+    "routes": [
+      {
+        "routeId": "millers-river-erving-millers-falls",
+        "putIn": {
+          "name": "Erving Riverfront Park / Arch Street",
+          "latitude": 42.598533,
+          "longitude": -72.402639,
+          "source": "Town of Erving / American Whitewater"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "Town of Erving / American Whitewater"
+        }
+      },
+      {
+        "routeId": "millers-river-erving-route-2-rest-area",
+        "putIn": {
+          "name": "Erving Riverfront Park / Arch Street",
+          "latitude": 42.598533,
+          "longitude": -72.402639,
+          "source": "Town of Erving / American Whitewater"
+        },
+        "takeOut": {
+          "name": "Route 2 rest-area alternate",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater alternate access; coordinate refined to the NHD water-entry edge"
+        }
+      },
+      {
+        "routeId": "millers-river-route-2-rest-area-millers-falls",
+        "putIn": {
+          "name": "Route 2 rest-area alternate",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater alternate access; coordinate refined to the NHD water-entry edge"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "Town of Erving / American Whitewater"
+        }
+      },
+      {
+        "routeId": "millers-river-cass-meadow-orange-riverfront",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow car-top launch",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "Massachusetts Paddler Blue Trail guide / Water Quality Portal station"
+        },
+        "takeOut": {
+          "name": "Orange Riverfront Park boat ramp above South Main Street Dam",
+          "latitude": 42.588667,
+          "longitude": -72.308333,
+          "source": "Massachusetts Paddler Blue Trail guide / Town of Orange"
+        }
+      },
+      {
+        "routeId": "millers-river-south-main-dam-arch-street",
+        "putIn": {
+          "name": "South Main Street Dam portage put-in",
+          "latitude": 42.5895,
+          "longitude": -72.311833,
+          "source": "Massachusetts Paddler Reach 6; water-entry edge"
+        },
+        "takeOut": {
+          "name": "Arch Street Bridge public car-top launch",
+          "latitude": 42.5985,
+          "longitude": -72.402667,
+          "source": "Massachusetts Paddler Reach 6"
+        }
+      },
+      {
+        "routeId": "millers-river-cass-meadow-arch-street",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "Massachusetts Paddler Blue Trail guide"
+        },
+        "takeOut": {
+          "name": "Arch Street Bridge, Erving",
+          "latitude": 42.5985,
+          "longitude": -72.402667,
+          "source": "Town of Erving / Massachusetts Paddler Reach 6"
+        }
+      },
+      {
+        "routeId": "millers-river-railroad-route-2",
+        "putIn": {
+          "name": "Railroad Bridge put-in along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Route 2 Shunpike Rest Area alternate take-out",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-railroad-millers-falls",
+        "putIn": {
+          "name": "Railroad Bridge put-in along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-farley-route-2",
+        "putIn": {
+          "name": "Farley Road / Bridge Street put-in",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Route 2 Shunpike Rest Area alternate take-out",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-farley-millers-falls",
+        "putIn": {
+          "name": "Farley Road / Bridge Street put-in",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-railroad-farley",
+        "putIn": {
+          "name": "Railroad Bridge put-in along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Farley Road / Bridge Street take-out",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-erving-farley",
+        "putIn": {
+          "name": "Erving Riverfront Park / Arch Street",
+          "latitude": 42.598533,
+          "longitude": -72.402639,
+          "source": "American Whitewater access mile; coordinate refined to canonical Millers River water edge"
+        },
+        "takeOut": {
+          "name": "Farley Road / Bridge Street take-out",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater / Town of Erving public access context; coordinate refined to canonical Millers River water edge"
+        }
+      },
+      {
+        "routeId": "millers-river-cass-meadow-route-2",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow car-top launch",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Route 2 Shunpike Rest Area alternate take-out",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 16
+      },
+      {
+        "routeId": "millers-river-cass-meadow-millers-falls",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow car-top launch",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 18
+      },
+      {
+        "routeId": "millers-river-cass-meadow-farley",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow car-top launch",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Farley Road / Bridge Street take-out",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 14
+      },
+      {
+        "routeId": "millers-river-south-main-dam-farley",
+        "putIn": {
+          "name": "South Main Street Dam below-dam portage put-in",
+          "latitude": 42.5895,
+          "longitude": -72.311833,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Farley Road / Bridge Street take-out",
+          "latitude": 42.5978783,
+          "longitude": -72.4377538,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 9.5
+      },
+      {
+        "routeId": "millers-river-south-main-dam-route-2",
+        "putIn": {
+          "name": "South Main Street Dam below-dam portage put-in",
+          "latitude": 42.5895,
+          "longitude": -72.311833,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Route 2 Shunpike Rest Area alternate take-out",
+          "latitude": 42.5776088,
+          "longitude": -72.4630396,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 10.5
+      },
+      {
+        "routeId": "millers-river-south-main-dam-millers-falls",
+        "putIn": {
+          "name": "South Main Street Dam below-dam portage put-in",
+          "latitude": 42.5895,
+          "longitude": -72.311833,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Millers Falls Riverfront Public Access",
+          "latitude": 42.57982,
+          "longitude": -72.49179,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 12
+      },
+      {
+        "routeId": "millers-river-south-main-dam-railroad",
+        "putIn": {
+          "name": "South Main Street Dam below-dam portage put-in",
+          "latitude": 42.5895,
+          "longitude": -72.311833,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Railroad Bridge take-out along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 8.5
+      },
+      {
+        "routeId": "millers-river-erving-railroad",
+        "putIn": {
+          "name": "Erving Riverfront Park / Arch Street",
+          "latitude": 42.598533,
+          "longitude": -72.402639,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Railroad Bridge take-out along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 1.5
+      },
+      {
+        "routeId": "millers-river-erving-south-main-dam",
+        "putIn": {
+          "name": "Erving Riverfront Park / Arch Street",
+          "latitude": 42.598533,
+          "longitude": -72.402639,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Orange Riverfront Park boat ramp above South Main Street Dam",
+          "latitude": 42.588667,
+          "longitude": -72.308333,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 7
+      },
+      {
+        "routeId": "millers-river-cass-meadow-railroad",
+        "putIn": {
+          "name": "Alan E. Rich Environmental Park / Cass Meadow car-top launch",
+          "latitude": 42.593531,
+          "longitude": -72.239153,
+          "source": "American Whitewater / Massachusetts Paddler documented public access"
+        },
+        "takeOut": {
+          "name": "Railroad Bridge take-out along Route 2",
+          "latitude": 42.6072815,
+          "longitude": -72.4152707,
+          "source": "American Whitewater / Town of Erving documented public access"
+        },
+        "distanceMiles": 15
+      }
+    ],
+    "note": "All endpoints are named public or documented Lower Millers access options on the direct-gauge reach; Railroad Bridge and Farley coordinates are river-edge refinements from American Whitewater access mile markers.",
+    "routeCount": 22,
+    "endpointCount": 44
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "dam",
+      "private_banks"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use route; no camping at the riverfront parks or on private banks. Use separately permitted campgrounds or lodging."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Route data audit passed with the parent and two shortened routes scored.",
+    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "Existing Millers River gallery imagery applies to all three routes via the same riverId.",
+    "Both variants reuse American Whitewater documented alternate-access distances and the direct Erving gauge planning band.",
+    "The Cass Meadow-to-Orange Blue Trail route reuses named public launches and the direct same-river gauge while preserving the dam take-out boundary and water-quality checks.",
+    "Reach 6 reuses the published below-dam portage put-in and Arch Street Bridge access, with endpoint-bounded geometry and the direct Erving gauge planning band.",
+    "Added the combined Cass Meadow-to-Arch Street day itinerary with a required South Main Street Dam land portage and direct Erving gauge.",
+    "Focused Millers route test and route-data typecheck passed for the six access-option additions.",
+    "Canonical geometry generated for all six new routes with endpoint-bounded traces; full geometry audit passed.",
+    "Full route audit passed for 2,402 routes; safety audit returned 0 issues across 1,342 scored routes; production build passed with 2,714 pages.",
+    "Massachusetts now has 20 total routes (19 scored, 1 planning); no unsupported access or duplicate endpoint pair was used.",
+    "Added ten distinct scored Millers River access combinations with direct USGS 01166500 telemetry, named public water-entry endpoints, safety/cold-water/wood/dam controls, no riverbank camping, river-specific gallery inheritance and compact endpoint-bounded geometry.",
+    "Massachusetts now has 30 total routes (29 scored, 1 planning); route-data, safety and canonical-geometry audits pass."
+  ],
+  "pending": [
+    "Confirm Route 2 roadside carry, parking and seasonal legality before launch; recheck rain, wood, cold-water and dam notices.",
+    "Confirm roadside carry, parking and seasonal legality at Railroad Bridge, Farley Road / Bridge Street and Route 2 before deployment."
+  ]
+}

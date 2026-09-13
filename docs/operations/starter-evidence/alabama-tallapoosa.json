@@ -1,0 +1,39 @@
+{
+  "state": "Alabama",
+  "corridor": "Harold Banks Canoe Trail / Tallapoosa River",
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "routeIds": [
+    "tallapoosa-river-bibbys-germanys-ferry",
+    "tallapoosa-river-germanys-horseshoe-bend",
+    "tallapoosa-river-horseshoe-bend-jay-bird",
+    "tallapoosa-river-bibbys-horseshoe-bend",
+    "tallapoosa-river-germanys-jay-bird",
+    "tallapoosa-river-bibbys-jay-bird",
+    "tallapoosa-river-peters-island-jay-bird"
+  ],
+  "sources": [
+    { "label": "Alabama Extension Harold Banks guide", "url": "https://www.aces.edu/blog/topics/tallapoosa/canoe-trail-tallapoosa-river/", "result": "validated" },
+    { "label": "Harold Banks map PDF", "url": "https://www.aces.edu/wp-content/uploads/2020/02/ANR-2229_HaroldBanksCanoeTrailMap_021920L-G-copy.pdf", "result": "validated" },
+    { "label": "USGS Wadley gauge 02414500", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=02414500", "result": "direct discharge telemetry" },
+    { "label": "USGS Horseshoe Bend gauge 02414715", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-02414715/", "result": "direct Tallapoosa telemetry" },
+    { "label": "River-edge coordinate review", "url": "https://www.openstreetmap.org/", "result": "anchors checked against mapped Tallapoosa River geometry" },
+    { "label": "Route photo", "url": "https://www.aces.edu/wp-content/uploads/2020/02/KSB4118upper-scaled.jpg", "result": "Tallapoosa-specific canoe image credited to Alabama Extension" }
+  ],
+  "thresholdEvidence": {
+    "lowerPlanningCueCfs": 1500,
+    "upperReviewCueCfs": 10000,
+    "preferredBandCfs": [1500, 10000],
+    "note": "Alabama Extension states that below 1,500 cfs low areas and dragging are likely, 1,500–10,000 cfs is favorable, and above 10,000 cfs may be dangerous. Verify same-day gauge, trend, Alabama Power operations, weather, and wood."
+  },
+  "endpointAudit": {
+    "status": "passed",
+    "endpoints": [
+      "Bibby's Ferry public access water edge",
+      "Germany's Ferry public access water edge",
+      "Horseshoe Bend public access water edge",
+      "Jay Bird Creek public access water edge"
+    ],
+    "camping": "Designated campsites are on private property and available only by permission; no unauthorized camping is claimed."
+  }
+}

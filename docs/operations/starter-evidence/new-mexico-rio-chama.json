@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["rio-chama-el-vado-chavez", "rio-chama-chavez-big-eddy", "rio-chama-el-vado-big-eddy"],
+  "sourceAttempts": [
+    {"family": "Bureau of Land Management Rio Chama page", "result": "BLM documents high demand, the 22-mile El Vado Ranch–Chavez Canyon wilderness section, the lower Chavez–Big Eddy section, permits, camping, access management and the direct below-El-Vado flow station."},
+    {"family": "BLM river-segment PDF and brochure", "result": "BLM rates Rio Chama Class II–III, publishes 22¼, 8¼ and 31-mile distances, named designated launches/take-outs, road caveats and a recommended 300 cfs minimum for kayaks, canoes and rafts under 12 ft."},
+    {"family": "USGS", "result": "USGS 08285500 is the direct Rio Chama below El Vado Dam discharge station used for minimum-flow scoring."},
+    {"family": "Access coordinate review", "result": "El Vado coordinates are from the BLM access page; Chavez Canyon and Big Eddy coordinates are mapped public water-entry anchors cross-checked against local ramp/geology records and remain review-level for field confirmation."},
+    {"family": "River-specific gallery", "result": "Selected Rio Chama River.jpg, a same-river New Mexico photograph by Matt Walter via Wikimedia Commons under CC BY 2.0."}
+  ],
+  "thresholdEvidence": {"station": "08285500", "metric": "discharge_cfs", "minimum": 300, "model": "minimum-only", "strength": "official", "source": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/new-mexico/rio-chama-river", "reachApplicability": "BLM recommends at least 300 cfs for kayaks, canoes and rafts under 12 ft; larger rafts have a 500 cfs recommendation. Flows vary with releases, irrigation and rain."},
+  "endpointAudit": {"routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/nm-rio-chama-el-vado-chavez-audit.json", "tmp/nm-rio-chama-chavez-big-eddy-audit.json", "tmp/nm-rio-chama-el-vado-big-eddy-audit.json"]},
+  "validation": ["Focused Rio Chama route safety test passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data, safety and gallery audits passed.", "Production build passed."],
+  "pending": ["Recheck BLM/Forest Service permits, group limits, launch fees, campsite reservations, Forest Road 151 conditions, live 08285500 trend and current access notices before deployment."]
+}

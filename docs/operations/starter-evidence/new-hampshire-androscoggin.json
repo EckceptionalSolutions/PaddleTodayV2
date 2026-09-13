@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-13",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["androscoggin-river-errol-dummer", "androscoggin-river-dummer-shelburne", "androscoggin-river-errol-shelburne"],
+  "sourceAttempts": [
+    {"family": "Androscoggin River Watershed Council", "method": "River Trail and self-guided paddles pages", "result": "Documents more than 50 access sites, popular scenic day-trip corridors, remote North Woods character, quickwater, few alternate exits and named Errol/Dummer/Shelburne sections."},
+    {"family": "New Hampshire public-access directory", "method": "Merrimack Valley Paddlers public access index", "result": "Supplies coordinate-backed state, town and municipal water-entry anchors at Errol, Dummer and Shelburne."},
+    {"family": "USGS", "method": "01052500 Errol and 01053500 Gorham stations", "result": "Provides direct Androscoggin discharge telemetry for the selected North Woods corridors, but no route-specific recreational cutoff was transferred."},
+    {"family": "Safety and camping review", "method": "Remote access, dam, cold-water, rapid and camping screen", "result": "Routes carry explicit PFD, cold-water, strainers, dam/rapid-boundary, private-shoreline and nearby-basecamp controls. The cards remain planning-only until route-specific threshold research is available."}
+  ],
+  "sources": ["https://www.androscogginwatershedcouncil.org/general-2", "https://www.androscogginwatershedcouncil.org/about-6-1", "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html", "https://waterdata.usgs.gov/monitoring-location/USGS-01052500/", "https://waterdata.usgs.gov/monitoring-location/USGS-01053500/", "https://commons.wikimedia.org/wiki/File:Androscoggin_River_14.JPG"],
+  "thresholdEvidence": {"model": "not transferred", "strength": "none", "reachApplicability": "Direct USGS stations are available, but this pass found no authoritative numeric recreational cutoff for the New Hampshire North Woods access pairs. Routes remain planning-only rather than inventing a score band."},
+  "endpointAudit": {"routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All pins are coordinate-backed public access entries; verify current signs, parking, carry paths, seasonal gates and road conditions."},
+  "validation": ["Route-data typecheck passed.", "Focused Androscoggin route tests passed.", "Canonical route-scoped geometries generated for all three routes.", "Full route, safety and gallery audits passed."],
+  "pending": ["Find route-specific recreational flow guidance and complete current manager/closure review before converting any card to scored status or deployment."]
+}

@@ -1,0 +1,70 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "coosa-river-jordan-dam-corn-creek",
+    "coosa-river-corn-creek-gold-star",
+    "coosa-river-jordan-dam-gold-star"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "City of Wetumpka",
+      "method": "Current Coosa River Whitewater Map and kayaking page review",
+      "result": "The city identifies the popular seven-mile Jordan Dam-to-downtown corridor, public Corn Creek Park and Gold Star Park exits, Class II features and flow descriptions at 2,000, 4,000, 6,000 and 10,000 cfs."
+    },
+    {
+      "family": "Coosa River Adventures",
+      "method": "Current feature and flow guide",
+      "result": "The outfitter corroborates the seven-mile, 3–4 hour corridor, River Falls, Moccasin Gap, Pipeline, Big House and Wetumpka Falls, with a Class II left channel and Class III right channel at Moccasin Gap."
+    },
+    {
+      "family": "Alabama Recreation Trails",
+      "method": "Coosa River Whitewater access and trip review",
+      "result": "The trail page confirms below-Jordan-Dam access, the Wetumpka whitewater corridor, paddling demand and public or outfitter access context."
+    },
+    {
+      "family": "USGS",
+      "method": "Direct gauge relationship",
+      "result": "USGS 02411600 is the current stage station at Coosa River at Wetumpka and is used for the selected tailwater and downtown reach."
+    },
+    {
+      "family": "Wikimedia Commons",
+      "method": "River-specific gallery review",
+      "result": "Selected CoosaRiverPipelineFallsSection.JPG by Mike Cline, a public-domain photograph of the exact Wetumpka Coosa corridor."
+    },
+    {
+      "family": "Access coordinate review",
+      "method": "Water-entry anchors",
+      "result": "Jordan Dam coordinates are published by Alabama Recreation Trails; Corn Creek Park and Gold Star Park are current municipal public park anchors geocoded to their river-side approach. Field confirmation of carry, parking and landing remains a release check."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "02411600",
+    "metric": "gage_height_ft",
+    "minimum": 2000,
+    "idealMin": 4000,
+    "idealMax": 6000,
+    "maximum": 10000,
+    "model": "two-sided",
+    "strength": "official",
+    "source": "https://www.wetumpkaal.gov/DocumentCenter/View/722/Coosa-River-Whitewater-Map-PDF?bidId=",
+    "reachApplicability": "The city whitewater map describes the Jordan Dam-to-Wetumpka tailwater using 2,000, 4,000, 6,000 and 10,000 cfs flow cues. The selected 4,000–6,000 cfs preferred band is conservative planning guidance; verify same-day stage, release and trend."
+  },
+  "endpointAudit": {
+    "routeCount": 3,
+    "endpointCount": 6,
+    "bySeverity": { "ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0 },
+    "artifacts": []
+  },
+  "validation": [
+    "Focused Coosa route-data and safety tests passed.",
+    "Route-data typecheck passed.",
+    "Canonical geometry generation and audit completed for the full catalog.",
+    "River-specific public-domain gallery entry assigned to coosa-river-alabama."
+  ],
+  "pending": [
+    "Confirm current Alabama Power release, USGS stage trend, City of Wetumpka parking and access, water temperature, weather, road conditions and any event or closure notice before deployment.",
+    "Run the full production build and scoped coordinate audit after the new canonical route geometries are generated."
+  ]
+}

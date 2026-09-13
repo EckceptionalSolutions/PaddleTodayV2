@@ -1,0 +1,79 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "woonasquatucket-river-georgiaville-whipple",
+    "woonasquatucket-river-georgiaville-esmond",
+    "woonasquatucket-river-georgiaville-cricket",
+    "woonasquatucket-river-esmond-cricket",
+    "woonasquatucket-river-manton-riverside",
+    "woonasquatucket-river-manton-waterplace",
+    "woonasquatucket-river-riverside-waterplace",
+    "woonasquatucket-river-waterplace-south-water",
+    "woonasquatucket-river-georgiaville-waterplace",
+    "woonasquatucket-river-georgiaville-south-water",
+    "woonasquatucket-river-cricket-waterplace"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Woonasquatucket River Watershed Council paddling guide",
+      "result": "The guide documents upper Georgiaville, Whipple, Esmond and Greystone reaches, lower Manton/Riverside/Downtown reaches, public launch context, dam portages, 50–75 cfs rocky conditions and approximately 200 cfs faster smoother water."
+    },
+    {
+      "family": "WRWC recreation program",
+      "result": "The current recreation page confirms guided public paddles, all-skill demand, approximately two-hour trips and a lower-river four-mile downtown trip."
+    },
+    {
+      "family": "RIDOT and Providence access updates",
+      "result": "RIDOT and current city/DEM updates document the greenway and new downtown small-craft launch context. Lower-river routes retain explicit tidal and water-quality cautions."
+    },
+    {
+      "family": "USGS",
+      "result": "Direct Centerdale telemetry at USGS 01114500 is used for all eight same-watershed routes."
+    },
+    {
+      "family": "River-specific gallery",
+      "result": "Added a Wikimedia Commons Woonasquatucket River photograph for the state watershed corridor."
+    },
+    {
+      "family": "Route quality screen",
+      "method": "Access-chain expansion",
+      "result": "Added three distinct Woonasquatucket access-chain routes from Georgiaville and Cricket through Riverside to Waterplace and South Water, preserving dam, tide, contamination and urban-access controls."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "01114500",
+    "metric": "discharge_cfs",
+    "minimum": 50,
+    "observationalBand": "75–200 cfs",
+    "model": "minimum-only",
+    "strength": "community",
+    "source": "https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf",
+    "reachApplicability": "WRWC observations for the selected watershed. Rocks, strainers, dam portages, urban contamination, tide and access conditions remain decisive."
+  },
+  "endpointAudit": {
+    "routeCount": 11,
+    "endpointCount": 22,
+    "bySeverity": {
+      "ok": 0,
+      "review": 16,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": [
+      "tmp/ri-woonasquatucket-endpoint-audit.json"
+    ]
+  },
+  "validation": [
+    "Focused Woonasquatucket route safety test passed.",
+    "Canonical geometry generation and audit passed for the full route catalog.",
+    "Full route-data, safety and gallery audits passed.",
+    "Production build passed.",
+    "Added 3 distinct scored access-chain routes with direct gauges, public water-entry endpoints, dam/urban safety controls, day-use camping posture and canonical geometry."
+  ],
+  "pending": [
+    "Recheck Centerdale trend, rainfall, current contamination advisories, dam portages, event/tide closures and launch conditions before deployment."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "animas-river-aztec-riverside-penny-lane",
+    "animas-river-penny-lane-animas-park",
+    "animas-river-animas-park-boyd",
+    "animas-river-aztec-riverside-animas-park",
+    "animas-river-aztec-riverside-boyd",
+    "animas-river-penny-lane-boyd"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Visit Farmington paddle trails",
+      "result": "Publishes the three landing-to-landing distances used here and says the Animas is too low for rafting below 600 cfs."
+    },
+    {
+      "family": "Aztec Animas River guide",
+      "result": "Provides public water-entry coordinates for Aztec Riverside Park, Penny Lane and Boyd Park, maps the Animas Park corridor and documents diversion, fence and bridge hazards."
+    },
+    {
+      "family": "USGS",
+      "result": "USGS 09364200 at Penny Lane near Flora Vista provides direct discharge and stage telemetry for the selected corridor."
+    },
+    {
+      "family": "New Mexico State Parks",
+      "result": "Provides statewide PFD, float-plan, weather and low-head-dam/strainer safety guidance."
+    },
+    {
+      "family": "Gallery",
+      "result": "Added a Visit Farmington Animas rafting photograph tied to the Animas River rather than reusing the San Juan or Rio Grande images."
+    },
+    {
+      "family": "Visit Farmington / Aztec access-chain combinations",
+      "result": "The published Riverside Park, Penny Lane, Animas Park and Boyd Park sequence supports three additional distinct combinations with named intermediate bailout landings and the same direct Penny Lane gauge."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "09364200",
+    "metric": "discharge_cfs",
+    "minimum": 600,
+    "idealMinimum": 900,
+    "model": "minimum-only",
+    "strength": "official",
+    "source": "https://farmingtonnm.org/listings/paddle-trails",
+    "reachApplicability": "Farmington's 600 cfs statement is a rafting floor for the Animas paddle-trail corridor; verify craft suitability, live gauge, trend and local hazards before launch."
+  },
+  "endpointAudit": {
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": []
+  },
+  "validation": [
+    "Focused route safety tests passed.",
+    "Route data audit passed with direct gauges and scored eligibility.",
+    "Endpoint-bounded canonical geometry generated; compact curated traces retain the reviewed access sequence.",
+    "Published access, flow, safety, camping and gallery evidence remains route-specific."
+  ],
+  "pending": [
+    "Recheck Penny Lane and other diversion conditions, city park hours, release trend, weather and live USGS 09364200 before deployment."
+  ]
+}

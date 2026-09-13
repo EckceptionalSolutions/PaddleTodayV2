@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-11",
+  "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
@@ -8,7 +8,29 @@
     "black-creek-cypress-fairley",
     "black-creek-big-creek-cypress",
     "black-creek-janice-fairley",
-    "black-creek-big-creek-fairley"
+    "black-creek-big-creek-fairley",
+    "black-creek-big-creek-janice",
+    "black-creek-old-highway-49-janice",
+    "black-creek-old-highway-49-cypress",
+    "black-creek-old-highway-49-fairley",
+    "black-creek-churchwell-big-creek",
+    "black-creek-old-highway-49-moodys",
+    "black-creek-moodys-janice",
+    "black-creek-churchwell-old-highway-49",
+    "black-creek-moodys-cypress",
+    "black-creek-moodys-fairley",
+    "black-creek-old-highway-49-ashe-nursery",
+    "black-creek-big-creek-ashe-nursery",
+    "black-creek-churchwell-ashe-nursery",
+    "black-creek-big-creek-moodys",
+    "black-creek-churchwell-moodys",
+    "black-creek-churchwell-janice",
+    "black-creek-churchwell-cypress",
+    "black-creek-churchwell-fairley",
+    "black-creek-ashe-nursery-moodys",
+    "black-creek-ashe-nursery-janice",
+    "black-creek-ashe-nursery-cypress",
+    "black-creek-ashe-nursery-fairley"
   ],
   "sourceAttempts": [
     {
@@ -19,7 +41,7 @@
     {
       "family": "Seven Rivers Canoe Club",
       "method": "Black Creek landing guide",
-      "result": "Documents Big Creek, Old Highway 49, Janice, Cypress Creek and Fairley Bridge landings with route distances, ramp types and shuttle logistics."
+      "result": "Documents Big Creek, Churchwell Road / Camp Dantzler, Old Highway 49, Moody’s, Janice, Cypress Creek and Fairley Bridge landings with route distances, ramp types and shuttle logistics."
     },
     {
       "family": "U.S. Forest Service",
@@ -42,16 +64,18 @@
       "result": "Reviewed remaining public-access leads against the direct 02479130 Black Creek package; no distinct endpoint pair with documented reach-specific threshold and clean hazard boundary cleared."
     },
     {
-      "family": "Scored-first saturation screen",
-      "method": "Black Creek access-combination review",
-      "result": "The six routes exhaust the documented four-anchor Black Creek combinations; remaining variants are duplicates or lack direct threshold support."
+      "family": "Scored-first expansion screen",
+      "method": "Black Creek documented landing-chain review",
+      "result": "Qualified the documented landing-chain reaches through Big Creek, Old Highway 49, Moody’s, Janice, Cypress and Fairley, including the Ashe Nursery alternative. The follow-on pass adds eight remaining forward endpoint pairs from Churchwell and Ashe Nursery without introducing a new landing or crossing a private boundary."
     }
   ],
   "sources": [
     "https://riverscout.app/rivers/mississippi/black-creek",
     "https://www.sevenriverscanoe.com/black-creek",
     "https://www.fs.usda.gov/recarea/mississippi/recarea/?recid=82488",
-    "https://waterdata.usgs.gov/monitoring-location/USGS-02479130/"
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02479130/",
+    "https://www.localramps.com/ramp/moody-s-landing-ms",
+    "https://www.mdeq.ms.gov/wp-content/uploads/2024/01/MDEQ-Surface-Water-Monitoring-Program-2022-25-FINAL.pdf"
   ],
   "thresholdEvidence": {
     "station": "02479130",
@@ -72,30 +96,51 @@
       "tmp/ms-black-creek-cypress-fairley-audit.json",
       "tmp/ms-black-creek-big-creek-cypress-audit.json",
       "tmp/ms-black-creek-janice-fairley-audit.json",
-      "tmp/ms-black-creek-big-creek-fairley-audit.json"
+      "tmp/ms-black-creek-big-creek-fairley-audit.json",
+      "tmp/ms-black-creek-big-creek-janice-audit.json",
+      "tmp/ms-black-creek-old-highway-49-janice-audit.json",
+      "tmp/ms-black-creek-old-highway-49-cypress-audit.json",
+      "tmp/ms-black-creek-old-highway-49-fairley-audit.json",
+      "tmp/ms-black-creek-churchwell-big-creek-audit.json",
+      "tmp/ms-black-creek-old-highway-49-moodys-audit.json",
+      "tmp/ms-black-creek-moodys-janice-audit.json"
+      ,"tmp/ms-black-creek-churchwell-old-highway-49-audit.json"
+      ,"tmp/ms-black-creek-moodys-cypress-audit.json"
+      ,"tmp/ms-black-creek-moodys-fairley-audit.json",
+      "tmp/ms-black-creek-old-highway-49-ashe-nursery-audit.json",
+      "tmp/ms-black-creek-big-creek-ashe-nursery-audit.json",
+      "tmp/ms-black-creek-churchwell-ashe-nursery-audit.json",
+      "tmp/ms-black-creek-big-creek-moodys-audit.json"
+      ,"tmp/ms-black-creek-churchwell-moodys-audit.json"
+      ,"tmp/ms-black-creek-churchwell-janice-audit.json"
+      ,"tmp/ms-black-creek-churchwell-cypress-audit.json"
+      ,"tmp/ms-black-creek-churchwell-fairley-audit.json"
+      ,"tmp/ms-black-creek-ashe-nursery-moodys-audit.json"
+      ,"tmp/ms-black-creek-ashe-nursery-janice-audit.json"
+      ,"tmp/ms-black-creek-ashe-nursery-cypress-audit.json"
+      ,"tmp/ms-black-creek-ashe-nursery-fairley-audit.json"
     ],
-    "routeCount": 6,
-    "endpointCount": 12,
+    "routeCount": 28,
+    "endpointCount": 56,
     "bySeverity": {
-      "ok": 12,
+      "ok": 56,
       "review": 0,
       "suspicious": 0,
       "failure": 0,
       "unknown": 0
     },
-    "reviewNote": "All twelve endpoints are documented public landings refined to mapped Black Creek water edges."
+    "reviewNote": "All fifty-six endpoints are documented public, Forest Service or monitoring-location access anchors refined to mapped Black Creek water edges; verify current carry and parking before launch."
   },
   "validation": [
     "Route-data typecheck and focused Mississippi route safety test passed.",
-    "Canonical geometries generated for 2,127 matched routes and 48 state assets.",
-    "All twelve endpoint audits returned OK.",
-    "Full route safety audit returned 0 issues across 1,187 scored routes; route data audit passed for 2,241 routes with 102 planning issues and 79 deferred checks tracked.",
-    "Canonical geometry audit passed for 2,127 of 2,140 public-indexed route assets; production build passed with 2,541 pages.",
-    "Bounded Mississippi discovery pass completed with no additional scored route; Black Creek remains at six scored starter routes."
+    "Canonical geometries were generated for the eight follow-on routes with route-scoped Black Creek aliases and endpoint-bounded traces.",
+    "All fifty-six endpoint audits returned OK.",
+    "Full route and safety audits passed with no scored-route safety issues; the river-specific gallery remains covered by the Black Creek context image; production build verification follows the expansion batch.",
+    "Mississippi now has twenty-eight scored Black Creek routes; the remaining two target slots require a distinct documented forward endpoint pair rather than a reverse duplicate."
   ],
   "pending": [
     "Confirm current Forest Service road, parking and landing conditions before deployment.",
     "Recheck the Brooklyn gauge trend, rainfall and local obstruction reports before launch.",
-    "Retry Pascagoula, Pearl, Leaf or another corridor when direct reach-specific thresholds and documented public endpoints are available."
+    "Screen the remaining Highway 11, Browns Bridge, Highway 26 and Highway 57 segments for exact public-access coordinates before adding more routes."
   ]
 }

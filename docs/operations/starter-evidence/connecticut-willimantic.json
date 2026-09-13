@@ -1,0 +1,46 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "willimantic-river-commuter-nye-holman",
+    "willimantic-river-nye-holman-heron-cove",
+    "willimantic-river-heron-cove-pecks-mill",
+    "willimantic-river-pecks-mill-merrow-meadow",
+    "willimantic-river-merrow-river-park",
+    "willimantic-river-river-park-eagleville-lake",
+    "willimantic-river-eagleville-route-66",
+    "willimantic-river-commuter-heron-cove",
+    "willimantic-river-commuter-pecks-mill",
+    "willimantic-river-commuter-merrow-meadow",
+    "willimantic-river-commuter-river-park",
+    "willimantic-river-commuter-eagleville-lake",
+    "willimantic-river-nye-holman-pecks-mill",
+    "willimantic-river-nye-holman-merrow-meadow",
+    "willimantic-river-nye-holman-river-park",
+    "willimantic-river-heron-cove-merrow-meadow",
+    "willimantic-river-heron-cove-river-park"
+  ],
+  "sourceAttempts": [
+    { "family": "Willimantic River Alliance / The Last Green Valley", "result": "The water-trail guide documents the public access coordinates, river-mile sequence, river character, novice launch at River Park, Eagleville Dam portage and Route 66 terminus." },
+    { "family": "Connecticut Trail Finder", "result": "The Willimantic River Water Trail is recognized as a National Recreation Trail and links the regional public paddling network." },
+    { "family": "USGS", "result": "Direct stage gauges 01119382 at Merrow and 01119500 near Coventry are used for the upper and lower corridors respectively." },
+    { "family": "Gallery", "result": "The river-level context image is the Wikimedia Commons file Willimantic River with bridge.jpg, a same-river context photograph." },
+    { "family": "Access-chain expansion", "result": "Ten additional contiguous itineraries were derived from the guide's named access sequence, retaining Nye-Holman, Heron Cove, Peck's Mill and Merrow Meadow as intermediate bailouts and stopping at the documented Eagleville boundary." }
+  ],
+  "thresholdEvidence": {
+    "upperStation": "01119382",
+    "upperMetric": "gage_height_ft",
+    "upperMinimum": 2.1,
+    "lowerStation": "01119500",
+    "lowerMetric": "gage_height_ft",
+    "lowerMinimum": 4.2,
+    "model": "minimum-only",
+    "strength": "community",
+    "source": "https://www.willingtonct.gov/DocumentCenter/View/299/Willimantic-River-Water-Trail-or-Paddle-Guide-PDF",
+    "reachApplicability": "Guide-specific stage floors: 2.1 ft at Merrow for the upper river and 4.2 ft at Coventry for the lower reach. These are conservative planning cues, not safety guarantees."
+  },
+  "endpointAudit": { "routeCount": 17, "endpointCount": 34, "bySeverity": { "ok": 0, "review": 34, "suspicious": 0, "failure": 0, "unknown": 0 }, "artifacts": ["tmp/ct-willimantic-endpoint-audit.json"] },
+  "validation": ["Focused Willimantic route safety test passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data, safety and gallery audits passed."],
+  "pending": ["Recheck live stage trend, water level, wood, weather, dam notices, launch footing and temporary access closures before deployment."]
+}

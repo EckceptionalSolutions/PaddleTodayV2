@@ -1,17 +1,21 @@
 {
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
     "snoqualmie-river-plum-fall-city",
     "snoqualmie-river-fall-city-neal",
-    "snoqualmie-river-plum-neal"
+    "snoqualmie-river-plum-neal",
+    "snoqualmie-river-fall-city-tolt",
+    "snoqualmie-river-plum-tolt",
+    "snoqualmie-river-neal-tolt"
   ],
   "sourceAttempts": [
     {"family": "American Whitewater", "method": "Snoqualmie Falls to Fall City reach, Plum Landing and Neal Road access pages", "result": "Documents the Class I–II+ high-use corridor, Plum Landing access, Neal Road access, beginner float reports and a low-runnable reference near 467 cfs."},
     {"family": "Fall City Metropolitan Park District and Float Snoqualmie", "method": "Community Park page and entry/exit guide", "result": "Documents public Fall City Community Park river access immediately below the SR-202 bridge, with a trail to the park parking area; the route endpoint was placed at the mapped river-entry trail rather than the park centroid."},
     {"family": "Washington Department of Fish and Wildlife", "method": "Richter water-access site", "result": "Confirms Richter / Neal Road as a year-round WDFW access site with a concrete ramp and parking."},
-    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 12149000 near Carnation supplies direct Snoqualmie River discharge telemetry for the valley corridor."}
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 12149000 near Carnation supplies direct Snoqualmie River discharge telemetry for the valley corridor."},
+    {"family": "Mountaineers / King County", "method": "Fall City to Tolt-MacDonald reach and public boat launch review", "result": "Mountaineers and local route documentation identify an approximately 11-mile Class I Fall City-to-Tolt confluence paddle; King County documents Tolt-MacDonald Park's public boat launch, parking and seasonal campground. Plum-to-Tolt and Neal-to-Tolt retain Fall City or Neal as intermediate bailout options."}
   ],
   "sources": [
     "https://www.americanwhitewater.org/content/River/view/river-detail/2216/main",
@@ -20,10 +24,12 @@
     "https://www.fallcityparks.org/fall-city-community-park.html",
     "https://floatsnoqualmie.wordpress.com/entry-and-exit-the-river/",
     "https://wdfw.wa.gov/places-to-go/water-access-sites/richter-628",
-    "https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=12149000"
+    "https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=12149000",
+    "https://www.mountaineers.org/activities/routes-places/snoqualmie-river-plum-landing-to-fall-city",
+    "https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/parks/tolt-macdonald"
   ],
   "thresholdEvidence": {"station": "12149000", "metric": "discharge_cfs", "source": "https://www.americanwhitewater.org/content/River/view/river-detail/2216/main", "minimum": 400, "idealReference": 500, "idealMaximum": 1600, "maximum": 3000, "model": "two-sided", "strength": "community", "reachApplicability": "Snoqualmie Falls–Fall City–Neal Valley corridor. American Whitewater identifies about 467 cfs as low runnable and documents beginner floats plus higher-flow reports around 1,100–1,600 cfs. Verify live 12149000 telemetry, trend, recent rain, wood, weather and access notices before travel."},
-  "endpointAudit": {"artifacts": ["tmp/snoqualmie-river-plum-fall-city-coordinate.json", "tmp/snoqualmie-river-fall-city-neal-coordinate.json", "tmp/snoqualmie-river-plum-neal-coordinate.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 2, "review": 4, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Plum and Neal endpoints are documented ramp or water-entry locations and receive the audit's expected review classification for access-edge offsets. The Fall City endpoint was moved from the park centroid to the documented river-entry trail below SR-202; no endpoint is suspicious or failed."},
-  "validation": ["Route-data typecheck passed.", "Focused Washington Snoqualmie and Yakima route safety tests passed.", "Canonical geometries generated for all three Snoqualmie routes; endpoint audits returned no suspicious or failed findings.", "Canonical geometry audit passed with 2,154 of 2,167 route assets matched and 48 state assets present.", "Full route safety audit returned 0 issues across 1,211 scored routes.", "Production build passed with 2,572 static pages and included the Washington Snoqualmie routes."],
+  "endpointAudit": {"artifacts": ["tmp/snoqualmie-river-plum-fall-city-coordinate.json", "tmp/snoqualmie-river-fall-city-neal-coordinate.json", "tmp/snoqualmie-river-plum-neal-coordinate.json", "tmp/snoqualmie-river-fall-city-tolt-coordinate.json", "tmp/snoqualmie-river-plum-tolt-coordinate.json", "tmp/snoqualmie-river-neal-tolt-coordinate.json"], "routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 2, "review": 10, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Plum, Neal and Tolt endpoints are documented ramp or water-entry locations and receive the audit's expected review classification for access-edge offsets. The Fall City endpoint is the documented river-entry trail below SR-202; no endpoint is suspicious or failed. Plum-to-Tolt and Neal-to-Tolt retain intermediate bailout options.", "routes": [{"routeId":"snoqualmie-river-fall-city-tolt","putIn":{"name":"Fall City Community Park river-entry trail","latitude":47.566918,"longitude":-121.881333,"source":"Fall City Park District"},"takeOut":{"name":"Tolt-MacDonald Park boat launch, Carnation","latitude":47.64411,"longitude":-121.924217,"source":"King County"}},{"routeId":"snoqualmie-river-plum-tolt","putIn":{"name":"Plum Landing (Tokul Creek), WDFW","latitude":47.55145,"longitude":-121.85063,"source":"American Whitewater / WDFW"},"takeOut":{"name":"Tolt-MacDonald Park boat launch, Carnation","latitude":47.64411,"longitude":-121.924217,"source":"King County"}},{"routeId":"snoqualmie-river-neal-tolt","putIn":{"name":"Richter / Neal Road access, WDFW","latitude":47.59621,"longitude":-121.91386,"source":"American Whitewater / WDFW"},"takeOut":{"name":"Tolt-MacDonald Park boat launch, Carnation","latitude":47.64411,"longitude":-121.924217,"source":"King County"}}]},
+  "validation": ["Route-data typecheck passed.", "Focused Washington Snoqualmie, Vermont Lamoille and New Hampshire Saco route tests passed.", "Canonical geometries generated for all six Snoqualmie routes; endpoint audits returned no suspicious or failed findings.", "Canonical geometry audit passed with 2,268 of 2,281 route assets matched and 48 state assets present.", "Full route safety audit returned 0 issues across 1,323 scored routes.", "Route data audit passed for 2,382 routes; gallery audit passed for 336 images.", "Added Fall City-to-Tolt, Plum-to-Tolt and Neal-to-Tolt scored routes with direct 12149000 gauge, King County public boat launch/campground evidence and explicit nearby-basecamp camping guidance."],
   "pending": ["Confirm current WDFW and park access, parking, closures, flow trend, recent rain, wood, weather, cold-water and crowding conditions before launch; no deployment has been performed."]
 }

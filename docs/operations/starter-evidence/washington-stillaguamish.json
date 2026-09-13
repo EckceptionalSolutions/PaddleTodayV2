@@ -1,0 +1,53 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+    "stillaguamish-river-twin-rivers-haller",
+    "stillaguamish-river-river-meadows-haller"
+  ],
+  "sourceAttempts": [
+    {"family": "Snohomish County parks", "method": "Twin Rivers and River Meadows facility records and park inventory", "result": "Documents Twin Rivers as public river access at the North/South Fork confluence and River Meadows as a river-access park with boat launch, parking and camping."},
+    {"family": "City of Arlington", "method": "Parks and Recreation Master Plan", "result": "Documents Haller Park beach access and boat launch near the SR-9 bridge in the Arlington corridor."},
+    {"family": "Washington geographic response plan", "method": "Stillaguamish River recreation and access section", "result": "Identifies Twin Rivers, Haller and River Meadows/Jordan Bridge as popular river-access and recreation locations."},
+    {"family": "Community flow guidance", "method": "Stillaguamish float and fishing guidance", "result": "Provides a conservative community planning cue around 800–2,500 cfs and warns about wood, private banks and changing conditions; route profiles add direct USGS trend checks and a 5,000 cfs review ceiling."},
+    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 12164500 supplies direct South Fork telemetry near Arlington; USGS 12167400 supplies direct mainstem telemetry at Arlington."},
+    {"family": "Wikimedia Commons", "method": "River-specific image review", "result": "Selected an Arlington Stillaguamish River bridge photograph credited to Joe Mabel under CC BY-SA 4.0."}
+  ],
+  "sources": [
+    "https://snohomishcountywa.gov/Facilities/Facility/Details/Twin-Rivers-Park-90",
+    "https://snohomishcountywa.gov/Facilities/Facility/Details/River-Meadows-Park-46",
+    "https://snohomishcountywa.gov/DocumentCenter/View/23860/Report---Park-Inventory?bidId=",
+    "https://www.arlingtonwa.gov/DocumentCenter/View/11177/Full-Parks-and-Recreation-Master-Plan",
+    "https://oilspills101.wa.gov/northwest-area-contingency-plan/geographic-response-plans-grps/stillaguamish-river-grp/",
+    "https://www.outfish.in/stillaguamish/fishing-guide",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-12164500/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-12167400/",
+    "https://commons.wikimedia.org/wiki/File:Arlington%2C_WA_-_rail_bridge_over_the_Stillaguamish_River.jpg"
+  ],
+  "thresholdEvidence": [
+    {"station": "12164500", "metric": "discharge_cfs", "source": "https://www.outfish.in/stillaguamish/fishing-guide", "minimum": 300, "idealReference": 800, "idealMaximum": 2500, "maximum": 5000, "model": "two-sided", "strength": "community", "reachApplicability": "River Meadows to Twin Rivers on the South Fork; conservative planning cue supplemented by direct telemetry, trend, rain and wood checks."},
+    {"station": "12167400", "metric": "discharge_cfs", "source": "https://www.outfish.in/stillaguamish/fishing-guide", "minimum": 300, "idealReference": 800, "idealMaximum": 2500, "maximum": 5000, "model": "two-sided", "strength": "community", "reachApplicability": "Twin Rivers/Haller Arlington mainstem corridor and the longer River Meadows-to-Haller itinerary; use live trend and local access notices."}
+  ],
+  "endpointAudit": {
+    "artifacts": ["tmp/south-fork-stillaguamish-river-river-meadows-twin-rivers-coordinate.json", "tmp/stillaguamish-river-twin-rivers-haller-coordinate.json", "tmp/stillaguamish-river-river-meadows-haller-coordinate.json"],
+    "routeCount": 3,
+    "endpointCount": 6,
+    "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0},
+    "reviewNote": "River Meadows, Twin Rivers and Haller are documented public access parks. The endpoint audit should remain review-level because park edges, launch paths, parking and seasonal gates need current on-site confirmation.",
+    "routes": [
+      {"routeId":"south-fork-stillaguamish-river-river-meadows-twin-rivers","putIn":{"name":"River Meadows Park river access, Jordan Road","latitude":48.1797,"longitude":-122.0837,"source":"Snohomish County park inventory"},"takeOut":{"name":"Twin Rivers Park river access","latitude":48.2037,"longitude":-122.1286,"source":"Snohomish County"}},
+      {"routeId":"stillaguamish-river-twin-rivers-haller","putIn":{"name":"Twin Rivers Park river access","latitude":48.2037,"longitude":-122.1286,"source":"Snohomish County"},"takeOut":{"name":"Haller Park boat launch","latitude":48.20245,"longitude":-122.12872,"source":"City of Arlington parks plan"}},
+      {"routeId":"stillaguamish-river-river-meadows-haller","putIn":{"name":"River Meadows Park river access, Jordan Road","latitude":48.1797,"longitude":-122.0837,"source":"Snohomish County park inventory"},"takeOut":{"name":"Haller Park boat launch","latitude":48.20245,"longitude":-122.12872,"source":"City of Arlington parks plan"}}
+    ]
+  },
+  "safetyAndCamping": "All three routes include PFD, cold-water, fast-rise, wood, confluence, private-bank, weather and current-access controls. River Meadows has established county camping nearby; the short Twin Rivers-to-Haller reach has no overnight camping. Public park rules, seasonal hours, parking and closures must be confirmed before launch.",
+  "validation": [
+    "Focused Washington Stillaguamish route test passed.",
+    "Canonical geometries generated for all three routes; endpoint audits returned no suspicious or failed findings.",
+    "Route safety and gallery audits passed.",
+    "Production build passed after registration and geometry refresh."
+  ],
+  "pending": ["Confirm current county and Arlington access signs, gates, parking, flow trend, rain, wood, weather, road conditions and wildfire notices before launch; no deployment has been performed."]
+}

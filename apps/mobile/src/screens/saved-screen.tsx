@@ -7,6 +7,7 @@ import { AppButton } from '../components/app-button';
 import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import { SavedRouteNotes, SavedRouteNotesEditor } from '../components/saved-route-notes';
 import { SavedTripDrafts } from '../components/saved-trip-drafts';
+import { SavedOfflineTrips } from '../components/offline-trip-actions';
 import { RecentRoutes } from '../components/recent-routes';
 import type { SavedRiverRecord } from '../providers/saved-rivers-provider';
 import { useSavedRouteChanges } from '../hooks/use-saved-route-changes';
@@ -179,6 +180,7 @@ export default function SavedScreen() {
         A status board for rivers you check often.
       </Text>
       <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
+      {activeTab === 'routes' ? <SavedOfflineTrips /> : null}
       {activeTab === 'routes' && (savedRivers.length > 1 || savedSearch.length > 0) ? <View style={styles.searchBox}>
         <MaterialCommunityIcons name="magnify" size={22} color={colors.textMuted} accessible={false} />
         <TextInput ref={searchInput} style={styles.searchInput} accessibilityLabel="Search saved routes" placeholder="River, reach, area, or note"

@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 describe('starter planning publication', () => {
   it('exposes reviewed starter trips without admitting them into scored routes', () => {
     const publicRoutes = listRivers();
-    for (const route of [...floridaRoutes, ...oregonRoutes]) {
+    for (const route of [...floridaRoutes, ...oregonRoutes].filter(item => item.scoreEligibility === 'planning')) {
       const published = publicRoutes.find(item => item.slug === route.slug);
       expect(published?.scoreEligibility).toBe('planning');
       expect(published?.logistics?.distanceLabel).toBeTruthy();
@@ -45,7 +45,7 @@ describe('starter planning publication', () => {
 
   it('keeps Oregon traces within their launch boundaries and preserves the Peoria alcove', () => {
     const distance = (a: number[], b: number[]) => Math.hypot((a[0]-b[0])*Math.cos((a[1]+b[1])*Math.PI/360),a[1]-b[1])*69;
-    const lines = oregonRoutes.map(route => {
+    const lines = oregonRoutes.filter(route => route.scoreEligibility === 'planning').map(route => {
       const feature = JSON.parse(readFileSync(`public/data/canonical-river-geometries/routes/${route.slug}.json`,'utf8'));
       expect(feature.geometry.coordinates).toHaveLength(1);
       const line:number[][]=feature.geometry.coordinates[0];

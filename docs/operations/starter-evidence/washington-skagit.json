@@ -1,0 +1,186 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "skagit-river-goodell-copper",
+    "skagit-river-copper-marblemount",
+    "skagit-river-marblemount-howard-miller",
+    "skagit-river-goodell-marblemount",
+    "skagit-river-copper-howard-miller",
+    "skagit-river-goodell-howard-miller"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Seattle City Light recreation-flow study",
+      "method": "Skagit River recreation-flow survey and segment tables",
+      "result": "Documents three contiguous segments: Goodell Creek to Copper Creek (8.7 mi), Copper Creek to Marblemount (5.9 mi), and Marblemount to Howard Miller Steelhead Park (10.6 mi), with access facilities and flow acceptability ranges; two longer combinations were derived from the same documented sequence."
+    },
+    {
+      "family": "National Park Service",
+      "method": "North Cascades boating page and superintendent compendium",
+      "result": "Confirms Goodell and Copper as designated public launch areas, describes the approximately 9-mile Class II–III Goodell–Copper reach, warns of few takeouts and cold water, and requires current NPS permit or self-registration steps at Goodell."
+    },
+    {
+      "family": "Mountaineers and American Whitewater",
+      "method": "Copper Creek to Rockport route and Skagit recreation-flow survey",
+      "result": "Corroborates public access at Copper, Marblemount and Howard Miller, Class I–II lower-corridor character, runnable flow guidance and the popular Marblemount-to-Howard Miller day float."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 12178000 near Newhalem supplies direct telemetry for Goodell–Copper; USGS 12181000 supplies direct Skagit telemetry for Copper–Marblemount and Marblemount–Howard Miller."
+    },
+    {
+      "family": "Wikimedia Commons",
+      "method": "River-specific image review",
+      "result": "Selected a Skagit River photograph taken from a boat between Marblemount and O’Brien-Riggs State Park, credited to Joe Mabel under CC BY-SA 4.0."
+    },
+    {
+      "family": "Seattle City Light / NPS / Mountaineers",
+      "method": "Full Skagit access-chain gap fill",
+      "result": "Added the full Goodell-to-Howard Miller scored itinerary, combining the three contiguous documented reaches with Copper Creek and Marblemount as intermediate public bailouts. Direct lower Skagit telemetry, NPS permit controls, cold-water/wood hazards and nearby Howard Miller camping remain explicit."
+    }
+  ],
+  "sources": [
+    "https://www.seattle.gov/light/skagit/relicensing/cs/groups/secure/%40scl.skagit.team/documents/document/cm9k/nzq5/~edisp/prod749541.pdf",
+    "https://www.nps.gov/noca/planyourvisit/boating-and-fishing.htm?fullweb=1",
+    "https://home.nps.gov/noca/learn/management/superintendent-compendium.htm",
+    "https://hydroreform.org/2022/08/skagit-river-recreation-flow-survey-wa-2/",
+    "https://www.mountaineers.org/activities/routes-places/skagit-river-copper-creek-to-rockport",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-12178000/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-12181000/",
+    "https://commons.wikimedia.org/wiki/File:Skagit_River_-_Marblemount_to_O%27Brien-Riggs_State_Park_06.jpg"
+  ],
+  "thresholdEvidence": [
+    {
+      "station": "12178000",
+      "metric": "discharge_cfs",
+      "source": "https://www.seattle.gov/light/skagit/relicensing/cs/groups/secure/%40scl.skagit.team/documents/document/cm9k/nzq5/~edisp/prod749541.pdf",
+      "minimum": 1500,
+      "idealReference": 2500,
+      "idealMaximum": 5000,
+      "maximum": 6000,
+      "model": "two-sided",
+      "strength": "official",
+      "reachApplicability": "Goodell Creek to Copper Creek. The official study identifies the S-Bends feature and open-canoe acceptability through the 2,000–4,000 cfs range, with unacceptable conditions above roughly 5,500 cfs; the route uses a conservative 1,500–5,000 cfs planning band and 6,000 cfs review ceiling."
+    },
+    {
+      "station": "12181000",
+      "metric": "discharge_cfs",
+      "source": "https://www.seattle.gov/light/skagit/relicensing/cs/groups/secure/%40scl.skagit.team/documents/document/cm9k/nzq5/~edisp/prod749541.pdf",
+      "minimum": 1500,
+      "idealReference": 3000,
+      "idealMaximum": 8000,
+      "maximum": 12000,
+      "model": "two-sided",
+      "strength": "official",
+      "reachApplicability": "Copper Creek to Marblemount and Marblemount to Howard Miller Steelhead Park. Local route guidance reports a broad 1,500–12,000 cfs runnable window; the 3,000–8,000 cfs band and 10,000–12,000 cfs review ceilings are conservative planning cues."
+    }
+  ],
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/skagit-river-goodell-copper-coordinate.json",
+      "tmp/skagit-river-copper-marblemount-coordinate.json",
+      "tmp/skagit-river-marblemount-howard-miller-coordinate.json"
+    ],
+    "routeCount": 6,
+    "endpointCount": 12,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "Goodell, Copper, Marblemount and Howard Miller are documented public river accesses. Goodell and Copper are access-area edges and Copper has limited parking; endpoint audits are expected to classify these as review rather than suspicious. The Copper coordinate is the documented NPS Road 213 access turn and should be rechecked against current signs before launch.",
+    "routes": [
+      {
+        "routeId": "skagit-river-goodell-copper",
+        "putIn": {
+          "name": "Goodell Creek Boat Launch, NPS",
+          "latitude": 48.6718,
+          "longitude": -121.269,
+          "source": "NPS / Wilderness Portal"
+        },
+        "takeOut": {
+          "name": "Copper Creek Boat Access, NPS Road 213",
+          "latitude": 48.5910748909,
+          "longitude": -121.3779020782,
+          "source": "NPS / Mountaineers"
+        }
+      },
+      {
+        "routeId": "skagit-river-copper-marblemount",
+        "putIn": {
+          "name": "Copper Creek Boat Access, NPS Road 213",
+          "latitude": 48.5910748909,
+          "longitude": -121.3779020782,
+          "source": "NPS / Mountaineers"
+        },
+        "takeOut": {
+          "name": "Marblemount Boat Launch",
+          "latitude": 48.5265842,
+          "longitude": -121.4286361,
+          "source": "Mountaineers / public access mapping"
+        }
+      },
+      {
+        "routeId": "skagit-river-marblemount-howard-miller",
+        "putIn": {
+          "name": "Marblemount Boat Launch",
+          "latitude": 48.5265842,
+          "longitude": -121.4286361,
+          "source": "Mountaineers / public access mapping"
+        },
+        "takeOut": {
+          "name": "Howard Miller Steelhead Park",
+          "latitude": 48.48453,
+          "longitude": -121.5948,
+          "source": "Mountaineers / Skagit County park"
+        }
+      },
+      {
+        "routeId": "skagit-river-goodell-marblemount",
+        "putIn": {
+          "name": "Goodell Creek Boat Launch, NPS",
+          "latitude": 48.6718,
+          "longitude": -121.269,
+          "source": "NPS / Wilderness Portal"
+        },
+        "takeOut": {
+          "name": "Marblemount Boat Launch",
+          "latitude": 48.5265842,
+          "longitude": -121.4286361,
+          "source": "Mountaineers / public access mapping"
+        }
+      },
+      {
+        "routeId": "skagit-river-copper-howard-miller",
+        "putIn": {
+          "name": "Copper Creek Boat Access, NPS Road 213",
+          "latitude": 48.5910748909,
+          "longitude": -121.3779020782,
+          "source": "NPS / Mountaineers"
+        },
+        "takeOut": {
+          "name": "Howard Miller Steelhead Park",
+          "latitude": 48.48453,
+          "longitude": -121.5948,
+          "source": "Mountaineers / Skagit County park"
+        }
+      }
+    ]
+  },
+  "safetyAndCamping": "All five routes include PFD, cold-water, fast-current, wood, weather, private-bank and current-access controls. Goodell permit/self-registration requirements and Copper limited parking are explicit. The combined routes retain the intermediate public access as a bailout; Howard Miller has nearby established camping, while the other reaches do not assume on-route overnight camping.",
+  "validation": [
+    "Focused Washington Skagit route test passed.",
+    "Canonical geometries generated for all three Skagit routes; endpoint audits returned no suspicious or failed findings.",
+    "Route safety and gallery audits passed.",
+    "Production build passed after registration and geometry refresh.",
+    "Added the full Goodell-to-Howard Miller scored itinerary; route-data, safety, geometry and gallery audits pass."
+  ],
+  "pending": [
+    "Confirm current NPS permits, access signs, parking, road conditions, flow trend, weather, wood and wildfire notices before launch; no deployment has been performed."
+  ]
+}

@@ -1,5 +1,5 @@
 import { useReducedMotion } from '../hooks/use-reduced-motion';
-import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
@@ -10,6 +10,7 @@ import { useTripDraft } from '../hooks/use-trip-draft';
 import { localTripTime as localInput, parseTripTime as parseLocal } from '../lib/trip-time';
 import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
 import { TripDraftNotice } from './trip-draft-notice';
+import { PrepareOfflineTrip } from './offline-trip-actions';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type PrepareTripSheetProps = {
@@ -54,8 +55,11 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
   const expectedRef = useRef<TripTimeFieldHandle>(null);
   const checkInRef = useRef<TripTimeFieldHandle>(null);
   const groupSizeRef = useRef<TextInput>(null);
+  const cancelOffline = useRef<(() => void) | null>(null);
+  const registerOfflineCancellation = useCallback((cancel: (() => void) | null) => { cancelOffline.current = cancel; }, []);
 
   function cancelPendingRequests() {
+    cancelOffline.current?.();
     shareRequest.current = null;
     const calendar = calendarRequest.current;
     calendarRequest.current = null;
@@ -236,6 +240,8 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
           <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
           <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
           <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
+          {visible ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
+            ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
           {validationError && !('field' in validationError) ? <Text accessibilityLiveRegion="polite" style={styles.status}>{validationError.message}</Text> : null}
           {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
           {shareFallback ? (

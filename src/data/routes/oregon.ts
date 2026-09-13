@@ -1,4 +1,6 @@
 import { buildStarterPlanningRoute, type StarterPlanningSpec } from './starter-planning';
+import type { River } from '../../lib/types';
+import type { RouteHazard } from '@paddletoday/api-contract';
 
 const accessUrl = 'https://services.arcgis.com/uUvqNMGPm7axC2dD/arcgis/rest/services/Boating_Access_Sites_OA/FeatureServer/0';
 const mapUrl = 'https://experience.arcgis.com/experience/72308dd6b893451690a14437cde89be8';
@@ -9,6 +11,8 @@ const commonSources = [
   {label:'Oregon Waterway Access Permit requirements',url:'https://www.oregon.gov/osmb/boater-info/Pages/AIS-FAQs.aspx',provider:'local' as const},
 ];
 const willametteGauge = {id:'usgs-14171600',provider:'usgs' as const,siteId:'14171600',metric:'discharge_cfs' as const,unit:'cfs' as const,kind:'proxy' as const,siteName:'Willamette River at Corvallis, OR',detailUrl:'https://waterdata.usgs.gov/monitoring-location/USGS-14171600/'};
+const harrisburgGauge = {id:'usgs-14166000',provider:'usgs' as const,siteId:'14166000',metric:'discharge_cfs' as const,unit:'cfs' as const,kind:'direct' as const,siteName:'Willamette River at Harrisburg, OR',detailUrl:'https://waterdata.usgs.gov/monitoring-location/USGS-14166000/'};
+const willametteFlowGuide = {label:'Willamette Kayak and Canoe Club river descriptions',url:'https://levels.wkcc.org/?D=wr1',provider:'local' as const};
 const willametteCommon = {
   name:'Willamette River',riverId:'willamette-river-oregon',state:'Oregon',region:'Willamette Valley / Corvallis',
   difficulty:'moderate' as const,seasonMonths:[5,6,7,8,9,10],
@@ -129,4 +133,425 @@ export const oregonStarterSpecs: StarterPlanningSpec[] = [
   },
 ];
 
-export const oregonRoutes = oregonStarterSpecs.map(buildStarterPlanningRoute);
+const scoredWillametteRoute: River = {
+  id:'willamette-river-alton-baker-harrisburg', slug:'willamette-river-alton-baker-harrisburg',
+  name:'Willamette River', riverId:'willamette-river-oregon', state:'Oregon', region:'Eugene to Harrisburg / central Willamette Valley',
+  routeType:'recreational', scoreEligibility:'scored',
+  reach:'Alton Baker Park, Eugene to Harrisburg Park',
+  putIn:{name:'Alton Baker Park rustic boat ramp, Eugene',latitude:44.05242,longitude:-123.07791},
+  takeOut:{name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+  latitude:44.05242, longitude:-123.07791,
+  summary:'A 21-mile Willamette Valley day or light-overnight reach from Eugene’s Alton Baker Park to the public Harrisburg Park ramp.',
+  statusText:'Check USGS 14166000 at Harrisburg, recent rain, forecast, wood and daylight before launch; the long pool-drop reach has swift current, shifting side channels and limited road exits.',
+  gaugeSource:harrisburgGauge,
+  profile:{
+    thresholdModel:'two-sided', tooLow:2000, idealMin:4000, idealMax:10000, tooHigh:20000,
+    thresholdSource:willametteFlowGuide, thresholdSourceStrength:'community', rainfallSensitivity:'high', windSensitivity:0.2,
+    seasonMonths:[1,2,3,4,5,6,7,8,9,10,11,12],
+    seasonNotes:'The central Willamette responds to winter rain, reservoir operations and summer drawdown. Check Harrisburg telemetry, trend, forecast and debris reports immediately before departure.',
+    difficulty:'moderate', difficultyNotes:'The Willamette Kayak and Canoe Club rates the Alton Baker-to-Harrisburg corridor Class I–II, pool-drop with occasional swift current. Active boat control, a reliable shuttle and conservative channel choices are required.',
+    confidenceNotes:'The Willamette Kayak and Canoe Club publishes this 21-mile Alton Baker Park to Harrisburg reach with a 2,000 cfs low-flow reference, 6,000 cfs optimal flow and 20,000 cfs high-flow reference tied to USGS 14166000 at Harrisburg. The references are planning cues, not safety guarantees; verify current debris, weather and access conditions locally.',
+  },
+  safetyProfile:{
+    riskLevel:'caution', reviewStatus:'reviewed', hazards:['low_water','strainers','fast_rise','cold_water','private_banks'] as RouteHazard[],
+    safetyNotes:['Wear a properly fitted PFD and carry communication, offline navigation, spare layers and a throw rope.', 'Stay in the documented main channel and scout shifting side channels, bridge approaches and woody debris before committing.', 'Cold water, wind and rain-driven rises can overwhelm swimmers; keep a conservative turnaround and daylight plan.', 'Use only named public parks and water-trail sites. Respect private banks and leave paddle-in campsites clean.'],
+  },
+  sourceLinks:[
+    willametteFlowGuide,
+    {label:'Willamette Water Trail Marshall Island to Harrisburg itinerary',url:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/',provider:'local'},
+    {label:'Alton Baker Park public launch',url:'https://willamettewatertrail.org/map/alton-baker-park/',provider:'local'},
+    {label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},
+    {label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'},
+  ],
+  accessPoints:[
+    {name:'Alton Baker Park rustic boat ramp, Eugene',latitude:44.05242,longitude:-123.07791,id:'willamette-river-alton-baker-harrisburg-put-in',mileFromStart:0,segmentKind:'transition',note:'The Water Trail identifies a City of Eugene rustic ramp on the upriver end of Alton Baker Park. Confirm the launch edge, parking and current park hours before unloading.'},
+    {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-alton-baker-harrisburg-take-out',mileFromStart:21,segmentKind:'transition',note:'The Water Trail identifies a public Harrisburg ramp with parking, toilets, water and groceries nearby. Confirm the gravel-bar landing and current park conditions before staging.'},
+  ],
+  logistics:{
+    distanceLabel:'About 21 river miles', estimatedPaddleTime:'Allow 7–10 hours as a long day, or plan a lawful light overnight with current daylight and campsite checks',
+    shuttle:'Stage the downstream vehicle at Harrisburg Park, then drive to Alton Baker Park in Eugene. Arrange a private shuttle with room for boats and camping gear.',
+    permits:'Check Oregon Waterway Access Permit requirements, municipal park hours, posted parking rules and any current access notices before unloading.',
+    camping:'Paddle-in camping is documented at Blue Ruin Island, Norwood Island and Irish Bend along the Harrisburg-to-Peoria Water Trail corridor. Confirm current land-manager status, fire rules, water, sanitation and weather before relying on an overnight stop; do not camp at Alton Baker or Harrisburg parks unless posted.',
+    campingClassification:'sandbar_or_gravel_bar',
+    summary:'A long central Willamette reach with public Eugene and Harrisburg ramps and documented paddle-in island or gravel-bar camping options.',
+    accessCaveats:['Alton Baker is a rustic park ramp; verify the exact carry and parking before departure.', 'Harrisburg’s gravel bar and ramp can change with river level; confirm a usable landing.', 'Intermediate island and gravel-bar campsites are conditional, leave-no-trace sites and may be closed or unsuitable.'],
+    watchFor:['USGS 14166000 2,000 cfs low and 20,000 cfs high references', 'Swift current, shifting side channels and woody debris', 'Cold water, wind, private banks and changing campsites'],
+  },
+  evidenceNotes:[
+    {label:'Named reach and distance',value:'Alton Baker Park to Harrisburg Park; 21 miles',note:'The Willamette Kayak and Canoe Club river database describes the 21-mile Class I–II Alton Baker-to-Harrisburg reach; the Water Trail identifies both public park endpoints.',sourceUrl:willametteFlowGuide.url},
+    {label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'The WKCC entry ties these flow references to USGS 14166000 at Harrisburg. Use them as conservative screening cues and verify current debris, weather and channel conditions.',sourceUrl:willametteFlowGuide.url},
+    {label:'Direct gauge',value:'USGS 14166000 Willamette River at Harrisburg',note:'Direct Harrisburg telemetry for the downstream half of the documented corridor; recheck current value and trend before launch.',sourceUrl:harrisburgGauge.detailUrl},
+    {label:'Camping and access',value:'Public ramps with conditional paddle-in island/gravel-bar campsites',note:'The Water Trail documents Alton Baker and Harrisburg ramps plus Blue Ruin, Norwood and Irish Bend camping sites; confirm land-manager status and current conditions before an overnight.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},
+  ],
+};
+
+const makeScoredWillametteVariant = (input: {
+  id: string;
+  reach: string;
+  putIn: NonNullable<River['putIn']>;
+  takeOut: NonNullable<River['takeOut']>;
+  latitude: number;
+  longitude: number;
+  miles: number;
+  summary: string;
+  estimatedPaddleTime: string;
+  sourceLinks: River['sourceLinks'];
+  accessPoints: NonNullable<River['accessPoints']>;
+  evidenceNotes: River['evidenceNotes'];
+  camping: string;
+  accessCaveats: string[];
+  watchFor: string[];
+}): River => ({
+  ...scoredWillametteRoute,
+  id: input.id,
+  slug: input.id,
+  reach: input.reach,
+  putIn: input.putIn,
+  takeOut: input.takeOut,
+  latitude: input.latitude,
+  longitude: input.longitude,
+  summary: input.summary,
+  statusText: 'Check USGS 14166000 at Harrisburg, recent rain, forecast, wood and daylight before launch; this reach has strong current, shifting side channels and changing gravel bars.',
+  sourceLinks: input.sourceLinks,
+  accessPoints: input.accessPoints,
+  evidenceNotes: input.evidenceNotes,
+  logistics: {
+    ...scoredWillametteRoute.logistics!,
+    distanceLabel: input.miles > 35 ? `About ${input.miles} river miles; staged multi-day itinerary` : `About ${input.miles} river miles`,
+    estimatedPaddleTime: input.estimatedPaddleTime,
+    camping: input.camping,
+    summary: input.summary,
+    accessCaveats: input.accessCaveats,
+    watchFor: input.watchFor,
+  },
+});
+
+type WillametteEndpointKey = 'alton' | 'marshall' | 'harrisburg' | 'harkens' | 'mccartney' | 'irish' | 'norwood' | 'peoria' | 'crystal' | 'michaels' | 'hyak';
+const willametteEndpointCatalog: Record<WillametteEndpointKey, { name: string; latitude: number; longitude: number; url: string }> = {
+  alton: { name: 'Alton Baker Park rustic boat ramp, Eugene', latitude: 44.05242, longitude: -123.07791, url: 'https://willamettewatertrail.org/map/alton-baker-park/' },
+  marshall: { name: 'Marshall Island Landing public boat ramp', latitude: 44.18784, longitude: -123.14698, url: 'https://willamettewatertrail.org/map/marshall-island-access/' },
+  harrisburg: { name: 'Harrisburg Park public boat ramp', latitude: 44.27302, longitude: -123.17401, url: 'https://willamettewatertrail.org/map/harrisburg-park/' },
+  harkens: { name: 'Harkens Lake Landing paddle-in site', latitude: 44.34197, longitude: -123.22916, url: 'https://willamettewatertrail.org/map/harkens-lake-landing/' },
+  mccartney: { name: 'McCartney Park public boat ramp', latitude: 44.31708, longitude: -123.21639, url: 'https://willamettewatertrail.org/map/mccartney-park/' },
+  irish: { name: 'Irish Bend public river access', latitude: 44.36293, longitude: -123.22037, url: 'https://willamettewatertrail.org/map/irish-bend/' },
+  norwood: { name: 'Norwood Island paddle-in landing', latitude: 44.3829, longitude: -123.24693, url: 'https://willamettewatertrail.org/map/norwood-island/' },
+  peoria: { name: 'Peoria Park boat ramp', latitude: 44.45402, longitude: -123.21009, url: 'https://willamettewatertrail.org/map/peoria-park/' },
+  crystal: { name: 'Crystal Lake / Willamette Boat Landing', latitude: 44.551595, longitude: -123.251708, url: 'https://willamettewatertrail.org/map/crystal-lake-boat-ramp/' },
+  michaels: { name: 'Michael’s Landing / North Riverfront Park', latitude: 44.56939, longitude: -123.25592, url: 'https://willamettewatertrail.org/map/michaels-landing/' },
+  hyak: { name: 'Hyak Park boat ramp', latitude: 44.638123, longitude: -123.16067, url: 'https://willamettewatertrail.org/map/hyak-park/' },
+};
+
+function makeScoredWillametteChainVariant(input: {
+  id: string;
+  from: WillametteEndpointKey;
+  to: WillametteEndpointKey;
+  miles: number;
+  summary: string;
+  estimatedPaddleTime: string;
+}): River {
+  const from = willametteEndpointCatalog[input.from];
+  const to = willametteEndpointCatalog[input.to];
+  const accessPoints = [
+    { name: from.name, latitude: from.latitude, longitude: from.longitude, id: `${input.id}-put-in`, mileFromStart: 0, segmentKind: 'transition' as const, note: 'Named Water Trail access; confirm the current water edge, parking, carry and posted hours before unloading.' },
+    { name: to.name, latitude: to.latitude, longitude: to.longitude, id: `${input.id}-take-out`, mileFromStart: input.miles, segmentKind: 'transition' as const, note: 'Named Water Trail access; inspect the current landing, parking and take-out channel before committing.' },
+  ];
+  const routeSummary = input.summary;
+  return makeScoredWillametteVariant({
+    id: input.id,
+    reach: `${from.name} to ${to.name}`,
+    putIn: { name: from.name, latitude: from.latitude, longitude: from.longitude },
+    takeOut: { name: to.name, latitude: to.latitude, longitude: to.longitude },
+    latitude: from.latitude,
+    longitude: from.longitude,
+    miles: input.miles,
+    summary: routeSummary,
+    estimatedPaddleTime: input.estimatedPaddleTime,
+    sourceLinks: [
+      willametteFlowGuide,
+      { label: `${from.name} mapped access`, url: from.url, provider: 'local' },
+      { label: `${to.name} mapped access`, url: to.url, provider: 'local' },
+      { label: 'USGS Harrisburg gauge', url: harrisburgGauge.detailUrl, provider: 'usgs' },
+    ],
+    accessPoints,
+    camping: 'The Willamette Water Trail documents conditional paddle-in island and gravel-bar sites including Blue Ruin, Harkens Lake, Irish Bend and Norwood. Verify current ownership, closures, fire rules, sanitation and water before relying on an overnight; endpoint parks are day-use unless posted.',
+    accessCaveats: ['Use only the named Water Trail access and follow current park, parking and carry notices.', 'The main channel, side channels and gravel bars change with flow; scout before committing.', 'Paddle-in camping is conditional and never establishes vehicle access or overnight rights.'],
+    watchFor: ['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000', 'Strong current, shifting side channels, bridge wood and cold water', 'Changing gravel bars, private banks and conditional campsites'],
+    evidenceNotes: [
+      { label: 'Named reach and distance', value: `${from.name} to ${to.name}; ${input.miles} river miles`, note: 'The Willamette Water Trail publishes the named access sequence and river-mile context used for this access-bounded combination.', sourceUrl: from.url },
+      { label: 'Scoring band', value: '2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference', note: 'The Willamette Kayak and Canoe Club publishes these conservative planning references for the encompassing corridor tied to USGS 14166000; verify current debris, weather and channel conditions.', sourceUrl: willametteFlowGuide.url },
+      { label: 'Direct gauge', value: 'USGS 14166000 Willamette River at Harrisburg', note: 'Direct telemetry for the central corridor; recheck current value and trend before departure.', sourceUrl: harrisburgGauge.detailUrl },
+      { label: 'Camping and access', value: 'Public Water Trail access with conditional island or gravel-bar camping context', note: 'Water Trail access and campsite pages identify public facilities and conditional sites; verify current status before launching or camping.', sourceUrl: 'https://willamettewatertrail.org/plan-your-trip/' },
+    ],
+  });
+}
+
+const scoredWillametteExpansionRoutes: River[] = [
+  makeScoredWillametteVariant({
+    id: 'willamette-river-marshall-island-harrisburg',
+    reach: 'Marshall Island Landing to Harrisburg Park',
+    putIn: {name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698},
+    takeOut: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    latitude:44.18784, longitude:-123.14698, miles:8,
+    summary:'An eight-mile intermediate Willamette reach from the improved Marshall Island ramp to Harrisburg Park, with documented island and gravel-bar camping options.',
+    estimatedPaddleTime:'Allow 4–6 hours, or plan a one-night light overnight only after confirming a lawful campsite and daylight margin.',
+    sourceLinks:[
+      willametteFlowGuide,
+      {label:'Marshall Island to Harrisburg itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/',provider:'local'},
+      {label:'Marshall Island public ramp',url:'https://willamettewatertrail.org/map/marshall-island-access/',provider:'local'},
+      {label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},
+      {label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'},
+    ],
+    accessPoints:[
+      {name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698,id:'willamette-river-marshall-island-harrisburg-put-in',mileFromStart:0,segmentKind:'transition',note:'OPRD access with an improved ramp, parking and pit toilet. Confirm the launch edge and current park conditions before unloading.'},
+      {name:'Blue Ruin Island paddle-in campsite',latitude:44.21409,longitude:-123.15813,id:'willamette-river-marshall-island-harrisburg-blue-ruin',mileFromStart:4,segmentKind:'lake',note:'Documented island campsite near RM 165; its backchannel is woody and should be avoided unless scouted and passable.'},
+      {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-marshall-island-harrisburg-take-out',mileFromStart:8,segmentKind:'transition',note:'Public ramp with restrooms, water, parking and nearby groceries; confirm the gravel-bar landing at current river level.'},
+    ],
+    camping:'The Water Trail documents multiple OPRD and DSL gravel bars plus Blue Ruin Island along this reach. These are conditional paddle-in sites: verify ownership, closures, fire rules, sanitation and current water level; do not camp at either endpoint park unless posted.',
+    accessCaveats:['Marshall Island has free parking and a pit toilet, but the ramp enters current immediately.','Harrisburg’s ramp and gravel bar change with seasonal river level; inspect before committing.','Island backchannels can collect wood; use only a scouted main channel.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, railroad-bridge wood and shifting side channels','Conditional island or gravel-bar campsites and cold water'],
+    evidenceNotes:[
+      {label:'Named reach and distance',value:'Marshall Island Landing RM 169 to Harrisburg RM 161; 8 miles',note:'The Water Trail publishes this exact intermediate itinerary and identifies both endpoints.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},
+      {label:'Safety and conditions',value:'Intermediate; strong current and wood strainers',note:'The Water Trail issues a reach-specific safety alert for meandering channels, strong current and railroad-bridge wood.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},
+      {label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Alton Baker-to-Harrisburg corridor tied to USGS 14166000.',sourceUrl:willametteFlowGuide.url},
+      {label:'Camping and access',value:'Improved public ramp, Harrisburg amenities and conditional island/gravel-bar camping',note:'Marshall, Blue Ruin and Harrisburg facilities are named in the Water Trail itinerary; confirm current campsite status.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},
+    ],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harrisburg-peoria',
+    reach: 'Harrisburg Park to Peoria Park',
+    putIn: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    takeOut: {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009},
+    latitude:44.27302, longitude:-123.17401, miles:19.5,
+    summary:'A 19.5-mile intermediate Willamette reach from Harrisburg Park to the tucked-away Peoria Park ramp, passing documented public campsites and greenway islands.',
+    estimatedPaddleTime:'Allow 7–10 hours as a long day, or plan a lawful light overnight with campsite and daylight checks.',
+    sourceLinks:[
+      willametteFlowGuide,
+      {label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},
+      {label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},
+      {label:'Peoria Park public ramp',url:'https://willamettewatertrail.org/map/peoria-park/',provider:'local'},
+      {label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'},
+    ],
+    accessPoints:[
+      {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-harrisburg-peoria-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with restrooms, water, parking and nearby groceries; inspect the slippery seasonal landing.'},
+      {name:'Irish Bend gravel-bar campsite',latitude:44.36293,longitude:-123.22037,id:'willamette-river-harrisburg-peoria-irish-bend',mileFromStart:10,segmentKind:'lake',note:'Large documented gravel-bar park with a pit toilet; verify current access, ownership and conditions.'},
+      {name:'Norwood Island paddle-in campsite',latitude:44.3829,longitude:-123.24693,id:'willamette-river-harrisburg-peoria-norwood',mileFromStart:12.5,segmentKind:'lake',note:'Willamette Riverkeeper island campsite near the Long Tom confluence; scout channels and confirm current status.'},
+      {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009,id:'willamette-river-harrisburg-peoria-take-out',mileFromStart:19.5,segmentKind:'transition',note:'Ramp sits in a river-right alcove and is easy to miss from the mainstem; identify the opening before the final approach.'},
+    ],
+    camping:'The Water Trail documents rustic campsites at Harkens Lake, DSL Island 152, Irish Bend, Norwood Island, Norwood East and Buckskin Mary. Confirm current ownership, closures, fire rules, sanitation and water before relying on any overnight stop; endpoint parks are day-use unless posted.',
+    accessCaveats:['Harrisburg’s ramp can be slippery and shifts with river level.','Peoria’s take-out is tucked in an alcove after a long willow-covered peninsula; keep the map ready.','Greenway and island campsites are conditional and may change with ownership or floodplain conditions.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, woody debris and shifting side channels','Busy summer traffic, cold water and easy-to-miss Peoria alcove'],
+    evidenceNotes:[
+      {label:'Named reach and distance',value:'Harrisburg RM 161 to Peoria RM 141.5; 19.5 miles',note:'The Water Trail publishes this exact intermediate itinerary and identifies both public ramps.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, debris, a slippery Harrisburg ramp and the concealed Peoria alcove.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Alton Baker-to-Harrisburg corridor tied to USGS 14166000; apply conservatively to this downstream continuation.',sourceUrl:willametteFlowGuide.url},
+      {label:'Camping and access',value:'Public ramps plus documented greenway, island and gravel-bar campsites',note:'The Water Trail names Harkens Lake, DSL Island 152, Irish Bend, Norwood and Buckskin Mary sites; verify current status before camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+    ],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harrisburg-mccartney',
+    reach: 'Harrisburg Park to McCartney Park',
+    putIn: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    takeOut: {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639},
+    latitude:44.27302, longitude:-123.17401, miles:4.5,
+    summary:'A short 4.5-mile Willamette reach from Harrisburg Park to McCartney Park, useful as a lower-commitment intermediate trip with a documented public ramp at each end.',
+    estimatedPaddleTime:'Allow 2–4 hours; treat this as a day trip and leave daylight for scouting the eddy-line landing.',
+    sourceLinks:[
+      willametteFlowGuide,
+      {label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},
+      {label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},
+      {label:'McCartney Park public ramp',url:'https://willamettewatertrail.org/map/mccartney-park/',provider:'local'},
+      {label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'},
+    ],
+    accessPoints:[
+      {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-harrisburg-mccartney-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with restrooms, water, parking and nearby groceries; inspect the seasonal landing before unloading.'},
+      {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639,id:'willamette-river-harrisburg-mccartney-take-out',mileFromStart:4.5,segmentKind:'transition',note:'Public day-use ramp with pit toilet. Watch for the sharp eddy line and possible strainer below the ramp.'},
+    ],
+    camping:'No overnight camping is assumed for this short segment. Harkens Lake and downstream gravel-bar sites are outside the take-out; arrange lodging separately and follow park day-use rules.',
+    accessCaveats:['Harrisburg’s ramp can be slippery and changes with river level.','McCartney’s sharp eddy line and possible strainer below the ramp require a controlled take-out.','Both endpoints are public day-use facilities; confirm parking and posted hours.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, sharp eddy line and possible strainer below McCartney','Cold water, shifting channels and changing ramp conditions'],
+    evidenceNotes:[
+      {label:'Named reach and distance',value:'Harrisburg RM 161 to McCartney RM 156.5; 4.5 miles',note:'The Water Trail lists both access points and river miles within its Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Safety and conditions',value:'Intermediate; strong current and sharp eddy-line landing',note:'The Water Trail warns about strong current, woody debris, a slippery Harrisburg ramp and a sharp eddy line with possible strainer below McCartney.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this short segment.',sourceUrl:willametteFlowGuide.url},
+      {label:'Public access',value:'Harrisburg and McCartney public ramps',note:'The Water Trail identifies a ramp, parking and amenities at each endpoint.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+    ],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-mccartney-peoria',
+    reach: 'McCartney Park to Peoria Park',
+    putIn: {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639},
+    takeOut: {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009},
+    latitude:44.31708, longitude:-123.21639, miles:15,
+    summary:'A 15-mile intermediate Willamette reach from McCartney Park through the greenway and island camping corridor to Peoria Park.',
+    estimatedPaddleTime:'Allow 5–8 hours; an early start preserves daylight for wood scouting and the concealed Peoria alcove.',
+    sourceLinks:[
+      willametteFlowGuide,
+      {label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},
+      {label:'McCartney Park public ramp',url:'https://willamettewatertrail.org/map/mccartney-park/',provider:'local'},
+      {label:'Peoria Park public ramp',url:'https://willamettewatertrail.org/map/peoria-park/',provider:'local'},
+      {label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'},
+    ],
+    accessPoints:[
+      {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639,id:'willamette-river-mccartney-peoria-put-in',mileFromStart:0,segmentKind:'transition',note:'Public day-use ramp with pit toilet; watch for the sharp eddy line and possible strainer below the launch.'},
+      {name:'Irish Bend gravel-bar campsite',latitude:44.36293,longitude:-123.22037,id:'willamette-river-mccartney-peoria-irish-bend',mileFromStart:5.5,segmentKind:'lake',note:'Large documented gravel-bar park with pit toilet; verify current access, ownership and conditions.'},
+      {name:'Norwood Island paddle-in campsite',latitude:44.3829,longitude:-123.24693,id:'willamette-river-mccartney-peoria-norwood',mileFromStart:7.5,segmentKind:'lake',note:'Willamette Riverkeeper island campsite near the Long Tom confluence; scout channels and confirm status.'},
+      {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009,id:'willamette-river-mccartney-peoria-take-out',mileFromStart:15,segmentKind:'transition',note:'Ramp sits in a river-right alcove and is easy to miss from the mainstem; identify the opening before the final approach.'},
+    ],
+    camping:'The Water Trail documents Irish Bend, Norwood Island, Norwood East and Buckskin Mary camping downstream of McCartney. Confirm current ownership, closures, fire rules, sanitation and water before relying on an overnight; McCartney and Peoria are day-use endpoints unless posted.',
+    accessCaveats:['McCartney’s launch has a sharp eddy line and possible strainer below the ramp.','Peoria’s take-out is tucked in an alcove after a willow-covered peninsula; keep the map ready.','Greenway and island campsites are conditional and may change with floodplain conditions.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, woody debris and shifting side channels','Busy summer traffic, cold water and easy-to-miss Peoria alcove'],
+    evidenceNotes:[
+      {label:'Named reach and distance',value:'McCartney RM 156.5 to Peoria RM 141.5; 15 miles',note:'The Water Trail publishes both access river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, debris, McCartney’s eddy line and the concealed Peoria alcove.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+      {label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this downstream segment.',sourceUrl:willametteFlowGuide.url},
+      {label:'Camping and access',value:'McCartney and Peoria public ramps with named greenway/island campsites',note:'The Water Trail names Irish Bend, Norwood and Buckskin Mary sites; verify current status before camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},
+    ],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harrisburg-irish-bend',
+    reach: 'Harrisburg Park to Irish Bend',
+    putIn: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    takeOut: {name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037},
+    latitude:44.27302, longitude:-123.17401, miles:10,
+    summary:'A 10-mile intermediate Willamette reach from Harrisburg Park to the Irish Bend public access and gravel-bar park.',
+    estimatedPaddleTime:'Allow 4–7 hours; preserve daylight for current, wood and the Irish Bend landing.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},{label:'Irish Bend public access',url:'https://willamettewatertrail.org/map/irish-bend/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-harrisburg-irish-bend-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with restrooms, water and parking; inspect the seasonal landing.'},{name:'Harkens Lake gravel-bar campsite',latitude:44.34197,longitude:-123.22916,id:'willamette-river-harrisburg-irish-bend-harkens',mileFromStart:6.5,segmentKind:'lake',note:'Documented mainstem gravel-bar campsite; confirm current status and channel access.'},{name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037,id:'willamette-river-harrisburg-irish-bend-take-out',mileFromStart:10,segmentKind:'transition',note:'Large gravel-bar park with pit toilet; verify current landing and parking.'}],
+    camping:'The Water Trail documents Harkens Lake and Irish Bend gravel-bar camping on this reach. Verify current ownership, closures, fire rules, sanitation and water before an overnight; Harrisburg is day-use unless posted.',
+    accessCaveats:['Harrisburg’s ramp can be slippery and shifts with river level.','Harkens Lake is a paddle-in gravel-bar site with changing channels.','Irish Bend is a public day-use access with a gravel-bar landing; inspect before committing.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, woody debris and shifting channels','Cold water and changing gravel-bar campsite conditions'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Harrisburg RM 161 to Irish Bend RM 151; 10 miles',note:'The Water Trail publishes both access river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, woody debris and seasonal landing changes.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this reach.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Public ramps plus Harkens Lake and Irish Bend gravel-bar camping',note:'The Water Trail names both campsites and the endpoint facilities; verify current status before camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-irish-bend-peoria',
+    reach: 'Irish Bend to Peoria Park',
+    putIn: {name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037},
+    takeOut: {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009},
+    latitude:44.36293, longitude:-123.22037, miles:9.5,
+    summary:'A 9.5-mile intermediate Willamette reach from Irish Bend through the Norwood and Buckskin Mary camping corridor to Peoria Park.',
+    estimatedPaddleTime:'Allow 4–7 hours; start early to scout wood and find Peoria’s concealed alcove before dusk.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Irish Bend public access',url:'https://willamettewatertrail.org/map/irish-bend/',provider:'local'},{label:'Peoria Park public ramp',url:'https://willamettewatertrail.org/map/peoria-park/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037,id:'willamette-river-irish-bend-peoria-put-in',mileFromStart:0,segmentKind:'transition',note:'Large gravel-bar park with pit toilet; inspect the landing and parking.'},{name:'Norwood Island paddle-in campsite',latitude:44.3829,longitude:-123.24693,id:'willamette-river-irish-bend-peoria-norwood',mileFromStart:2.5,segmentKind:'lake',note:'Willamette Riverkeeper island campsite near the Long Tom confluence; scout channels and confirm status.'},{name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009,id:'willamette-river-irish-bend-peoria-take-out',mileFromStart:9.5,segmentKind:'transition',note:'Ramp sits in a river-right alcove and is easy to miss from the mainstem.'}],
+    camping:'The Water Trail documents Norwood Island, Norwood East and Buckskin Mary camping on this reach. Confirm current ownership, closures, fire rules, sanitation and water; Irish Bend and Peoria are day-use endpoints unless posted.',
+    accessCaveats:['Irish Bend’s gravel-bar landing changes with river level.','Norwood channels can be woody near the Long Tom confluence.','Peoria’s ramp is tucked in an alcove after a willow-covered peninsula; identify it before the final approach.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, woody debris and busy summer traffic','Cold water and concealed Peoria alcove'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Irish Bend RM 151 to Peoria RM 141.5; 9.5 miles',note:'The Water Trail publishes both access river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, woody debris and the concealed Peoria alcove.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this reach.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Irish Bend, Norwood and Buckskin Mary camping with public endpoints',note:'The Water Trail names the sites and the Peoria alcove warning; verify current status before camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-norwood-peoria',
+    reach: 'Norwood Island to Peoria Park',
+    putIn: {name:'Norwood Island paddle-in landing',latitude:44.3829,longitude:-123.24693},
+    takeOut: {name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009},
+    latitude:44.3829, longitude:-123.24693, miles:7,
+    summary:'A 7-mile intermediate Willamette reach from the Norwood Island camping area to the public Peoria Park alcove ramp.',
+    estimatedPaddleTime:'Allow 3–5 hours; allow extra time to scout the Norwood confluence and identify Peoria’s alcove.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Norwood Island access and camping',url:'https://willamettewatertrail.org/map/norwood-island/',provider:'local'},{label:'Peoria Park public ramp',url:'https://willamettewatertrail.org/map/peoria-park/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Norwood Island paddle-in landing',latitude:44.3829,longitude:-123.24693,id:'willamette-river-norwood-peoria-put-in',mileFromStart:0,segmentKind:'lake',note:'Willamette Riverkeeper island campsite near the Long Tom confluence; scout the channel and confirm current status before launching.'},{name:'Peoria Park boat ramp',latitude:44.45402,longitude:-123.21009,id:'willamette-river-norwood-peoria-take-out',mileFromStart:7,segmentKind:'transition',note:'Ramp sits in a river-right alcove and is easy to miss from the mainstem.'}],
+    camping:'The Water Trail documents Norwood Island, Norwood East and Buckskin Mary camping. These are conditional paddle-in sites; confirm current ownership, closures, fire rules, sanitation and water, and do not assume the island landing is a formal public launch.',
+    accessCaveats:['Norwood Island is a paddle-in campsite rather than a conventional vehicle ramp; arrange a lawful carry and launch.','Buckskin Mary has no amenities and changing gravel-bar conditions.','Peoria’s alcove take-out is easy to miss; keep the map ready and finish before dusk.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Long Tom confluence, strong current and woody debris','Cold water and concealed Peoria alcove'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Norwood Island RM 148.5 to Peoria RM 141.5; 7 miles',note:'The Water Trail publishes both access river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; strong current, confluence and woody debris',note:'The Water Trail warns about strong current, woody debris and changing side channels on this corridor.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this reach.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Paddle-in island and gravel-bar camping with Peoria public ramp',note:'The Water Trail names Norwood and Buckskin Mary sites and the Peoria ramp; verify current status before camping or launching.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harrisburg-harkens',
+    reach: 'Harrisburg Park to Harkens Lake Landing',
+    putIn: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    takeOut: {name:'Harkens Lake Landing paddle-in site',latitude:44.34197,longitude:-123.22916},
+    latitude:44.27302, longitude:-123.17401, miles:7.5,
+    summary:'A 7.5-mile intermediate Willamette reach from Harrisburg Park to the documented Harkens Lake gravel-bar landing.',
+    estimatedPaddleTime:'Allow 3–5 hours; preserve daylight for wood scouting and the gravel-bar landing.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},{label:'Harkens Lake Landing camping site',url:'https://willamettewatertrail.org/map/harkens-lake-landing/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-harrisburg-harkens-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with restrooms, water and parking; inspect the seasonal landing.'},{name:'Harkens Lake Landing paddle-in site',latitude:44.34197,longitude:-123.22916,id:'willamette-river-harrisburg-harkens-take-out',mileFromStart:7.5,segmentKind:'lake',note:'Documented mainstem gravel-bar landing and campsite; it is paddle-in and has no vehicle take-out infrastructure.'}],
+    camping:'Harkens Lake is a documented mainstem gravel-bar campsite. Confirm current ownership, closures, fire rules, sanitation, water and a safe landing before relying on it; Harrisburg is day-use unless posted.',
+    accessCaveats:['Harrisburg’s ramp can be slippery and shifts with river level.','Harkens is a paddle-in gravel-bar site, not a conventional vehicle take-out; arrange the shuttle around a lawful overnight or continue to a public ramp.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Strong current, woody debris and shifting gravel bars','Conditional paddle-in campsite and cold water'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Harrisburg RM 161 to Harkens Lake RM 153.5; 7.5 miles',note:'The Water Trail publishes the endpoint river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, woody debris and seasonal landing changes.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this reach.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Public Harrisburg ramp and documented Harkens gravel-bar landing',note:'The Water Trail identifies Harkens Lake as a quiet mainstem gravel-bar site; verify current status before camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harkens-irish-bend',
+    reach: 'Harkens Lake Landing to Irish Bend',
+    putIn: {name:'Harkens Lake Landing paddle-in site',latitude:44.34197,longitude:-123.22916},
+    takeOut: {name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037},
+    latitude:44.34197, longitude:-123.22916, miles:2.5,
+    summary:'A short 2.5-mile intermediate Willamette connector from the Harkens Lake gravel-bar landing to Irish Bend public access.',
+    estimatedPaddleTime:'Allow 2–4 hours; confirm the paddle-in launch, current channel and Irish Bend landing before departure.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary and safety alert',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Harkens Lake Landing camping site',url:'https://willamettewatertrail.org/map/harkens-lake-landing/',provider:'local'},{label:'Irish Bend public access',url:'https://willamettewatertrail.org/map/irish-bend/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Harkens Lake Landing paddle-in site',latitude:44.34197,longitude:-123.22916,id:'willamette-river-harkens-irish-bend-put-in',mileFromStart:0,segmentKind:'lake',note:'Paddle-in gravel-bar landing with no vehicle access; scout a safe launch and confirm current site status.'},{name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037,id:'willamette-river-harkens-irish-bend-take-out',mileFromStart:2.5,segmentKind:'transition',note:'Large gravel-bar park with pit toilet; inspect the landing and parking.'}],
+    camping:'Harkens Lake and Irish Bend are documented gravel-bar camping or access sites. Verify current ownership, closures, fire rules, sanitation and water; this short connector is best treated as a day segment unless a lawful overnight is confirmed.',
+    accessCaveats:['Harkens is a paddle-in campsite rather than a vehicle launch; plan the carry and boat staging.','Irish Bend’s gravel-bar landing changes with river level and may be busy.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references at USGS 14166000','Short reach with strong current and woody debris','Paddle-in Harkens access and changing Irish Bend gravel bar'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Harkens Lake RM 153.5 to Irish Bend RM 151; 2.5 miles',note:'The Water Trail publishes both access river miles within the exact Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; strong current and woody debris',note:'The Water Trail warns about strong current, woody debris and changing landings.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes these planning bands for the encompassing Willamette corridor tied to USGS 14166000; use them conservatively for this reach.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Paddle-in Harkens site to public Irish Bend access',note:'The Water Trail names Harkens and Irish Bend; verify current site status before launching or camping.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-marshall-island-mccartney',
+    reach: 'Marshall Island Landing to McCartney Park',
+    putIn: {name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698},
+    takeOut: {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639},
+    latitude:44.18784, longitude:-123.14698, miles:12.5,
+    summary:'A 12.5-mile intermediate Willamette reach from the improved Marshall Island ramp to McCartney Park.',
+    estimatedPaddleTime:'Allow 5–8 hours with current, wood scouting and access stops.',
+    sourceLinks:[willametteFlowGuide,{label:'Marshall Island to Harrisburg itinerary',url:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/',provider:'local'},{label:'Marshall Island public ramp',url:'https://willamettewatertrail.org/map/marshall-island-access/',provider:'local'},{label:'McCartney Park public ramp',url:'https://willamettewatertrail.org/map/mccartney-park/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698,id:'willamette-river-marshall-island-mccartney-put-in',mileFromStart:0,segmentKind:'transition',note:'Improved public ramp with parking and pit toilet; inspect current entry.'},{name:'Blue Ruin Island paddle-in campsite',latitude:44.21409,longitude:-123.15813,id:'willamette-river-marshall-island-mccartney-blue-ruin',mileFromStart:4,segmentKind:'lake',note:'Documented island campsite; avoid woody backchannels unless scouted.'},{name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639,id:'willamette-river-marshall-island-mccartney-take-out',mileFromStart:12.5,segmentKind:'transition',note:'Public ramp with pit toilet; control the sharp eddy-line landing.'}],
+    camping:'Blue Ruin Island and other Water Trail gravel bars are conditional paddle-in sites. Verify ownership, closures, fire rules, sanitation and water; endpoint parks are day-use unless posted.',
+    accessCaveats:['Marshall Island enters current immediately; inspect before launching.','McCartney has a sharp eddy line and possible strainer below the ramp.','Use only documented island or gravel-bar sites for an overnight.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references','Strong current, railroad-bridge wood and shifting channels','Cold water and changing campsite conditions'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Marshall Island RM 169 to McCartney RM 156.5; 12.5 miles',note:'Water Trail river miles establish this intermediate access-bounded reach.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},{label:'Safety and conditions',value:'Intermediate; current, wood and eddy-line landing',note:'The Water Trail warns about strong current, railroad-bridge wood and the McCartney landing.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes the same-gauge planning bands for this corridor.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Marshall and McCartney public ramps with conditional island camping',note:'The Water Trail names the public ramps and Blue Ruin island site.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-harrisburg-norwood',
+    reach: 'Harrisburg Park to Norwood Island',
+    putIn: {name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401},
+    takeOut: {name:'Norwood Island paddle-in landing',latitude:44.3829,longitude:-123.24693},
+    latitude:44.27302, longitude:-123.17401, miles:12.5,
+    summary:'A 12.5-mile intermediate Willamette reach from Harrisburg Park to the documented Norwood Island landing.',
+    estimatedPaddleTime:'Allow 5–8 hours; preserve daylight for the Long Tom confluence and island landing.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Harrisburg Park public ramp',url:'https://willamettewatertrail.org/map/harrisburg-park/',provider:'local'},{label:'Norwood Island access and camping',url:'https://willamettewatertrail.org/map/norwood-island/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Harrisburg Park public boat ramp',latitude:44.27302,longitude:-123.17401,id:'willamette-river-harrisburg-norwood-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with restrooms, water and parking; inspect the seasonal landing.'},{name:'Irish Bend gravel-bar campsite',latitude:44.36293,longitude:-123.22037,id:'willamette-river-harrisburg-norwood-irish-bend',mileFromStart:10,segmentKind:'lake',note:'Documented gravel-bar park with pit toilet; verify current status.'},{name:'Norwood Island paddle-in landing',latitude:44.3829,longitude:-123.24693,id:'willamette-river-harrisburg-norwood-take-out',mileFromStart:12.5,segmentKind:'lake',note:'Paddle-in island site near the Long Tom confluence; scout channels before landing.'}],
+    camping:'Irish Bend and Norwood Island are documented conditional gravel-bar or paddle-in sites. Verify ownership, closures, fire rules, sanitation and water; Harrisburg is day-use unless posted.',
+    accessCaveats:['Harrisburg’s ramp can be slippery at changing levels.','Norwood is a paddle-in landing, not a vehicle take-out; arrange a lawful carry and shuttle.','Scout the Long Tom confluence and woody side channels.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references','Strong current, Long Tom confluence and woody debris','Conditional island landing and cold water'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Harrisburg RM 161 to Norwood RM 148.5; 12.5 miles',note:'The Water Trail publishes both access river miles in the Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; confluence, current and woody debris',note:'The Water Trail warns about strong current, changing side channels and the Norwood landing.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes the same-gauge planning bands for this corridor.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Public Harrisburg ramp, Irish Bend and Norwood sites',note:'The Water Trail names both intermediate sites and their conditional camping posture.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-mccartney-irish-bend',
+    reach: 'McCartney Park to Irish Bend',
+    putIn: {name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639},
+    takeOut: {name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037},
+    latitude:44.31708, longitude:-123.21639, miles:5.5,
+    summary:'A 5.5-mile intermediate Willamette connector from McCartney Park to Irish Bend.',
+    estimatedPaddleTime:'Allow 2–4 hours with current and landing checks.',
+    sourceLinks:[willametteFlowGuide,{label:'Harrisburg to Peoria itinerary',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'McCartney Park public ramp',url:'https://willamettewatertrail.org/map/mccartney-park/',provider:'local'},{label:'Irish Bend public access',url:'https://willamettewatertrail.org/map/irish-bend/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639,id:'willamette-river-mccartney-irish-bend-put-in',mileFromStart:0,segmentKind:'transition',note:'Public ramp with pit toilet; control the sharp eddy line below launch.'},{name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037,id:'willamette-river-mccartney-irish-bend-take-out',mileFromStart:5.5,segmentKind:'transition',note:'Gravel-bar public access with pit toilet; inspect the landing before committing.'}],
+    camping:'No overnight camping is assumed on this short connector. Irish Bend is a documented gravel-bar site, but verify current ownership, closures, fire rules, sanitation and water before relying on it.',
+    accessCaveats:['McCartney’s eddy line and possible strainer below the ramp require a controlled launch.','Irish Bend’s gravel bar changes with river level.','Both endpoints are day-use facilities unless posted.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references','Strong current, woody debris and shifting gravel bars','Cold water and changing landing conditions'],
+    evidenceNotes:[{label:'Named reach and distance',value:'McCartney RM 156.5 to Irish Bend RM 151; 5.5 miles',note:'The Water Trail publishes both access river miles within its Harrisburg-to-Peoria itinerary.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Safety and conditions',value:'Intermediate; eddy-line landing and woody debris',note:'The Water Trail warns about McCartney’s landing, strong current and changing gravel bars.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes the same-gauge planning bands for this corridor.',sourceUrl:willametteFlowGuide.url},{label:'Public access',value:'McCartney and Irish Bend public access',note:'The Water Trail identifies both endpoint facilities and landing cautions.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteVariant({
+    id: 'willamette-river-marshall-island-irish-bend',
+    reach: 'Marshall Island Landing to Irish Bend',
+    putIn: {name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698},
+    takeOut: {name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037},
+    latitude:44.18784, longitude:-123.14698, miles:18,
+    summary:'An 18-mile intermediate Willamette reach from Marshall Island through Harrisburg and McCartney to Irish Bend.',
+    estimatedPaddleTime:'Allow 7–10 hours with current, wood scouting, access stops and a daylight margin.',
+    sourceLinks:[willametteFlowGuide,{label:'Marshall Island to Harrisburg itinerary',url:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/',provider:'local'},{label:'Harrisburg to Peoria itinerary',url:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/',provider:'local'},{label:'Marshall Island public ramp',url:'https://willamettewatertrail.org/map/marshall-island-access/',provider:'local'},{label:'Irish Bend public access',url:'https://willamettewatertrail.org/map/irish-bend/',provider:'local'},{label:'USGS Harrisburg gauge',url:harrisburgGauge.detailUrl,provider:'usgs'}],
+    accessPoints:[{name:'Marshall Island Landing public boat ramp',latitude:44.18784,longitude:-123.14698,id:'willamette-river-marshall-island-irish-bend-put-in',mileFromStart:0,segmentKind:'transition',note:'Improved public ramp with parking and pit toilet; inspect current entry.'},{name:'Blue Ruin Island paddle-in campsite',latitude:44.21409,longitude:-123.15813,id:'willamette-river-marshall-island-irish-bend-blue-ruin',mileFromStart:4,segmentKind:'lake',note:'Documented island campsite; avoid woody backchannels unless scouted.'},{name:'McCartney Park public boat ramp',latitude:44.31708,longitude:-123.21639,id:'willamette-river-marshall-island-irish-bend-mccartney',mileFromStart:12.5,segmentKind:'transition',note:'Public ramp and intermediate bail-out; control the sharp eddy line.'},{name:'Irish Bend public river access',latitude:44.36293,longitude:-123.22037,id:'willamette-river-marshall-island-irish-bend-take-out',mileFromStart:18,segmentKind:'transition',note:'Gravel-bar public access with pit toilet; inspect the landing before committing.'}],
+    camping:'Blue Ruin Island and Irish Bend are documented conditional paddle-in or gravel-bar sites. Verify ownership, closures, fire rules, sanitation and water; endpoint parks are day-use unless posted.',
+    accessCaveats:['Marshall Island enters current immediately; inspect before launching.','McCartney is an intermediate bail-out with a sharp eddy line and possible strainer below the ramp.','Irish Bend’s gravel bar changes with river level; preserve daylight for the final landing.'],
+    watchFor:['WKCC 2,000 cfs low, 6,000 cfs optimal and 20,000 cfs high references','Strong current, railroad-bridge wood and shifting channels','Cold water and conditional island or gravel-bar camping'],
+    evidenceNotes:[{label:'Named reach and distance',value:'Marshall Island RM 169 to Irish Bend RM 151; 18 miles',note:'The Water Trail itineraries publish the endpoint river-mile sequence used for this combined access-bounded reach.',sourceUrl:'https://willamettewatertrail.org/itineraries/marshall-island-access-to-harrisburg/'},{label:'Safety and conditions',value:'Intermediate; strong current, wood and changing landings',note:'The Water Trail warns about strong current, railroad-bridge wood, McCartney’s eddy line and Irish Bend’s gravel bar.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'},{label:'Scoring band',value:'2,000 cfs low; 6,000 cfs optimal; 20,000 cfs high reference',note:'WKCC publishes the same-gauge planning bands for this corridor.',sourceUrl:willametteFlowGuide.url},{label:'Camping and access',value:'Marshall and Irish Bend public access with Blue Ruin and McCartney intermediate options',note:'The Water Trail names the endpoints and conditional camping/access sites.',sourceUrl:'https://willamettewatertrail.org/itineraries/harrisburg-to-peoria/'}],
+  }),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-marshall-island',from:'alton',to:'marshall',miles:11,summary:'An 11-mile scored Willamette reach from Eugene’s Alton Baker Park to the improved Marshall Island public ramp.',estimatedPaddleTime:'Allow 4–7 hours with current, wood scouting and a reliable shuttle.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-mccartney',from:'alton',to:'mccartney',miles:25,summary:'A 25-mile scored Willamette corridor reach from Alton Baker Park to McCartney Park, with Harrisburg as an intermediate bail-out.',estimatedPaddleTime:'Allow 8–12 hours; use a very early start and preserve a conservative daylight margin.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-harkens',from:'alton',to:'harkens',miles:27.5,summary:'A 27.5-mile scored Willamette reach from Alton Baker Park to the documented Harkens Lake paddle-in site.',estimatedPaddleTime:'Plan a long day or lawful light overnight only after confirming a campsite and daylight.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-irish-bend',from:'alton',to:'irish',miles:30,summary:'A 30-mile scored Willamette reach from Alton Baker Park to Irish Bend public river access through the central valley.',estimatedPaddleTime:'Plan a full long day with current, wood, access and daylight checks.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-norwood',from:'alton',to:'norwood',miles:32.5,summary:'A 32.5-mile scored Willamette reach from Alton Baker Park to the documented Norwood Island paddle-in landing.',estimatedPaddleTime:'Plan a full expedition-style day or lawful light overnight with confirmed camping and daylight.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-alton-baker-peoria',from:'alton',to:'peoria',miles:40,summary:'A long scored Willamette reach from Alton Baker Park to Peoria Park, linking the Eugene and mid-valley Water Trail corridors.',estimatedPaddleTime:'Plan two staged days with a confirmed overnight and shuttle; do not attempt as a single push.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-marshall-island-peoria',from:'marshall',to:'peoria',miles:27.5,summary:'A 27.5-mile scored Willamette reach from Marshall Island through Harrisburg and McCartney to Peoria Park.',estimatedPaddleTime:'Allow 9–12 hours or a lawful light overnight after confirming a campsite and daylight.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-marshall-island-norwood',from:'marshall',to:'norwood',miles:20.5,summary:'A 20.5-mile scored Willamette reach from Marshall Island to the Norwood Island paddle-in landing.',estimatedPaddleTime:'Allow 7–10 hours with confluence, wood and campsite checks.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-harkens-peoria',from:'harkens',to:'peoria',miles:12,summary:'A 12-mile scored Willamette reach from the Harkens Lake paddle-in site to Peoria Park.',estimatedPaddleTime:'Allow 5–8 hours; confirm the paddle-in launch and preserve daylight for Peoria’s alcove.'}),
+  makeScoredWillametteChainVariant({id:'willamette-river-irish-bend-norwood',from:'irish',to:'norwood',miles:2.5,summary:'A short 2.5-mile scored Willamette connector from Irish Bend to the Norwood Island paddle-in landing.',estimatedPaddleTime:'Allow 2–4 hours with channel, landing and current checks.'}),
+];
+
+export const oregonRoutes = [...oregonStarterSpecs.map(buildStarterPlanningRoute), scoredWillametteRoute, ...scoredWillametteExpansionRoutes];

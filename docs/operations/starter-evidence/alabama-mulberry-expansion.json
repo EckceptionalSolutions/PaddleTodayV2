@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "mulberry-fork-cr10-garden-city",
+    "mulberry-fork-blountville-garden-city"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "American Whitewater",
+      "method": "Upper Mulberry reach page and Alabama river index",
+      "result": "Names the CR 10 to US 31/Garden City corridor as Class I\u00e2\u20ac\u201cII, identifies the direct Garden City gauge, and states that the reach becomes an option above 2 ft."
+    },
+    {
+      "family": "Outdoor Alabama",
+      "method": "Garden City River Park access-upgrade page",
+      "result": "Confirms the improved public endpoint with paved parking, stairs and a kayak launch."
+    },
+    {
+      "family": "USGS",
+      "method": "Station 02450000 monitoring location",
+      "result": "Provides direct Mulberry Fork stage telemetry near Garden City for the selected reach."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline route geometry generation",
+      "result": "Generated endpoint-bounded canonical geometry for the CR 10 to Garden City reach."
+    },
+    {
+      "family": "Gallery review",
+      "method": "Outdoor Alabama Garden City River Park editorial image",
+      "result": "Approved same-river access-context photograph with attribution; it is not presented as a live conditions or endpoint-identification photograph."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated canonical geometry for the full Blountville Road-to-Garden City route with County Road 10 as an intermediate public access."
+    }
+  ],
+  "sources": [
+    "https://www.americanwhitewater.org/content/River/view/river-detail/72/main",
+    "https://www.outdooralabama.com/articles/mulberry-fork-access-upgraded-garden-city-river-park",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02450000"
+  ],
+  "thresholdEvidence": {
+    "station": "02450000",
+    "metric": "gage_height_ft",
+    "source": "https://www.americanwhitewater.org/content/River/view/river-detail/72/main",
+    "minimum": 2,
+    "idealReference": 4.5,
+    "idealMaximum": 6,
+    "maximum": 8,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Upper Mulberry Blountville Road through County Road 10 to Garden City corridor. American Whitewater publishes the above-2-ft runnable cue; the 4.5\u20136-ft preferred band and 8-ft review ceiling are conservative planning references and are not safety guarantees."
+  },
+  "endpointEvidence": {
+    "putIn": {
+      "name": "Blountville Road Mulberry Fork access",
+      "latitude": 34.11636,
+      "longitude": -86.61509,
+      "source": "Riverfacts / American Whitewater Upper Mulberry reach page"
+    },
+    "takeOut": {
+      "name": "Garden City River Park kayak launch",
+      "latitude": 33.99667,
+      "longitude": -86.74964,
+      "source": "Outdoor Alabama Garden City River Park access-upgrade page"
+    }
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "private_banks"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use route; use established campground or lodging separately and do not camp on river banks or at either access."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Gallery typecheck passed.",
+    "Focused route safety, gallery and catalog completeness tests passed.",
+    "Route data audit passed for 2,307 routes with the new route scored.",
+    "Canonical endpoint-bounded geometry generated for the new route.",
+    "Full Blountville-to-Garden City route added with the documented CR 10 intermediate access."
+  ],
+  "pending": [
+    "Confirm current CR 10 access, parking security, Garden City park hours, stage trend, rain, wood and endpoint conditions before launch."
+  ]
+}

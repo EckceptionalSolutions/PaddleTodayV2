@@ -1,0 +1,138 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "verde-river-beasley-flat-childs",
+    "verde-river-white-bridge-childs",
+    "verde-river-clear-creek-childs"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "U.S. Forest Service / FWS",
+      "method": "Verde River Paddle Trail guide and river access overview",
+      "result": "Identifies Beasley Flat and Childs as the named launch/take-out access points and describes the Wild and Scenic corridor and remote road approach."
+    },
+    {
+      "family": "RiverBrain",
+      "method": "Beasley Flat to Childs reach page",
+      "result": "Publishes the 16-mile Class III–IV+ reach, USGS 09506000 Camp Verde gauge, 150 cfs minimum, about 800 cfs average and 2,000 cfs maximum guidance."
+    },
+    {
+      "family": "Southwest Paddler",
+      "method": "Verde River section guide",
+      "result": "Cross-checks the approximately 18-mile Beasley Flat to Childs reach, Class I–IV(V) character, 300 cfs minimum, 600–2,000 cfs optimum and 3,000 cfs maximum; provides water-entry coordinates."
+    },
+    {
+      "family": "Friends of the Verde River",
+      "method": "Beasley Flat to Sheep Bridge access map",
+      "result": "Places Childs River Access near river mile 17.2 and marks campground, toilets, FR 502 and named rapids/campsites."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "Endpoint-bounded Verde River geometry generation",
+      "result": "Generated a route geometry bounded by the Beasley Flat and Childs water-entry anchors."
+    },
+    {
+      "family": "Friends of the Verde River / USFS access sequence",
+      "method": "White Bridge and Clear Creek combinations to Childs",
+      "result": "The published RAP sequence supports White Bridge → Clear Creek → Beasley Flat → Childs itineraries; the two added combinations retain Clear Creek or Beasley Flat as documented intermediate bailout points."
+    }
+  ],
+  "sources": [
+    "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
+    "https://www.fws.gov/rivers/river/verde",
+    "https://www.riverbrain.com/runs/486",
+    "https://www.southwestpaddler.com/docs/verde4.html",
+    "https://verderiver.org/wp-content/uploads/2022/03/veri_paddle_map-beasleyflatsheepbridge.pdf",
+    "https://rivers.gov/apps/sites/rivers/files/documents/plans/verde-plan-ea.pdf",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09506000"
+  ],
+  "thresholdEvidence": {
+    "station": "09506000",
+    "metric": "discharge_cfs",
+    "source": "https://www.riverbrain.com/runs/486",
+    "minimum": 150,
+    "idealReference": 600,
+    "idealMaximum": 2000,
+    "maximum": 3000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Beasley Flat to Childs remote Wild and Scenic reach. RiverBrain and Southwest Paddler provide overlapping but different low-flow references; the catalog uses a conservative review band and requires current telemetry, trend and weather checks."
+  },
+  "endpointEvidence": {
+    "routes": [
+      {
+        "routeId": "verde-river-beasley-flat-childs",
+        "putIn": {
+          "name": "Beasley Flat RAP",
+          "latitude": 34.4794006,
+          "longitude": -111.7985001,
+          "source": "Southwest Paddler / Friends of the Verde access map"
+        },
+        "takeOut": {
+          "name": "Childs River Access / Childs Campground",
+          "latitude": 34.3501015,
+          "longitude": -111.6999969,
+          "source": "Southwest Paddler / FWS / Friends of the Verde access map"
+        }
+      },
+      {
+        "routeId": "verde-river-white-bridge-childs",
+        "putIn": {
+          "name": "White Bridge RAP",
+          "latitude": 34.5496,
+          "longitude": -111.8508,
+          "source": "USFS / Friends of the Verde access map"
+        },
+        "takeOut": {
+          "name": "Childs River Access / Childs Campground",
+          "latitude": 34.3501015,
+          "longitude": -111.6999969,
+          "source": "Southwest Paddler / FWS / Friends of the Verde access map"
+        }
+      },
+      {
+        "routeId": "verde-river-clear-creek-childs",
+        "putIn": {
+          "name": "Clear Creek RAP",
+          "latitude": 34.5057,
+          "longitude": -111.8378,
+          "source": "USFS / Friends of the Verde access map"
+        },
+        "takeOut": {
+          "name": "Childs River Access / Childs Campground",
+          "latitude": 34.3501015,
+          "longitude": -111.6999969,
+          "source": "Southwest Paddler / FWS / Friends of the Verde access map"
+        }
+      }
+    ],
+    "note": "Coordinates are water-entry edge anchors for named public Forest Service access areas; Clear Creek has a steep carry below the diversion, and Childs requires current FR 502/708 road and landing verification."
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "whitewater",
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "flash_flood",
+      "cold_water",
+      "remote",
+      "private_banks",
+      "access_uncertain"
+    ],
+    "campingClassification": "endpoint_campground",
+    "posture": "Expert-only day or expedition reach. Childs Campground/designated sites are documented near the take-out; confirm current status and rules, and do not assume informal riverbank camping."
+  },
+  "validation": [
+    "Route-data typecheck and focused Arizona Verde safety test passed.",
+    "Endpoint-bounded canonical geometry generated for all three Childs expedition combinations; compact curated traces keep route assets responsive.",
+    "Route audit includes the added combinations with direct USGS 09506000 telemetry and route-specific 150–3,000 cfs review band.",
+    "Published access, flow, difficulty, camping and remoteness evidence is route-specific; no Clarkdale threshold was transferred."
+  ],
+  "pending": [
+    "Confirm current Forest Service road, permit, campground, access and rapid conditions, telemetry trend and weather before launch."
+  ]
+}

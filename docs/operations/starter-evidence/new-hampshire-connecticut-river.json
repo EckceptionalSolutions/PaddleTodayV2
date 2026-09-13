@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-13",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["connecticut-river-bedell-orford", "connecticut-river-orford-wilson", "connecticut-river-bedell-wilson", "connecticut-river-wilson-ledyard", "connecticut-river-ledyard-east-wilder"],
+  "sourceAttempts": [
+    {"family": "Connecticut River Paddlers Trail", "method": "Access-point directory and river-mile sequence", "result": "Documents Bedell Bridge State Park, Orford Boat Landing, Wilson Landing, Ledyard Canoe Club and East Wilder as public ramps with parking and adjacent camping context."},
+    {"family": "New Hampshire public access rules", "method": "FIS 1600 public boat-access table", "result": "Confirms public boat-access program coverage for New Hampshire river sites and state-managed launches."},
+    {"family": "USGS", "method": "01144500 Connecticut River at West Lebanon", "result": "Provides direct Connecticut River discharge telemetry for the Upper Valley corridor, but no route-specific recreational cutoff was transferred."},
+    {"family": "Safety and camping review", "method": "Cold-water, wind, dam, private-bank and camping screen", "result": "Routes carry explicit PFD, dam/bridge, cold-water, fast-rise, private-shoreline and nearby-basecamp controls. Primitive camps and established campgrounds are referenced only where designated."}
+  ],
+  "sources": ["https://connecticutriverpaddlerstrail.org/?page_id=418", "https://connecticutriverpaddlerstrail.org/?page_id=19", "https://gc.nh.gov/rules/state_agencies/fis1600.html", "https://waterdata.usgs.gov/monitoring-location/USGS-01144500/", "https://commons.wikimedia.org/wiki/File:ConnecticuttRiverNearColebrook.jpg"],
+  "thresholdEvidence": {"model": "not transferred", "strength": "none", "reachApplicability": "Direct telemetry and access/camping evidence are available, but this pass found no authoritative numeric recreational cutoff for these Upper Valley endpoint pairs. Routes remain planning-only rather than inventing a score band."},
+  "endpointAudit": {"routeCount": 5, "endpointCount": 10, "bySeverity": {"ok": 0, "review": 10, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "Coordinates come from the Paddlers Trail linked map pins; verify current ramps, parking, carry paths, overnight rules and river conditions."},
+  "validation": ["Route-data typecheck passed.", "Focused Connecticut River route tests passed.", "Canonical route-scoped geometries generated for all five routes.", "Full route, safety and gallery audits passed."],
+  "pending": ["Find route-specific recreational flow guidance and complete current manager/closure review before converting any card to scored status or deployment."]
+}

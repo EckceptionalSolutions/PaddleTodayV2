@@ -1,19 +1,104 @@
 {
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
-  "routeIds": ["salt-river-water-users-goldfield", "salt-river-goldfield-phon-d", "salt-river-phon-d-granite-reef"],
-  "sourceAttempts": [
-    {"family": "HikeArizona", "method": "Lower Salt River access, mileage and flow guide", "result": "Documents the Water Users, Goldfield, Phon D. Sutton and Granite Reef sequence, river-mile spacing, public parking, the 12-mile corridor and a 500 cfs minimum / 1,000 cfs desired planning band."},
-    {"family": "Tonto National Forest", "method": "Mesa Ranger District recreation map and fee-site records", "result": "Confirms the named Lower Salt recreation sites, Tonto National Forest management, day-use posture and pass requirements."},
-    {"family": "Saguaro Lake Guest Ranch", "method": "Current tubing and launch information", "result": "Confirms active permitted commercial access immediately below Stewart Mountain Dam and current seasonal water-use expectations."},
-    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 09502000 below Stewart Mountain Dam supplies direct, high-data-rate Salt River discharge telemetry for the entire selected corridor."},
-    {"family": "Hydrography / endpoint audit", "method": "NHD named-flowline and water-entry checks", "result": "All six refined river-entry endpoints audit OK after access-site pins were moved to the mapped NHD water-entry edge."},
-    {"family": "Hazard and access review", "method": "Dam, low-water, heat, crowding and closure screen", "result": "The early Class II riffle, shallow channels, dam exclusion zones, heat, heavy summer use, Granite Reef slow water and closure notices remain explicit release checks."}
+  "routeIds": [
+    "salt-river-water-users-goldfield",
+    "salt-river-goldfield-phon-d",
+    "salt-river-phon-d-granite-reef",
+    "salt-river-water-users-phon-d",
+    "salt-river-goldfield-granite-reef",
+    "salt-river-water-users-granite-reef",
+    "salt-river-water-users-blue-point",
+    "salt-river-blue-point-goldfield",
+    "salt-river-blue-point-phon-d",
+    "salt-river-blue-point-granite-reef"
   ],
-  "sources": ["https://hikearizona.com/decoder.php?ZTN=20324", "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3817498.pdf", "https://www.saguarolakeranch.com/tubing", "https://waterdata.usgs.gov/az/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=09502000", "https://www.topozone.com/arizona/maricopa-az/locale/water-users-recreation-site/", "https://topoquest.com/place/arizona/locale/goldfield-recreation-site/41704", "https://geographic.org/geographic_names/usaname.php?fid=usageo_28&uni=32852", "https://topoquest.com/place/arizona/locale/granite-reef-recreation-site/29492"],
-  "thresholdEvidence": {"station": "09502000", "metric": "discharge_cfs", "source": "https://hikearizona.com/decoder.php?ZTN=20324", "minimum": 500, "idealReference": 1000, "idealMaximum": 1000, "maximum": 1000, "model": "two-sided", "strength": "community", "reachApplicability": "Water Users to Granite Reef on the Lower Salt below Stewart Mountain Dam. HikeArizona recommends 500 cfs as a minimum and 1,000 cfs as desired at the Lower Salt/Blue Point gauge; verify live release telemetry, trend, heat, weather, closures and crowding."},
-  "endpointAudit": {"artifacts": ["tmp/salt-river-water-users-goldfield-coordinate.json", "tmp/salt-river-goldfield-phon-d-coordinate.json", "tmp/salt-river-phon-d-granite-reef-coordinate.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 6, "review": 0, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All six endpoints are refined river-entry anchors at the named public recreation sites and audit OK against the mapped Salt River flowline."},
-  "validation": ["Route-data typecheck passed.", "Focused Arizona Lower Salt and Verde route safety tests passed.", "Canonical geometries generated for all three Salt routes; all six refined endpoints audit OK.", "Canonical geometry audit passed with 2,161 of 2,174 route assets matched and 48 state assets present under the 32 MiB route and state caps.", "Full route data audit passed for 2,275 inventory routes (1,218 scored), and the full route safety audit returned 0 issues.", "Production build passed with 2,581 static pages and included the three Arizona Lower Salt routes."],
-  "pending": ["Confirm current Tonto Pass and recreation-site access, Stewart Mountain release trend, heat, weather, crowding, dam exclusion zones, shallow riffles and Granite Reef closure status before launch; no deployment has been performed."]
+  "sourceAttempts": [
+    {
+      "family": "HikeArizona",
+      "method": "Lower Salt River access, mileage and flow guide",
+      "result": "Documents the Water Users, Pebble Beach/Blue Point, Goldfield, Coon Bluff, Phon D. Sutton and Granite Reef sequence, river-mile spacing, public parking, the 12-mile corridor and a 500 cfs minimum / 1,000 cfs desired planning band."
+    },
+    {
+      "family": "Tonto National Forest",
+      "method": "Mesa Ranger District recreation map and fee-site records",
+      "result": "Confirms the named Lower Salt recreation sites, Tonto National Forest management, day-use posture and pass requirements."
+    },
+    {
+      "family": "Saguaro Lake Guest Ranch",
+      "method": "Current tubing and launch information",
+      "result": "Confirms active permitted commercial access immediately below Stewart Mountain Dam and current seasonal water-use expectations."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 09502000 below Stewart Mountain Dam supplies direct, high-data-rate Salt River discharge telemetry for the entire selected corridor."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline and water-entry checks",
+      "result": "All twenty endpoints for the ten segment and combined reaches audit against the mapped Salt River flowline; the Blue Point additions use the documented public Pebble Beach / Blue Point river entry and preserve the existing recreation-site anchors."
+    },
+    {
+      "family": "Hazard and access review",
+      "method": "Dam, low-water, heat, crowding and closure screen",
+      "result": "The early Class II riffle, shallow channels, dam exclusion zones, heat, heavy summer use, Granite Reef slow water and closure notices remain explicit release checks."
+    }
+  ],
+  "sources": [
+    "https://hikearizona.com/decoder.php?ZTN=20324",
+    "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3817498.pdf",
+    "https://www.saguarolakeranch.com/tubing",
+    "https://waterdata.usgs.gov/az/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=09502000",
+    "https://www.topozone.com/arizona/maricopa-az/locale/water-users-recreation-site/",
+    "https://topoquest.com/place/arizona/locale/goldfield-recreation-site/41704",
+    "https://geographic.org/geographic_names/usaname.php?fid=usageo_28&uni=32852",
+    "https://topoquest.com/place/arizona/locale/granite-reef-recreation-site/29492",
+    "https://www.riverbrain.com/accesses/539"
+  ],
+  "thresholdEvidence": {
+    "station": "09502000",
+    "metric": "discharge_cfs",
+    "source": "https://hikearizona.com/decoder.php?ZTN=20324",
+    "minimum": 500,
+    "idealReference": 1000,
+    "idealMaximum": 1000,
+    "maximum": 1000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Water Users to Granite Reef on the Lower Salt below Stewart Mountain Dam. HikeArizona recommends 500 cfs as a minimum and 1,000 cfs as desired at the Lower Salt/Blue Point gauge; verify live release telemetry, trend, heat, weather, closures and crowding."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/salt-river-water-users-goldfield-coordinate.json",
+      "tmp/salt-river-goldfield-phon-d-coordinate.json",
+      "tmp/salt-river-phon-d-granite-reef-coordinate.json",
+      "tmp/salt-river-water-users-phon-d-coordinate.json",
+      "tmp/salt-river-goldfield-granite-reef-coordinate.json",
+      "tmp/salt-river-water-users-granite-reef-coordinate.json"
+    ],
+    "routeCount": 10,
+    "endpointCount": 20,
+    "bySeverity": {
+      "ok": 20,
+      "review": 0,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All twenty endpoints are refined river-entry anchors at the named public recreation sites; combined routes reuse the documented Water Users, Blue Point, Goldfield, Phon D. Sutton and Granite Reef access chain."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Arizona Lower Salt and Verde route safety tests passed.",
+    "Canonical geometries generated for all ten Salt routes; all twenty refined endpoints audit against the named Salt River corridor.",
+    "Canonical geometry audit passed with 2,293 of 2,306 route assets matched and 48 state assets present.",
+    "Full route data audit passed for 2,407 inventory routes (1,347 scored), and the full route safety audit returned 0 issues.",
+    "The four Blue Point routes use HikeArizona mileposts (2.5) and RiverBrain public-entry coordinates, with Goldfield, Phon D. Sutton and Granite Reef as documented downstream anchors.",
+    "The full Water Users-to-Granite Reef reach uses a reviewed stitched sample from the three approved segment centerlines because the single full-route named query did not return a usable match."
+  ],
+  "pending": [
+    "Confirm current Tonto Pass and recreation-site access, Stewart Mountain release trend, heat, weather, crowding, dam exclusion zones, shallow riffles and Granite Reef closure status before launch; no deployment has been performed."
+  ]
 }

@@ -1,0 +1,116 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "american-river-upper-sunrise-harrington",
+    "american-river-sailor-bar-howe",
+    "american-river-harrington-howe",
+    "american-river-upper-sunrise-watt",
+    "american-river-upper-sunrise-howe",
+    "american-river-sailor-bar-upper-sunrise"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "California State Parks Division of Boating and Waterways",
+      "method": "American River boating facilities and boating trail guide",
+      "result": "Lists Sailor Bar / Illinois, Upper Sunrise and Harrington as public launches, publishes Lower American travel-time tables, and documents the Nimbus Dam exclusion and cold/fast-water safety context."
+    },
+    {
+      "family": "Sacramento County Regional Parks",
+      "method": "Sunrise Recreation Area page and Upper Sunrise map",
+      "result": "Confirms the Upper Sunrise car-top boat launch, year-round sunrise-to-sunset operation, parking fees and public Parkway management."
+    },
+    {
+      "family": "Wilderness Portal / USGS",
+      "method": "Lower American route flow notes and station 11446500",
+      "result": "Provides the direct Fair Oaks gauge relationship and the catalogâ€™s 1,400â€“3,100 cfs comfortable planning band with 5,000 cfs review ceiling."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline route geometry generation",
+      "result": "Generated endpoint-bounded canonical geometry for Upper Sunrise to Harrington."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated canonical geometry for the full Sailor Bar-to-Howe Parkway reach with Harrington and Watt as intermediate public accesses."
+    },
+    {
+      "family": "California State Parks / Sacramento County",
+      "method": "Lower American access-chain expansion",
+      "result": "Confirms Harrington, Watt Avenue, Howe Avenue, Upper Sunrise and Sailor Bar as public Parkway facilities suitable for distinct downstream day reaches; intermediate bail-outs retained."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated and endpoint-audited canonical geometry for Harrington–Howe, Upper Sunrise–Watt and Upper Sunrise–Howe."
+    },
+    {
+      "family": "Raft Rentals",
+      "method": "Sailor Bar to Sunrise commercial float listing",
+      "result": "Lists Sailor Bar to Sunrise as a recurring Lower American float option, supporting demand for the short public-launch pairing; treat the approximately two-mile distance as a planning estimate and verify current commercial and Parkway access conditions."
+    }
+  ],
+  "sources": [
+    "https://dbw.parks.ca.gov/?page_id=29488",
+    "https://dbw.parks.ca.gov/BoatingFacilities/Body-of-Water/American%20River",
+    "https://regionalparks.saccounty.gov/us/en/parks/american-river-parkway/sunrise-recreation-area--upper-and-lower.html",
+    "https://regionalparks.saccounty.gov/Parks/Documents/Upper_Sunrise_Map.pdf",
+    "https://www.wildernessportal.com/routes/american-lower-american",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-11446500/",
+    "https://raftrentals.com/"
+  ],
+  "thresholdEvidence": {
+    "station": "11446500",
+    "metric": "discharge_cfs",
+    "source": "https://www.wildernessportal.com/routes/american-lower-american",
+    "minimum": 1400,
+    "idealReference": 1400,
+    "idealMaximum": 3100,
+    "maximum": 5000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Lower American Parkway from Sailor Bar through Harrington and Watt to Howe Avenue. State Parks publishes the access chain and travel times; verify Fair Oaks telemetry, salmon restrictions and Nimbus exclusion."
+  },
+  "endpointEvidence": {
+    "putIn": {
+      "name": "Upper Sunrise Recreation Area car-top launch",
+      "latitude": 38.6319,
+      "longitude": -121.2356,
+      "source": "Sacramento County Upper Sunrise map / California State Parks facility listing"
+    },
+    "takeOut": {
+      "name": "Howe Avenue BLF",
+      "latitude": 38.56025,
+      "longitude": -121.40931,
+      "source": "California State Parks American River boating facilities"
+    }
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "private_banks",
+      "dam"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use Parkway route; use separately permitted campgrounds or lodging and stay outside the Nimbus Dam exclusion zone."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Route data audit passed with the new route scored.",
+    "Canonical endpoint-bounded geometry generated and geometry audit passed.",
+    "Catalog completeness and gallery tests passed using approved American River context imagery.",
+    "Full Sailor Bar-to-Howe route added with documented Harrington and Watt intermediate accesses.",
+    "Three additional Lower American public-access pairings passed route-data, safety and endpoint-bounded geometry checks.",
+    "Each pairing retains the direct Fair Oaks gauge, established scoring band, Nimbus exclusion, cold-water and day-use camping controls.",
+    "Sailor Bar to Upper Sunrise added as a distinct approximately two-mile public-launch practice reach; California State Parks lists both launches and local commercial guidance documents the pairing.",
+    "Full validation after Sailor Bar to Upper Sunrise: route audit 2,407 inventory routes, geometry audit 2,293/2,306 matched, safety audit 0 issues across 1,347 scored routes, and production build 2,725 pages."
+  ],
+  "pending": [
+    "Confirm current Parkway hours, fees, salmon-spawning restrictions, gauge trend, release conditions and water temperature before launch."
+  ]
+}

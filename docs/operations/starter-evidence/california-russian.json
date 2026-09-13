@@ -1,19 +1,128 @@
 {
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
-  "routeIds": ["russian-river-forestville-steelhead", "russian-river-steelhead-sunset", "russian-river-forestville-sunset"],
-  "sourceAttempts": [
-    {"family": "California State Parks", "method": "Russian River boating-facility directory", "result": "Confirmed Sunset Beach River Access is public boating access on the Russian River and identified the manager contact."},
-    {"family": "Sonoma County Regional Parks", "method": "Current Russian River recreation and access pages", "result": "Confirmed Forestville River Access, Steelhead Beach and Sunset Beach are active public paddling destinations with seasonal launch, parking, shuttle and life-jacket rules."},
-    {"family": "California Creeks", "method": "Russian River below Healdsburg route guide", "result": "Publishes the Healdsburg-to-Forestville Class I corridor and a 300–1,500 cfs canoe/kayak planning band tied to the Healdsburg gauge."},
-    {"family": "USGS", "method": "Station metadata and current observations", "result": "USGS 11464000 Russian River near Healdsburg supplies direct discharge telemetry and long-term records for the selected Forestville reach."},
-    {"family": "California OSPR / hydrography", "method": "Protected-site coordinate PDF and NHD endpoint audit", "result": "Supplied public-site coordinate anchors; all six route endpoints audit with no suspicious or failed result, with waterbody-aware reviews retained."},
-    {"family": "Hazard and access review", "method": "Seasonal dam, low-water, water-quality and closure screen", "result": "Recorded seasonal structures, shallow bars, storm debris, cold water, heat, crowds, private banks and water-quality notices as release checks."}
+  "routeIds": [
+    "russian-river-forestville-steelhead",
+    "russian-river-steelhead-sunset",
+    "russian-river-forestville-sunset",
+    "russian-river-healdsburg-wohler",
+    "russian-river-healdsburg-mirabel",
+    "russian-river-healdsburg-steelhead",
+    "russian-river-wohler-steelhead",
+    "russian-river-healdsburg-sunset",
+    "russian-river-healdsburg-forestville",
+    "russian-river-wohler-mirabel",
+    "russian-river-wohler-sunset",
+    "russian-river-mirabel-steelhead",
+    "russian-river-mirabel-sunset",
+    "russian-river-mirabel-forestville",
+    "russian-river-wohler-forestville",
+    "russian-river-steelhead-guerneville",
+    "russian-river-forestville-guerneville"
   ],
-  "sources": ["https://dbw.parks.ca.gov/BoatingFacilities/Body-of-Water/Russian%20River", "https://parks.sonomacounty.ca.gov/splash-into-summer-at-spring-lake-russian-river", "https://www.cacreeks.com/russn-hl.htm", "https://waterdata.usgs.gov/monitoring-location/USGS-11464000/", "https://filelib.wildlife.ca.gov/public/OSPR/WebMapping/GRP/RussianRiverGRP/Final_Russian_River_GRP_11_25_19_Protected.pdf"],
-  "thresholdEvidence": {"station": "11464000", "metric": "discharge_cfs", "source": "https://www.cacreeks.com/russn-hl.htm", "minimum": 300, "idealReference": 800, "idealMaximum": 1500, "maximum": 1500, "model": "two-sided", "strength": "community", "reachApplicability": "Healdsburg-to-Forestville Russian River reach, including the selected Forestville, Steelhead and Sunset sections. California Creeks publishes 300–1,500 cfs for canoes and kayaks; verify live telemetry, trend, rainfall, water quality, seasonal structures and access."},
-  "endpointAudit": {"artifacts": ["tmp/russian-river-forestville-steelhead-coordinate.json", "tmp/russian-river-steelhead-sunset-coordinate.json", "tmp/russian-river-forestville-sunset-coordinate.json"], "routeCount": 3, "endpointCount": 6, "bySeverity": {"ok": 2, "review": 4, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All six endpoints are public beach or river-entry anchors with no suspicious or failed result. Four waterbody-aware reviews are expected because the public access area is broader than the NHD flowline."},
-  "validation": ["Route-data typecheck passed.", "Focused California Russian and American route safety tests passed.", "Canonical geometries generated for all three Russian River routes; endpoint audits returned two OK and four expected waterbody-aware reviews with no severe findings.", "Canonical geometry audit passed with 2,164 of 2,177 route assets matched and 48 state assets present under the 32 MiB route and state caps.", "Full route data audit passed for 2,278 inventory routes (1,221 scored), and the full route safety audit returned 0 issues.", "Production build passed with 2,585 static pages and included the three California Russian River routes."],
-  "pending": ["Confirm current Sonoma County access, parking, water-quality, seasonal dam, river stage, rainfall, heat, debris and shuttle conditions before launch; no deployment has been performed."]
+  "sourceAttempts": [
+    {
+      "family": "California State Parks",
+      "method": "Russian River boating-facility directory",
+      "result": "Confirmed Sunset Beach River Access is public boating access on the Russian River and identified the manager contact."
+    },
+    {
+      "family": "Sonoma County Regional Parks",
+      "method": "Current Russian River recreation and access pages",
+      "result": "Confirmed Forestville River Access, Steelhead Beach and Sunset Beach are active public paddling destinations with seasonal launch, parking, shuttle and life-jacket rules."
+    },
+    {
+      "family": "California Creeks",
+      "method": "Russian River below Healdsburg route guide",
+      "result": "Publishes the Healdsburg-to-Forestville Class I corridor and a 300–1,500 cfs canoe/kayak planning band tied to the Healdsburg gauge."
+    },
+    {
+      "family": "USGS",
+      "method": "Station metadata and current observations",
+      "result": "USGS 11464000 Russian River near Healdsburg supplies direct discharge telemetry and long-term records for the selected Forestville reach."
+    },
+    {
+      "family": "California OSPR / hydrography",
+      "method": "Protected-site coordinate PDF and NHD endpoint audit",
+      "result": "Supplied public-site coordinate anchors; all six route endpoints audit with no suspicious or failed result, with waterbody-aware reviews retained."
+    },
+    {
+      "family": "Hazard and access review",
+      "method": "Seasonal dam, low-water, water-quality and closure screen",
+      "result": "Recorded seasonal structures, shallow bars, storm debris, cold water, heat, crowds, private banks and water-quality notices as release checks."
+    },
+    {
+      "family": "California Creeks / Sonoma County access expansion",
+      "method": "Healdsburg-to-Forestville reach and current Wohler/Mirabel access review",
+      "result": "California Creeks publishes the exact 8.9-mile Healdsburg-to-Wohler and 10.1-mile Healdsburg-to-Mirabel variants, Class I character and 300–1,500 cfs canoe/kayak band. Sonoma County documents Wohler as a seasonal permit/key ramp for small craft; the Mirabel endpoint follows the mapped river-edge park/dam anchor and remains subject to current landing and gate checks."
+    },
+    {
+      "family": "Russian River House local itinerary",
+      "method": "Healdsburg Memorial Beach to Steelhead Beach route listing",
+      "result": "Documents a six-mile casual Healdsburg Memorial Beach to Steelhead Beach paddle, corroborating the public endpoint pairing and demand. The catalog uses an approximately eight-mile conservative river-distance label because the stored water-entry coordinates are 7.5 miles apart in a straight line; verify the route distance and current seasonal conditions locally."
+    },
+    {
+      "family": "California State Parks and Sonoma County access expansion",
+      "method": "Public access chain combinations",
+      "result": "The public Healdsburg, Wohler, Mirabel, Steelhead, Forestville and Sunset access chain supports eight additional distinct contiguous day itineraries. A reversed Steelhead–Forestville pair was rejected as a duplicate; intermediate public beaches are retained as bailouts and no route crosses a dam or assumes private-bank access."
+    },
+    {
+      "family": "California State Parks / Sonoma County Guerneville access",
+      "method": "Lower Russian River public launch and direct-gauge review",
+      "result": "Guerneville River Park provides a documented non-motorized public boat launch. Two popular Steelhead/Forestville-to-Guerneville routes were added using direct USGS 11467000 at Hacienda Bridge and a conservative community planning band; Johnson's Beach and downstream structures remain outside the cataloged take-out."
+    }
+  ],
+  "sources": [
+    "https://dbw.parks.ca.gov/BoatingFacilities/Body-of-Water/Russian%20River",
+    "https://parks.sonomacounty.ca.gov/splash-into-summer-at-spring-lake-russian-river",
+    "https://www.cacreeks.com/russn-hl.htm",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-11464000/",
+    "https://filelib.wildlife.ca.gov/public/OSPR/WebMapping/GRP/RussianRiverGRP/Final_Russian_River_GRP_11_25_19_Protected.pdf",
+    "https://russianriverhouse.wordpress.com/2011/08/03/kayaking-routes-russian-river-guerneville-monte-rio/"
+  ],
+  "thresholdEvidence": {
+    "station": "11464000",
+    "metric": "discharge_cfs",
+    "source": "https://www.cacreeks.com/russn-hl.htm",
+    "minimum": 300,
+    "idealReference": 800,
+    "idealMaximum": 1500,
+    "maximum": 1500,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Healdsburg-to-Forestville Russian River reach, including the selected Forestville, Steelhead and Sunset sections. California Creeks publishes 300–1,500 cfs for canoes and kayaks; verify live telemetry, trend, rainfall, water quality, seasonal structures and access."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/russian-river-forestville-steelhead-coordinate.json",
+      "tmp/russian-river-steelhead-sunset-coordinate.json",
+      "tmp/russian-river-forestville-sunset-coordinate.json",
+      "docs/route-coordinate-river-audit.json"
+    ],
+    "routeCount": 17,
+    "endpointCount": 34,
+    "bySeverity": {
+      "ok": 4,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "The expanded set retains waterbody-aware Healdsburg reviews plus public Steelhead, Wohler, Mirabel, Forestville, Sunset and Guerneville endpoint checks; the reversed Steelhead–Forestville duplicate was removed and no suspicious or failed result is accepted. Wohler remains seasonal and permit-controlled."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused California Russian and American route safety tests passed.",
+    "Canonical geometry generation passed for both Healdsburg variants; the full coordinate audit returned two OK take-outs and two expected waterbody-aware Healdsburg reviews with no suspicious or failed result.",
+    "Full route data and safety audits passed with zero new issues.",
+    "Added Healdsburg Memorial Beach to Steelhead Beach as a scored six-mile route with the direct Healdsburg gauge and existing seasonal-dam, water-quality, safety and day-use camping controls.",
+    "Corrected the Healdsburg-to-Steelhead label to approximately 8.0 miles after the route audit found the source six-mile label shorter than the 7.5-mile straight-line endpoint distance.",
+    "Added Wohler Bridge to Steelhead Beach as a scored approximately two-mile seasonal-access reach, retaining the direct Healdsburg gauge, seasonal permit/key and portage controls, water-quality checks and day-use camping posture.",
+    "Added eight additional scored contiguous combinations across the documented Healdsburg-to-Forestville public access chain, with intermediate bailouts and the same 300–1,500 cfs planning band.",
+    "Added two scored lower-Russian routes from Steelhead and Forestville to Guerneville River Park, using direct USGS 11467000 and explicit seasonal-structure and downstream-dam controls."
+  ],
+  "pending": [
+    "Confirm current Sonoma County access, parking, water-quality, seasonal dam, river stage, rainfall, heat, debris and shuttle conditions before launch; no deployment has been performed."
+  ]
 }

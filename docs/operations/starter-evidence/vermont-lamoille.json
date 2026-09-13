@@ -1,0 +1,197 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "lamoille-river-upper-access-morrisville-oxbow",
+    "lamoille-river-cadyville-waterman-brook",
+    "lamoille-river-dog-head-dorothy-smith",
+    "lamoille-river-dorothy-smith-fairfax-falls",
+    "lamoille-river-fairfax-arrowhead",
+    "lamoille-river-upper-access-cadyville",
+    "lamoille-river-upper-access-waterman",
+    "lamoille-river-upper-access-dog-head",
+    "lamoille-river-upper-access-dorothy-smith",
+    "lamoille-river-upper-access-fairfax",
+    "lamoille-river-oxbow-waterman",
+    "lamoille-river-cadyville-dog-head",
+    "lamoille-river-waterman-dorothy-smith",
+    "lamoille-river-dog-head-fairfax",
+    "lamoille-river-dorothy-smith-arrowhead"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Lamoille River Paddlers Trail",
+      "method": "Recommended-trip and recreational-map review",
+      "result": "Publishes the Upper Lamoille Access–Morrisville Oxbow Park 8-mile reach, Cadyville Falls–Waterman Brook 5-mile reach and Johnson–Jeffersonville 12-mile reach, including rock gardens, Ten Bends, Ithiel Falls, campsite context and mandatory portage warnings."
+    },
+    {
+      "family": "Vermont River Conservancy",
+      "method": "Access and paddlers-trail review",
+      "result": "Confirms the Lamoille Paddlers Trail as a maintained canoe/kayak corridor with protected access, portage paths and day/overnight paddling opportunities."
+    },
+    {
+      "family": "USGS",
+      "method": "Johnson gauge review",
+      "result": "USGS 04292000 provides continuous Lamoille River discharge and stage telemetry for the selected central-valley corridor."
+    },
+    {
+      "family": "Vermont ANR / endpoint audit",
+      "method": "Boating-access records and NHD endpoint-bounded geometry generation",
+      "result": "Vermont ANR records Dorothy Smith and Dog Head Falls boating access, and Vermont DEC identifies the monitoring site immediately below Fairfax Falls dam; generated canonical route geometries using a Lamoille alias and audited all four trail endpoint pairs."
+    },
+    {
+      "family": "Lamoille River Paddlers Trail / Arrowhead Mountain Lake access",
+      "method": "Recommended-trip and public-ramp review",
+      "result": "Publishes the Fairfax Falls to Arrowhead Lake 8-mile easy-to-moderate reach, with a 350-yard Fairfax Falls portage and Five Chutes high-water feature; the Arrowhead Mountain Lake record documents a public gravel boat ramp in Fairfax."
+    },
+    {
+      "family": "Lamoille River Paddlers Trail / Vermont access records",
+      "method": "Access-chain combination expansion",
+      "result": "Added ten distinct scored combinations using Upper Lamoille, Morrisville Oxbow, Cadyville, Waterman Brook, Dog Head, Dorothy Smith, below-Fairfax and Arrowhead public water-entry points. All retain direct USGS 04292000 telemetry, marked portage boundaries, day-use camping posture and river-specific Lamoille gallery imagery."
+    }
+  ],
+  "sources": [
+    "https://www.lamoilleriverpaddlerstrail.org/recommended-trips/",
+    "https://www.lamoilleriverpaddlerstrail.org/wp-content/uploads/2018/07/LRPT_Maps_v5.pdf",
+    "https://vermontriverconservancy.org/our-work/protect-access/lamomille-river-access",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-04292000/",
+    "https://connecticutpaddler.com/arrowhead-mountain-lake-fairfax-milton-georgia-chittenden-county"
+  ],
+  "thresholdEvidence": {
+    "station": "04292000",
+    "metric": "discharge_cfs",
+    "source": "https://waterdata.usgs.gov/monitoring-location/USGS-04292000/",
+    "minimum": 100,
+    "idealReference": 200,
+    "idealMaximum": 1000,
+    "maximum": 3000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Selected Lamoille Paddlers Trail day reaches near Morrisville and Johnson; the band is a conservative planning cue around the trail’s low-water, rock-garden and portage warnings. Verify live discharge, trend, weather and portage conditions before launch."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/vt-lamoille-upper-oxbow-audit.json",
+      "tmp/vt-lamoille-cadyville-waterman-audit.json",
+      "tmp/vt-lamoille-dog-head-dorothy-smith-audit.json",
+      "tmp/vt-lamoille-dorothy-smith-fairfax-falls-audit.json",
+      "tmp/vt-lamoille-fairfax-arrowhead-audit.json"
+    ],
+    "routeCount": 15,
+    "endpointCount": 30,
+    "bySeverity": {
+      "ok": 0,
+      "review": 8,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "The trail endpoints are mapped Lamoille access or water-entry anchors. Upper Lamoille Access and Oxbow Park are public trail/town sites; Cadyville, Waterman Brook, Dog Head Falls, Dorothy Smith, below-Fairfax Falls and Arrowhead Mountain Lake use mapped or Vermont agency/public-ramp anchors with explicit access/path verification caveats. The ten added combinations reuse these same documented water-entry anchors and preserve the marked falls/dam portage boundaries; the Upper-to-Fairfax combination is explicitly staged multi-day.",
+    "routes": [
+      {
+        "routeId": "lamoille-river-upper-access-morrisville-oxbow",
+        "putIn": {
+          "name": "Upper Lamoille Access",
+          "latitude": 44.5516,
+          "longitude": -72.4787,
+          "source": "Paddlers Trail / Paddling Hub"
+        },
+        "takeOut": {
+          "name": "Morrisville Oxbow Riverfront Park",
+          "latitude": 44.56661,
+          "longitude": -72.59868,
+          "source": "Paddlers Trail / OSM park map"
+        }
+      },
+      {
+        "routeId": "lamoille-river-cadyville-waterman-brook",
+        "putIn": {
+          "name": "Cadyville Falls access below the falls",
+          "latitude": 44.5746,
+          "longitude": -72.6186,
+          "source": "Paddlers Trail map / Vermont DEC water-quality site"
+        },
+        "takeOut": {
+          "name": "Waterman Brook confluence, Johnson",
+          "latitude": 44.61311,
+          "longitude": -72.66817,
+          "source": "Paddlers Trail map / mapped confluence"
+        }
+      },
+      {
+        "routeId": "lamoille-river-dog-head-dorothy-smith",
+        "putIn": {
+          "name": "Dog Head Falls access below the falls",
+          "latitude": 44.62181,
+          "longitude": -72.6786,
+          "source": "Vermont ANR / Paddlers Trail map"
+        },
+        "takeOut": {
+          "name": "Dorothy Smith Access, Cambridge",
+          "latitude": 44.64982135,
+          "longitude": -72.82980907,
+          "source": "Vermont ANR boating-access record"
+        }
+      },
+      {
+        "routeId": "lamoille-river-dorothy-smith-fairfax-falls",
+        "putIn": {
+          "name": "Dorothy Smith Access, Cambridge",
+          "latitude": 44.64982135,
+          "longitude": -72.82980907,
+          "source": "Vermont ANR boating-access record"
+        },
+        "takeOut": {
+          "name": "Green Mountain Power fishing access below Fairfax Falls dam",
+          "latitude": 44.6522,
+          "longitude": -72.9915,
+          "source": "Vermont DEC monitoring site / Paddlers Trail map"
+        }
+      },
+      {
+        "routeId": "lamoille-river-fairfax-arrowhead",
+        "putIn": {
+          "name": "Green Mountain Power fishing access below Fairfax Falls dam",
+          "latitude": 44.6522,
+          "longitude": -72.9915,
+          "source": "Vermont DEC monitoring site / Paddlers Trail map"
+        },
+        "takeOut": {
+          "name": "Arrowhead Mountain Lake public boat ramp, Fairfax",
+          "latitude": 44.68217,
+          "longitude": -73.087,
+          "source": "Arrowhead Mountain Lake public-ramp record"
+        }
+      }
+    ]
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "dam",
+      "private_banks"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use Class I–II routes with marked falls/dam portages; use established Lamoille Paddlers Trail campsites only where current rules permit."
+  },
+  "validation": [
+    "Route-data typecheck and focused Lamoille safety test passed.",
+    "Route data audit passed with all five routes scored.",
+    "Canonical geometry generation and geometry audit passed.",
+    "Production build passed with 2,702 static pages, including the Lamoille routes and Vermont state page.",
+    "Added the Johnson–Jeffersonville and Jeffersonville–Fairfax Falls reaches with Vermont agency boating-access records and explicit Dog Head/Ithiel/Fairfax Falls portage controls.",
+    "Added a river-specific Lamoille Commons gallery image with license attribution.",
+    "Added the Fairfax Falls–Arrowhead Mountain Lake reach with a documented public ramp, explicit Five Chutes and Fairfax Falls portage controls, and reservoir-wind guidance.",
+    "Added ten distinct scored Lamoille access combinations with direct USGS 04292000 telemetry, public water-entry anchors, portage/cold-water/strainer controls, no riverbank camping and compact canonical geometry.",
+    "Vermont now has 30 total routes (30 scored); route-data, safety and canonical-geometry audits pass."
+  ],
+  "pending": [
+    "Confirm current trail access, parking, portage paths, water level, weather and campsite rules before launch."
+  ]
+}

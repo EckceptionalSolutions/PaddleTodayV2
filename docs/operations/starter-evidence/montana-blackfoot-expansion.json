@@ -1,0 +1,321 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "blackfoot-river-whitaker-johnsrud",
+    "blackfoot-river-russell-gates-roundup",
+    "blackfoot-river-johnsrud-weigh-station",
+    "blackfoot-river-roundup-johnsrud",
+    "blackfoot-river-scotty-brown-johnsrud",
+    "blackfoot-river-k-ross-toole-johnsrud",
+    "blackfoot-river-k-ross-toole-angevine",
+    "blackfoot-river-angevine-marco-flats",
+    "blackfoot-river-marco-flats-weigh-station",
+    "blackfoot-river-k-ross-toole-marco-flats",
+    "blackfoot-river-angevine-johnsrud",
+    "blackfoot-river-marco-flats-johnsrud",
+    "blackfoot-river-k-ross-toole-weigh-station",
+    "blackfoot-river-angevine-weigh-station",
+    "blackfoot-river-russell-gates-scotty-brown",
+    "blackfoot-river-russell-gates-whitaker",
+    "blackfoot-river-russell-gates-johnsrud",
+    "blackfoot-river-scotty-brown-roundup",
+    "blackfoot-river-scotty-brown-whitaker",
+    "blackfoot-river-roundup-whitaker",
+    "blackfoot-river-russell-gates-weigh-station",
+    "blackfoot-river-scotty-brown-weigh-station",
+    "blackfoot-river-roundup-weigh-station",
+    "blackfoot-river-whitaker-weigh-station"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Montana FWP",
+      "method": "Blackfoot River recreation page and float map",
+      "result": "Identifies the Blackfoot as a popular river, documents public access sequence, private-shoreline rules and the designated-site-only camping exception."
+    },
+    {
+      "family": "Riverbeta / Montana FWP",
+      "method": "Russell Gates to Roundup reach and Fishing Access Site records",
+      "result": "Documents the 11.1-mile Class II–III first Recreation Corridor leg, Bear Creek and Roundup Rapids, and the public Russell Gates and Roundup endpoints."
+    },
+    {
+      "family": "Visit Montana / Montana FWP",
+      "method": "Johnsrud Park and Whitaker Bridge Fishing Access Site records",
+      "result": "Confirms public day-use water access at both endpoints and the access-site coordinates."
+    },
+    {
+      "family": "Riverbeta / USGS",
+      "method": "Whitaker-to-Johnsrud reach guide and station 12340000",
+      "result": "Provides the named popular lower corridor and a community 1,500â€“4,000 cfs planning band on direct telemetry."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated canonical geometry for the public Whitaker-to-Johnsrud route."
+    },
+    {
+      "family": "Riverbeta / Montana FWP",
+      "method": "Johnsrud Park to Weigh Station reach guide",
+      "result": "Documents the 10.6-mile Class I–II lower Blackfoot float, public Johnsrud and Weigh Station endpoints, 350 low / 500–5,000 prime / 7,500 high community flow zones, and possible BNSF bridge-work closure below the take-out."
+    },
+    {
+      "family": "Riverbeta / Montana FWP",
+      "method": "Roundup to Johnsrud Park reach guide",
+      "result": "Documents the 16.4-mile Class II–III corridor run, Roundup and Thibodeau rapids, public endpoints, intermediate access options and 1,050 low / 1,500–6,000 prime / 9,000 high community flow zones."
+    },
+    {
+      "family": "Riverbeta / Montana FWP",
+      "method": "Scotty Brown Bridge to Johnsrud Park reach guide",
+      "result": "Documents the 31.6-mile Class II–III Blackfoot Recreation Corridor expedition, exact public endpoint coordinates, named rapids, eight designated float-in campsites, and 1,050 low / 1,500–6,000 prime / 9,000 high community flow zones on direct USGS 12340000."
+    },
+    {
+      "family": "Montana FWP / Riverbeta",
+      "method": "Blackfoot access map and Johnsrud Park to Weigh Station reach guide",
+      "result": "Documents K. Ross Toole, Angevine, Marco Flats and Weigh Station as public lower-corridor access sites that break the popular Johnsrud–Weigh Station float into shorter day trips; the same direct USGS 12340000 lower-corridor planning band is applied conservatively."
+    },
+    {
+      "family": "Montana FWP / Riverbeta scored corridor expansion",
+      "method": "Russell Gates–Scotty–Roundup–Whitaker–Johnsrud access-chain combinations",
+      "result": "The FWP corridor map and Riverbeta reach guides support ten additional distinct forward combinations, including staged routes to Weigh Station. New routes retain direct USGS 12340000 scoring, named FWP water access, designated-site camping and current closure controls."
+    }
+  ],
+  "sources": [
+    "https://fwp.mt.gov/activities/boating/blackfoot-river",
+    "https://fwp.mt.gov/binaries/content/assets/fwp/activities/river-recreation/blackfoot-river-float-map.pdf",
+    "https://data.visitmt.com/data/site/3768",
+    "https://data.visitmt.com/data/site/3851",
+    "https://riverbeta.app/blackfoot-river/blackfoot-whitaker-to-johnsrud",
+    "https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=12340000",
+    "https://riverbeta.app/blackfoot-river/blackfoot-johnsrud-to-weigh-station",
+    "https://riverbeta.app/blackfoot-river/blackfoot-roundup-to-johnsrud",
+    "https://riverbeta.app/blackfoot-river/blackfoot-scotty-brown-to-johnsrud"
+  ],
+  "thresholdEvidence": {
+    "station": "12340000",
+    "metric": "discharge_cfs",
+    "source": "https://riverbeta.app/blackfoot-river/blackfoot-russell-gates-to-roundup",
+    "minimum": 1050,
+    "idealReference": 1500,
+    "idealMaximum": 6000,
+    "maximum": 9000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Russell Gates to Roundup upper Blackfoot Recreation Corridor. Riverbeta identifies community flow zones; verify telemetry, trend, wood, rapid features and closure conditions before launch."
+  },
+  "endpointEvidence": {
+    "note": "The Riverbeta reach guide and FWP corridor records document both public water-entry sites; Scotty Brown parking is limited and county-road parking is prohibited near the bridge.",
+    "routes": [
+      {
+        "routeId": "blackfoot-river-scotty-brown-johnsrud",
+        "putIn": {
+          "longitude": -113.2402,
+          "latitude": 47.0184,
+          "name": "Scotty Brown Bridge Fishing Access Site"
+        },
+        "takeOut": {
+          "longitude": -113.6785,
+          "latitude": 46.9164,
+          "name": "Johnsrud Park Fishing Access Site"
+        }
+      }
+    ]
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "private_banks",
+      "wildlife"
+    ],
+    "campingClassification": "on_route_campsite",
+    "posture": "The new Scotty Brown-to-Johnsrud route is a long Class II–III expedition with eight designated FWP float-in campsites. Camping requires permit or reservation; private shoreline is not public access."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Route data audit passed with the new route scored.",
+    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "A river-specific Blackfoot image from Bob Wick/BLM via Wikimedia Commons is assigned to the new riverId.",
+    "Russell Gates-to-Roundup endpoint-bounded geometry generated and the route-specific flow zones recorded.",
+    "Johnsrud–Weigh Station and Roundup–Johnsrud route-scoped geometries generated, compacted and endpoint-audited.",
+    "Both new routes include direct-gauge scoring bands, safety hazards, public water-entry access and FWP camping/closure guidance.",
+    "The Scotty Brown-to-Johnsrud route uses direct USGS 12340000 telemetry, source-published flow zones, exact public endpoints and designated campsite controls; canonical geometry was generated with a 162 ft maximum endpoint snap.",
+    "Four additional short lower-corridor routes use FWP-mapped public water-entry sites and the direct USGS 12340000 planning band; each includes route-specific access, safety, camping and shuttle notes.",
+    "Five additional lower-corridor pairings complete Montana’s 20-route scored target; all use the FWP-mapped access chain, direct USGS 12340000 telemetry and documented corridor camping controls.",
+    "The 30-route scored-first pass adds ten distinct forward Blackfoot combinations through Russell Gates, Scotty Brown, Roundup, Whitaker, Johnsrud and Weigh Station. The FWP map and Riverbeta corridor guidance support direct USGS 12340000 scoring, public water-entry controls and designated float-in camping; staged labels are used for the two routes longer than 35 miles."
+  ],
+  "pending": [
+    "Confirm live gauge stage/trend, FWP access and camping notices, weather, cold-water conditions and wood immediately before launch."
+  ],
+  "additionalEndpointEvidence": [
+    {
+      "routeId": "blackfoot-river-johnsrud-weigh-station",
+      "putIn": {
+        "name": "Johnsrud Park Fishing Access Site",
+        "latitude": 46.9164,
+        "longitude": -113.6785,
+        "source": "Riverbeta / Montana FWP"
+      },
+      "takeOut": {
+        "name": "Weigh Station Fishing Access Site",
+        "latitude": 46.8797,
+        "longitude": -113.8525,
+        "source": "Riverbeta / Montana FWP"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-roundup-johnsrud",
+      "putIn": {
+        "name": "Roundup Fishing Access Site",
+        "latitude": 46.9459853555,
+        "longitude": -113.433107293,
+        "source": "Riverbeta / Montana FWP"
+      },
+      "takeOut": {
+        "name": "Johnsrud Park Fishing Access Site",
+        "latitude": 46.9164,
+        "longitude": -113.6785,
+        "source": "Riverbeta / Montana FWP"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-k-ross-toole-johnsrud",
+      "putIn": {
+        "name": "K. Ross Toole Fishing Access Site",
+        "latitude": 46.90393,
+        "longitude": -113.72594,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Johnsrud Park Fishing Access Site",
+        "latitude": 46.9164,
+        "longitude": -113.6785,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-k-ross-toole-angevine",
+      "putIn": {
+        "name": "K. Ross Toole Fishing Access Site",
+        "latitude": 46.90393,
+        "longitude": -113.72594,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Angevine Fishing Access Site",
+        "latitude": 46.89659,
+        "longitude": -113.76427,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-angevine-marco-flats",
+      "putIn": {
+        "name": "Angevine Fishing Access Site",
+        "latitude": 46.89659,
+        "longitude": -113.76427,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Marco Flats Fishing Access Site",
+        "latitude": 46.89104,
+        "longitude": -113.82732,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-marco-flats-weigh-station",
+      "putIn": {
+        "name": "Marco Flats Fishing Access Site",
+        "latitude": 46.89104,
+        "longitude": -113.82732,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Weigh Station Fishing Access Site",
+        "latitude": 46.8797,
+        "longitude": -113.8525,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-k-ross-toole-marco-flats",
+      "putIn": {
+        "name": "K. Ross Toole Fishing Access Site",
+        "latitude": 46.90393,
+        "longitude": -113.72594,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Marco Flats Fishing Access Site",
+        "latitude": 46.89104,
+        "longitude": -113.82732,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-angevine-johnsrud",
+      "putIn": {
+        "name": "Angevine Fishing Access Site",
+        "latitude": 46.89659,
+        "longitude": -113.76427,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Johnsrud Park Fishing Access Site",
+        "latitude": 46.9164,
+        "longitude": -113.6785,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-marco-flats-johnsrud",
+      "putIn": {
+        "name": "Marco Flats Fishing Access Site",
+        "latitude": 46.89104,
+        "longitude": -113.82732,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Johnsrud Park Fishing Access Site",
+        "latitude": 46.9164,
+        "longitude": -113.6785,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-k-ross-toole-weigh-station",
+      "putIn": {
+        "name": "K. Ross Toole Fishing Access Site",
+        "latitude": 46.90393,
+        "longitude": -113.72594,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Weigh Station Fishing Access Site",
+        "latitude": 46.8797,
+        "longitude": -113.8525,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    },
+    {
+      "routeId": "blackfoot-river-angevine-weigh-station",
+      "putIn": {
+        "name": "Angevine Fishing Access Site",
+        "latitude": 46.89659,
+        "longitude": -113.76427,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      },
+      "takeOut": {
+        "name": "Weigh Station Fishing Access Site",
+        "latitude": 46.8797,
+        "longitude": -113.8525,
+        "source": "Montana FWP Blackfoot access map / Riverbeta"
+      }
+    }
+  ]
+}

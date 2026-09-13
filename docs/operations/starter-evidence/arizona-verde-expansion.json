@@ -1,0 +1,103 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "verde-river-lower-tapco-skidmore",
+    "verde-river-tuzigoot-skidmore"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Friends of the Verde River",
+      "method": "River access points map",
+      "result": "Documents Lower TAPCO, Tuzigoot, Highway 89A and Skidmore public access sequence."
+    },
+    {
+      "family": "U.S. Forest Service",
+      "method": "Verde River Paddle Trail guide",
+      "result": "Confirms the named RAPs, river-mile sequence, carry and diversion cautions."
+    },
+    {
+      "family": "RiverScout / USGS",
+      "method": "Verde conditions guide and station 09504000",
+      "result": "Provides the established 300–2,000 cfs Clarkdale planning band on direct telemetry."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded geometry generation",
+      "result": "Generated canonical geometry for the full Lower TAPCO-to-Skidmore access-chain route."
+    }
+  ],
+  "sources": [
+    "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+    "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
+    "https://riverscout.app/rivers/arizona/verde-river",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09504000/"
+  ],
+  "thresholdEvidence": {
+    "station": "09504000",
+    "metric": "discharge_cfs",
+    "source": "https://riverscout.app/rivers/arizona/verde-river",
+    "minimum": 300,
+    "idealReference": 300,
+    "idealMaximum": 2000,
+    "maximum": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Upper Verde Valley Lower TAPCO through Skidmore corridor. Verify telemetry, flash-flood forecast, diversion notices, strainers and private-bank constraints."
+  },
+  "endpointEvidence": {
+    "routes": [
+      {
+        "putIn": {
+          "name": "Lower TAPCO RAP",
+          "latitude": 34.796181,
+          "longitude": -112.041017,
+          "source": "Friends of the Verde / USFS access map"
+        },
+        "takeOut": {
+          "name": "Skidmore RAP",
+          "latitude": 34.69268085,
+          "longitude": -111.96223986,
+          "source": "Friends of the Verde / USFS access map"
+        }
+      },
+      {
+        "routeId": "verde-river-tuzigoot-skidmore",
+        "putIn": {
+          "latitude": 34.7672379,
+          "longitude": -112.0398467,
+          "name": "Tuzigoot Bridge"
+        },
+        "takeOut": {
+          "latitude": 34.69268085,
+          "longitude": -111.96223986,
+          "name": "Skidmore RAP"
+        }
+      }
+    ],
+    "note": "Both endpoints are named public access sites from the Friends of the Verde/USFS access sequence."
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "private_banks",
+      "dam"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use route; use separately permitted campgrounds and do not camp on private banks or at roadside RAPs."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Route data audit passed with the new route scored.",
+    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "Existing approved Verde River context imagery applies to the same riverId.",
+    "The Tuzigoot-to-Skidmore combined reach reuses documented public endpoints and the existing 300–2,000 cfs direct-gauge planning band."
+  ],
+  "pending": [
+    "Confirm Forest Service road and carry conditions, access legality, stage trend, thunderstorms and diversion status before launch."
+  ]
+}

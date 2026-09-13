@@ -36,8 +36,10 @@ import { floridaSuwanneeRoutes } from './routes/florida-suwannee';
 import { oregonRiverTripDetails } from './trip-details/oregon';
 import { southCarolinaRiverTripDetails } from './trip-details/south-carolina';
 import { southCarolinaEdistoRiverTripDetails } from './trip-details/south-carolina-edisto';
+import { southCarolinaEdistoMainRiverTripDetails } from './trip-details/south-carolina-edisto-main';
 import { southCarolinaLittlePeeDeeRiverTripDetails } from './trip-details/south-carolina-little-pee-dee';
 import { southCarolinaSaludaRiverTripDetails } from './trip-details/south-carolina-saluda';
+import { southCarolinaBroadRoutes } from './routes/south-carolina-broad';
 import { alabamaHatchetRiverTripDetails } from './trip-details/alabama-hatchet';
 import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
 import { arizonaVerdeRoutes } from './routes/arizona-verde';
@@ -48,29 +50,59 @@ import { californiaSouthForkAmericanRoutes } from './routes/california-american'
 import { connecticutFarmingtonRoutes } from './routes/connecticut-farmington';
 import { connecticutHousatonicRoutes } from './routes/connecticut-housatonic';
 import { connecticutQuinebaugRoutes } from './routes/connecticut-quinebaug';
+import { connecticutWillimanticRoutes } from './routes/connecticut-willimantic';
 import { louisianaBogueChittoRoutes } from './routes/louisiana-bogue-chitto';
-import { massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
+import { louisianaBayouTecheRoutes } from './routes/louisiana-bayou-teche';
+import { massachusettsDeerfieldDrywayRoutes, massachusettsDeerfieldLowerRoutes, massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
+import { allMassachusettsMillersRoutes } from './routes/massachusetts-millers';
 import { mississippiBlackCreekRoutes } from './routes/mississippi-black-creek';
 import { montanaClarkForkRoutes } from './routes/montana-clark-fork';
+import { montanaBlackfootRoutes } from './routes/montana-blackfoot';
 import { nevadaColoradoBlackCanyonRoutes } from './routes/nevada-colorado-black-canyon';
 import { nevadaTruckeeRoutes } from './routes/nevada-truckee';
+import { nevadaTruckeeExpansionRoutes } from './routes/nevada-truckee-expansion';
+import { nevadaCarsonRoutes } from './routes/nevada-carson';
+import { nevadaWalkerRoutes } from './routes/nevada-walker';
+import { arizonaGilaBoxRoutes } from './routes/arizona-gila-box';
 import { newHampshirePemigewassetRoutes } from './routes/new-hampshire-pemigewasset';
 import { newHampshireContoocookRoutes } from './routes/new-hampshire-contoocook';
+import { newHampshireSacoRoutes } from './routes/new-hampshire-saco';
+import { newHampshireAndroscogginRoutes } from './routes/new-hampshire-androscoggin';
+import { newHampshireConnecticutRiverRoutes } from './routes/new-hampshire-connecticut-river';
 import { newMexicoRioGrandeRoutes } from './routes/new-mexico-rio-grande';
+import { newMexicoRioChamaRoutes } from './routes/new-mexico-rio-chama';
+import { newMexicoAlbuquerqueRioGrandeRoutes } from './routes/new-mexico-albuquerque-rio-grande';
+import { newMexicoBosqueRioGrandeRoutes } from './routes/new-mexico-bosque-rio-grande';
+import { newMexicoSanJuanRoutes } from './routes/new-mexico-san-juan';
+import { newMexicoAnimasRoutes } from './routes/new-mexico-animas';
 import { rhodeIslandWoodPawcatuckRoutes } from './routes/rhode-island-wood-pawcatuck';
+import { rhodeIslandWoonasquatucketRoutes } from './routes/rhode-island-woonasquatucket';
 import { vermontWinooskiRoutes } from './routes/vermont-winooski';
 import { vermontMissisquoiRoutes } from './routes/vermont-missisquoi';
+import { vermontLamoilleRoutes } from './routes/vermont-lamoille';
+import { vermontWinooskiLowerRoutes } from './routes/vermont-winooski-lower';
 import { washingtonYakimaCanyonRoutes } from './routes/washington-yakima-canyon';
 import { washingtonSnoqualmieRoutes } from './routes/washington-snoqualmie';
+import { washingtonSkagitRoutes } from './routes/washington-skagit';
+import { washingtonStillaguamishRoutes } from './routes/washington-stillaguamish';
+import { washingtonSpokaneRoutes } from './routes/washington-spokane';
 import { alabamaFlintRoutes } from './routes/alabama-flint';
+import { alabamaSipseyRoutes } from './routes/alabama-sipsey';
+import { alabamaSipseyLowerRoutes } from './routes/alabama-sipsey-lower';
+import { alabamaMulberryRoutes } from './routes/alabama-mulberry';
+import { alabamaLocustForkRoutes } from './routes/alabama-locust-fork';
+import { alabamaCoosaRoutes } from './routes/alabama-coosa';
+import { alabamaTallapoosaRoutes } from './routes/alabama-tallapoosa';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...floridaRiverTripDetails,
   ...oregonRiverTripDetails,
   ...southCarolinaRiverTripDetails,
   ...southCarolinaEdistoRiverTripDetails,
+  ...southCarolinaEdistoMainRiverTripDetails,
   ...southCarolinaLittlePeeDeeRiverTripDetails,
   ...southCarolinaSaludaRiverTripDetails,
+  ...Object.fromEntries(southCarolinaBroadRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...alabamaHatchetRiverTripDetails,
   ...Object.fromEntries(alabamaCahabaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(arizonaVerdeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
@@ -81,23 +113,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...Object.fromEntries(connecticutFarmingtonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(connecticutHousatonicRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(connecticutQuinebaugRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(connecticutWillimanticRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(floridaIchetuckneeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(floridaSuwanneeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(louisianaBogueChittoRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(louisianaBayouTecheRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(massachusettsDeerfieldRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsDeerfieldDrywayRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsDeerfieldLowerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(allMassachusettsMillersRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(mississippiBlackCreekRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(montanaClarkForkRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(montanaBlackfootRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaColoradoBlackCanyonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaTruckeeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(nevadaTruckeeExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(nevadaCarsonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(nevadaWalkerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(arizonaGilaBoxRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newHampshirePemigewassetRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newHampshireContoocookRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireSacoRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireAndroscogginRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireConnecticutRiverRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newMexicoRioGrandeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newMexicoRioChamaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newMexicoAlbuquerqueRioGrandeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newMexicoBosqueRioGrandeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newMexicoSanJuanRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newMexicoAnimasRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(rhodeIslandWoodPawcatuckRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(rhodeIslandWoonasquatucketRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(vermontWinooskiRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(vermontMissisquoiRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(vermontLamoilleRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(vermontWinooskiLowerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(washingtonYakimaCanyonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(washingtonSnoqualmieRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(washingtonSkagitRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(washingtonStillaguamishRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(washingtonSpokaneRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaFlintRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaSipseyRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaSipseyLowerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaMulberryRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaLocustForkRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaCoosaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaTallapoosaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...arkansasRiverTripDetails,
   ...coloradoRiverTripDetails,
   ...illinoisRiverTripDetails,

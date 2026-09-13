@@ -4,10 +4,10 @@ import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('California Russian River starter routes', () => {
-  it('keeps three scored Forestville sections on the direct Healdsburg gauge', () => {
-    expect(californiaRussianRoutes).toHaveLength(3);
+  it('keeps seventeen scored Russian River sections with direct upper and lower gauges', () => {
+    expect(californiaRussianRoutes).toHaveLength(17);
     expect(californiaRussianRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
-    expect(californiaRussianRoutes.every(route => route.gaugeSource?.siteId === '11464000')).toBe(true);
+    expect(californiaRussianRoutes.every(route => ['11464000', '11467000'].includes(route.gaugeSource?.siteId ?? ''))).toBe(true);
     expect(californiaRussianRoutes.every(route => rivers.some(candidate => candidate.id === route.id))).toBe(true);
     expect(auditRouteSafety(californiaRussianRoutes)).toEqual([]);
   });

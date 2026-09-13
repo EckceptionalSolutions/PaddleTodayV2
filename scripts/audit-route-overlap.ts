@@ -35,6 +35,7 @@ interface AuditRoute {
   endpointEnd: Point;
   straightLineMi: number;
   source: 'accessPoints' | 'putInTakeOut';
+  consolidation?: River['consolidation'];
 }
 
 interface Finding {
@@ -172,6 +173,7 @@ function buildRoute(route: River): AuditRoute | null {
     endpointEnd: pointSet.points[pointSet.points.length - 1],
     straightLineMi: distanceMiles(pointSet.points[0], pointSet.points[pointSet.points.length - 1]),
     source: pointSet.source,
+    consolidation: enriched.consolidation,
   };
 
   auditRoute.segments = pointSet.points.slice(1).map((end, index) => {
@@ -304,8 +306,16 @@ function addFinding(findings: Finding[], finding: Finding) {
   findings.push(finding);
 }
 
+function isIntentionalAlternative(a: AuditRoute, b: AuditRoute) {
+  return (
+    (a.consolidation?.role === 'alternative' && a.consolidation.relatedRouteIds.includes(b.id)) ||
+    (b.consolidation?.role === 'alternative' && b.consolidation.relatedRouteIds.includes(a.id))
+  );
+}
+
 function analyzePair(a: AuditRoute, b: AuditRoute, findings: Finding[]) {
   if (!hasSharedScope(a, b)) return;
+  if (isIntentionalAlternative(a, b)) return;
 
   const endpointMatches = endpointDistances(a, b).filter((entry) => entry.miles <= endpointMatchMi);
   const sharedEndpoints = endpointDistances(a, b).filter((entry) => entry.miles <= sharedEndpointMi);

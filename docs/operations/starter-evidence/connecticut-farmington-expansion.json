@@ -1,0 +1,93 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "farmington-river-riverton-181-318",
+    "farmington-river-riverton-lake-mcdonough",
+    "farmington-river-peoples-forest-lake-mcdonough"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Farmington River Coordinating Committee",
+      "method": "Wild & Scenic recreation access map",
+      "result": "Documents the Route 20, People\u00e2\u20ac\u2122s State Forest and Route 181/318 access chain used for the route."
+    },
+    {
+      "family": "Town of Riverton",
+      "method": "Canoeing and kayaking guidance",
+      "result": "Provides same-corridor flow guidance used by the established Farmington scoring profile."
+    },
+    {
+      "family": "USGS",
+      "method": "Station 01186000 monitoring location",
+      "result": "Provides direct West Branch Farmington telemetry at Riverton."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline route geometry generation",
+      "result": "Generated endpoint-bounded canonical geometry for Riverton to Route 181/318."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded route geometry generation",
+      "result": "Generated canonical geometry for the Riverton-to-Lake McDonough reach with People\u2019s State Forest and Route 181/318 as intermediate access points."
+    }
+  ],
+  "sources": [
+    "https://uploads-ssl.webflow.com/60be5c593edf8d9a6066a398/60d4eb52a81056715b382435_FarmRivMapInsidePRINT2020.pdf",
+    "https://www.rivertonct.com/product/canoeing-kayaking",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01186000/"
+  ],
+  "thresholdEvidence": {
+    "station": "01186000",
+    "metric": "discharge_cfs",
+    "source": "https://www.rivertonct.com/product/canoeing-kayaking",
+    "minimum": 250,
+    "idealReference": 360,
+    "idealMaximum": 980,
+    "maximum": 980,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Upper Farmington Riverton through People\u2019s State Forest and Route 181/318 to Lake McDonough boundary. Verify direct telemetry, releases, portages and dam exclusion zones."
+  },
+  "endpointEvidence": {
+    "putIn": {
+      "name": "Route 20 Riverton access",
+      "latitude": 41.959027,
+      "longitude": -73.018056,
+      "source": "Farmington Wild & Scenic access map"
+    },
+    "takeOut": {
+      "name": "Lake McDonough access",
+      "latitude": 41.867099,
+      "longitude": -72.954567,
+      "source": "Farmington Wild & Scenic access map"
+    }
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "cold_water",
+      "whitewater",
+      "dam",
+      "private_banks"
+    ],
+    "campingClassification": "none",
+    "posture": "Day-use reach; use separately permitted campgrounds and do not camp at bridge, forest or private-bank access points."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Farmington safety test passed.",
+    "Route data audit passed with the new route scored.",
+    "Endpoint-bounded canonical geometry generated.",
+    "Full Riverton-to-Lake McDonough route added with documented intermediate access points.",
+    "People\u2019s State Forest-to-Lake McDonough route added as the documented intermediate-access combination."
+  ],
+  "pending": [
+    "Confirm bridge-side parking, current access rules, dam boundaries, release notices, stage trend and weather before launch."
+  ]
+}

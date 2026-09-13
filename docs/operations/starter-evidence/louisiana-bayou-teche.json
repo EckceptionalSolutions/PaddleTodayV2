@@ -1,0 +1,20 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["bayou-teche-port-barre-leonville", "bayou-teche-leonville-arnaudville", "bayou-teche-arnaudville-poche-bridge", "bayou-teche-poche-bridge-breaux-bridge", "bayou-teche-breaux-bridge-parks", "bayou-teche-parks-st-martinville", "bayou-teche-st-martinville-loreauville", "bayou-teche-loreauville-new-iberia", "bayou-teche-new-iberia-jeanerette", "bayou-teche-jeanerette-charenton", "bayou-teche-charenton-baldwin", "bayou-teche-baldwin-franklin", "bayou-teche-franklin-centerville", "bayou-teche-charenton-centerville", "bayou-teche-port-barre-arnaudville", "bayou-teche-port-barre-poche-bridge", "bayou-teche-port-barre-breaux-bridge", "bayou-teche-leonville-poche-bridge", "bayou-teche-leonville-breaux-bridge", "bayou-teche-arnaudville-breaux-bridge", "bayou-teche-arnaudville-parks", "bayou-teche-poche-bridge-parks", "bayou-teche-breaux-bridge-st-martinville", "bayou-teche-parks-loreauville"],
+  "sourceAttempts": [
+    {"family": "TECHE Project dock locations", "result": "The official National Paddle Trail page lists 15 established docks, public addresses and river-mile positions from Port Barre through Patterson. Fourteen direct dock-pair/combined itineraries plus ten additional contiguous combinations provide distinct town-to-town reaches from Port Barre through Centerville without inventing access points."},
+    {"family": "TECHE Project maps and overview", "result": "The project describes Bayou Teche as Louisiana's National Water Trail, provides parish maps with safety information, and identifies town-to-town trips generally in the 5–12 mile range."},
+    {"family": "Teche-Vermilion water-level dashboard", "result": "The basin commission links live USGS streamflow and stage readings at Port Barre, Arnaudville, Adeline Bridge near Jeanerette and Keystone, supporting a monitored corridor conditions check."},
+    {"family": "USGS", "result": "USGS 07385450 at Bayou Teche at Port Barre is the direct continuous discharge station used for route scoring; downstream readings should be cross-checked when available."},
+    {"family": "Access coordinate review", "result": "Coordinates are map-level water-entry anchors geocoded from the official dock addresses and marked for field verification of floating-dock edge, parking and carry path."},
+    {"family": "River-specific gallery", "result": "Selected Bayou Teche.jpg, a same-river St. Landry Parish photograph by Shane K. Bernard via Wikimedia Commons under CC BY-SA 3.0."}
+  ],
+  "thresholdEvidence": {"station": "07385450", "metric": "discharge_cfs", "minimum": 200, "model": "minimum-only", "strength": "official", "source": "https://teche-vermilion.gov/teche-vermilion-water-levels/", "reachApplicability": "A conservative screening floor for the monitored Bayou Teche corridor. No official universal runnable band was published; depth, wind-driven reversals, obstructions, traffic, rain and local dock conditions remain decisive."},
+  "endpointAudit": {"routeCount": 24, "endpointCount": 48, "bySeverity": {"ok": 0, "review": 48, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/la-bayou-teche-endpoint-audit.json"]},
+  "validation": ["Focused Bayou Teche route safety test passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data, safety and gallery audits passed.", "Production build passed."],
+  "pending": ["Recheck live USGS trend, parish dock hours, event closures, parking, water quality, St. Martinville portage, and current lock/levee notices before deployment."]
+}
+
+

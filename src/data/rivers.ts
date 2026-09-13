@@ -39,8 +39,10 @@ import { floridaSuwanneeRoutes } from './routes/florida-suwannee';
 import { oregonRoutes } from './routes/oregon';
 import { southCarolinaRoutes } from './routes/south-carolina';
 import { southCarolinaEdistoRoutes } from './routes/south-carolina-edisto';
+import { southCarolinaEdistoMainRoutes } from './routes/south-carolina-edisto-main';
 import { southCarolinaLittlePeeDeeRoutes } from './routes/south-carolina-little-pee-dee';
 import { southCarolinaSaludaRoutes } from './routes/south-carolina-saluda';
+import { southCarolinaBroadRoutes } from './routes/south-carolina-broad';
 import { alabamaHatchetRoutes } from './routes/alabama-hatchet';
 import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
 import { arizonaVerdeRoutes } from './routes/arizona-verde';
@@ -51,27 +53,57 @@ import { californiaSouthForkAmericanRoutes } from './routes/california-american'
 import { connecticutFarmingtonRoutes } from './routes/connecticut-farmington';
 import { connecticutHousatonicRoutes } from './routes/connecticut-housatonic';
 import { connecticutQuinebaugRoutes } from './routes/connecticut-quinebaug';
+import { connecticutWillimanticRoutes } from './routes/connecticut-willimantic';
 import { louisianaBogueChittoRoutes } from './routes/louisiana-bogue-chitto';
-import { massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
+import { louisianaBayouTecheRoutes } from './routes/louisiana-bayou-teche';
+import { massachusettsDeerfieldDrywayRoutes, massachusettsDeerfieldLowerRoutes, massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
+import { allMassachusettsMillersRoutes } from './routes/massachusetts-millers';
 import { mississippiBlackCreekRoutes } from './routes/mississippi-black-creek';
 import { montanaClarkForkRoutes } from './routes/montana-clark-fork';
+import { montanaBlackfootRoutes } from './routes/montana-blackfoot';
 import { nevadaColoradoBlackCanyonRoutes } from './routes/nevada-colorado-black-canyon';
 import { nevadaTruckeeRoutes } from './routes/nevada-truckee';
+import { nevadaTruckeeExpansionRoutes } from './routes/nevada-truckee-expansion';
+import { nevadaCarsonRoutes } from './routes/nevada-carson';
+import { nevadaWalkerRoutes } from './routes/nevada-walker';
+import { arizonaGilaBoxRoutes } from './routes/arizona-gila-box';
 import { newHampshirePemigewassetRoutes } from './routes/new-hampshire-pemigewasset';
 import { newHampshireContoocookRoutes } from './routes/new-hampshire-contoocook';
+import { newHampshireSacoRoutes } from './routes/new-hampshire-saco';
+import { newHampshireAndroscogginRoutes } from './routes/new-hampshire-androscoggin';
+import { newHampshireConnecticutRiverRoutes } from './routes/new-hampshire-connecticut-river';
 import { newMexicoRioGrandeRoutes } from './routes/new-mexico-rio-grande';
+import { newMexicoRioChamaRoutes } from './routes/new-mexico-rio-chama';
+import { newMexicoAlbuquerqueRioGrandeRoutes } from './routes/new-mexico-albuquerque-rio-grande';
+import { newMexicoBosqueRioGrandeRoutes } from './routes/new-mexico-bosque-rio-grande';
+import { newMexicoSanJuanRoutes } from './routes/new-mexico-san-juan';
+import { newMexicoAnimasRoutes } from './routes/new-mexico-animas';
 import { rhodeIslandWoodPawcatuckRoutes } from './routes/rhode-island-wood-pawcatuck';
+import { rhodeIslandWoonasquatucketRoutes } from './routes/rhode-island-woonasquatucket';
 import { vermontWinooskiRoutes } from './routes/vermont-winooski';
 import { vermontMissisquoiRoutes } from './routes/vermont-missisquoi';
+import { vermontLamoilleRoutes } from './routes/vermont-lamoille';
+import { vermontWinooskiLowerRoutes } from './routes/vermont-winooski-lower';
 import { washingtonYakimaCanyonRoutes } from './routes/washington-yakima-canyon';
 import { washingtonSnoqualmieRoutes } from './routes/washington-snoqualmie';
+import { washingtonSkagitRoutes } from './routes/washington-skagit';
+import { washingtonStillaguamishRoutes } from './routes/washington-stillaguamish';
+import { washingtonSpokaneRoutes } from './routes/washington-spokane';
 import { alabamaFlintRoutes } from './routes/alabama-flint';
+import { alabamaSipseyRoutes } from './routes/alabama-sipsey';
+import { alabamaSipseyLowerRoutes } from './routes/alabama-sipsey-lower';
+import { alabamaMulberryRoutes } from './routes/alabama-mulberry';
+import { alabamaLocustForkRoutes } from './routes/alabama-locust-fork';
+import { alabamaCoosaRoutes } from './routes/alabama-coosa';
+import { alabamaTallapoosaRoutes } from './routes/alabama-tallapoosa';
 
 const stateRoutes: River[] = [
   ...southCarolinaRoutes,
   ...southCarolinaEdistoRoutes,
+  ...southCarolinaEdistoMainRoutes,
   ...southCarolinaLittlePeeDeeRoutes,
   ...southCarolinaSaludaRoutes,
+  ...southCarolinaBroadRoutes,
   ...alabamaHatchetRoutes,
   ...alabamaCahabaRoutes,
   ...arizonaVerdeRoutes,
@@ -82,21 +114,51 @@ const stateRoutes: River[] = [
   ...connecticutFarmingtonRoutes,
   ...connecticutHousatonicRoutes,
   ...connecticutQuinebaugRoutes,
+  ...connecticutWillimanticRoutes,
   ...louisianaBogueChittoRoutes,
+  ...louisianaBayouTecheRoutes,
   ...massachusettsDeerfieldRoutes,
+  ...massachusettsDeerfieldDrywayRoutes,
+  ...massachusettsDeerfieldLowerRoutes,
+  ...allMassachusettsMillersRoutes,
   ...mississippiBlackCreekRoutes,
   ...montanaClarkForkRoutes,
+  ...montanaBlackfootRoutes,
   ...nevadaColoradoBlackCanyonRoutes,
   ...nevadaTruckeeRoutes,
+  ...nevadaTruckeeExpansionRoutes,
+  ...nevadaCarsonRoutes,
+  ...nevadaWalkerRoutes,
+  ...arizonaGilaBoxRoutes,
   ...newHampshirePemigewassetRoutes,
   ...newHampshireContoocookRoutes,
+  ...newHampshireSacoRoutes,
+  ...newHampshireAndroscogginRoutes,
+  ...newHampshireConnecticutRiverRoutes,
   ...newMexicoRioGrandeRoutes,
+  ...newMexicoRioChamaRoutes,
+  ...newMexicoAlbuquerqueRioGrandeRoutes,
+  ...newMexicoBosqueRioGrandeRoutes,
+  ...newMexicoSanJuanRoutes,
+  ...newMexicoAnimasRoutes,
   ...rhodeIslandWoodPawcatuckRoutes,
+  ...rhodeIslandWoonasquatucketRoutes,
   ...vermontWinooskiRoutes,
   ...vermontMissisquoiRoutes,
+  ...vermontLamoilleRoutes,
+  ...vermontWinooskiLowerRoutes,
   ...washingtonYakimaCanyonRoutes,
   ...washingtonSnoqualmieRoutes,
+  ...washingtonSkagitRoutes,
+  ...washingtonStillaguamishRoutes,
+  ...washingtonSpokaneRoutes,
   ...alabamaFlintRoutes,
+  ...alabamaSipseyRoutes,
+  ...alabamaSipseyLowerRoutes,
+  ...alabamaMulberryRoutes,
+  ...alabamaLocustForkRoutes,
+  ...alabamaCoosaRoutes,
+  ...alabamaTallapoosaRoutes,
   ...floridaRoutes,
   ...floridaIchetuckneeRoutes,
   ...floridaSuwanneeRoutes,
@@ -145,8 +207,10 @@ const routeBySlug = new Map(stateRoutes.map((route) => [route.slug, route]));
 const routeOrder = [
   ...southCarolinaRoutes.map(route => route.id),
   ...southCarolinaEdistoRoutes.map(route => route.id),
+  ...southCarolinaEdistoMainRoutes.map(route => route.id),
   ...southCarolinaLittlePeeDeeRoutes.map(route => route.id),
   ...southCarolinaSaludaRoutes.map(route => route.id),
+  ...southCarolinaBroadRoutes.map(route => route.id),
   ...alabamaHatchetRoutes.map(route => route.id),
   ...alabamaCahabaRoutes.map(route => route.id),
   ...arizonaVerdeRoutes.map(route => route.id),
@@ -157,21 +221,51 @@ const routeOrder = [
   ...connecticutFarmingtonRoutes.map(route => route.id),
   ...connecticutHousatonicRoutes.map(route => route.id),
   ...connecticutQuinebaugRoutes.map(route => route.id),
+  ...connecticutWillimanticRoutes.map(route => route.id),
   ...louisianaBogueChittoRoutes.map(route => route.id),
+  ...louisianaBayouTecheRoutes.map(route => route.id),
   ...massachusettsDeerfieldRoutes.map(route => route.id),
+  ...massachusettsDeerfieldDrywayRoutes.map(route => route.id),
+  ...massachusettsDeerfieldLowerRoutes.map(route => route.id),
+  ...allMassachusettsMillersRoutes.map(route => route.id),
   ...mississippiBlackCreekRoutes.map(route => route.id),
   ...montanaClarkForkRoutes.map(route => route.id),
+  ...montanaBlackfootRoutes.map(route => route.id),
   ...nevadaColoradoBlackCanyonRoutes.map(route => route.id),
   ...nevadaTruckeeRoutes.map(route => route.id),
+  ...nevadaTruckeeExpansionRoutes.map(route => route.id),
+  ...nevadaCarsonRoutes.map(route => route.id),
+  ...nevadaWalkerRoutes.map(route => route.id),
+  ...arizonaGilaBoxRoutes.map(route => route.id),
   ...newHampshirePemigewassetRoutes.map(route => route.id),
   ...newHampshireContoocookRoutes.map(route => route.id),
+  ...newHampshireSacoRoutes.map(route => route.id),
+  ...newHampshireAndroscogginRoutes.map(route => route.id),
+  ...newHampshireConnecticutRiverRoutes.map(route => route.id),
   ...newMexicoRioGrandeRoutes.map(route => route.id),
+  ...newMexicoRioChamaRoutes.map(route => route.id),
+  ...newMexicoAlbuquerqueRioGrandeRoutes.map(route => route.id),
+  ...newMexicoBosqueRioGrandeRoutes.map(route => route.id),
+  ...newMexicoSanJuanRoutes.map(route => route.id),
+  ...newMexicoAnimasRoutes.map(route => route.id),
   ...rhodeIslandWoodPawcatuckRoutes.map(route => route.id),
+  ...rhodeIslandWoonasquatucketRoutes.map(route => route.id),
   ...vermontWinooskiRoutes.map(route => route.id),
   ...vermontMissisquoiRoutes.map(route => route.id),
+  ...vermontLamoilleRoutes.map(route => route.id),
+  ...vermontWinooskiLowerRoutes.map(route => route.id),
   ...washingtonYakimaCanyonRoutes.map(route => route.id),
   ...washingtonSnoqualmieRoutes.map(route => route.id),
+  ...washingtonSkagitRoutes.map(route => route.id),
+  ...washingtonStillaguamishRoutes.map(route => route.id),
+  ...washingtonSpokaneRoutes.map(route => route.id),
   ...alabamaFlintRoutes.map(route => route.id),
+  ...alabamaSipseyRoutes.map(route => route.id),
+  ...alabamaSipseyLowerRoutes.map(route => route.id),
+  ...alabamaMulberryRoutes.map(route => route.id),
+  ...alabamaLocustForkRoutes.map(route => route.id),
+  ...alabamaCoosaRoutes.map(route => route.id),
+  ...alabamaTallapoosaRoutes.map(route => route.id),
   ...floridaRoutes.map((route) => route.id),
   ...floridaIchetuckneeRoutes.map((route) => route.id),
   ...floridaSuwanneeRoutes.map((route) => route.id),

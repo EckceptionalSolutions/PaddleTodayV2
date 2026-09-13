@@ -1,0 +1,99 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "black-creek-big-creek-janice",
+    "black-creek-old-highway-49-janice",
+    "black-creek-old-highway-49-cypress",
+    "black-creek-old-highway-49-fairley"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Seven Rivers Canoe Club",
+      "method": "Black Creek landing guide",
+      "result": "Documents Big Creek and Janice as public Forest Service landings and supports the upper corridor shuttle."
+    },
+    {
+      "family": "U.S. Forest Service",
+      "method": "Black Creek Wild and Scenic River recreation page",
+      "result": "Confirms the DeSoto National Forest recreation setting and managed public access context."
+    },
+    {
+      "family": "RiverScout / USGS",
+      "method": "Black Creek flow guide and station 02479130",
+      "result": "Ties the 200\u00e2\u20ac\u201c1,200 cfs community planning band to direct Brooklyn telemetry, with a 2,000 cfs caution ceiling."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD named-flowline route geometry generation",
+      "result": "Generated endpoint-bounded canonical geometry for Big Creek to Janice."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded route geometry generation",
+      "result": "Generated canonical geometry for the Old Highway 49-to-Janice reach using the documented public landing chain."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "NHD endpoint-bounded route geometry generation",
+      "result": "Generated canonical geometry for the Old Highway 49 to Cypress and Fairley public-landing combinations, retaining Janice and Cypress as intermediate access points."
+    }
+  ],
+  "sources": [
+    "https://www.sevenriverscanoe.com/black-creek",
+    "https://www.fs.usda.gov/recarea/mississippi/recarea/?recid=82488",
+    "https://riverscout.app/rivers/mississippi/black-creek",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02479130/"
+  ],
+  "thresholdEvidence": {
+    "station": "02479130",
+    "metric": "discharge_cfs",
+    "source": "https://riverscout.app/rivers/mississippi/black-creek",
+    "minimum": 200,
+    "idealReference": 200,
+    "idealMaximum": 1200,
+    "maximum": 2000,
+    "model": "two-sided",
+    "strength": "community",
+    "reachApplicability": "Black Creek Old Highway 49 through Janice corridor. Verify direct telemetry, trend, rainfall, strainers, sandbars and Forest Service access notices."
+  },
+  "endpointEvidence": {
+    "putIn": {
+      "name": "Old Highway 49 landing at Brooklyn",
+      "latitude": 31.05194,
+      "longitude": -89.20417,
+      "source": "Seven Rivers Black Creek landing guide"
+    },
+    "takeOut": {
+      "name": "Janice Landing Recreation Site",
+      "latitude": 30.99424,
+      "longitude": -89.05088,
+      "source": "Seven Rivers / Forest Service landing guide"
+    }
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": [
+      "low_water",
+      "strainers",
+      "fast_rise",
+      "flash_flood",
+      "wildlife",
+      "private_banks"
+    ],
+    "campingClassification": "sandbar_or_gravel_bar",
+    "posture": "Established or permitted Forest Service dispersed camping only; no private-bank camping or improvised access is implied."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Black Creek safety test passed.",
+    "Route data audit passed with the new route scored.",
+    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "Old Highway 49-to-Janice route added as a documented public-landing combination.",
+    "Two additional Old Highway 49 access-chain combinations added with public Forest Service endpoints and endpoint-bounded geometry."
+  ],
+  "pending": [
+    "Confirm gravel-road condition, parking, current Forest Service notices, stage trend, rain and wood before launch."
+  ]
+}

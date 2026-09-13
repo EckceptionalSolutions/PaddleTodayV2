@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-09-12",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "deerfield-river-monroe-bridge-dunbar",
+    "deerfield-river-wilcox-hollow-stillwater"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "American Whitewater",
+      "method": "Deerfield Dryway and #2 Dam Section reach pages",
+      "result": "Documents the 2.5-mile Monroe Bridge-to-Dunbar Dryway, its Class III–IV release-dependent character, and the eight-mile Class I–II Wilcox Hollow-to-Stillwater reach with public endpoint names and a mandatory No. 2 Station portage."
+    },
+    {
+      "family": "American Whitewater release and gauge correlations",
+      "method": "Dryway release agreement and Wilcox/Stillwater live flow correlation",
+      "result": "Publishes 900–1,100 cfs scheduled Dryway releases and a 400 cfs low-runnable / 20,000 cfs end-high-runnable correlation for USGS 01170000 on the lower reach."
+    },
+    {
+      "family": "USGS",
+      "method": "Stations 01168500 and 01170000",
+      "result": "Direct Deerfield telemetry is retained for both routes; the downstream Charlemont station is a timing/trend reference for the Dryway, while 01170000 is the direct gauge named for Wilcox-to-Stillwater."
+    },
+    {
+      "family": "Hydrography / endpoint audit",
+      "method": "Endpoint-bounded NHD geometry generation",
+      "result": "Generated canonical geometry assets for both reaches and retained the documented public water-entry endpoints."
+    }
+  ],
+  "sources": [
+    "https://www.americanwhitewater.org/content/River/view/river-detail/681/main",
+    "https://site-media.americanwhitewater.org/Document_523.pdf",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/3812/main",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01168500/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01170000/",
+    "https://massachusettspaddler.com/df8-sherman-dam-to-fife-brook-dam"
+  ],
+  "thresholdEvidence": {
+    "dryway": {
+      "station": "01168500",
+      "metric": "discharge_cfs",
+      "minimum": 700,
+      "idealReference": 900,
+      "idealMaximum": 1100,
+      "maximum": 1300,
+      "model": "two-sided",
+      "strength": "official",
+      "reachApplicability": "Scheduled Monroe Bridge whitewater release; Class IV reach remains planning-only under the catalog publication gate."
+    },
+    "wilcoxStillwater": {
+      "station": "01170000",
+      "metric": "discharge_cfs",
+      "minimum": 400,
+      "idealReference": 400,
+      "idealMaximum": 20000,
+      "maximum": 20000,
+      "model": "two-sided",
+      "strength": "community",
+      "reachApplicability": "American Whitewater #2 Dam Section, Wilcox Hollow to Stillwater Bridge; verify local wood, bridge and dam conditions."
+    }
+  },
+  "endpointEvidence": {
+    "routes": [
+      {
+        "routeId": "deerfield-river-monroe-bridge-dunbar",
+        "putIn": { "name": "Deerfield Station No. 5 / Monroe Bridge launch", "latitude": 42.721936, "longitude": -72.938817, "source": "American Whitewater" },
+        "takeOut": { "name": "Dunbar Brook Picnic Area take-out", "latitude": 42.696041, "longitude": -72.95311, "source": "American Whitewater" }
+      },
+      {
+        "routeId": "deerfield-river-wilcox-hollow-stillwater",
+        "putIn": { "name": "Wilcox Hollow public access", "latitude": 42.591012, "longitude": -72.730603, "source": "American Whitewater" },
+        "takeOut": { "name": "Stillwater Bridge public access", "latitude": 42.52660077, "longitude": -72.63244013, "source": "American Whitewater" }
+      }
+    ],
+    "note": "Endpoints are water-entry-edge anchors from American Whitewater’s documented access chain; the lower reach preserves an intermediate No. 2 Station land-portage boundary.",
+    "routeCount": 2,
+    "endpointCount": 4
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": ["whitewater", "cold_water", "dam", "strainers", "fast_rise", "private_banks"],
+    "campingClassification": "none",
+    "posture": "Day-use routes. Do not camp at utility facilities, access points, portage areas or private banks; use separately permitted lodging or campgrounds."
+  },
+  "validation": [
+    "Route-data typecheck and focused Massachusetts Deerfield tests passed.",
+    "Route data, safety and gallery audits passed.",
+    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
+    "The Dryway route is discoverable planning-only because the catalog gate excludes published Class IV reaches from same-day scoring.",
+    "The Wilcox Hollow-to-Stillwater route remains scored with direct USGS 01170000 telemetry and the published lower-runnable threshold."
+  ],
+  "pending": [
+    "Recheck release schedule, access legality, dam notices, wood and weather immediately before travel."
+  ]
+}
