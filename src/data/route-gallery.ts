@@ -7219,6 +7219,54 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'USGS public domain; clearly labeled direct same-creek context',
     },
   ],
+  'catawba-river-fort-mill-rock-hill': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
+  'catawba-river-rock-hill-landsford': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
+  'catawba-river-landsford-sc9': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
+  'catawba-river-fort-mill-landsford': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
+  'catawba-river-rock-hill-sc9': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
+  'catawba-river-fort-mill-sc9': [{
+    id: 'catawba-river-landsford-canal-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:FilePath/IMGP4146%20(5776045073).jpg',
+    alt: 'Catawba River at Landsford Canal State Park in South Carolina, with shallow rocky shoals and wooded banks.',
+    caption: 'Catawba River at Landsford Canal State Park; same-river corridor context',
+    credit: 'Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons; license and attribution retained on source page',
+  }],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
@@ -9882,6 +9930,30 @@ Object.assign(approvedRoutePhotosBySlug, {
   'clinton-river-downtown-utica-budd': [clintonRiverUticaAuditPhoto],
   'clinton-river-macarthur-harley-ensign': [clintonRiverPontiacAuditPhoto],
   'clinton-river-shadyside-macarthur': [clintonRiverBridgeAuditPhoto],
+  'blackstone-river-kelly-house-pratt': [auditExternalPhoto(
+    'blackstone-kelly-house-pratt-wx',
+    'https://www.weather.gov/images/nerfc/gallery/005_Blackstone_at_Pawtucket_Looking_Upstream_061108.jpg',
+    'The Blackstone River corridor in Pawtucket, Rhode Island.',
+    'Blackstone River corridor near the Kelly House to Pratt reach; same-river context',
+    'National Weather Service',
+    'U.S. government source',
+  )],
+  'blackstone-river-pratt-central-falls': [auditExternalPhoto(
+    'blackstone-pratt-central-falls-wx',
+    'https://www.weather.gov/images/nerfc/gallery/005_Blackstone_at_Pawtucket_Looking_Upstream_061108.jpg',
+    'The Blackstone River corridor in Pawtucket, Rhode Island.',
+    'Blackstone River corridor near the Pratt to Central Falls reach; same-river context',
+    'National Weather Service',
+    'U.S. government source',
+  )],
+  'blackstone-river-central-falls-chocolateville': [auditExternalPhoto(
+    'blackstone-central-falls-chocolateville-wx',
+    'https://www.weather.gov/images/nerfc/gallery/005_Blackstone_at_Pawtucket_Looking_Upstream_061108.jpg',
+    'The Blackstone River corridor in Pawtucket, Rhode Island.',
+    'Blackstone River corridor near the Central Falls to Chocolateville reach; same-river context',
+    'National Weather Service',
+    'U.S. government source',
+  )],
 });
 
 function stablePhotoIndex(key: string, length: number): number {

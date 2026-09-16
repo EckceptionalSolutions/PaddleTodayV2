@@ -1,0 +1,50 @@
+{
+  "status": "draft-needs-fresh-native-captures",
+  "reviewedAt": "2026-09-14",
+  "metadata": {
+    "name": "PaddleToday: River Conditions",
+    "subtitle": "Kayak & canoe trip planner",
+    "shortDescription": "Choose where to paddle with river scores, weather, and route planning",
+    "promotionalText": "Find your next river trip with condition scores, clear explanations, and practical route details. Compare today's options and plan for the weekend.",
+    "keywords": "paddling,water,level,flow,gauge,forecast,weekend,map,launch,shuttle,camping,outdoor",
+    "description": "Choose your next river paddle with current conditions in view. PaddleToday helps kayakers and canoeists compare routes for today or the weekend, understand condition scores, and check the details before heading out.\n\nFIND A RIVER THAT FITS YOUR DAY\nBrowse nearby routes or explore another area on the map. Compare condition scores, route distance, and difficulty to build your shortlist.\n\nUNDERSTAND THE CONDITIONS\nSee how water levels, weather, and available data shape the recommendation. Review the explanation behind a score, check how current the information is, and see where confidence is limited. Live scores and forecasts depend on the data available for each route.\n\nCHECK THE PRACTICAL DETAILS\nReview put-ins, take-outs, estimated paddling time, shuttle information, and available access, hazard, and camping notes. Bring the questions that matter for your trip into one place.\n\nLOOK AHEAD TO THE WEEKEND\nExplore weekend options with forecast context where available. Compare shorter outings and routes with camping information to find a trip that fits your plans.\n\nKEEP YOUR FAVORITES CLOSE\nSave rivers for quick condition checks when you are ready to paddle again.\n\nCOVERAGE AND CONDITIONS\nBrowse supported rivers in the app to check coverage for your area. Route information, live scores, and forecasts vary with available sources.\n\nPaddleToday is a planning aid. Conditions, access, and hazards can change. Check official sources, local restrictions, weather, and your group's ability before launching. A condition score is not a safety guarantee."
+  },
+  "panels": [
+    {
+      "id": "01-today", "headline": ["Choose where to", "paddle today."], "theme": "forest",
+      "ios": "ios-iphone-01-today.png", "ipad": "ios-ipad-01-today.png", "android": "android-phone-01-today.png",
+      "alt": "Today recommendations with a river condition score and a short explanation for choosing an outing.",
+      "captureNote": "Recapture current Today UI. Use the same session as detail and Saved. Existing iOS score is 91; detail and Saved show 61."
+    },
+    {
+      "id": "02-conditions", "headline": ["Understand the", "river conditions."], "theme": "cream",
+      "ios": "ios-iphone-03-river-today.png", "ipad": "ios-ipad-03-river-today.png", "android": "android-phone-03-river-detail.png",
+      "alt": "River detail explains the condition score, water level, weather, and cautions for the selected route.",
+      "captureNote": "Capture the score explanation with freshness and confidence visible. Preserve cautions. Match Today's route and score."
+    },
+    {
+      "id": "03-explore", "headline": ["Find your next", "river trip."], "theme": "forest",
+      "ios": "ios-iphone-02-explore-map.png", "ipad": "ios-ipad-02-explore-map.png", "android": "android-phone-02-explore-map.png",
+      "alt": "Explore map showing paddling routes in a region with a selected river route.",
+      "captureNote": "Capture a populated regional map with one selected route. Replace with route comparison only after a shipping native capture is available."
+    },
+    {
+      "id": "04-access", "headline": ["Plan your put-in", "and take-out."], "theme": "cream",
+      "ios": "ios-iphone-04-access-logistics.png", "ipad": "ios-ipad-04-access-logistics.png", "android": null,
+      "alt": "Access planner showing put-in, take-out, route distance, and estimated paddling time.",
+      "captureNote": "Current iOS capture is scrolled awkwardly and lacks the access map. Capture the shipping access map and logistics. Android source is missing."
+    },
+    {
+      "id": "05-weekend", "headline": ["Make a plan for", "the weekend."], "theme": "forest",
+      "ios": "ios-iphone-05-weekend.png", "ipad": "ios-ipad-05-weekend.png", "android": null,
+      "alt": "Weekend route options with forecast context, distance, and estimated trip duration.",
+      "captureNote": "Recapture real populated Weekend options and current dates. The available Android source is an empty state, so it is deliberately excluded."
+    },
+    {
+      "id": "06-saved", "headline": ["Keep your favorite", "rivers close."], "theme": "cream",
+      "ios": "ios-iphone-06-saved.png", "ipad": "ios-ipad-06-saved.png", "android": "android-phone-05-saved.png",
+      "alt": "Saved rivers provide quick access to favorite routes and their condition summaries.",
+      "captureNote": "Capture two or three saved rivers. Existing iOS capture has excess blank space; Android emphasizes old email-alert controls."
+    }
+  ]
+}

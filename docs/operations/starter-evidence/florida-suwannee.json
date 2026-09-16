@@ -2,15 +2,82 @@
   "reviewedAt": "2026-09-12",
   "status": "validated_not_deployed",
   "deployed": false,
-  "routeIds": ["suwannee-river-stephen-foster-woods-ferry", "suwannee-river-woods-ferry-spirit", "suwannee-river-stephen-foster-spirit", "suwannee-river-gibson-suwannee-state-park", "suwannee-river-suwannee-state-park-dowling-park", "suwannee-river-dowling-lafayette-blue", "suwannee-river-gibson-dowling-park", "suwannee-river-state-park-lafayette-blue", "suwannee-river-gibson-lafayette-blue", "suwannee-river-spirit-holton-creek", "suwannee-river-holton-suwannee-state-park", "suwannee-river-holton-dowling-park", "suwannee-river-dowling-peacock-slough", "suwannee-river-peacock-slough-adams-tract", "suwannee-river-spirit-suwannee-state-park", "suwannee-river-spirit-dowling-park", "suwannee-river-spirit-lafayette-blue", "suwannee-river-state-park-peacock-slough", "suwannee-river-state-park-adams-tract", "suwannee-river-dowling-adams-tract", "suwannee-river-holton-lafayette-blue", "suwannee-river-holton-peacock-slough", "suwannee-river-spirit-peacock-slough", "suwannee-river-holton-adams-tract"],
+  "routeIds": [
+    "suwannee-river-stephen-foster-woods-ferry",
+    "suwannee-river-woods-ferry-spirit",
+    "suwannee-river-stephen-foster-spirit",
+    "suwannee-river-gibson-suwannee-state-park",
+    "suwannee-river-suwannee-state-park-dowling-park",
+    "suwannee-river-dowling-lafayette-blue",
+    "suwannee-river-gibson-dowling-park",
+    "suwannee-river-state-park-lafayette-blue",
+    "suwannee-river-gibson-lafayette-blue",
+    "suwannee-river-spirit-holton-creek",
+    "suwannee-river-holton-suwannee-state-park",
+    "suwannee-river-holton-dowling-park",
+    "suwannee-river-dowling-peacock-slough",
+    "suwannee-river-peacock-slough-adams-tract",
+    "suwannee-river-spirit-suwannee-state-park",
+    "suwannee-river-spirit-dowling-park",
+    "suwannee-river-spirit-lafayette-blue",
+    "suwannee-river-state-park-peacock-slough",
+    "suwannee-river-state-park-adams-tract",
+    "suwannee-river-dowling-adams-tract",
+    "suwannee-river-holton-lafayette-blue",
+    "suwannee-river-holton-peacock-slough",
+    "suwannee-river-spirit-peacock-slough",
+    "suwannee-river-holton-adams-tract",
+    "suwannee-river-spirit-gibson",
+    "suwannee-river-woods-ferry-gibson",
+    "suwannee-river-stephen-foster-gibson",
+    "suwannee-river-gibson-adams-tract",
+    "suwannee-river-spirit-adams-tract",
+    "suwannee-river-woods-ferry-peacock-slough",
+    "suwannee-river-woods-ferry-adams-tract",
+    "suwannee-river-stephen-foster-peacock-slough",
+    "suwannee-river-stephen-foster-adams-tract"
+  ],
   "sourceAttempts": [
-    {"family": "Suwannee River Water Management District", "method": "Boating and canoeing guidance review", "result": "Confirmed the Suwannee Wilderness Trail, river-camp network and White Springs stage bands: 51–58 ft ideal, 59–63 ft swift/caution, below 50 ft too low, and 64 ft or higher not recommended."},
-    {"family": "Florida DEP", "method": "Suwannee River Wilderness Trail data book and access map", "result": "Confirmed Stephen Foster, Woods Ferry, Spirit of the Suwannee, Holton Creek, Suwannee River State Park, Dowling Park, Peacock Slough, Adams Tract and Lafayette Blue access anchors and published mileposts for the selected bounded and multi-day reaches."},
-    {"family": "Florida State Parks and DEP", "method": "Suwannee River Wilderness Trail river-camp and park listings", "result": "Confirmed Gibson County Park, Suwannee River State Park, Dowling Park, Holton Creek, Peacock Slough and Adams Tract river camps plus Lafayette Blue Springs as named river-bank access and overnight hubs. The additional ten routes use the published access chain and summed mileposts, with designated camps retained as legal split points."},
-    {"family": "Florida Paddling Trails Association", "method": "Stephen Foster to Spirit paddle guide", "result": "Confirmed the approximately 20.2-mile advanced itinerary, long-distance logistics and high-stage caution."},
-    {"family": "Florida State Parks / managed access", "method": "Stephen Foster launch and endpoint review", "result": "Confirmed a public state-park canoe launch, operating-hour and access-check requirements; Spirit access remains subject to current facility rules."},
-    {"family": "USGS", "method": "White Springs station metadata and current series", "result": "Confirmed direct continuous gage-height telemetry at station 02315500 for the upper Suwannee corridor."},
-    {"family": "Access and hazard review", "method": "Endpoint, wilderness and consequence screen", "result": "Recorded remote shoreline, strainers, steep banks, fast rises, cold water, private-bank and limited-bailout hazards. Endpoint audits returned no suspicious or failure findings."}
+    {
+      "family": "Suwannee River Water Management District",
+      "method": "Boating and canoeing guidance review",
+      "result": "Confirmed the Suwannee Wilderness Trail, river-camp network and White Springs stage bands: 51–58 ft ideal, 59–63 ft swift/caution, below 50 ft too low, and 64 ft or higher not recommended."
+    },
+    {
+      "family": "Florida DEP",
+      "method": "Suwannee River Wilderness Trail data book and access map",
+      "result": "Confirmed Stephen Foster, Woods Ferry, Spirit of the Suwannee, Holton Creek, Suwannee River State Park, Dowling Park, Peacock Slough, Adams Tract and Lafayette Blue access anchors and published mileposts for the selected bounded and multi-day reaches."
+    },
+    {
+      "family": "Florida State Parks and DEP",
+      "method": "Suwannee River Wilderness Trail river-camp and park listings",
+      "result": "Confirmed Gibson County Park, Suwannee River State Park, Dowling Park, Holton Creek, Peacock Slough and Adams Tract river camps plus Lafayette Blue Springs as named river-bank access and overnight hubs. The additional ten routes use the published access chain and summed mileposts, with designated camps retained as legal split points."
+    },
+    {
+      "family": "Florida Paddling Trails Association",
+      "method": "Stephen Foster to Spirit paddle guide",
+      "result": "Confirmed the approximately 20.2-mile advanced itinerary, long-distance logistics and high-stage caution."
+    },
+    {
+      "family": "Florida State Parks / managed access",
+      "method": "Stephen Foster launch and endpoint review",
+      "result": "Confirmed a public state-park canoe launch, operating-hour and access-check requirements; Spirit access remains subject to current facility rules."
+    },
+    {
+      "family": "USGS",
+      "method": "White Springs station metadata and current series",
+      "result": "Confirmed direct continuous gage-height telemetry at station 02315500 for the upper Suwannee corridor."
+    },
+    {
+      "family": "Access and hazard review",
+      "method": "Endpoint, wilderness and consequence screen",
+      "result": "Recorded remote shoreline, strainers, steep banks, fast rises, cold water, private-bank and limited-bailout hazards. Endpoint audits returned no suspicious or failure findings."
+    },
+    {
+      "family": "Florida DEP / Florida State Parks",
+      "method": "50-route forward-chain expansion review",
+      "result": "Confirmed nine additional distinct forward endpoint pairings from the documented Stephen Foster, Woods Ferry, Spirit, Holton, Gibson, Suwannee River State Park, Dowling Park, Peacock Slough and Adams Tract chain. No additional forward public pair cleared the same evidence bar without reversing direction or inventing access."
+    }
   ],
   "sources": [
     "https://www.mysuwanneeriver.com/64/Boating-Canoeing",
@@ -21,8 +88,44 @@
     "https://www.floridastateparks.org/parks-and-trails/suwannee-river-wilderness-trail",
     "https://www.floridastateparks.org/parks-and-trails/suwannee-river-wilderness-trail/river-camps"
   ],
-  "thresholdEvidence": {"station": "02315500", "metric": "gage_height_ft", "source": "https://www.mysuwanneeriver.com/64/Boating-Canoeing", "minimum": 50, "idealReference": 51, "idealMaximum": 58, "maximum": 64, "model": "two-sided", "strength": "official", "reachApplicability": "White Springs stage planning band for the upper Suwannee Wilderness Trail, including all fourteen selected reaches from Stephen Foster through Adams Tract; verify live stage, trend, weather and local access before launch."},
-  "endpointAudit": {"artifacts": ["tmp/suwannee-river-expanded-endpoint-audit.json"], "routeCount": 24, "endpointCount": 48, "bySeverity": {"ok": 0, "review": 48, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All endpoints are named county, state-park, managed music-park or river-camp river-bank anchors from the DEP data book and State Parks river-camp listing. Park edges, river-only camp landings and current closures require launch-day confirmation."},
-  "validation": ["Route-data typecheck passed.", "Focused Florida Suwannee safety test passed.", "Canonical route-scoped geometries generated for all twenty-four Suwannee routes.", "Full route audit and safety audit passed with no scored-route safety issues.", "Canonical geometry audit passed after adding the twenty-four access-bounded Suwannee routes."],
-  "pending": ["Keep routes validated-not-deployed until current White Springs stage, weather, facility access and shuttle conditions are rechecked at release time."]
+  "thresholdEvidence": {
+    "station": "02315500",
+    "metric": "gage_height_ft",
+    "source": "https://www.mysuwanneeriver.com/64/Boating-Canoeing",
+    "minimum": 50,
+    "idealReference": 51,
+    "idealMaximum": 58,
+    "maximum": 64,
+    "model": "two-sided",
+    "strength": "official",
+    "reachApplicability": "White Springs stage planning band for the upper Suwannee Wilderness Trail, including all fourteen selected reaches from Stephen Foster through Adams Tract; verify live stage, trend, weather and local access before launch."
+  },
+  "endpointAudit": {
+    "artifacts": [
+      "tmp/suwannee-river-expanded-endpoint-audit.json"
+    ],
+    "routeCount": 33,
+    "endpointCount": 66,
+    "bySeverity": {
+      "ok": 0,
+      "review": 66,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All endpoints are named county, state-park, managed music-park or river-camp river-bank anchors from the DEP data book and State Parks river-camp listing. Park edges, river-only camp landings and current closures require launch-day confirmation."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Florida Suwannee safety test passed.",
+    "Canonical route-scoped geometries generated for all twenty-four Suwannee routes.",
+    "Full route audit and safety audit passed with no scored-route safety issues.",
+    "Canonical geometry audit passed after adding the twenty-four access-bounded Suwannee routes.",
+    "Nine additional Suwannee route-scoped geometries generated and canonical geometry audit passed.",
+    "Full route-data and safety audits passed with no scored-route issues after the 50-route expansion pass."
+  ],
+  "pending": [
+    "Keep routes validated-not-deployed until current White Springs stage, weather, facility access and shuttle conditions are rechecked at release time.",
+    "Florida remains at 49 routes because the reviewed forward access chain has no additional distinct public endpoint pair meeting the scored publication bar."
+  ]
 }

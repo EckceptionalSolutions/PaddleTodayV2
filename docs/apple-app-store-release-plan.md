@@ -1,14 +1,14 @@
 # Apple App Store Release Plan
 
-Status as of 2026-05-22.
+Status as of 2026-09-15.
 
-## Version 3 Prep
+## Version 1.1.2 Prep
 
 Local release metadata for the next store build is prepared as:
 
-- App version: `1.0.3`
-- Next iOS build number: `15`
-- Next Android versionCode: `7`
+- App version: `1.1.2`
+- Next iOS build number: `35`
+- Next Android versionCode: `26`
 - Release notes: use the current `docs/mobile-store-listing-draft.md` notes for the new Today page, route search, Explore filters, supported-river browser, Mississippi River coverage, and usability fixes.
 
 Before App Review or Play production submission, capture fresh screenshots from this build because the old store screenshots predate the redesigned Today and Explore flows.

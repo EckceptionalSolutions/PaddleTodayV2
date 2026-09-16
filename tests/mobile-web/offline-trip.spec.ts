@@ -23,9 +23,11 @@ test('downloads a trip packet, reopens it after the live cache is removed, and p
   await expect(dialog.getByText(/Ready for offline reference/)).toBeVisible();
   await dialog.getByRole('button', { name: 'Close prepare trip', exact: true }).click();
   await page.goto('/saved');
+  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
   await expect(page.getByText('Offline trips', { exact: true })).toBeVisible();
   await page.evaluate(() => localStorage.removeItem('paddletoday-mobile-query-cache'));
   await page.reload();
+  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
   await expect(page.getByRole('button', { name: /Open offline trip for Rice Creek:/ })).toBeVisible();
   await page.getByRole('button', { name: /Open offline trip for Rice Creek:/ }).click();
   const offline = page.getByRole('dialog');
@@ -33,6 +35,8 @@ test('downloads a trip packet, reopens it after the live cache is removed, and p
   await expect(offline.getByText('Offline meeting note', { exact: true })).toBeVisible();
   await expect(offline.getByText(/Put-in: Peltier Lake boat launch/)).toBeVisible();
   await expect(offline.getByText(/Take-out: Long Lake Regional Park/)).toBeVisible();
+  await expect(offline.getByText('Your selected segment', { exact: true })).toBeVisible();
+  await expect(offline.getByText('Distance: 15.2 miles', { exact: true })).toBeVisible();
   await expect(offline.getByText('Reference route geometry', { exact: true })).toBeVisible();
   await offline.getByRole('button', { name: 'Close offline trip', exact: true }).click();
   await page.getByRole('button', { name: /Remove offline trip for Rice Creek:/ }).click();

@@ -1,0 +1,196 @@
+{
+  "status": "draft-needs-fresh-native-captures",
+  "metadata": {
+    "name": {
+      "characters": 29,
+      "limit": 30
+    },
+    "subtitle": {
+      "characters": 26,
+      "limit": 30
+    },
+    "shortDescription": {
+      "characters": 69,
+      "limit": 80
+    },
+    "promotionalText": {
+      "characters": 147,
+      "limit": 170
+    },
+    "keywords": {
+      "characters": 83,
+      "limit": 100
+    },
+    "description": {
+      "characters": 1562,
+      "limit": 4000
+    }
+  },
+  "images": [
+    {
+      "file": "drafts/iphone-01-today.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-01-today.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Today recommendations with a river condition score and a short explanation for choosing an outing.",
+      "note": "Recapture current Today UI. Use the same session as detail and Saved. Existing iOS score is 91; detail and Saved show 61."
+    },
+    {
+      "file": "drafts/iphone-02-conditions.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-03-river-today.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "River detail explains the condition score, water level, weather, and cautions for the selected route.",
+      "note": "Capture the score explanation with freshness and confidence visible. Preserve cautions. Match Today's route and score."
+    },
+    {
+      "file": "drafts/iphone-03-explore.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-02-explore-map.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Explore map showing paddling routes in a region with a selected river route.",
+      "note": "Capture a populated regional map with one selected route. Replace with route comparison only after a shipping native capture is available."
+    },
+    {
+      "file": "drafts/iphone-04-access.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-04-access-logistics.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Access planner showing put-in, take-out, route distance, and estimated paddling time.",
+      "note": "Current iOS capture is scrolled awkwardly and lacks the access map. Capture the shipping access map and logistics. Android source is missing."
+    },
+    {
+      "file": "drafts/iphone-05-weekend.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-05-weekend.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Weekend route options with forecast context, distance, and estimated trip duration.",
+      "note": "Recapture real populated Weekend options and current dates. The available Android source is an empty state, so it is deliberately excluded."
+    },
+    {
+      "file": "drafts/iphone-06-saved.png",
+      "width": 1290,
+      "height": 2796,
+      "source": "docs/store-screenshots/app-store/ios-iphone-06-saved.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Saved rivers provide quick access to favorite routes and their condition summaries.",
+      "note": "Capture two or three saved rivers. Existing iOS capture has excess blank space; Android emphasizes old email-alert controls."
+    },
+    {
+      "file": "drafts/ipad-01-today.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-01-today.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Today recommendations with a river condition score and a short explanation for choosing an outing.",
+      "note": "Recapture current Today UI. Use the same session as detail and Saved. Existing iOS score is 91; detail and Saved show 61."
+    },
+    {
+      "file": "drafts/ipad-02-conditions.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-03-river-today.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "River detail explains the condition score, water level, weather, and cautions for the selected route.",
+      "note": "Capture the score explanation with freshness and confidence visible. Preserve cautions. Match Today's route and score."
+    },
+    {
+      "file": "drafts/ipad-03-explore.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-02-explore-map.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Explore map showing paddling routes in a region with a selected river route.",
+      "note": "Capture a populated regional map with one selected route. Replace with route comparison only after a shipping native capture is available."
+    },
+    {
+      "file": "drafts/ipad-04-access.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-04-access-logistics.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Access planner showing put-in, take-out, route distance, and estimated paddling time.",
+      "note": "Current iOS capture is scrolled awkwardly and lacks the access map. Capture the shipping access map and logistics. Android source is missing."
+    },
+    {
+      "file": "drafts/ipad-05-weekend.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-05-weekend.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Weekend route options with forecast context, distance, and estimated trip duration.",
+      "note": "Recapture real populated Weekend options and current dates. The available Android source is an empty state, so it is deliberately excluded."
+    },
+    {
+      "file": "drafts/ipad-06-saved.png",
+      "width": 2048,
+      "height": 2732,
+      "source": "docs/store-screenshots/app-store/ios-ipad-06-saved.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Saved rivers provide quick access to favorite routes and their condition summaries.",
+      "note": "Capture two or three saved rivers. Existing iOS capture has excess blank space; Android emphasizes old email-alert controls."
+    },
+    {
+      "file": "drafts/android-01-today.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "docs/store-screenshots/google-play/android-phone-01-today.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Today recommendations with a river condition score and a short explanation for choosing an outing.",
+      "note": "Recapture current Today UI. Use the same session as detail and Saved. Existing iOS score is 91; detail and Saved show 61."
+    },
+    {
+      "file": "drafts/android-02-conditions.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "docs/store-screenshots/google-play/android-phone-03-river-detail.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "River detail explains the condition score, water level, weather, and cautions for the selected route.",
+      "note": "Capture the score explanation with freshness and confidence visible. Preserve cautions. Match Today's route and score."
+    },
+    {
+      "file": "drafts/android-03-explore.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "docs/store-screenshots/google-play/android-phone-02-explore-map.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Explore map showing paddling routes in a region with a selected river route.",
+      "note": "Capture a populated regional map with one selected route. Replace with route comparison only after a shipping native capture is available."
+    },
+    {
+      "file": "drafts/android-06-saved.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "docs/store-screenshots/google-play/android-phone-05-saved.png",
+      "status": "needs-fresh-native-capture",
+      "alt": "Saved rivers provide quick access to favorite routes and their condition summaries.",
+      "note": "Capture two or three saved rivers. Existing iOS capture has excess blank space; Android emphasizes old email-alert controls."
+    },
+    {
+      "file": "drafts/feature-graphic.png",
+      "width": 1024,
+      "height": 500,
+      "source": "public/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg",
+      "status": "design-review",
+      "alt": "River scenery with the message: Find your next river day. Conditions explained. Trips made easier.",
+      "note": "Original repository river photograph; no condition values or UI claims."
+    }
+  ],
+  "missingCaptures": [
+    {
+      "platform": "android",
+      "panel": "04-access",
+      "reason": "Current iOS capture is scrolled awkwardly and lacks the access map. Capture the shipping access map and logistics. Android source is missing."
+    },
+    {
+      "platform": "android",
+      "panel": "05-weekend",
+      "reason": "Recapture real populated Weekend options and current dates. The available Android source is an empty state, so it is deliberately excluded."
+    }
+  ]
+}

@@ -19,7 +19,12 @@ export function ExploreRouteMap({ mapRef, viewportMemory, cameraContext, selecte
   const [ready, setReady] = useState(false);
   const [initialViewport] = useState(() => restoreExploreViewport(viewportMemory.current, cameraContext));
   const cameraState = useRef<ExploreCameraState | null>(initialViewport ? { context: cameraContext, selectedSlug } : null);
-  const onReady = useCallback(() => setReady(true), []);
+  const onReady = useCallback(() => {
+    // MapKit invokes onMapReady from its render callback. Defer the state
+    // update so Fabric does not reconcile marker children re-entrantly while
+    // react-native-maps is still finishing that native callback.
+    requestAnimationFrame(() => setReady(true));
+  }, []);
   const rememberViewport = useCallback((viewport: MapViewport) => {
     const copy = restoreExploreViewport({ context: cameraContext, viewport }, cameraContext);
     if (copy) viewportMemory.current = { context: cameraContext, viewport: copy };

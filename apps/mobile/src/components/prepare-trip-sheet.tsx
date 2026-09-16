@@ -3,8 +3,9 @@ import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } fro
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
-import { buildFloatPlanMessage, estimateSegmentDurationMinutes, parseDistanceMiles, type TripPlanInput } from '@paddletoday/trip-pack';
+import { buildFloatPlanMessage, estimateSegmentDurationMinutes, type TripPlanInput } from '@paddletoday/trip-pack';
 import { resolveApiUrl } from '../lib/api-base-url';
+import { selectedSegmentDistance } from '../lib/offline-trip-segment';
 import { openExternalUrl } from '../lib/external-links';
 import { useTripDraft } from '../hooks/use-trip-draft';
 import { localTripTime as localInput, parseTripTime as parseLocal } from '../lib/trip-time';
@@ -283,12 +284,7 @@ function defaultTimes(durationMinutes: number) {
 }
 
 function selectedDistance(points: RiverRouteAccessPoint[], putIn: RiverAccessPoint | undefined, takeOut: RiverAccessPoint | undefined, detail: RiverDetailApiResult) {
-  const start = points.find((point) => point.id === putIn?.id);
-  const end = points.find((point) => point.id === takeOut?.id);
-  const measuredDistance = start && end ? end.mileFromStart - start.mileFromStart : null;
-  if (measuredDistance && Number.isFinite(measuredDistance) && measuredDistance > 0) return measuredDistance;
-  const isFullRoute = putIn?.id === detail.river.putIn?.id && takeOut?.id === detail.river.takeOut?.id;
-  return isFullRoute ? parseDistanceMiles(detail.river.distanceLabel) : null;
+  return selectedSegmentDistance(points, putIn, takeOut, detail.river.distanceLabel);
 }
 
 function buildPlan(detail: RiverDetailApiResult, putIn: RiverAccessPoint | undefined, takeOut: RiverAccessPoint | undefined, distanceMiles: number | null, launch: string, expected: string, checkIn: string, groupSize: string, boat: string, vehicle: string, note: string): TripPlanInput {

@@ -40,6 +40,7 @@ import { southCarolinaEdistoMainRiverTripDetails } from './trip-details/south-ca
 import { southCarolinaLittlePeeDeeRiverTripDetails } from './trip-details/south-carolina-little-pee-dee';
 import { southCarolinaSaludaRiverTripDetails } from './trip-details/south-carolina-saluda';
 import { southCarolinaBroadRoutes } from './routes/south-carolina-broad';
+import { southCarolinaCatawbaRoutes } from './routes/south-carolina-catawba';
 import { alabamaHatchetRiverTripDetails } from './trip-details/alabama-hatchet';
 import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
 import { arizonaVerdeRoutes } from './routes/arizona-verde';
@@ -103,6 +104,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...southCarolinaLittlePeeDeeRiverTripDetails,
   ...southCarolinaSaludaRiverTripDetails,
   ...Object.fromEntries(southCarolinaBroadRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(southCarolinaCatawbaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...alabamaHatchetRiverTripDetails,
   ...Object.fromEntries(alabamaCahabaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(arizonaVerdeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),

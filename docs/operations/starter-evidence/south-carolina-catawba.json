@@ -1,0 +1,23 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "catawba-river-fort-mill-rock-hill",
+    "catawba-river-rock-hill-landsford",
+    "catawba-river-landsford-sc9",
+    "catawba-river-fort-mill-landsford",
+    "catawba-river-rock-hill-sc9",
+    "catawba-river-fort-mill-sc9"
+  ],
+  "sourceAttempts": [
+    {"family": "SCDNR Catawba Scenic River", "result": "SCDNR lists Fort Mill, Rock Hill River Park, Landsford Canal State Park and SC 9 in upstream-to-downstream order, with approximately 7, 17 and 6 river-mile spacing and public water access descriptions."},
+    {"family": "Landsford Canal State Park", "result": "The official park FAQ publishes a 1,000 cfs low guard, approximately 1,800–3,000 cfs practical downstream range, and expert-only review above 4,000 cfs; it also documents Lake Wylie release changes and shoal hazards."},
+    {"family": "USGS", "result": "Used direct Catawba telemetry at 02146000 near Rock Hill for the upper chain and 02147020 below Catawba for the Landsford-to-SC 9 corridor."},
+    {"family": "Access and imagery", "result": "Fort Mill and Rock Hill municipal access pages plus SCDNR and the official canoe-trail guide support named water-entry facilities. Each route has same-river Landsford Canal context imagery from Wikimedia Commons."}
+  ],
+  "thresholdEvidence": {"stations": ["02146000", "02147020"], "metric": "discharge_cfs", "publishedCues": ["1,000 cfs minimum", "1,800–3,000 cfs practical band", "review above 4,000 cfs"], "model": "two-sided", "strength": "official", "source": "https://southcarolinaparks.com/landsford-canal/faqs", "reachApplicability": "Park guidance is a conservative planning cue for the named scenic-river chain; releases, shoals, weather, debris and access conditions remain controlling."},
+  "endpointAudit": {"routeCount": 6, "endpointCount": 12, "bySeverity": {"ok": 0, "review": 12, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/sc-catawba-endpoint-audit.json"]},
+  "validation": ["South Carolina route tests passed.", "Canonical geometry generation and audit passed for the full route catalog.", "Full route-data and safety audits passed.", "Catawba route gallery entries use same-river Wikimedia Commons context imagery."],
+  "pending": ["Recheck live gauge trend, Duke release timing, park hours, ramp/carry conditions, weather, water quality and shoal conditions before deployment."]
+}

@@ -43,6 +43,7 @@ import { southCarolinaEdistoMainRoutes } from './routes/south-carolina-edisto-ma
 import { southCarolinaLittlePeeDeeRoutes } from './routes/south-carolina-little-pee-dee';
 import { southCarolinaSaludaRoutes } from './routes/south-carolina-saluda';
 import { southCarolinaBroadRoutes } from './routes/south-carolina-broad';
+import { southCarolinaCatawbaRoutes } from './routes/south-carolina-catawba';
 import { alabamaHatchetRoutes } from './routes/alabama-hatchet';
 import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
 import { arizonaVerdeRoutes } from './routes/arizona-verde';
@@ -104,6 +105,7 @@ const stateRoutes: River[] = [
   ...southCarolinaLittlePeeDeeRoutes,
   ...southCarolinaSaludaRoutes,
   ...southCarolinaBroadRoutes,
+  ...southCarolinaCatawbaRoutes,
   ...alabamaHatchetRoutes,
   ...alabamaCahabaRoutes,
   ...arizonaVerdeRoutes,
@@ -211,6 +213,7 @@ const routeOrder = [
   ...southCarolinaLittlePeeDeeRoutes.map(route => route.id),
   ...southCarolinaSaludaRoutes.map(route => route.id),
   ...southCarolinaBroadRoutes.map(route => route.id),
+  ...southCarolinaCatawbaRoutes.map(route => route.id),
   ...alabamaHatchetRoutes.map(route => route.id),
   ...alabamaCahabaRoutes.map(route => route.id),
   ...arizonaVerdeRoutes.map(route => route.id),

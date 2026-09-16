@@ -81,6 +81,8 @@ check('React Native Maps iOS subview insertion fix is installed', () =>
   fileIncludes(join(root, 'node_modules/react-native-maps/ios/AirMaps/AIRMap.m'), [
     'NSUInteger safeIndex = atIndex < 0 ? 0 : MIN((NSUInteger)atIndex, _reactSubviews.count);',
     'insertObject:(UIView *)subview atIndex:safeIndex',
+    '[_reactSubviews removeObject:(UIView *)subview];',
+    'if (subview != nil) {',
   ])
 );
 

@@ -1,5 +1,7 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createBoardLoaderController } from './board-loader-controller.js';
+import { createBrowserApiClient } from './browser-api-client.js';
+import { createRequestGuard } from './request-guard.js';
 
 function harness(overrides = {}) {
   let state = {
@@ -46,6 +48,45 @@ function harness(overrides = {}) {
 }
 
 describe('board loader controller', () => {
+  afterEach(() => vi.useRealTimers());
+
+  it.each([false, true])('recovers from a stalled response body with prior data: %s', async (hasPriorData) => {
+    vi.useFakeTimers();
+    const apiClient = createBrowserApiClient({
+      origin: 'https://paddletoday.com',
+      fetchImpl: async (_url, init) => new Response(new ReadableStream({
+        start(controller) {
+          controller.enqueue(new TextEncoder().encode('{"rivers":'));
+          init!.signal!.addEventListener('abort', () => controller.error(init!.signal!.reason), { once: true });
+        },
+      })),
+    });
+    const { loader, callbacks, state } = harness({
+      apiClient,
+      requestGuard: createRequestGuard(),
+      readCache: () => ({ fetchedAt: 21, payload: { rivers: [{ id: 'rum' }] } }),
+    });
+    if (hasPriorData) loader.hydrateBoardFromCache();
+    callbacks.renderBoard.mockClear();
+
+    const loading = loader.loadBoard();
+    await vi.advanceTimersByTimeAsync(30_000);
+    await loading;
+
+    expect(callbacks.setRefreshState).toHaveBeenLastCalledWith('error', expect.any(String));
+    expect(callbacks.logError).toHaveBeenCalledWith(expect.objectContaining({ code: 'request_timeout' }));
+    expect(callbacks.writeCache).not.toHaveBeenCalled();
+    expect(callbacks.renderBoard).not.toHaveBeenCalled();
+    expect(callbacks.showInitialFailure).toHaveBeenCalledTimes(hasPriorData ? 0 : 1);
+    if (hasPriorData) {
+      expect(state().latestResults).toEqual([{ id: 'rum' }]);
+      expect(callbacks.updateFreshness).toHaveBeenLastCalledWith({ generatedAt: null, fallback: true });
+    } else {
+      expect(callbacks.updateFreshness).toHaveBeenLastCalledWith({ unavailable: true });
+    }
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
   it('loads, caches, and renders the current board response', async () => {
     const { loader, apiClient, callbacks, requestGuard, state } = harness();
 

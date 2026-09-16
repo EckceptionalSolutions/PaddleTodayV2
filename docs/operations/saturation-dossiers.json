@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T01:01:54.599Z",
+  "generatedAt": "2026-09-16T01:01:43.804Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -12575,10 +12575,10 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 20,
-        "scoredCount": 17,
+        "inventoryCount": 49,
+        "scoredCount": 46,
         "planningCount": 3,
-        "scoredCoveragePercent": 85
+        "scoredCoveragePercent": 94
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -12616,10 +12616,10 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 20,
-        "scoredCount": 14,
+        "inventoryCount": 51,
+        "scoredCount": 45,
         "planningCount": 6,
-        "scoredCoveragePercent": 70
+        "scoredCoveragePercent": 88
       },
       "discoveryTasks": [],
       "recentEvidenceRuns": [],
@@ -12657,8 +12657,8 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 20,
-        "scoredCount": 20,
+        "inventoryCount": 40,
+        "scoredCount": 40,
         "planningCount": 0,
         "scoredCoveragePercent": 100
       },

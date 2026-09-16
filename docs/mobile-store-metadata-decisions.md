@@ -2,6 +2,8 @@
 
 ## Public App Name
 
+September 2026 store-refresh proposal: use `PaddleToday: River Conditions` as the store display name while retaining `PaddleToday` as the brand and installed app name. Prepared copy lives in [the refresh package](store-assets/refresh-2026-09/README.md). This is a local proposal; store metadata has not been changed. The original launch decision follows for historical context.
+
 Decision: use `PaddleToday` for the MVP native app name and store listing.
 
 Reasoning:

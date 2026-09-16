@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { RiverDetailApiResult, RiverGeometryResponse } from '@paddletoday/api-contract';
 import { downloadOfflineTrip, listOfflineTrips, loadOfflineTrip, removeOfflineTrip, retryOfflineGeometry } from './offline-trips';
+import { buildOfflineTripSegment, selectedSegmentDistance } from './offline-trip-segment';
 import type { TripDraft } from './trip-drafts';
 
 function memory() {
@@ -33,6 +34,20 @@ const geometry: RiverGeometryResponse = { requestId: 'req', routeId: 'river-a', 
 const signal = () => new AbortController().signal;
 
 describe('offline trip packets', () => {
+  it('derives selected distance, duration, and clipped geometry from access points', () => {
+    expect(selectedSegmentDistance(detail.river.accessPoints, detail.river.accessPoints![0], detail.river.accessPoints![1], detail.river.distanceLabel)).toBe(12);
+    const segment = buildOfflineTripSegment({ detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], geometryResponse: geometry });
+    expect(segment).toMatchObject({ distanceMiles: 12, estimatedPaddleMinutes: { min: 240, max: 240 }, geometry: { lines: [geometry.geometry.coordinates] }, missing: [] });
+  });
+
+  it('does not invent a segment for disconnected geometry or missing access mileage', () => {
+    const disconnected = { ...geometry, geometry: { type: 'MultiLineString' as const, coordinates: [[[-93.1, 45.1], [-93.05, 45.05]], [[-93.0, 45.0], [-92.98, 44.98]]] } };
+    const segment = buildOfflineTripSegment({ detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], geometryResponse: disconnected });
+    expect(segment.geometry).toBeNull();
+    const withoutMileage = { ...detail, river: { ...detail.river, accessPoints: detail.river.accessPoints!.map(point => ({ ...point, mileFromStart: Number.NaN })) } } as unknown as RiverDetailApiResult;
+    expect(selectedSegmentDistance(withoutMileage.river.accessPoints, withoutMileage.river.accessPoints![0], withoutMileage.river.accessPoints![1], withoutMileage.river.distanceLabel)).toBeNull();
+  });
+
   it('commits a complete reference packet and reopens it from storage', async () => {
     const storage = memory();
     const packet = await downloadOfflineTrip(storage, { detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], draft }, async () => geometry, signal());

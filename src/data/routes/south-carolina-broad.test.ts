@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { southCarolinaBroadRoutes } from './south-carolina-broad';
 
 describe('South Carolina Broad River starter routes', () => {
-  it('publishes fifteen scored public-access reaches with numeric flow evidence', () => {
-    expect(southCarolinaBroadRoutes).toHaveLength(15);
+  it('publishes the scored public-access reaches with numeric flow evidence', () => {
+    expect(southCarolinaBroadRoutes).toHaveLength(25);
     for (const route of southCarolinaBroadRoutes) {
       expect(route.state).toBe('South Carolina');
       expect(route.scoreEligibility).toBe('scored');

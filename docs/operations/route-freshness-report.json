@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-12T01:02:01.373Z",
+  "generatedAt": "2026-09-16T01:01:02.560Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 2305,
+    "routesReviewed": 2796,
     "findings": 1095,
     "high": 0
   },

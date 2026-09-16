@@ -38,14 +38,36 @@ import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/al
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-type SavedTab = 'routes' | 'alerts';
+type SavedTab = 'routes' | 'trips' | 'alerts';
 interface SavedComparisonSelection { slugs: string[]; toggle: (slug: string) => void }
+let comparisonSessionMode = false;
+let comparisonSessionSlugs: string[] = [];
+let savedTabSession: SavedTab = 'routes';
+const COMPARISON_SESSION_KEY = 'paddletoday:mobile-comparison:v1';
+function readComparisonSession() {
+  try {
+    const raw = globalThis.localStorage?.getItem(COMPARISON_SESSION_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    return parsed && typeof parsed.mode === 'boolean' && Array.isArray(parsed.slugs) && parsed.slugs.every((slug: unknown) => typeof slug === 'string')
+      ? { mode: parsed.mode, slugs: parsed.slugs as string[] } : { mode: comparisonSessionMode, slugs: comparisonSessionSlugs };
+  } catch { return { mode: comparisonSessionMode, slugs: comparisonSessionSlugs }; }
+}
+function writeComparisonSession(mode: boolean, slugs: string[]) {
+  comparisonSessionMode = mode; comparisonSessionSlugs = slugs;
+  try { globalThis.localStorage?.setItem(COMPARISON_SESSION_KEY, JSON.stringify({ mode, slugs })); } catch { /* Storage is optional. */ }
+}
 
 export default function SavedScreen() {
   const router = useRouter();
   const { location } = useStoredLocation();
-  const [comparisonMode, setComparisonMode] = useState(false);
-  const [comparedSlugs, setComparedSlugs] = useState<string[]>([]);
+  const [comparisonModeState, setComparisonModeState] = useState(() => readComparisonSession().mode);
+  const [comparedSlugsState, setComparedSlugsState] = useState<string[]>(() => readComparisonSession().slugs);
+  const setComparisonMode = (next: boolean) => { writeComparisonSession(next, comparedSlugsState); setComparisonModeState(next); };
+  const setComparedSlugs = (next: string[] | ((current: string[]) => string[])) => {
+    setComparedSlugsState(current => { const value = typeof next === 'function' ? next(current) : next; writeComparisonSession(comparisonModeState, value); return value; });
+  };
+  const comparisonMode = comparisonModeState;
+  const comparedSlugs = comparedSlugsState;
   const [comparisonVisible, setComparisonVisible] = useState(false);
   const [comparisonBarHeight, setComparisonBarHeight] = useState(130);
   const compareStart = useRef<View>(null);
@@ -62,9 +84,10 @@ export default function SavedScreen() {
   const [alertStatus, setAlertStatus] = useState('You will get a phone notification when a route reaches your selected call.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
   const alertSubmissionInFlight = useRef(false);
-  const [activeTab, setActiveTab] = useState<SavedTab>('routes');
+  const [activeTab, setActiveTabState] = useState<SavedTab>(() => savedTabSession);
+  const setActiveTab = (tab: SavedTab) => { savedTabSession = tab; setActiveTabState(tab); };
   useEffect(() => {
-    if (requestedTab === 'alerts' || requestedTab === 'routes') setActiveTab(requestedTab);
+    if (requestedTab === 'alerts' || requestedTab === 'routes' || requestedTab === 'trips') setActiveTab(requestedTab);
   }, [requestedTab]);
   const [notesRiver, setNotesRiver] = useState<SavedRiverRecord | null>(null);
 
@@ -94,6 +117,7 @@ export default function SavedScreen() {
   const visibleGroups = groupSavedRoutes(visibleSummaries);
 
   useEffect(() => {
+    if (rivers.length === 0) return;
     setComparedSlugs(current => {
       const next = current.filter(slug => savedRivers.some(route => route.slug === slug) && rivers.some(route => route.river.slug === slug));
       return next.length === current.length ? current : next;
@@ -106,8 +130,9 @@ export default function SavedScreen() {
   } : undefined;
   const showComparisonBar = comparisonMode && activeTab === 'routes';
   function cancelComparison() {
-    setComparisonMode(false);
-    setComparedSlugs([]);
+    writeComparisonSession(false, []);
+    setComparisonModeState(false);
+    setComparedSlugsState([]);
     setComparisonVisible(false);
     requestAnimationFrame(() => compareStart.current?.focus());
   }
@@ -180,7 +205,7 @@ export default function SavedScreen() {
         A status board for rivers you check often.
       </Text>
       <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
-      {activeTab === 'routes' ? <SavedOfflineTrips /> : null}
+      {activeTab === 'trips' ? <SavedOfflineTrips /> : null}
       {activeTab === 'routes' && (savedRivers.length > 1 || savedSearch.length > 0) ? <View style={styles.searchBox}>
         <MaterialCommunityIcons name="magnify" size={22} color={colors.textMuted} accessible={false} />
         <TextInput ref={searchInput} style={styles.searchInput} accessibilityLabel="Search saved routes" placeholder="River, reach, area, or note"
@@ -201,14 +226,12 @@ export default function SavedScreen() {
           <Text style={styles.compareStartText}>Compare saved routes</Text>
         </Pressable>
       ) : null}
+      {activeTab === 'trips' ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
+        onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
+          putin: record.target.putInId ?? '', takeout: record.target.takeOutId ?? '', prepare: Date.now().toString() } })} /> : null}
       {activeTab === 'alerts' ? <SectionCard title="Nearby alerts and delivery" subtitle="Manage area-wide Today and Weekend updates, planning location, and device notification settings.">
         <AppButton label="Open notification settings" variant="secondary" icon="bell-outline" onPress={() => router.push('/notifications')} />
       </SectionCard> : null}
-      {activeTab === 'routes' && !filtering ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
-        onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
-          putin: record.target.putInId ?? '', takeout: record.target.takeOutId ?? '', prepare: Date.now().toString() } })} /> : null}
-      {activeTab === 'routes' && !filtering ? <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /> : null}
-
       {activeTab === 'routes' && savedRivers.length > 0 && !filtering ? (
         <View style={styles.savedOverview}>
           <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
@@ -298,6 +321,8 @@ export default function SavedScreen() {
           />
         </>
       ) : null}
+
+      {activeTab === 'routes' ? <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /> : null}
 
       {activeTab === 'routes' && visibleSavedRivers.some(route => !riverLookup.has(route.slug)) ? (
         <SectionCard
@@ -432,6 +457,13 @@ function SavedTabs({
         label="Alerts"
         active={activeTab === 'alerts'}
         onPress={() => onChange('alerts')}
+      />
+      <SavedTabButton
+        keyboardProps={tabKeyboardProps(2, activeTab === 'trips', 3, (index) => onChange(index === 0 ? 'routes' : index === 1 ? 'alerts' : 'trips'))}
+        icon="briefcase-outline"
+        label="Trips"
+        active={activeTab === 'trips'}
+        onPress={() => onChange('trips')}
       />
     </View>
   );

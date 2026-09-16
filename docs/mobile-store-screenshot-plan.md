@@ -2,6 +2,8 @@
 
 Use this when preview builds are ready and store screenshots need to be captured.
 
+September 2026 refresh: see the [editable creative package](store-assets/refresh-2026-09/README.md) and [visual gallery](store-assets/refresh-2026-09/index.html). That package supplies the new benefit-led sequence and identifies captures that must be replaced before uploading. The older sequence below remains capture context.
+
 Primary references:
 
 - Apple screenshot specifications: `https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/`
@@ -13,7 +15,7 @@ Primary references:
 - Use production API data.
 - Avoid showing personal email addresses, private report text, or private location labels.
 - Prefer routes with strong visuals and clear facts. Rice Creek remains a good detail example; Norin Landing / Mississippi River is a good new-route example because fresh put-in imagery exists.
-- Keep overlays out of the screenshots unless they are part of the app UI. Google warns that extra text can be cut off on some Play surfaces.
+- For phone marketing layouts, use real UI with concise benefit captions; Google recommends taglines take no more than 20% of the image. Use separate raw captures for Google large-screen assets, where extra text may be cut off. See the official preview-asset guidance above.
 - Capture the same route/order across platforms when possible so App Store and Play listings tell one coherent story.
 
 ## Required Store Sets

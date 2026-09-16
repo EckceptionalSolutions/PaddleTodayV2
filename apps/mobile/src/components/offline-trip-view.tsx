@@ -46,9 +46,15 @@ export function OfflineTripView({ packet, onClose }: { packet: OfflineTrip; onCl
         })}
         <Text style={styles.body}>Directions open another app and may need a connection or previously downloaded maps.</Text>
       </SectionCard>
+      <SectionCard title="Your selected segment" subtitle="The downloaded put-in to take-out portion, when route data supports it.">
+        {packet.segment?.distanceMiles ? <Text style={styles.body}>Distance: {packet.segment.distanceMiles} miles</Text> : <Text style={styles.body}>Selected segment distance is unavailable for this route.</Text>}
+        {packet.segment?.estimatedPaddleMinutes ? <Text style={styles.body}>Planning estimate: {formatMinutes(packet.segment.estimatedPaddleMinutes.min)}–{formatMinutes(packet.segment.estimatedPaddleMinutes.max)} on the water, before shuttle or staging time.</Text> : <Text style={styles.body}>Selected segment time estimate is unavailable; confirm timing with the group.</Text>}
+        {packet.segment?.geometry ? <OfflineRouteOutline packet={packet} segmentOnly /> : <Text style={styles.body}>The selected outline was not downloaded. Retry the offline download when connected.</Text>}
+        {packet.segment?.missing.length ? <Text style={styles.body}>Unavailable here: {packet.segment.missing.join(', ')}.</Text> : null}
+      </SectionCard>
       <SectionCard title="Reference route geometry" subtitle="Full route outline with your selected launch and landing. No background map or live navigation.">
         <OfflineRouteOutline packet={packet} />
-        {packet.geometry ? <Text style={styles.body}>Source: {packet.geometry.source}. The outline includes the full route, which may extend beyond your selected segment.</Text> : <Text style={styles.body}>Route geometry was not downloaded. Retry from Saved when connected.</Text>}
+        {packet.geometry ? <Text style={styles.body}>Source: {packet.geometry.source}. This is full-route context; the selected segment is shown above when available.</Text> : <Text style={styles.body}>Route geometry was not downloaded. Retry from Saved when connected.</Text>}
       </SectionCard>
       <SectionCard title="Your saved plan" subtitle="Timing and notes captured when you prepared this offline trip. Later draft edits need an updated download.">
         {draftFields.filter(([, value]) => value).map(([label, value]) => <View style={styles.group} key={label}>
@@ -65,26 +71,28 @@ export function OfflineTripView({ packet, onClose }: { packet: OfflineTrip; onCl
   </Modal>;
 }
 export function offlineStatus(packet: OfflineTrip) { return packet.missing.length ? 'Incomplete offline trip' : 'Ready for offline reference'; }
+function formatMinutes(minutes: number) { return minutes >= 60 ? `${Math.floor(minutes / 60)}h ${minutes % 60 ? `${minutes % 60}m` : ''}`.trim() : `${minutes} min`; }
 
 // Platform-independent coordinate drawing: no map SDK, tiles, fonts or network
 // requests are needed to display the saved route after an offline cold start.
-function OfflineRouteOutline({ packet }: { packet: OfflineTrip }) {
+function OfflineRouteOutline({ packet, segmentOnly = false }: { packet: OfflineTrip; segmentOnly?: boolean }) {
   const [width, setWidth] = useState(300);
   const height = 280, padding = 26;
   const markers = [packet.putIn, packet.takeOut];
-  const all = [...(packet.geometry?.lines.flat() ?? []), ...markers.map(p => [p.longitude, p.latitude])];
+  const lines = segmentOnly ? packet.segment?.geometry?.lines ?? [] : packet.geometry?.lines ?? [];
+  const all = [...lines.flat(), ...markers.map(p => [p.longitude, p.latitude])];
   const cos = Math.cos((packet.putIn.latitude + packet.takeOut.latitude) / 2 * Math.PI / 180);
   const xs = all.map(p => p[0] * cos), ys = all.map(p => p[1]);
   const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
   const scale = Math.min((width - padding * 2) / Math.max(maxX - minX, 0.0001), (height - padding * 2) / Math.max(maxY - minY, 0.0001));
   const project = (p: number[]) => ({ x: width / 2 + (p[0] * cos - (minX + maxX) / 2) * scale,
     y: height / 2 - (p[1] - (minY + maxY) / 2) * scale });
-  const count = packet.geometry?.lines.reduce((sum, line) => sum + line.length, 0) ?? 0;
+  const count = lines.reduce((sum, line) => sum + line.length, 0);
   const stride = Math.max(1, Math.ceil(count / 700));
-  return <View accessibilityLabel="Saved full route outline. A is your put-in; B is your take-out. North is up." accessibilityRole="image"
+  return <View accessibilityLabel={`${segmentOnly ? 'Selected segment' : 'Saved full route'} outline. A is your put-in; B is your take-out. North is up.`} accessibilityRole="image"
     style={[styles.outline, { height }]} onLayout={e => setWidth(Math.max(100, e.nativeEvent.layout.width))}>
     <Text style={styles.north}>N ↑</Text>
-    {packet.geometry?.lines.flatMap((line, lineIndex) => {
+    {lines.flatMap((line, lineIndex) => {
       const points = line.filter((_, i) => i % stride === 0 || i === line.length - 1).map(project);
       return points.slice(1).map((end, i) => {
         const start = points[i], dx = end.x - start.x, dy = end.y - start.y, length = Math.hypot(dx, dy);

@@ -13,6 +13,9 @@ export function createBrowserApiClient({
   return createPaddleTodayApiClient({
     baseUrl: origin,
     fetchImpl,
+    // Bound the full request, including the body, so stalled connections reach
+    // the page's existing failure/retry flow instead of leaving it loading.
+    timeoutMs: 30_000,
   });
 }
 

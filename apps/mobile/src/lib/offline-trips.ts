@@ -1,6 +1,7 @@
 import type { RiverAccessPoint, RiverDetailApiResult, RiverGeometryResponse } from '@paddletoday/api-contract';
 import { parseTripDraftRecord, type TripDraft, type TripDraftTarget } from './trip-drafts';
 import { isRecord, parseJson } from './storage';
+import { buildOfflineTripSegment, clipOfflineSegmentGeometry, type OfflineTripSegment } from './offline-trip-segment';
 
 export interface OfflineStorage {
   getItem(key: string): Promise<string | null>;
@@ -10,7 +11,7 @@ export interface OfflineStorage {
 }
 export type OfflineAccess = RiverAccessPoint & { id: string; latitude: number; longitude: number; note?: string };
 export interface OfflineTrip {
-  version: 1;
+  version: 1 | 2;
   target: TripDraftTarget;
   savedAt: string;
   referenceGeneratedAt: string | null;
@@ -22,6 +23,7 @@ export interface OfflineTrip {
   // Only reference facts are retained. Scores, forecasts and gauge readings never enter this store.
   facts: Array<{ label: string; text: string }>;
   geometry: { lines: number[][][]; source: string } | null;
+  segment?: OfflineTripSegment;
   missing: string[];
 }
 const headPrefix = 'paddletoday:offline-trip:v1:';
@@ -48,7 +50,7 @@ function validLines(value: unknown): value is number[][][] {
     && line.every(point => Array.isArray(point) && point.length === 2 && point.every(n => typeof n === 'number' && Number.isFinite(n))
       && Math.abs(point[0]) <= 180 && Math.abs(point[1]) <= 90)) && value.reduce((sum, line) => sum + line.length, 0) <= 12_000;
 }
-export function packetGeometry(response: RiverGeometryResponse, slug: string): OfflineTrip['geometry'] {
+export function packetGeometry(response: RiverGeometryResponse, slug: string): NonNullable<OfflineTrip['geometry']> {
   if (response.routeId !== slug || typeof response.source !== 'string') throw new Error('Unexpected route geometry');
   const geometry = response.geometry;
   const lines = geometry?.type === 'LineString' ? [geometry.coordinates] : geometry?.type === 'MultiLineString' ? geometry.coordinates : null;
@@ -57,14 +59,29 @@ export function packetGeometry(response: RiverGeometryResponse, slug: string): O
 }
 function parsePacket(raw: string | null): OfflineTrip | null {
   const p = parseJson(raw);
-  if (!isRecord(p) || p.version !== 1 || !parseTripDraftRecord(raw)
+  const validSegment = (value: unknown): value is OfflineTripSegment => {
+    if (!isRecord(value) || !Array.isArray(value.missing) || !value.missing.every(m => typeof m === 'string')) return false;
+    const duration = value.estimatedPaddleMinutes;
+    const validDuration = duration === null || isRecord(duration)
+      && typeof duration.min === 'number' && Number.isInteger(duration.min)
+      && typeof duration.max === 'number' && Number.isInteger(duration.max)
+      && duration.min > 0 && duration.max >= duration.min;
+    const distance = value.distanceMiles;
+    const validDistance = distance === null || typeof distance === 'number' && Number.isFinite(distance) && distance > 0;
+    const segmentGeometry = value.geometry;
+    const validGeometry = segmentGeometry === null || isRecord(segmentGeometry) && validLines(segmentGeometry.lines);
+    return validDistance && validDuration && validGeometry;
+  };
+  const draftCompatible = isRecord(p) ? parseTripDraftRecord(JSON.stringify({ ...p, version: 1 })) : null;
+  if (!isRecord(p) || (p.version !== 1 && p.version !== 2) || !draftCompatible
     || typeof p.name !== 'string' || typeof p.reach !== 'string'
     || !(p.referenceGeneratedAt === null || typeof p.referenceGeneratedAt === 'string' && Number.isFinite(Date.parse(p.referenceGeneratedAt)))
     || !isRecord(p.putIn) || !mappedAccess(p.putIn as unknown as RiverAccessPoint)
     || !isRecord(p.takeOut) || !mappedAccess(p.takeOut as unknown as RiverAccessPoint)
     || !Array.isArray(p.facts) || !p.facts.every(f => isRecord(f) && typeof f.label === 'string' && typeof f.text === 'string')
     || !Array.isArray(p.missing) || !p.missing.every(m => typeof m === 'string')
-    || !(p.geometry === null || isRecord(p.geometry) && typeof p.geometry.source === 'string' && validLines(p.geometry.lines))) return null;
+    || !(p.geometry === null || isRecord(p.geometry) && typeof p.geometry.source === 'string' && validLines(p.geometry.lines))
+    || (p.segment !== undefined && !validSegment(p.segment))) return null;
   const packet = p as unknown as OfflineTrip;
   if (packet.target.putInId !== packet.putIn.id || packet.target.takeOutId !== packet.takeOut.id
     || packet.putIn.id === packet.takeOut.id || (!packet.geometry && !packet.missing.includes('Route geometry'))) return null;
@@ -130,7 +147,11 @@ export function retryOfflineGeometry(storage: OfflineStorage, target: TripDraftT
     if (!previous) throw new Error('Offline trip is no longer saved. Prepare it again from the route.');
     const geometry = packetGeometry(await fetchGeometry(target.routeSlug, signal), target.routeSlug);
     if (signal.aborted) throw new Error('Download cancelled. Previous offline trip is unchanged.');
-    return commit(storage, { ...previous, geometry, savedAt: new Date().toISOString(), missing: previous.missing.filter(m => m !== 'Route geometry') }, signal);
+    const segment = previous.segment
+      ? { ...previous.segment, geometry: clipOfflineSegmentGeometry(geometry.lines, previous.putIn, previous.takeOut), missing: previous.segment.missing.filter(m => m !== 'Selected segment geometry') }
+      : undefined;
+    if (segment && !segment.geometry && !segment.missing.includes('Selected segment geometry')) segment.missing.push('Selected segment geometry');
+    return commit(storage, { ...previous, geometry, segment, savedAt: new Date().toISOString(), missing: previous.missing.filter(m => m !== 'Route geometry') }, signal);
   });
 }
 export function downloadOfflineTrip(storage: OfflineStorage, input: {
@@ -153,15 +174,20 @@ export function downloadOfflineTrip(storage: OfflineStorage, input: {
   ].filter(f => f.text);
   const access = (point: OfflineAccess): OfflineAccess => ({ id: point.id, name: point.name, latitude: point.latitude, longitude: point.longitude,
     note: river.accessPoints?.find(p => p.id === point.id)?.note });
-  const packet: OfflineTrip = { version: 1, target, savedAt: new Date().toISOString(),
+  const packet: OfflineTrip = { version: 2, target, savedAt: new Date().toISOString(),
     referenceGeneratedAt: Number.isFinite(Date.parse(detail.generatedAt)) ? detail.generatedAt : null,
     name: river.name, reach: river.reach, putIn: access(putIn), takeOut: access(takeOut), draft: { ...input.draft }, facts,
-    geometry: null, missing: logistics?.shuttle ? [] : ['Shuttle logistics'] };
+    geometry: null, segment: undefined, missing: logistics?.shuttle ? [] : ['Shuttle logistics'] };
   return queued(storage, target, async () => {
     if (signal.aborted) throw new Error('Download cancelled. Previous offline trip is unchanged.');
     const previous = await read(storage, target); // Failed reads must never authorize replacing a saved trip.
-    try { packet.geometry = packetGeometry(await fetchGeometry(river.slug, signal), river.slug); }
+    let geometryResponse: RiverGeometryResponse | null = null;
+    try {
+      geometryResponse = await fetchGeometry(river.slug, signal);
+      packet.geometry = packetGeometry(geometryResponse, river.slug);
+    }
     catch { packet.missing.push('Route geometry'); }
+    packet.segment = buildOfflineTripSegment({ detail, putIn, takeOut, geometryResponse });
     if (signal.aborted) throw new Error('Download cancelled. Previous offline trip is unchanged.');
     if (previous && previous.missing.length === 0 && packet.missing.length > 0) throw new Error('Update incomplete. Your previous complete offline trip is still saved. Retry with a connection.');
     return commit(storage, packet, signal);

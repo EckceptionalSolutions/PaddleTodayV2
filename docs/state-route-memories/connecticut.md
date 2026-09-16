@@ -62,3 +62,7 @@ The 2026-09-13 Willimantic expansion adds ten scored chain combinations: commute
 ## 40-route expansion pass (2026-09-13)
 
 Added ten scored Willimantic chain combinations to the Eagleville corridor: Nye-Holman–Eagleville Lake, Heron Cove–Eagleville Lake, Peck's Mill–River Park, Peck's Mill–Eagleville Lake, Merrow Meadow–Eagleville Lake, plus five reaches ending at the documented downstream Eagleville Preserve portage access. Each route retains the guide's named public access chain, direct Merrow or Coventry telemetry, conservative 2.1/4.2 ft minimum cues, mandatory dam-carry language, camping posture, safety hazards and gallery inheritance. Connecticut now has 40 public routes (38 scored, 2 planning). The downstream combinations are intentionally bounded at the portage access and must not be interpreted as permission to run Eagleville Dam or continue toward the downtown dams.
+
+## 50-route expansion pass (2026-09-13)
+
+Added seven scored Willimantic chain combinations ending at the documented downstream Eagleville portage access or Route 66 terminus: commuter–downstream, commuter–Route 66, Nye-Holman–Route 66, Heron Cove–Route 66, Peck's Mill–Route 66, Merrow Meadow–Route 66 and River Park–Route 66. They retain the named public water-entry chain, direct Coventry telemetry, conservative 4.2 ft minimum cue, mandatory Eagleville Dam carry, Route 66 stop, camping posture and inherited safety controls. Connecticut now has 47 public routes (45 scored, 2 planning); no route crosses the dam or continues into the documented downtown hazard reach.

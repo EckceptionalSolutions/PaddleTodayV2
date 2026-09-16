@@ -1,54 +1,66 @@
 # Mobile Store Listing Draft
 
-## App Name
+Revised September 14, 2026. Generated from [content.json](store-assets/refresh-2026-09/content.json) using `node scripts/build-store-refresh.mjs`. These are local copy drafts, not published metadata.
 
-PaddleToday
+## Store Display Name
 
-Alternative display name to consider before submission: Paddle Today.
+PaddleToday: River Conditions
 
-## Short Description
+Brand and installed app name remain PaddleToday. This display-name expansion is proposed for the store refresh.
 
-Find better paddling routes with live river scores, map search, and trip-planning facts.
+## Apple Subtitle
 
-## Full Description
+Kayak & canoe trip planner
 
-PaddleToday helps paddlers decide where to go today, this weekend, or when exploring nearby rivers.
+## Google Play Short Description
 
-The app combines river condition scores, confidence, route facts, map search, and practical planning notes so you can compare paddling options quickly. It is built for repeat local use: open the app, scan the best routes, check the map, review the river detail, and save the routes you care about most.
+Choose where to paddle with river scores, weather, and route planning
 
-Key features:
+## Full Description — Both Stores
 
-- Today board with recommended routes based on score, confidence, and location when enabled.
-- Map-first Explore screen for browsing rivers, filtering routes, and opening route details.
-- Weekend planner for narrowing trips by forecast support, route commitment, and camping notes.
-- River detail pages with structured summaries, route facts, logistics, access notes, hazards, and recent condition context.
-- Saved rivers kept on your device for quick repeat checks.
-- Optional location support for nearby recommendations and distance-aware filters.
-- Optional nearby Today and Weekend alerts for routes that look good around a selected planning location.
-- Route request and support links for missing routes, corrections, and feedback.
+Choose your next river paddle with current conditions in view. PaddleToday helps kayakers and canoeists compare routes for today or the weekend, understand condition scores, and check the details before heading out.
 
-PaddleToday is a planning aid, not a substitute for field judgment. River conditions, weather, access, hazards, and closures can change quickly. Always check official sources, local rules, current weather, route access, group ability, and safety equipment before launching.
+FIND A RIVER THAT FITS YOUR DAY
+Browse nearby routes or explore another area on the map. Compare condition scores, route distance, and difficulty to build your shortlist.
 
-## Promotional Text
+UNDERSTAND THE CONDITIONS
+See how water levels, weather, and available data shape the recommendation. Review the explanation behind a score, check how current the information is, and see where confidence is limited. Live scores and forecasts depend on the data available for each route.
 
-Map-first paddling planning with live scores, route facts, weekend picks, and saved local rivers.
+CHECK THE PRACTICAL DETAILS
+Review put-ins, take-outs, estimated paddling time, shuttle information, and available access, hazard, and camping notes. Bring the questions that matter for your trip into one place.
 
-## Keywords
+LOOK AHEAD TO THE WEEKEND
+Explore weekend options with forecast context where available. Compare shorter outings and routes with camping information to find a trip that fits your plans.
 
-paddling, canoe, kayak, river, water level, river conditions, trip planning, map, Minnesota, Wisconsin, Iowa, Midwest, camping, route guide
+KEEP YOUR FAVORITES CLOSE
+Save rivers for quick condition checks when you are ready to paddle again.
+
+COVERAGE AND CONDITIONS
+Browse supported rivers in the app to check coverage for your area. Route information, live scores, and forecasts vary with available sources.
+
+PaddleToday is a planning aid. Conditions, access, and hazards can change. Check official sources, local restrictions, weather, and your group's ability before launching. A condition score is not a safety guarantee.
+
+## Apple Promotional Text
+
+Find your next river trip with condition scores, clear explanations, and practical route details. Compare today's options and plan for the weekend.
+
+## Apple Keywords
+
+paddling,water,level,flow,gauge,forecast,weekend,map,launch,shuttle,camping,outdoor
 
 ## Release Notes
 
-New nearby Today and Weekend alerts, faster route search, improved Explore filters, supported-river browsing, additional Mississippi River coverage, and smaller usability fixes for planning from current river conditions.
+Write release notes for the actual version being submitted. Store copy changes alone do not justify claims of new app features. Alerts, comparisons, calendar, GPX, and float-plan copy remain outside this baseline until confirmed in each shipping build.
 
-## Support URL
+## URLs
 
-https://paddletoday.com/contact/
+- Support: https://paddletoday.com/contact/
+- Marketing: https://paddletoday.com/
+- Privacy: https://paddletoday.com/privacy/
+- Terms: https://paddletoday.com/terms/
 
-## Marketing URL
+## Review Package
 
-https://paddletoday.com/
-
-## Privacy Policy URL
-
-https://paddletoday.com/privacy/
+- [Visual gallery](store-assets/refresh-2026-09/index.html)
+- [Copy files and capture handoff](store-assets/refresh-2026-09/README.md)
+- [Character counts and image dimensions](store-assets/refresh-2026-09/validation.json)
