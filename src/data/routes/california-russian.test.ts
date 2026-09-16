@@ -4,8 +4,8 @@ import { rivers } from '../rivers';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('California Russian River starter routes', () => {
-  it('keeps seventeen scored Russian River sections with direct upper and lower gauges', () => {
-    expect(californiaRussianRoutes).toHaveLength(17);
+  it('keeps the scored Russian River sections with direct upper and lower gauges', () => {
+    expect(californiaRussianRoutes).toHaveLength(21);
     expect(californiaRussianRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(californiaRussianRoutes.every(route => ['11464000', '11467000'].includes(route.gaugeSource?.siteId ?? ''))).toBe(true);
     expect(californiaRussianRoutes.every(route => rivers.some(candidate => candidate.id === route.id))).toBe(true);

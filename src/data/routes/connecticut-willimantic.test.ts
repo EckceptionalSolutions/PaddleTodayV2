@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { connecticutWillimanticRoutes } from './connecticut-willimantic';
 
 describe('Connecticut Willimantic River routes', () => {
-  it('publishes seventeen scored, access-bounded water-trail reaches', () => {
-    expect(connecticutWillimanticRoutes).toHaveLength(17);
+  it('publishes the scored, access-bounded water-trail reaches', () => {
+    expect(connecticutWillimanticRoutes).toHaveLength(34);
     for (const route of connecticutWillimanticRoutes) {
       expect(route.scoreEligibility).toBe('scored');
       expect(route.state).toBe('Connecticut');

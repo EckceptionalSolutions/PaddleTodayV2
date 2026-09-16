@@ -5,7 +5,7 @@ import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Montana Blackfoot scored starter', () => {
   it('registers a direct-gauge public-access reach with camping and safety guidance', () => {
-    expect(montanaBlackfootRoutes).toHaveLength(24);
+    expect(montanaBlackfootRoutes).toHaveLength(36);
     const [route] = montanaBlackfootRoutes;
     expect(route.scoreEligibility).toBe('scored');
     expect(route.gaugeSource?.siteId).toBe('12340000');

@@ -5,7 +5,7 @@ import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Vermont Lamoille scored expansion', () => {
   it('registers trail-recommended reaches with direct gauge, access and camping controls', () => {
-    expect(vermontLamoilleRoutes).toHaveLength(15);
+    expect(vermontLamoilleRoutes).toHaveLength(28);
     expect(vermontLamoilleRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(vermontLamoilleRoutes.every(route => route.gaugeSource?.siteId === '04292000')).toBe(true);
     expect(vermontLamoilleRoutes.every(route => route.logistics?.campingClassification === 'none')).toBe(true);
