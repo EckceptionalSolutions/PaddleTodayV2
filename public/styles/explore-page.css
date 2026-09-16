@@ -1,4 +1,12 @@
 /* Explore-specific layout and controls. Shared maps and cards retain their common styles. */
+html body.page-explore [data-explore-scope-panel][hidden] { display: none !important; }
+html body.page-explore .board-filters__group--location { display: flex; flex-direction: column; gap: 0.8rem; }
+html body.page-explore .explore-scope-select { width: 100%; }
+html body.page-explore .explore-scope-select,
+html body.page-explore [data-explore-scope-panel] .filter-select { display: flex; flex-direction: column; align-items: stretch; gap: 0.35rem; }
+html body.page-explore .board-filters__group--location > .muted { margin: 0; font-size: 0.85rem; }
+html body.page-explore [data-explore-scope-panel] .filter-select { width: 100%; }
+html body.page-explore .explore-location-quick { margin-block: 0.8rem; }
 html body.page-explore .explore-workspace__body:has([data-map-unavailable]) {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -789,5 +797,196 @@ html body.page-explore .board-filters__actions .filter-chip { min-height: 44px; 
 @media (max-width: 760px) {
   html body.page-explore .explore-workspace__filter-pill--filter {
     min-height: 44px !important;
+  }
+}
+
+/* A single search flow: choose an area, then optionally narrow the trip. */
+html body.page-explore .board-filters__workspace {
+  grid-template-columns: minmax(0, 1fr);
+}
+html body.page-explore .board-filters__group-head,
+html body.page-explore .explore-refine__summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+html body.page-explore .board-filters__group-title {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+html body.page-explore .explore-step-number {
+  display: inline-grid;
+  flex: 0 0 2rem;
+  place-items: center;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--river-deep);
+  color: white;
+  font-weight: 800;
+}
+html body.page-explore .explore-step-number--optional {
+  background: #eaf0f2;
+  color: var(--ink-soft);
+}
+html body.page-explore .explore-step-hint {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+html body.page-explore .explore-area-fields {
+  display: grid;
+  grid-template-columns: minmax(12rem, 20rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+html body.page-explore .explore-area-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+}
+html body.page-explore .explore-area-footer a { margin-left: auto; }
+html body.page-explore .explore-refine {
+  display: block;
+  background: #fff;
+  border-color: rgba(20, 69, 83, 0.12);
+}
+html body.page-explore .explore-refine__summary {
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+html body.page-explore .explore-refine__summary::-webkit-details-marker { display: none; }
+html body.page-explore .explore-refine__summary:focus-visible {
+  outline: 3px solid var(--river-deep);
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+html body.page-explore .explore-refine__heading { flex: 1; min-width: 0; }
+html body.page-explore .explore-optional {
+  display: inline-block;
+  margin-left: 0.35rem;
+  color: var(--muted);
+  font: 500 0.75rem var(--sans, sans-serif);
+}
+html body.page-explore .explore-refine__chevron { font-size: 1.4rem; }
+html body.page-explore .explore-refine[open] .explore-refine__chevron { transform: rotate(180deg); }
+html body.page-explore .explore-refine__body {
+  padding-top: 1rem;
+  margin-top: 0.85rem;
+  border-top: 1px solid rgba(20, 69, 83, 0.1);
+}
+html body.page-explore .explore-refine:not([open]) > .explore-refine__body { display: none; }
+html body.page-explore .explore-refine__body .board-filters__actions { margin-top: 0.85rem; }
+html body.page-explore .explore-results-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.75rem;
+}
+html body.page-explore .explore-results-tools label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+html body.page-explore .explore-results-tools .filter-search { order: -1; flex: 1 1 18rem; }
+html body.page-explore .explore-results-tools .filter-select--sort { flex: 0 1 16rem; }
+html body.page-explore .explore-results-tools input,
+html body.page-explore .explore-results-tools select { width: 100%; min-height: 44px; }
+html body.page-explore .score-filter [hidden] { display: none; }
+@media (max-width: 760px) {
+  html body.page-explore .board-filters__group-title {
+    font-size: 1rem !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    line-height: 1.35;
+  }
+  html body.page-explore .explore-area-fields { grid-template-columns: minmax(0, 1fr); }
+  html body.page-explore .explore-area-footer a { margin-left: 0; }
+  html body.page-explore .explore-results-tools .filter-select--sort { flex: 1 1 100%; }
+  html body.page-explore .score-filter__options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Keep desktop geography controls on one aligned row. */
+html body.page-explore .explore-location-field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+html body.page-explore .explore-location-field .home-location-bar--embedded {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+}
+html body.page-explore .explore-area-fields :is(select, input, button) {
+  min-height: 44px;
+}
+html body.page-explore .explore-location-field .home-location-bar--embedded :is(input, button) {
+  min-height: 44px;
+}
+html body.page-explore .explore-distance-hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+@media (min-width: 1101px) {
+  html body.page-explore .board-filters__group--location {
+    padding: 1.15rem 1.25rem;
+    gap: 1rem;
+  }
+  html body.page-explore .explore-area-fields {
+    grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 2.28fr);
+    column-gap: 1.25rem;
+  }
+  html body.page-explore [data-explore-scope-panel="nearby"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    align-items: start;
+    gap: 0.35rem 1rem;
+    min-width: 0;
+  }
+  html body.page-explore [data-explore-scope-panel="state"] {
+    max-width: 26rem;
+  }
+  html body.page-explore .explore-location-field .home-location-bar__form {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+  }
+  html body.page-explore .explore-location-field .home-location-bar__search {
+    flex: 1 1 0;
+    min-width: 8rem;
+    width: auto;
+  }
+  html body.page-explore .explore-location-field .home-location-bar__actions,
+  html body.page-explore .explore-location-field .home-location-bar__use {
+    flex: 0 0 auto;
+  }
+  html body.page-explore .explore-location-field .home-location-bar__search-input {
+    min-width: 0;
+    max-width: none;
+  }
+  html body.page-explore .explore-area-fields .filter-select__input {
+    width: 100%;
+    min-width: 0;
+  }
+  html body.page-explore .explore-distance-hint {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  html body.page-explore .explore-area-footer {
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(20, 69, 83, 0.1);
+  }
+  html body.page-explore .explore-refine {
+    padding: 1rem 1.25rem;
   }
 }

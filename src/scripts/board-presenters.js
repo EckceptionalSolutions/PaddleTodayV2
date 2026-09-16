@@ -69,10 +69,12 @@ export function coldWeatherDrivenCall(item) {
 export function recommendationVerdict(item) {
   const route = item?.cardRoute;
   if (!route) return 'Checking';
+  if (route.river?.scoreEligibility === 'planning') return 'Planning route';
   return callLabelForDecision(route.rating, isCurrentCallUnavailable(route) ? 'withheld' : route.readiness?.status);
 }
 
 export function recommendationTier(item) {
+  if (item?.cardRoute?.river?.scoreEligibility === 'planning') return 'Not scored';
   if (isCurrentCallUnavailable(item?.cardRoute)) {
     return 'Not enough data';
   }
@@ -121,6 +123,9 @@ export function recommendationTagLabels(item, nearbyReady) {
 }
 
 export function recommendationSummaryText(item, nearbyReady, candidates = []) {
+  if (isCurrentCallUnavailable(item?.cardRoute)) {
+    return item.cardRoute.readiness?.reason || 'Current conditions are unavailable. Verify the latest readings before launching.';
+  }
   const summary = summaryParts(cardSummary(item));
   const mainParts = typeof summary.main === 'string'
     ? summary.main

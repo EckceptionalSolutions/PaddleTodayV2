@@ -26,7 +26,8 @@ import {
 } from './api-contract';
 import { todayBoardConfidenceWeight, snapshotFreshnessMetadata, staleSnapshotReadiness as markReadinessStale } from '@paddletoday/api-contract';
 import { getRiverGroupHeroPhoto } from '../data/river-group-hero';
-import { getRiverBySlug, listRiverGroups } from './rivers';
+import { getRiverBySlug, listRiverGroups, listRivers, listScoredRivers } from './rivers';
+import { catalogRevision } from './catalog-coverage';
 import { gaugeDisplayForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
 import { corridorForSlug } from '../data/route-corridors';
@@ -100,6 +101,7 @@ function isRiverGroupSnapshot(value: unknown): value is RiverGroupSnapshot {
 }
 
 export interface RiverSummarySnapshot {
+  catalog?: { revision: string; sourceRevision: string | null; publicRoutes: number; scoredRoutes: number };
   generatedAt: string;
   riverCount: number;
   rivers: RiverSummaryApiItem[];
@@ -704,6 +706,10 @@ function fallbackReadiness(item: RiverSummaryApiItem): RiverSummaryApiItem['read
 
 function buildSummarySnapshot(results: RiverScoreResult[], generatedAt: string): RiverSummarySnapshot {
   return {
+    catalog: {
+      revision: catalogRevision(listRivers()), sourceRevision: process.env.SOURCE_REVISION || null,
+      publicRoutes: listRivers().length, scoredRoutes: listScoredRivers().length,
+    },
     generatedAt,
     riverCount: results.length,
     rivers: results.map((result) => serializeSummaryResult({

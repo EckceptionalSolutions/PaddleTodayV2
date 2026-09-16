@@ -8,6 +8,7 @@ import { createRequestGuard, isAbortError } from './request-guard.js';
 
 export function createBoardLoaderController({
   cacheKey,
+  includeCatalog = false,
   getState,
   setLoadedState,
   renderBoard,
@@ -75,7 +76,7 @@ export function createBoardLoaderController({
         });
       }
 
-      const payload = await apiClient.getSummary({
+      const payload = await apiClient[includeCatalog ? 'getExplore' : 'getSummary']({
         cache: 'no-store',
         signal: controller.signal,
       });
@@ -99,9 +100,12 @@ export function createBoardLoaderController({
         staleSnapshot ? 'stale' : 'hidden',
         staleSnapshot ? 'The latest board update is delayed. Verify conditions before driving or launching.' : undefined,
       );
+      const coverageNote = includeCatalog && payload.coverage?.missingScores > 0
+        ? `All ${payload.coverage.publicRoutes} published routes are available. Current conditions are unavailable for ${payload.coverage.missingScores} scored routes; planning routes have no live score.`
+        : undefined;
       setRefreshState(
         staleSnapshot ? 'error' : 'ready',
-        staleSnapshot ? 'The latest board is out of date. Try refreshing again shortly.' : undefined,
+        coverageNote || (staleSnapshot ? 'The latest board is out of date. Try refreshing again shortly.' : undefined),
       );
       renderBoard(results, { preserveMapViewport });
       updateFreshness({

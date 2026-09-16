@@ -13,9 +13,10 @@ const values = {
   jobName: env.AZURE_CONTAINER_APPS_JOB,
   snapshotAlertEmail: env.SNAPSHOT_ALERT_EMAIL,
   snapshotContainerSasUrl: env.SNAPSHOT_SAS_URL,
+  provisionMonitoring: env.PROVISION_SNAPSHOT_MONITORING === 'true',
   image: `${env.AZURE_CONTAINER_REGISTRY}.azurecr.io/${env.IMAGE_NAME}:${env.GITHUB_SHA}`,
 };
-for (const [key, value] of Object.entries(values)) if (!value) throw new Error(`Missing parameter ${key}`);
+for (const [key, value] of Object.entries(values)) if (value === undefined || value === '') throw new Error(`Missing parameter ${key}`);
 writeFileSync(process.argv[2], JSON.stringify({ parameters: Object.fromEntries(Object.entries(values).map(([key, value]) => [key, { value }])) }));
 NODE
 az deployment group validate \

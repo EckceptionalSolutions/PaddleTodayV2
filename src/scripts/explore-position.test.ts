@@ -16,4 +16,8 @@ describe('Explore history position', () => {
       expect(readExplorePosition({ paddletodayExplorePosition: { ...position, ...invalid, version: 1, url } }, url)).toBeNull();
     }
   });
+  it('restores the national map at the supported overview zoom', () => {
+    const national = { ...position, camera: { ...position.camera, zoom: 2.5 } };
+    expect(readExplorePosition({ paddletodayExplorePosition: { ...national, version: 1, url } }, url)).toMatchObject(national);
+  });
 });

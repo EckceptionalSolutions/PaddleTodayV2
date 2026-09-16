@@ -18,7 +18,8 @@ export function createBoardMapModel({
   const routeCountLabel = (item) => `${item.totalRouteCount} routes on this river`;
 
   const representativeRouteLabel = (item) => {
-    const prefix = item.representativeMode === 'nearest'
+    const prefix = isCurrentCallUnavailable(item.cardRoute) ? 'Route'
+      : item.representativeMode === 'nearest'
       ? 'Nearest route'
       : includeSetupRepresentative && item.representativeMode === 'setup'
         ? 'Route for your setup'

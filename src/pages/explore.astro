@@ -21,7 +21,7 @@ const trackedRiverCount = riverGroups.length;
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Explore</p>
-        <h1 class="section-title">Browse all paddle results</h1>
+        <h1 class="section-title">Explore paddle routes</h1>
       </div>
       <div class="hero__meta">
         <span class="stat-chip">{trackedRiverCount} tracked rivers</span>
@@ -57,9 +57,29 @@ const trackedRiverCount = riverGroups.length;
           <div class="board-filters__workspace">
             <section class="board-filters__group board-filters__group--location" aria-labelledby="explore-location-heading">
               <div class="board-filters__group-head">
-                <h3 class="board-filters__group-title" id="explore-location-heading">Set your location</h3>
+                <span class="explore-step-number" aria-hidden="true">1</span>
+                <div>
+                  <h3 class="board-filters__group-title" id="explore-location-heading"><span class="sr-only">Step 1: </span>Where do you want to paddle?</h3>
+                  <p class="explore-step-hint">Start with an area. Results update as you choose.</p>
+                </div>
               </div>
 
+              <div class="explore-area-fields">
+              <label class="filter-select explore-scope-select"><span class="explore-filter-label">Search area</span>
+                <select class="filter-select__input" data-filter-scope disabled data-explore-wait>
+                  <option value="anywhere">Anywhere · all states</option><option value="nearby">Near a location</option><option value="state">In a state</option>
+                </select>
+              </label>
+              <div data-explore-scope-panel="state" hidden><label class="filter-select">
+                    <span class="explore-filter-label">State</span>
+                    <select class="filter-select__input" data-filter-state disabled data-explore-wait>
+                      <option value="">All states</option>
+                      {states.map((state) => <option value={state}>{state}</option>)}
+                    </select>
+                  </label></div>
+              <div data-explore-scope-panel="nearby" hidden>
+              <div class="explore-location-field">
+              <span class="explore-filter-label">City or ZIP code</span>
               <section class="home-location-bar home-location-bar--explore home-location-bar--embedded" aria-label="Set your location" data-nearby-location-panel>
                 <form class="location-panel__form home-location-bar__form" data-location-form>
                   <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use aria-label="Use my location">
@@ -84,18 +104,66 @@ const trackedRiverCount = riverGroups.length;
                 </form>
                 <p class="sr-only" data-home-location-summary>Set your location</p>
                 <p class="sr-only" data-home-location-sort-summary hidden>Choose a location to compare nearby routes.</p>
+              </section>
+              </div>
+              <label class="filter-select">
+                    <span class="explore-filter-label">Distance from location</span>
+                    <select class="filter-select__input" data-filter-distance disabled data-explore-wait>
+
+                      <option value="25">Within 25 miles</option>
+                      <option value="50">Within 50 miles</option>
+                      <option value="75">Within 75 miles</option>
+                      <option value="100">Within 100 miles</option>
+                      <option value="150">Within 150 miles</option>
+                      <option value="200">Within 200 miles</option>
+                    </select>
+                  </label>
+              <p class="muted explore-distance-hint">Distance is measured in a straight line from your location.</p>
+              </div>
+              </div>
+              <div class="explore-area-footer">
+                <button class="filter-chip" type="button" data-explore-preset="all-routes" aria-pressed="false" disabled data-explore-wait>Browse all routes</button>
+                <span class="muted">Resets the area and trip filters.</span>
+                <a href="/states/">Browse the state directory</a>
+              </div>
+            </section>
+
+            <details class="board-filters__group board-filters__group--controls explore-refine" data-explore-refine>
+              <summary class="explore-refine__summary">
+                <span class="explore-step-number explore-step-number--optional" aria-hidden="true">2</span>
+                <div class="explore-refine__heading">
+                  <h3 class="board-filters__group-title" id="explore-controls-heading"><span class="sr-only">Step 2: </span>Refine your trip <span class="explore-optional">Optional</span></h3>
+                  <p class="explore-step-hint" data-explore-refine-summary>All conditions and trip types. Open to narrow your results.</p>
+                </div>
+                <span class="explore-refine__chevron" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="explore-refine__body">
+
+              <div class="score-filter" role="group" aria-labelledby="explore-score-filter-label">
+                <span class="score-filter__label" id="explore-score-filter-label">Conditions</span>
+                <div class="score-filter__options">
+                  <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="true" disabled data-explore-wait>All conditions</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="" aria-pressed="false" disabled data-explore-wait>
+                    Paddle today
+                  </button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false" disabled data-explore-wait>Watch closely</button>
+                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false" disabled data-explore-wait>Skip</button>
+                </div>
+                <select hidden data-filter-rating aria-label="Conditions" disabled data-explore-wait>
+                  <option value="">Paddle today</option>
+                  <option value="all">All conditions</option>
+                  <option value="Fair">Watch closely</option>
+                  <option value="No-go">Skip only</option>
+                </select>
+              </div>
+              <p class="explore-step-hint">All conditions includes planning routes and routes without a current score.</p>
+
                 <div class="explore-location-quick" data-explore-location-quick>
                   <div class="explore-location-quick__heading">
-                    <span class="explore-location-quick__eyebrow">Quick filters</span>
+                    <span class="explore-location-quick__eyebrow">Trip choices</span>
                     <span class="explore-location-quick__location" data-explore-location-quick-label></span>
                   </div>
                   <div class="explore-location-quick__actions" aria-label="Quick route filters">
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="best-nearby" aria-pressed="false" disabled data-explore-wait>
-                      Best near me
-                    </button>
-                    <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="closest-paddle" aria-pressed="false" disabled data-explore-wait>
-                      Closest paddle
-                    </button>
                     <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="quick-float" aria-pressed="false" disabled data-explore-wait>
                       Quick float
                     </button>
@@ -105,12 +173,10 @@ const trackedRiverCount = riverGroups.length;
                     <button class="filter-chip filter-chip--subtle explore-location-quick__button" type="button" data-explore-preset="long-camping" aria-pressed="false" disabled data-explore-wait>
                       Long camping route
                     </button>
-                    <button class="filter-chip filter-chip--quiet explore-location-quick__button" type="button" data-explore-preset="all-routes" aria-pressed="false" disabled data-explore-wait>
-                      All routes
-                    </button>
+
                   </div>
                   <p class="explore-location-quick__summary" data-explore-location-quick-summary>
-                    <span data-explore-location-quick-summary-copy>Choose a shortcut to set the filters on the right.</span>
+                    <span data-explore-location-quick-summary-copy>Trip choices keep your selected area and search.</span>
                     <button class="explore-location-quick__expand" type="button" data-explore-expand-radius hidden></button>
                   </p>
                   <a class="explore-location-best" data-explore-best-match hidden href="#">
@@ -119,71 +185,14 @@ const trackedRiverCount = riverGroups.length;
                     <span data-explore-best-detail></span>
                   </a>
                 </div>
-              </section>
-            </section>
 
-            <section class="board-filters__group board-filters__group--controls" aria-labelledby="explore-controls-heading">
-              <div class="board-filters__group-head">
-                <h3 class="board-filters__group-title" id="explore-controls-heading">Filters</h3>
-              </div>
-
-              <div class="board-filters__controls board-filters__controls--primary">
-                <label class="filter-select filter-select--sort">
-                  <span class="sr-only">Sort the board</span>
-                  <select class="filter-select__input" data-sort-select disabled data-explore-wait>
-                    <option value="best-now">Top picks today</option>
-                    <option value="near-you">Best nearby</option>
-                    <option value="nearest">Closest first</option>
-                    <option value="highest-confidence">Highest data confidence</option>
-                    <option value="lowest-risk">Lowest-risk first</option>
-                    <option value="a-z">A-Z</option>
-                  </select>
-                </label>
-                <span class="location-indicator" data-location-indicator hidden aria-live="polite">
-                  <span class="location-indicator__spinner" aria-hidden="true"></span>
-                  <span data-location-indicator-label>Finding nearest picks...</span>
-                </span>
-                <label class="filter-search">
-                    <span class="sr-only">Search results</span>
-                    <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search disabled data-explore-wait />
-                </label>
-              </div>
-
-              <div class="score-filter" role="group" aria-labelledby="explore-score-filter-label">
-                <span class="score-filter__label" id="explore-score-filter-label">Scores</span>
-                <div class="score-filter__options">
-                  <button class="score-filter__option score-filter__option--active" type="button" data-filter-rating-button="" aria-pressed="true" disabled data-explore-wait>
-                    Paddle routes
-                  </button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="all" aria-pressed="false" disabled data-explore-wait>All</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Strong" aria-pressed="false" disabled data-explore-wait>Strong conditions</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Good" aria-pressed="false" disabled data-explore-wait>Good conditions</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="Fair" aria-pressed="false" disabled data-explore-wait>Watch closely</button>
-                  <button class="score-filter__option" type="button" data-filter-rating-button="No-go" aria-pressed="false" disabled data-explore-wait>Skip</button>
-                </div>
-                <select class="sr-only" data-filter-rating aria-label="Show scores" disabled data-explore-wait>
-                  <option value="">Paddle routes</option>
-                  <option value="all">All scores</option>
-                  <option value="Strong">Strong conditions only</option>
-                  <option value="Good">Good conditions only</option>
-                  <option value="Fair">Watch closely</option>
-                  <option value="No-go">Skip only</option>
-                </select>
-              </div>
-
-              <details class="board-filters__advanced" data-explore-advanced>
+              <details class="board-filters__advanced" data-explore-advanced open>
                 <summary class="board-filters__advanced-header">
                   <h4 class="board-filters__advanced-heading">More filters</h4>
-                  <span class="board-filters__advanced-note">State, difficulty, route type, camping, distance, time, score</span>
+                  <span class="board-filters__advanced-note">Difficulty, route type, camping, time, length</span>
                 </summary>
                 <div class="board-filters__controls board-filters__controls--secondary">
-                  <label class="filter-select">
-                    <span class="explore-filter-label">Filter by state</span>
-                    <select class="filter-select__input" data-filter-state disabled data-explore-wait>
-                      <option value="">All states</option>
-                      {states.map((state) => <option value={state}>{state}</option>)}
-                    </select>
-                  </label>
+
                   <label class="filter-select">
                     <span class="explore-filter-label">Filter by difficulty</span>
                     <select class="filter-select__input" data-filter-difficulty disabled data-explore-wait>
@@ -196,9 +205,9 @@ const trackedRiverCount = riverGroups.length;
                   <label class="filter-select">
                     <span class="explore-filter-label">Route type</span>
                     <select class="filter-select__input" data-filter-route-type disabled data-explore-wait>
-                      <option value="non-whitewater" selected>Non-whitewater routes</option>
+                      <option value="non-whitewater">Non-whitewater routes</option>
                       <option value="whitewater">Whitewater only</option>
-                      <option value="all">All route types</option>
+                      <option value="all" selected>All route types</option>
                     </select>
                   </label>
                   <label class="filter-select">
@@ -211,18 +220,7 @@ const trackedRiverCount = riverGroups.length;
                       <option value="nearby">Nearby basecamp</option>
                     </select>
                   </label>
-                  <label class="filter-select">
-                    <span class="explore-filter-label">Filter by drive distance</span>
-                    <select class="filter-select__input" data-filter-distance disabled data-explore-wait>
-                      <option value="">Any drive distance</option>
-                      <option value="25">Within 25 miles</option>
-                      <option value="50">Within 50 miles</option>
-                      <option value="75">Within 75 miles</option>
-                      <option value="100">Within 100 miles</option>
-                      <option value="150">Within 150 miles</option>
-                      <option value="200">Within 200 miles</option>
-                    </select>
-                  </label>
+
                   <label class="filter-select">
                     <span class="explore-filter-label">Filter by paddle time</span>
                     <select class="filter-select__input" data-filter-paddle-time disabled data-explore-wait>
@@ -248,13 +246,36 @@ const trackedRiverCount = riverGroups.length;
               <div class="board-filters__actions">
                 <button class="filter-chip filter-chip--quiet" type="button" data-explore-share disabled data-explore-wait>Copy search link</button>
                 <input class="explore-share-link" type="text" readonly hidden aria-label="Search link to copy" data-explore-share-link />
-                <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset disabled data-explore-wait>Reset all filters</button>
+                <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset disabled data-explore-wait>Clear trip filters</button>
               </div>
-            </section>
+              </div>
+            </details>
           </div>
         </section>
 
         <div class="explore-workspace__filters" data-filter-pills aria-live="polite"></div>
+
+        <div class="board-filters__controls board-filters__controls--primary explore-results-tools">
+          <label class="filter-search">
+            <span class="explore-filter-label">Search results</span>
+            <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search disabled data-explore-wait />
+          </label>
+          <label class="filter-select filter-select--sort">
+            <span class="explore-filter-label">Sort results</span>
+            <select class="filter-select__input" data-sort-select disabled data-explore-wait>
+              <option value="best-now">Top picks today</option>
+              <option value="near-you">Best nearby</option>
+              <option value="nearest">Closest first</option>
+              <option value="highest-confidence">Highest data confidence</option>
+              <option value="lowest-risk">Lowest-risk first</option>
+              <option value="a-z">A-Z</option>
+            </select>
+          </label>
+          <span class="location-indicator" data-location-indicator hidden aria-live="polite">
+            <span class="location-indicator__spinner" aria-hidden="true"></span>
+            <span data-location-indicator-label>Finding nearest picks...</span>
+          </span>
+        </div>
 
         <div class="explore-workspace__body">
           <SummaryMapPanel
@@ -264,7 +285,7 @@ const trackedRiverCount = riverGroups.length;
             mobileLayout="list-map"
             eyebrow="Map view"
             title="Explore supported rivers"
-            lede="Paddle routes are shown first, with Strong and Good conditions distinguished by color and score. Zoom in to move from zone scores to individual route scores, or reveal Watch and Skip routes with the filters."
+            lede="Dots show every matching route. Score labels highlight a limited selection; zoom in for local details. Planning routes have no live conditions score."
             showResults={true}
             showRiverLegend={true}
             resultsTitle="Ranked results"
@@ -285,6 +306,7 @@ const trackedRiverCount = riverGroups.length;
               <p class="muted explore-workspace__list-note">Click a marker or a result to compare both views together.</p>
             </div>
             <div class="explore-grid-shell" data-explore-shell>
+              <p class="muted" data-explore-empty hidden></p>
               <div class="river-grid river-grid--explore-list" aria-label="Explore paddle results today" data-explore-grid></div>
             </div>
 

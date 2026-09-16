@@ -1,3 +1,5 @@
+import { defaultExploreFilters, setExploreScope, applyExploreTripPreset, clearExploreFilters, normalizeExploreConditions, countExploreTripFilters } from './explore-filters.js';
+import { exploreCatalogPoints } from './explore-catalog-map.js';
 import { exploreFilterOptions, readExploreSearch, writeExploreSearch } from './explore-search-url.js';
 import { readExplorePosition, writeExplorePosition } from './explore-position.js';
 import { showActionFeedback } from './action-feedback.js';
@@ -46,7 +48,6 @@ import { createBoardStatusController } from './board-status-controller.js';
 import { createBoardPreferenceController } from './board-preference-controller.js';
 import {
   formatMixedFilterSummary,
-  formatMixedPaginationSummary,
   formatMixedResultCount,
   mixedResultsEmptyText,
   mixedResultsNoMatchText,
@@ -153,7 +154,7 @@ const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
 const STORAGE_HOME_DIFFICULTY_KEY = 'paddletoday:home-difficulty-filter';
 const STORAGE_HOME_PADDLE_TIME_KEY = 'paddletoday:home-paddle-time-filter';
-const STORAGE_EXPLORE_FILTERS_KEY = 'paddletoday:explore-filters:v1';
+const STORAGE_EXPLORE_FILTERS_KEY = 'paddletoday:explore-filters:v2';
 const {
   loadStoredHomeDifficultyFilter,
   loadStoredHomePaddleTimeFilter,
@@ -276,6 +277,7 @@ const filterPills = document.querySelector('[data-filter-pills]');
 const filterButtons = Array.from(document.querySelectorAll('[data-filter-toggle]'));
 const filterSearch = document.querySelector('[data-filter-search]');
 const filterState = document.querySelector('[data-filter-state]');
+const filterScope = document.querySelector('[data-filter-scope]');
 const filterRating = document.querySelector('[data-filter-rating]');
 const filterRatingButtons = Array.from(document.querySelectorAll('[data-filter-rating-button]'));
 const filterDifficulty = document.querySelector('[data-filter-difficulty]');
@@ -336,17 +338,8 @@ const summaryMapItemNounPlural =
   summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemPlural || 'rivers') : 'rivers';
 
 const activeFilters = {
-  paddleable: summaryMapMode === 'explore',
-  rating: '',
-  search: '',
-  state: '',
-  difficulty: '',
-  routeType: 'non-whitewater',
-  camping: '',
-  distance: '',
-  paddleTime: '',
-  paddleLength: '',
-  sort: 'best-now',
+  ...defaultExploreFilters,
+  ...(!exploreSection ? { rating: '', routeType: 'non-whitewater' } : {}),
 };
 let activeExplorePreset = '';
 const EXPLORE_RADIUS_OPTIONS = ['25', '50', '75', '100', '150', '200'];
@@ -364,7 +357,8 @@ function loadStoredExploreFilters() {
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return false;
 
     activeFilters.paddleable = typeof parsed.paddleable === 'boolean' ? parsed.paddleable : true;
-    activeFilters.rating = storedSelectValue(parsed.rating, exploreFilterOptions.rating);
+    activeFilters.scope = storedSelectValue(parsed.scope, exploreFilterOptions.scope, parsed.state ? 'state' : parsed.distance ? 'nearby' : 'anywhere');
+    activeFilters.rating = storedSelectValue(parsed.rating, exploreFilterOptions.rating, 'all');
     activeFilters.search = typeof parsed.search === 'string' ? parsed.search.slice(0, 200).trim() : '';
     activeFilters.state = typeof parsed.state === 'string' ? parsed.state.slice(0, 100) : '';
     activeFilters.difficulty = storedSelectValue(parsed.difficulty, exploreFilterOptions.difficulty);
@@ -389,16 +383,10 @@ function saveStoredExploreFilters() {
   }
 }
 
-function removeStoredExploreFilters() {
-  syncExploreSearchUrl();
-  try {
-    window.localStorage.removeItem(STORAGE_EXPLORE_FILTERS_KEY);
-  } catch {
-    // Reset still applies in memory when storage is unavailable.
-  }
-}
-
 function syncExploreFilterControls() {
+  if (exploreSection) Object.assign(activeFilters, normalizeExploreConditions(activeFilters));
+  if (filterScope) filterScope.value = activeFilters.scope;
+  for (const panel of document.querySelectorAll('[data-explore-scope-panel]')) panel.hidden = panel.dataset.exploreScopePanel !== activeFilters.scope;
   if (filterSearch instanceof HTMLInputElement) filterSearch.value = activeFilters.search;
   const selectValues = [
     ['state', filterState, activeFilters.state],
@@ -459,6 +447,8 @@ function scheduleExploreRender(options = {}) {
 }
 
 function commitExploreFilterChange({ preservePreset = false } = {}) {
+  restoredExplorePosition = null;
+  pendingExploreScroll = null;
   if (!preservePreset) {
     activeExplorePreset = '';
   }
@@ -471,6 +461,9 @@ let latestResults = [];
 let hasLoadedBoardOnce = false;
 let lastBoardSuccessAt = null;
 let mapRuntime = null;
+let catalogCoverageRuntime = null;
+let catalogCoverageItems = null;
+let catalogCoverageData = null;
 let summaryMapLibre = null;
 let summaryScoreLayer = null;
 let mapMarkers = [];
@@ -584,7 +577,6 @@ function saveExplorePosition() {
     scrolls: exploreScrollSelectors.map((selector) => document.querySelector(selector)?.scrollTop || 0),
     view: summaryMapMobileView,
     collapsed: summaryMapCollapsed,
-    advanced: exploreAdvancedFilters?.open || false,
     camera: center ? { center: [center.lng, center.lat], zoom: mapRuntime.getZoom(), bearing: mapRuntime.getBearing(), pitch: mapRuntime.getPitch() } : null,
   });
 }
@@ -766,6 +758,7 @@ const {
   setSortMode: (mode) => {
     activeFilters.sort = mode;
   },
+  useNearbySort: () => !exploreSection || activeFilters.scope === 'nearby',
   saveLocation,
   removeLocation: removeStoredLocation,
   onLocationCleared: () => {
@@ -860,7 +853,7 @@ const summaryMapController = createBoardMapController({
   },
 });
 const EXPLORE_PAGE_SIZE = 12;
-const SUMMARY_CACHE_KEY = 'river-summary:v2';
+const SUMMARY_CACHE_KEY = exploreSection ? 'explore-catalog:v1' : 'river-summary:v2';
 const {
   setBoardFetchBannerState,
   setBoardRefreshState,
@@ -885,6 +878,7 @@ const {
   },
 });
 const { hydrateBoardFromCache, loadBoard } = createBoardLoaderController({
+  includeCatalog: Boolean(exploreSection),
   cacheKey: SUMMARY_CACHE_KEY,
   getState: () => ({
     hasLoadedBoardOnce,
@@ -1382,6 +1376,15 @@ function supportingReasonList(item, nearbyReady) {
 }
 
 function renderExploreList(items) {
+  const empty = document.querySelector('[data-explore-empty]');
+  if (empty instanceof HTMLElement) {
+    empty.hidden = items.length > 0;
+    const areaRoutes = latestResults.filter(result => !activeFilters.state || result.river.state === activeFilters.state);
+    empty.textContent = activeFilters.scope === 'nearby' && !userLocation
+      ? 'Choose a city or use GPS to search nearby.'
+      : areaRoutes.length ? areaRoutes.length + ' published routes are available in this area. Clear trip filters or widen your search area to see more. Routes without current scores appear under All conditions.'
+      : 'No published routes are available in this area yet. Try another state or browse the state directory.';
+  }
   if (restoredExplorePosition && !restoredExploreList && (items.length || hasLoadedBoardOnce)) {
     currentExplorePage = restoredExplorePosition.page;
     restoredExploreList = true;
@@ -1417,7 +1420,7 @@ function updateExplorePagination(pagination) {
     if (pagination.totalItems === 0) {
       explorePaginationSummary.textContent = 'No results match these filters.';
     } else {
-      explorePaginationSummary.textContent = formatMixedPaginationSummary(pagination);
+      explorePaginationSummary.textContent = `Showing rivers ${pagination.startIndex + 1}–${pagination.endIndex} of ${pagination.totalItems}`;
     }
   }
 
@@ -1434,13 +1437,9 @@ function updateExplorePagination(pagination) {
   }
 
   if (exploreResultsCount instanceof HTMLElement) {
-    if (pagination.totalItems === 0) {
-      exploreResultsCount.textContent = '0 results';
-    } else if (pagination.totalItems === 1) {
-      exploreResultsCount.textContent = '1 result';
-    } else {
-      exploreResultsCount.textContent = `${pagination.totalItems} results`;
-    }
+    const routes = lastExploreItems.reduce((total, item) => total + item.matchingRouteCount, 0);
+    const rivers = lastExploreItems.length;
+    exploreResultsCount.textContent = `${routes} ${routes === 1 ? 'route' : 'routes'} on ${rivers} ${rivers === 1 ? 'river' : 'rivers'}`;
   }
 }
 
@@ -1726,51 +1725,14 @@ function getFilteredResults(results) {
 }
 
 function resetExploreFilters({ rerender = true } = {}) {
+  restoredExplorePosition = null;
+  pendingExploreScroll = null;
   activeExplorePreset = '';
-  activeFilters.paddleable = true;
-  activeFilters.rating = '';
-  activeFilters.search = '';
-  activeFilters.state = '';
-  activeFilters.difficulty = '';
-  activeFilters.routeType = 'non-whitewater';
-  activeFilters.camping = '';
-  activeFilters.distance = '';
-  activeFilters.paddleTime = '';
-  activeFilters.paddleLength = '';
-  activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
+  Object.assign(activeFilters, clearExploreFilters(activeFilters));
   currentExplorePage = 1;
-  removeStoredExploreFilters();
+  saveStoredExploreFilters();
 
-  if (filterSearch instanceof HTMLInputElement) {
-    filterSearch.value = '';
-  }
-  if (filterState instanceof HTMLSelectElement) {
-    filterState.value = '';
-  }
-  if (filterRating instanceof HTMLSelectElement) {
-    filterRating.value = '';
-  }
-  if (filterDifficulty instanceof HTMLSelectElement) {
-    filterDifficulty.value = '';
-  }
-  if (filterRouteType instanceof HTMLSelectElement) {
-    filterRouteType.value = activeFilters.routeType;
-  }
-  if (filterCamping instanceof HTMLSelectElement) {
-    filterCamping.value = '';
-  }
-  if (filterDistance instanceof HTMLSelectElement) {
-    filterDistance.value = '';
-  }
-  if (filterPaddleTime instanceof HTMLSelectElement) {
-    filterPaddleTime.value = '';
-  }
-  if (filterPaddleLength instanceof HTMLSelectElement) {
-    filterPaddleLength.value = '';
-  }
-  if (sortSelect instanceof HTMLSelectElement) {
-    sortSelect.value = activeFilters.sort;
-  }
+  syncExploreFilterControls();
 
   updateFilterButtonStates();
   updateRatingFilterButtons();
@@ -1848,47 +1810,11 @@ function applyExplorePreset(preset) {
     return;
   }
 
-  activeFilters.paddleable = true;
-  activeFilters.rating = '';
-  activeFilters.search = '';
-  activeFilters.state = '';
-  activeFilters.difficulty = '';
-  activeFilters.routeType = 'non-whitewater';
-  activeFilters.camping = '';
-  activeFilters.distance = '';
-
-  if (preset === 'best-nearby' || preset === 'closest-paddle') {
-    activeFilters.sort = preset === 'best-nearby' ? 'near-you' : 'nearest';
-    activeFilters.paddleTime = '';
-    activeFilters.paddleLength = '';
-    activeFilters.distance = chooseExplorePresetRadius();
-  } else if (preset === 'quick-float') {
-    activeFilters.difficulty = 'easy';
-    activeFilters.paddleTime = 'up-to-3';
-    activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
-    activeFilters.distance = userLocationState === 'ready' && userLocation ? chooseExplorePresetRadius() : '';
-  } else if (preset === 'full-day') {
-    activeFilters.paddleTime = '5-to-7';
-    activeFilters.sort = 'best-now';
-  } else if (preset === 'long-camping') {
-    activeFilters.camping = 'any-support';
-    activeFilters.paddleLength = '10-plus';
-    activeFilters.sort = 'best-now';
-  } else if (preset === 'all-routes') {
-    activeFilters.paddleable = false;
-    activeFilters.rating = 'all';
-    activeFilters.routeType = 'all';
-    activeFilters.paddleTime = '';
-    activeFilters.paddleLength = '';
-    activeFilters.sort = 'best-now';
-  } else {
-    return;
-  }
+  Object.assign(activeFilters, applyExploreTripPreset(activeFilters, preset));
 
   activeExplorePreset = preset;
   syncExploreFilterControls();
   commitExploreFilterChange({ preservePreset: true });
-  scrollToExploreResults();
 }
 
 function expandExploreRadius() {
@@ -1910,21 +1836,23 @@ function updateExploreLocationQuick() {
   exploreLocationQuick.hidden = false;
 
   if (exploreLocationQuickLabel instanceof HTMLElement) {
-    exploreLocationQuickLabel.textContent = locationReady ? shortLocationLabel() : 'Set a location for nearby shortcuts';
+    exploreLocationQuickLabel.textContent = activeFilters.scope === 'state' ? activeFilters.state || 'Choose a state' : activeFilters.scope === 'nearby' ? (locationReady ? shortLocationLabel() : 'Choose a location') : 'All states';
   }
 
-  const count = lastExploreItems.length;
+  const count = lastExploreItems.reduce((total, item) => total + item.matchingRouteCount, 0);
   const distance = activeFilters.distance;
   const nearbySort = activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest';
   const nextRadius = locationReady && distance && nearbySort && count === 0 ? nextExploreRadiusWithResults() : null;
 
   if (exploreLocationQuickSummaryCopy instanceof HTMLElement) {
-    if (!locationReady) {
-      exploreLocationQuickSummaryCopy.textContent = 'Set your location to unlock nearby shortcuts. Other trip filters work without a location.';
+    if (activeFilters.scope === 'nearby' && !locationReady) {
+      exploreLocationQuickSummaryCopy.textContent = 'Choose a city or use GPS to find routes within your selected distance.';
+    } else if (!locationReady) {
+      exploreLocationQuickSummaryCopy.textContent = 'Trip choices preserve your search area. No location is needed to browse all states.';
     } else if (distance && nearbySort) {
       exploreLocationQuickSummaryCopy.textContent = count === 0
-        ? `No paddleable routes within ${distance} miles. Try a wider drive radius below.`
-        : `${count} paddleable ${count === 1 ? 'route' : 'routes'} within ${distance} miles.`;
+        ? `No matching routes within ${distance} miles. Try a wider drive radius below.`
+        : `${count} matching ${count === 1 ? 'route' : 'routes'} within ${distance} miles.`;
     } else {
       exploreLocationQuickSummaryCopy.textContent = `${count} ${count === 1 ? 'route matches' : 'routes match'} the current filters. Choose a shortcut to change them.`;
     }
@@ -1938,7 +1866,7 @@ function updateExploreLocationQuick() {
     }
   }
 
-  const best = locationReady && nearbySort ? lastExploreItems[0] : null;
+  const best = locationReady && nearbySort && !isCurrentCallUnavailable(lastExploreItems[0]?.cardRoute) ? lastExploreItems[0] : null;
   if (exploreBestMatch instanceof HTMLAnchorElement) {
     exploreBestMatch.hidden = !best;
     if (best) {
@@ -2139,7 +2067,7 @@ function updateLocationStatus() {
 
   if (filterDistance instanceof HTMLSelectElement) {
     filterDistance.disabled = !locationReady;
-    if (!locationReady && activeFilters.distance) {
+    if (!locationReady && activeFilters.distance && activeFilters.scope !== 'nearby') {
       activeFilters.distance = '';
       filterDistance.value = '';
     }
@@ -2186,6 +2114,13 @@ function updateHomeNearbyCounters(results) {
 
 function updateFilterSummary(exploreItems) {
   updateExploreFilterPills();
+  const refineSummary = document.querySelector('[data-explore-refine-summary]');
+  if (refineSummary) {
+    const count = countExploreTripFilters(activeFilters);
+    refineSummary.textContent = count
+      ? `${count} trip ${count === 1 ? 'filter' : 'filters'} applied within your selected area.`
+      : 'All conditions and trip types. Open to narrow your results.';
+  }
 
   if (!(filterSummary instanceof HTMLElement)) {
     return;
@@ -2216,7 +2151,7 @@ function updateRatingFilterButtons() {
 }
 
 function buildExploreFilterPills() {
-  const pills = [];
+  const pills = [{ label: activeFilters.scope === 'nearby' ? `Near ${userLocation?.label || 'a location'}` : activeFilters.scope === 'state' ? 'State search' : 'Anywhere · all states', tone: 'scope' }];
   const normalizedSortMode = normalizeBoardSortMode(
     activeFilters.sort,
     userLocationState === 'ready' && Boolean(userLocation)
@@ -2254,7 +2189,7 @@ function buildExploreFilterPills() {
     });
   }
 
-  if (userLocationState === 'ready' && userLocation && (normalizedSortMode === 'near-you' || normalizedSortMode === 'nearest')) {
+  if (activeFilters.scope !== 'nearby' && userLocationState === 'ready' && userLocation && (normalizedSortMode === 'near-you' || normalizedSortMode === 'nearest')) {
     pills.push({
       label: shortLocationLabel(),
       tone: 'location',
@@ -2344,7 +2279,7 @@ function buildExploreFilterPills() {
 
   if (activeFilters.paddleable && !activeFilters.rating) {
     pills.push({
-      label: 'Paddle routes',
+      label: 'Paddle today',
       key: 'rating',
       tone: 'filter',
     });
@@ -3562,15 +3497,10 @@ function summaryMapOverviewStatus(items) {
   if (!isRiverFirstExploreMap()) {
     return isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
   }
-  const riverCount = new Set(items.map((item) => item.cardRoute.river.riverId || item.cardRoute.river.name)).size;
-  const routeCount = items.reduce(
-    (total, item) => total + (item.matchingRouteCount ?? 1),
-    0
-  );
   const shortlistCopy = summaryMapViewportItemCount > items.length
-    ? ` Showing ${items.length} of ${summaryMapViewportItemCount} results in this map area. Zoom in or show more results.`
+    ? ` Score labels for ${items.length} of ${summaryMapViewportItemCount} river results in this map area. Zoom in or show more labels.`
     : ' Results follow the map area.';
-  return `Showing ${routeCount} ${routeCount === 1 ? 'route' : 'routes'} across ${riverCount} supported ${riverCount === 1 ? 'river' : 'rivers'}.${shortlistCopy} Zoom in to see individual route scores.`;
+  return `Coverage dots show all ${lastExploreItems.reduce((count, item) => count + item.matchingRouteCount, 0)} matching routes. Gray dots have no current score.${shortlistCopy}`;
 }
 
 function updateSummaryMarkerZoomMode() {
@@ -3795,7 +3725,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
         container: summaryMap,
         center: [-93.7, 44.6],
         zoom: 5.2,
-        minZoom: 3.4,
+        minZoom: isRiverFirstExploreMap() ? 2 : 3.4,
         maxZoom: 12,
         ...(restoredExplorePosition?.camera || {}),
       });
@@ -3822,6 +3752,36 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
 
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
+    if (isRiverFirstExploreMap()) {
+      if (catalogCoverageItems !== items) {
+        catalogCoverageItems = items;
+        catalogCoverageData = exploreCatalogPoints(items);
+      }
+      syncGeoJsonOverlay(mapRuntime, {
+        sourceId: 'explore-catalog-coverage', data: catalogCoverageData, skipUnchangedData: true,
+        layers: [{ id: 'explore-catalog-coverage', type: 'circle', paint: {
+          'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 3, 9, 6],
+          'circle-color': ['case', ['get', 'unavailable'], '#697b84', '#176c80'],
+          'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1, 'circle-opacity': 0.8,
+        } }],
+      });
+      for (const feature of catalogCoverageData.features) {
+        bounds.extend(feature.geometry.coordinates);
+        hasBounds = true;
+      }
+      if (catalogCoverageRuntime !== mapRuntime) {
+        catalogCoverageRuntime = mapRuntime;
+        mapRuntime.on('click', 'explore-catalog-coverage', event => {
+          const key = event.features?.[0]?.properties?.key;
+          if (!key) return;
+          const slug = event.features?.[0]?.properties?.slug;
+          const route = lastExploreItems.find(item => item.key === key)?.matchingRoutes.find(route => route.river.slug === slug);
+          pendingSummaryMapOpenKey = key;
+          focusSummaryMapRoute(key, route ? [route] : null);
+          scheduleSummaryMapRender(lastExploreItems, { preserveViewport: true });
+        });
+      }
+    }
     const mapItems = summaryMapItemsForViewport(items, { preserveViewport });
     summaryMapSourceItemCount = items.length;
     if (summaryMapShowMore instanceof HTMLButtonElement) {
@@ -3829,7 +3789,7 @@ async function renderSummaryMap(items, { preserveViewport = false } = {}) {
       summaryMapShowMore.hidden = !hasMore;
       if (hasMore) {
         const nextLimit = Math.min(summaryMapInteractiveLimit + SUMMARY_MAP_INTERACTIVE_ITEM_LIMIT, summaryMapViewportItemCount);
-        summaryMapShowMore.textContent = `Show ${nextLimit - mapItems.length} more map results`;
+        summaryMapShowMore.textContent = `Show ${nextLimit - mapItems.length} more river labels`;
       }
     }
 
@@ -4140,6 +4100,13 @@ function applyHomePreset(preset) {
 }
 
 function setupFilters() {
+  filterScope?.addEventListener('change', () => {
+    Object.assign(activeFilters, setExploreScope(activeFilters, filterScope.value));
+    syncExploreFilterControls();
+    commitExploreFilterChange();
+    if (activeFilters.scope === 'nearby' && !userLocation) locationInput?.focus();
+    if (activeFilters.scope === 'state') filterState?.focus();
+  });
   if (filterPills instanceof HTMLElement && filterPills.dataset.filterBound !== 'true') {
     filterPills.dataset.filterBound = 'true';
     filterPills.addEventListener('click', (event) => {
@@ -4148,6 +4115,7 @@ function setupFilters() {
       const key = button.dataset.removeFilter;
       if (!['search', 'state', 'difficulty', 'routeType', 'camping', 'distance', 'paddleTime', 'paddleLength', 'rating'].includes(key)) return;
       activeFilters[key] = key === 'routeType' || key === 'rating' ? 'all' : '';
+      if (key === 'state' || key === 'distance') Object.assign(activeFilters, setExploreScope(activeFilters, 'anywhere'));
       if (key === 'rating') activeFilters.paddleable = true;
       syncExploreFilterControls();
       commitExploreFilterChange();
@@ -4214,6 +4182,8 @@ function setupFilters() {
     filterState.dataset.filterBound = 'true';
     filterState.addEventListener('change', () => {
       activeFilters.state = filterState.value;
+      Object.assign(activeFilters, setExploreScope(activeFilters, filterState.value ? 'state' : 'anywhere'));
+      syncExploreFilterControls();
       commitExploreFilterChange();
     });
   }
@@ -4449,7 +4419,6 @@ export function initSummaryBoard() {
       currentExplorePage = restoredExplorePosition.page;
       summaryMapMobileView = restoredExplorePosition.view;
       summaryMapCollapsed = restoredExplorePosition.collapsed;
-      if (exploreAdvancedFilters) exploreAdvancedFilters.open = restoredExplorePosition.advanced;
       window.history.scrollRestoration = 'manual';
       // Fonts and late route rows can change the layout after the first paint.
       const resizeObserver = new ResizeObserver(() => restoreExploreScroll());
@@ -4487,7 +4456,7 @@ export function initSummaryBoard() {
   if (storedLocation) {
     userLocation = storedLocation;
     userLocationState = 'ready';
-    if (!hasStoredExploreFilters) activeFilters.sort = 'near-you';
+    if (!hasStoredExploreFilters && (!exploreSection || activeFilters.scope === 'nearby')) activeFilters.sort = 'near-you';
     if (locationInput instanceof HTMLInputElement) {
       locationInput.value = storedLocation.label;
     }
@@ -4497,6 +4466,11 @@ export function initSummaryBoard() {
   }
 
   syncExploreFilterControls();
+
+  const refinePanel = document.querySelector('[data-explore-refine]');
+  if (refinePanel instanceof HTMLDetailsElement && countExploreTripFilters(activeFilters) > 0) {
+    refinePanel.open = true;
+  }
 
   if (nearbySortSelect instanceof HTMLSelectElement) {
     nearbySortSelect.value = nearbySortMode;

@@ -1,7 +1,8 @@
 import { appendFileSync } from 'node:fs';
 import { getUpstreamTelemetry } from '../lib/http';
 import { captureRiverSnapshots, getStoredRiverDetailSnapshot } from '../lib/river-snapshots';
-import { getAllRiverScores } from '../lib/rivers';
+import { getAllRiverScores, listScoredRivers } from '../lib/rivers';
+import { assertScoredCatalogCoverage } from '../lib/catalog-coverage';
 import {
   assessUpstreamHealth,
   DEFAULT_UPSTREAM_HEALTH_THRESHOLDS,
@@ -11,6 +12,7 @@ async function main() {
   const scoreConcurrency = positiveInteger(process.env.RIVER_SCORE_CONCURRENCY, 24);
   const writeConcurrency = positiveInteger(process.env.RIVER_SNAPSHOT_WRITE_CONCURRENCY, 24);
   const results = await getAllRiverScores({ concurrency: scoreConcurrency });
+  assertScoredCatalogCoverage(listScoredRivers().map(route => route.slug), results.map(result => result.river.slug));
   assertSnapshotQuality(results);
   assertUpstreamHealth();
   const captured = await captureRiverSnapshots({ results, writeConcurrency });

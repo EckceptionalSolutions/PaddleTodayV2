@@ -17,6 +17,11 @@ on:
       - 'infra/azure/snapshot-worker/**'
       - '.github/workflows/azure-container-apps-snapshot-worker.yml'
   workflow_dispatch:
+    inputs:
+      provision_monitoring:
+        description: 'Also provision monitoring (requires an identity with monitoring write permissions)'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -27,6 +32,7 @@ env:
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
   IMAGE_NAME: paddletoday/snapshot-worker
+  PROVISION_SNAPSHOT_MONITORING: ${{ inputs.provision_monitoring && 'true' || 'false' }}
 
 jobs:
   deploy:
@@ -63,7 +69,7 @@ jobs:
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
             --output none
 
-      - name: Validate job and monitoring permissions before building
+      - name: Validate worker deployment permissions before building
         env:
           SNAPSHOT_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
           SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
@@ -75,6 +81,7 @@ jobs:
             --registry "$AZURE_CONTAINER_REGISTRY" \
             --image "$IMAGE_NAME:$GITHUB_SHA" \
             --file infra/azure/snapshot-worker/Dockerfile \
+            --build-arg SOURCE_REVISION="$GITHUB_SHA" \
             .
 
       - name: Deploy scheduled Container Apps Job
@@ -83,6 +90,7 @@ jobs:
           SNAPSHOT_ALERT_EMAIL: ${{ vars.SNAPSHOT_ALERT_EMAIL || 'hello@paddletoday.com' }}
         run: |
           az deployment group create \
+            --mode Incremental \
             --resource-group "$AZURE_RESOURCE_GROUP" \
             --template-file infra/azure/container-apps-job.bicep \
             --parameters \
@@ -90,6 +98,7 @@ jobs:
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
               jobName="$AZURE_CONTAINER_APPS_JOB" \
               snapshotAlertEmail="$SNAPSHOT_ALERT_EMAIL" \
+              provisionMonitoring="$PROVISION_SNAPSHOT_MONITORING" \
               snapshotContainerSasUrl="$SNAPSHOT_SAS_URL" \
               image="$AZURE_CONTAINER_REGISTRY.azurecr.io/$IMAGE_NAME:$GITHUB_SHA" \
             --output none

@@ -20,6 +20,7 @@ import type {
   RouteCommunityResponse,
   RiverSummaryResponse,
   RiverCatalogResponse,
+  ExploreCatalogResponse,
   WeekendSummaryResponse,
 } from '@paddletoday/api-contract';
 
@@ -53,6 +54,7 @@ export interface RiverHistoryRequestOptions extends RequestOptions {
 }
 
 export interface PaddleTodayApiClient {
+  getExplore(options?: RequestOptions): Promise<ExploreCatalogResponse>;
   getCatalog(options?: RequestOptions): Promise<RiverCatalogResponse>;
   getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
@@ -154,6 +156,9 @@ export function createPaddleTodayApiClient(args: {
   return {
     getCatalog(options) {
       return requestJson<RiverCatalogResponse>('/api/rivers/catalog.json', options);
+    },
+    getExplore(options) {
+      return requestJson<ExploreCatalogResponse>('/api/rivers/explore.json', options);
     },
     getSummary(options) {
       return requestJson<RiverSummaryResponse>('/api/rivers/summary.json', options);

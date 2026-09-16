@@ -2,6 +2,12 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { PaddleTodayApiError, createPaddleTodayApiClient } from './index';
 
 describe('@paddletoday/api-client', () => {
+  it('fetches the discovery catalog separately from live scoring', async () => {
+    const fetchImpl = vi.fn<typeof fetch>(async () => Response.json({ rivers: [], coverage: { publicRoutes: 0 } }));
+    const client = createPaddleTodayApiClient({ baseUrl: 'https://api.example.com', fetchImpl });
+    await client.getExplore();
+    expect(String(fetchImpl.mock.calls[0][0])).toBe('https://api.example.com/api/rivers/explore.json');
+  });
   afterEach(() => vi.useRealTimers());
 
   it.each([200, 429, 502])('keeps proxy response text out of user guidance for HTTP %s', async (status) => {

@@ -129,6 +129,7 @@ export function matchesBoardRatingFilter(
   if (rating && rating !== 'all' && resultRating !== rating) {
     return false;
   }
+  if (rating && rating !== 'all' && readiness?.status === 'withheld') return false;
   return true;
 }
 
@@ -152,7 +153,7 @@ export function matchesBoardRouteFilters(
   }
 
   const river = result?.river ?? {};
-  if (filters.state && river.state !== filters.state) {
+  if (filters.state && (!filters.scope || filters.scope === 'state') && river.state !== filters.state) {
     return false;
   }
   if (filters.difficulty && river.difficulty !== filters.difficulty) {
@@ -195,7 +196,7 @@ export function matchesBoardRouteFilters(
     }
   }
 
-  if (filters.distance) {
+  if (filters.distance && (!filters.scope || filters.scope === 'nearby')) {
     const maxDistanceMiles = Number(filters.distance);
     if (
       !userLocation

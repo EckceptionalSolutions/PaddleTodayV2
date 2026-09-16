@@ -11,6 +11,7 @@ import {
   handleRiverHistory,
   handleRiverSummary,
   handleRiverCatalog,
+  handleExploreCatalog,
   handleWeekendSummary,
 } from './routes/public-rivers';
 import { handleRiverRequest } from './routes/route-requests';
@@ -103,6 +104,10 @@ const server = createServer(async (request, response) => {
 
     if (requestUrl.pathname === '/api/rivers/catalog.json') {
       return handleRiverCatalog(response, requestId, includeBody);
+    }
+
+    if (requestUrl.pathname === '/api/rivers/explore.json') {
+      return await handleExploreCatalog(response, requestId, includeBody);
     }
 
     if (requestUrl.pathname === '/api/rivers/summary.json') {

@@ -3,15 +3,20 @@ const {
   interactive = false,
   showNoGo = true,
   showUnavailable = false,
+  callGroups = false,
   itemClass = 'summary-map-legend__item',
 } = Astro.props;
 
-const items = [
+const items = (callGroups ? [
+  { rating: 'Paddle', score: '✓', label: 'Paddle today', markerClass: 'summary-map-legend__marker--good', enabled: true },
+  { rating: 'Fair', score: '!', label: 'Watch closely', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
+  { rating: 'No-go', score: '×', label: 'Skip', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
+] : [
   { rating: 'Strong', score: '90', label: 'Strong conditions', markerClass: 'summary-map-legend__marker--great', enabled: true },
   { rating: 'Good', score: '70', label: 'Good conditions', markerClass: 'summary-map-legend__marker--good', enabled: true },
   { rating: 'Fair', score: '55', label: 'Watch closely', markerClass: 'summary-map-legend__marker--marginal', enabled: true },
   { rating: 'No-go', score: '15', label: 'Skip', markerClass: 'score-map-marker--no-go score-map-marker--confidence-low', enabled: false },
-].filter(item => showNoGo || item.rating !== 'No-go');
+]).filter(item => showNoGo || item.rating !== 'No-go');
 ---
 
 {items.map(item => interactive ? (
@@ -33,6 +38,6 @@ const items = [
 {showUnavailable && (
   <span class={itemClass}>
     <span class="summary-map-legend__marker score-map-marker--pending" aria-hidden="true">--</span>
-    Call unavailable
+    No current score
   </span>
 )}

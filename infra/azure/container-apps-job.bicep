@@ -28,6 +28,9 @@ param snapshotBlobPrefix string = 'river-snapshots'
 @description('Operations mailbox that receives repeated snapshot failure alerts.')
 param snapshotAlertEmail string = 'hello@paddletoday.com'
 
+@description('Provision or update monitoring resources. Disable for routine worker deployments using the restricted CI identity; existing alerts are retained in Incremental mode.')
+param provisionMonitoring bool = true
+
 @description('UTC cron schedule. Azure Container Apps Jobs use five-field cron expressions.')
 param cronExpression string = '7,37 * * * *'
 
@@ -132,7 +135,7 @@ resource acrPullRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-
   }
 }
 
-resource snapshotFailureActionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
+resource snapshotFailureActionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = if (provisionMonitoring) {
   name: '${jobName}-failures'
   location: 'global'
   properties: {
@@ -148,7 +151,7 @@ resource snapshotFailureActionGroup 'Microsoft.Insights/actionGroups@2023-01-01'
   }
 }
 
-resource consecutiveSnapshotFailures 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = {
+resource consecutiveSnapshotFailures 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = if (provisionMonitoring) {
   name: '${jobName}-consecutive-failures'
   location: location
   properties: {
@@ -194,7 +197,7 @@ resource consecutiveSnapshotFailures 'Microsoft.Insights/scheduledQueryRules@202
   }
 }
 
-resource snapshotFreshnessAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = {
+resource snapshotFreshnessAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-01' = if (provisionMonitoring) {
   name: '${jobName}-freshness'
   location: location
   properties: {
@@ -238,5 +241,5 @@ resource snapshotFreshnessAlert 'Microsoft.Insights/scheduledQueryRules@2023-12-
 }
 
 output jobId string = job.id
-output snapshotFailureAlertId string = consecutiveSnapshotFailures.id
-output snapshotFreshnessAlertId string = snapshotFreshnessAlert.id
+output snapshotFailureAlertId string = resourceId('Microsoft.Insights/scheduledQueryRules', '${jobName}-consecutive-failures')
+output snapshotFreshnessAlertId string = resourceId('Microsoft.Insights/scheduledQueryRules', '${jobName}-freshness')

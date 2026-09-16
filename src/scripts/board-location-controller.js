@@ -22,6 +22,7 @@ export function createBoardLocationController({
   getSelectedRadius = () => Number.POSITIVE_INFINITY,
   distanceBetween = () => Number.POSITIVE_INFINITY,
   getSortMode = () => '',
+  useNearbySort = () => true,
   setLocationState = () => {},
   setSortMode = () => {},
   saveLocation = () => {},
@@ -77,7 +78,7 @@ export function createBoardLocationController({
     cancelLocationLookup();
     setLocationState(location, 'ready');
     saveLocation(location);
-    if (getSortMode() === 'best-now') {
+    if (useNearbySort() && getSortMode() === 'best-now') {
       setSortMode('near-you');
       if (sortSelect) {
         sortSelect.value = 'near-you';

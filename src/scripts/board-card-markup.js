@@ -143,7 +143,7 @@ export function recommendationCardViewModel(
   return {
     ratingKey: callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating),
     slot: index === 0 ? "Today's Best" : recommendationSlotLabel(index, nearbyReady),
-    kind: item.kind === 'group' ? 'River · top stretch score' : 'Route score',
+    kind: callUnavailable ? (item.kind === 'group' ? 'River · route guide' : 'Route guide') : item.kind === 'group' ? 'River · top stretch score' : 'Route score',
     state: regionStateText(item),
     route: featuredRouteLabelForItem(item),
     summary: recommendationSummaryText(item, nearbyReady, latestResults),
@@ -330,7 +330,7 @@ export function riverCardViewModel(
   const callUnavailable = isCurrentCallUnavailable(item.cardRoute);
   return {
     ratingKey: callUnavailable ? 'pending' : ratingToneKey(item.cardRoute.rating),
-    kind: item.kind === 'group' ? 'River · top stretch score' : 'Route score',
+    kind: callUnavailable ? (item.kind === 'group' ? 'River · route guide' : 'Route guide') : item.kind === 'group' ? 'River · top stretch score' : 'Route score',
     state: regionStateText(item),
     route: routeLabelForItem(item),
     segment: segmentLabelForItem(item),

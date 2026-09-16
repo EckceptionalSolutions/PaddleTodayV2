@@ -13,6 +13,8 @@ RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund \
 COPY src ./src
 
 ENV NODE_ENV=production
+ARG SOURCE_REVISION=unknown
+ENV SOURCE_REVISION=$SOURCE_REVISION
 
 USER node
 

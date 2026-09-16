@@ -22,6 +22,7 @@ import { getAllRiverScores, getRiverBySlug, getRiverGroupById, getRiverGroupScor
 import { getCacheStats } from '../../lib/server-cache';
 import { parseQueryNumber } from '../request-parsers';
 import { resolveStaticFile } from '../static-route';
+import { buildExploreCatalog } from '../../lib/explore-catalog';
 
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
 const LIVE_SUMMARY_CACHE_CONTROL = 'public, max-age=60, s-maxage=180, stale-while-revalidate=600';
@@ -72,6 +73,19 @@ export function handleRiverCatalog(response: ServerResponse, requestId: string, 
     river: { slug, riverId, name, state, region },
   }));
   return sendJson(response, 200, { requestId, rivers }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+}
+
+export async function handleExploreCatalog(response: ServerResponse, requestId: string, includeBody: boolean) {
+  const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
+  const catalog = buildExploreCatalog(listRivers(), snapshot?.rivers ?? []);
+  return sendJson(response, 200, {
+    requestId,
+    generatedAt: snapshot?.generatedAt ?? null,
+    snapshotStatus: snapshot?.snapshotStatus ?? 'unavailable',
+    riverCount: catalog.rivers.length,
+    snapshotCatalog: snapshot?.catalog ?? null,
+    ...catalog,
+  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
 }
 
 export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean) {

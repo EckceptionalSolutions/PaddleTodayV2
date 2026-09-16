@@ -1,4 +1,5 @@
 export const exploreFilterOptions = {
+  scope: ['anywhere', 'nearby', 'state'],
   rating: ['', 'all', 'Strong', 'Good', 'Fair', 'No-go'],
   difficulty: ['', 'easy', 'moderate', 'hard'],
   routeType: ['non-whitewater', 'whitewater', 'all'],
@@ -16,6 +17,7 @@ export function readExploreSearch(url) {
   for (const [key, options] of Object.entries(exploreFilterOptions)) {
     filters[key] = options.includes(params.get(key)) ? params.get(key) : options[0];
   }
+  if (!params.has('scope')) filters.scope = filters.state ? 'state' : filters.distance ? 'nearby' : 'anywhere';
   const latitude = params.has('lat') && params.get('lat').trim() ? Number(params.get('lat')) : NaN;
   const longitude = params.has('lng') && params.get('lng').trim() ? Number(params.get('lng')) : NaN;
   const location = Number.isFinite(latitude) && Math.abs(latitude) <= 90 && Number.isFinite(longitude) && Math.abs(longitude) <= 180

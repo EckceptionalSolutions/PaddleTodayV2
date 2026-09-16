@@ -48,6 +48,16 @@ function harness(overrides = {}) {
 }
 
 describe('board loader controller', () => {
+  it('uses the complete discovery catalog for Explore and explains missing scores', async () => {
+    const apiClient = { getExplore: vi.fn().mockResolvedValue({ generatedAt: null, rivers: [{ id: 'planning-route' }],
+      coverage: { publicRoutes: 50, missingScores: 20 } }), getSummary: vi.fn() };
+    const { loader, callbacks } = harness({ includeCatalog: true, apiClient });
+    await loader.loadBoard();
+    expect(apiClient.getExplore).toHaveBeenCalledOnce();
+    expect(apiClient.getSummary).not.toHaveBeenCalled();
+    expect(callbacks.renderBoard).toHaveBeenCalledWith([{ id: 'planning-route' }], expect.anything());
+    expect(callbacks.setRefreshState).toHaveBeenCalledWith('ready', expect.stringContaining('All 50 published routes'));
+  });
   afterEach(() => vi.useRealTimers());
 
   it.each([false, true])('recovers from a stalled response body with prior data: %s', async (hasPriorData) => {

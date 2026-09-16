@@ -491,6 +491,22 @@ export interface LiveDataStatus {
   weather: DataFreshness;
 }
 
+export interface ExploreCatalogResponse {
+  requestId: string;
+  generatedAt: string | null;
+  snapshotStatus: string;
+  riverCount: number;
+  rivers: RiverSummaryApiItem[];
+  coverage: {
+    catalogRevision: string;
+    publicRoutes: number;
+    scoredRoutes: number;
+    planningRoutes: number;
+    missingScores: number;
+    missingScoreStates: string[];
+  };
+}
+
 export interface RiverSummaryApiItem {
   river: {
     scoreEligibility?: 'scored' | 'planning';
