@@ -63,9 +63,17 @@ node scripts/static-asset-redirect.mjs verify
 
 The Cloudflare token needs **Dynamic URL Redirects: Edit** for paddletoday.com.
 `apply` creates or updates only the rule with ref
-`paddletoday_legacy_static_assets`; other rules are preserved. Routine deployments
+`paddletoday_legacy_static_assets`, or the dashboard-created rule with the same
+name and match expression; other rules are preserved. Routine deployments
 only verify the public redirect and do not require Cloudflare credentials.
 The frontend workflow intentionally fails if compatibility is not active.
+
+If the API rejects the token, create a Single Redirect through the Cloudflare
+dashboard using the name, custom filter, dynamic destination, status code and
+query-string setting printed by `show`, then run `verify`. The initial rollout
+used this dashboard path on September 17, 2026 after the account-owned token
+continued returning HTTP 403 despite its scoped redirect-edit permission.
+Both public compatibility probes passed after activation.
 
 ## Rollback and retention
 

@@ -20,7 +20,7 @@ async function cloudflare(path, method = 'GET', body) {
   });
   const payload = await response.json();
   if (response.status === 404 && method === 'GET') return null;
-  if (!response.ok || !payload.success) throw new Error(`Cloudflare ${method} ${path} failed (${response.status}). The token needs Dynamic URL Redirects: Edit on paddletoday.com.`);
+  if (!response.ok || !payload.success) throw new Error(`Cloudflare ${method} ${path} failed (${response.status}): ${payload.errors?.map((error) => `${error.code ?? ''} ${error.message}`).join('; ') || 'Unknown API error'}. The token needs Dynamic URL Redirects: Edit on paddletoday.com.`);
   return payload.result;
 }
 
@@ -31,9 +31,12 @@ try {
     await verifyAssets({ ...manifest, baseUrl: `${origin}/legacy` }, { cacheControl: 'public, max-age=300' });
     if (!ruleset) await cloudflare('/rulesets', 'POST', { name: 'Redirect rules', kind: 'zone', phase: 'http_request_dynamic_redirect', rules: [rule] });
     else {
-      const existing = ruleset.rules?.find((entry) => entry.ref === ref);
+      const existing = ruleset.rules?.find((entry) => entry.ref === ref || (
+        entry.description === rule.description && entry.expression === rule.expression && entry.action === rule.action
+      ));
       // Edit only this rule; preserve all other zone rules and their order.
-      await cloudflare(`/rulesets/${ruleset.id}/rules${existing ? `/${existing.id}` : ''}`, existing ? 'PATCH' : 'POST', rule);
+      // A rule created through the dashboard has a generated ref; retain it.
+      await cloudflare(`/rulesets/${ruleset.id}/rules${existing ? `/${existing.id}` : ''}`, existing ? 'PATCH' : 'POST', { ...rule, ref: existing?.ref || ref });
     }
     console.log('Legacy asset redirect configured.');
   } else if (process.argv[2] === 'verify') {
