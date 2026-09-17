@@ -1,4 +1,5 @@
 import { endpointSnappedRiverGeometry, stitchRiverLines } from './endpoint-snapped-river-geometry.js';
+import { staticAssetUrl } from './static-asset-url.js';
 
 const canonicalGeometryPromises = new Map();
 const canonicalRouteGeometryPromises = new Map();
@@ -26,7 +27,7 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
 
   const promise = stateName
     ? loadGeometryCollection(`/data/canonical-river-geometries/states/${slugifyState(stateName)}.json`)
-    : fetch('/data/canonical-river-geometries.json', {
+    : fetch(staticAssetUrl('/data/canonical-river-geometries.json'), {
       cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS),
     })
     .then((response) => {
@@ -52,7 +53,7 @@ export function loadCanonicalRiverGeometries({ stateName = '' } = {}) {
 }
 
 function loadGeometryCollection(assetPath) {
-  return fetch(assetPath, { cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS) })
+  return fetch(staticAssetUrl(assetPath), { cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS) })
     .then((response) => {
       if (!response.ok) throw new Error(`Canonical river geometry request failed (${response.status})`);
       return response.json();
@@ -100,7 +101,7 @@ export function canonicalRiverRouteLineFromFeature(feature, routePoints) {
 export async function loadCanonicalRiverRouteLine(routeId, routePoints, options = {}) {
   const existing = canonicalRouteGeometryPromises.get(routeId);
   const featurePromise = existing ?? fetch(
-    `/data/canonical-river-geometries/routes/${encodeURIComponent(routeId)}.json`,
+    staticAssetUrl(`/data/canonical-river-geometries/routes/${encodeURIComponent(routeId)}.json`),
     { cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS) },
   )
     .then((response) => {

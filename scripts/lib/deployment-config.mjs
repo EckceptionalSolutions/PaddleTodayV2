@@ -1,13 +1,13 @@
 const required = {
   api: ['AZURE_WEBAPP_NAME', 'AZUREAPPSERVICE_PUBLISHPROFILE'],
-  frontend: ['AZURE_STATIC_WEB_APPS_API_TOKEN'],
+  frontend: ['AZURE_STATIC_WEB_APPS_API_TOKEN', 'AZURE_CREDENTIALS'],
   snapshot: ['AZURE_CREDENTIALS', 'SNAPSHOT_SAS_URL'],
 };
 
 export function checkDeploymentConfig(target, env, now = Date.now()) {
   if (!required[target]) return ['Choose api, frontend, or snapshot.'];
   const errors = required[target].filter(key => !env[key]?.trim()).map(key => `${key} is missing.`);
-  if (target === 'snapshot' && env.AZURE_CREDENTIALS?.trim()) {
+  if (['snapshot', 'frontend'].includes(target) && env.AZURE_CREDENTIALS?.trim()) {
     try {
       const credentials = JSON.parse(env.AZURE_CREDENTIALS);
       if (!['clientId', 'clientSecret', 'subscriptionId', 'tenantId'].every(key => typeof credentials?.[key] === 'string' && credentials[key].trim())) throw new Error();
