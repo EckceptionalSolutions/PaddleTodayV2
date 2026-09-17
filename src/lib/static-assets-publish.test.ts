@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -62,5 +62,64 @@ describe('static asset publishing', () => {
     } })).rejects.toThrow('verification failed');
     await expect(verifyAssets(manifest, { fetchImpl: async (url: string, options: { method?: string }) =>
       options.method === 'HEAD' ? serve(url, options) : new Response('corrupt') })).rejects.toThrow('checksum failed');
+  });
+
+  it('recovers from transient HEAD errors and GET body interruptions without skipping validation', async () => {
+    const { manifest } = await fixture();
+    manifest.files = manifest.files.filter((file: { path: string }) => file.path === 'gallery/photo.jpg');
+    const file = manifest.files[0];
+    let heads = 0;
+    let gets = 0;
+    const pauses: number[] = [];
+    const onRetry = vi.fn();
+    const fetchImpl = async (_url: string, options: { method: string }) => {
+      if (options.method === 'HEAD' && ++heads === 1) {
+        throw new TypeError('fetch failed', { cause: Object.assign(new Error('connection reset'), { code: 'ECONNRESET' }) });
+      }
+      if (options.method === 'GET' && ++gets === 1) {
+        return new Response(new ReadableStream({ start(controller) { controller.error(new Error('body interrupted')); } }));
+      }
+      return new Response(options.method === 'HEAD' ? null : 'photo', { headers: {
+        'content-length': String(file.bytes), 'content-type': file.contentType,
+        'access-control-allow-origin': '*', 'cache-control': 'public, max-age=31536000, immutable',
+      } });
+    };
+    await expect(verifyAssets(manifest, { fetchImpl, delayImpl: async (ms: number) => { pauses.push(ms); }, onRetry })).resolves.toBeUndefined();
+    expect([heads, gets]).toEqual([2, 2]);
+    expect(pauses).toEqual([1000, 1000]);
+    expect(onRetry.mock.calls[0][0]).toContain('ECONNRESET');
+    expect(onRetry.mock.calls[1][0]).toContain('GET https://assets.test/container/');
+  });
+
+  it.each([408, 429, 503])('bounds retries for transient HTTP %s and reports the asset', async (status) => {
+    const { manifest } = await fixture();
+    manifest.files = [manifest.files[0]];
+    const fetchImpl = vi.fn(async () => new Response(null, { status }));
+    const delayImpl = vi.fn(async () => {});
+    await expect(verifyAssets(manifest, { fetchImpl, delayImpl, onRetry: () => {} }))
+      .rejects.toThrow(`HEAD ${manifest.baseUrl}/${manifest.files[0].path}, attempt 3/3: HTTP ${status}`);
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(delayImpl.mock.calls).toEqual([[1000], [2000]]);
+  });
+
+  it('bounds network retries and preserves the underlying failure in diagnostics', async () => {
+    const { manifest } = await fixture();
+    manifest.files = [manifest.files[0]];
+    const fetchImpl = vi.fn(async () => {
+      throw new TypeError('fetch failed', { cause: Object.assign(new Error('connect timeout'), { code: 'UND_ERR_CONNECT_TIMEOUT' }) });
+    });
+    await expect(verifyAssets(manifest, { fetchImpl, delayImpl: async () => {}, onRetry: () => {} }))
+      .rejects.toThrow('attempt 3/3: fetch failed (UND_ERR_CONNECT_TIMEOUT)');
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
+  it('does not retry permanent HTTP failures', async () => {
+    const { manifest } = await fixture();
+    manifest.files = [manifest.files[0]];
+    const fetchImpl = vi.fn(async () => new Response(null, { status: 404 }));
+    const delayImpl = vi.fn(async () => {});
+    await expect(verifyAssets(manifest, { fetchImpl, delayImpl })).rejects.toThrow('attempt 1/3: HTTP 404');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(delayImpl).not.toHaveBeenCalled();
   });
 });

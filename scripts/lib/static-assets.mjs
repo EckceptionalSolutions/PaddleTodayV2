@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readdir, readFile, mkdir, copyFile, cp, writeFile } from 'node:fs/promises';
 import { resolve, relative, sep, extname } from 'node:path';
+import { setTimeout as delay } from 'node:timers/promises';
 
 export const assetDirectories = ['gallery', 'data'];
 export const contentTypes = { '.json': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.md': 'text/markdown' };
@@ -71,15 +72,45 @@ export async function packageFrontend({ source, destination, manifest, baseUrl }
   await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`);
 }
 
+async function requestAsset(url, options, { fetchImpl, delayImpl, onRetry }) {
+  const attempts = 3;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      const response = await fetchImpl(url, { ...options, signal: AbortSignal.timeout(30000) });
+      if (!response.ok) {
+        await response.body?.cancel();
+        throw Object.assign(new Error(`HTTP ${response.status}`), {
+          retryable: [408, 429].includes(response.status) || response.status >= 500,
+        });
+      }
+      // Consume GET bodies inside the retry boundary: connections can fail after headers arrive.
+      const body = options.method === 'HEAD' ? undefined : Buffer.from(await response.arrayBuffer());
+      return { response, body };
+    } catch (error) {
+      const cause = error.cause?.code || error.cause?.errors?.map((item) => item.code || item.message).join(', ')
+        || error.cause?.message;
+      const detail = `${error.message}${cause ? ` (${cause})` : ''}`;
+      const context = `${options.method} ${url}, attempt ${attempt}/${attempts}: ${detail}`;
+      if (error.retryable === false || attempt === attempts) {
+        throw new Error(`Public asset verification failed: ${context}`, { cause: error });
+      }
+      onRetry(`Retrying public asset verification: ${context}`);
+      await delayImpl(1000 * 2 ** (attempt - 1));
+    }
+  }
+}
+
 export async function verifyAssets(manifest, { fetchImpl = fetch, site = 'https://paddletoday.com', concurrency = 12,
+  delayImpl = delay, onRetry = console.warn,
   cacheControl = 'public, max-age=31536000, immutable' } = {}) {
   let index = 0;
+  const requestOptions = { fetchImpl, delayImpl, onRetry };
   // Every file must be publicly readable, correctly typed, and CORS-enabled before pages deploy.
   await Promise.all(Array.from({ length: Math.min(concurrency, manifest.files.length) }, async () => {
     while (index < manifest.files.length) {
       const file = manifest.files[index++];
       const url = `${manifest.baseUrl}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
-      const response = await fetchImpl(url, { method: 'HEAD', headers: { Origin: site }, signal: AbortSignal.timeout(30000) });
+      const { response } = await requestAsset(url, { method: 'HEAD', headers: { Origin: site } }, requestOptions);
       if (!response.ok || Number(response.headers.get('content-length')) !== file.bytes
         || response.headers.get('content-type')?.split(';')[0] !== file.contentType
         || !['*', site].includes(response.headers.get('access-control-allow-origin'))
@@ -91,8 +122,9 @@ export async function verifyAssets(manifest, { fetchImpl = fetch, site = 'https:
   // Check actual bytes as well as headers, across every published content type.
   const samples = [...new Map(manifest.files.map((file) => [file.contentType, file])).values()];
   for (const file of samples) {
-    const response = await fetchImpl(`${manifest.baseUrl}/${file.path}`, { signal: AbortSignal.timeout(30000) });
-    if (!response.ok || createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex') !== file.sha256) {
+    const url = `${manifest.baseUrl}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
+    const { body } = await requestAsset(url, { method: 'GET' }, requestOptions);
+    if (createHash('sha256').update(body).digest('hex') !== file.sha256) {
       throw new Error(`Public asset checksum failed: ${file.path}.`);
     }
   }
