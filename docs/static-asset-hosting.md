@@ -23,6 +23,11 @@ public; request, alert, history, and snapshot containers remain private.
    type, cache policy and CORS. Also verify sample content hashes and legacy URLs.
 7. Deploy `tmp/frontend` to Static Web Apps only after those checks pass.
 
+For rollout validation, manually dispatch the frontend workflow with
+`deploy_frontend=false`. This runs tests, builds, publishes, and verifies assets
+using the real CI identity, but skips the compatibility gate and frontend
+deployment. Pushes to main always run the compatibility gate before deployment.
+
 ## Azure setup
 
 The workflow uses its existing `AZURE_CREDENTIALS` with `azure/login@v2`.
