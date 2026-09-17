@@ -21,6 +21,10 @@ public; request, alert, history, and snapshot containers remain private.
    uploads retain old file names needed by installed mobile releases.
 6. Verify every versioned asset with an anonymous HEAD request, including size,
    type, cache policy and CORS. Also verify sample content hashes and legacy URLs.
+   Network failures, interrupted GET bodies, HTTP 408/429 and server errors get
+   up to three attempts with one- and two-second backoff. Errors include the
+   asset URL and underlying cause. Permanent HTTP failures and incorrect asset
+   contents or headers still fail verification immediately.
 7. Deploy `tmp/frontend` to Static Web Apps only after those checks pass.
 
 For rollout validation, manually dispatch the frontend workflow with
