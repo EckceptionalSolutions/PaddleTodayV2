@@ -1,4 +1,5 @@
 import { getDedicatedRiverGroupHeroPhoto } from './river-group-hero-photos';
+import { staticAssetUrl } from '../lib/static-asset-url.js';
 import {
   cheatRiverHeadwatersPhoto,
   cheatRiverRowlesburgPhoto,
@@ -7390,7 +7391,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
-  return [...(approvedRoutePhotosBySlug[slug] ?? [])];
+  return (approvedRoutePhotosBySlug[slug] ?? []).map((photo) => ({ ...photo, src: staticAssetUrl(photo.src) }));
 }
 
 export function getRouteGalleryPhotos(route: RoutePhotoTarget): RouteGalleryPhoto[] {
@@ -10398,6 +10399,11 @@ function stablePhotoIndex(key: string, length: number): number {
 }
 
 export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto {
+  const photo = routePreviewPhoto(route);
+  return { ...photo, src: staticAssetUrl(photo.src) };
+}
+
+function routePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto {
   const approvedPhotos = getApprovedRoutePhotos(route.slug);
   const key = `${route.riverId ?? 'route'}:${route.slug}`;
 

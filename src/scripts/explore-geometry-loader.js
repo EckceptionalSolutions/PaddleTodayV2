@@ -1,4 +1,5 @@
 /** Shared overview plus a bounded, replaceable queue of route detail requests. */
+import { staticAssetUrl } from '../lib/static-asset-url.js';
 const GEOMETRY_REQUEST_TIMEOUT_MS = 15_000;
 
 export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () => {}, concurrency = 4 } = {}) {
@@ -16,7 +17,7 @@ export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () =
       const controller = new AbortController();
       active.set(slug, controller);
       const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS)]);
-      fetchImpl(`/data/canonical-river-geometries/routes/${encodeURIComponent(slug)}.json`, { signal, cache: 'force-cache' })
+      fetchImpl(staticAssetUrl(`/data/canonical-river-geometries/routes/${encodeURIComponent(slug)}.json`), { signal, cache: 'force-cache' })
         .then((response) => {
           if (!response.ok) throw new Error(`Route geometry ${response.status}`);
           return response.json();
@@ -40,7 +41,7 @@ export function createExploreGeometryLoader({ fetchImpl = fetch, onChange = () =
   return {
     features,
     loadOverview() {
-      if (!overviewPromise) overviewPromise = fetchImpl('/data/explore-map-overview.json', {
+      if (!overviewPromise) overviewPromise = fetchImpl(staticAssetUrl('/data/explore-map-overview.json'), {
         cache: 'force-cache', signal: AbortSignal.timeout(GEOMETRY_REQUEST_TIMEOUT_MS),
       })
         .then((response) => {
