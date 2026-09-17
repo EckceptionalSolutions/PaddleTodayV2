@@ -1,0 +1,40 @@
+{
+  "state": "Nevada",
+  "campaign": "lower-48-expansion-50",
+  "batch": "east-fork-carson-washoe-road-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": ["east-fork-carson-hangmans-bridge-washoe-road"],
+  "route": {
+    "name": "East Fork Carson River - Hangman's Bridge to Washoe Road",
+    "distanceMiles": 19.12,
+    "class": "II+(III)",
+    "stateAssignment": "Nevada; the put-in is in California and the documented take-out is in Nevada, above Ruhenstroth Dam.",
+    "scored": true
+  },
+  "catalogCounts": {
+    "before": { "publicRoutes": 42, "scoredRoutes": 41, "planningRoutes": 1 },
+    "after": { "publicRoutes": 43, "scoredRoutes": 42, "planningRoutes": 1 }
+  },
+  "sources": [
+    { "title": "American Whitewater East Fork Carson, Hangman's Bridge to Highway 395", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/162/main" },
+    { "title": "Nevada Department of Wildlife East Fork Carson River access, channel and land guidance", "url": "https://www.ndow.org/waters/carson-river-east-fork/" },
+    { "title": "Humboldt-Toiyabe National Forest Carson River Takeout", "url": "https://www.fs.usda.gov/r04/humboldt-toiyabe/recreation/carson-river-takeout" },
+    { "title": "Carson Water Subconservancy District access and take-out review", "url": "https://www.cwsd.org/wp-content/uploads/2021/08/8-18-21-CWSD-Board-Meeting-Agenda-Package.pdf" },
+    { "title": "NDEP East Fork Carson River raft pullout coordinates near Washoe Bridge", "url": "https://ndep.nv.gov/uploads/documents/Carson_Ground_Temp_8dec11_final.pdf" },
+    { "title": "Dreamflows community trigger levels for Hangman's Bridge to Route 395", "url": "https://www.dreamflows.com/triggerLevels.php" },
+    { "title": "USGS East Fork Carson River near Gardnerville, station 10309000", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10309000/" },
+    { "title": "East Fork Carson rafting photograph by Matkatamiba, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Rafting_the_East_Fork_of_the_Carson_River.jpg" }
+  ],
+  "qualification": {
+    "demandAndDistinctness": "American Whitewater calls the 19.1-mile East Fork run popular and identifies day trips as viable. The cross-border route ends at a separate Nevada access above the mandatory dam exit; no existing route card covered Hangman's Bridge to Washoe Road. It is counted for Nevada because its reviewed public take-out is in Nevada.",
+    "scoring": "Direct same-river USGS 10309000 is near Gardnerville, upstream of the Washoe Road take-out. Dreamflows publishes the same reach against this gauge with 600 cfs minimum good, 1,275–1,725 cfs preferred and 5,000 cfs maximum good. The card records those community-derived bands as planning inputs, not safe-flow guarantees; live trend, boat type, skill and observed conditions control the launch decision.",
+    "access": "Hangman's Bridge put-in is the small river-right entry just downstream of the bridge; access is described as marginal, so parking and landing must be checked. NDEP identifies the Nevada endpoint coordinate as an East Fork raft pullout near Washoe Bridge. The Carson Water Subconservancy District identifies improved public parking/bathrooms at the end of Washoe Road about ¼ mile above Ruhenstroth Dam, and the Humboldt-Toiyabe National Forest lists a Carson River Takeout. American Whitewater places the Washoe Road take-out at mile 19.12 and the dam hazard at mile 19.6.",
+    "coordinateAudit": "Targeted USGS National Hydrography Dataset audit passed 2/2 endpoints with severity ok. Hangman's Bridge is 46.9 ft from the matched East Fork Carson flowline and within 31.7 ft of NHD waterbody; Washoe pullout is 24.3 ft from the flowline and on NHD waterbody. Generated network-traced canonical geometry is one connected USGS NHD line with 794 vertices, 19.23 measured miles, and a maximum endpoint snap of 47 ft.",
+    "safety": "Reviewed cold-water immersion/hypothermia, continuous opening rapids with occasional Class III, steep eroded banks, strainers, few exits, shuttle and emergency planning, private/Washoe Tribal boundaries, rapid flow changes and the mandatory take-out before Ruhenstroth Dam. PFD, helmet and cold-water gear are specified.",
+    "camping": "Camping is classified as nearby_basecamp. East Fork Resort above Hangman's Bridge offers campsites only with advance operator permission; the route is presented as a long day trip. No on-route overnight campsite is assumed, and users are warned not to camp on hot-spring, private or tribal banks without verified permission.",
+    "gallery": "Added a local route-specific image of rafting on the East Fork Carson River, credited to Matkatamiba under CC BY-SA 4.0. It is captioned as same-river context, not a current-conditions or access-point photo.",
+    "consolidation": "No duplicate identifier or existing Hangman's Bridge–Washoe Road itinerary was found. Existing Nevada Carson River Aquatic Trail cards are a separate corridor in Carson City, downstream of the East Fork run. This route ends above the dam and does not duplicate the downstream access chain."
+  },
+  "followUp": "Before launch, recheck live USGS 10309000 discharge/trend, spring weather, Hangman's Bridge landing/parking, Washoe Road access and take-out before the dam, and campground permissions. The route and assets are implemented locally and not deployed."
+}

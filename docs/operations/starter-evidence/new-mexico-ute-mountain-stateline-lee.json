@@ -1,0 +1,54 @@
+{
+  "state": "New Mexico",
+  "campaign": "lower-48-expansion-50",
+  "batch": "ute-mountain-stateline-lee-scored-option-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": [
+    "rio-grande-ute-mountain-stateline-lee"
+  ],
+  "route": {
+    "name": "Rio Grande - Stateline to Lee Trail",
+    "distanceMiles": 13,
+    "class": "II",
+    "stateAssignment": "Entire trip lies within New Mexico.",
+    "scored": true,
+    "overlap": "Intentional containment within the longer Lobatos-to-Lee Ute Mountain trip; shorter Stateline launch makes the trip New Mexico-only."
+  },
+  "sources": [
+    {
+      "title": "BLM Rio Grande and Rio Chama river segment descriptions",
+      "url": "https://www.blm.gov/sites/blm.gov/files/NM_Rio_Grande_and_Rio_Chama_River_Segments.pdf"
+    },
+    {
+      "title": "Southwest Paddler Ute Mountain route, Stateline access and shorter trip description",
+      "url": "https://southwestpaddler.com/docs/riograndenm2.html"
+    },
+    {
+      "title": "American Whitewater Ute Mountain reach and access-point record",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1222/main"
+    },
+    {
+      "title": "American Whitewater Rio Grande recreational flow assessment, Lobatos Bridge to Lee Trail",
+      "url": "https://site-media.americanwhitewater.org/Document_2211.pdf"
+    },
+    {
+      "title": "USGS Rio Grande near Lobatos, Colorado, station 08251500",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08251500/"
+    },
+    {
+      "title": "BLM public-domain Ute Mountain / upper Rio Grande gorge photograph",
+      "url": "https://commons.wikimedia.org/wiki/File:Ute_Mountain_and_upper_Rio_Grande_gorge.jpg"
+    }
+  ],
+  "qualification": {
+    "access": "BLM designates Stateline and Lee Trail as Ute Mountain launches/take-outs. Southwest Paddler describes a public west-bank Stateline access and a 13-mile shorter route. The Stateline map point is interpolated on the NHD Rio Grande flowline at the 37-degree state boundary (-105.7190488243, 37.0), so the marker itself is in-channel; the trail/parking location is separate. Lee Trail uses the verified in-channel coordinate from the parent Ute route.",
+    "scoring": "BLM recommends at least 300 cfs. American Whitewater's reach-specific study places 600-2,000 cfs in the optimal user-preference range. The route uses a conservative 600-1,500 cfs preferred band and 2,000 cfs upper scoring guard based on the route guide's caution that flows above roughly 1,500 cfs call for advanced/expert boaters. USGS 08251500 at Lobatos is the direct same-river gauge upstream; flow bands are planning cues, not safety guarantees.",
+    "safety": "Reviewed Class II skill context, fitted PFD, cold-water protection, rescue and communication gear, wind exposure, blind-drop scouting, closure, reservation, limited exits and the steep quarter-mile Lee Trail gear carry.",
+    "camping": "campingClassification=none; BLM says the Ute Mountain reach has very few camping opportunities, and rim camps require climbing steep canyon walls.",
+    "gallery": "Uses a BLM public-domain Ute Mountain / upper Rio Grande gorge photo with a context-only caption.",
+    "consolidation": "The route intentionally shares its 13-mile downstream segment with the 24-mile Lobatos-to-Lee route. The shorter in-state launch is an independent trip option; overlap audit reports containment and no duplicate or reversed route.",
+    "geometry": "Generated route-scoped canonical geometry from the named USGS NHD Rio Grande flowline: one line / 1,275 points, maximum endpoint offset 0 ft. Targeted hydrography audit passes 2/2 endpoints (0 review, suspicious, failure or unknown)."
+  },
+  "followUp": "Before deployment, verify the current Stateline trail access/reservation status, launch cap, road access, wind and live gauge. Shared downstream coverage with the full Ute Mountain route is intentional and documented."
+}

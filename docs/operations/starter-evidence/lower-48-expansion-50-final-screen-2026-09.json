@@ -1,0 +1,48 @@
+{
+  "reviewedAt": "2026-09-16",
+  "campaign": "lower-48-expansion-50",
+  "status": "screened_no_route_added",
+  "deployed": false,
+  "inventory": {
+    "statesAtOrAboveTarget": 15,
+    "statesBelowTarget": 2,
+    "belowTarget": [
+      { "state": "Nevada", "publicRoutes": 43, "scoredRoutes": 42, "planningRoutes": 1, "remainingToTarget": 7 },
+      { "state": "New Mexico", "publicRoutes": 38, "scoredRoutes": 37, "planningRoutes": 1, "remainingToTarget": 12 }
+    ]
+  },
+  "screenedCandidates": [
+    {
+      "state": "Nevada",
+      "corridor": "South Fork Humboldt River / South Fork Canyon",
+      "demandAndRouteEvidence": "BLM explicitly recommends floating the river by tube, kayak or canoe and describes mostly Class I water with limited Class II at peak flows; spring runoff is the preferred season.",
+      "accessAndScoringEvidence": "Nevada State Parks documents public fishing access upstream from the reservoir at Lucky Nugget Causeway to the gauging station and separately describes fishing access a quarter-mile below the spillway. Its listed boat ramps and developed campground serve the reservoir. BLM directs visitors to primitive canyon roads but does not identify a matched river launch/take-out pair, route distance, landing status or numeric paddling-flow range. USGS 10319900 provides same-river telemetry above Tenmile Creek, but no matching recreational threshold was found.",
+      "decision": "Do not add a scored route yet. The BLM float recommendation is a credible new Nevada lead, but a scored route needs exact public on-water endpoints and a paddling-specific flow cue; the reservoir ramps and separate fishing access references do not establish those for the canyon float. Reopen after BLM/NDOW confirms a usable endpoint pair and an expert or agency source supports the seasonal flow range.",
+      "sources": [
+        "https://www.blm.gov/visit/south-fork-canyon-special-recreation-management-area",
+        "https://parks.nv.gov/parks/south-fork",
+        "https://www.nps.gov/places/south-fork-humboldt-overlook.htm",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-10319900/"
+      ]
+    },
+    {
+      "state": "New Mexico",
+      "corridor": "San Juan River / remaining Farmington access-pair combinations",
+      "candidatePairs": [
+        { "pair": "Blanco–Westland Park", "estimatedMiles": 31.04 },
+        { "pair": "Blanco–Kirtland Lions Park", "estimatedMiles": 36.54 },
+        { "pair": "Navajo Dam–Westland Park", "estimatedMiles": 48.54 },
+        { "pair": "Navajo Dam–Kirtland Lions Park", "estimatedMiles": 54.04 }
+      ],
+      "accessAndScoringEvidence": "The City of Farmington access map and Southwest Paddler source chain document the named access segments, while USGS 09365000 supplies direct same-river telemetry and the existing catalog has a community 300 cfs minimum / 500 cfs target cue. The combinations can be estimated by summing documented segments, but the upper pairs exceed 48 miles and the shorter new pairs are 31–36 miles. The existing catalog already provides 28.8-mile Blanco–Among, 46.3-mile Navajo–Among, and 24.64-mile Vereda–Lions options with named intermediate bailouts.",
+      "decision": "Do not add these combinations as more scored cards. They extend already very long urban/tailwater itineraries by small increments, have no confirmed authorized on-route campsite, and offer little distinct trip value beyond existing routes and bailouts. Keep the remaining endpoint pairs documented as screened options; revisit only with evidence of user demand, a credible overnight camping plan, or a distinct public access use that materially improves the trip choice.",
+      "sources": [
+        "https://www.farmingtonnm.gov/DocumentCenter/View/27318/River-Signage-Penny-Lane",
+        "https://southwestpaddler.com/docs/sanjuannm2.html",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09365000/",
+        "https://farmingtonnm.org/listings/paddle-trails"
+      ]
+    }
+  ],
+  "nextResearchTrigger": "Reopen Nevada when BLM or NDOW confirms South Fork Canyon launch and take-out sites and recreational flow guidance. Reopen New Mexico when a shorter distinct San Juan public access pair, authorized overnight option, or a new scored river corridor clears current access, safety, camping and flow review."
+}

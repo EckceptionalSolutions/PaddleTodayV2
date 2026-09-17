@@ -1,0 +1,61 @@
+{
+  "state": "New Mexico",
+  "campaign": "lower-48-expansion-50",
+  "batch": "additional-corridor-screen-2026-09-16",
+  "status": "screened_no_route_added",
+  "deployed": false,
+  "catalogCounts": {
+    "current": { "publicRoutes": 33, "scoredRoutes": 32, "planningRoutes": 1 },
+    "remainingToTarget": 17
+  },
+  "candidates": [
+    {
+      "corridor": "Upper Gila Wilderness / Grapevine to Mogollon Creek",
+      "routeEvidence": "American Whitewater documents a 42-mile Class III expedition, a direct USGS Gila-near-Gila gauge, a 200 cfs minimum and 1,200 cfs upper reference; Dreamflows repeats those same-reach triggers.",
+      "accessAndRisk": "American Whitewater says the only emergency exit is a trail at Sapillo Creek leading many miles to Highway 15. The published start depends on Grapevine Campground or a highway bridge, and the takeout is described as a campground past Mogollon Creek. A current authoritative reopening and public boating access record for Grapevine was not located; recent route reporting documents numerous changing strainers and elevated danger after the 2022 flood.",
+      "decision": "Do not publish until a local expert confirms current public water-entry and take-out rights, campground/road status, current strainer hazards and an appropriate audience warning. Strong numeric flow support alone does not clear the remote-rescue and access gate.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1208/main",
+        "https://www.dreamflows.com/triggerLevels.php",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-09430500/",
+        "https://www.nps.gov/gicl/planyourvisit/camping-near-the-gila-cliff-dwellings.htm"
+      ]
+    },
+    {
+      "corridor": "Upper Pecos / Cowles to Pecos",
+      "routeEvidence": "American Whitewater's Feb. 2026 route update describes a 13-mile Class II-IV run on direct USGS 08378500 with a 170-250 cfs boatable-flow range and named public access areas.",
+      "accessAndRisk": "The guide recommends going with a small experienced local A-Team, warns that eddies and stops are limited, line choices are narrow, and wood/snags change. The 2023 State Parks draft plan and current land-access history document fences, shallow rocky water and public-access conflicts; Mora Campground is currently closed for construction through 2027, removing one named access in the chain.",
+      "decision": "Keep held pending current access-by-access confirmation and local expert hazard review. The new flow guidance improves score support but does not yet clear the safety/access publication gate for any specific endpoint pair.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1215/main",
+        "https://www.emnrd.nm.gov/spd/wp-content/uploads/sites/7/Draft-Pecos-Canyon-State-Park-Management-Plan-5.11.2023.pdf",
+        "https://wwwapps.emnrd.nm.gov/SPD/ParksReportingPublicDisplay/WebDisplay/Detail/103",
+        "https://www.newmexico.org/things-to-do/outdoor-adventures/rafting-kayaking/pecos-canadian-cimarron-mora/"
+      ]
+    },
+    {
+      "corridor": "Cimarron River / Eagle Nest to Cimarron",
+      "routeEvidence": "American Whitewater lists a 23.6-mile Class III-IV run against USGS 07207000; BoaterBeta publishes 200-1,000 cfs recommended references.",
+      "accessAndRisk": "New Mexico Tourism describes continuous challenging whitewater, while the state park map marks campgrounds and fishing access rather than verified river-launch/take-out facilities for the whole run. No route-specific public water-entry pair and continuity review was found.",
+      "decision": "Hold until boatable endpoint facilities, current river continuity and numeric-flow transfer across the reach are verified. The numeric range is rarely met at the Eagle Nest tailwater gauge and the route is a long Class III-IV commitment.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1207/main",
+        "https://www.boaterbetaco.com/segment_detail/nmex-40_cimarron_eagle-nest-to-cimarron/",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07207000/",
+        "https://www.newmexico.org/things-to-do/outdoor-adventures/rafting-kayaking/pecos-canadian-cimarron-mora/",
+        "https://www.emnrd.nm.gov/spd/wp-content/uploads/sites/7/Cimarron-Canyon-Southeast-Publications-updated-GameAndFishLink.pdf"
+      ]
+    },
+    {
+      "corridor": "Canadian River, Rio Mora and other northeastern spring runs",
+      "routeEvidence": "New Mexico Tourism documents 30-75 mile spring/wet-year runs on the Mora and Canadian rivers.",
+      "accessAndRisk": "Seasonal flow may not occur in ordinary years; reviewed sources did not provide matched recreational scoring bands and a verified public on-water access chain suitable for a smaller day trip.",
+      "decision": "Retain as research leads, not catalog routes, until current public endpoint, safety and same-reach flow evidence is available.",
+      "sources": [
+        "https://www.newmexico.org/things-to-do/outdoor-adventures/rafting-kayaking/pecos-canadian-cimarron-mora/",
+        "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NME"
+      ]
+    }
+  ],
+  "nextResearchTrigger": "Revisit after Gila access status is confirmed by the Forest Service/local operator, Pecos access and strainer status are independently reviewed by experienced local paddlers, or an agency publishes boating access/flow guidance for Cimarron and other spring runs."
+}

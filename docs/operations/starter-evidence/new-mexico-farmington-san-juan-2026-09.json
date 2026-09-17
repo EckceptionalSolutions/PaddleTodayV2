@@ -1,0 +1,71 @@
+{
+  "prepared": "2026-09-16",
+  "state": "New Mexico",
+  "routeIds": [
+    "san-juan-river-among-waters-westland-park",
+    "san-juan-river-westland-lions-park",
+    "san-juan-river-among-waters-lions-park"
+  ],
+  "status": "scored; geometry and endpoint audit pending",
+  "accessAndLength": {
+    "officialSource": "https://www.farmingtonnm.gov/DocumentCenter/View/27318/River-Signage-Penny-Lane",
+    "segments": [
+      { "from": "Among the Waters Park", "to": "Westland Park", "miles": 2.24 },
+      { "from": "Westland Park", "to": "Lions Park (Kirtland)", "miles": 5.5 },
+      { "from": "Among the Waters Park", "to": "Lions Park (Kirtland)", "miles": 7.74, "method": "sum of the City-published adjacent segments" }
+    ],
+    "notes": [
+      "The City map marks all three as designated public river access points and says Lions Park is the end of navigable river segments.",
+      "The City map marks Among the Waters as walk-in access only.",
+      "A 2024 New Mexico fish-tissue study provides in-river sample coordinates for Westland Park and Lions Park; these were selected as initial on-water markers and require endpoint snapping review."
+    ],
+    "coordinateSource": "https://nnhp.nndfw.org/docs/2024_sanjuan_river_fishtissue_study.pdf",
+    "coordinates": {
+      "amongTheWaters": { "latitude": 36.7214944, "longitude": -108.2238722, "source": "existing reviewed route data" },
+      "westlandPark": { "latitude": 36.7331514, "longitude": -108.2494733, "source": "2024 fish-tissue study; San Juan River sampling reach" },
+      "kirtlandLionsPark": { "latitude": 36.7217139, "longitude": -108.325675, "source": "2024 fish-tissue study; San Juan River sampling reach" }
+    }
+  },
+  "scoring": {
+    "thresholdModel": "minimum-only",
+    "minimumCfs": 300,
+    "targetMinimumCfs": 500,
+    "thresholdSourceStrength": "community",
+    "thresholdSource": "https://southwestpaddler.com/docs/sanjuannm2.html",
+    "gauge": {
+      "siteId": "09365000",
+      "siteName": "San Juan River at Farmington, NM",
+      "kind": "direct",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09365000/"
+    },
+    "disclaimer": "Flow values are score preferences from a community guide, not safe-to-run limits. The City asks river users to check current flows, hazards and weather."
+  },
+  "safety": [
+    "Farmington signage requires Coast Guard-approved PFDs, asks users to check flows, hazards and weather, and says difficulty changes with water level.",
+    "Farmington designates public access points only, asks users to stay in their watercraft and on the water, and lists park/access hours.",
+    "Route notes cover low or changing water, unknown features, weather, heat, cold-water shock, private banks and limited exits."
+  ],
+  "camping": {
+    "classification": "none",
+    "notes": "These are day-float options. No authorized on-route campsite is confirmed; no camping at access points or private banks is implied."
+  },
+  "consolidation": {
+    "group": "new-mexico-farmington-san-juan-access-chain",
+    "notes": [
+      "Among-Waters to Westland and Westland to Lions are the two adjacent City-published legs.",
+      "Among-Waters to Lions is their longer combined option and shares river miles with the Westland-to-Lions shorter launch alternative.",
+      "Among-Waters to Lions starts at the existing Vereda-to-Among route's takeout and is an adjacent, non-overlapping downstream continuation."
+    ]
+  },
+  "gallery": {
+    "asset": "public/gallery/san-juan-river-farmington-access/san-juan-river-navajo-dam.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:San_Juan_River_near_Navajo_Dam,_New_Mexico.jpg",
+    "credit": "Phil Slattery via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "notes": "Visually reviewed same-river view near Navajo Dam, roughly 40 river miles upstream. Captions state that it is corridor context, not an endpoint or current-condition photo."
+  },
+  "geometry": {
+    "status": "pending",
+    "requiredChecks": ["generate canonical NHD route traces", "audit endpoint snaps for all three routes", "review intermediate Westland access location"]
+  }
+}

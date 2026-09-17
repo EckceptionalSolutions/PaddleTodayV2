@@ -1,0 +1,18 @@
+{
+  "state": "New Hampshire",
+  "campaign": "lower-48-expansion-50",
+  "batch": "merrimack-franklin-concord-scored-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["merrimack-river-franklin-boscawen", "merrimack-river-boscawen-sewalls-falls", "merrimack-river-boscawen-everett-arena", "merrimack-river-franklin-sewalls-falls", "merrimack-river-franklin-everett-arena"],
+  "sources": [
+    { "label": "How’s Your River Franklin to Concord Merrimack run", "url": "https://www.howsyourriver.com/runs/1-franklin-to-concord-merrimack-nh" },
+    { "label": "New Hampshire public Merrimack boating access directory", "url": "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html" },
+    { "label": "City of Concord Sewalls Falls Park access guide", "url": "https://www.concordnh.gov/DocumentCenter/View/25024/10-TrailGuideBook_Sewalls-Falls-Park-Trail" },
+    { "label": "USGS Merrimack River at Franklin Junction", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01081500/" }
+  ],
+  "thresholdEvidence": { "modelTransferred": true, "strength": "community/direct", "notes": "How’s Your River, using American Whitewater and USGS data, documents this 24-mile Franklin–Concord run as runnable from 400 cfs, with 1,500–2,000 cfs described as good recreational flow. The five cards use distinct forward pairs among the named Franklin High School, Boscawen Depot, Sewalls Falls and Everett Arena public ramps on that access sequence." },
+  "endpointAudit": { "routeCount": 5, "endpointCount": 10, "allReviewed": true, "allNamedWaterEntry": true, "notes": "Franklin High School access, Boscawen Depot, Sewalls Falls and Everett Arena are named public ramps or water-entry edges in the NH access directory and route guidance." },
+  "qualityControls": { "safety": "reviewed", "camping": "nearby_basecamp on every card; no unsupported riverbank camping", "access": "public ramp endpoints with Sewalls Falls scouting and dam-boundary controls", "geometry": "curated traces follow the documented Franklin–Concord access chain", "gallery": "existing Merrimack River-specific New Hampshire Commons image", "duplicateReview": "Franklin–Boscawen, Boscawen–Sewalls, Boscawen–Everett, Franklin–Sewalls and Franklin–Everett are distinct forward pairs; existing shorter cards remain component options" },
+  "validation": { "typecheck": "passed", "focusedTest": "passed", "routeAudit": "passed", "safetyAudit": "pending", "galleryAudit": "pending", "geometryAudit": "pending", "pending": "Reconfirm ramp hours, parking, flow trend, Sewalls Falls conditions, cold water, weather, water quality and downstream dam boundaries before deployment." }
+}

@@ -1,0 +1,28 @@
+{
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "green-river-colrain-west-leyden-screen-2026-09-16",
+  "status": "research_blocked",
+  "deployed": false,
+  "routeIds": [],
+  "sources": [
+    { "title": "Vermont DEC Deerfield basin plan appendices", "url": "https://anrweb.vt.gov/PubDocs/DEC/WSMD/Mapp/Docs/mp_TacticalBasinPlan_Basin12-13_Deerfield_SouthernConnecticutRiver_Appendices_2014-03-11.pdf" },
+    { "title": "American Whitewater Green River to West Leyden", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2036/main" },
+    { "title": "USGS Green River near Colrain, MA 01170100", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01170100/" },
+    { "title": "Massachusetts Green River WMA access and parking", "url": "https://www.mass.gov/info-details/green-river-wma" },
+    { "title": "New England Paddler Green River access points", "url": "https://massachusettspaddler.com/green-river-access-points" }
+  ],
+  "screening": {
+    "reach": "Green River crib dam / Stage Road to West Leyden Road, about 6.8 miles in the Vermont DEC basin plan; American Whitewater separately lists Green River to West Leyden at 6.2 miles, Class II–III.",
+    "demandSignal": "A named intermediate whitewater reach on the Deerfield River tributary, with established paddler documentation.",
+    "scoringSignal": "American Whitewater links the reach to USGS 01170100 near Colrain, but its reviewed page supplies no static numeric runnable range. Its live ‘below recommended’ status is not itself a numeric threshold.",
+    "accessSignal": "The basin plan names Stage Road/Green River crib dam and West Leyden Road endpoints. MassWildlife identifies nearby WMA parcels and fishing access, not a maintained boat launch.",
+    "blockers": [
+      "The Vermont DEC basin plan identifies the Green River crib dam as privately owned.",
+      "American Whitewater states that its route coordinates are very approximate; the lower roadside landing is not verified as a public water-entry facility.",
+      "The two published route lengths differ (6.8 versus 6.2 miles), and the exact endpoints have not been reconciled.",
+      "No defensible route-specific numeric flow band was found in the reviewed sources."
+    ]
+  },
+  "decision": "Do not add or score until public on-water access, exact endpoint coordinates, route length, and route-specific flow guidance are independently confirmed."
+}

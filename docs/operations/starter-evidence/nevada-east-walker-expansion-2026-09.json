@@ -1,0 +1,48 @@
+{
+  "state": "Nevada",
+  "river": "East Walker River",
+  "routeIds": [
+    "east-walker-river-squeeze-riverbend",
+    "east-walker-river-skull-last-call",
+    "east-walker-river-squeeze-last-call"
+  ],
+  "sourceTrail": "Nevada State Parks Pitchfork Ranch Water Trail",
+  "sourceUrl": "https://parks.nv.gov/uploads/documents/PITCHFORK_water_trail_map.pdf",
+  "publicAccess": "The official map marks Squeeze Chute, Skull Rock, Riverbend, and Last Call as water-trail access points and supplies the segment distances.",
+  "distancesMiles": {
+    "Squeeze Chute to Skull Rock": 2.8,
+    "Skull Rock to Riverbend": 0.8,
+    "Riverbend to Last Call": 2.0,
+    "Squeeze Chute to Riverbend": 3.6,
+    "Skull Rock to Last Call": 2.8,
+    "Squeeze Chute to Last Call": 5.6
+  },
+  "gauge": {
+    "siteId": "10293500",
+    "kind": "direct",
+    "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10293500/",
+    "sourceFlowGuidance": "0–200 cfs not recommended; 201–500 cfs sufficient floating level; above 500 cfs recommended for experts."
+  },
+  "safety": {
+    "reviewStatus": "reviewed",
+    "summary": "Wear PFD; scout flow-dependent Class II/III rapids; plan around the diversion-dam take-out, cold water, strainers, limited cell service, and stop at the signed Last Call endpoint because the map marks no portage and private property beyond."
+  },
+  "camping": {
+    "classification": "nearby_basecamp",
+    "summary": "Riverbend and Quail Run campgrounds are documented Walker River State Recreation Area facilities; verify reservation, open-unit, fee, and access status."
+  },
+  "gallery": {
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:East_Walker_River,_Mason_Valley,_Nevada_(15700694231).jpg",
+    "description": "East Walker River in Mason Valley; same-river context, not an endpoint or current-conditions photograph.",
+    "credit": "Ken Lund via Wikimedia Commons",
+    "license": "CC BY-SA 2.0"
+  },
+  "deduplication": "These three scored options are longer forward access-pair combinations through the State Parks-defined access chain, not new tributaries or reversed duplicates. They intentionally overlap the adjoining Squeeze–Skull, Skull–Riverbend, and Riverbend–Last Call route cards; retain named access choices and the overlap in route summaries.",
+  "sources": [
+    "https://parks.nv.gov/uploads/documents/PITCHFORK_water_trail_map.pdf",
+    "https://parks.nv.gov/parks/walker-river",
+    "https://www.nvtrailfinder.com/trails/trail/pitchfork-ranch-water-trail",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-10293500/",
+    "https://commons.wikimedia.org/wiki/File:East_Walker_River,_Mason_Valley,_Nevada_(15700694231).jpg"
+  ]
+}

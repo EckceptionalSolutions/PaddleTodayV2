@@ -1,0 +1,65 @@
+{
+  "state": "Mississippi",
+  "river": "Pascagoula River",
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "pascagoula-river-merrill-game-management",
+    "pascagoula-river-merrill-hwy26",
+    "pascagoula-river-merrill-big-creek",
+    "pascagoula-river-merrill-wilkerson-ferry",
+    "pascagoula-river-game-management-hwy26",
+    "pascagoula-river-game-management-big-creek",
+    "pascagoula-river-game-management-wilkerson-ferry",
+    "pascagoula-river-hwy26-big-creek",
+    "pascagoula-river-hwy26-wilkerson-ferry",
+    "pascagoula-river-big-creek-wilkerson-ferry",
+    "pascagoula-river-hwy63-river-park",
+    "pascagoula-river-hwy26-river-park"
+  ],
+  "sources": [
+    { "label": "MSGCNHA George County Blueway", "url": "https://msgulfcoastheritage.ms.gov/natural/blueways/pascagoula-river-george-county-blueway/" },
+    { "label": "MSGCNHA Jackson County Blueway", "url": "https://msgulfcoastheritage.ms.gov/natural/blueways/pascagoula-river-jackson-county-blueway/" },
+    { "label": "City of Pascagoula outdoor recreation", "url": "https://cityofpascagoula.com/327/Outdoor-Recreation" },
+    { "label": "Mississippi DMR public access inventory", "url": "https://dmr.ms.gov/wp-content/uploads/2019/07/public-access-inventory.pdf" },
+    { "label": "USGS Pascagoula at Graham Ferry", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-02479310/" },
+    { "label": "USGS Pascagoula at Merrill station metadata", "url": "https://water.usgs.gov/nwc/NWC/sw/man/S02479000.html" },
+    { "label": "Big Creek public ramp map", "url": "https://www.topozone.com/mississippi/george-ms/locale/big-creek-boat-ramp/" },
+    { "label": "Wilkerson Ferry public ramp map", "url": "https://www.topozone.com/mississippi/george-ms/locale/wilkerson-ferry-boat-ramp/" },
+    { "label": "Pascagoula River photo", "url": "https://commons.wikimedia.org/wiki/File:Pascagoula_River%2C_from_Pascagoula%2C_Mississippi.jpg" }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": false,
+    "strength": "none",
+    "note": "The blueway pages establish public access, route context and permit requirements, and USGS 02479310 provides direct telemetry, but no route-specific recreational cutoff is published. Keep all Pascagoula cards planning-only pending a defensible threshold package."
+  },
+  "endpointAudit": {
+    "routeCount": 12,
+    "endpointCount": 24,
+    "allEndpointsReviewed": true,
+    "allEndpointsNamedWaterEntry": true
+  },
+  "qualityControls": [
+    "reviewed safety hazards",
+    "nearby-basecamp camping classification",
+    "verified public water-entry endpoints",
+    "WMA permit and lower-river tide/wind caveats",
+    "river-specific gallery image",
+    "duplicate/consolidation review"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "overlapAudit": "passed_no_scored_findings_for_planning_batch"
+  },
+  "pending": [
+    "Find route-specific recreational flow guidance before any promotion to scored status",
+    "Reconfirm community-mapped Game Management and Highway 26 access carries before deployment",
+    "Keep validated_not_deployed until normal publication workflow is approved"
+  ]
+}

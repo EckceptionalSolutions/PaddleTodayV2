@@ -5,7 +5,7 @@ import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('Florida Suwannee starter routes', () => {
   it('keeps the scored trail reaches on direct White Springs stage telemetry', () => {
-    expect(floridaSuwanneeRoutes).toHaveLength(43);
+    expect(floridaSuwanneeRoutes).toHaveLength(44);
     expect(floridaSuwanneeRoutes.every(route => route.scoreEligibility === 'scored')).toBe(true);
     expect(floridaSuwanneeRoutes.every(route => route.gaugeSource?.siteId === '02315500')).toBe(true);
     expect(floridaSuwanneeRoutes.every(route => rivers.some(candidate => candidate.id === route.id))).toBe(true);

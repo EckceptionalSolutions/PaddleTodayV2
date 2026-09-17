@@ -1,0 +1,60 @@
+{
+  "state": "Nevada",
+  "campaign": "lower-48-expansion-50",
+  "batch": "lockwood-usa-parkway-scored-expansion-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": [
+    "truckee-river-lockwood-usa-parkway"
+  ],
+  "route": {
+    "name": "Truckee River - Lockwood to USA Parkway",
+    "distanceMiles": 12,
+    "class": "I",
+    "scored": true,
+    "putIn": "Lockwood Trailhead Park",
+    "takeOut": "USA Parkway Bridge",
+    "relationshipToExistingRoutes": "A separate upstream leg that ends where the scored USA Parkway-to-Wadsworth trip begins. It shares the USA Parkway access point but no river segment with that existing route."
+  },
+  "sources": [
+    {
+      "title": "Nevada Trail Finder Truckee River: Lockwood to USA Parkway",
+      "url": "https://www.nvtrailfinder.com/trails/trail/truckee-river-lockwood-to-usa-parkway"
+    },
+    {
+      "title": "Nevada Trail Finder Truckee River aquatic route line KML",
+      "url": "https://www.nvtrailfinder.com/docs/kml/TrailLines31.kml"
+    },
+    {
+      "title": "Nevada Trail Finder Truckee River access-point KML",
+      "url": "https://www.nvtrailfinder.com/docs/kml/TrailPoints31.kml"
+    },
+    {
+      "title": "Truckee Meadows Water Authority Truckee River Recreation Map",
+      "url": "https://tmwa.com/wp-content/uploads/docs/your_water/2007_truckee_river_rec_map.pdf"
+    },
+    {
+      "title": "USGS Truckee River at Vista, Nevada, station 10350000",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10350000/"
+    },
+    {
+      "title": "The Nature Conservancy McCarran Ranch Preserve access and restrictions",
+      "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/mccarran-ranch-preserve/"
+    },
+    {
+      "title": "Wikimedia Commons Truckee River between Sparks and Fernley photograph",
+      "url": "https://commons.wikimedia.org/wiki/File:Truckee_River_Between_Sparks_and_Fernley,_Nevada_(51126994988).jpg"
+    }
+  ],
+  "qualification": {
+    "demandAndDistinctness": "Nevada Trail Finder describes the named 12-mile section as an easy, family-friendly Class I float and identifies Lockwood Trailhead Park and USA Parkway Bridge as its put-in and take-out. The route is a distinct upstream outing from, and joins cleanly to, the existing USA Parkway-to-Wadsworth trip.",
+    "access": "The route uses the aquatic-line KML endpoints for the water markers: Lockwood (-119.651364443152, 39.5088385781242) and USA Parkway Bridge (-119.486890434583, 39.5645077413319). Nevada Trail Finder's POI KML separately identifies the Lockwood trailhead and USA Parkway staging locations. Parking, carries, current water-entry paths and temporary closures must be checked before travel. McCarran Ranch is an on-route conservation property with public land access rules; do not assume it is an authorized river landing or overnight stop.",
+    "scoring": "TMWA's Truckee River Recreation Map labels the reach below Rock Park Section 10 and lists 400 cfs as the minimum flow for rafts. The route lies within that lower section. The card uses a minimum-only 400 cfs planning threshold and identifies the value as raft-specific and from an older map; it does not claim an ideal band, a safety threshold, or that 400 cfs suits every craft. USGS 10350000 at Vista is direct same-river telemetry upstream of Lockwood; check the current value and trend against local observations.",
+    "safety": "The route is Class I but long and exposed. The card covers fitted PFD use, watercraft appropriate to the observed conditions, heat and wind, cold water, strainers and irrigation diversions, private banks, limited exits, communication, live telemetry, scouting and self-rescue readiness.",
+    "camping": "campingClassification=none. This is a day float. The Nature Conservancy prohibits camping on its McCarran Ranch preserve; do not infer a route-side campsite from the preserve's public day-use trail access.",
+    "gallery": "A distinct Ken Lund photo of the Truckee River between Sparks and Fernley is used for lower-river corridor context. It is captioned as context rather than an endpoint or current-conditions photo. The file page confirms CC BY-SA 2.0 attribution requirements.",
+    "geometry": "Route-scoped canonical geometry follows the named NHD Truckee River from Lockwood to USA Parkway. The aquatic-line KML water markers are distinct from the POI KML parking/staging locations. Endpoint audit and generated-asset audit must pass before this record is considered validated.",
+    "consolidation": "The route shares the USA Parkway endpoint with the existing USA Parkway-to-Wadsworth route, forming adjacent legs. It does not overlap its river trace and does not repeat or reverse an existing route."
+  },
+  "followUp": "Before deployment, check current Trail Finder and local access notices, parking and carry conditions, regulated flow trend, wind and heat. The 400 cfs value is only a minimum raft-flow planning cue from the older TMWA map."
+}

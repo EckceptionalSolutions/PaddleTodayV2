@@ -1,0 +1,55 @@
+{
+  "state": "New Hampshire",
+  "campaign": "lower-48-expansion-50",
+  "batch": "merrimack-access-chain-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "merrimack-river-sewalls-bow",
+    "merrimack-river-bow-lambert-park",
+    "merrimack-river-boscawen-intervale",
+    "merrimack-river-intervale-riverland",
+    "merrimack-river-boscawen-riverland",
+    "merrimack-river-boscawen-bow",
+    "merrimack-river-boscawen-lambert-park",
+    "merrimack-river-intervale-sewalls-falls",
+    "merrimack-river-intervale-bow",
+    "merrimack-river-intervale-lambert-park",
+    "merrimack-river-sewalls-lambert-park"
+  ],
+  "sources": [
+    { "label": "New Hampshire public boating and fishing access directory", "url": "https://www.merrimackvalleypaddlers.com/access/public-access-2015.html" },
+    { "label": "Town of Bow Merrimack River boat ramp", "url": "https://www.bownh.gov/604/Merrimack-River-Boat-Ramp" },
+    { "label": "New Hampshire Lower Merrimack River Corridor Management Plan", "url": "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/merr-low-plan.pdf" },
+    { "label": "City of Concord Sewalls Falls Park access guide", "url": "https://www.concordnh.gov/DocumentCenter/View/25024/10-TrailGuideBook_Sewalls-Falls-Park-Trail" }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": false,
+    "strength": "official/mixed",
+    "notes": "Public endpoint documentation supports the access chain, but no route-specific recreational flow cutoff was established in this pass. All eleven cards remain planning-only and use USGS 01081500 as an explicitly labeled proxy trend source."
+  },
+  "endpointAudit": {
+    "routeCount": 11,
+    "endpointCount": 22,
+    "allReviewed": true,
+    "allNamedWaterEntry": true,
+    "notes": "Sewalls Falls, Bow/PSNH, Lambert Park, Boscawen, Canterbury Intervale and Riverland coordinates are taken from the access directory and municipal pages; each endpoint is named as a water-entry edge and retains carry, parking and private-bank caveats. The added pairs are distinct endpoint combinations within that same documented access sequence."
+  },
+  "qualityControls": {
+    "safety": "reviewed",
+    "camping": "nearby_basecamp on every card; no unsupported riverbank camping",
+    "access": "public access-directory and municipal ramp anchors with water-entry wording",
+    "geometry": "curated traces follow the documented access sequence pending named NHD coverage",
+    "gallery": "existing Merrimack River in New Hampshire Commons context image",
+    "duplicateReview": "distinct endpoint pairs across the Bow-to-Canterbury access chain; longer itineraries retain named intermediate bailouts and are not duplicate records of shorter cards"
+  },
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "pending": "Reconfirm ramp hours, parking, carry, dam and utility boundaries, water-quality notices, weather and gauge trend before deployment."
+  }
+}

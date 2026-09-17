@@ -1,0 +1,59 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "blackstone-river-kelly-house-pratt",
+    "blackstone-river-pratt-central-falls",
+    "blackstone-river-central-falls-chocolateville"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "Blackstone River Watershed Council river access and portage map",
+      "result": "The current access page documents Kelly House, Pratt Dam above and below-dam access, Central Falls Landing and Chocolateville as public water-entry or portage sites, with approximate downstream distances and dam boundaries."
+    },
+    {
+      "family": "RiverScout Blackstone flow guide",
+      "result": "RiverScout provides a 200–1,200 cfs Class I–II planning window tied to direct USGS 01112500 at Woonsocket."
+    },
+    {
+      "family": "National Weather Service river gallery",
+      "result": "The existing Blackstone at Pawtucket government photograph is reused as an explicitly same-river context image for each new route."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "01112500",
+    "metric": "discharge_cfs",
+    "minimum": 100,
+    "observationalBand": "200–1,200 cfs",
+    "model": "two-sided",
+    "strength": "community",
+    "source": "https://riverscout.app/rivers/rhode-island/blackstone-river",
+    "reachApplicability": "Use the band as a planning cue across the Woonsocket-to-Pawtucket corridor; mandatory dam portages, strainers, urban current, water quality and private property remain decisive."
+  },
+  "endpointAudit": {
+    "routeCount": 3,
+    "endpointCount": 6,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": [
+      "public/data/canonical-river-geometries/routes/blackstone-river-kelly-house-pratt.json",
+      "public/data/canonical-river-geometries/routes/blackstone-river-pratt-central-falls.json",
+      "public/data/canonical-river-geometries/routes/blackstone-river-central-falls-chocolateville.json"
+    ]
+  },
+  "validation": [
+    "Rhode Island Wood-Pawcatuck focused route test passed with 22 scored routes.",
+    "Route data typecheck and route/gallery/safety tests passed.",
+    "Canonical geometry generation completed with three new route assets and a refreshed manifest.",
+    "Added three distinct scored Blackstone reaches using documented public access and dam-portage boundaries."
+  ],
+  "pending": [
+    "Recheck current parking, stair or ramp condition, water-quality notices, portage route, gauge trend and any urban closure before deployment."
+  ]
+}

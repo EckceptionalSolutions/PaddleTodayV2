@@ -1,0 +1,18 @@
+{
+  "state": "Arizona",
+  "campaign": "lower-48-expansion-50",
+  "batch": "verde-forward-pair-gap-fill-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["verde-river-skidmore-bignotti", "verde-river-skidmore-newton", "verde-river-skidmore-parsons", "verde-river-skidmore-black-bridge", "verde-river-skidmore-white", "verde-river-black-canyon-sheep-crossing", "verde-river-bignotti-newton", "verde-river-bignotti-parsons", "verde-river-sheep-parsons", "verde-river-newton-black-bridge"],
+  "sources": [
+    { "label": "Friends of the Verde River access points map", "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf" },
+    { "label": "USFS Verde River Paddle Trail guide", "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf" },
+    { "label": "RiverScout Verde River conditions summary", "url": "https://riverscout.app/rivers/arizona/verde-river" },
+    { "label": "USGS Verde River near Camp Verde gauge", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09506000/" }
+  ],
+  "thresholdEvidence": { "modelTransferred": true, "strength": "community", "notes": "All ten reaches use the established conservative 300–2,000 cfs Verde planning band, with direct USGS 09506000 for the lower corridor. The band remains a planning cue, not a safety guarantee." },
+  "endpointAudit": { "routeCount": 10, "endpointCount": 20, "allReviewed": true, "allNamedWaterEntry": true, "notes": "Coordinates and river-mile order come from the Friends of the Verde access map; every route preserves named RAPs as intermediate bailouts where applicable." },
+  "qualityControls": { "safety": "reviewed", "camping": "none on every card; no unsupported riverbank camping", "access": "mapped RAP water-edge anchors with carry and parking caveats", "geometry": "curated traces follow the published RAP sequence", "gallery": "existing Verde River-specific context image", "duplicateReview": "forward access-chain pairs only; all ten endpoint combinations are new and distinct from the first expansion batch" },
+  "validation": { "typecheck": "passed", "focusedTest": "passed", "routeAudit": "passed", "safetyAudit": "passed", "galleryAudit": "passed", "geometryAudit": "passed", "pending": "Reconfirm RAP hours, parking, carry, Forest Service or State Parks notices, weather, gauge trend and any temporary closure before deployment." }
+}

@@ -1,0 +1,39 @@
+{
+  "state": "New Mexico",
+  "campaign": "lower-48-expansion-50",
+  "batch": "ute-mountain-run-screen-2026-09-16",
+  "status": "reassessed_and_cleared",
+  "deployed": false,
+  "routeIds": [
+    "rio-grande-ute-mountain",
+    "rio-grande-ute-mountain-stateline-lee"
+  ],
+  "sources": [
+    {
+      "title": "BLM Rio Grande and Rio Chama river segment descriptions",
+      "url": "https://www.blm.gov/sites/blm.gov/files/NM_Rio_Grande_and_Rio_Chama_River_Segments.pdf"
+    },
+    {
+      "title": "American Whitewater Rio Grande recreational flow assessment, Lobatos Bridge to Lee Trail",
+      "url": "https://site-media.americanwhitewater.org/Document_2211.pdf"
+    },
+    {
+      "title": "USGS Rio Grande near Lobatos, Colorado, station 08251500",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08251500/"
+    },
+    {
+      "title": "BLM Rio Grande and Red River Wild and Scenic River current boating page",
+      "url": "https://www.blm.gov/programs/national-conservation-lands/new-mexico/rio-grande-wsr"
+    }
+  ],
+  "screening": {
+    "reach": "The full 24-mile Class II Lobatos Bridge (Colorado) to Lee Trail (New Mexico) Ute Mountain run; the New Mexico portion is the campaign coverage focus.",
+    "demandSignal": "A scenic BLM-managed upper Rio Grande day run with a named public access chain.",
+    "scoringSignal": "BLM recommends at least 300 cfs. American Whitewater's reach-specific recreational assessment shows 600-2,000 cfs as optimal user preference. Direct USGS 08251500 is at Lobatos Bridge; the route uses a conservative 600-1,500 cfs preferred band with a 2,000 cfs upper scoring guard.",
+    "accessAndSeason": "BLM names Lobatos Bridge, Stateline and Lee Trail. Private boaters must reserve in advance. The New Mexico segment is closed April-May. BLM warns of erratic winds, limited camps and a steep primitive quarter-mile carry at Lee Trail. The current BLM page and older corridor plan differ on daily launch cap; confirm the active cap with Taos Field Office.",
+    "resolved": "BLM segment guide plus USGS/American Whitewater flow sources cleared access and scoring blockers. AW's Lee access feature coordinate is about 303 ft off mapped water and outside NHD polygons, so the route uses a nearby in-channel Rio Grande coordinate at the designated Lee Trail reach end.",
+    "remainingCaveat": "The launch is in Colorado, though the route crosses New Mexico and terminates at a New Mexico BLM access. The state field is New Mexico and route copy states the cross-border access plainly."
+  },
+  "decision": "Add the scored 24-mile Ute Mountain route with direct Lobatos telemetry and a conservative preference band. Keep reservation-cap language current by directing users to BLM confirmation; classify camping as none and document wind, closure, remote-access, and take-out carry hazards.",
+  "supersededBy": "docs/operations/starter-evidence/new-mexico-ute-mountain.json"
+}

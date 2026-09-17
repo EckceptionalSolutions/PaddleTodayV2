@@ -1,0 +1,51 @@
+{
+  "state": "Massachusetts",
+  "river": "Hoosic River",
+  "routeId": "hoosic-river-ashton-laurens-launch",
+  "reach": "Ashton Avenue Canoe Access to Lauren’s Launch",
+  "distanceMiles": 3.4,
+  "scoreEligibility": "scored",
+  "gauge": {
+    "siteId": "01332500",
+    "kind": "direct",
+    "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01332500/",
+    "publishedPlanningRangeCfs": [200, 700],
+    "rangeSource": "https://hoorwa.org/water-level/"
+  },
+  "access": {
+    "putIn": "Ashton Avenue public canoe access / Joe Girardi Park",
+    "takeOut": "Lauren’s Launch sandy beach",
+    "source": "https://hoorwa.org/recreation/paddling-the-hoosic/",
+    "takeOutConditionSource": "https://berkshireplanning.org/wp-content/uploads/2025/07/Williamstown-ADA-Self-Evaluation-and-Transition-Plan-2025.pdf",
+    "coordinates": {
+      "putIn": [42.702950235, -73.168150533],
+      "takeOut": [42.729246, -73.209008]
+    }
+  },
+  "safety": {
+    "reviewStatus": "reviewed",
+    "hazards": ["low_water", "strainers", "fast_rise", "cold_water", "whitewater", "urban_water_quality", "private_banks"],
+    "lowWaterScout": "https://www.hoosicriverrevival.org/events/hoosic-river-float",
+    "summary": "Shallow rocky water and six reported short carries at low flow; rapid rain response; steep rocky take-out; check current water-quality notices."
+  },
+  "camping": {
+    "classification": "none",
+    "summary": "No documented public on-route camping between the launch sites."
+  },
+  "gallery": {
+    "localFile": "public/gallery/hoosic-river-ashton-lauren/hoosic-river-north-adams.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hoosic_River_upstream_from_West_Main_St,_North_Adams_MA.jpg",
+    "credit": "John Phelan (Faolin42) via Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "captioning": "Upstream same-river context, not exact reach or current conditions."
+  },
+  "deduplication": "Single 3.4-mile reach uses HooRWA’s named access pair. Do not add adjacent overlapping variants without distinct endpoint evidence and a separately justified flow profile.",
+  "sources": [
+    "https://hoorwa.org/recreation/paddling-the-hoosic/",
+    "https://hoorwa.org/water-level/",
+    "https://www.mass.gov/info-details/massgis-data-office-of-fishing-and-boating-access-sites",
+    "https://berkshireplanning.org/wp-content/uploads/2025/07/Williamstown-ADA-Self-Evaluation-and-Transition-Plan-2025.pdf",
+    "https://www.hoosicriverrevival.org/events/hoosic-river-float",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01332500/"
+  ]
+}

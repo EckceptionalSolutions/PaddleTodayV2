@@ -1,0 +1,25 @@
+{
+  "state": "Nevada",
+  "campaign": "lower-48-expansion-50",
+  "batch": "lockwood-usa-parkway-screen-2026-09-16",
+  "status": "research_blocked",
+  "deployed": false,
+  "routeIds": [],
+  "sources": [
+    { "title": "Nevada Trail Finder Truckee River: Lockwood to USA Parkway", "url": "https://www.nvtrailfinder.com/trails/trail/truckee-river-lockwood-to-usa-parkway" },
+    { "title": "Nevada Trail Finder Truckee floatable reaches map", "url": "https://files.aptuitivcdn.com/mVq57ky5p9-1707/docs/trails/map/TruckeeRiver11x17-10.1773313608.pdf" },
+    { "title": "Nevada Trail Finder Truckee line KML", "url": "https://www.nvtrailfinder.com/docs/kml/TrailLines31.kml" },
+    { "title": "Truckee River Basin Water Group guidance for Boca–Floriston", "url": "https://www.truckeeriverwc.org/wp-content/uploads/2019/04/TRBWG_MeetingNotes_032719-1.pdf" }
+  ],
+  "screening": {
+    "reach": "Lockwood Trailhead Park to USA Parkway Bridge, 12 miles, Class I–II on Nevada’s floatable-reaches map and Class I/easy on Nevada Trail Finder.",
+    "demandSignal": "Official trail guide describes it as a family-friendly lower Truckee float and names both endpoints.",
+    "scoringSignal": "Nevada Trail Finder links nearby Vista, Tracy, and Clark USGS telemetry but says only that navigability varies with flow; it publishes no numeric paddling threshold. The 450–1,200 cfs guidance currently used for USA Parkway–Wadsworth is downstream and is not transferred upstream.",
+    "blockers": [
+      "No route-specific recreational flow minimum or preferred band was found.",
+      "The nearby gauges are monitoring links, not paddling thresholds; no score should be synthesized from their current values.",
+      "The overlapping downstream portion of the full Lockwood–Wadsworth option requires a consolidation review before it could become a separate card."
+    ]
+  },
+  "decision": "Keep as a research lead. Add only after local flow guidance is confirmed and the proposed endpoints are checked against the existing USA Parkway–Wadsworth route for consolidation."
+}

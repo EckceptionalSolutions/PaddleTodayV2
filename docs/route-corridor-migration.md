@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-12T11:55:21.419Z.
+Generated 2026-09-16T12:37:29.090Z.
 
 - Defined corridors: 216
 - Routes covered by a corridor definition: 508
-- Remaining multi-route families: 296
+- Remaining multi-route families: 321
 
 ## Defined corridors
 
@@ -246,46 +246,46 @@ Generated 2026-09-12T11:55:21.419Z.
 
 | State | River family | Route records |
 | --- | --- | ---: |
+| Oregon | Willamette River | 50 |
+| Louisiana | Bayou Teche | 44 |
+| Florida | Suwannee River | 43 |
+| Montana | Blackfoot River | 36 |
 | New York | Old Erie Canal | 36 |
+| Connecticut | Willimantic River | 34 |
 | Kentucky | Green River | 32 |
+| Mississippi | Black Creek | 28 |
+| Vermont | Lamoille River | 28 |
+| Rhode Island | Woonasquatucket River | 28 |
+| South Carolina | Broad River | 25 |
 | Arkansas | Buffalo River | 23 |
+| Massachusetts | Millers River | 22 |
 | Kentucky | Floyds Fork | 21 |
+| California | Russian River | 21 |
 | Missouri | Eleven Point River | 20 |
+| Rhode Island | Blackstone River | 18 |
 | West Virginia | Guyandotte River | 17 |
 | Maine | Kennebec River | 17 |
 | Maine | Penobscot River | 17 |
 | Missouri | Current River | 16 |
 | Missouri | Jacks Fork River | 15 |
+| Nevada | Truckee River | 15 |
 | Texas | Colorado River | 13 |
 | Idaho | Salmon River | 13 |
 | New Jersey | Delaware River | 12 |
 | New York | Hudson River | 12 |
+| Arizona | Verde River | 12 |
+| Vermont | Winooski River | 12 |
 | Maine | Androscoggin River | 11 |
 | Kansas | Kansas River | 11 |
+| New Mexico | Rio Grande | 11 |
 | Minnesota | St. Louis River | 11 |
+| California | American River | 10 |
 | Kentucky | Barren River | 10 |
 | South Dakota | Big Sioux River | 10 |
 | Minnesota | Red Lake River | 10 |
 | Minnesota | Rum River | 10 |
-| Kentucky | Upper Cumberland River | 10 |
-| North Carolina | Yadkin River | 10 |
-| Maine | Aroostook River | 9 |
-| Arkansas | Bayou DeView | 9 |
-| Texas | Brazos River | 9 |
-| New York | Grass River | 9 |
-| North Carolina | Haw River | 9 |
-| Kentucky | Levisa Fork | 9 |
-| Iowa | Maquoketa River | 9 |
-| Kentucky | Tradewater River | 9 |
-| Colorado | Arkansas River | 8 |
-| Idaho | Big Creek (St. Joe tributary) | 8 |
-| Maine | Saco River | 8 |
-| Idaho | South Fork Snake River | 8 |
-| Iowa | Wapsipinicon River | 8 |
-| New York | Champlain Canal | 7 |
-| Wisconsin | Fox River | 7 |
-| New York | Genesee River | 7 |
-| Texas | Guadalupe River | 7 |
-| Additional families omitted | See route data and overlap audit | 256 |
+| New Hampshire | Saco River | 10 |
+| Arizona | Salt River | 10 |
+| Additional families omitted | See route data and overlap audit | 281 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

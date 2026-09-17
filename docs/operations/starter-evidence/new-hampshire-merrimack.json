@@ -1,0 +1,80 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "merrimack-river-sewalls-falls-everett-arena",
+    "merrimack-river-sewalls-falls-ferry-street",
+    "merrimack-river-everett-arena-ferry-street",
+    "merrimack-river-ferry-street-lambert-park"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "New Hampshire public access directory",
+      "method": "State boat-ramp index",
+      "result": "Identifies Sewalls Falls, Everett Arena and Ferry Street / Allenstown as public Merrimack River boating access facilities with parking and carry details."
+    },
+    {
+      "family": "New Hampshire DES",
+      "method": "Lower Merrimack River Corridor Management Plan",
+      "result": "Documents the lower corridor, public access network, dams, industrial shoreline, water-quality considerations and flow-monitoring context."
+    },
+    {
+      "family": "New Hampshire public access directory",
+      "method": "Hooksett Lambert Park entry",
+      "result": "Identifies Lambert Park as a state-managed Merrimack River ramp with headway-speed restrictions; the added connector ends there before the downstream Amoskeag industrial and dam corridor."
+    },
+    {
+      "family": "Concord and Allenstown",
+      "method": "Municipal access and launch rules",
+      "result": "Concord documents Sewalls Falls park access; Allenstown regulates the Ferry Street launch; Bow and Merrimack municipal pages corroborate the public-ramp management pattern."
+    },
+    {
+      "family": "USGS",
+      "method": "Direct station 01081500",
+      "result": "Provides continuous Merrimack River discharge telemetry at Franklin Junction for launch-day trend and conditions checks; no route-specific recreational cutoff was transferred."
+    },
+    {
+      "family": "Image review",
+      "method": "Wikimedia Commons file record",
+      "result": "Adds a Merrimack River in New Hampshire photograph for same-river context; it is not presented as an endpoint or current-conditions image."
+    }
+  ],
+  "sources": [
+    "https://www.visit-newhampshire.com/state/boat-ramps/",
+    "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/merr-low-plan.pdf",
+    "https://www.concordnh.gov/DocumentCenter/View/25024/10-TrailGuideBook_Sewalls-Falls-Park-Trail",
+    "https://www.bownh.gov/604/Merrimack-River-Boat-Ramp",
+    "https://allenstownnh.gov/DocumentCenter/View/482/pelissier_boat_launch_ordinance_approved_and_signed_march_2024",
+    "https://www.boatlaunchmap.com/ramps/merrimack-river-concord-new-hampshire-boat-launch-5646",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-01081500/",
+    "https://commons.wikimedia.org/wiki/File:Thorntons_Ferry_landing_site,_Merrimack_river,_New_Hampshire_01.jpg"
+  ],
+  "thresholdEvidence": {
+    "model": "not transferred",
+    "strength": "none",
+    "reachApplicability": "The direct Franklin Junction gauge and corridor plan support launch-day monitoring, but this pass found no route-specific recreational flow band for these public endpoint pairs. Cards remain planning-only rather than inventing a score threshold."
+  },
+  "endpointAudit": {
+    "routeCount": 4,
+    "endpointCount": 8,
+    "bySeverity": {
+      "ok": 0,
+      "review": 6,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All endpoints are named public water-entry edges; verify current parking, carry, gates, dam boundaries and water-quality notices before launch."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Merrimack route tests passed.",
+    "Canonical route-scoped geometries generated for all four routes.",
+    "Route, safety and gallery audits passed."
+  ],
+  "pending": [
+    "Find route-specific Merrimack recreational flow guidance before promoting these planning cards to scored status.",
+    "Keep validated-not-deployed until current access, closure and water-quality checks are complete."
+  ]
+}

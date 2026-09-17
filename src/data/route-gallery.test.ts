@@ -40,6 +40,21 @@ describe('route-specific gallery assignments', () => {
     });
   });
 
+  it('uses the USGS Animas River photo for the Cedar Hill to Aztec route', () => {
+    expect(getRoutePreviewPhoto({
+      slug: 'animas-river-cedar-hill-aztec-riverside',
+      riverId: 'animas-river-new-mexico',
+      state: 'New Mexico',
+    })).toMatchObject({
+      src: expect.stringContaining('animas6.jpg'),
+      caption: expect.stringContaining('near this route’s downstream end'),
+      credit: expect.stringContaining('U.S. Geological Survey'),
+      takenLabel: 'U.S. Geological Survey: Public Domain',
+      sourceKind: 'route',
+      isPlaceholder: false,
+    });
+  });
+
   it('uses card-safe river sources for the audited Black Creek, Susquehanna, and Big Sioux cards', () => {
     expect(getRoutePreviewPhoto({ slug: 'black-creek-big-creek-old-highway-49', riverId: 'black-creek-mississippi', state: 'Mississippi' })).toMatchObject({
       src: expect.stringContaining('De%20Soto-Black-Creek-Rvier-man-in-canoe-mississippi.JPG'),

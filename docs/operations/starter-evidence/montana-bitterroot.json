@@ -1,0 +1,87 @@
+{
+  "state": "Montana",
+  "river": "Bitterroot River",
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "bitterroot-river-hannon-wally",
+    "bitterroot-river-wally-anglers-roost",
+    "bitterroot-river-anglers-roost-tucker-crossing",
+    "bitterroot-river-tucker-crossing-bell-crossing",
+    "bitterroot-river-bell-crossing-poker-joe",
+    "bitterroot-river-poker-joe-chief-looking-glass",
+    "bitterroot-river-bell-crossing-chief-looking-glass",
+    "bitterroot-river-hannon-chief-looking-glass"
+  ],
+  "sources": [
+    {
+      "label": "Montana FWP Fishing Access Sites",
+      "url": "https://fwp.mt.gov/fish/fishing-access"
+    },
+    {
+      "label": "Montana FWP Bitterroot floating restrictions",
+      "url": "https://fwp.mt.gov/buyandapply/specialuseriverpermits"
+    },
+    {
+      "label": "FWP access-site camping guide",
+      "url": "https://fwp.mt.gov/binaries/content/assets/fwp/fish/misc/fas-guide---2017---fullversion.pdf"
+    },
+    {
+      "label": "Hannon Memorial FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754135"
+    },
+    {
+      "label": "Wally Crawford FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754217"
+    },
+    {
+      "label": "Bell Crossing FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754137"
+    },
+    {
+      "label": "Chief Looking Glass FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754131"
+    },
+    {
+      "label": "USGS 12350250 Bitterroot River at Bell Crossing",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-12350250/"
+    },
+    {
+      "label": "Wikimedia Commons Bitterroot River photo",
+      "url": "https://commons.wikimedia.org/wiki/File:Bitterroot_River.jpg"
+    }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": false,
+    "strength": "none",
+    "note": "Direct Bell Crossing telemetry is available, but reviewed FWP access and floating-rule sources do not publish route-specific recreational cutoffs. Keep planning-only until stronger scoring evidence is established."
+  },
+  "endpointAudit": {
+    "routeCount": 8,
+    "endpointCount": 16,
+    "allEndpointsReviewed": true,
+    "allEndpointsNamedWaterEntry": true
+  },
+  "qualityControls": [
+    "reviewed safety hazards",
+    "nearby-basecamp camping classification",
+    "verified FWP water-entry endpoints",
+    "seasonal floating restrictions",
+    "river-specific gallery image",
+    "duplicate/consolidation review"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "overlapAudit": "passed_no_scored_findings_for_planning_batch"
+  },
+  "pending": [
+    "Find route-specific recreational flow guidance before any promotion to scored status",
+    "Keep validated_not_deployed until normal publication workflow is approved"
+  ]
+}\n

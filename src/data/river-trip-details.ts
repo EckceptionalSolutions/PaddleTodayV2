@@ -41,6 +41,7 @@ import { southCarolinaLittlePeeDeeRiverTripDetails } from './trip-details/south-
 import { southCarolinaSaludaRiverTripDetails } from './trip-details/south-carolina-saluda';
 import { southCarolinaBroadRoutes } from './routes/south-carolina-broad';
 import { southCarolinaCatawbaRoutes } from './routes/south-carolina-catawba';
+import { southCarolinaBlackRoutes } from './routes/south-carolina-black';
 import { alabamaHatchetRiverTripDetails } from './trip-details/alabama-hatchet';
 import { alabamaCahabaRoutes } from './routes/alabama-cahaba';
 import { arizonaVerdeRoutes } from './routes/arizona-verde';
@@ -56,13 +57,17 @@ import { louisianaBogueChittoRoutes } from './routes/louisiana-bogue-chitto';
 import { louisianaBayouTecheRoutes } from './routes/louisiana-bayou-teche';
 import { massachusettsDeerfieldDrywayRoutes, massachusettsDeerfieldLowerRoutes, massachusettsDeerfieldRoutes } from './routes/massachusetts-deerfield';
 import { allMassachusettsMillersRoutes } from './routes/massachusetts-millers';
+import { massachusettsHoosicRoutes } from './routes/massachusetts-hoosic';
+import { massachusettsHousatonicExpansionRoutes } from './routes/massachusetts-housatonic-expansion';
 import { mississippiBlackCreekRoutes } from './routes/mississippi-black-creek';
+import { mississippiLeafRoutes } from './routes/mississippi-leaf';
 import { montanaClarkForkRoutes } from './routes/montana-clark-fork';
 import { montanaBlackfootRoutes } from './routes/montana-blackfoot';
 import { nevadaColoradoBlackCanyonRoutes } from './routes/nevada-colorado-black-canyon';
 import { nevadaTruckeeRoutes } from './routes/nevada-truckee';
 import { nevadaTruckeeExpansionRoutes } from './routes/nevada-truckee-expansion';
 import { nevadaCarsonRoutes } from './routes/nevada-carson';
+import { nevadaEastForkCarsonRoutes } from './routes/nevada-east-fork-carson';
 import { nevadaWalkerRoutes } from './routes/nevada-walker';
 import { arizonaGilaBoxRoutes } from './routes/arizona-gila-box';
 import { newHampshirePemigewassetRoutes } from './routes/new-hampshire-pemigewasset';
@@ -70,6 +75,9 @@ import { newHampshireContoocookRoutes } from './routes/new-hampshire-contoocook'
 import { newHampshireSacoRoutes } from './routes/new-hampshire-saco';
 import { newHampshireAndroscogginRoutes } from './routes/new-hampshire-androscoggin';
 import { newHampshireConnecticutRiverRoutes } from './routes/new-hampshire-connecticut-river';
+import { newHampshireMerrimackRoutes } from './routes/new-hampshire-merrimack';
+import { newHampshireMerrimackExpansionRoutes } from './routes/new-hampshire-merrimack-expansion';
+import { newHampshireMerrimackFranklinExpansionRoutes } from './routes/new-hampshire-merrimack-franklin-expansion';
 import { newMexicoRioGrandeRoutes } from './routes/new-mexico-rio-grande';
 import { newMexicoRioChamaRoutes } from './routes/new-mexico-rio-chama';
 import { newMexicoAlbuquerqueRioGrandeRoutes } from './routes/new-mexico-albuquerque-rio-grande';
@@ -86,7 +94,10 @@ import { washingtonYakimaCanyonRoutes } from './routes/washington-yakima-canyon'
 import { washingtonSnoqualmieRoutes } from './routes/washington-snoqualmie';
 import { washingtonSkagitRoutes } from './routes/washington-skagit';
 import { washingtonStillaguamishRoutes } from './routes/washington-stillaguamish';
-import { washingtonSpokaneRoutes } from './routes/washington-spokane';
+import { washingtonSpokaneRoutes, washingtonSpokaneExpansionRoutes } from './routes/washington-spokane';
+import { massachusettsConnecticutTurnersRoutes } from './routes/massachusetts-connecticut-turners';
+import { massachusettsQuaboagRoutes } from './routes/massachusetts-quaboag';
+import { massachusettsWareExpansionRoutes } from './routes/massachusetts-ware-expansion';
 import { alabamaFlintRoutes } from './routes/alabama-flint';
 import { alabamaSipseyRoutes } from './routes/alabama-sipsey';
 import { alabamaSipseyLowerRoutes } from './routes/alabama-sipsey-lower';
@@ -94,6 +105,10 @@ import { alabamaMulberryRoutes } from './routes/alabama-mulberry';
 import { alabamaLocustForkRoutes } from './routes/alabama-locust-fork';
 import { alabamaCoosaRoutes } from './routes/alabama-coosa';
 import { alabamaTallapoosaRoutes } from './routes/alabama-tallapoosa';
+import { alabamaBartramRoutes } from './routes/alabama-bartram';
+import { alabamaTerrapinAutaugaRoutes } from './routes/alabama-terrapin-autauga';
+import { arizonaVerdeExpansionRoutes } from './routes/arizona-verde-expansion';
+import { californiaRussianExpansionRoutes } from './routes/california-russian-expansion';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...floridaRiverTripDetails,
@@ -105,12 +120,14 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...southCarolinaSaludaRiverTripDetails,
   ...Object.fromEntries(southCarolinaBroadRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(southCarolinaCatawbaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(southCarolinaBlackRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...alabamaHatchetRiverTripDetails,
   ...Object.fromEntries(alabamaCahabaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(arizonaVerdeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(arizonaSaltRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(californiaAmericanRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(californiaRussianRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(californiaRussianExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(californiaSouthForkAmericanRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(connecticutFarmingtonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(connecticutHousatonicRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
@@ -124,13 +141,17 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...Object.fromEntries(massachusettsDeerfieldDrywayRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(massachusettsDeerfieldLowerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(allMassachusettsMillersRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsHoosicRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsHousatonicExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(mississippiBlackCreekRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(mississippiLeafRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(montanaClarkForkRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(montanaBlackfootRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaColoradoBlackCanyonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaTruckeeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaTruckeeExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaCarsonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(nevadaEastForkCarsonRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(nevadaWalkerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(arizonaGilaBoxRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newHampshirePemigewassetRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
@@ -138,6 +159,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...Object.fromEntries(newHampshireSacoRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newHampshireAndroscogginRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newHampshireConnecticutRiverRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireMerrimackRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireMerrimackExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(newHampshireMerrimackFranklinExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newMexicoRioGrandeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newMexicoRioChamaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(newMexicoAlbuquerqueRioGrandeRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
@@ -155,6 +179,10 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...Object.fromEntries(washingtonSkagitRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(washingtonStillaguamishRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(washingtonSpokaneRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(washingtonSpokaneExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsConnecticutTurnersRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsQuaboagRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(massachusettsWareExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaFlintRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaSipseyRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaSipseyLowerRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
@@ -162,6 +190,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   ...Object.fromEntries(alabamaLocustForkRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaCoosaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...Object.fromEntries(alabamaTallapoosaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaBartramRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(alabamaTerrapinAutaugaRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
+  ...Object.fromEntries(arizonaVerdeExpansionRoutes.map(route => [route.id, { putIn: route.putIn!, takeOut: route.takeOut!, logistics: route.logistics!, accessPoints: route.accessPoints }])),
   ...arkansasRiverTripDetails,
   ...coloradoRiverTripDetails,
   ...illinoisRiverTripDetails,

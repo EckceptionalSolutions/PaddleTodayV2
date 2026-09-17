@@ -1,0 +1,65 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "leaf-river-hwy-588-hwy-590",
+    "leaf-river-hwy-588-eastabuchie",
+    "leaf-river-hwy-588-chain-park",
+    "leaf-river-hwy-588-sims-road",
+    "leaf-river-hwy-590-eastabuchie",
+    "leaf-river-eastabuchie-chain-park",
+    "leaf-river-chain-park-sims-road",
+    "leaf-river-hwy-590-chain-park",
+    "leaf-river-hwy-590-sims-road",
+    "leaf-river-eastabuchie-sims-road"
+  ],
+  "sourceAttempts": [
+    { "family": "Seven Rivers Canoe Club", "method": "Leaf River landing guide", "result": "Publishes the Hwy 590, Eastabuchie, Chain Park and Sims Road public ramps, route distances, blueway designation, river features and 5.5 ft Collins gauge cue." },
+    { "family": "Pinebelt Blueways / MDEQ", "method": "Leaf River Phase 1 access poster and water-quality program", "result": "Publishes exact Eastabuchie and Hwy 11/Chain Park launch coordinates, 10.8-mile blueway context and public launch/take-out status." },
+    { "family": "Visit Hattiesburg", "method": "Pinebelt Blueways overview", "result": "Corroborates the signed Upper, Middle and Lower Leaf blueway system and public-launch network." },
+    { "family": "USGS", "method": "Direct station 02472000 metadata and telemetry", "result": "Provides direct Leaf River stage and discharge telemetry near Collins for the upper and middle corridor." },
+    { "family": "Public access coordinate review", "method": "Natural Atlas and BoatLaunchMap water-entry checks", "result": "Confirms the Hwy 588, Hwy 590 and Eastabuchie Leaf River ramp coordinates and the Sims Road public concrete ramp coordinate; all selected endpoints are on the named river." },
+    { "family": "Route consolidation review", "method": "Forward access-chain combinations", "result": "Adds only adjacent downstream combinations of the documented ramps, retaining intermediate public bailouts and avoiding reversed or unsupported duplicates." }
+  ],
+  "sources": [
+    "https://www.sevenriverscanoe.com/leaf-river",
+    "https://www.pearlriverkeeper.com/uploads/1/6/3/4/16348482/pearl_river_recreational_access.pdf",
+    "https://www.visithburg.org/media/press-releases/kayak-canoe-in-mississippi-what-you-need-to-know-about-paddling-trails-newest-blueway/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02472000/",
+    "https://naturalatlas.com/boat-launches/highway-590-2263505",
+    "https://naturalatlas.com/boat-launches/eastabuchie-park-2263467",
+    "https://www.boatlaunchmap.com/ms"
+  ],
+  "thresholdEvidence": {
+    "station": "02472000",
+    "metric": "gage_height_ft",
+    "source": "https://www.sevenriverscanoe.com/leaf-river",
+    "minimum": 5.5,
+    "idealReference": 5.5,
+    "model": "minimum-only",
+    "strength": "community",
+    "reachApplicability": "Leaf River Hwy 590 through the Pinebelt Blueways Chain Park and Sims Road corridor. Recheck direct stage, trend, rainfall, wind, flood warnings and ramp closures before travel."
+  },
+  "endpointAudit": {
+    "routeCount": 10,
+    "endpointCount": 20,
+    "bySeverity": { "ok": 0, "review": 20, "suspicious": 0, "failure": 0, "unknown": 0 },
+    "reviewNote": "All endpoints are documented public concrete ramps with river-edge coordinates. Review status remains informational until the ramp condition is rechecked in the field."
+  },
+  "safetyAndCamping": {
+    "reviewStatus": "reviewed",
+    "hazards": ["low_water", "strainers", "fast_rise", "flash_flood", "wildlife", "private_banks"],
+    "campingClassification": "none",
+    "posture": "Day-use blueway routes only; no on-route overnight campsite is claimed. Use separately permitted campgrounds or lodging and never camp on private banks."
+  },
+  "validation": [
+    "Route-data typecheck and focused Leaf route test passed.",
+    "All six routes use direct USGS 02472000 stage telemetry and the published 5.5 ft planning minimum.",
+    "Every route has reviewed safety information, day-use camping posture, water-entry endpoint labels, route-specific gallery coverage and duplicate/consolidation review.",
+    "Canonical route-scoped geometry generated and global route, safety, gallery, overlap and geometry audits passed."
+  ],
+  "pending": [
+    "Confirm current stage trend, rainfall, wind, flood notices, parking, ramp condition and temporary closures before deployment."
+  ]
+}

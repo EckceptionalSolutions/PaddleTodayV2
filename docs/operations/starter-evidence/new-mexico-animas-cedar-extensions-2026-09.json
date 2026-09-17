@@ -1,0 +1,84 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "campaign": "lower-48-expansion-50",
+  "routeIds": [
+    "animas-river-cedar-hill-penny-lane",
+    "animas-river-cedar-hill-animas-park",
+    "animas-river-cedar-hill-boyd-park"
+  ],
+  "demandAndRouteEvidence": {
+    "demand": "The New Mexico Office of Natural Resources Trustee restoration plan estimated 10–20 boat trips per peak-runoff day for the Cedar Hill public-ramp project. American Whitewater describes the Class I–II Cedar Hill–Farmington corridor and says many shorter trips are possible.",
+    "route": "Aztec's Animas River guide publishes a continuous water-entry access chain with river-mile markers: Cedar Hill 26.9, Riverside Park 39.4, Penny Lane 46.7, Animas Park 51.6 and Boyd Park 55.0. It also documents diversion hazards and Animas 8 on BLM land at mile 33.7."
+  },
+  "routes": [
+    {
+      "id": "animas-river-cedar-hill-penny-lane",
+      "distanceMiles": 19.8,
+      "distanceMethod": "Aztec guide mile 46.7 minus mile 26.9; Riverside Park at mile 39.4 is an intermediate bailout.",
+      "gauge": "USGS 09364200 at Penny Lane; direct gauge at the takeout.",
+      "bailouts": ["Aztec Riverside Park, guide mile 39.4"],
+      "camping": "BLM Animas 8 at mile 33.7 is on-route, about 6.8 miles below Cedar Hill; it is not a balanced midpoint. Verify current availability, camping and fire rules.",
+      "consolidation": "A longer choice that contains the existing Cedar Hill–Riverside reach and continues to a distinct public Penny Lane ramp; it overlaps by design and adds no separate corridor mileage."
+    },
+    {
+      "id": "animas-river-cedar-hill-animas-park",
+      "distanceMiles": 24.7,
+      "distanceMethod": "Aztec guide mile 51.6 minus mile 26.9; Riverside Park and Penny Lane are intermediate bailouts.",
+      "gauge": "USGS 09364500 at Farmington; direct same-river gauge near the downstream trip end.",
+      "bailouts": ["Aztec Riverside Park, guide mile 39.4", "Penny Lane, guide mile 46.7"],
+      "camping": "BLM Animas 8 at mile 33.7 is on-route, about 6.8 miles below Cedar Hill; it is not a balanced midpoint. Verify current availability, camping and fire rules.",
+      "consolidation": "A very long trip option combining shorter named public access pairs; this card adds a distinct Animas Park endpoint but no new corridor mileage. Shorten or split when daylight or pace requires."
+    },
+    {
+      "id": "animas-river-cedar-hill-boyd-park",
+      "distanceMiles": 28.1,
+      "distanceMethod": "Aztec guide mile 55.0 minus mile 26.9; American Whitewater independently lists the broader Cedar Hill–Farmington City Park run at 28.4 miles.",
+      "gauge": "USGS 09364500 at Farmington; direct same-river gauge near the downstream trip end.",
+      "bailouts": ["Aztec Riverside Park", "Penny Lane", "Animas Park"],
+      "camping": "BLM Animas 8 at mile 33.7 is on-route, about 6.8 miles below Cedar Hill; it is not a balanced midpoint. Verify current availability, camping and fire rules.",
+      "consolidation": "The full named access-chain trip, matching the American Whitewater corridor. It intentionally overlaps the shorter Cedar Hill trips and retains three public shortening options."
+    }
+  ],
+  "scoring": {
+    "minimumCfs": 700,
+    "idealMinimumCfs": 900,
+    "thresholdSourceStrength": "community",
+    "source": "American Whitewater's Cedar Hill–Farmington trip report describes a May run from 900 down to 700 cfs, with the paddler advising against lower flow. The station is assigned near the takeout: 09364200 at Penny Lane, and 09364500 at Farmington for the longer Animas Park and Boyd trips. This is a route-planning cue, not a safety guarantee."
+  },
+  "accessAndQuality": {
+    "accessPoints": "All endpoints and intermediate bailouts use water-entry coordinates in the Aztec Animas guide. Cedar Hill is a completed county public ramp. Riverside Park, Penny Lane, Animas Park and Boyd Park are separately named public landings.",
+    "safety": "The route cards retain the Class I–II corridor context, full-day/exceptionally-long distance cautions, fitted PFD and rescue equipment, live flow and weather checks, cold water, fast rises, exposed rebar at Animas Ditch, Farmers Ditch scraping below 1,000 cfs, scouting and portage advice, private-bank boundaries, and daylight planning.",
+    "camping": "All three trips pass the Aztec-guide-listed BLM Animas 8 primitive campsite at mile 33.7, about 6.8 miles below Cedar Hill. The cards require a current land-manager check for site availability and fire rules, state that this is not a balanced overnight midpoint, and do not promise availability or permit fires.",
+    "coordinateAudit": "The route-filtered audit of the longest access chain reviewed five endpoints: four OK and one review, with no suspicious, failure or unknown results. Cedar Hill, Penny Lane, Animas Park and Boyd Park are on mapped waterbodies; Riverside Park is the previously source-confirmed landing 59 ft from the NHD waterbody and 102 ft from the flowline.",
+    "gallery": {
+      "source": "https://commons.wikimedia.org/wiki/File:Animas_River_between_Cedar_Hill_NM_and_CO_border.jpg",
+      "localImage": "public/gallery/animas-cedar-hill-corridor/animas-river-cedar-hill.jpg",
+      "credit": "Dicklyon via Wikimedia Commons",
+      "rights": "CC BY-SA 4.0",
+      "caption": "Aerial Animas River corridor view near Cedar Hill, upstream of the launch; context only, not current conditions."
+    },
+    "geometry": "Each new trace is one connected line composed from adjacent reviewed NHD Animas access-pair traces. The three route assets contain 568, 662 and 756 vertices with a maximum endpoint snap of 102 feet. The canonical geometry audit passed for 2,884 of 2,897 public routes and all 48 state assets.",
+    "consolidation": "The overlap audit reports expected access-chain containment with shorter adjacent trips; no exact duplicate start/end pair was introduced. All three cards use distinct, documented public takeouts and keep their intermediate bailouts explicit."
+  },
+  "sources": [
+    "https://www.aztecnm.com/recreation/animasriver.html",
+    "https://www.aztecnm.com/recreation/animasriver/AnimasRiver.pdf",
+    "https://farmingtonnm.org/listings/paddle-trails",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/1203/main",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09364200/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09364500/",
+    "https://www.emnrd.nm.gov/spd/activities/boating-2/paddle-sports/",
+    "https://onrt.env.nm.gov/blog/2023/06/07/office-of-natural-resources-trustee-celebrates-completion-of-first-restoration-project-funded-with-gold-king-mine-settlement-dollars/",
+    "https://commons.wikimedia.org/wiki/File:Animas_River_between_Cedar_Hill_NM_and_CO_border.jpg"
+  ],
+  "validation": [
+    "New Mexico Animas unit tests passed (3 tests).",
+    "Route and gallery TypeScript checks passed.",
+    "Global route audit passed for 2,998 routes; the safety audit generated zero issues for 1,865 scored routes.",
+    "Canonical geometry audit passed with all 48 state assets present.",
+    "Targeted coordinate audit passed with four OK endpoints and one source-confirmed review landing; no suspicious, failed or unknown endpoints.",
+    "Route overlap audit confirms expected containment of adjacent access-pair options; no exact endpoint-pair duplicate was introduced."
+  ]
+}

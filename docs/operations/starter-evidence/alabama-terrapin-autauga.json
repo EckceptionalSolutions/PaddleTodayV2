@@ -1,0 +1,56 @@
+{
+  "state": "Alabama",
+  "campaign": "lower-48-expansion-50",
+  "batch": "terrapin-autauga-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "terrapin-creek-cr49-chief-ladiga",
+    "terrapin-creek-chief-ladiga-cr70",
+    "terrapin-creek-cr70-cr8",
+    "terrapin-creek-cr8-ellisville",
+    "autauga-creek-city-hall-canoe-park",
+    "autauga-creek-bridge-creek-city-hall",
+    "autauga-creek-city-hall-cooters-pond"
+  ],
+  "sources": [
+    { "label": "Alabama Scenic River Trail Terrapin Creek sections", "url": "https://alabamarecreationtrails.org/trail/terrapin-creek-county-road-49-to-chief-ladiga-trail-campground/" },
+    { "label": "City of Piedmont Terrapin Creek public launch", "url": "https://www.piedmontcity.org/parks/terrapin-creek" },
+    { "label": "USGS Terrapin Creek at Ellisville", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-02400100/" },
+    { "label": "Terrapin seasonal flow context", "url": "https://riverdates.com/river/alabama/terrapin-creek/" },
+    { "label": "Outdoor Alabama Autauga Creek guide", "url": "https://www.outdooralabama.com/rivers-and-mobile-delta/autauga-creek" },
+    { "label": "Alabama Scenic River Trail Autauga day trip", "url": "https://www.alabamascenicrivertrail.com/52-weekends-on-the-water/wonderful-day-trip-down-autauga-creek/" },
+    { "label": "National Recreation Trails Autauga Creek Canoe Trail", "url": "https://www.nationalrecreationtrails.com/trails/autauga-creek-canoe-trail" },
+    { "label": "Terrapin Creek gallery", "url": "https://www.piedmontcity.org/parks/terrapin-creek" },
+    { "label": "Autauga Creek gallery", "url": "https://encyclopediaofalabama.org/media/autauga-creek-canoe-trail-2/" }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": false,
+    "strength": "mixed",
+    "notes": "The two lower Terrapin cards use a conservative 84–770 cfs seasonal context tied to the direct Ellisville gauge. Upper Terrapin and all Autauga cards remain planning-only because official sources say to paddle when flow is good but do not publish a current reach-specific numeric threshold."
+  },
+  "endpointAudit": {
+    "routeCount": 7,
+    "endpointCount": 14,
+    "allReviewed": true,
+    "allNamedWaterEntry": true,
+    "notes": "Terrapin endpoints come from Alabama Scenic River Trail and the City of Piedmont; Autauga endpoints come from Outdoor Alabama, Alabama Scenic River Trail and National Recreation Trails. Private downstream Terrapin take-outs are explicitly called out for outfitter confirmation."
+  },
+  "qualityControls": {
+    "safety": "reviewed",
+    "camping": "classified on every card; campground or nearby-basecamp only where supported",
+    "access": "water-edge coordinates and carry/private-access caveats recorded",
+    "geometry": "curated route traces anchored to named access sequence",
+    "gallery": "river-specific Terrapin and Autauga images",
+    "duplicateReview": "distinct forward reaches only; no reverse pairs or same-endpoint padding"
+  },
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "pending": "Reconfirm current access, fee, reservation, private-bank, outfitter, campground and trail-condition details before deployment."
+  }
+}

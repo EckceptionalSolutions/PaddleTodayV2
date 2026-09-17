@@ -1,0 +1,78 @@
+{
+  "state": "Vermont",
+  "river": "Otter Creek",
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "otter-creek-center-rutland-middlebury",
+    "otter-creek-middlebury-quaker-village",
+    "otter-creek-quaker-village-weybridge",
+    "otter-creek-weybridge-vergennes",
+    "otter-creek-quaker-village-vergennes",
+    "otter-creek-vergennes-fort-cassin",
+    "otter-creek-weybridge-fort-cassin"
+  ],
+  "sources": [
+    {
+      "label": "Vermont Fish & Wildlife fishing access areas",
+      "url": "https://www.vtfishandwildlife.com/fish/boating-in-vermont/fishing-access-areas"
+    },
+    {
+      "label": "Otter Creek tactical basin plan",
+      "url": "https://dec.vermont.gov/sites/dec/files/wsm/mapp/docs/B3_TBP_FINAL_ARA.pdf"
+    },
+    {
+      "label": "Boston Kayaker Middlebury to Vergennes map",
+      "url": "https://www.bostonkayaker.com/publishmap/ottercreekmiddleburypublishpdf.pdf"
+    },
+    {
+      "label": "Paddle Guide Otter Creek overview",
+      "url": "https://www.paddleguide.com/united-states/vermont/rivers/otter-creek--8932320674411820"
+    },
+    {
+      "label": "Otter Creek Natural Resources Conservation District",
+      "url": "https://ottercreekconservation.org/otter-creek/"
+    },
+    {
+      "label": "USGS 04282500 Otter Creek at Middlebury",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04282500/"
+    },
+    {
+      "label": "Wikimedia Commons Otter Creek VT photo",
+      "url": "https://commons.wikimedia.org/wiki/File:Otter_Creek_VT.jpg"
+    }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": false,
+    "strength": "none",
+    "note": "Direct USGS telemetry is available, but the reviewed access and paddling sources do not publish a route-specific recreational cutoff for these reaches. Keep planning-only until one is established."
+  },
+  "endpointAudit": {
+    "routeCount": 7,
+    "endpointCount": 14,
+    "allEndpointsReviewed": true,
+    "allEndpointsNamedWaterEntry": true
+  },
+  "qualityControls": [
+    "reviewed safety hazards",
+    "nearby-basecamp camping classification",
+    "named public water-entry endpoints",
+    "dam and water-quality boundaries",
+    "river-specific gallery image",
+    "duplicate/consolidation review"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "overlapAudit": "passed_no_scored_findings_for_planning_batch"
+  },
+  "pending": [
+    "Find route-specific recreational flow guidance before any promotion to scored status",
+    "Keep validated_not_deployed until normal publication workflow is approved"
+  ]
+}\n

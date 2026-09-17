@@ -1,0 +1,61 @@
+{
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "ware-river-blue-trail-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": [
+    "ware-river-park-new-furnace"
+  ],
+  "route": {
+    "name": "Ware River Park to New Furnace",
+    "distanceMiles": 0.7,
+    "canonicalGeometryMiles": 0.687,
+    "class": "II-III",
+    "scored": true,
+    "putIn": "Hardwick-Ware River Park public access, river right above the rapids",
+    "takeOut": "Gilbertville/New Furnace public boat launch, river right above the Route 32 bridge",
+    "relationshipToExistingRoutes": "No Ware River card existed in the Massachusetts route inventory. This is a distinct C4Rivers water-trail access pair; the broader American Whitewater Ware-Gilbertville description is not duplicated in the catalog."
+  },
+  "sources": [
+    {
+      "title": "C4Rivers Upper Ware River Blue Trail guide (2022)",
+      "url": "https://c4rivers.org/wp-content/uploads/2022/12/wrbt-upper-11-14-22.pdf"
+    },
+    {
+      "title": "Town of Hardwick StoryMap public asset inventory",
+      "url": "https://www.hardwick-ma.gov/media/6631"
+    },
+    {
+      "title": "C4Rivers Blue Trails and river condition notices",
+      "url": "https://c4rivers.org/blue-trails/"
+    },
+    {
+      "title": "American Whitewater Ware-Gilbertville reach",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10164/main"
+    },
+    {
+      "title": "USGS Ware River at Gibbs Crossing station 01173500",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01173500/"
+    },
+    {
+      "title": "Massachusetts DER Wheelwright Pond Dam removal construction funding (2026)",
+      "url": "https://www.mass.gov/news/healey-driscoll-administration-awards-14-million-to-support-priority-restoration-projects"
+    },
+    {
+      "title": "Wikimedia Commons Ware River at Main Street, Gilbertville photograph",
+      "url": "https://commons.wikimedia.org/wiki/File:Ware_River_at_Main_Street,_Gilbertville_MA.jpg"
+    }
+  ],
+  "qualification": {
+    "demandAndDistinctness": "C4Rivers has completed the Ware River Blue Trail for the Hardwick-Gilbertville-Ware-Palmer corridor. The selected short run links its public river-right access immediately above the mapped whitewater to the separately named New Furnace boating launch below the rapids, creating an actionable expert-oriented trip rather than an arbitrary endpoint pairing.",
+    "access": "C4Rivers' map labels the Hardwick-Ware River Park access as point 10 and places it river right just upstream of the rapids; it describes that point as the exit for paddlers who will not run the whitewater. Point 13 is Gilbertville/New Furnace on river right where the current becomes calm above Route 32, with Danforth Brook entering at the access. Hardwick's asset inventory independently lists recreational boating access at New Furnace. Waterline anchors are 42.3093856,-72.1944061 and 42.3115200,-72.2068191. The generated route geometry snaps both points to the named Ware River within 19 feet; the focused USGS NHD coordinate audit passed 2/2 endpoints with no review, suspicious, failure or unknown results.",
+    "scoring": "C4Rivers' 2022 guide says flows greater than 400 cfs are acceptable for the Ware River whitewater run, 500-1,500 cfs are good, and flows above 1,500 cfs are for more experienced paddlers; the guide names the USGS Ware River at Gibbs Crossing gauge. The route uses a minimum-only scored profile with 400 cfs as the conservative navigability floor, 500 cfs as the lower end of the good range and no universal upper-flow cutoff. The cue is community guidance, not a safety guarantee. The active upstream Wheelwright Pond Dam removal makes current notices and observed downstream conditions especially important.",
+    "safety": "The card identifies the run as Class II-III with large boulders and standing waves, requires suitable whitewater craft and experience, calls for scouting and portaging beyond the group's skill, and covers PFD, helmet, cold water, throw rope, communication, strainers, fast rises, water quality and live gauge trend. It treats Ware River Park as the final exit before the rapids and warns against the posted Church Street field or unverified bank take-outs. It also explicitly requires reviewing Wheelwright Dam removal notices and current access conditions.",
+    "camping": "campingClassification=none. The two named municipal access sites are day-use launches and no route-side campground or authorized overnight stop is documented.",
+    "gallery": "A dedicated Ware River photograph at Main Street in Gilbertville was checked visually and matches the named river reach. John Phelan photographed it on July 10, 2009; the Commons page licenses it CC BY 3.0. The app uses a 1,600-pixel-wide resized copy at public/gallery/ware-river-park-new-furnace/ware-river-gilbertville.jpg, with attribution and the resize disclosed.",
+    "geometry": "The route uses a 58-point canonical USGS NHD Flowline trace named Ware River, measuring 0.687 miles. The route-scoped geometry asset reports endpointSnapMaxFeet=19; the focused coordinate audit returns OK for both endpoints. Full state-asset generation and the complete geometry audit remain pending.",
+    "consolidation": "The Massachusetts catalog contained no existing Ware River route before this addition. The new card is the single C4Rivers point-10-to-point-13 public access pair; no reverse, alternate landing or duplicate card was added. American Whitewater's broader Ware-Gilbertville route description does not correspond to an existing catalog card."
+  },
+  "followUp": "Before deployment, recheck C4Rivers condition notices, Town of Hardwick launch and parking rules, current water quality, the live USGS 01173500 trend, and construction or sediment notices from the Wheelwright Pond Dam removal project. The 2022 flow guidance and route geometry should be reviewed again after the upstream project reaches completion."
+}

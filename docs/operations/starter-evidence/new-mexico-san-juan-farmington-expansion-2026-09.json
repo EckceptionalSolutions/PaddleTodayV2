@@ -1,0 +1,38 @@
+{
+  "state": "New Mexico",
+  "campaign": "lower-48-expansion-50",
+  "batch": "san-juan-farmington-access-chain-expansion-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": [
+    "san-juan-river-vereda-westland-park",
+    "san-juan-river-vereda-lions-park"
+  ],
+  "routes": [
+    { "name": "San Juan River - Vereda del Rio to Westland Park", "distanceMiles": 19.14, "scored": true },
+    { "name": "San Juan River - Vereda del Rio to Kirtland Lions Park", "distanceMiles": 24.64, "scored": true }
+  ],
+  "catalogCounts": {
+    "before": { "publicRoutes": 31, "scoredRoutes": 30, "planningRoutes": 1 },
+    "after": { "publicRoutes": 33, "scoredRoutes": 32, "planningRoutes": 1 }
+  },
+  "sources": [
+    { "title": "City of Farmington San Juan River signage and access map", "url": "https://www.farmingtonnm.gov/DocumentCenter/View/27318/River-Signage-Penny-Lane" },
+    { "title": "Southwest Paddler San Juan River access points and flow notes", "url": "https://southwestpaddler.com/docs/sanjuannm2.html" },
+    { "title": "USGS San Juan River at Farmington, station 09365000", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09365000/" },
+    { "title": "New Mexico State Parks paddlesports safety guidance", "url": "https://www.emnrd.nm.gov/spd/activities/boating-2/paddle-sports/" },
+    { "title": "City of Farmington 2024 San Juan River fish tissue sampling locations", "url": "https://nnhp.nndfw.org/docs/2024_sanjuan_river_fishtissue_study.pdf" },
+    { "title": "San Juan River near Navajo Dam context photograph, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:San_Juan_River_near_Navajo_Dam,_New_Mexico.jpg" }
+  ],
+  "qualification": {
+    "distinctnessAndDemand": "These are longer trip choices through a documented public access chain, not newly claimed corridor miles. City signage describes Among the Waters–Westland (2.24 mi) and Westland–Kirtland Lions (5.5 mi); Southwest Paddler documents Vereda–Among the Waters (about 16.9 mi). Both preserve shorter existing trips and public intermediate exits.",
+    "scoring": "Both routes use direct same-river USGS 09365000 telemetry at Farmington. The existing Southwest Paddler community cue (300 cfs minimum, 500 cfs target) is carried as a planning threshold only, not a safety guarantee. Check gauge trend, release notices, weather and local conditions.",
+    "access": "Vereda del Rio, Among the Waters, Westland Park and Kirtland Lions are named public water-entry/bailout points. City signage marks Lions Park as the end of navigable river segments. The route cards keep Among the Waters and Westland as intermediate public bailouts and include park hours, walk-in/carry caveats and the instruction not to continue below the marked endpoint.",
+    "safety": "Reviewed PFD use, changing flow, cold water, storms, strainers, submerged fences, diversion dams, required scouting/portage, private and tribal boundaries, limited assistance and full-day endurance. Farmington's current hazard map and access notices should be checked before launch.",
+    "camping": "campingClassification=none. No authorized campsite on these urban reaches was verified; cards direct users to separate established campgrounds or lodging and prohibit camping on private banks or at public access points.",
+    "gallery": "Added route-specific gallery records that reuse a licensed San Juan River photograph near Navajo Dam, clearly captioned as same-river context well upstream, not an endpoint or current-conditions image.",
+    "geometry": "Generated route-scoped canonical USGS NHD San Juan flowline assets. Vereda-to-Westland has one connected line with 584 vertices; Vereda-to-Lions has one connected line with 732 vertices. Route endpoints snap within about 44 ft of the reviewed water-entry markers. The canonical geometry audit passed for 2,879 of 2,892 catalog routes across 48 state assets. A separate full endpoint-coordinate audit was still running at evidence-record time.",
+    "consolidation": "Both longer trips intentionally overlap documented component cards in the same Farmington access-chain group. Among the Waters and Westland remain intermediate bailouts. Shared route mileage is not treated as new corridor coverage; no duplicate route identifiers were found."
+  },
+  "followUp": "Recheck current City access/hazard notices, direct USGS trend, park hours and shuttle conditions before deployment. The routes are implemented locally and not deployed."
+}

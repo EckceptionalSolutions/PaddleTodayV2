@@ -1,0 +1,56 @@
+{
+  "prepared": "2026-09-16",
+  "state": "Nevada",
+  "routeId": "truckee-river-floriston-crystal-peak",
+  "status": "scored; full geometry regeneration and coordinate audit pending",
+  "length": {
+    "guide": "10.00 miles one way",
+    "officialAquaticKml": "9.924 miles",
+    "guideUrl": "https://www.nvtrailfinder.com/trails/trail/truckee-river-floriston-to-verdi/1000",
+    "lineKml": "https://www.nvtrailfinder.com/docs/kml/TrailLines45.kml",
+    "pointKml": "https://www.nvtrailfinder.com/docs/kml/TrailPoints45.kml"
+  },
+  "access": {
+    "putIn": {
+      "name": "Floriston I-80 bridge public launch, channel marker",
+      "latitude": 39.3943633541274,
+      "longitude": -120.024530403644,
+      "sourceNote": "Official state point KML route vertex; vehicle staging is separately described as the south-side I-80 off-ramp parking."
+    },
+    "takeOut": {
+      "name": "Crystal Peak Park public water edge",
+      "sourceNote": "Official Nevada Trail Finder guide and access KML."
+    },
+    "deduplication": "Adjacent to truckee-river-crystal-peak-mayberry at Crystal Peak Park. It shares one endpoint but no route miles."
+  },
+  "scoring": {
+    "thresholdModel": "minimum-only",
+    "minimumCfs": 700,
+    "thresholdSourceStrength": "official state recreation guide, based on its community route guidance",
+    "thresholdSource": "https://www.nvtrailfinder.com/trails/trail/truckee-river-floriston-to-verdi/1000",
+    "gauge": {
+      "siteId": "10346000",
+      "siteName": "Truckee River at Farad, CA",
+      "kind": "direct",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-10346000/"
+    },
+    "disclaimer": "700 cfs is a minimum-only score preference from the route guide, never a safety guarantee. The guide warns diversions can leave sections dry even above that gauge value."
+  },
+  "safety": [
+    "Advanced Class III-IV route with long sections lacking convenient exits.",
+    "Scout or portage Floriston Gorge, Jaws, Bronco, Headhunter/Fleish Dam, Dead Man's Curve, Steamboat Canal and Verdi Diversion.",
+    "Check route-wide water continuity and diversion operations, not only one gauge; spring flows increase force and reduce bridge clearance.",
+    "Watch for rebar, concrete, trees, strainers, cold water, private banks, railroad property and cross-state access rules."
+  ],
+  "camping": {
+    "classification": "none",
+    "notes": "Day run; the state guide says camping is not allowed at Crystal Peak Park. No other authorized on-route campsite is confirmed."
+  },
+  "gallery": {
+    "asset": "public/gallery/truckee-river-floriston-crystal-peak/truckee-river-verdi.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Truckee_River,_Verdi,_Nevada_(526801472).jpg",
+    "credit": "Ken Lund via Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "notes": "Visually reviewed as a real Truckee River scene near the Crystal Peak end; caption explicitly says it does not depict the upper rapids or current conditions."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "state": "Arizona",
+  "campaign": "lower-48-expansion-50",
+  "batch": "verde-forward-pair-completion-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["verde-river-tuzigoot-black-canyon", "verde-river-tuzigoot-bignotti", "verde-river-tuzigoot-sheep-crossing", "verde-river-89a-black-canyon", "verde-river-89a-bignotti", "verde-river-89a-sheep-crossing", "verde-river-89a-parsons"],
+  "sources": [
+    { "label": "Friends of the Verde River access points map", "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf" },
+    { "label": "USFS Verde River Paddle Trail guide", "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf" },
+    { "label": "RiverScout Verde River conditions summary", "url": "https://riverscout.app/rivers/arizona/verde-river" },
+    { "label": "USGS Verde River near Camp Verde gauge", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-09506000/" }
+  ],
+  "thresholdEvidence": { "modelTransferred": true, "strength": "community", "notes": "All six reaches use the established conservative 300–2,000 cfs Verde planning band and direct Camp Verde USGS 09506000 telemetry. The band is a planning cue, not a safety guarantee." },
+  "endpointAudit": { "routeCount": 7, "endpointCount": 14, "allReviewed": true, "allNamedWaterEntry": true, "notes": "Coordinates and river-mile order come from the Friends of the Verde access map; named RAPs remain intermediate bailouts on the longer itineraries." },
+  "qualityControls": { "safety": "reviewed", "camping": "none on every card; no unsupported riverbank camping", "access": "mapped RAP water-edge anchors with carry and parking caveats", "geometry": "curated traces follow the published RAP sequence", "gallery": "existing Verde River-specific context image", "duplicateReview": "forward access-chain pairs only; seven new endpoint combinations complete the reviewed upper-to-lower sequence" },
+  "validation": { "typecheck": "passed", "focusedTest": "passed", "routeAudit": "passed", "safetyAudit": "passed", "galleryAudit": "passed", "geometryAudit": "passed", "pending": "Reconfirm RAP hours, parking, carry, Forest Service or State Parks notices, weather, gauge trend and any temporary closure before deployment." }
+}

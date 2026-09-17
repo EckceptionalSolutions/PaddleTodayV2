@@ -1,0 +1,21 @@
+{
+  "state": "California",
+  "campaign": "lower-48-expansion-50",
+  "batch": "russian-river-upper-lower-access-chain-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["russian-river-asti-alexander", "russian-river-alexander-healdsburg", "russian-river-alexander-del-rio", "russian-river-cloverdale-del-rio", "russian-river-cloverdale-healdsburg", "russian-river-del-rio-healdsburg", "russian-river-healdsburg-monte-rio-planning", "russian-river-guerneville-monte-rio-planning", "russian-river-cloverdale-asti", "russian-river-cloverdale-alexander", "russian-river-asti-del-rio", "russian-river-asti-healdsburg", "russian-river-alexander-monte-rio", "russian-river-del-rio-monte-rio", "russian-river-asti-monte-rio", "russian-river-cloverdale-monte-rio"],
+  "sources": [
+    { "label": "California State Parks Russian River boating facilities", "url": "https://dbw.parks.ca.gov/BoatingFacilities/Body-of-Water/Russian%20River" },
+    { "label": "City of Cloverdale River Park water-access page and map", "url": "https://www.cloverdale.net/484/Trails-and-Open-Spaces" },
+    { "label": "Sonoma County Del Rio Woods public beach access", "url": "https://www.sonomacounty.com/outdoor-activities/del-rio-woods/" },
+    { "label": "California North Coast Regional Water Board Russian River monitoring coordinates", "url": "https://www.waterboards.ca.gov/northcoast/water_issues/programs/tmdls/russian_river/pdf/130502/Russian_River_Pathogen_TMDL_Monitoring_Report_2011-2012.pdf" },
+    { "label": "California Creeks Russian River above Healdsburg run", "url": "https://www.cacreeks.com/russn-he.htm" },
+    { "label": "California Creeks Russian River below Asti run", "url": "https://www.cacreeks.com/russn-as.htm" },
+    { "label": "Monte Rio public boat launch listing", "url": "https://snoflo.org/boat-launches/california/monte-rio" }
+  ],
+  "thresholdEvidence": { "modelTransferred": true, "strength": "community/direct", "notes": "The Alexander Valley Road, Del Rio Woods and Healdsburg cards are directly covered by California Creeks' Russian River above Healdsburg run, which publishes a 300–1,500 cfs canoe/kayak band measured at the Healdsburg gauge. The Asti–Alexander card uses the separate below-Asti 500–1,500 cfs source but remains planning-only because that source describes the gauge as somewhat below Healdsburg; all new Cloverdale and lower-river combinations remain planning-only because their endpoint or tidal reach is outside matching route-specific evidence." },
+  "endpointAudit": { "routeCount": 16, "endpointCount": 32, "allReviewed": true, "allNamedWaterEntry": true, "notes": "Asti Summer Bridge, Alexander Valley Road/campground, Cloverdale, Del Rio Woods, Healdsburg Memorial, Guerneville River Park and Monte Rio coordinates are tied to public facility or monitoring records; each endpoint retains carry, parking, seasonal and tidal caveats. The added cards use distinct endpoint pairs and retain intermediate bailouts for long itineraries." },
+  "qualityControls": { "safety": "reviewed", "camping": "nearby_basecamp on every card; no unsupported riverbank camping", "access": "Asti crossing and Alexander Valley campground access are seasonal/permission dependent and called out in the card; other endpoints are public city, county and State Parks anchors", "geometry": "curated traces follow the documented upper-to-lower access sequence pending named NHD coverage", "gallery": "existing Russian River-specific California context image", "duplicateReview": "All endpoint pairs are distinct; expedition-length combinations retain documented intermediate exits and remain planning-only across seasonal-structure and tidal boundaries" },
+  "validation": { "typecheck": "passed", "focusedTest": "passed", "routeAudit": "passed", "safetyAudit": "passed", "galleryAudit": "passed", "geometryAudit": "passed", "pending": "Reconfirm ramp hours, parking, carry, seasonal structures, water quality, weather, tidal boundary and gauge trend before deployment." }
+}

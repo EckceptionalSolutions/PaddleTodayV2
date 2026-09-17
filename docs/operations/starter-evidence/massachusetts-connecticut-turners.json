@@ -1,0 +1,20 @@
+{
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "connecticut-river-turners-falls-bypass-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["connecticut-river-turners-falls-bypass"],
+  "sources": [
+    {"title": "American Whitewater Turners Falls bypass", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10911/main"},
+    {"title": "FirstLight Turners Falls boating flow study", "url": "https://www.northfield-relicensing.com/content/Documents/401-wqc/20211109_Turners_Falls_Boating_Flow_Final_Study_Plan.pdf"},
+    {"title": "FirstLight recreation plan", "url": "https://montague-ma.gov/files/2022-02-07_Selectboard_Meeting_Recreation_AIP.pdf"},
+    {"title": "Turners Falls settlement agreement", "url": "https://www.gillmass.org/files/2023-0428_Final_Recreation_Settlement_Agreement.pdf"},
+    {"title": "USGS Montague City gauge 01170500", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01170500/"},
+    {"title": "Connecticut River at Turners Falls gallery photo", "url": "https://commons.wikimedia.org/wiki/File:CT_River_at_Turners_Falls.jpg"}
+  ],
+  "thresholdEvidence": {"modelTransferred": true, "strength": "mixed", "notes": "American Whitewater documents the 3.3-mile Class II–III bypass and 1,500 cfs runnable context; FirstLight evaluates 2,500–13,000 cfs. The card uses a conservative 1,500 cfs floor and 2,500–8,000 cfs preferred band; this is not a safety guarantee."},
+  "endpointAudit": {"routeCount": 1, "endpointCount": 2, "allReviewed": true, "allNamedWaterEntry": true, "notes": "Fishway/Discovery Center carry put-in and Poplar Street take-out coordinates come from FirstLight/settlement and American Whitewater; Poplar is a steep landing."},
+  "qualityControls": {"safety": "reviewed", "camping": "nearby_basecamp at Barton Cove; no riverbank camping", "access": "fishway carry and Poplar take-out documented; Cabot Woods excluded as bypass put-in", "geometry": "canonical trace generated", "gallery": "Connecticut River public-domain Commons image", "duplicateReview": "new river/endpoint pair; no duplicate Massachusetts route"},
+  "validation": {"typecheck": "passed", "focusedTest": "passed", "routeAudit": "passed", "safetyAudit": "passed", "galleryAudit": "passed", "geometryAudit": "passed", "pending": "Reconfirm boating/release status, utility restrictions, carry, Poplar parking, weather, water quality and gauge trend before deployment."}
+}

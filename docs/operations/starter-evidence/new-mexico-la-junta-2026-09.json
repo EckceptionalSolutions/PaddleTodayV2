@@ -1,0 +1,57 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "campaign": "lower-48-expansion-50",
+  "routeIds": [
+    "rio-grande-red-river-confluence-john-dunn"
+  ],
+  "demandAndRouteEvidence": {
+    "demand": "New Mexico Tourism describes the confluence-to-John Dunn wilderness float as an eight-mile Rio Grande section. American Whitewater lists the exact 8.5-mile Class II–III reach and current gauge correlation.",
+    "route": "The scored card covers only the distinct Red River confluence to John Dunn Bridge access pair. BLM describes the La Junta segment as Class III, names the Little Arsenic and John Dunn accesses, and says each access trail requires a one-mile hike."
+  },
+  "scoring": {
+    "station": "08263500",
+    "metric": "discharge_cfs",
+    "minimumCfs": 300,
+    "maximumCfs": 3000,
+    "thresholdSourceStrength": "community",
+    "source": "American Whitewater's current La Junta reach correlation associates USGS 08263500 (Rio Grande near Cerro) with beginLowRunnable 300 cfs and endHighRunnable 3,000 cfs. The thresholds are route-planning cues, not a guarantee of safe conditions."
+  },
+  "accessAndQuality": {
+    "putIn": "Rio Grande water entry at the Red River confluence, 36.64794388, -105.69401268. This is the first on-water vertex in American Whitewater's mapped La Junta reach. Current BLM guidance says to reach the confluence via Little or Big Arsenic Trail because La Junta Trail remains closed.",
+    "takeOut": "John Dunn Bridge river landing at 36.5344718, -105.70955232, the American Whitewater-mapped downstream access and BLM-designated takeout. It is also the upstream endpoint of the separate Lower Taos Box card.",
+    "geometry": "USGS NHD network-traced geometry is checked in at public/data/canonical-river-geometries/routes/rio-grande-red-river-confluence-john-dunn.json; one connected Rio Grande trace with 881 vertices and a maximum endpoint snap of 49 feet.",
+    "endpointAudit": {
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": { "ok": 2, "review": 0, "suspicious": 0, "failure": 0, "unknown": 0 },
+      "artifact": "tmp-la-junta-coordinate-audit.json",
+      "reviewNote": "The confluence start is on the mapped NHD waterbody at the Red River/Rio Grande junction. The John Dunn takeout is 49 feet from NHD flowline and 27 feet from the mapped waterbody; American Whitewater marks this coordinate as its takeout and BLM designates John Dunn Bridge as the takeout."
+    },
+    "safety": "BLM calls boating in this gorge extremely hazardous and requiring superior skills, endurance and specialized equipment. The reviewed card prominently labels advanced risk, requires boater registration, states that La Junta Trail is closed, and directs the one-mile boat carry to use only an open Little or Big Arsenic trail. Safety controls cover Class III La Junta and Garapata drops, scouting/portaging, cold water, rescue gear, limited exits and current gauge/weather/closure checks.",
+    "camping": "The route is a day trip, with nearby established Wild Rivers campgrounds and primitive inner-gorge sites. Camping is classified as nearby_basecamp; the card requires verification of availability, fees and rules and does not imply that any informal riverbank or rim camp is allowed.",
+    "consolidation": "This is distinct upstream of the John Dunn-to-Taos Junction Lower Taos Box route, sharing only the John Dunn access as an endpoint. It does not duplicate another access pair or overlap route miles already covered upstream; the junction provides a natural handoff to the separately reviewed Lower Taos Box."
+  },
+  "gallery": {
+    "source": "https://commons.wikimedia.org/wiki/File:Big_Arsenic_Springs_-_Flickr_-_aspidoscelis_(1).jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Big_Arsenic_Springs_-_Flickr_-_aspidoscelis_%281%29.jpg?width=1600",
+    "credit": "Patrick Alexander via Wikimedia Commons",
+    "rights": "CC0 1.0 Universal Public Domain Dedication",
+    "caption": "Rio Grande Canyon at Big Arsenic Springs, in the La Junta access corridor; nearby river context rather than a photograph of the rapids or current conditions."
+  },
+  "sources": [
+    "https://www.blm.gov/visit/red-river-wild-and-scenic-river",
+    "https://www.blm.gov/sites/blm.gov/files/NM_Rio_Grande_and_Rio_Chama_River_Segments.pdf",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/1226/main",
+    "https://www.newmexico.org/things-to-do/outdoor-adventures/rafting-kayaking/rio-grande-rio-chama/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-08263500",
+    "https://commons.wikimedia.org/wiki/File:Big_Arsenic_Springs_-_Flickr_-_aspidoscelis_(1).jpg"
+  ],
+  "validation": [
+    "New Mexico Rio Grande route unit test passed with 9 scored routes and one reviewed planning route.",
+    "Route-data TypeScript check and gallery TypeScript check passed.",
+    "Targeted hydrography audit passed: both endpoints are on mapped NHD waterbody and within 49 feet of a named Rio Grande or Red River flowline.",
+    "Canonical geometry is a single connected 8.5-mile route trace; global manifest refresh remains pending."
+  ]
+}

@@ -1,8 +1,12 @@
 {
-  "reviewedAt": "2026-09-12",
+  "reviewedAt": "2026-09-16",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
+    "truckee-river-crissie-caughlin-wingfield",
+    "truckee-river-crissie-caughlin-cottonwood",
+    "truckee-river-crissie-caughlin-lockwood",
+    "truckee-river-usa-parkway-wadsworth",
     "truckee-river-crystal-peak-wingfield",
     "truckee-river-crystal-peak-idlewild",
     "truckee-river-crystal-peak-cottonwood",
@@ -11,12 +15,15 @@
     "truckee-river-mayberry-lockwood",
     "truckee-river-wingfield-lockwood",
     "truckee-river-crystal-peak-lockwood",
-    "truckee-river-idlewild-lockwood"
+    "truckee-river-idlewild-lockwood",
+    "truckee-river-crystal-peak-crissie-caughlin",
+    "truckee-river-mayberry-crissie-caughlin",
+    "truckee-river-crissie-caughlin-idlewild"
   ],
   "sourceAttempts": [
     {
       "family": "American Whitewater and TMWA",
-      "result": "Existing Reno Truckee reach guidance and the official TMWA recreation map document the Crystal Peak, Mayberry, Idlewild, Wingfield and Cottonwood public-access sequence and the Class I–III corridor."
+      "result": "Existing Reno Truckee reach guidance and the official TMWA recreation map document the Crystal Peak, Mayberry, Crissie Caughlin, Idlewild, Wingfield and Cottonwood public-access sequence and the Class I–III corridor."
     },
     {
       "family": "City of Reno",
@@ -24,16 +31,26 @@
     },
     {
       "family": "USGS",
-      "result": "Direct telemetry from USGS 10348000 at Reno is retained for all four same-corridor combinations."
+      "result": "Direct telemetry from USGS 10348000 at Reno is retained for the Reno combinations; the USA Parkway-to-Wadsworth planning card uses direct USGS 10351600 below Derby Dam."
     },
     {
       "family": "Access coordinate review",
-      "result": "Endpoints reuse the reviewed water-entry anchors from the existing Truckee route module; intermediate parks remain explicit bailout options."
+      "result": "Nevada Trail Finder's official point file names the Crystal Peak, Crissie Caughlin and Idlewild carry-in accesses. The Crystal Peak and Idlewild coordinates were moved to mapped river-entry edges after NHD endpoint review; Crissie Caughlin remains on the TMWA right-bank access marker and within the mapped waterbody."
     },
     {
       "family": "Nevada Trail Finder / TMWA access-chain gap fill",
       "method": "Idlewild-to-Lockwood reach review",
       "result": "Added the final missing forward endpoint combination across Idlewild, Wingfield, Cottonwood and Lockwood public river accesses. The route retains direct USGS 10348000 telemetry and the reviewed Reno feature, railroad-bridge and Lockwood Ditch controls."
+    },
+    {
+      "family": "Nevada Trail Finder Lower Truckee",
+      "method": "USA Parkway Bridge to Wadsworth Bridge screen",
+      "result": "Added a 14.7-mile Class I–II scored route with exact TrailPoints100.kml launch and take-out coordinates, Derby Dam left-bank portage and Pyramid Lake Paiute permit requirements. Truckee River Basin Water Group guidance supplies a 450–1,200 cfs lower-river rafting band tied to the direct USGS 10351600 gauge."
+    },
+    {
+      "family": "Nevada Division of State Lands / TMWA",
+      "method": "Remaining Reno access-chain forward pairs",
+      "result": "Added Crystal Peak–Crissie Caughlin (about 10.7 miles), Mayberry–Crissie Caughlin (about 2.7 miles), and Crissie Caughlin–Idlewild (about 1.4 miles). Distances are measured along Nevada Trail Finder's Truckee line between its named carry-in points; the state floatable-reaches map and TMWA markers corroborate the access sequence. Routes preserve the mandatory river-left Chalk Bluff portage where applicable and end before Wingfield's engineered channels."
     }
   ],
   "thresholdEvidence": {
@@ -49,11 +66,11 @@
     "reachApplicability": "Conservative Reno-corridor planning cues; feature conditions, cold water, closures and urban hazards still control."
   },
   "endpointAudit": {
-    "routeCount": 9,
-    "endpointCount": 18,
+    "routeCount": 16,
+    "endpointCount": 32,
     "bySeverity": {
-      "ok": 0,
-      "review": 16,
+      "ok": 17,
+      "review": 15,
       "suspicious": 0,
       "failure": 0,
       "unknown": 0
@@ -62,11 +79,17 @@
       "tmp/nv-truckee-expansion-endpoint-audit.json"
     ]
   },
+  "duplicateReview": {
+    "status": "reviewed",
+    "notes": "The 21 forward combinations across the seven Reno public access anchors are distinct access-bounded choices. The three new pairs overlap longer runs but have different public put-in/take-out choices and either stop below the Chalk Bluff portage or before Wingfield's managed channels. The overlap audit classifies shared spans as contained connectors or near-collinear overlap, not duplicate full reaches. USA Parkway–Wadsworth is separate.",
+    "audit": "tmp/route-overlap-audit.csv"
+  },
   "validation": [
     "Focused Truckee expansion safety test passed.",
     "Canonical geometry generation and audit passed for the full route catalog.",
     "Full route-data, safety and gallery audits passed.",
-    "Added Idlewild-to-Lockwood scored reach; route-data, safety and canonical-geometry audits pass."
+    "Added Crissie Caughlin-to-Wingfield, Crissie Caughlin-to-Cottonwood and Crissie Caughlin-to-Lockwood scored reaches plus the USA Parkway-to-Wadsworth scored route; route-data, safety, canonical-geometry and overlap audits pass.",
+    "Added the final three forward combinations across the Reno park chain using Nevada Trail Finder point and river-line data. All 16 Truckee expansion routes have focused endpoint audits: 17 OK, 15 review within mapped waterbody/connected river, and no suspicious, failure or unknown endpoints."
   ],
   "pending": [
     "Recheck live gauge trend, park closures, water quality, engineered features, weather and cold-water conditions before deployment."

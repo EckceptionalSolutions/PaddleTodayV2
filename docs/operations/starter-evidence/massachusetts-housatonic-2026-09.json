@@ -1,0 +1,51 @@
+{
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "housatonic-berkshire-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "startingCount": { "total": 35, "scored": 34 },
+  "endingCount": { "total": 50, "scored": 49 },
+  "routeIds": [
+    "housatonic-river-fred-garner-decker",
+    "housatonic-river-decker-woods-pond",
+    "housatonic-river-woods-pond-lee-athletic",
+    "housatonic-river-fred-garner-woods-pond",
+    "housatonic-river-decker-lee-athletic",
+    "housatonic-river-fred-garner-lee-athletic",
+    "housatonic-river-park-street-glendale-dam",
+    "housatonic-river-below-glendale-rising-pond",
+    "housatonic-river-division-brookside",
+    "housatonic-river-brookside-covered-bridge",
+    "housatonic-river-covered-bridge-rannapo",
+    "housatonic-river-brookside-rannapo",
+    "housatonic-river-division-covered-bridge",
+    "housatonic-river-east-sheffield-covered-bridge",
+    "housatonic-river-east-sheffield-rannapo"
+  ],
+  "sources": [
+    { "title": "HVA Berkshire County Paddle Guide (2023 updates)", "url": "https://hvatoday.org/wp-content/uploads/2023/09/PaddleGuideBerkshire_2023UPDATES.pdf" },
+    { "title": "Great Barrington River Walk current public paddling access advice", "url": "https://gbriverwalk.org/visit-the-trail-2/river-access-nearby/" },
+    { "title": "Great Barrington Land Conservancy Brookside canoe launch", "url": "https://www.gbland.org/node/325" },
+    { "title": "Berkshires Outside Division Street access", "url": "https://berkshiresoutside.org/place/housatonic-river-access-division-street-great-barrington-ma/" },
+    { "title": "Berkshires Outside East Sheffield Road access", "url": "https://berkshiresoutside.org/place/housatonic-river-access-east-sheffield-road-great-barrington-ma/" },
+    { "title": "Berkshires Outside Sheffield Covered Bridge access", "url": "https://berkshiresoutside.org/place/housatonic-river-access-covered-bridge-lane-sheffield-ma/" },
+    { "title": "Town of Great Barrington bridge status and project updates", "url": "https://www.townofgbma.gov/647/Bridge" },
+    { "title": "Town of Great Barrington East Sheffield Road washout stabilization notice (Aug. 2026)", "url": "https://townofgb.org/m/NewsFlash/Home/Detail/201" },
+    { "title": "USGS Housatonic River near Great Barrington station 01197500", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01197500/" },
+    { "title": "USGS Housatonic River near Ashley Falls station 01198125", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01198125" },
+    { "title": "Massachusetts PCB contamination and Housatonic restoration", "url": "https://www.mass.gov/info-details/housatonic-river-natural-resource-restoration" },
+    { "title": "Massachusetts Housatonic fish and waterfowl advisory", "url": "https://www.mass.gov/lists/housatonic-river-fish-and-waterfowl-advisory" }
+  ],
+  "qualification": {
+    "demandAndDistinctness": "The HVA Berkshire guide publishes upper mainstem Sections A, B, C, E, and F, with named access points, distances, difficulty, dam boundaries and route descriptions. The selected upper chain includes the three source-defined sections and guide-supported combinations; the Stockbridge and lower Great Barrington/Sheffield reaches preserve separate day options at additional public launches. Combination routes are explicitly grouped with their source-defined segments so the app presents them as overlapping trip choices rather than unrelated rivers.",
+    "scoring": "All fifteen routes use a minimum-only scored profile with HVA’s broad 150 cfs minimum planning cue and the same-mainstem USGS 01197500 Great Barrington gauge. HVA describes this as general paddling guidance, not a safety guarantee, and also identifies USGS 01197000 on the East Branch at Coltsville as a nearby reference for the upper watershed. No high-flow score ceiling was inferred. Recheck local flow, trend, rain and route features before launch.",
+    "access": "The endpoints follow HVA’s official public canoe access chain: Fred Garner Park, Decker Landing, Woods Pond Bridge, Lee Athletic Field, Park Street, Glendale Dam above and below its portage, Rising Pond, Division Street, Brookside Road, East Sheffield Road, Sheffield Covered Bridge and Rannapo Road. HVA marks the former Searles/Bridge Street access closed; no route uses it as an endpoint or bailout. The Great Barrington River Walk is not a launch. Brookside Bridge has a Town-listed vehicle closure and Division Street has an interim bridge repair; users are directed to check the current Town approach/parking status. East Sheffield Road had temporary washout stabilization work in August 2026; the route warns users to check current approach conditions. Division Street, Brookside and East Sheffield landing points were refined to the adjacent canonical Housatonic water line inside the independently documented access areas. Rising Pond remains within the mapped waterbody and at the HVA water-edge access; its nearest NHD flowline is 215 ft away because the take-out sits on the pond margin.",
+    "safety": "Every card requires a PFD, cold-water and rescue planning, weather/rain/gauge checks, wood/strainer scouting, public-bank use and route-appropriate daylight. Section C starts with the required right-bank Woods Pond Dam portage and proceeds into Class II–III bridge rapids; Section F begins below the separate Glendale Dam public portage and includes Class III water. Section E ends above Glendale Dam. The lower itineraries do not include the closed Bridge Street site. Cards identify the severe 40%+ East Sheffield ramp grade and limited Brookside/Rannapo parking. Housatonic PCB contamination is described accurately: avoid swimming, ingestion and sediment contact, cover open cuts, and follow current state fish-consumption advice.",
+    "camping": "All fifteen routes are classified campingClassification=none. They are day trips between public launch facilities; no public overnight camping is documented along the guide reaches. Cards prohibit camping at accesses or on private banks and direct overnight travelers to separately permitted lodging or campgrounds.",
+    "gallery": "Three local same-river photographs cover the upper, middle and downstream Berkshire corridors. Upper routes use John Phelan’s Housatonic railroad bridge photograph at Lenox Dale (CC BY-SA 4.0); Stockbridge routes use Phelan’s Housatonic village photograph (CC BY 3.0); lower Great Barrington/Sheffield routes use MayorBatman’s actual Housatonic at the Old Covered Bridge photograph (CC BY-SA 4.0). The app files are 1,600-pixel-wide copies under public/gallery/housatonic-berkshire/. Captions identify corridor context and do not imply exact endpoints or current conditions.",
+    "geometry": "All 15 trips have route-scoped canonical USGS NHD geometry. Their named-river fallback is explicitly bounded to each documented put-in/take-out pair; it no longer exports disconnected portions of the full Berkshire Housatonic corridor. The full geometry audit passed with 2,876/2,889 catalog routes matched and 48 state assets. Focused coordinate audits returned OK for 36 of 37 checked endpoint/waypoint records. The remaining Rising Pond take-out is within the HVA access waterbody and was retained as a reviewed shoreline landing even though the NHD centerline is 215 ft away. Maximum route geometry snap is 220 ft at that same pond-margin landing.",
+    "consolidation": "Six upper route cards expose Sections A, B and C plus two-section and full-chain macro options; each macro links back to its component routes. Section E (Park Street to above Glendale Dam) and Section F (below Glendale Dam to Rising Pond) remain distinct because a land portage is required around the dam. Seven lower Great Barrington/Sheffield options connect current public access points, with segment/macro/alternative roles showing the overlap. The former Bridge Street/Searles public access is closed and excluded. No reverse-direction or access-alias routes were added."
+  },
+  "followUp": "Before deployment, confirm USGS discharge/trend and HVA updates, access parking/closures in the Town of Great Barrington, the Brookside bridge and route to the launch, East Sheffield Road stabilization, safe dam/portage conditions, PCB sediment notices and active fish advisories. A discrepancy between some HVA rounded/published distances and the NHD trace is retained in route evidence; HVA named-reach mileage is displayed for source-defined sections and canonical mileage is shown for geometry-derived options."
+}

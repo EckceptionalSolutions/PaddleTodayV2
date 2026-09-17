@@ -55,6 +55,10 @@ The Lamoille expansion adds ten scored access combinations across the documented
 
 The 2026-09-13 Lamoille completion pass adds ten more scored combinations: Oxbow–Cadyville, Oxbow–Dog Head, Oxbow–Dorothy Smith, Oxbow–Fairfax, Oxbow–Arrowhead, Cadyville–Dorothy Smith, Cadyville–Fairfax, Cadyville–Arrowhead, Waterman–Fairfax and Waterman–Arrowhead. Each uses the documented public access chain, marked falls and dam portages, direct Johnson telemetry, public-access and camping guidance, safety controls and Lamoille gallery context. The Oxbow–Arrowhead and Cadyville–Arrowhead routes are labeled staged multi-day itineraries. Vermont now has 40 scored routes; further additions require a new source-backed corridor or field review.
 
+## Otter Creek 50-route pass — 2026-09-16
+
+Added seven distinct Otter Creek planning reaches, bringing Vermont to 50 routes (43 scored, 7 planning additions). The Vermont Fish & Wildlife access inventory, Otter Creek basin plan, Boston Kayaker Middlebury–Vergennes map, Paddle Guide overview and watershed district materials support the named public water-entry points and document falls, dams, low-water, water-quality and motor-traffic controls. Direct USGS 04282500 telemetry and a river-specific Wikimedia Commons image are attached. No route-specific recreational cutoff was transferred, so these cards remain planning-only until stronger scoring evidence is available. Evidence: `docs/operations/starter-evidence/vermont-otter-creek.json`.
+
 ## 50-route expansion pass (2026-09-13)
 
 Added three scored Lamoille access-chain reaches: Upper Lamoille Access–Arrowhead Mountain Lake (staged about 49 miles), Waterman Brook–below-Dog Head (about 1.5 miles), and below-Dog Head–Arrowhead (staged about 33 miles). Each uses the documented public water-entry edges, mandatory Cadyville/Dog Head/Fairfax portage boundaries, direct Johnson gauge, camping posture, safety controls and gallery inheritance. Vermont now has 43 public routes (43 scored); the Lamoille access chain has no further clearly source-backed public endpoint combinations to reach 50 without inventing access or crossing a dam.

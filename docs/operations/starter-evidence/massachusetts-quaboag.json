@@ -1,0 +1,45 @@
+{
+  "reviewedAt": "2026-09-16",
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "quaboag-lucy-stone-route-67-2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": ["quaboag-river-lucy-stone-route-67", "quaboag-river-west-warren-route-67"],
+  "sources": [
+    {"title": "American Whitewater Quaboag Lucy Stone Park to Route 67", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/697/main"},
+    {"title": "Massachusetts Paddler Quaboag Lucy Stone to Route 67", "url": "https://massachusettspaddler.com/q2-lucy-stone-park-to-whitewater-rt-67-take-out"},
+    {"title": "Town of Warren Lucy Stone Park", "url": "https://warren-ma.gov/405/Lucy-Stone-Park"},
+    {"title": "Quinebaug Cove Campground tent and camper sites", "url": "https://quinebaugcove.com/ways-to-stay/"},
+    {"title": "USGS Quaboag River at West Brimfield", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01176000/"},
+    {"title": "Old Paddlers Almanac runnable level cue", "url": "https://www.mvpclub.org/news/OldPaddlersAlmanac2007.pdf"},
+    {"title": "USACE West Brimfield warning and flood thresholds", "url": "https://reservoircontrol.usace.army.mil/nae_ords/cwmsweb/cwms_realtime.riverpage?gagecode=WBF"},
+    {"title": "Quaboag River same-river gallery image", "url": "https://commons.wikimedia.org/wiki/File%3AChicopee%2C_Ware%2C_Quaboag_Rivers%2C_Three_Rivers_MA.jpg"}
+  ],
+  "screening": {
+    "reach": "Lucy Stone Park in Warren to Route 67, about 5.2–5.3 miles, Class II–III",
+    "demandSignal": "American Whitewater describes a named whitewater reach with Mouse Hole, Broken Dam, Angel's Field and Devil's Gorge; Town of Warren promotes Lucy Stone Park's riverside paddling beach.",
+    "scoringSignal": "Direct USGS 01176000 stage/discharge; Old Paddlers Almanac gives a 3.8-foot/260 cfs minimum cue and USACE publishes 1,250 cfs warning / 1,840 cfs flood references.",
+    "access": "Lucy Stone Park paddling beach at 42.2175,-72.1931667; Wrights Complex lower-dam river-right take-out at river mile 14.25 (42.212,-72.2325) and relaunch below at river mile 14.15 (42.211833,-72.233667); West Warren alternate seal launch starts below the dam and uses South Street/Main Street parking; Route 67 circular pull-off at 42.2035,-72.263. The Lucy Stone itinerary's portage is about 0.1 mile; stay off active railroad tracks and mill property.",
+    "safety": "Reviewed PFD/helmet/cold-water, strainer, whitewater, dam, private-bank and no-cell-service controls; route ends at the documented Route 67 take-out.",
+    "camping": "Quinebaug Cove Campground in Brimfield lists reservable tent and camper sites as a separate nearby private basecamp; no riverbank or access-site camping.",
+    "duplicateReview": "The Lucy Stone route and West Warren alternate-start route share the downstream reach, but the latter starts below the mandatory dam portage and is 2.6 miles shorter. American Whitewater documents this distinct seal-launch option and separate parking direction; it is retained as a useful alternate trip start, with the overlap disclosed rather than silently counted as an independent full corridor. The alternate Whitewater take-out remains a future screen."
+  },
+  "thresholdEvidence": {
+    "station": "01176000",
+    "metric": "discharge_cfs",
+    "minimum": 260,
+    "preferredMinimum": 260,
+    "preferredMaximum": 1250,
+    "reviewAbove": 1840,
+    "model": "minimum-only",
+    "strength": "community",
+    "source": "https://www.mvpclub.org/news/OldPaddlersAlmanac2007.pdf",
+    "upperSafetyReference": "https://reservoircontrol.usace.army.mil/nae_ords/cwmsweb/cwms_realtime.riverpage?gagecode=WBF",
+    "reachApplicability": "Minimum cue is from a paddler almanac; USACE warning/flood values are hazard references. Verify live stage, discharge, trend, wood and local notices."
+  },
+  "endpointAudit": {"routeCount": 2, "endpointCount": 6, "bySeverity": {"ok": 0, "review": 6, "suspicious": 0, "failure": 0, "unknown": 0}, "artifacts": ["tmp/massachusetts-quaboag-endpoint-audit.json"]},
+  "duplicateReview": {"status": "reviewed", "notes": "Lucy Stone-to-Route 67 is the named full reach. West Warren below-dam-to-Route 67 is a shorter alternate trip start explicitly listed by American Whitewater; it avoids the factory-dam portage and shares only the downstream section. Keep the overlap visible and do not describe it as a separate watershed corridor.", "audit": "tmp/route-overlap-audit.csv"},
+  "validation": ["Focused Quaboag safety test passed.", "Route data and typecheck passed.", "Canonical geometry generation and audit passed.", "Both route cards have attributed same-river Quaboag gallery context."],
+  "pending": ["Recheck live gauge trend, water quality, South Street launch and parking, weather, wood and take-out conditions before deployment."]
+}

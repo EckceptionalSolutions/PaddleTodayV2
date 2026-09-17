@@ -1,5 +1,7 @@
 # Lower 48 expansion quality audit
 
+Superseded on 2026-09-16 by the [updated 832-route audit](lower-48-expansion-quality-audit-2026-09-16.md). This earlier report remains as a historical snapshot.
+
 Prepared: 2026-09-13
 
 This audit covers the 17-state expansion queue: Alabama, Arizona, California, Connecticut, Florida, Louisiana, Massachusetts, Mississippi, Montana, Nevada, New Hampshire, New Mexico, Oregon, Rhode Island, South Carolina, Vermont, and Washington.

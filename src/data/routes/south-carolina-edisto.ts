@@ -31,7 +31,7 @@ export const southCarolinaEdistoRoutes: River[] = [{
     distanceLabel: 'About 9.2 river miles', estimatedPaddleTime: 'Allow 4–6 hours, longer for scouting or carries',
     shuttle: "Stage at Orangeburg City Landing and drive to Baughman's Landing on Shillings Bridge Road. Confirm both approaches before unloading.",
     permits: 'SCDNR identifies both locations as boat-ramp access. Confirm posted parking, hours and any local notices at the landings.',
-    camping: 'No overnight camping is established for this access pair; arrange lodging separately.', campingClassification: 'unknown',
+    camping: 'No overnight camping is established for this access pair; arrange lodging separately.', campingClassification: 'none',
     summary: "A distinct North Fork Edisto day trip between SCDNR river miles 37.9 and 28.6.",
     accessCaveats: ['Baughman’s guide entry notes limited parking; do not block the landing or adjacent road.', 'Orangeburg City Landing is an urban access point; confirm current parking and construction conditions.', 'Guide coordinates are approximate map values and are not a survey of ramp water-entry edges.'],
     watchFor: ['Fallen trees and changing channels', 'Rapid rises and high-water navigation', 'Bridge crossings and private banks'],

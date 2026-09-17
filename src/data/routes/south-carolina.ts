@@ -32,7 +32,7 @@ export const southCarolinaRoutes: River[] = [{
     distanceLabel: 'About 5 river miles', estimatedPaddleTime: 'Allow 2–4 hours, longer for scouting or carries',
     shuttle: 'Stage a vehicle at Wicklow Landing off Wicklow Road above US 378, then drive to the end of Indigo Landing Road. Inspect both approaches and arrange your own shuttle.',
     permits: 'SCDNR lists both accesses as public and open. Confirm posted parking and access rules on arrival; no commercial shuttle is included.',
-    camping: 'Indigo is listed without camping. Treat this as a day trip; no riverside camping permission is established.', campingClassification: 'unknown',
+    camping: 'Indigo is listed without camping. Treat this as a day trip; no riverside camping permission is established.', campingClassification: 'none',
     summary: 'A distinct five-mile reach between SCDNR river miles 39 and 34 with an upstream Effingham stage reference.',
     accessCaveats: ['Indigo is a small paddle launch; parking capacity and fees are not specified by the access inventory. Do not block the road or neighboring property.', 'Wicklow has a ramp and parking; inspect flood debris and the approach before starting.', 'An open access listing does not establish a clear river channel.'],
     watchFor: ['Strainers at bends and possible portages', 'Rising water and indistinct channels', 'Private banks and limited bailout options'],

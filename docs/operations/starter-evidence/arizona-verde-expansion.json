@@ -1,103 +1,55 @@
 {
-  "reviewedAt": "2026-09-12",
+  "state": "Arizona",
+  "campaign": "lower-48-expansion-50",
+  "batch": "verde-access-chain-2026-09-16",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
-    "verde-river-lower-tapco-skidmore",
-    "verde-river-tuzigoot-skidmore"
-  ],
-  "sourceAttempts": [
-    {
-      "family": "Friends of the Verde River",
-      "method": "River access points map",
-      "result": "Documents Lower TAPCO, Tuzigoot, Highway 89A and Skidmore public access sequence."
-    },
-    {
-      "family": "U.S. Forest Service",
-      "method": "Verde River Paddle Trail guide",
-      "result": "Confirms the named RAPs, river-mile sequence, carry and diversion cautions."
-    },
-    {
-      "family": "RiverScout / USGS",
-      "method": "Verde conditions guide and station 09504000",
-      "result": "Provides the established 300–2,000 cfs Clarkdale planning band on direct telemetry."
-    },
-    {
-      "family": "Hydrography / endpoint audit",
-      "method": "NHD endpoint-bounded geometry generation",
-      "result": "Generated canonical geometry for the full Lower TAPCO-to-Skidmore access-chain route."
-    }
+    "verde-river-tuzigoot-dead-horse",
+    "verde-river-dead-horse-89a",
+    "verde-river-skidmore-black-canyon",
+    "verde-river-black-canyon-bignotti",
+    "verde-river-bignotti-sheep-crossing",
+    "verde-river-sheep-crossing-newton",
+    "verde-river-newton-parsons",
+    "verde-river-parsons-black-bridge",
+    "verde-river-black-bridge-white",
+    "verde-river-skidmore-sheep-crossing"
   ],
   "sources": [
-    "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
-    "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
-    "https://riverscout.app/rivers/arizona/verde-river",
-    "https://waterdata.usgs.gov/monitoring-location/USGS-09504000/"
+    { "label": "Friends of the Verde access points map", "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf" },
+    { "label": "USFS Verde River Paddle Trail guide", "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf" },
+    { "label": "RiverScout Verde flow summary", "url": "https://riverscout.app/rivers/arizona/verde-river" },
+    { "label": "Tuzigoot public RAP and day-use rules", "url": "https://clarkdale.az.gov/220/Tuzigoot-River-Access-Point" },
+    { "label": "Friends of the Verde paddle guide index", "url": "https://verderiver.org/get-involved/paddle-guides/" }
   ],
   "thresholdEvidence": {
-    "station": "09504000",
-    "metric": "discharge_cfs",
-    "source": "https://riverscout.app/rivers/arizona/verde-river",
-    "minimum": 300,
-    "idealReference": 300,
-    "idealMaximum": 2000,
-    "maximum": 2000,
-    "model": "two-sided",
+    "modelTransferred": true,
     "strength": "community",
-    "reachApplicability": "Upper Verde Valley Lower TAPCO through Skidmore corridor. Verify telemetry, flash-flood forecast, diversion notices, strainers and private-bank constraints."
+    "notes": "All ten reaches use the existing conservative 300–2,000 cfs Verde planning band from RiverScout, with direct Clarkdale USGS 09504000 for the upper two and direct Camp Verde USGS 09506000 for the lower eight. The band is a planning cue, not a safety guarantee."
   },
-  "endpointEvidence": {
-    "routes": [
-      {
-        "putIn": {
-          "name": "Lower TAPCO RAP",
-          "latitude": 34.796181,
-          "longitude": -112.041017,
-          "source": "Friends of the Verde / USFS access map"
-        },
-        "takeOut": {
-          "name": "Skidmore RAP",
-          "latitude": 34.69268085,
-          "longitude": -111.96223986,
-          "source": "Friends of the Verde / USFS access map"
-        }
-      },
-      {
-        "routeId": "verde-river-tuzigoot-skidmore",
-        "putIn": {
-          "latitude": 34.7672379,
-          "longitude": -112.0398467,
-          "name": "Tuzigoot Bridge"
-        },
-        "takeOut": {
-          "latitude": 34.69268085,
-          "longitude": -111.96223986,
-          "name": "Skidmore RAP"
-        }
-      }
-    ],
-    "note": "Both endpoints are named public access sites from the Friends of the Verde/USFS access sequence."
+  "endpointAudit": {
+    "routeCount": 10,
+    "endpointCount": 20,
+    "allReviewed": true,
+    "allNamedWaterEntry": true,
+    "notes": "Coordinates and river-mile order come from the Friends of the Verde map. Difficult carries, park hours and private-bank limits are retained in each access note."
   },
-  "safetyAndCamping": {
-    "reviewStatus": "reviewed",
-    "hazards": [
-      "low_water",
-      "strainers",
-      "fast_rise",
-      "private_banks",
-      "dam"
-    ],
-    "campingClassification": "none",
-    "posture": "Day-use route; use separately permitted campgrounds and do not camp on private banks or at roadside RAPs."
+  "qualityControls": {
+    "safety": "reviewed",
+    "camping": "nearby_basecamp or none on every card; no unsupported riverbank camping",
+    "access": "mapped RAP water-edge anchors with carry and parking caveats",
+    "geometry": "curated traces follow the published RAP sequence",
+    "gallery": "existing Verde River-specific context image",
+    "duplicateReview": "forward access-chain reaches only; one longer combination retained as a documented itinerary"
   },
-  "validation": [
-    "Route-data typecheck passed.",
-    "Route data audit passed with the new route scored.",
-    "Endpoint-bounded canonical geometry generated and geometry audit passed.",
-    "Existing approved Verde River context imagery applies to the same riverId.",
-    "The Tuzigoot-to-Skidmore combined reach reuses documented public endpoints and the existing 300–2,000 cfs direct-gauge planning band."
-  ],
-  "pending": [
-    "Confirm Forest Service road and carry conditions, access legality, stage trend, thunderstorms and diversion status before launch."
-  ]
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "pending": "Reconfirm current RAP hours, parking, carry, Forest Service or State Parks notices, weather, gauge trend and any temporary closure before deployment."
+  }
 }

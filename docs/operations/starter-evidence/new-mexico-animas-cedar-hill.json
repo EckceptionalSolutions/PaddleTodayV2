@@ -1,0 +1,58 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "campaign": "lower-48-expansion-50",
+  "routeIds": [
+    "animas-river-cedar-hill-aztec-riverside"
+  ],
+  "demandAndRouteEvidence": {
+    "demand": "The ONRT restoration plan says San Juan County expected 10–20 boat trips per day during peak runoff and funded the completed ramp to serve an underserved reach. American Whitewater lists the Cedar Hill–Farmington Animas as Class I–II and says many shorter trips are possible.",
+    "route": "The Aztec Animas River guide marks Cedar Hill 550 Bridge access and Aztec Riverside Park at 12.5 river miles apart. Its access list identifies the Animas Ditch diversion with exposed rebar, the Farmers Ditch diversion as scrapey below 1,000 cfs, and the Animas 8 BLM campsite inside this route."
+  },
+  "scoring": {
+    "station": "09364010",
+    "metric": "discharge_cfs",
+    "minimumCfs": 700,
+    "idealMinimumCfs": 900,
+    "thresholdSourceStrength": "community",
+    "source": "American Whitewater's May trip report says the reach was run from 900 down to 700 cfs and the paddler could not imagine running it lower. Use USGS 09364010 below Aztec as direct same-river telemetry, immediately downstream of the takeout. The threshold is a planning cue, not a safety guarantee."
+  },
+  "accessAndQuality": {
+    "putIn": "Cedar Hill 550 Bridge County Boat Ramp water-entry edge at 36.933222, -107.893921. San Juan County and ONRT confirm the completed public ramp; the Aztec guide provides the mapped Cedar Hill access point.",
+    "takeOut": "Aztec Riverside Park water-entry edge at 36.820633, -108.008483, as mapped in the Aztec guide.",
+    "geometry": "USGS NHD network-traced geometry is checked in at public/data/canonical-river-geometries/routes/animas-river-cedar-hill-aztec-riverside.json; the route endpoint snap maximum is 102 feet.",
+    "endpointAudit": {
+      "routeCount": 1,
+      "endpointCount": 2,
+      "bySeverity": { "ok": 1, "review": 1, "suspicious": 0, "failure": 0, "unknown": 0 },
+      "artifact": "tmp/new-mexico-animas-cedar-hill-coordinate-audit.json",
+      "reviewNote": "The takeout is 102 feet from the NHD flowline but within 59 feet of the mapped NHD waterbody; Aztec's access guide explicitly marks the Riverside Park boat landing and water-entry point."
+    },
+    "safety": "Class I–II moving water with cold water, low-water scraping, rising flows, changing debris, exposed rebar at the Animas Ditch diversion and a second low-water diversion. The card directs users to scout and portage, check current flow and access notices, use public water-entry points only, and respect private riverbanks.",
+    "camping": "Aztec’s route guide labels Animas 8 on BLM land at river mile 33.7 as a campsite within the reach. The route card classifies this as an on-route campsite and directs users to verify current BLM camping and fire rules.",
+    "consolidation": "This route is a distinct upstream access pair above existing Aztec-to-Farmington cards. It does not duplicate their river miles; it complements the Aztec chain and can be shortened at Aztec Riverside Park."
+  },
+  "gallery": {
+    "source": "https://www.usgs.gov/media/images/animas-river-aztec-nm-nmwsc",
+    "image": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/animas6.jpg",
+    "credit": "Tyson Hatch / U.S. Geological Survey New Mexico Water Science Center",
+    "rights": "Public domain",
+    "caption": "Animas River at Aztec near the route’s downstream end; river context, not current conditions."
+  },
+  "sources": [
+    "https://onrt.env.nm.gov/blog/2023/06/07/office-of-natural-resources-trustee-celebrates-completion-of-first-restoration-project-funded-with-gold-king-mine-settlement-dollars/",
+    "https://onrt.env.nm.gov/wp-content/uploads/2022/03/FINAL-GKM-Restoration-Plan-w-Appendices-2022.03.23.pdf",
+    "https://www.aztecnm.com/recreation/animasriver.html",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/1203/main",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09364010/",
+    "https://www.usgs.gov/media/images/animas-river-aztec-nm-nmwsc"
+  ],
+  "validation": [
+    "New Mexico Animas route unit tests and route-gallery tests passed.",
+    "Route-data and gallery TypeScript checks passed.",
+    "Route-data audit passed; route safety audit generated zero issues.",
+    "Canonical geometry audit passed for 2,880 of 2,893 public routes, with all 48 state assets present.",
+    "Targeted endpoint audit passed with one on-water endpoint and one source-confirmed public landing near the NHD waterbody; no suspicious or failed endpoint was reported."
+  ]
+}

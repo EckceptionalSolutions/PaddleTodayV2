@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-13",
+  "reviewedAt": "2026-09-16",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
@@ -11,26 +11,102 @@
     "spokane-river-tj-meenach-riverside",
     "spokane-river-aubrey-white-plese-flats",
     "spokane-river-aubrey-white-nine-mile-dam",
-    "spokane-river-redband-tj-meenach"
+    "spokane-river-redband-tj-meenach",
+    "spokane-river-redband-aubrey-white",
+    "spokane-river-redband-plese-flats",
+    "spokane-river-redband-riverside",
+    "spokane-river-redband-nine-mile-dam",
+    "spokane-river-plese-flats-riverside",
+    "spokane-river-riverside-nine-mile-dam",
+    "spokane-river-harvard-barker",
+    "spokane-river-harvard-mission",
+    "spokane-river-harvard-sullivan",
+    "spokane-river-harvard-mirabeau",
+    "spokane-river-harvard-islands",
+    "spokane-river-harvard-plantes-ferry",
+    "spokane-river-harvard-boulder-beach",
+    "spokane-river-harvard-upriver-dam",
+    "spokane-river-barker-mission",
+    "spokane-river-barker-sullivan",
+    "spokane-river-barker-mirabeau",
+    "spokane-river-barker-islands",
+    "spokane-river-barker-plantes-ferry",
+    "spokane-river-barker-upriver-dam"
   ],
   "sourceAttempts": [
-    {"family": "Spokane River Water Trail", "method": "Official launch list and class-rating pages", "result": "Documents named public canoe/kayak launches including TJ Meenach, Plese Flats and Nine Mile Dam, with a connected Spokane-to-Riverside corridor."},
-    {"family": "Spokane Conservation District", "method": "Restored access-point review", "result": "Confirms public river access, high local use and access conditions for TJ Meenach, Plese Flats, Nine Mile and related Water Trail launches."},
-    {"family": "City of Spokane", "method": "Rules of the River", "result": "Requires PFDs, identifies restricted downtown boating and reinforces dam/bridge and current-safety controls."},
-    {"family": "USGS", "method": "12422500 Spokane and 12426000 below Nine Mile Dam", "result": "Provides direct Spokane River discharge telemetry for the selected endpoint pairs, but no route-specific recreational cutoff was transferred."},
-    {"family": "Access coordinate review", "method": "Washington Ecology, State Parks, city and launch-facility coordinates", "result": "Anchors all eighteen endpoints to named public water-entry edges at Redband Park, TJ Meenach, Plese Flats, Nine Mile Dam, Aubrey White Parkway and Riverside State Park; current parking, carry paths, fees and seasonal restrictions remain launch-day checks."}
+    {
+      "family": "Spokane River Water Trail",
+      "method": "Official launch list and class-rating pages",
+      "result": "Documents named public canoe/kayak launches including TJ Meenach, Plese Flats and Nine Mile Dam, with a connected Spokane-to-Riverside corridor."
+    },
+    {
+      "family": "Spokane Conservation District",
+      "method": "Restored access-point review",
+      "result": "Confirms public river access, high local use and access conditions for TJ Meenach, Plese Flats, Nine Mile and related Water Trail launches."
+    },
+    {
+      "family": "City of Spokane",
+      "method": "Rules of the River",
+      "result": "Requires PFDs, identifies restricted downtown boating and reinforces dam/bridge and current-safety controls."
+    },
+    {
+      "family": "American Whitewater / Spokane Whitewater Study",
+      "method": "Numeric flow table",
+      "result": "Publishes a 1,350 cfs minimum and 3,000 cfs upper-river / 3,700 cfs lower-river optimum references for the Spokane corridor."
+    },
+    {
+      "family": "Spokane Climate Project",
+      "method": "Local streamflow guidance",
+      "result": "Identifies approximately 2,500 cfs as the practical lower-river recreational reference and records instream-flow standards at USGS 12422500."
+    },
+    {
+      "family": "USGS",
+      "method": "12422500 Spokane and 12426000 below Nine Mile Dam",
+      "result": "Provides direct Spokane River discharge telemetry for the selected endpoint pairs."
+    },
+    {
+      "family": "Access coordinate review",
+      "method": "Washington Ecology, State Parks, city and launch-facility coordinates",
+      "result": "Anchors all fifteen launch sites to named public water-entry edges from Harvard Road and Barker Road through Mission, Sullivan, Mirabeau, Islands, Plante's Ferry, Boulder Beach, Upriver Dam, Redband, TJ Meenach, Aubrey White, Plese Flats, Riverside and Nine Mile; current parking, carry paths, fees and seasonal restrictions remain launch-day checks."
+    }
   ],
   "sources": [
     "https://www.spokaneriver.net/watertrail/launches/",
     "https://spokaneriver.net/watertrail/",
     "https://spokanecd.org/blogs/news/spokane-river-restored-access-points",
     "https://my.spokanecity.org/rulesoftheriver/",
+    "https://site-media.americanwhitewater.org/Document_2194.pdf",
+    "https://www.spokaneclimateproject.org/streamflow",
     "https://waterdata.usgs.gov/monitoring-location/USGS-12422500/",
     "https://waterdata.usgs.gov/monitoring-location/USGS-12426000/",
     "https://commons.wikimedia.org/wiki/File:Spokane_Washington_Spokane_River.jpg"
   ],
-  "thresholdEvidence": {"model": "not transferred", "strength": "none", "reachApplicability": "Direct gauges and Water Trail class/access information are available, but this pass found no authoritative numeric recreational cutoff for these endpoint pairs. Routes remain planning-only rather than inventing a score band."},
-  "endpointAudit": {"routeCount": 9, "endpointCount": 18, "bySeverity": {"ok": 0, "review": 18, "suspicious": 0, "failure": 0, "unknown": 0}, "reviewNote": "All pins are coordinate-backed public access entries; verify current signs, parking, carry paths, seasonal gates, fees and dam boundaries."},
-  "validation": ["Route-data typecheck passed.", "Focused Spokane route tests passed.", "Canonical route-scoped geometries generated for all nine routes.", "Full route, safety and gallery audits passed."],
-  "pending": ["Find route-specific recreational flow guidance and complete current manager/closure review before converting any card to scored status or deployment."]
+  "thresholdEvidence": {
+    "model": "minimum-only",
+    "strength": "mixed",
+    "minimumCfs": 1350,
+    "recreationalReferenceCfs": 2500,
+    "reachApplicability": "The Spokane Whitewater Study gives 1,350 cfs minimum with 3,000 cfs upper-river and 3,700 cfs lower-river optimum references; Spokane Climate Project supplies the approximately 2,500 cfs practical lower-river reference. All twenty-nine Spokane cards use a conservative 1,350 cfs floor with direct USGS telemetry and launch-day verification."
+  },
+  "endpointAudit": {
+    "routeCount": 29,
+    "endpointCount": 58,
+    "bySeverity": {
+      "ok": 0,
+      "review": 18,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "reviewNote": "All pins are coordinate-backed public access entries from the Water Trail launch matrix; verify current signs, parking, carry paths, seasonal gates, fees and dam boundaries."
+  },
+  "validation": [
+    "Route-data typecheck passed.",
+    "Focused Spokane route tests passed.",
+    "Canonical route-scoped geometries generated for all twenty-nine Spokane routes.",
+    "Full route, safety and gallery audits passed."
+  ],
+  "pending": [
+    "Keep validated-not-deployed until production build and current access, closure, flow, weather, wood and wildfire checks are complete."
+  ]
 }

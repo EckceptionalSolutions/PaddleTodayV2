@@ -1,0 +1,61 @@
+{
+  "state": "Alabama",
+  "river": "Bartram Canoe Trail / Mobile-Tensaw Delta",
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "bartram-globe-creek-french-hubbard",
+    "bartram-red-hill-hubbard-loop",
+    "bartram-douglas-lake-upper-bryant-loop",
+    "bartram-richardson-island-rice-loop",
+    "bartram-fisher-island-rice-loop",
+    "bartram-indian-mound-rice-loop",
+    "bartram-two-rivers-rice-loop",
+    "bartram-spoonbill-french-hubbard",
+    "bartram-spoonbill-two-rivers-french-rice",
+    "bartram-jug-lake-rice-loop",
+    "bartram-canal-island-french-hubbard",
+    "bartram-dead-lake-upper-bryant-loop",
+    "bartram-canal-dead-french-upper-bryant"
+  ],
+  "sources": [
+    { "label": "Alabama State Lands Bartram brochure", "url": "https://www.alabamacanoetrails.com/sites/default/files/maps/Bartram%20Canoe%20Trail%20Brochure.pdf" },
+    { "label": "Alabama State Lands Canoe Trails", "url": "https://www.alabamacanoetrails.com/" },
+    { "label": "Outdoor Alabama Bartram overview", "url": "https://www.outdooralabama.com/bartram-canoe-trail" },
+    { "label": "USACE ACT tailwater data", "url": "https://water.sam.usace.army.mil/actmain.htm" },
+    { "label": "USGS Claiborne tailrace gauge", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-02428400/" },
+    { "label": "Tensaw River gallery image", "url": "https://commons.wikimedia.org/wiki/File:Tensaw_at_Blakeley.jpg" }
+  ],
+  "thresholdEvidence": {
+    "modelTransferred": true,
+    "strength": "official",
+    "note": "The Alabama State Lands brochure publishes route-specific Claiborne tailrace stage ranges of 6–19 or 10–19 feet and identifies levels above the upper value as hazardous. The profile uses a conservative 6/10-foot lower cue, 18-foot preferred ceiling and 19-foot upper review ceiling with direct USGS 02428400 telemetry."
+  },
+  "endpointAudit": {
+    "routeCount": 13,
+    "endpointCount": 26,
+    "allEndpointsReviewed": true,
+    "allEndpointsNamedWaterEntry": true
+  },
+  "qualityControls": [
+    "reviewed safety hazards",
+    "day-use and on-route campsite classifications",
+    "official GPS water-entry endpoints",
+    "Claiborne tailrace stage guidance",
+    "river-specific delta gallery image",
+    "duplicate/consolidation review"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "focusedTest": "passed",
+    "routeAudit": "passed",
+    "safetyAudit": "passed",
+    "galleryAudit": "passed",
+    "geometryAudit": "passed",
+    "overlapAudit": "passed_no_new_scored_review_items"
+  },
+  "pending": [
+    "Reconfirm current access, fee, reservation, WMA and trail-marker conditions before deployment"
+  ]
+}

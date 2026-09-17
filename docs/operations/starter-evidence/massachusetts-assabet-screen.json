@@ -1,0 +1,24 @@
+{
+  "state": "Massachusetts",
+  "campaign": "lower-48-expansion-50",
+  "batch": "assabet-route-117-route-62-screen-2026-09-16",
+  "status": "research_blocked",
+  "deployed": false,
+  "routeIds": [],
+  "sources": [
+    {"title": "American Whitewater Assabet Route 117 to Route 62", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/677/main"},
+    {"title": "USGS Assabet River at Route 62 at Maynard", "url": "https://waterdata.usgs.gov/monitoring-location/USGS-01096980/"},
+    {"title": "Assabet River category imagery", "url": "https://commons.wikimedia.org/wiki/Category:Assabet_River"}
+  ],
+  "screening": {
+    "reach": "Route 117 to Route 62, about 1.5 miles, Class I–II",
+    "demandSignal": "Boston-area after-work reach documented by American Whitewater",
+    "scoringSignal": "Direct Assabet River at Maynard USGS gauge",
+    "blockers": [
+      "American Whitewater says the described office-lot put-in is posted Private Property no river access.",
+      "The alternate side is not verified as a current public water entry.",
+      "American Whitewater flags water quality as so-so; current advisory review is required."
+    ]
+  },
+  "decision": "Do not add or score until a current public launch agreement, parking/water-entry verification and water-quality review are available."
+}

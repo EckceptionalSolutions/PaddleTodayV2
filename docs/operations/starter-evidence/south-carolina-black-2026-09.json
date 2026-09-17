@@ -1,0 +1,64 @@
+{
+  "reviewedAt": "2026-09-16",
+  "status": "validated_not_deployed",
+  "deployed": false,
+  "routeIds": [
+    "black-river-gilland-mill",
+    "black-river-pump-house-pine",
+    "black-river-pine-pea-house",
+    "black-river-pump-house-pea-house"
+  ],
+  "sourceAttempts": [
+    {
+      "family": "SCDNR Black Scenic River access page",
+      "result": "SCDNR documents a 75-mile free-flowing Black River scenic corridor and the public access sequence from Gilland Memorial Park and Mill Street in Kingstree through SC 377, Simms Reach, Ervin Park, Pump House, Pine Tree and Pea House landings."
+    },
+    {
+      "family": "SCDNR Black Scenic River Management Plan",
+      "result": "The 2020 plan reports Kingstree daily streamflow statistics, including 48 cfs exceeded 90% of the time and highly variable rainfall-driven flows; this supports a conservative scored navigation floor with visual scouting controls."
+    },
+    {
+      "family": "Paddle SC, South Carolina Trails and public landing references",
+      "result": "Gilland Memorial Park and Mill Street are identified as public water launches with parking; Paddle SC documents the popular Pump House-to-Pea House trip and Pine Tree intermediate landing; SCDNR identifies Pine Tree and Pea House as public dock and ramp landings."
+    },
+    {
+      "family": "River-specific gallery",
+      "result": "Added four route-specific SCDNR Black Scenic River photographs and a river-level fallback using the state’s Black River image."
+    }
+  ],
+  "thresholdEvidence": {
+    "station": "02136000",
+    "metric": "discharge_cfs",
+    "minimum": 48,
+    "observationalBand": "200–1,500 cfs",
+    "model": "two-sided",
+    "strength": "official",
+    "source": "https://www.dnr.sc.gov/water/river/pdf/blackriverplan_final.pdf",
+    "reachApplicability": "Kingstree telemetry is used as a central same-river screen across the documented access chain. Rainfall, side channels, strainers, sandbars, water quality and private banks remain decisive."
+  },
+  "endpointAudit": {
+    "routeCount": 4,
+    "endpointCount": 8,
+    "bySeverity": {
+      "ok": 0,
+      "review": 8,
+      "suspicious": 0,
+      "failure": 0,
+      "unknown": 0
+    },
+    "artifacts": [
+      "public/data/canonical-river-geometries/routes/black-river-gilland-mill.json",
+      "public/data/canonical-river-geometries/routes/black-river-pump-house-pine.json",
+      "public/data/canonical-river-geometries/routes/black-river-pine-pea-house.json",
+      "public/data/canonical-river-geometries/routes/black-river-pump-house-pea-house.json"
+    ]
+  },
+  "validation": [
+    "Route data typecheck passed with the new Black Scenic River module integrated into rivers and trip details.",
+    "Canonical geometry generation completed with four new route assets and a refreshed manifest.",
+    "Added four distinct scored Black Scenic River reaches with reviewed safety, camping, public water-entry and gallery data."
+  ],
+  "pending": [
+    "Recheck landing waterline, parking, current side-channel conditions, water-quality notices, weather and Kingstree trend before deployment."
+  ]
+}

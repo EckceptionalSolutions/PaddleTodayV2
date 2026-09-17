@@ -1,14 +1,38 @@
 import { describe, expect, it } from 'vitest';
 import { newMexicoRioGrandeRoutes } from './new-mexico-rio-grande';
 import { publicRivers, routeInventory } from '../rivers';
+import { getRouteGalleryPhotos } from '../route-gallery';
 import { auditRouteSafety } from '../../lib/route-safety-audit';
 
 describe('New Mexico Rio Grande starter routes', () => {
-  it('provides six scored routes plus a reviewed high-consequence planning reach', () => {
-    expect(newMexicoRioGrandeRoutes).toHaveLength(7);
-    expect(newMexicoRioGrandeRoutes.filter((route) => route.scoreEligibility === 'scored')).toHaveLength(6);
+  it('provides nine scored routes plus a reviewed high-consequence planning reach', () => {
+    expect(newMexicoRioGrandeRoutes).toHaveLength(10);
+    expect(newMexicoRioGrandeRoutes.filter((route) => route.scoreEligibility === 'scored')).toHaveLength(9);
     expect(newMexicoRioGrandeRoutes.find((route) => route.id === 'rio-grande-john-dunn-taos-junction')?.scoreEligibility).toBe('planning');
-    expect(newMexicoRioGrandeRoutes.every((route) => route.gaugeSource?.siteId === '08276500')).toBe(true);
+    expect(newMexicoRioGrandeRoutes.filter((route) => !['rio-grande-ute-mountain', 'rio-grande-ute-mountain-stateline-lee', 'rio-grande-red-river-confluence-john-dunn'].includes(route.id)).every((route) => route.gaugeSource?.siteId === '08276500')).toBe(true);
+    const uteMountain = newMexicoRioGrandeRoutes.find((route) => route.id === 'rio-grande-ute-mountain');
+    expect(uteMountain?.scoreEligibility).toBe('scored');
+    expect(uteMountain?.gaugeSource?.siteId).toBe('08251500');
+    expect(uteMountain?.logistics?.campingClassification).toBe('none');
+    expect(uteMountain?.accessPoints?.every((point) => point.latitude !== undefined && point.longitude !== undefined)).toBe(true);
+    expect(uteMountain?.safetyProfile?.safetyNotes.join(' ')).toMatch(/April–May|April-May/);
+    const uteGallery = getRouteGalleryPhotos(uteMountain!);
+    expect(uteGallery[0]?.id).toContain('ute-mountain');
+    expect(uteGallery[0]?.takenLabel).toContain('public domain');
+    const statelineLee = newMexicoRioGrandeRoutes.find((route) => route.id === 'rio-grande-ute-mountain-stateline-lee');
+    expect(statelineLee?.scoreEligibility).toBe('scored');
+    expect(statelineLee?.gaugeSource?.siteId).toBe('08251500');
+    expect(statelineLee?.logistics?.distanceLabel).toContain('13');
+    expect(getRouteGalleryPhotos(statelineLee!)[0]?.id).toContain('stateline-lee');
+    const laJunta = newMexicoRioGrandeRoutes.find((route) => route.id === 'rio-grande-red-river-confluence-john-dunn');
+    expect(laJunta).toMatchObject({ scoreEligibility: 'scored', gaugeSource: { siteId: '08263500' } });
+    expect(laJunta?.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 300, idealMin: 300, idealMax: 3000, tooHigh: 3000 });
+    expect(laJunta?.safetyProfile).toMatchObject({ riskLevel: 'advanced', reviewStatus: 'reviewed' });
+    expect(laJunta?.accessPoints).toHaveLength(2);
+    expect(laJunta?.accessPoints?.every((point) => point.latitude !== undefined && point.longitude !== undefined)).toBe(true);
+    expect(laJunta?.accessPoints?.[0]?.note).toMatch(/closed|Little or Big Arsenic/i);
+    expect(laJunta?.logistics?.campingClassification).toBe('nearby_basecamp');
+    expect(getRouteGalleryPhotos(laJunta!)[0]?.takenLabel).toContain('CC0');
     expect(newMexicoRioGrandeRoutes.every((route) => routeInventory.some((candidate) => candidate.id === route.id))).toBe(true);
     expect(publicRivers.some((route) => route.id === 'rio-grande-john-dunn-taos-junction')).toBe(true);
     expect(auditRouteSafety(newMexicoRioGrandeRoutes)).toEqual([]);

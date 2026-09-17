@@ -1,0 +1,58 @@
+{
+  "state": "New Mexico",
+  "campaign": "lower-48-expansion-50",
+  "batch": "ute-mountain-scored-addition-2026-09-16",
+  "status": "implemented_local",
+  "deployed": false,
+  "routeIds": [
+    "rio-grande-ute-mountain"
+  ],
+  "route": {
+    "name": "Rio Grande - Ute Mountain Run",
+    "distanceMiles": 24,
+    "class": "II",
+    "stateAssignment": "New Mexico; upstream Lobatos Bridge launch is in Colorado, and the route continues through New Mexico to Lee Trail.",
+    "scored": true
+  },
+  "sources": [
+    {
+      "title": "BLM Rio Grande and Rio Chama river segment descriptions",
+      "url": "https://www.blm.gov/sites/blm.gov/files/NM_Rio_Grande_and_Rio_Chama_River_Segments.pdf"
+    },
+    {
+      "title": "BLM Colorado Lobatos Bridge public boat ramp announcement",
+      "url": "https://www.blm.gov/announcement/public-invited-lobatos-bridge-celebration-along-rio-grande-river"
+    },
+    {
+      "title": "USGS Rio Grande near Lobatos, Colorado, station 08251500",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-08251500/"
+    },
+    {
+      "title": "American Whitewater Ute Mountain reach and access-point record",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1222/main"
+    },
+    {
+      "title": "American Whitewater Rio Grande recreational flow assessment, Lobatos Bridge to Lee Trail",
+      "url": "https://site-media.americanwhitewater.org/Document_2211.pdf"
+    },
+    {
+      "title": "Southwest Paddler Ute Mountain access, coordinates and flow notes",
+      "url": "https://southwestpaddler.com/docs/riograndenm2.html"
+    },
+    {
+      "title": "BLM public-domain photograph of Ute Mountain and the upper Rio Grande gorge",
+      "url": "https://commons.wikimedia.org/wiki/File:Ute_Mountain_and_upper_Rio_Grande_gorge.jpg"
+    }
+  ],
+  "qualification": {
+    "demandAndDistinctness": "The named 24-mile Ute Mountain float is a distinct upper Rio Grande corridor not covered by the Taos-area route cards. It uses BLM-designated launch/take-out locations and is not a synthetic endpoint combination.",
+    "scoring": "BLM recommends at least 300 cfs. American Whitewater's reach-specific study places 600-2,000 cfs in the optimal user-preference range; this route uses a conservative 600-1,500 cfs preferred band and 2,000 cfs upper scoring guard due to the route guide's advanced/expert caution above about 1,500 cfs. Direct gauge 08251500 is at the upstream launch. Values are planning cues, not safety guarantees.",
+    "access": "Lobatos Bridge BLM ramp coordinate is 37.078611, -105.756389 from the route guide and bridge description. Lee Trail is a BLM-designated take-out. The listed American Whitewater access feature coordinate (36.864, -105.705) falls about 303 ft outside the NHD water trace and outside mapped water polygons, so the route map instead uses the nearest in-channel Rio Grande point at the designated Lee Trail reach end (36.864295, -105.706712). Treat this as an in-channel marker; trail/parking are on the rim after the steep primitive quarter-mile carry.",
+    "safety": "Reviewed fitted PFD, rescue/communication/navigation gear, cold-water and wind controls, blind-drop scouting, remote rescue exposure, seasonal closure and advance reservation. The reservation source material differs on daily launch cap, so the card says to confirm the current cap with BLM.",
+    "camping": "campingClassification=none. BLM reports very few practical camps and steep rim access; this is a day route, with any established campground use treated as separate logistics.",
+    "gallery": "Added BLM public-domain Ute Mountain / upper Rio Grande gorge photo from Wikimedia Commons. Caption identifies same-river/reach-area context, not a current condition or endpoint image.",
+    "geometry": "Generated route-scoped canonical geometry from the named USGS NHD Rio Grande flowline. Trace is one line / 2,400 points with maximum endpoint offset 35 ft; targeted hydrography audit passes 2/2 endpoints (0 review, suspicious, failure or unknown).",
+    "consolidation": "No duplicate identifier or same-corridor route existed. This upper route terminates at Lee Trail and does not duplicate the separate Taos Box or lower-gorge access chains."
+  },
+  "followUp": "Before deployment, verify the current launch cap, reservation availability, road access, wind and live gauge. Full state geometry bundle regeneration and gallery/safety audits are in progress."
+}

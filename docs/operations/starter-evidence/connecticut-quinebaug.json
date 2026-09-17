@@ -1,12 +1,15 @@
 {
-  "reviewedAt": "2026-09-11",
+  "reviewedAt": "2026-09-16",
   "status": "validated_not_deployed",
   "deployed": false,
   "routeIds": [
     "quinebaug-river-fabyan-west-thompson",
     "quinebaug-river-simonzi-cotton-bridge",
     "quinebaug-river-cotton-bridge-route-101",
-    "quinebaug-river-simonzi-route-101"
+    "quinebaug-river-simonzi-route-101",
+    "quinebaug-river-lafreniere-fish-hatchery",
+    "quinebaug-river-lafreniere-robert-manship",
+    "quinebaug-river-lafreniere-butts-bridge"
   ],
   "sourceAttempts": [
     {
@@ -32,7 +35,7 @@
     {
       "family": "Access and hydrography audit",
       "method": "NHD flowline/waterbody endpoint checks",
-      "result": "All six refined water-entry endpoints are documented public launch edges; reviews are informational where a launch sits inside the mapped West Thompson or Quinebaug waterbody."
+      "result": "All fourteen refined water-entry endpoints are documented public launch edges; reviews are informational where a launch sits inside the mapped West Thompson or Quinebaug waterbody."
     },
     {
       "family": "Hazard review",
@@ -48,11 +51,17 @@
       "family": "USGS NHD",
       "method": "Route-scoped geometry and endpoint audit",
       "result": "Both new full-run endpoints are on mapped water with one informational waterbody-edge review and no suspicious or failure finding."
+    },
+    {
+      "family": "Connecticut Trail Finder / The Last Green Valley",
+      "method": "Lower Quinebaug section 4 expansion review",
+      "result": "Confirmed the LaFreniere Memorial public launch and the documented 5.3-mile Fish Hatchery, 9.9-mile Robert Manship and 15.5-mile Butts Bridge forward reaches. The guide identifies this as the longest and most challenging section, with Class II rapids, dam remnants, broad current and slower meanders below Manship."
     }
   ],
   "sources": [
     "https://www.cttrailfinder.com/trails/trail/quinebaug-river-water-trail",
     "https://www.brooklynct.gov/DocumentCenter/View/237/Quinebaug-River-Paddle-Guide-PDF?bidId=",
+    "https://thelastgreenvalley.org/wp-content/uploads/2024/08/PaddleGuide2016xweb.pdf",
     "https://portal.ct.gov/DEEP/Boating/Boat-Launches/Boat-Launches-in-Connecticut",
     "https://waterdata.usgs.gov/monitoring-location/USGS-01124000",
     "https://waterdata.usgs.gov/monitoring-location/USGS-01125500/all-graphs"
@@ -84,6 +93,17 @@
         "idealReference": 450,
         "idealMaximum": 600,
         "maximum": 1000
+      },
+      {
+        "routeIds": [
+          "quinebaug-river-lafreniere-fish-hatchery",
+          "quinebaug-river-lafreniere-robert-manship",
+          "quinebaug-river-lafreniere-butts-bridge"
+        ],
+        "minimum": 400,
+        "idealReference": 750,
+        "idealMaximum": 1000,
+        "maximum": 1800
       }
     ],
     "model": "two-sided",
@@ -97,23 +117,24 @@
       "tmp/quinebaug-river-cotton-bridge-route-101-audit.json",
       "tmp/ct-quinebaug-simonzi-route-101-audit.json"
     ],
-    "routeCount": 4,
-    "endpointCount": 8,
+    "routeCount": 7,
+    "endpointCount": 14,
     "bySeverity": {
       "ok": 3,
-      "review": 5,
+      "review": 11,
       "suspicious": 0,
       "failure": 0,
       "unknown": 0
     },
-    "reviewNote": "All endpoints are documented public water-entry anchors. Five review results are informational because a mapped launch edge is within the named NHD waterbody and flowline distance is not meaningful there."
+    "reviewNote": "All endpoints are documented public water-entry anchors. Eleven review results are informational because a mapped launch edge is within the named NHD waterbody and flowline distance is not meaningful there."
   },
   "validation": [
     "Route-data typecheck passed.",
-    "Focused Connecticut Quinebaug route test passed with four scored routes.",
+    "Focused Connecticut Quinebaug route test passed with seven scored routes.",
     "Canonical route-scoped geometry generated for the scored Simonzi-to-Route 101 full run.",
-    "Targeted coordinate audit returned 1 ok and 1 informational review, with no suspicious or failure finding.",
-    "Full route and safety audits, geometry audit and production build passed after the addition."
+    "Targeted coordinate audit returned no suspicious or failure finding for the documented public water-entry anchors.",
+    "Full route and safety audits, geometry audit and production build passed after the addition.",
+    "Added three scored LaFreniere-to-Fish Hatchery, LaFreniere-to-Robert Manship and LaFreniere-to-Butts Bridge route-scoped reaches with route-specific gallery coverage."
   ],
   "pending": [
     "Confirm current launch hours, parking, dam releases, weather, cold-water conditions and local notices before travel; keep all three routes validated-not-deployed until release timing is approved."

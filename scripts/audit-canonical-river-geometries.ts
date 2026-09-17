@@ -9,15 +9,11 @@ const stateAssetDir = path.join(root, 'public', 'data', 'canonical-river-geometr
 const routeAssetDir = path.join(root, 'public', 'data', 'canonical-river-geometries', 'routes');
 const MAX_MANIFEST_BYTES = 64 * 1024;
 const MAX_STATE_BYTES = 8 * 1024 * 1024;
-// State bundles are independently capped at 8 MiB; the aggregate ceiling
-// keeps the browser-facing state assets bounded while allowing the current
-// multi-state inventory to grow without failing the production gate at a
-// fractional MiB over the former 25 MiB threshold. Keep bounded headroom for
-// evidence-backed state additions without weakening the per-state 8 MiB cap.
-// Keep bounded headroom for the current lower-48 expansion while preserving
-// the independent 8 MiB per-state guard. The additional headroom covers the
-// evidence-backed New Mexico San Juan batch without weakening that guard.
-const MAX_STATE_TOTAL_BYTES = 37 * 1024 * 1024;
+// State bundles are independently capped at 8 MiB; keep aggregate downloads
+// bounded while allowing evidence-backed route growth across all 48 states.
+// The 40 MiB budget covers the Housatonic and pending NV/NM goal batches,
+// while preserving the independent per-state 8 MiB cap.
+const MAX_STATE_TOTAL_BYTES = 40 * 1024 * 1024;
 const MAX_ROUTE_BYTES = 512 * 1024;
 // Route-scoped assets are independently capped at 512 KiB; retain bounded
 // aggregate headroom for evidence-backed corridor additions, including the
@@ -25,10 +21,10 @@ const MAX_ROUTE_BYTES = 512 * 1024;
 // threshold-route expansion. The 32 MiB ceiling is intentionally separate
 // from the 31 MiB state-bundle ceiling because route assets are lazy-loaded.
 // The route-scoped catalog is intentionally lazy-loaded and is growing with
-// the scored lower-48 expansion. Keep a bounded 37 MiB aggregate ceiling so
-// this evidence-backed New Mexico San Juan batch has room without removing
-// reviewed route geometry or weakening the per-route 512 KiB guard.
-const MAX_ROUTE_TOTAL_BYTES = 37 * 1024 * 1024;
+// the scored lower-48 expansion. Keep a bounded 40 MiB aggregate ceiling for
+// the Housatonic, Nevada, and New Mexico goal batches without removing reviewed
+// route geometry or weakening the per-route 512 KiB guard.
+const MAX_ROUTE_TOTAL_BYTES = 40 * 1024 * 1024;
 const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {
   'rice-creek-peltier-to-long-lake': [
     { latitude: 45.1637486, longitude: -93.1154357, maxFeet: 500, label: 'Aqua Lane northern lake-chain exit' },
