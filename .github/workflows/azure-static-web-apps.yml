@@ -11,6 +11,10 @@ on:
         description: 'Deploy the frontend after asset verification (disable to validate asset publishing only)'
         type: boolean
         default: true
+      verify_existing_assets:
+        description: 'Only verify already-published assets and legacy URLs; skip tests, build, upload and deployment'
+        type: boolean
+        default: false
 
 concurrency:
   group: frontend-production
@@ -43,6 +47,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: npm test
 
       - name: Prepare versioned gallery and map assets
@@ -51,31 +56,35 @@ jobs:
           node scripts/static-assets.mjs prepare
 
       - name: Build app
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: |
           npx astro build
           cp staticwebapp.config.json dist/staticwebapp.config.json
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
 
       - name: Package frontend without gallery and map assets
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: node scripts/static-assets.mjs package
 
       - name: Sign in to Azure for asset publishing
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Publish versioned assets and legacy paths
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: node scripts/publish-static-assets.mjs
 
       - name: Verify public assets
         run: node scripts/static-assets.mjs verify
 
       - name: Verify mobile compatibility
-        if: github.event_name != 'workflow_dispatch' || inputs.deploy_frontend
+        if: github.event_name != 'workflow_dispatch' || inputs.deploy_frontend || inputs.verify_existing_assets
         run: node scripts/static-asset-redirect.mjs verify
 
       - name: Deploy frontend to Azure Static Web Apps
-        if: github.event_name != 'workflow_dispatch' || inputs.deploy_frontend
+        if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}

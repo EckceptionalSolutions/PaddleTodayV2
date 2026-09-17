@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readdir, readFile, mkdir, copyFile, cp, writeFile } from 'node:fs/promises';
 import { resolve, relative, sep, extname } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
+import { createAssetHttpClient } from './static-asset-http.mjs';
 
 export const assetDirectories = ['gallery', 'data'];
 export const contentTypes = { '.json': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.md': 'text/markdown' };
@@ -87,7 +88,7 @@ async function requestAsset(url, options, { fetchImpl, delayImpl, onRetry }) {
       const body = options.method === 'HEAD' ? undefined : Buffer.from(await response.arrayBuffer());
       return { response, body };
     } catch (error) {
-      const cause = error.cause?.code || error.cause?.errors?.map((item) => item.code || item.message).join(', ')
+      const cause = error.code || error.cause?.code || error.cause?.errors?.map((item) => item.code || item.message).join(', ')
         || error.cause?.message;
       const detail = `${error.message}${cause ? ` (${cause})` : ''}`;
       const context = `${options.method} ${url}, attempt ${attempt}/${attempts}: ${detail}`;
@@ -100,32 +101,40 @@ async function requestAsset(url, options, { fetchImpl, delayImpl, onRetry }) {
   }
 }
 
-export async function verifyAssets(manifest, { fetchImpl = fetch, site = 'https://paddletoday.com', concurrency = 12,
+export async function verifyAssets(manifest, { fetchImpl, site = 'https://paddletoday.com', concurrency = 12,
   delayImpl = delay, onRetry = console.warn,
   cacheControl = 'public, max-age=31536000, immutable' } = {}) {
   let index = 0;
-  const requestOptions = { fetchImpl, delayImpl, onRetry };
-  // Every file must be publicly readable, correctly typed, and CORS-enabled before pages deploy.
-  await Promise.all(Array.from({ length: Math.min(concurrency, manifest.files.length) }, async () => {
-    while (index < manifest.files.length) {
-      const file = manifest.files[index++];
+  const client = fetchImpl ? null : createAssetHttpClient(concurrency);
+  const requestOptions = { fetchImpl: fetchImpl || client.fetch, delayImpl, onRetry };
+  try {
+    let failed = false;
+    // Stop scheduling new probes after a failure, then settle in-flight requests before closing sockets.
+    const results = await Promise.allSettled(Array.from({ length: Math.min(concurrency, manifest.files.length) }, async () => {
+      try {
+        while (!failed && index < manifest.files.length) {
+          const file = manifest.files[index++];
+          const url = `${manifest.baseUrl}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
+          const { response } = await requestAsset(url, { method: 'HEAD', headers: { Origin: site } }, requestOptions);
+          if (Number(response.headers.get('content-length')) !== file.bytes
+            || response.headers.get('content-type')?.split(';')[0] !== file.contentType
+            || !['*', site].includes(response.headers.get('access-control-allow-origin'))
+            || response.headers.get('cache-control') !== cacheControl) {
+            throw new Error(`Public asset verification failed: ${file.path} (HTTP ${response.status}).`);
+          }
+        }
+      } catch (error) { failed = true; throw error; }
+    }));
+    const failure = results.find((result) => result.status === 'rejected');
+    if (failure) throw failure.reason;
+    // Check actual bytes as well as headers, across every published content type.
+    const samples = [...new Map(manifest.files.map((file) => [file.contentType, file])).values()];
+    for (const file of samples) {
       const url = `${manifest.baseUrl}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
-      const { response } = await requestAsset(url, { method: 'HEAD', headers: { Origin: site } }, requestOptions);
-      if (!response.ok || Number(response.headers.get('content-length')) !== file.bytes
-        || response.headers.get('content-type')?.split(';')[0] !== file.contentType
-        || !['*', site].includes(response.headers.get('access-control-allow-origin'))
-        || response.headers.get('cache-control') !== cacheControl) {
-        throw new Error(`Public asset verification failed: ${file.path} (HTTP ${response.status}).`);
+      const { body } = await requestAsset(url, { method: 'GET' }, requestOptions);
+      if (createHash('sha256').update(body).digest('hex') !== file.sha256) {
+        throw new Error(`Public asset checksum failed: ${file.path}.`);
       }
     }
-  }));
-  // Check actual bytes as well as headers, across every published content type.
-  const samples = [...new Map(manifest.files.map((file) => [file.contentType, file])).values()];
-  for (const file of samples) {
-    const url = `${manifest.baseUrl}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
-    const { body } = await requestAsset(url, { method: 'GET' }, requestOptions);
-    if (createHash('sha256').update(body).digest('hex') !== file.sha256) {
-      throw new Error(`Public asset checksum failed: ${file.path}.`);
-    }
-  }
+  } finally { client?.close(); }
 }
