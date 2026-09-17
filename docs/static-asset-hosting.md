@@ -25,12 +25,21 @@ public; request, alert, history, and snapshot containers remain private.
    up to three attempts with one- and two-second backoff. Errors include the
    asset URL and underlying cause. Permanent HTTP failures and incorrect asset
    contents or headers still fail verification immediately.
+   A bounded HTTP keep-alive pool reuses connections for HEAD probes. Node's
+   built-in fetch closes HEAD connections, which exhausted CI connection capacity
+   during the full inventory check; retries alone did not fix that failure.
 7. Deploy `tmp/frontend` to Static Web Apps only after those checks pass.
 
 For rollout validation, manually dispatch the frontend workflow with
 `deploy_frontend=false`. This runs tests, builds, publishes, and verifies assets
 using the real CI identity, but skips the compatibility gate and frontend
 deployment. Pushes to main always run the compatibility gate before deployment.
+
+To diagnose public verification without repeating builds and uploads, dispatch
+with `verify_existing_assets=true`. This prepares the expected inventory and
+checks existing versioned and legacy assets plus the compatibility redirects.
+It always skips frontend deployment, even if `deploy_frontend` is true. Use it
+only after the selected revision's asset release has already been uploaded.
 
 ## Azure setup
 

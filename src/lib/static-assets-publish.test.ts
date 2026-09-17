@@ -2,6 +2,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { createServer } from 'node:http';
+import { once } from 'node:events';
 import { prepareAssets, packageFrontend, verifyAssets } from '../../scripts/lib/static-assets.mjs';
 
 const temporary: string[] = [];
@@ -18,6 +20,35 @@ async function fixture() {
 }
 
 describe('static asset publishing', () => {
+  it('reuses a bounded number of connections across many real HEAD requests', async () => {
+    const { manifest } = await fixture();
+    const photo = manifest.files.find((file: { path: string }) => file.path === 'gallery/photo.jpg');
+    let connections = 0;
+    let requests = 0;
+    const server = createServer((request, response) => {
+      requests++;
+      response.writeHead(200, {
+        'content-length': String(photo.bytes), 'content-type': photo.contentType,
+        'access-control-allow-origin': '*', 'cache-control': 'public, max-age=31536000, immutable',
+      });
+      response.end(request.method === 'HEAD' ? undefined : 'photo');
+    });
+    server.on('connection', () => connections++);
+    server.listen(0, '127.0.0.1');
+    await once(server, 'listening');
+    const address = server.address();
+    if (!address || typeof address === 'string') throw new Error('Missing test server address');
+    try {
+      await verifyAssets({ ...manifest, baseUrl: `http://127.0.0.1:${address.port}`,
+        files: Array.from({ length: 100 }, (_, index) => ({ ...photo, path: `gallery/${index}.jpg` })),
+      }, { concurrency: 2 });
+      expect(requests).toBe(101);
+      expect(connections).toBeLessThanOrEqual(2);
+    } finally {
+      server.closeAllConnections();
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
+  });
   it('creates reproducible, content-addressed releases and refuses a dirty upload directory', async () => {
     const { root, source, manifest } = await fixture();
     const repeat = await prepareAssets({ source, staging: join(root, 'repeat'), origin: 'https://assets.test/container' });
