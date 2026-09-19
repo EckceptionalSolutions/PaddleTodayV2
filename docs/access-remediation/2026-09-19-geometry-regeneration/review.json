@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T14:23:51.011Z",
+  "scope": "57 route holds whose recorded reason required route geometry or served-catalog regeneration",
+  "criteria": {
+    "release": "Review-mode geometry exists; named-fallback or network-traced geometry; regenerated endpoint snap <=1000 ft; no suspicious, failure, or unknown endpoint; no independent unresolved access/legal or route-data gate remains.",
+    "hold": "Curated fallback, endpoint snap >1000 ft, suspicious/unknown audit result, or independent unresolved access/legal or route-data gate remains."
+  },
+  "counts": {
+    "total": 57,
+    "released": 32,
+    "held": 25,
+    "byStatus": {
+      "released": 32,
+      "held": 25
+    },
+    "byTraceMode": {
+      "named-fallback": 46,
+      "network-traced": 6,
+      "curated-access-fallback": 5
+    }
+  },
+  "rows": [
+    {
+      "routeId": "bayou-teche-arnaudville-parks",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 207,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "bayou-teche-breaux-bridge-parks",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 201,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "bayou-teche-leonville-parks",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 234,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "bayou-teche-parks-loreauville",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 193,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "bayou-teche-parks-new-iberia",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 13489,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Parks/Cecile Rousseau Poche Memorial Park moved to the Bayou Teche Paddle Trail Plan published motorboat-launch coordinate (historical 2011/12 plan; current TECHE dock directory corroborates the named site). Anchor is map-published, not a current surveyed water edge. Regenerate geometry/catalog before publication. See docs/access-remediation/2026-09-17-batch-06/review.json."
+    },
+    {
+      "routeId": "bayou-teche-parks-st-martinville",
+      "status": "released",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 251,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "buffalo-river-ponca-pruitt",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 281,
+      "endpointSeverities": [
+        "ok",
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 6,
+      "heldReason": "Steel Creek river launch coordinate corrected from the mapped OSM slipway feature (NPS confirms the named public river access), but canonical route geometry and served assets still need regeneration."
+    },
+    {
+      "routeId": "buffalo-river-ponca-steel-creek",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 105,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-erbie",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 148,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-hasty",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 41410,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Steel Creek river launch coordinate corrected from the mapped OSM slipway feature (NPS confirms the named public river access), but canonical route geometry and served assets still need regeneration."
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-kyles-landing",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 342,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Steel Creek river launch coordinate corrected from the mapped OSM slipway feature (NPS confirms the named public river access), but canonical route geometry and served assets still need regeneration. Route remains outside the public catalog pending its proxy-gauge publication review."
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-ozark",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 669,
+      "endpointSeverities": [
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Steel Creek river launch coordinate corrected from the mapped OSM slipway feature (NPS confirms the named public river access), but canonical route geometry and served assets still need regeneration."
+    },
+    {
+      "routeId": "buffalo-river-steel-creek-pruitt",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 281,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "catawba-river-fort-mill-landsford",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 791,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "catawba-river-fort-mill-rock-hill",
+      "status": "released",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 336,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "catawba-river-fort-mill-sc9",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 791,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-cane-bluff-greer-crossing",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 331,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-narrows",
+      "status": "released",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 271,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-riverton",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 331,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-turner-mill",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 331,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-turner-mill-south",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 331,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-greer-crossing-whitten",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 331,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "eleven-point-river-thomasville-greer-crossing",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 15867,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Greer Crossing was moved from the Forest Service campground/facility point to the Eleven Point river map access coordinate 36.793439,-91.331617. The map point is an access anchor, not a surveyed ramp edge. Regenerate and inspect route geometry/catalog before release. See docs/access-remediation/2026-09-17-batch-07/review.json."
+    },
+    {
+      "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+      "status": "held",
+      "traceMode": "curated-access-fallback",
+      "endpointSnapMaxFeet": 0,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Fontenelle Creek was moved from the recreation-area facility pin to BLM national recreation boat-ramp feature OBJECTID 83549 at 42.07868016,-110.15335551. Regenerate and inspect route geometry/catalog before release. See docs/access-remediation/2026-09-17-batch-08/review.json."
+    },
+    {
+      "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+      "status": "held",
+      "traceMode": "curated-access-fallback",
+      "endpointSnapMaxFeet": 0,
+      "endpointSeverities": [
+        "review",
+        "unknown"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Removed the Lewis River Channel shallow wade/line hazard from accessPoints because NPS identifies it as a hazard zone, not a formal landing. Regenerate the served route/catalog so the false access marker disappears; retain the NPS wading/lining safety warning."
+    },
+    {
+      "routeId": "little-salmon-hazard-creek-riggins",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 61985,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 3,
+      "heldReason": "Riggins City Park ramp coordinate corrected from mapped OSM slipway node 7560987269 and corroborated by American Whitewater and City ramp-project records. Regenerate and inspect route geometry and served assets before publication."
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 55652,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 4,
+      "heldReason": "The George D. Syas put-in is corrected to NGPC Paddlecraft Launch feature OBJECTID 97 at 41.42442894,-97.6963078. Keep withheld until the corrected route geometry is freshly generated and inspected from this mapped shore launch; see docs/access-remediation/2026-09-17-batch-25/review.json."
+    },
+    {
+      "routeId": "loup-river-george-syas-columbus",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 55652,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 3,
+      "heldReason": "The George D. Syas put-in is corrected to NGPC Paddlecraft Launch feature OBJECTID 97 at 41.42442894,-97.6963078. Keep withheld until the corrected route geometry is freshly generated and inspected from this mapped shore launch; see docs/access-remediation/2026-09-17-batch-25/review.json."
+    },
+    {
+      "routeId": "middle-raccoon-river-p28-cowles",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 73,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 3,
+      "heldReason": null
+    },
+    {
+      "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+      "status": "held",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 306,
+      "endpointSeverities": [
+        "ok",
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 9,
+      "heldReason": "Longfellow Lagoon endpoint corrected to Minnehaha Creek Watershed District's published Longfellow Gardens parking GPS (44.916125473,-93.215040979); the prior latitude was about 3.1 miles north. The corrected point is an access-area GPS, not a surveyed landing edge. Hold until route geometry and dependent map/static artifacts are regenerated and inspected; the canonical-geometry dependency @paddletoday/geo is unavailable. See docs/access-remediation/2026-09-17-batch-12/review.json."
+    },
+    {
+      "routeId": "otter-creek-weybridge-fort-cassin",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 4368,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Kwonumosk access corrected from 44.0655,-73.2185 to the named Vermont Fish & Wildlife GIS facility at 44.086,-73.2472. Keep withheld until canonical route geometry and the served catalog are regenerated and checked against the corrected endpoint. See docs/access-remediation/2026-09-17-batch-19/review.json."
+    },
+    {
+      "routeId": "pocomoke-river-mattaponi-milburn",
+      "status": "held",
+      "traceMode": "curated-access-fallback",
+      "endpointSnapMaxFeet": 0,
+      "endpointSeverities": [
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Milburn Landing corrected to current Maryland DNR public access feature 333 (Pocomoke State Park - Milburn Landing; kayak/canoe launch=yes). This is an access-site anchor, not a surveyed ramp edge. Regenerate and inspect route geometry/catalog before publication. See docs/access-remediation/2026-09-17-batch-06/review.json."
+    },
+    {
+      "routeId": "pocomoke-river-shad-milburn",
+      "status": "held",
+      "traceMode": "curated-access-fallback",
+      "endpointSnapMaxFeet": 0,
+      "endpointSeverities": [
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Milburn Landing corrected to current Maryland DNR public access feature 333 (Pocomoke State Park - Milburn Landing; kayak/canoe launch=yes). This is an access-site anchor, not a surveyed ramp edge. Regenerate and inspect route geometry/catalog before publication. See docs/access-remediation/2026-09-17-batch-06/review.json."
+    },
+    {
+      "routeId": "sheboygan-river-rochester-esslingen",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 444,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Rochester Park access-area anchor corrected to EPA's published Rochester Park site center (43.725730, -87.803695); the prior point was about 0.7 miles west of the park. EPA reports state and local officials have closed parts of the park for contaminated-soil cleanup, and current evidence does not identify whether the river carry and parking remain open. Keep withheld until the City/EPA confirms a lawful open route from parking to the river, then regenerate and inspect route geometry from the corrected anchor. See docs/access-remediation/2026-09-17-batch-21/review.json."
+    },
+    {
+      "routeId": "shell-rock-river-strand-wilkinson",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 61,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "south-skunk-river-ames-13th-street",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 98,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "south-skunk-river-river-valley-cj-shreck",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 98,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 4,
+      "heldReason": null
+    },
+    {
+      "routeId": "south-skunk-river-sleepy-hollow-river-valley",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 98,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "susquehanna-river-sayre-towanda",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 50943,
+      "endpointSeverities": [
+        "review",
+        "suspicious"
+      ],
+      "endpointCount": 4,
+      "heldReason": "Sayre PFBC coordinates are corrected from the 2021 North Branch guide, but canonical route geometry still needs regeneration. The generator cannot run because @paddletoday/geo is missing; keep this route withheld until its line and served catalog are rebuilt from the corrected source. See docs/access-remediation/2026-09-17-batch-04/review.json."
+    },
+    {
+      "routeId": "susquehanna-river-sayre-wysox-township-park",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 50943,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Sayre PFBC coordinates are corrected from the 2021 North Branch guide, but canonical route geometry still needs regeneration. The generator cannot run because @paddletoday/geo is missing; keep this route withheld until its line and served catalog are rebuilt from the corrected source. See docs/access-remediation/2026-09-17-batch-04/review.json."
+    },
+    {
+      "routeId": "suwannee-river-dowling-peacock-slough",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 225,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "suwannee-river-gibson-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 109033,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "suwannee-river-holton-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 109033,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "suwannee-river-lafayette-blue-peacock-slough",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 225,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "suwannee-river-peacock-slough-adams-tract",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 299,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "suwannee-river-spirit-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 119503,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "suwannee-river-state-park-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 92309,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "suwannee-river-stephen-foster-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 126909,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "suwannee-river-woods-ferry-peacock-slough",
+      "status": "held",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 119970,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Peacock Slough River Camp's official GPS was corrected from 30.1015,-83.136167 to 30.1015,-83.137167 and reclassified as an access-area anchor, not an exact water-entry edge. Keep withheld until all dependent route geometries are regenerated and checked; the campsite GPS does not identify the precise river landing. See docs/access-remediation/2026-09-17-batch-23/review.json."
+    },
+    {
+      "routeId": "winnebago-river-fertile-mason-city",
+      "status": "released",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 359,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-cricket-manton",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 547,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-cricket-riverside",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 149,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-cricket-south-water",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 149,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-cricket-waterplace",
+      "status": "held",
+      "traceMode": "curated-access-fallback",
+      "endpointSnapMaxFeet": 0,
+      "endpointSeverities": [
+        "ok",
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": "Cricket Park access anchor corrected to the ExploreRI Greystone Mill Pond pin (41.866100,-71.492967); ExploreRI describes the hand-carried launch beyond the playground and WRWC confirms the park boat launch. Regenerate/inspect dependent route geometry and catalog before publication. See docs/access-remediation/2026-09-17-batch-06/review.json."
+    },
+    {
+      "routeId": "woonasquatucket-river-esmond-cricket",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 149,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-georgiaville-cricket",
+      "status": "released",
+      "traceMode": "named-fallback",
+      "endpointSnapMaxFeet": 316,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    },
+    {
+      "routeId": "woonasquatucket-river-whipple-cricket",
+      "status": "released",
+      "traceMode": "network-traced",
+      "endpointSnapMaxFeet": 161,
+      "endpointSeverities": [
+        "review"
+      ],
+      "endpointCount": 2,
+      "heldReason": null
+    }
+  ]
+}
