@@ -569,9 +569,9 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "iowa-river-tailwater-east-sturgis-ferry": {
     "putIn": {
       "id": "tailwater-east-public-boat-ramp",
-      "name": "Tailwater East public boat ramp below Coralville Dam",
-      "latitude": 41.7249,
-      "longitude": -91.5257
+      "name": "Tailwater East public concrete boat ramp",
+      "latitude": 41.720904434727316,
+      "longitude": -91.52874403208878
     },
     "takeOut": {
       "id": "sturgis-ferry-park",
@@ -582,14 +582,14 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 7 mi",
       "estimatedPaddleTime": "About 2 hr to 3 hr, faster with higher releases",
-      "shuttle": "Stage at Sturgis Ferry Park in Iowa City, then launch only from the Tailwater East ramp below Coralville Dam. Check USACE recreation status and current releases before unloading.",
+      "shuttle": "Stage at Sturgis Ferry Park in Iowa City, then follow Tailwater East Campground signs to the public Iowa River ramp below Coralville Dam. Check current Corps closures, fees, and dam releases before unloading.",
       "permits": "No route-specific paddling permit is known. Tailwater East may require Corps day-use or camping fees; follow USACE postings, Iowa City park rules, and Iowa boating/PFD requirements.",
       "camping": "Tailwater East Campground has campsites, restrooms, showers, and the boat ramp near the put-in. Treat the Sturgis Ferry finish as day-use; do not assume on-route camping.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch at the public Corps ramp below Coralville Dam and take out at Sturgis Ferry Park before the longer Johnson County water-trail segment. Keep this framed as a below-dam connector with release checks and a firm downstream take-out.",
       "accessCaveats": [
         "Do not launch above the dam or paddle upstream toward the dam tailwater. Use only the public ramp below the dam.",
-        "USACE recreation status lists the Tailwater East public boat ramp open but notes no courtesy dock; expect a practical ramp launch rather than a dock launch.",
+        "USACE confirms the Tailwater East public boat ramp below the dam, and its GIS publishes the concrete ramp point. Follow onsite signs and current closures; the GIS point is a ramp anchor, not a surveyed wet toe.",
         "Sturgis Ferry is a city park boat-ramp take-out; orient inside the park because the saved point is an access-area anchor."
       ],
       "watchFor": [
@@ -601,12 +601,12 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "tailwater-east-public-boat-ramp",
-        "name": "Tailwater East public boat ramp below Coralville Dam",
-        "latitude": 41.7249,
-        "longitude": -91.5257,
+        "name": "Tailwater East public concrete boat ramp",
+        "latitude": 41.720904434727316,
+        "longitude": -91.52874403208878,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Public Corps ramp for the Iowa River below Coralville Dam; no courtesy dock per USACE status."
+        "note": "USACE GIS identifies a one-lane concrete boat ramp for the Iowa River below Coralville Dam at this point. It is the mapped ramp anchor, not a surveyed wet toe. Follow posted signs and current closures."
       },
       {
         "id": "sturgis-ferry-park",
@@ -628,9 +628,9 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "wilkinson-pioneer-park-launch",
-      "name": "Wilkinson Pioneer Park canoe/kayak launch",
-      "latitude": 43.1916328,
-      "longitude": -93.0668688
+      "name": "Wilkinson Pioneer Park public canoe/kayak access",
+      "latitude": 43.20224243635123,
+      "longitude": -93.07858426136887
     },
     "logistics": {
       "distanceLabel": "About 8 mi",
@@ -642,7 +642,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Strand Park and paddle through the upper Shellrock River Greenbelt corridor to Wilkinson Pioneer Park. This is a county-access day run with limestone scenery, shallow ledges at lower flows, and same-day wood checks.",
       "accessCaveats": [
         "Strand Park and Wilkinson Pioneer Park are named public access areas, but the Shell Rock gauge is far downstream and should be treated as a same-river proxy.",
-        "Wilkinson has campground and canoe/kayak launch context; confirm current campground rules and seasonal reservation requirements before relying on overnight support.",
+        "Iowa DNR maps the Wilkinson public-access feature 75 ft from parking to access; the point is an access-area anchor, not a surveyed water-entry edge. Confirm current campground and seasonal rules before relying on overnight support.",
         "Use public parks and signed access corridors only; avoid informal bank exits on private land."
       ],
       "watchFor": [
@@ -663,9 +663,9 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "wilkinson-pioneer-park-launch",
-        "name": "Wilkinson Pioneer Park canoe/kayak launch",
-        "latitude": 43.1916328,
-        "longitude": -93.0668688,
+        "name": "Wilkinson Pioneer Park public canoe/kayak access",
+        "latitude": 43.20224243635123,
+        "longitude": -93.07858426136887,
         "mileFromStart": 8,
         "segmentKind": "creek",
         "note": "Default take-out and campground support area near Rock Falls."
@@ -896,8 +896,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "keosauqua-boat-ramp",
       "name": "Keosauqua Boat Ramp",
-      "latitude": 40.7291,
-      "longitude": -91.962
+      "latitude": 40.73062147,
+      "longitude": -91.95994375
     },
     "takeOut": {
       "id": "bentonsport-boat-ramp",
@@ -929,8 +929,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "keosauqua-boat-ramp",
         "name": "Keosauqua Boat Ramp",
-        "latitude": 40.7291,
-        "longitude": -91.962,
+        "latitude": 40.73062147,
+        "longitude": -91.95994375,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Official Lower Des Moines water-trail put-in near Hotel Manning."
@@ -954,8 +954,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Soper's Mill Access #235",
-      "latitude": 42.1044299,
-      "longitude": -93.5754935
+      "latitude": 42.104244318429394,
+      "longitude": -93.5729709396775
     },
     "logistics": {
       "distanceLabel": "About 7.3 mi",
@@ -966,6 +966,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Lekwa Access and paddle the official South Skunk River Water Trail downstream through the Story County greenbelt to Soper's Mill. This is a scenic but guarded above-Ames run where enough water, wood scouting, and private-bank discipline matter more than mileage.",
       "accessCaveats": [
         "Lekwa Access is a public county water-trail access near the E-18 / 130th Street bridge; the saved point is an access-area coordinate anchored to the named access, address, and bridge corridor rather than a ramp-survey point.",
+        "The Soper's Mill route point follows Iowa DNR's named A feature for Access #235, which records the South Skunk River and county management. The GIS also contains a nearby B feature for the same access number; confirm posted landing and parking directions at the site.",
         "Soper's Mill is a public Story County access with launch options above or below the constructed riffle; decide where to land based on level, skill, and posted access signs.",
         "The South Skunk is non-meandered through this corridor; stay with public accesses and confirmed greenbelt or parkland rather than assuming banks are public."
       ],
@@ -985,8 +986,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "River Valley Park access, Ames",
-      "latitude": 42.03535,
-      "longitude": -93.59895
+      "latitude": 42.036895,
+      "longitude": -93.600262
     },
     "logistics": {
       "distanceLabel": "About 2.9 mi",
@@ -1010,8 +1011,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "south-skunk-river-sopers-mill-peterson-park": {
     "putIn": {
       "name": "Soper's Mill Access #235",
-      "latitude": 42.1044299,
-      "longitude": -93.5754935
+      "latitude": 42.104244318429394,
+      "longitude": -93.5729709396775
     },
     "takeOut": {
       "name": "Peterson Park West Access #233",
@@ -1027,6 +1028,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Soper's Mill Access and paddle the official South Skunk River Water Trail downstream to Peterson Park West Access. This short wooded Story County leg has a renovated launch, a constructed riffle at Soper's Mill, gravel riffles, and enough wood potential to require a same-day gauge and hazard check.",
       "accessCaveats": [
         "Soper's Mill has north and south parking areas; use the south/water-trail access for the paddle launch, and choose above or below the constructed riffle based on level and skill.",
+        "The route point follows Iowa DNR's named A feature for Access #235, which records the South Skunk River and county management. The GIS also contains a nearby B feature for the same access number; confirm posted landing and parking directions at the site.",
         "Peterson Park West is a public Story County park with Skunk River Water Trail Canoe Access, but the saved coordinate is park/access-area context rather than a published ramp GIS point.",
         "The South Skunk is non-meandered through this corridor; stay with public accesses and confirmed parkland rather than assuming banks are public."
       ],
@@ -1039,25 +1041,25 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "south-skunk-river-ames-13th-street": {
     "putIn": {
-      "name": "River Valley Park / 13th Street play feature",
-      "latitude": 42.03535,
-      "longitude": -93.59895
+      "name": "13th Street mitigated play feature",
+      "latitude": 42.037356,
+      "longitude": -93.597997
     },
     "takeOut": {
-      "name": "River Valley Park / walk-back access",
-      "latitude": 42.03535,
-      "longitude": -93.59895
+      "name": "River Valley Park #227 public paddling access",
+      "latitude": 42.036895,
+      "longitude": -93.600262
     },
     "logistics": {
-      "distanceLabel": "0.074 mi / play-park laps",
+      "distanceLabel": "0.12 mi / play-park laps",
       "estimatedPaddleTime": "Play-park session; laps vary by level and skill",
       "shuttle": "No vehicle shuttle is needed for normal play sessions. Park at River Valley Park on 13th Street, scout from shore, and use the public park access and walk-back paths for repeated laps.",
       "permits": "No route-specific paddling permit is known. Follow City of Ames park hours, posted signs, and South Skunk River Water Trail access rules.",
       "camping": "Treat this as a short day-use play feature. No on-route camping is assumed, and nearby banks outside public parkland may be private.",
       "summary": "Use the 13th Street mitigated low-head-dam feature in North River Valley Park for a compact South Skunk whitewater skills session. American Whitewater ties the feature to the South Skunk near Ames gauge and describes 400+ cfs as the level where surfing and spins appear.",
       "accessCaveats": [
-        "This is a play feature inside River Valley Park rather than a downstream shuttle route; use the same public park area for launch, take-out, scouting, and walking back.",
-        "The saved coordinate is an access-area coordinate from the existing River Valley Park / Story County #227 route context, not a surveyed eddy or ramp point.",
+        "This is a play feature, not a shuttle reach. Use the mitigated feature itself for play, then follow the park carry to the separate River Valley Park #227 public paddling access.",
+        "Iowa DNR Paddling Access Sites feature WA-835 / OBJECTID 39216 identifies the separate River Valley Park public paddling access; its access-site geometry is not the 13th Street play-feature coordinate.",
         "City of Ames lists boat access at River Valley Park, and Story County lists River Valley Park #227 as a South Skunk River Water Trail access, but paddlers should still follow posted signs and avoid informal private-bank exits."
       ],
       "watchFor": [
@@ -1071,8 +1073,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "south-skunk-river-river-valley-cj-shreck": {
     "putIn": {
       "name": "River Valley Park access, Ames",
-      "latitude": 42.03535,
-      "longitude": -93.59895
+      "latitude": 42.036895,
+      "longitude": -93.600262
     },
     "takeOut": {
       "name": "C.J. Shreck Access",
@@ -1103,11 +1105,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "river-valley-park",
         "name": "River Valley Park access, Ames",
-        "latitude": 42.03535,
-        "longitude": -93.59895,
+        "latitude": 42.036895,
+        "longitude": -93.600262,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in and the upstream end of the lower Ames route."
+        "note": "DNR Paddling Access Sites feature WA-835 / OBJECTID 39216; public River Valley Park paddling access and lower Ames route start."
       },
       {
         "id": "south-16th-street",
@@ -1456,9 +1458,10 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "shell-rock-river-heery-woods-renning": {
     "putIn": {
       "id": "heery-woods-below-dam",
-      "name": "Heery Woods State Park below-dam launch",
+      "name": "Heery Woods / Timber Avenue below-dam access (location unverified)",
       "latitude": 42.7718,
-      "longitude": -92.67323
+      "longitude": -92.67323,
+      "note": "Butler County distinguishes the North Side ramp within Heery Woods above the dam from a separate below-dam ramp across the river off Timber Avenue near the Conservation Board shop. This stored coordinate has not been tied to that below-dam ramp; keep the route withheld until the exact public approach, carry, and dam-safe launch are located."
     },
     "takeOut": {
       "id": "rennings-landing",
@@ -1469,13 +1472,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 6 mi",
       "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with wood scouting or low water",
-      "shuttle": "Stage Renning's Landing first, then drive back to Heery Woods North Side near Clarksville. Confirm a below-dam launch or portage setup at Heery Woods before unloading boats; do not launch above the dam for this route.",
+      "shuttle": "Stage Renning's Landing first, then use the verified public below-dam launch only after Butler County confirms its exact location off Timber Avenue near the Conservation Board shop. Do not use the North Side ramp above the dam for this route.",
       "permits": "No route-specific paddling permit is known. Follow Butler County Conservation park hours, access signs, Iowa boating/PFD rules, and any same-day closure notices.",
-      "camping": "Heery Woods has campground facilities at the put-in park, so this can work as an endpoint-basecamp day route. No on-route gravel-bar camping is assumed between Heery and Renning.",
+      "camping": "Heery Woods has campground facilities nearby, but that does not establish access from the campground to the separate below-dam launch across the river. No on-route gravel-bar camping is assumed between Heery and Renning.",
       "campingClassification": "endpoint_campground",
       "summary": "Launch only after confirming a safe below-dam Heery Woods start, then paddle the missing Shell Rock connector to Renning's Landing. This keeps the existing Renning-to-Shell-Rock card as the downstream continuation rather than duplicating it.",
       "accessCaveats": [
-        "Heery Woods has a boat ramp above the dam and dam-adjacent access. This app route depends on a confirmed safe below-dam launch line or portage setup.",
+        "Butler County says the North Side ramp within Heery Woods is above the dam and the distinct below-dam ramp is across the river off Timber Avenue near the Conservation Board shop. The stored coordinate is not verified as that second ramp; this route is withheld pending exact-location and carry confirmation.",
         "Renning's Landing is the planned take-out and the start of the existing downstream Shell Rock card.",
         "The Shell Rock gauge is downstream in Shell Rock, so combine it with same-day visual checks for wood, ramp condition, and dam separation at Heery Woods."
       ],
@@ -1489,12 +1492,12 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "heery-woods-below-dam",
-        "name": "Heery Woods State Park below-dam launch",
+        "name": "Heery Woods / Timber Avenue below-dam access (location unverified)",
         "latitude": 42.7718,
         "longitude": -92.67323,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Use only a confirmed below-dam launch or portage setup; do not launch above the dam."
+        "note": "Butler County identifies a separate below-dam ramp across the river off Timber Avenue, but this coordinate is not tied to it. Do not use the North Side above-dam ramp; route remains withheld pending a verified public below-dam carry and launch."
       },
       {
         "id": "rennings-landing",
@@ -1514,7 +1517,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -92.03809
     },
     "takeOut": {
-      "name": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+      "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
       "latitude": 43.3996,
       "longitude": -91.8884
     },
@@ -1548,7 +1551,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "bluffton-fir-stand-access",
-        "name": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+        "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
         "latitude": 43.3996,
         "longitude": -91.8884,
         "mileFromStart": 16.5,
@@ -1694,7 +1697,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Jackson County lists primitive paddle-in camping along the Maquoketa River Water Trail, including Buzzard Ridge; treat camping as a separate water-trail plan and confirm current county rules before relying on it.",
       "summary": "Launch at Canton Bridge Access by Canton County Park and paddle the South Fork Maquoketa through the Buzzard Ridge bluff corridor, past the Millertown option, and down to Royertown Bridge Access on 50th Ave.",
       "accessCaveats": [
-        "Canton is the clean upstream public access for this route; Jackson County signs the water-trail accesses along the road and at the landings.",
+        "Canton Bridge Access is listed by Jackson County at the E17 bridge. Its stored coordinate is a bridge/park access-area anchor, not a surveyed water-entry point.",
         "Royertown is also called 50th Ave, Royertown Canoe Access, or Water Trail Access #45. The access drive can be steep and rutted, so scout vehicle clearance before committing.",
         "Millertown Access at 30th Ave is a public intermediate take-out about 2.9 miles upstream from Royertown if weather, flow, or time argues for a shorter day."
       ],
@@ -3250,8 +3253,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "pearl-rock-access",
       "name": "Pearl Rock access",
-      "latitude": 42.910715,
-      "longitude": -92.543001
+      "latitude": 42.9107066,
+      "longitude": -92.5408445
     },
     "logistics": {
       "distanceLabel": "6.1 mi",
@@ -3285,8 +3288,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "pearl-rock-access",
         "name": "Pearl Rock access",
-        "latitude": 42.910715,
-        "longitude": -92.543001,
+        "latitude": 42.9107066,
+        "longitude": -92.5408445,
         "mileFromStart": 6.1,
         "segmentKind": "creek",
         "note": "Guide-listed take-out with only a small parking lot; verify capacity from land."
@@ -3297,8 +3300,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "pearl-rock-access",
       "name": "Pearl Rock access",
-      "latitude": 42.910715,
-      "longitude": -92.543001
+      "latitude": 42.9107066,
+      "longitude": -92.5408445
     },
     "takeOut": {
       "id": "north-cedar-park",
@@ -3329,8 +3332,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "pearl-rock-access",
         "name": "Pearl Rock access",
-        "latitude": 42.910715,
-        "longitude": -92.543001,
+        "latitude": 42.9107066,
+        "longitude": -92.5408445,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in; small parking area noted by the paddling guide."
@@ -3794,7 +3797,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "north-raccoon-river-eureka-henderson": {
     "putIn": {
       "id": "eureka-bridge-access",
-      "name": "Eureka Bridge Access",
+      "name": "Eureka Bridge concrete boat-ramp access area",
       "latitude": 42.0156,
       "longitude": -94.4384
     },
@@ -3811,7 +3814,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the Greene County public accesses, follow Iowa boating and PFD rules, and observe posted county park hours and ramp rules.",
       "camping": "Treat this as a day route. Nearby Greene County and Whiterock-area camping can support a base-camp trip, but the normal Eureka-to-Henderson paddle does not include an on-route campsite.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Eureka Bridge Access and take out at Henderson Park for the shorter half of the official McMahon-to-Henderson North Raccoon water-trail section. Use the Jefferson gauge conservatively and scout wood and the Henderson rock-dam area.",
+      "summary": "Launch from the public concrete ramp at Eureka Bridge Access and take out at Henderson Park for the shorter half of the official McMahon-to-Henderson North Raccoon water-trail section. The saved Eureka point is the county access-area anchor, not a surveyed water-edge pin. Use the Jefferson gauge conservatively and scout wood and the Henderson rock-dam area.",
       "accessCaveats": [
         "Greene County says Eureka Bridge is 4.5 miles upstream of Henderson Park, matching the short split from the DNR guide.",
         "The DNR guide warns about a rock dam above Henderson Park Access. Identify the take-out and any required carry before relaxing near the finish.",
@@ -3828,12 +3831,12 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "eureka-bridge-access",
-        "name": "Eureka Bridge Access",
+        "name": "Eureka Bridge concrete boat-ramp access area",
         "latitude": 42.0156,
         "longitude": -94.4384,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; Greene County identifies this as a public boating access on the North Raccoon."
+        "note": "Greene County identifies a public concrete boat ramp for canoes, kayaks, and motorboats here. Keep this saved point as the access-area anchor; the reviewed county source does not publish a separate surveyed ramp-edge coordinate."
       },
       {
         "id": "henderson-park-access",
@@ -4191,9 +4194,9 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
   "winnebago-river-fertile-mason-city": {
     "putIn": {
       "id": "william-rhodes-island-park",
-      "name": "William Rhodes Island Park below-dam access",
-      "latitude": 43.266,
-      "longitude": -93.424
+      "name": "Fertile Mill Park natural access / William Rhodes Island Park below-dam area",
+      "latitude": 43.263450373072416,
+      "longitude": -93.4209717300344
     },
     "takeOut": {
       "id": "mason-city-east-park",
@@ -4210,7 +4213,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Paddle the Winnebago River from Fertile toward Mason City using the direct Mason City gauge. Dam proximity at Fertile and take-out verification at Mason City are the key planning controls.",
       "accessCaveats": [
-        "William Rhodes Island Park is at the Fertile Dam. Launch only from a confirmed safe below-dam location and avoid dam hydraulics.",
+        "Iowa DNR maps a City-owned natural access at Fertile Mill Park and reports a 13-foot parking-to-access carry; use only after confirming it is the safe below-dam entry and stay clear of dam hydraulics.",
         "Mason City endpoint access should be verified locally on the day of the trip; East Park is used as the practical endpoint anchor from available public mapping.",
         "Private banks, wood, and shallow riffles can limit emergency exits."
       ],
@@ -4223,12 +4226,12 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "william-rhodes-island-park",
-        "name": "William Rhodes Island Park below-dam access",
-        "latitude": 43.266,
-        "longitude": -93.424,
+        "name": "Fertile Mill Park natural access / William Rhodes Island Park below-dam area",
+        "latitude": 43.263450373072416,
+        "longitude": -93.4209717300344,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "City of Fertile documents William Rhodes Island Park along the Winnebago River at the Fertile Dam; use only safe below-dam access."
+        "note": "Iowa DNR feature 275 (GlobalID ec2df35d-44b5-445b-94e9-e4415d41e108) identifies the City-owned natural Fertile Mill Park access on the Winnebago River. Coordinates are the published access-area point, not a surveyed wet edge; confirm the 13-foot carry and safe below-dam entry before launch."
       },
       {
         "id": "mason-city-east-park",
@@ -4316,7 +4319,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "endpoint_campground",
       "summary": "Launch below Lenon Mill Dam and take out at P-28 for the short first Middle Raccoon Route A split. The distance is beginner-sized, but riffles, sweepers, a below-dam start, and today-low water require a cautious moving-water plan.",
       "accessCaveats": [
-        "Use the Lenon Mill public access below the dam only; do not launch above the dam or linger in dam-influenced current.",
+        "Use the Lenon Mill public access below the dam only; the stored park pin is an access-area anchor, not a surveyed waterline point. Do not launch above the dam or linger in dam-influenced current.",
         "P-28 is a named public access in the DNR/Guthrie County access chain. Confirm the ramp, eddy, and parking before leaving the shuttle vehicle.",
         "The Panora gauge is direct and just upstream, but it cannot show fresh wood, boulder exposure, or bank access condition at P-28."
       ],
@@ -4334,7 +4337,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -94.3692621,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in below Lenon Mill Dam; endpoint campground support is at the park."
+        "note": "Default put-in below Lenon Mill Dam; the stored park coordinate is an access-area anchor, not a surveyed launch toe. Confirm the signed below-dam carry; endpoint campground support is at the park."
       },
       {
         "id": "p28-access",
@@ -4369,7 +4372,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "nearby_basecamp",
       "summary": "Launch at P-28 and take out at Cowles for a compact protected Middle Raccoon day through riffles, boulders, sandstone bluffs, public-land bends, and the 248th Street access corridor.",
       "accessCaveats": [
-        "P-28 and Cowles are named public ramps in the DNR/Guthrie County access chain, but the middle 248th Street access should be verified before being counted on as a bailout.",
+        "Iowa DNR feature OBJECTID 805 and Guthrie County identify the 248th Trail access as the intermediate Route A landing, 3.2 river miles below P-28; DNR reports a concrete access and 10 ft parking-to-access distance.",
         "The selected P-28 and Cowles coordinates come from paddling/boat-ramp indexes matched against DNR/Guthrie County access names; use posted signs and ramps on arrival.",
         "At low flow, the route may be slower and shallower than the mileage suggests. At high/rising flow, riffle sweepers and bridge debris become more consequential."
       ],
@@ -4392,11 +4395,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "middle-raccoon-river-access-248th",
         "name": "Middle Raccoon River Access / 248th Trail",
-        "latitude": 41.641,
-        "longitude": -94.321,
+        "latitude": 41.64828800521774,
+        "longitude": -94.32664543275781,
         "mileFromStart": 3.2,
         "segmentKind": "creek",
-        "note": "Intermediate DNR/Guthrie County access; coordinates are a practical corridor anchor and should be verified from land before relying on it."
+        "note": "Iowa DNR feature OBJECTID 805 (GlobalID b2b6566e-9cd3-43a3-8a75-f45f201c03c2) and Guthrie County identify this concrete Middle Raccoon access 3.2 river miles below P-28; parking-to-access is 10 ft. Coordinate is an official access-feature anchor, not a water-entry survey."
       },
       {
         "id": "cowles-river-access",
@@ -4534,8 +4537,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "skillet-creek-access",
       "name": "Skillet Creek Access",
-      "latitude": 42.2523,
-      "longitude": -93.9975
+      "latitude": 42.26169114946014,
+      "longitude": -93.99540928857351
     },
     "logistics": {
       "distanceLabel": "About 15.5 mi",
@@ -4546,7 +4549,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "sandbar_or_gravel_bar",
       "summary": "Launch at Deception Hollow for the long downstream Webster County water-trail reach to Skillet Creek Access. This is an advanced-by-length flatwater day with beaches, wooded bends, limited exits, and same-day access checks.",
       "accessCaveats": [
-        "Deception Hollow and Skillet Creek are mapped carry-down accesses, not full-service ramps. Walk both before launch.",
+        "Iowa DNR access 261 is a natural carry-down with a 31-foot parking-to-access carry. Walk the landing before launch; the GIS point is an access-site anchor, not a surveyed wet toe.",
         "The Stratford gauge is direct for the lower corridor but does not show sandbar availability, wood, or bank steepness.",
         "Because this reach is long, a late start, headwind, rising water, or missed take-out can materially increase exposure."
       ],
@@ -4569,11 +4572,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "skillet-creek-access",
         "name": "Skillet Creek Access",
-        "latitude": 42.2523,
-        "longitude": -93.9975,
+        "latitude": 42.26169114946014,
+        "longitude": -93.99540928857351,
         "mileFromStart": 15.5,
         "segmentKind": "creek",
-        "note": "Default take-out; shown on the Webster County Des Moines River water-trail map near the Stratford gauge corridor."
+        "note": "Default take-out at Iowa DNR Des Moines River Water Trail access 261, a natural carry-down access with parking 31 feet away; the exact wet toe is not surveyed."
       }
     ]
   },
@@ -4581,8 +4584,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "skillet-creek-access",
       "name": "Skillet Creek Access",
-      "latitude": 42.2523,
-      "longitude": -93.9975
+      "latitude": 42.26169114946014,
+      "longitude": -93.99540928857351
     },
     "takeOut": {
       "id": "north-fraser-ramp",
@@ -4599,7 +4602,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Skillet Creek Access and paddle into the Boone County Des Moines River water-trail chain to North Fraser Ramp. Terrain360 documents the route and ties it to the direct Stratford gauge, while official maps support both endpoint names.",
       "accessCaveats": [
-        "Skillet Creek Access is a Webster County mapped carry-down; North Fraser is a Boone County mapped ramp. Confirm current road, parking, and bank conditions at both.",
+        "Skillet Creek Access is Iowa DNR's natural carry-down access 261, with a 31-foot parking-to-access carry; North Fraser is a Boone County mapped ramp. Confirm current road, parking, and bank conditions at both.",
         "The saved North Fraser coordinate is a practical ramp-area anchor from official map context; use local signage and current maps for the exact landing.",
         "Downstream Boone Waterworks and Fort Dodge Hydro dam/portage context belongs to other Boone County segments. Do not drift past the intended take-out without a plan."
       ],
@@ -4613,11 +4616,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "skillet-creek-access",
         "name": "Skillet Creek Access",
-        "latitude": 42.2523,
-        "longitude": -93.9975,
+        "latitude": 42.26169114946014,
+        "longitude": -93.99540928857351,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; mapped by Webster County and used by the Terrain360 Skillet-to-North-Fraser route."
+        "note": "Default put-in at Iowa DNR Des Moines River Water Trail access 261, a natural carry-down access with parking 31 feet away; the exact wet toe is not surveyed."
       },
       {
         "id": "north-fraser-ramp",
@@ -4812,8 +4815,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "millertown-bridge-access",
       "name": "Millertown Bridge Access / Monmouth corridor",
-      "latitude": 42.084,
-      "longitude": -90.762
+      "latitude": 42.124508,
+      "longitude": -90.857821
     },
     "takeOut": {
       "id": "bridgeport-access",
@@ -4824,13 +4827,13 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 12 mi",
       "estimatedPaddleTime": "About 4.5 hr to 6 hr, longer with low water, wind, or wood scouting",
-      "shuttle": "Stage Bridgeport first, then drive back to the Millertown / Monmouth access corridor. Check Jackson County access signs before unloading because this lower chain has multiple named bridge and park accesses.",
+      "shuttle": "Stage Bridgeport first, then drive to the signed Millertown Bridge access on 30th Avenue. Check Jackson County access signs before unloading because this lower chain has multiple named bridge and park accesses.",
       "permits": "No route-specific paddling permit is known. Use Jackson County water-trail accesses, follow Iowa boating and PFD rules, and respect posted park hours and parking limits.",
       "camping": "Treat this as a day trip. Jackson County lists many lower-river accesses, but no on-route public camping plan was verified for this specific Monmouth-to-Maquoketa card.",
       "campingClassification": "none",
       "summary": "Launch from the Monmouth-area Millertown access chain and take out at Bridgeport near Maquoketa for a lower Maquoketa flatwater day. The direct Maquoketa gauge is fresh and route-specific enough for scoring.",
       "accessCaveats": [
-        "Endpoint coordinates are practical access-corridor anchors from the named Jackson County access chain, not surveyed ramp points.",
+        "Millertown's corrected coordinate is the 30th Avenue bridge-axis access anchor, checked against aerial imagery. It is not a surveyed water-entry coordinate; confirm the signed carry and landing before unloading.",
         "Bridgeport is the intended take-out for this card. Do not drift downstream into Maquoketa town or flood-control structures without a separate route plan.",
         "Use only named public accesses such as Millertown, Joinerville, or Bridgeport; the lower river is bordered by private land in places."
       ],
@@ -4844,11 +4847,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "millertown-bridge-access",
         "name": "Millertown Bridge Access / Monmouth corridor",
-        "latitude": 42.084,
-        "longitude": -90.762,
+        "latitude": 42.124508,
+        "longitude": -90.857821,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default upstream access anchor; confirm the signed bridge access before launching."
+        "note": "Jackson County names Millertown Bridge Access at 30th Avenue. This imagery-checked point is the bridge-axis access anchor with 100-foot uncertainty, not a surveyed wet-edge coordinate. Confirm the signed public carry and landing before unloading."
       },
       {
         "id": "joinerville-park",
@@ -4919,7 +4922,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -95.36811,
         "mileFromStart": 8,
         "segmentKind": "creek",
-        "note": "Default take-out; county and water-trail sources document Botna Bend as river access with campground support."
+        "note": "Default take-out; Pottawattamie Conservation confirms canoe/kayak access and its park map marks a boat ramp. Stored coordinate is a park/ramp-area anchor, not a surveyed waterline."
       }
     ]
   },
@@ -4963,7 +4966,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -95.36811,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in and campground-supported county park in Hancock."
+        "note": "Default put-in; Pottawattamie Conservation confirms canoe/kayak access and its park map marks a boat ramp. Stored coordinate is a park/ramp-area anchor, not a surveyed waterline."
       },
       {
         "id": "chautauqua-park-oakland",
@@ -5189,8 +5192,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "canoe-creek-access",
         "name": "Canoe Creek Access",
-        "latitude": 43.3673,
-        "longitude": -91.6189,
+        "latitude": 43.367178379845065,
+        "longitude": -91.61657052093616,
         "mileFromStart": 4.5,
         "segmentKind": "creek",
         "note": "Mapped intermediate access in the Upper Iowa guide; verify current landing conditions before relying on it."
@@ -5437,11 +5440,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "schram-park",
         "name": "Schram Park",
-        "latitude": 42.4679,
-        "longitude": -91.4448,
+        "latitude": 42.4712649,
+        "longitude": -91.4525313,
         "mileFromStart": 3.5,
         "segmentKind": "creek",
-        "note": "Official alternate access shortly downstream of Manchester; verify current landing conditions."
+        "note": "Official alternate access shortly downstream of Manchester. The old pin was in the residential street grid; the point now follows the river-side Schram Park marker, where city and Iowa DNR sources document a boat ramp. Verify current signs and parking."
       },
       {
         "id": "pin-oak-park",
@@ -5632,8 +5635,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "keosauqua-boat-ramp",
       "name": "Keosauqua Boat Ramp",
-      "latitude": 40.7291,
-      "longitude": -91.962
+      "latitude": 40.73062147,
+      "longitude": -91.95994375
     },
     "logistics": {
       "distanceLabel": "About 5.8 mi",
@@ -5667,8 +5670,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "keosauqua-boat-ramp",
         "name": "Keosauqua Boat Ramp",
-        "latitude": 40.7291,
-        "longitude": -91.962,
+        "latitude": 40.73062147,
+        "longitude": -91.95994375,
         "mileFromStart": 5.8,
         "segmentKind": "creek",
         "note": "Default take-out; public Lower Des Moines water-trail ramp near Hotel Manning and the direct USGS gauge town."
@@ -5952,8 +5955,8 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "halvorson-park",
       "name": "Halvorson Park",
-      "latitude": 43.356685,
-      "longitude": -92.925215
+      "latitude": 43.35390906447915,
+      "longitude": -92.9227522910695
     },
     "logistics": {
       "distanceLabel": "2.8 mi",
@@ -5987,11 +5990,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "halvorson-park",
         "name": "Halvorson Park",
-        "latitude": 43.356685,
-        "longitude": -92.925215,
+        "latitude": 43.35390906447915,
+        "longitude": -92.9227522910695,
         "mileFromStart": 2.8,
         "segmentKind": "creek",
-        "note": "Default take-out and campground-supported county park above the St. Ansgar dam portage."
+        "note": "Default take-out at Iowa DNR's mapped concrete ramp above the St. Ansgar dam portage. The water-trail guide says paddlers may find the campground beach about 100 meters upstream easier to use."
       }
     ]
   },
@@ -5999,25 +6002,26 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "halvorson-park",
       "name": "Halvorson Park",
-      "latitude": 43.356685,
-      "longitude": -92.925215
+      "latitude": 43.35390906447915,
+      "longitude": -92.9227522910695
     },
     "takeOut": {
       "id": "interstate-park-mitchell",
-      "name": "Interstate Park / Mitchell",
+      "name": "Interstate Park east-end access / portage anchor",
       "latitude": 43.319134,
       "longitude": -92.879648
     },
     "logistics": {
       "distanceLabel": "4.7 mi",
       "estimatedPaddleTime": "About 2 hr to 3 hr, longer with wind or dam-portage scouting",
-      "shuttle": "Stage at Interstate Park on the west edge of Mitchell and confirm the left-bank power-dam portage area before launching from Halvorson Park.",
+      "shuttle": "Stage at Interstate Park on the west edge of Mitchell and use the current manager-marked canoe-ramp area. Confirm the left-bank power-dam portage and route boundary before launching from Halvorson Park.",
       "permits": "No route-specific paddling permit is known. Follow posted Mitchell County Conservation and Iowa boating/PFD rules, and use public areas only.",
       "camping": "The Cedar River guide identifies camping at both Halvorson County Park and Interstate Park, making this an endpoint-campground staging route rather than a bank-camping route.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Halvorson Park and paddle the impounded upper Cedar River toward Interstate Park at Mitchell, stopping before the Mitchell power-dam portage.",
+      "summary": "Launch at the Iowa DNR-mapped concrete ramp at Halvorson Park and paddle the impounded upper Cedar River to the public access area at Interstate Park, stopping before the Mitchell power-dam portage. The water-trail guide says paddlers may find the campground beach about 100 meters upstream easier to use.",
       "accessCaveats": [
-        "The Interstate Power dam at Mitchell is the route boundary. The guide says the portage is about 100 yards on river left, starting near the powerhouse and ending above the Mitchell Bridge.",
+        "Iowa DNR maps the Halvorson concrete ramp at the saved coordinate; its water-trail guide says paddlers may find the campground beach about 100 meters upstream easier to enter or exit. Check the ramp and beach conditions on arrival.",
+        "The Interstate Power dam at Mitchell is the route boundary. The guide says the portage is about 100 yards on river left, starting near the powerhouse and ending above the Mitchell Bridge. Iowa DNR describes Interstate Park primarily as a take-out; this point does not identify a developed launch below the dam.",
         "Wind can matter on the more lake-like impounded water above Mitchell, and higher water increases dam-approach consequence.",
         "USGS 05457700 at Charles City is a downstream proxy for this upper leg; verify local current, depth, wind, and access conditions at Halvorson."
       ],
@@ -6031,27 +6035,27 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "halvorson-park",
         "name": "Halvorson Park",
-        "latitude": 43.356685,
-        "longitude": -92.925215,
+        "latitude": 43.35390906447915,
+        "longitude": -92.9227522910695,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in and campground-supported county park south of St. Ansgar."
+        "note": "Default put-in at Iowa DNR's mapped concrete ramp south of St. Ansgar. The water-trail guide says paddlers may find the campground beach about 100 meters upstream easier to use."
       },
       {
         "id": "interstate-park-mitchell",
-        "name": "Interstate Park / Mitchell",
+        "name": "Interstate Park east-end access / portage anchor",
         "latitude": 43.319134,
         "longitude": -92.879648,
         "mileFromStart": 4.7,
         "segmentKind": "creek",
-        "note": "Default take-out and Mitchell dam portage boundary with campground/picnic context."
+        "note": "Mitchell County Conservation identifies public canoe/kayak access point 263 at the park's east end. The saved point is a park/portage-area anchor, not a surveyed ramp edge; this is the upstream route endpoint before the dam portage. Iowa DNR distinguishes that public park access from the below-dam relaunch: it says no developed canoe/kayak launch exists below the dam."
       }
     ]
   },
   "cedar-river-interstate-bennett": {
     "putIn": {
       "id": "interstate-park-mitchell",
-      "name": "Interstate Park / Mitchell",
+      "name": "Interstate Park east-end access / portage anchor",
       "latitude": 43.319134,
       "longitude": -92.879648
     },
@@ -6068,9 +6072,9 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow posted Mitchell County Conservation and Iowa boating/PFD rules, and use public access areas only.",
       "camping": "Interstate Park has camping and picnic-table context in the Cedar River guide. Bennett is treated as a day-use access; do not assume legal bank camping on this one-mile connector.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch only below the Mitchell dam after the Interstate Park portage/relaunch decision and paddle the short connector to Bennett Access.",
+      "summary": "Carry from the Interstate Park take-out around the Mitchell dam and use a suitable below-dam river entry only if the route, access, and current water conditions support a safe relaunch; then paddle the short connector to Bennett Access.",
       "accessCaveats": [
-        "Do not run the Mitchell power dam. This route begins after the left-bank portage/relaunch described by the guide.",
+        "Do not run the Mitchell power dam. Iowa DNR says there is no developed canoe/kayak launch below it: the documented option is to take out at the ramp, carry up the embankment, then follow natural paths to the river edge. Scout the full carry and entry from land; do not launch unless the path is open and the landing is usable at current water levels.",
         "The route is short, so confirm Bennett from land before launching and avoid drifting into the next riffle-heavy section without that plan.",
         "USGS 05457700 at Charles City is a downstream proxy; inspect local depth and current below Mitchell."
       ],
@@ -6083,12 +6087,12 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "interstate-park-mitchell",
-        "name": "Interstate Park / Mitchell",
+        "name": "Interstate Park east-end access / portage anchor",
         "latitude": 43.319134,
         "longitude": -92.879648,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in after the Mitchell dam portage/relaunch boundary; the guide identifies camping at Interstate Park."
+        "note": "The saved coordinate marks the Interstate Park take-out/portage area, not a developed launch below the dam. Iowa DNR says a downstream relaunch requires carrying from the ramp up the embankment and following natural paths to the river edge. Confirm the route is open and scout a usable entry before unloading; do not proceed if the carry or landing is unsuitable."
       },
       {
         "id": "bennett-access",
@@ -6312,7 +6316,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "bluffton-fir-stand-access",
-        "name": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+        "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
         "latitude": 43.3996,
         "longitude": -91.8884,
         "mileFromStart": 9.8,
@@ -6387,11 +6391,11 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "massillon-area",
         "name": "Massillon Area / Massillon Park",
-        "latitude": 41.915409,
-        "longitude": -90.920611,
+        "latitude": 41.917002,
+        "longitude": -90.920076,
         "mileFromStart": 8,
         "segmentKind": "creek",
-        "note": "Default take-out at the Massillon-area ramp and campground-supported park."
+        "note": "Iowa DNR Paddling Access Sites feature WA-630 / OBJECTID 40228 identifies Massillon Area as a Boat Ramp; this mapped point is the ramp access-site geometry."
       },
       {
         "id": "walnut-grove-park",
@@ -6755,3 +6759,4 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
     "continuityStatus": "verified"
   }
 };
+

@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-09-19T14:15:22.796Z",
+  "inputs": [
+    "src/data/route-coordinate-review-releases.ts",
+    "src/data/route-access-review-holds.ts",
+    "node_modules/.cache/route-coordinate-review-geometries/routes",
+    "docs/route-coordinate-river-audit.json"
+  ],
+  "commands": [
+    "npx --yes tsx@4.20.6 scripts/generate-canonical-river-geometries.ts --review-all",
+    "npx --yes tsx@4.20.6 scripts/generate-withheld-route-slugs.ts",
+    "npx --yes tsx@4.20.6 scripts/generate-canonical-river-geometries.ts",
+    "npx --yes tsx@4.20.6 scripts/generate-explore-map-overview.ts",
+    "npx --yes tsx@4.20.6 scripts/generate-route-access-registry.ts",
+    "npx --yes tsx@4.20.6 scripts/audit-canonical-river-geometries.ts",
+    "npx --yes tsx@4.20.6 scripts/audit-route-coordinate-river-distance.ts --cache-only --concurrency=4 --output=docs/access-point-quality-audit.json",
+    "npx --yes tsx@4.20.6 scripts/audit-route-coordinate-river-distance.ts --include-withheld --cache-only --concurrency=4 --output=docs/route-coordinate-river-audit.json"
+  ],
+  "artifacts": [
+    "public/data/canonical-river-geometries.json",
+    "public/data/canonical-river-geometries/routes",
+    "public/data/canonical-river-geometries/states",
+    "public/data/explore-map-overview.json",
+    "src/data/generated/withheld-route-slugs.ts",
+    "src/data/generated/route-access-registry.json"
+  ]
+}
