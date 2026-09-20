@@ -13,15 +13,15 @@ const docks = {
   arnaudville: { name: 'Arnaudville full-service trailhead (1023 Neblet St)', latitude: 30.394935, longitude: -91.9309381 },
   poche: { name: "Poche's Bridge official dock (behind Poche's Market)", latitude: 30.2598241, longitude: -91.8898799 },
   breaux: { name: 'Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St)', latitude: 30.2760518, longitude: -91.8998297 },
-  parks: { name: 'Parks Cecil Poche Memorial Park dock (1019 Periou St)', latitude: 30.2138303, longitude: -91.8309846 },
+  parks: { name: 'Parks Cecil Poche Memorial Park dock (1019 Periou St)', latitude: 30.213550, longitude: -91.829100 },
   stMartinville: { name: 'St. Martinville Old Market Street dock', latitude: 30.1211261, longitude: -91.828107 },
-  loreauville: { name: 'Loreauville official dock (119 Bridge St)', latitude: 30.0564348, longitude: -91.7386437 },
+  loreauville: { name: 'Loreauville official dock access area (119 Bridge St)', latitude: 30.056667, longitude: -91.740000 },
   newIberia: { name: 'New Iberia Kayak Park dock (108 Duperier Ave)', latitude: 30.0060046, longitude: -91.8163956 },
-  jeanerette: { name: 'Jeanerette T.J. Viator City Park dock (Tarleton St)', latitude: 29.9176966, longitude: -91.6672004 },
-  charenton: { name: 'Charenton official dock (3726 Chitimacha Trail)', latitude: 29.8842751, longitude: -91.5348949 },
-  baldwin: { name: 'Baldwin Charenton Road Park and Recreational Complex dock', latitude: 29.8420027, longitude: -91.5422904 },
+  jeanerette: { name: 'Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge)', latitude: 29.918431, longitude: -91.666810 },
+  charenton: { name: 'Charenton official dock access area (3726 Chitimacha Trail)', latitude: 29.8859107, longitude: -91.5351294 },
+  baldwin: { name: 'Baldwin Charenton Road Park and Recreational Complex dock', latitude: 29.833138, longitude: -91.542615 },
   franklin: { name: 'Franklin Parc Sur La Teche dock (700 Teche Dr)', latitude: 29.79354, longitude: -91.5003891 },
-  centerville: { name: 'Centerville Schwan Park dock (514 Parish Road 131)', latitude: 29.7599302, longitude: -91.4191962 },
+  centerville: { name: 'Centerville Schwan Park dock (imagery-derived water-entry edge)', latitude: 29.760737, longitude: -91.419060 },
 };
 
 const common: Omit<StarterPlanningSpec, 'id' | 'putIn' | 'takeOut' | 'miles' | 'summary'> = {

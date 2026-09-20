@@ -4074,8 +4074,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Twin Cities North Metro",
     "summary": "Shorter metro-edge Rum continuation from Ramsey's Brookview / Germanium access to the South County Park landing above the Anoka dam. The river itself stays friendly, but the lower-corridor finish deserves a more deliberate take-out plan than the easy rating implies.",
     "statusText": "There is no direct lower-route gauge here, so Paddle Today uses the upstream St. Francis gauge as a conservative same-river proxy. Below about 600 cfs, expect too much scrape risk for a confident recommendation.",
-    "latitude": 45.2826032,
-    "longitude": -93.4079762,
+    "latitude": 45.28228691640213,
+    "longitude": -93.40708402066348,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -5819,8 +5819,8 @@ export const minnesotaRoutes: River[] = [
     "region": "Central Minnesota",
     "summary": "Upper Sauk day segment that avoids turning the Spring Hill to Rockville corridor into an overlong product route. The St. Martin DNR gauge sits at the take-out, so the level call is much cleaner than the older 39-mile draft.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best zone. Below 14 ft gets scrape-prone and weedy; above 20 ft is beyond a broad-audience Sauk day-trip recommendation.",
-    "latitude": 45.529026,
-    "longitude": -94.776531,
+    "latitude": 45.529866726150793,
+    "longitude": -94.775652824582878,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -5955,8 +5955,8 @@ export const minnesotaRoutes: River[] = [
     "summary": "Long upper-to-central Sauk planner that links the Spring Hill county-park launch to the Cold Spring canoe landing without pushing all the way into the St. Cloud finish. It is the cleaner all-day option when you want a full same-gauge river commitment but still want the Frogtown stop rather than the longer lower corridor.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best broad-audience range. Below 14 ft this long route gets scrape-prone and weedy, while above 20 ft the mileage and faster current stack up into a much more serious outing.",
     "safetyProfile": {"riskLevel":"caution","hazards":["low_water","strainers","cold_water"],"safetyNotes":["Below 14 ft, shallow riffles and vegetation can turn this long route into a slow, drag-prone commitment.","Fresh wood and strainers remain possible across the long reach; keep the Rockville bailout/campsite plan realistic.","Use the named county-park accesses and designated campsite only, and plan for cold water and weather exposure."],"reviewStatus":"reviewed"},
-    "latitude": 45.529026,
-    "longitude": -94.776531,
+    "latitude": 45.529866726150793,
+    "longitude": -94.775652824582878,
     "gaugeSource": {
       "id": "mn-dnr-328",
       "provider": "mn_dnr",
@@ -6588,8 +6588,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Short urban lower-Sauk shuttle that keeps the logistics easy while avoiding the Class I-II mouth rapids. It is the simple St. Cloud-area pick when you want a quick gauge-backed paddle instead of the longer Rockville day or the Heims finish.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the cleanest range. Below 14 ft this short reach gets slower and weedier, while flood-style caution matters more once the Sauk climbs above 20 ft.",
-    "latitude": 45.5504544,
-    "longitude": -94.2641031,
+    "latitude": 45.55179577632979,
+    "longitude": -94.26496023134358,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6723,8 +6723,8 @@ export const minnesotaRoutes: River[] = [
     "region": "St. Cloud Area",
     "summary": "Lower Sauk finish that links the easy Miller Landing start with the full confluence run to Heims Mill. Choose it when you want one medium-length card for the whole Waite Park to Mississippi finish rather than splitting the day at Knights of Columbus Park.",
     "statusText": "Treat 15 to 17 ft at St. Martin as the best all-around range. Below 14 ft the final rapids can turn bony or partly impassable, while above 20 ft the stronger current raises the consequence even on this moderate-length route.",
-    "latitude": 45.5504544,
-    "longitude": -94.2641031,
+    "latitude": 45.55179577632979,
+    "longitude": -94.26496023134358,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

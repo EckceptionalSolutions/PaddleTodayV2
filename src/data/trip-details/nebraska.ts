@@ -4,7 +4,7 @@ import type { RiverTripDetails } from '../../lib/types';
 export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
   "logan-creek-pender-oakland": {
     "putIn": {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (east side of town)","latitude":42.113332,"longitude":-96.712814},
-    "takeOut": {"id":"oakland-logan-creek-canoe-access","name":"Oakland Logan Creek canoe access","latitude":41.8263,"longitude":-96.4931},
+    "takeOut": {"id":"oakland-logan-creek-canoe-access","name":"Oakland City Park Access","latitude":41.82960424,"longitude":-96.48265492},
     "logistics": {
       "distanceLabel":"About 32 river miles; verify the active channel and current water-trail map",
       "estimatedPaddleTime":"About 8 to 12 hours at ordinary current, longer with low-water dragging, scouting, wind, breaks, or a slower group",
@@ -177,8 +177,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "george-d-syas-wma-fishing-access",
       "name": "George D. Syas WMA fishing access",
-      "latitude": 41.43328221,
-      "longitude": -97.68464875
+      "latitude": 41.42442894,
+      "longitude": -97.6963078
     },
     "takeOut": {
       "id": "monroe-county-access",
@@ -214,14 +214,14 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "george-d-syas-wma-fishing-access",
       "name": "George D. Syas WMA fishing access",
-      "latitude": 41.43328221,
-      "longitude": -97.68464875
+      "latitude": 41.42442894,
+      "longitude": -97.6963078
     },
     "takeOut": {
       "id": "columbus-hotel-side-finish",
-      "name": "Columbus hotel-side finish near Pawnee Park Trail",
-      "latitude": 41.4195401,
-      "longitude": -97.3672208
+      "name": "Columbus Pawnee Park Trail Loup River landing",
+      "latitude": 41.418113,
+      "longitude": -97.367618
     },
     "logistics": {
       "distanceLabel": "About 24 mi",
@@ -264,9 +264,9 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "columbus-hotel-side-finish",
-      "name": "Columbus hotel-side finish near Pawnee Park Trail",
-      "latitude": 41.4195401,
-      "longitude": -97.3672208
+      "name": "Columbus Pawnee Park Trail Loup River landing",
+      "latitude": 41.418113,
+      "longitude": -97.367618
     },
     "logistics": {
       "distanceLabel": "About 16 mi",
@@ -292,9 +292,9 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
   "loup-river-columbus-adm-access": {
     "putIn": {
       "id": "columbus-hotel-side-access",
-      "name": "Columbus hotel-side access near Pawnee Park Trail",
-      "latitude": 41.4195401,
-      "longitude": -97.3672208
+      "name": "Columbus Pawnee Park Trail Loup River landing",
+      "latitude": 41.418113,
+      "longitude": -97.367618
     },
     "takeOut": {
       "id": "adm-access-site",
@@ -358,9 +358,9 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "columbus-hotel-side-finish",
-        "name": "Columbus hotel-side finish near Pawnee Park Trail",
-        "latitude": 41.4195401,
-        "longitude": -97.3672208,
+        "name": "Columbus Pawnee Park Trail Loup River landing",
+        "latitude": 41.418113,
+        "longitude": -97.367618,
         "mileFromStart": 16,
         "segmentKind": "creek",
         "note": "Best named checkpoint and bailout before committing to the final 4.5-mile ADM continuation."
@@ -371,8 +371,8 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "george-d-syas-wma-fishing-access",
       "name": "George D. Syas WMA fishing access",
-      "latitude": 41.43328221,
-      "longitude": -97.68464875
+      "latitude": 41.42442894,
+      "longitude": -97.6963078
     },
     "takeOut": {
       "id": "adm-access-site",
@@ -412,9 +412,9 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "columbus-hotel-side-finish",
-        "name": "Columbus hotel-side finish near Pawnee Park Trail",
-        "latitude": 41.4195401,
-        "longitude": -97.3672208,
+        "name": "Columbus Pawnee Park Trail Loup River landing",
+        "latitude": 41.418113,
+        "longitude": -97.367618,
         "mileFromStart": 24,
         "segmentKind": "creek",
         "note": "Best second checkpoint and fallback finish before the final 4.5-mile ADM continuation."

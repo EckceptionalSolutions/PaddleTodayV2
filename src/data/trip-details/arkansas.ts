@@ -654,9 +654,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "logistics": {
       "distanceLabel": "About 2.5 to 2.7 mi",
@@ -719,9 +719,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-steel-creek-kyles-landing": {
     "putIn": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "takeOut": {
       "id": "kyles-landing",
@@ -761,9 +761,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "logistics": {
       "distanceLabel": "About 16.2 to 16.3 mi",
@@ -834,9 +834,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "steel-creek-access",
-        "name": "Steel Creek campground / river access",
-        "latitude": 36.040776,
-        "longitude": -93.344048,
+        "name": "Steel Creek river launch (campground nearby)",
+        "latitude": 36.039309,
+        "longitude": -93.336228,
         "mileFromStart": 2.7,
         "segmentKind": "creek",
         "note": "First major public bailout and campground stop below Ponca."
@@ -852,9 +852,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "erbie-access",
-        "name": "Erbie Campground / river access",
-        "latitude": 36.070346,
-        "longitude": -93.211886,
+        "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+        "latitude": 36.070784,
+        "longitude": -93.211779,
         "mileFromStart": 16.3,
         "segmentKind": "creek",
         "note": "Major middle-corridor campground access and practical split point."
@@ -958,9 +958,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "logistics": {
       "distanceLabel": "About 5.6 to 5.7 mi",
@@ -987,15 +987,15 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-steel-creek-erbie": {
     "putIn": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "takeOut": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "logistics": {
       "distanceLabel": "About 13.6 mi",
@@ -1022,9 +1022,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-erbie-ozark": {
     "putIn": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "takeOut": {
       "id": "ozark-access",
@@ -1092,9 +1092,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-steel-creek-ozark": {
     "putIn": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "takeOut": {
       "id": "ozark-access",
@@ -1163,9 +1163,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-erbie-pruitt": {
     "putIn": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "takeOut": {
       "id": "pruitt-launch",
@@ -1198,9 +1198,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-steel-creek-pruitt": {
     "putIn": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "takeOut": {
       "id": "pruitt-launch",
@@ -1234,9 +1234,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-steel-creek-hasty": {
     "putIn": {
       "id": "steel-creek-access",
-      "name": "Steel Creek campground / river access",
-      "latitude": 36.040776,
-      "longitude": -93.344048
+      "name": "Steel Creek river launch (campground nearby)",
+      "latitude": 36.039309,
+      "longitude": -93.336228
     },
     "takeOut": {
       "id": "hasty-access",
@@ -1306,9 +1306,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-erbie-hasty": {
     "putIn": {
       "id": "erbie-access",
-      "name": "Erbie Campground / river access",
-      "latitude": 36.070346,
-      "longitude": -93.211886
+      "name": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779
     },
     "takeOut": {
       "id": "hasty-access",

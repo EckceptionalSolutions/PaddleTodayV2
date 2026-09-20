@@ -135,7 +135,7 @@ function buildGeorgiaRoute(spec: GeorgiaRouteSpec): River {
 const npsChattahoocheeAccess = [
   ['Bowmans Island', 34.15666, -84.07992], ['McGinnis Ferry', 34.05089722, -84.0990389], ['Medlock Bridge', 33.995425, -84.202523],
   ['Jones Bridge', 33.999, -84.2479], ['Island Ford', 33.9869, -84.3235], ['Johnson Ferry South', 33.937567, -84.413261],
-  ['Powers Island', 33.904079, -84.442122], ['Paces Mill', 33.870198, -84.453659],
+  ['Powers Island', 33.904079, -84.442122], ['Paces Mill', 33.870403, -84.452310],
 ] as const;
 const npsChattahoocheeRoutes: River[] = (() => {
   const miles = [12.5, 8.5, 4, 8, 7, 6, 5];
@@ -269,7 +269,7 @@ const npsDocumentedFloatRoutes: River[] = [
   },
   {
     id: 'chattahoochee-river-overlook-park-paces-mill', from: 'Overlook Park', to: 'Paces Mill', distance: 8.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://home.nps.gov/chat/planyourvisit/boating.htm', routeSourceLabel: 'NPS Chattahoochee boating access',
-    fromPoint: { latitude: 33.972, longitude: -84.379 }, toPoint: { latitude: 33.870198, longitude: -84.453659 },
+    fromPoint: { latitude: 33.972, longitude: -84.379 }, toPoint: { latitude: 33.870403, longitude: -84.452310 },
   },
   {
     id: 'chattahoochee-river-morgan-falls-park-johnson-ferry', from: 'Morgan Falls Park', to: 'Johnson Ferry', distance: 1.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://www.nps.gov/places/morgan-falls-river-park-launch.htm', routeSourceLabel: 'NPS Morgan Falls River Park launch float options',
@@ -281,7 +281,7 @@ const npsDocumentedFloatRoutes: River[] = [
   },
   {
     id: 'chattahoochee-river-morgan-falls-park-paces-mill', from: 'Morgan Falls Park', to: 'Paces Mill', distance: 8.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://www.nps.gov/places/morgan-falls-river-park-launch.htm', routeSourceLabel: 'NPS Morgan Falls River Park launch float options',
-    fromPoint: { latitude: 33.965, longitude: -84.382 }, toPoint: { latitude: 33.870198, longitude: -84.453659 },
+    fromPoint: { latitude: 33.965, longitude: -84.382 }, toPoint: { latitude: 33.870403, longitude: -84.452310 },
   },
   {
     id: 'chattahoochee-river-morgan-falls-park-whitewater-creek', from: 'Morgan Falls Park', to: 'Whitewater Creek', distance: 7.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://www.nps.gov/places/morgan-falls-river-park-launch.htm', routeSourceLabel: 'NPS Morgan Falls River Park launch float options',
@@ -293,11 +293,11 @@ const npsDocumentedFloatRoutes: River[] = [
   },
   {
     id: 'chattahoochee-river-whitewater-creek-paces-mill', from: 'Whitewater Creek', to: 'Paces Mill', distance: 0.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://home.nps.gov/places/paces-mill-launch-no1.htm', routeSourceLabel: 'NPS Paces Mill launch float options',
-    fromPoint: { latitude: 33.878, longitude: -84.443 }, toPoint: { latitude: 33.870198, longitude: -84.453659 },
+    fromPoint: { latitude: 33.878, longitude: -84.443 }, toPoint: { latitude: 33.870403, longitude: -84.452310 },
   },
   {
     id: 'chattahoochee-river-johnson-ferry-paces-mill', from: 'Johnson Ferry', to: 'Paces Mill', distance: 6.8, gauge: '02335815', siteName: 'Chattahoochee River below Morgan Falls Dam, GA', routeUrl: 'https://home.nps.gov/places/paces-mill-launch-no1.htm', routeSourceLabel: 'NPS Paces Mill launch float options',
-    fromPoint: { latitude: 33.945, longitude: -84.404 }, toPoint: { latitude: 33.870198, longitude: -84.453659 },
+    fromPoint: { latitude: 33.945, longitude: -84.404 }, toPoint: { latitude: 33.870403, longitude: -84.452310 },
   },
   {
     id: 'chattahoochee-river-chattahoochee-pointe-garrard-landing', from: 'Chattahoochee Pointe', to: 'Garrard Landing', distance: 16.3, gauge: '02335000', siteName: 'Chattahoochee River at Norcross, GA', routeUrl: 'https://home.nps.gov/chat/planyourvisit/boating.htm', routeSourceLabel: 'NPS public launch chain + Chattahoochee RiverLands mileage matrix',

@@ -13,7 +13,17 @@ describe('Washington Spokane River scored routes', () => {
       expect(route.profile.tooLow).toBe(1350);
       expect(route.profile.idealMin).toBe(2500);
       expect(route.accessPoints).toHaveLength(2);
-      expect(route.accessPoints?.every((point) => point.name.toLowerCase().includes('water-entry edge'))).toBe(true);
+      for (const point of route.accessPoints ?? []) {
+        expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        if (point.name.startsWith('Sullivan Park')) {
+          expect(point).toMatchObject({ latitude: 47.672873, longitude: -117.196939 });
+          expect(point.name).toContain('imagery-derived');
+        }
+        if (point.name.startsWith('Mirabeau Park')) {
+          expect(point).toMatchObject({ latitude: 47.68186, longitude: -117.22255 });
+          expect(point.name).toContain('imagery-georeferenced');
+        }
+      }
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route.safetyProfile?.hazards).toContain('dam');
       expect(route.sourceLinks?.length).toBeGreaterThanOrEqual(6);
@@ -29,7 +39,17 @@ describe('Washington Spokane expansion routes', () => {
       expect(route.scoreEligibility).toBe('scored');
       expect(route.gaugeSource).toMatchObject({ siteId: '12422500', kind: 'direct' });
       expect(route.accessPoints).toHaveLength(2);
-      expect(route.accessPoints?.every((point) => point.name.toLowerCase().includes('water-entry edge'))).toBe(true);
+      for (const point of route.accessPoints ?? []) {
+        expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        if (point.name.startsWith('Sullivan Park')) {
+          expect(point).toMatchObject({ latitude: 47.672873, longitude: -117.196939 });
+          expect(point.name).toContain('imagery-derived');
+        }
+        if (point.name.startsWith('Mirabeau Park')) {
+          expect(point).toMatchObject({ latitude: 47.68186, longitude: -117.22255 });
+          expect(point.name).toContain('imagery-georeferenced');
+        }
+      }
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route.safetyProfile?.reviewStatus).toBe('reviewed');
     }

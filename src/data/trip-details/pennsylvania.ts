@@ -196,8 +196,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "sayre-pfbc",
       "name": "Sayre PFBC access",
-      "latitude": 41.988333,
-      "longitude": -76.611667
+      "latitude": 41.995932,
+      "longitude": -76.473493
     },
     "takeOut": {
       "id": "towanda-riverfront",
@@ -230,17 +230,17 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "sayre-pfbc",
         "name": "Sayre PFBC access",
-        "latitude": 41.988333,
-        "longitude": -76.611667,
+        "latitude": 41.995932,
+        "longitude": -76.473493,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Upper corridor start and the default put-in."
       },
       {
         "id": "ulster-bridge",
-        "name": "Ulster Bridge access",
-        "latitude": 41.8525,
-        "longitude": -76.497222,
+        "name": "Ulster Bridge Municipal Access (carry-in)",
+        "latitude": 41.849146,
+        "longitude": -76.497242,
         "mileFromStart": 11.7,
         "segmentKind": "creek",
         "note": "Useful shorter-day finish from Sayre or restart for the Towanda corridor."
@@ -1095,13 +1095,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-willow-mill-good-hope": {
     "putIn": {
       "name": "Willow Mill Park launch",
-      "latitude": 40.2567096,
-      "longitude": -77.0411725
+      "latitude": 40.2578,
+      "longitude": -77.0426
     },
     "takeOut": {
       "name": "Good Hope Access",
-      "latitude": 40.2546304,
-      "longitude": -76.9753045
+      "latitude": 40.25889805739634,
+      "longitude": -76.97639236255715
     },
     "logistics": {
       "distanceLabel": "About 9.6 mi",
@@ -1159,8 +1159,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-willow-mill-acri-meadow": {
     "putIn": {
       "name": "Willow Mill Park launch",
-      "latitude": 40.2567096,
-      "longitude": -77.0411725
+      "latitude": 40.2578,
+      "longitude": -77.0426
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
@@ -1191,8 +1191,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-willow-mill-vincent-difilippo": {
     "putIn": {
       "name": "Willow Mill Park launch",
-      "latitude": 40.2567096,
-      "longitude": -77.0411725
+      "latitude": 40.2578,
+      "longitude": -77.0426
     },
     "takeOut": {
       "name": "Vincent DiFilippo Nature Preserve launch",
@@ -1228,8 +1228,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Good Hope Access",
-      "latitude": 40.2546304,
-      "longitude": -76.9753045
+      "latitude": 40.25889805739634,
+      "longitude": -76.97639236255715
     },
     "logistics": {
       "distanceLabel": "About 5.2 mi",
@@ -1255,8 +1255,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "conodoguinet-creek-good-hope-acri-meadow": {
     "putIn": {
       "name": "Good Hope Access",
-      "latitude": 40.2546304,
-      "longitude": -76.9753045
+      "latitude": 40.25889805739634,
+      "longitude": -76.97639236255715
     },
     "takeOut": {
       "name": "Acri Meadow Park launch",
@@ -1478,8 +1478,8 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   "susquehanna-river-sayre-wysox-township-park": {
     "putIn": {
       "name": "Sayre PFBC access",
-      "latitude": 41.988333,
-      "longitude": -76.611667
+      "latitude": 41.995932,
+      "longitude": -76.473493
     },
     "takeOut": {
       "name": "Wysox Township Park access",
@@ -1510,9 +1510,9 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "susquehanna-river-ulster-bridge-towanda": {
     "putIn": {
-      "name": "Ulster Bridge access",
-      "latitude": 41.8525,
-      "longitude": -76.497222
+      "name": "Ulster Bridge Municipal Access (carry-in)",
+      "latitude": 41.849146,
+      "longitude": -76.497242
     },
     "takeOut": {
       "name": "Towanda Riverfront Park ramp",
@@ -1543,9 +1543,9 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "susquehanna-river-ulster-bridge-wysox-township-park": {
     "putIn": {
-      "name": "Ulster Bridge access",
-      "latitude": 41.8525,
-      "longitude": -76.497222
+      "name": "Ulster Bridge Municipal Access (carry-in)",
+      "latitude": 41.849146,
+      "longitude": -76.497242
     },
     "takeOut": {
       "name": "Wysox Township Park access",
@@ -1576,9 +1576,9 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "susquehanna-river-ulster-bridge-terrytown": {
     "putIn": {
-      "name": "Ulster Bridge access",
-      "latitude": 41.8525,
-      "longitude": -76.497222
+      "name": "Ulster Bridge Municipal Access (carry-in)",
+      "latitude": 41.849146,
+      "longitude": -76.497242
     },
     "takeOut": {
       "name": "Terrytown PFBC ramp",

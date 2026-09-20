@@ -9,10 +9,10 @@ const rockHillGuide = { label: 'City of Rock Hill River Park access', url: 'http
 const gaugeUpper = { id: 'usgs-02146000', provider: 'usgs' as const, siteId: '02146000', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Catawba River at Rock Hill, SC', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-02146000/' };
 const gaugeLower = { id: 'usgs-02147020', provider: 'usgs' as const, siteId: '02147020', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Catawba River below Catawba, SC', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-02147020/' };
 
-const fortMill = { name: 'Fort Mill River Access below Lake Wylie Dam (water-entry edge)', latitude: 35.02243, longitude: -81.00291 };
-const rockHill = { name: 'Rock Hill River Park carry-in launch (water-entry edge)', latitude: 34.95701, longitude: -80.951471 };
+const fortMill = { name: 'Fort Mill public landing below Lake Wylie Dam', latitude: 35.02171656381242, longitude: -81.00404683440097 };
+const rockHill = { name: 'River Park in Rock Hill (SCDNR paddle launch)', latitude: 34.95615028378521, longitude: -80.94933899432193 };
 const landsford = { name: 'Landsford Canal State Park upper carry-in access (water-entry edge)', latitude: 34.79176, longitude: -80.88081 };
-const sc9 = { name: 'SC 9 Catawba public boat landing (water-entry edge)', latitude: 34.71042, longitude: -80.86222 };
+const sc9 = { name: 'SC 9 Catawba public boat landing (water-entry edge)', latitude: 34.709133, longitude: -80.866015 };
 const hazards: RouteHazard[] = ['low_water', 'fast_rise', 'strainers', 'cold_water', 'dam', 'private_banks'];
 
 const common = {

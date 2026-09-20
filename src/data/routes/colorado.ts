@@ -992,8 +992,8 @@ export const coloradoRoutes: River[] = [
     },
     takeOut: {
       name: 'Buena Vista Whitewater Park public boat ramp',
-      latitude: 38.8420,
-      longitude: -106.1310,
+      latitude: 38.847248805868695,
+      longitude: -106.12221661900705,
     },
     logistics: {
       distanceLabel: 'Approximately 18 river miles; verify the selected AHRA segment distance against the current park map',
@@ -1016,7 +1016,7 @@ export const coloradoRoutes: River[] = [
     },
     accessPoints: [
       { id: 'arkansas-granite-boat-chute-put-in', name: 'Granite Boat Chute AHRA river access', latitude: 39.025903, longitude: -106.244336, mileFromStart: 0, segmentKind: 'transition', note: 'CPW lists Granite Boat Chute as a public AHRA river-access site with a boat ramp/slide and portage trail. Use the marked recreational channel or portage around the diversion structure.' },
-      { id: 'arkansas-buena-vista-whitewater-park-take-out', name: 'Buena Vista Whitewater Park public boat ramp', latitude: 38.8420, longitude: -106.1310, mileFromStart: 18, segmentKind: 'transition', note: 'CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista; confirm the marked take-out and current site conditions.' },
+      { id: 'arkansas-buena-vista-whitewater-park-take-out', name: 'Buena Vista Whitewater Park public boat ramp', latitude: 38.847248805868695, longitude: -106.12221661900705, mileFromStart: 18, segmentKind: 'transition', note: 'CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista; confirm the marked take-out and current site conditions.' },
     ],
     evidenceNotes: [
       { label: 'Named public corridor', value: 'Granite Boat Chute through Numbers/Fractions to Buena Vista Whitewater Park', note: 'CPW documents the 32-mile Leadville-to-Buena Vista section, names the public access chain, and identifies the Numbers/Fractions Class III-V corridor below Granite.', sourceUrl: arkansasGraniteBuenaVistaCpwUrl },

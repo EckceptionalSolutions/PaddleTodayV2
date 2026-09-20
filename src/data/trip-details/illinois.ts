@@ -54,8 +54,8 @@ export const illinoisRiverTripDetails: Record<string, RiverTripDetails> = {
   "pecatonica-river-wes-block-tuttys": {
     "putIn": {
       "name": "Wes Block Trail Access",
-      "latitude": 42.330992586134,
-      "longitude": -89.666227460683
+      "latitude": 42.3300675,
+      "longitude": -89.6663288
     },
     "takeOut": {
       "name": "Tutty's Crossing Trailhead",

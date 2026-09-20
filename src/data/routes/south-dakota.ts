@@ -151,8 +151,8 @@ export const southDakotaRoutes: River[] = [
     "region": "Sioux Falls",
     "summary": "Short Sioux Falls Big Sioux paddle from Farm Field Park to Rotary Park, using city-managed kayak/canoe accesses and the direct USGS Sioux Falls gauge at the put-in. This is an urban river route with water-quality and low-water caveats.",
     "statusText": "Use the Big Sioux River at Sioux Falls gauge. Around 250 cfs is the low-water marker; below that, expect dragging, shallow riffles, and poor urban-water conditions. Paddler reports will help tune the useful range.",
-    "latitude": 43.5028832,
-    "longitude": -96.749131,
+    "latitude": 43.5013198,
+    "longitude": -96.7504983,
     "gaugeSource": {
       "id": "usgs-06482000",
       "provider": "usgs",

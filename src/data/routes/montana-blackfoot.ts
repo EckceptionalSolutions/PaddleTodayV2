@@ -19,10 +19,10 @@ const route: River = {
   routeType: 'recreational',
   scoreEligibility: 'scored',
   reach: 'Whitaker Bridge Fishing Access Site to Johnsrud Park Fishing Access Site',
-  putIn: { name: 'Whitaker Bridge Fishing Access Site (water-entry edge)', latitude: 46.9430, longitude: -113.6000 },
+  putIn: { name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 },
   takeOut: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9160, longitude: -113.6790 },
-  latitude: 46.9430,
-  longitude: -113.6000,
+  latitude: 46.94277,
+  longitude: -113.59983,
   summary: 'A classic lower Blackfoot day float from the public Whitaker Bridge access to Johnsrud Park near the Clark Fork confluence.',
   statusText: 'Check the Bonner gauge, FWP closures, weather and wood conditions immediately before launch; the Blackfoot is cold and can change quickly.',
   gaugeSource: gauge,
@@ -55,7 +55,7 @@ const route: River = {
   },
   sourceLinks: [fwpGuide, accessMap, whitakerGuide, johnsrudGuide, flowGuide, { label: 'USGS Blackfoot River near Bonner gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
   accessPoints: [
-    { ...({ name: 'Whitaker Bridge Fishing Access Site (water-entry edge)', latitude: 46.9430, longitude: -113.6000 }), id: 'blackfoot-river-whitaker-johnsrud-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Public FWP access at Whitaker Bridge; confirm day-use parking, road condition and the current water entry before unloading.' },
+    { ...({ name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 }), id: 'blackfoot-river-whitaker-johnsrud-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Public FWP access at Whitaker Bridge; confirm day-use parking, road condition and the current water entry before unloading.' },
     { ...({ name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9160, longitude: -113.6790 }), id: 'blackfoot-river-whitaker-johnsrud-take-out', mileFromStart: 6, segmentKind: 'transition', note: 'Public FWP day-use take-out with carry-in launch facilities; confirm parking, water entry and closure notices.' },
   ],
   logistics: {
@@ -152,12 +152,12 @@ const blackfootEndpointCatalog: Record<BlackfootEndpointKey, { name: string; lat
   russell: { name: 'Russell Gates Memorial Fishing Access Site (water-entry edge)', latitude: 47.0234361031, longitude: -113.306023437 },
   scotty: { name: 'Scotty Brown Bridge Fishing Access Site (water-entry edge)', latitude: 47.0184, longitude: -113.2402 },
   roundup: { name: 'Roundup Fishing Access Site (water-entry edge)', latitude: 46.9459853555, longitude: -113.433107293 },
-  whitaker: { name: 'Whitaker Bridge Fishing Access Site (water-entry edge)', latitude: 46.9430, longitude: -113.6000 },
+  whitaker: { name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 },
   johnsrud: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9164, longitude: -113.6785 },
   weigh: { name: 'Weigh Station Fishing Access Site (water-entry edge)', latitude: 46.8797, longitude: -113.8525 },
   kross: { name: 'K. Ross Toole Fishing Access Site (water-entry edge)', latitude: 46.90393, longitude: -113.72594 },
-  angevine: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
-  marco: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
+  angevine: { name: 'Angevine Fishing Access Site (imagery-derived water-entry edge)', latitude: 46.8958721652, longitude: -113.7639273234 },
+  marco: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
 };
 
 function makeBlackfootCorridorVariant(spec: {
@@ -477,7 +477,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
     id: 'blackfoot-river-k-ross-toole-angevine',
     reach: 'K. Ross Toole Fishing Access Site to Angevine Fishing Access Site',
     putIn: { name: 'K. Ross Toole Fishing Access Site (water-entry edge)', latitude: 46.90393, longitude: -113.72594 },
-    takeOut: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
+    takeOut: { name: 'Angevine Fishing Access Site (imagery-derived water-entry edge)', latitude: 46.8958721652, longitude: -113.7639273234 },
     miles: 1.9,
     summary: 'A compact lower Blackfoot practice reach linking the limited K. Ross Toole hand launch with the Angevine carry-in access.',
     time: 'Allow 1–2 hours with current, scouting and the hand-carry shuttle',
@@ -487,8 +487,8 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootShortReach({
     id: 'blackfoot-river-angevine-marco-flats',
     reach: 'Angevine Fishing Access Site to Marco Flats Fishing Access Site',
-    putIn: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
-    takeOut: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
+    putIn: { name: 'Angevine Fishing Access Site (imagery-derived water-entry edge)', latitude: 46.8958721652, longitude: -113.7639273234 },
+    takeOut: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
     miles: 3.6,
     summary: 'A short public-access Blackfoot float from Angevine’s carry-in launch to the Marco Flats hand-launch site on Highway 200.',
     time: 'Allow 1–3 hours with current and the hand-carry shuttle',
@@ -498,7 +498,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootShortReach({
     id: 'blackfoot-river-marco-flats-weigh-station',
     reach: 'Marco Flats Fishing Access Site to Weigh Station Fishing Access Site',
-    putIn: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
+    putIn: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
     takeOut: { name: 'Weigh Station Fishing Access Site (water-entry edge)', latitude: 46.8797, longitude: -113.8525 },
     miles: 1.6,
     summary: 'A compact lower Blackfoot float from Marco Flats to the developed Weigh Station take-out east of Bonner.',
@@ -510,7 +510,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
     id: 'blackfoot-river-k-ross-toole-marco-flats',
     reach: 'K. Ross Toole Fishing Access Site to Marco Flats Fishing Access Site',
     putIn: { name: 'K. Ross Toole Fishing Access Site (water-entry edge)', latitude: 46.90393, longitude: -113.72594 },
-    takeOut: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
+    takeOut: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
     miles: 5.5,
     summary: 'A lower-corridor Blackfoot day float from the limited K. Ross Toole hand launch through Angevine to Marco Flats.',
     time: 'Allow 2–4 hours with current, scouting and the hand-carry shuttle',
@@ -520,7 +520,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootShortReach({
     id: 'blackfoot-river-angevine-johnsrud',
     reach: 'Angevine Fishing Access Site to Johnsrud Park Fishing Access Site',
-    putIn: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
+    putIn: { name: 'Angevine Fishing Access Site (imagery-derived water-entry edge)', latitude: 46.8958721652, longitude: -113.7639273234 },
     takeOut: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9164, longitude: -113.6785 },
     miles: 5.6,
     summary: 'A mid-lower Blackfoot float from Angevine’s carry-in site to the developed Johnsrud Park take-out.',
@@ -531,7 +531,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootShortReach({
     id: 'blackfoot-river-marco-flats-johnsrud',
     reach: 'Marco Flats Fishing Access Site to Johnsrud Park Fishing Access Site',
-    putIn: { name: 'Marco Flats Fishing Access Site (water-entry edge)', latitude: 46.89104, longitude: -113.82732 },
+    putIn: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
     takeOut: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9164, longitude: -113.6785 },
     miles: 8.0,
     summary: 'A short lower Blackfoot float from the Marco Flats hand launch to the popular Johnsrud Park take-out.',
@@ -553,7 +553,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   makeBlackfootShortReach({
     id: 'blackfoot-river-angevine-weigh-station',
     reach: 'Angevine Fishing Access Site to Weigh Station Fishing Access Site',
-    putIn: { name: 'Angevine Fishing Access Site (water-entry edge)', latitude: 46.89659, longitude: -113.76427 },
+    putIn: { name: 'Angevine Fishing Access Site (imagery-derived water-entry edge)', latitude: 46.8958721652, longitude: -113.7639273234 },
     takeOut: { name: 'Weigh Station Fishing Access Site (water-entry edge)', latitude: 46.8797, longitude: -113.8525 },
     miles: 5.2,
     summary: 'A lower Blackfoot day float from Angevine’s carry-in access through Marco Flats to the Weigh Station ramp.',

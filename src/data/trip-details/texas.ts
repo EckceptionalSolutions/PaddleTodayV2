@@ -1375,8 +1375,8 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "fm-973-del-valle-bridge",
       "name": "FM 973 / Del Valle Bridge",
-      "latitude": 30.21,
-      "longitude": -97.64
+      "latitude": 30.2089962,
+      "longitude": -97.6382568
     },
     "logistics": {
       "distanceLabel": "About 5 mi",
@@ -1414,8 +1414,8 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "fm-973-del-valle-bridge",
         "name": "FM 973 / Del Valle Bridge",
-        "latitude": 30.21,
-        "longitude": -97.64,
+        "latitude": 30.2089962,
+        "longitude": -97.6382568,
         "mileFromStart": 5,
         "segmentKind": "creek",
         "note": "Default downstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before committing."
@@ -1483,8 +1483,8 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "fm-973-del-valle-bridge",
       "name": "FM 973 / Del Valle Bridge",
-      "latitude": 30.21,
-      "longitude": -97.64
+      "latitude": 30.2089962,
+      "longitude": -97.6382568
     },
     "takeOut": {
       "id": "little-webberville-park-boat-ramp",
@@ -1519,8 +1519,8 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "fm-973-del-valle-bridge",
         "name": "FM 973 / Del Valle Bridge",
-        "latitude": 30.21,
-        "longitude": -97.64,
+        "latitude": 30.2089962,
+        "longitude": -97.6382568,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default upstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before unloading."

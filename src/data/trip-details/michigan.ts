@@ -76,7 +76,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "kalamazoo-river-comstock-mayors-riverfront": {
     "putIn": {"id": "comstock-dnr", "name": "Comstock Township DNR Boat Launch", "latitude": 42.2862, "longitude": -85.5223},
-    "takeOut": {"id": "mayors-riverfront-park", "name": "Mayor's Riverfront Park Boat Launch", "latitude": 42.29059, "longitude": -85.56645},
+    "takeOut": {"id": "mayors-riverfront-park", "name": "Mayor's Riverfront Park Boat Launch", "latitude": 42.29142, "longitude": -85.56233},
     "logistics": {
       "distanceLabel": "2.6 mi",
       "estimatedPaddleTime": "About 1 to 2 hr depending on current and stops",

@@ -22,6 +22,10 @@ Azure serves `/404.html` with status 404 for missing paths instead of rewriting 
 - Existing not-found tests: 12 passed.
 - Browser: route title/summary, actual correction link, fragment prefills, old query prefills, noindex and canonical verified in the local build.
 - Route and runtime TypeScript checks and route-data audit passed after removing an unsupported duplicate endpoint note. The same warning remains in access caveats and the route-access note.
-- Full `npm run typecheck` is blocked by a pre-existing stale canonical-geometry fingerprint. Reproduced with the unchanged HEAD route files. Regenerate and verify those assets separately before merging/deploying; this change does not bypass the check.
+- Canonical geometry audit passes after restoring the coordinate corrections that were missing from the prior geometry commit. The 2,780 published routes exactly reproduce the existing manifest fingerprint: `6f7ad4bfefc85718b59aaa3fe1b0afde3ddf2f3883798b24b2f3b98c85eadaf7`. All 2,767 reviewed route geometries and 48 state bundles remain unchanged.
+- Corrections were isolated from the existing access-review work in the main workspace: existing coordinate fields and corresponding access labels, plus the small Paces Mill, Tolt, and Man access corrections. Unrelated route additions are excluded. No publication holds are removed.
+- Regression tests now distinguish inventory routes from public routes: Poplar remains withheld for unverified launch access, and Tyler Bend–Gilbert remains withheld for its separate take-out issue. Syas assertions reflect the reviewed NGPC shore launch while preserving the historical centroid-rejection checks.
+
+Final validation after restoring the missing coordinates: full typecheck, route-data and geometry audits, scoring sensitivity, all 1,416 root/workspace tests, production build, and the search indexability audit pass. The build still contains 3,219 pages and the sitemap contains 3,213 URLs, with no audit errors or warnings.
 
 These checks prevent technical indexing regressions. They do not guarantee indexing, ranking or recovery from an algorithmic update.
