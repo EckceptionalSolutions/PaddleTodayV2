@@ -952,7 +952,7 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "arkansas-river-granite-boat-chute-buena-vista": {
     "putIn": { "id": "arkansas-granite-boat-chute-put-in", "name": "Granite Boat Chute AHRA river access", "latitude": 39.025903, "longitude": -106.244336 },
-    "takeOut": { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.842, "longitude": -106.131 },
+    "takeOut": { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.847248805868695, "longitude": -106.12221661900705 },
     "logistics": {
       "distanceLabel": "Approximately 18 river miles; verify the selected AHRA segment distance against the current park map",
       "estimatedPaddleTime": "Plan a full daylight window with scouting, portage time, breaks, and shuttle timing; no fixed trip time is promised.",
@@ -966,7 +966,7 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "accessPoints": [
       { "id": "arkansas-granite-boat-chute-put-in", "name": "Granite Boat Chute AHRA river access", "latitude": 39.025903, "longitude": -106.244336, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW lists Granite Boat Chute as a public AHRA river-access site with a boat ramp/slide and portage trail." },
-      { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.842, "longitude": -106.131, "mileFromStart": 18, "segmentKind": "transition", "note": "CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista." }
+      { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.847248805868695, "longitude": -106.12221661900705, "mileFromStart": 18, "segmentKind": "transition", "note": "CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista." }
     ]
   },
   "taylor-river-748-pieplant": {

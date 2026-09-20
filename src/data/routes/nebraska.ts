@@ -49,8 +49,8 @@ export const nebraskaRoutes: River[] = [
     },
     "accessPoints": [
       {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (east side of town)","latitude":42.113332,"longitude":-96.712814,"mileFromStart":0,"segmentKind":"creek","note":"Named by the official Logan Creek water-trail map and local float documentation; coordinate is a practical Pender anchor, not a survey-grade ramp point."},
-      {"id":"bancroft-logan-creek-access","name":"Bancroft Logan Creek public kayak access, County Road 24","latitude":42.012773,"longitude":-96.57281,"mileFromStart":12,"segmentKind":"creek","note":"Public access is described north of Highway 16 on Cuming County Road 24, directly north of Ru-De’s Mini Mart; verify parking and landing conditions."},
-      {"id":"oakland-logan-creek-canoe-access","name":"Oakland Logan Creek canoe access","latitude":41.8263,"longitude":-96.4931,"mileFromStart":32,"segmentKind":"creek","note":"Named by the official water-trail map; coordinate is a practical Oakland access anchor, not a survey-grade ramp point. Confirm the current take-out before launch."}
+      {"id":"bancroft-logan-creek-access","name":"Bancroft - 24th Rd Logan Creek public shore launch","latitude":42.02187581,"longitude":-96.57456907,"mileFromStart":12,"segmentKind":"creek","note":"Public access is described north of Highway 16 on Cuming County Road 24, directly north of Ru-De’s Mini Mart; verify parking and landing conditions."},
+      {"id":"oakland-logan-creek-canoe-access","name":"Oakland City Park Access","latitude":41.82960424,"longitude":-96.48265492,"mileFromStart":32,"segmentKind":"creek","note":"Named by the official water-trail map; coordinate is a practical Oakland access anchor, not a survey-grade ramp point. Confirm the current take-out before launch."}
     ],
     "evidenceNotes": [
       {"label":"Official water-trail corridor","value":"Pender through Bancroft and Lyons to Oakland","note":"Nebraska Game and Parks’ Logan Creek map identifies the corridor, towns, start/end, and canoe access sites.","sourceUrl":"https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Logan_Creek_River.pdf"},
@@ -662,8 +662,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Short central-Nebraska Loup River water-trail segment from the George D. Syas WMA fishing access to the county access south of Monroe. Nebraska Game and Parks / Nebraskaland ties the route family to the direct Genoa USGS gauge and supports a conservative low-water floor for this upstream segment.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.43328221,
-    "longitude": -97.68464875,
+    "latitude": 41.42442894,
+    "longitude": -97.6963078,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",
@@ -896,8 +896,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Full managed Loup River Water Trail continuation from the George D. Syas WMA fishing access to Columbus. This combines the official 8-mile upper segment and the 16-mile Monroe-to-Columbus segment into a long same-gauge Nebraska day.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.43328221,
-    "longitude": -97.68464875,
+    "latitude": 41.42442894,
+    "longitude": -97.6963078,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",
@@ -1129,8 +1129,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Short lower Loup River Water Trail continuation from the Columbus hotel-side access to the newer ADM access site. City of Columbus materials describe this as the final two-to-three-hour float in the managed water-trail chain.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.4195401,
-    "longitude": -97.3672208,
+    "latitude": 41.418113,
+    "longitude": -97.367618,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",
@@ -1243,8 +1243,8 @@ export const nebraskaRoutes: River[] = [
     "region": "Central Nebraska",
     "summary": "Longest public Loup River Water Trail continuation from the George D. Syas WMA fishing access to the downstream ADM access site below Columbus. This combines the official 8-mile upper segment, the 16-mile Monroe-to-Columbus day, and the final 4.5-mile ADM continuation into one same-gauge route.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
-    "latitude": 41.43328221,
-    "longitude": -97.68464875,
+    "latitude": 41.42442894,
+    "longitude": -97.6963078,
     "gaugeSource": {
       "id": "usgs-06793000",
       "provider": "usgs",

@@ -9,8 +9,15 @@ describe('Vermont Otter Creek expansion', () => {
       expect(route.gaugeSource?.siteId).toBe('04282500');
       expect(route.safetyProfile?.reviewStatus).toBe('reviewed');
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
-      expect(route.putIn?.name).toContain('water-entry edge');
-      expect(route.takeOut?.name).toContain('water-entry edge');
+      for (const point of [route.putIn, route.takeOut]) {
+        if (point?.name === 'Otter Creek–Kwonumosk public access area') {
+          // The official access-area anchor is not a surveyed water entry.
+          expect(point).toMatchObject({ latitude: 44.086, longitude: -73.2472 });
+          expect(point.name).not.toContain('water-entry edge');
+        } else {
+          expect(point?.name).toContain('water-entry edge');
+        }
+      }
       expect(route.sourceLinks.length).toBeGreaterThanOrEqual(5);
     }
   });

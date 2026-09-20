@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { routeAccessReviewHolds } from '../data/route-access-review-holds';
 
 type ReviewEndpoint = {
   routeId: string;
@@ -167,7 +168,7 @@ describe('generated route coordinate review dashboard', () => {
       .toEqual(routeIds.map((routeId) => ({ routeId, passed: true })));
   });
 
-  it('never treats an official property or fishing-area centroid as a launch', () => {
+  it('distinguishes historical area centroids from the subsequently reviewed Syas shore launch', () => {
     const endpointName = 'George D. Syas WMA fishing access';
     const routeIds = [
       'loup-river-george-syas-adm-access',
@@ -177,8 +178,8 @@ describe('generated route coordinate review dashboard', () => {
     const audited = audit.endpoints.filter((endpoint) =>
       routeIds.includes(endpoint.routeId) && endpoint.endpointName === endpointName);
     expect(audited).toHaveLength(3);
-    expect(audited.every((endpoint) => endpoint.severity === 'failure')).toBe(true);
-    expect(audited.every((endpoint) => endpoint.coordinateEvidenceRole === 'authoritative-area-anchor')).toBe(true);
+    expect(audited.every((endpoint) => endpoint.severity === 'review')).toBe(true);
+    expect(audited.every((endpoint) => endpoint.coordinateEvidenceRole === 'authoritative-water-entry')).toBe(true);
 
     const unresolved = suggestions.items.filter((item) =>
       routeIds.includes(item.routeId) && item.endpointName === endpointName);
@@ -195,14 +196,14 @@ describe('generated route coordinate review dashboard', () => {
 
     const canonical = registry.entries.find((entry) => entry.name === endpointName);
     expect(canonical).toMatchObject({
-      verificationStatus: 'area-anchor-only',
-      accessCoordinate: null,
-      waterEntryCoordinate: null,
-      authoritativeAccess: null,
-      storedCoordinateIsAreaAnchor: true,
+      verificationStatus: 'authoritative-water-entry',
+      accessCoordinate: { latitude: 41.42442894, longitude: -97.6963078 },
+      waterEntryCoordinate: { latitude: 41.42442894, longitude: -97.6963078 },
+      authoritativeAccess: { provider: 'ne_ngpc_george_syas_paddlecraft_launch', coordinateRole: 'authoritative-water-entry' },
+      storedCoordinateIsAreaAnchor: false,
       authoritativeAreaAnchor: {
-        provider: 'ne_ngpc_george_syas_wma_area_anchor',
-        featureId: 'PHA-NGPC-0000104',
+        provider: 'ne_ngpc_george_syas_public_fishing_stream_area',
+        featureId: 'PFA-0052',
         coordinateRole: 'authoritative-area-anchor',
       },
     });
@@ -428,7 +429,10 @@ describe('generated route coordinate review dashboard', () => {
       routeIds.includes(suggestion.routeId) && suggestion.endpointName === endpointName)).toEqual([]);
     expect(payload.endpoints.filter((endpoint) =>
       routeIds.includes(endpoint.routeId) && endpoint.endpointName === endpointName)).toEqual([]);
-    expect(routeIds.every((routeId) => !withheldSource.includes(`"${routeId}"`))).toBe(true);
+    // A verified put-in does not clear an independent take-out hold.
+    expect(withheldSource).not.toContain('"buffalo-river-tyler-bend-grinders-ferry"');
+    expect(withheldSource).toContain('"buffalo-river-tyler-bend-gilbert"');
+    expect(routeAccessReviewHolds['buffalo-river-tyler-bend-gilbert']).toContain('Gilbert horse-trailhead');
     expect(validation.results.filter((result) =>
       routeIds.includes(result.routeId) && result.endpointName === endpointName)
       .map((result) => result.passed)).toEqual([true, true]);

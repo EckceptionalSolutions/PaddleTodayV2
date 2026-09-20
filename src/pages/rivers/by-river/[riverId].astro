@@ -21,9 +21,14 @@ const regionSummary = group.regions.join(', ');
 const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
 const scoredRouteCount = group.routes.filter((route) => route.scoreEligibility === 'scored').length;
 const planningRouteCount = group.routes.filter((route) => route.scoreEligibility === 'planning').length;
+const needsRegionInTitle = listRiverGroups().some((other) =>
+  other.riverId !== group.riverId && other.name === group.name &&
+  [...other.states].sort().join(',') === [...group.states].sort().join(',')
+);
+const groupTitleLocation = needsRegionInTitle ? `${regionSummary}, ${stateSummary}` : stateSummary;
 const groupTitle = scoredRouteCount
-  ? `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`
-  : `${group.name} Paddle Routes & Trip Planning | Paddle Today`;
+  ? `${group.name}, ${groupTitleLocation} | Water Levels & Paddle Routes`
+  : `${group.name}, ${groupTitleLocation} | Paddle Routes & Trip Planning`;
 const groupDescription = scoredRouteCount
   ? `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`
   : `Compare ${group.name} planning routes with access details, distance, difficulty and source links. These routes have no live score.`;

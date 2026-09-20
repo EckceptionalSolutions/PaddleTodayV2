@@ -3718,8 +3718,8 @@ export const texasRoutes: River[] = [
     "region": "Prairies and Lakes",
     "summary": "Public lower-Colorado day route from the LCRA-listed FM 973 / Del Valle Bridge access to Travis County's Little Webberville Park. LCRA publishes the consecutive access points and 12-mile spacing, while the Austin USGS gauge gives a product-supported flow check for the Austin-to-Bastrop corridor.",
     "statusText": "Use the Colorado River at Austin gauge. Treat about 200 cfs as the conservative Austin-to-Bastrop floating floor; below that, expect shallow bars and slow travel, and at high or rising water treat release changes, debris, and private banks conservatively.",
-    "latitude": 30.21,
-    "longitude": -97.64,
+    "latitude": 30.2089962,
+    "longitude": -97.6382568,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

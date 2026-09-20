@@ -256,8 +256,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "takeOut": {
       "id": "princeton-hiestand-park-landing",
       "name": "Princeton Jefferson Street / Hiestand Park Landing",
-      "latitude": 43.8512,
-      "longitude": -89.1289
+      "latitude": 43.85238,
+      "longitude": -89.133973
     },
     "logistics": {
       "distanceLabel": "About 3.6 mi",
@@ -292,8 +292,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "princeton-hiestand-park-landing",
         "name": "Princeton Jefferson Street / Hiestand Park Landing",
-        "latitude": 43.8512,
-        "longitude": -89.1289,
+        "latitude": 43.85238,
+        "longitude": -89.133973,
         "mileFromStart": 3.58,
         "segmentKind": "creek",
         "note": "Default public city take-out."
@@ -304,8 +304,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "princeton-hiestand-park-landing",
       "name": "Princeton Jefferson Street / Hiestand Park Landing",
-      "latitude": 43.8512,
-      "longitude": -89.1289
+      "latitude": 43.85238,
+      "longitude": -89.133973
     },
     "takeOut": {
       "id": "white-river-lock-dam-landing",
@@ -336,8 +336,8 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "princeton-hiestand-park-landing",
         "name": "Princeton Jefferson Street / Hiestand Park Landing",
-        "latitude": 43.8512,
-        "longitude": -89.1289,
+        "latitude": 43.85238,
+        "longitude": -89.133973,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public city put-in."
@@ -365,9 +365,9 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "sheboygan-river-rochester-esslingen": {
     "putIn": {
       "id": "rochester-park-sheboygan-river",
-      "name": "Rochester Park river access",
-      "latitude": 43.7266,
-      "longitude": -87.8166
+      "name": "Rochester Park access-area anchor (launch path unverified)",
+      "latitude": 43.72573,
+      "longitude": -87.803695
     },
     "takeOut": {
       "id": "esslingen-park-sheboygan-river",
@@ -398,9 +398,9 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "rochester-park-sheboygan-river",
-        "name": "Rochester Park river access",
-        "latitude": 43.7266,
-        "longitude": -87.8166,
+        "name": "Rochester Park access-area anchor (launch path unverified)",
+        "latitude": 43.72573,
+        "longitude": -87.803695,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in in Rochester Park."
@@ -4613,9 +4613,9 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "milwaukee-river-riverside-bruce-street": {
     "putIn": {
       "id": "riverside-park-rotary-centennial-arboretum-landing",
-      "name": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
-      "latitude": 43.0674,
-      "longitude": -87.89238
+      "name": "Riverside Park / Urban Ecology Center canoe launch",
+      "latitude": 43.06739422,
+      "longitude": -87.89480066
     },
     "takeOut": {
       "id": "bruce-street-boat-ramp",
@@ -4645,9 +4645,9 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "riverside-park-rotary-centennial-arboretum-landing",
-        "name": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
-        "latitude": 43.0674,
-        "longitude": -87.89238,
+        "name": "Riverside Park / Urban Ecology Center canoe launch",
+        "latitude": 43.06739422,
+        "longitude": -87.89480066,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in for the downtown split; WRT notes a long carry to the landing."

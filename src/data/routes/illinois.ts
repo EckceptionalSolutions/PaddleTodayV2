@@ -243,8 +243,8 @@ export const illinoisRoutes: River[] = [
     "region": "Northwest Illinois",
     "summary": "Freeport water-trail day from the Wes Block public launch to downtown Tutty's Crossing, with two named public boat launches and a conservative lower-Pec proxy gauge from Darlington.",
     "statusText": "Use the Pecatonica River at Darlington gauge as a lower-Pec proxy. Treat 101 to 250 cfs as the best window, 251 to 350 cfs as high but usually manageable, 351 to 500 cfs as experienced-only high water, and 501+ cfs as too high and muddy for a broad recommendation.",
-    "latitude": 42.330992586134,
-    "longitude": -89.666227460683,
+    "latitude": 42.3300675,
+    "longitude": -89.6663288,
     "gaugeSource": {
       "id": "usgs-05432500",
       "provider": "usgs",

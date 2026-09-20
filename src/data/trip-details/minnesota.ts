@@ -1210,8 +1210,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Germanium carry-in access at Brookview Park",
-      "latitude": 45.2826032,
-      "longitude": -93.4079762
+      "latitude": 45.28228691640213,
+      "longitude": -93.40708402066348
     },
     "logistics": {
       "distanceLabel": "14.2 mi",
@@ -1234,13 +1234,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "rum-river-germanium-south-county-park": {
     "putIn": {
       "name": "Germanium carry-in access at Brookview Park",
-      "latitude": 45.2826032,
-      "longitude": -93.4079762
+      "latitude": 45.28228691640213,
+      "longitude": -93.40708402066348
     },
     "takeOut": {
       "name": "Rum River South County Park access",
-      "latitude": 45.2121606,
-      "longitude": -93.3907042
+      "latitude": 45.21387991634394,
+      "longitude": -93.38934999460847
     },
     "logistics": {
       "distanceLabel": "7.1 mi",
@@ -1300,8 +1300,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Miller Landing carry-in access",
-      "latitude": 45.5517091,
-      "longitude": -94.2647146
+      "latitude": 45.55179577632979,
+      "longitude": -94.26496023134358
     },
     "logistics": {
       "distanceLabel": "8.6 mi",
@@ -1451,8 +1451,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Miller Landing carry-in access",
-      "latitude": 45.5504544,
-      "longitude": -94.2641031
+      "latitude": 45.55179577632979,
+      "longitude": -94.26496023134358
     },
     "logistics": {
       "distanceLabel": "14.2 mi",
@@ -1515,8 +1515,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Miller Landing carry-in access",
-      "latitude": 45.5504544,
-      "longitude": -94.2641031
+      "latitude": 45.55179577632979,
+      "longitude": -94.26496023134358
     },
     "logistics": {
       "distanceLabel": "9.2 mi",
@@ -1632,9 +1632,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "sauk-river-spring-hill-st-martin": {
     "putIn": {
-      "name": "Spring Hill County Park carry-in access",
-      "latitude": 45.529026,
-      "longitude": -94.776531
+      "name": "Spring Hill County Park carry-in access (RM 56.1, right bank)",
+      "latitude": 45.529866726150793,
+      "longitude": -94.775652824582878
     },
     "takeOut": {
       "name": "St. Martin Public Water Access / County Road 12",
@@ -1662,9 +1662,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "sauk-river-spring-hill-frogtown": {
     "putIn": {
-      "name": "Spring Hill County Park carry-in access",
-      "latitude": 45.529026,
-      "longitude": -94.776531
+      "name": "Spring Hill County Park carry-in access (RM 56.1, right bank)",
+      "latitude": 45.529866726150793,
+      "longitude": -94.775652824582878
     },
     "takeOut": {
       "name": "Frogtown Park canoe landing",
@@ -1818,8 +1818,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-miller-landing-knights-of-columbus": {
     "putIn": {
       "name": "Miller Landing carry-in access",
-      "latitude": 45.5504544,
-      "longitude": -94.2641031
+      "latitude": 45.55179577632979,
+      "longitude": -94.26496023134358
     },
     "takeOut": {
       "name": "Knights of Columbus Park carry-in access",
@@ -1848,8 +1848,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "sauk-river-miller-landing-heims-mill": {
     "putIn": {
       "name": "Miller Landing carry-in access",
-      "latitude": 45.5504544,
-      "longitude": -94.2641031
+      "latitude": 45.55179577632979,
+      "longitude": -94.26496023134358
     },
     "takeOut": {
       "name": "Heims Mill Canoe Access",
@@ -3316,9 +3316,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "longfellow-lagoon",
-      "name": "Longfellow Lagoon",
-      "latitude": 44.961125473,
-      "longitude": -93.215049079
+      "name": "Longfellow Lagoon designated landing / Longfellow Gardens parking access area",
+      "latitude": 44.916125473,
+      "longitude": -93.215040979
     },
     "logistics": {
       "distanceLabel": "21.3 mi",
@@ -3454,9 +3454,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "longfellow-lagoon",
-        "name": "Longfellow Lagoon",
-        "latitude": 44.961125473,
-        "longitude": -93.215049079,
+        "name": "Longfellow Lagoon designated landing / Longfellow Gardens parking access area",
+        "latitude": 44.916125473,
+        "longitude": -93.215040979,
         "mileFromStart": 21.3,
         "segmentKind": "creek",
         "note": "Official route end before Minnehaha Falls."
@@ -10359,9 +10359,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "sauk-river-spring-hill-county-park",
-      "name": "Spring Hill County Park carry-in access",
-      "latitude": 45.529026,
-      "longitude": -94.776531
+      "name": "Spring Hill County Park carry-in access (RM 56.1, right bank)",
+      "latitude": 45.529866726150793,
+      "longitude": -94.775652824582878
     },
     "logistics": {
       "distanceLabel": "About 10.8 mi",
@@ -10394,9 +10394,9 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "sauk-river-spring-hill-county-park",
-        "name": "Spring Hill County Park carry-in access",
-        "latitude": 45.529026,
-        "longitude": -94.776531,
+        "name": "Spring Hill County Park carry-in access (RM 56.1, right bank)",
+        "latitude": 45.529866726150793,
+        "longitude": -94.775652824582878,
         "mileFromStart": 10.8,
         "segmentKind": "creek",
         "note": "Default take-out; DNR Map 1 lists Spring Hill County Park at river mile 56.2/56.1 with carry-in access, watercraft campsite, toilet, rest area, and drinking water."

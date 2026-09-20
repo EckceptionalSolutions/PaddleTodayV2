@@ -1916,8 +1916,8 @@ export const iowaRoutes: River[] = [
     "region": "North Iowa",
     "summary": "Thirteen-mile Winnebago River Class I run from Fertile toward Mason City, using the direct Mason City gauge and local river-park access evidence.",
     "statusText": "Use the Mason City gauge. CanWePaddle estimates 100 to 1,500 cfs as the runnable window; avoid dam hydraulics at Fertile and verify the Mason City take-out before launching.",
-    "latitude": 43.266,
-    "longitude": -93.424,
+    "latitude": 43.263450373072416,
+    "longitude": -93.4209717300344,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -2305,8 +2305,8 @@ export const iowaRoutes: River[] = [
     "region": "Southeast Iowa",
     "summary": "Official Lower Des Moines River water-trail day from Keosauqua around the big horseshoe bend to Bentonsport, with sandstone cliffs, public lower-river access, sandbar-camping rules, and a direct Keosauqua gauge.",
     "statusText": "Use the Des Moines River at Keosauqua gauge. Treat the existing lower-river 800 to 6,000 cfs model conservatively here; above that, releases and big-river speed can make this more than a beginner float.",
-    "latitude": 40.7291,
-    "longitude": -91.962,
+    "latitude": 40.73062147,
+    "longitude": -91.95994375,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -2798,8 +2798,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Compact South Skunk play-park session at the 13th Street mitigated low-head dam in North River Valley Park, with public City of Ames access and a direct Ames gauge.",
     "statusText": "Use the South Skunk River near Ames gauge. Treat 400+ cfs as the feature-specific play threshold from American Whitewater, and avoid low, high, or rising water unless you know the shallow rock channel well.",
-    "latitude": 42.03535,
-    "longitude": -93.59895,
+    "latitude": 42.037356,
+    "longitude": -93.597997,
     "routeType": "whitewater",
     "gaugeSource": {
       "id": "usgs-05470000",
@@ -2917,8 +2917,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Lower Story County South Skunk water-trail day from Ames to the C.J. Shreck Access near Cambridge, using the direct Ames gauge and official access chain.",
     "statusText": "Use the South Skunk near Ames gauge. CanWePaddle estimates 100 to 1,500 cfs for Ames to Cambridge; scout dams, rock riffles, and fresh wood even when the gauge is inside range.",
-    "latitude": 42.03535,
-    "longitude": -93.59895,
+    "latitude": 42.036895,
+    "longitude": -93.600262,
     "gaugeSource": {
       "id": "usgs-05470000",
       "provider": "usgs",
@@ -9851,8 +9851,8 @@ export const iowaRoutes: River[] = [
     "region": "North Iowa",
     "summary": "Cedar River day run from the small Pearl Rock access to North Cedar Park near Plainfield, with endpoint camping support and a downstream Waverly gauge floor.",
     "statusText": "Use the Cedar River at Waverly gauge. Treat 200 cfs as the guide-supported low-water floor and 400 to 600 cfs as the better range; above that, make a conservative wood/current call because no high cutoff is published.",
-    "latitude": 42.910715,
-    "longitude": -92.543001,
+    "latitude": 42.9107066,
+    "longitude": -92.5408445,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -11284,8 +11284,8 @@ export const iowaRoutes: River[] = [
     "region": "Eastern Iowa",
     "summary": "Lower Maquoketa day from the Monmouth-area Millertown access chain to Bridgeport near Maquoketa, with Jackson County water-trail access support and a direct Maquoketa gauge.",
     "statusText": "Use the Maquoketa near Maquoketa gauge. CanWePaddle estimates 200 to 2,500 cfs as the runnable window; high or rising water makes this lower-river day pushier around bridges, wood, and muddy banks.",
-    "latitude": 42.084,
-    "longitude": -90.762,
+    "latitude": 42.124508,
+    "longitude": -90.857821,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -13003,8 +13003,8 @@ export const iowaRoutes: River[] = [
     "region": "Central Iowa",
     "summary": "Upper Boone County Des Moines River connector from Skillet Creek Access to North Fraser Ramp, using the direct Stratford gauge and official Boone County water-trail access mapping.",
     "statusText": "Use the Des Moines River near Stratford gauge. The same upper-Des-Moines 400 to 8,000 cfs corridor range is a guarded proxy here; confirm Skillet and North Fraser access conditions before launching.",
-    "latitude": 42.2523,
-    "longitude": -93.9975,
+    "latitude": 42.26169114946014,
+    "longitude": -93.99540928857351,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -15043,8 +15043,8 @@ export const iowaRoutes: River[] = [
     "region": "North Central Iowa",
     "summary": "Mitchell County Cedar River leg from Halvorson Park to Interstate Park at Mitchell, with impounded-river character, endpoint camping support, and a mandatory left-bank dam portage at Mitchell.",
     "statusText": "Use the Cedar River at Charles City gauge as the downstream route-family signal. The guide says 200 cfs is preferable and 400 to 600 cfs is better; stop at Interstate Park and portage left around the Mitchell power dam.",
-    "latitude": 43.356685,
-    "longitude": -92.925215,
+    "latitude": 43.35390906447915,
+    "longitude": -92.9227522910695,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

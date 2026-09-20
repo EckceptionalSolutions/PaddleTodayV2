@@ -7,7 +7,7 @@ const accessInventory = { label: 'Friends of the Winooski public access inventor
 const gauge = { id: 'usgs-04290500', provider: 'usgs' as const, siteId: '04290500', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Winooski River near Essex Junction, VT', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04290500/' };
 const hazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'dam', 'private_banks'];
 const boltonDam = { name: 'Bolton Dam Access, Green Mountain Power', latitude: 44.35858, longitude: -72.81639 };
-const boltonCanoe = { name: 'Bolton Canoe Access Area', latitude: 44.3768, longitude: -72.8755 };
+const boltonCanoe = { name: 'Bolton Canoe Access Area', latitude: 44.372557093828576, longitude: -72.89744466026545 };
 const jonesville = { name: 'Jonesville takeout below Cochran Road Bridge', latitude: 44.40243, longitude: -72.99653 };
 const floodplain = { name: 'Floodplain Preserve canoe access, Richmond', latitude: 44.3831, longitude: -73.0202 };
 

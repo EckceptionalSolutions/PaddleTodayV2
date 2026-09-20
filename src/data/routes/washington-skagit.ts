@@ -13,7 +13,7 @@ const upperHazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'col
 const lowerHazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'private_banks'];
 
 const goodell = { name: 'Goodell Creek Boat Launch, North Cascades National Park', latitude: 48.6718, longitude: -121.2690 };
-const copper = { name: 'Copper Creek Boat Access, NPS Road 213', latitude: 48.5910748909, longitude: -121.3779020782 };
+const copper = { name: 'Copper Creek Boat Access, NPS Road 213', latitude: 48.591100, longitude: -121.373204 };
 const marblemount = { name: 'Marblemount Boat Launch', latitude: 48.5265842, longitude: -121.4286361 };
 const howardMiller = { name: 'Howard Miller Steelhead Park river takeout', latitude: 48.48453, longitude: -121.59480 };
 

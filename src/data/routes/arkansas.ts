@@ -1549,8 +1549,8 @@ export const arkansasRoutes: River[] = [
     },
     "summary": "Beloved upper Buffalo National River day from Steel Creek to Kyle's Landing through the Ponca Wilderness. NPS publishes the exact 8-mile trip and both public access points, but this remains rainfall-dependent moving water with rapids, rough-road shuttle, wood, and crowding constraints.",
     "statusText": "Use the Buffalo River at Ponca gauge as the nearest upstream corridor check. Around 130 cfs is the conservative low-water floor for this upper-Buffalo family; below that, expect scraping, dragging, and missed lines. NPS says levels above 1,600 cfs at Ponca are unsafe.",
-    "latitude": 36.040776,
-    "longitude": -93.344048,
+    "latitude": 36.039309,
+    "longitude": -93.336228,
     "gaugeSource": {
       "id": "usgs-07055660",
       "provider": "usgs",
@@ -2568,8 +2568,8 @@ export const arkansasRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Compact upper Buffalo National River reach from Erbie to Ozark with bluff-lined pools, light whitewater, and official NPS route, mileage, and campground support at both ends. The Pruitt gauge remains the nearest official downstream check for a guarded low-water floor.",
     "statusText": "Use the Buffalo River at Pruitt gauge as a downstream corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.070346,
-    "longitude": -93.211886,
+    "latitude": 36.070784,
+    "longitude": -93.211779,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -3155,8 +3155,8 @@ export const arkansasRoutes: River[] = [
     },
     "summary": "Long upper Buffalo National River day from Steel Creek to Ozark, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, and Erbie-to-Ozark paddles into one guarded continuation. The Pruitt gauge remains the nearest official downstream check for a conservative low-water call.",
     "statusText": "Use the Buffalo River at Pruitt gauge as a downstream corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.040776,
-    "longitude": -93.344048,
+    "latitude": 36.039309,
+    "longitude": -93.336228,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -3291,8 +3291,8 @@ export const arkansasRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Upper Buffalo continuation from Erbie to Pruitt, combining the exact NPS Erbie-to-Ozark and Ozark-to-Pruitt paddles into one compact campground-to-highway day. The Pruitt gauge is the direct same-corridor official check for the finish.",
     "statusText": "Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.070346,
-    "longitude": -93.211886,
+    "latitude": 36.070784,
+    "longitude": -93.211779,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -3454,8 +3454,8 @@ export const arkansasRoutes: River[] = [
     },
     "summary": "Long upper Buffalo day from Steel Creek to Erbie, linking the classic Steel-Creek-to-Kyle's section with the Erbie continuation into one campground-backed trip. The direct Pruitt gauge remains the nearest official downstream check for a conservative low-water and unsafe-high call on this corridor.",
     "statusText": "Use the Buffalo River at Pruitt gauge as the nearest downstream corridor check. The NPS-linked Float Guide still marks Pruitt very low below 100 cfs and the park still says levels above 2,000 cfs at Pruitt / Highway 7 are unsafe, so this route keeps a conservative minimum-only low-water floor and high-water caveat.",
-    "latitude": 36.040776,
-    "longitude": -93.344048,
+    "latitude": 36.039309,
+    "longitude": -93.336228,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -3605,8 +3605,8 @@ export const arkansasRoutes: River[] = [
     },
     "summary": "Full upper Buffalo National River continuation from Steel Creek to Pruitt, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, and Ozark-to-Pruitt paddles into one guarded all-day route. The Pruitt gauge is the direct same-corridor official check for the finish.",
     "statusText": "Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.040776,
-    "longitude": -93.344048,
+    "latitude": 36.039309,
+    "longitude": -93.336228,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -3939,8 +3939,8 @@ export const arkansasRoutes: River[] = [
     },
     "summary": "Full upper Buffalo continuation from Steel Creek to Hasty, linking the exact Steel-Creek-to-Kyle's, Kyle's-to-Erbie, Erbie-to-Ozark, Ozark-to-Pruitt, and Pruitt-to-Hasty paddles into one very long fallback-friendly day. The direct Pruitt gauge remains the same-corridor low-water decision point for the finish.",
     "statusText": "Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.040776,
-    "longitude": -93.344048,
+    "latitude": 36.039309,
+    "longitude": -93.336228,
     "gaugeSource": {
       "id": "usgs-07055680",
       "provider": "usgs",
@@ -4243,8 +4243,8 @@ export const arkansasRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Upper Buffalo continuation from Erbie to Hasty, linking the exact Erbie-to-Ozark, Ozark-to-Pruitt, and Pruitt-to-Hasty paddles into one longer fallback-friendly day. The direct Pruitt gauge remains the same-corridor low-water decision point.",
     "statusText": "Use the Buffalo River at Pruitt gauge as the direct same-corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.",
-    "latitude": 36.070346,
-    "longitude": -93.211886,
+    "latitude": 36.070784,
+    "longitude": -93.211779,
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [

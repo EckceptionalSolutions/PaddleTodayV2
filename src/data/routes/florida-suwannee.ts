@@ -8,7 +8,7 @@ const statePark = { label: 'Stephen Foster Folk Culture Center State Park canoe 
 const gauge = { id: 'usgs-02315500', provider: 'usgs' as const, siteId: '02315500', metric: 'gage_height_ft' as const, unit: 'ft' as const, kind: 'direct' as const, siteName: 'Suwannee River at White Springs, FL', detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-02315500/' };
 const hazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'private_banks'];
 const holtonCreek = { name: 'Holton Creek River Camp landing', latitude: 30.430167, longitude: -83.036167 };
-const peacockSlough = { name: 'Peacock Slough River Camp landing', latitude: 30.1015, longitude: -83.136167 };
+const peacockSlough = { name: 'Peacock Slough River Camp access-area anchor', latitude: 30.1015, longitude: -83.137167 };
 const adamsTract = { name: 'Adams Tract River Camp landing', latitude: 30.035, longitude: -83.019 };
 
 const common = {

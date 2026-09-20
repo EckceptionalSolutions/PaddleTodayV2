@@ -19,7 +19,7 @@ const points: Record<string, Point> = {
   newton: { name: 'Newton Lane RAP water-entry edge', latitude: 34.6093, longitude: -111.8965 },
   parsons: { name: 'Parsons Preserve RAP water-entry edge', latitude: 34.5872, longitude: -111.8786 },
   blackBridge: { name: 'Black Bridge RAP water-entry edge', latitude: 34.5726, longitude: -111.8566 },
-  white: { name: 'White Bridge RAP water-entry edge', latitude: 34.5496, longitude: -111.8508 },
+  white: { name: 'White Bridge RAP access area', latitude: 34.549539, longitude: -111.850602 },
 };
 type Spec = { id: string; start: Point; end: Point; miles: number; summary: string; note: string; gauge: typeof upperGauge | typeof lowerGauge; time: string };
 

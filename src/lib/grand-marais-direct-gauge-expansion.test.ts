@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { distanceMiles } from '@paddletoday/api-contract';
 import { getRoutePreviewPhoto } from '../data/route-gallery.js';
-import { listRivers } from './rivers.js';
+import { listAllRiversForAudit, listRivers, WITHHELD_ROUTE_SLUGS } from './rivers.js';
+import { routeAccessReviewHolds } from '../data/route-access-review-holds.js';
 
 const routeIds = [
   'poplar-river-lutsen-seventh-bridge',
@@ -12,8 +13,18 @@ const routeIds = [
 const grandMarais = { latitude: 47.7504, longitude: -90.3343 };
 
 describe('Grand Marais direct-gauge expansion', () => {
-  it('publishes three whitewater routes with direct, current-station gauge sources', () => {
-    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+  it('keeps the Poplar route private until its launch access is verified', () => {
+    const slug = 'poplar-river-lutsen-seventh-bridge';
+    expect(routeAccessReviewHolds[slug]).toContain('Public kayak/canoe access is not verified');
+    expect(WITHHELD_ROUTE_SLUGS.has(slug)).toBe(true);
+    expect(listRivers().some((route) => route.slug === slug)).toBe(false);
+    for (const publishedSlug of routeIds.slice(1)) {
+      expect(listRivers().some((route) => route.slug === publishedSlug)).toBe(true);
+    }
+  });
+
+  it('retains three inventory whitewater routes with direct, current-station gauge sources', () => {
+    const routes = new Map(listAllRiversForAudit().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
       const route = routes.get(routeId);
@@ -30,7 +41,7 @@ describe('Grand Marais direct-gauge expansion', () => {
   });
 
   it('places all three routes inside the 75-mile Grand Marais filter', () => {
-    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+    const routes = new Map(listAllRiversForAudit().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
       const route = routes.get(routeId);
@@ -47,7 +58,7 @@ describe('Grand Marais direct-gauge expansion', () => {
   });
 
   it('keeps Lake Superior outside each supported route', () => {
-    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+    const routes = new Map(listAllRiversForAudit().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
       const route = routes.get(routeId);
@@ -65,7 +76,7 @@ describe('Grand Marais direct-gauge expansion', () => {
   });
 
   it('uses real route imagery and does not invent missing runnable bands', () => {
-    const routes = new Map(listRivers().map((route) => [route.slug, route]));
+    const routes = new Map(listAllRiversForAudit().map((route) => [route.slug, route]));
 
     for (const routeId of routeIds) {
       const route = routes.get(routeId);

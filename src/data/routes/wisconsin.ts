@@ -2834,8 +2834,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "princeton-hiestand-park-landing",
         "name": "Princeton Jefferson Street / Hiestand Park Landing",
-        "latitude": 43.8512,
-        "longitude": -89.1289,
+        "latitude": 43.85238,
+        "longitude": -89.133973,
         "mileFromStart": 3.58,
         "segmentKind": "creek",
         "note": "Default public city take-out at Princeton Landing / Hiestand Park, supported by WRT and local Princeton launch pages."
@@ -2909,8 +2909,8 @@ export const wisconsinRoutes: River[] = [
     "region": "South-Central Wisconsin",
     "summary": "Six-mile Upper Fox continuation from Princeton / Hiestand Park to the refurbished DNR White River Lock and Dam access. The first miles have wooded banks and the historic St. Marie swing bridge before the channel broadens and slows.",
     "statusText": "Use the Fox River at Princeton gauge. WRT calls 550 cfs average for this route, says the river rarely drops below 400 cfs, and describes 800 to 1000 cfs as higher water; Paddle Today uses a conservative 400 cfs minimum-only floor.",
-    "latitude": 43.8512,
-    "longitude": -89.1289,
+    "latitude": 43.85238,
+    "longitude": -89.133973,
     "gaugeSource": {
       "id": "usgs-04073365",
       "provider": "usgs",
@@ -2963,8 +2963,8 @@ export const wisconsinRoutes: River[] = [
       {
         "id": "princeton-hiestand-park-landing",
         "name": "Princeton Jefferson Street / Hiestand Park Landing",
-        "latitude": 43.8512,
-        "longitude": -89.1289,
+        "latitude": 43.85238,
+        "longitude": -89.133973,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public city put-in at Princeton Landing / Hiestand Park."
@@ -3056,8 +3056,8 @@ export const wisconsinRoutes: River[] = [
     "region": "East-Central Wisconsin",
     "summary": "Kohler-area Sheboygan River run from Rochester Park through two marked dam portages, then into the rocky Blackwolf Run corridor and Esslingen Park. It is best known for fall color, salmon runs, and Class I riffles below Walderhaus Dam.",
     "statusText": "Use the Sheboygan River at Sheboygan gauge. WRT calls 101 to 350 cfs the good target range, 0 to 100 cfs shallow, 501 to 800 cfs high and less enjoyable, and 801+ cfs maybe too high for casual paddlers.",
-    "latitude": 43.7266,
-    "longitude": -87.8166,
+    "latitude": 43.72573,
+    "longitude": -87.803695,
     "gaugeSource": {
       "id": "usgs-04086000",
       "provider": "usgs",
@@ -3127,9 +3127,9 @@ export const wisconsinRoutes: River[] = [
     "accessPoints": [
       {
         "id": "rochester-park-sheboygan-river",
-        "name": "Rochester Park river access",
-        "latitude": 43.7266,
-        "longitude": -87.8166,
+        "name": "Rochester Park access-area anchor (launch path unverified)",
+        "latitude": 43.72573,
+        "longitude": -87.803695,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in in Rochester Park; WRT describes multiple launch options and a short carry from park parking."
@@ -14342,8 +14342,8 @@ export const wisconsinRoutes: River[] = [
     "region": "Milwaukee metro",
     "summary": "Short downtown Milwaukee River route from Riverside Park / Milwaukee Rotary Centennial Arboretum through the lower urban water trail to the Bruce Street Boat Ramp. It avoids the open Lake Michigan add-on but still includes North Avenue riffles, movable bridges, tour boats, seawalls, urban runoff, and harbor-adjacent motorboat traffic near the take-out.",
     "statusText": "Use USGS 04087000 Milwaukee River at Milwaukee, just upstream of the put-in. Miles Paddled says 200 to 400 cfs is a beginner-friendly lower-water window and that above about 800 cfs paddlers should have basic moving-water experience.",
-    "latitude": 43.0674,
-    "longitude": -87.89238,
+    "latitude": 43.06739422,
+    "longitude": -87.89480066,
     "gaugeSource": {
       "id": "usgs-04087000",
       "provider": "usgs",
@@ -14401,9 +14401,9 @@ export const wisconsinRoutes: River[] = [
     "accessPoints": [
       {
         "id": "riverside-park-rotary-centennial-arboretum-landing",
-        "name": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
-        "latitude": 43.0674,
-        "longitude": -87.89238,
+        "name": "Riverside Park / Urban Ecology Center canoe launch",
+        "latitude": 43.06739422,
+        "longitude": -87.89480066,
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default put-in for the downtown split; WRT documents a long carry to the canoe landing at Riverside Park / Rotary Centennial Arboretum."

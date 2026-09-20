@@ -10,8 +10,8 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Farm Field Park kayak and canoe access",
-      "latitude": 43.5028832,
-      "longitude": -96.749131
+      "latitude": 43.5013198,
+      "longitude": -96.7504983
     },
     "logistics": {
       "distanceLabel": "About 5 mi",
@@ -36,8 +36,8 @@ export const southDakotaRiverTripDetails: Record<string, RiverTripDetails> = {
   "big-sioux-river-farm-field-rotary": {
     "putIn": {
       "name": "Farm Field Park kayak and canoe access",
-      "latitude": 43.5028832,
-      "longitude": -96.749131
+      "latitude": 43.5013198,
+      "longitude": -96.7504983
     },
     "takeOut": {
       "name": "Rotary Park kayak and canoe access",

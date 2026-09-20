@@ -1460,8 +1460,7 @@ export const iowaRiverTripDetails: Record<string, RiverTripDetails> = {
       "id": "heery-woods-below-dam",
       "name": "Heery Woods / Timber Avenue below-dam access (location unverified)",
       "latitude": 42.7718,
-      "longitude": -92.67323,
-      "note": "Butler County distinguishes the North Side ramp within Heery Woods above the dam from a separate below-dam ramp across the river off Timber Avenue near the Conservation Board shop. This stored coordinate has not been tied to that below-dam ramp; keep the route withheld until the exact public approach, carry, and dam-safe launch are located."
+      "longitude": -92.67323
     },
     "takeOut": {
       "id": "rennings-landing",

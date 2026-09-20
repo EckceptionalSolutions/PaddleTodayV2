@@ -15,6 +15,8 @@ const formNote = document.querySelector('[data-request-form-note]');
 const REQUEST_EMAIL = 'hello@paddletoday.com';
 const cooldown = createSubmissionCooldown('paddletoday:routeRequest:lastTs');
 let submitting = false;
+// Preserve the form mode if an in-page link changes the fragment later.
+const contextParams = requestContextParams();
 
 applyRequestContext();
 
@@ -85,8 +87,18 @@ if (form instanceof HTMLFormElement) {
   });
 }
 
-function applyRequestContext() {
+// Fragments keep form prefill out of crawlable query URLs. Older shared links
+// still work; fragment values take precedence when both formats are present.
+function requestContextParams() {
   const params = new URLSearchParams(window.location.search);
+  for (const [key, value] of new URLSearchParams(window.location.hash.slice(1))) {
+    params.set(key, value);
+  }
+  return params;
+}
+
+function applyRequestContext() {
+  const params = contextParams;
   const mode = String(params.get('mode') || '').trim().toLowerCase();
   const isUpdate = mode === 'update';
 
@@ -254,7 +266,7 @@ function defaultSubmitLabel() {
 }
 
 function requestModeLabel() {
-  const params = new URLSearchParams(window.location.search);
+  const params = contextParams;
   return String(params.get('mode') || '').trim().toLowerCase() === 'update' ? 'update' : 'request';
 }
 
@@ -278,7 +290,7 @@ function prefillField(formElement, name, value) {
 }
 
 function fallbackToEmail(payload) {
-  const isUpdate = String(new URLSearchParams(window.location.search).get('mode') || '').trim().toLowerCase() === 'update';
+  const isUpdate = requestModeLabel() === 'update';
   const subject = isUpdate
     ? `Route update: ${payload.routeName} (${payload.state})`
     : `Route request: ${payload.routeName} (${payload.state})`;

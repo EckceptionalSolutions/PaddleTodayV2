@@ -62,6 +62,10 @@ jobs:
           cp staticwebapp.config.json dist/staticwebapp.config.json
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
 
+      - name: Audit built search indexability
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
+        run: node --import tsx scripts/audit-search-indexability.ts
+
       - name: Package frontend without gallery and map assets
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: node scripts/static-assets.mjs package

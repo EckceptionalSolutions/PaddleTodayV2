@@ -40,9 +40,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.6083
     },
     "takeOut": {
-      "name": "Pulltite river access / campground area",
-      "latitude": 37.33505,
-      "longitude": -91.47959
+      "name": "Pulltite Campground / Current River landing (imagery-derived water-entry edge)",
+      "latitude": 37.335123,
+      "longitude": -91.477444
     },
     "logistics": {
       "distanceLabel": "17.3 mi",
@@ -72,9 +72,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.55148
     },
     "takeOut": {
-      "name": "Pulltite river access / campground area",
-      "latitude": 37.33505,
-      "longitude": -91.47959
+      "name": "Pulltite Campground / Current River landing (imagery-derived water-entry edge)",
+      "latitude": 37.335123,
+      "longitude": -91.477444
     },
     "logistics": {
       "distanceLabel": "9.6 mi",
@@ -130,9 +130,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "current-river-pulltite-round-spring": {
     "putIn": {
-      "name": "Pulltite river access / campground area",
-      "latitude": 37.33505,
-      "longitude": -91.47959
+      "name": "Pulltite Campground / Current River landing (imagery-derived water-entry edge)",
+      "latitude": 37.335123,
+      "longitude": -91.477444
     },
     "takeOut": {
       "name": "Round Spring (middle) river landing",
@@ -827,9 +827,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.405675
     },
     "takeOut": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "logistics": {
       "distanceLabel": "About 7.3 mi by Forest Service river miles",
@@ -1013,9 +1013,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.528058
     },
     "takeOut": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "logistics": {
       "distanceLabel": "About 16.6 mi",
@@ -1101,9 +1101,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "eleven-point-river-greer-crossing-turner-mill": {
     "putIn": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "takeOut": {
       "name": "Turner Mill North River Access",
@@ -1131,9 +1131,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "eleven-point-river-greer-crossing-turner-mill-south": {
     "putIn": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "takeOut": {
       "name": "Turner Mill South River Access",
@@ -1161,9 +1161,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "eleven-point-river-greer-crossing-whitten": {
     "putIn": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "takeOut": {
       "name": "Whitten River Access",
@@ -1192,9 +1192,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "eleven-point-river-greer-crossing-riverton": {
     "putIn": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "takeOut": {
       "name": "Riverton East River Access / Highway 160",
@@ -1223,9 +1223,9 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "eleven-point-river-greer-crossing-narrows": {
     "putIn": {
-      "name": "Greer Crossing Recreation Area",
-      "latitude": 36.79356389,
-      "longitude": -91.32854167
+      "name": "Greer Crossing river access",
+      "latitude": 36.793439,
+      "longitude": -91.331617
     },
     "takeOut": {
       "name": "Highway 142 River Access / The Narrows",
@@ -1661,8 +1661,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "name": "Meramec State Park River Stop Store / river launch",
-      "latitude": 38.20379,
-      "longitude": -91.099735
+      "latitude": 38.203259,
+      "longitude": -91.09888
     },
     "logistics": {
       "distanceLabel": "About 5 mi",
@@ -1687,8 +1687,8 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   "meramec-river-state-park-sand-ford": {
     "putIn": {
       "name": "Meramec State Park River Stop Store / river launch",
-      "latitude": 38.20379,
-      "longitude": -91.099735
+      "latitude": 38.203259,
+      "longitude": -91.09888
     },
     "takeOut": {
       "name": "Sand Ford Access",

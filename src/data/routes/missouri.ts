@@ -938,8 +938,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Popular Upper Current River day float from Pulltite to Round Spring inside Ozark National Scenic Riverways. NPS lists the 8.9-mile route, the Akers gauge is fresh and already supports nearby Upper Current routes, and the scoring stays low-water-only because the gauge is upstream.",
     "statusText": "Use the Current River above Akers gauge as an upstream proxy. Around 300 cfs is the conservative low-water floor for this reach; below that, expect shallow riffles and slower travel. Do not treat high or rising water as casual, and check NPS closure notices before launching.",
-    "latitude": 37.33505,
-    "longitude": -91.47959,
+    "latitude": 37.335123,
+    "longitude": -91.477444,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6307,8 +6307,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Short spring-supported Eleven Point day from Greer Crossing to Turner Mill, with Forest Service public access at both ends, Mary Decker Shoal, and the direct Bardley gauge used as a conservative low-water check.",
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising water as a caution flag.",
-    "latitude": 36.79356389,
-    "longitude": -91.32854167,
+    "latitude": 36.793439,
+    "longitude": -91.331617,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6457,8 +6457,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Short spring-supported Eleven Point day from Greer Crossing to Turner Mill South, using the official Forest Service put-in and river-right landing with the Bardley gauge as a conservative low-water check.",
     "statusText": "Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising or storm-affected water as a caution flag.",
-    "latitude": 36.79356389,
-    "longitude": -91.32854167,
+    "latitude": 36.793439,
+    "longitude": -91.331617,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6606,8 +6606,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Spring-fed Eleven Point day from Greer Crossing to Whitten, with official Forest Service access at both ends, a direct Bardley gauge, and a practical one-day link through the Blue and White Ribbon trout water.",
     "statusText": "Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor; below that, expect shoals and occasional dragging even though Greer Spring makes this reach more dependable than the upper river. No exact high-water cutoff is claimed.",
-    "latitude": 36.79356389,
-    "longitude": -91.32854167,
+    "latitude": 36.793439,
+    "longitude": -91.331617,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6755,8 +6755,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Longer lower Eleven Point day from Greer Crossing to Riverton East, using official Forest Service access pages, the direct Bardley gauge, and the Forest Service one-long-day or easy-overnighter route shape.",
     "statusText": "Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 19-mile cold-water route, so low water, wind, or wood can turn it into a very slow day. No exact high-water cutoff is claimed.",
-    "latitude": 36.79356389,
-    "longitude": -91.32854167,
+    "latitude": 36.793439,
+    "longitude": -91.331617,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [
@@ -6909,8 +6909,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Long lower Eleven Point continuation from Greer Crossing to the Highway 142 / Narrows access, linking the Forest Service 19-mile Greer-to-Riverton day with the last developed access farther downstream.",
     "statusText": "Use the Eleven Point near Bardley gauge as a conservative low-water check. Around 300 cfs remains the floor, but this is a long 27-plus-mile cold-water continuation, so low water, wind, fatigue, or wood can turn it into an overnight-capable commitment. No exact high-water cutoff is claimed.",
-    "latitude": 36.79356389,
-    "longitude": -91.32854167,
+    "latitude": 36.793439,
+    "longitude": -91.331617,
     "routeType": "whitewater",
     "safetyProfile": {
       "riskLevel": "caution",
@@ -9033,8 +9033,8 @@ export const missouriRoutes: River[] = [
     "region": "Missouri Ozarks",
     "summary": "Public Meramec day float from the Meramec State Park river launch to MDC Sand Ford Access near Stanton. This links two managed access areas in the Sullivan corridor, using the live Sullivan gauge as a conservative low-water check.",
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and a longer day. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
-    "latitude": 38.20379,
-    "longitude": -91.099735,
+    "latitude": 38.203259,
+    "longitude": -91.09888,
     "safetyProfile": {
       "riskLevel": "caution",
       "hazards": [

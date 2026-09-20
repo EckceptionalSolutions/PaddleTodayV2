@@ -35,7 +35,7 @@ const stateTitle = scoredRoutes.length
   ? `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`
   : `${stateGroup.name} Paddle Routes & Trip Planning | Paddle Today`;
 const stateDescription = `Explore ${stateRouteCount} ${stateGroup.name} paddle ${routeLabel} with access details, trip planning, and source links. ${scoredRoutes.length} support live scores; ${reviewedPlanningCount} are planning-only.`;
-const requestStateHref = `/request-river/?state=${encodeURIComponent(stateGroup.name)}`;
+const requestStateHref = `/request-river/#state=${encodeURIComponent(stateGroup.name)}`;
 const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
   difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 const slugifyFragment = (value: string) =>
