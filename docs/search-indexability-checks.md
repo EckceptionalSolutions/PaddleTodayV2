@@ -29,3 +29,5 @@ Azure serves `/404.html` with status 404 for missing paths instead of rewriting 
 Final validation after restoring the missing coordinates: full typecheck, route-data and geometry audits, scoring sensitivity, all 1,416 root/workspace tests, production build, and the search indexability audit pass. The build still contains 3,219 pages and the sitemap contains 3,213 URLs, with no audit errors or warnings.
 
 These checks prevent technical indexing regressions. They do not guarantee indexing, ranking or recovery from an algorithmic update.
+
+After integrating the current main branch's asset-hosting workflow, all 1,428 tests pass. The production build with versioned asset URLs, search audit, and frontend packaging also pass. The search audit runs only when the workflow builds the site, preserving the asset-verification-only mode.

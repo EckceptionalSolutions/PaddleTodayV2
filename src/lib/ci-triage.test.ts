@@ -28,7 +28,7 @@ describe('deployment configuration', () => {
   const credentials = JSON.stringify({ clientId: 'id', clientSecret: 'secret', tenantId: 'tenant', subscriptionId: 'subscription' });
   it('fails missing credentials before deployment work', () => {
     expect(checkDeploymentConfig('api', {})).toHaveLength(2);
-    expect(checkDeploymentConfig('frontend', { AZURE_STATIC_WEB_APPS_API_TOKEN: '   ' })).toHaveLength(1);
+    expect(checkDeploymentConfig('frontend', { AZURE_STATIC_WEB_APPS_API_TOKEN: '   ' })).toHaveLength(2);
   });
   it('rejects expired SAS and malformed credentials without echoing values', () => {
     const errors = checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: 'private-secret', SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=private-token&se=2020-01-01' });
@@ -37,5 +37,7 @@ describe('deployment configuration', () => {
   });
   it('accepts a valid configuration including SAS governed by a stored policy', () => {
     expect(checkDeploymentConfig('snapshot', { AZURE_CREDENTIALS: credentials, SNAPSHOT_SAS_URL: 'https://blob.test/container?sig=token&si=policy' })).toEqual([]);
+    expect(checkDeploymentConfig('frontend', { AZURE_CREDENTIALS: credentials, AZURE_STATIC_WEB_APPS_API_TOKEN: 'token' })).toEqual([]);
+    expect(checkDeploymentConfig('frontend', { AZURE_CREDENTIALS: 'bad-json', AZURE_STATIC_WEB_APPS_API_TOKEN: 'token' })).toHaveLength(1);
   });
 });

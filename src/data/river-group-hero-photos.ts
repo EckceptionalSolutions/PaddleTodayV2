@@ -1,4 +1,5 @@
 import type { RiverGroupHeroPhoto } from '@paddletoday/api-contract';
+import { staticAssetUrl } from '../lib/static-asset-url.js';
 
 export const dedicatedRiverGroupHeroPhotos: Record<string, RiverGroupHeroPhoto> = {
   'logan-creek': {
@@ -1247,5 +1248,6 @@ export const dedicatedRiverGroupHeroPhotos: Record<string, RiverGroupHeroPhoto> 
 };
 
 export function getDedicatedRiverGroupHeroPhoto(riverId?: string): RiverGroupHeroPhoto | null {
-  return riverId ? dedicatedRiverGroupHeroPhotos[riverId] ?? null : null;
+  const photo = riverId ? dedicatedRiverGroupHeroPhotos[riverId] : null;
+  return photo ? { ...photo, src: staticAssetUrl(photo.src) } : null;
 }

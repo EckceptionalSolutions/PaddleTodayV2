@@ -16,6 +16,7 @@ import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { trackEvent } from './analytics.js';
 import { isCurrentCallUnavailable } from '../lib/current-call-availability.js';
+import { staticAssetUrl } from '../lib/static-asset-url.js';
 import {
   callDisplayLabel,
   confidenceDisplayLabel,
@@ -423,7 +424,7 @@ function renderApprovedRouteGallery() {
     routeGalleryViewer.innerHTML = `
       <div class="route-gallery__empty" data-route-gallery-empty>
         <div class="route-gallery__empty-art" aria-hidden="true">
-          <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" decoding="async" />
+          <img src="${staticAssetUrl('/gallery/fallbacks/river-fallback-wide.jpg')}" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="route-gallery__empty-copy">
           <h3 class="route-gallery__empty-title">No approved route photos yet</h3>

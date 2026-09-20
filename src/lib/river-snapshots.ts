@@ -35,7 +35,8 @@ import { mapWithConcurrency } from './async-concurrency';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
-const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
+// Full score-eligible catalog snapshots now exceed the former 4 MiB limit.
+const MAX_SUMMARY_SNAPSHOT_BYTES = 16 * 1024 * 1024;
 
 function isRiverSummaryApiItem(value: unknown): value is RiverSummaryApiItem {
   if (!isRecord(value) || !isRecord(value.river)) {
@@ -809,4 +810,3 @@ function assertSnapshotSize(blobName: string, value: unknown, maxBytes: number) 
     );
   }
 }
-
