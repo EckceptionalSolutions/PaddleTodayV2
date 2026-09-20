@@ -102,7 +102,7 @@ const seasonHeadline =
 const primaryAccessCaveat = logisticsModel.primaryAccessCaveat;
 const secondaryAccessCaveat = logisticsModel.secondaryAccessCaveat;
 const reportChangeHref =
-  `/request-river/?mode=update&routeName=${encodeURIComponent(`${river.name} - ${river.reach}`)}&state=${encodeURIComponent(river.state)}` +
+  `/request-river/#mode=update&routeName=${encodeURIComponent(`${river.name} - ${river.reach}`)}&state=${encodeURIComponent(river.state)}` +
   `${putIn?.name ? `&putIn=${encodeURIComponent(putIn.name)}` : ''}` +
   `${takeOut?.name ? `&takeOut=${encodeURIComponent(takeOut.name)}` : ''}` +
   `${river.profile.thresholdSource.url ? `&sources=${encodeURIComponent(river.profile.thresholdSource.url)}` : ''}` +
@@ -170,12 +170,12 @@ const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?puti
 const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeSeoTitle = isPlanningRoute
-  ? `${river.name} Paddle Route & Trip Planning | Paddle Today`
-  : `${river.name} Paddle Conditions, Water Levels & Route Info | Paddle Today`;
+  ? `${river.name}: ${river.reach}, ${river.state} | Paddle Route`
+  : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`;
 const routeSeoDescription = isPlanningRoute
   ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
   : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
-const routeIntro = `Check current paddling conditions for this ${river.name} route, including water level, recent gauge trend, weather, and route details.`;
+const routeIntro = river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = isPlanningRoute
   ? routeSeoDescription
@@ -370,7 +370,7 @@ const routeFaqStructuredData = {
             <p class="eyebrow">{river.state} | {river.region}</p>
             <h1 class="river-detail__title">{river.name}</h1>
             <p class="river-detail__reach">{river.reach}</p>
-            <p class="route-seo-intro">{isPlanningRoute ? 'Route planning details, access notes, and local verification guidance.' : routeIntro}</p>
+            <p class="route-seo-intro">{routeIntro}</p>
           </div>
         </div>
 
@@ -1773,7 +1773,7 @@ const routeFaqStructuredData = {
                   <span class="factor-item__value">{note.value}</span>
                 </div>
                 {note.note ? <p class="muted" style="margin: 0.55rem 0 0;">{note.note}</p> : null}
-                {note.sourceUrl ? (
+                {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? (
                   <p style="margin: 0.55rem 0 0;">
                     <a href={note.sourceUrl} target="_blank" rel="noreferrer">
                       Source

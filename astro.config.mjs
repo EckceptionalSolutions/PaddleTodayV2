@@ -17,10 +17,11 @@ export default defineConfig({
   site,
   integrations: [
     sitemap({
-      filter: (page) =>
-        !page.includes('/admin/') &&
-        !page.includes('/alerts/unsubscribe/') &&
-        !page.includes('/favorites/'),
+      filter: (page) => {
+        const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
+        return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river']
+          .some((excluded) => pathname === excluded || pathname.startsWith(`${excluded}/`));
+      },
     }),
   ],
   vite: {

@@ -43,7 +43,7 @@ function makeRoute(spec: BartramSpec): River {
     riverId: 'bartram-canoe-trail-alabama',
     state: 'Alabama',
     region: 'Mobile-Tensaw Delta / Baldwin County Forever Wild lands',
-    reach: `${spec.start.name} to ${spec.end.name}`,
+    reach: `${spec.title}: ${spec.start.name} to ${spec.end.name}`,
     latitude: spec.start.latitude,
     longitude: spec.start.longitude,
     summary: spec.summary,
