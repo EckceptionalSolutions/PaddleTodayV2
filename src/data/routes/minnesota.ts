@@ -31707,7 +31707,7 @@ export const minnesotaRoutes: River[] = [
     "reach": "Sand Creek Landing to Highway 70 Landing",
     "state": "Minnesota",
     "region": "East Central Minnesota",
-    "summary": "NPS Map 6 St. Croix connector from Sand Creek Landing to Highway 70, closing the Minnesota inventory gap between the Little-Yellow-to-Sand-Creek route and the Highway-70-to-Wild-River sequence.",
+    "summary": "Plan a St. Croix River paddle from Sand Creek Landing to Highway 70 using NPS Map 6. This reach lies downstream of the Little Yellow River-to-Sand Creek section and upstream of the Highway 70-to-Wild River section.",
     "statusText": "Use the Danbury DNR gauge conservatively for the upstream main-stem read: 1,500 to 2,200 cfs is the official medium band. Below 1,250 cfs is scrapable, and above 6,000 cfs is very high.",
     "latitude": 45.9331669,
     "longitude": -92.6407033,
