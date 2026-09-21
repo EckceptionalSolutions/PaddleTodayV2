@@ -9,6 +9,8 @@ type CacheOptions<T> = {
   ttlMs: number;
   staleWhileErrorMs?: number;
   load: () => Promise<T>;
+  maxEntries?: number;
+  maxEntriesPrefix?: string;
 };
 
 const globalCache = globalThis as typeof globalThis & {
@@ -48,6 +50,7 @@ export async function remember<T>(options: CacheOptions<T>): Promise<T> {
         expiresAt: now + options.ttlMs,
         staleUntil: now + options.ttlMs + staleWhileErrorMs,
       });
+      pruneCache(options.maxEntries ?? 256, now, options.maxEntriesPrefix);
       return value;
     })
     .catch((error) => {
@@ -65,6 +68,31 @@ export async function remember<T>(options: CacheOptions<T>): Promise<T> {
 
   inflight.set(options.key, loading);
   return loading;
+}
+
+/** Remove one cached value or a group of values before a published generation is read. */
+export function forgetCache(keyOrPrefix: string, options: { prefix?: boolean } = {}) {
+  if (!options.prefix) {
+    cache.delete(keyOrPrefix);
+    return;
+  }
+
+  for (const key of cache.keys()) {
+    if (key.startsWith(keyOrPrefix)) cache.delete(key);
+  }
+}
+
+function pruneCache(maxEntries: number, now: number, prefix?: string) {
+  for (const [key, entry] of cache) {
+    if ((!prefix || key.startsWith(prefix)) && entry.staleUntil <= now) cache.delete(key);
+  }
+
+  const keys = () => [...cache.keys()].filter((key) => !prefix || key.startsWith(prefix));
+  while (keys().length > maxEntries) {
+    const oldestKey = keys()[0];
+    if (!oldestKey) break;
+    cache.delete(oldestKey);
+  }
 }
 
 export function getCacheStats() {

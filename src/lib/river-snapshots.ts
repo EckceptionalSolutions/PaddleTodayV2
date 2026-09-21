@@ -32,11 +32,13 @@ import { gaugeDisplayForSource } from './source-adapters';
 import { conditionZoneIdForRiver } from './condition-zones';
 import { corridorForSlug } from '../data/route-corridors';
 import { mapWithConcurrency } from './async-concurrency';
+import { forgetCache, remember } from './server-cache';
 import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
-// Full score-eligible catalog snapshots now exceed the former 4 MiB limit.
-const MAX_SUMMARY_SNAPSHOT_BYTES = 16 * 1024 * 1024;
+const MAX_SUMMARY_SNAPSHOT_BYTES = 4 * 1024 * 1024;
+const DEFAULT_SNAPSHOT_READ_CACHE_TTL_MS = 45_000;
+const SNAPSHOT_READ_CACHE_MAX_ENTRIES = 96;
 
 function isRiverSummaryApiItem(value: unknown): value is RiverSummaryApiItem {
   if (!isRecord(value) || !isRecord(value.river)) {
@@ -165,6 +167,9 @@ export async function captureRiverSnapshots(args: {
   await mapWithConcurrency(routeBlobs, args.writeConcurrency ?? 12, ({ name, payload }) => storage.writeJson(name, payload));
   await storage.writeJson(weekendSummaryBlobName(), weekendSummary);
   await storage.writeJson(summaryBlobName(), summary);
+  // The worker may share a process with an API in local/dev deployments. Never
+  // let a just-published generation remain hidden behind a read cache.
+  forgetCache('snapshot:', { prefix: true });
 
   return {
     generatedAt,
@@ -197,10 +202,10 @@ export async function getStoredRiverSummarySnapshot(
 }
 
 async function readStoredOrLocalSummary(): Promise<RiverSummarySnapshot | null> {
-  return (
+  return readCachedSnapshot('summary', async () => (
     (await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName())) ??
     (await readLocalSummaryFallback())
-  );
+  ));
 }
 
 async function readLocalSummaryFallback(): Promise<RiverSummarySnapshot | null> {
@@ -221,9 +226,10 @@ export async function getStoredRiverDetailSnapshot(
     return null;
   }
 
-  const snapshot =
+  const snapshot = await readCachedSnapshot(`detail:${slug}`, async () => (
     (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug))) ??
-    (await readSummaryDetailFallback(slug));
+    (await readSummaryDetailFallback(slug))
+  ));
   const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
   if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
@@ -241,9 +247,10 @@ export async function getStoredRiverDetailSnapshot(
 export async function getStoredWeekendSummarySnapshot(
   options: StoredSnapshotReadOptions = {},
 ): Promise<StoredSnapshot<WeekendSummarySnapshot> | null> {
-  const snapshot =
+  const snapshot = await readCachedSnapshot('weekend', async () => (
     (await snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName())) ??
-    (await readSummaryWeekendFallback());
+    (await readSummaryWeekendFallback())
+  ));
   const metadata = snapshot ? storedSnapshotMetadata(snapshot) : null;
   if (!snapshot || !metadata || (metadata.snapshotStatus === 'stale' && !options.allowStale)) {
     return null;
@@ -798,7 +805,25 @@ function snapshotStorage(): JsonStorage {
     ),
     label: 'snapshot',
     space: 0,
+    accessTier: 'Hot',
   });
+}
+
+async function readCachedSnapshot<T>(key: string, load: () => Promise<T | null>): Promise<T | null> {
+  const ttlMs = positiveInteger(process.env.RIVER_SNAPSHOT_READ_CACHE_TTL_MS, DEFAULT_SNAPSHOT_READ_CACHE_TTL_MS);
+  return remember({
+    key: `snapshot:${key}`,
+    ttlMs,
+    staleWhileErrorMs: ttlMs * 3,
+    maxEntries: SNAPSHOT_READ_CACHE_MAX_ENTRIES,
+    maxEntriesPrefix: 'snapshot:',
+    load,
+  });
+}
+
+function positiveInteger(value: string | undefined, fallback: number) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
 }
 
 function assertSnapshotSize(blobName: string, value: unknown, maxBytes: number) {
