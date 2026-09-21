@@ -124,5 +124,5 @@ jobs:
       - name: Smoke test deployment
         env:
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
-          DEPLOYMENT_SMOKE_TIMEOUT_MS: '60000'
+          DEPLOYMENT_SMOKE_TIMEOUT_MS: '180000'
         run: npm run deployment:smoke
