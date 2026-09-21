@@ -116,6 +116,8 @@ jobs:
           app_location: "tmp/frontend"
           skip_app_build: true
 
-      - name: Verify deployed search page responses
+      - name: Verify deployed origin search page responses
         if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
+        env:
+          DEPLOYMENT_ORIGIN_HOST: jolly-river-0d74c2110.1.azurestaticapps.net
         run: node scripts/search-serving-smoke.mjs

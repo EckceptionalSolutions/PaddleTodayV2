@@ -12,6 +12,8 @@ The frontend workflow runs this audit on both the build and final deployment pac
 
 The asset packager preserves routing configuration rather than introducing a homepage fallback. After deployment, `node scripts/search-serving-smoke.mjs` checks actual HTTP status and canonical behavior for valid pages, withheld paths, and a unique missing path. It uses unique query strings to avoid a previously cached response masking the new deployment. Old cached URLs may still need a targeted CDN purge.
 
+The deployment workflow supplies `DEPLOYMENT_ORIGIN_HOST` to resolve the Azure Static Web App directly because public requests from its GitHub-hosted runner receive CDN 403 responses. This retains the public Host header, SNI and certificate verification; it does not relax CDN rules or disable TLS validation. Run the script without that variable to verify the public CDN path separately. An origin check alone does not establish public CDN availability.
+
 Route and hub titles distinguish reach/location. Named Bartram itineraries retain their trail names even when they share endpoints. Route introductions use existing route-specific summaries. Evidence labels that are not HTTP(S) sources are not rendered as links.
 
 Request-form prefill now uses URL fragments, so the server receives one utility URL rather than one query URL per route. Existing query links remain supported. The initial form mode is retained when a skip link changes the fragment. Request forms and other noindex utility pages are excluded from the sitemap; links on those pages remain followable.
