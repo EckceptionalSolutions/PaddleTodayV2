@@ -27,10 +27,10 @@ concurrency:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-      # OneDeploy may spend several minutes running the App Service Oryx build
-      # after the package upload. Keep the job long enough to reach readiness
-      # and smoke checks instead of timing out during a healthy deployment.
-      timeout-minutes: 30
+    # OneDeploy may spend several minutes running the App Service Oryx build
+    # after the package upload. Keep the job long enough to reach readiness
+    # and smoke checks instead of timing out during a healthy deployment.
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
