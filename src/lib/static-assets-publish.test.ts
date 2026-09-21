@@ -63,14 +63,18 @@ describe('static asset publishing', () => {
     const { root, source, manifest } = await fixture();
     await mkdir(join(source, 'rivers/route'), { recursive: true });
     await writeFile(join(source, 'rivers/route/index.html'), `<img src="${manifest.baseUrl}/gallery/photo.jpg">`);
-    await writeFile(join(source, 'staticwebapp.config.json'), JSON.stringify({ routes: [{ route: '/old', redirect: '/new' }] }));
+    const routing = {
+      routes: [{ route: '/old', redirect: '/new', statusCode: 301 }],
+      responseOverrides: { '404': { rewrite: '/404.html', statusCode: 404 } },
+    };
+    await writeFile(join(source, 'staticwebapp.config.json'), JSON.stringify(routing));
     const destination = join(root, 'frontend');
     await packageFrontend({ source, destination, manifest, baseUrl: manifest.baseUrl });
     expect(await readdir(destination)).toEqual(['rivers', 'staticwebapp.config.json']);
     expect(await readFile(join(source, 'gallery/photo.jpg'), 'utf8')).toBe('photo');
     const config = JSON.parse(await readFile(join(destination, 'staticwebapp.config.json'), 'utf8'));
-    expect(config.routes).toEqual([{ route: '/old', redirect: '/new' }]);
-    expect(config.navigationFallback.exclude).toContain('/gallery/*');
+    expect(config).toEqual(routing);
+    expect(config.navigationFallback).toBeUndefined();
     await writeFile(join(source, 'data/geometry.json'), '{"changed":true}');
     await expect(packageFrontend({ source, destination: join(root, 'bad'), manifest, baseUrl: manifest.baseUrl })).rejects.toThrow('changed after preparation');
   });

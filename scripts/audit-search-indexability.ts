@@ -13,7 +13,7 @@ const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${na
 const attr = (tag: string, name: string) => decode(tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`, 'i'))?.[1] || '');
 const fileFor = (pathname: string) => join(root, pathname.endsWith('/') ? `${pathname}index.html` : pathname);
 const utilityPaths = ['/admin/', '/admin/operations/', '/alerts/unsubscribe/', '/favorites/', '/request-river/'];
-const config = JSON.parse(await readFile('staticwebapp.config.json', 'utf8'));
+const config = JSON.parse(await readFile(join(root, 'staticwebapp.config.json'), 'utf8'));
 if (config.navigationFallback) errors.push('Static pages must not fall back to the homepage for missing URLs.');
 if (config.responseOverrides?.['404']?.statusCode !== 404 || config.responseOverrides?.['404']?.rewrite !== '/404.html') {
   errors.push('Azure must serve the branded 404 page with HTTP 404.');

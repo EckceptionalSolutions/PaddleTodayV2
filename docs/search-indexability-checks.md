@@ -4,10 +4,13 @@ After building the static site, run:
 
 ```sh
 npm run build:app
+cp staticwebapp.config.json dist/staticwebapp.config.json
 node --import tsx scripts/audit-search-indexability.ts
 ```
 
-The frontend workflow runs this audit before deploying. It checks the generated sitemap against actual HTML files, one self-referencing canonical per sitemap URL, indexable metadata, every published route/hub, internal route destinations, utility-page exclusions and Azure's real 404 response. Duplicate titles are reported as warnings. An optional first argument selects a different build directory; `SITE_URL` or `PUBLIC_SITE_URL` selects the expected canonical origin.
+The frontend workflow runs this audit on both the build and final deployment package. It checks the generated sitemap against actual HTML files, one self-referencing canonical per sitemap URL, indexable metadata, every published route/hub, internal route destinations, utility-page exclusions and the packaged Azure 404 configuration. Duplicate titles are reported as warnings. An optional first argument selects a different build directory; `SITE_URL` or `PUBLIC_SITE_URL` selects the expected canonical origin. The selected directory must contain `staticwebapp.config.json`.
+
+The asset packager preserves routing configuration rather than introducing a homepage fallback. After deployment, `node scripts/search-serving-smoke.mjs` checks actual HTTP status and canonical behavior for valid pages, withheld paths, and a unique missing path. It uses unique query strings to avoid a previously cached response masking the new deployment. Old cached URLs may still need a targeted CDN purge.
 
 Route and hub titles distinguish reach/location. Named Bartram itineraries retain their trail names even when they share endpoints. Route introductions use existing route-specific summaries. Evidence labels that are not HTTP(S) sources are not rendered as links.
 
