@@ -7382,7 +7382,7 @@ export const wisconsinRoutes: River[] = [
     "reach": "Sauk City to Arena Landing",
     "state": "Wisconsin",
     "region": "Lower Wisconsin Riverway",
-    "summary": "Popular upper Lower Wisconsin State Riverway day with broad sandbars, easy current, and official DNR route support. It is best kept as its own scored route because the mileage and shuttle are different from the downstream Arena and Spring Green options.",
+    "summary": "An 11-mile Lower Wisconsin State Riverway day paddle from Sauk Canoe Access to Arena Landing, with broad sandbars along the route. Allow about 3.5 to 4.5 hours and arrange a car shuttle between the two accesses.",
     "statusText": "Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.",
     "safetyProfile": {"riskLevel":"caution","hazards":["fast_rise","low_water","cold_water","private_banks"],"safetyNotes":["Use the Muscoda trend with weather and upstream-rain awareness; the river can rise while local conditions look calm.","Low flow exposes shallow side channels and high flow covers sandbars, increases current, and reduces easy exits.","Stay with named Lower Wisconsin public landings and do not treat islands or sandbars as legal camping by default."],"reviewStatus":"reviewed"},
     "latitude": 43.2566,
