@@ -8,6 +8,12 @@ Created: 2026-09-21. Status: implementation in progress; code changes are ready 
 - Pending production rollout: deploy the API/worker packages, verify existing blob tiers and set currently active blobs to Hot, then compare seven days of posted storage meters.
 - Still pending: response/compression profiling, Cloudflare browser-TTL correction, history write batching, and monitoring permissions/alert verification.
 
+### Rollout execution log — 2026-09-21
+
+- Active Blob migration completed: 2,525 `river-snapshots/*` blobs and 788 `river-history/daily/*` blobs moved from Cool to Hot. The hourly history archive remains Cool.
+- Snapshot worker deployment was attempted from `codex/azure-optimization-rollout`; its new-image verification execution failed, so the job was rolled back to the previous known-good image. Two rollback executions then succeeded.
+- API deployment was attempted through the release workflow but stopped at the existing route/content fixture failures in `npm run test:api`; no API production package was deployed.
+
 Based on the [live Azure cost and performance audit](../audits/azure-cost-performance-2026-09-21.md). Implement the storage saving and API improvements first, measure them separately, then decide whether the remaining work justifies its complexity.
 
 ## Outcomes and constraints
