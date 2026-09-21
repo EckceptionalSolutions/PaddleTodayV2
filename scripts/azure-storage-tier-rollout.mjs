@@ -13,9 +13,11 @@ const confirmed = process.argv.includes('--confirm-hot-tier');
 function az(args) {
   const executable = process.platform === 'win32' ? (process.env.ComSpec || 'cmd.exe') : 'az';
   const executableArgs = process.platform === 'win32' ? ['/d', '/s', '/c', 'az.cmd', ...args] : args;
-  return JSON.parse(execFileSync(executable, executableArgs, {
+  const output = execFileSync(executable, executableArgs, {
     encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true, shell: false,
-  }));
+    maxBuffer: 256 * 1024 * 1024,
+  });
+  return output.trim() ? JSON.parse(output) : null;
 }
 
 function listBlobs(container) {
