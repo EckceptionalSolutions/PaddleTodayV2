@@ -19,6 +19,7 @@ export interface PutJsonBlobOptions {
   retryDelayMs?: number;
   ifMatch?: string;
   ifNoneMatch?: string;
+  accessTier?: 'Hot' | 'Cool' | 'Cold';
 }
 
 export interface JsonStorage {
@@ -48,6 +49,7 @@ export interface CreateJsonStorageOptions {
   timeoutMs?: number;
   retries?: number;
   retryDelayMs?: number;
+  accessTier?: 'Hot' | 'Cool' | 'Cold';
 }
 
 const DEFAULT_BLOB_TIMEOUT_MS = 30_000;
@@ -158,6 +160,7 @@ export async function putJsonBlob(
     headers: {
       'x-ms-blob-type': 'BlockBlob',
       'content-type': 'application/json; charset=utf-8',
+      ...(options.accessTier ? { 'x-ms-access-tier': options.accessTier } : {}),
       ...(options.ifMatch ? { 'if-match': options.ifMatch } : {}),
       ...(options.ifNoneMatch ? { 'if-none-match': options.ifNoneMatch } : {}),
     },
@@ -273,6 +276,7 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
           timeoutMs: options.timeoutMs,
           retries: options.retries,
           retryDelayMs: options.retryDelayMs,
+          accessTier: options.accessTier,
           ...writeOptions,
         });
         if (response.status === 412) {

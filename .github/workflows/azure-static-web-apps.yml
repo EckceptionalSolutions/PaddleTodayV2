@@ -5,7 +5,25 @@ on:
     branches:
       - main
       - master
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'packages/**'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/sync-design-tokens.mjs'
+      - 'scripts/sync-public-scripts.mjs'
+      - 'scripts/generate-explore-map-overview.ts'
+      - 'scripts/audit-search-indexability.ts'
+      - 'scripts/lib/**'
+      - 'staticwebapp.config.json'
+      - '.github/workflows/azure-static-web-apps.yml'
   workflow_dispatch:
+
+concurrency:
+  group: paddletoday-frontend-production
+  cancel-in-progress: false
 
 jobs:
   build_and_deploy:
@@ -38,6 +56,9 @@ jobs:
           npm run build:app
           cp staticwebapp.config.json dist/staticwebapp.config.json
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
+
+      - name: Audit built search indexability
+        run: node --import tsx scripts/audit-search-indexability.ts
 
       - name: Deploy frontend to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1

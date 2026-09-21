@@ -234,6 +234,7 @@ function historyStorage(): JsonStorage {
     localDirectory: process.env.RIVER_HISTORY_DIR || DEFAULT_HISTORY_DIR,
     validate: (value) => isRiverHistorySnapshotArray(value) || isRiverHistoryDaySummaryArray(value),
     label: 'history',
+    accessTier: 'Hot',
   });
 }
 

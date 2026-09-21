@@ -83,6 +83,12 @@ The workflow verifies its Blob write directly, then requires production to serve
 - `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 - `RIVER_SNAPSHOT_BLOB_PREFIX=river-snapshots`
 
+The API keeps a bounded in-process read cache for published snapshots. Its
+default revalidation window is 45 seconds; set
+`RIVER_SNAPSHOT_READ_CACHE_TTL_MS` to tune it during a measured rollout. The
+snapshot and history writers request the Hot Blob access tier for future writes;
+the storage account remains RA-GRS and existing blobs can be migrated separately.
+
 Before writing, the runner rejects broadly degraded captures so a large upstream outage cannot replace the last usable production snapshot.
 
 ## Manual refresh endpoint

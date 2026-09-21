@@ -211,6 +211,7 @@ export interface RiverAccessPoint {
   name: string;
   latitude?: number;
   longitude?: number;
+  note?: string;
 }
 
 export interface RiverRouteAccessPoint extends RiverAccessPoint {

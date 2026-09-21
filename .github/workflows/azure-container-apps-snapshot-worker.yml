@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
+      - 'src/lib/**'
+      - 'src/data/**'
+      - 'src/server/river-snapshot.ts'
       - 'packages/**'
       - 'package.json'
       - 'package-lock.json'
@@ -25,6 +27,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: paddletoday-snapshot-worker-production
+  cancel-in-progress: false
 
 env:
   AZURE_RESOURCE_GROUP: paddletoday

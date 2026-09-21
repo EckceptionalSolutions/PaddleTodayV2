@@ -5,7 +5,24 @@ on:
     branches:
       - main
       - master
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'packages/**'
+      - 'automations/route-control-plane/**'
+      - 'docs/operations/**'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/deployment-config.mjs'
+      - 'scripts/lib/deployment-config.mjs'
+      - 'staticwebapp.config.json'
+      - '.github/workflows/azure-app-service-api.yml'
   workflow_dispatch:
+
+concurrency:
+  group: paddletoday-api-production
+  cancel-in-progress: false
 
 jobs:
   build_and_deploy:

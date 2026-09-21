@@ -13,9 +13,11 @@ export function buildExploreCatalog(routes: River[], scores: RiverSummaryApiItem
   const rivers = routes.map(route => {
     const scored = isScoreEligible(route);
     const current = scored ? bySlug.get(route.slug) : undefined;
-    // Always use current catalog metadata, including publication and route type.
+    // Snapshot scores can outlive a catalog deployment. Overlay only the
+    // current route metadata instead of rebuilding a score-shaped fallback for
+    // every route on every Explore request.
+    if (current) return { ...current, river: overlayCatalogMetadata(current.river, route) };
     const fallback = serializeSummaryResult(scoreRiverCondition({ river: route, gauge: null, weather: null }));
-    if (current) return { ...current, river: fallback.river };
     const reason = scored
       ? 'Current conditions are unavailable. Open the route to check its latest readings before launching.'
       : 'Planning route: no live conditions score. Verify water, access, and hazards before launching.';
@@ -39,5 +41,38 @@ export function buildExploreCatalog(routes: River[], scores: RiverSummaryApiItem
       missingScores: missing.length,
       missingScoreStates: [...new Set(missing.map(route => route.state))].sort(),
     },
+  };
+}
+
+function overlayCatalogMetadata(
+  snapshotRiver: RiverSummaryApiItem['river'],
+  route: River,
+): RiverSummaryApiItem['river'] {
+  return {
+    ...snapshotRiver,
+    riverId: route.riverId ?? snapshotRiver.riverId,
+    scoreEligibility: route.scoreEligibility,
+    scoreEligibilityReason: route.scoreEligibilityReason,
+    slug: route.slug,
+    name: route.name,
+    reach: route.reach,
+    state: route.state,
+    region: route.region,
+    latitude: route.latitude,
+    longitude: route.longitude,
+    corridorId: route.corridorId,
+    corridorLabel: route.corridorLabel,
+    continuityStatus: route.continuityStatus,
+    distanceLabel: route.logistics?.distanceLabel ?? snapshotRiver.distanceLabel,
+    estimatedPaddleTime: route.logistics?.estimatedPaddleTime ?? snapshotRiver.estimatedPaddleTime,
+    difficulty: route.profile.difficulty,
+    routeType: route.routeType ?? snapshotRiver.routeType,
+    putIn: route.putIn ?? snapshotRiver.putIn,
+    takeOut: route.takeOut ?? snapshotRiver.takeOut,
+    accessPoints: route.accessPoints ?? snapshotRiver.accessPoints,
+    segmentEdges: route.segmentEdges ?? snapshotRiver.segmentEdges,
+    logistics: route.logistics
+      ? { campingClassification: route.logistics.campingClassification }
+      : snapshotRiver.logistics,
   };
 }
