@@ -119,6 +119,7 @@
     "deployment:smoke": "node scripts/deployment-smoke.mjs",
     "deployment:config:check": "node scripts/deployment-config.mjs",
     "deployment:azure:verify": "node scripts/azure-platform-preflight.mjs",
+    "azure:storage:tier": "node scripts/azure-storage-tier-rollout.mjs",
     "rate-limit:smoke": "node scripts/rate-limit-smoke.mjs",
     "scripts:public:sync": "node scripts/sync-public-scripts.mjs",
     "scripts:public:check": "node scripts/sync-public-scripts.mjs --check",
