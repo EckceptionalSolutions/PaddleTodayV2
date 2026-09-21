@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readdir, readFile, mkdir, copyFile, cp, writeFile } from 'node:fs/promises';
+import { readdir, readFile, mkdir, copyFile, cp } from 'node:fs/promises';
 import { resolve, relative, sep, extname } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { createAssetHttpClient } from './static-asset-http.mjs';
@@ -66,11 +66,8 @@ export async function packageFrontend({ source, destination, manifest, baseUrl }
     if (assetDirectories.includes(entry.name)) continue;
     await cp(resolve(source, entry.name), resolve(destination, entry.name), { recursive: true, errorOnExist: true, force: false });
   }
-  const configPath = resolve(destination, 'staticwebapp.config.json');
-  const config = JSON.parse(await readFile(configPath, 'utf8'));
-  config.navigationFallback ??= { rewrite: '/index.html' };
-  config.navigationFallback.exclude = [...new Set([...(config.navigationFallback.exclude || []), '/gallery/*', '/data/*'])];
-  await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`);
+  // Preserve the site's routing config. Adding an SPA fallback here turns absent
+  // static pages into successful homepage responses after the build audit passes.
 }
 
 async function requestAsset(url, options, { fetchImpl, delayImpl, onRetry }) {

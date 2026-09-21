@@ -16,6 +16,7 @@ on:
       - 'scripts/sync-public-scripts.mjs'
       - 'scripts/generate-explore-map-overview.ts'
       - 'scripts/audit-search-indexability.ts'
+      - 'scripts/search-serving-smoke.mjs'
       - 'scripts/lib/**'
       - 'staticwebapp.config.json'
       - '.github/workflows/azure-static-web-apps.yml'
@@ -84,6 +85,10 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: node scripts/static-assets.mjs package
 
+      - name: Audit final frontend search indexability
+        if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
+        run: node --import tsx scripts/audit-search-indexability.ts tmp/frontend
+
       - name: Sign in to Azure for asset publishing
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         uses: azure/login@v2
@@ -110,3 +115,7 @@ jobs:
           action: upload
           app_location: "tmp/frontend"
           skip_app_build: true
+
+      - name: Verify deployed search page responses
+        if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
+        run: node scripts/search-serving-smoke.mjs
