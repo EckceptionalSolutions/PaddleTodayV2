@@ -1,0 +1,23 @@
+{
+  "batch": "B113",
+  "selectedAt": "2026-09-19",
+  "routeId": "mulberry-river-redding-turner-bend",
+  "routeName": "Mulberry River",
+  "reach": "Redding Recreation Area to Turner Bend",
+  "state": "Arkansas",
+  "endpoint": "putIn",
+  "endpointName": "Redding Recreation Area canoe launch",
+  "storedCoordinate": {
+    "latitude": 35.68282778,
+    "longitude": -93.78651111
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 347.1707117490259,
+    "nearestWaterwayName": "Mulberry River",
+    "distanceFeetToMappedWater": 288.72066528237525,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "Federal recreation and river-plan records identify Redding as a campground adjacent to Mulberry River access, with Forest Service day-use/launch access. Retain the stored point as a conditional campground and rock-canoe-launch anchor."
+}

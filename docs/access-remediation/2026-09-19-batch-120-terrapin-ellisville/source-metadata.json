@@ -1,0 +1,8 @@
+{
+  "batch": "B120",
+  "sources": [
+    {"url":"https://www.outdooralabama.com/rivers-and-mobile-delta/terrapin-creek","publisher":"Alabama Department of Conservation and Natural Resources / Outdoor Alabama","role":"official-river-access-guide","retrieved":"2026-09-19","notes":"Documents CR 8 to Highway 9 at Ellisville and warns downstream access is limited to county-road bridge right-of-ways and private permission."},
+    {"url":"https://alabamarecreationtrails.org/trail/terrapin-creek-county-road-8-to-ellisville/","publisher":"Alabama Scenic River Trail","role":"route-and-outfitter-access-context","retrieved":"2026-09-19","notes":"Names the CR 8 to Ellisville section and says outfitters serve downstream take-outs."},
+    {"url":"https://www.canoeshop.net/shuttles","publisher":"Terrapin Outdoor Center","role":"outfitter-shuttle-and-private-access-conditions","retrieved":"2026-09-19","notes":"Offers shuttle service and states private put-ins/take-outs are for customers; current authorization must be confirmed."}
+  ]
+}

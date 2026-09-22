@@ -1,0 +1,43 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "capturedAt": "2026-09-17",
+  "registryPath": "src/data/generated/route-access-registry.json",
+  "registryGeneratedAt": "2026-09-17T12:04:36.177Z",
+  "providerCountBefore": 536,
+  "providerCountAfter": 542,
+  "priorProviderRoles": [
+    {
+      "id": "indian_river_abanakee_dam_outer_gooley",
+      "roleBefore": "authoritative-water-entry",
+      "controlNames": [
+        "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+        "Outer Gooley Hudson River take-out above Indian River confluence"
+      ]
+    },
+    {
+      "id": "md_pocomoke_snow_hill_shad_access",
+      "roleBefore": "authoritative-water-entry",
+      "controlNames": [
+        "Byrd Park floating canoe/kayak launch",
+        "Shad Landing Area public boat ramp and soft launch"
+      ]
+    },
+    {
+      "id": "md_pocomoke_shad_milburn_access",
+      "roleBefore": "authoritative-water-entry",
+      "controlNames": [
+        "Shad Landing Area public boat ramp and soft launch",
+        "Milburn Landing Area public boat ramp and kayak launch"
+      ]
+    },
+    {
+      "id": "saranac_river_kent_falls_military_turnpike",
+      "roleBefore": "authoritative-access-anchor",
+      "controlNames": [
+        "Fisherman’s parking/access below Kent Falls Powerhouse",
+        "Military Turnpike Route 190 dam parking/access"
+      ]
+    }
+  ],
+  "staleness": "Registry not regenerated because the full audit requires missing @paddletoday/geo. Source controls are updated; generated registry remains stale until a fresh full audit is available."
+}

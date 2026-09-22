@@ -1,0 +1,22 @@
+{
+  "batch": "2026-09-17-batch-15",
+  "createdAt": "2026-09-17",
+  "backupRoot": "node_modules/.cache/access-batch-15/before-source",
+  "files": {
+    "src/data/routes/colorado.ts": {
+      "sha256": "59FF4059AAEBC987634B02318FD6884F50736DBAF10925AE3A946687250C5663",
+      "backupPath": "node_modules/.cache/access-batch-15/before-source/src__data__routes__colorado.ts",
+      "bytes": 520595
+    },
+    "src/data/trip-details/colorado.ts": {
+      "sha256": "274196E2B8858452E9391BDB1299C001B0F385A9D52F47430C084C5628876327",
+      "backupPath": "node_modules/.cache/access-batch-15/before-source/src__data__trip-details__colorado.ts",
+      "bytes": 150019
+    },
+    "src/data/route-access-official-map-controls.json": {
+      "sha256": "1421F15EE0F68DBCB20FD9E7BB0CDCE49217A060C3435A8D98270E37C6CA65F7",
+      "backupPath": "node_modules/.cache/access-batch-15/before-source/src__data__route-access-official-map-controls.json",
+      "bytes": 1265573
+    }
+  }
+}

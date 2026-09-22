@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T03:24:22.937Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "North Dakota",
+      "name": "Chautauqua Park accessible launch",
+      "latitude": 46.939,
+      "longitude": -97.992,
+      "distanceFeetToMappedWater": 350.36919926610074,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sheyenne-river-fish-hatchery-chautauqua",
+          "endpoint": "takeOut",
+          "endpointName": "Chautauqua Park accessible launch",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "sheyenne-river-fish-hatchery-chautauqua",
+      "routeName": "Sheyenne River",
+      "reach": "Valley City National Fish Hatchery to Chautauqua Park",
+      "state": "North Dakota",
+      "endpoint": "takeOut",
+      "endpointName": "Chautauqua Park accessible launch",
+      "latitude": 46.939,
+      "longitude": -97.992,
+      "matchedRiverName": "Sheyenne River",
+      "distanceFeetToMatchedRiver": 420.266970409945,
+      "nearestMatchedLatitude": 46.93792917037725,
+      "nearestMatchedLongitude": -97.9926220906237,
+      "nearestWaterwayName": "Sheyenne River",
+      "distanceFeetToNearestWaterway": 420.2675756908788,
+      "nearestWaterwayLatitude": 46.93792845067705,
+      "nearestWaterwayLongitude": -97.9926194332691,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 350.36919926610074,
+      "nearestWaterbodyLatitude": 46.93809762769457,
+      "nearestWaterbodyLongitude": -97.99248151077828,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 350.36919926610074,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.vcparks.com/chautauquapark",
+      "coordinateEvidenceDetail": "nd_chautauqua_park_access_anchor sheyenne-river-chautauqua-park-access: Valley City Parks identifies a boat launch at Chautauqua Park; the City also described the launch as ADA-accessible and its 2026 RiverFest logistics use the park as the take-out and vehicle-staging site. The existing coordinate is retained as an access-area anchor, not a surveyed waterline point.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nd_chautauqua_park_access_anchor sheyenne-river-chautauqua-park-access) on Sheyenne River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "sheyenne-river-fish-hatchery-chautauqua",
+      "routeName": "Sheyenne River",
+      "reach": "Valley City National Fish Hatchery to Chautauqua Park",
+      "state": "North Dakota",
+      "endpoint": "putIn",
+      "endpointName": "Valley City National Fish Hatchery launch",
+      "latitude": 46.9662,
+      "longitude": -98.0302,
+      "matchedRiverName": "Sheyenne River",
+      "distanceFeetToMatchedRiver": 314.9688062929518,
+      "nearestMatchedLatitude": 46.965409,
+      "nearestMatchedLongitude": -98.03070699999999,
+      "nearestWaterwayName": "Sheyenne River",
+      "distanceFeetToNearestWaterway": 314.9688062929518,
+      "nearestWaterwayLatitude": 46.965409,
+      "nearestWaterwayLongitude": -98.03070699999999,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 268.61939169535077,
+      "nearestWaterbodyLatitude": 46.965528,
+      "nearestWaterbodyLongitude": -98.030641,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 268.61939169535077,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.fws.gov/fish-hatchery/valley-city",
+      "coordinateEvidenceDetail": "nd_usfws_valley_city_sheyenne_hatchery_launch_20260919 valley-city-national-fish-hatchery-sheyenne-launch: The Valley City National Fish Hatchery is a USFWS site on River Road with Sheyenne River access. Valley City Parks and Recreation’s RiverFest instructions identify the hatchery as a launch point, and the Sheyenne River Water Trail plan identifies the US Fish Hatchery as a hand-launch landing. Retain the stored point as a conditional federal-facility/hand-launch anchor; the 315-foot named-flowline offset reflects the facility, road, and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nd_usfws_valley_city_sheyenne_hatchery_launch_20260919 valley-city-national-fish-hatchery-sheyenne-launch) on Sheyenne River; access is conditional (Confirm current USFWS hatchery visitor access, launch permission, parking, carry path, river level, dam hazards, and event or seasonal restrictions before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

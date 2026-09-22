@@ -1,0 +1,16 @@
+{
+  "batch": "B120",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "terrapin-creek-cr8-ellisville",
+  "endpoint": "takeOut",
+  "endpointName": "Ellisville outfitter take-out water edge",
+  "before": {"severity":"suspicious","distanceFeetToMatchedRiver":324.29515743036416,"distanceFeetToMappedWater":280.00080493206644},
+  "after": {"severity":"review","distanceFeetToMatchedRiver":324.29515743036416,"distanceFeetToMappedWater":280.00080493206644,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale": "Outdoor Alabama and Alabama Scenic River Trail materials document the Ellisville bridge/outfitter access corridor; Terrapin Outdoor Center documents shuttle-supported and conditional private take-outs. Retain the stored point as a conditional access-area anchor; the 324-foot named-flowline offset reflects the bridge, road, and shoreline footprint.",
+  "condition": "Confirm current outfitter authorization, parking, carry path, bridge or shoreline access, water level, and any private-property or seasonal restrictions before taking out.",
+  "fullAuditDelta": {
+    "public": {"suspiciousBefore":5,"suspiciousAfter":4,"reviewBefore":3928,"reviewAfter":3929},
+    "inventory": {"suspiciousBefore":60,"suspiciousAfter":59,"reviewBefore":4234,"reviewAfter":4235},
+    "registry": {"authoritativeAccessBefore":1260,"authoritativeAccessAfter":1261,"conflictsAfter":0}
+  }
+}

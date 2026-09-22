@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:37:52.840Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "north-fork-clearwater-washington-quartz",
+      "routeName": "North Fork Clearwater River",
+      "reach": "Washington Creek Campground to Quartz Creek Access",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Quartz Creek bridge / Forest Road 247 mile 32",
+      "latitude": 46.80769,
+      "longitude": -115.45681,
+      "matchedRiverName": "North Fork Clearwater River",
+      "distanceFeetToMatchedRiver": 339.3449462189893,
+      "nearestMatchedLatitude": 46.806972355650544,
+      "nearestMatchedLongitude": -115.45767462154197,
+      "nearestWaterwayName": "North Fork Clearwater River",
+      "distanceFeetToNearestWaterway": 339.3449462189893,
+      "nearestWaterwayLatitude": 46.806972355650544,
+      "nearestWaterwayLongitude": -115.45767462154197,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 287.8132925149304,
+      "nearestWaterbodyLatitude": 46.807051,
+      "nearestWaterbodyLongitude": -115.457486,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 287.8132925149304,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 339 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "north-fork-clearwater-washington-quartz",
+      "routeName": "North Fork Clearwater River",
+      "reach": "Washington Creek Campground to Quartz Creek Access",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Washington Creek Campground (access-site anchor)",
+      "latitude": 46.70436,
+      "longitude": -115.55598,
+      "matchedRiverName": "North Fork Clearwater River",
+      "distanceFeetToMatchedRiver": 370.12540887001296,
+      "nearestMatchedLatitude": 46.70408118310725,
+      "nearestMatchedLongitude": -115.55455751888483,
+      "nearestWaterwayName": "North Fork Clearwater River",
+      "distanceFeetToNearestWaterway": 370.1257339829207,
+      "nearestWaterwayLatitude": 46.7040799002374,
+      "nearestWaterwayLongitude": -115.5545580535742,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 286.21992663157073,
+      "nearestWaterbodyLatitude": 46.704225,
+      "nearestWaterbodyLongitude": -115.554853,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 286.21992663157073,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/543/main",
+      "coordinateEvidenceDetail": "id_usfs_aw_washington_creek_campground_access_anchor_20260918 american-whitewater-washington-creek-campground-access-fr247-mile-42-7: American Whitewater identifies Washington Creek Campground Access at Forest Road 247 mile 42.7 and places the paddler access on the upstream river-right side of the bridge to the campground; it supports both the Weitas-to-Washington take-out and Washington-to-Quartz put-in. The current USFS Recreation Opportunities layer identifies Washington Creek Campground and describes river access along the campground's full length. The stored point is the named campground locality/approach anchor, not a published surveyed launch coordinate; imagery places it inland from mapped water, and neither source georeferences the carry or landing toe. Retain the location as an access-site anchor and keep the exact launch under review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_usfs_aw_washington_creek_campground_access_anchor_20260918 american-whitewater-washington-creek-campground-access-fr247-mile-42-7) on North Fork Clearwater River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

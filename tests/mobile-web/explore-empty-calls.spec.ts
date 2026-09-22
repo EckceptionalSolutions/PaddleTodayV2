@@ -20,7 +20,7 @@ for (const viewMode of ['map', 'list']) {
       liveData: { overall: 'live', summary: 'QA fixture', gaugeState: 'live', weatherState: 'live' },
     }));
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers } }));
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers } }));
     await page.goto('/explore');
     await expect(page.getByRole('heading', { name: 'No Paddle calls match', exact: true })).toBeVisible();
     await expect(page.getByText('1 matching route has other calls. Show all calls to review them.', { exact: true })).toBeVisible();
@@ -29,9 +29,7 @@ for (const viewMode of ['map', 'list']) {
     await expect(broaden).toBeInViewport({ ratio: 1 });
     if (viewMode === 'map') {
       await expect(page.getByRole('button', { name: 'Show all rivers', exact: true })).toHaveCount(0);
-      const calls = await page.getByRole('button', { name: 'Change call filter, currently Paddle', exact: true }).boundingBox();
-      const button = await broaden.boundingBox();
-      expect(button!.y).toBeGreaterThanOrEqual(calls!.y + calls!.height);
+      await expect(page.getByRole('button', { name: '2 active filters', exact: true })).toBeVisible();
     }
     await expect(broaden).toBeVisible();
     await broaden.click({ trial: true });

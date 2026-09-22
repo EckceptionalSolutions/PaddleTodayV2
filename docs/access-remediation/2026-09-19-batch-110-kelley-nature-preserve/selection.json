@@ -1,0 +1,23 @@
+{
+  "batch": "B110",
+  "selectedAt": "2026-09-19",
+  "routeId": "little-miami-river-kelley-milford",
+  "routeName": "Little Miami River",
+  "reach": "Kelley Nature Preserve to Jim Terrell Park, Milford",
+  "state": "Ohio",
+  "endpoint": "putIn",
+  "endpointName": "Kelley Nature Preserve canoe/kayak access",
+  "storedCoordinate": {
+    "latitude": 39.20997,
+    "longitude": -84.30608
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 369.30864251594016,
+    "nearestWaterwayName": "Little Miami River",
+    "distanceFeetToMappedWater": 286.2940980895538,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "Clermont County Park District identifies Kelley Nature Preserve at 297 OH-126 with canoe/kayak access to the Little Miami River. Its official park map labels the canoe launch, parking, and river. Retain the stored point as a conditional park/launch-area anchor."
+}

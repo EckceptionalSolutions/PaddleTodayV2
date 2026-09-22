@@ -1,0 +1,42 @@
+{
+  "batch": 60,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Halvorson Park concrete ramp, Cedar River, Mitchell County, Iowa",
+  "affectedRoutes": [
+    "cedar-river-acorn-halvorson",
+    "cedar-river-halvorson-interstate"
+  ],
+  "decision": "move-both-shared-route-endpoints-to-the-iowa-dnr-mapped-concrete-ramp; retain-as-authoritative-access-anchor-pending-exact-wet-toe",
+  "decisionScope": "Iowa DNR's public Water Accesses GIS feature 68 identifies Halvorson Park access 268 on the Cedar River and publishes a concrete ramp point at 43.35390906447915,-92.9227522910695, with a 22-by-88-foot access, five gravel parking stalls, and parking 70 feet from access. The Cedar River Water Trail guide says the ramp is just downstream of the Foothill Avenue bridge and paddlers may find the campground beach about 100 meters upstream easier to enter or exit. The state point is a defensible public ramp coordinate and is substantially closer to mapped water than the saved site pin; the separate beach entry and precise wet toe are not georeferenced.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 43.356685,
+      "longitude": -92.925215
+    },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 324,
+    "mappedWaterDistanceFeet": 217,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/trip-details/iowa.ts",
+      "src/data/routes/iowa.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 43.356685,
+      "longitude": -92.925215
+    },
+    "to": {
+      "latitude": 43.35390906447915,
+      "longitude": -92.9227522910695
+    },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_dnr_halvorson_park_concrete_ramp_20260918",
+    "rationale": "The exact Iowa DNR feature point identifies the concrete public ramp, and the updated endpoints are 147 feet from the matched Cedar River flowline and 51 feet from mapped water. Both route occurrences now match the agency control and remain in review until the wet toe and preferred paddler beach are georeferenced."
+  },
+  "remainingUncertainty": "The Iowa DNR GIS point represents the concrete ramp access feature, not a surveyed wet toe. The water-trail guide says the campground beach about 100 meters upstream is easier for paddlers, but it does not publish that beach's coordinate. Use the ramp coordinate for navigation and inspect both the ramp and beach on arrival; the guide's 2.8-mile and 4.7-mile trip distances were retained.",
+  "outcome": "Two suspicious Halvorson occurrences moved to review at the official state ramp point. Acorn Park remains ok; the Interstate Park endpoint remains an independently documented access anchor in review."
+}

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T17:09:27.879Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 1,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 1,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Vermont",
+      "name": "Floodplain Preserve canoe access, Richmond",
+      "latitude": 44.3831,
+      "longitude": -73.0202,
+      "distanceFeetToMappedWater": 1171.0735323433637,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-floodplain",
+          "endpoint": "takeOut",
+          "endpointName": "Floodplain Preserve canoe access, Richmond",
+          "severity": "failure"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "winooski-river-bolton-canoe-floodplain",
+      "routeName": "Winooski River",
+      "reach": "Bolton Canoe Access Area to Floodplain Preserve",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Floodplain Preserve canoe access, Richmond",
+      "latitude": 44.3831,
+      "longitude": -73.0202,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 8451.917833713336,
+      "nearestMatchedLatitude": 44.402774,
+      "nearestMatchedLongitude": -73.003079,
+      "nearestWaterwayName": "Johnnie Brook",
+      "distanceFeetToNearestWaterway": 6819.4853175569715,
+      "nearestWaterwayLatitude": 44.40179,
+      "nearestWaterwayLongitude": -73.020661,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1171.0735323433637,
+      "nearestWaterbodyLatitude": 44.386267,
+      "nearestWaterbodyLongitude": -73.020933,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1171.0735323433637,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 8452 ft from Winooski River; the nearest named waterway is Johnnie Brook."
+    },
+    {
+      "routeId": "winooski-river-bolton-canoe-floodplain",
+      "routeName": "Winooski River",
+      "reach": "Bolton Canoe Access Area to Floodplain Preserve",
+      "state": "Vermont",
+      "endpoint": "putIn",
+      "endpointName": "Bolton Canoe Access Area",
+      "latitude": 44.372557093828576,
+      "longitude": -72.89744466026545,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 285.1838888317221,
+      "nearestMatchedLatitude": 44.37319589628808,
+      "nearestMatchedLongitude": -72.896814317633,
+      "nearestWaterwayName": "Winooski River",
+      "distanceFeetToNearestWaterway": 285.1838888317221,
+      "nearestWaterwayLatitude": 44.37319589628808,
+      "nearestWaterwayLongitude": -72.896814317633,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 152.25932817205145,
+      "nearestWaterbodyLatitude": 44.37291586718268,
+      "nearestWaterbodyLongitude": -72.89714634682258,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 152.25932817205145,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/166/query?where=OBJECTID%3D1061&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061: Vermont ANR Outdoor Recreation Sites Inventory feature OBJECTID 1061 is labeled CHSP / WINOOSKI RIVER ACCESS AREA (CANOE ACCESS), has public priority 1, boating and water-access flags, names WINOOSKI RIVER, and publishes 20 summer parking spaces. The adopted 2025 Bolton Town Plan says ANR and the Town maintain the Bolton Canoe Access on the Winooski River; Richmond places Bolton Canoe Access about four miles west on River Road from Bolton Dam. The GIS point matches that public site and is retained as an access-area anchor; the exact water-entry toe is not published. Its current mapped-flowline offset is about 285 feet. The former point reverse-geocodes to a Bolton Valley Access Road residence and does not fit the Town's stated access location.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061) on Winooski River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

@@ -1,0 +1,507 @@
+{
+  "batch": "2026-09-17-batch-15",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "selectionPath": "docs/access-remediation/2026-09-17-batch-15/selection.json",
+  "decisions": [
+    {
+      "rank": 173,
+      "state": "New York",
+      "site": "Peconic River River Road West hand launch",
+      "resolvedSiteName": "NYSDEC Peconic River River Road West public access-area anchor",
+      "decision": "retained-coordinate-and-reclassified-shared-control-as-access-anchor",
+      "originalCoordinate": [
+        40.904454,
+        -72.769347
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        40.904454,
+        -72.769347
+      ],
+      "coordinateRole": "NYSDEC published access-site pin; the directory specifies a 100-yard carry to water, so this is not the wet edge",
+      "reason": "The stored coordinate exactly matches the current NYSDEC River Road West site coordinate. NYSDEC specifies a 100-yard carry and three-car parking, which disproves a water-edge interpretation but supports this as the intended public access-area anchor.",
+      "sourceIds": [
+        "nydec-suffolk-launches"
+      ],
+      "sourceUrls": [
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk"
+      ],
+      "publicationAction": "Keep the coordinate; change its shared source-control role from authoritative-water-entry to authoritative-access-anchor and state the 100-yard carry, three-car parking, electric-motor restriction, and launch-day access checks.",
+      "routes": [
+        "peconic-river-river-road-edwards-avenue"
+      ],
+      "publicRoutes": [
+        "peconic-river-river-road-edwards-avenue"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-river-road-edwards-avenue",
+          "endpoint": "accessPoint",
+          "endpointName": "Peconic River River Road West hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 174,
+      "state": "Vermont",
+      "site": "Bolton Canoe Access Area",
+      "resolvedSiteName": "Town-maintained Bolton Canoe Access Area access anchor",
+      "decision": "retained-public-launch-area-anchor",
+      "originalCoordinate": [
+        44.3768,
+        -72.8755
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        44.3768,
+        -72.8755
+      ],
+      "coordinateRole": "existing mapped access-area coordinate; no manager-published wet-edge coordinate found",
+      "reason": "The current Town of Richmond page identifies Bolton Canoe Access as a public access with ample parking on River Road. No current manager-published coordinate establishes a more precise wet edge, and no evidence supports moving the existing point. The route must still follow the documented lower-Winooski access and rapid/portage guidance.",
+      "sourceIds": [
+        "richmond-vt-river-access"
+      ],
+      "sourceUrls": [
+        "https://www.richmondvt.gov/community/recreation/default-title/river-access"
+      ],
+      "publicationAction": "Retain the public access-area point. Require the paddler to find the signed launch path and parking, scout the rapid below Bolton Dam, and confirm any portage route and conditions; do not describe the stored coordinate as the waterline.",
+      "routes": [
+        "winooski-river-bolton-canoe-floodplain",
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-bolton-canoe"
+      ],
+      "publicRoutes": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-bolton-canoe"
+      ],
+      "alreadyHeldRoutes": [
+        "winooski-river-bolton-canoe-floodplain"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "failure"
+        },
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-bolton-canoe",
+          "endpoint": "takeOut",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 176,
+      "state": "New York",
+      "site": "Inner Harbor Bear Street public launch",
+      "resolvedSiteName": "City of Syracuse Inner Harbor seasonal accessible launch",
+      "decision": "retained-seasonal-municipal-launch-anchor",
+      "originalCoordinate": [
+        43.0611993,
+        -76.1701988
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        43.0611993,
+        -76.1701988
+      ],
+      "coordinateRole": "City-identified floating dock near Bear Street and Van Rensselaer Street",
+      "reason": "The City identifies an accessible Boardsafe launch on the west shore with nearby parking. Its launch announcement states the floating dock is seasonal, installed May 1 through October 31. The existing control coordinate matches the named access, but current seasonal operation remains a launch-day check.",
+      "sourceIds": [
+        "syracuse-kayaking",
+        "syracuse-launch-announcement"
+      ],
+      "sourceUrls": [
+        "https://www.syr.gov/Living/Our-Community/Parks-Recreation-Youth-Services/Find-Activities-and-Events/Kayaking-in-Syracuse",
+        "https://www.syr.gov/News/City-News/City-2023/2023-05-25-Mayors-Office-News"
+      ],
+      "publicationAction": "Retain the existing coordinate and seasonal warning; confirm the dock is installed and open before using it as a take-out.",
+      "routes": [
+        "onondaga-creek-meachem-inner-harbor"
+      ],
+      "publicRoutes": [
+        "onondaga-creek-meachem-inner-harbor"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "onondaga-creek-meachem-inner-harbor",
+          "endpoint": "takeOut",
+          "endpointName": "Inner Harbor Bear Street public launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 177,
+      "state": "Wisconsin",
+      "site": "North Nebraska Street Boat Landing",
+      "resolvedSiteName": "City of Horicon North Nebraska Street municipal launch-area anchor",
+      "decision": "retained-municipal-launch-area-anchor",
+      "originalCoordinate": [
+        43.45514,
+        -88.63936
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        43.45514,
+        -88.63936
+      ],
+      "coordinateRole": "city-listed boat-launch site/address anchor; exact ramp toe not published",
+      "reason": "The City lists North Nebraska Street Launch at 202 N Nebraska Street and says its launches north of the dam provide access to Horicon Marsh. This confirms identity and public-launch context, but the page publishes an address rather than a surveyed ramp coordinate.",
+      "sourceIds": [
+        "horicon-launches"
+      ],
+      "sourceUrls": [
+        "https://horiconwi.gov/282/Horicon-Boat-Launches"
+      ],
+      "publicationAction": "Retain the site anchor; direct users to the municipal North Nebraska Street Launch and confirm the actual landing, parking, dam side, and current conditions on arrival.",
+      "routes": [
+        "horicon-marsh-greenhead-nebraska"
+      ],
+      "publicRoutes": [
+        "horicon-marsh-greenhead-nebraska"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "horicon-marsh-greenhead-nebraska",
+          "endpoint": "takeOut",
+          "endpointName": "North Nebraska Street Boat Landing",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "rank": 178,
+      "state": "Colorado",
+      "site": "Buena Vista Whitewater Park public boat ramp",
+      "resolvedSiteName": "CPW-mapped Buena Vista Whitewater Park public boat-ramp access anchor",
+      "decision": "corrected-to-current-official-gis-boat-ramp-feature",
+      "originalCoordinate": [
+        38.842,
+        -106.131
+      ],
+      "replacementCoordinate": [
+        38.847248805868695,
+        -106.12221661900705
+      ],
+      "coordinate": [
+        38.847248805868695,
+        -106.12221661900705
+      ],
+      "coordinateRole": "CPW Facilities Boat Ramp feature 2120; access-area anchor, not surveyed ramp toe",
+      "reason": "The saved point was about 0.95 mile from CPW’s mapped ramp feature. CPW feature 2120 is a WGS84 point classified as a universal Boat Ramp at 38.847248805868695, -106.12221661900705. CPW’s current AHRA page identifies Buena Vista Whitewater Park as a public Boat Ramp/Slide site managed by the Town, and the Town map corroborates the park and river location.",
+      "sourceIds": [
+        "cpw-bv-to-salida-access",
+        "cpw-admin-facilities-layer",
+        "cpw-bv-swa-ramp-feature-verified",
+        "cpw-bv-whitewater-map"
+      ],
+      "sourceUrls": [
+        "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-buena-vista",
+        "https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer/0?f=pjson",
+        "https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer/0/query?where=FID%3D2120&outFields=FID%2CPROPNAME%2CFAC_NAME%2Cd_FAC_TYPE%2Cd_TYPE_DET%2CCOMMENTS%2CGlobalID&outSR=4326&returnGeometry=true&f=pjson",
+        "https://www.buenavistaco.gov/DocumentCenter/View/4731/BV-River-Park-Map-2023?bidId="
+      ],
+      "publicationAction": "Update the take-out coordinate in the route, trip-details override, and official-map controls. Use the CPW launch-area feature with 125-foot uncertainty and retain same-day landing/parking confirmation. Changed public geometry must be regenerated before release.",
+      "routes": [
+        "arkansas-river-granite-boat-chute-buena-vista"
+      ],
+      "publicRoutes": [
+        "arkansas-river-granite-boat-chute-buena-vista"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "arkansas-river-granite-boat-chute-buena-vista",
+          "endpoint": "takeOut",
+          "endpointName": "Buena Vista Whitewater Park public boat ramp",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 179,
+      "state": "New York",
+      "site": "Moody Falls Trailhead / Raquette River hand launch",
+      "resolvedSiteName": "NYSDEC Moody Falls Trailhead / downstream hand-launch carry anchor",
+      "decision": "retained-dec-published-trailhead-and-carry-anchor",
+      "originalCoordinate": [
+        44.3125,
+        -74.7197
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        44.3125,
+        -74.7197
+      ],
+      "coordinateRole": "NYSDEC publishes trailhead coordinate; 0.1-mile carry to the river downstream of Moody Falls",
+      "reason": "NYSDEC publishes the same trailhead coordinate and describes a 0.1-mile carry to the river. This is a valid access/portage anchor, not a wet-edge coordinate. Moody Falls remains a scout/portage boundary.",
+      "sourceIds": [
+        "dec-raquette-boreal-complex"
+      ],
+      "sourceUrls": [
+        "https://dec.ny.gov/places/raquette-boreal-complex"
+      ],
+      "publicationAction": "Retain the trailhead anchor and carry caveat; do not auto-snap it to water or plan to run Moody Falls. Confirm the trail and downstream landing.",
+      "routes": [
+        "raquette-river-dead-creek-jamestown",
+        "raquette-river-piercefield-parmenter"
+      ],
+      "publicRoutes": [
+        "raquette-river-dead-creek-jamestown",
+        "raquette-river-piercefield-parmenter"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "accessPoint",
+          "endpointName": "Moody Falls Trailhead / Raquette River hand launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Moody Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 180,
+      "state": "Minnesota",
+      "site": "Aqua Lane / Rice Lake carry-in",
+      "resolvedSiteName": "Anoka County Aqua Lane / Rice Lake public carry-in and water-entry anchors",
+      "decision": "retained-separate-dnr-facility-and-shoreline-controls",
+      "originalCoordinate": [
+        45.1637486,
+        -93.1154357
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        45.1637486,
+        -93.1154357
+      ],
+      "coordinateRole": "DNR access-site facility anchor retained separately from the county-map/imagery shoreline point",
+      "reason": "Anoka County’s current water-trail map marks Aqua Lane as a limited-parking public access. DNR feature WAS02907 identifies the same Rice Lake carry-in, a gravel ramp, five-car parking, and the downstream-left bank. Existing controls deliberately preserve both the official facility point and the separately imagery-derived shoreline entry.",
+      "sourceIds": [
+        "anoka-rice-creek-water-trail-map",
+        "mn-dnr-aqua-lane-feature"
+      ],
+      "sourceUrls": [
+        "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail",
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/2688?f=pjson"
+      ],
+      "publicationAction": "Keep the facility and entry anchors separate. Confirm limited parking, access path, and shoreline condition; do not replace the water-edge point with the DNR facility pin.",
+      "routes": [
+        "rice-creek-peltier-to-long-lake"
+      ],
+      "publicRoutes": [
+        "rice-creek-peltier-to-long-lake"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Aqua Lane / Rice Lake carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 181,
+      "state": "Virginia",
+      "site": "Kents Lane Portage Park public Reed Creek access",
+      "resolvedSiteName": "Wythe County Kents Lane Portage Park access-area anchor",
+      "decision": "retained-county-verified-public-small-craft-access-anchor",
+      "originalCoordinate": [
+        36.9483187505498,
+        -81.0252784830942
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        36.9483187505498,
+        -81.0252784830942
+      ],
+      "coordinateRole": "county facility-map access anchor; not a surveyed wetted edge",
+      "reason": "Wythe County identifies Kents Lane Portage Park as a public launch/take-out for kayaks, canoes, and other small craft at 161 Kents Lane. The facility record documents parking and amenities; it does not survey the waterline.",
+      "sourceIds": [
+        "wythe-kents-lane-facility",
+        "wythe-reed-creek-blueway"
+      ],
+      "sourceUrls": [
+        "https://www.wytheco.org/Facilities/Facility/Details/Kents-Lane-Portage-Park-3",
+        "https://www.wytheco.org/294/The-Reed-Creek-Blueway"
+      ],
+      "publicationAction": "Retain the county access-area anchor. Confirm the exact carry, creek entry, daylight hours, posted rules, and current water-quality/debris conditions.",
+      "routes": [
+        "reed-creek-kents-millers-blueway"
+      ],
+      "publicRoutes": [
+        "reed-creek-kents-millers-blueway"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "endpoint": "putIn",
+          "endpointName": "Kents Lane Portage Park public Reed Creek access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 182,
+      "state": "New York",
+      "site": "NYSDEC Fish Creek WMA Route 184 hand launch",
+      "resolvedSiteName": "NYSDEC Fish Creek WMA Route 184 access-area anchor near Black Creek boat launch",
+      "decision": "retained-dec-published-access-coordinate",
+      "originalCoordinate": [
+        44.517396,
+        -75.526104
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        44.517396,
+        -75.526104
+      ],
+      "coordinateRole": "NYSDEC WMA/launch approach coordinate near two small-craft hand-launch parking areas",
+      "reason": "NYSDEC publishes the exact coordinate near the Black Creek boat launch and confirms hand-launch parking areas on the Route 184 side of Fish Creek WMA. The point is an access-area/approach coordinate; the agency does not identify it as a surveyed wet edge.",
+      "sourceIds": [
+        "nysdec-fish-creek-wma",
+        "nysdec-suffolk-launch-directory-pdf"
+      ],
+      "sourceUrls": [
+        "https://dec.ny.gov/places/fish-creek-wildlife-management-area",
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf"
+      ],
+      "publicationAction": "Retain the published access coordinate; verify the signed approach, parking, carry, actual launch, and obstacles in the creek before unloading.",
+      "routes": [
+        "fish-creek-wma-route-184-pope-mills"
+      ],
+      "publicRoutes": [
+        "fish-creek-wma-route-184-pope-mills"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Fish Creek WMA Route 184 hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 183,
+      "state": "Missouri",
+      "site": "Pulltite river access / campground area",
+      "resolvedSiteName": "NPS Pulltite Current River Landing / campground-area anchor",
+      "decision": "retained-nps-verified-landing-area-anchor",
+      "originalCoordinate": [
+        37.33505,
+        -91.47959
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        37.33505,
+        -91.47959
+      ],
+      "coordinateRole": "practical campground/access-area geocode; not a published NPS ramp coordinate or exact wet edge",
+      "reason": "The current NPS compendium designates Pulltite as a Current River Landing, NPS lists it as a popular Upper Current put-in, and the park brochure describes river access at the campground. The stored coordinate is a campground-area place pin rather than an NPS surveyed landing coordinate; preserve that limitation and follow NPS signs.",
+      "sourceIds": [
+        "nps-current-compendium",
+        "nps-paddle-upper-current",
+        "nps-park-brochure"
+      ],
+      "sourceUrls": [
+        "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm",
+        "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm"
+      ],
+      "publicationAction": "Keep the shared Pulltite coordinate as an access-area anchor, not a waterline claim. Confirm the landing and campground/river closure status, and observe the NPS Pulltite 4.20-foot flood closure level.",
+      "routes": [
+        "current-river-akers-ferry-pulltite",
+        "current-river-cedar-grove-pulltite",
+        "current-river-pulltite-round-spring"
+      ],
+      "publicRoutes": [
+        "current-river-akers-ferry-pulltite",
+        "current-river-cedar-grove-pulltite",
+        "current-river-pulltite-round-spring"
+      ],
+      "alreadyHeldRoutes": [],
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-cedar-grove-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "putIn",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ],
+  "physicalSiteCount": 10,
+  "coordinateCorrectedSiteCount": 1,
+  "coordinateCorrectedRouteCount": 1,
+  "accessAnchorControlReclassifiedSiteCount": 1,
+  "retainedCoordinateCount": 9,
+  "rejectedSiteCount": 0,
+  "unverifiedAccessSiteCount": 0,
+  "uniqueRouteOccurrenceCount": 15,
+  "uniquePublicRouteCount": 14,
+  "routesHeldForAccessVerificationCount": 0,
+  "routesAlreadyHeldBeforeBatch": [
+    "winooski-river-bolton-canoe-floodplain"
+  ],
+  "totalWithheldRouteCountAfterBatch": 149,
+  "changedPublicRouteGeometryIds": [
+    "arkansas-river-granite-boat-chute-buena-vista"
+  ],
+  "auditQualityChanges": [
+    {
+      "providerId": "peconic_river_river_road_edwards_avenue",
+      "change": "Reclassified the NYSDEC launch-directory coordinates as access-area anchors because the source explicitly documents 75- and 100-yard carries to water."
+    },
+    {
+      "providerId": "co_ahra_buena_vista_whitewater_park_ramp",
+      "change": "Added the current CPW Facilities GIS feature 2120 as the corrected public ramp-area anchor for the route take-out."
+    }
+  ],
+  "sourceRetrieval": {
+    "acceptedCount": 17,
+    "failedCount": 2,
+    "failedSources": [
+      "syracuse-kayaking",
+      "syracuse-launch-announcement"
+    ],
+    "failedSourcesAreNotEvidence": true
+  },
+  "releaseStatus": "The Buena Vista source endpoint and audit controls are updated locally. Its public route geometry, access registry, catalog bundles, and overview remain stale until missing workspace dependencies are restored and generated outputs are rebuilt and audited."
+}

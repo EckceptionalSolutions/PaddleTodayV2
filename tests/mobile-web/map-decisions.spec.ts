@@ -10,7 +10,7 @@ for (const status of ['ready', 'verify', 'withheld', 'skip'] as const) {
         readiness: { status, label: status, reason: 'QA fixture.' },
       };
       await page.route('**/api/**', request => request.fulfill({ status: 503, json: { error: 'offline' } }));
-      await page.route('**/api/rivers/summary.json', request => request.fulfill({ json: { generatedAt, rivers: [{ ...route,
+      await page.route('**/api/rivers/{summary,explore}.json', request => request.fulfill({ json: { generatedAt, rivers: [{ ...route,
         summary: { shortExplanation: 'QA fixture.', gaugeNow: 'Fixture' },
         liveData: { overall: 'live', summary: 'Fixture', gaugeState: 'live', weatherState: 'live' },
       }] } }));

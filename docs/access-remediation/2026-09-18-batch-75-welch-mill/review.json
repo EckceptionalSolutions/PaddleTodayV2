@@ -1,0 +1,92 @@
+{
+  "batch": 75,
+  "reviewDate": "2026-09-18",
+  "location": "Welch Mill, Cannon River, Minnesota",
+  "selectedCoordinate": {
+    "latitude": 44.5679337,
+    "longitude": -92.7385579
+  },
+  "routeIds": [
+    "cannon-river-welch",
+    "cannon-river-byllesby-highway-61"
+  ],
+  "decision": "retain-as-conditional-outfitter-access-area-anchor",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "Welch Mill business/access-area anchor; not a surveyed water-entry point.",
+  "accessStatus": "conditional",
+  "accessCondition": "No formal/developed public water access at Welch. Use the mill landing only with a current Welch Mill reservation or explicit permission; confirm hours, landing, carry, parking, and fees. Not a public emergency bailout.",
+  "evidence": [
+    {
+      "claim": "DNR says Welch has no developed public access, parking is limited, and outfitters can provide service.",
+      "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+      "sourceType": "official state water-trail page"
+    },
+    {
+      "claim": "DNR says no formal public water access exists at Welch and some paddlers use local outfitter services.",
+      "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/virtual-tour/cannon-river/snapshot.html",
+      "sourceType": "official state water-trail virtual tour"
+    },
+    {
+      "claim": "Welch Mill trips start at the mill, shuttle customers upstream, and return to the mill; reservations are recommended.",
+      "sourceUrl": "https://www.welchmill.com/canoeing-kayaking",
+      "sourceType": "current operator page"
+    },
+    {
+      "claim": "The stored coordinate is within about 16 feet of the public mapped Welch Mill business point and is near, not on, mapped water.",
+      "sourceUrl": "https://mapcarta.com/N1411658044",
+      "sourceType": "secondary map page based on OpenStreetMap node 1411658044"
+    }
+  ],
+  "targetAuditResults": {
+    "cannon-river-byllesby-highway-61": {
+      "welchMillEndpointSeverity": "review",
+      "sourceIssues": 0
+    },
+    "cannon-river-welch": {
+      "welchMillEndpointSeverity": "review",
+      "otherSuspiciousEndpoint": {
+        "endpoint": "putIn",
+        "name": "Riverside Park canoe launch (Cannon Falls)",
+        "latitude": 44.5148835,
+        "longitude": -92.8990298,
+        "severity": "suspicious",
+        "decision": "carry forward for separate source review"
+      },
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 50,
+      "suspiciousAfter": 49,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2047,
+        "review": 3887,
+        "suspicious": 49,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 103,
+      "suspiciousAfter": 102,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2211,
+        "review": 4191,
+        "suspicious": 102,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1225
+    }
+  }
+}

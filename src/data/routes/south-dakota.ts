@@ -88,7 +88,7 @@ export const southDakotaRoutes: River[] = [
       {
         "label": "Public take-out",
         "value": "Farm Field Park kayak and canoe access",
-        "note": "City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, public park hours, and coordinates at 4401 S Western Ave.",
+        "note": "City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, and public park hours. Use the separate mapped access POI at the riverbank; the City page coordinate identifies the park area, not the launch point.",
         "sourceUrl": "https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field"
       },
       {
@@ -223,7 +223,7 @@ export const southDakotaRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Farm Field Park kayak and canoe access",
-        "note": "City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, public park hours, and coordinates at 4401 S Western Ave.",
+        "note": "City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, and public park hours. Use the separate mapped access POI at the riverbank; the City page coordinate identifies the park area, not the launch point.",
         "sourceUrl": "https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field"
       },
       {

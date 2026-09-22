@@ -1,5 +1,6 @@
 import type {
   River,
+  RiverRouteAccessPoint,
   RouteSafetyProfile,
   SourceStrength,
 } from "../../lib/types";
@@ -76,7 +77,7 @@ const salmonStanleyRoughHys =
   "https://www.howsyourriver.com/runs/3-rough-creek-bridge-to-torrey-s-hole-river-access-salmon-id";
 const salmonStanleyPutInAccess =
   "https://boatrampatlas.com/ramp/id-salmon-river-bridge-access/";
-const salmonRigginsCityPark = "https://mapcarta.com/N7560987269";
+const salmonRigginsCityPark = "https://www.openstreetmap.org/node/7560987269";
 const lowerSalmonThresholdGuide = "https://www.riverbrain.com/runs/251";
 const lowerSalmonAwGuide =
   "https://www.americanwhitewater.org/content/River/view/river-detail/613/main";
@@ -261,7 +262,7 @@ const hiddenCreekCampground = "https://mapcarta.com/23536926";
 const northForkClearwaterForestService =
   "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=79594";
 const weitasCampground = "https://mapcarta.com/W877341977";
-const washingtonCreekCampground = "https://mapcarta.com/23568826";
+const washingtonCreekCampground = "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=80046";
 const quartzCreekAccess = "https://mapcarta.com/23554976";
 const henrysForkThreshold =
   "https://www.americanwhitewater.org/content/River/view/river-detail/10993/main";
@@ -825,6 +826,7 @@ type Access = {
   mileFromStart: number;
   note: string;
   segmentKind?: "lake" | "transition" | "creek";
+  accessPointRole?: RiverRouteAccessPoint["accessPointRole"];
 };
 type Spec = {
   id: string;
@@ -973,6 +975,7 @@ function makeRoute(spec: Spec): River {
       longitude: access.longitude,
       mileFromStart: access.mileFromStart,
       segmentKind: access.segmentKind ?? "transition",
+      ...(access.accessPointRole ? { accessPointRole: access.accessPointRole } : {}),
       note: access.note,
     })),
     logistics: {
@@ -1666,7 +1669,7 @@ export const idahoRoutes: River[] = [
     summary:
       "A 30.3-mile remote Class II-IV(V) expedition from the Little North Fork campground and bridge corridor to the Dworshak Reservoir backwaters.",
     statusText:
-      "Planning-only remote expedition. American Whitewater publishes the named reach, an estimated local gauge, and a 600 cfs bridge-start cue; Riverfacts provides exact put-in/take-out coordinates and North Idaho Rivers documents the unusually complex shuttle, primitive roads, portages, and roadless lower canyon.",
+      "Withheld remote expedition. American Whitewater publishes the named reach, an estimated local gauge, and a 600 cfs bridge-start cue; Riverfacts provides candidate endpoint coordinates and North Idaho Rivers documents the unusually complex shuttle, primitive roads, portages, and roadless lower canyon. Current public take-out access and staging at the reservoir endpoint remain unverified.",
     distance: "About 30.3 river miles across a multi-day backcountry run",
     time: "Two to four days including the long shuttle, portages, scouting, and recovery margin",
     difficulty: "hard",
@@ -1710,7 +1713,7 @@ export const idahoRoutes: River[] = [
       latitude: 46.90233,
       longitude: -115.84746,
       mileFromStart: 30.3,
-      note: "Riverfacts take-out coordinate above the Dworshak Reservoir backwaters; confirm the current trail/landing and reservoir level before committing to the lower canyon.",
+      note: "Riverfacts candidate coordinate near the Dworshak Reservoir backwaters; it is not a manager-verified public take-out or vehicle-staging point. The route is withheld until current lawful landing/pickup access and the exact endpoint are confirmed.",
     },
     camping:
       "Primitive and dispersed camping is described near the upper bridge and lower take-out, but no guaranteed itinerary is implied. Use only current Forest Service sites, pack out waste, and verify fire restrictions and seasonal road access.",
@@ -2612,11 +2615,11 @@ export const idahoRoutes: River[] = [
       { label: "Idaho Boundary-Smith Creek Wildlife Management Area plan", url: "https://idfg.idaho.gov/sites/default/files/2014-2023-BoundarySCWMA-Plan-Final.pdf" },
     ],
     putIn: {
-      name: "Boundary Creek / Saddle Pass upper access",
+      name: "Boundary Creek / Saddle Pass access area (legal water entry unverified)",
       latitude: 49.005,
       longitude: -116.655,
       mileFromStart: 0,
-      note: "North Idaho Rivers identifies the Canadian-border headwater bridge and Saddle Pass road as the upper access. This is an approximate forest-road/stream anchor; do not cross the international boundary and confirm the current gate, road, and legal staging conditions with the land manager.",
+      note: "Rejected for route publication: the stored point is north of the 49th-parallel U.S.–Canada boundary and outside a verified U.S.-side water entry. The guide identifies an approximate border/headwater bridge, but current legal staging, waterline entry, and border-compliant access were not established. Do not cross the border; reopen only with an exact lawful U.S.-side launch.",
     },
     takeOut: {
       name: "Boundary Creek USGS gauge / Kootenai confluence",
@@ -2627,11 +2630,11 @@ export const idahoRoutes: River[] = [
     },
     access: [
       {
-        name: "Boundary Creek / Saddle Pass upper access",
+        name: "Boundary Creek / Saddle Pass access area (legal water entry unverified)",
         latitude: 49.005,
         longitude: -116.655,
         mileFromStart: 0,
-        note: "Approximate headwater bridge/forest-road anchor near the Canadian border; no developed ramp is assumed.",
+        note: "Approximate forest-road/headwater context only; this stored point is not a verified U.S.-side launch or legal staging location.",
       },
       {
         name: "Boundary Creek USGS gauge / Kootenai confluence",
@@ -2954,7 +2957,9 @@ export const idahoRoutes: River[] = [
       { label: "American Whitewater Little Salmon reach", url: littleSalmonThreshold },
       { label: "Little Salmon flow table and gauge cues", url: littleSalmonFlowTable },
       { label: "USGS Little Salmon River at Riggins direct gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13316500/" },
-      { label: "RiverFacts endpoint map and coordinates", url: littleSalmonMap },
+      { label: "Riggins City Park Boat Ramp mapped slipway feature", url: salmonRigginsCityPark },
+      { label: "American Whitewater Little Salmon access description", url: "https://www.americanwhitewater.org/content/River/view/river-detail/566/main" },
+      { label: "Riggins City Council June 2025 boat-ramp project closeout", url: "https://www.rigginsidaho.org/media/3706" },
       { label: "Idaho Fish and Game southwest access guide", url: littleSalmonAccessGuide },
       { label: "Idaho Transportation Department US 95 milepoint log", url: littleSalmonMilepointLog },
     ],
@@ -2970,7 +2975,7 @@ export const idahoRoutes: River[] = [
       latitude: 45.425561,
       longitude: -116.311552,
       mileFromStart: 19.5,
-      note: "Public city-park landing on the Salmon River near Highway 95 mile 195.7; use the marked ramp and exit before continuing into the Salmon corridor.",
+      note: "Riggins City Park is the standard Little Salmon take-out at Highway 95 mile 195.7. The city ramp project and American Whitewater support current public-ramp use; this point follows mapped OSM slipway node 7560987269. Route remains held until corrected geometry and served catalog are rebuilt.",
     },
     access: [
       {
@@ -2992,7 +2997,7 @@ export const idahoRoutes: River[] = [
         latitude: 45.425561,
         longitude: -116.311552,
         mileFromStart: 19.5,
-        note: "Marked public ramp on river left at the Salmon confluence; do not miss the takeout or continue into an unintended Salmon River section.",
+        note: "Mapped City Park Boat Ramp on river left at the Salmon confluence; do not continue into the Salmon River. OSM slipway node 7560987269 supplies the feature coordinate; route remains held pending geometry/catalog rebuild.",
       },
     ],
     camping:
@@ -3843,11 +3848,11 @@ export const idahoRoutes: River[] = [
       { label: "USGS Fall River near Squirrel direct gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13047500/" },
     ],
     putIn: {
-      name: "Concrete CCC Bridge Put-In",
+      name: "Concrete CCC Bridge access area (public river entry unverified)",
       latitude: 44.06972,
       longitude: -111.25917,
       mileFromStart: 0,
-      note: "American Whitewater access anchor at the Concrete CCC Bridge area; bridge-side staging is approximate and must be confirmed on site.",
+      note: "American Whitewater publishes an approximate point at the Concrete CCC Bridge, but no current manager source ties a lawful public parking and boat-carry route to this exact bridge-side point. Do not infer river access from the bridge or road right-of-way.",
     },
     takeOut: {
       name: "Kirkham Bridge Take-Out",
@@ -4992,11 +4997,11 @@ export const idahoRoutes: River[] = [
     sourceLabel: "Boise River Troutdale-to-Badger access and flow map",
     mapUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-13185000/",
     putIn: {
-      name: "Troutdale Campground Put-In",
+      name: "Troutdale Campground riverside access area",
       latitude: 43.716001,
       longitude: -115.625001,
       mileFromStart: 0,
-      note: "Forest Service campground and riverside launch; confirm seasonal opening, parking, and the rough Forest Road 268 approach.",
+      note: "Forest Service describes the campground as situated along the Middle Fork Boise River, and American Whitewater names Troutdale as a paddling access. This stored campground point is an access-area anchor, not a surveyed launch toe; confirm seasonal opening, day-use rules, parking, carry, and the exact river entry.",
     },
     takeOut: {
       name: "Badger Creek Campground Take-Out",
@@ -5057,18 +5062,18 @@ export const idahoRoutes: River[] = [
       { label: "USGS Boise River near Twin Springs gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13185000/" },
     ],
     putIn: {
-      name: "Troutdale Campground Put-In",
+      name: "Troutdale Campground riverside access area",
       latitude: 43.7162,
       longitude: -115.6226,
       mileFromStart: 0,
-      note: "American Whitewater's exact Troutdale access coordinate is a Forest Service campground anchor; confirm seasonal opening, parking, and the carry to water before loading.",
+      note: "American Whitewater names the Troutdale campground access, but its coordinates are approximate. The Forest Service describes the campground as situated along the Middle Fork Boise River; retain this as a campground/access-area anchor, not a surveyed launch toe, and confirm day-use rules, parking, carry, season, and exact river entry.",
     },
     takeOut: {
-      name: "Willow Creek Campground Take-Out",
+      name: "Willow Creek Campground access-area anchor",
       latitude: 43.6452,
       longitude: -115.7517,
       mileFromStart: 11.7,
-      note: "American Whitewater maps the Willow Creek campground take-out. Confirm the river-side landing, campground status, parking, and the downstream reservoir boundary on site.",
+      note: "American Whitewater identifies the Willow Creek campground take-out, and the Forest Service lists the campground open along the Middle Fork Boise River at the north end of Arrowrock Reservoir. Retain this as a campground/access-area anchor, not a surveyed landing; confirm day-use access, parking, carry, and the reservoir boundary before relying on it.",
     },
     camping:
       "Troutdale and Willow Creek are endpoint Forest Service campgrounds when open; both are primitive and seasonal, so verify current status, fees, water, and fire restrictions.",
@@ -5124,18 +5129,18 @@ export const idahoRoutes: River[] = [
       { label: "USGS Twin Springs proxy gauge", url: "https://waterdata.usgs.gov/monitoring-location/USGS-13185000/" },
     ],
     putIn: {
-      name: "Barber Flat Forest Service Station Access",
+      name: "Barber Flat Forest Service station / cabin area (launch unverified)",
       latitude: 43.8129514,
       longitude: -115.536488,
       mileFromStart: 0,
-      note: "Named Barber Flat Forest Service station/cabin and trailhead on the North Fork Boise River; the North Fork Boise River Road is graded but can be rough and seasonal. Confirm the actual launch edge and parking on site.",
+      note: "Saved coordinate is the Barber Flat Forest Service station/cabin and trailhead area; the reviewed Forest Service and Recreation.gov sources do not establish a public river launch, lawful carry, or exact entry point here. Recreation.gov currently posts a wildfire do-not-visit notice for this location. Do not use as a put-in until the Forest Service confirms public access, the approach, and current fire-safe status.",
     },
     takeOut: {
-      name: "Troutdale Campground / North Fork Confluence Access",
+      name: "Troutdale Campground / North Fork confluence access area",
       latitude: 43.7162833,
       longitude: -115.6250999,
       mileFromStart: 10.8,
-      note: "Public Forest Service campground and confluence-area access anchor at Troutdale; land only at the developed site and confirm the river-left/right carry because American Whitewater coordinates are approximate.",
+      note: "Public Forest Service campground and confluence-area access anchor at Troutdale; the stored campground coordinate is not a surveyed river entry. Land only at the developed site and confirm the river-left/right carry because American Whitewater coordinates are approximate.",
     },
     camping:
       "Barber Flat Cabin/nearby durable sites and Troutdale Campground can support a basecamp when open. Do not assume dispersed shoreline camping inside the roadless canyon; verify Forest Service rules and fire restrictions.",
@@ -5412,14 +5417,6 @@ export const idahoRoutes: River[] = [
         longitude: -114.856228,
         mileFromStart: 0,
         note: "Informal bridge-area launch; legal parking and shoreline carry require current field confirmation.",
-      },
-      {
-        name: "Yankee Fork Access Primitive Take-Out",
-        latitude: 44.26872412,
-        longitude: -114.7332716,
-        mileFromStart: 1.7,
-        note: "Approximate river-left scouting/portage corridor from the AW/HYS reach description; not a separate public landing.",
-        segmentKind: "transition",
       },
       {
         name: "Yankee Fork Access Primitive Take-Out",
@@ -5873,6 +5870,10 @@ export const idahoRoutes: River[] = [
     scoreEligibility: "scored",
     sourceUrl: upperSalmonGuide,
     sourceLabel: "BLM/USFS/IDFG Upper Salmon boating guide",
+    additionalSourceLinks: [
+      { label: "Idaho Fish and Game Salmon Island Park access site", url: "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22441-fishing-and-boating-access-site-island" },
+      { label: "City of Salmon public parks", url: "https://www.cityofsalmon.com/page/public-parks" },
+    ],
     putIn: {
       name: "Challis Bridge Recreation Site boat ramp",
       latitude: 44.470151,
@@ -5936,6 +5937,10 @@ export const idahoRoutes: River[] = [
     scoreEligibility: "scored",
     sourceUrl: upperSalmonGuide,
     sourceLabel: "BLM/USFS/IDFG Upper Salmon boating guide",
+    additionalSourceLinks: [
+      { label: "Idaho Fish and Game Salmon Island Park access site", url: "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22441-fishing-and-boating-access-site-island" },
+      { label: "City of Salmon public parks", url: "https://www.cityofsalmon.com/page/public-parks" },
+    ],
     putIn: {
       name: "Watts Bridge Boat Ramp",
       latitude: 44.631987,
@@ -6009,11 +6014,11 @@ export const idahoRoutes: River[] = [
       note: "Public access at guide mile 94.7.",
     },
     takeOut: {
-      name: "Salmon Island Park boat ramp",
+      name: "Salmon Island Park public ramp area",
       latitude: 45.170721,
       longitude: -113.894916,
       mileFromStart: 31.6,
-      note: "City/public ramp at guide mile 126.3; approach via the left/north channel.",
+      note: "IDFG and City of Salmon confirm a public park with two boat ramps; this saved coordinate is the park/ramp-area anchor, not a surveyed ramp edge. At the take-out, approach via the left/north channel and use the signed public ramp appropriate to current conditions.",
     },
     access: [
       {
@@ -6031,11 +6036,11 @@ export const idahoRoutes: River[] = [
         note: "BLM public launch/camp at guide mile 119.8; optional operational break.",
       },
       {
-        name: "Salmon Island Park boat ramp",
+        name: "Salmon Island Park public ramp area",
         latitude: 45.170721,
         longitude: -113.894916,
         mileFromStart: 31.6,
-        note: "Public endpoint.",
+        note: "Public park/ramp-area endpoint; the exact ramp edge is not separately published in the reviewed manager sources.",
       },
     ],
     camping:
@@ -6090,11 +6095,11 @@ export const idahoRoutes: River[] = [
     sourceUrl: upperSalmonGuide,
     sourceLabel: "BLM/USFS/IDFG Upper Salmon boating guide",
     putIn: {
-      name: "Salmon Island Park boat ramp",
+      name: "Salmon Island Park public ramp area",
       latitude: 45.170721,
       longitude: -113.894916,
       mileFromStart: 0,
-      note: "Public City of Salmon launch.",
+      note: "IDFG and City of Salmon confirm a public park with two boat ramps; this saved coordinate identifies the park/ramp area, not a surveyed water-entry edge. Follow current signs to the appropriate public ramp.",
     },
     takeOut: {
       name: "North Fork Boat Ramp",
@@ -6105,18 +6110,18 @@ export const idahoRoutes: River[] = [
     },
     access: [
       {
-        name: "Salmon Island Park boat ramp",
+        name: "Salmon Island Park public ramp area",
         latitude: 45.170721,
         longitude: -113.894916,
         mileFromStart: 0,
-        note: "Public launch.",
+        note: "Public park/ramp-area access; use current signs to identify the appropriate ramp, since the reviewed sources do not publish its exact edge coordinate.",
       },
       {
         name: "Tower Rock Recreation Site",
         latitude: 45.313985,
         longitude: -113.899756,
         mileFromStart: 10.8,
-        note: "Mapped public campground/boat access at guide mile 137.1; verify exact signed landing.",
+        note: "BLM and Idaho Fish and Game confirm public recreation and boat-ramp access at guide mile 137.1. The stored site GPS is an access-area anchor, not a surveyed ramp-edge point; use the signed public landing.",
       },
       {
         name: "North Fork Boat Ramp",
@@ -6218,7 +6223,7 @@ export const idahoRoutes: River[] = [
         latitude: 45.39203,
         longitude: -114.25161,
         mileFromStart: 16.2,
-        note: "Forest Service campground and ramp documented by American Whitewater; practical split-trip launch or take-out, subject to road and campground status.",
+        note: "Public USFS ramp is documented as co-located with Spring Creek Campground; retained coordinate identifies the access area, but the exact wet toe is not independently mapped. Practical split-trip launch or take-out; confirm road and campground status.",
       },
       {
         name: "Cove Creek Boating Site",
@@ -6895,6 +6900,7 @@ export const idahoRoutes: River[] = [
       { label: "RiverBrain Pine Bar Boat Launch", url: lowerSalmonPineBarSource },
       { label: "RiverBrain American Bar access", url: lowerSalmonAmericanBarSource },
       { label: "RiverBrain Heller Bar Boat Ramp", url: lowerSalmonHellerBarSource },
+      { label: "WDFW Heller Bar water access site", url: "https://wdfw.wa.gov/places-to-go/water-access-sites/heller-bar-395" },
     ],
     putIn: {
       name: "Hammer Creek Access Put-In",
@@ -7648,11 +7654,11 @@ export const idahoRoutes: River[] = [
       { label: "Clearwater National Forest recreation corridor", url: northForkClearwaterForestService },
     ],
     putIn: {
-      name: "Washington Creek Campground bridge access",
+      name: "Washington Creek Campground (access-site anchor)",
       latitude: 46.70436,
       longitude: -115.55598,
       mileFromStart: 0,
-      note: "American Whitewater identifies the upstream river-right side of the Washington Creek bridge as the access; confirm campground carry and current parking.",
+      note: "American Whitewater places the public paddler access on the upstream river-right side of the campground bridge. This campground anchor is about 286 feet from mapped water; the exact carry and landing toe remain unverified. Confirm the path, parking, and current campground access.",
     },
     takeOut: {
       name: "Quartz Creek bridge / Forest Road 247 mile 32",
@@ -7724,11 +7730,11 @@ export const idahoRoutes: River[] = [
       note: "American Whitewater identifies the Weitas campground bridge as fair upstream river access; the carry crosses the campground and is not a surveyed ramp.",
     },
     takeOut: {
-      name: "Washington Creek Campground bridge access",
+      name: "Washington Creek Campground (access-site anchor)",
       latitude: 46.70436,
       longitude: -115.55598,
       mileFromStart: 10,
-      note: "American Whitewater identifies the upstream river-right side of the Washington Creek bridge as the take-out; confirm the carry and current campground access.",
+      note: "American Whitewater places the public paddler access on the upstream river-right side of the campground bridge. This campground anchor is about 286 feet from mapped water; the exact carry and landing toe remain unverified. Confirm the path, parking, and current campground access.",
     },
     camping:
       "Weitas Creek and Washington Creek are named Forest Service campground options when open. Verify fees, water, fire rules, bear storage, and seasonal Forest Road 247/250 conditions.",
@@ -8798,11 +8804,11 @@ export const idahoRoutes: River[] = [
       note: "Lower public town entry at West Park/Main Footbridge; the City describes West Park as directly adjacent to the Portneuf with no river barrier, while the local float map supplies this river-entry coordinate. Confirm current park hours, carry path, and parking before launching.",
     },
     takeOut: {
-      name: "PVC Diversion / Public Park Take-Out",
+      name: "PVC diversion reach take-out anchor (public landing unverified)",
       latitude: 42.6263999938965,
       longitude: -112.126998901367,
       mileFromStart: 10.1,
-      note: "American Whitewater endpoint near the PVC diversion; confirm the current public park/river-right landing and stay clear of diversion infrastructure.",
+      note: "American Whitewater names the PVC-diversion reach and older reports describe a take-out near the diversion, but current public parking and carry at this stored point are not confirmed. Route remains withheld until the manager verifies the public landing and a safe exit away from diversion infrastructure.",
     },
     access: [
       {
@@ -8813,11 +8819,11 @@ export const idahoRoutes: River[] = [
         note: "West Park/Main Footbridge river entry documented by the city frontage page and local float map; current parking, carry path, and crowding require confirmation.",
       },
       {
-        name: "PVC Diversion / Public Park Take-Out",
+        name: "PVC diversion reach take-out anchor (public landing unverified)",
         latitude: 42.6263999938965,
         longitude: -112.126998901367,
         mileFromStart: 10.1,
-        note: "American Whitewater take-out anchor near the downstream diversion; confirm public park access and do not approach the structure.",
+        note: "Diversion/reach context only; no current public-landing authority has been verified for this coordinate. Route remains withheld pending confirmation of the public approach and water exit away from the structure.",
       },
     ],
     camping:
@@ -9347,7 +9353,7 @@ export const idahoRoutes: River[] = [
     summary:
       "A remote approximately 34-mile Class II-III+ South Fork Owyhee expedition from the BLM-mapped South Fork Pipeline launch area to the East Fork confluence, with primitive camps, rough 4WD access, and a diversion-dam portage consideration.",
     statusText:
-      "Planning-only remote route. American Whitewater describes roughly 250 cfs as enough for an amateur open canoe and notes that rapids wash out around 3,000 cfs; the Rome gauge is a downstream proxy. The BLM boater guide maps the South Fork Pipeline launch and 45 Ranch/YP access context, but current road, private-inholding, and permission status must be confirmed before staging.",
+      "Planning-only remote route. American Whitewater describes roughly 250 cfs as enough for an amateur open canoe and notes that rapids wash out around 3,000 cfs; the Rome gauge is a downstream proxy. The BLM guide says 45 Ranch access requires landowner permission; it is private, not a public access. The South Fork Pipeline approach, river-right confluence landing, current roads, and staging legality remain unverified.",
     distance: "About 34 river miles",
     time: "About 2-4 days with camps and scouting",
     difficulty: "hard",
@@ -9405,14 +9411,6 @@ export const idahoRoutes: River[] = [
         name: "East Fork Owyhee Confluence",
         latitude: 42.26528,
         longitude: -116.88806,
-        mileFromStart: 28,
-        segmentKind: "transition",
-        note: "Mapped ranch/inholding context only. Do not use without current landowner permission and a confirmed public road/landing; this is not an assumed public take-out.",
-      },
-      {
-        name: "East Fork Owyhee Confluence",
-        latitude: 42.26528,
-        longitude: -116.88806,
         mileFromStart: 34,
         note: "Approximate confluence landing; confirm current public access, private frontage, and downstream continuation before relying on it as a take-out.",
       },
@@ -9421,7 +9419,7 @@ export const idahoRoutes: River[] = [
       "Remote desert dispersed camping is expected only where lawful and durable along the managed corridor. Carry all water, use a fire pan where required, follow current fire restrictions, and do not camp on private inholdings.",
     campingClassification: "on_route_campsite",
     shuttle:
-      "Long remote 4WD shuttle on rough cross-state roads. Stage vehicles before launch, carry spare fuel/tires, and recheck road conditions after rain; do not assume YP Ranch or 45 Ranch access is currently granted.",
+      "Remote 4WD route with unverified public staging at South Fork Pipeline and the East Fork confluence. 45 Ranch is private and requires landowner permission; do not stage there without explicit current authorization.",
     permits:
       "Check current BLM Wild and Scenic/Owyhee boating notices, access permissions, fire restrictions, Idaho/Nevada AIS and PFD rules, and private-inholding boundaries before departure.",
     watchFor: ["Class III rapids and changing wood", "diversion dam and portage", "private ranch/inholding boundaries", "remote rescue and no cell coverage", "hot dry desert and limited water", "wet-road impassability"],
@@ -9543,7 +9541,7 @@ export const idahoRoutes: River[] = [
       latitude: 42.545023,
       longitude: -117.167067,
       mileFromStart: 0,
-      note: "BLM primitive launch at the North/Middle/Main Owyhee confluence with five campsites and vault toilets; high-clearance access and wet-road conditions require current confirmation.",
+      note: "BLM confirms a boat launch at the Three Forks Recreation Site and publishes this site coordinate; the point is an access-area anchor, not a surveyed launch toe. Confirm the primitive launch, high-clearance road, and wet-weather conditions before departure.",
     },
     takeOut: {
       name: "Rome Launch Site",
@@ -9629,7 +9627,7 @@ export const idahoRoutes: River[] = [
       latitude: 42.545023,
       longitude: -117.167067,
       mileFromStart: 18,
-      note: "Primitive BLM Oregon launch at the North/Middle/Main Owyhee confluence with five campsites and vault toilets; the final road descent may be impassable when wet.",
+      note: "BLM confirms a boat launch at the Three Forks Recreation Site and publishes this site coordinate; the point is an access-area anchor, not a surveyed launch toe. Confirm the primitive launch, high-clearance road, and wet-weather conditions before departure.",
     },
     camping:
       "Primitive endpoint and on-route camping are part of the Wild and Scenic canyon experience. Use only designated or durable BLM sites, carry a portable toilet/fire-pan plan where required, and never assume a private bank is available.",
@@ -10603,6 +10601,7 @@ export const idahoRoutes: River[] = [
       { label: "RiverBrain Pittsburg Landing access", url: snakePittsburgAccessSource },
       { label: "RiverBrain Dug Bar Boat Ramp access", url: snakeDugBarAccessSource },
       { label: "RiverBrain Heller Bar Boat Ramp access", url: snakeHellerAccessSource },
+      { label: "WDFW Heller Bar water access site", url: "https://wdfw.wa.gov/places-to-go/water-access-sites/heller-bar-395" },
     ],
     putIn: {
       name: "Pittsburg Landing Put-In",
@@ -10709,11 +10708,11 @@ export const idahoRoutes: River[] = [
       note: "BLM public Murtaugh reach put-in; confirm seasonal road, parking, and launch conditions before carrying boats to the river.",
     },
     takeOut: {
-      name: "Twin Falls Park boat ramp",
+      name: "Twin Falls Park boat-ramp access-area anchor",
       latitude: 42.587805,
       longitude: -114.355335,
       mileFromStart: 13.3,
-      note: "Idaho Power day-use park with boat ramp/docks, restrooms, and the documented Murtaugh Reach take-out; leave the water before dark.",
+      note: "Idaho Power confirms this day-use park has a boat ramp and docks and is the Murtaugh Reach take-out. The stored point is a park/access-area anchor, not a surveyed ramp toe; the park is open 8 a.m. to dark, so finish before closing.",
     },
     camping:
       "No on-route camping is assumed. Use a lawful Twin Falls or Murtaugh-area basecamp; both endpoints are day-use access facilities.",
@@ -11883,33 +11882,33 @@ export const idahoRoutes: River[] = [
       { label: "Friends of the Teton River recreation map and access rules", url: "https://www.tetonwater.org/get-out/recreation-map/" },
     ],
     putIn: {
-      name: "Teton Dam Site Boat Ramp / Carry-In",
+      name: "Teton Dam access corridor / carry-in",
       latitude: 43.9097213745117,
       longitude: -111.538330078125,
       mileFromStart: 0,
-      note: "Named Teton Dam site access anchor. The USBR gate may block vehicles; plan the documented several-hundred-yard hike/carry and verify current ramp condition, parking, and public access before launching.",
+      note: "Generalized Teton Dam access-area anchor, not a surveyed ramp toe. IDFG's current site map places its Teton Dam facility marker about 0.3 mi north of this legacy carry-in point; BLM/USBR materials describe multiple informal access trails near the old dam. Confirm the exact legal entry, carry, parking, and gated-road status before launching.",
     },
     takeOut: {
-      name: "2750 E Bridge River-Right Take-Out",
+      name: "2750 E Bridge river-right egress (public landing unverified)",
       latitude: 43.9122009277344,
       longitude: -111.616302490234,
       mileFromStart: 6.9,
-      note: "American Whitewater trip report places the landing just downstream of the 2750 E bridge on river right with good take-out parking. Confirm the current shoreline carry, bridge traffic, and lawful staging.",
+      note: "An American Whitewater 2012 trip report describes an exit just downstream of the 2750 E bridge on river right, but no current manager source establishes this as designated public access. The point is withheld until public parking, carry, and a lawful river exit are confirmed; do not infer access from the road or conservation easements.",
     },
     access: [
       {
-        name: "Teton Dam Site Boat Ramp / Carry-In",
+        name: "Teton Dam access corridor / carry-in",
         latitude: 43.9097213745117,
         longitude: -111.538330078125,
         mileFromStart: 0,
-        note: "USBR/IDFG dam-site access corridor; vehicle gate and several-hundred-yard carry require current field confirmation.",
+        note: "Generalized old-dam access-area anchor. The route point differs from the current IDFG facility-map marker; confirm the actual launch, lawful approach, and gated-road carry before use.",
       },
       {
-        name: "2750 E Bridge River-Right Take-Out",
+        name: "2750 E Bridge river-right egress (public landing unverified)",
         latitude: 43.9122009277344,
         longitude: -111.616302490234,
         mileFromStart: 6.9,
-        note: "Named trip-report endpoint; verify legal parking and a safe river-right landing before committing.",
+        note: "Older trip-report egress only; current designated public access and lawful carry/parking have not been verified. Route remains withheld pending land-manager confirmation.",
       },
     ],
     camping:
@@ -12854,7 +12853,7 @@ export const idahoRoutes: River[] = [
     hazards: ["whitewater", "cold_water", "strainers", "fast_rise", "access_uncertain"],
     safety: [
       "Idaho Paddler describes the segment as Class III at 1,500 cfs, with long connected rapids, a ledge above Meadow Creek Bridge, a limestone-cliff rapid, and a pipeline-crossing rapid. Scout from the road where possible and use a rescue-ready crew.",
-      "Boundary County's recreation plan identifies five bridge access points on the Moyie and Meadow Creek as a day-use landing. The guide places this put-in river right just downstream of the Twin Bridges road bridge and the take-out in Meadow Creek Campground; confirm current bridge-side parking, railroad/road safety, campground operating status, and the marked campground eddy before launching.",
+      "Boundary County's recreation plan identifies five bridge access points on the Moyie and Meadow Creek as a day-use landing in an older county plan. The guide places this put-in river right just downstream of the Twin Bridges road bridge; current public day-use carry and the precise Meadow Creek take-out remain unverified, so confirm both with the land manager before launching.",
       "The 500-2,300 cfs range is route-specific Eastport-gauge guidance, not a safety guarantee. Current trend, wood, bridge hazards, cold water, craft choice, and local inspection control the go/no-go decision.",
     ],
     gauge: "12306500",
@@ -12885,14 +12884,14 @@ export const idahoRoutes: River[] = [
       note: "Idaho Paddler places the put-in immediately downstream of the Moyie River Road bridge on river right; verify current parking, railroad/road safety, and lawful shoreline access.",
     },
     takeOut: {
-      name: "Meadow Creek Campground Take-Out",
+      name: "Meadow Creek Campground access (current landing unverified)",
       latitude: 48.81987,
       longitude: -116.14733,
       mileFromStart: 4.8,
-      note: "Forest Service campground on the Moyie River; the guide identifies a usable eddy near the campground host and warns that the moving current can carry boats past the landing.",
+      note: "The campground is mapped beside the Moyie, but current public day-use boat access and the exact landing are unverified. Older county and paddling-guide references describe river access; confirm current manager permission, parking, and carry before relying on this take-out.",
     },
     camping:
-      "Meadow Creek is a developed Forest Service endpoint campground with roughly 22 sites, water when operating, vault toilets, and river access; confirm season, fees, and campground status before using it as the take-out base.",
+      "Meadow Creek is a developed Forest Service campground with roughly 22 sites, water when operating, and vault toilets. Campground presence does not establish current day-use boat access; confirm status, permission, and the landing with the manager before planning a take-out.",
     campingClassification: "endpoint_campground",
     shuttle:
       "Five-mile Moyie River Road shuttle between Meadow Creek Campground and Twin Bridges; the guide notes a gravel-road bike shuttle, so stage the vehicle first and account for narrow shoulders and railroad activity.",
@@ -13268,14 +13267,14 @@ export const idahoRoutes: River[] = [
       latitude: 44.614582,
       longitude: -111.417834,
       mileFromStart: 0,
-      note: "BLM undeveloped ramp and primitive campground.",
+      note: "BLM confirms an undeveloped public boat ramp and primitive campground. The published site GPS is an access-area anchor, not a surveyed water-edge point.",
     },
     takeOut: {
       name: "Henrys Lake South Shore Boat Access",
       latitude: 44.614582,
       longitude: -111.417834,
       mileFromStart: 6,
-      note: "Return to the same public ramp; no remote shoreline take-out is assumed.",
+      note: "Return to the same BLM public ramp. The published site GPS is an access-area anchor, not a surveyed water-edge point; no remote shoreline take-out is assumed.",
     },
     access: [
       {
@@ -13283,22 +13282,23 @@ export const idahoRoutes: River[] = [
         latitude: 44.614582,
         longitude: -111.417834,
         mileFromStart: 0,
-        note: "Public launch.",
+        note: "BLM confirms the undeveloped public ramp; use the marked launch rather than treating this site GPS as the exact water edge.",
       },
       {
-        name: "South-shore open-water turnaround",
+        name: "Open-water turnaround waypoint (not an access point)",
         latitude: 44.6382,
         longitude: -111.3744,
         mileFromStart: 3,
-        note: "Planning waypoint only; no landing or access right is implied.",
+        note: "Navigation waypoint on the lake only; it is not a launch, landing, or shoreline access point, and no access right is implied.",
         segmentKind: "lake",
+        accessPointRole: "navigation-waypoint",
       },
       {
         name: "Henrys Lake South Shore Boat Access",
         latitude: 44.614582,
         longitude: -111.417834,
         mileFromStart: 6,
-        note: "Return landing.",
+        note: "Return to the marked BLM ramp; the site GPS is not a surveyed water-edge coordinate.",
       },
     ],
     camping:

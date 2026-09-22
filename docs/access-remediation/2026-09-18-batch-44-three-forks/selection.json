@@ -1,0 +1,26 @@
+{
+  "batch": 44,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "second shared suspicious access location by suspicious occurrence count and mapped-water offset after River Meadows batch 43",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T17:33:30.790Z (cache-only); 2,750 public routes, 6,058 endpoints, and 102 suspicious endpoints",
+  "queueRankAmongSharedSuspiciousLocations": 2,
+  "selectedLocation": {
+    "stateOfSite": "Oregon",
+    "name": "Three Forks Recreation Site Boat Launch",
+    "storedCoordinate": { "latitude": 42.545023, "longitude": -117.167067 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "north-fork-owyhee-campground-three-forks",
+      "owyhee-river-three-forks-rome"
+    ],
+    "preReviewFinding": "The two exact BLM site-coordinate occurrences are 342.9 feet from mapped water and 345.5 feet from the matched NHD flowline. The BLM source already documented this coordinate as an access-area anchor, but audit matching failed because the route records are labeled Idaho and the control name differed from the endpoint label.",
+    "decision": "scope-the-existing-blm-access-anchor-control-to-the-two-cross-state-route-endpoints",
+    "selectionFrozenBeforeResearch": true
+  },
+  "nearbyVariant": {
+    "routeId": "owyhee-river-crutchers-three-forks",
+    "coordinate": { "latitude": 42.5446, "longitude": -117.1657 },
+    "preReviewSeverity": "review",
+    "interpretation": "This route already uses a distinct, more river-proximate point. Keep it separate; it does not prove that the BLM site marker is the wet launch toe."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "batch": "B101",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "kansas-river-eudora-turner-bridge",
+  "endpoint": "takeOut",
+  "endpointName": "Turner Bridge Access Ramp",
+  "before": {"severity":"suspicious","distanceFeetToMatchedRiver":462.11565395496444,"distanceFeetToMappedWater":331.7486080890399},
+  "after": {"severity":"review","distanceFeetToMatchedRiver":462.11565395496444,"distanceFeetToMappedWater":331.7486080890399,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale": "The published Friends of the Kaw GPS exactly matches the stored endpoint and identifies the concrete Turner Bridge ramp. KDWP independently identifies Turner Boat Ramp as public access. Retain the exact published coordinate; the river-flowline offset reflects the bridge/ramp facility context.",
+  "condition": "Confirm current ramp and gravel parking condition, legal approach, river level, and bridge/industrial-area safety before launching or taking out.",
+  "fullAuditDelta": {"public":{"suspiciousBefore":24,"suspiciousAfter":23,"reviewBefore":3913,"reviewAfter":3914},"inventory":{"suspiciousBefore":77,"suspiciousAfter":76,"reviewBefore":4217,"reviewAfter":4218},"registry":{"authoritativeAccessBefore":1245,"authoritativeAccessAfter":1246,"conflictsAfter":0}
+}
+}

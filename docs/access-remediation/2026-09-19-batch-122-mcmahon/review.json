@@ -1,0 +1,16 @@
+{
+  "batch":"B122",
+  "decision":"retain-authoritative-public-access-anchor",
+  "routeId":"north-raccoon-river-hyde-park-mcmahon",
+  "endpoint":"takeOut",
+  "endpointName":"McMahon Access",
+  "before":{"severity":"suspicious","distanceFeetToMatchedRiver":319.40081550607005,"distanceFeetToMappedWater":248.27546030906487},
+  "after":{"severity":"review","distanceFeetToMatchedRiver":319.40081550607005,"distanceFeetToMappedWater":248.27546030906487,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale":"Greene County and Iowa DNR records document McMahon Access as a public North Raccoon River boat ramp with parking and year-round access. Retain the stored point as the managed ramp/access-area anchor; the 319-foot named-flowline offset reflects the ramp, parking, and shoreline footprint.",
+  "condition":"Confirm current Greene County access status, parking, ramp condition, river level, dam/portage hazards, and any temporary or seasonal restrictions before taking out.",
+  "fullAuditDelta": {
+    "public": {"suspiciousBefore":3,"suspiciousAfter":2,"reviewBefore":3930,"reviewAfter":3931},
+    "inventory": {"suspiciousBefore":58,"suspiciousAfter":57,"reviewBefore":4236,"reviewAfter":4237},
+    "registry": {"authoritativeAccessBefore":1262,"authoritativeAccessAfter":1262,"conflictsAfter":0}
+  }
+}

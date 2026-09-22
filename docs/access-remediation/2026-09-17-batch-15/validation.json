@@ -1,0 +1,75 @@
+{
+  "batch": "2026-09-17-batch-15",
+  "validatedOn": "2026-09-17",
+  "sourceLevelStatus": "reviewed",
+  "checks": [
+    {
+      "name": "withheld-route manifest regeneration",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 149 unique held route slugs; no new holds were required."
+    },
+    {
+      "name": "batch-specific verifier",
+      "command": "node docs/access-remediation/2026-09-17-batch-15/verify.mjs",
+      "status": "passed",
+      "result": "Verified ten frozen sites and decisions, one coordinate correction propagated through route/trip details/control, one shared control-role correction, nine retained coordinates, 14 public routes, two failed retrievals excluded, source and backup hashes, and TypeScript syntax."
+    },
+    {
+      "name": "JSON/source metadata parsing",
+      "command": "Performed by batch-specific verifier",
+      "status": "passed",
+      "result": "Selection, review, source metadata, official controls, backup metadata, registry snapshot, and withholding manifest parse."
+    },
+    {
+      "name": "route TypeScript typecheck",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/api-contract; the resulting RiverRouteAccessPoint declaration errors cascade throughout route data."
+    },
+    {
+      "name": "fresh route coordinate/access audit",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-15/after-audit.json --cache-only",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/geo; no after-audit.json was produced. Cached quality ranks remain prioritization hints only."
+    },
+    {
+      "name": "focused access tests",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "blocker": "Missing @jridgewell/sourcemap-codec during Vitest startup."
+    },
+    {
+      "name": "changed route geometry generation",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id arkansas-river-granite-boat-chute-buena-vista",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/geo before geometry generation begins."
+    },
+    {
+      "name": "workspace dependency restoration",
+      "command": "npm install --ignore-scripts --no-audit --no-fund --package-lock=false",
+      "status": "blocked",
+      "blocker": "npm registry returned 404 for @paddletoday/api-client@^0.1.0; the package workspace directories in this checkout are empty. The temporary lockfile-only netinfo entry written by npm was removed."
+    },
+    {
+      "name": "geometry assembly, overview, and access-registry generation",
+      "status": "not-run",
+      "reason": "Changed route geometry and fresh full audit are blocked. Per runbook, do not reuse existing geometry or build served registry/catalog artifacts from stale evidence."
+    },
+    {
+      "name": "substantive diff / whitespace review",
+      "status": "passed",
+      "result": "Byte-for-byte pre-edit backups and batch-specific assertions verify the intended edits. Targeted git diff --check returned no whitespace errors; unrelated worktree changes were left untouched."
+    }
+  ],
+  "changedPublicRouteGeometryIds": [
+    "arkansas-river-granite-boat-chute-buena-vista"
+  ],
+  "servedArtifactsPending": [
+    "src/data/generated/route-access-registry.json",
+    "public/data/canonical-river-geometries/routes/arkansas-river-granite-boat-chute-buena-vista.json",
+    "public/data/canonical-river-geometries/states/colorado.json",
+    "public/data/explore-map-overview.json"
+  ],
+  "publicationStatus": "The CPW-confirmed Buena Vista endpoint and access controls are corrected in source. Do not publish these changes until dependencies are restored, the changed route geometry is regenerated and checked, the full audit is refreshed, and dependent geometry/catalog/overview/registry outputs are rebuilt."
+}

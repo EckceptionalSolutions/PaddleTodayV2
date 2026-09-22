@@ -1,0 +1,21 @@
+{
+  "batch": "2026-09-17-batch-20",
+  "capturedAt": "2026-09-17",
+  "sourceRegistryPath": "src/data/route-access-official-map-controls.json",
+  "generatedRegistryPath": "src/data/generated/route-access-registry.json",
+  "generatedRegistryStatus": "stale; full refresh was not run because @paddletoday/geo is unavailable",
+  "providerCountBefore": 542,
+  "providerCountAfter": 545,
+  "newProviderIds": [
+    "wi_kimberly_sunset_park_access_anchor",
+    "ia_guthrie_lenon_mill_access_anchor",
+    "mo_van_buren_riverfront_park_access_anchor"
+  ],
+  "reclassifiedProviderIds": ["osgood_river_osgood_pond_out_and_back"],
+  "rolesAfter": [
+    {"id":"osgood_river_osgood_pond_out_and_back","coordinateRole":"authoritative-access-anchor"},
+    {"id":"id_bear_river_black_canyon_grace_powerhouse","coordinateRole":"authoritative-access-anchor"},
+    {"id":"ny_mattituck_creek_dec_waterway_access_route_48","coordinateRole":"authoritative-access-anchor"},
+    {"id":"wy_gt_deadmans_bar_nps_access","coordinateRole":"authoritative-access-anchor"}
+  ]
+}

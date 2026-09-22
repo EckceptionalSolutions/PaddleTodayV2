@@ -1,0 +1,255 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites in the cached access-quality queue with at least one route outside the current generated withholding manifest; exclude sites frozen in batches 01-07 using matching names/coordinates or a 250-foot same-feature tolerance; deduplicate exact/near-identical same-state queue entries within this batch; preserve original queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The full audit is stale and cannot be regenerated because @paddletoday/geo is missing. Cached ranks prioritize research only; each frozen candidate will be rechecked against current sources before any source edits."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "priorFrozenSiteCount": 70,
+  "currentWithheldRouteCount": 134,
+  "skippedBeforeSelection": 98,
+  "sites": [
+    {
+      "state": "Wisconsin",
+      "name": "Highway 31 / Ole Davidson Road Root River access",
+      "latitude": 42.7742,
+      "longitude": -87.8461,
+      "distanceFeetToMappedWater": 579.4996639525403,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "root-river-five-mile-horlick",
+          "endpoint": "accessPoint",
+          "endpointName": "Highway 31 / Ole Davidson Road Root River access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 99
+    },
+    {
+      "state": "Wyoming",
+      "name": "Fontenelle Creek Recreation Area boat ramp",
+      "latitude": 42.0722577,
+      "longitude": -110.1537967,
+      "distanceFeetToMappedWater": 576.7543629490197,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "endpoint": "putIn",
+          "endpointName": "Fontenelle Creek Recreation Area boat ramp",
+          "severity": "review"
+        },
+        {
+          "routeId": "fontenelle-reservoir-creek-recreation-area-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Fontenelle Creek Recreation Area boat ramp",
+          "severity": "review"
+        }
+      ],
+      "rank": 100
+    },
+    {
+      "state": "Minnesota",
+      "name": "Big Fork River, Johnson Public Water Access Site",
+      "latitude": 48.0886283542472,
+      "longitude": -93.68169266740433,
+      "distanceFeetToMappedWater": 576.6940229339015,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-fork-river-highway-6-north-johnson",
+          "endpoint": "takeOut",
+          "endpointName": "Big Fork River, Johnson Public Water Access Site",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "big-fork-river-highway-6-south-johnson",
+          "endpoint": "takeOut",
+          "endpointName": "Big Fork River, Johnson Public Water Access Site",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "big-fork-river-johnson-big-falls-east",
+          "endpoint": "putIn",
+          "endpointName": "Johnson Landing carry-in access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 101,
+      "queueAliases": [
+        {
+          "rank": 102,
+          "name": "Johnson Landing carry-in access",
+          "latitude": 48.0886284,
+          "longitude": -93.6816927,
+          "occurrences": [
+            {
+              "routeId": "big-fork-river-johnson-big-falls-east",
+              "endpoint": "putIn",
+              "endpointName": "Johnson Landing carry-in access",
+              "severity": "suspicious"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Greenvale Park Wappinger Creek access area",
+      "latitude": 41.67151,
+      "longitude": -73.87866,
+      "distanceFeetToMappedWater": 574.2885480258602,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wappinger-creek-cady-greenvale",
+          "endpoint": "takeOut",
+          "endpointName": "Greenvale Park Wappinger Creek access area",
+          "severity": "review"
+        }
+      ],
+      "rank": 103
+    },
+    {
+      "state": "New York",
+      "name": "Casey Road Saranac River canoe carry",
+      "latitude": 44.524872,
+      "longitude": -73.901676,
+      "distanceFeetToMappedWater": 565.6884514632939,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saranac-river-union-falls-casey-road",
+          "endpoint": "takeOut",
+          "endpointName": "Casey Road Saranac River canoe carry",
+          "severity": "review"
+        }
+      ],
+      "rank": 104
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Carmans River hand launch off Montauk Highway",
+      "latitude": 40.800856,
+      "longitude": -72.881074,
+      "distanceFeetToMappedWater": 559.3678383351338,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "carmans-river-montauk-beaverdam",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Carmans River hand launch off Montauk Highway",
+          "severity": "review"
+        }
+      ],
+      "rank": 105
+    },
+    {
+      "state": "North Carolina",
+      "name": "Raven Rock State Park area public access anchor",
+      "latitude": 35.4692,
+      "longitude": -78.9095,
+      "distanceFeetToMappedWater": 556.8787484161845,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cape-fear-river-raven-rock-lillington",
+          "endpoint": "putIn",
+          "endpointName": "Raven Rock State Park area public access anchor",
+          "severity": "review"
+        }
+      ],
+      "rank": 106
+    },
+    {
+      "state": "Iowa",
+      "name": "Schram Park",
+      "latitude": 42.4679,
+      "longitude": -91.4448,
+      "distanceFeetToMappedWater": 556.0653232708084,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-quaker-mill-baileys-ford",
+          "endpoint": "accessPoint",
+          "endpointName": "Schram Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 107
+    },
+    {
+      "state": "West Virginia",
+      "name": "Baileysville WVDNR public access",
+      "latitude": 37.5891667,
+      "longitude": -81.6791667,
+      "distanceFeetToMappedWater": 554.9384830044953,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-guyandotte-baileysville-rd-bailey-campground",
+          "endpoint": "putIn",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "wv-guyandotte-pineville-baileysville",
+          "endpoint": "takeOut",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 108
+    },
+    {
+      "state": "Iowa",
+      "name": "Otranto Park below-dam access",
+      "latitude": 43.458242,
+      "longitude": -92.97915,
+      "distanceFeetToMappedWater": 546.656798914158,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-otranto-acorn",
+          "endpoint": "putIn",
+          "endpointName": "Otranto Park below-dam access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 109
+    }
+  ]
+}

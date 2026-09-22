@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:34:55.248Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 1
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "kansas-river-eudora-turner-bridge__-95.1396-38.9100--94.6718-39.1340__waterbodies__waterbody",
+      "message": "Cache unavailable: No cached response"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "kansas-river-eudora-turner-bridge",
+      "routeName": "Kansas River",
+      "reach": "Eudora to Turner Bridge",
+      "state": "Kansas",
+      "endpoint": "takeOut",
+      "endpointName": "Turner Bridge Access Ramp",
+      "latitude": 39.09396,
+      "longitude": -94.71176,
+      "matchedRiverName": "Kansas River",
+      "distanceFeetToMatchedRiver": 462.11565395496444,
+      "nearestMatchedLatitude": 39.09336752978113,
+      "nearestMatchedLongitude": -94.71031742149124,
+      "nearestWaterwayName": "Kansas River",
+      "distanceFeetToNearestWaterway": 462.1156539561769,
+      "nearestWaterwayLatitude": 39.093367529781126,
+      "nearestWaterwayLongitude": -94.71031742149124,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 331.7486080890399,
+      "nearestWaterbodyLatitude": 39.09365394662295,
+      "nearestWaterbodyLongitude": -94.71065667509177,
+      "endpointOnWaterbody": false,
+      "waterProximity": "unknown",
+      "distanceFeetToMappedWater": 331.7486080890399,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://kansasriver.org/river-access-map/15861-2/",
+      "coordinateEvidenceDetail": "ks_friends_kaw_turner_bridge_access_20260919 turner-bridge-kansas-river-access: Friends of the Kaw current Kansas River Water Trail page identifies Turner Bridge Access Ramp at River Mile 9.2 and publishes GPS 39.09396, -94.71176. Kansas Department of Wildlife and Parks materials independently identify Turner Boat Ramp as a public access point. Retain the published coordinate as an access-area anchor; the 462-foot named-flowline offset reflects bridge/ramp context.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ks_friends_kaw_turner_bridge_access_20260919 turner-bridge-kansas-river-access) on Kansas River; access is conditional (Confirm current ramp and gravel parking condition, legal approach, river level, and bridge/industrial-area safety before launching or taking out.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "kansas-river-eudora-turner-bridge",
+      "routeName": "Kansas River",
+      "reach": "Eudora to Turner Bridge",
+      "state": "Kansas",
+      "endpoint": "putIn",
+      "endpointName": "Eudora Access Ramp",
+      "latitude": 38.94999,
+      "longitude": -95.09963,
+      "matchedRiverName": "Kansas River",
+      "distanceFeetToMatchedRiver": 116.57728378184908,
+      "nearestMatchedLatitude": 38.9502720927148,
+      "nearestMatchedLongitude": -95.09982303240912,
+      "nearestWaterwayName": "Wakarusa River",
+      "distanceFeetToNearestWaterway": 116.57728377956076,
+      "nearestWaterwayLatitude": 38.95027209271479,
+      "nearestWaterwayLongitude": -95.09982303240912,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 82.96155490997778,
+      "nearestWaterbodyLatitude": 38.9501934375136,
+      "nearestWaterbodyLongitude": -95.09976066882481,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 82.96155490997778,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 83 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

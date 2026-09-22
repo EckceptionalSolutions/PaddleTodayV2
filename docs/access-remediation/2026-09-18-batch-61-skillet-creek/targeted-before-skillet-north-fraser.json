@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T20:42:24.929Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "des-moines-river-skillet-north-fraser",
+      "routeName": "Des Moines River",
+      "reach": "Skillet Creek Access to North Fraser Ramp",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Skillet Creek Access",
+      "latitude": 42.2523,
+      "longitude": -93.9975,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 354.15560225161386,
+      "nearestMatchedLatitude": 42.252577,
+      "nearestMatchedLongitude": -93.99624299999999,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 354.15560225161386,
+      "nearestWaterwayLatitude": 42.252577,
+      "nearestWaterwayLongitude": -93.99624299999999,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 226.4052918504763,
+      "nearestWaterbodyLatitude": 42.25240356014306,
+      "nearestWaterbodyLongitude": -93.99667332320716,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 226.4052918504763,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 354 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "des-moines-river-skillet-north-fraser",
+      "routeName": "Des Moines River",
+      "reach": "Skillet Creek Access to North Fraser Ramp",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "North Fraser Ramp",
+      "latitude": 42.12884528087987,
+      "longitude": -93.9816575422718,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 315.9270964340718,
+      "nearestMatchedLatitude": 42.129391120464376,
+      "nearestMatchedLongitude": -93.98075102407726,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 315.9270964340718,
+      "nearestWaterwayLatitude": 42.129391120464376,
+      "nearestWaterwayLongitude": -93.98075102407726,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 103.41691140675763,
+      "nearestWaterbodyLatitude": 42.12899340302135,
+      "nearestWaterbodyLongitude": -93.98133164248422,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 103.41691140675763,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.iowadnr.gov/media/8885/download?inline=",
+      "coordinateEvidenceDetail": "ia_dnr_boone_fraser_ramp_water_entries d0c93815-4d00-449c-823e-41c5ea788468: The official Boone County water-trail map identifies North Fraser and South Fraser as the concrete-ramp endpoints of the constructed portage around the Fraser low-head dam. Coordinates come from the matching Iowa DNR public water-access inventory features. Each inventory point was independently checked against current Esri World Imagery and coincides with the water-side end of the visible ramp, so it is retained as the water entry rather than projected to a mid-river flowline. North Fraser is visibly on the river even though the current NHD water polygon ends about 103 feet away; that known hydrography offset is preserved below.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (ia_dnr_boone_fraser_ramp_water_entries d0c93815-4d00-449c-823e-41c5ea788468) on Des Moines River; the 316 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

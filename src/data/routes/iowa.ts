@@ -1190,7 +1190,7 @@ export const iowaRoutes: River[] = [
       "seasonNotes": "CanWePaddle lists April through October as the normal season for the dam-to-Iowa-City reach. Reservoir releases can matter more than local rain timing.",
       "difficulty": "easy",
       "difficultyNotes": "The mileage is short and mostly flatwater, but the dam-tailwater launch, release changes, urban bridges, and cold or debris-laden water justify a caution profile.",
-      "confidenceNotes": "Confidence is moderate-good: CanWePaddle publishes a route-specific 300-6,000 cfs range tied to the direct Iowa City gauge for Coralville Dam to Iowa City; USACE confirms Tailwater East has a boat ramp for the Iowa River below the dam and current recreation status lists the ramp open, with no courtesy dock; Recreation.gov confirms Tailwater East camping and ramp amenities; and the existing Sturgis Ferry source chain supports the public take-out. The main caveat is dam-adjacent exposure, so the route is framed as a below-dam connector only."
+      "confidenceNotes": "Confidence is high for the put-in location: USACE's current public recreation GIS maps a one-lane concrete Tailwater East Boat Ramp at 41.720904434727316,-91.52874403208878, and USACE and Recreation.gov independently confirm the public ramp accesses the Iowa River below Coralville Dam. The mapped ramp point is not a surveyed wet toe. The main caveat is dam-adjacent exposure, so the route is framed as a below-dam connector only."
     },
     "evidenceNotes": [
       {
@@ -1207,8 +1207,8 @@ export const iowaRoutes: River[] = [
       },
       {
         "label": "Public put-in",
-        "value": "Tailwater East public boat ramp below Coralville Dam",
-        "note": "USACE says Tailwater East campground has a boat ramp for access to the Iowa River below the dam, and the recreation-status page lists the Tailwater East public boat ramp open with no courtesy dock.",
+        "value": "Tailwater East public one-lane concrete boat ramp below Coralville Dam",
+        "note": "USACE's public recreation GIS identifies the ramp point at 41.720904434727316,-91.52874403208878. USACE confirms the campground ramp accesses the Iowa River below the dam. This is the mapped ramp anchor, not a surveyed wet toe; follow onsite signs and current closure notices.",
         "sourceUrl": "https://www.mvr.usace.army.mil/coralvillelake/recreation/boating-swimming/"
       },
       {
@@ -1227,6 +1227,11 @@ export const iowaRoutes: River[] = [
       {
         "label": "USACE Coralville boating and swimming",
         "url": "https://www.mvr.usace.army.mil/coralvillelake/recreation/boating-swimming/",
+        "provider": "local"
+      },
+      {
+        "label": "USACE recreation GIS — Tailwater East Boat Ramp, feature 3079",
+        "url": "https://services7.arcgis.com/zs4WYlTH7ZX0t6Fs/ArcGIS/rest/services/USACE_Final_Data/FeatureServer/0/query?objectIds=3079&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
         "provider": "local"
       },
       {
@@ -1326,8 +1331,8 @@ export const iowaRoutes: River[] = [
       {
         "label": "Public take-out and camping",
         "value": "Wilkinson Pioneer Park canoe/kayak launch and campground",
-        "note": "Cerro Gordo County / Visit Mason City describe Wilkinson Pioneer Park on the Shellrock River with a canoe/kayak launch, river frontage, and modern campground support.",
-        "sourceUrl": "https://cerrogordo.gov/conservation/parks/wilkinson_pioneer_park/"
+        "note": "Cerro Gordo County confirms canoe floating at Wilkinson Pioneer Park. Iowa DNR feature OBJECTID 896 (GlobalID 5a010dab-cd81-48be-af79-ad07c89abff7) supplies the updated mapped access-area coordinate and reports 75 ft from parking to access.",
+        "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D805%20OR%20OBJECTID%3D896&outFields=%2A&returnGeometry=true&outSR=4326&f=json"
       },
       {
         "label": "Corridor context",
@@ -1348,7 +1353,12 @@ export const iowaRoutes: River[] = [
         "provider": "local"
       },
       {
-        "label": "Cerro Gordo County Shellrock River Greenbelt",
+        "label": "Iowa DNR public water-access GIS features",
+"url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D805%20OR%20OBJECTID%3D896&outFields=%2A&returnGeometry=true&outSR=4326&f=json",
+"provider": "local"
+},
+{
+"label": "Cerro Gordo County Shellrock River Greenbelt",
         "url": "https://cerrogordo.gov/conservation/parks/shellrock_river_greenbelt_and_preserve/",
         "provider": "local"
       },
@@ -1929,7 +1939,7 @@ export const iowaRoutes: River[] = [
         "cold_water"
       ],
       "safetyNotes": [
-        "William Rhodes Island Park is by the Fertile Dam. Do not launch above the dam or paddle into dam hydraulics; start only from a confirmed safe below-dam access.",
+        "The Iowa DNR access inventory places a City-owned natural launch at Fertile Mill Park, with gravel parking and a 13-foot parking-to-access carry. City materials place William Rhodes Island Park at the Fertile Dam; use only a confirmed safe below-dam entry and avoid dam hydraulics.",
         "Confirm the Mason City take-out on the day of the trip. The app uses East Park / Mason City as a practical endpoint anchor, but local signage and access status control.",
         "The Mason City gauge is direct for downstream conditions but cannot show wood, shallow gravel, or temporary closures."
       ],
@@ -4990,7 +5000,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "County endpoint support",
         "value": "Eureka Bridge 4.5 miles upstream of Henderson",
-        "note": "Greene County MyCountyParks says Eureka Bridge Access provides boating access and is 4.5 miles upstream from Henderson Park; Henderson Park has a boat ramp developed for fishing, canoeing, and kayaking.",
+        "note": "Greene County identifies a public concrete boat ramp for canoes, kayaks, and motorboats at Eureka and places it 4.5 miles upstream from Henderson Park. The saved decimal point is retained as an access-area anchor; the reviewed county page does not publish a separate surveyed wet-edge coordinate.",
         "sourceUrl": "https://www.mycountyparks.com/county/Greene/Park/Eureka-Bridge-Access"
       },
       {
@@ -9796,8 +9806,8 @@ export const iowaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "42.95638, -92.535427 to 42.910715, -92.543001",
-        "note": "The guide publishes GPS coordinates for Nashua Access / Cedar Lake Park and Pearl Rock.",
+        "value": "42.95638, -92.535427 to 42.9107066, -92.5408445",
+        "note": "The paddling guide's Pearl Rock GPS (42.910715, -92.543001) falls about 600 feet west of the named canoe launch. The endpoint now uses the mapped launch-site marker beside the Cedar River, checked against the public county access listing and aerial imagery; it is not a surveyed agency coordinate.",
         "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
       },
       {
@@ -9911,8 +9921,8 @@ export const iowaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "42.910715, -92.543001 to 42.849516, -92.522648",
-        "note": "The guide publishes GPS coordinates for Pearl Rock and North Cedar Park.",
+        "value": "42.9107066, -92.5408445 to 42.849516, -92.522648",
+        "note": "The paddling guide's Pearl Rock GPS (42.910715, -92.543001) falls about 600 feet west of the named canoe launch. The endpoint now uses the mapped launch-site marker beside the Cedar River, checked against the public county access listing and aerial imagery; it is not a surveyed agency coordinate.",
         "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
       },
       {
@@ -11279,10 +11289,10 @@ export const iowaRoutes: River[] = [
     "id": "maquoketa-river-monmouth-maquoketa",
     "slug": "maquoketa-river-monmouth-maquoketa",
     "name": "Maquoketa River",
-    "reach": "Millertown / Monmouth corridor to Bridgeport Access",
+    "reach": "Millertown Bridge to Bridgeport Access",
     "state": "Iowa",
     "region": "Eastern Iowa",
-    "summary": "Lower Maquoketa day from the Monmouth-area Millertown access chain to Bridgeport near Maquoketa, with Jackson County water-trail access support and a direct Maquoketa gauge.",
+    "summary": "Lower Maquoketa day from the public Millertown Bridge access on 30th Avenue to Bridgeport near Maquoketa, with Jackson County water-trail support and a direct Maquoketa gauge.",
     "statusText": "Use the Maquoketa near Maquoketa gauge. CanWePaddle estimates 200 to 2,500 cfs as the runnable window; high or rising water makes this lower-river day pushier around bridges, wood, and muddy banks.",
     "latitude": 42.124508,
     "longitude": -90.857821,
@@ -11297,7 +11307,7 @@ export const iowaRoutes: River[] = [
       ],
       "safetyNotes": [
         "Use only the named Jackson County water-trail accesses; do not improvise on private lower-Maquoketa banks.",
-        "Confirm the Monmouth-area put-in before staging the shuttle because Jackson County names Millertown Bridge, Joinerville, and Bridgeport as separate public access options in this lower chain.",
+        "Use the signed Millertown Bridge access on 30th Avenue; the stored point is the bridge-axis access anchor, not a surveyed water-entry coordinate.",
         "Bridgeport is upstream of Maquoketa town and the lower gauge corridor. Do not continue downstream without a separate access and flood-stage review."
       ],
       "reviewStatus": "reviewed"
@@ -11335,7 +11345,7 @@ export const iowaRoutes: River[] = [
       "seasonNotes": "CanWePaddle identifies May through September as the normal lower-Maquoketa paddling season. Spring and storm runoff can make the lower river fast and muddy.",
       "difficulty": "easy",
       "difficultyNotes": "Flatwater with ordinary riffles in normal conditions, but the route keeps a caution profile for a lower-river shuttle, private banks, wood, and high-water bridge current.",
-      "confidenceNotes": "Confidence is moderate-good: CanWePaddle documents the exact Monmouth-to-Maquoketa route and direct Maquoketa gauge range, while Jackson County documents the lower Maquoketa water-trail access chain including Millertown Bridge, Joinerville Park, and Bridgeport Access. Endpoint coordinates are practical access-corridor anchors that require same-day sign confirmation."
+      "confidenceNotes": "Confidence is moderate-good: CanWePaddle documents the Monmouth-to-Maquoketa reach and direct Maquoketa gauge range; Jackson County names Millertown Bridge Access on 30th Avenue, and Iowa DNR's water-trail map identifies the same access corridor. The corrected coordinate is the imagery-checked 30th Avenue bridge axis with 100-foot uncertainty, not a surveyed landing point."
     },
     "evidenceNotes": [
       {
@@ -12489,7 +12499,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Official access chain",
         "value": "Lenon Mill to P-28 inside the 9-mile DNR section",
-        "note": "Iowa DNR names Lenon Mill Park Access, P-28 Access, Middle Raccoon River Access, and Cowles Access as the first 9-mile Middle Raccoon section.",
+        "note": "Iowa DNR names Lenon Mill Park Access, P-28 Access, Middle Raccoon River Access, and Cowles Access as the first 9-mile Middle Raccoon section. The park coordinate is an access-area anchor below the dam, not a surveyed waterline point.",
         "sourceUrl": "https://www.iowadnr.gov/media/8897/download?inline="
       },
       {
@@ -12955,7 +12965,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Public access map",
         "value": "Deception Hollow and Skillet Access",
-        "note": "The Webster County map labels Deception Hollow and Skillet Access as carry-down water-trail accesses on the Des Moines River.",
+        "note": "Iowa DNR's water-trail map labels Skillet Creek Access as access 261, and its public-access GIS locates the natural carry-down point; the feature lists an approximately 31-foot carry from parking.",
         "sourceUrl": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf"
       },
       {
@@ -12980,6 +12990,11 @@ export const iowaRoutes: River[] = [
       {
         "label": "Webster County Des Moines River map",
         "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Skillet Creek Access 261 GIS feature",
+        "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=25&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
         "provider": "local"
       },
       {
@@ -13067,7 +13082,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Official access maps",
         "value": "Skillet Access and North Fraser Ramp",
-        "note": "The Webster County map labels Skillet Access, while the Boone County Des Moines River Water Trail map labels North Fraser Ramp and the downstream dam/portage sequence.",
+        "note": "The Iowa DNR map labels Skillet Creek Access as access 261; the DNR GIS locates its natural carry-down. The Boone County map shows North Fraser Ramp and the downstream dam/portage sequence.",
         "sourceUrl": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf"
       },
       {
@@ -13075,6 +13090,12 @@ export const iowaRoutes: River[] = [
         "value": "38 river miles and eight ramps",
         "note": "Boone County says its Des Moines River segment is a state water trail with approximately 38 river miles and eight boat ramps.",
         "sourceUrl": "https://www.boonecounty.iowa.gov/conservation/recreational_areas/des_moines_river_water_trail/"
+      },
+      {
+        "label": "Iowa DNR Skillet Creek Access 261 GIS feature",
+        "value": "Natural carry-down; 31-foot parking-to-access distance",
+        "note": "Iowa DNR's current access feature publishes the route point for Skillet Creek Access and identifies it as a natural access on the Des Moines River.",
+        "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=25&outFields=*&returnGeometry=true&outSR=4326&f=pjson"
       },
       {
         "label": "Current gauge check",
@@ -13092,6 +13113,11 @@ export const iowaRoutes: River[] = [
       {
         "label": "Webster County Des Moines River map",
         "url": "https://cms7files.revize.com/webstercountyia/Departments/Conservation/map_dsm_webster%20%281%29.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Skillet Creek Access 261 GIS feature",
+        "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=25&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
         "provider": "local"
       },
       {
@@ -14241,7 +14267,7 @@ export const iowaRoutes: River[] = [
       },
       {
         "id": "bluffton-fir-stand-access",
-        "name": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+        "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
         "latitude": 43.3996,
         "longitude": -91.8884,
         "mileFromStart": 9.8,
@@ -14821,11 +14847,11 @@ export const iowaRoutes: River[] = [
     "id": "cedar-river-otranto-acorn",
     "slug": "cedar-river-otranto-acorn",
     "name": "Cedar River",
-    "reach": "Otranto Park below dam to Acorn Park",
+    "reach": "Otranto Park (closed for 2026 renovations) to Acorn Park",
     "state": "Iowa",
     "region": "North Central Iowa",
-    "summary": "Upper Cedar River water-trail leg from Otranto Park below the dam to Acorn Park near St. Ansgar, with official guide coordinates, a broken-dam finish, riffles, and conservative Charles City gauge screening.",
-    "statusText": "Use the Cedar River at Charles City gauge as the route-ready downstream signal. The guide says 200 cfs is preferable for adequate water and 400 to 600 cfs is better; scout Acorn Park because the broken dam has little margin for error.",
+    "summary": "Upper Cedar River water-trail leg from the Otranto Park area below the dam to Acorn Park near St. Ansgar. Otranto Park is closed for 2026 renovations; keep this route withheld until the manager reopens it and confirms current below-dam water entry.",
+    "statusText": "WITHHELD: Mitchell County Conservation Board reports Otranto Park closed for season 2026 for renovations. Confirm reopening and the below-dam entry with the Board before planning this route. If reopened, use the Cedar River at Charles City as the downstream gauge signal, and scout Acorn Park because the broken dam has little margin for error.",
     "latitude": 43.458242,
     "longitude": -92.97915,
     "safetyProfile": {
@@ -14839,6 +14865,7 @@ export const iowaRoutes: River[] = [
         "remote"
       ],
       "safetyNotes": [
+        "Otranto Park is reported closed for season 2026 for renovations. Do not use this access until Mitchell County Conservation Board confirms reopening and the current below-dam water entry.",
         "Launch from Otranto Park below the dam; do not launch above or near the dam boil.",
         "The guide says the broken Acorn Park Dam is fast water with little margin for error. Scout from land and portage or take out rather than running it blindly.",
         "The official Osage gauge is stale in USGS Water Services, so this card uses the downstream Charles City gauge as a conservative corridor signal plus a required same-day visual check."
@@ -15006,7 +15033,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Camping and ramp",
         "value": "Halvorson County Park",
-        "note": "The guide says Halvorson County Park has camping, a boat ramp, and swimming facilities.",
+        "note": "The guide identifies a Halvorson boat ramp and swimming facilities; Iowa DNR's current access GIS locates the concrete ramp at the saved endpoint coordinate. The guide says paddlers may find the campground beach about 100 meters upstream easier to use.",
         "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
       },
       {
@@ -15025,6 +15052,11 @@ export const iowaRoutes: River[] = [
       {
         "label": "Mitchell County Cedar River Water Trail",
         "url": "https://mitchellcountyconservation.com/cedar-river-water-trail/",
+        "provider": "local"
+      },
+      {
+        "label": "Iowa DNR Halvorson Park concrete-ramp GIS feature",
+        "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/68?f=pjson",
         "provider": "local"
       },
       {
@@ -15104,6 +15136,12 @@ export const iowaRoutes: River[] = [
         "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
       },
       {
+        "label": "Halvorson ramp and paddler entry",
+        "value": "Concrete ramp coordinate; campground beach upstream",
+        "note": "Iowa DNR's public access GIS locates the 22-by-88-foot concrete ramp at the saved Halvorson point. The water-trail guide says paddlers may find the campground beach about 100 meters upstream easier to use; the exact wet toe and beach landing are not separately georeferenced.",
+        "sourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/68?f=pjson"
+      },
+      {
         "label": "Mitchell dam portage",
         "value": "Left-bank portage about 100 yards",
         "note": "The guide says the Interstate Power dam at Mitchell impounds this section and the portage around the dam is about 100 yards on the left bank.",
@@ -15134,9 +15172,24 @@ export const iowaRoutes: River[] = [
         "provider": "local"
       },
       {
+        "label": "Iowa DNR Halvorson Park concrete-ramp GIS feature",
+        "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/68?f=pjson",
+        "provider": "local"
+      },
+      {
         "label": "USGS 05457700 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05457700/",
         "provider": "usgs"
+      },
+      {
+        "label": "Mitchell County Conservation Interstate Park page",
+        "url": "https://mitchellcountyconservation.com/interstate-park/",
+        "provider": "local"
+      },
+      {
+        "label": "Mitchell County Conservation Interstate Park map (2024)",
+        "url": "https://mitchellcountyconservation.com/wp-content/uploads/2024/01/Interstate-Park-web.pdf",
+        "provider": "local"
       }
     ]
   },
@@ -15211,7 +15264,7 @@ export const iowaRoutes: River[] = [
       {
         "label": "Put-in discipline",
         "value": "Below Mitchell dam portage",
-        "note": "The same guide places Interstate Park at the Mitchell dam and describes the left-bank portage around the powerhouse area; this route begins only after that dam boundary is handled from land.",
+        "note": "Iowa DNR says the park has no developed canoe/kayak launch below the dam; its described option is to take out at the ramp, walk up the embankment, and follow a natural path to the river edge. This route begins only after the full carry and a suitable below-dam entry are verified from land.",
         "sourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
       },
       {
@@ -15242,6 +15295,16 @@ export const iowaRoutes: River[] = [
         "label": "USGS 05457700 monitoring location",
         "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05457700/",
         "provider": "usgs"
+      },
+      {
+        "label": "Mitchell County Conservation Interstate Park page",
+        "url": "https://mitchellcountyconservation.com/interstate-park/",
+        "provider": "local"
+      },
+      {
+        "label": "Mitchell County Conservation Interstate Park map (2024)",
+        "url": "https://mitchellcountyconservation.com/wp-content/uploads/2024/01/Interstate-Park-web.pdf",
+        "provider": "local"
       }
     ]
   },

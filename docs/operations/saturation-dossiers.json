@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T01:01:43.804Z",
+  "generatedAt": "2026-09-22T01:01:13.518Z",
   "policy": "gauge-network-completeness-with-bounded-discovery-before-saturation",
   "dossiers": [
     {
@@ -429,10 +429,10 @@
       "discoveryComplete": false,
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
-        "inventoryCount": 39,
-        "scoredCount": 24,
-        "planningCount": 15,
-        "scoredCoveragePercent": 62
+        "inventoryCount": 50,
+        "scoredCount": 28,
+        "planningCount": 22,
+        "scoredCoveragePercent": 56
       },
       "discoveryTasks": [
         {
@@ -6269,10 +6269,10 @@
       "discoveryComplete": false,
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
-        "inventoryCount": 45,
+        "inventoryCount": 50,
         "scoredCount": 13,
-        "planningCount": 32,
-        "scoredCoveragePercent": 29
+        "planningCount": 37,
+        "scoredCoveragePercent": 26
       },
       "discoveryTasks": [
         {
@@ -7581,9 +7581,9 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 302,
+        "inventoryCount": 303,
         "scoredCount": 35,
-        "planningCount": 267,
+        "planningCount": 268,
         "scoredCoveragePercent": 12
       },
       "discoveryTasks": [],
@@ -11342,10 +11342,10 @@
       "discoveryComplete": false,
       "researchStatus": "discovery_sweep_required",
       "legacyRouteCoverage": {
-        "inventoryCount": 35,
-        "scoredCount": 24,
-        "planningCount": 11,
-        "scoredCoveragePercent": 69
+        "inventoryCount": 50,
+        "scoredCount": 32,
+        "planningCount": 18,
+        "scoredCoveragePercent": 64
       },
       "discoveryTasks": [
         {
@@ -12575,8 +12575,8 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 49,
-        "scoredCount": 46,
+        "inventoryCount": 50,
+        "scoredCount": 47,
         "planningCount": 3,
         "scoredCoveragePercent": 94
       },
@@ -12657,8 +12657,8 @@
       "discoveryComplete": false,
       "researchStatus": "gauge_baseline_pending",
       "legacyRouteCoverage": {
-        "inventoryCount": 40,
-        "scoredCount": 40,
+        "inventoryCount": 50,
+        "scoredCount": 50,
         "planningCount": 0,
         "scoredCoveragePercent": 100
       },

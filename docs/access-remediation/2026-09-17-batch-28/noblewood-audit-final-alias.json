@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:48:31.825Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "New York",
+      "name": "Noblewood Park cartop launch / Boquet mouth access area",
+      "latitude": 44.3523,
+      "longitude": -73.359958,
+      "distanceFeetToMappedWater": 468.06661547828423,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boquet-river-willsboro-noblewood",
+          "endpoint": "takeOut",
+          "endpointName": "Noblewood Park cartop launch / Boquet mouth access area",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "boquet-river-willsboro-noblewood",
+      "routeName": "Boquet River",
+      "reach": "Boquet River Nature Preserve to Noblewood Park / Lake Champlain mouth",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "Noblewood Park cartop launch / Boquet mouth access area",
+      "latitude": 44.3523,
+      "longitude": -73.359958,
+      "matchedRiverName": "Boquet River",
+      "distanceFeetToMatchedRiver": 1145.475411706231,
+      "nearestMatchedLatitude": 44.35543984397814,
+      "nearestMatchedLongitude": -73.3599420876045,
+      "nearestWaterwayName": "Boquet River",
+      "distanceFeetToNearestWaterway": 1145.475411706231,
+      "nearestWaterwayLatitude": 44.35543984397814,
+      "nearestWaterwayLongitude": -73.3599420876045,
+      "nearestWaterbodyName": "Lake Champlain",
+      "distanceFeetToNearestWaterbody": 468.06661547828423,
+      "nearestWaterbodyLatitude": 44.35161103124346,
+      "nearestWaterbodyLongitude": -73.35844436429979,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 468.06661547828423,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://passageport.org/things-to-do/blueway-trail-the-bouquet-river/",
+      "coordinateEvidenceDetail": "boquet_river_willsboro_noblewood boquet-river-noblewood-park-take-out: Lakes to Locks publishes the Nature Preserve-to-mouth Blueway segment. The Nature Conservancy identifies the public launch area on Gilliland Lane, and the Empire State Water Trail lists Noblewood Park as a public cartop launch at the Boquet mouth. The stored Noblewood point is a park/access-area anchor, not a surveyed water-edge coordinate. Verify seasonal hours, fees, and the marked river landing; do not infer permission to land on private shoreline or camp at the preserve.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (boquet_river_willsboro_noblewood boquet-river-noblewood-park-take-out) on Boquet River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "boquet-river-willsboro-noblewood",
+      "routeName": "Boquet River",
+      "reach": "Boquet River Nature Preserve to Noblewood Park / Lake Champlain mouth",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "Boquet River Nature Preserve public boat launch area",
+      "latitude": 44.365388,
+      "longitude": -73.390755,
+      "matchedRiverName": "Boquet River",
+      "distanceFeetToMatchedRiver": 88.21054965338935,
+      "nearestMatchedLatitude": 44.3654031119068,
+      "nearestMatchedLongitude": -73.39109256194251,
+      "nearestWaterwayName": "Boquet River",
+      "distanceFeetToNearestWaterway": 88.21054965338935,
+      "nearestWaterwayLatitude": 44.3654031119068,
+      "nearestWaterwayLongitude": -73.39109256194251,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 9.696128491178177,
+      "nearestWaterbodyLatitude": 44.365392681474304,
+      "nearestWaterbodyLongitude": -73.39079159631206,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 9.696128491178177,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://passageport.org/things-to-do/blueway-trail-the-bouquet-river/",
+      "coordinateEvidenceDetail": "boquet_river_willsboro_noblewood boquet-river-nature-preserve-put-in: Lakes to Locks publishes the Nature Preserve-to-mouth Blueway segment. The Nature Conservancy identifies the public launch area on Gilliland Lane, and the Empire State Water Trail lists Noblewood Park as a public cartop launch at the Boquet mouth. The stored Noblewood point is a park/access-area anchor, not a surveyed water-edge coordinate. Verify seasonal hours, fees, and the marked river landing; do not infer permission to land on private shoreline or camp at the preserve.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (boquet_river_willsboro_noblewood boquet-river-nature-preserve-put-in) on Boquet River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

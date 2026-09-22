@@ -1,0 +1,483 @@
+{
+  "batch": "2026-09-17-batch-14",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 2,
+  "retainedAccessAnchorCount": 7,
+  "reclassifiedNavigationWaypointCount": 1,
+  "unverifiedAccessSiteCount": 0,
+  "routesHeldForAccessVerificationCount": 0,
+  "uniqueBatchRouteHoldCount": 0,
+  "totalWithheldRouteCountAfterBatch": 149,
+  "uniqueBatchRouteCount": 20,
+  "coordinateCorrectedRouteCount": 10,
+  "decisions": [
+    {
+      "rank": 161,
+      "state": "New York",
+      "site": "Miami River substantial-beaver-dam turnaround",
+      "resolvedSiteName": "Miami River substantial-beaver-dam turnaround waypoint",
+      "decision": "reclassified-navigation-waypoint",
+      "originalCoordinate": [
+        43.6282,
+        -74.4165
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        43.6282,
+        -74.4165
+      ],
+      "coordinateRole": "navigation waypoint (not an access point)",
+      "reason": "A route objective in the Miami marsh, not a launch or legal take-out. The current Hamilton County paddling guide documents a substantial beaver dam about half a mile upstream; the route already uses it as a conservative turnaround.",
+      "sourceIds": [
+        "miami-experience-adirondacks",
+        "miami-dec-lewey-campground",
+        "miami-dec-hamilton-launches"
+      ],
+      "sourceUrls": [
+        "https://www.experienceouradirondacks.com/story/2024/3-adirondack-paddles-perfect-for-a-weekend-trip",
+        "https://dec.ny.gov/places/lewey-lake-campground-and-day-use-area",
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/hamilton-county"
+      ],
+      "publicationAction": "The existing objective remains in the route, with accessPointRole navigation-waypoint so the quality audit no longer treats it as public access. The route starts and ends at the confirmed Lewey Lake Campground launch; no hold is needed.",
+      "routes": [
+        "miami-river-lewey-lake-out-and-back"
+      ],
+      "occurrences": [
+        {
+          "routeId": "miami-river-lewey-lake-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "Miami River substantial-beaver-dam turnaround"
+        }
+      ]
+    },
+    {
+      "rank": 163,
+      "state": "Delaware",
+      "site": "Blackbird Creek Reserve canoe/kayak launch",
+      "resolvedSiteName": "DNERR Blackbird Creek Reserve canoe/kayak launch area",
+      "decision": "retained-public-launch-access-area-anchor",
+      "originalCoordinate": [
+        39.390111,
+        -75.636328
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        39.390111,
+        -75.636328
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "DNREC confirms a public canoe/kayak launch, dawn-to-dusk access, and possible hunting-season closures. Its trail map labels the canoe ramp and parking. No surveyed ramp-edge coordinate is published.",
+      "sourceIds": [
+        "blackbird-dnrec-reserve",
+        "blackbird-dnrec-trail-map"
+      ],
+      "sourceUrls": [
+        "https://dnrec.delaware.gov/coastal-programs/research-reserve/blackbird-creek/",
+        "https://documents.dnrec.delaware.gov/coastal/DNERR/Documents/blackbird_trail_map.pdf"
+      ],
+      "publicationAction": "Retain as a public launch-area anchor. Keep the carry from parking and current posted hunting/closure checks explicit.",
+      "routes": [
+        "blackbird-creek-reserve-the-rocks"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackbird-creek-reserve-the-rocks",
+          "endpoint": "putIn",
+          "endpointName": "Blackbird Creek Reserve canoe/kayak launch"
+        }
+      ]
+    },
+    {
+      "rank": 164,
+      "state": "New York",
+      "site": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+      "resolvedSiteName": "NYSDEC Tioga River Lindley Road hand-launch area",
+      "decision": "retained-official-hand-launch-access-area-anchor",
+      "originalCoordinate": [
+        42.0283,
+        -77.1397
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        42.0283,
+        -77.1397
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "NYSDEC lists a Tioga River hand launch on Lindley Road near Lindley with parking for 15 cars. The directory supports identity and public access but does not supply a surveyed GPS; the saved point is documented as a bridge/launch-area anchor.",
+      "sourceIds": [
+        "tioga-ny-dec-launch-directory"
+      ],
+      "sourceUrls": [
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf"
+      ],
+      "publicationAction": "Keep the bridge/launch-area anchor and verify carry, parking, waterline, and posted rules on arrival.",
+      "routes": [
+        "tioga-river-lindley-mulholland"
+      ],
+      "occurrences": [
+        {
+          "routeId": "tioga-river-lindley-mulholland",
+          "endpoint": "putIn",
+          "endpointName": "NYS Parks/DEC Tioga River Lindley Road hand launch"
+        }
+      ]
+    },
+    {
+      "rank": 165,
+      "state": "Texas",
+      "site": "FM 973 / Del Valle Bridge",
+      "resolvedSiteName": "FM 973 / Del Valle Bridge TxDOT-managed access area",
+      "decision": "retained-official-bridge-access-area-anchor",
+      "originalCoordinate": [
+        30.21,
+        -97.64
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        30.21,
+        -97.64
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "LCRA identifies the TxDOT-managed bridge access on the north side, with limited roadside parking and an uneven carry. The published coordinate is rounded and represents the access area, not a surveyed shoreline point.",
+      "sourceIds": [
+        "colorado-lcra-paddle-guide"
+      ],
+      "sourceUrls": [
+        "https://lcraparks.com/paddle-the-colorado"
+      ],
+      "publicationAction": "Keep both routes and preserve limited-parking/uneven-carry warnings. Follow the signed, open path from the bridge area; do not snap to water.",
+      "routes": [
+        "colorado-river-fm973-little-webberville",
+        "colorado-river-texas-river-school-fm973"
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm973-little-webberville",
+          "endpoint": "putIn",
+          "endpointName": "FM 973 / Del Valle Bridge"
+        },
+        {
+          "routeId": "colorado-river-texas-river-school-fm973",
+          "endpoint": "takeOut",
+          "endpointName": "FM 973 / Del Valle Bridge"
+        }
+      ]
+    },
+    {
+      "rank": 167,
+      "state": "Missouri",
+      "site": "Meramec State Park River Stop Store / river launch",
+      "resolvedSiteName": "Meramec State Park named concrete boat-launch area",
+      "decision": "corrected-to-official-named-launch-coordinate",
+      "originalCoordinate": [
+        38.20379,
+        -91.099735
+      ],
+      "replacementCoordinate": [
+        38.203259,
+        -91.09888
+      ],
+      "coordinate": [
+        38.203259,
+        -91.09888
+      ],
+      "coordinateRole": "official launch feature/access-area anchor, not surveyed edge",
+      "reason": "The old coordinate matched the adjacent River Stop Store feature. Missouri State Parks publishes a distinct coordinate for its Boat Launch - Meramec feature: 38.203259, -91.09888. This shifts both route copies about 312 feet to the intended named launch. It remains an access-area anchor; the separate canoe launch is nearby.",
+      "sourceIds": [
+        "meramec-state-park-boat-launch",
+        "meramec-state-park-river-stop",
+        "meramec-state-park-boating"
+      ],
+      "sourceUrls": [
+        "https://mostateparks.com/key-location/boat-launch-meramec",
+        "https://mostateparks.com/key-location/river-stop-store",
+        "https://mostateparks.com/park/meramec-state-park/boating"
+      ],
+      "publicationAction": "Replace the store pin in route and trip-detail copies, add an official access-anchor control, and keep park-hours and on-site concrete/canoe launch selection caveats. Replacement is 38.203259, -91.09888.",
+      "routes": [
+        "meramec-river-sappington-bridge-meramec-state-park",
+        "meramec-river-state-park-sand-ford"
+      ],
+      "occurrences": [
+        {
+          "routeId": "meramec-river-sappington-bridge-meramec-state-park",
+          "endpoint": "takeOut",
+          "endpointName": "Meramec State Park River Stop Store / river launch"
+        },
+        {
+          "routeId": "meramec-river-state-park-sand-ford",
+          "endpoint": "putIn",
+          "endpointName": "Meramec State Park River Stop Store / river launch"
+        }
+      ]
+    },
+    {
+      "rank": 168,
+      "state": "Iowa",
+      "site": "Soper's Mill Access #235",
+      "resolvedSiteName": "Story County Soper’s Mill Access #235 (south access area)",
+      "decision": "retained-public-water-trail-access-area-anchor",
+      "originalCoordinate": [
+        42.1044299,
+        -93.5754935
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        42.1044299,
+        -93.5754935
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "Story County lists Soper’s Mill #235 at 56364 170th Street and distinguishes north and south access properties. The county water-trail access improvements reopened in 2023; routes already direct paddlers to the south access and warn about the constructed riffle. No surveyed launch coordinate was found.",
+      "sourceIds": [
+        "sopers-story-county-water-trail",
+        "sopers-improvement-complete",
+        "sopers-greenbelt"
+      ],
+      "sourceUrls": [
+        "https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail",
+        "https://www.storycountyiowa.gov/Blog.aspx?IID=563",
+        "https://www.storycountyiowa.gov/1528/Skunk-River-Greenbelt"
+      ],
+      "publicationAction": "Retain the south access-area anchor. Preserve the north/south distinction, public access rules, and constructed-riffle scouting note.",
+      "routes": [
+        "south-skunk-river-lekwa-sopers-mill",
+        "south-skunk-river-sopers-mill-peterson-park"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-lekwa-sopers-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Soper's Mill Access #235"
+        },
+        {
+          "routeId": "south-skunk-river-sopers-mill-peterson-park",
+          "endpoint": "putIn",
+          "endpointName": "Soper's Mill Access #235"
+        }
+      ]
+    },
+    {
+      "rank": 169,
+      "state": "Idaho",
+      "site": "Spring Creek Campground Access",
+      "resolvedSiteName": "Spring Creek Campground public-ramp/access area",
+      "decision": "retained-public-ramp-access-area-anchor",
+      "originalCoordinate": [
+        45.39203,
+        -114.25161
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        45.39203,
+        -114.25161
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "American Whitewater describes a good Salmon River ramp commonly used to split the roadside run. The Forest Service Salmon River Road planning map marks the campground turn. The accepted sources show no current closure or relocation, but neither source supplies a surveyed ramp-toe coordinate.",
+      "sourceIds": [
+        "spring-creek-aw-access",
+        "spring-creek-usfs-travel-map"
+      ],
+      "sourceUrls": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/611/main",
+        "https://www.fs.usda.gov/media/112522"
+      ],
+      "publicationAction": "Retain as an optional campground/ramp-area anchor, with the existing same-day road and campground status check.",
+      "routes": [
+        "salmon-river-north-fork-corn-creek"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-north-fork-corn-creek",
+          "endpoint": "accessPoint",
+          "endpointName": "Spring Creek Campground Access"
+        }
+      ]
+    },
+    {
+      "rank": 170,
+      "state": "Minnesota",
+      "site": "East Golden Lake Lane access",
+      "resolvedSiteName": "Circle Pines E. Golden Lake Road canoe-launch area",
+      "decision": "retained-municipal-carry-in-launch-access-area-anchor",
+      "originalCoordinate": [
+        45.1348215,
+        -93.1471925
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        45.1348215,
+        -93.1471925
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "Circle Pines confirms a canoe launch with parking at the end of E. Golden Lake Road that connects to the Rice Creek Water Trail. Anoka County also maps East Golden Lake Lane as an access point. The published evidence supports an access area, not a surveyed edge.",
+      "sourceIds": [
+        "east-golden-circle-pines-launch",
+        "rice-creek-anoka-watertrail",
+        "rice-creek-anoka-parks"
+      ],
+      "sourceUrls": [
+        "https://circlepinesmn.gov/canoe-launch",
+        "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail",
+        "https://www.anokacountyparks.com/parks/rice-creek-chain-of-lakes"
+      ],
+      "publicationAction": "Retain the municipal access-area coordinate. Direct users to the end-of-road launch/parking and posted conditions; avoid private shoreline.",
+      "routes": [
+        "rice-creek-peltier-to-long-lake"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "East Golden Lake Lane access"
+        }
+      ]
+    },
+    {
+      "rank": 171,
+      "state": "New York",
+      "site": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+      "resolvedSiteName": "Kiwanis Park / Catskill Middle School public hand-launch area",
+      "decision": "retained-easement-backed-municipal-launch-area-anchor",
+      "originalCoordinate": [
+        42.21972,
+        -73.87
+      ],
+      "replacementCoordinate": null,
+      "coordinate": [
+        42.21972,
+        -73.87
+      ],
+      "coordinateRole": "supported public access-area anchor; no manager-published surveyed water-entry point established",
+      "reason": "NYSDEC lists a municipal hand launch with six-car parking. The Village’s 2025 application says existing public creek access uses two gravel paths on Catskill High School property under a Village easement; it also proposes an ADA launch project on a 2026 timeline. The planned dock is not proven open.",
+      "sourceIds": [
+        "catskill-dri-access",
+        "catskill-dec-hudson-access"
+      ],
+      "sourceUrls": [
+        "https://www.ny.gov/sites/default/files/2025-03/Catskill_DRI8_Application.pdf",
+        "https://extapps.dec.ny.gov/docs/remediation_hudson_pdf/hrefba.pdf"
+      ],
+      "publicationAction": "Retain the park/school-side anchor and existing construction/easement caveat. Do not describe the planned platform as operational until a current source confirms completion and opening.",
+      "routes": [
+        "catskill-creek-kiwanis-dutchmans"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catskill-creek-kiwanis-dutchmans",
+          "endpoint": "putIn",
+          "endpointName": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch"
+        }
+      ]
+    },
+    {
+      "rank": 172,
+      "state": "Montana",
+      "site": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+      "resolvedSiteName": "Montana FWP Whitaker Bridge Fishing Access Site access-area anchor",
+      "decision": "corrected-to-official-FWP-site-coordinate-and-reclassified-anchor",
+      "originalCoordinate": [
+        46.943,
+        -113.6
+      ],
+      "replacementCoordinate": [
+        46.94277,
+        -113.59983
+      ],
+      "coordinate": [
+        46.94277,
+        -113.59983
+      ],
+      "coordinateRole": "official FWP site/access-area anchor, not exact water edge",
+      "reason": "Montana FWP publishes the named site at 46.94277, -113.59983 and lists a concrete ramp. This source-backed site coordinate is about 94 feet from the rounded stored guess, but the agency does not call it the ramp toe or exact waterline.",
+      "sourceIds": [
+        "whitaker-fwp-site-detail",
+        "whitaker-fwp-map"
+      ],
+      "sourceUrls": [
+        "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39753902",
+        "https://fwp.mt.gov/binaries/content/assets/fwp/gisresources/visitmaps/fas/39753902.pdf"
+      ],
+      "publicationAction": "Update all eight route variants, the route center, endpoint catalog, and official access-anchor control. Replace “water-entry edge” with “public access-area anchor” and keep parking/road/water-entry checks. Replacement is 46.94277, -113.59983.",
+      "routes": [
+        "blackfoot-river-roundup-whitaker",
+        "blackfoot-river-russell-gates-whitaker",
+        "blackfoot-river-scotty-brown-whitaker",
+        "blackfoot-river-whitaker-angevine",
+        "blackfoot-river-whitaker-johnsrud",
+        "blackfoot-river-whitaker-k-ross-toole",
+        "blackfoot-river-whitaker-marco-flats",
+        "blackfoot-river-whitaker-weigh-station"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-roundup-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-marco-flats",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)"
+        }
+      ]
+    }
+  ],
+  "officialAccessAnchorControlsAdded": [
+    {
+      "providerId": "mo_meramec_state_park_boat_launch",
+      "site": "Meramec State Park Boat Launch",
+      "coordinate": [
+        38.203259,
+        -91.09888
+      ]
+    },
+    {
+      "providerId": "mt_fwp_whitaker_bridge_fas",
+      "site": "Whitaker Bridge Fishing Access Site",
+      "coordinate": [
+        46.94277,
+        -113.59983
+      ]
+    }
+  ],
+  "sourceRetrieval": {
+    "acceptedCount": 22,
+    "failedCount": 1,
+    "failedSources": [
+      "catskill-village-parks-rules"
+    ],
+    "failedSourcesAreNotEvidence": true
+  },
+  "releaseStatus": "Source changes are locally reviewed. Route geometry, access registry, overview, and served map assets remain stale until missing workspace dependencies are restored and generated outputs are rebuilt and audited."
+}

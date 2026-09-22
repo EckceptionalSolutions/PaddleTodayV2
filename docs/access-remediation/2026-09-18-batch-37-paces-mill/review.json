@@ -1,0 +1,59 @@
+{
+  "batch": 37,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 7,
+  "uniqueRoutesChanged": 7,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Georgia",
+      "name": "Paces Mill public launch",
+      "routeIds": [
+        "chattahoochee-river-island-ford-paces-mill",
+        "chattahoochee-river-johnson-ferry-paces-mill",
+        "chattahoochee-river-johnson-ferry-south-paces-mill",
+        "chattahoochee-river-jones-bridge-paces-mill",
+        "chattahoochee-river-morgan-falls-park-paces-mill",
+        "chattahoochee-river-overlook-park-paces-mill",
+        "chattahoochee-river-whitewater-creek-paces-mill"
+      ],
+      "decision": "correct-to-imagery-derived-public-river-entry",
+      "previousCoordinate": {
+        "latitude": 33.870198,
+        "longitude": -84.453659
+      },
+      "updatedCoordinate": {
+        "latitude": 33.870403,
+        "longitude": -84.45231
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "NPS confirms the public Paces Mill canoe/kayak/small-boat launch and its take-out role. Current aerial imagery shows the launch approach meeting the Chattahoochee at the selected coordinate. The previous point was an inland park/facility anchor about 394 ft from mapped water.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 7,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 7; mapped-water distance 0 ft",
+        "flowlineDistanceFeet": 157,
+        "severity": "review for all 7 due generalized NHD flowline distance"
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if NPS relocates or closes the Paces Mill launch, or publishes a surveyed ramp-toe coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 7,
+    "targetedRouteAuditResults": "Seven route-scoped audits returned zero suspicious, failure, unknown, or source-issue results.",
+    "changedRouteGeometryRegenerated": 7,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch": 80,
+  "reviewDate": "2026-09-19",
+  "sources": [
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/543/main",
+      "publisher": "American Whitewater",
+      "sourceDate": "Page accessed 2026-09-19",
+      "role": "Identifies Kelly Forks Access for the Kelly Creek to Aquarius reach, describes Kelly Creek joining the North Fork Clearwater at Kelly Forks, and places the campground/work center on opposite sides of the river."
+    },
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/542/main",
+      "publisher": "American Whitewater",
+      "sourceDate": "Page accessed 2026-09-19",
+      "role": "Identifies Kelly Forks Campground as the lower access for the North Fork Clearwater headwaters reach."
+    },
+    {
+      "url": "https://www.fs.usda.gov/r01/nezperce-clearwater/recreation/kelly-forks-cabin",
+      "publisher": "USDA Forest Service, Nez Perce-Clearwater National Forests",
+      "sourceDate": "Current page accessed 2026-09-19",
+      "role": "Corroborates the Kelly Forks work center and remote seasonal Forest Service road access."
+    },
+    {
+      "url": "https://mapcarta.com/N3864944214",
+      "publisher": "Mapcarta / OpenStreetMap feature",
+      "sourceDate": "Mapped feature accessed 2026-09-19",
+      "role": "Publishes the mapped Kelly Forks Campground coordinate 46.7167,-115.25515, matching the stored route point."
+    },
+    {
+      "url": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-before-public-cache-only.json",
+      "publisher": "PaddleToday access-point quality audit",
+      "sourceDate": "Frozen selection snapshot generated 2026-09-18T23:48:52.639Z",
+      "role": "Records the shared coordinate and the original suspicious Kelly Creek occurrence before source review."
+    }
+  ],
+  "coordinateMethod": "Retain the shared coordinate and extend the existing Kelly Forks control to both route IDs. The site is represented as a campground/work-center and river-left landing area, not as a surveyed water-edge point."
+}

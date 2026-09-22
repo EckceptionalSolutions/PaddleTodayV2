@@ -1,0 +1,260 @@
+{
+  "batch": "2026-09-17-batch-14",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-14/sources",
+  "snapshots": [
+    {
+      "id": "miami-experience-adirondacks",
+      "url": "https://www.experienceouradirondacks.com/story/2024/3-adirondack-paddles-perfect-for-a-weekend-trip",
+      "localPath": "node_modules/.cache/access-batch-14/sources/miami-experience-adirondacks.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 95770,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "046BE00E3844387CF9A7848A49D507F32167780EFF11823D579523ABFE236AF2"
+    },
+    {
+      "id": "miami-dec-lewey-campground",
+      "url": "https://dec.ny.gov/places/lewey-lake-campground-and-day-use-area",
+      "localPath": "node_modules/.cache/access-batch-14/sources/miami-dec-lewey-campground.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 106530,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "71B422CE36A82B34C26AC92EA74E3A3DCFDA528E7EA85B12FD7D2D029F3F2879"
+    },
+    {
+      "id": "miami-dec-hamilton-launches",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/hamilton-county",
+      "localPath": "node_modules/.cache/access-batch-14/sources/miami-dec-hamilton-launches.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 148573,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "6FA2038A59798AECE9B2EEF6D40FB2CB723B270134D0EF3F9756AE23C31F5C00"
+    },
+    {
+      "id": "blackbird-dnrec-reserve",
+      "url": "https://dnrec.delaware.gov/coastal-programs/research-reserve/blackbird-creek/",
+      "localPath": "node_modules/.cache/access-batch-14/sources/blackbird-dnrec-reserve.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 85074,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "25686B3FD59C4E0B28D151AF78197A628D0CEC504BF5FA58B5426663335D0AF6"
+    },
+    {
+      "id": "blackbird-dnrec-trail-map",
+      "url": "https://documents.dnrec.delaware.gov/coastal/DNERR/Documents/blackbird_trail_map.pdf",
+      "localPath": "node_modules/.cache/access-batch-14/sources/blackbird-dnrec-trail-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 4135340,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "89466F5420A392943AC7A6E64D07E8A64FA17ACCD9D297ACAB05AB3C753508A4"
+    },
+    {
+      "id": "tioga-ny-dec-launch-directory",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf",
+      "localPath": "node_modules/.cache/access-batch-14/sources/tioga-ny-dec-launch-directory.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1057557,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "7B28D0375F4AF1338A34E3D177916249E457D3E91BE46BD4ABE15ECDEB45B395"
+    },
+    {
+      "id": "colorado-lcra-paddle-guide",
+      "url": "https://lcraparks.com/paddle-the-colorado",
+      "localPath": "node_modules/.cache/access-batch-14/sources/colorado-lcra-paddle-guide.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 216529,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "231451668DC23110A720374776B4E5E32E5B2577CA06FC1CE77927608940D6E5"
+    },
+    {
+      "id": "meramec-state-park-boat-launch",
+      "url": "https://mostateparks.com/key-location/boat-launch-meramec",
+      "localPath": "node_modules/.cache/access-batch-14/sources/meramec-state-park-boat-launch.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 46900,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "6D2B4B6BD25F5E08216A2898F4206F700BFCC83D61704C91EB9BAA3460CA3C24"
+    },
+    {
+      "id": "meramec-state-park-river-stop",
+      "url": "https://mostateparks.com/key-location/river-stop-store",
+      "localPath": "node_modules/.cache/access-batch-14/sources/meramec-state-park-river-stop.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 48190,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "718B74A3200EAE9DAA6F769B421A77FD8D8AE472D22BCCB4E2C44CBAAE34231F"
+    },
+    {
+      "id": "meramec-state-park-boating",
+      "url": "https://mostateparks.com/park/meramec-state-park/boating",
+      "localPath": "node_modules/.cache/access-batch-14/sources/meramec-state-park-boating.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 47351,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C742F6A1BD7A50961754352824C1E9714C395C6C7A09123F4BA677C4AD9D5FE1"
+    },
+    {
+      "id": "sopers-story-county-water-trail",
+      "url": "https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail",
+      "localPath": "node_modules/.cache/access-batch-14/sources/sopers-story-county-water-trail.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 138454,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "CBF52EEA3475117861F052E520E807E79957878CD9BB21BAA06D12A50CEEF689"
+    },
+    {
+      "id": "sopers-improvement-complete",
+      "url": "https://www.storycountyiowa.gov/Blog.aspx?IID=563",
+      "localPath": "node_modules/.cache/access-batch-14/sources/sopers-improvement-complete.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 148515,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "97BE85E7E6B6A064C08556A3F7C0AC76817B8E8E59C7A626172A9E934C12D042"
+    },
+    {
+      "id": "sopers-greenbelt",
+      "url": "https://www.storycountyiowa.gov/1528/Skunk-River-Greenbelt",
+      "localPath": "node_modules/.cache/access-batch-14/sources/sopers-greenbelt.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 119441,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "52E084A08604A7FB34D3B609AFD3055C8E6A8F1C00CB1B124007F4D27B4C4375"
+    },
+    {
+      "id": "spring-creek-aw-access",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/611/main",
+      "localPath": "node_modules/.cache/access-batch-14/sources/spring-creek-aw-access.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 134109,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8B58DDB57F70AB4E70FF84B0C12231D1EF490C44780FD9931E65DA79F4E5344F"
+    },
+    {
+      "id": "spring-creek-usfs-travel-map",
+      "url": "https://www.fs.usda.gov/media/112522",
+      "localPath": "node_modules/.cache/access-batch-14/sources/spring-creek-usfs-travel-map.html",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 704746,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "A0BF808100C0BC255103B7B68930AA8699E7DAE0FF60B0196A69ACA8500D21B4"
+    },
+    {
+      "id": "east-golden-circle-pines-launch",
+      "url": "https://circlepinesmn.gov/canoe-launch",
+      "localPath": "node_modules/.cache/access-batch-14/sources/east-golden-circle-pines-launch.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 28449,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "04AAAC6D853B639A694C6918A82F8EB757D1CF5528F86C53A02824F4B3C1B7BE"
+    },
+    {
+      "id": "rice-creek-anoka-watertrail",
+      "url": "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail",
+      "localPath": "node_modules/.cache/access-batch-14/sources/rice-creek-anoka-watertrail.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 3711608,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F141A74F76A1BDFEBFD71C2E7510307BC3A2CB4844623A73FD5561759A0AFC9F"
+    },
+    {
+      "id": "rice-creek-anoka-parks",
+      "url": "https://www.anokacountyparks.com/parks/rice-creek-chain-of-lakes",
+      "localPath": "node_modules/.cache/access-batch-14/sources/rice-creek-anoka-parks.html",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 237332,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "7487E834A939DEDE31894FC99A1EC18ADA63AF858041978659475F37CE878EA2"
+    },
+    {
+      "id": "catskill-dri-access",
+      "url": "https://www.ny.gov/sites/default/files/2025-03/Catskill_DRI8_Application.pdf",
+      "localPath": "node_modules/.cache/access-batch-14/sources/catskill-dri-access.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 6246712,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "01BD176DAE01595763B2A201EEADF2165B50A345D55B133C80F100C000CE9AF7"
+    },
+    {
+      "id": "catskill-dec-hudson-access",
+      "url": "https://extapps.dec.ny.gov/docs/remediation_hudson_pdf/hrefba.pdf",
+      "localPath": "node_modules/.cache/access-batch-14/sources/catskill-dec-hudson-access.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 20499121,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "53FB8CE465F9D1FFAD15FBDCC1A4316D25036BF626690ADA5F765B2EC356CA37"
+    },
+    {
+      "id": "catskill-village-parks-rules",
+      "url": "https://villageofcatskillny.gov/vertical/sites/%7B1913022A-1115-4457-A22D-7B54682CF5DD%7D/uploads/Parks_Application_-_updated_4-11-25_PDF.pdf",
+      "localPath": null,
+      "httpStatus": 404,
+      "contentType": "text/html",
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404",
+      "sha256": null
+    },
+    {
+      "id": "whitaker-fwp-site-detail",
+      "url": "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39753902",
+      "localPath": "node_modules/.cache/access-batch-14/sources/whitaker-fwp-site-detail.html",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=UTF-8",
+      "bytes": 23293,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "9A81464746D4E9AA81DBD43E6E91FC25C895FF5C878950FA36541D5563517B8A"
+    },
+    {
+      "id": "whitaker-fwp-map",
+      "url": "https://fwp.mt.gov/binaries/content/assets/fwp/gisresources/visitmaps/fas/39753902.pdf",
+      "localPath": "node_modules/.cache/access-batch-14/sources/whitaker-fwp-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf;charset=UTF-8",
+      "bytes": 1816881,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "40F14419300A47DBCD1B80A17795EEBF377993D200C5EF9215E767F06F8A6AFE"
+    }
+  ]
+}

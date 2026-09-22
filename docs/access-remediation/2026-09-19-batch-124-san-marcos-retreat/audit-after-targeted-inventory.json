@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T03:29:34.750Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 3,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 3,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Texas",
+      "name": "San Marcos City Park river access area",
+      "latitude": 29.8859203,
+      "longitude": -97.9344384,
+      "distanceFeetToMappedWater": 366.22030326915876,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "san-marcos-river-city-park-smrr",
+          "endpoint": "putIn",
+          "endpointName": "San Marcos City Park river access area",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "san-marcos-river-city-park-smrr",
+      "routeName": "San Marcos River",
+      "reach": "City Park to San Marcos River Retreat",
+      "state": "Texas",
+      "endpoint": "putIn",
+      "endpointName": "San Marcos City Park river access area",
+      "latitude": 29.8859203,
+      "longitude": -97.9344384,
+      "matchedRiverName": "San Marcos River",
+      "distanceFeetToMatchedRiver": 421.97763502235995,
+      "nearestMatchedLatitude": 29.885975,
+      "nearestMatchedLongitude": -97.93577100000002,
+      "nearestWaterwayName": "San Marcos River",
+      "distanceFeetToNearestWaterway": 421.97763502235995,
+      "nearestWaterwayLatitude": 29.885975,
+      "nearestWaterwayLongitude": -97.93577100000002,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 366.22030326915876,
+      "nearestWaterbodyLatitude": 29.885900999999997,
+      "nearestWaterbodyLongitude": -97.935596,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 366.22030326915876,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://sanmarcostx.gov/facilities/facility/details/City-Park-35",
+      "coordinateEvidenceDetail": "san_marcos_city_park_river_access_anchor san-marcos-city-park-river-access: The City identifies City Park river access and permits visitors to bring kayaks and canoes. The stored facility point is a park/access-area anchor, not a published or surveyed water-entry point; parking rules and fees depend on residency and current City notices.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (san_marcos_city_park_river_access_anchor san-marcos-city-park-river-access) on San Marcos River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "san-marcos-river-city-park-smrr",
+      "routeName": "San Marcos River",
+      "reach": "City Park to San Marcos River Retreat",
+      "state": "Texas",
+      "endpoint": "takeOut",
+      "endpointName": "San Marcos River Retreat",
+      "latitude": 29.8592938,
+      "longitude": -97.8886993,
+      "matchedRiverName": "San Marcos River",
+      "distanceFeetToMatchedRiver": 314.5527307523126,
+      "nearestMatchedLatitude": 29.85938147233689,
+      "nearestMatchedLongitude": -97.88771025209685,
+      "nearestWaterwayName": "San Marcos River",
+      "distanceFeetToNearestWaterway": 442.98624736534646,
+      "nearestWaterwayLatitude": 29.859060840565657,
+      "nearestWaterwayLongitude": -97.88732517290171,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 292.7740291374479,
+      "nearestWaterbodyLatitude": 29.85940422759963,
+      "nearestWaterbodyLongitude": -97.88778273678491,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 292.7740291374479,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/sanmarcos_retreat.phtml",
+      "coordinateEvidenceDetail": "tx_tpwd_san_marcos_river_retreat_access_20260919 san-marcos-river-retreat-leased-access: Texas Parks and Wildlife identifies San Marcos River Retreat as a leased fishing access site on the north bank of the San Marcos River, open for launching and taking out non-motorized boats by reservation and fee through August 31, 2027. American Whitewater independently identifies the retreat as an alternate take-out. Retain the stored point as a conditional leased-access-area anchor; the 315-foot connected-network offset reflects the retreat property, road, and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (tx_tpwd_san_marcos_river_retreat_access_20260919 san-marcos-river-retreat-leased-access) on San Marcos River; access is conditional (Reserve with San Marcos River Retreat and confirm the current TPWD lease, fee, hours, designated parking, carry path, river level, and any temporary or seasonal restrictions before taking out.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "san-marcos-river-city-park-smrr",
+      "routeName": "San Marcos River",
+      "reach": "City Park to San Marcos River Retreat",
+      "state": "Texas",
+      "endpoint": "accessPoint",
+      "endpointName": "Westerfield Crossing / CR 101",
+      "latitude": 29.8569488,
+      "longitude": -97.8968908,
+      "matchedRiverName": "San Marcos River",
+      "distanceFeetToMatchedRiver": 107.78267763504796,
+      "nearestMatchedLatitude": 29.85719706693925,
+      "nearestMatchedLongitude": -97.89707546796402,
+      "nearestWaterwayName": "San Marcos River",
+      "distanceFeetToNearestWaterway": 107.78267763504796,
+      "nearestWaterwayLatitude": 29.85719706693925,
+      "nearestWaterwayLongitude": -97.89707546796402,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 53.491478033797186,
+      "nearestWaterbodyLatitude": 29.857071816547933,
+      "nearestWaterbodyLongitude": -97.89698279800042,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 53.491478033797186,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 53 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "batch": "B84",
+  "selectedAt": "2026-09-19",
+  "routeId": "wapsipinicon-river-allens-grove-gambril",
+  "routeName": "Wapsipinicon River",
+  "reach": "Allen's Grove Access to Gambril Access",
+  "state": "Iowa",
+  "endpoint": "takeOut",
+  "endpointName": "Gambril Access",
+  "storedCoordinate": { "latitude": 41.7653717, "longitude": -90.5340683 },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 367.9122650061805,
+    "nearestWaterwayName": "Wapsipinicon River",
+    "distanceFeetToMappedWater": 178.83150760525143,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "The Iowa DNR route guide names Gambril as a cement-ramp access with an eddy; verify the off-flowline point as a ramp-area anchor."
+}

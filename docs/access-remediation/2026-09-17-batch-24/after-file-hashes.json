@@ -1,0 +1,18 @@
+[
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "sha256": "3921f0bf26c3920fa07a856b852b12a60d9cb1eacf758e57102cd1edc42402a2"
+  },
+  {
+    "path": "src/data/routes/virginia.ts",
+    "sha256": "40e0d8e42509dd8ad7d947041de797416dd15cdf8611200690f8f722a8d25ad7"
+  },
+  {
+    "path": "src/data/routes/wisconsin.ts",
+    "sha256": "d6f0cd3dfe3b2d13d7745e1542fa18de5f2f11bd93f50d7e55ec733eecf85e76"
+  },
+  {
+    "path": "src/data/routes/washington-stillaguamish.ts",
+    "sha256": "b635aeb0cfcaeb410ef3217388c1b5ae5aa8c5e6e54e0993d37d91d737d5ac88"
+  }
+]

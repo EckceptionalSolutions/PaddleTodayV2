@@ -1,0 +1,9 @@
+{
+  "batch": "B97",
+  "sources": [
+    { "title": "Johnson County Conservation camping information", "url": "https://www.johnsoncountyiowa.gov/conservation/camping", "publisher": "Johnson County, Iowa", "supports": ["River Junction exact coordinate 41.4912969,-91.5017984", "Iowa River boat-ramp access", "seasonal campground status"] },
+    { "title": "River Junction Access & Campground site guide", "url": "https://www.johnsoncountyiowa.gov/sites/default/files/2021-07/River%20Junction.pdf", "publisher": "Johnson County Conservation", "supports": ["primitive campground", "boat ramp", "Iowa River Water Trail", "Hills-to-River-Junction 9.8-mile segment"] },
+    { "title": "River Junction Access Closed", "url": "https://www.johnsoncountyiowa.gov/news/conservation/flooding/2026-06-12/river-junction-access-closed", "publisher": "Johnson County, Iowa", "supports": ["current closure until further notice", "flooding/confluence conditions"] }
+  ],
+  "sourceQuality": "The exact coordinate and boat-ramp classification come from current county records, with an independent county site guide and current closure notice defining the route's present availability."
+}

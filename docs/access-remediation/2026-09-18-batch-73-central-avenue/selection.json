@@ -1,0 +1,23 @@
+{
+  "batch": 73,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:40:57.443Z; 2,750 public routes, 6,058 endpoints, 52 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New Mexico",
+    "name": "Central Avenue public river access, Rio Grande",
+    "storedCoordinate": {
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "rio-grande-central-rio-bravo",
+      "rio-grande-calabacillas-central"
+    ],
+    "preReviewFinding": "The Central Avenue-to-Rio Bravo occurrence is about 792 feet from its matched Rio Grande flowline and 394 feet from mapped water. Coverage is complete. One other public route shares the exact coordinate and classifies review.",
+    "decision": "verify-the-shared-Central-Avenue-access-location-and-confirm-that-it-provides-public-river-entry-before-changing-the-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

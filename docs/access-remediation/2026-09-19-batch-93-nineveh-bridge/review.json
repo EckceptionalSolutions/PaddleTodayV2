@@ -1,0 +1,21 @@
+{
+  "batch": "B93",
+  "routeAudit": {
+    "routeId": "susquehanna-river-afton-nineveh",
+    "beforeSeverity": "suspicious",
+    "afterSeverity": "review",
+    "beforeDistanceFeetToMatchedRiver": 434.70565277234346,
+    "afterDistanceFeetToMatchedRiver": 434.70565277234346,
+    "mappedWaterDistanceFeet": 213.70762589182547,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0
+  },
+  "fullAuditDelta": {
+    "public": { "beforeSuspicious": 32, "afterSuspicious": 31, "beforeReview": 3905, "afterReview": 3906 },
+    "inventory": { "beforeSuspicious": 85, "afterSuspicious": 84, "beforeReview": 4209, "afterReview": 4210 },
+    "registry": { "beforeAuthoritativeAccessCount": 1238, "afterAuthoritativeAccessCount": 1239, "conflictCount": 0 }
+  },
+  "decision": "Retain the exact NYSDEC coordinate as a conditional authoritative access-area anchor. The state directory establishes a public hard-surface launch, but the coordinate is not a surveyed wet-toe point, so the 435-foot flowline offset remains review-level evidence rather than a coordinate error.",
+  "followUp": "Confirm current DEC parking, ramp condition, bridge-side carry route, and river conditions at arrival."
+}

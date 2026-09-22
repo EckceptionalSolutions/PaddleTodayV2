@@ -1,0 +1,23 @@
+{
+  "batch": "B118",
+  "endpoint": "Broadway Run Road Take-Out",
+  "routeId": "big-wood-river-rotary-broadway",
+  "sources": [
+    {
+      "url": "https://www.blainecountyid.gov/DocumentCenter/View/456/Recreation-Asset-Inventory-",
+      "publisher": "Blaine County",
+      "supports": "Lists Broadway Run North and Broadway Run South as public Big Wood River water-access sites for fishing and walking."
+    },
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11413/main",
+      "publisher": "American Whitewater",
+      "supports": "Identifies Broadway Run Road as the take-out for the Ketchum Rotary Park to Broadway Run reach."
+    },
+    {
+      "url": "https://itd.idaho.gov/project/sh-75-bellevue-to-broadway-run/",
+      "publisher": "Idaho Transportation Department",
+      "supports": "Confirms the Broadway Run Road/SH-75 corridor and Big Wood River crossing context."
+    }
+  ],
+  "sourceAssessment": "County recreation inventory and the named river-run record independently document Broadway Run as the public access/take-out corridor. Retain the stored point as a conditional access-area anchor."
+}

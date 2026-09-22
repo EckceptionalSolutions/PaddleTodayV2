@@ -1,0 +1,48 @@
+{
+  "batch": 53,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "id": "spokane-river-water-trail-mission-launch-listing",
+      "title": "Spokane River Water Trail — Launches",
+      "url": "https://www.spokaneriver.net/watertrail/launches/",
+      "provider": "Spokane River Water Trail",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Lists Mission Ave. in the State Line to Upriver Dam reach for canoe/kayak/SUP only; marks it Whitewater Park & Play only.",
+        "Does not list Mission Ave. for rafts, drift boats, or powerboats."
+      ],
+      "use": "Primary local water-trail confirmation of intended access type and its limitation."
+    },
+    {
+      "id": "spokane-river-water-trail-map-record-4001",
+      "title": "Spokane River Water Trail — Mission Ave. map detail record",
+      "url": "https://www.spokaneriver.net/watertrail/park-details/?parkID=4001",
+      "provider": "Spokane River Water Trail",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "The page retrieves its public map locations from the water trail's linked SRF Watertrail spreadsheet; record ID 4001 is Mission Ave.",
+        "The record publishes location 47.671585,-117.180981, river mile 88.5, year-round season, daylight-only hours, Whitewater Area yes, and Canoe and Kayak yes.",
+        "The published map coordinate exactly matches the stored endpoint. The record is a site point and does not label a surveyed water-entry toe."
+      ],
+      "use": "Coordinate and public-site confirmation for the access-area anchor."
+    },
+    {
+      "id": "avista-spokane-river-recreation-monitoring-report-mission-ave",
+      "title": "Avista Spokane River Project Recreation Monitoring Report — Sullivan Hole / Mission Avenue",
+      "url": "https://www.myavista.com/-/media/myavista/content-documents/our-environment/river-documents/recreation/spokane_river_project_recreation_monitoring_report.pdf",
+      "provider": "Avista Utilities",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Identifies Sullivan Hole — End of Mission Avenue as trail access on the east side of the river in Spokane County.",
+        "Reports the access point at approximately 47 degrees 40.29 minutes north, 117 degrees 10.84 minutes west, within about 60 feet of the water-trail record coordinate.",
+        "Lists 30 vehicle-only spaces and no vehicle-with-trailer parking; this corroborates local access identity but is an older 2010 recreation inventory and is not used as current launch-toe evidence."
+      ],
+      "use": "Secondary location and access-area corroboration; not the current controlling source for access type or precise coordinates."
+    }
+  ],
+  "auditEvidence": {
+    "before": "audit-before-public-cache-only.json has both endpoint occurrences at 47.671585,-117.180981, 359.2 feet from matched Spokane River hydrography and 289.0 feet from mapped water, classified suspicious.",
+    "after": "Route-specific and full cache-only audits are saved in targeted-after-*.json and audit-after-*.json after adding the route-scoped access anchor."
+  }
+}

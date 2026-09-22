@@ -1,0 +1,21 @@
+{
+  "batch": 34,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Rank suspicious endpoint occurrences by exact shared coordinates and prioritize repeated points that can be checked against a managing agency's access information and imagery.",
+  "auditSource": "docs/access-point-quality-audit.json (full audit before batches 33 and 34 corrections)",
+  "selectedLocation": {
+    "name": "Tolt-MacDonald Park Snoqualmie River boat launch",
+    "state": "Washington",
+    "waterbody": "Snoqualmie River",
+    "previousCoordinate": { "latitude": 47.64411, "longitude": -121.924217 },
+    "previousDistanceFeetToMatchedFlowline": 393.2,
+    "previousDistanceFeetToMappedWater": 281.8,
+    "suspiciousOccurrences": 3,
+    "routeIds": [
+      "snoqualmie-river-fall-city-tolt",
+      "snoqualmie-river-plum-tolt",
+      "snoqualmie-river-neal-tolt"
+    ]
+  },
+  "selectionRationale": "King County confirms the park's public boat launch; the map feature and aerial imagery identify the launch at the Snoqualmie River bank. One correction resolves three repeated endpoint occurrences."
+}

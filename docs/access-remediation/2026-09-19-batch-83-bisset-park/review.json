@@ -1,0 +1,17 @@
+{
+  "batch": "B83",
+  "decision": "retain-coordinate-classify",
+  "routeId": "new-river-radford-peppers-ferry",
+  "endpoint": "putIn",
+  "endpointName": "Bisset Park Boat Ramp / Dudley’s Landing",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 37.142947, "longitude": -80.561986 }, "distanceFeetToMatchedRiver": 436.9020557665805, "distanceFeetToMappedWater": 151.33404194553557, "sourceIssues": 0 },
+  "evidence": {
+    "stateAccess": "Virginia DWR identifies Bisset Park Boat Ramp, also known as Dudley’s Landing, as a New River launch/take-out below the Route 11 bridge.",
+    "cityAccess": "The City of Radford lists boat launches at Dudley’s Landing and near Bisset Park and identifies river access at the park.",
+    "projectEvidence": "The New River Valley Regional Commission documents a public Bisset Park Shelter #3 boat-access facility with parking and a connecting footpath.",
+    "coordinateFit": "The stored point is retained as a park/ramp access-area anchor. The 437-foot flowline offset is facility-placement geometry, while mapped water is 151 ft away and hydrography coverage is complete."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "va_city_radford_dwr_bisset_park_dudleys_landing_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 436.9020557665805, "distanceFeetToMappedWater": 151.33404194553557, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 42, "after": 41 }, "inventorySuspicious": { "before": 95, "after": 94 }, "publicReview": { "before": 3895, "after": 3896 }, "inventoryReview": { "before": 4199, "after": 4200 }, "registryAuthoritativeAccess": { "before": 1230, "after": 1231 } }
+}

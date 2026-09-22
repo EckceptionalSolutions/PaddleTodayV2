@@ -1,0 +1,291 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites from the cached access-quality queue at or after rank 247, excluding previously frozen sites and rows without a route currently returned by listRivers(). Cached ranks prioritize research only and are not current access evidence.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "priorFrozenSiteCount": 210,
+  "currentWithheldRouteCount": 166,
+  "queueStartRank": 247,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntries": [
+    {
+      "rank": 251,
+      "name": "Mill Hollow / Vermilion River Reservation",
+      "routes": [
+        "vermilion-river-schoepfle-mill-hollow"
+      ]
+    }
+  ],
+  "skippedPriorSites": [],
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Sunken Meadow State Park Field 3 Nissequogue launch",
+      "latitude": 40.909309,
+      "longitude": -73.246686,
+      "distanceFeetToMappedWater": 340.3799027060665,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "nissequogue-river-paul-given-state-park",
+          "endpoint": "accessPoint",
+          "endpointName": "Sunken Meadow State Park Field 3 Nissequogue launch",
+          "severity": "failure"
+        }
+      ],
+      "rank": 247,
+      "eligibleUnwithheldRoutes": [
+        "nissequogue-river-paul-given-state-park"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Guadalupe River State Park paddling access",
+      "latitude": 29.872,
+      "longitude": -98.49,
+      "distanceFeetToMappedWater": 338.8864468148015,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "guadalupe-river-state-park-nichols-landing",
+          "endpoint": "putIn",
+          "endpointName": "Guadalupe River State Park paddling access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 248,
+      "eligibleUnwithheldRoutes": [
+        "guadalupe-river-state-park-nichols-landing"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Willow Creek Campground Take-Out",
+      "latitude": 43.6452,
+      "longitude": -115.7517,
+      "distanceFeetToMappedWater": 337.10324796046774,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "takeOut",
+          "endpointName": "Willow Creek Campground Take-Out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 249,
+      "eligibleUnwithheldRoutes": [
+        "boise-river-troutdale-willow"
+      ]
+    },
+    {
+      "state": "South Dakota",
+      "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+      "latitude": 43.52473773604778,
+      "longitude": -96.60061816019576,
+      "distanceFeetToMappedWater": 335.87139759088586,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sioux-river-highway-42-grandview",
+          "endpoint": "putIn",
+          "endpointName": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+          "severity": "review"
+        },
+        {
+          "routeId": "big-sioux-river-rec-area-south-highway-42",
+          "endpoint": "takeOut",
+          "endpointName": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+          "severity": "review"
+        }
+      ],
+      "rank": 250,
+      "eligibleUnwithheldRoutes": [
+        "big-sioux-river-highway-42-grandview",
+        "big-sioux-river-rec-area-south-highway-42"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Twin Falls Park boat ramp",
+      "latitude": 42.587805,
+      "longitude": -114.355335,
+      "distanceFeetToMappedWater": 333.0176091669127,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-murtaugh-bridge-twin-falls",
+          "endpoint": "takeOut",
+          "endpointName": "Twin Falls Park boat ramp",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 252,
+      "eligibleUnwithheldRoutes": [
+        "snake-river-murtaugh-bridge-twin-falls"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "2750 E Bridge River-Right Take-Out",
+      "latitude": 43.9122009277344,
+      "longitude": -111.616302490234,
+      "distanceFeetToMappedWater": 332.983370765923,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "teton-river-dam-site-teton-forks",
+          "endpoint": "takeOut",
+          "endpointName": "2750 E Bridge River-Right Take-Out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 253,
+      "eligibleUnwithheldRoutes": [
+        "teton-river-dam-site-teton-forks"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Chief Looking Glass Fishing Access Site (water-entry edge)",
+      "latitude": 46.66165,
+      "longitude": -114.05355,
+      "distanceFeetToMappedWater": 332.9133676182384,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bitterroot-river-bell-crossing-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bitterroot-river-hannon-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bitterroot-river-poker-joe-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 254,
+      "eligibleUnwithheldRoutes": [
+        "bitterroot-river-bell-crossing-chief-looking-glass",
+        "bitterroot-river-hannon-chief-looking-glass",
+        "bitterroot-river-poker-joe-chief-looking-glass"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Heery Woods State Park below-dam launch",
+      "latitude": 42.7718,
+      "longitude": -92.67323,
+      "distanceFeetToMappedWater": 331.96429490536696,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "shell-rock-river-heery-woods-renning",
+          "endpoint": "putIn",
+          "endpointName": "Heery Woods State Park below-dam launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 255,
+      "eligibleUnwithheldRoutes": [
+        "shell-rock-river-heery-woods-renning"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "PVC Diversion / Public Park Take-Out",
+      "latitude": 42.6263999938965,
+      "longitude": -112.126998901367,
+      "distanceFeetToMappedWater": 326.4562347316231,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "portneuf-river-lava-hot-springs-pvc",
+          "endpoint": "takeOut",
+          "endpointName": "PVC Diversion / Public Park Take-Out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 256,
+      "eligibleUnwithheldRoutes": [
+        "portneuf-river-lava-hot-springs-pvc"
+      ]
+    },
+    {
+      "state": "New Jersey",
+      "name": "Brice Park at Allenwood–Lakewood Road",
+      "latitude": 40.13893,
+      "longitude": -74.108585,
+      "distanceFeetToMappedWater": 323.8576201133989,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "manasquan-river-hospital-brice",
+          "endpoint": "takeOut",
+          "endpointName": "Brice Park at Allenwood–Lakewood Road",
+          "severity": "review"
+        }
+      ],
+      "rank": 257,
+      "eligibleUnwithheldRoutes": [
+        "manasquan-river-hospital-brice"
+      ]
+    }
+  ]
+}

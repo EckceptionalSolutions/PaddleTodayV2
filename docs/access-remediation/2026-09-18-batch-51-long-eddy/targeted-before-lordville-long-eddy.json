@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:06:34.188Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "delaware-river-lordville-long-eddy",
+      "routeName": "Delaware River",
+      "reach": "Lordville NYSDEC access to Long Eddy NYSDEC access",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "Long Eddy NYSDEC non-motorized launch",
+      "latitude": 41.823937,
+      "longitude": -75.112437,
+      "matchedRiverName": "Delaware River",
+      "distanceFeetToMatchedRiver": 370.4758349761207,
+      "nearestMatchedLatitude": 41.8236454310732,
+      "nearestMatchedLongitude": -75.11374236227611,
+      "nearestWaterwayName": "Delaware River",
+      "distanceFeetToNearestWaterway": 370.4761867114777,
+      "nearestWaterwayLatitude": 41.823644097020896,
+      "nearestWaterwayLongitude": -75.11374182569062,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 200.80915106156561,
+      "nearestWaterbodyLatitude": 41.823858,
+      "nearestWaterbodyLongitude": -75.113168,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 200.80915106156561,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 370 ft of a topology-connected NHD river trace that includes Delaware River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "delaware-river-lordville-long-eddy",
+      "routeName": "Delaware River",
+      "reach": "Lordville NYSDEC access to Long Eddy NYSDEC access",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "Lordville NYSDEC hand launch",
+      "latitude": 41.867063,
+      "longitude": -75.263813,
+      "matchedRiverName": "Delaware River",
+      "distanceFeetToMatchedRiver": 198.322051710576,
+      "nearestMatchedLatitude": 41.86729800035753,
+      "nearestMatchedLongitude": -75.26315473961183,
+      "nearestWaterwayName": "Delaware River",
+      "distanceFeetToNearestWaterway": 198.32242580744065,
+      "nearestWaterwayLatitude": 41.86729895333584,
+      "nearestWaterwayLongitude": -75.26315535308646,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 78.18800427162203,
+      "nearestWaterbodyLatitude": 41.86717029545181,
+      "nearestWaterbodyLongitude": -75.2635638646673,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 78.18800427162203,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 78 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,755 @@
+[
+  {
+    "index": 1,
+    "name": "Poche's Bridge official dock (behind Poche's Market)",
+    "point": [
+      30.2598241,
+      -91.8898799
+    ],
+    "audit": {
+      "routeId": "bayou-teche-poche-bridge-breaux-bridge",
+      "routeName": "Bayou Teche",
+      "reach": "Poche's Bridge official dock (behind Poche's Market) to Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St)",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+      "latitude": 30.2598241,
+      "longitude": -91.8898799,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 1176.7475389602303,
+      "nearestMatchedLatitude": 30.261670734245737,
+      "nearestMatchedLongitude": -91.88681800854853,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 1176.7475389602303,
+      "nearestWaterwayLatitude": 30.261670734245737,
+      "nearestWaterwayLongitude": -91.88681800854853,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1101.003332719808,
+      "nearestWaterbodyLatitude": 30.261478999999998,
+      "nearestWaterbodyLongitude": -91.886958,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1101.003332719808,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 1177 ft from the matched NHD flowline."
+    },
+    "registry": [
+      {
+        "id": "louisiana--poche-s-bridge-official-dock-behind-poche-s-market",
+        "aliases": [
+          "Poche's Bridge official dock (behind Poche's Market)"
+        ],
+        "sourceIds": [
+          "bayou-teche-arnaudville-poche-bridge-take-out",
+          "bayou-teche-leonville-poche-bridge-take-out",
+          "bayou-teche-poche-bridge-breaux-bridge-put-in",
+          "bayou-teche-poche-bridge-loreauville-put-in",
+          "bayou-teche-poche-bridge-new-iberia-put-in",
+          "bayou-teche-poche-bridge-parks-put-in",
+          "bayou-teche-poche-bridge-st-martinville-put-in",
+          "bayou-teche-port-barre-poche-bridge-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 2,
+    "name": "Central Falls Landing river ramp",
+    "point": [
+      41.8873726,
+      -71.3876472
+    ],
+    "audit": {
+      "routeId": "blackstone-river-kelly-house-central-falls",
+      "routeName": "Blackstone River",
+      "reach": "Captain Wilbur Kelly House to Central Falls Landing",
+      "state": "Rhode Island",
+      "endpoint": "takeOut",
+      "endpointName": "Central Falls Landing river ramp",
+      "latitude": 41.8873726,
+      "longitude": -71.3876472,
+      "matchedRiverName": "Blackstone River",
+      "distanceFeetToMatchedRiver": 4084.840930574042,
+      "nearestMatchedLatitude": 41.897966,
+      "nearestMatchedLongitude": -71.392519,
+      "nearestWaterwayName": "Seekonk River",
+      "distanceFeetToNearestWaterway": 1456.8866875187352,
+      "nearestWaterwayLatitude": 41.88915770865667,
+      "nearestWaterwayLongitude": -71.38284863198102,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1383.4288830385206,
+      "nearestWaterbodyLatitude": 41.888902,
+      "nearestWaterbodyLongitude": -71.382986,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1383.4288830385206,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 4085 ft from Blackstone River; the nearest named waterway is Seekonk River."
+    },
+    "registry": [
+      {
+        "id": "rhode-island--central-falls-landing-river-ramp",
+        "aliases": [
+          "Central Falls Landing river ramp"
+        ],
+        "sourceIds": [
+          "blackstone-river-albion-central-falls-take-out",
+          "blackstone-river-kelly-house-central-falls-take-out",
+          "blackstone-river-manville-central-falls-take-out",
+          "blackstone-river-rivers-edge-central-falls-take-out",
+          "blackstone-river-sycamore-central-falls-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      },
+      {
+        "id": "rhode-island--central-falls-landing-river-ramp-water-entry-edge",
+        "aliases": [
+          "Central Falls Landing river ramp (water-entry edge)"
+        ],
+        "sourceIds": [
+          "blackstone-river-central-falls-chocolateville-put-in",
+          "blackstone-river-pratt-central-falls-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 3,
+    "name": "Riverside State Park public boat launch (water-entry edge)",
+    "point": [
+      47.75085068,
+      -117.5325623
+    ],
+    "audit": {
+      "routeId": "spokane-river-aubrey-white-riverside",
+      "routeName": "Spokane River",
+      "reach": "Aubrey White Parkway public boat launch (water-entry edge) to Riverside State Park public boat launch (water-entry edge)",
+      "state": "Washington",
+      "endpoint": "takeOut",
+      "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+      "latitude": 47.75085068,
+      "longitude": -117.5325623,
+      "matchedRiverName": "Spokane River",
+      "distanceFeetToMatchedRiver": 1357.3812371913984,
+      "nearestMatchedLatitude": 47.748745,
+      "nearestMatchedLongitude": -117.52800000000002,
+      "nearestWaterwayName": "Spokane River",
+      "distanceFeetToNearestWaterway": 1357.3812371913984,
+      "nearestWaterwayLatitude": 47.748745,
+      "nearestWaterwayLongitude": -117.52800000000002,
+      "nearestWaterbodyName": "Nine Mile Reservoir",
+      "distanceFeetToNearestWaterbody": 1203.8371994425254,
+      "nearestWaterbodyLatitude": 47.749003,
+      "nearestWaterbodyLongitude": -117.528496,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1203.8371994425254,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 1357 ft from the matched NHD flowline."
+    },
+    "registry": [
+      {
+        "id": "washington--riverside-state-park-public-boat-launch-water-entry-edge",
+        "aliases": [
+          "Riverside State Park public boat launch (water-entry edge)"
+        ],
+        "sourceIds": [
+          "spokane-river-aubrey-white-riverside-take-out",
+          "spokane-river-plese-flats-riverside-take-out",
+          "spokane-river-redband-riverside-take-out",
+          "spokane-river-riverside-nine-mile-dam-put-in",
+          "spokane-river-tj-meenach-riverside-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 4,
+    "name": "Baldwin Charenton Road Park and Recreational Complex dock",
+    "point": [
+      29.8420027,
+      -91.5422904
+    ],
+    "audit": {
+      "routeId": "bayou-teche-charenton-baldwin",
+      "routeName": "Bayou Teche",
+      "reach": "Charenton official dock (3726 Chitimacha Trail) to Baldwin Charenton Road Park and Recreational Complex dock",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+      "latitude": 29.8420027,
+      "longitude": -91.5422904,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 1006.9168164232722,
+      "nearestMatchedLatitude": 29.84075674023222,
+      "nearestMatchedLongitude": -91.53945109820489,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 1006.9168164232722,
+      "nearestWaterwayLatitude": 29.84075674023222,
+      "nearestWaterwayLongitude": -91.53945109820489,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 896.0002106955145,
+      "nearestWaterbodyLatitude": 29.840920866183204,
+      "nearestWaterbodyLongitude": -91.53974841957996,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 896.0002106955145,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 1007 ft from the matched NHD flowline."
+    },
+    "registry": [
+      {
+        "id": "louisiana--baldwin-charenton-road-park-and-recreational-complex-dock",
+        "aliases": [
+          "Baldwin Charenton Road Park and Recreational Complex dock"
+        ],
+        "sourceIds": [
+          "bayou-teche-baldwin-centerville-put-in",
+          "bayou-teche-baldwin-franklin-put-in",
+          "bayou-teche-charenton-baldwin-take-out",
+          "bayou-teche-jeanerette-baldwin-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 5,
+    "name": "Quaker Village Road access, Middlebury (water-entry edge)",
+    "point": [
+      44.0195,
+      -73.1435
+    ],
+    "audit": {
+      "routeId": "otter-creek-middlebury-quaker-village",
+      "routeName": "Otter Creek",
+      "reach": "Middlebury Otter Creek wayside access below falls (water-entry edge) to Quaker Village Road access, Middlebury (water-entry edge)",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+      "latitude": 44.0195,
+      "longitude": -73.1435,
+      "matchedRiverName": "Otter Creek",
+      "distanceFeetToMatchedRiver": 6794.274527563427,
+      "nearestMatchedLatitude": 44.012696,
+      "nearestMatchedLongitude": -73.167607,
+      "nearestWaterwayName": "Muddy Branch",
+      "distanceFeetToNearestWaterway": 5057.198310241328,
+      "nearestWaterwayLatitude": 44.031209,
+      "nearestWaterwayLongitude": -73.13318,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 2078.1220304117887,
+      "nearestWaterbodyLatitude": 44.023348,
+      "nearestWaterbodyLongitude": -73.149341,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 2078.1220304117887,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 6794 ft from Otter Creek; the nearest named waterway is Muddy Branch."
+    },
+    "registry": [
+      {
+        "id": "vermont--quaker-village-road-access-middlebury-water-entry-edge",
+        "aliases": [
+          "Quaker Village Road access, Middlebury (water-entry edge)"
+        ],
+        "sourceIds": [
+          "otter-creek-middlebury-quaker-village-take-out",
+          "otter-creek-quaker-village-vergennes-put-in",
+          "otter-creek-quaker-village-weybridge-put-in"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 6,
+    "name": "SC 9 Catawba public boat landing (water-entry edge)",
+    "point": [
+      34.71042,
+      -80.86222
+    ],
+    "audit": {
+      "routeId": "catawba-river-landsford-sc9",
+      "routeName": "Catawba River",
+      "reach": "Landsford Canal State Park to SC 9 Landing",
+      "state": "South Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+      "latitude": 34.71042,
+      "longitude": -80.86222,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 1471.0138874516963,
+      "nearestMatchedLatitude": 34.709736,
+      "nearestMatchedLongitude": -80.867054,
+      "nearestWaterwayName": "Catawba River",
+      "distanceFeetToNearestWaterway": 1471.0138874516963,
+      "nearestWaterwayLatitude": 34.709736,
+      "nearestWaterwayLongitude": -80.867054,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1191.5379462559988,
+      "nearestWaterbodyLatitude": 34.709646,
+      "nearestWaterbodyLongitude": -80.86608,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1191.5379462559988,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 1471 ft from the matched NHD flowline."
+    },
+    "registry": [
+      {
+        "id": "south-carolina--sc-9-catawba-public-boat-landing-water-entry-edge",
+        "aliases": [
+          "SC 9 Catawba public boat landing (water-entry edge)"
+        ],
+        "sourceIds": [
+          "catawba-river-fort-mill-sc9-take-out",
+          "catawba-river-landsford-sc9-take-out",
+          "catawba-river-rock-hill-sc9-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 7,
+    "name": "Floodplain Preserve canoe access, Richmond",
+    "point": [
+      44.3831,
+      -73.0202
+    ],
+    "audit": {
+      "routeId": "winooski-river-bolton-canoe-floodplain",
+      "routeName": "Winooski River",
+      "reach": "Bolton Canoe Access Area to Floodplain Preserve",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Floodplain Preserve canoe access, Richmond",
+      "latitude": 44.3831,
+      "longitude": -73.0202,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 8451.917833713336,
+      "nearestMatchedLatitude": 44.402774,
+      "nearestMatchedLongitude": -73.003079,
+      "nearestWaterwayName": "Johnnie Brook",
+      "distanceFeetToNearestWaterway": 6819.4853175569715,
+      "nearestWaterwayLatitude": 44.40179,
+      "nearestWaterwayLongitude": -73.020661,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1171.0735323433637,
+      "nearestWaterbodyLatitude": 44.386267,
+      "nearestWaterbodyLongitude": -73.020933,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1171.0735323433637,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 8452 ft from Winooski River; the nearest named waterway is Johnnie Brook."
+    },
+    "registry": [
+      {
+        "id": "vermont--floodplain-preserve-canoe-access-richmond",
+        "aliases": [
+          "Floodplain Preserve canoe access, Richmond"
+        ],
+        "sourceIds": [
+          "winooski-river-bolton-canoe-floodplain-take-out",
+          "winooski-river-bolton-dam-floodplain-take-out",
+          "winooski-river-jonesville-floodplain-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 8,
+    "name": "Vergennes Main Street town dock below falls (water-entry edge)",
+    "point": [
+      44.1662,
+      -73.2518
+    ],
+    "audit": {
+      "routeId": "otter-creek-weybridge-vergennes",
+      "routeName": "Otter Creek",
+      "reach": "Weybridge State Fishing Access / Kwonumosk (water-entry edge) to Vergennes Main Street town dock below falls (water-entry edge)",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+      "latitude": 44.1662,
+      "longitude": -73.2518,
+      "matchedRiverName": "Otter Creek",
+      "distanceFeetToMatchedRiver": 1005.1368160527111,
+      "nearestMatchedLatitude": 44.16438476837541,
+      "nearestMatchedLongitude": -73.25468941281972,
+      "nearestWaterwayName": "Otter Creek",
+      "distanceFeetToNearestWaterway": 1005.1368160527111,
+      "nearestWaterwayLatitude": 44.16438476837541,
+      "nearestWaterwayLongitude": -73.25468941281972,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 903.9063965613442,
+      "nearestWaterbodyLatitude": 44.16445610396934,
+      "nearestWaterbodyLongitude": -73.25425362235056,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 903.9063965613442,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 1005 ft from the matched NHD flowline."
+    },
+    "registry": [
+      {
+        "id": "vermont--vergennes-main-street-town-dock-below-falls-water-entry-edge",
+        "aliases": [
+          "Vergennes Main Street town dock below falls (water-entry edge)"
+        ],
+        "sourceIds": [
+          "otter-creek-quaker-village-vergennes-take-out",
+          "otter-creek-vergennes-fort-cassin-put-in",
+          "otter-creek-weybridge-vergennes-take-out"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": []
+  },
+  {
+    "index": 9,
+    "name": "Mississippi River Overlook Park Carry-in Access",
+    "point": [
+      46.3178778,
+      -94.2755325
+    ],
+    "audit": {
+      "routeId": "mississippi-river-overlook-belle-prairie",
+      "routeName": "Mississippi River",
+      "reach": "Overlook Park to Belle Prairie County Park",
+      "state": "Minnesota",
+      "endpoint": "putIn",
+      "endpointName": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325,
+      "matchedRiverName": "Mississippi River",
+      "distanceFeetToMatchedRiver": 2228.788428375184,
+      "nearestMatchedLatitude": 46.311827,
+      "nearestMatchedLongitude": -94.27431099999998,
+      "nearestWaterwayName": "Mississippi River",
+      "distanceFeetToNearestWaterway": 2228.788428375184,
+      "nearestWaterwayLatitude": 46.311827,
+      "nearestWaterwayLongitude": -94.27431099999998,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 2103.6541124410332,
+      "nearestWaterbodyLatitude": 46.31215,
+      "nearestWaterbodyLongitude": -94.27456900000001,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 2103.6541124410332,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.baxtermn.gov/i-want-to/facility-directory-table-list",
+      "coordinateEvidenceDetail": "baxter_mississippi_overlook_access_anchor baxter-mississippi-overlook-park: The City of Baxter facility directory publishes Mississippi River Overlook Park at 6005 Oakdale Road, while Minnesota DNR Map 6 names Overlook Park as the river-mile 995.8 carry-in access and watercraft campsite. The stored Census-geocoded address is retained as an official arrival/parking anchor, not as an exact shoreline water-entry coordinate; confirm city signage, carry, parking, and landing conditions before launch.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (baxter_mississippi_overlook_access_anchor baxter-mississippi-overlook-park) on Mississippi River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    "registry": [
+      {
+        "id": "minnesota--mississippi-river-overlook-park-carry-in-access",
+        "aliases": [
+          "Mississippi River Overlook Park Carry-in Access"
+        ],
+        "sourceIds": [
+          "overlook-park-baxter"
+        ],
+        "authoritativeAccess": {
+          "provider": "baxter_mississippi_overlook_access_anchor",
+          "featureId": "baxter-mississippi-overlook-park",
+          "name": "Mississippi River Overlook Park",
+          "officialName": "Mississippi River Overlook Park Carry-in Access",
+          "aliases": [
+            "Mississippi River Overlook Park",
+            "Overlook Park Baxter",
+            "6005 Oakdale Road Overlook Park"
+          ],
+          "latitude": 46.3178778,
+          "longitude": -94.2755325,
+          "distanceFromCurrentFeet": 0,
+          "distanceFromMatchedRiverPointFeet": 2228.788428375184,
+          "sourceUrl": "https://www.baxtermn.gov/i-want-to/facility-directory-table-list",
+          "coordinateRole": "authoritative-access-anchor",
+          "sourceType": "official-city-facility-directory-and-state-water-trail-map",
+          "sourceDocumentDate": "2026",
+          "sourceSha256": null,
+          "extractionMethod": "The City of Baxter facility directory publishes Mississippi River Overlook Park at 6005 Oakdale Road, while Minnesota DNR Map 6 names Overlook Park as the river-mile 995.8 carry-in access and watercraft campsite. The stored Census-geocoded address is retained as an official arrival/parking anchor, not as an exact shoreline water-entry coordinate; confirm city signage, carry, parking, and landing conditions before launch.",
+          "waterbody": "Mississippi River",
+          "riverMile": 995.8,
+          "uncertaintyFeet": 2500,
+          "onNhdWaterbody": false,
+          "coordinateText": "City of Baxter published facility address geocode paired with MN DNR Map 6 named river access; arrival/parking anchor requiring field confirmation of water entry.",
+          "distanceFromStoredFeet": 0
+        },
+        "facility": {
+          "provider": "baxter_mississippi_overlook_access_anchor",
+          "featureId": "baxter-mississippi-overlook-park",
+          "name": "Mississippi River Overlook Park",
+          "officialName": "Mississippi River Overlook Park Carry-in Access",
+          "aliases": [
+            "Mississippi River Overlook Park",
+            "Overlook Park Baxter",
+            "6005 Oakdale Road Overlook Park"
+          ],
+          "latitude": 46.3178778,
+          "longitude": -94.2755325,
+          "distanceFromCurrentFeet": 0,
+          "distanceFromMatchedRiverPointFeet": 2228.788428375184,
+          "sourceUrl": "https://www.baxtermn.gov/i-want-to/facility-directory-table-list",
+          "coordinateRole": "authoritative-access-anchor",
+          "sourceType": "official-city-facility-directory-and-state-water-trail-map",
+          "sourceDocumentDate": "2026",
+          "sourceSha256": null,
+          "extractionMethod": "The City of Baxter facility directory publishes Mississippi River Overlook Park at 6005 Oakdale Road, while Minnesota DNR Map 6 names Overlook Park as the river-mile 995.8 carry-in access and watercraft campsite. The stored Census-geocoded address is retained as an official arrival/parking anchor, not as an exact shoreline water-entry coordinate; confirm city signage, carry, parking, and landing conditions before launch.",
+          "waterbody": "Mississippi River",
+          "riverMile": 995.8,
+          "uncertaintyFeet": 2500,
+          "onNhdWaterbody": false,
+          "coordinateText": "City of Baxter published facility address geocode paired with MN DNR Map 6 named river access; arrival/parking anchor requiring field confirmation of water entry.",
+          "distanceFromStoredFeet": 0
+        },
+        "waterEntry": null
+      }
+    ],
+    "controls": [
+      {
+        "provider": "baxter_mississippi_overlook_access_anchor",
+        "role": "authoritative-access-anchor",
+        "sourceUrl": "https://www.baxtermn.gov/i-want-to/facility-directory-table-list",
+        "control": {
+          "featureId": "baxter-mississippi-overlook-park",
+          "name": "Mississippi River Overlook Park Carry-in Access",
+          "aliases": [
+            "Mississippi River Overlook Park",
+            "Overlook Park Baxter",
+            "6005 Oakdale Road Overlook Park"
+          ],
+          "waterbody": "Mississippi River",
+          "latitude": 46.3178778,
+          "longitude": -94.2755325,
+          "riverMile": 995.8,
+          "uncertaintyFeet": 2500,
+          "coordinateText": "City of Baxter published facility address geocode paired with MN DNR Map 6 named river access; arrival/parking anchor requiring field confirmation of water entry."
+        }
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "name": "Phillips Wharf Environmental Center launch",
+    "point": [
+      38.7191111,
+      -76.3324222
+    ],
+    "audit": {
+      "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+      "routeName": "Tilghman Island and Bay Hundred Water Trails",
+      "reach": "Phillips Wharf Environmental Center to Front Creek loop",
+      "state": "Maryland",
+      "endpoint": "putIn",
+      "endpointName": "Phillips Wharf Environmental Center launch",
+      "latitude": 38.7191111,
+      "longitude": -76.3324222,
+      "matchedRiverName": null,
+      "distanceFeetToMatchedRiver": null,
+      "nearestMatchedLatitude": null,
+      "nearestMatchedLongitude": null,
+      "nearestWaterwayName": "Back Creek",
+      "distanceFeetToNearestWaterway": 2959.3203495093935,
+      "nearestWaterwayLatitude": 38.72555,
+      "nearestWaterwayLongitude": -76.338746,
+      "nearestWaterbodyName": "Chesapeake Bay",
+      "distanceFeetToNearestWaterbody": 958.4051434884599,
+      "nearestWaterbodyLatitude": 38.72052991374803,
+      "nearestWaterbodyLongitude": -76.33525604553398,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 958.4051434884599,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": null,
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "unknown",
+      "note": "No matching named NHD flowline was returned inside the route bounding box."
+    },
+    "registry": [
+      {
+        "id": "maryland--phillips-wharf-environmental-center-launch",
+        "aliases": [
+          "Phillips Wharf Environmental Center launch"
+        ],
+        "sourceIds": [
+          "tilghman-pwec-back-put-in",
+          "tilghman-pwec-front-put-in"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      },
+      {
+        "id": "maryland--phillips-wharf-environmental-center-return",
+        "aliases": [
+          "Phillips Wharf Environmental Center return"
+        ],
+        "sourceIds": [
+          "tilghman-pwec-back-return",
+          "tilghman-pwec-front-return"
+        ],
+        "authoritativeAccess": null,
+        "facility": null,
+        "waterEntry": null
+      }
+    ],
+    "controls": [
+      {
+        "provider": "md_tilghman_pwec_front_creek_loop_access",
+        "role": "authoritative-access-anchor",
+        "sourceUrl": "https://dx5rc38w5kzi8.cloudfront.net/wp-content/uploads/2014/09/12175532/Tilghman-Island-Water-Trails.pdf",
+        "control": {
+          "featureId": "tilghman-pwec-front-put-in",
+          "name": "Phillips Wharf Environmental Center launch",
+          "aliases": [
+            "PWEC launch",
+            "Front Creek loop start"
+          ],
+          "waterbody": "Knapps Narrows / Chesapeake Bay",
+          "latitude": 38.7191111,
+          "longitude": -76.3324222,
+          "riverMile": 0,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Official guide GPS for the public kayak/canoe launch with gravel parking, transfer bench, and portable restroom; verify hours and current operations."
+        }
+      },
+      {
+        "provider": "md_tilghman_pwec_front_creek_loop_access",
+        "role": "authoritative-access-anchor",
+        "sourceUrl": "https://dx5rc38w5kzi8.cloudfront.net/wp-content/uploads/2014/09/12175532/Tilghman-Island-Water-Trails.pdf",
+        "control": {
+          "featureId": "tilghman-pwec-front-return",
+          "name": "Phillips Wharf Environmental Center return",
+          "aliases": [
+            "PWEC Front Creek loop finish",
+            "PWEC public launch"
+          ],
+          "waterbody": "Front Creek / Knapps Narrows",
+          "latitude": 38.7191111,
+          "longitude": -76.3324222,
+          "riverMile": 3,
+          "uncertaintyFeet": 500,
+          "coordinateText": "The official guide describes the Front Creek route returning to PWEC; preserve a hard return before shallow water, traffic, wind, or daylight margins fail."
+        }
+      },
+      {
+        "provider": "md_tilghman_pwec_back_creek_loop_access",
+        "role": "authoritative-access-anchor",
+        "sourceUrl": "https://dx5rc38w5kzi8.cloudfront.net/wp-content/uploads/2014/09/12175532/Tilghman-Island-Water-Trails.pdf",
+        "control": {
+          "featureId": "tilghman-pwec-back-put-in",
+          "name": "Phillips Wharf Environmental Center launch",
+          "aliases": [
+            "PWEC launch",
+            "Back Creek loop start"
+          ],
+          "waterbody": "Knapps Narrows / Back Creek",
+          "latitude": 38.7191111,
+          "longitude": -76.3324222,
+          "riverMile": 0,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Official guide GPS for the public kayak/canoe launch; verify dawn-to-dusk access, parking, and current launch surface."
+        }
+      },
+      {
+        "provider": "md_tilghman_pwec_back_creek_loop_access",
+        "role": "authoritative-access-anchor",
+        "sourceUrl": "https://dx5rc38w5kzi8.cloudfront.net/wp-content/uploads/2014/09/12175532/Tilghman-Island-Water-Trails.pdf",
+        "control": {
+          "featureId": "tilghman-pwec-back-return",
+          "name": "Phillips Wharf Environmental Center return",
+          "aliases": [
+            "PWEC Back Creek loop finish",
+            "PWEC public launch"
+          ],
+          "waterbody": "Back Creek / Knapps Narrows",
+          "latitude": 38.7191111,
+          "longitude": -76.3324222,
+          "riverMile": 2.5,
+          "uncertaintyFeet": 500,
+          "coordinateText": "The official guide describes the Back Creek route returning to PWEC; preserve the named public launch and do not use private working waterfront as bailout."
+        }
+      }
+    ]
+  }
+]

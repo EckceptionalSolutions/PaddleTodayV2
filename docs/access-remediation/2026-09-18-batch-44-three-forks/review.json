@@ -1,0 +1,43 @@
+{
+  "batch": 44,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Three Forks Recreation Site, Oregon",
+  "siteCoordinate": { "latitude": 42.545023, "longitude": -117.167067 },
+  "affectedRoutes": [
+    "north-fork-owyhee-campground-three-forks",
+    "owyhee-river-three-forks-rome"
+  ],
+  "decision": "retain-authoritative-blm-site-anchor-and-correct-audit-control-matching",
+  "decisionScope": "The BLM confirms a boat launch within the Three Forks Recreation Site and publishes the site coordinate. The source explicitly treats that coordinate as a recreation-site anchor, not a surveyed launch toe. Keep the route location as a documented access-area anchor and classify it as review evidence.",
+  "preChangeAudit": {
+    "mappedWaterDistanceFeet": 342.9017,
+    "matchedFlowlineDistanceFeet": 345.4695,
+    "severity": "suspicious",
+    "coordinateEvidenceRole": null
+  },
+  "matchingIssue": "The official control correctly identifies Oregon, while both route catalog records are assigned to Idaho although each route reaches Three Forks in Oregon. The control name also used 'boat-launch area' while the route endpoint used 'Boat Launch'. Exact point name and coordinates agreed, but state and alias matching prevented the official anchor from reaching the endpoint audit.",
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "auditMatcher": "scripts/audit-route-coordinate-river-distance.ts",
+    "scope": "Add the exact route endpoint name as an alias and scope the source control explicitly to the two route IDs. Route-scoped controls may cross the broad route-state label; unrelated routes remain excluded.",
+    "routeNote": "Clarify in both route records that the published BLM coordinate is an access-area marker, not the surveyed launch toe."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "north-fork-owyhee-campground-three-forks",
+      "file": "targeted-north-fork-three-forks.json",
+      "putInOrTakeOutResult": "Three Forks take-out is review with coordinateEvidenceRole authoritative-access-anchor; no source issues."
+    },
+    {
+      "routeId": "owyhee-river-three-forks-rome",
+      "file": "targeted-three-forks-rome.json",
+      "putInOrTakeOutResult": "Three Forks put-in is review with coordinateEvidenceRole authoritative-access-anchor. The audit reported one truncated optional NHD route-network response; the official site control still matches, and the separate Rome endpoint is also review."
+    }
+  ],
+  "nearbyCoordinateVariant": {
+    "routeId": "owyhee-river-crutchers-three-forks",
+    "coordinate": { "latitude": 42.5446, "longitude": -117.1657 },
+    "result": "A separate endpoint variant remains review and sits 138 ft from matched flowline / within the NHD waterbody. It may be closer to water, but no reviewed source ties that exact point to the ramp toe; do not silently unify it with the BLM marker."
+  },
+  "outcome": "Both exact BLM site-coordinate occurrences move from suspicious to review; no route coordinate is moved, and the public access point remains reviewable rather than represented as a surveyed water-entry point."
+}

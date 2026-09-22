@@ -1,0 +1,42 @@
+{
+  "batch": "B112",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "namekagon-river-big-bend-trego",
+  "endpoint": "putIn",
+  "endpointName": "Big Bend Landing",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 355.1194758917666,
+    "distanceFeetToMappedWater": 298.825252999538
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 355.1194758917666,
+    "distanceFeetToMappedWater": 298.825252999538,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "NPS and Wisconsin DNR document Big Bend Landing on the Namekagon River. Retain the stored point as the conditional landing-area anchor; the 355-foot named-flowline offset reflects the landing, parking, trail, and shoreline footprint.",
+  "condition": "Confirm current NPS/Wisconsin DNR landing status, parking, carry path, river level, and any seasonal or local restrictions before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 13,
+      "suspiciousAfter": 12,
+      "reviewBefore": 3924,
+      "reviewAfter": 3925
+    },
+    "inventory": {
+      "suspiciousBefore": 66,
+      "suspiciousAfter": 65,
+      "reviewBefore": 4228,
+      "reviewAfter": 4229
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1254,
+      "authoritativeAccessAfter": 1255,
+      "conflictsAfter": 0
+    }
+  }
+}

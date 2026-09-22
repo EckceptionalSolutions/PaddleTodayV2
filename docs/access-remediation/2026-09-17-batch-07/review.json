@@ -1,0 +1,113 @@
+{
+  "batch": "2026-09-17-batch-07",
+  "reviewedOn": "2026-09-17",
+  "coordinateCorrectedSiteCount": 1,
+  "retainedAccessAnchorCount": 6,
+  "removedFalseAccessMarkerCount": 2,
+  "rejectedOrUnverifiedPublicAccessCount": 1,
+  "uniqueBatchRouteHoldCount": 8,
+  "decisions": [
+    {
+      "rank": 87,
+      "state": "Iowa",
+      "site": "Lehigh Des Moines River access",
+      "decision": "retained-water-trail-access-anchor",
+      "coordinate": [42.3583, -94.0525],
+      "reason": "The Webster County/Iowa DNR Des Moines River trail materials identify Lehigh as a named water-trail access. Existing source notes already classify this as a practical area anchor rather than a surveyed ramp point. No defensible replacement water-edge coordinate was found, so preserve the anchor and require an on-site ramp check.",
+      "routes": ["des-moines-river-fort-dodge-lehigh"],
+      "sources": ["https://www.iowadnr.gov/media/8886/download?inline=", "https://www.fortdodgeiowa.org/egov/apps/document/center.egov?view=item%3Bid%3D11427"]
+    },
+    {
+      "rank": 89,
+      "state": "Wisconsin",
+      "site": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
+      "decision": "retained-park-access-anchor",
+      "coordinate": [43.0674, -87.89238],
+      "reason": "Milwaukee County designates Riverside Park as an East Bank launch near the Urban Ecology Center. UEC directs visitors from its parking lot along a path to the canoe launch. The current point is retained and relabeled as a park-access anchor; it is not the water-edge point.",
+      "routes": ["milwaukee-river-riverside-bruce-street"],
+      "sources": ["https://county.milwaukee.gov/EN/Parks/Explore/Trails/River-Trails", "https://www.urbanecologycenter.org/branches/riverside-park"]
+    },
+    {
+      "rank": 90,
+      "state": "Idaho",
+      "site": "Shotgun Scout / Portage River Left",
+      "decision": "removed-rapid-scout-marker-from-access-list",
+      "removedAccessPoint": true,
+      "reason": "American Whitewater and How's Your River describe Shotgun as a rapid to scout or portage from river left. The route source itself says this is not a public landing. Removed it from the access list while retaining the scouting/portage safety instructions.",
+      "routes": ["salmon-river-rough-creek-yankee-fork"],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-detail/609/main", "https://www.howsyourriver.com/runs/3-rough-creek-bridge-to-torrey-s-hole-river-access-salmon-id"]
+    },
+    {
+      "rank": 92,
+      "state": "New York",
+      "site": "Canalside Buffalo Commercial Slip / public low dock",
+      "decision": "retained-conditional-dock-anchor",
+      "coordinate": [42.878298, -78.878022],
+      "reason": "The Buffalo waterfront manager publishes current docking instructions; the City's waterfront plan documents a lower dock intended for kayak use. Keep the coordinate as a dock/site anchor and retain the existing event, authorization, traffic, and water-entry caveats. No better current launch-edge coordinate was documented.",
+      "routes": ["buffalo-river-canalside-red-jacket"],
+      "sources": ["https://buffalowaterfront.com/activities/boaterinfo", "https://www.buffalony.gov/DocumentCenter/View/8026/2020-Local-Waterfront-Revitalization-Plan?bidId="]
+    },
+    {
+      "rank": 93,
+      "state": "Missouri",
+      "site": "Greer Crossing Recreation Area",
+      "decision": "corrected-river-access-coordinate",
+      "oldCoordinate": [36.79356389, -91.32854167],
+      "newCoordinate": [36.793439, -91.331617],
+      "coordinateRole": "authoritative-access-anchor",
+      "reason": "The prior coordinate is the Forest Service recreation/campground facility point. The Forest Service Eleven Point river map separately publishes the Greer Crossing river-access point as 36°47′36.38″N, 91°19′53.82″W; current Forest Service destination material confirms that Greer Crossing has a boat ramp and day-use area. The mapped point is an access anchor, not a surveyed ramp edge.",
+      "routes": ["eleven-point-river-cane-bluff-greer-crossing", "eleven-point-river-greer-crossing-narrows", "eleven-point-river-greer-crossing-riverton", "eleven-point-river-greer-crossing-turner-mill", "eleven-point-river-greer-crossing-turner-mill-south", "eleven-point-river-greer-crossing-whitten", "eleven-point-river-thomasville-greer-crossing"],
+      "sources": ["https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf", "https://www.fs.usda.gov/visit/destinations?field_rec_activities_target_id=All&field_rec_forest_target_id=All&page=816"]
+    },
+    {
+      "rank": 94,
+      "state": "Maryland",
+      "site": "Monkton Road / Monkton Station Gunpowder access",
+      "decision": "retained-limited-parking-area-anchor",
+      "coordinate": [39.5793956, -76.61554],
+      "reason": "Maryland DNR identifies Monkton Station as a public park facility and documents its limited parking; American Whitewater names Monkton Road as the access in this Gunpowder reach. Neither source isolates a water-edge launch coordinate. Keep the existing access-area anchor and its carry/parking warnings.",
+      "routes": ["gunpowder-falls-masemore-monkton", "gunpowder-falls-monkton-phoenix"],
+      "sources": ["https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx", "https://fishandhuntmaryland.com/articles/gunpowder-falls-0"]
+    },
+    {
+      "rank": 95,
+      "state": "Iowa",
+      "site": "Pearl Rock access",
+      "decision": "retained-public-canoe-launch-anchor",
+      "coordinate": [42.910715, -92.543001],
+      "reason": "Chickasaw County's park listing identifies Pearl Rock as a canoe launch on the Cedar River and gives the 1072 305th Street location; the City of Nashua lists it in its Cedar River access chain. The available manager sources do not publish a separate surveyed water-edge point, so retain the existing anchor and limited-parking caveat.",
+      "routes": ["cedar-river-nashua-pearl-rock", "cedar-river-pearl-rock-north-cedar"],
+      "sources": ["https://www.mycountyparks.com/county/chickasaw/Park/Pearl-Rock-Canoe-Launch-Site", "https://www.cityofnashuaia.com/float"]
+    },
+    {
+      "rank": 96,
+      "state": "New York",
+      "site": "Fisherman's Park / Burt Dam below-dam access area",
+      "decision": "fishing-access-not-verified-paddle-launch",
+      "coordinate": [43.31718, -78.71366],
+      "reason": "The Town of Newfane waterfront plan describes Fisherman's Park as town-owned fishing access with parking and a steep site. It does not establish a canoe/kayak launch or legal loaded-boat carry. Relabeled the point and kept the route withheld pending Town confirmation of watercraft use and a safe water entry below Burt Dam.",
+      "routes": ["eighteenmile-creek-burt-newfane"],
+      "sources": ["https://dos.ny.gov/system/files/documents/2019/05/town-newfane.pdf", "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04219768"]
+    },
+    {
+      "rank": 97,
+      "state": "Wisconsin",
+      "site": "Princeton Jefferson Street / Hiestand Park Landing",
+      "decision": "retained-city-kayak-launch-site",
+      "coordinate": [43.8512, -89.1289],
+      "reason": "The City of Princeton identifies a 2018 kayak launch and boat pier in Hiestand Park. The published city material confirms the public launch site but does not isolate the water-side edge, so keep the existing park/launch-area anchor.",
+      "routes": ["fox-river-princeton-locks-city-landing"],
+      "sources": ["https://www.cityofprincetonwi.com/index.asp?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E&Type=B_BASIC"]
+    },
+    {
+      "rank": 98,
+      "state": "Wisconsin",
+      "site": "Highway C bridge access",
+      "decision": "removed-unverified-bridge-bailout-marker",
+      "removedAccessPoint": true,
+      "reason": "The selected Sheboygan River route source describes Highway C as a bridge/corridor reference and explicitly says it is not a fully confirmed primary landing. Removed the intermediate access marker; the route still starts at Dassow Park and ends at the verified River Park canoe ramp, and the narrative continues to caution against relying on the bridge as a bailout.",
+      "routes": ["sheboygan-river-dassow-river-park"],
+      "sources": ["https://www.wisconsinrivertrips.com/segments/sheboygan-river/johnsonville"]
+    }
+  ]
+}

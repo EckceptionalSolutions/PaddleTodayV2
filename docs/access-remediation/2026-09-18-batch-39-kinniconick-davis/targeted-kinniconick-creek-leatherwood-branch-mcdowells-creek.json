@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:05:52.917Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "kinniconick-creek-leatherwood-branch-mcdowells-creek",
+      "routeName": "Kinniconick Creek",
+      "reach": "Leatherwood Branch Park Access to McDowells Creek Park Access",
+      "state": "Kentucky",
+      "endpoint": "putIn",
+      "endpointName": "Leatherwood Branch Park Access",
+      "latitude": 38.5105,
+      "longitude": -83.3274,
+      "matchedRiverName": "Kinniconick Creek",
+      "distanceFeetToMatchedRiver": 331.1801855634935,
+      "nearestMatchedLatitude": 38.50966267625961,
+      "nearestMatchedLongitude": -83.3278481737039,
+      "nearestWaterwayName": "Leatherwood Branch",
+      "distanceFeetToNearestWaterway": 186.38966354382396,
+      "nearestWaterwayLatitude": 38.510908,
+      "nearestWaterwayLongitude": -83.32779300000001,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 300.4549083521407,
+      "nearestWaterbodyLatitude": 38.509715272630295,
+      "nearestWaterbodyLongitude": -83.32771944550029,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 186.38966354382396,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130",
+      "coordinateEvidenceDetail": "kdfwr_kinniconick_leatherwood_branch_access_20260918 kdfwr-access-site-1130-leatherwood-branch: KDFWR publishes Leatherwood Branch Park Access at 38.5105,-83.3274, labels it carry-down only with no constructed ramp surface, and says paddlers must walk equipment a short distance from the parking area to the access point. Preserve the agency's site coordinate as an access-area anchor; it does not specify the exact wet-edge coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (kdfwr_kinniconick_leatherwood_branch_access_20260918 kdfwr-access-site-1130-leatherwood-branch) on Kinniconick Creek; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "kinniconick-creek-leatherwood-branch-mcdowells-creek",
+      "routeName": "Kinniconick Creek",
+      "reach": "Leatherwood Branch Park Access to McDowells Creek Park Access",
+      "state": "Kentucky",
+      "endpoint": "takeOut",
+      "endpointName": "McDowells Creek Park Access",
+      "latitude": 38.5746,
+      "longitude": -83.1896,
+      "matchedRiverName": "Kinniconick Creek",
+      "distanceFeetToMatchedRiver": 141.50013629930618,
+      "nearestMatchedLatitude": 38.574913,
+      "nearestMatchedLongitude": -83.189307,
+      "nearestWaterwayName": "Kinniconick Creek",
+      "distanceFeetToNearestWaterway": 141.50013629930618,
+      "nearestWaterwayLatitude": 38.574913,
+      "nearestWaterwayLongitude": -83.189307,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 95.59374039496794,
+      "nearestWaterbodyLatitude": 38.574797,
+      "nearestWaterbodyLongitude": -83.189379,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 95.59374039496794,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 96 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

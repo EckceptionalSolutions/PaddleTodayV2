@@ -1,0 +1,21 @@
+{
+  "batch": "B94",
+  "routeAudit": {
+    "routeId": "wv-cheat-rowlesburg-preston-foc",
+    "beforeSeverity": "suspicious",
+    "afterSeverity": "review",
+    "beforeDistanceFeetToMatchedRiver": 344.12640715020166,
+    "afterDistanceFeetToMatchedRiver": 344.12640715020166,
+    "mappedWaterDistanceFeet": 213.8994855226154,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0
+  },
+  "fullAuditDelta": {
+    "public": { "beforeSuspicious": 31, "afterSuspicious": 30, "beforeReview": 3906, "afterReview": 3907 },
+    "inventory": { "beforeSuspicious": 84, "afterSuspicious": 83, "beforeReview": 4210, "afterReview": 4211 },
+    "registry": { "beforeAuthoritativeAccessCount": 1239, "afterAuthoritativeAccessCount": 1240, "conflictCount": 0 }
+  },
+  "decision": "Retain the exact WVDNR coordinate as a conditional authoritative access-area anchor. The DNR table establishes a public Cheat River boat-access lot, but the coordinate is not a surveyed wet-toe point, so the 344-foot flowline offset remains review-level evidence rather than a coordinate error.",
+  "followUp": "Confirm current WVDNR/park status, parking, carry route, whitewater level, and any closure or event restrictions at arrival."
+}

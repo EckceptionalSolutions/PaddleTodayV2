@@ -1,0 +1,82 @@
+{
+  "generatedDate": "2026-09-17",
+  "sources": [
+    {
+      "site": "Polaris Bridge",
+      "sources": [
+        "https://dec.ny.gov/places/hudson-gorge-wilderness"
+      ],
+      "supports": "Published parking coordinate, 0.3-mile carry to the separate hand launch, and location of the downstream take-out."
+    },
+    {
+      "site": "County Highway K / Plover River Wayside",
+      "sources": [
+        "https://www.co.portage.wi.gov/325/Park-Trail-Maps"
+      ],
+      "supports": "Portage County describes a small county highway right-of-way used by canoeists for Plover River access."
+    },
+    {
+      "site": "Fish Creek WMA Pope Mills",
+      "sources": [
+        "https://dec.ny.gov/places/fish-creek-wildlife-management-area",
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf",
+        "https://dec.ny.gov/sites/default/files/fishcreekmap.pdf"
+      ],
+      "supports": "Two small-craft launch areas, the five-car Pope Mills / Route 58 access, and its 0.8-mile hand carry."
+    },
+    {
+      "site": "Sheep Crossing / Verde River",
+      "sources": [
+        "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf"
+      ],
+      "supports": "Published access coordinate, river mile 62.2, and the difficult/long-boat-haul marker."
+    },
+    {
+      "site": "Riverside Park / Milwaukee River",
+      "sources": [
+        "https://milwaukeeriverkeeper.org/wp-content/uploads/2025/02/Milwaukee_WaterTrail_2018_Final-1.pdf",
+        "https://county.milwaukee.gov/EN/Parks/Explore/Trails/River-Trails",
+        "https://www.urbanecologycenter.org/branches/riverside-park"
+      ],
+      "supports": "Published concrete-ramp GPS, current County designation as a launch, and the UEC path from parking to the river landing."
+    },
+    {
+      "site": "Johnson Landing / Big Fork River",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf"
+      ],
+      "supports": "State-designated carry-in access at river mile 67.5 and recommended Johnson Landing to Big Falls day trip."
+    },
+    {
+      "site": "Carmans River / Montauk Highway",
+      "sources": [
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk"
+      ],
+      "supports": "Official site coordinate, hand launch, parking, 300-yard carry, motor restrictions, and refuge-cooperation note."
+    },
+    {
+      "site": "Manton Avenue / Aleppo Street",
+      "sources": [
+        "https://dot.ri.gov/travel/bikeri/woonasquatucket.php"
+      ],
+      "supports": "RIDOT identifies the small boat launch and public parking access area but does not publish a site GPS."
+    },
+    {
+      "site": "Skidmore Drive / Verde River",
+      "sources": [
+        "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+        "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
+        "https://www.fs.usda.gov/visit/destinations?field_fs_states_tid_selective=All&field_rec_activities_target_id=All&field_rec_activities_tid_selective=11967&field_rec_forest_target_id=All&field_rec_forest_tid_selective=All&page=604"
+      ],
+      "supports": "Published RAP coordinate, 150-yard trail carry, and Forest Service description as pedestrian access without a developed boat launch."
+    },
+    {
+      "site": "Perception Park / South Fork Ogden River",
+      "sources": [
+        "https://www.recreation.gov/camping/campgrounds/232084"
+      ],
+      "supports": "Forest Service campground location on the river, riverside recreation and nature trail; does not designate a paddlecraft launch."
+    }
+  ]
+}

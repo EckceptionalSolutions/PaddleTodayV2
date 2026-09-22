@@ -1,0 +1,42 @@
+{
+  "batch": "B109",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "roanoke-river-niagara-explore-park",
+  "endpoint": "putIn",
+  "endpointName": "Blue Ridge Parkway Roanoke River Trail public access",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 373.81815394556395,
+    "distanceFeetToMappedWater": 276.7860006740378
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 373.81815394556395,
+    "distanceFeetToMappedWater": 276.7860006740378,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "The Roanoke River Blueway publishes the exact access GPS at the Blue Ridge Parkway Roanoke River Trail and describes parking, overlook, trail, steps, and flow conditions. NPS confirms the trail descends from the MP 114.9 overlook toward the river. Retain the stored point as a conditional shoreline-access anchor; the 374-foot named-flowline offset reflects the overlook/trail/shoreline facility rather than a wrong endpoint.",
+  "condition": "Confirm current Blue Ridge Parkway road status, parking, trail and steps, river level, and seasonal or weather-related closures before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 16,
+      "suspiciousAfter": 15,
+      "reviewBefore": 3921,
+      "reviewAfter": 3922
+    },
+    "inventory": {
+      "suspiciousBefore": 69,
+      "suspiciousAfter": 68,
+      "reviewBefore": 4225,
+      "reviewAfter": 4226
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1251,
+      "authoritativeAccessAfter": 1252,
+      "conflictsAfter": 0
+    }
+  }
+}

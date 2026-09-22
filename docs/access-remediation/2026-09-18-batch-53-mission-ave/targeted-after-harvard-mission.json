@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:31:16.491Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "spokane-river-harvard-mission",
+      "routeName": "Spokane River",
+      "reach": "Harvard Road Park public boat launch (water-entry edge) to Mission Ave. paddler access (access-site anchor; whitewater park/play only)",
+      "state": "Washington",
+      "endpoint": "takeOut",
+      "endpointName": "Mission Ave. paddler access (access-site anchor; whitewater park/play only)",
+      "latitude": 47.671585,
+      "longitude": -117.180981,
+      "matchedRiverName": "Spokane River",
+      "distanceFeetToMatchedRiver": 359.1742496275613,
+      "nearestMatchedLatitude": 47.672179,
+      "nearestMatchedLongitude": -117.182147,
+      "nearestWaterwayName": "Spokane River",
+      "distanceFeetToNearestWaterway": 359.1742496275613,
+      "nearestWaterwayLatitude": 47.672179,
+      "nearestWaterwayLongitude": -117.182147,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 288.9509220986559,
+      "nearestWaterbodyLatitude": 47.671881,
+      "nearestWaterbodyLongitude": -117.182072,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 288.9509220986559,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.spokaneriver.net/watertrail/park-details/?parkID=4001",
+      "coordinateEvidenceDetail": "spokane_river_water_trail_mission_ave_access_anchor_20260918 spokane-river-water-trail-record-4001: The Spokane River Water Trail launches page lists Mission Ave. for canoe/kayak/SUP and labels it Whitewater Park & Play only. Its public map detail record ID 4001 names Mission Ave., publishes 47.671585,-117.180981, gives river mile 88.5, year-round season and daylight hours, and marks Whitewater Area and Canoe and Kayak. The published coordinate exactly matches the stored route point. Avista's recreation inventory separately identifies Sullivan Hole at the end of Mission Avenue as Spokane County trail access. These sources establish a paddler access site, not the surveyed water-entry toe; they do not support rafting or powerboat use here.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (spokane_river_water_trail_mission_ave_access_anchor_20260918 spokane-river-water-trail-record-4001) on Spokane River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "spokane-river-harvard-mission",
+      "routeName": "Spokane River",
+      "reach": "Harvard Road Park public boat launch (water-entry edge) to Mission Ave. paddler access (access-site anchor; whitewater park/play only)",
+      "state": "Washington",
+      "endpoint": "putIn",
+      "endpointName": "Harvard Road Park public boat launch (water-entry edge)",
+      "latitude": 47.683766,
+      "longitude": -117.111901,
+      "matchedRiverName": "Spokane River",
+      "distanceFeetToMatchedRiver": 340.01686614325547,
+      "nearestMatchedLatitude": 47.68301197618078,
+      "nearestMatchedLongitude": -117.11108727175771,
+      "nearestWaterwayName": "Spokane River",
+      "distanceFeetToNearestWaterway": 340.01686614325547,
+      "nearestWaterwayLatitude": 47.68301197618078,
+      "nearestWaterwayLongitude": -117.11108727175771,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 122.89214280243148,
+      "nearestWaterbodyLatitude": 47.683469366184625,
+      "nearestWaterbodyLongitude": -117.11166388160562,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 122.89214280243148,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 123 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

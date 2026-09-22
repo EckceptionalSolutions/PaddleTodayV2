@@ -15,7 +15,7 @@ for (const activation of ['keyboard', 'double click']) test(`a display error rec
   let broken = true;
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: broken ? { ...fixture, result: { ...fixture.result, river: { ...fixture.result.river, name: { invalid: true } } } } : fixture }));
-  await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [] } }));
   await page.goto('/river/rice-creek-peltier-to-long-lake');
   await expect(page.getByRole('heading', { name: 'This screen needs a reset', exact: true })).toBeVisible();
   broken = false;

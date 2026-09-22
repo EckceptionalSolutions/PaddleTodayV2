@@ -1,0 +1,48 @@
+{
+  "batch": 40,
+  "retrievedOn": "2026-09-18",
+  "sources": [
+    {
+      "id": "scdnr-river-park-rock-hill-public-water-access",
+      "url": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/936?f=pjson",
+      "queryUrl": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/query?where=OBJECTID%3D936&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "publisher": "South Carolina Department of Natural Resources public water access GIS",
+      "record": {
+        "objectId": 936,
+        "waterAccessId": "PL103",
+        "name": "River Park in Rock Hill",
+        "accessType": "Paddle Launch",
+        "accessSubtype": "Ramp",
+        "waterbody": "Catawba River",
+        "county": "York",
+        "address": "1782 Quality Circle, Rock Hill",
+        "status": "Active",
+        "publicAccess": "Open",
+        "geometry": { "latitude": 34.95615028378521, "longitude": -80.94933899432193 }
+      },
+      "interpretation": "The active/open agency point is explicitly classified as a paddle launch/ramp on the Catawba River. The point is retained as the launch coordinate with 75-foot uncertainty; no separate field survey of the exact ramp toe was found."
+    },
+    {
+      "id": "scdnr-catawba-scenic-river-access-description",
+      "url": "https://www.dnr.sc.gov/water/river/scenic/catawba.html",
+      "publisher": "South Carolina Department of Natural Resources",
+      "facts": [
+        "Rock Hill River Park has a carry-in boat launch with nearby parking.",
+        "The launch is at the mouth of Manchester Creek on the Catawba River.",
+        "The site is at the end of Quality Circle, off Red River Road."
+      ]
+    },
+    {
+      "id": "city-of-rock-hill-river-park",
+      "url": "https://www.cityofrockhill.com/Home/Components/FacilityDirectory/FacilityDirectory/102/8126",
+      "publisher": "City of Rock Hill Parks, Recreation and Tourism",
+      "facts": [
+        "The City lists a canoe/kayak launch at River Park.",
+        "The published address is 1782 Quality Circle, Rock Hill.",
+        "Seasonal park hours are published by the City."
+      ]
+    }
+  ],
+  "imageryCheck": "The SCDNR GIS feature is a managed launch point, not an imagery-derived coordinate. The post-edit audit's point-to-water and flowline distances will be used to verify its mapped placement; no shoreline point will be inferred from hydrography alone.",
+  "controlId": "scdnr_rock_hill_river_park_paddle_launch_20260918"
+}

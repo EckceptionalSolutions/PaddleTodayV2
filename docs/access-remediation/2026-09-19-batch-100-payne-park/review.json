@@ -1,0 +1,13 @@
+{
+  "batch": "B100",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "susquehanna-river-bainbridge-afton",
+  "endpoint": "putIn",
+  "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+  "before": {"severity":"suspicious","distanceFeetToMatchedRiver":480.0440691634162,"distanceFeetToMappedWater":322.1392048932539},
+  "after": {"severity":"review","distanceFeetToMatchedRiver":480.0440691634162,"distanceFeetToMappedWater":322.1392048932539,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale": "Retain the stored Payne Park coordinate as the public launch-area anchor. NYSDEC lists the named hard-surface ramp and the Town of Bainbridge confirms boat access; the 480-foot named-flowline offset reflects the park/ramp facility context. Do not infer a wet-toe move without a more precise launch survey.",
+  "condition": "Confirm current Town of Bainbridge park access, ramp condition, parking, river level, and any seasonal or event restrictions before launching.",
+  "fullAuditDelta": {"public":{"suspiciousBefore":25,"suspiciousAfter":24,"reviewBefore":3912,"reviewAfter":3913},"inventory":{"suspiciousBefore":78,"suspiciousAfter":77,"reviewBefore":4216,"reviewAfter":4217},"registry":{"authoritativeAccessBefore":1245,"authoritativeAccessAfter":1245,"conflictsAfter":0}
+}
+}

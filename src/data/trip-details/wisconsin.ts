@@ -296,7 +296,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -89.133973,
         "mileFromStart": 3.58,
         "segmentKind": "creek",
-        "note": "Default public city take-out."
+        "note": "Public take-out at the Hiestand Park launch pier; corrected point is the imagery-checked river-entry end with 50-foot uncertainty, not a surveyed coordinate."
       }
     ]
   },
@@ -340,7 +340,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -89.133973,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default public city put-in."
+        "note": "Public put-in at the Hiestand Park launch pier; corrected point is the imagery-checked river-entry end with 50-foot uncertainty, not a surveyed coordinate."
       },
       {
         "id": "old-st-marie-road-landing",
@@ -384,7 +384,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Paddle the Kohler reach from Rochester Park to Esslingen Park. The route starts slow, requires two dam portages, then improves below Walderhaus Dam with rocky banks, Class I riffles, fall color, and salmon-run context.",
       "accessCaveats": [
-        "Rochester Park is a public park access with a carry to the water rather than a polished ramp. Inspect the launch path and water level before unloading.",
+        "Rochester Park is a documented public-park put-in with a carry, but EPA reports that parts of the park are closed for contaminated-soil cleanup. The corrected coordinate is EPA's park-site center, not the river entry; keep the route withheld until the city or EPA confirms that the launch path and parking remain outside the closed area.",
         "Esslingen Park is the planned public take-out. Do not continue into the lower urban Sheboygan route unless that separate itinerary is planned.",
         "River Wildlife / Kohler-area landings along the route are private or permission-based and should not be used as casual bailouts.",
         "The Sheboygan gauge is downstream in town. Pair it with a same-day visual call at Rochester and the dam portages."
@@ -403,7 +403,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -87.803695,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default public put-in in Rochester Park."
+        "note": "EPA's site-center coordinate for Rochester Park, not a verified water entry. Parts of the park are closed for cleanup; confirm the public carry, parking and current boundary before reopening."
       },
       {
         "id": "esslingen-park-sheboygan-river",
@@ -585,7 +585,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Put in at Big Bend Landing and take out at Trego Town Park Landing. Expect a mellow wooded first half, a prettier busier stretch past Earl Park, and a slower braided finish toward Trego that gets scratchier first when the river is low.",
       "accessCaveats": [
         "Do not confuse the Trego Town Park finish with the permanently closed Lakeside Road picnic area and parking lot called out on the NPS maps page.",
-        "Trego Town Park is part of an active campground corridor, so summer parking and launch space can feel busier than a quiet roadside landing.",
+        "NPS's current Namekagon Map 2 identifies Trego Town Park Landing. The stored point is an access-area anchor in the active campground corridor, not a surveyed waterline toe; confirm the public carry and parking signs, especially during busy summer periods.",
         "This route is beginner-friendly by Riverway standards, but the take-out still deserves a same-day look if your group has not used the Trego landing before."
       ],
       "watchFor": [
@@ -2608,7 +2608,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.116408
     },
     "takeOut": {
-      "name": "Holiday Heights Park / Holiday Heights Landing",
+      "name": "Holiday Heights public canoe landing / park access area",
       "latitude": 43.86201,
       "longitude": -91.20178
     },
@@ -2618,10 +2618,10 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Use a westbound car shuttle from Veterans Memorial Campground near West Salem to Holiday Heights Park in Onalaska. A bike shuttle can use the La Crosse River State Trail for much of the return, but trail passes, route-finding from the park, and boat security at the take-out need to be planned ahead.",
       "permits": "No route-specific paddling permit is known. Follow La Crosse County campground and Onalaska park rules, and use posted parking areas rather than campground roads or informal riverbank pull-offs.",
       "camping": "Veterans Memorial Campground is a developed county campground at the put-in, but this app route should be treated as a day trip unless a campsite is separately reserved or otherwise allowed under county rules.",
-      "summary": "Launch from the Veterans Memorial Campground canoe landing on the La Crosse River and take out at Holiday Heights Landing in Holiday Heights Park. The first miles are straighter and noisier near I-90, while the lower half has better sandbanks, faster current, and bluff views.",
+      "summary": "Launch from the Veterans Memorial Campground canoe landing on the La Crosse River and take out at the public Holiday Heights canoe landing in Onalaska. The first miles are straighter and noisier near I-90, while the lower half has better sandbanks, faster current, and bluff views.",
       "accessCaveats": [
         "La Crosse County publishes campground coordinates for Veterans Memorial Campground and confirms river access; Wisconsin River Trips notes the actual canoe landing is inside the campground and parking may be several hundred feet from the water.",
-        "Holiday Heights Park is a public Onalaska park, and Wisconsin River Trips describes the landing as a good public-access take-out with parking but no restroom.",
+        "Onalaska's redevelopment plan identifies an accessible canoe launch at public Holiday Heights Park; Wisconsin River Trips describes the landing as a public-access take-out with parking but no restroom. The stored coordinate is an access-area anchor, not a surveyed water-entry point.",
         "The Holiday Heights access road can be easy to miss from Highway 16; confirm the turn pattern before leaving a shuttle vehicle."
       ],
       "watchFor": [
@@ -4650,7 +4650,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -87.89480066,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in for the downtown split; WRT notes a long carry to the landing."
+        "note": "Default put-in for the downtown split. The launch coordinate is published in the Milwaukee Urban Water Trail guide; the parking lot is about 1,000 feet from the landing, so confirm the access path and footing before staging boats."
       },
       {
         "id": "bruce-street-boat-ramp",
@@ -4930,12 +4930,12 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "turtle-creek-greenway-milwaukee-road",
-        "name": "Turtle Creek Greenway Trail / Milwaukee Road",
+        "name": "Turtle Creek Greenway parking / river access above Milwaukee Road",
         "latitude": 42.5129469,
         "longitude": -89.0094751,
         "mileFromStart": 4.9,
         "segmentKind": "creek",
-        "note": "Default take-out with WRT map/street-view coordinate support; scout the hidden trail before launching."
+        "note": "Beloit identifies public creek access and parking at the greenway’s south end. The saved point is an access-area anchor, not a surveyed water edge; the hidden shallow/gravel exit has a steep bank and roughly 350-foot grass carry to parking. Scout the trail from land before launching."
       }
     ]
   },
@@ -5040,15 +5040,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; Wisconsin DNR lists a public boat landing on Ludden Lake."
       },
       {
-        "id": "highway-39-mineral-point-branch",
-        "name": "Highway 39 bridge",
-        "latitude": 42.8534,
-        "longitude": -90.2242,
-        "mileFromStart": 1.2,
-        "segmentKind": "creek",
-        "note": "Intermediate bridge after the initial Class I riffles below Ludden Dam."
-      },
-      {
         "id": "north-oak-park-road-mineral-point-branch",
         "name": "North Oak Park Road bridge / VPA-area take-out",
         "latitude": 42.8788777,
@@ -5062,7 +5053,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
   "plover-river-hwy-k-jordan-park": {
     "putIn": {
       "id": "county-highway-k-plover-access",
-      "name": "County Highway K bridge launch",
+      "name": "County Highway K public canoe-access anchor",
       "latitude": 44.6226,
       "longitude": -89.4822
     },
@@ -5075,13 +5066,13 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 5.3 mi",
       "estimatedPaddleTime": "About 2.5 hr to 3.5 hr, longer with low water or scouting",
-      "shuttle": "Stage Jordan Park first, then drive back to the County Highway K bridge. Inspect the Hwy K shoulder before unloading because WRT notes poor parking despite a useful launch trail.",
+      "shuttle": "Stage Jordan Park first, then drive back to the County Highway K canoe-access right-of-way. Confirm current legal parking and the carry before unloading; the county identifies the access area but does not publish an exact water-entry coordinate.",
       "permits": "No route-specific paddling permit is known. Use the public bridge / park accesses, follow Wisconsin boating and PFD rules, and obey Portage County park and campground rules.",
       "camping": "Jordan Park has a campground and facilities at the take-out, making this a possible base-camp day route. No on-route riverbank camping is assumed between Hwy K and Jordan Park.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch from the Hwy K bridge area and finish at Jordan Park after the Sharonwood / boulder-garden corridor and Jordan Pond. The Kelly proxy was below the selected low-water floor during this run, so expect scraping until flows improve.",
+      "summary": "Use the County Highway K public canoe-access area and finish at Jordan Park after the Sharonwood / boulder-garden corridor and Jordan Pond. The Kelly proxy was below the selected low-water floor during this run, so expect scraping until flows improve.",
       "accessCaveats": [
-        "Hwy K has a launch trail but poor shoulder parking; avoid blocking the road or private drives.",
+        "Portage County describes a small county highway right-of-way canoe access at Hwy K. Confirm legal parking and carry, and do not block the road or private drives.",
         "Sharonwood Lane is an intermediate access option, but the normal plan continues to Jordan Park.",
         "Jordan Park is the planned exit. Do not continue into the downstream dam/tube section without a separate portage and route plan."
       ],
@@ -5094,12 +5085,12 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "county-highway-k-plover-access",
-        "name": "County Highway K bridge launch",
+        "name": "County Highway K public canoe-access anchor",
         "latitude": 44.6226,
         "longitude": -89.4822,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; WRT describes a nice launch area by Hwy K but warns parking is poor."
+        "note": "Portage County identifies a small county highway right-of-way canoe access here. This approximate bridge-area coordinate is an access anchor, not a surveyed water-entry point; confirm legal parking and carry."
       },
       {
         "id": "jordan-park-canoe-launch",
@@ -7542,15 +7533,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in from Miles Paddled and the AW reach name."
       },
       {
-        "id": "highway-31-ole-davidson-root",
-        "name": "Highway 31 / Ole Davidson Road Root River access",
-        "latitude": 42.7742,
-        "longitude": -87.8461,
-        "mileFromStart": 4.6,
-        "segmentKind": "creek",
-        "note": "Possible mid-route bailout near the WRT-described boulder-garden section."
-      },
-      {
         "id": "horlick-park-rapids-court-root",
         "name": "Horlick Park / Rapids Court canoe and kayak launch",
         "latitude": 42.7538,
@@ -7718,15 +7700,6 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "mileFromStart": 0,
         "segmentKind": "creek",
         "note": "Default public put-in and shared endpoint with the Johnsonville-to-Dassow card."
-      },
-      {
-        "id": "highway-c-sheboygan-river",
-        "name": "Highway C bridge access",
-        "latitude": 43.7383,
-        "longitude": -87.8341,
-        "mileFromStart": 8,
-        "segmentKind": "creek",
-        "note": "Late-route bridge reference before Sheboygan Falls; scout before relying on it as a take-out."
       },
       {
         "id": "river-park-sheboygan-falls",
@@ -7992,7 +7965,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch below Clarks Mills Dam for the short ledgy upper-Manitowoc segment to County Road S. The reach is compact but not casual: Lower Cato Falls, boulder gardens, private banks, and water-quality issues after rain all need a conservative scout.",
       "accessCaveats": [
         "MRW lists the Clarks Mills site as a carry-in just below the dam with adjacent parking; do not launch upstream of the dam.",
-        "Lower Cato Falls County Park provides the scout/portage context, but MRW describes its river access as difficult because of steep slopes.",
+        "Lower Cato Falls County Park provides public scouting access via steep stairs to the river. The available sources do not establish a bypass carry around the falls; do not launch unless every paddler is prepared to run the rapid safely.",
         "County Road S / Game Protection Site is the selected take-out; verify parking and footing before launching because flows and mud can change access quality."
       ],
       "watchFor": [
@@ -8013,12 +7986,12 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "lower-cato-falls-county-park",
-        "name": "Lower Cato Falls County Park",
+        "name": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
         "latitude": 44.0903,
         "longitude": -87.8439,
         "mileFromStart": 1.2,
         "segmentKind": "creek",
-        "note": "Scout and possible portage context for Lower Cato Falls; MRW warns the carry-in is difficult because of steep slopes."
+        "note": "The county park is a public scout/portage anchor, not an easy default launch. The Manitowoc River Watershed water-trail plan lists a difficult carry-in access site with steep slopes; confirm the stairs/carry and current footing before relying on it."
       },
       {
         "id": "manitowoc-county-road-s-game-protection-site",
@@ -8592,7 +8565,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Paddle the Fox River from Sunset Park in Kimberly to Lutz Park in Appleton with mandatory lock/dam portages unless current authority confirms passage. Use the direct Appleton gauge and a conservative 6,000 cfs maximum-only screen.",
       "accessCaveats": [
-        "Sunset Park and Lutz Park are named public launch facilities, but confirm seasonal hours, construction, parking, and ramp conditions before departure.",
+        "Sunset Park and Lutz Park are named public launch facilities, but confirm seasonal hours, construction, parking, and ramp conditions before departure. The Village's 2025 guide lists Sunset Park launch fees of $5 daily or annual fees of $15 resident / $25 non-resident; check current posted charges.",
         "Portage the Appleton locks and dams unless the current lock authority explicitly confirms lawful passage for the craft and date; never approach dam faces, intakes, or outflows.",
         "This route ends at Lutz Park. Do not continue downstream or into Lake Winnebago without a separate route and water-traffic review."
       ],
@@ -8609,7 +8582,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -88.3457597,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Fox Cities identifies the public kayak-accessible boat launch on W Kimberly Ave."
+        "note": "Fox Cities identifies the public kayak-accessible boat launch on W Kimberly Ave. The Village's 2025 guide places it at 300 Sunset Park Drive, west entrance, and lists $5 daily or annual fees of $15 resident / $25 non-resident; verify current charges. The stored point is an access-area anchor, not a surveyed ramp toe."
       },
       {
         "id": "fox-river-lutz-park-appleton",

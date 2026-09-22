@@ -1,0 +1,41 @@
+{
+  "batch": "B115",
+  "decision": "withhold-route-unverified-public-takeout",
+  "routeId": "north-fork-clearwater-washington-quartz",
+  "endpoint": "takeOut",
+  "endpointName": "Quartz Creek bridge / Forest Road 247 mile 32",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 339.3449462189893,
+    "distanceFeetToMappedWater": 287.8132925149304
+  },
+  "after": {
+    "publicScope": "withheld",
+    "inventoryScope": "suspicious",
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": null
+  },
+  "rationale": "Current reviewed sources establish only a bridge/road vicinity and a fair access point near the Quartz Creek confluence. They do not establish a lawful public take-out, parking/carry route, or water-entry coordinate; one river guide explicitly warns that Quartz Creek is not a good take-out for inflatables. Withhold the route pending manager-backed access evidence.",
+  "condition": "Require Forest Service confirmation of a public landing, legal parking/carry approach, and exact water-entry coordinate before release.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 10,
+      "suspiciousAfter": 9,
+      "reviewBefore": 3927,
+      "reviewAfter": 3926
+    },
+    "inventory": {
+      "suspiciousBefore": 63,
+      "suspiciousAfter": 63,
+      "reviewBefore": 4231,
+      "reviewAfter": 4231
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1257,
+      "authoritativeAccessAfter": 1257,
+      "conflictsAfter": 0
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:28:59.572Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "bayou-teche-leonville-loreauville__-92.0193-30.0167--91.7000-30.5132__waterbodies__waterbody",
+      "message": "NHD response is truncated (exceededTransferLimit)"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-leonville-loreauville",
+      "routeName": "Bayou Teche",
+      "reach": "Leonville official dock (129 Mistric St) to Loreauville official dock access area (119 Bridge St)",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Leonville official dock (129 Mistric St)",
+      "latitude": 30.473224,
+      "longitude": -91.9793362,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 234.17309338791287,
+      "nearestMatchedLatitude": 30.473656999999996,
+      "nearestMatchedLongitude": -91.979886,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 234.17309338791287,
+      "nearestWaterwayLatitude": 30.473656999999996,
+      "nearestWaterwayLongitude": -91.979886,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 183.62412108940924,
+      "nearestWaterbodyLatitude": 30.47353553267863,
+      "nearestWaterbodyLongitude": -91.97979489884126,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 183.62412108940924,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is 234 ft from the matched NHD flowline; likely an access/parking anchor but worth review."
+    },
+    {
+      "routeId": "bayou-teche-leonville-loreauville",
+      "routeName": "Bayou Teche",
+      "reach": "Leonville official dock (129 Mistric St) to Loreauville official dock access area (119 Bridge St)",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Loreauville official dock access area (119 Bridge St)",
+      "latitude": 30.056667,
+      "longitude": -91.74,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 94.43794632175968,
+      "nearestMatchedLatitude": 30.056713870307085,
+      "nearestMatchedLongitude": -91.74029413812919,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 94.43794632175968,
+      "nearestWaterwayLatitude": 30.056713870307085,
+      "nearestWaterwayLongitude": -91.74029413812919,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 37.022316831894095,
+      "nearestWaterbodyLatitude": 30.056694149366226,
+      "nearestWaterbodyLongitude": -91.74011297454572,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 37.022316831894095,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://iberiatravel.com/things-to-do/outdoors/paddling-boating/",
+      "coordinateEvidenceDetail": "la_loreauville_teche_dock iberia-travel-loreauville-floating-dock: TECHE Project lists the current official dock at 119 Bridge Street next to the Acadian Odyssey Monument. Iberia Travel publishes the Loreauville floating-dock coordinate 30.056667,-91.740000. The public coordinate has a rounded longitude and is an access-area anchor, not a surveyed wet-edge point. Verify the dock, parking, and posted route into Bayou Teche.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (la_loreauville_teche_dock iberia-travel-loreauville-floating-dock) on Bayou Teche; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

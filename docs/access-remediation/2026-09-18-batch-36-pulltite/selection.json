@@ -1,0 +1,21 @@
+{
+  "batch": 36,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Rank suspicious endpoint occurrences by exact shared coordinates and prioritize repeated NPS river landings whose campground-area coordinate can be localized to the visible water entry.",
+  "auditSource": "docs/access-point-quality-audit.json (full audit before batches 33–36 corrections)",
+  "selectedLocation": {
+    "name": "Pulltite Campground / Current River landing",
+    "state": "Missouri",
+    "waterbody": "Current River",
+    "previousCoordinate": { "latitude": 37.33505, "longitude": -91.47959 },
+    "previousDistanceFeetToMatchedFlowline": 484.9,
+    "previousDistanceFeetToMappedWater": 403.4,
+    "suspiciousOccurrences": 3,
+    "routeIds": [
+      "current-river-cedar-grove-pulltite",
+      "current-river-akers-ferry-pulltite",
+      "current-river-pulltite-round-spring"
+    ]
+  },
+  "selectionRationale": "NPS identifies Pulltite as a public put-in and float endpoint; current aerial imagery shows the approach meeting the river at a point much closer to mapped water than the campground-area anchor."
+}

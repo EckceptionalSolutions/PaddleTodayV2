@@ -1,0 +1,14 @@
+{
+  "batch": "B120",
+  "routeId": "terrapin-creek-cr8-ellisville",
+  "routeName": "Terrapin Creek",
+  "state": "Alabama",
+  "endpoint": "takeOut",
+  "endpointName": "Ellisville outfitter take-out water edge",
+  "latitude": 34.065,
+  "longitude": -85.614,
+  "matchedRiverName": "Terrapin Creek",
+  "distanceFeetToMatchedRiver": 324.29515743036416,
+  "distanceFeetToMappedWater": 280.00080493206644,
+  "selectionReason": "Public audit suspicious endpoint; Ellisville corridor access evidence is available, but local and state guidance requires outfitter authorization or bridge/right-of-way permission."
+}

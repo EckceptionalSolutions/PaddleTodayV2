@@ -9,7 +9,7 @@ test('ambiguous city search waits for a choice and retains the chosen city after
     }));
   });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [] } }));
   await page.route('https://geocoding-api.open-meteo.com/**', route => route.fulfill({ json: { results: [
     { name: 'Springfield', admin1: 'Illinois', latitude: 39.8, longitude: -89.6, population: 100 },
     { name: 'Springfield', admin1: 'Minnesota', latitude: 44.2, longitude: -95, population: 20 },

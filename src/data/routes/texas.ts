@@ -3495,8 +3495,8 @@ export const texasRoutes: River[] = [
       },
       {
         "label": "Access-anchor coordinates",
-        "value": "30.256179, -97.634178 to 30.21, -97.64",
-        "note": "TPWD publishes the Texas River School River Camp latitude/longitude, and LCRA publishes rounded FM 973 / Del Valle Bridge access-anchor coordinates. Treat both as planning anchors and select the actual wetted launch or landing only from signed, open access paths on arrival.",
+        "value": "30.256179, -97.634178 to 30.2089962, -97.6382568",
+        "note": "TPWD publishes the Texas River School River Camp latitude/longitude, and LCRA's map marker 17275 publishes the FM 973 / Del Valle Bridge access-area pin. Treat both as access anchors and select the actual wetted launch or landing only from signed, open paths on arrival.",
         "sourceUrl": "https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/riverschool.phtml"
       },
       {
@@ -3789,8 +3789,8 @@ export const texasRoutes: River[] = [
       },
       {
         "label": "Access-anchor coordinates",
-        "value": "30.21, -97.64 to 30.23, -97.52",
-        "note": "LCRA publishes access-anchor coordinates for both FM 973 / Del Valle Bridge and Little Webberville Park. Treat them as planning anchors, not exact wetted-edge launch points.",
+        "value": "30.2089962, -97.6382568 to 30.23, -97.52",
+        "note": "LCRA publishes the FM 973 / Del Valle Bridge map marker and rounded Little Webberville Park access-anchor coordinates. Treat both as planning anchors, not exact wetted-edge launch points.",
         "sourceUrl": "https://lcraparks.com/paddle-the-colorado"
       },
       {

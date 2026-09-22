@@ -1,0 +1,23 @@
+{
+  "batch": "B116",
+  "selectedAt": "2026-09-19",
+  "routeId": "boise-river-troutdale-willow",
+  "routeName": "Boise River",
+  "reach": "Troutdale Campground to Willow Creek Campground",
+  "state": "Idaho",
+  "endpoint": "takeOut",
+  "endpointName": "Willow Creek Campground access-area anchor",
+  "storedCoordinate": {
+    "latitude": 43.6452,
+    "longitude": -115.7517
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 337.10324796046774,
+    "nearestWaterwayName": "Willow Creek",
+    "distanceFeetToMappedWater": 337.10324796046774,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "The stored point is a campground anchor, not a verified public boat landing. Reviewed Forest Service/Recreation.gov material establishes the campground, while current access guidance says there is no boat access at the campground. Hold the route pending Forest Service confirmation of lawful river carry and landing."
+}

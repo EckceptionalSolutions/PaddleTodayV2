@@ -1,0 +1,34 @@
+[
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "sha256": "c13c917d10966ae5c0fe924b344adb3d4a58a06d6f54525efd4a47970335194d"
+  },
+  {
+    "path": "src/data/route-access-review-holds.ts",
+    "sha256": "2964412f6b35e29e81921715a2a9a414efbb6d8214271ac4cfc9b2a3a2687880"
+  },
+  {
+    "path": "src/data/routes/washington-spokane.ts",
+    "sha256": "5b9c586e3e68a20b13398884087b19f2a9a627d4941a7ba218f450580f3ccdd4"
+  },
+  {
+    "path": "src/data/routes/montana-blackfoot.ts",
+    "sha256": "6c954d83c192dca26eb2f9901df204878dcaf807c34c11eb19affaf7774954c7"
+  },
+  {
+    "path": "src/data/routes/new-york.ts",
+    "sha256": "73cf69bc7ff704854c8f9682d8fcfd8c433d28907e83861d07558a5b4af66c7e"
+  },
+  {
+    "path": "src/data/routes/wisconsin.ts",
+    "sha256": "807bef386569ffd080f39c51f757ec69b10320daab80d50fa0181e870c53cca4"
+  },
+  {
+    "path": "src/data/trip-details/wisconsin.ts",
+    "sha256": "5df6bdeac32af4b5268e9584803d6a1b6b6f859e85e9c8effe9fc125abc85b9d"
+  },
+  {
+    "path": "src/data/generated/withheld-route-slugs.ts",
+    "sha256": "009600763767a6b84bd4531f74fd9199eec6367428af331257a48a1b03000586"
+  }
+]

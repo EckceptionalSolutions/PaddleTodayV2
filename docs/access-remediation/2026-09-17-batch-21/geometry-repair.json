@@ -1,0 +1,37 @@
+{
+  "reviewedAt": "2026-09-18",
+  "accessAnchor": {
+    "name": "Marco Flats Fishing Access Site",
+    "latitude": 46.88969,
+    "longitude": -113.82973,
+    "source": "Montana FWP Blackfoot River float map and Fishing Access Site listing",
+    "sourceUrl": "https://fwp.mt.gov/activities/boating/blackfoot-river",
+    "coordinateRole": "public access-area anchor; not a surveyed wetted-edge point"
+  },
+  "method": [
+    "Regenerate each affected route from the USGS NHD network, with route endpoints snapped to connected named flowlines.",
+    "Inspect trace mode, endpoint snap distance, route continuity, and distance against the neighboring access-chain routes.",
+    "For Russell Gates–Marco Flats, replace the obsolete sparse built-in trace with the connected network trace when NHD returns one; retain the reviewed fallback only when network data is unavailable.",
+    "Publish the corrected access-area coordinate and route geometry only after those checks; keep exact landing language out of the anchor label."
+  ],
+  "routes": [
+    { "routeId": "blackfoot-river-angevine-marco-flats", "catalogMiles": 3.6, "traceMiles": 3.62, "traceMode": "named-fallback", "maxEndpointSnapFeet": 329 },
+    { "routeId": "blackfoot-river-k-ross-toole-marco-flats", "catalogMiles": 5.5, "traceMiles": 5.66, "traceMode": "named-fallback", "maxEndpointSnapFeet": 165 },
+    { "routeId": "blackfoot-river-marco-flats-johnsrud", "catalogMiles": 9.3, "traceMiles": 9.33, "traceMode": "network-traced", "maxEndpointSnapFeet": 165, "previousCatalogMiles": 8.0, "mileageDecision": "Corrected to 9.3: the connected NHD trace is 9.33 miles and the adjacent Angevine–Marco and Angevine–Johnsrud reaches total about 9.2 miles." },
+    { "routeId": "blackfoot-river-marco-flats-weigh-station", "catalogMiles": 1.6, "traceMiles": 1.47, "traceMode": "named-fallback", "maxEndpointSnapFeet": 184 },
+    { "routeId": "blackfoot-river-roundup-marco-flats", "catalogMiles": 24.2, "traceMiles": 25.83, "traceMode": "network-traced", "maxEndpointSnapFeet": 276 },
+    { "routeId": "blackfoot-river-russell-gates-marco-flats", "catalogMiles": 36.7, "traceMiles": 36.94, "traceMode": "network-traced", "maxEndpointSnapFeet": 560, "geometryDecision": "Use connected network trace; prior sparse curated trace covered only a short fraction of the reach." },
+    { "routeId": "blackfoot-river-scotty-brown-marco-flats", "catalogMiles": 39.6, "traceMiles": 41.05, "traceMode": "network-traced", "maxEndpointSnapFeet": 165 },
+    { "routeId": "blackfoot-river-whitaker-marco-flats", "catalogMiles": 15.2, "traceMiles": 15.5, "traceMode": "network-traced", "maxEndpointSnapFeet": 507 }
+  ],
+  "qualityAuditEvidence": {
+    "report": "../../access-point-quality-audit.json",
+    "routeOccurrences": 8,
+    "severity": "review",
+    "waterProximity": "within-300ft",
+    "distanceFeetToMappedWater": 165.7,
+    "interpretation": "The FWP access-area anchor is close to mapped water but does not meet the audit's within-100-foot ok band or establish the surveyed launch toe. The public FAS source establishes access; preserve the area-anchor label and field-check the precise carry and landing."
+  },
+  "regressionAudit": "scripts/audit-canonical-river-geometries.ts requires every listed trace to pass within 600 feet of the Montana FWP access-area anchor.",
+  "publication": "All eight affected routes are public. Their regenerated assets use USGS NHD flowlines; the canonical geometry audit must pass before assembly."
+}

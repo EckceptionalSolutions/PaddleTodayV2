@@ -1,0 +1,24 @@
+{
+  "batch": "2026-09-17-batch-22",
+  "capturedAt": "2026-09-17",
+  "sourceRegistryPath": "src/data/route-access-official-map-controls.json",
+  "generatedRegistryPath": "src/data/generated/route-access-registry.json",
+  "generatedRegistryStatus": "generator completed from the cache-only audit, but its authoritative-evidence input is stale and does not include these control edits",
+  "providerCountBefore": 555,
+  "providerCountAfter": 560,
+  "newProviderIds": [
+    "tx_guadalupe_state_park_paddling_access_anchor",
+    "id_willow_creek_campground_access_anchor",
+    "sd_mary_jo_wegner_hwy42_access_anchor",
+    "id_twin_falls_park_boat_ramp_access_anchor",
+    "mt_chief_looking_glass_fas_access_anchor"
+  ],
+  "reclassifiedProviderIds": [
+    "nissequogue_river_paul_given_state_park"
+  ],
+  "generatedEvidenceProviderCount": 505,
+  "generatedEvidenceAsOf": "2026-09-05T12:17:43.891Z",
+  "generatedEvidencePath": "docs/route-coordinate-authoritative-evidence.json",
+  "newControlsVisibleInGeneratedRegistry": false,
+  "note": "The new and reclassified controls are saved in source control. The evidence gatherer has no cached statewide inventory folder and would download full state inventories; its generated evidence remains unchanged. Registry generation completed, with 4043 entries and zero conflicts, but still reflects the old authoritative-evidence snapshot. No manual generated-registry edits."
+}

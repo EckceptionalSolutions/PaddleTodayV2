@@ -1,0 +1,9 @@
+{
+  "batch": "B87",
+  "sources": [
+    { "title": "WVDNR District 4 Fishing Guide access table", "url": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "publisher": "West Virginia Division of Natural Resources", "supports": ["Stone Cliff New River boat access", "parking lot", "published coordinate 37.9337, -81.0639"] },
+    { "title": "NPS New River Gorge fishing access", "url": "https://www.nps.gov/neri/planyourvisit/fishing.htm", "publisher": "National Park Service", "supports": ["Stone Cliff public New River access near Thurmond"] },
+    { "title": "NPS New River Gorge river trips map", "url": "https://parkplanning.nps.gov/showFile.cfm?projectID=11040&sfid=74563", "publisher": "National Park Service", "supports": ["Stone Cliff public river-trip access context"] }
+  ],
+  "sourceQuality": "The decision is anchored by the official WVDNR access table and corroborated by NPS public-access and river-trip material."
+}

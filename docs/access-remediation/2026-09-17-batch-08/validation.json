@@ -1,0 +1,47 @@
+{
+  "batch": "2026-09-17-batch-08",
+  "validatedOn": "2026-09-17",
+  "results": {
+    "sourceSnapshotsAndBackups": {
+      "status": "passed",
+      "command": "node docs/access-remediation/2026-09-17-batch-08/verify.mjs",
+      "details": "The frozen ten-site review, 20 accepted source snapshot hashes, three rejected retrievals, original source backups, corrected Fontenelle coordinate copies, removed Ole Davidson marker, Carmans anchor role, four batch holds, 138-route withholding list, and TypeScript syntax passed."
+    },
+    "withholdingManifest": {
+      "status": "passed",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "details": "Generated src/data/generated/withheld-route-slugs.ts with 138 withheld routes. The npm alias could not launch because the local tsx command shim is absent; invoking its installed CLI directly succeeded."
+    },
+    "routeTypecheck": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "details": "The workspace package @paddletoday/api-contract is missing. Its unresolved RiverRouteAccessPoint type causes cascading route-data errors, so no clean typecheck result is available."
+    },
+    "routeDataAudit": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-data.ts",
+      "details": "The audit cannot load @paddletoday/api-contract, which is absent from node_modules."
+    },
+    "focusedCoordinateAudit": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --route=fontenelle-reservoir-creek-recreation-area-loop --output=docs/access-remediation/2026-09-17-batch-08/fontenelle-after.json",
+      "details": "The audit cannot load @paddletoday/geo, which is absent from node_modules. No post-edit water-proximity or route-geometry result is claimed."
+    },
+    "accessTests": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "details": "Vitest startup fails because @jridgewell/sourcemap-codec is absent from node_modules."
+    },
+    "geometryAndCatalog": {
+      "status": "blocked-by-workspace-dependency",
+      "details": "Regeneration and audit were not run because @paddletoday/geo is missing. The Fontenelle-dependent route remains withheld pending a fresh geometry and catalog check."
+    }
+  },
+  "withheldRouteCount": 138,
+  "batchRouteHolds": [
+    "fontenelle-reservoir-creek-recreation-area-loop",
+    "wappinger-creek-cady-greenvale",
+    "cape-fear-river-raven-rock-lillington",
+    "cedar-river-otranto-acorn"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "observedAt": "2026-09-21",
+  "property": "sc-domain:paddletoday.com",
+  "searchType": "WEB",
+  "before": {
+    "start": "2026-07-26",
+    "end": "2026-08-22"
+  },
+  "after": {
+    "start": "2026-08-23",
+    "end": "2026-09-19"
+  },
+  "propertyTotals": {
+    "beforeClicks": 832,
+    "afterClicks": 10,
+    "beforeImpressions": 25014,
+    "afterImpressions": 366
+  },
+  "cohort": [
+    {
+      "path": "/",
+      "beforeClicks": 19,
+      "afterClicks": 8,
+      "beforeImpressions": 86,
+      "afterImpressions": 42
+    },
+    {
+      "path": "/rivers/little-miami-river-kelley-milford/",
+      "beforeClicks": 97,
+      "afterClicks": 0,
+      "beforeImpressions": 2151,
+      "afterImpressions": 27
+    },
+    {
+      "path": "/rivers/namekagon-river-big-bend-trego/",
+      "beforeClicks": 23,
+      "afterClicks": 0,
+      "beforeImpressions": 261,
+      "afterImpressions": 3
+    },
+    {
+      "path": "/rivers/milwaukee-river-west-bend-quaas-creek/",
+      "beforeClicks": 21,
+      "afterClicks": 0,
+      "beforeImpressions": 224,
+      "afterImpressions": 7
+    },
+    {
+      "path": "/rivers/ouachita-river-remmel-whitewater-park/",
+      "beforeClicks": 21,
+      "afterClicks": 0,
+      "beforeImpressions": 1493,
+      "afterImpressions": 5
+    },
+    {
+      "path": "/rivers/namekagon-river-county-k-whispering-pines/",
+      "beforeClicks": 18,
+      "afterClicks": 0,
+      "beforeImpressions": 306,
+      "afterImpressions": 4
+    },
+    {
+      "path": "/rivers/big-river-mammoth-merrill-horse/",
+      "beforeClicks": 14,
+      "afterClicks": 1,
+      "beforeImpressions": 344,
+      "afterImpressions": 9
+    },
+    {
+      "path": "/rivers/st-croix-river-sand-creek-highway-70/",
+      "beforeClicks": 12,
+      "afterClicks": 0,
+      "beforeImpressions": 169,
+      "afterImpressions": 2
+    },
+    {
+      "path": "/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+      "beforeClicks": 11,
+      "afterClicks": 0,
+      "beforeImpressions": 193,
+      "afterImpressions": 1
+    },
+    {
+      "path": "/rivers/james-river-hl-kerr-ralph-cox/",
+      "beforeClicks": 10,
+      "afterClicks": 0,
+      "beforeImpressions": 419,
+      "afterImpressions": 5
+    }
+  ]
+}

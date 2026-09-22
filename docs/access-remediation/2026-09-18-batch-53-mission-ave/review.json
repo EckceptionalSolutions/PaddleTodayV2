@@ -1,0 +1,30 @@
+{
+  "batch": 53,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Mission Ave. paddler access, Spokane River, Washington",
+  "affectedRoutes": [
+    "spokane-river-harvard-mission",
+    "spokane-river-barker-mission"
+  ],
+  "decision": "retain-the-exact-Water-Trail-coordinate-as-an-authoritative-access-site-anchor; clarify-that-the-site-is-for-canoe-kayak-whitewater-park-and-play-only; the-water-entry-toe-remains-unverified",
+  "decisionScope": "The Spokane River Water Trail lists Mission Ave. for canoe/kayak/SUP and explicitly marks the access Whitewater Park & Play only. Its live public map detail record ID 4001 names Mission Ave., gives the exact stored coordinate 47.671585,-117.180981, river mile 88.5, year-round availability, daylight hours, and Whitewater Area / Canoe and Kayak attributes. Avista's recreation inventory separately identifies Sullivan Hole at the end of Mission Avenue as Spokane County trail access. The matching water-trail coordinate confirms the paddler access site; it does not georeference a surveyed toe. I registered the route-scoped site anchor, corrected the route endpoint label, and clarified that the access is not listed for rafts or powerboats.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 47.671585, "longitude": -117.180981 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 359.1742,
+    "mappedWaterDistanceFeet": 288.9509,
+    "endpointOnWaterbody": false,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 47.671585, "longitude": -117.180981 },
+    "to": { "latitude": 47.671585, "longitude": -117.180981 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "spokane_river_water_trail_mission_ave_access_anchor_20260918",
+    "rationale": "The published current paddler access coordinate exactly matches the stored route location. Keep it as a facility anchor rather than inventing a waterline correction."
+  },
+  "remainingUncertainty": "The stored facility anchor is about 289 feet from mapped water. The sources classify the site as a public canoe/kayak park-and-play access but do not identify an exact present-day exit toe. Use in daylight and verify the landing and exit locally; do not route rafts or powerboats to this access.",
+  "outcome": "Two suspicious public endpoint occurrences moved to review on a matching water-trail location record. Coordinates did not change; the route label and use restrictions are clearer, and the exact landing remains open."
+}

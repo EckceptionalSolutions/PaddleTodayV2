@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:34:45.039Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "des-moines-river-austin-park-keosauqua",
+      "routeName": "Des Moines River",
+      "reach": "Austin Park to Keosauqua Boat Ramp",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Keosauqua Boat Ramp",
+      "latitude": 40.73062147,
+      "longitude": -91.95994375,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 369.47654431034897,
+      "nearestMatchedLatitude": 40.72993357637233,
+      "nearestMatchedLongitude": -91.95896285656022,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 369.47654431034897,
+      "nearestWaterwayLatitude": 40.72993357637233,
+      "nearestWaterwayLongitude": -91.95896285656022,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 87.52371644466339,
+      "nearestWaterbodyLatitude": 40.730462400700304,
+      "nearestWaterbodyLongitude": -91.95970675028272,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 87.52371644466339,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Keosauqua%25%27&outFields=Name%2CCounty%2Clat%2Clong%2CWA_id%2CWT_id%2CType&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "ia_dnr_keosauqua_ramp_access_anchor_20260918 iowa-dnr-recreation-paddling-access-wa-535-keosauqua-ramp: Iowa DNR Recreation GIS layer 4 (Paddling Access Sites) identifies Keosauqua Ramp in Van Buren County as a Boat Ramp, with WA_id and WT_id WA-535. The feature's published WGS84 lat/long is 40.73062147,-91.95994375. Iowa DNR's Lower Des Moines River Water Trail guide names the Keosauqua boat ramp as the public start near Hotel Manning. Use the state GIS point as the public access-area anchor; it is not a separately surveyed wet-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_dnr_keosauqua_ramp_access_anchor_20260918 iowa-dnr-recreation-paddling-access-wa-535-keosauqua-ramp) on Des Moines River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "des-moines-river-austin-park-keosauqua",
+      "routeName": "Des Moines River",
+      "reach": "Austin Park to Keosauqua Boat Ramp",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Austin Park boat access",
+      "latitude": 40.7674276,
+      "longitude": -91.9682591,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 298.8903110053379,
+      "nearestMatchedLatitude": 40.76684485475455,
+      "nearestMatchedLongitude": -91.96749872674162,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 298.8903110053379,
+      "nearestWaterwayLatitude": 40.76684485475455,
+      "nearestWaterwayLongitude": -91.96749872674162,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 40.7674276,
+      "nearestWaterbodyLongitude": -91.9682591,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

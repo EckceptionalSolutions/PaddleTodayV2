@@ -1,0 +1,13 @@
+# Old U.S. 421 River Park — batch 57
+
+The next repeated public suspicious group was Old U.S. 421 River Park at **36.1323, -80.4439**, shared by two Yadkin River routes. Before review, both occurrences were about **344 feet from the matched river flowline** and **263 feet from mapped water**.
+
+The [North Carolina Wildlife Resources Commission access report](https://www.ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&SpeciesGroupID=3&Universal=0&WaterType=1) lists Old Us Hwy 421 Park at the exact shared coordinate and classifies it as bank/canoe access. [Forsyth County confirms a concrete river-access ramp](https://www.co.forsyth.nc.us/parks/421river/facilities.aspx) at the public park; its [park history](https://www.co.forsyth.nc.us/parks/421river/history.aspx) documents permanent public access to the Yadkin. Satellite imagery places the point near the park approach/parking area but does not show a defensible ramp-toe coordinate.
+
+I retained the exact NCWRC point as an authoritative access-site anchor. The exact entry toe remains open for review, so both occurrences now classify as **review** and the 263-foot water offset remains visible. No coordinate or route geometry changed.
+
+The refreshed public audit covers **2,750 routes / 6,058 endpoints**: **2,048 ok, 3,860 review, 72 suspicious, 0 failure, and 78 unknown**, with 271 source issues. The all-inventory audit covers **2,998 routes / 6,641 endpoints**: **2,212 ok, 4,163 review, 126 suspicious, 51 failure, and 89 unknown**, with 314 source issues. Compared with the before snapshots, two endpoint occurrences moved from suspicious to review; public water-proximity totals are unchanged (4,709 within 100 feet, 1,083 within 300 feet, 185 over 300 feet, 8 over 800 feet, 73 unknown).
+
+Targeted results: [Donnaha to Old 421](targeted-after-donnaha-old-421.json) and [Old 421 to Huntsville](targeted-after-old-421-huntsville.json). Review record: [review.json](review.json); frozen selection: [selection.json](selection.json); source observations: [source-metadata.json](source-metadata.json). Full snapshots: [public before](audit-before-public-cache-only.json), [public after](audit-after-public-cache-only.json), [inventory before](audit-before-inventory-cache-only.json), and [inventory after](audit-after-inventory-cache-only.json).
+
+The regenerated access registry has **4,042 entries, 1,201 repeated entries, 1 coordinate conflict, 1,208 authoritative access entries, 498 authoritative water-entry entries, and 0 authoritative-access mismatches**. Coordinates did not change, so route geometry did not need regeneration.

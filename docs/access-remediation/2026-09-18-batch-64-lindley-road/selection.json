@@ -1,0 +1,16 @@
+{
+  "batch": 64,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrence before reviewing access-source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:11:58.486Z; 2,750 public routes, 6,058 endpoints, 61 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New York",
+    "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+    "storedCoordinate": { "latitude": 42.0283, "longitude": -77.1397 },
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": ["tioga-river-lindley-mulholland"],
+    "preReviewFinding": "The endpoint is about 429 feet from the matched Tioga River flowline and mapped water; NHD's nearest named waterway is Morgan Creek.",
+    "decision": "verify-the-lindley-road-public-hand-launch-and-waterway-identity-against-New-York-state-and-local-water-trail-sources; correct-only-to-a-supported-location",
+    "selectionFrozenBeforeResearch": true
+  }
+}

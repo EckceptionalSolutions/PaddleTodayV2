@@ -1,0 +1,123 @@
+{
+  "reviewDate": "2026-09-17",
+  "reviewType": "ten-site-full-network-access-quality-review",
+  "sourceAudit": "docs/access-remediation/2026-09-17-batch-26/selection-audit-queue.json",
+  "selectionRule": "After excluding reviewed sites and sites with no current public dependent route, select the first ten distinct access locations in the refreshed queue, ordered by distance to mapped water.",
+  "siteCount": 10,
+  "sites": [
+    {
+      "selectionOrder": 1,
+      "name": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+      "state": "New York",
+      "waterbody": "Hudson River",
+      "coordinate": { "latitude": 43.8952, "longitude": -74.169 },
+      "distanceFeetToMappedWater": 1030,
+      "dependentRoutes": ["hudson-river-newcomb-indian-confluence"]
+    },
+    {
+      "selectionOrder": 2,
+      "name": "County Highway K public canoe-access anchor",
+      "state": "Wisconsin",
+      "waterbody": "Plover River",
+      "coordinate": { "latitude": 44.6226, "longitude": -89.4822 },
+      "distanceFeetToMappedWater": 738,
+      "dependentRoutes": ["plover-river-hwy-k-jordan-park"]
+    },
+    {
+      "selectionOrder": 3,
+      "name": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+      "state": "New York",
+      "waterbody": "Fish Creek",
+      "coordinate": { "latitude": 44.483638, "longitude": -75.577189 },
+      "distanceFeetToMappedWater": 731,
+      "dependentRoutes": ["fish-creek-wma-route-184-pope-mills"]
+    },
+    {
+      "selectionOrder": 4,
+      "name": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+      "state": "Arizona",
+      "waterbody": "Verde River",
+      "coordinate": { "latitude": 34.674, "longitude": -111.9412 },
+      "distanceFeetToMappedWater": 645,
+      "dependentRoutes": [
+        "verde-river-89a-sheep-crossing",
+        "verde-river-bignotti-sheep-crossing",
+        "verde-river-black-canyon-sheep-crossing",
+        "verde-river-sheep-crossing-newton",
+        "verde-river-sheep-parsons",
+        "verde-river-skidmore-sheep-crossing",
+        "verde-river-tuzigoot-sheep-crossing"
+      ]
+    },
+    {
+      "selectionOrder": 5,
+      "name": "Riverside Park / Urban Ecology Center access area",
+      "state": "Wisconsin",
+      "waterbody": "Milwaukee River",
+      "coordinate": { "latitude": 43.0674, "longitude": -87.89238 },
+      "distanceFeetToMappedWater": 621,
+      "dependentRoutes": ["milwaukee-river-riverside-bruce-street"]
+    },
+    {
+      "selectionOrder": 6,
+      "name": "Johnson Landing carry-in access",
+      "state": "Minnesota",
+      "waterbody": "Big Fork River",
+      "coordinate": { "latitude": 48.0886284, "longitude": -93.6816927 },
+      "distanceFeetToMappedWater": 577,
+      "dependentRoutes": ["big-fork-river-johnson-big-falls-east"]
+    },
+    {
+      "selectionOrder": 7,
+      "name": "NYSDEC Carmans River hand-launch access (300-yard carry)",
+      "state": "New York",
+      "waterbody": "Carmans River",
+      "coordinate": { "latitude": 40.800856, "longitude": -72.881074 },
+      "distanceFeetToMappedWater": 559,
+      "dependentRoutes": ["carmans-river-montauk-beaverdam"]
+    },
+    {
+      "selectionOrder": 8,
+      "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+      "state": "Rhode Island",
+      "waterbody": "Woonasquatucket River",
+      "coordinate": { "latitude": 41.8202194, "longitude": -71.4469799 },
+      "distanceFeetToMappedWater": 520,
+      "dependentRoutes": [
+        "woonasquatucket-river-cricket-manton",
+        "woonasquatucket-river-esmond-manton",
+        "woonasquatucket-river-georgiaville-manton",
+        "woonasquatucket-river-manton-riverside",
+        "woonasquatucket-river-manton-south-water",
+        "woonasquatucket-river-manton-waterplace",
+        "woonasquatucket-river-whipple-manton"
+      ]
+    },
+    {
+      "selectionOrder": 9,
+      "name": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "state": "Arizona",
+      "waterbody": "Verde River",
+      "coordinate": { "latitude": 34.694, "longitude": -111.9616 },
+      "distanceFeetToMappedWater": 518,
+      "dependentRoutes": [
+        "verde-river-skidmore-bignotti",
+        "verde-river-skidmore-black-bridge",
+        "verde-river-skidmore-black-canyon",
+        "verde-river-skidmore-newton",
+        "verde-river-skidmore-parsons",
+        "verde-river-skidmore-sheep-crossing",
+        "verde-river-skidmore-white"
+      ]
+    },
+    {
+      "selectionOrder": 10,
+      "name": "Perception Park riverside campground access area",
+      "state": "Utah",
+      "waterbody": "South Fork Ogden River",
+      "coordinate": { "latitude": 41.289719, "longitude": -111.640667 },
+      "distanceFeetToMappedWater": 501,
+      "dependentRoutes": ["south-fork-ogden-river-willows-magpie"]
+    }
+  ]
+}

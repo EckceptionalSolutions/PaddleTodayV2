@@ -1,0 +1,87 @@
+{
+  "batch": "2026-09-17-batch-09",
+  "capturedBeforeEdits": true,
+  "files": [
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "E622B7B1B3C858412EB9B826305974DE07A6ACCA27BE0618E388B1B295377F56",
+      "bytes": 1256881,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__route-access-official-map-controls.json"
+    },
+    {
+      "path": "src/data/routes/arizona-verde-expansion.ts",
+      "sha256": "271EC7D092B9C4AEA45091742943803DAB07D504FD852B1C6E7BF554BAFE0913",
+      "bytes": 19060,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__routes__arizona-verde-expansion.ts"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "sha256": "7337ECAC6C0794C1BD535DE542A4F215A033D1B1AAA008E9E2178C3FBD12701C",
+      "bytes": 3536812,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__routes__new-york.ts"
+    },
+    {
+      "path": "src/data/routes/rhode-island-woonasquatucket.ts",
+      "sha256": "4999D3DA5845A864C094020ACFE7B99CBB3A9A294A786F91CCEB604BD9248CBB",
+      "bytes": 25011,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__routes__rhode-island-woonasquatucket.ts"
+    },
+    {
+      "path": "src/data/trip-details/utah.ts",
+      "sha256": "6FE293793D5A56471B8C2BE2A84CF2CBF153B667A12482CB51071A7091C6E3EB",
+      "bytes": 24869,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__trip-details__utah.ts"
+    },
+    {
+      "path": "src/data/routes/minnesota.ts",
+      "sha256": "7879509320EEB0233921981B5B9126E7C1256C084E0DD6348B5A47A78C3DB045",
+      "bytes": 1722787,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__routes__minnesota.ts"
+    },
+    {
+      "path": "src/data/trip-details/minnesota.ts",
+      "sha256": "D766C491013ACDF3733976AAC511BBFF4D1821CC65379643B4D3B31F01F8C1F0",
+      "bytes": 754399,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__trip-details__minnesota.ts"
+    },
+    {
+      "path": "src/data/trip-details/iowa.ts",
+      "sha256": "AD995C8DF84811520D3DC9E4FCABAF84AFAAEE7D3A200D5BC5C9762F05750599",
+      "bytes": 397426,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__trip-details__iowa.ts"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "sha256": "BFA6854B011D6359B7523222FBC16E6124DDACF38D79E0FA5593D0E071D4DAF4",
+      "bytes": 36203,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__route-access-review-holds.ts"
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "sha256": "66235A869989AAA96EBCA6C39695D505D15B0F6D8B85C38C1CB7BD5194F578C8",
+      "bytes": 5798,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__generated__withheld-route-slugs.ts"
+    },
+    {
+      "path": "src/data/routes/idaho.ts",
+      "sha256": "FBC9C8DD60C3D621C89DA8FDEC96A66E178EFD505242BC27B62A7CC796DB4B30",
+      "bytes": 844410,
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__data__routes__idaho.ts"
+    },
+    {
+      "path": "scripts/audit-route-coordinate-river-distance.ts",
+      "sha256": "2557F7490C8297263691DE46628ADC8B86EC67EDDE1CA25F909AC08969ABAE21",
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/scripts__audit-route-coordinate-river-distance.ts"
+    },
+    {
+      "path": "src/lib/types.ts",
+      "sha256": "6C522FB4DF75B1BBC7FCAF1A0A621D1FEDDE3831480A93C899B87CE5F38FF9EE",
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/src__lib__types.ts"
+    },
+    {
+      "path": "docs/access-point-remediation-runbook.md",
+      "sha256": "8A89F596645114ABA78378D79F4C52B3657124BA722B08941E6B03A7A0268A34",
+      "backupPath": "node_modules/.cache/access-batch-09/before-source/docs__access-point-remediation-runbook.md"
+    }
+  ]
+}

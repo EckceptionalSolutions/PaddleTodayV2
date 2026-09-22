@@ -1,0 +1,87 @@
+{
+  "reviewedAt": "2026-09-18",
+  "sourceBackedAuditChanges": {
+    "compoundWaterbodyControlMatching": "passed; exact slash/semicolon/pipe-delimited waterbody components now match the route waterbody",
+    "whippleFieldAccessAnchor": "passed; official WRWC guide control recognized at the existing site coordinate with 300-ft uncertainty",
+    "centerRutlandPublicationHold": "passed; route remains in inventory but is withheld from public routes and geometry"
+  },
+  "routeScopedAudits": [
+    {
+      "routeId": "nissequogue-river-paul-given-state-park",
+      "status": "passed",
+      "reviewedAccessPoint": "Sunken Meadow State Park Field 3 Nissequogue launch",
+      "severity": "review",
+      "matchedFlowlineDistanceFeet": 3176,
+      "coordinateEvidenceRole": "authoritative-access-anchor"
+    },
+    {
+      "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+      "status": "passed",
+      "reviewedAccessPoint": "Laurel Hill State Park Beach Area canoe/kayak launch",
+      "severity": "review",
+      "matchedFlowlineDistanceFeet": 2257,
+      "coordinateEvidenceRole": "authoritative-access-anchor"
+    },
+    {
+      "routeId": "woonasquatucket-river-whipple-manton",
+      "status": "passed",
+      "reviewedAccessPoint": "Whipple Field river access",
+      "severity": "review",
+      "matchedFlowlineDistanceFeet": 1297,
+      "nearestWaterwayDistanceFeet": 161,
+      "coordinateEvidenceRole": "authoritative-access-anchor"
+    }
+  ],
+  "publicAudit": {
+    "generatedAt": "2026-09-18T11:59:00.434Z",
+    "evidenceMode": "cache-preferred",
+    "routes": 2755,
+    "endpoints": 6068,
+    "severity": {
+      "ok": 2036,
+      "review": 3787,
+      "suspicious": 167,
+      "failure": 0,
+      "unknown": 78
+    },
+    "waterProximity": {
+      "within-100ft": 4654,
+      "within-300ft": 1118,
+      "over-300ft": 214,
+      "over-800ft": 8,
+      "unknown": 74
+    },
+    "sourceIssues": 276,
+    "sourceIssueMessage": "NHD response is truncated (exceededTransferLimit)",
+    "distinctAccessReviewLocations": 131,
+    "heldCenterRutlandRouteIncluded": false
+  },
+  "registry": {
+    "entries": 4041,
+    "conflicts": 1,
+    "authoritativeAccessMismatches": 0
+  },
+  "canonicalGeometry": {
+    "status": "passed-with-unmatched-routes",
+    "matched": 2742,
+    "publicRoutes": 2755,
+    "unmatched": 13,
+    "heldCenterRutlandRouteAssetPresent": false,
+    "mapOverviewRoutes": 2742
+  },
+  "batchVerifiers": {
+    "batch21": "passed; eight Marco routes released; Rochester remains held",
+    "batch30": "passed; seven selected routes public, thirteen held, and no held batch route has public geometry"
+  },
+  "knownWorkspaceChecks": {
+    "routeDataAudit": "one unrelated blocker remains: south-skunk-river-ames-13th-street is labeled 0.074 mi against 0.1 mi straight-line distance; 137 planning issues remain tracked",
+    "routeDataTypecheck": "six unrelated errors remain in New York routes, Wisconsin routes, and Iowa trip details",
+    "focusedTests": "could not start because @jridgewell/sourcemap-codec is missing through magic-string"
+  },
+  "limits": [
+    "The three source-supported access anchors remain review items; their pins are not promoted to surveyed water-entry points.",
+    "The 78 unknown severity outcomes and 74 unknown water-proximity results are unresolved hydrography evidence, not verified access.",
+    "The 13 unmatched geometry routes remain pre-existing catalog unmatched records, not failures created by this triage.",
+    "No deployment was performed."
+  ]
+}

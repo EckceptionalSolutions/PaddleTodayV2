@@ -1,0 +1,23 @@
+{
+  "batch": "B119",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-big-coal-whitesville-orgas",
+  "routeName": "Big Coal River",
+  "reach": "Whitesville Public Access to JM Protan Community Center / Orgas",
+  "state": "West Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Whitesville Public Access / water intake",
+  "storedCoordinate": {
+    "latitude": 37.9696,
+    "longitude": -81.5302
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 324.6336597242945,
+    "nearestWaterwayName": "Big Coal River",
+    "distanceFeetToMappedWater": 284.0621436420907,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "WVDNR District 5 access guide lists Whitesville on the Big Coal River with a lot and published coordinates; WVU Coal River Water Trail materials independently identify Whitesville Public Access. Retain the stored point as a conditional public-access-area anchor."
+}

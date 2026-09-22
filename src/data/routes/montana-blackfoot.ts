@@ -4,7 +4,7 @@ import type { RouteHazard } from '@paddletoday/api-contract';
 const fwpGuide = { label: 'Montana FWP Blackfoot River recreation and floaters guide', url: 'https://fwp.mt.gov/activities/boating/blackfoot-river', provider: 'local' as const };
 const accessMap = { label: 'Montana FWP Blackfoot River access and camping map', url: 'https://fwp.mt.gov/binaries/content/assets/fwp/activities/river-recreation/blackfoot-river-float-map.pdf', provider: 'local' as const };
 const johnsrudGuide = { label: 'Montana FWP Johnsrud Park Fishing Access Site', url: 'https://data.visitmt.com/data/site/3851', provider: 'local' as const };
-const whitakerGuide = { label: 'Montana FWP Whitaker Bridge Fishing Access Site', url: 'https://data.visitmt.com/data/site/3768', provider: 'local' as const };
+const whitakerGuide = { label: 'Montana FWP Whitaker Bridge Fishing Access Site', url: 'https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39753902', provider: 'local' as const };
 const flowGuide = { label: 'Riverbeta Blackfoot River Whitaker to Johnsrud reach guide', url: 'https://riverbeta.app/blackfoot-river/blackfoot-whitaker-to-johnsrud', provider: 'local' as const };
 const gauge = { id: 'usgs-12340000', provider: 'usgs' as const, siteId: '12340000', metric: 'discharge_cfs' as const, unit: 'cfs' as const, kind: 'direct' as const, siteName: 'Blackfoot River near Bonner, MT', detailUrl: 'https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=12340000' };
 const hazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'private_banks', 'wildlife'];
@@ -55,7 +55,7 @@ const route: River = {
   },
   sourceLinks: [fwpGuide, accessMap, whitakerGuide, johnsrudGuide, flowGuide, { label: 'USGS Blackfoot River near Bonner gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
   accessPoints: [
-    { ...({ name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 }), id: 'blackfoot-river-whitaker-johnsrud-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Public FWP access at Whitaker Bridge; confirm day-use parking, road condition and the current water entry before unloading.' },
+    { ...({ name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 }), id: 'blackfoot-river-whitaker-johnsrud-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Montana FWP publishes this site coordinate and lists a concrete ramp; retain it as an access-area anchor, not a surveyed wetted-edge point. Confirm day-use parking, road condition and the current water entry before unloading.' },
     { ...({ name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9160, longitude: -113.6790 }), id: 'blackfoot-river-whitaker-johnsrud-take-out', mileFromStart: 6, segmentKind: 'transition', note: 'Public FWP day-use take-out with carry-in launch facilities; confirm parking, water entry and closure notices.' },
   ],
   logistics: {
@@ -149,7 +149,7 @@ function makeBlackfootShortReach(spec: {
 
 type BlackfootEndpointKey = 'russell' | 'scotty' | 'roundup' | 'whitaker' | 'johnsrud' | 'weigh' | 'kross' | 'angevine' | 'marco';
 const blackfootEndpointCatalog: Record<BlackfootEndpointKey, { name: string; latitude: number; longitude: number }> = {
-  russell: { name: 'Russell Gates Memorial Fishing Access Site (water-entry edge)', latitude: 47.0234361031, longitude: -113.306023437 },
+  russell: { name: 'Russell Gates Memorial Fishing Access Site (public ramp/access area)', latitude: 47.0234361031, longitude: -113.306023437 },
   scotty: { name: 'Scotty Brown Bridge Fishing Access Site (water-entry edge)', latitude: 47.0184, longitude: -113.2402 },
   roundup: { name: 'Roundup Fishing Access Site (water-entry edge)', latitude: 46.9459853555, longitude: -113.433107293 },
   whitaker: { name: 'Whitaker Bridge Fishing Access Site (public access-area anchor)', latitude: 46.94277, longitude: -113.59983 },
@@ -210,7 +210,7 @@ function makeBlackfootCorridorVariant(spec: {
     },
     sourceLinks: [fwpGuide, accessMap, flowGuide, { label: 'USGS Blackfoot River near Bonner gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
     accessPoints: [
-      { ...from, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: 'Montana FWP identifies this as a public Fishing Access Site; confirm gate, parking, carry and the current water-entry edge before unloading.' },
+      { ...from, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: spec.from === 'russell' ? 'Montana FWP publishes this public gravel-ramp site and its access-area GPS. The coordinate is not a surveyed ramp-edge point; confirm gate, parking, carry and ramp conditions before unloading.' : 'Montana FWP identifies this as a public Fishing Access Site; confirm gate, parking, carry and the current water-entry edge before unloading.' },
       { ...to, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: 'Montana FWP identifies this as a public Fishing Access Site; confirm closure notices, parking, carry and a usable water exit before staging.' },
     ],
     logistics: {
@@ -238,7 +238,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   id: 'blackfoot-river-russell-gates-roundup',
   slug: 'blackfoot-river-russell-gates-roundup',
   reach: 'Russell Gates Memorial Fishing Access Site to Roundup Fishing Access Site',
-  putIn: { name: 'Russell Gates Memorial Fishing Access Site (water-entry edge)', latitude: 47.0234361031, longitude: -113.306023437 },
+  putIn: { name: 'Russell Gates Memorial Fishing Access Site (public ramp/access area)', latitude: 47.0234361031, longitude: -113.306023437 },
   takeOut: { name: 'Roundup Fishing Access Site (water-entry edge)', latitude: 46.9459853555, longitude: -113.433107293 },
   latitude: 47.0234361031,
   longitude: -113.306023437,
@@ -269,7 +269,7 @@ export const montanaBlackfootRoutes: River[] = [route, {
   },
   sourceLinks: [...route.sourceLinks, { label: 'Riverbeta Russell Gates to Roundup reach guide', url: 'https://riverbeta.app/blackfoot-river/blackfoot-russell-gates-to-roundup', provider: 'local' as const }, { label: 'Montana FWP Roundup Fishing Access Site', url: 'https://data.visitmt.com/data/site/3810', provider: 'local' as const }],
   accessPoints: [
-    { name: 'Russell Gates Memorial Fishing Access Site (water-entry edge)', latitude: 47.0234361031, longitude: -113.306023437, id: 'blackfoot-river-russell-gates-roundup-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'FWP public ramp at the upstream end of the Blackfoot Recreation Corridor; confirm parking, conservation license and current water entry.' },
+    { name: 'Russell Gates Memorial Fishing Access Site (public ramp/access area)', latitude: 47.0234361031, longitude: -113.306023437, id: 'blackfoot-river-russell-gates-roundup-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Montana FWP publishes this public gravel-ramp site and its access-area GPS. The coordinate is not a surveyed ramp-edge point; confirm parking, conservation license and current ramp conditions.' },
     { name: 'Roundup Fishing Access Site (water-entry edge)', latitude: 46.9459853555, longitude: -113.433107293, id: 'blackfoot-river-russell-gates-roundup-take-out', mileFromStart: 11.1, segmentKind: 'transition', note: 'FWP access at the Highway 200 bridge below Roundup Rapid; scout the rapid from the road and confirm the take-out is open before launch.' },
   ],
   logistics: {
@@ -533,9 +533,9 @@ export const montanaBlackfootRoutes: River[] = [route, {
     reach: 'Marco Flats Fishing Access Site to Johnsrud Park Fishing Access Site',
     putIn: { name: 'Marco Flats Fishing Access Site (official access-area anchor)', latitude: 46.88969, longitude: -113.82973 },
     takeOut: { name: 'Johnsrud Park Fishing Access Site (water-entry edge)', latitude: 46.9164, longitude: -113.6785 },
-    miles: 8.0,
-    summary: 'A short lower Blackfoot float from the Marco Flats hand launch to the popular Johnsrud Park take-out.',
-    time: 'Allow 2–4 hours with current and shuttle time',
+    miles: 9.3,
+    summary: 'A lower Blackfoot float from the Marco Flats hand launch to the popular Johnsrud Park take-out.',
+    time: 'Allow 3–5 hours with current and shuttle time',
     difficulty: 'easy',
     accessNote: 'Marco Flats is a day-use hand launch and Johnsrud is a busy developed ramp; confirm parking, carry distance and water entry before unloading.',
   }),

@@ -1,0 +1,13 @@
+{
+  "batch": "B98",
+  "selectedAt": "2026-09-19",
+  "routeId": "appomattox-river-radcliffe-patton-park",
+  "routeName": "Appomattox River",
+  "reach": "John J. Radcliffe Conservation Area to Patton Park",
+  "state": "Virginia",
+  "endpoint": "putIn",
+  "endpointName": "John J. Radcliffe Conservation Area canoe launch",
+  "storedCoordinate": { "latitude": 37.22004, "longitude": -77.52339 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 326.28984987591576, "nearestWaterwayName": "Appomattox River", "distanceFeetToMappedWater": 245.35628963378082, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "Chesterfield County's current John J. Radcliffe Conservation Area record identifies the Appomattox River Canoe Launch, parking area, and boat slide for small non-powered craft at 21501 Chesdin Road. The county's official layout PDF and water-access page independently confirm the canoe launch and conservation-area trailhead. Retain the stored route point as the official access-site anchor; the 326-foot flowline offset is consistent with the parking/boat-slide facility placement below Brasfield Dam, not evidence that the endpoint is off-river."
+}

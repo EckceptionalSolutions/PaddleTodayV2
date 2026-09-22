@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:32:34.075Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "priest-river-dickensheet-white-tail",
+      "routeName": "Priest River",
+      "reach": "Dickensheet Campground to White Tail Butte Landing (Chipmunk Rapids)",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "White Tail Butte Landing",
+      "latitude": 48.4146,
+      "longitude": -116.92161,
+      "matchedRiverName": "Priest River",
+      "distanceFeetToMatchedRiver": 344.36418646246807,
+      "nearestMatchedLatitude": 48.415428566572366,
+      "nearestMatchedLongitude": -116.9222913177826,
+      "nearestWaterwayName": "Priest River",
+      "distanceFeetToNearestWaterway": 344.3641864647434,
+      "nearestWaterwayLatitude": 48.41542856657237,
+      "nearestWaterwayLongitude": -116.9222913177826,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 275.4664862045183,
+      "nearestWaterbodyLatitude": 48.415260081777305,
+      "nearestWaterbodyLongitude": -116.92216242394842,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 275.4664862045183,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.sandpoint.com/recreation/priest-river-kayaking.pdf",
+      "coordinateEvidenceDetail": "idaho_usfs_white_tail_butte_priest_access_20260919 white-tail-butte-landing-priest-river: USFS Priest Lake Ranger District float guide lists White Tail Butte Landing as public access point 3 on the Priest River, identifies undeveloped parking, and places it in sequence between Dickensheet Campground and Big Creek. The Priest Lake Chamber independently directs visitors to the USFS access-point pamphlet and river guidance. Retain the stored route point as a conditional landing-area anchor; the 344-foot connected-network offset reflects the undeveloped parking/carry and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (idaho_usfs_white_tail_butte_priest_access_20260919 white-tail-butte-landing-priest-river) on Priest River; access is conditional (Confirm current Forest Service access, undeveloped parking, carry path, river level, and seasonal or local restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "priest-river-dickensheet-white-tail",
+      "routeName": "Priest River",
+      "reach": "Dickensheet Campground to White Tail Butte Landing (Chipmunk Rapids)",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Dickensheet Campground",
+      "latitude": 48.45194,
+      "longitude": -116.89944,
+      "matchedRiverName": "Priest River",
+      "distanceFeetToMatchedRiver": 172.5645081109822,
+      "nearestMatchedLatitude": 48.452378193419314,
+      "nearestMatchedLongitude": -116.89970857839783,
+      "nearestWaterwayName": "Priest River",
+      "distanceFeetToNearestWaterway": 172.56476836949983,
+      "nearestWaterwayLatitude": 48.45237850296961,
+      "nearestWaterwayLongitude": -116.89970743030052,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 121.83755363016328,
+      "nearestWaterbodyLatitude": 48.45226152537125,
+      "nearestWaterbodyLongitude": -116.89957617131266,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 121.83755363016328,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 122 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

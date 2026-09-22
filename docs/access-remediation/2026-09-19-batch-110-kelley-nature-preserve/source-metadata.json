@@ -1,0 +1,18 @@
+{
+  "batch": "B110",
+  "endpoint": "Kelley Nature Preserve canoe/kayak access",
+  "routeId": "little-miami-river-kelley-milford",
+  "sources": [
+    {
+      "url": "https://www.clermontparks.org/kelley-nature-preserve/",
+      "publisher": "Clermont County Park District",
+      "supports": "Current park page identifies Kelley Nature Preserve at 297 Center Street (OH-126), Loveland, and confirms canoe/kayak access to the Little Miami River."
+    },
+    {
+      "url": "https://www.clermontparks.org/media/user/our-parks/Kelley%20Nature%20Preserve-V2.pdf",
+      "publisher": "Clermont County Park District",
+      "supports": "Official site map labels the park entry, parking, canoe launch, trails, and Little Miami River."
+    }
+  ],
+  "sourceAssessment": "The county park page and official site map independently document the public preserve and canoe launch. Retain the stored point as a conditional park/launch-area anchor."
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T23:16:49.608Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "kalamazoo-river-comstock-mayors-riverfront",
+      "routeName": "Kalamazoo River",
+      "reach": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park",
+      "state": "Michigan",
+      "endpoint": "takeOut",
+      "endpointName": "Mayor's Riverfront Park Boat Launch",
+      "latitude": 42.29142,
+      "longitude": -85.56233,
+      "matchedRiverName": "Kalamazoo River",
+      "distanceFeetToMatchedRiver": 135.19789568709788,
+      "nearestMatchedLatitude": 42.291772116533856,
+      "nearestMatchedLongitude": -85.56217379450511,
+      "nearestWaterwayName": "Kalamazoo River",
+      "distanceFeetToNearestWaterway": 135.19789568709788,
+      "nearestWaterwayLatitude": 42.291772116533856,
+      "nearestWaterwayLongitude": -85.56217379450511,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 47.38619960389175,
+      "nearestWaterbodyLatitude": 42.29154541261914,
+      "nearestWaterbodyLongitude": -85.56228429274869,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 47.38619960389175,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av",
+      "coordinateEvidenceDetail": "mi_mayors_riverfront_park_kalamazoo_access_anchor mayors-riverfront-park-kalamazoo-water-trails-access: Michigan Water Trails identifies Mayor's Riverfront Park as a city boat-ramp/carry-in access, publishes GPS 42°17.48520, -85°33.73980 (42.29142, -85.56233), and says the developed carry-in is under 50 yards. Preserve the published access anchor; it is not a surveyed wet-edge point.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mi_mayors_riverfront_park_kalamazoo_access_anchor mayors-riverfront-park-kalamazoo-water-trails-access) on Kalamazoo River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "kalamazoo-river-comstock-mayors-riverfront",
+      "routeName": "Kalamazoo River",
+      "reach": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park",
+      "state": "Michigan",
+      "endpoint": "putIn",
+      "endpointName": "Comstock Township DNR Boat Launch",
+      "latitude": 42.2862,
+      "longitude": -85.5223,
+      "matchedRiverName": "Kalamazoo River",
+      "distanceFeetToMatchedRiver": 118.93391094944978,
+      "nearestMatchedLatitude": 42.28587941222227,
+      "nearestMatchedLongitude": -85.5222199627578,
+      "nearestWaterwayName": "Kalamazoo River",
+      "distanceFeetToNearestWaterway": 118.93391094944978,
+      "nearestWaterwayLatitude": 42.28587941222227,
+      "nearestWaterwayLongitude": -85.5222199627578,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 69.01908920671652,
+      "nearestWaterbodyLatitude": 42.286016583497045,
+      "nearestWaterbodyLongitude": -85.52223731401982,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 69.01908920671652,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 69 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

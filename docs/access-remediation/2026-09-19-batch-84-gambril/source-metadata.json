@@ -1,0 +1,9 @@
+{
+  "batch": "B84",
+  "sources": [
+    { "title": "Iowa DNR Wapsipinicon River Water Trail guide", "url": "https://www.iowadnr.gov/media/8702/download?inline=", "publisher": "Iowa Department of Natural Resources", "supports": ["Gambril Access cement ramp", "downriver orientation", "eddy", "Wapsipinicon route context"] },
+    { "title": "Scott County Allen's Grove / Wapsipinicon River page", "url": "https://www.scottcountyiowa.gov/conservation/allens-grove/wapsipinicon-river", "publisher": "Scott County Conservation", "supports": ["public Wapsipinicon boat-ramp access in the county"] },
+    { "title": "Iowa DNR Wapsipinicon water-trail PDF", "url": "https://publications.iowa.gov/28032/1/watertrail_wapsi_cs.pdf", "publisher": "Iowa Department of Natural Resources", "supports": ["Gambril-to-McCausland downstream route context"] }
+  ],
+  "sourceQuality": "The access decision is based on Iowa DNR's official water-trail guide, with county and additional DNR route context."
+}

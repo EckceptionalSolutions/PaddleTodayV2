@@ -1,0 +1,8 @@
+{
+  "batch":"B125",
+  "decisions":[
+    {"decision":"retain-authoritative-conditional-access-anchor","routeId":"cossatot-river-ed-banks-highway-278","endpoint":"takeOut","endpointName":"U.S. 278 Cossatot River access area","before":{"severity":"suspicious","distanceFeetToMatchedRiver":435.435121156092,"distanceFeetToMappedWater":678.2791429882055},"after":{"severity":"review","coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},"condition":"Confirm current Arkansas State Parks access status, parking, carry path, river level, low-water bridge hazards, and seasonal restrictions before taking out."},
+    {"decision":"retain-authoritative-conditional-access-anchor","routeId":"blacklick-creek-route-259-saylor-park","endpoint":"putIn","endpointName":"Ghost Town Trail Heshbon access near PA 259 bridge","before":{"severity":"suspicious","distanceFeetToMatchedRiver":342.72547219953765,"distanceFeetToMappedWater":286.714433663387},"after":{"severity":"review","coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},"condition":"Confirm Indiana County trailhead status, legal river carry, parking, water level, and any seasonal or local restrictions before putting in."}
+  ],
+  "fullAuditDelta":{"public":{"suspiciousBefore":0,"suspiciousAfter":0,"reviewBefore":3933,"reviewAfter":3933},"inventory":{"suspiciousBefore":55,"suspiciousAfter":53,"reviewBefore":4239,"reviewAfter":4241},"registry":{"authoritativeAccessBefore":1264,"authoritativeAccessAfter":1266,"conflictsAfter":0}}
+}

@@ -1,0 +1,60 @@
+{
+  "capturedAt": "2026-09-18T01:58:04.7662363Z",
+  "batch": "2026-09-17-batch-30",
+  "selectedSiteCount": 10,
+  "routeIds": [
+    "big-sioux-river-farm-field-rotary",
+    "clearwater-river-mckays-bend-pink-house",
+    "fish-creek-wma-route-184-pope-mills",
+    "gunpowder-falls-masemore-monkton",
+    "plover-river-hwy-k-jordan-park",
+    "raquette-river-dead-creek-jamestown",
+    "raquette-river-piercefield-parmenter",
+    "rio-grande-rio-grande-village-heath-canyon",
+    "skunk-creek-legacy-park-farm-field",
+    "spokane-river-barker-mirabeau",
+    "spokane-river-harvard-mirabeau",
+    "upper-iowa-river-cattle-creek-malanaphy",
+    "upper-iowa-river-kendallville-bluffton",
+    "verde-river-89a-sheep-crossing",
+    "verde-river-bignotti-sheep-crossing",
+    "verde-river-black-canyon-sheep-crossing",
+    "verde-river-sheep-crossing-newton",
+    "verde-river-sheep-parsons",
+    "verde-river-skidmore-sheep-crossing",
+    "verde-river-tuzigoot-sheep-crossing"
+  ],
+  "files": [
+    {
+      "path": "src/data/routes/maryland.ts",
+      "sha256": "97EF9DDC7DBB122F1E8D592385BDC3C5A7C98E3390775255178113717EA85D7B",
+      "bytes": 728919
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "sha256": "C013B9EA3236D3138212CFE491768044297F80B2F9A7E7694F127DD9212D97A3",
+      "bytes": 56906
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "sha256": "D1527AB132EBE6FFEF9675A37158FB8E912F331DA1267154F17B0591EA41812A",
+      "bytes": 7638
+    },
+    {
+      "path": "src/data/generated/route-access-registry.json",
+      "sha256": "D23119DAB3E6689821A0C5B5155C17324AA3C1B68C965E834DF8A43FCA8A2E01",
+      "bytes": 15497520
+    },
+    {
+      "path": "docs/access-point-quality-audit.json",
+      "sha256": "2F5B340F92B1124D08FCBC5E272D1B6AFA761D49691033FD7E086573D542CACE",
+      "bytes": 9639924
+    },
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "D4BB8D9A64460A414B8FA0689DDDEBF60C19D560783C3D6476E69792F2B388FA",
+      "bytes": 1390954
+    }
+  ],
+  "backupPath": "node_modules/.cache/access-point-batch-30/pre-edit"
+}

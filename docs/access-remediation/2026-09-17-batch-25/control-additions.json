@@ -1,0 +1,25 @@
+{
+  "providerId": "ne_ngpc_george_syas_paddlecraft_launch",
+  "sourceUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1",
+  "sourceType": "official-water-trails-geospatial-feature-service",
+  "coordinateRole": "authoritative-water-entry",
+  "control": {
+    "featureId": "b88540d4-96d4-4d74-9fed-473304b6e2f7",
+    "objectId": 97,
+    "name": "George D. Syas WMA shore launch",
+    "waterbody": "Loup River",
+    "latitude": 41.42442894,
+    "longitude": -97.6963078,
+    "uncertaintyFeet": 100,
+    "launchStatus": "Open at latest recorded status edit (2025-11-19)",
+    "limitations": [
+      "Shore launch",
+      "Non-designated ramp, not maintained",
+      "Long walking path to launch site"
+    ]
+  },
+  "retainedPriorAreaAnchorControls": [
+    "ne_ngpc_george_syas_wma_area_anchor",
+    "ne_ngpc_george_syas_public_fishing_stream_area"
+  ]
+}

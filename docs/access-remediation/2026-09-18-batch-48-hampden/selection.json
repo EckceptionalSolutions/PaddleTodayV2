@@ -1,0 +1,19 @@
+{
+  "batch": 48,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Choose the highest-priority repeated suspicious group from the latest public audit, then verify its published coordinate against official public-launch records and imagery.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-47-sullivan/audit-full-public-cache-only.json generated 2026-09-18T18:32:58.625Z (cache-only); 2,750 public routes, 6,058 endpoints, 92 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Maine",
+    "name": "Hampden public launch site, Penobscot River",
+    "storedCoordinate": { "latitude": 44.76540, "longitude": -68.79690 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "penobscot-river-bangor-hampden",
+      "penobscot-river-hampden-eddington"
+    ],
+    "preReviewFinding": "Both routes share one coordinate about 204.3 feet from mapped water and 461.6 feet from the matched Penobscot River flowline.",
+    "decision": "retain-the-coordinate-as-a-dacf-published-public-launch-site-anchor-and-move-it-from-suspicious-to-review; do-not-claim-an-exact-ramp-toe-without-better-evidence",
+    "selectionFrozenBeforeResearch": true
+  }
+}

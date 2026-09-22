@@ -1,0 +1,22 @@
+{
+  "reviewStatus": "in-progress",
+  "siteCount": 1,
+  "coordinateCorrections": 1,
+  "routeOnlyAudit": {
+    "evidenceMode": "refreshed",
+    "routeCount": 1,
+    "endpointCount": 2,
+    "takeOutRole": "authoritative-access-anchor",
+    "takeOutSeverity": "review",
+    "takeOutDistanceFeetToNearestWaterway": 135,
+    "takeOutWaterProximity": "within-100ft"
+  },
+  "checks": {
+    "publishedAccessCoordinate": "passed; Michigan Water Trails GPS converted to decimal degrees and preserved as the route access anchor",
+    "legacyPin": "passed; former park-area coordinate removed from route trip details",
+    "geometryRebuild": "pending",
+    "fullRegistryRegeneration": "pending",
+    "fullCatalogAudit": "pending",
+    "typescriptSyntax": "pending"
+  }
+}

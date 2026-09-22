@@ -4768,7 +4768,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -83.3274,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in for the long upper Kinniconick route."
+        "note": "KDFWR lists this as carry-down only with no constructed ramp and says users walk equipment a short distance from parking to the creek. This published point is the access-site anchor, not a surveyed water-entry edge."
       },
       {
         "id": "mcdowells-creek-park-access",

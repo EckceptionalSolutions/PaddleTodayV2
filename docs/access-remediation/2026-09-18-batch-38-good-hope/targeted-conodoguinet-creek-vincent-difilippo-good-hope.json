@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T15:39:07.851Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Vincent DiFilippo Nature Preserve launch",
+      "latitude": 40.2561,
+      "longitude": -77.0192,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 206.33686794721754,
+      "nearestMatchedLatitude": 40.256019302618036,
+      "nearestMatchedLongitude": -77.0184664698993,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 206.33686794721754,
+      "nearestWaterwayLatitude": 40.256019302618036,
+      "nearestWaterwayLongitude": -77.0184664698993,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 122.51360049900029,
+      "nearestWaterbodyLatitude": 40.25606444911695,
+      "nearestWaterbodyLongitude": -77.01876243318226,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 122.51360049900029,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "coordinateEvidenceDetail": "cumberland_county_conodoguinet_b5 B5: The current Cumberland County access table identifies B5, Vincent DiFilippo Nature Preserve, as a named concrete Conodoguinet launch and publishes 40.2561, -77.0192. The official table coordinate is retained as the shared launch pin; it is not projected to an NHD centerline.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (cumberland_county_conodoguinet_b5 B5) on Conodoguinet Creek; the 206 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    },
+    {
+      "routeId": "conodoguinet-creek-vincent-difilippo-good-hope",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Vincent DiFilippo Nature Preserve to Good Hope Access",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Good Hope Access",
+      "latitude": 40.25889805739634,
+      "longitude": -76.97639236255715,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 199.950098794155,
+      "nearestMatchedLatitude": 40.2588329890995,
+      "nearestMatchedLongitude": -76.97710548566018,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 199.950098794155,
+      "nearestWaterwayLatitude": 40.2588329890995,
+      "nearestWaterwayLongitude": -76.97710548566018,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 71.60487647704225,
+      "nearestWaterbodyLatitude": 40.25887575180651,
+      "nearestWaterbodyLongitude": -76.97664789452371,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 71.60487647704225,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://services.pasda.psu.edu/arcgis/rest/services/pasda/PAFishBoat/MapServer/0",
+      "coordinateEvidenceDetail": "pa_pfbc_good_hope_conodoguinet_access OBJECTID 128 / ID_NO 665: The current PFBC-verified fishing and boating access layer identifies Good Hope in Cumberland County on Conodoguinet Creek, owned by PFBC and classified as an access area. Its point geometry (40.2588980574, -76.9763923626) replaces the route's geocoded road-address point. This is an access-area anchor, not a surveyed wet-edge coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (pa_pfbc_good_hope_conodoguinet_access OBJECTID 128 / ID_NO 665) on Conodoguinet Creek; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

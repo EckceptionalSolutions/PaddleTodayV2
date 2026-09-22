@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:57:09.036Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 0,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-big-coal-whitesville-orgas",
+      "routeName": "Big Coal River",
+      "reach": "Whitesville Public Access to JM Protan Community Center / Orgas",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Whitesville Public Access / water intake",
+      "latitude": 37.9696,
+      "longitude": -81.5302,
+      "matchedRiverName": "Big Coal River",
+      "distanceFeetToMatchedRiver": 324.6336597242945,
+      "nearestMatchedLatitude": 37.97038194181979,
+      "nearestMatchedLongitude": -81.5307387866428,
+      "nearestWaterwayName": "Big Coal River",
+      "distanceFeetToNearestWaterway": 324.6336597242945,
+      "nearestWaterwayLatitude": 37.97038194181979,
+      "nearestWaterwayLongitude": -81.5307387866428,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 284.0621436420907,
+      "nearestWaterbodyLatitude": 37.970341046247206,
+      "nearestWaterbodyLongitude": -81.53050321033702,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 284.0621436420907,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 325 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "wv-big-coal-whitesville-orgas",
+      "routeName": "Big Coal River",
+      "reach": "Whitesville Public Access to JM Protan Community Center / Orgas",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "JM Protan Community Center / Orgas access",
+      "latitude": 38.063838,
+      "longitude": -81.574858,
+      "matchedRiverName": "Big Coal River",
+      "distanceFeetToMatchedRiver": 0.9753589247028635,
+      "nearestMatchedLatitude": 38.063839752853326,
+      "nearestMatchedLongitude": -81.57485543591508,
+      "nearestWaterwayName": "Big Coal River",
+      "distanceFeetToNearestWaterway": 0.9753618927188883,
+      "nearestWaterwayLatitude": 38.06383975783295,
+      "nearestWaterwayLongitude": -81.57485544140673,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 38.063838,
+      "nearestWaterbodyLongitude": -81.574858,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

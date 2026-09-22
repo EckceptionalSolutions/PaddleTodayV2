@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:54:59.885Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 0,
+    "over-300ft": 2,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "New Mexico",
+      "name": "Central Avenue public river access (parking-area anchor)",
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834,
+      "distanceFeetToMappedWater": 393.90741312852504,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rio-grande-central-rio-bravo",
+          "endpoint": "putIn",
+          "endpointName": "Central Avenue public river access (parking-area anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New Mexico",
+      "name": "Rio Bravo Boulevard public river access (access-area anchor)",
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496,
+      "distanceFeetToMappedWater": 333.2196685931911,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rio-grande-central-rio-bravo",
+          "endpoint": "takeOut",
+          "endpointName": "Rio Bravo Boulevard public river access (access-area anchor)",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "rio-grande-central-rio-bravo",
+      "routeName": "Rio Grande",
+      "reach": "Central Avenue access to Rio Bravo Boulevard access",
+      "state": "New Mexico",
+      "endpoint": "takeOut",
+      "endpointName": "Rio Bravo Boulevard public river access (access-area anchor)",
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 441.7544010246652,
+      "nearestMatchedLatitude": 35.027427,
+      "nearestMatchedLongitude": -106.673144,
+      "nearestWaterwayName": "Rio Grande",
+      "distanceFeetToNearestWaterway": 441.7544010246652,
+      "nearestWaterwayLatitude": 35.027427,
+      "nearestWaterwayLongitude": -106.673144,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 333.2196685931911,
+      "nearestWaterbodyLatitude": 35.027381367883706,
+      "nearestWaterbodyLongitude": -106.67351087019492,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 333.2196685931911,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 442 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "rio-grande-central-rio-bravo",
+      "routeName": "Rio Grande",
+      "reach": "Central Avenue access to Rio Bravo Boulevard access",
+      "state": "New Mexico",
+      "endpoint": "putIn",
+      "endpointName": "Central Avenue public river access (parking-area anchor)",
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 792.3145022235099,
+      "nearestMatchedLatitude": 35.088990714909016,
+      "nearestMatchedLongitude": -106.68058183132509,
+      "nearestWaterwayName": "Atrisco Ditch",
+      "distanceFeetToNearestWaterway": 393.90741312852504,
+      "nearestWaterwayLatitude": 35.086978210967914,
+      "nearestWaterwayLongitude": -106.68348485315097,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 664.8434503701777,
+      "nearestWaterbodyLatitude": 35.088565,
+      "nearestWaterbodyLongitude": -106.680638,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 393.90741312852504,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.cabq.gov/parksandrecreation/open-space/enjoying-the-rio-grande",
+      "coordinateEvidenceDetail": "nm_cabq_central_avenue_public_access_anchor_20260918 cabq-central-avenue-sunset-sw-parking-access-area: The City identifies public boating access on the north side of the Central Avenue bridge on both river banks, requiring a walk to the river. Its March 2025 notice confirms the bosque parking lot at the southwest corner of Central and the river and says the river access point there would be improved for paddle sports. Quiet Waters publishes the stored coordinate as the Central Avenue Access GPS point after directions to the Sunset SW parking area. Retain it as the public parking/access-area anchor; it is not a surveyed water-entry toe, and users must carry boats to the current landing.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nm_cabq_central_avenue_public_access_anchor_20260918 cabq-central-avenue-sunset-sw-parking-access-area) on Rio Grande; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "batch": "2026-09-17-batch-09",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 0,
+  "retainedAccessAnchorCount": 7,
+  "removedUnsupportedAccessMarkerCount": 1,
+  "navigationWaypointReclassifiedCount": 1,
+  "unverifiedPublicAccessCount": 1,
+  "uniqueBatchRouteHoldCount": 1,
+  "totalWithheldRouteCountAfterBatch": 139,
+  "decisions": [
+    {
+      "rank": 110,
+      "state": "Iowa",
+      "site": "Canton Bridge Access / Canton County Park",
+      "decision": "retained-county-water-trail-access-anchor",
+      "coordinate": [42.1627901, -90.8918068],
+      "coordinateRole": "bridge and county-park access-area anchor; not surveyed water entry",
+      "routes": ["maquoketa-river-canton-royertown"],
+      "reason": "Jackson County lists Canton Bridge Access at the County Road E17 bridge. This supports the named public water-trail site, but the manager does not publish a wet-edge coordinate. Keep the existing access-area anchor; do not snap it to the mapped channel.",
+      "sources": ["https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail"]
+    },
+    {
+      "rank": 111,
+      "state": "Idaho",
+      "site": "Neal Bridge Take-Out",
+      "decision": "retained-named-mandatory-takeout-access-area-anchor",
+      "coordinate": [43.5519, -115.737],
+      "coordinateRole": "named take-out area; exact landing edge and official coordinate not published",
+      "routes": ["south-fork-boise-danskin-neal"],
+      "reason": "The Bureau of Reclamation identifies Neal Bridge as the take-out at the end of the canyon reach, and IDFG identifies the Forest Road 189 bridge as the upstream boundary of its regulated South Fork section. The route source describes the river-left landing before the bridge as mandatory above Arrowrock backwater. No manager GIS coordinate for that landing was found, so retain the existing route anchor without claiming a surveyed entry coordinate or moving it to mapped water.",
+      "sources": [
+        "https://www.usbr.gov/pn/studies/boisefeasibility/deis/deis.pdf",
+        "https://idfg.idaho.gov/ifwis/fishingplanner/water/70008",
+        "https://www.dreamflows.com/reachMap/index.php?num=2&rid=192"
+      ]
+    },
+    {
+      "rank": 112,
+      "state": "New York",
+      "site": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+      "decision": "retained-dec-canoe-launch-access-anchor",
+      "coordinate": [42.046229, -73.906715],
+      "coordinateRole": "official launch and parking-area anchor; not surveyed water entry",
+      "routes": ["hudson-river-tivoli-north-bay-loop"],
+      "reason": "NYSDEC identifies the Kidd Lane canoe launch and public access from the parking area. The site includes a carry and loading limits; the listed coordinate remains an access-site anchor, not a waterline survey.",
+      "sources": ["https://dec.ny.gov/places/tivoli-bays-wildlife-management-area-and-research-reserve"]
+    },
+    {
+      "rank": 113,
+      "state": "New York",
+      "site": "Peconic River Canoe Launch / Upper Mills",
+      "decision": "retained-dec-hand-launch-access-anchor",
+      "coordinate": [40.916106, -72.701705],
+      "coordinateRole": "official hand-launch parking/access anchor; approximately 50-yard carry",
+      "routes": [
+        "peconic-river-forge-pond-upper-mills",
+        "peconic-river-upper-mills-weeping-willow"
+      ],
+      "reason": "NYSDEC lists Upper Mills as a hand launch, with five-car parking and a 50-yard carry; Suffolk County independently identifies the canoe/kayak launch on Route 25. Retain the published access-site coordinate and disclose that it represents the site, not the waterline.",
+      "sources": [
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+        "https://suffolkcountyny.gov/Departments/Parks/Marinas/Peconic-River-Canoe-Launch"
+      ]
+    },
+    {
+      "rank": 114,
+      "state": "Utah",
+      "site": "Lower Meadows Campground",
+      "decision": "removed-unsupported-optional-campground-access-marker",
+      "coordinate": [41.286623, -111.643195],
+      "removedAccessPoint": true,
+      "routes": ["south-fork-ogden-river-willows-magpie"],
+      "reason": "The current Recreation.gov listing supports a campground on the South Fork Ogden but does not establish a kayak/canoe launch, carry or paddling bailout. It was only an optional intermediate marker, so remove that marker and keep the route's separate verified put-in and take-out. Do not describe the campground as closed; current closure was not established.",
+      "sources": ["https://www.recreation.gov/camping/campgrounds/10048229"]
+    },
+    {
+      "rank": 115,
+      "state": "Iowa",
+      "site": "Botna Bend Park / Hancock Water Trail Access",
+      "decision": "retained-county-park-water-trail-and-boat-ramp-anchor",
+      "coordinate": [41.39009, -95.36811],
+      "coordinateRole": "park and ramp-area anchor; not surveyed waterline",
+      "routes": [
+        "west-nishnabotna-river-avoca-hancock",
+        "west-nishnabotna-river-hancock-oakland"
+      ],
+      "reason": "Pottawattamie Conservation confirms canoe/kayak access on the West Nishnabotna Water Trail, and its official park map marks a boat ramp. Retain the existing site coordinate and clarify that it is a park/ramp-area anchor rather than a surveyed wet edge.",
+      "sources": [
+        "https://www.pottconservation.com/parks/botna_bend/",
+        "https://www.pottconservation.com/files/botna_bend_trail_map_81779.pdf"
+      ]
+    },
+    {
+      "rank": 116,
+      "state": "Rhode Island",
+      "site": "Manton Avenue river launch",
+      "resolvedSiteName": "Manton Avenue / Aleppo Street small boat launch",
+      "decision": "retained-ridot-small-boat-launch-access-area-anchor",
+      "coordinate": [41.8202194, -71.4469799],
+      "coordinateRole": "state-described launch-area anchor; exact launch coordinate not published",
+      "routes": [
+        "woonasquatucket-river-cricket-manton",
+        "woonasquatucket-river-esmond-manton",
+        "woonasquatucket-river-georgiaville-manton",
+        "woonasquatucket-river-manton-riverside",
+        "woonasquatucket-river-manton-south-water",
+        "woonasquatucket-river-manton-waterplace",
+        "woonasquatucket-river-whipple-manton"
+      ],
+      "reason": "RIDOT describes a small river boat launch at the end of Aleppo Street and lists Aleppo Street in its public parking directions. Keep the existing local coordinate as an access-area anchor; RIDOT does not provide a launch-edge coordinate. Updated the shared label and route source links to make that role clear across all seven routes.",
+      "sources": ["https://dot.ri.gov/travel/bikeri/woonasquatucket.php"]
+    },
+    {
+      "rank": 117,
+      "state": "Idaho",
+      "site": "South-shore open-water turnaround",
+      "decision": "reclassified-as-navigation-waypoint-excluded-from-access-audit",
+      "coordinate": [44.6382, -111.3744],
+      "accessPointRole": "navigation-waypoint",
+      "routes": ["henrys-lake-south-shore-loop"],
+      "reason": "IDFG confirms a South Shore boat ramp, but this separate offshore point is a route-shape turnaround and its note explicitly says no landing or access right is implied. Added a typed waypoint role and taught the quality audit to omit it from public-access candidates while retaining the route waypoint. The cached audit report remains stale until the missing geo dependency is restored and the audit is regenerated.",
+      "sources": ["https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22418-fishing-and-boating-access-site-henrys"]
+    },
+    {
+      "rank": 118,
+      "state": "Arizona",
+      "site": "Skidmore Drive RAP water-entry edge",
+      "resolvedSiteName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "decision": "retained-public-access-area-anchor-with-carry-disclosed",
+      "coordinate": [34.694, -111.9616],
+      "coordinateRole": "public access-area anchor; river is about 150 yards down trail",
+      "routes": [
+        "verde-river-skidmore-bignotti",
+        "verde-river-skidmore-black-bridge",
+        "verde-river-skidmore-black-canyon",
+        "verde-river-skidmore-newton",
+        "verde-river-skidmore-parsons",
+        "verde-river-skidmore-sheep-crossing",
+        "verde-river-skidmore-white"
+      ],
+      "reason": "The Friends of the Verde map publishes this RAP coordinate; the Forest Service-hosted paddle guide describes the parking-to-river trail and an approximately 150-yard carry. The sources disagree slightly on the mapped coordinate and neither locates the exact entry edge, so keep the current map anchor, label it as an access area and disclose the carry across all dependent routes.",
+      "sources": [
+        "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+        "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf"
+      ]
+    },
+    {
+      "rank": 119,
+      "state": "Minnesota",
+      "site": "Lutsen Ski Area carry-in",
+      "decision": "unverified-public-paddle-access-route-held",
+      "coordinate": [47.664625340847806, -90.71565087000029],
+      "routeHold": true,
+      "routes": ["poplar-river-lutsen-seventh-bridge"],
+      "reason": "The DNR trail page lists a nearby trailhead, and the resort's current policy covers ski terrain; neither source confirms lawful kayak/canoe parking, carry, or river entry, and neither proves the riverbank is private. Retain the location only as an unverified record and withhold the route until the land manager confirms public paddling access.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-trails/gitchi-gami/index.html",
+        "https://www.lutsen.com/mountain-info/safety-conduct"
+      ]
+    }
+  ]
+}

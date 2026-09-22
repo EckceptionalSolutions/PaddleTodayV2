@@ -1,0 +1,34 @@
+{
+  "batch": 62,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Pennsylvania DCNR Lehigh Gorge State Park access directions and GPS",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park",
+      "observations": [
+        "DCNR identifies White Haven as the northern access area and publishes White Haven South Access Area GPS 41.055270,-75.771581.",
+        "DCNR distinguishes the South Access Area from the White Haven North Access Area, whose published GPS coordinate is 41.062944,-75.773107."
+      ],
+      "limits": "This is an access-area GPS coordinate, not a separately surveyed shoreline or hand-launch toe."
+    },
+    {
+      "name": "Pennsylvania DCNR Whitewater Boating at Lehigh Gorge State Park",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating",
+      "observations": [
+        "DCNR lists White Haven to Rockport as 8.7 miles and White Haven to Glen Onoko as 20.9 miles.",
+        "DCNR states that boaters must use designated access areas and that launches and take-outs occur only at Department-designated areas."
+      ],
+      "limits": "The page establishes the route and launch-area rules but does not publish a coordinate for the exact wet toe."
+    },
+    {
+      "name": "Pennsylvania DCNR Lehigh Gorge State Park recreational guide map",
+      "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=9253955&ViewerMode=2&action=PDFStream&chksum=&docID=1737542&docName=LEGO_ParkGuide&nativeExt=pdf&overlay=0&revision=5",
+      "observations": [
+        "The official guide identifies a hand-carry boat-launch map symbol and describes White Haven as an access area; the map's GPS table lists the matching South Access Area coordinate.",
+        "The map lists the three Lehigh Gorge trip lengths and labels White Haven, Rockport, and Glen Onoko access areas."
+      ],
+      "limits": "The map symbol establishes a launch in the access area but is not georeferenced finely enough to identify a shoreline toe."
+    }
+  ],
+  "decision": "Retain the exact DCNR White Haven South Access coordinate as an authoritative access-area anchor. The matched river flowline is about 305 feet away and mapped water about 229 feet away; this supports a review label and investigation of site-versus-toe precision, not an unsupported coordinate move."
+}

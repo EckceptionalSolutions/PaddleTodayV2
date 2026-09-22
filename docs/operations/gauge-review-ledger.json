@@ -126449,25 +126449,29 @@
       "eligibility": "route_capable",
       "relationship": "direct",
       "checkedAt": "2026-09-06T08:30:00Z",
-      "decisionReason": "The direct USGS station is tied to the documented Hayden Reach, a roughly 20.5-mile Pump Station-to-Dorsey Yampa float with a public midpoint at Yampa River State Park. The route is a genuine paddle opportunity, but exact endpoint coordinates, current access and land-rights treatment, a conservative station-calibrated operating envelope, complete diversion/bridge/private-property safety logistics, rights-clean imagery, and canonical endpoint-ordered geometry are not all validated for publication.",
+      "decisionReason": "Follow-up evidence reopened the Hayden Reach and cleared the public-route package: CPW documents current Pump Station, Headquarters, and Dorsey ramps, distinct 13-mile and 7-mile sections, diversion/private-property controls, camping rules, rights-clean imagery, and matched endpoint-ordered geometry. Two planning routes are now published; scoring remains blocked because CPW’s seasonal flow guidance is not a station-certified recreational threshold.",
       "decisionSource": "bounded_route_research",
-      "routeSlugs": [],
+      "routeSlugs": [
+        "yampa-river-hayden-pump-station-headquarters",
+        "yampa-river-headquarters-dorsey"
+      ],
       "scoredRouteSlugs": [],
       "routeFamilies": [
         "Yampa River Colorado - Hayden Reach"
       ],
       "blockers": [
-        "Named Pump Station, Yampa River State Park Headquarters, and Dorsey access points are documented, but current endpoint coordinates, parking/permission details, and complete access-rights treatment are not packaged for publication.",
-        "Friends of the Yampa publishes station-linked flow guidance (0-350 cfs not recommended; 350-900 cfs usable with scraping/cobble; 900-1,500 cfs ideal), but the conservative station-to-segment threshold and upper operating limit are not independently calibrated.",
-        "The reach includes a diversion above the state park, railroad/highway bridges, Class II-III features depending on flow, and extensive private land; current hazard, rescue, and portage logistics remain incomplete.",
-        "Camping and day-use rules vary by access (including reservation-only headquarters camping and no overnight camping at Pump Station/Dorsey) and are not yet packaged as a complete route-specific logistics plan.",
-        "Rights-clean endpoint imagery and canonical endpoint-ordered route geometry are incomplete; the guide maps are expressly restricted to personal recreational use."
+        "The direct gauge is suitable for live checks, but CPW publishes seasonal averages and flow-dependent class ranges rather than a conservative station-certified recreational threshold; both routes remain planning-only and excluded from scoring."
       ],
       "evidence": [
         "https://waterdata.usgs.gov/monitoring-location/USGS-09244490/",
         "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09244490",
         "https://friendsoftheyampa.com/know-before-you-go-hayden/",
         "https://guides.wildyampa.com/hayden-reach/",
+        "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-hayden-pump-station-yampa-river-state",
+        "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections",
+        "https://coloradostateparks.net/parks/yampa-river/directions/",
+        "https://www.waterqualitydata.us/provider/STORET/CORIVWCH_WQX/CORIVWCH_WQX-4268/",
+        "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG",
         "https://cpw.state.co.us/sites/default/files/dam/4lmgle6crm/yampa-river-state-park-brochure.pdf",
         "docs/operations/gauge-inventory.json",
         "docs/operations/gate-policy.json"
@@ -126560,25 +126564,30 @@
       "eligibility": "route_capable",
       "relationship": "direct",
       "checkedAt": "2026-09-06T11:30:00Z",
-      "decisionReason": "The direct USGS station supports the documented Craig Reach, a roughly 17.5-mile Dorsey-to-South Beach Yampa corridor with intermediate Pebble Beach and Loudy-Simpson access and Craig River Park features. Friends of the Yampa provides station-linked flow guidance and identifies a low-flow floor, while CPW documents public access, camping, and safety context. Publication remains blocked because current endpoint coordinates and access/closure confirmation, complete private-land and shuttle treatment, route-specific hazard/rescue handling, rights-clean imagery, and canonical endpoint-ordered geometry are not all validated.",
+      "decisionReason": "Follow-up CPW evidence cleared two distinct Craig-area planning sections tied to 09247600: Yampa Valley Golf Course-to-Loudy Simpson (3.5 miles) and Loudy Simpson-to-South Beach (5.5 miles). Current public endpoints, ownership/industrial-access controls, camping rules, rights-clean imagery, and endpoint-ordered geometry are now packaged; scoring remains blocked because CPW’s seasonal flow ranges are not station-certified recreational thresholds.",
       "decisionSource": "bounded_route_research",
-      "routeSlugs": [],
+      "routeSlugs": [
+        "yampa-river-golf-course-loudy-simpson",
+        "yampa-river-loudy-simpson-south-beach"
+      ],
       "scoredRouteSlugs": [],
       "routeFamilies": [
         "Yampa River Colorado - Craig Reach"
       ],
       "blockers": [
-        "The Dorsey, Pebble Beach, Loudy-Simpson, and South Beach access sequence is documented, but current endpoint coordinates, parking/permission details, and any active construction or closure status are not packaged as a verified route endpoint set.",
-        "Friends of the Yampa ties the Craig flow screen to 09247600 (below 250 cfs not recommended; 250-600 cfs is recommended for part of the reach; higher bands vary by craft), but the conservative route-wide operating envelope and segment-specific upper limit still require validation.",
-        "The corridor includes private-land stretches, a rock diversion, bridge/debris hazards, and the Craig River Park whitewater features; current hazard, scout, portage, and rescue logistics are incomplete.",
-        "Camping and day-use permissions differ by access, including limited or permission-based camping at Loudy-Simpson and CPW pass/permit requirements; a complete route-specific logistics treatment is not yet packaged.",
-        "Rights-clean endpoint imagery and canonical endpoint-ordered route geometry are incomplete; the Yampa River guide maps are free for personal use but prohibit republication."
+        "The direct gauge is suitable for live checks, but CPW publishes seasonal averages and flow-dependent class ranges rather than a conservative station-certified recreational threshold; both new routes remain planning-only and excluded from scoring."
       ],
       "evidence": [
         "https://waterdata.usgs.gov/monitoring-location/USGS-09247600/",
         "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09247600",
         "https://friendsoftheyampa.com/know-before-you-go-craig/",
         "https://guides.wildyampa.com/craig-reach/",
+        "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson",
+        "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections",
+        "https://cpw.state.co.us/sites/default/files/dam/4lmgle6crm/yampa-river-state-park-brochure.pdf",
+        "https://coloradostateparks.net/parks/yampa-river/directions/",
+        "https://www.waterqualitydata.us/provider/STORET/CORIVWCH_WQX/CORIVWCH_WQX-410/",
+        "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG",
         "https://coloradostateparks.net/parks/yampa-river/boating/",
         "https://friendsoftheyampa.com/wp-content/uploads/2018/06/Floating-the-Yampa-River-Steamboat-Springs-to-Cross-Mtn.pdf",
         "https://www.craigdailypress.com/news/new-boat-ramp-opens-at-loudy-simpson-park/",
@@ -126600,25 +126609,26 @@
       "eligibility": "route_capable",
       "relationship": "direct",
       "checkedAt": "2026-09-06T12:30:00Z",
-      "decisionReason": "The direct USGS station supports the documented Sunbeam Reach, a roughly 30-mile flatwater Maybell Bridge-to-East-Cross-Mountain Yampa float with a public Sunbeam midpoint that can split the trip. CPW documents Maybell public access, camping, and variable Class I-II to Class V conditions farther downstream. Publication remains blocked because the conservative station-specific flow envelope, current endpoint/parking confirmation, long-route shuttle and limited-egress logistics, private-land treatment, downstream hazard boundary, rights-clean imagery, and canonical endpoint-ordered geometry are not all validated.",
+      "decisionReason": "Follow-up CPW evidence cleared two distinct planning sections tied to 09251000: Duffy Mountain-to-Juniper Canyon (12 miles) and Juniper Canyon-to-Maybell Bridge (13 miles). Current public ramps, primitive camping permits, the Class III–IV Juniper diversion/portage warning, private-land controls, rights-clean imagery, and endpoint-ordered geometry are packaged; scoring remains blocked because CPW’s seasonal flow ranges are not station-certified recreational thresholds.",
       "decisionSource": "bounded_route_research",
-      "routeSlugs": [],
+      "routeSlugs": [
+        "yampa-river-duffy-mountain-juniper-canyon",
+        "yampa-river-juniper-canyon-maybell-bridge"
+      ],
       "scoredRouteSlugs": [],
       "routeFamilies": [
         "Yampa River Colorado - Sunbeam Reach / Little Yampa Canyon"
       ],
       "blockers": [
-        "Maybell Bridge, Sunbeam, and East Cross Mountain access points are documented, but current endpoint coordinates, parking/permission details, and access-condition confirmation are not packaged as a verified route endpoint set.",
-        "The direct gauge has long discharge history, but no conservative station-specific runnable floor and upper operating limit for the selected Sunbeam Reach were validated; flow conditions and seasonal low-water constraints remain material.",
-        "The 30-mile trip has limited egress, extensive private-property frontage, and downstream Class V Cross Mountain Canyon beyond East Cross Mountain; shuttle, portage, rescue, and hard stop logistics need a route-specific treatment.",
-        "Camping and day-use terms differ by access: Maybell requires passes and camping permits, Sunbeam has no overnight camping, and East Cross Mountain has permit-based camping; the complete long-route logistics package is incomplete.",
-        "Rights-clean endpoint imagery and canonical endpoint-ordered route geometry are incomplete; the Yampa guide maps are free for personal use but prohibit republication."
+        "The direct gauge is suitable for live checks, but CPW publishes seasonal averages and flow-dependent class ranges rather than a conservative station-certified recreational threshold; both new routes remain planning-only and excluded from scoring."
       ],
       "evidence": [
         "https://waterdata.usgs.gov/monitoring-location/USGS-09251000/",
         "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09251000",
         "https://guides.wildyampa.com/sunbeam-reach/",
         "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-duffy-mountain-juniper-canyon-maybell",
+        "https://cpw.state.co.us/sites/default/files/dam/4lmgle6crm/yampa-river-state-park-brochure.pdf",
+        "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG",
         "https://coloradostateparks.net/parks/yampa-river/boating/",
         "https://friendsoftheyampa.com/wp-content/uploads/2018/06/Floating-the-Yampa-River-Steamboat-Springs-to-Cross-Mtn.pdf",
         "docs/operations/gauge-inventory.json",

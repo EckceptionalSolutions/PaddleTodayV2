@@ -1,0 +1,43 @@
+{
+  "batch": 56,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Johnson County Conservation camping and access record",
+      "url": "https://www.johnsoncountyiowa.gov/conservation/camping",
+      "observations": [
+        "Publishes Hills Access map coordinates 41.5544618,-91.5257829, exactly matching both route endpoints.",
+        "Describes the site as a 40-acre park along the Iowa River and confirms boat-ramp access to the river.",
+        "Lists the site as an active county campground and public recreation facility."
+      ],
+      "limits": "The published point is the site/campground map coordinate, not a separate ramp-toe coordinate."
+    },
+    {
+      "name": "Johnson County Conservation public-use-area record",
+      "url": "https://johnsoncountyiowa.gov/conservation/public-use-areas",
+      "observations": [
+        "Describes Hills Access as a river-access park adjacent to the Iowa River with a boat ramp.",
+        "Identifies Hills Access as part of the Iowa River Water Trail and an entry/take-out point."
+      ],
+      "limits": "Confirms facility and water-trail use; no ramp toe coordinate is supplied."
+    },
+    {
+      "name": "Iowa DNR Iowa River Water Trail description",
+      "url": "https://www.iowadnr.gov/media/8887/download?inline=",
+      "observations": [
+        "Describes the Hills Access to River Junction reach as 9.6 miles and says the reach starts from a cement boat ramp at Hills Access."
+      ],
+      "limits": "Describes the launch by name, without georeferencing the ramp toe."
+    },
+    {
+      "name": "Google Maps satellite imagery at the stored point",
+      "url": "https://www.google.com/maps/place/41.5544618,-91.5257829/@41.5544618,-91.5257829,18z/data=!3m1!1e3",
+      "observations": [
+        "The county coordinate is at the 520th Street entrance/approach; the nearby riverbank and launch are separated from the point.",
+        "The pin is not the boat-ramp toe, and the image does not justify replacing it with a precise shoreline point."
+      ],
+      "limits": "Visual context only; no coordinate was derived from the screenshot."
+    }
+  ],
+  "decision": "Retain the published county site point as an access-site anchor; keep the exact launch toe unresolved."
+}

@@ -1,0 +1,42 @@
+{
+  "batch": "B113",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "mulberry-river-redding-turner-bend",
+  "endpoint": "putIn",
+  "endpointName": "Redding Recreation Area canoe launch",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 347.1707117490259,
+    "distanceFeetToMappedWater": 288.72066528237525
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 347.1707117490259,
+    "distanceFeetToMappedWater": 288.72066528237525,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "Federal recreation, river-plan, and Forest Service schedule records document Redding as a public Mulberry River access area. Retain the stored point as the conditional campground/rock-canoe-launch anchor; the 347-foot named-flowline offset reflects the campground, parking, trail, and shoreline footprint.",
+  "condition": "Confirm current Forest Service campground/day-use status, fee, parking, launch condition, river level, and any seasonal or local restrictions before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 12,
+      "suspiciousAfter": 11,
+      "reviewBefore": 3925,
+      "reviewAfter": 3926
+    },
+    "inventory": {
+      "suspiciousBefore": 65,
+      "suspiciousAfter": 64,
+      "reviewBefore": 4229,
+      "reviewAfter": 4230
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1255,
+      "authoritativeAccessAfter": 1256,
+      "conflictsAfter": 0
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "retrievedAt": "2026-09-17",
+  "sourcePolicy": "Manager/agency/municipal pages establish identity and public access; non-manager sources are corroboration or condition reports. No owners/agencies were contacted.",
+  "sources": [
+    {
+      "rank": 215,
+      "site": "Neal Shoals Dam River Access",
+      "label": "USFS Sumter National Forest: Neal Shoals Dam Canoe Access",
+      "url": "https://www.fs.usda.gov/media/231964",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "USFS identifies Neal Shoals as canoe portage/access.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 215,
+      "site": "Neal Shoals Dam River Access",
+      "label": "Upper Broad Blueway map",
+      "url": "https://www.upstateforever.org/files/files/UpperBroadBluewayMap.pdf",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Map describes FS-304 parking and a 500-foot walk to river access.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 216,
+      "site": "Farm Field Park kayak and canoe access",
+      "label": "City of Sioux Falls Farm Field Park",
+      "url": "https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Official kayak/canoe amenity and coordinate match.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 216,
+      "site": "Farm Field Park kayak and canoe access",
+      "label": "South Dakota GFP Jay Heath Canoe and Kayak Trail",
+      "url": "https://gfp.sd.gov/paddling/",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Trail context.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 217,
+      "site": "Rock Springs Firemen's Park canoe landing",
+      "label": "Sauk County Baraboo River Corridor Plan Phase II",
+      "url": "https://www.co.sauk.wi.us/sites/default/files/fileattachments/land_resources_and_environment/page/2102/phase_ii_plan_draft.pdf",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Older county plan documents a launch across from Firemen’s Park.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 217,
+      "site": "Rock Springs Firemen's Park canoe landing",
+      "label": "Wisconsin River Trips: Baraboo River – Rock Springs",
+      "url": "https://www.wisconsinrivertrips.com/segments/baraboo-river/rock-springs",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Page reports its July 5, 2025 field inspection found the bank too steep and slick to use.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 218,
+      "site": "Fisherman’s parking/access below Kent Falls Powerhouse",
+      "label": "American Whitewater Saranac route",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1412/main",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Describes lower reach put-in below powerhouse and separately notes no legal Kent Falls bypass access.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 218,
+      "site": "Fisherman’s parking/access below Kent Falls Powerhouse",
+      "label": "Saranac River Trail Greenway Plan",
+      "url": "https://saranacrivertrail.org/sites/default/files/Saranac%20River%20Trail%20Greenway_Report%20Web_Final.pdf",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Describes public parking north of river and downstream powerhouse put-in.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 219,
+      "site": "Shad Landing Area public boat ramp and soft launch",
+      "label": "Maryland DNR Pocomoke River State Park",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/eastern/pocomokeriver.aspx",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Confirms Shad Landing ramp/soft launch and warns possible fall 2026 access limits during marina construction.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 220,
+      "site": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+      "label": "NYSDEC Blue Mountain Wild Forest",
+      "url": "https://dec.ny.gov/places/blue-mountain-wild-forest",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Confirms Rafters Parking Area as Indian River whitewater access.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 221,
+      "site": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+      "label": "Vermont Fish & Wildlife Fishing Access Areas GIS query",
+      "url": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/163/query?where=AccessName%20LIKE%20%27%25Kwonumosk%25%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "OID 238/id 357; Kwonumosk, Otter Creek, Weybridge, F&W, boating/fishing, steps; x=-73.2472,y=44.086.",
+      "sha256": "D5DA3E04BF22E5783664BC702947A65EE684EF1C02C040BE3ECFB7D32D64A312",
+      "sha256Note": "SHA-256 of raw ArcGIS JSON response saved under node_modules/.cache/access-batch-19-sources-vt-kwonumosk.json"
+    },
+    {
+      "rank": 222,
+      "site": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+      "label": "Iowa DNR Bluffton Fir Stand",
+      "url": "https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Describes canoe-only access from parking beside Upper Iowa River at Bluffton Road/W20.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 223,
+      "site": "City Park",
+      "label": "City of San Marcos City Park",
+      "url": "https://sanmarcostx.gov/facilities/facility/details/City-Park-35",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Confirms river access and kayak/canoe use at City Park.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    },
+    {
+      "rank": 224,
+      "site": "McKay's Bend Recreation Site",
+      "label": "BLM McKay’s Bend Recreation Site",
+      "url": "https://www.blm.gov/visit/mckays-bend-recreation-site",
+      "retrievedAt": "2026-09-17",
+      "evidenceUse": "Confirms developed Clearwater River recreation site and river access/parking.",
+      "sha256": null,
+      "sha256Note": "HTML/PDF reviewed in browser; full response not retained locally."
+    }
+  ]
+}

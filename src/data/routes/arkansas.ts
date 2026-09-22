@@ -1440,7 +1440,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says the upper Buffalo usually starts first in spring and remains highly rainfall dependent. Treat this as a recent-rain and cool-season opportunity, not a dependable summer float.",
       "difficulty": "hard",
       "difficultyNotes": "NPS calls this section challenging whitewater and describes small rapids and chutes below Ponca. It is short, but it still belongs behind the whitewater route type because current, wood, and quick rises can change the day fast.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the exact Ponca-to-Steel-Creek route page, the access mileage chart, and official Steel Creek campground coordinates; direct USGS 07055660 at Ponca exposed same-day discharge and gage-height values during review; and the same Ponca gauge already supports the adjoining upper-Buffalo route family. The app keeps the same conservative minimum-only 130 cfs floor used on the existing Ponca corridor and retains NPS's 1,600 cfs unsafe level as a route caveat rather than a full two-sided scoring band."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the exact Ponca-to-Steel-Creek route page and confirms Steel Creek as public access; this record uses the mapped OSM slipway coordinate, distinct from the campground GPS; direct USGS 07055660 at Ponca exposed same-day discharge and gage-height values during review; and the same Ponca gauge already supports the adjoining upper-Buffalo route family. The app keeps the same conservative minimum-only 130 cfs floor used on the existing Ponca corridor and retains NPS's 1,600 cfs unsafe level as a route caveat rather than a full two-sided scoring band."
     },
     "evidenceNotes": [
       {
@@ -1469,9 +1469,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Ponca 36.0225, -93.354722; Steel Creek 36.040776, -93.344048",
-        "note": "USGS station metadata places the Ponca gauge in the launch corridor, and NPS Camping publishes Steel Creek Campground GPS coordinates for the take-out access area.",
-        "sourceUrl": "https://www.nps.gov/buff/planyourvisit/camping.htm"
+        "value": "Ponca 36.0225, -93.354722; Steel Creek 36.039309, -93.336228",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       },
       {
         "label": "Route character",
@@ -1497,7 +1497,7 @@ export const arkansasRoutes: River[] = [
         "provider": "nps"
       },
       {
-        "label": "NPS Buffalo camping / Steel Creek coordinates",
+        "label": "NPS Buffalo access and Steel Creek campground context",
         "url": "https://www.nps.gov/buff/planyourvisit/camping.htm",
         "provider": "nps"
       },
@@ -1583,7 +1583,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says the upper Buffalo is largely rainfall dependent and that the paddling season moves downstream in dry periods. Treat this as a recent-water upper-district trip rather than a dependable summer float.",
       "difficulty": "hard",
       "difficultyNotes": "NPS says this stretch alternates between tumbling rapids and long pools through the Ponca Wilderness, and the take-out road at Kyle's Landing is a major practical constraint. It stays behind the whitewater route type because swift current, wood, and shuttle risk matter even when the lines are friendly.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the exact Steel-Creek-to-Kyle's-Landing route page, the access mileage chart, and official Steel Creek/Kyle's campground coordinates; the direct Ponca gauge remains the best upstream official corridor check for this upper reach and exposed same-day values during review; and the longer existing Ponca-to-Kyle's route already uses the same conservative 130 cfs floor. Paddle Today therefore keeps this split on a minimum-only model tied to the Ponca gauge and treats NPS's 1,600 cfs unsafe level as a route caveat rather than a full ideal band."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes the exact Steel-Creek-to-Kyle's-Landing route page and confirms both public accesses; the Steel Creek water-entry coordinate here uses a mapped OSM slipway feature, separate from the campground pin; the direct Ponca gauge remains the best upstream official corridor check for this upper reach and exposed same-day values during review; and the longer existing Ponca-to-Kyle's route already uses the same conservative 130 cfs floor. Paddle Today therefore keeps this split on a minimum-only model tied to the Ponca gauge and treats NPS's 1,600 cfs unsafe level as a route caveat rather than a full ideal band."
     },
     "evidenceNotes": [
       {
@@ -1612,9 +1612,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Steel Creek 36.040776, -93.344048; Kyle's Landing 36.055756, -93.2813",
-        "note": "NPS Camping publishes official GPS coordinates for both Steel Creek Campground and Kyles Landing Campground.",
-        "sourceUrl": "https://www.nps.gov/buff/planyourvisit/camping.htm"
+        "value": "Steel Creek 36.039309, -93.336228; Kyle's Landing 36.055756, -93.2813",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       },
       {
         "label": "Route character",
@@ -1640,7 +1640,7 @@ export const arkansasRoutes: River[] = [
         "provider": "nps"
       },
       {
-        "label": "NPS Buffalo camping / Steel Creek and Kyles coordinates",
+        "label": "NPS Buffalo access and Steel Creek/Kyles campground context",
         "url": "https://www.nps.gov/buff/planyourvisit/camping.htm",
         "provider": "nps"
       },
@@ -2209,8 +2209,8 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Public endpoints",
-        "value": "Ponca access to Ozark Campground / river access",
-        "note": "Current NPS Buffalo access pages and campground material still treat Ponca as an upper-district launch and Ozark as a formal public campground-backed take-out.",
+        "value": "Ponca access to Ozark Campground coordinate (separate river-entry point unresolved)",
+        "note": "NPS identifies the campground at 36.062132,-93.159724 and maps a separate River Access symbol without coordinates; campground GPS does not verify the water-entry point used by this route.",
         "sourceUrl": "https://www.nps.gov/buff/planyourvisit/camping.htm"
       },
       {
@@ -2647,7 +2647,7 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Erbie 36.070346, -93.211886; Ozark 36.062132, -93.159724",
+        "value": "Erbie 36.070346, -93.211886; Ozark Campground GPS 36.062132, -93.159724 (NPS maps separate River Access without coordinates)",
         "note": "NPS Getting Around lists Erbie and Ozark coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.",
         "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
       }
@@ -2789,7 +2789,7 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Ozark 36.062132, -93.159724; Pruitt 36.057666, -93.135032",
+        "value": "Ozark Campground GPS 36.062132, -93.159724 (NPS maps separate River Access without coordinates); Pruitt 36.057666, -93.135032",
         "note": "NPS Getting Around lists Ozark and Pruitt launch coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.",
         "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
       }
@@ -3071,7 +3071,7 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Kyle's Landing 36.055756, -93.2813; Ozark 36.062132, -93.159724",
+        "value": "Kyle's Landing 36.055756, -93.2813; Ozark Campground GPS 36.062132, -93.159724 (NPS maps separate River Access without coordinates)",
         "note": "NPS Getting Around lists Kyle's Landing and Ozark coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.",
         "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
       }
@@ -3189,7 +3189,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says upper Buffalo paddling is rainfall dependent and usually best in spring and early summer when recent water feeds the corridor. Treat this as a stable-or-falling-gauge trip rather than a dependable summer float.",
       "difficulty": "hard",
       "difficultyNotes": "This longer upper-district continuation stacks the classic Steel Creek to Kyle's rapids, the rough-road Erbie corridor, and the Ozark campground finish into one committed day. Swift current, wood, rough shuttles, and cold-water consequences keep it behind the whitewater route type.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, and Erbie to Ozark; the Buffalo access mileage chart supports the combined corridor at 19.1 miles; NPS Getting Around supplies Steel Creek, Erbie, and Ozark coordinate anchors; and direct USGS 07055680 at Pruitt returned same-day values of 43.0 cfs and 3.26 ft at 2026-07-14 22:30 CDT during review. The app uses the NPS-linked Pruitt Float Guide's 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, and Erbie to Ozark; the Buffalo access mileage chart supports the combined corridor at 19.1 miles; NPS confirms the public Steel Creek, Erbie, and Ozark accesses; this record uses the mapped OSM slipway for Steel Creek water entry rather than its campground pin; and direct USGS 07055680 at Pruitt returned same-day values of 43.0 cfs and 3.26 ft at 2026-07-14 22:30 CDT during review. The app uses the NPS-linked Pruitt Float Guide's 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
     },
     "evidenceNotes": [
       {
@@ -3218,9 +3218,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Steel Creek 36.040776, -93.344048; Ozark 36.062132, -93.159724",
-        "note": "NPS Getting Around and Camping publish official coordinate anchors for both Steel Creek and Ozark.",
-        "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
+        "value": "Steel Creek 36.039309, -93.336228; Ozark Campground GPS 36.062132, -93.159724 (NPS maps separate River Access without coordinates)",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       }
     ],
     "sourceLinks": [
@@ -3526,9 +3526,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Steel Creek 36.040776, -93.344048; Erbie 36.070346, -93.211886",
-        "note": "Current NPS campground and getting-around pages still provide coordinate anchors for Steel Creek and Erbie.",
-        "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
+        "value": "Steel Creek 36.039309, -93.336228; Erbie 36.070346, -93.211886",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       }
     ],
     "sourceLinks": [
@@ -3639,7 +3639,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says upper Buffalo paddling windows shift quickly with rainfall and usually start first in spring before moving downstream as the river drops. Treat this as a same-day level-and-trend decision rather than a dependable low-water float.",
       "difficulty": "hard",
       "difficultyNotes": "This route stacks the classic Steel Creek to Kyle's rapids with the Erbie and Ozark corridor before the Highway 7 finish at Pruitt. It is a long upper-district commitment with swift current, wood, rough-road shuttles, and cold-water consequences, so it stays behind the whitewater route type.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to Ozark, and Ozark to Pruitt; the Buffalo access mileage chart supports the combined corridor at 21.1 miles; NPS Getting Around supplies Steel Creek, Ozark, and Pruitt coordinate anchors; and direct USGS 07055680 at Pruitt returned same-day values of 43.0 cfs and 3.26 ft at 2026-07-14 22:30 CDT during review. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to Ozark, and Ozark to Pruitt; the Buffalo access mileage chart supports the combined corridor at 21.1 miles; NPS confirms the public Steel Creek, Ozark, and Pruitt accesses; this record uses the mapped OSM slipway for Steel Creek water entry rather than its campground pin; and direct USGS 07055680 at Pruitt returned same-day values of 43.0 cfs and 3.26 ft at 2026-07-14 22:30 CDT during review. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
     },
     "evidenceNotes": [
       {
@@ -3668,9 +3668,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Steel Creek 36.040776, -93.344048; Pruitt 36.057666, -93.135032",
-        "note": "NPS Getting Around and Camping publish coordinate anchors for Steel Creek and Pruitt. Use the signed landings and current park access conditions rather than GPS alone.",
-        "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
+        "value": "Steel Creek 36.039309, -93.336228; Pruitt 36.057666, -93.135032",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       },
       {
         "label": "Campground-backed put-in",
@@ -3973,7 +3973,7 @@ export const arkansasRoutes: River[] = [
       "seasonNotes": "NPS says upper Buffalo opportunities move downstream as dry weather arrives, and this Steel-Creek-to-Hasty continuation is still a same-day rainfall-and-trend call rather than a dependable summer float.",
       "difficulty": "hard",
       "difficultyNotes": "This route stacks the classic Steel Creek to Kyle's rapids, the Erbie and Ozark corridor, and the quicker Pruitt-to-Hasty fallback into one very long upper-district commitment. Swift current, wood, rough-road shuttles, and cold-water consequences keep it behind the whitewater route type.",
-      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to Ozark, Ozark to Pruitt, and Pruitt to Hasty; the Buffalo access mileage chart supports the combined corridor at about 27.9 to 28.0 miles; NPS publishes Steel Creek coordinates and Hasty route wording; and direct USGS 07055680 at Pruitt returned 36.9 cfs and 3.21 ft at 2026-07-15 22:30 CDT during this July 16, 2026 run. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
+      "confidenceNotes": "Confidence is good for a guarded Arkansas add: NPS publishes exact current route pages for Steel Creek to Kyle's Landing, Kyle's Landing to Erbie, Erbie to Ozark, Ozark to Pruitt, and Pruitt to Hasty; the Buffalo access mileage chart supports the combined corridor at about 27.9 to 28.0 miles; NPS confirms Steel Creek public access and Hasty route wording; this record uses the mapped OSM slipway for Steel Creek water entry rather than its campground pin; and direct USGS 07055680 at Pruitt returned 36.9 cfs and 3.21 ft at 2026-07-15 22:30 CDT during this July 16, 2026 run. The app uses the NPS-linked Pruitt Float Guide 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range."
     },
     "evidenceNotes": [
       {
@@ -4002,9 +4002,9 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Steel Creek 36.040776, -93.344048; Hasty 36.008993, -93.08242",
-        "note": "NPS Camping publishes Steel Creek Campground GPS coordinates, and the NPS Pruitt-to-Hasty route page identifies Hasty as the sandy river-right take-out across from Chimney Rock Bluff.",
-        "sourceUrl": "https://www.nps.gov/buff/planyourvisit/camping.htm"
+        "value": "Steel Creek 36.039309, -93.336228; Hasty 36.008993, -93.08242",
+        "note": "NPS identifies Steel Creek as a public river access. This water-entry coordinate follows OSM slipway node 12544125462; NPS campground GPS describes a separate campground anchor.",
+        "sourceUrl": "https://www.openstreetmap.org/node/12544125462"
       }
     ],
     "sourceLinks": [
@@ -4476,7 +4476,7 @@ export const arkansasRoutes: River[] = [
       },
       {
         "label": "Access coordinates",
-        "value": "Ozark 36.062132, -93.159724; Hasty 36.008993, -93.08242",
+        "value": "Ozark Campground GPS 36.062132, -93.159724 (NPS maps separate River Access without coordinates); Hasty 36.008993, -93.08242",
         "note": "NPS Getting Around lists Ozark and Pruitt coordinate anchors, and Hasty remains the signed public take-out identified by the NPS route page across from Chimney Rock Bluff.",
         "sourceUrl": "https://home.nps.gov/buff/planyourvisit/getting-around.htm"
       }
@@ -4915,8 +4915,8 @@ export const arkansasRoutes: River[] = [
       {
         "label": "Access coordinates",
         "value": "Ed Banks 34.33975, -94.25069; Highway 278 access 34.29388, -94.17704",
-        "note": "Mapcarta/OpenStreetMap places Ed Banks Access as an Arkansas park access parking area, and Arkansas Natural Heritage Commission records place the developed Cossatot State Park / Highway 278 access corridor at 34.29388, -94.17704. Treat both as practical access-area anchors, not survey-grade ramp points.",
-        "sourceUrl": "https://mapcarta.com/N12957921429"
+        "note": "Arkansas Natural Heritage Commission identifies a public developed canoe-launch area within Cossatot River State Park Natural Area. The stored Highway 278 point remains a practical access-area anchor, not a survey-grade ramp coordinate; follow signs to the river access and confirm the landing and parking before launch.",
+        "sourceUrl": "https://www.arkansasheritage.com/arkansas-natural-heritage/naturalareas/find-a-natural-area/cossatot-river-state-park-natural-area"
       },
       {
         "label": "Safety posture",
@@ -4959,6 +4959,11 @@ export const arkansasRoutes: River[] = [
       {
         "label": "Arkansas Natural Heritage Commission Cossatot State Park record",
         "url": "https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FAssembly%2FMeeting+Attachments%2F000%2FI12184%2FExhibit+H.11+-+ANHC+Annual+Report+for+Fiscal+Year+2013.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Arkansas Natural Heritage Commission Cossatot River State Park Natural Area",
+        "url": "https://www.arkansasheritage.com/arkansas-natural-heritage/naturalareas/find-a-natural-area/cossatot-river-state-park-natural-area",
         "provider": "local"
       }
     ]

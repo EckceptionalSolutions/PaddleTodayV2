@@ -1,0 +1,70 @@
+{
+  "batch": 42,
+  "retrievedOn": "2026-09-18",
+  "sources": [
+    {
+      "id": "vt-anr-recsites-objectid-1061",
+      "url": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/166/query?where=OBJECTID%3D1061&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "publisher": "Vermont Agency of Natural Resources, Outdoor Recreation Sites Inventory",
+      "record": {
+        "objectId": 1061,
+        "siteName": "CHSP",
+        "alternateName": "WINOOSKI RIVER ACCESS AREA (CANOE ACCESS)",
+        "publicPriority": 1,
+        "boating": "Y",
+        "nonMotorizedBoating": "X",
+        "waterAccess": "Y",
+        "waterbody": "WINOOSKI RIVER",
+        "summerParkingSpaces": 20,
+        "organizer": "FPR-ESSEX",
+        "operatorCode": 1,
+        "dateField": "blank",
+        "latitude": 44.372557093828576,
+        "longitude": -72.89744466026545
+      },
+      "acceptedAsEvidence": true,
+      "finding": "The current ANR point inventory publishes a public non-motorized canoe-access feature on the Winooski River. The adopted Bolton Town Plan identifies the ANR/Town-maintained Bolton Canoe Access; Richmond locates that access about four miles west on River Road from Bolton Dam. Together these match the feature's identity and location. The source record does not georeference the exact wet-edge toe or provide a populated update date."
+    },
+    {
+      "id": "town-richmond-river-access",
+      "url": "https://www.richmondvt.gov/community/recreation/default-title/river-access",
+      "publisher": "Town of Richmond",
+      "retrievedOn": "2026-09-18",
+      "acceptedAsEvidence": true,
+      "facts": [
+        "Richmond lists Bolton Canoe Access Area as a public launch with ample parking.",
+        "The Town places it about four miles west on River Road from the Bolton Dam access.",
+        "The page does not publish a GPS coordinate or distinguish parking from the water-entry toe."
+      ]
+    },
+    {
+      "id": "bolton-adopted-town-plan-2025",
+      "url": "https://outside.vermont.gov/agency/ACCD/bylaws/Bylaws%20and%20Plans%20Approved/Bolton_Adopted_MunicipalPlan_June_2025.pdf",
+      "publisher": "Town of Bolton, adopted municipal plan submitted to Vermont ACCD",
+      "retrievedOn": "2026-09-18",
+      "acceptedAsEvidence": true,
+      "facts": [
+        "The 2025 plan identifies the Bolton Canoe Access on the Winooski River and says the Vermont Agency of Natural Resources and the Town maintain it.",
+        "The plan confirms the facility identity and public-maintenance context but does not publish a coordinate."
+      ]
+    },
+    {
+      "id": "osm-reverse-geocode-and-road-route-cross-check",
+      "url": "https://nominatim.openstreetmap.org/reverse?lat=44.3768&lon=-72.8755&format=jsonv2&zoom=18",
+      "publisher": "OpenStreetMap contributors / Nominatim and OSRM (secondary mapping cross-check)",
+      "retrievedOn": "2026-09-18",
+      "acceptedAsEvidence": false,
+      "finding": "The old coordinate reverse-geocodes to an address at 325 Bolton Valley Access Road. OSRM driving distance from the mapped Bolton Dam access is about 10.9 miles to the old pin and 4.8 miles to the ANR feature point. This corroborates the Town's direction and approximate distance but is secondary evidence; it does not establish public permission or the exact launch toe."
+    }
+  ],
+  "coordinateComparison": {
+    "oldCoordinate": { "latitude": 44.3768, "longitude": -72.8755 },
+    "replacementCoordinate": { "latitude": 44.372557093828576, "longitude": -72.89744466026545 },
+    "replacementBasis": "ANR Outdoor Recreation Sites Inventory point geometry OBJECTID 1061",
+    "coordinateRole": "authoritative-access-anchor",
+    "uncertaintyFeet": 200,
+    "postChangeAuditDistanceFeetToMatchedWinooskiFlowline": 285.2,
+    "postChangeAuditDistanceFeetToMappedWater": 152.3,
+    "interpretation": "The corrected point denotes the public access area and is not represented as a surveyed shoreline or ramp-toe coordinate."
+  }
+}

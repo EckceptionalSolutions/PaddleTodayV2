@@ -1,0 +1,16 @@
+{
+  "batch": 67,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious endpoints, group exact repeated coordinates and rank by occurrence count then mapped-water offset; freeze the selected suspicious occurrence before reviewing access-source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:38:36.884Z; 2,750 public routes, 6,058 endpoints, 58 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Idaho",
+    "name": "Spring Creek Campground Access, Salmon River",
+    "storedCoordinate": { "latitude": 45.39203, "longitude": -114.25161 },
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": ["salmon-river-north-fork-corn-creek"],
+    "preReviewFinding": "The endpoint is about 478 feet from the matched Salmon River flowline and 422 feet from mapped water; NHD coverage is complete.",
+    "decision": "verify-whether-the-coordinate-identifies-a-public-campground-access-anchor-or-is-misplaced-from-the-river; use-only-authoritative-access-or-water-entry-evidence-to-correct-it",
+    "selectionFrozenBeforeResearch": true
+  }
+}

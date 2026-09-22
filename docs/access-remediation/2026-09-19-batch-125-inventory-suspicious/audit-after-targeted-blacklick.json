@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T03:35:27.601Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "blacklick-creek-route-259-saylor-park",
+      "routeName": "Blacklick Creek",
+      "reach": "PA 259 Heshbon to Saylor Park",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Ghost Town Trail Heshbon access near PA 259 bridge",
+      "latitude": 40.47345,
+      "longitude": -79.09512,
+      "matchedRiverName": "Blacklick Creek",
+      "distanceFeetToMatchedRiver": 342.72547219953765,
+      "nearestMatchedLatitude": 40.472533940862284,
+      "nearestMatchedLongitude": -79.09539383621755,
+      "nearestWaterwayName": "Blacklick Creek",
+      "distanceFeetToNearestWaterway": 342.7256688883352,
+      "nearestWaterwayLatitude": 40.47253371796138,
+      "nearestWaterwayLongitude": -79.09539254766717,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 286.714433663387,
+      "nearestWaterbodyLatitude": 40.47274002898789,
+      "nearestWaterbodyLongitude": -79.0955630692326,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 286.714433663387,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://indianacountyparks.org/our-trails/ghost-town-trail/ghost-town-trailheads/",
+      "coordinateEvidenceDetail": "pa_indiana_county_ghost_town_heshbon_blacklick_access_20260919 ghost-town-trail-heshbon-blacklick-putin: Indiana County Parks identifies the Heshbon Ghost Town Trail access on Route 259 with parking and seasonal facilities. American Whitewater identifies the Route 259 to Saylor Park run and the Ghost Town Trail put-in upstream of the bridge. Retain the stored point as a conditional trailhead/river-entry-area anchor; the 343-foot connected-network offset reflects the bridge, trailhead, and carry corridor rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (pa_indiana_county_ghost_town_heshbon_blacklick_access_20260919 ghost-town-trail-heshbon-blacklick-putin) on Blacklick Creek; access is conditional (Confirm Indiana County trailhead status, legal river carry, parking, water level, and any seasonal or local restrictions before putting in.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "blacklick-creek-route-259-saylor-park",
+      "routeName": "Blacklick Creek",
+      "reach": "PA 259 Heshbon to Saylor Park",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Saylor Park / Blacklick take-out",
+      "latitude": 40.478162,
+      "longitude": -79.187222,
+      "matchedRiverName": "Blacklick Creek",
+      "distanceFeetToMatchedRiver": 40.4403957715968,
+      "nearestMatchedLatitude": 40.47811216523177,
+      "nearestMatchedLongitude": -79.18735217439466,
+      "nearestWaterwayName": "Blacklick Creek",
+      "distanceFeetToNearestWaterway": 40.4403957715968,
+      "nearestWaterwayLatitude": 40.47811216523177,
+      "nearestWaterwayLongitude": -79.18735217439466,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 40.478162,
+      "nearestWaterbodyLongitude": -79.187222,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "reviewDate": "2026-09-17",
+  "retrievedAtUtc": "2026-09-17T13:50Z",
+  "retrievalMethod": "Direct HTTP snapshots were downloaded for the listed live pages and PDFs. Search-index-only sources and unsuccessful direct retrieval attempts are identified separately and were not represented as downloaded snapshots.",
+  "retrievals": [
+    {
+      "id": "nysdec-otsego-sidney",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/otsego-county",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-otsego-sidney.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 140527,
+      "sha256": "0787ab857e9662cdf3b8a8105d7b487bae1938a85848775121fc2f80c1417f7a",
+      "supports": "Public Sidney Susquehanna River hand launch at 42.315483 N, 75.414102 W and parking for 30 cars."
+    },
+    {
+      "id": "nysdec-salmon-river",
+      "url": "https://dec.ny.gov/places/salmon-river",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-salmon-river.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 103573,
+      "sha256": "ee41c3899f86e2494f02e8264178c18556f5ba3a35ead82da959fc79fc49c6ae",
+      "supports": "NYSDEC lists Blackhole at North Jefferson and Bridge Streets as parking and distinguishes it from listed boat launches."
+    },
+    {
+      "id": "nysdec-hudson-gorge",
+      "url": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-hudson-gorge.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 117056,
+      "sha256": "9d82dea41ed350126c9a054827d77b28b50f317c1b480445444a49afead12b37",
+      "supports": "Polaris Bridge Parking Area coordinate/0.3-mile carry to the hand launch; Outer Gooley parking area/0.1-mile carry to the marked take-out."
+    },
+    {
+      "id": "nysdec-raquette-boreal",
+      "url": "https://dec.ny.gov/places/raquette-boreal-complex",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-raquette-boreal.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 154174,
+      "sha256": "3c4c427d8e79ff496d3ec299ade72404b6041729029023f7b91fe48edc2c87ab",
+      "supports": "Jamestown Falls Trailhead Parking Area at 44.3262 N, 74.7226 W and 100-foot carry to the river."
+    },
+    {
+      "id": "pa-laurel-hill-boating",
+      "url": "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/laurel-hill-state-park/boating",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/pa-laurel-hill-boating.html",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 215157,
+      "sha256": "6ce4d6c8d60650afedd88a88fc321c17d3b944d4338f183cc9c67320d97711e9",
+      "supports": "A canoe/kayak launch is in Beach Area on Laurel Hill Lake and is part of a six-mile water trail ending at Kings Covered Bridge."
+    },
+    {
+      "id": "pa-laurel-hill-park-guide",
+      "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3877924&ViewerMode=2&action=PDFStream&docID=1753189&docName=LAHI_ParkGuide&nativeExt=pdf&overlay=0&revision=0",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/laurel-hill-park-guide.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 3580599,
+      "sha256": "2d958d86f8a001bb46ec2aec0204c538fa57b2f512f4a518d09be32027cabc15",
+      "supports": "Official park map/guide identifies the Beach Area launch and publishes park GPS anchors; it does not publish a surveyed wet-edge coordinate."
+    },
+    {
+      "id": "md-gunpowder-river-recreation",
+      "url": "https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/md-gunpowder-river-recreation.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 58648,
+      "sha256": "4334bfe61032b43fe2ef35dc51faba679731df4dbfd9e9c2a7c668bce1635b69",
+      "supports": "DNR says the river flows into private property downriver of Big Falls Road; the page does not identify a public launch there."
+    },
+    {
+      "id": "srbc-cohocton-survey",
+      "url": "https://www.srbc.gov/our-work/reports-library/technical-reports/259-chemung-subbasin-cohocton-survey/docs/chemung-subbasin-cohocton-survey.pdf",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/srbc-cohocton-survey.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 3667448,
+      "sha256": "c12d7cb56b47b8107b7276f585df4b53b3165308fdb48c7f9520f85a5fd189e6",
+      "supports": "The survey identifies launches at Route 11 in Bath, Wood Road in Campbell, and Kinsella Park in Erwin, not the stored separate downstream Campbell route endpoint."
+    },
+    {
+      "id": "nysdec-beaverkill-pfr",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/pfrbeaverkill.pdf",
+      "snapshot": null,
+      "directHttpStatus": 404,
+      "reviewedVia": "NYSDEC search-index result and linked PDF text",
+      "supports": "NYSDEC describes Public Fishing Rights as fishing and bank-walking easements for fishing only; this is not paddling-launch authorization."
+    },
+    {
+      "id": "bonners-ferry-moyie-study",
+      "url": "https://bonnersferry.id.gov/wp-content/uploads/2025/03/moyie-river_recreation_study-plan.pdf",
+      "snapshot": null,
+      "directHttpStatus": 404,
+      "reviewedVia": "City search-indexed PDF result",
+      "documentDate": "2025-02",
+      "supports": "The indexed City study names the Moyie Reservoir Boating Takeout and Day-Use Area; it does not provide a current wet-edge coordinate in the reviewed excerpt."
+    },
+    {
+      "id": "nysdec-boat-launch-layer",
+      "url": "https://gisservices.dec.ny.gov/arcgis/rest/services/dec_backcountry_features/MapServer/3",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-boat-launch-layer.json",
+      "httpStatus": 200,
+      "sha256": "e9bb0e65f14e9def0a525d14e7cd57b2646a937a2dbb89b448b92a7d38e9d80e",
+      "supports": "A statewide NYSDEC launch-layer query was retained as contextual evidence; it returned unrelated launch features and was not used to correct any batch 03 coordinate."
+    },
+    {
+      "id": "greatwestern-catskills-access",
+      "url": "https://greatwesterncatskills.com/fishing-the-rivers-and-streams-of-the-great-western-catskills/",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/greatwestern-catskills-access.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 62990,
+      "sha256": "20abfc2d69f67e1679d67176b16f97e5a7767507ae90337913d5fcc09a0219e4",
+      "supports": "Regional Beaver Kill fishing/access context was reviewed as a lead; it does not establish a lawful paddling launch, parking, or carry at Peakville bridge."
+    },
+    {
+      "id": "american-whitewater-salmon-route",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1404/main",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/american-whitewater-salmon-route.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 139823,
+      "sha256": "b79a936bbd29ded48b2346dd40c6d58acd52a82db56b008a66aa117c3a63a955",
+      "supports": "American Whitewater defines the route-specific Compactor Pool-to-Black Hole reach and endpoint map pin; it does not establish public parking/boat landing at Black Hole."
+    },
+    {
+      "id": "montgomery-county-cobleskill-paddling",
+      "url": "https://visitmontgomerycountyny.com/listing/whitewater-and-paddling/",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/montgomery-county-cobleskill-paddling.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 109018,
+      "sha256": "dbc1146f01eb4126e976f517ef7f203d2c454382c93b60460acfaf01c7ceaac8",
+      "supports": "County publishes the Warnerville Cobleskill Creek paddling start coordinate and warns its paddling route information is volunteer-shared and not monitored."
+    },
+    {
+      "id": "suny-cobleskill-creek-map",
+      "url": "https://www.cobleskill.edu/about/images/CobleskillCreekTrailMap.pdf",
+      "snapshot": "docs/access-remediation/2026-09-17-batch-03/sources/suny-cobleskill-creek-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 5069255,
+      "sha256": "def0359aa6ae1c319481ae9d727c7acb718c82bf404ceaec00a41ff0830ee354",
+      "supports": "SUNY map shows the creek corridor and nearby trail/pavilion context; it does not publish an exact water-entry coordinate or by itself establish current campus permission."
+    }
+  ],
+  "notes": [
+    "Direct HTTP 404 responses for the Beaver Kill and Moyie PDFs were not treated as source evidence; web search indexed their contents and direct source URLs are retained for future recheck.",
+    "All source snapshots are corroboration records, not endorsements of safety or a substitute for current access rules.",
+    "The audit cache and generated access registry were not regenerated because shared packages are missing; source edits are verified directly and the stale generated registry is left untouched."
+  ]
+}

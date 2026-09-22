@@ -1,0 +1,75 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "decisions": [
+    {
+      "rank": 236,
+      "site": "Mirabeau Park",
+      "decision": "keep-access-anchor",
+      "coordinateAction": "none",
+      "basis": "Spokane Conservation District documents restored small-boat and pedestrian access; City parks planning describes a gravel path to the river. The existing point is an access-area anchor, not the shoreline toe."
+    },
+    {
+      "rank": 237,
+      "site": "Chautauqua Park",
+      "decision": "keep-access-anchor",
+      "coordinateAction": "none",
+      "basis": "Valley City Parks identifies the boat launch and the City describes it as ADA-accessible. Keep its existing coordinate as a park/launch-area anchor."
+    },
+    {
+      "rank": 238,
+      "site": "Oak Township County Park",
+      "decision": "keep-access-anchor",
+      "coordinateAction": "none",
+      "basis": "Stearns County and Minnesota DNR maps establish canoe access and route context. The County map is not ground-accurate, so the point remains an access-area anchor."
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park",
+      "decision": "correct-park-anchor-and-hold",
+      "coordinateAction": "43.7266,-87.8166 → 43.72573,-87.803695",
+      "basis": "The former point was about 0.7 miles west of the park. EPA publishes the new coordinates as the center of the 710 Hickory Street site, not as a launch. EPA says state/local officials closed parts of the park for cleanup, and no current source establishes that the paddler carry and parking are outside the closure. Hold pending manager confirmation and geometry regeneration."
+    },
+    {
+      "rank": 240,
+      "site": "Marco Flats Fishing Access Site",
+      "decision": "correct-current-FWP-anchor-and-release-eight-routes-after-geometry-audit",
+      "coordinateAction": "46.89104,-113.82732 → 46.88969,-113.82973",
+      "basis": "Montana FWP publishes the current site coordinate, identifies the Blackfoot River, and lists a day-use hand launch. This is a managed-site coordinate rather than a surveyed launch toe. All eight affected geometries were regenerated from USGS NHD flowlines, checked against this anchor and the adjacent access chain, and released; see geometry-repair.json."
+    },
+    {
+      "rank": 241,
+      "site": "Cameron Mills CR 110",
+      "decision": "correct-coordinate-transcription-and-keep-anchor",
+      "coordinateAction": "42.178617,-77.370556 → 42.178617,-77.363567",
+      "basis": "The regional guide publishes 42°10.717′N, 077°21.814′W, which converts to 42.178617,-77.363567. A 2026 local report documents a canoe/kayak race starting at the CR 110 boat launch. Keep as access-area anchor; verify parking and carry."
+    },
+    {
+      "rank": 242,
+      "site": "Trego Town Park Landing",
+      "decision": "keep-access-anchor",
+      "coordinateAction": "none",
+      "basis": "Current NPS maps and outfitter guidance name the landing; the Town identifies its active campground beside the Namekagon. The coordinate is an access-area anchor, not a surveyed waterline toe."
+    },
+    {
+      "rank": 243,
+      "site": "Heath Canyon / La Linda",
+      "decision": "keep-permit-limited-access-anchor",
+      "coordinateAction": "none",
+      "basis": "NPS locates U.S.-side access just downstream of La Linda bridge and documents difficult access and Limited Use Permit requirements. TPWD’s 2025 acquisition notice supports public river access. Keep the American Whitewater point as a coarse access-area anchor."
+    },
+    {
+      "rank": 244,
+      "site": "Three Forks Recreation Site",
+      "decision": "keep-BLM-access-anchor",
+      "coordinateAction": "none",
+      "basis": "BLM’s current page publishes the stored coordinate and confirms a boat launch and parking at Three Forks, Oregon. Preserve as site anchor and keep the rough-road/4WD warning."
+    },
+    {
+      "rank": 246,
+      "site": "Riverdale Lane",
+      "decision": "keep-address-access-anchor",
+      "coordinateAction": "none",
+      "basis": "SARA currently lists Riverdale as an open Goliad Paddling Trail landing and publishes 1777 N Riverdale Lane. The stored Census address point is not an exact ramp toe; follow local signs."
+    }
+  ]
+}

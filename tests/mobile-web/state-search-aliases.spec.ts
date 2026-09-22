@@ -15,7 +15,7 @@ test('postal state searches work in Today, Saved, Explore and the state picker',
     localStorage.setItem('paddletoday:saved-rivers', JSON.stringify(records));
   }, rivers.map(route => ({ slug: route.river.slug, name: route.river.name, reach: route.river.reach, savedAt: new Date().toISOString() })));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers } }));
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers } }));
   await page.goto('/');
   await page.getByRole('button', { name: 'Search for a river or route', exact: true }).click();
   const dialog = page.getByRole('dialog');

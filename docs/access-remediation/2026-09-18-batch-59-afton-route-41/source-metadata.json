@@ -1,0 +1,40 @@
+{
+  "batch": 59,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "NYSDEC Boat Launch Sites for Chenango County",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/chenango-county",
+      "observations": [
+        "Lists Susquehanna River, Afton, at the exact stored coordinate 42.228255 N, 75.523860 W, with the site classified as an unimproved trailer launch and parking for 12 cars and trailers.",
+        "The same directory defines an unimproved trailer launch as a site that accommodates a small/light trailer to the water's edge, with the boat pushed on/off in typically shallow areas."
+      ],
+      "limits": "NYSDEC publishes the public launch coordinate and type, but does not label the point as a surveyed wet toe."
+    },
+    {
+      "name": "NYSDEC Susquehanna River access page",
+      "url": "https://dec.ny.gov/places/susquehanna-river",
+      "observations": [
+        "Locates the Afton public access at the northeast end of the NYS Route 41 bridge in the Village of Afton and identifies a gravel ramp with parking for 12 cars and trailers."
+      ],
+      "limits": "Confirms ramp type and bridge-side location but does not georeference the exact river-entry toe."
+    },
+    {
+      "name": "NYSDEC Susquehanna River fishing brochure",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/r7susqhanbroc.pdf",
+      "observations": [
+        "Lists Afton as a DEC gravel ramp at the Route 41/Maple Street bridge on the northwest shore, suitable for trailers."
+      ],
+      "limits": "The map and description confirm the general ramp location and use, not the precise shoreline coordinate."
+    },
+    {
+      "name": "Google Maps coordinate link from NYSDEC directory",
+      "url": "https://www.google.com/maps?daddr=42.228255,-75.523860",
+      "observations": [
+        "The state directory's Google Maps link resolves to the same published coordinate used by both route endpoints."
+      ],
+      "limits": "A map pin at the listed coordinate confirms the public access locality; it does not independently survey the ramp toe."
+    }
+  ],
+  "decision": "Retain the exact NYSDEC-published coordinate as an authoritative launch-site anchor. Do not shift the point without a more precise state coordinate or defensible mapped ramp-toe evidence; leave the mapped-water offset under review."
+}

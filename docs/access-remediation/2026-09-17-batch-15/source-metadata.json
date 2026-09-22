@@ -1,0 +1,216 @@
+{
+  "batch": "2026-09-17-batch-15",
+  "retrievedOn": "2026-09-17",
+  "snapshotRoot": "node_modules/.cache/access-batch-15/sources",
+  "snapshots": [
+    {
+      "id": "nydec-suffolk-launches",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nydec-suffolk-launches.html",
+      "bytes": 166126,
+      "sha256": "EC28A67CFD26446C6DA8BD09C673CE9CFC589844DF9166C768D7D9C81A2B5565",
+      "acceptedAsEvidence": true,
+      "finding": "NYSDEC publishes the exact River Road East/West access-site coordinates, launch types, parking, electric-motor rules, and 75/100-yard carries."
+    },
+    {
+      "id": "richmond-vt-river-access",
+      "url": "https://www.richmondvt.gov/community/recreation/default-title/river-access",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/richmond-vt-river-access.html",
+      "bytes": 20923,
+      "sha256": "0AC4D585FC23B06293E8A7234F9019D4C84E9DEA27238BF36C206D71910239E7",
+      "acceptedAsEvidence": true,
+      "finding": "Town of Richmond identifies Bolton Canoe Access Area, ample parking, and its position on River Road west of Bolton Dam."
+    },
+    {
+      "id": "horicon-launches",
+      "url": "https://horiconwi.gov/282/Horicon-Boat-Launches",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/horicon-launches.html",
+      "bytes": 98363,
+      "sha256": "DDA5F98BE453B4EA4541852BDDB8F103792E3939512E88F98C65F3E3B0DF6623",
+      "acceptedAsEvidence": true,
+      "finding": "City of Horicon identifies four municipal launches, the North Nebraska Street Launch address, and access above the dam to Horicon Marsh."
+    },
+    {
+      "id": "cpw-bv-to-salida-access",
+      "url": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-buena-vista",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/cpw-bv-to-salida-access.html",
+      "bytes": 429747,
+      "sha256": "0A7C7C82E83C4B9D698A18D4E98B5CCC2FD277BEBACD82612729A0750137E46B",
+      "acceptedAsEvidence": true,
+      "finding": "CPW lists Buena Vista Whitewater Park as a river access with Boat Ramp/Slide and says the site is managed by the Town of Buena Vista."
+    },
+    {
+      "id": "cpw-admin-facilities-layer",
+      "url": "https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer/0?f=pjson",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/cpw-admin-facilities-layer.json",
+      "bytes": 148467,
+      "sha256": "F7DB98E18EEC3DDCD031B8836B8655177E6CE02078D548B46FB559B2838531E4",
+      "acceptedAsEvidence": true,
+      "finding": "Current CPW GIS Facilities layer metadata; the service is distributed by the CPW GIS Unit."
+    },
+    {
+      "id": "cpw-bv-swa-ramp-feature-verified",
+      "url": "https://services5.arcgis.com/ttNGmDvKQA7oeDQ3/arcgis/rest/services/CPWAdminData/FeatureServer/0/query?where=FID%3D2120&outFields=FID%2CPROPNAME%2CFAC_NAME%2Cd_FAC_TYPE%2Cd_TYPE_DET%2CCOMMENTS%2CGlobalID&outSR=4326&returnGeometry=true&f=pjson",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/cpw-bv-swa-ramp-feature-verified.json",
+      "bytes": 2324,
+      "sha256": "36FE729D43157B37D1B28BFBFA93CCC2600CFCFC728188E32F7DC1CBCF083737",
+      "acceptedAsEvidence": true,
+      "finding": "Feature 2120 is a WGS84 point for Buena Vista SWA, classified as a universal Boat Ramp; used as a launch-area anchor, not a surveyed ramp toe."
+    },
+    {
+      "id": "cpw-bv-whitewater-map",
+      "url": "https://www.buenavistaco.gov/DocumentCenter/View/4731/BV-River-Park-Map-2023?bidId=",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/cpw-bv-whitewater-map.pdf",
+      "bytes": 5221107,
+      "sha256": "BEB5BDFEF0A650523B61951068BD04C4C5112267468C88012D031E1087CF05C1",
+      "acceptedAsEvidence": true,
+      "finding": "Town of Buena Vista River Park map corroborates the named Whitewater Park, Arkansas River and nearby park access context."
+    },
+    {
+      "id": "dec-raquette-boreal-complex",
+      "url": "https://dec.ny.gov/places/raquette-boreal-complex",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/dec-raquette-boreal-complex.html",
+      "bytes": 154174,
+      "sha256": "E0E32224B330A4691FB8C2425AD6C7BFDF6963211C58F95252D1DCA7DE54E4B4",
+      "acceptedAsEvidence": true,
+      "finding": "NYSDEC publishes Moody Falls Trailhead coordinates and describes the 0.1-mile carry to the river downstream of Moody Falls."
+    },
+    {
+      "id": "anoka-rice-creek-water-trail-map",
+      "url": "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/anoka-rice-creek-water-trail-map.pdf",
+      "bytes": 3711608,
+      "sha256": "F141A74F76A1BDFEBFD71C2E7510307BC3A2CB4844623A73FD5561759A0AFC9F",
+      "acceptedAsEvidence": true,
+      "finding": "Anoka County map marks Aqua Lane as a limited-parking public access and distinguishes Wargo rentals/boat-return-only access."
+    },
+    {
+      "id": "mn-dnr-aqua-lane-feature",
+      "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/2688?f=pjson",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/mn-dnr-aqua-lane-feature.json",
+      "bytes": 1156,
+      "sha256": "07AA631264F1238306992B9841CF60F8A13F1C920DB7A5BE483487C764676A78",
+      "acceptedAsEvidence": true,
+      "finding": "Minnesota DNR feature WAS02907 identifies the Anoka County Rice Lake carry-in, gravel ramp, five-car parking, bank side, and river mile."
+    },
+    {
+      "id": "wythe-kents-lane-facility",
+      "url": "https://www.wytheco.org/Facilities/Facility/Details/Kents-Lane-Portage-Park-3",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/wythe-kents-lane-facility.html",
+      "bytes": 106231,
+      "sha256": "C953029BA7D84B5C23608DF9ADB79C9EBB12A95F64CFA24F0D514AA9C61B635E",
+      "acceptedAsEvidence": true,
+      "finding": "Wythe County confirms the named public Kents Lane Portage Park at 161 Kents Lane and launch/take-out use for small watercraft."
+    },
+    {
+      "id": "wythe-reed-creek-blueway",
+      "url": "https://www.wytheco.org/294/The-Reed-Creek-Blueway",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/wythe-reed-creek-blueway.html",
+      "bytes": 110315,
+      "sha256": "A5E18B4908C7B5512945C4A8C313E35160BE5A9BF39B9FB598497C48186DFE1F",
+      "acceptedAsEvidence": true,
+      "finding": "Wythe County publishes Reed Creek Blueway rules and designated public access areas."
+    },
+    {
+      "id": "nysdec-fish-creek-wma",
+      "url": "https://dec.ny.gov/places/fish-creek-wildlife-management-area",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nysdec-fish-creek-wma.html",
+      "bytes": 100317,
+      "sha256": "DE245A31481FA32322D4D5F0E591DF8EF423F62513177E674D2E24103DDE0CEC",
+      "acceptedAsEvidence": true,
+      "finding": "NYSDEC publishes the exact Route 184 access-area coordinate and confirms two nearby hand-launch parking areas."
+    },
+    {
+      "id": "nysdec-suffolk-launch-directory-pdf",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nysdec-suffolk-launch-directory-pdf.pdf",
+      "bytes": 1057557,
+      "sha256": "7B28D0375F4AF1338A34E3D177916249E457D3E91BE46BD4ABE15ECDEB45B395",
+      "acceptedAsEvidence": true,
+      "finding": "Current NYSDEC statewide launch directory; provides launch and carry descriptions used to corroborate the Peconic access category."
+    },
+    {
+      "id": "nps-current-compendium",
+      "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nps-current-compendium.html",
+      "bytes": 134911,
+      "sha256": "386E346F116DAB9F1705C82D810CFFB90BA5AFCDC64EFEFE869DEE132C7DECDF",
+      "acceptedAsEvidence": true,
+      "finding": "Current NPS compendium identifies Pulltite as a Current River Landing and gives a 4.20-foot emergency closure level."
+    },
+    {
+      "id": "nps-paddle-upper-current",
+      "url": "https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nps-paddle-upper-current.html",
+      "bytes": 33250,
+      "sha256": "7AA5B9E221427E3BE68C5A8E8DDACFB833B4A045A60219F4C3311B172AAF3FA0",
+      "acceptedAsEvidence": true,
+      "finding": "NPS lists Pulltite as a popular put-in and publishes Pulltite-to-Round-Spring float information."
+    },
+    {
+      "id": "nps-park-brochure",
+      "url": "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-15/sources/nps-park-brochure.html",
+      "bytes": 112557,
+      "sha256": "DF13368DED88FB40510CA3B6FA7CE888AF049D2DD41C619063168238C2D5885F",
+      "acceptedAsEvidence": true,
+      "finding": "NPS describes the Pulltite developed campground as including river access."
+    },
+    {
+      "id": "syracuse-kayaking",
+      "url": "https://www.syr.gov/Living/Our-Community/Parks-Recreation-Youth-Services/Find-Activities-and-Events/Kayaking-in-Syracuse",
+      "httpStatus": 403,
+      "retrievedOn": "2026-09-17",
+      "localPath": null,
+      "bytes": null,
+      "sha256": null,
+      "acceptedAsEvidence": false,
+      "failure": "Direct snapshot retrieval returned HTTP 403. Official page was reviewed through web access; failed local retrieval is not evidence."
+    },
+    {
+      "id": "syracuse-launch-announcement",
+      "url": "https://www.syr.gov/News/City-News/City-2023/2023-05-25-Mayors-Office-News",
+      "httpStatus": 403,
+      "retrievedOn": "2026-09-17",
+      "localPath": null,
+      "bytes": null,
+      "sha256": null,
+      "acceptedAsEvidence": false,
+      "failure": "Direct snapshot retrieval returned HTTP 403. Official page was reviewed through web access; failed local retrieval is not evidence."
+    }
+  ]
+}

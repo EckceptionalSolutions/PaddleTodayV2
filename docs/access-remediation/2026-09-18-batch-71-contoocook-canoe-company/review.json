@@ -1,0 +1,46 @@
+{
+  "batch": 71,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Contoocook River Canoe Company take-out, Contoocook River, Concord, New Hampshire",
+  "affectedRoutes": [
+    "contoocook-river-river-road-canoe-company",
+    "contoocook-riverway-park-canoe-company",
+    "contoocook-river-federal-canoe-company"
+  ],
+  "decision": "retain-the-exact-published-coordinate-classify-it-as-a-conditional-outfitter-access-anchor-and-correct-route-use-instructions",
+  "decisionScope": "The Forest Society guide directly identifies the Canoe Company as the take-out and publishes the exact stored coordinate 43.25013,-71.62135. This is a valid managed access-area coordinate. The company page currently calls the beach private and limits parking to renting or shuttle customers; its paid shuttle is available by prior arrangement. This is conditional operator access, not unrestricted public parking. The guide documents a nine-mile Riverway Park trip; it does not establish shuttle coverage for the two longer Henniker starts.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 43.25013,
+      "longitude": -71.62135
+    },
+    "publicOccurrences": 3,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 390,
+    "mappedWaterDistanceFeet": 284,
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json",
+      "src/data/routes/new-hampshire-contoocook.ts",
+      "scripts/audit-route-coordinate-river-distance.ts"
+    ],
+    "from": {
+      "latitude": 43.25013,
+      "longitude": -71.62135
+    },
+    "to": {
+      "latitude": 43.25013,
+      "longitude": -71.62135
+    },
+    "movedFeet": 0,
+    "publicOccurrences": 3,
+    "coordinateRole": "authoritative-access-anchor",
+    "accessAvailability": "conditional",
+    "controlId": "nh_forest_society_contoocook_canoe_company_takeout_20260918",
+    "rationale": "The Forest Society guide publishes the exact coordinate; the official company page establishes private customer/shuttle access and parking restrictions. Added an access condition to the map control and audit output, replacing the former assumption that this was an unrestricted public take-out. Route notes now require confirmation, and distinguish the documented paid nine-mile shuttle from longer routes."
+  },
+  "remainingUncertainty": "The guide and company describe the managed beach/location but do not give a surveyed wet-toe point. The operator has not confirmed whether its shuttle and take-out permission cover the 14.5- and 15.5-mile itineraries starting at Henniker federal accesses. Those routes now require direct operator confirmation before use.",
+  "outcome": "One suspicious public endpoint moved to review across three shared routes with no coordinate move. The audit now explicitly says that access is conditional, and route metadata warns users about the private beach, reservation, parking and shuttle limits."
+}

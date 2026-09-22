@@ -1,0 +1,38 @@
+{
+  "batch": 47,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "Spokane Conservation District — Spokane River Restored Access Points, Sullivan Park section",
+      "url": "https://spokanecd.org/blogs/news/spokane-river-restored-access-points",
+      "accessEvidence": "Sullivan Park has two north-bank access points, one near the bridge and another about 500 yards downstream; both serve smaller boats and pedestrians. The District says boulders and post-and-rail fencing guide users to the entries. Includes a Sullivan Road north-bank photo.",
+      "interpretation": "Confirms a public, foot-accessible launch/exit near the bridge but does not publish coordinates."
+    },
+    {
+      "title": "City of Spokane Valley — Sullivan Park facility page",
+      "url": "https://www.spokanevalleywa.gov/Facilities/Facility/Details/Sullivan-Park-22",
+      "accessEvidence": "Lists Spokane River access at the City park at 1901 N Sullivan Road, with public park and parking amenities."
+    },
+    {
+      "title": "Spokane River Water Trail — launch list",
+      "url": "https://www.spokaneriver.net/watertrail/launches/",
+      "accessEvidence": "Lists Sullivan Park as a canoe/kayak/SUP launch in the State Line-to-Upriver Dam reach."
+    },
+    {
+      "title": "Google Maps satellite imagery inspected 2026-09-18",
+      "url": "https://www.google.com/maps/place/47.672873,-117.196939/@47.672873,-117.196939,100m/data=!3m1!1e3",
+      "interpretation": "The bridge-side north-bank footpath meets the Spokane River at this point. Estimated uncertainty about 50 feet; not surveyed."
+    },
+    {
+      "title": "USGS National Hydrography Dataset flowline, area, and waterbody services",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "preChangeDistancesFeet": { "matchedFlowline": 468.3849, "mappedWater": 436.8129 },
+      "postChangeDistancesFeet": { "matchedFlowline": 4.0198, "mappedWater": 0 },
+      "interpretation": "After the imagery-derived correction, both route endpoints are on mapped water and roughly four feet from the matched river flowline."
+    }
+  ]
+}

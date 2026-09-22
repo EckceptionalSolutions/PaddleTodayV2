@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:05:28.905Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 0,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "eleven-point-river-cane-bluff-narrows__-91.4457-36.5102--91.1515-36.8362__waterbodies__waterbody",
+      "message": "NHD response is truncated (exceededTransferLimit)"
+    },
+    {
+      "queryKey": "eleven-point-river-cane-bluff-narrows__-91.4307-36.5252--91.1665-36.8212__route-network-v1",
+      "message": "NHD response is truncated (exceededTransferLimit)"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "eleven-point-river-cane-bluff-narrows",
+      "routeName": "Eleven Point River",
+      "reach": "Cane Bluff River Access to Highway 142 River Access",
+      "state": "Missouri",
+      "endpoint": "takeOut",
+      "endpointName": "Highway 142 River Access / The Narrows",
+      "latitude": 36.550194,
+      "longitude": -91.191532,
+      "matchedRiverName": "Eleven Point River",
+      "distanceFeetToMatchedRiver": 308.21546954081845,
+      "nearestMatchedLatitude": 36.55098201820404,
+      "nearestMatchedLongitude": -91.1919112069789,
+      "nearestWaterwayName": "Eleven Point River",
+      "distanceFeetToNearestWaterway": 308.21546954081845,
+      "nearestWaterwayLatitude": 36.55098201820404,
+      "nearestWaterwayLongitude": -91.1919112069789,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 217.94759448643862,
+      "nearestWaterbodyLatitude": 36.55077067271705,
+      "nearestWaterbodyLongitude": -91.19172626717965,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 217.94759448643862,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 308 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "eleven-point-river-cane-bluff-narrows",
+      "routeName": "Eleven Point River",
+      "reach": "Cane Bluff River Access to Highway 142 River Access",
+      "state": "Missouri",
+      "endpoint": "putIn",
+      "endpointName": "Cane Bluff River Access",
+      "latitude": 36.796246,
+      "longitude": -91.405675,
+      "matchedRiverName": "Eleven Point River",
+      "distanceFeetToMatchedRiver": 92.32427944399664,
+      "nearestMatchedLatitude": 36.79634942631123,
+      "nearestMatchedLongitude": -91.40538656405644,
+      "nearestWaterwayName": "Eleven Point River",
+      "distanceFeetToNearestWaterway": 92.32427944399664,
+      "nearestWaterwayLatitude": 36.79634942631123,
+      "nearestWaterwayLongitude": -91.40538656405644,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 56.191628858490844,
+      "nearestWaterbodyLatitude": 36.79630708748938,
+      "nearestWaterbodyLongitude": -91.40549842591537,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 56.191628858490844,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 56 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

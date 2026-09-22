@@ -1,0 +1,118 @@
+{
+  "batch": "2026-09-17-batch-06",
+  "reviewedOn": "2026-09-17",
+  "coordinateCorrectedSiteCount": 5,
+  "retainedAccessAnchorCount": 1,
+  "rejectedOrUnverifiedPublicAccessCount": 4,
+  "uniqueBatchRouteHoldCount": 29,
+  "decisions": [
+    {
+      "rank": 75,
+      "state": "Maryland",
+      "site": "Milburn Landing Area public boat ramp and kayak launch",
+      "decision": "corrected-access-anchor",
+      "oldCoordinate": [38.126901, -75.490733],
+      "newCoordinate": [38.122164, -75.495186],
+      "coordinateRole": "authoritative-access-anchor",
+      "reason": "Maryland DNR feature 333 / facility 473 identifies Pocomoke State Park - Milburn Landing on the Pocomoke River and marks ramp and kayak/canoe launch present. This is the managed access-site anchor, not a surveyed ramp edge.",
+      "routes": ["pocomoke-river-mattaponi-milburn", "pocomoke-river-shad-milburn"],
+      "sources": ["https://dnr.geodata.md.gov/dnrdata/rest/services/Fisheries/PublicFishingAccessSites/MapServer/0/query?where=Name%20LIKE%20%27%25Milburn%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json", "https://dnr.maryland.gov/publiclands/pages/eastern/pocomoke/boating-fishing.aspx"]
+    },
+    {
+      "rank": 76,
+      "state": "Idaho",
+      "site": "45 Ranch access area",
+      "decision": "rejected-private-access",
+      "removedAccessPoint": true,
+      "reason": "BLM Upper Owyhee guidance says the 45 Ranch cherrystem requires landowner permission. It was removed from the route access list. South Fork Pipeline road/staging status and a lawful river-right landing at the East Fork confluence remain unverified.",
+      "routes": ["south-fork-owyhee-yp-east-fork"],
+      "sources": ["https://www.blm.gov/sites/blm.gov/files/documents/files/Media-Center_Public-Room_Idaho_Bruneau-Jarbidge-Owyhee%20Boater%20Guide.pdf", "https://eplanning.blm.gov/public_projects/nepa/12502/56781/61472/WMP_EA_04142015_FINAL.pdf"]
+    },
+    {
+      "rank": 78,
+      "state": "Louisiana",
+      "site": "Parks / Cecil Rousseau Poche Memorial Park",
+      "decision": "corrected-published-launch-anchor",
+      "oldCoordinate": [30.2138303, -91.8309846],
+      "newCoordinate": [30.21355, -91.8291],
+      "coordinateRole": "authoritative-access-anchor",
+      "reason": "Page 15 of the Bayou Teche Paddle Trail Plan publishes the Parks motorboat launch at 30°12.813′N, 91°49.746′W. The current TECHE dock directory corroborates the named park dock. The plan coordinate is an access anchor, not a current surveyed dock edge.",
+      "routes": ["bayou-teche-arnaudville-parks", "bayou-teche-breaux-bridge-parks", "bayou-teche-leonville-parks", "bayou-teche-parks-loreauville", "bayou-teche-parks-new-iberia", "bayou-teche-parks-st-martinville"],
+      "sources": ["https://techeproject.org/wp-content/uploads/2013/05/BTPT-plan-final.pdf", "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/"]
+    },
+    {
+      "rank": 80,
+      "state": "Rhode Island",
+      "site": "Cricket Park / Greystone Mill Pond launch",
+      "decision": "corrected-access-anchor",
+      "oldCoordinate": [41.8691, -71.5004],
+      "newCoordinate": [41.8661, -71.492967],
+      "coordinateRole": "authoritative-access-anchor",
+      "reason": "ExploreRI publishes 41°51.966′N, 71°29.578′W and describes a hand-carried launch beyond the playground. WRWC independently confirms a Cricket Park boat launch. The pin is an access-area anchor, not a surveyed water-entry edge.",
+      "routes": ["woonasquatucket-river-cricket-manton", "woonasquatucket-river-cricket-riverside", "woonasquatucket-river-cricket-south-water", "woonasquatucket-river-cricket-waterplace", "woonasquatucket-river-esmond-cricket", "woonasquatucket-river-georgiaville-cricket", "woonasquatucket-river-whipple-cricket"],
+      "sources": ["https://exploreri.org/siteReport.php?siteID=284&src=criteria", "https://wrwc.org/what-we-do/greenway/parks/cricket-field/"]
+    },
+    {
+      "rank": 81,
+      "state": "Iowa",
+      "site": "River Valley Park access, Ames",
+      "decision": "corrected-two-distinct-features",
+      "oldCoordinate": [42.03535, -93.59895],
+      "newCoordinates": [{"feature": "13th Street dam/play feature", "latitude": 42.037356, "longitude": -93.597997}, {"feature": "River Valley Park paddling access WA-835", "latitude": 42.036895, "longitude": -93.600262}],
+      "reason": "The previous point conflated the 13th Street play feature with the park launch. Iowa Whitewater identifies the dam feature; current Iowa DNR feature OBJECTID 39216 / WA-835 identifies River Valley Park. Trip details now use the points for their distinct meanings.",
+      "routes": ["south-skunk-river-ames-13th-street", "south-skunk-river-river-valley-cj-shreck", "south-skunk-river-sleepy-hollow-river-valley"],
+      "sources": ["https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Massillon%25%27%20OR%20Name%20LIKE%20%27%25River%20Valley%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json", "https://www.iowawhitewater.org/lhd/LHDames13st.html", "https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail"]
+    },
+    {
+      "rank": 82,
+      "state": "Iowa",
+      "site": "Massillon Area / Massillon Park",
+      "decision": "corrected-optional-access-anchor",
+      "oldCoordinate": [41.915409, -90.920611],
+      "newCoordinate": [41.917002, -90.920076],
+      "reason": "Current Iowa DNR feature OBJECTID 40228 / WA-630 identifies Massillon Area as a boat ramp. Updated the optional intermediate-access point; route endpoints Oxford Mills and Syracuse are unchanged, so no route hold is needed for this site.",
+      "routes": ["wapsipinicon-river-oxford-mills-syracuse"],
+      "sources": ["https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Massillon%25%27%20OR%20Name%20LIKE%20%27%25River%20Valley%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json"]
+    },
+    {
+      "rank": 83,
+      "state": "Arizona",
+      "site": "Sheep Crossing River Access Point",
+      "decision": "retained-access-anchor-reclassified",
+      "coordinate": [34.674, -111.9412],
+      "reason": "The Friends of the Verde River access guide publishes this coordinate. Retained the supported point but removed the claim that it is the exact water-entry edge. No correction or route hold was justified.",
+      "routes": ["verde-river-89a-sheep-crossing", "verde-river-bignotti-sheep-crossing", "verde-river-black-canyon-sheep-crossing", "verde-river-sheep-crossing-newton", "verde-river-sheep-parsons", "verde-river-skidmore-sheep-crossing", "verde-river-tuzigoot-sheep-crossing"],
+      "sources": ["https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf"]
+    },
+    {
+      "rank": 84,
+      "state": "New Hampshire",
+      "site": "Cooks Crossing access",
+      "decision": "unverified-public-access-rejected",
+      "coordinate": [44.08979, -71.20563],
+      "reason": "Available coordinates identify the hamlet/area, not a current town- or manager-verified public launch. American Whitewater establishes named river sections but does not verify public landing, parking, or carry at this point. The access was relabeled and routes withheld.",
+      "routes": ["saco-river-bartlett-cooks-crossing", "saco-river-cooks-crossing-davis-park", "saco-river-cooks-crossing-first-bridge", "saco-river-cooks-crossing-smith-eastman"],
+      "sources": ["https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NHM"]
+    },
+    {
+      "rank": 85,
+      "state": "Pennsylvania",
+      "site": "New Bethlehem kayak launch below the dam",
+      "decision": "parking-coordinate-rejected-as-launch",
+      "coordinate": [41.0024, -79.3322],
+      "reason": "RVTA identifies 41.0024,-79.3322 as the municipal parking lot and separately describes the Gumtown Park kayak launch, without publishing its launch-edge coordinate. Updated names and evidence to distinguish parking from water entry.",
+      "routes": ["redbank-creek-new-bethlehem-climax"],
+      "sources": ["https://www.redbankvalleytrails.org/parking/", "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"]
+    },
+    {
+      "rank": 86,
+      "state": "Arkansas",
+      "site": "Ozark Campground / river access",
+      "decision": "campground-coordinate-rejected-as-launch",
+      "coordinate": [36.062132, -93.159724],
+      "reason": "NPS Getting Around publishes this coordinate for Ozark Campground. The campground map labels a separate River Access symbol but gives no coordinates for it. Route and trip-detail names now make clear that campground GPS is not the water-entry point.",
+      "routes": ["buffalo-river-erbie-ozark", "buffalo-river-kyles-landing-ozark", "buffalo-river-ozark-hasty", "buffalo-river-ozark-pruitt", "buffalo-river-ponca-ozark"],
+      "sources": ["https://home.nps.gov/buff/planyourvisit/getting-around.htm", "https://www.nps.gov/buff/planyourvisit/upload/Ozark-Campground.pdf"]
+    }
+  ]
+}

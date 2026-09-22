@@ -1,0 +1,44 @@
+{
+  "batch": "B82",
+  "decision": "retain-coordinate-classify",
+  "routeId": "salmon-river-carey-creek-riggins",
+  "endpoint": "accessPoint",
+  "endpointName": "Spring Bar Campground and Ramp",
+  "before": {
+    "severity": "suspicious",
+    "coordinate": { "latitude": 45.426837, "longitude": -116.152075 },
+    "distanceFeetToMatchedRiver": 427.1385875572225,
+    "nearestWaterway": "Spring Creek",
+    "distanceFeetToNearestWaterway": 103.6537812539057,
+    "distanceFeetToMappedWater": 103.6537812539057,
+    "sourceIssues": 0
+  },
+  "evidence": {
+    "publicAccess": "Recreation.gov identifies Spring Bar Campground as a popular Salmon River take-out with a boat-launching ramp and 18 tent campsites.",
+    "landManager": "Forest Service destination material places Spring Bar Campground in the Nez Perce-Clearwater National Forests and repeats the take-out and ramp description.",
+    "accessMaintenance": "Idaho Fish and Game documents restoration of the Spring Bar boat ramp along the Salmon River in partnership with the Forest Service.",
+    "coordinateFit": "The stored coordinate matches the mapped Spring Bar Campground feature. The 427-foot named-flowline offset is consistent with a campground/road access-area anchor and does not justify moving the point onto the river centerline."
+  },
+  "action": {
+    "coordinateChanged": false,
+    "routeGeometryRegenerated": false,
+    "controlAdded": "id_usfs_recreationgov_spring_bar_campground_ramp_20260919",
+    "accessAvailability": "conditional",
+    "condition": "Confirm current Forest Service road/campground status, ramp condition, parking, and carry at arrival; the named site is public but seasonal conditions can change."
+  },
+  "after": {
+    "severity": "review",
+    "coordinateEvidenceRole": "authoritative-access-anchor",
+    "distanceFeetToMatchedRiver": 427.1385875572225,
+    "distanceFeetToMappedWater": 103.6537812539057,
+    "sourceIssues": 0,
+    "accessReviewLocations": 1
+  },
+  "aggregateDelta": {
+    "publicSuspicious": { "before": 43, "after": 42 },
+    "inventorySuspicious": { "before": 96, "after": 95 },
+    "publicReview": { "before": 3894, "after": 3895 },
+    "inventoryReview": { "before": 4198, "after": 4199 },
+    "registryAuthoritativeAccess": { "before": 1229, "after": 1230 }
+  }
+}

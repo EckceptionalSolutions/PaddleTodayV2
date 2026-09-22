@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:34:09.243Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 3,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 3,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 1,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "New York",
+      "name": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+      "latitude": 43.8952,
+      "longitude": -74.169,
+      "distanceFeetToMappedWater": 1029.9589560661548,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "accessPoint",
+          "endpointName": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Hudson River access above Indian River confluence / Outer Gooley carry",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "takeOut",
+          "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "hudson-river-newcomb-indian-confluence",
+      "routeName": "Hudson River",
+      "reach": "Town of Newcomb Boat Launch on Harris Lake to Hudson River access above the Indian River confluence",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "Town of Newcomb Boat Launch, Harris Lake",
+      "latitude": 43.9717,
+      "longitude": -74.1459,
+      "matchedRiverName": "Hudson River",
+      "distanceFeetToMatchedRiver": 4018.542812541812,
+      "nearestMatchedLatitude": 43.967962,
+      "nearestMatchedLongitude": -74.131503,
+      "nearestWaterwayName": "Fishing Brook",
+      "distanceFeetToNearestWaterway": 1122.1439647658576,
+      "nearestWaterwayLatitude": 43.974775,
+      "nearestWaterwayLongitude": -74.145796,
+      "nearestWaterbodyName": "Harris Lake",
+      "distanceFeetToNearestWaterbody": 116.3511321813113,
+      "nearestWaterbodyLatitude": 43.971677,
+      "nearestWaterbodyLongitude": -74.145458,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 116.3511321813113,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 116 ft of NHD waterbody Harris Lake; flowline distance is informational."
+    },
+    {
+      "routeId": "hudson-river-newcomb-indian-confluence",
+      "routeName": "Hudson River",
+      "reach": "Town of Newcomb Boat Launch on Harris Lake to Hudson River access above the Indian River confluence",
+      "state": "New York",
+      "endpoint": "accessPoint",
+      "endpointName": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+      "latitude": 43.8952,
+      "longitude": -74.169,
+      "matchedRiverName": "Hudson River",
+      "distanceFeetToMatchedRiver": 1291.872344186624,
+      "nearestMatchedLatitude": 43.89363293534561,
+      "nearestMatchedLongitude": -74.16459330954326,
+      "nearestWaterwayName": "Goodnow River",
+      "distanceFeetToNearestWaterway": 1202.0212029462004,
+      "nearestWaterwayLatitude": 43.89762,
+      "nearestWaterwayLongitude": -74.165897,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1029.9589560661548,
+      "nearestWaterbodyLatitude": 43.897708,
+      "nearestWaterbodyLongitude": -74.167201,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-800ft",
+      "distanceFeetToMappedWater": 1029.9589560661548,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "coordinateEvidenceDetail": "hudson_river_newcomb_indian_confluence polaris-bridge-hudson-hand-launch: NYSDEC publishes the Town of Newcomb launch, Polaris Bridge parking area and 0.3-mile carry to the hand launch, and Outer Gooley parking area with a 0.1-mile carry to the marked take-out. The stored points are public access/parking anchors; only the Newcomb point is the published launch location. Verify seasonal roads, carries, and the marked landings.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (hudson_river_newcomb_indian_confluence polaris-bridge-hudson-hand-launch) on Hudson River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "hudson-river-newcomb-indian-confluence",
+      "routeName": "Hudson River",
+      "reach": "Town of Newcomb Boat Launch on Harris Lake to Hudson River access above the Indian River confluence",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "matchedRiverName": "Hudson River",
+      "distanceFeetToMatchedRiver": 572.5531947479362,
+      "nearestMatchedLatitude": 43.82691622415964,
+      "nearestMatchedLongitude": -74.19878066273952,
+      "nearestWaterwayName": "Hudson River",
+      "distanceFeetToNearestWaterway": 572.5531947479362,
+      "nearestWaterwayLatitude": 43.82691622415964,
+      "nearestWaterwayLongitude": -74.19878066273952,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 469.13828433250495,
+      "nearestWaterbodyLatitude": 43.826923,
+      "nearestWaterbodyLongitude": -74.199207,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "coordinateEvidenceDetail": "hudson_river_newcomb_indian_confluence outer-gooley-hudson-river-takeout: NYSDEC publishes the Town of Newcomb launch, Polaris Bridge parking area and 0.3-mile carry to the hand launch, and Outer Gooley parking area with a 0.1-mile carry to the marked take-out. The stored points are public access/parking anchors; only the Newcomb point is the published launch location. Verify seasonal roads, carries, and the marked landings.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (hudson_river_newcomb_indian_confluence outer-gooley-hudson-river-takeout) on Hudson River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

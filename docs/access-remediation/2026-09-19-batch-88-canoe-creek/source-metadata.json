@@ -1,0 +1,9 @@
+{
+  "batch": "B88",
+  "sources": [
+    { "title": "Iowa DNR Paddling Access Sites layer — Canoe Creek Access WA-163", "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=OBJECTID%3D38117&outFields=*&returnGeometry=true&outSR=4326&f=pjson", "publisher": "Iowa Department of Natural Resources", "supports": ["current named paddling-access point", "OBJECTID 38117 / WA-163", "published coordinate"] },
+    { "title": "Upper Iowa River Paddler's Guide", "url": "https://northeastiowarcd.org/wp-content/uploads/2016/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf", "publisher": "Upper Iowa River Alliance / Northeast Iowa RC&D", "supports": ["Canoe Creek Access in the Lower Dam-to-Iverson reach", "mile 35.8 access sequence"] },
+    { "title": "Iowa DNR Where to Paddle", "url": "https://www.iowadnr.gov/things-do/paddling-river-recreation/where-paddle", "publisher": "Iowa Department of Natural Resources", "supports": ["official Iowa paddling map and access planning context"] }
+  ],
+  "sourceQuality": "The coordinate correction uses a current Iowa DNR GIS access record, with the Upper Iowa paddler guide providing independent route and access-chain corroboration."
+}

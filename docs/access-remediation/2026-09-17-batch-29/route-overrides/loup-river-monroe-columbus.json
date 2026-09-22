@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T01:10:43.967Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "loup-river-monroe-columbus",
+      "routeName": "Loup River",
+      "reach": "Monroe county access to Columbus",
+      "state": "Nebraska",
+      "endpoint": "takeOut",
+      "endpointName": "Columbus Pawnee Park Trail Loup River landing",
+      "latitude": 41.418113,
+      "longitude": -97.367618,
+      "matchedRiverName": "Loup River",
+      "distanceFeetToMatchedRiver": 431.3440646143007,
+      "nearestMatchedLatitude": 41.417095535486055,
+      "nearestMatchedLongitude": -97.36681486676281,
+      "nearestWaterwayName": "Loup River",
+      "distanceFeetToNearestWaterway": 431.34406461584643,
+      "nearestWaterwayLatitude": 41.4170955354859,
+      "nearestWaterwayLongitude": -97.36681486676315,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 41.418113,
+      "nearestWaterbodyLongitude": -97.367618,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf",
+      "coordinateEvidenceDetail": "ne_ngpc_loup_river_trip_planner columbus-water-trail-end: Decimal-degree start and end access-site coordinates transcribed from page 1 of the official Loup River Water Trail trip planner. The text identifies the Monroe Access Point as the public start, describes the downstream trip to Columbus, and publishes Start: 41.461082, -97.599121 / End: 41.418113, -97.367618. The coordinates are retained as access anchors rather than assumed water entries; the workflow derives water-entry coordinates independently from NHD hydrography. The accompanying page 2 map identifies water-access and parking symbols.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ne_ngpc_loup_river_trip_planner columbus-water-trail-end) on Loup River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "loup-river-monroe-columbus",
+      "routeName": "Loup River",
+      "reach": "Monroe county access to Columbus",
+      "state": "Nebraska",
+      "endpoint": "putIn",
+      "endpointName": "Monroe county access south of Monroe",
+      "latitude": 41.46117475580161,
+      "longitude": -97.59934674467611,
+      "matchedRiverName": "Loup River",
+      "distanceFeetToMatchedRiver": 193.50072452173464,
+      "nearestMatchedLatitude": 41.46141591199782,
+      "nearestMatchedLongitude": -97.59997712931353,
+      "nearestWaterwayName": "Loup River",
+      "distanceFeetToNearestWaterway": 193.50072452173464,
+      "nearestWaterwayLatitude": 41.46141591199782,
+      "nearestWaterwayLongitude": -97.59997712931353,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 41.46117475580161,
+      "nearestWaterbodyLongitude": -97.59934674467611,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf",
+      "coordinateEvidenceDetail": "ne_ngpc_loup_river_trip_planner monroe-access-point: Decimal-degree start and end access-site coordinates transcribed from page 1 of the official Loup River Water Trail trip planner. The text identifies the Monroe Access Point as the public start, describes the downstream trip to Columbus, and publishes Start: 41.461082, -97.599121 / End: 41.418113, -97.367618. The coordinates are retained as access anchors rather than assumed water entries; the workflow derives water-entry coordinates independently from NHD hydrography. The accompanying page 2 map identifies water-access and parking symbols.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ne_ngpc_loup_river_trip_planner monroe-access-point) on Loup River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

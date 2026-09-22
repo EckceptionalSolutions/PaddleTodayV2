@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-18T00:51:06.189Z",
+  "sitesReviewed": 10,
+  "coordinatesChanged": 2,
+  "providerRolesCorrected": 2,
+  "uniqueRoutesWithChangedCoordinates": 11,
+  "selectedOccurrencesChecked": 27,
+  "copiedAccessPointsChecked": 24,
+  "uniqueRoutesRetainedPublic": 26,
+  "newRouteHolds": 0,
+  "publicAudit": {
+    "evidenceMode": "refreshed",
+    "routeCount": 2761,
+    "endpointCount": 6082,
+    "sourceIssues": 277,
+    "selectedOccurrencesWithCompleteHydrography": 26,
+    "selectedOccurrencesWithIncompleteHydrography": 1
+  },
+  "sourceBackedRegistryAnchorsChecked": 4,
+  "wetEdgeCoordinatesUnresolved": 4
+}

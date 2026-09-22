@@ -1,0 +1,77 @@
+{
+  "batch": "2026-09-17-batch-05",
+  "checkedAt": "2026-09-17",
+  "checks": {
+    "frozenSelectionCount": {
+      "status": "passed",
+      "expected": 10,
+      "actual": 10
+    },
+    "sourceSnapshotHashes": {
+      "status": "passed",
+      "detail": "OSM, Iowa DNR, WGFD and all downloadable snapshots hashed; unavailable direct-download city PDFs explicitly have no local hash."
+    },
+    "controlRegistryJson": {
+      "status": "passed",
+      "detail": "Controls JSON parses; WGFD and DNR evidence providers match their source snapshot hashes."
+    },
+    "editedTypeScriptSyntax": {
+      "status": "passed",
+      "detail": "TypeScript parser reported no syntax diagnostics in all eight edited TypeScript files."
+    },
+    "routeCoordinateCopies": {
+      "status": "passed",
+      "detail": "Verifier confirms every reviewed Steel Creek, Riggins, Wilkinson and Middle Raccoon coordinate copy matches the reviewed source."
+    },
+    "routeHolds": {
+      "status": "passed",
+      "expectedBatchRoutes": 15,
+      "actualBatchRoutes": 15
+    },
+    "withheldRouteManifest": {
+      "status": "passed",
+      "routeCount": 97,
+      "detail": "Generated from existing 82 routes plus the 15 Batch 05 dependencies."
+    },
+    "batchVerifier": {
+      "status": "passed",
+      "command": "node docs/access-remediation/2026-09-17-batch-05/verify.mjs"
+    },
+    "routeTypecheck": {
+      "status": "blocked",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "detail": "The workspace lacks @paddletoday/api-contract. TypeScript then reports widespread cascading type errors against the unavailable contract types; the edited files parse syntactically."
+    },
+    "targetedVitest": {
+      "status": "blocked",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts --reporter=dot",
+      "detail": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from the existing node_modules tree."
+    },
+    "fullQualityAudit": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-05/audit-after.json --cache-only",
+      "detail": "Cannot resolve @paddletoday/geo. The stale cached full audit remains only a prioritization aid."
+    },
+    "canonicalGeometry": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id buffalo-river-ponca-pruitt",
+      "detail": "Cannot resolve @paddletoday/geo. Ten corrected-coordinate routes still require geometry regeneration and inspection."
+    },
+    "servedCatalogAssembly": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --reuse-existing",
+      "detail": "Same missing @paddletoday/geo dependency; held routes are listed in the regenerated TypeScript withholding manifest, but served catalog/state bundles and stale route geometry have not been reassembled."
+    },
+    "accessRegistryGeneration": {
+      "status": "not-run",
+      "detail": "Run only from a freshly regenerated full quality audit per the runbook. Do not feed the stale cache-only report to the registry generator."
+    }
+  },
+  "knownBlockers": [
+    "@paddletoday/geo is absent, blocking the full audit and canonical geometry/catalog generation.",
+    "@paddletoday/api-contract is absent, blocking route typechecking and producing cascading contract-type errors.",
+    "@jridgewell/sourcemap-codec is absent, preventing Vitest startup.",
+    "The npm tsc/tsx shims are absent; direct installed TypeScript/tsx entry points were used where available."
+  ],
+  "publicationState": "Source records and route holds are updated. Do not clear Batch 05 geometry/access holds or claim served-catalog completion until dependencies are restored, changed routes are regenerated/inspected, the catalog is reassembled, and withheld routes are confirmed absent from public bundles."
+}

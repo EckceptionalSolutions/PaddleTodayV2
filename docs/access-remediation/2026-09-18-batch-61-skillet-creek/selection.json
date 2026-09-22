@@ -1,0 +1,19 @@
+{
+  "batch": 61,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before researching the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T20:38:50.471Z; 2,750 public routes, 6,058 endpoints, 66 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Skillet Creek access, Des Moines River",
+    "storedCoordinate": { "latitude": 42.2523, "longitude": -93.9975 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "des-moines-river-deception-hollow-skillet",
+      "des-moines-river-skillet-north-fraser"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 354 feet from the matched Des Moines River flowline and about 226 feet from mapped water.",
+    "decision": "verify-the-shared-site-and-paddler-access-against-iowa-dnr-and-local-manager-maps; correct-only-to-a-supported-water-entry-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

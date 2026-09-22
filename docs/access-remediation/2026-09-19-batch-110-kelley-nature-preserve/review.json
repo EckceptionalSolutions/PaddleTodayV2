@@ -1,0 +1,42 @@
+{
+  "batch": "B110",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "little-miami-river-kelley-milford",
+  "endpoint": "putIn",
+  "endpointName": "Kelley Nature Preserve canoe/kayak access",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 369.30864251594016,
+    "distanceFeetToMappedWater": 286.2940980895538
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 369.30864251594016,
+    "distanceFeetToMappedWater": 286.2940980895538,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "Clermont County Park District documents Kelley Nature Preserve canoe/kayak access and its official map labels the launch. Retain the stored point as the conditional park/launch-area anchor; the 369-foot named-flowline offset reflects the park and shoreline facility footprint.",
+  "condition": "Confirm current Clermont County park hours, parking, launch condition, river level, and any seasonal or weather-related restrictions before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 15,
+      "suspiciousAfter": 14,
+      "reviewBefore": 3922,
+      "reviewAfter": 3923
+    },
+    "inventory": {
+      "suspiciousBefore": 68,
+      "suspiciousAfter": 67,
+      "reviewBefore": 4226,
+      "reviewAfter": 4227
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1252,
+      "authoritativeAccessAfter": 1253,
+      "conflictsAfter": 0
+    }
+  }
+}

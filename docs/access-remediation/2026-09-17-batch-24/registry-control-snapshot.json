@@ -1,0 +1,31 @@
+{
+  "batch": "2026-09-17-batch-24",
+  "capturedAt": "2026-09-17",
+  "sourceRegistryPath": "src/data/route-access-official-map-controls.json",
+  "generatedRegistryPath": "src/data/generated/route-access-registry.json",
+  "generatedRegistryStatus": "generator completed against cache-only audit; source control additions are not included in its separate stale authoritative-evidence input",
+  "providerCountBefore": 562,
+  "providerCountAfter": 564,
+  "newProviderIds": [
+    "wi_fox_river_landing_road_access_anchor",
+    "wa_haller_park_boat_launch_access_anchor"
+  ],
+  "revalidatedProviderIds": [
+    "va_south_fork_holston_route58_alvarado_access",
+    "ny_ellicott_creek_park_eastern_park_access"
+  ],
+  "generatedEvidenceProviderCount": 505,
+  "generatedEvidenceAsOf": "2026-09-05T12:17:43.891Z",
+  "generatedEvidencePath": "docs/route-coordinate-authoritative-evidence.json",
+  "newControlsVisibleInGeneratedRegistry": false,
+  "note": "No manual generated-registry edits. The source control list contains the two new access-area providers, but registry generation reads docs/route-coordinate-authoritative-evidence.json, still dated September 5; refreshing it would download configured statewide inventories because local caches are absent.",
+  "generatedRegistrySummary": {
+    "entryCount": 4042,
+    "repeatedEntryCount": 1201,
+    "conflictCount": 0,
+    "derivedWaterEntryCount": 2350,
+    "authoritativeAccessCount": 1189,
+    "authoritativeWaterEntryCount": 552,
+    "areaAnchorOnlyCount": 1
+  }
+}

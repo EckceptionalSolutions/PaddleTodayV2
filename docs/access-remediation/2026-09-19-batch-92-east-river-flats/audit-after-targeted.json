@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:46:06.748Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "mississippi-river-east-river-flats-hidden-falls",
+      "routeName": "Mississippi River",
+      "reach": "East River Flats to Hidden Falls Regional Park",
+      "state": "Minnesota",
+      "endpoint": "putIn",
+      "endpointName": "East River Flats Park",
+      "latitude": 44.9703514,
+      "longitude": -93.2350599,
+      "matchedRiverName": "Mississippi River",
+      "distanceFeetToMatchedRiver": 416.6842206478721,
+      "nearestMatchedLatitude": 44.96926012557505,
+      "nearestMatchedLongitude": -93.23553647419546,
+      "nearestWaterwayName": "Mississippi River",
+      "distanceFeetToNearestWaterway": 416.6842206478721,
+      "nearestWaterwayLatitude": 44.96926012557505,
+      "nearestWaterwayLongitude": -93.23553647419546,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 208.1675112836612,
+      "nearestWaterbodyLatitude": 44.969802815580195,
+      "nearestWaterbodyLongitude": -93.23528181560535,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 208.1675112836612,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.minneapolisparks.org/wp-content/uploads/2019/01/MSRG-2_Conditions-Analysis-Opps_B.pdf",
+      "coordinateEvidenceDetail": "mn_mprb_east_river_flats_mississippi_access_20260919 mprb-east-river-flats-mississippi-access: The Minneapolis Park and Recreation Board Mississippi Gorge Regional Park plan identifies East River Flats Park as one of the best places to access the Mississippi River and lists a boat launch, river access, pay parking, and the University of Minnesota rowing facility. Minnesota DNR also identifies East River Flats as a carry-in access in its metro river guide. Retain the stored park/shoreline point as the managed access-area anchor; the 417-foot flowline offset reflects the broad riverbank and rowing/park facility layout.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mn_mprb_east_river_flats_mississippi_access_20260919 mprb-east-river-flats-mississippi-access) on Mississippi River; access is conditional (Confirm current Minneapolis Park Board project status, shoreline carry route, rowing-facility conflicts, parking, and river conditions at arrival; this is a carry-in/shoreline access area rather than a guaranteed trailer ramp.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "mississippi-river-east-river-flats-hidden-falls",
+      "routeName": "Mississippi River",
+      "reach": "East River Flats to Hidden Falls Regional Park",
+      "state": "Minnesota",
+      "endpoint": "takeOut",
+      "endpointName": "Hidden Falls Regional Park boat launch",
+      "latitude": 44.9040285,
+      "longitude": -93.1907475,
+      "matchedRiverName": "Mississippi River",
+      "distanceFeetToMatchedRiver": 230.41498699667335,
+      "nearestMatchedLatitude": 44.903694486311856,
+      "nearestMatchedLongitude": -93.19150431025543,
+      "nearestWaterwayName": "Mississippi River",
+      "distanceFeetToNearestWaterway": 230.415564072327,
+      "nearestWaterwayLatitude": 44.90369329004896,
+      "nearestWaterwayLongitude": -93.1915032578674,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 6.1716512607577405,
+      "nearestWaterbodyLatitude": 44.90401904148444,
+      "nearestWaterbodyLongitude": -93.19076730245895,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 6.1716512607577405,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 6 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "batch": "B86",
+  "decision": "retain-coordinate-classify",
+  "routeId": "james-river-joe-crighton-lake-springfield",
+  "endpoint": "takeOut",
+  "endpointName": "Lake Springfield Boathouse",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 37.1159741, "longitude": -93.2517345 }, "distanceFeetToMatchedRiver": 755.271860192275, "distanceFeetToMappedWater": 184.5490846789324, "sourceIssues": 0 },
+  "evidence": {
+    "facilitySource": "Springfield-Greene County Park Board identifies Lake Springfield Boathouse as a public park shoreline facility with boat rentals, accessible parking, and James River Water Trail use.",
+    "routeContext": "The route source records the Park Board map/KML placemark at the stored coordinate and explicitly distinguishes the Boathouse from the separate boat launch.",
+    "coordinateFit": "The point is retained as the managed Boathouse shoreline/take-out anchor. It is 185 feet from mapped Lake Springfield water and 755 feet from the upstream James River named flowline; the lake finish explains the flowline offset."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "mo_springfield_parkboard_lake_springfield_boathouse_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 755.271860192275, "distanceFeetToMappedWater": 184.5490846789324, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 39, "after": 38 }, "inventorySuspicious": { "before": 92, "after": 91 }, "publicReview": { "before": 3898, "after": 3899 }, "inventoryReview": { "before": 4202, "after": 4203 }, "registryAuthoritativeAccess": { "before": 1232, "after": 1233 } }
+}

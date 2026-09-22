@@ -13,7 +13,7 @@ test('saved alerts show both independent phone thresholds and distinguish email 
     ] }));
   });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
     summary: { gaugeNow: 'QA', shortExplanation: 'Stored QA fixture' }, liveData: { overall: 'stale', summary: 'QA' },
   }] } }));
   await page.goto('/saved?tab=alerts');
@@ -47,7 +47,7 @@ test('saved alert controls identify their route and retain the current selection
     if (route.request().method() === 'POST') submissions += 1;
     return route.fulfill({ status: 503, json: { error: 'offline' } });
   });
-  await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
     ...fixture.result,
     summary: { gaugeNow: 'Check source', shortExplanation: 'Local QA fixture: conditions are not current.' },
     liveData: { overall: 'stale', summary: 'Local QA fixture: check current conditions.' },

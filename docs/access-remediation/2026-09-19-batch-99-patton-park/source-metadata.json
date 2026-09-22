@@ -1,0 +1,11 @@
+{
+  "batch": "B99",
+  "endpoint": "Patton Park / Campbell’s Bridge river access",
+  "routeId": "appomattox-river-radcliffe-patton-park",
+  "sources": [
+    {"url":"https://petersburgva.gov/DocumentCenter/View/8262","publisher":"City of Petersburg","supports":"Adopted comprehensive-plan record identifying Patton Park as an anchor/regional park with Appomattox River Trail, fishing access, and a natural kayak/canoe launch."},
+    {"url":"https://www.petersburgva.gov/DocumentCenter/View/8559/PTB-2040-Previous-Comprehensive-Plan?bidId=","publisher":"City of Petersburg","supports":"Prior comprehensive-plan access table describing public Patton Park waterfront access and multiple paved ramps to the Appomattox River."},
+    {"url":"https://folar-va.org/appomattox-river-trail/recreational-activities/","publisher":"Friends of the Lower Appomattox River","supports":"Independent trail guidance identifying Patton Park as the flatwater start of the lower Appomattox River Trail."}
+  ],
+  "sourceAssessment": "The city planning record is the controlling public-access evidence; the prior plan and FOLAR page corroborate the waterfront and paddling use. These sources support an access-area anchor, not an exact wet-toe coordinate."
+}

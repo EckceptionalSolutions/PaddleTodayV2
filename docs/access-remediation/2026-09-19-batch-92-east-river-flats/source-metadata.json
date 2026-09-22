@@ -1,0 +1,9 @@
+{
+  "batch": "B92",
+  "sources": [
+    { "title": "Mississippi Gorge Regional Park plan — East River Flats", "url": "https://www.minneapolisparks.org/wp-content/uploads/2019/01/MSRG-2_Conditions-Analysis-Opps_B.pdf", "publisher": "Minneapolis Park and Recreation Board", "supports": ["East River Flats as a strong river-access location", "boat launch", "river access", "pay parking", "University of Minnesota rowing facility"] },
+    { "title": "Minnesota DNR Metro Area Rivers Guide", "url": "https://files.dnr.state.mn.us/education_safety/safety/boatwater/metro_river_guide.pdf", "publisher": "Minnesota Department of Natural Resources", "supports": ["East River Flats carry-in access"] },
+    { "title": "East River Flats Park", "url": "https://www.minneapolisparks.org/parks-destinations/parks-lakes/east_river_flats_park/", "publisher": "Minneapolis Park and Recreation Board", "supports": ["current park location", "hours", "parking", "University rowing boathouse context"] }
+  ],
+  "sourceQuality": "The access decision is anchored by Minneapolis Park Board planning and current park information, with Minnesota DNR providing independent carry-in access guidance."
+}

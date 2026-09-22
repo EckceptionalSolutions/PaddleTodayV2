@@ -1,0 +1,23 @@
+{
+  "batch": "B111",
+  "selectedAt": "2026-09-19",
+  "routeId": "portage-river-north-fisher-three-rivers",
+  "routeName": "Portage River",
+  "reach": "North Fisher Lake Road to Conservation Park",
+  "state": "Michigan",
+  "endpoint": "takeOut",
+  "endpointName": "Conservation Park public boat launch, Three Rivers",
+  "storedCoordinate": {
+    "latitude": 41.94153,
+    "longitude": -85.63167
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 362.60966567280076,
+    "nearestWaterwayName": "Saint Joseph River",
+    "distanceFeetToMappedWater": 277.1363914964613,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "The City of Three Rivers identifies Conservation Park as containing a boat launch area and canoe/kayak livery near the Portage, Rocky, and St. Joseph River confluence. The Portage River Heritage Water Trail record independently identifies Conservation Park Boat Launch as a hard-surface medium-watercraft access. Retain the stored point as a conditional launch-area anchor."
+}

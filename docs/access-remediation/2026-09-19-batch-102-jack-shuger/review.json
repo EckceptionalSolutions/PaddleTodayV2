@@ -1,0 +1,13 @@
+{
+  "batch": "B102",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "cedar-river-moscow-saulsbury",
+  "endpoint": "putIn",
+  "endpointName": "Jack Shuger Memorial Park boat ramp, Moscow",
+  "before": {"severity":"suspicious","distanceFeetToMatchedRiver":434.09097595385003,"distanceFeetToMappedWater":281.7297246702778},
+  "after": {"severity":"review","distanceFeetToMatchedRiver":434.09097595385003,"distanceFeetToMappedWater":281.7297246702778,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale": "Muscatine County Conservation documents a public Cedar River boat ramp at Jack Shuger Memorial Park and corroborates it in the annual report and official park map. Retain the stored point as a conditional launch-area anchor; the named-flowline offset reflects the park and shoreline facility context.",
+  "condition": "Confirm current Muscatine County park hours, ramp condition, parking, river level, and any seasonal closure or event restrictions before launching.",
+  "fullAuditDelta": {"public":{"suspiciousBefore":23,"suspiciousAfter":22,"reviewBefore":3914,"reviewAfter":3915},"inventory":{"suspiciousBefore":76,"suspiciousAfter":75,"reviewBefore":4218,"reviewAfter":4219},"registry":{"authoritativeAccessBefore":1246,"authoritativeAccessAfter":1246,"conflictsAfter":0}
+}
+}

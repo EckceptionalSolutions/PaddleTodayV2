@@ -1,0 +1,77 @@
+{
+  "batch": "2026-09-17-batch-13",
+  "files": [
+    {
+      "path": "src/data/trip-details/iowa.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/trip-details/iowa.ts",
+      "sha256": "D6C5FAE4D9D0E9548D0A5654041BACFA068E15EA22560C7E563CBFDDCADB6798",
+      "backupSha256": "D6C5FAE4D9D0E9548D0A5654041BACFA068E15EA22560C7E563CBFDDCADB6798"
+    },
+    {
+      "path": "src/data/routes/iowa.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/iowa.ts",
+      "sha256": "2325274EDB6EF92C0FC747977772A28C3EC33F94A952C9630857DCACF8455AC8",
+      "backupSha256": "2325274EDB6EF92C0FC747977772A28C3EC33F94A952C9630857DCACF8455AC8"
+    },
+    {
+      "path": "src/data/routes/idaho.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/idaho.ts",
+      "sha256": "7DF949434FFF97D21C1AE93782E2169EB7F75D3745C9164359284197B39300E6",
+      "backupSha256": "7DF949434FFF97D21C1AE93782E2169EB7F75D3745C9164359284197B39300E6"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/new-york.ts",
+      "sha256": "D6A03DC2B20DF87BC2CA4D2E128D423363B70DC25506EA28B4E35FB75471C9D9",
+      "backupSha256": "D6A03DC2B20DF87BC2CA4D2E128D423363B70DC25506EA28B4E35FB75471C9D9"
+    },
+    {
+      "path": "src/data/trip-details/nebraska.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/trip-details/nebraska.ts",
+      "sha256": "972C3F937946DEC0ED5ADCDAB7C4D2C2CA7484A23ACE1789B39E7E22F7072FD7",
+      "backupSha256": "972C3F937946DEC0ED5ADCDAB7C4D2C2CA7484A23ACE1789B39E7E22F7072FD7"
+    },
+    {
+      "path": "src/data/routes/nebraska.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/nebraska.ts",
+      "sha256": "B94C6A96CDF4A10DE488A9A8F2E9B15A354DB7985D3A5DAC8392D828FA56CBED",
+      "backupSha256": "B94C6A96CDF4A10DE488A9A8F2E9B15A354DB7985D3A5DAC8392D828FA56CBED"
+    },
+    {
+      "path": "src/data/routes/rhode-island-woonasquatucket.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/rhode-island-woonasquatucket.ts",
+      "sha256": "3383DE27BD0CB8F42F4047B607F9280E906DE791F4E79DEF97A2E1CB93C99F2F",
+      "backupSha256": "3383DE27BD0CB8F42F4047B607F9280E906DE791F4E79DEF97A2E1CB93C99F2F"
+    },
+    {
+      "path": "src/data/routes/washington-spokane.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/washington-spokane.ts",
+      "sha256": "E37C110511853914B398393FF278F2D46E71F2DC0A0DF7C79DDCE5B546FCD97D",
+      "backupSha256": "E37C110511853914B398393FF278F2D46E71F2DC0A0DF7C79DDCE5B546FCD97D"
+    },
+    {
+      "path": "src/data/trip-details/arkansas.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/trip-details/arkansas.ts",
+      "sha256": "64817B04ED67FD2457C97EDF6288F8B1F44D734970F33930084C5F267B072653",
+      "backupSha256": "64817B04ED67FD2457C97EDF6288F8B1F44D734970F33930084C5F267B072653"
+    },
+    {
+      "path": "src/data/routes/arkansas.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/routes/arkansas.ts",
+      "sha256": "5798E6548180F44AD8FAB0FE3C73AA118DADF1D60E49B9FDBA9DF521C0F7C5D8",
+      "backupSha256": "5798E6548180F44AD8FAB0FE3C73AA118DADF1D60E49B9FDBA9DF521C0F7C5D8"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/route-access-review-holds.ts",
+      "sha256": "60ECC07AF82964DB482F540815F0F80152DF4DEADEABDB316729082A89F8C9CB",
+      "backupSha256": "60ECC07AF82964DB482F540815F0F80152DF4DEADEABDB316729082A89F8C9CB"
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "backupPath": "node_modules/.cache/access-batch-13/before-source/src/data/generated/withheld-route-slugs.ts",
+      "sha256": "ED430A35C10B9D133BD19BAAF13B9F71040F374752B5D3AB6D29AEB0A7700410",
+      "backupSha256": "ED430A35C10B9D133BD19BAAF13B9F71040F374752B5D3AB6D29AEB0A7700410"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "batch": 66,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "LCRA Paddle the Colorado — FM 973 / Del Valle Bridge public access and embedded map marker 17275",
+      "url": "https://lcraparks.com/paddle-the-colorado",
+      "observations": [
+        "LCRA identifies FM 973 / Del Valle Bridge as a TxDOT-managed access downstream of Austin, on the north side of FM 973 and left while paddling downstream.",
+        "LCRA says parking alongside the bridge is limited and boat launching requires a carry over uneven ground.",
+        "The page's embedded map assigns marker 17275-address the WGS84 point 30.2089962,-97.6382568. The site information card rounds this location to 30.21,-97.64.",
+        "LCRA lists the next downstream public access as Little Webberville Park, 12 miles away."
+      ],
+      "limits": "The page maps the access area but does not publish the exact riverbank toe or a surveyed launch/landing point. Follow signs and current access conditions."
+    },
+    {
+      "name": "Texas Parks and Wildlife Department — Colorado River waterway description",
+      "url": "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/15_c_tx_colorado.phtml",
+      "observations": [
+        "TPWD independently identifies the FM 973 crossing about one mile northeast of Del Valle and describes the nearby public access network, including the county park between FM 973 and FM 969."
+      ],
+      "limits": "The TPWD waterway description provides route context and nearby access information, not the LCRA marker coordinate or exact launch point."
+    },
+    {
+      "name": "USGS National Hydrography Dataset Large Scale — refreshed targeted river-distance audit",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "observations": [
+        "The refreshed LCRA marker is about 295 feet from the matched Colorado River flowline and 153 feet from mapped water.",
+        "Both affected route audits completed without missing, failed, or truncated source queries."
+      ],
+      "limits": "Hydrography proximity is independent of public access evidence. Mapped water does not identify the permitted carry path or the exact wetted launch point."
+    }
+  ],
+  "decision": "Use LCRA's precise embedded map marker instead of its rounded two-decimal text coordinate; retain review status because the marker is an access-area anchor and LCRA describes an uneven carry to the water."
+}

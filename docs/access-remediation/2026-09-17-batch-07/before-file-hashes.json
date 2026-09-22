@@ -1,0 +1,60 @@
+{
+  "capturedOn": "2026-09-17",
+  "cacheRoot": "node_modules/.cache/access-batch-07/before-source",
+  "files": [
+    {
+      "path": "src/data/routes/idaho.ts",
+      "sha256": "3001D19F535C7ED992CE4526031796021C0AA0561E5B284528F896AA5BC99BBA",
+      "bytes": 844738,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__idaho.ts"
+    },
+    {
+      "path": "src/data/routes/iowa.ts",
+      "sha256": "86BD9E1615C2D4E27E482D20A7510B611DD4EA7D5B00799A9DDDD915D242F5EB",
+      "bytes": 871186,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__iowa.ts"
+    },
+    {
+      "path": "src/data/routes/maryland.ts",
+      "sha256": "97EF9DDC7DBB122F1E8D592385BDC3C5A7C98E3390775255178113717EA85D7B",
+      "bytes": 728919,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__maryland.ts"
+    },
+    {
+      "path": "src/data/routes/missouri.ts",
+      "sha256": "F6FF1DF122821C95177187AA5CC5C9A6C3173D61CDB2C12C312E1CA4F52F78A8",
+      "bytes": 666731,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__missouri.ts"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "sha256": "74B4D7461B3E90FA8003898F86395A89060B3DE376CB68E5AA4AAD41A6D2E9C1",
+      "bytes": 3536557,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__new-york.ts"
+    },
+    {
+      "path": "src/data/routes/wisconsin.ts",
+      "sha256": "D7335C6D6C6EAFB46D2278C59178623AA1DFF355F9C402181096FE8BDBB1D507",
+      "bytes": 1274348,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__routes__wisconsin.ts"
+    },
+    {
+      "path": "src/data/trip-details/iowa.ts",
+      "sha256": "AD995C8DF84811520D3DC9E4FCABAF84AFAAEE7D3A200D5BC5C9762F05750599",
+      "bytes": 397426,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__trip-details__iowa.ts"
+    },
+    {
+      "path": "src/data/trip-details/missouri.ts",
+      "sha256": "F46DBAB088E3E0530FF9192C12FA1B9A6F97C98CB8AF0541FE465017211C2A91",
+      "bytes": 211649,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__trip-details__missouri.ts"
+    },
+    {
+      "path": "src/data/trip-details/wisconsin.ts",
+      "sha256": "06BF4A60F0A797719A75BA7832C5827FA93E052448E272838EAC6B0E3A0883F8",
+      "bytes": 531638,
+      "backupPath": "node_modules\\.cache\\access-batch-07\\before-source\\src__data__trip-details__wisconsin.ts"
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "batch": 30,
+  "frozenAt": "2026-09-18T01:46:44.579Z",
+  "auditGeneratedAt": "2026-09-18T01:37:19.248Z",
+  "auditScope": "public-routes",
+  "publicRouteCount": 2761,
+  "publicEndpointCount": 6082,
+  "previouslyReviewedSiteCount": 215,
+  "queueSitesRemaining": 15,
+  "selectionMethod": "First ten distinct public physical sites in the current access-review queue after matching prior batches by normalized name or by shared route endpoint and a reviewed source coordinate within 40 feet. Frozen before source research; keep every current public occurrence for each selected site.",
+  "sites": [
+    {
+      "priority": 1,
+      "state": "Maryland",
+      "name": "York Road Gunpowder access",
+      "previousCoordinate": {
+        "latitude": 39.60415,
+        "longitude": -76.65625
+      },
+      "distanceFeetToMappedWater": 2141.069412288869,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "York Road Gunpowder access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "priority": 2,
+      "state": "New York",
+      "name": "Jamestown Falls Hand Launch / Landing",
+      "previousCoordinate": {
+        "latitude": 44.3262,
+        "longitude": -74.7226
+      },
+      "distanceFeetToMappedWater": 938.740083263988,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "takeOut",
+          "endpointName": "Jamestown Falls Hand Launch / Landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Jamestown Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 3,
+      "state": "Wisconsin",
+      "name": "County Highway K public canoe-access anchor",
+      "previousCoordinate": {
+        "latitude": 44.6226,
+        "longitude": -89.4822
+      },
+      "distanceFeetToMappedWater": 738.2657500128345,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "plover-river-hwy-k-jordan-park",
+          "endpoint": "putIn",
+          "endpointName": "County Highway K public canoe-access anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 4,
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+      "previousCoordinate": {
+        "latitude": 44.483638,
+        "longitude": -75.577189
+      },
+      "distanceFeetToMappedWater": 731.315672652531,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 5,
+      "state": "Arizona",
+      "name": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+      "previousCoordinate": {
+        "latitude": 34.674,
+        "longitude": -111.9412
+      },
+      "distanceFeetToMappedWater": 644.6669470305822,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-89a-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-bignotti-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-black-canyon-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-sheep-crossing-newton",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-sheep-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-tuzigoot-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 6,
+      "state": "South Dakota",
+      "name": "Farm Field Park kayak and canoe access",
+      "previousCoordinate": {
+        "latitude": 43.5028832,
+        "longitude": -96.749131
+      },
+      "distanceFeetToMappedWater": 374.13390042637485,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sioux-river-farm-field-rotary",
+          "endpoint": "putIn",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skunk-creek-legacy-park-farm-field",
+          "endpoint": "takeOut",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 7,
+      "state": "Iowa",
+      "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+      "previousCoordinate": {
+        "latitude": 43.3996,
+        "longitude": -91.8884
+      },
+      "distanceFeetToMappedWater": 367.1740385361434,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-iowa-river-cattle-creek-malanaphy",
+          "endpoint": "accessPoint",
+          "endpointName": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+          "severity": "review"
+        },
+        {
+          "routeId": "upper-iowa-river-kendallville-bluffton",
+          "endpoint": "takeOut",
+          "endpointName": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 8,
+      "state": "Idaho",
+      "name": "McKay's Bend Recreation Site",
+      "previousCoordinate": {
+        "latitude": 46.4975,
+        "longitude": -116.726944
+      },
+      "distanceFeetToMappedWater": 365.0504952977477,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "clearwater-river-mckays-bend-pink-house",
+          "endpoint": "putIn",
+          "endpointName": "McKay's Bend Recreation Site",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 9,
+      "state": "Washington",
+      "name": "Mirabeau Park public small-craft access area (access-area anchor)",
+      "previousCoordinate": {
+        "latitude": 47.68201,
+        "longitude": -117.223061
+      },
+      "distanceFeetToMappedWater": 350.6570922114214,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-barker-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public small-craft access area (access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "spokane-river-harvard-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public small-craft access area (access-area anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 10,
+      "state": "Texas",
+      "name": "Heath Canyon / La Linda take-out",
+      "previousCoordinate": {
+        "latitude": 29.45025,
+        "longitude": -102.82346
+      },
+      "distanceFeetToMappedWater": 343.10895269739143,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rio-grande-rio-grande-village-heath-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Heath Canyon / La Linda take-out",
+          "severity": "review"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "batch": 57,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Old U.S. 421 River Park, Yadkin River, North Carolina",
+  "affectedRoutes": [
+    "yadkin-river-donnaha-old-421",
+    "yadkin-river-old-421-huntsville"
+  ],
+  "decision": "retain-the-exact-ncwrc-public-canoe-access-coordinate-as-a-county-confirmed-river-park-access-site-anchor; the ramp toe remains unverified",
+  "decisionScope": "The North Carolina Wildlife Resources Commission lists Old Us Hwy 421 Park on the Yadkin River at 36.1323,-80.4439, exactly matching both route endpoints, and classifies the location as bank/canoe access. Forsyth County confirms a concrete river-access ramp at the public park and documents permanent public access to the Yadkin. Imagery places the point in the park approach/parking area, not at a clearly visible ramp toe. I registered the official access point as a route-scoped site anchor and preserved the offset for exact-entry review.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 36.1323, "longitude": -80.4439 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 344,
+    "mappedWaterDistanceFeet": 263,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 36.1323, "longitude": -80.4439 },
+    "to": { "latitude": 36.1323, "longitude": -80.4439 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "nc_forsyth_old_us_421_river_park_access_anchor_20260918",
+    "rationale": "NCWRC publishes the exact public canoe/bank access coordinate, and the managing county confirms a concrete ramp at the park. The sources establish the access area but not the ramp-toe coordinate."
+  },
+  "remainingUncertainty": "Both endpoints remain about 344 feet from the matched Yadkin flowline and 263 feet from mapped water. The coordinate is an authoritative public access-site point, not a verified river-entry toe. Confirm the exact ramp/landing location and carry before treating the endpoints as on-water coordinates.",
+  "outcome": "Two suspicious endpoint occurrences moved to review with the water offset retained. Coordinates and route geometry did not change."
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:52:44.761Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 0,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "big-wood-river-rotary-broadway",
+      "routeName": "Big Wood River",
+      "reach": "Ketchum Rotary Park to Broadway Run Road",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Broadway Run Road Take-Out",
+      "latitude": 43.634474,
+      "longitude": -114.349838,
+      "matchedRiverName": "Big Wood River",
+      "distanceFeetToMatchedRiver": 332.3261508434727,
+      "nearestMatchedLatitude": 43.63404109276999,
+      "nearestMatchedLongitude": -114.34873058748508,
+      "nearestWaterwayName": "Big Wood River",
+      "distanceFeetToNearestWaterway": 332.3268745709093,
+      "nearestWaterwayLatitude": 43.63403942553164,
+      "nearestWaterwayLongitude": -114.3487318316928,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 296.51487906547504,
+      "nearestWaterbodyLatitude": 43.634302643255175,
+      "nearestWaterbodyLongitude": -114.34874024514303,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 296.51487906547504,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 332 ft of a topology-connected NHD river trace that includes Big Wood River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "big-wood-river-rotary-broadway",
+      "routeName": "Big Wood River",
+      "reach": "Ketchum Rotary Park to Broadway Run Road",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Ketchum Rotary Park Put-In",
+      "latitude": 43.686832,
+      "longitude": -114.372711,
+      "matchedRiverName": "Big Wood River",
+      "distanceFeetToMatchedRiver": 70.71677386460021,
+      "nearestMatchedLatitude": 43.68682979902041,
+      "nearestMatchedLongitude": -114.3729790437347,
+      "nearestWaterwayName": "Big Wood River",
+      "distanceFeetToNearestWaterway": 70.71677386460021,
+      "nearestWaterwayLatitude": 43.68682979902041,
+      "nearestWaterwayLongitude": -114.3729790437347,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 39.14300761858135,
+      "nearestWaterbodyLatitude": 43.68683175087906,
+      "nearestWaterbodyLongitude": -114.37285937620089,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 39.14300761858135,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 39 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

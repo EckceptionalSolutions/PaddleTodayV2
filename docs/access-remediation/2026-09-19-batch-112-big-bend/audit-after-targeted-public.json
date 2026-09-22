@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:23:55.735Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Wisconsin",
+      "name": "Trego Town Park Landing",
+      "latitude": 45.9106187,
+      "longitude": -91.8238907,
+      "distanceFeetToMappedWater": 345.11641301539936,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "namekagon-river-big-bend-trego",
+          "endpoint": "takeOut",
+          "endpointName": "Trego Town Park Landing",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "namekagon-river-big-bend-trego",
+      "routeName": "Namekagon River",
+      "reach": "Big Bend Landing to Trego Town Park",
+      "state": "Wisconsin",
+      "endpoint": "takeOut",
+      "endpointName": "Trego Town Park Landing",
+      "latitude": 45.9106187,
+      "longitude": -91.8238907,
+      "matchedRiverName": "Namekagon River",
+      "distanceFeetToMatchedRiver": 583.0968963079624,
+      "nearestMatchedLatitude": 45.90902409167639,
+      "nearestMatchedLongitude": -91.82404732582077,
+      "nearestWaterwayName": "Namekagon River",
+      "distanceFeetToNearestWaterway": 583.0968963079624,
+      "nearestWaterwayLatitude": 45.90902409167639,
+      "nearestWaterwayLongitude": -91.82404732582077,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 345.11641301539936,
+      "nearestWaterbodyLatitude": 45.909681,
+      "nearestWaterbodyLongitude": -91.823711,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 345.11641301539936,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://home.nps.gov/sacn/planyourvisit/maps.htm",
+      "coordinateEvidenceDetail": "wi_trego_town_park_landing_anchor namekagon-river-trego-town-park-landing: Current NPS Map 2 identifies Trego Town Park Landing as an access point, and NPS lists outfitters operating trips to that landing. The Town of Trego documents the active campground beside the Namekagon. Retain the existing point as a landing-area anchor, not a surveyed waterline toe; do not confuse it with the permanently closed Lakeside Road picnic/parking area.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wi_trego_town_park_landing_anchor namekagon-river-trego-town-park-landing) on Namekagon River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "namekagon-river-big-bend-trego",
+      "routeName": "Namekagon River",
+      "reach": "Big Bend Landing to Trego Town Park",
+      "state": "Wisconsin",
+      "endpoint": "putIn",
+      "endpointName": "Big Bend Landing",
+      "latitude": 45.9320719,
+      "longitude": -91.7516647,
+      "matchedRiverName": "Namekagon River",
+      "distanceFeetToMatchedRiver": 355.1194758917666,
+      "nearestMatchedLatitude": 45.93255265600036,
+      "nearestMatchedLongitude": -91.75044772646504,
+      "nearestWaterwayName": "Namekagon River",
+      "distanceFeetToNearestWaterway": 355.1194758917666,
+      "nearestWaterwayLatitude": 45.93255265600036,
+      "nearestWaterwayLongitude": -91.75044772646504,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 298.825252999538,
+      "nearestWaterbodyLatitude": 45.932500741983034,
+      "nearestWaterbodyLongitude": -91.75066128965541,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 298.825252999538,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/sacn/planyourvisit/upload/Namekagon-PG-Final.pdf",
+      "coordinateEvidenceDetail": "wi_nps_namekagon_big_bend_landing_access_20260919 namekagon-big-bend-landing: National Park Service Namekagon River paddling guidance identifies Big Bend Landing as a named river landing and describes the Big Bend-to-Trego reach. Wisconsin DNR identifies a managed Namekagon River landing on the fishery-area western parcel in cooperation with NPS. Retain the stored route point as a conditional landing-area anchor; the 355-foot named-flowline offset reflects the landing, parking, trail, and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wi_nps_namekagon_big_bend_landing_access_20260919 namekagon-big-bend-landing) on Namekagon River; access is conditional (Confirm current NPS/Wisconsin DNR landing status, parking, carry path, river level, and any seasonal or local restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

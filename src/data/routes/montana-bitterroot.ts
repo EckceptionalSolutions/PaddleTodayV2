@@ -13,13 +13,13 @@ const gauge = { id: 'usgs-12350250', provider: 'usgs' as const, siteId: '1235025
 const hazards: RouteHazard[] = ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'private_banks'];
 
 const points = {
-  hannon: { name: 'Hannon Memorial Fishing Access Site (water-entry edge)', latitude: 45.97282, longitude: -114.1401 },
+  hannon: { name: 'Hannon Memorial Fishing Access Site (access-site anchor)', latitude: 45.97282, longitude: -114.1401 },
   wally: { name: 'Wally Crawford Fishing Access Site (water-entry edge)', latitude: 46.09178, longitude: -114.17493 },
   anglers: { name: "Anglers' Roost Fishing Access (water-entry edge)", latitude: 46.19893, longitude: -114.16943 },
   tucker: { name: 'Tucker Crossing Fishing Access Site (water-entry edge)', latitude: 46.36838, longitude: -114.13737 },
-  bell: { name: 'Bell Crossing Fishing Access Site (water-entry edge)', latitude: 46.44434, longitude: -114.12629 },
+  bell: { name: 'Bell Crossing Fishing Access Site (access anchor)', latitude: 46.44434, longitude: -114.12629 },
   poker: { name: 'Poker Joe Fishing Access Site (water-entry edge)', latitude: 46.58602, longitude: -114.06829 },
-  chief: { name: 'Chief Looking Glass Fishing Access Site (water-entry edge)', latitude: 46.66165, longitude: -114.05355 },
+  chief: { name: 'Chief Looking Glass FAS access-area anchor', latitude: 46.66165, longitude: -114.05355 },
 };
 type BitterrootPoint = typeof points[keyof typeof points];
 
@@ -46,7 +46,7 @@ function makeRoute(spec: { id: string; start: BitterrootPoint; end: BitterrootPo
       accessCaveats: [spec.note, 'Do not substitute private shoreline or a closed FAS for a legal take-out.', 'Recheck current access, restrictions, weather, wood and flow trend before staging.'],
       watchFor: ['USGS 12350250 trend and snowmelt/rain rise', 'Strainers, braided channels, bridge features and cold water', 'FWP floating-day restrictions, closures and conservation-license rules'],
     },
-    guide: fwpAccess, sources: [floatRules, campingGuide, hannon, wally, bell, chief], coordinateNote: 'Coordinates are taken from Montana FWP Fishing Access Site records for the named Bitterroot River facilities and identify the water-entry edge; verify current gate, parking and landing conditions before departure.', coordinateSourceUrl: fwpAccess.url, reviewDate: '2026-09-16',
+    guide: fwpAccess, sources: [floatRules, campingGuide, hannon, wally, bell, chief], coordinateNote: 'Coordinates are taken from Montana FWP Fishing Access Site records for the named Bitterroot River facilities and identify mapped access-site points; they are not necessarily surveyed water-entry toes. Verify the carry, current gate, parking, and landing conditions before departure.', coordinateSourceUrl: fwpAccess.url, reviewDate: '2026-09-16',
   });
 }
 

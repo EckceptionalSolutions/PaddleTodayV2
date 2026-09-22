@@ -5,7 +5,7 @@ test('Today route search opens by keyboard, clears queries, and opens a result',
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
-  await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
     ...fixture.result, summary: { cardText: 'Local QA fixture', shortExplanation: 'Conditions withheld', rawSignalLine: '', gaugeNow: '', confidenceText: '', freshnessText: '', primaryFactor: '', secondaryFactor: '' },
   }] } }));
   await page.route('**/gallery/**', (route) => route.abort());
@@ -36,7 +36,7 @@ test('Today searches accented names and keeps other rivers after grouping many m
       name: index < 22 ? 'Rivière' : 'Rivière du nord', reach: `Access ${index}` },
     summary: { shortExplanation: 'QA', gaugeNow: 'QA' },
   }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers } }));
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers } }));
   await page.goto('/');
   await page.getByRole('button', { name: 'Search for a river or route', exact: true }).click();
   const dialog = page.getByRole('dialog');

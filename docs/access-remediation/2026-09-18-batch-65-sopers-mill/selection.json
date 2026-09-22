@@ -1,0 +1,16 @@
+{
+  "batch": 65,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected suspicious occurrence before reviewing access-source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:20:08.709Z; 2,750 public routes, 6,058 endpoints, 60 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Soper's Mill Access 235, South Skunk River",
+    "storedCoordinate": { "latitude": 42.1044299, "longitude": -93.5754935 },
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": ["south-skunk-river-sopers-mill-peterson-park"],
+    "preReviewFinding": "The selected route endpoint is about 525 feet from the matched South Skunk River flowline and 424 feet from mapped water; the nearest named NHD line is Keigley Branch.",
+    "decision": "verify-the-public-south-skunk-access-against-Story-County-Iowa-DNR-and-current-hydrography; correct-only-to-a-supported-access-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "batch": 49,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the highest-priority repeated public suspicious group from the latest full audit, then verify its candidate against current authoritative state GIS, route-map context, and imagery.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-48-hampden/audit-full-public-cache-only.json generated 2026-09-18 after batch 48; 2,750 public routes, 6,058 endpoints, 90 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "West Virginia",
+    "name": "Man public access, Guyandotte River",
+    "storedCoordinate": { "latitude": 37.731, "longitude": -81.875 },
+    "candidateCoordinate": { "latitude": 37.7441, "longitude": -81.887894 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "wv-guyandotte-wylo-man",
+      "wv-guyandotte-man-earling"
+    ],
+    "preReviewFinding": "Both routes share the old Man point, about 376.0 feet from matched connected Guyandotte hydrography and 282.2 feet from mapped water. The endpoint audit classified both occurrences as suspicious.",
+    "decision": "replace-the-old-shared-point-with-the-active-WVDNR-GIS-Man-access-site-point-and-retain-review-status-until-the-exact-carry-and-water-entry-are-confirmed",
+    "selectionFrozenBeforeResearch": true
+  }
+}

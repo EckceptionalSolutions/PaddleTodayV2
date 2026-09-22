@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T17:25:29.818Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 1,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 0,
+    "over-300ft": 2,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Washington",
+      "name": "River Meadows Park river access, Jordan Road",
+      "latitude": 48.1810259919157,
+      "longitude": -122.078125393669,
+      "distanceFeetToMappedWater": 724.5390727131044,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "putIn",
+          "endpointName": "River Meadows Park river access, Jordan Road",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Haller Park boat-launch access-area anchor",
+      "latitude": 48.20245,
+      "longitude": -122.12872,
+      "distanceFeetToMappedWater": 300.82957390183424,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "takeOut",
+          "endpointName": "Haller Park boat-launch access-area anchor",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "stillaguamish-river-river-meadows-haller",
+      "routeName": "Stillaguamish River",
+      "reach": "River Meadows Park to Haller Park boat launch",
+      "state": "Washington",
+      "endpoint": "putIn",
+      "endpointName": "River Meadows Park river access, Jordan Road",
+      "latitude": 48.1810259919157,
+      "longitude": -122.078125393669,
+      "matchedRiverName": "South Fork Stillaguamish River",
+      "distanceFeetToMatchedRiver": 820.3420673858991,
+      "nearestMatchedLatitude": 48.183145121008856,
+      "nearestMatchedLongitude": -122.07925340030368,
+      "nearestWaterwayName": "Jim Creek",
+      "distanceFeetToNearestWaterway": 776.9405923858352,
+      "nearestWaterwayLatitude": 48.181182,
+      "nearestWaterwayLongitude": -122.07494,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 724.5390727131044,
+      "nearestWaterbodyLatitude": 48.182905,
+      "nearestWaterbodyLongitude": -122.07909,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 724.5390727131044,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "failure",
+      "note": "Endpoint is 820 ft from South Fork Stillaguamish River; the nearest named waterway is Jim Creek."
+    },
+    {
+      "routeId": "stillaguamish-river-river-meadows-haller",
+      "routeName": "Stillaguamish River",
+      "reach": "River Meadows Park to Haller Park boat launch",
+      "state": "Washington",
+      "endpoint": "takeOut",
+      "endpointName": "Haller Park boat-launch access-area anchor",
+      "latitude": 48.20245,
+      "longitude": -122.12872,
+      "matchedRiverName": "Stillaguamish River",
+      "distanceFeetToMatchedRiver": 382.85579050200033,
+      "nearestMatchedLatitude": 48.20347466430379,
+      "nearestMatchedLongitude": -122.12906016612607,
+      "nearestWaterwayName": "Stillaguamish River",
+      "distanceFeetToNearestWaterway": 382.85579050200033,
+      "nearestWaterwayLatitude": 48.20347466430379,
+      "nearestWaterwayLongitude": -122.12906016612607,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 300.82957390183424,
+      "nearestWaterbodyLatitude": 48.20316663196789,
+      "nearestWaterbodyLongitude": -122.12933205955592,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 300.82957390183424,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.arlingtonwa.gov/DocumentCenter/View/13960/Combined-Amendment",
+      "coordinateEvidenceDetail": "wa_haller_park_boat_launch_access_anchor stillaguamish-river-haller-park-boat-launch-access-area: The City’s current parks-plan amendment lists beach access and an existing boat launch adjacent to the SR-9 bridge, with launch reconstruction among potential improvements; the current facility page confirms Haller Park riverfront beach access and parking. Retain the route coordinate as a park/access-area anchor, not a surveyed ramp toe; confirm current launch condition, carry, parking, and park hours.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wa_haller_park_boat_launch_access_anchor stillaguamish-river-haller-park-boat-launch-access-area) on Stillaguamish River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

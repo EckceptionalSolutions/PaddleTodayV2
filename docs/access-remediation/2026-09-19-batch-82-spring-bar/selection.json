@@ -1,0 +1,21 @@
+{
+  "batch": "B82",
+  "selectedAt": "2026-09-19",
+  "routeId": "salmon-river-carey-creek-riggins",
+  "routeName": "Salmon River",
+  "reach": "Carey Creek to Riggins City Park",
+  "state": "Idaho",
+  "endpoint": "accessPoint",
+  "endpointName": "Spring Bar Campground and Ramp",
+  "storedCoordinate": { "latitude": 45.426837, "longitude": -116.152075 },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 427.1385875572225,
+    "nearestWaterwayName": "Spring Creek",
+    "distanceFeetToNearestWaterway": 103.6537812539057,
+    "distanceFeetToMappedWater": 103.6537812539057,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "Named public campground and ramp with an exact stored feature coordinate; verify that the off-flowline point is an access-area anchor rather than a bad endpoint."
+}

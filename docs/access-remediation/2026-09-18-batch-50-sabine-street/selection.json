@@ -1,0 +1,19 @@
+{
+  "batch": 50,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the next repeated public suspicious location from the latest full audit, then verify its coordinates and access status against the state paddling-trail source.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-49-man/audit-full-public-cache-only.json generated 2026-09-18T18:55:13.44Z; 2,750 public routes, 6,058 endpoints, 88 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Texas",
+    "name": "Sabine Street Access, Buffalo Bayou",
+    "storedCoordinate": { "latitude": 29.7622, "longitude": -95.3736 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "buffalo-bayou-sabine-street-allens-landing",
+      "buffalo-bayou-woodway-sabine-street"
+    ],
+    "preReviewFinding": "The shared official TPWD coordinate was 329.0 feet from the matched Buffalo Bayou flowline and 268.0 feet from mapped water, causing both occurrences to be classified suspicious.",
+    "decision": "retain-the-exact-TPWD-published-public-trail-access-coordinate-as-an-authoritative-access-site-anchor-and-classify-both-occurrences-as-review",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "batch": 28,
+  "reviewDate": "2026-09-17",
+  "reviewType": "ten-site-public-access-quality-review",
+  "siteCount": 10,
+  "decisions": [
+    {
+      "state": "Wisconsin",
+      "name": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+      "routeIds": [
+        "manitowoc-river-clark-mills-county-s"
+      ],
+      "decision": "retain-public-scout-access-area-correct-safety-copy",
+      "previousCoordinate": {
+        "latitude": 44.0903,
+        "longitude": -87.8439
+      },
+      "updatedCoordinate": {
+        "latitude": 44.0903,
+        "longitude": -87.8439
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Manitowoc County confirms river frontage and four steep stairs to the river; American Whitewater describes public parking and stair access. This verifies a public scout/access area, not one exact stair or a bypass carry around the falls. The route remains public for prepared whitewater paddlers; its safety copy now says to scout first and not launch unless everyone can safely run the rapid.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Reassess if the park access or hours change, or if a manager documents a specific usable bypass carry.",
+      "sourceUrls": [
+        "https://manitowoccountywi.gov/departments/parks/county-parks/lower-cato-falls/",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3471/main"
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Charenton official dock access area (3726 Chitimacha Trail)",
+      "routeIds": [
+        "bayou-teche-charenton-baldwin",
+        "bayou-teche-charenton-centerville",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-new-iberia-charenton"
+      ],
+      "decision": "correct-coordinate-to-named-mapped-dock",
+      "previousCoordinate": {
+        "latitude": 29.8842751,
+        "longitude": -91.5348949
+      },
+      "updatedCoordinate": {
+        "latitude": 29.8859107,
+        "longitude": -91.5351294
+      },
+      "sourceCoordinateText": "OpenStreetMap node 12990648902: 29.8859107, -91.5351294",
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "The current TECHE Project directory identifies the official Charenton dock at 3726 Chitimacha Trail. The named OSM waterway=dock feature links to techeproject.org and supplies a mapped dock coordinate, which is stronger than the prior address-area pin. Feature geometry is not a survey; the coordinate remains an access anchor.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck if the operator relocates or closes the dock, or if a manager publishes a surveyed water-entry point.",
+      "sourceUrls": [
+        "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+        "https://www.openstreetmap.org/node/12990648902"
+      ],
+      "postCorrectionAudit": {
+        "endpointOccurrences": 5,
+        "within100Feet": 5,
+        "within300Feet": 0,
+        "over300Feet": 0,
+        "incompleteHydrographyOccurrences": 0,
+        "sourceIssueCount": 0,
+        "occurrences": [
+          {
+            "routeId": "bayou-teche-charenton-baldwin",
+            "endpoint": "putIn",
+            "distanceFeetToMappedWater": 0,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-charenton-centerville",
+            "endpoint": "putIn",
+            "distanceFeetToMappedWater": 0,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-jeanerette-charenton",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 0,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-loreauville-charenton",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 0,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-new-iberia-charenton",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 0,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          }
+        ]
+      }
+    },
+    {
+      "state": "West Virginia",
+      "name": "Valley Falls State Park river-right check-in / access area",
+      "routeIds": [
+        "wv-tygart-valley-falls-hammond"
+      ],
+      "decision": "retain-public-park-check-in-anchor",
+      "previousCoordinate": {
+        "latitude": 39.38897,
+        "longitude": -80.08733
+      },
+      "updatedCoordinate": {
+        "latitude": 39.38897,
+        "longitude": -80.08733
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "American Whitewater says the published put-in coordinate directs paddlers to the river-right park office for required sign-in and tells them to follow park directions to the river. WV State Parks confirms kayaking is offered. The point is a required check-in anchor, not water entry; retain the route instructions and do not call it an exact launch GPS.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck when park check-in procedures, seasonal access or river-entry directions change.",
+      "sourceUrls": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+        "https://wvstateparks.com/parks/valley-falls-state-park/activities/"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Holiday Heights public canoe landing / park access area",
+      "routeIds": [
+        "la-crosse-river-veterans-holiday-heights"
+      ],
+      "decision": "retain-verified-park-access-anchor",
+      "previousCoordinate": {
+        "latitude": 43.86201,
+        "longitude": -91.20178
+      },
+      "updatedCoordinate": {
+        "latitude": 43.86201,
+        "longitude": -91.20178
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Onalaska records confirm a public canoe launch at Holiday Heights Park, but the stored coordinate is the representative point of the mapped park area, not a georeferenced launch point. Retain it only as an arrival/access-area anchor with 500-foot uncertainty; the exact launch GPS remains unresolved and should not be implied.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Replace the park-area anchor when Onalaska or a georeferenced municipal amenity layer identifies the canoe launch location; reassess route geometry then.",
+      "sourceUrls": [
+        "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf",
+        "https://cms3.revize.com/revize/onalaska/Documents/Government/Agendas%20%26%20Minutes/Parks%2C%20Recreation%20%26%20Library%20Board/2024/Parks%2C%20Rec%20%26%20Library%20Agenda%20%26%20Packet%205-20-24.pdf"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "routeIds": [
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-russell-gates-johnsrud",
+        "blackfoot-river-russell-gates-k-ross-toole",
+        "blackfoot-river-russell-gates-roundup",
+        "blackfoot-river-russell-gates-scotty-brown",
+        "blackfoot-river-russell-gates-weigh-station",
+        "blackfoot-river-russell-gates-whitaker"
+      ],
+      "decision": "retain-official-fwp-access-anchor",
+      "previousCoordinate": {
+        "latitude": 47.0234361031,
+        "longitude": -113.306023437
+      },
+      "updatedCoordinate": {
+        "latitude": 47.0234361031,
+        "longitude": -113.306023437
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Montana FWP publishes this site GPS and describes a gravel ramp with non-motorized boating. This is a strong official access-area coordinate, although the source does not call it a surveyed ramp-edge point. Keep the location shared across all seven Blackfoot routes.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck if FWP moves the site GPS or publishes a mapped ramp geometry; confirm current parking and ramp conditions before travel.",
+      "sourceUrls": [
+        "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39754195",
+        "https://fwp.mt.gov/binaries/content/assets/fwp/gisresources/visitmaps/fas/39754195.pdf"
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Loreauville official dock access area (119 Bridge St)",
+      "routeIds": [
+        "bayou-teche-arnaudville-loreauville",
+        "bayou-teche-breaux-bridge-loreauville",
+        "bayou-teche-leonville-loreauville",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-loreauville-new-iberia",
+        "bayou-teche-st-martinville-loreauville"
+      ],
+      "decision": "correct-coordinate-to-published-dock-access-coordinate",
+      "previousCoordinate": {
+        "latitude": 30.0564348,
+        "longitude": -91.7386437
+      },
+      "updatedCoordinate": {
+        "latitude": 30.056667,
+        "longitude": -91.74
+      },
+      "sourceCoordinateText": "Iberia Travel: 30.056667, -91.740000",
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "TECHE Project lists the official floating dock at 119 Bridge Street by the Acadian Odyssey Monument. Iberia Travel publishes a coordinate for the Loreauville floating dock. The rounded longitude limits precision, so use it as an access-area anchor rather than a surveyed wet-edge location, consistently across all seven routes.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Update if the TECHE dock moves or the operator/parish publishes a more precise, georeferenced launch feature.",
+      "sourceUrls": [
+        "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+        "https://iberiatravel.com/things-to-do/outdoors/paddling-boating/"
+      ],
+      "postCorrectionAudit": {
+        "endpointOccurrences": 7,
+        "within100Feet": 7,
+        "within300Feet": 0,
+        "over300Feet": 0,
+        "incompleteHydrographyOccurrences": 1,
+        "sourceIssueCount": 1,
+        "occurrences": [
+          {
+            "routeId": "bayou-teche-arnaudville-loreauville",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-breaux-bridge-loreauville",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-leonville-loreauville",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": false,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-loreauville-charenton",
+            "endpoint": "putIn",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-loreauville-jeanerette",
+            "endpoint": "putIn",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-loreauville-new-iberia",
+            "endpoint": "putIn",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          },
+          {
+            "routeId": "bayou-teche-st-martinville-loreauville",
+            "endpoint": "takeOut",
+            "distanceFeetToMappedWater": 37.022316831894095,
+            "waterProximity": "within-100ft",
+            "hydrographyCoverageComplete": true,
+            "coordinateEvidenceRole": "authoritative-access-anchor",
+            "severity": "review"
+          }
+        ]
+      }
+    },
+    {
+      "state": "New York",
+      "name": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "routeIds": [
+        "hudson-river-indian-confluence-north-river",
+        "hudson-river-newcomb-indian-confluence"
+      ],
+      "decision": "correct-coordinate-role-to-access-anchor",
+      "previousCoordinate": {
+        "latitude": 43.8275,
+        "longitude": -74.2008
+      },
+      "updatedCoordinate": {
+        "latitude": 43.8275,
+        "longitude": -74.2008
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "NYSDEC identifies the official Outer Gooley parking coordinates and says the takeout trail is 0.1 mile to the river; the Indian River confluence takeout is reached by a 0.1-mile carry. The point remains the parking/carry anchor, not a wet-edge GPS. Correct the one provider previously mislabeled as water-entry.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck if NYSDEC relocates parking/trail access or publishes a separate mapped landing coordinate.",
+      "sourceUrls": [
+        "https://dec.ny.gov/places/hudson-gorge-wilderness"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Noblewood Park cartop launch / Boquet mouth access area",
+      "routeIds": [
+        "boquet-river-willsboro-noblewood"
+      ],
+      "decision": "correct-coordinate-role-to-access-anchor",
+      "previousCoordinate": {
+        "latitude": 44.3523,
+        "longitude": -73.359958
+      },
+      "updatedCoordinate": {
+        "latitude": 44.3523,
+        "longitude": -73.359958
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Empire State Water Trail identifies Noblewood Park as the Lake Champlain cartop launch and publishes the access coordinate rounded to -73.3600. The Blueway description supports the park-to-mouth corridor. The published point is a launch-area anchor rather than survey-quality wet-edge GPS; correct the provider role that previously called it water-entry.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck if the water-trail manager publishes a more precise launch feature or changes the cartop launch location.",
+      "sourceUrls": [
+        "https://www.empirestatewatertrail.org/findaccesssites.php",
+        "https://passageport.org/things-to-do/blueway-trail-the-bouquet-river/"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Sevey Hand Launch access area",
+      "routeIds": [
+        "raquette-river-piercefield-parmenter"
+      ],
+      "decision": "retain-existing-access-anchor",
+      "previousCoordinate": {
+        "latitude": 44.3071,
+        "longitude": -74.7059
+      },
+      "updatedCoordinate": {
+        "latitude": 44.3071,
+        "longitude": -74.7059
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "NYSDEC names the Sevey Hand Launch and confirms the public hand-launch access and its seasonal context. The existing provider already treats the coordinate as an access anchor; evidence reviewed did not justify changing it to a surveyed shoreline point or moving it to nearby mapped water.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Recheck if NYSDEC changes seasonal access conditions or supplies a georeferenced launch point.",
+      "sourceUrls": [
+        "https://dec.ny.gov/places/raquette-boreal-complex"
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Historic Bridge Park public kayak-launch access area",
+      "routeIds": [
+        "kalamazoo-river-ceresco-historic-bridge"
+      ],
+      "decision": "retain-public-park-launch-access-anchor",
+      "previousCoordinate": {
+        "latitude": 42.29236,
+        "longitude": -85.11431
+      },
+      "updatedCoordinate": {
+        "latitude": 42.29236,
+        "longitude": -85.11431
+      },
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Calhoun County's current park master plan and amenity map confirm a public accessible canoe/kayak launch and EZ-Dock at Historic Bridge Park. The county GIS identifies an interactive park map, but its service did not permit an exact feature query and the published map does not georeference the dock. Retain the current point only as a park-side arrival/access anchor with 500-foot uncertainty, not exact wet-edge GPS.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "reopenWhen": "Replace the park-side anchor when the county provides a georeferenced kayak-launch feature or a georeferenced map/imagery tie with defensible uncertainty.",
+      "sourceUrls": [
+        "https://cms5.revize.com/revize/calhouncountymi24/Parks/2025-2029%20Park%20Master%20Plan%20FINAL%20with%20maps.pdf",
+        "https://cms5.revize.com/revize/calhouncountymi24/Parks/ParkBrochureMap%20with%20amenities%20FINAL%202023.pdf",
+        "https://maps.calhouncountymi.gov/"
+      ]
+    }
+  ],
+  "routeDisposition": {
+    "coordinatesChanged": [
+      {
+        "site": "Charenton official dock",
+        "routeIds": [
+          "bayou-teche-charenton-baldwin",
+          "bayou-teche-charenton-centerville",
+          "bayou-teche-jeanerette-charenton",
+          "bayou-teche-loreauville-charenton",
+          "bayou-teche-new-iberia-charenton"
+        ],
+        "endpointOccurrences": 5
+      },
+      {
+        "site": "Loreauville official dock",
+        "routeIds": [
+          "bayou-teche-arnaudville-loreauville",
+          "bayou-teche-breaux-bridge-loreauville",
+          "bayou-teche-leonville-loreauville",
+          "bayou-teche-loreauville-charenton",
+          "bayou-teche-loreauville-jeanerette",
+          "bayou-teche-loreauville-new-iberia",
+          "bayou-teche-st-martinville-loreauville"
+        ],
+        "endpointOccurrences": 7
+      }
+    ],
+    "uniqueRoutesWithChangedCoordinates": 11,
+    "newlyHeld": [],
+    "publicationKept": [
+      "all 26 unique routes containing one of the ten selected sites"
+    ],
+    "preexistingHoldsPreserved": true,
+    "exactWetEdgeVerified": false
+  }
+}

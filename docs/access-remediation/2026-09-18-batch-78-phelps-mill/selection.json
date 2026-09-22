@@ -1,0 +1,23 @@
+{
+  "batch": 78,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:37:34.035Z; 2,750 public routes, 6,058 endpoints, 47 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Minnesota",
+    "name": "Phelps Mill Public Water Access Site, Otter Tail River",
+    "storedCoordinate": {
+      "latitude": 46.3821667,
+      "longitude": -95.8210176
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "otter-tail-river-phelps-mill-west-lost-lake",
+      "otter-tail-river-phelps-mill-west-red-river-lake"
+    ],
+    "preReviewFinding": "The Phelps Mill to West Lost Lake put-in is 521 feet from the named Otter Tail River flowline and 181 feet from mapped water with complete hydrography coverage. The same exact put-in on the Phelps Mill to West Red River Lake route is review at 266 feet from the topology-connected river trace.",
+    "decision": "verify-the-shared-phelps-mill-public-water-access-coordinate-and-determine-whether-to-retain-or-move-it",
+    "selectionFrozenBeforeResearch": true
+  }
+}

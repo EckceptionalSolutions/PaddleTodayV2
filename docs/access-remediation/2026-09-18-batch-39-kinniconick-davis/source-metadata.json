@@ -1,0 +1,50 @@
+{
+  "batch": 39,
+  "retrievedOn": "2026-09-18",
+  "sources": [
+    {
+      "id": "kdfwr-leatherwood-branch-access",
+      "url": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130",
+      "publisher": "Kentucky Department of Fish and Wildlife Resources",
+      "facts": {
+        "name": "Kinniconick Creek - Leatherwood Branch Park Access",
+        "county": "Lewis",
+        "latitude": 38.5105,
+        "longitude": -83.3274,
+        "accessType": "carry-down only",
+        "rampSurface": "none",
+        "parking": "unpaved",
+        "boatRamp": "none"
+      },
+      "interpretation": "The published point identifies the public access site, not a surveyed launch toe. KDFWR says users walk equipment a short distance from the large paved parking area to the access point.",
+      "corroboratingRouteSource": "https://fw.ky.gov/Fish/Pages/Kinniconick_Creek.aspx"
+    },
+    {
+      "id": "nh-granit-davis-park-public-water-access",
+      "url": "https://nhgeodata.unh.edu/hosting/rest/services/Hosted/CSD_RecreationResources/FeatureServer/0/query?where=pubacc_id%20%3D%20%270156%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "publisher": "UNH GRANIT / New Hampshire public-water access sites layer",
+      "layerUrl": "https://nhgeodata.unh.edu/hosting/rest/services/Hosted/CSD_RecreationResources/FeatureServer/0",
+      "record": {
+        "pubacc_id": "0156",
+        "objectid": 67,
+        "facility": "Davis Park",
+        "county": "Carroll",
+        "town": "Conway",
+        "water_body": "Saco River",
+        "ownership": "Town - Conway",
+        "access_typ": "Beach/Picnic",
+        "shorebank_": "Yes",
+        "boat": "No",
+        "siteaccess": "Limited",
+        "geometry": { "latitude": 43.98290003852706, "longitude": -71.11596852920452 }
+      },
+      "interpretation": "The layer describes the public town access site and shorebank/beach function, not the exact canoe-launch toe. It differs from the old directory coordinate and is recorded as an access-area anchor.",
+      "corroboratingMunicipalSource": "https://old.conwaynh.gov/conservation-land/"
+    }
+  ],
+  "imageryCheck": "The GIS points were evaluated against the refreshed route audit's NHD flowline and mapped-water results. No imagery-derived water-entry coordinate was asserted; exact launch edges remain unverified.",
+  "controlsAdded": [
+    "kdfwr_kinniconick_leatherwood_branch_access_20260918",
+    "nh_granit_davis_park_saco_access_anchor_20260918"
+  ]
+}

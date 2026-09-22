@@ -9,7 +9,9 @@ describe('Arizona Gila Box routes', () => {
     expect(route.gaugeSource).toMatchObject({ siteId: '09442000', kind: 'direct' });
     expect(route.profile).toMatchObject({ thresholdModel: 'two-sided', tooLow: 60, idealMin: 200 });
     expect(route.accessPoints).toHaveLength(2);
-    expect(route.accessPoints?.every((point) => point.name.toLowerCase().includes('water-entry edge'))).toBe(true);
+    expect(route.putIn?.name).toContain('water-entry edge');
+    expect(route.takeOut).toMatchObject({ name: 'Dry Canyon boater take-out access area (BLM)', latitude: 32.8922, longitude: -109.4921 });
+    expect(route.accessPoints?.[1]?.note).toContain('not a surveyed river edge');
     expect(route.logistics?.campingClassification).toBe('sandbar_or_gravel_bar');
     expect(route.safetyProfile?.hazards).toContain('strainers');
   });

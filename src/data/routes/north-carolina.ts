@@ -80,6 +80,9 @@ const neuseThorntonLaunchUrl = 'https://raleighnc.gov/parks-and-recreation/news/
 const neuseClosureUrl = 'https://raleighnc.gov/status-alerts/neuse-river-trail-closure-1';
 const neuseCoordinatesUrl = 'https://mountainstoseatrail.org/wp-content/uploads/2010/03/FallsLakeDam-to-SamsBranchNeuseRiver-Jan-15-2014-new.pdf';
 const neuseFallsMapUrl = 'https://robslink.com/SAS/democd31/paddle_pages/neuse_falls_dam.htm';
+const neuseRiverBendCoordinateUrl = 'https://mapcarta.com/N8346050991';
+const neuseBuffaloeCoordinateUrl = 'https://www.google.com/maps/place/Buffaloe+Road+Canoe+Launch/@35.8477692,-78.5322776,17.98z';
+const neuseAndersonCoordinateUrl = 'https://ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&Universal=0';
 const neuseUspsDetailUrl = 'https://waterdata.usgs.gov/monitoring-location/USGS-02087183/';
 const neuseHydrographUrl = 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=02087183&parameterCd=00060,00065&siteStatus=all';
 const mayoParkUrl = 'https://www.ncparks.gov/state-parks/mayo-river-state-park';
@@ -1431,33 +1434,33 @@ const northCarolinaCoastalExpansionRoutes: River[] = [
       confidenceNotes: 'High confidence in the named park access and trail identity: NC State Parks publishes the Huggins Island loop distance and difficulty, the official paddle map marks the route and designated launch/landing context, and the NC Coastal Plain Paddle Trails GIS independently identifies the Hammocks Beach trail. The White Oak River station is a nearby tidal proxy for context only; no threshold is inferred.',
     },
     putIn: {
-      name: 'Hammocks Beach State Park designated paddle access',
+      name: 'Hammocks Beach State Park mainland kayak-launch area',
       latitude: 34.671,
       longitude: -77.1429,
     },
     takeOut: {
-      name: 'Hammocks Beach State Park designated paddle access',
+      name: 'Hammocks Beach State Park mainland kayak-launch area',
       latitude: 34.671,
       longitude: -77.1429,
     },
     accessPoints: [
       {
         id: 'hammocks-beach-huggins-island-loop-put-in',
-        name: 'Hammocks Beach State Park designated paddle access',
+        name: 'Hammocks Beach State Park mainland kayak-launch area',
         latitude: 34.671,
         longitude: -77.1429,
         mileFromStart: 0,
         segmentKind: 'transition',
-        note: 'The official state-park map and coastal paddle-trails GIS identify the Hammocks Beach access and kayak launch/landing context. Confirm the current carry, permit or fee, parking, waterline, and closure status before unloading.',
+        note: 'NC State Parks gives this park-access GPS and its official map marks the mainland kayak launch. Follow the marked self-launch path; the current fee schedule lists kayak launching as free, while boat-ramp fees apply separately. This point is not a surveyed dock edge; confirm current carry, parking, and closures.',
       },
       {
         id: 'hammocks-beach-huggins-island-loop-take-out',
-        name: 'Hammocks Beach State Park designated paddle access',
+        name: 'Hammocks Beach State Park mainland kayak-launch area',
         latitude: 34.671,
         longitude: -77.1429,
         mileFromStart: 6,
         segmentKind: 'transition',
-        note: 'This is a round-trip loop returning to the designated park access. Do not treat ferry docks, island beaches, marsh edges, or an unmarked shoreline as an alternate take-out.',
+        note: 'Round trip returns to the marked mainland kayak launch. The stored park GPS is an access-area anchor, not a surveyed landing point; do not treat ferry docks, island beaches, marsh edges, or an unmarked shoreline as an alternate take-out.',
       },
     ],
     logistics: {
@@ -1622,6 +1625,20 @@ function buildNewRiverStateParkRoute(spec: NewRiverStateParkRouteSpec): River {
 
 const newRiverStateParkExpansionRoutes: River[] = [
   buildNewRiverStateParkRoute({
+    id: 'new-river-nc88-wagoner',
+    reach: 'N.C. 88 Bridge Public Canoe Access to Wagoner Access',
+    summary: 'A roughly five-mile planning-only South Fork New River State Park section from the NCWRC-listed N.C. 88 Bridge canoe access to the public Wagoner Access. The park map identifies the exact section and paddle-time estimate; the nearby Jefferson gauge remains proxy context only.',
+    putIn: { name: 'N.C. 88 Bridge Public Canoe Access', latitude: 36.3947, longitude: -81.407 },
+    takeOut: { name: 'New River State Park Wagoner Access', latitude: 36.4165, longitude: -81.387 },
+    distanceMiles: 5,
+    paddleTime: 'approximately 2.5–3 hours at the park map estimate, plus scouting, minor portages, breaks, and shuttle time',
+    camping: 'Wagoner Access has separate state-park camping and paddle-in camping facilities. The NC 88 bridge access is day-use access only; reserve a lawful site separately and do not camp at the bridge or on an unmarked bank.',
+    campingClassification: 'endpoint_campground',
+    campingHazard: 'The NC 88 bridge access has no camping claim. Wagoner camping and Riverbend paddle-in sites require current park confirmation and reservations where applicable.',
+    accessEvidence: 'NCWRC lists the N.C. 88/Hwy 16-88 site as public bank and canoe access at 36.3947, -81.407. NC State Parks maps the N.C. 88 Bridge to Wagoner Access section as five miles and identifies Wagoner as a public access with parking and facilities. Do not use the bridge shoulder or private banks as alternate launch points.',
+    midpoint: { latitude: 36.4056, longitude: -81.397 },
+  }),
+  buildNewRiverStateParkRoute({
     id: 'new-river-elk-shoals-wagoner',
     reach: 'Elk Shoals Access to Wagoner Access',
     summary: 'A roughly 7.5-mile planning-only South Fork New River State Park section from the public day-use Elk Shoals Access through the mapped minor-rapid and portage corridor to Wagoner Access.',
@@ -1663,12 +1680,148 @@ const newRiverStateParkExpansionRoutes: River[] = [
     accessEvidence: 'NC State Parks identifies U.S. 221 and Kings Creek as public access areas and publishes the 2-mile U.S. 221 Bridge, 4.5-mile Prather’s Creek, and 3-mile Prather’s-to-Kings Creek chain. The route ends at Kings Creek rather than continuing to the separate Alleghany paddle-in campsite.',
     midpoint: { latitude: 36.4976, longitude: -81.3382 },
   }),
+  buildNewRiverStateParkRoute({
+    id: 'new-river-kings-creek-alleghany',
+    reach: 'Kings Creek Access to Alleghany Paddle-In Access',
+    summary: 'A roughly five-mile planning-only South Fork New River State Park section from the public Kings Creek Access to the paddle-in Alleghany Access and campground. The park map publishes the section length and moderate-paddler time estimate; the Alleghany access has no vehicle access and requires a separate shuttle and overnight plan.',
+    putIn: { name: 'New River State Park Kings Creek Access', latitude: 36.5278, longitude: -81.3374 },
+    takeOut: { name: 'New River State Park Alleghany Paddle-In Access', latitude: 36.554608, longitude: -81.324092 },
+    distanceMiles: 5,
+    paddleTime: 'approximately 2.5 hours at the park map’s moderate-paddler estimate, plus scouting, breaks, camping logistics, and shuttle time',
+    camping: 'Alleghany Access is a paddle-in state-park campground with primitive sites; Kings Creek is a day-use/vehicle-access area. Reserve the Alleghany site, register any overnight vehicle at Kings Creek as required, and do not treat the locked service road or an unmarked bank as vehicle access.',
+    campingClassification: 'endpoint_campground',
+    campingHazard: 'Alleghany is paddle-in only and the park gate is locked; plan the legal vehicle shuttle from Kings Creek, carry supplies, and confirm current reservations and gate hours.',
+    accessEvidence: 'NC State Parks publishes Kings Creek as a public access with parking and Alleghany as a paddle-in access/campground. The current state-park canoe-access map lists Kings Creek to Alleghany as five miles and 2.5 hours; the Alleghany access map supplies GPS 36.554608, -81.324092 and explicitly marks the gate locked/no vehicle access.',
+    midpoint: { latitude: 36.5411, longitude: -81.331 },
+  }),
+];
+
+type NeuseBluewaySegmentSpec = {
+  id: string;
+  reach: string;
+  aliases: string[];
+  miles: number;
+  putIn: { name: string; latitude: number; longitude: number };
+  takeOut: { name: string; latitude: number; longitude: number };
+  accessNote: string;
+  coordinateSources: string[];
+};
+
+const neuseBluewaySegmentRouteIds = [
+  'neuse-river-falls-dam-thornton',
+  'neuse-river-thornton-river-bend',
+  'neuse-river-river-bend-buffaloe',
+  'neuse-river-buffaloe-anderson',
+];
+
+function buildNeuseBluewaySegmentRoute(spec: NeuseBluewaySegmentSpec): River {
+  return {
+    id: spec.id,
+    riverId: 'neuse-river',
+    slug: spec.id,
+    name: 'Neuse River',
+    reach: spec.reach,
+    aliases: spec.aliases,
+    state: 'North Carolina',
+    region: 'Raleigh / Wake County Neuse River Blueway',
+    routeType: 'recreational',
+    summary: `A planning-only approximately ${spec.miles}-mile Neuse River Blueway section from ${spec.putIn.name} to ${spec.takeOut.name}, using the City of Raleigh's named public paddlecraft launches and direct Falls-area USGS 02087183 flow context.`,
+    statusText: 'Raleigh currently lists this endpoint pair and distance in its public Neuse River Blueway access system. Use direct USGS 02087183 near Falls as same-river release context, but do not transfer the Falls-only slow-float cue into a route-specific go/no-go threshold; check current discharge, dam operations, trend, weather, debris, water quality, access notices, and the river visually before launch.',
+    latitude: (spec.putIn.latitude + spec.takeOut.latitude) / 2,
+    longitude: (spec.putIn.longitude + spec.takeOut.longitude) / 2,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'low_water', 'strainers', 'cold_water', 'access_uncertain'],
+      safetyNotes: [
+        'Raleigh warns that fast current can make it difficult to reach shore and that downed trees, log jams, boulders, and bridge footings can trap boats and people. Wear a properly fitted PFD and carry a float plan and communication/rescue gear.',
+        'The Falls-area USGS station provides same-river context, not a route-specific safety limit for this downstream section. Recheck live discharge and trend, dam operations, recent rain, thunderstorms, water quality, and the visual channel immediately before launch.',
+        'Only the named Raleigh paddlecraft launches are treated as legal endpoints. Do not leave vehicles overnight at access lots, improvise a private-bank bailout, or continue past the named take-out without a new access and shuttle plan.',
+        spec.accessNote,
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-02087183',
+      provider: 'usgs',
+      siteId: '02087183',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Neuse River near Falls, NC',
+      detailUrl: neuseUspsDetailUrl,
+      hydrographUrl: neuseHydrographUrl,
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: { label: 'City of Raleigh Neuse River Blueway access and moving-water guidance', url: neuseRiverAccessUrl, provider: 'local' },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes: 'The 200 cfs value is retained only as the existing Falls-area slow-float reference; it is not a route-specific cutoff for these downstream sections. Check live trend, rain, debris, water quality, access status, daylight, and water temperature.',
+      difficulty: 'moderate',
+      difficultyNotes: 'Raleigh describes variable moving water with fast-current, obstruction, bridge, and thunderstorm hazards. Treat this as a moderate day-use Blueway section requiring active boat control and conservative exits.',
+      confidenceNotes: 'High confidence in the endpoint chain and official distances: Raleigh updated the six-launch Blueway page in September 2026 and publishes public paddlecraft access, mile markers, intervening distances, hours, and safety controls. The direct Falls gauge is retained as same-river context, while the route remains planning-only because Raleigh does not publish a route-specific downstream threshold.',
+    },
+    putIn: spec.putIn,
+    takeOut: spec.takeOut,
+    logistics: {
+      distanceLabel: `Approximately ${spec.miles} river miles`,
+      estimatedPaddleTime: 'Allow a daylight day-use window for current checks, obstruction scouting, breaks, and shuttle timing; travel time varies with flow and boat type.',
+      shuttle: `Stage the downstream vehicle at ${spec.takeOut.name}, then drive to ${spec.putIn.name}. Confirm current public parking, carry, launch condition, operating hours, and closure status before unloading.`,
+      permits: 'No route-specific paddling permit is published. Follow current North Carolina boating/PFD requirements, Raleigh park rules, sunrise-to-sunset access hours, water-quality advisories, and closure notices.',
+      camping: 'No endpoint or on-route camping is advertised or assumed. Raleigh prohibits overnight use and overnight vehicle parking at these river-access lots; arrange separately managed lawful lodging or camping.',
+      campingClassification: 'none',
+      summary: `A distinct ${spec.miles}-mile Raleigh Neuse River Blueway access-to-access section with direct same-river gauge context and day-use endpoints.`,
+      accessCaveats: [spec.accessNote, 'Raleigh’s access page provides address and river-mile anchors; coordinate values are access-area/water-entry anchors and should be checked against current signs and the actual launch carry.', 'Do not leave a vehicle overnight at either access lot or treat a downstream park, bridge, or private bank as an unlisted endpoint.'],
+      watchFor: ['rapidly rising or high flow, dam-release changes, and thunderstorms', 'downed trees, log jams, boulders, bridge footings, and difficult exits', 'low water, cold water, water-quality advisories, access closure, and failed shuttle or daylight plan'],
+    },
+    accessPoints: [
+      { ...spec.putIn, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: `City of Raleigh Neuse River Blueway paddlecraft launch. Confirm the signed water-entry point, carry, parking, and dawn-to-dusk status. ${spec.accessNote}` },
+      { ...spec.takeOut, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: 'City of Raleigh Neuse River Blueway paddlecraft launch. Confirm the current water exit, carry, parking, and downstream boundary before relying on it as the take-out.' },
+    ],
+    consolidation: {
+      group: 'neuse-river-raleigh-blueway-segmented-corridor',
+      role: 'segment',
+      relatedRouteIds: neuseBluewaySegmentRouteIds,
+      note: 'This record represents one named Raleigh Blueway access-to-access section. Adjacent records share endpoints but do not duplicate river miles; the existing Falls Dam→Thornton route remains the upstream segment and longer linked itineraries should be presented as combinations rather than duplicate cards.',
+    },
+    evidenceNotes: [
+      { label: 'Named public corridor', value: `${spec.reach}; approximately ${spec.miles} river miles`, note: 'The current City of Raleigh Blueway page names both public paddlecraft endpoints, publishes their river-mile positions, and lists the intervening distance.', sourceUrl: neuseRiverAccessUrl },
+      { label: 'Direct gauge context', value: 'USGS 02087183 near Falls; same-river telemetry only', note: 'The direct station is upstream of these sections. Raleigh’s 200 cfs slow-float reference is not silently treated as a route-specific go/no-go limit downstream.', sourceUrl: neuseHydrographUrl },
+      { label: 'Water-entry coordinate control', value: `${spec.putIn.name} (${spec.putIn.latitude}, ${spec.putIn.longitude}) to ${spec.takeOut.name} (${spec.takeOut.latitude}, ${spec.takeOut.longitude})`, note: 'Coordinates are access-area/water-entry anchors corroborated by Raleigh directions and the listed coordinate source set; confirm the physical ramp or carry at travel time.', sourceUrl: spec.coordinateSources[0] },
+      { label: 'Safety and access restrictions', value: 'PFD, high-flow/obstruction/thunderstorm controls, dawn-to-dusk use, no overnight vehicles', note: 'Raleigh’s current safety and access page requires PFDs, warns about fast current and obstructions, and prohibits overnight use at river-access parking lots.', sourceUrl: neuseRiverAccessUrl },
+      { label: 'Camping posture', value: 'No endpoint or on-route camping; separate lawful basecamp required', note: 'The city does not grant camping rights at the access lots and expressly prohibits overnight use and overnight vehicle parking there.', sourceUrl: neuseRiverAccessUrl },
+      { label: 'Rights-clean image decision', value: 'Approved same-river Neuse River context image used', note: 'The existing Neuse River gallery fallback is presented as river context, not proof of current endpoint or water conditions.', sourceUrl: neuseRiverAccessUrl },
+      { label: 'Duplicate separation', value: `Distinct ${spec.reach} section`, note: 'The route has its own consecutive Blueway endpoint pair and is linked to, rather than merged with, the adjacent Blueway sections.', sourceUrl: neuseRiverAccessUrl },
+    ],
+    sourceLinks: [
+      { label: 'City of Raleigh Neuse River access system', url: neuseRiverAccessUrl, provider: 'local' },
+      { label: 'City of Raleigh Neuse River flow guidance', url: neuseRiverFlowUrl, provider: 'local' },
+      { label: 'City of Raleigh closure notice', url: neuseClosureUrl, provider: 'local' },
+      { label: 'Mountains-to-Sea Neuse access document', url: neuseCoordinatesUrl, provider: 'local' },
+      { label: 'River Bend coordinate corroboration', url: neuseRiverBendCoordinateUrl, provider: 'local' },
+      { label: 'Buffaloe coordinate corroboration', url: neuseBuffaloeCoordinateUrl, provider: 'local' },
+      { label: 'NCWRC Anderson Point coordinate record', url: neuseAndersonCoordinateUrl, provider: 'local' },
+      { label: 'USGS 02087183 monitoring location', url: neuseUspsDetailUrl, provider: 'usgs' },
+      { label: 'USGS 02087183 current values', url: neuseHydrographUrl, provider: 'usgs' },
+    ],
+    scoreEligibility: 'planning',
+    scoreEligibilityReason: 'proxy_gauge',
+  };
+}
+
+const neuseBluewaySegmentRoutes: River[] = [
+  buildNeuseBluewaySegmentRoute({ id: 'neuse-river-thornton-river-bend', reach: 'Thornton Road to River Bend Park', aliases: ['Neuse River Blueway Thornton Road to River Bend', 'Thornton Road to River Bend Park float'], miles: 5.6, putIn: { name: 'Thornton Road Boat Launch', latitude: 35.90224, longitude: -78.54063 }, takeOut: { name: 'River Bend Park kayak launch', latitude: 35.8603603, longitude: -78.527847 }, accessNote: 'Raleigh lists Thornton Road as the public launch at river mile 4.5 and River Bend Park at mile 10, with a restroom/changing area, trailer parking, and ADA parking. River Bend’s water-entry anchor follows the park access location rather than its road address.', coordinateSources: [neuseThorntonLaunchUrl, neuseRiverBendCoordinateUrl] }),
+  buildNeuseBluewaySegmentRoute({ id: 'neuse-river-river-bend-buffaloe', reach: 'River Bend Park to Buffaloe Road', aliases: ['Neuse River Blueway River Bend to Buffaloe', 'River Bend Park to Buffaloe Road float'], miles: 1, putIn: { name: 'River Bend Park kayak launch', latitude: 35.8603603, longitude: -78.527847 }, takeOut: { name: 'Buffaloe Road canoe launch', latitude: 35.847706, longitude: -78.530812 }, accessNote: 'Raleigh lists River Bend Park at mile 10 and Buffaloe Road at mile 10.7, both as public paddlecraft accesses. Buffaloe has limited parking and a short carry from the greenway; confirm the current signed launch and avoid leaving vehicles overnight.', coordinateSources: [neuseRiverBendCoordinateUrl, neuseBuffaloeCoordinateUrl] }),
+  buildNeuseBluewaySegmentRoute({ id: 'neuse-river-buffaloe-anderson', reach: 'Buffaloe Road to Anderson Point', aliases: ['Neuse River Blueway Buffaloe to Anderson Point', 'Buffaloe Road to Anderson Point Park float'], miles: 6, putIn: { name: 'Buffaloe Road canoe launch', latitude: 35.847706, longitude: -78.530812 }, takeOut: { name: 'Anderson Point Park canoe launch', latitude: 35.772287, longitude: -78.54305 }, accessNote: 'Raleigh lists Buffaloe Road at mile 10.7 and Anderson Point at mile 16.2, with a public canoe launch at Anderson Point. The NCWRC record corroborates the Anderson Point canoe-access coordinate; Raleigh notes restrooms are a 3/4-to-1-mile walk from the river access.', coordinateSources: [neuseBuffaloeCoordinateUrl, neuseAndersonCoordinateUrl] }),
 ];
 
 export const northCarolinaRoutes: River[] = [
   ...northCarolinaCoastalExpansionRoutes,
   ...northCarolinaBluewayExpansionRoutes,
   ...newRiverStateParkExpansionRoutes,
+  ...neuseBluewaySegmentRoutes,
   {
     id: 'uwharrie-river-low-water-bridge-hwy-109',
     riverId: 'uwharrie-river',
@@ -2603,7 +2756,7 @@ export const northCarolinaRoutes: River[] = [
     riverId: 'neuse-river',
     slug: 'neuse-river-falls-dam-thornton',
     name: 'Neuse River',
-    reach: 'Falls Dam Tailrace to Thornton Road',
+    reach: 'Falls Dam public paddlecraft launch to Thornton Road',
     aliases: ['Falls Lake Dam to Thornton Road', 'Falls Lake Dam to Thornton Road Boat Launch'],
     state: 'North Carolina',
     region: 'Wake County',
@@ -2651,7 +2804,7 @@ export const northCarolinaRoutes: River[] = [
       confidenceNotes: 'High confidence in the distinct access and gauge relationship: Raleigh identifies Falls Dam, Thornton Road, and the broader public paddle-launch system; the city supplies the 200 cfs pace cue and moving-water warnings; Thornton has a current nonmotorized public-launch notice; the Mountains-to-Sea access document supplies the Thornton anchor; and USGS 02087183 provides direct telemetry. The minimum-only model intentionally does not invent a high-flow cutoff where the official source does not publish one.',
     },
     putIn: {
-      name: 'Falls Lake Dam Tailrace Access',
+      name: 'Falls Dam public paddlecraft launch',
       latitude: 35.939118,
       longitude: -78.577094,
     },
@@ -2663,15 +2816,16 @@ export const northCarolinaRoutes: River[] = [
     logistics: {
       distanceLabel: '4.7 river miles',
       estimatedPaddleTime: '2–4 hours depending on discharge, wind, stops, and boat type',
-      shuttle: 'Stage the downstream vehicle at Thornton Road Boat Launch, then drive to the Falls Dam tailrace access. Confirm both parking/launch points and the current city operating status before unloading.',
+      shuttle: 'Stage the downstream vehicle at Thornton Road Boat Launch, then drive to the Falls Dam public paddlecraft launch. Follow Raleigh’s gravel-road directions to the right before crossing the Neuse River; the Corps Tailrace Fishing Area lot to the left is a separate facility, not this route’s launch.',
       permits: 'No route-specific paddling permit is identified in the cited Raleigh access material. Thornton is identified as a public nonmotorized launch with dawn-to-dusk use; follow current city rules, North Carolina boating/PFD requirements, posted restrictions, and any dam or water-quality notices.',
       camping: 'No on-route camping is assumed for this short urban-edge day section. The Raleigh blueway has separate access and park facilities; do not treat either endpoint as a campsite.',
       campingClassification: 'none',
       summary: 'A moderate dam-controlled Neuse River day section with a direct gauge, public Raleigh endpoints, and an official slow-float flow cue.',
       accessCaveats: [
-        'Raleigh lists Falls Dam to Thornton as 4.7 miles and identifies Thornton Road as a public paddle launch. The stored endpoint anchors are map references; follow current signs, gates, parking rules, and operator instructions on arrival.',
+        'Raleigh confirms Falls Dam as a public nonmotorized paddlecraft launch and gives directions to its gravel access road on the right before the Neuse River bridge. The stored coordinate is a legacy map access-area anchor, not a surveyed water-entry point.',
+        'Do not substitute the separate USACE Tailrace Fishing Area parking lot on the left side of the approach for Raleigh’s Falls Dam paddlecraft launch.',
         'Raleigh has reported closures on downstream Neuse River Trail sections during utility work. This route ends at Thornton to avoid assuming that downstream launches are open; check the current closure page before travel.',
-        'Do not approach or portage around Falls Dam infrastructure. The put-in is the designated tailrace-side access; verify the legal launch location and current conditions rather than improvising at the dam.',
+        'Do not approach or portage around Falls Dam infrastructure. Use only the signed Raleigh paddlecraft access and verify current gate, parking, and river conditions rather than improvising at the dam.',
       ],
       watchFor: ['dam release changes', 'flow below 200 cfs', 'fast current at higher release', 'difficult exits', 'strainers and debris', 'water-quality notices', 'thunderstorms', 'access closures', 'cold water'],
     },
@@ -2679,7 +2833,7 @@ export const northCarolinaRoutes: River[] = [
       { label: 'Named route section', value: 'Falls Dam to Thornton Road; 4.7 miles', note: 'The City of Raleigh identifies this distance and endpoint pair within its public paddle-launch system.', sourceUrl: neuseRiverAccessUrl },
       { label: 'Flow and moving-water guidance', value: 'Below 200 cfs is a slow float; higher flow moves faster and can make exiting difficult', note: 'Raleigh ties Neuse conditions to Falls Dam and publishes this conservative planning cue without claiming a universal high-flow cutoff.', sourceUrl: neuseRiverFlowUrl },
       { label: 'Current downstream endpoint', value: 'Thornton Road launch is public, nonmotorized, and dawn-to-dusk', note: 'Raleigh announced the Thornton Road boat launch as open and describes its operating limits.', sourceUrl: neuseThorntonLaunchUrl },
-      { label: 'Endpoint coordinates', value: 'Falls Dam access 35.939118, -78.577094; Thornton Road 35.90224, -78.54063', note: 'The Falls anchor is published in a local paddling map; the Thornton anchor is published in the Mountains-to-Sea access document. Confirm signs and access conditions in the field.', sourceUrl: neuseCoordinatesUrl },
+      { label: 'Endpoint coordinates', value: 'Falls Dam access-area anchor 35.939118, -78.577094; Thornton Road 35.90224, -78.54063', note: 'The Falls coordinate is retained from the older local paddling map and is not a surveyed water-entry point. Current Raleigh directions identify its public launch separately from the USACE Tailrace Fishing Area lot; the Thornton anchor is published in the Mountains-to-Sea access document.', sourceUrl: neuseRiverAccessUrl },
       { label: 'Access and closure posture', value: 'Use Falls Dam to Thornton only after checking current city closures; downstream launches may be independently closed', note: 'Raleigh publishes the access system and separate closure notices; the route deliberately stops at Thornton rather than assuming the full downstream blueway is open.', sourceUrl: neuseClosureUrl },
       { label: 'Direct live gauge', value: 'USGS 02087183; 69.4 cfs and 1.01 ft at 2026-08-27 18:00 EDT', note: 'The reviewed observation was below Raleigh\'s 200 cfs slow-float reference, so it should be treated as slow-moving and rechecked for launch suitability rather than as a go/no-go certification.', sourceUrl: neuseHydrographUrl },
       { label: 'Image decision', value: 'No route-specific image selected; approved Neuse River context image used', note: 'No route-specific image was copied into the repository; the preview uses a rights-clean Raleigh-area Neuse River context image and does not imply endpoint coverage.', sourceUrl: neuseRiverAccessUrl },
@@ -2823,13 +2977,13 @@ export const northCarolinaRoutes: River[] = [
     riverId: 'cape-fear-river',
     slug: 'cape-fear-river-raven-rock-lillington',
     name: 'Cape Fear River',
-    reach: 'Raven Rock State Park area to Lillington Boating Access Area',
+    reach: 'Raven Rock area access unresolved to Lillington Boating Access Area',
     aliases: ['Raven Rock to Lillington', 'Raven Rock State Park to Lillington'],
     state: 'North Carolina',
     region: 'Harnett County',
     routeType: 'recreational',
-    summary: 'A roughly ten-mile Class I–II Cape Fear River run from the public Raven Rock State Park area access anchor to the public Lillington Boating Access Area. The section guide calls the reach about eight miles, but the authoritative access coordinates are 9.1 miles apart before river meanders, so the app uses a conservative planning distance. The reach includes Lanier Rapids and other shoals, a downstream lock-and-dam hazard, and a direct lower-endpoint USGS gauge check.',
-    statusText: 'Use direct USGS 02102500 at Lillington as the route flow check. The section guide estimates 200–5,000 cfs for this Raven Rock-to-Lillington reach and labels the range informational, not a go/no-go authority. Raven Rock State Park identifies public river access context but separately states that it has no kayak/canoe launch inside the park; confirm the exact carry, waterline, parking, and current access status before launching. Recheck flow, trend, rainfall, debris, daylight, and dam/rapid hazards before committing.',
+    summary: 'Planning-only Cape Fear River route held because public water entry at the Raven Rock area has not been verified. The state park says there is no kayak/canoe launch inside the park; keep the route hidden until a legal public carry and actual put-in are confirmed. The lower Lillington take-out and intervening shoals, rapids, and lock-and-dam hazards remain separate checks.',
+    statusText: 'Route withheld pending confirmation of a lawful public put-in near Raven Rock. The state park says there is no kayak/canoe launch inside the park, and the older access-area anchor does not establish a public carry or water entry. Do not use this route until the park or NCWRC identifies the exact open access. Then recheck USGS 02102500, the informational 200–5,000 cfs section estimate, trend, rainfall, debris, daylight, and dam/rapid hazards.',
     latitude: 35.4692,
     longitude: -78.9095,
     safetyProfile: {
@@ -2872,10 +3026,10 @@ export const northCarolinaRoutes: River[] = [
       seasonNotes: 'The section guide identifies March–November as the more dependable season, but the live gauge and conditions beat the calendar. Check same-day flow and trend, recent and forecast rain, debris, water temperature, daylight, and access notices.',
       difficulty: 'moderate',
       difficultyNotes: 'Mostly Class I with Class II shoals and ledges; hazards are reach-specific and can become consequential at high or fast-rising flow. This is not a guaranteed flatwater route and is a poor fit for casual tubing at unknown conditions.',
-      confidenceNotes: 'High confidence in the distinct public Raven Rock-to-Lillington corridor and direct lower-endpoint gauge: CanWePaddle identifies the exact reach and flow estimate; NCWRC lists the Raven Rock and Lillington access anchors; Raven Rock State Park independently documents Cape Fear features and camping; and USGS 02102500 is at Lillington. The source page calls the reach eight miles, but its endpoint pair is 9.1 miles apart as the crow flies; the route therefore uses an approximately ten-mile planning label rather than understating distance. The upper endpoint remains access-sensitive because the state park says no kayak/canoe launch is inside the park, so the stored public access-area anchor requires day-of carry and landing confirmation.',
+      confidenceNotes: 'The Cape Fear corridor and lower Lillington take-out are documented, but the upper public put-in is unresolved. NC State Parks says there is no kayak/canoe launch inside the park; the legacy area coordinate does not establish permission, carry, or a waterline. Keep the route withheld until a manager confirms a lawful public put-in.' ,
     },
     putIn: {
-      name: 'Raven Rock State Park area public access anchor',
+      name: 'Raven Rock area access (public water entry unverified)',
       latitude: 35.4692,
       longitude: -78.9095,
     },
@@ -2887,12 +3041,12 @@ export const northCarolinaRoutes: River[] = [
     accessPoints: [
       {
         id: 'cape-fear-river-raven-rock-lillington-put-in',
-        name: 'Raven Rock State Park area public access anchor',
+        name: 'Raven Rock area access (public water entry unverified)',
         latitude: 35.4692,
         longitude: -78.9095,
         mileFromStart: 0,
         segmentKind: 'transition',
-        note: 'NCWRC identifies a Raven Rock State Park Cape Fear access anchor. The state park separately says no kayak/canoe launch is inside the park; verify the designated public bank carry, waterline, parking, and current access rules before unloading.',
+        note: 'The legacy NCWRC area anchor and state park location do not establish a public kayak/canoe launch. The state park says there is no boat launch inside the park. Do not treat this coordinate as a public put-in; route held until the manager confirms the lawful carry, waterline, parking, and current access rules.',
       },
       {
         id: 'cape-fear-river-raven-rock-lillington-take-out',
@@ -2907,13 +3061,13 @@ export const northCarolinaRoutes: River[] = [
     logistics: {
       distanceLabel: 'approximately 10 river miles (the section guide describes about 8 miles; authoritative endpoint anchors are 9.1 miles apart straight-line)',
       estimatedPaddleTime: 'approximately 3.5 hours depending on flow, rapid scouting, breaks, and shuttle timing',
-      shuttle: 'Stage the downstream vehicle at Lillington Boating Access Area, then shuttle to the Raven Rock area public access anchor. Confirm the upper carry and lower landing before unloading; plan the take-out before committing to downstream current.',
-      permits: 'No route-specific paddling permit is identified for the public access anchors. Follow current NCWRC, state-park, posted-access, and boating-safety rules; park camping requires a separate reservation and fee when available.',
+      shuttle: 'Do not stage or launch this route until the park or NCWRC identifies a lawful public Raven Rock-area put-in and carry. If confirmed, stage the downstream vehicle at Lillington Boating Access Area and verify both landings before launching.',
+      permits: 'The upper public put-in and carry are unresolved; do not rely on a park visit as launch permission. If an access is confirmed, follow current NCWRC, state-park, posted-access, and boating-safety rules.',
       camping: 'Treat this as a day trip with nearby camping posture. Raven Rock State Park offers a separate paddle-in Canoe Camp with six sites, but the park says there is no kayak/canoe launch inside the park and the campground is not permission to launch from an improvised bank. Reserve or confirm a lawful site separately and do not camp at the access anchors.',
       campingClassification: 'nearby_basecamp',
-      summary: 'An approximately ten-mile Class I–II Cape Fear day run with a public Raven Rock-area access anchor, public Lillington take-out, direct Lillington telemetry, and explicit lock-and-dam, shoal, high-water, and upper-access caveats. The local section guide describes about eight miles; the stored distance conservatively reflects the authoritative endpoint separation.',
+      summary: 'Planning-only Cape Fear route held pending a lawful public Raven Rock-area put-in. Lillington remains the documented lower take-out; confirm the upper access before using the distance, flow, or shuttle guidance.',
       accessCaveats: [
-        'The Raven Rock coordinate is an official NCWRC access-area anchor, not proof that a developed kayak/canoe launch exists inside Raven Rock State Park. The state park page says no kayak/canoe launch is inside the park; verify the designated public carry and waterline before launch.',
+        'The Raven Rock coordinate is a legacy area anchor, not proof of public water-entry permission. NC State Parks says there is no kayak/canoe launch inside the park. Keep this route withheld until the manager confirms an open public carry and exact water entry.',
         'Lillington Boating Access Area is the planned take-out and the downstream USGS station is nearby. Confirm current NCWRC parking, gate, carry, and landing conditions on the day.',
         'Raven Rock State Park Canoe Camp is a separate paddle-in camping facility. Reservation, campsite, and park operating rules do not authorize private-bank access or overnight use at either route endpoint.',
       ],
@@ -2921,7 +3075,7 @@ export const northCarolinaRoutes: River[] = [
     },
     evidenceNotes: [
       { label: 'Named public corridor', value: 'Raven Rock State Park area to Lillington; local guide about 8 miles; approximately 10 miles for app planning; Class I–II', note: 'The section-specific paddling page identifies the exact reach, distance, class, float time, seasonal context, and local flow estimate. Its 8-mile label is shorter than the 9.1-mile straight-line separation between the authoritative access anchors, so the app uses a conservative approximately 10-mile planning label.', sourceUrl: capeFearFlowUrl },
-      { label: 'Upper endpoint access', value: 'Raven Rock State Park area public access anchor, 35.4692, -78.9095', note: 'NCWRC lists the access anchor; Raven Rock State Park documents the river setting but warns that there is no kayak/canoe launch inside the park. Confirm the public carry and waterline in the field.', sourceUrl: capeFearParkUrl },
+      { label: 'Unresolved upper endpoint', value: 'Raven Rock area anchor, 35.4692, -78.9095; public water entry unverified', note: 'The state park confirms there is no kayak/canoe launch inside the park. The legacy area point does not establish a legal public carry or landing; route held pending manager confirmation.', sourceUrl: capeFearCampingUrl },
       { label: 'Lower endpoint access', value: 'Lillington Boating Access Area, 35.39751617, -78.77375061', note: 'NCWRC identifies the public boating access area at 640 Wildlife Road.', sourceUrl: capeFearNcwrcAccessUrl },
       { label: 'Station-linked flow screen', value: '200–5,000 cfs on USGS 02102500 at Lillington', note: 'CanWePaddle ties this range to the Lillington gauge and labels it an informational estimate rather than a go/no-go authority; the product stores the station as direct because it is at the named lower endpoint.', sourceUrl: capeFearFlowUrl },
       { label: 'Direct telemetry context', value: 'USGS 02102500 returned 578 cfs and 2.38 ft on 2026-09-02', note: 'The reviewed reading was inside the community-estimated range; recheck trend, rainfall, debris, and visual conditions before launch.', sourceUrl: capeFearHydrographUrl },

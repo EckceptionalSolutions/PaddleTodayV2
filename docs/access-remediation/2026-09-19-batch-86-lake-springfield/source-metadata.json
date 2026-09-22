@@ -1,0 +1,9 @@
+{
+  "batch": "B86",
+  "sources": [
+    { "title": "Lake Springfield Park and Boathouse", "url": "https://parkboard.org/LakeSpringfield", "publisher": "Springfield-Greene County Park Board", "supports": ["public park shoreline facility", "boat rentals", "accessible parking", "James River Water Trail use", "Boathouse versus separate boat launch"] },
+    { "title": "City Water, Light and Power boating information", "url": "https://www.cwlp.com/LakesParksHome/LakesParksInformation/Boating.aspx", "publisher": "Springfield City Water, Light and Power", "supports": ["public Lake Springfield launch and dock context"] },
+    { "title": "Missouri Department of Conservation Lake Springfield map", "url": "https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/9410map.pdf", "publisher": "Missouri Department of Conservation", "supports": ["Lake Springfield public recreation and boat-ramp map context"] }
+  ],
+  "sourceQuality": "The decision is anchored by the official Springfield-Greene County Park Board facility page, with City Utilities and Missouri Department of Conservation map context."
+}

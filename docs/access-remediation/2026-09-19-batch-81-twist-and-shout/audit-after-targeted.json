@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:56:09.188Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "West Virginia",
+      "name": "Valley Falls State Park river-right check-in / access area",
+      "latitude": 39.38897,
+      "longitude": -80.08733,
+      "distanceFeetToMappedWater": 487.4103253320535,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-tygart-valley-falls-hammond",
+          "endpoint": "putIn",
+          "endpointName": "Valley Falls State Park river-right check-in / access area",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "wv-tygart-valley-falls-hammond",
+      "routeName": "Tygart Valley River",
+      "reach": "Valley Falls State Park to Hammond / Twist and Shout take-out",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Valley Falls State Park river-right check-in / access area",
+      "latitude": 39.38897,
+      "longitude": -80.08733,
+      "matchedRiverName": "Tygart Valley River",
+      "distanceFeetToMatchedRiver": 530.8084911575963,
+      "nearestMatchedLatitude": 39.38825808894308,
+      "nearestMatchedLongitude": -80.0889718758151,
+      "nearestWaterwayName": "Tygart Valley River",
+      "distanceFeetToNearestWaterway": 530.8084911575963,
+      "nearestWaterwayLatitude": 39.38825808894308,
+      "nearestWaterwayLongitude": -80.0889718758151,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 487.4103253320535,
+      "nearestWaterbodyLatitude": 39.38836,
+      "nearestWaterbodyLongitude": -80.08886800000002,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 487.4103253320535,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "coordinateEvidenceDetail": "wv_valley_falls_river_right_checkin valley-falls-state-park-river-right-checkin: American Whitewater states that the published put-in coordinates direct paddlers to the Valley Falls State Park office on river right for required sign-in, then instructs them to follow park directions to the river. The state park confirms kayaking is available. The stored point is the required park/check-in anchor, not water entry. Follow current park staff instructions, road conditions, and river-right access rules.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_valley_falls_river_right_checkin valley-falls-state-park-river-right-checkin) on Tygart Valley River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "wv-tygart-valley-falls-hammond",
+      "routeName": "Tygart Valley River",
+      "reach": "Valley Falls State Park to Hammond / Twist and Shout take-out",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Twist and Shout take-out under the railroad bridge",
+      "latitude": 39.40187,
+      "longitude": -80.09554,
+      "matchedRiverName": "Tygart Valley River",
+      "distanceFeetToMatchedRiver": 483.9882779363287,
+      "nearestMatchedLatitude": 39.40081584879798,
+      "nearestMatchedLongitude": -80.09658239492859,
+      "nearestWaterwayName": "Glady Creek",
+      "distanceFeetToNearestWaterway": 1.8455444817952653,
+      "nearestWaterwayLatitude": 39.4018733617642,
+      "nearestWaterwayLongitude": -80.09554489217327,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 421.06874978642674,
+      "nearestWaterbodyLatitude": 39.40098172810845,
+      "nearestWaterbodyLongitude": -80.09649374466832,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 1.8455444817952653,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "coordinateEvidenceDetail": "wv_american_whitewater_twist_and_shout_railroad_bridge_takeout_20260919 american-whitewater-valley-falls-twist-and-shout-takeout: American Whitewater's Valley Falls to Hammond reach identifies the lower take-out under the railroad bridge and publishes 39.40187,-80.09554, exactly matching the stored route coordinate. The same source and current route guidance warn that the bridge is active infrastructure and that the take-out requires inspection and a separate shuttle plan; historical access reports note possible gate/access changes. Treat this as a conditional whitewater take-out anchor, not unrestricted public parking or a surveyed wet-toe point. Never walk the rail line or assume current land access without day-of confirmation.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_american_whitewater_twist_and_shout_railroad_bridge_takeout_20260919 american-whitewater-valley-falls-twist-and-shout-takeout) on Tygart Valley River / Glady Creek; access is conditional (Use only after current inspection and confirmation of legal land access, parking, carry path, and bridge-area restrictions. Do not walk the active railroad line or assume the historical take-out remains open.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

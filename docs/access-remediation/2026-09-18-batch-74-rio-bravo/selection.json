@@ -1,0 +1,23 @@
+{
+  "batch": 74,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:53:40.946Z; 2,750 public routes, 6,058 endpoints, 51 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New Mexico",
+    "name": "Rio Bravo Boulevard public river access, Rio Grande",
+    "storedCoordinate": {
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "rio-grande-central-rio-bravo",
+      "rio-grande-calabacillas-rio-bravo"
+    ],
+    "preReviewFinding": "The Central Avenue-to-Rio Bravo occurrence is about 442 feet from the matched Rio Grande flowline and 333 feet from mapped water. Coverage is complete. The Calabacillas-to-Rio Bravo occurrence shares the exact coordinate and classifies okay at about 62 feet from the connected Rio Grande trace.",
+    "decision": "verify-the-shared-Rio-Bravo-access-location-and-determine-whether-the-stored-coordinate-is-an-access-area-anchor-or-a-water-entry-point",
+    "selectionFrozenBeforeResearch": true
+  }
+}

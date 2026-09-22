@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:55:27.485Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Missouri",
+      "name": "Round Spring (middle) river landing",
+      "latitude": 37.27996,
+      "longitude": -91.40792,
+      "distanceFeetToMappedWater": 392.07103639493954,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring (middle) river landing",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "current-river-pulltite-round-spring",
+      "routeName": "Current River",
+      "reach": "Pulltite to Round Spring",
+      "state": "Missouri",
+      "endpoint": "takeOut",
+      "endpointName": "Round Spring (middle) river landing",
+      "latitude": 37.27996,
+      "longitude": -91.40792,
+      "matchedRiverName": "Current River",
+      "distanceFeetToMatchedRiver": 392.07103639493954,
+      "nearestMatchedLatitude": 37.28083773713051,
+      "nearestMatchedLongitude": -91.4071406189341,
+      "nearestWaterwayName": "Spring Valley Creek",
+      "distanceFeetToNearestWaterway": 392.07211787904345,
+      "nearestWaterwayLatitude": 37.28083919552984,
+      "nearestWaterwayLongitude": -91.40714321320212,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 953.1171653709001,
+      "nearestWaterbodyLatitude": 37.279762,
+      "nearestWaterbodyLongitude": -91.404646,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 392.07103639493954,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+      "coordinateEvidenceDetail": "mo_nps_round_spring_current_river nps-round-spring-middle-river-landing-area: The current NPS Superintendent’s Compendium lists Round Spring (middle) as a Current River landing for floaters and separately lists Round Spring Boat Ramp among launches dedicated to motorized vessels. Keep the stored campsite/area pin as a general Round Spring access anchor, not as the exact boat-ramp or floater-landing coordinate. Route notes should direct paddlers to the signed floater landing and not the motorized ramp.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mo_nps_round_spring_current_river nps-round-spring-middle-river-landing-area) on Current River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "current-river-pulltite-round-spring",
+      "routeName": "Current River",
+      "reach": "Pulltite to Round Spring",
+      "state": "Missouri",
+      "endpoint": "putIn",
+      "endpointName": "Pulltite Campground / Current River landing (imagery-derived water-entry edge)",
+      "latitude": 37.335123,
+      "longitude": -91.477444,
+      "matchedRiverName": "Current River",
+      "distanceFeetToMatchedRiver": 66.28429412718093,
+      "nearestMatchedLatitude": 37.335249393537616,
+      "nearestMatchedLongitude": -91.47727983909344,
+      "nearestWaterwayName": "Current River",
+      "distanceFeetToNearestWaterway": 66.28429412718093,
+      "nearestWaterwayLatitude": 37.335249393537616,
+      "nearestWaterwayLongitude": -91.47727983909344,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 37.335123,
+      "nearestWaterbodyLongitude": -91.477444,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm",
+      "coordinateEvidenceDetail": "nps_ozark_pulltite_landing_aerial_20260918 nps-pulltite-current-river-water-entry: NPS lists Pulltite among popular Upper Current River put-ins and documents the Pulltite-to-Round-Spring float. Current Google Maps aerial imagery shows the County Road EE-356 approach and campground access reaching the Current River at 37.335123,-91.477444. The previous route point 37.33505,-91.47959 was a practical campground-area anchor about 403 feet from mapped water and 485 feet from the matched flowline. The selected water-entry coordinate is imagery-derived with 75-foot uncertainty, not a surveyed NPS point.",
+      "severity": "ok",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (nps_ozark_pulltite_landing_aerial_20260918 nps-pulltite-current-river-water-entry) on Current River; the 66 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

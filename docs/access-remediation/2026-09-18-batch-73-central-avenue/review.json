@@ -1,0 +1,46 @@
+{
+  "batch": 73,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Central Avenue / Sunset SW public boating access, Rio Grande Valley State Park, Albuquerque, New Mexico",
+  "affectedRoutes": [
+    "rio-grande-calabacillas-central",
+    "rio-grande-central-rio-bravo"
+  ],
+  "decision": "retain-the-published-public-access-area-coordinate-as-a-parking-carry-anchor-and-reclassify-the-suspicious-occurrence-to-review",
+  "decisionScope": "The City confirms public non-motorized boating access at Central Avenue on both banks and says paddlers must walk from parking to the river. The March 2025 City notice identifies the southwest Central Avenue bosque parking lot and a river access point there. Quiet Waters publishes the exact stored coordinate as the Central Avenue access GPS point after directions to the Sunset SW parking area. This verifies the public access area, but not the water-entry toe.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834
+    },
+    "publicOccurrences": 2,
+    "suspiciousOccurrences": 1,
+    "preReviewSuspiciousRoute": "rio-grande-central-rio-bravo",
+    "matchedFlowlineDistanceFeet": 792,
+    "mappedWaterDistanceFeet": 394,
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json",
+      "src/data/routes/new-mexico-albuquerque-rio-grande.ts",
+      "src/data/generated/route-access-registry.json"
+    ],
+    "from": {
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834
+    },
+    "to": {
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834
+    },
+    "movedFeet": 0,
+    "publicOccurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "accessAvailability": "public",
+    "controlId": "nm_cabq_central_avenue_public_access_anchor_20260918",
+    "rationale": "Added a City-backed public access-area control matched to the published parking/access coordinate. Renamed the pin so it no longer claims to be the water-entry edge and clarified route instructions to carry from the Sunset SW parking area to the current landing. The audit therefore preserves review status for the parking anchor instead of treating its distance from the mapped wet edge as a coordinate error."
+  },
+  "remainingUncertainty": "The source coordinate is a parking/access-area anchor rather than a surveyed water-edge point. City materials describe walking/carrying to the river and announced parking and river-access improvements in 2025, but the reviewed sources do not publish the landing toe coordinate or establish the current condition of the ramp. Inspect the carry and landing before use. A separate Rio Bravo endpoint on rio-grande-central-rio-bravo remains suspicious and was not part of this shared Central Avenue coordinate decision.",
+  "outcome": "One suspicious public endpoint moved to review across two shared routes with no coordinate move. The second Central Avenue occurrence was already review and remains review. Public suspicious endpoints fell from 52 to 51; inventory suspicious endpoints fell from 105 to 104."
+}

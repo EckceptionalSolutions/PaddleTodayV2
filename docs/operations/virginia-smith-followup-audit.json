@@ -1,0 +1,388 @@
+{
+  "state": "Virginia",
+  "routes": [
+    {
+      "routeId": "smith-river-philpott-bassett",
+      "routeName": "Smith River Philpott Dam Tailrace to Bassett",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry at the downstream endpoint",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "Philpott Dam Tailrace Access",
+          "latitude": 36.780576,
+          "longitude": -80.025937
+        },
+        "takeOut": {
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "latitude": 36.76992,
+          "longitude": -80.00147
+        },
+        "source": "https://www.henrycountyva.gov/DocumentCenter/View/1351/Rivers-and-Trails-Outdoor-Recreation-Plan-PDF"
+      },
+      "safety": {
+        "difficulty": "Class I-III",
+        "controls": [
+          "Philpott release changes",
+          "cold water",
+          "strainers",
+          "dam/tailwater",
+          "private and industrial banks",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current tailrace conditions."
+      },
+      "deduplication": "Distinct 6.4-mile tailwater section ending at Bassett; adjacent to, but not overlapping, Bassett-to-Great Road.",
+      "validation": {
+        "routeDataAudit": "passed",
+        "safetyAudit": "passed",
+        "corridorAudit": "passed",
+        "geometryManifest": "matched",
+        "accessRegistry": "no conflicts"
+      }
+    },
+    {
+      "routeId": "smith-river-great-road-fieldale",
+      "routeName": "Smith River Great Road to Fieldale",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "The Great Road River Access",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802
+        },
+        "takeOut": {
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328
+        },
+        "source": "https://www.visitmartinsville.com/listing/smith-river-access-fieldale/"
+      },
+      "safety": {
+        "difficulty": "Class I-II",
+        "controls": [
+          "Philpott release changes",
+          "cold water",
+          "industrial and private banks",
+          "strainers",
+          "Doe Run/Martinsville dam boundary",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct 3.3-mile Great Road-to-Fieldale section; separate from Bassett-to-Great Road and ends before Doe Run/Martinsville dam.",
+      "validation": {
+        "routeDataAudit": "passed",
+        "safetyAudit": "passed",
+        "corridorAudit": "passed",
+        "geometryManifest": "matched",
+        "accessRegistry": "no conflicts"
+      }
+    },
+    {
+      "routeId": "smith-river-fieldale-doe-run",
+      "routeName": "Smith River Fieldale to Doe Run",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328
+        },
+        "takeOut": {
+          "name": "Doe Run River Access",
+          "latitude": 36.6695026,
+          "longitude": -79.8867143
+        },
+        "source": "https://www.smithriverblueway.com/access-points"
+      },
+      "safety": {
+        "difficulty": "Class I / Class II features",
+        "controls": [
+          "Philpott release changes",
+          "cold water",
+          "Class II features",
+          "Martinsville dam boundary",
+          "private banks",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct approximately five-mile Fieldale-to-Doe Run section; ends at the last access before Martinsville Dam and does not overlap Great Road-to-Fieldale.",
+      "validation": {
+        "routeDataAudit": "pending local runner",
+        "safetyAudit": "pending local runner",
+        "corridorAudit": "pending local runner",
+        "geometryManifest": "pending local runner",
+        "accessRegistry": "pending local runner"
+      }
+    },
+    {
+      "routeId": "smith-river-south-martinsville-frith",
+      "routeName": "Smith River South Martinsville to Frith Drive",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "South Martinsville River Access",
+          "latitude": 36.660071,
+          "longitude": -79.879664
+        },
+        "takeOut": {
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262
+        },
+        "source": "https://www.smithriverblueway.com/access-points"
+      },
+      "safety": {
+        "difficulty": "Class I-II",
+        "controls": [
+          "below-Martinsville-dam boundary",
+          "Philpott release changes",
+          "cold water",
+          "rustic launch",
+          "strainers",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "South Martinsville is at Indian Heritage RV Park; verify private campground reservation, fees, and river-access status."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct 1.6-mile below-dam section; separated from Doe Run by the non-portageable Martinsville Dam.",
+      "validation": {
+        "routeDataAudit": "pending local runner",
+        "safetyAudit": "pending local runner",
+        "corridorAudit": "pending local runner",
+        "geometryManifest": "pending local runner",
+        "accessRegistry": "pending local runner"
+      }
+    },
+    {
+      "routeId": "smith-river-frith-sports-complex",
+      "routeName": "Smith River Frith Drive to Sports Complex",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262
+        },
+        "takeOut": {
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697
+        },
+        "source": "https://www.smithriverblueway.com/access-points"
+      },
+      "safety": {
+        "difficulty": "Class I-II",
+        "controls": [
+          "Philpott release changes",
+          "cold water",
+          "strainers",
+          "rustic Frith launch",
+          "event closures",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct three-mile Blueway section between Frith and the Sports Complex; adjacent to South Martinsville-Frith and Sports Complex-Marrowbone.",
+      "validation": {
+        "routeDataAudit": "pending local runner",
+        "safetyAudit": "pending local runner",
+        "corridorAudit": "pending local runner",
+        "geometryManifest": "pending local runner",
+        "accessRegistry": "pending local runner"
+      }
+    },
+    {
+      "routeId": "smith-river-sports-complex-marrowbone",
+      "routeName": "Smith River Sports Complex to Marrowbone Creek",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697
+        },
+        "takeOut": {
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886
+        },
+        "source": "https://www.smithriverblueway.com/access-points"
+      },
+      "safety": {
+        "difficulty": "Class I-III with Eggleston Falls",
+        "controls": [
+          "Eggleston Falls scout/portage",
+          "cold water",
+          "Philpott release changes",
+          "strainers",
+          "private banks",
+          "public access only"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct 2.4-mile section ending at Marrowbone before the adjacent Marrowbone-Mitchell segment; Eggleston Falls is explicitly disclosed.",
+      "validation": {
+        "routeDataAudit": "pending local runner",
+        "safetyAudit": "pending local runner",
+        "corridorAudit": "pending local runner",
+        "geometryManifest": "pending local runner",
+        "accessRegistry": "pending local runner"
+      }
+    },
+    {
+      "routeId": "smith-river-marrowbone-mitchell",
+      "routeName": "Smith River Marrowbone Creek to Mitchell Bridge",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "02072500",
+        "relationship": "direct same-river Bassett telemetry upstream of the section",
+        "threshold": "65-1400 cfs release context; no station-specific recreational threshold",
+        "thresholdSource": "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF"
+      },
+      "access": {
+        "putIn": {
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886
+        },
+        "takeOut": {
+          "name": "Mitchell Bridge River Access",
+          "latitude": 36.5978174,
+          "longitude": -79.7827387
+        },
+        "source": "https://www.smithriverblueway.com/access-points"
+      },
+      "safety": {
+        "difficulty": "Class I-II",
+        "controls": [
+          "Marrowbone Falls scout/portage",
+          "cold water",
+          "Philpott release changes",
+          "strainers",
+          "private banks",
+          "Mitchell last public access"
+        ]
+      },
+      "camping": {
+        "classification": "nearby_basecamp",
+        "rule": "No endpoint or on-route camping is claimed; use separately verified lawful lodging or a designated campground."
+      },
+      "imagery": {
+        "source": "https://commons.wikimedia.org/wiki/File:Smith_River_in_fog_Henry_County_Virginia.JPG",
+        "rights": "CC BY-SA 3.0",
+        "captionPosture": "Same-river context, not current conditions."
+      },
+      "deduplication": "Distinct 3.4-mile section ending at Mitchell Bridge, the last public Henry County access; no Morgan Ford endpoint is claimed.",
+      "validation": {
+        "routeDataAudit": "pending local runner",
+        "safetyAudit": "pending local runner",
+        "corridorAudit": "pending local runner",
+        "geometryManifest": "pending local runner",
+        "accessRegistry": "pending local runner"
+      }
+    }
+  ],
+  "sourceSet": [
+    "https://www.smithriverblueway.com/access-points",
+    "https://www.henrycountyva.gov/DocumentCenter/View/158/Smith-River-Blueway-Brochure-PDF",
+    "https://www.henrycountyva.gov/DocumentCenter/View/1351/Rivers-and-Trails-Outdoor-Recreation-Plan-PDF",
+    "https://www.visitmartinsville.com/listing/smith-river-access-bassett/",
+    "https://www.visitmartinsville.com/listing/smith-river-access-fieldale/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02072500/",
+    "https://www.visitmartinsville.com/listing/smith-river-access-doe-run/",
+    "https://www.visitmartinsville.com/listing/smith-river-access-south-martinsville/",
+    "https://www.smithriversportscomplex.com/about-the-srsc/crown-holdings-festival-grounds",
+    "https://www.americanwhitewater.org/content/River/view/river-detail/10186/main"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "state": "Colorado",
+  "prepared": "2026-09-20",
+  "purpose": "Fresh evidence audit for four Upper Colorado section routes added while expanding Colorado toward 50 public routes.",
+  "sourcePolicy": {
+    "access": "Current BLM recreation-site pages are the controlling endpoint-access evidence. Rancho Del Rio is explicitly treated as private fee access.",
+    "gauge": "Direct same-river USGS telemetry is retained for the Upper Colorado corridor: 09058000 for the Pumphouse/Radium block and 09060799 for the State Bridge/Catamount block.",
+    "flow": "Flow cues are conservative planning gates carried from existing route evidence; they are not presented as runnable guarantees.",
+    "camping": "Only designated BLM or explicitly private fee camping is described; day-use and no-camping endpoints are stated where applicable.",
+    "imagery": "Each route has a dedicated current BLM Recreation.gov image record and route-gallery entry.",
+    "deduplication": "Short sections are retained as separate named access-to-access options while the existing macro reaches remain published; each record states its downstream take-out boundary."
+  },
+  "sources": [
+    "https://www.blm.gov/visit/pumphouse-recreation-area",
+    "https://www.blm.gov/visit/radium-recreation-area",
+    "https://www.blm.gov/visit/state-bridge-recreation-site",
+    "https://www.blm.gov/visit/two-bridges",
+    "https://www.blm.gov/visit/catamount-bridge-boat-launch",
+    "https://www.blm.gov/visit/upper-colorado-river-recreation-area",
+    "https://www.coloradoriverrentals.com/river-information/",
+    "https://ranchodelrio.com/shuttles/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09058000/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09060799/"
+  ],
+  "routes": [
+    {
+      "id": "upper-colorado-pumphouse-radium",
+      "distanceMiles": 4.5,
+      "difficulty": "Class II-III",
+      "scoreEligibility": "scored",
+      "gauge": "USGS 09058000",
+      "flowGate": "900 cfs minimum-only planning floor",
+      "putIn": "BLM Pumphouse Recreation Area",
+      "takeOut": "BLM Radium Recreation Area",
+      "camping": "Designated endpoint camping at Pumphouse and Radium; reservation/fee compliance required",
+      "highClassHandling": "Eye of the Needle and high-flow holes above approximately 4,000 cfs are called out; same-day scouting and rescue readiness required"
+    },
+    {
+      "id": "upper-colorado-radium-rancho",
+      "distanceMiles": 6.5,
+      "difficulty": "Class II-III",
+      "scoreEligibility": "scored",
+      "gauge": "USGS 09058000",
+      "flowGate": "900 cfs minimum-only planning floor",
+      "putIn": "BLM Radium Recreation Area",
+      "takeOut": "Rancho Del Rio private fee river access",
+      "camping": "Designated BLM Radium camping; Rancho Del Rio private fee campground subject to operator terms",
+      "highClassHandling": "Red Eye and Class III Yarmony named; private access, PFD, cold-water, and mandatory Rancho take-out controls"
+    },
+    {
+      "id": "upper-colorado-state-bridge-two-bridges",
+      "distanceMiles": 4.7,
+      "difficulty": "Class I-II",
+      "scoreEligibility": "scored",
+      "gauge": "USGS 09060799",
+      "flowGate": "700-9,000 cfs bounds; 1,200-7,000 cfs preferred planning band",
+      "putIn": "BLM State Bridge Recreation Site",
+      "takeOut": "BLM Two Bridges River Access",
+      "camping": "Day use only at both endpoints; Two Bridges explicitly prohibits camping",
+      "highClassHandling": "Moving-water, cold-water, bridge, wood, sediment-covered-ramp, and mandatory Two Bridges take-out controls"
+    },
+    {
+      "id": "upper-colorado-two-bridges-catamount",
+      "distanceMiles": 10.1,
+      "difficulty": "Class I-II",
+      "scoreEligibility": "scored",
+      "gauge": "USGS 09060799",
+      "flowGate": "700-9,000 cfs bounds; 1,200-7,000 cfs preferred planning band",
+      "putIn": "BLM Two Bridges River Access",
+      "takeOut": "BLM Catamount Bridge Boat Launch",
+      "camping": "Two Bridges day use only; designated Catamount campsites with seasonal stay limits",
+      "highClassHandling": "Moving-water, cold-water, seasonal parking, and mandatory Catamount take-out before harder downstream water"
+    }
+  ],
+  "validation": {
+    "routeDataAudit": "passed",
+    "safetyAudit": "0 issues for 1,833 scored routes",
+    "photoAudit": "0 placeholders; 4 dedicated BLM route photos",
+    "accessRegistry": "4,081 entries; 0 conflicts",
+    "routeOverlapAudit": "Existing corridor-overlap findings are expected for section/macro pairs and are documented as consolidation review, not duplicate endpoint pairs.",
+    "geometryAudit": "Existing combined 40 MiB asset-budget failure remains infrastructure-only; route data audits pass."
+  }
+}

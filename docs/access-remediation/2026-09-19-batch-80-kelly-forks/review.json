@@ -1,0 +1,88 @@
+{
+  "batch": 80,
+  "reviewDate": "2026-09-19",
+  "location": "Kelly Forks Campground / river-left landing, North Fork Clearwater River and Kelly Creek, Idaho",
+  "selectedCoordinate": {
+    "latitude": 46.7167,
+    "longitude": -115.25515
+  },
+  "correctedCoordinate": {
+    "latitude": 46.7167,
+    "longitude": -115.25515
+  },
+  "routeIds": [
+    "kelly-creek-moose-kelly-forks",
+    "north-fork-clearwater-hidden-kelly"
+  ],
+  "decision": "retain-and-extend-shared-kelly-forks-access-area-control",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "Remote Forest Service campground/work-center and river-left landing access-area anchor; not surveyed wet-toe coordinate.",
+  "accessStatus": "public",
+  "accessCondition": "Remote and seasonal. Confirm Forest Service road opening, campground status, parking, carry, and exact river landing before travel.",
+  "evidence": [
+    {
+      "claim": "American Whitewater identifies Kelly Forks Access at the Kelly Creek / North Fork Clearwater confluence, with a campground on river left and Forest Service work center on river right.",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/543/main",
+      "sourceType": "paddling reach and access guide"
+    },
+    {
+      "claim": "The North Fork Clearwater access guide identifies Kelly Forks Campground as the standard access for the headwaters reach.",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/542/main",
+      "sourceType": "paddling reach and access guide"
+    },
+    {
+      "claim": "Forest Service information corroborates the Kelly Forks work center and remote seasonal access conditions.",
+      "sourceUrl": "https://www.fs.usda.gov/r01/nezperce-clearwater/recreation/kelly-forks-cabin",
+      "sourceType": "Forest Service recreation page"
+    },
+    {
+      "claim": "The selected take-out was 306 feet from the named Kelly Creek flowline and 246 feet from mapped water before the route-scoped control was extended.",
+      "sourceUrl": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-before-public-cache-only.json",
+      "sourceType": "frozen route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "kelly-creek-moose-kelly-forks": {
+      "kellyForksTakeOutSeverity": "review",
+      "sourceIssues": 0
+    },
+    "north-fork-clearwater-hidden-kelly": {
+      "kellyForksTakeOutSeverity": "review",
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 45,
+      "suspiciousAfter": 44,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3893,
+        "suspicious": 44,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 98,
+      "suspiciousAfter": 97,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4197,
+        "suspicious": 97,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1228
+    }
+  }
+}

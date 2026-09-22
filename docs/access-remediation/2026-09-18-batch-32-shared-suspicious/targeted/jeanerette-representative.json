@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:19:39.721Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-new-iberia-jeanerette",
+      "routeName": "Bayou Teche",
+      "reach": "New Iberia Kayak Park dock (108 Duperier Ave) to Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge)",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge)",
+      "latitude": 29.918431,
+      "longitude": -91.66681,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 223.18246673849546,
+      "nearestMatchedLatitude": 29.91879518927037,
+      "nearestMatchedLongitude": -91.6662428688873,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 223.18246673849546,
+      "nearestWaterwayLatitude": 29.91879518927037,
+      "nearestWaterwayLongitude": -91.6662428688873,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 93.1557853610337,
+      "nearestWaterbodyLatitude": 29.918596717470884,
+      "nearestWaterbodyLongitude": -91.66658585941676,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 93.1557853610337,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "coordinateEvidenceDetail": "jeanerette_tj_viator_city_park_dock_aerial_20260918 jeanerette-tj-viator-city-park-dock: TECHE Project lists the official Bayou Teche National Paddle Trail dock at T.J. Viator City Park off Tarleton Street. The stored point was about 482 feet from the matched NHD flowline and 152 feet from mapped-water geometry. Current Google Maps aerial imagery shows the park dock/landing at the Bayou edge; the selected point 29.918431,-91.666810 is the visible landing coordinate. The image-derived point has 50-foot uncertainty and is not a surveyed TECHE coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (jeanerette_tj_viator_city_park_dock_aerial_20260918 jeanerette-tj-viator-city-park-dock) on Bayou Teche; the 223 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    },
+    {
+      "routeId": "bayou-teche-new-iberia-jeanerette",
+      "routeName": "Bayou Teche",
+      "reach": "New Iberia Kayak Park dock (108 Duperier Ave) to Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge)",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "New Iberia Kayak Park dock (108 Duperier Ave)",
+      "latitude": 30.0060046,
+      "longitude": -91.8163956,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 58.00379258985752,
+      "nearestMatchedLatitude": 30.005903326581087,
+      "nearestMatchedLongitude": -91.81653713766599,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 58.00379258985752,
+      "nearestWaterwayLatitude": 30.005903326581087,
+      "nearestWaterwayLongitude": -91.81653713766599,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 30.0060046,
+      "nearestWaterbodyLongitude": -91.8163956,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

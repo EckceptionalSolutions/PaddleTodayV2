@@ -1,0 +1,13 @@
+{
+  "batch": "B93",
+  "selectedAt": "2026-09-19",
+  "routeId": "susquehanna-river-afton-nineveh",
+  "routeName": "Susquehanna River",
+  "reach": "Afton Route 41 access to Nineveh Bridge Susquehanna access",
+  "state": "New York",
+  "endpoint": "takeOut",
+  "endpointName": "NYSDEC Nineveh Bridge Susquehanna access",
+  "storedCoordinate": { "latitude": 42.19344, "longitude": -75.59946 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 434.70565277234346, "nearestWaterwayName": "Susquehanna River", "distanceFeetToMappedWater": 213.70762589182547, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "connected-network" },
+  "selectionReason": "NYSDEC's current Broome County boat-launch directory publishes the exact stored coordinate for Ninevah Bridge as a DEC hard-surface launch with parking for eight cars and trailers. NYSDEC's Susquehanna River access page and fishing brochure independently identify the concrete/hard-surface ramp and bank fishing at the northeast corner of the Nineveh bridge. Retain the published launch coordinate as an authoritative access-area anchor and do not force it onto the NHD river flowline."
+}

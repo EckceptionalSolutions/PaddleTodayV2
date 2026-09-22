@@ -1,0 +1,47 @@
+{
+  "batch": 50,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Sabine Street Access, Buffalo Bayou, Houston, Texas",
+  "affectedRoutes": [
+    "buffalo-bayou-sabine-street-allens-landing",
+    "buffalo-bayou-woodway-sabine-street"
+  ],
+  "decision": "retain-the-unchanged-TPWD-coordinate-as-the-public-access-site-anchor; exact water-entry toe remains unverified",
+  "decisionScope": "Texas Parks and Wildlife Department's current Buffalo Bayou Paddling Trail page names Sabine Street Access as a trail access point and publishes the exact shared route coordinate, 29.7622,-95.3736. The page places this segment between Eleanor Tinsley Park, Sabine Street, and Allen's Landing and estimates about one hour for the Sabine-to-Allen's float. This primary source verifies the site and route identity but does not claim the GPS is a survey-grade launch toe. I retained the published point, registered an authoritative access anchor for both route IDs, and let the coordinate audit express its remaining waterline offset as review.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 29.7622, "longitude": -95.3736 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 329.0094,
+    "mappedWaterDistanceFeet": 267.9798,
+    "endpointOnWaterbody": false,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 29.7622, "longitude": -95.3736 },
+    "to": { "latitude": 29.7622, "longitude": -95.3736 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "tpwd_buffalo_bayou_sabine_access",
+    "rationale": "TPWD publishes this exact named public access point and coordinate. The source supports the access site but does not georeference the current water-entry toe, so the coordinate remains an access-site anchor and both endpoint occurrences stay review."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeet": 329.0094,
+    "mappedWaterDistanceFeet": 267.9798,
+    "endpointOnWaterbody": false,
+    "interpretation": "The authoritative source verifies the public access site, which changes the classification from suspicious to review without inventing a more precise coordinate. Verify the current carry and water entry before launching."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "buffalo-bayou-sabine-street-allens-landing",
+      "file": "targeted-after-sabine-allens.json",
+      "result": "Both endpoints review; Sabine matches the TPWD authoritative access anchor; source issues 0."
+    },
+    {
+      "routeId": "buffalo-bayou-woodway-sabine-street",
+      "file": "targeted-after-woodway-sabine.json",
+      "result": "All four entries review; Sabine matches the TPWD anchor, Woodway retains its existing TPWD anchor, and source issues 0."
+    }
+  ],
+  "outcome": "Two suspicious public endpoint occurrences moved to review on exact official source evidence. No coordinate changed; exact current water entry remains open."
+}

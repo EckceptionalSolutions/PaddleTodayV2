@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:28:38.621Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-charenton-baldwin",
+      "routeName": "Bayou Teche",
+      "reach": "Charenton official dock access area (3726 Chitimacha Trail) to Baldwin Charenton Road Park and Recreational Complex dock",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+      "latitude": 29.833138,
+      "longitude": -91.542615,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 124.01342557565086,
+      "nearestMatchedLatitude": 29.833230394651018,
+      "nearestMatchedLongitude": -91.54223788820795,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 124.01342557565086,
+      "nearestWaterwayLatitude": 29.833230394651018,
+      "nearestWaterwayLongitude": -91.54223788820795,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 29.833138,
+      "nearestWaterbodyLongitude": -91.542615,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "bayou-teche-charenton-baldwin",
+      "routeName": "Bayou Teche",
+      "reach": "Charenton official dock access area (3726 Chitimacha Trail) to Baldwin Charenton Road Park and Recreational Complex dock",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+      "latitude": 29.8859107,
+      "longitude": -91.5351294,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 98.03745192489336,
+      "nearestMatchedLatitude": 29.8861185739493,
+      "nearestMatchedLongitude": -91.53532582868296,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 98.03745192489336,
+      "nearestWaterwayLatitude": 29.8861185739493,
+      "nearestWaterwayLongitude": -91.53532582868296,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 29.8859107,
+      "nearestWaterbodyLongitude": -91.5351294,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.openstreetmap.org/node/12990648902",
+      "coordinateEvidenceDetail": "la_charenton_teche_dock osm-node-12990648902-charenton-paddle-dock: The current TECHE Project dock directory lists Charenton mile 91 at the official dock at 3726 Chitimacha Trail. OpenStreetMap node 12990648902 is named Charenton Bayou Teche Paddle Trail Dock, tagged waterway=dock, and links to techeproject.org. The mapped dock point is 29.8859107,-91.5351294. This is mapped feature geometry, not a survey; confirm the public approach and dock condition.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (la_charenton_teche_dock osm-node-12990648902-charenton-paddle-dock) on Bayou Teche; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

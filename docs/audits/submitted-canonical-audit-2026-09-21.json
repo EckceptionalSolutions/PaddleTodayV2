@@ -1,0 +1,238 @@
+{
+  "observedAt": "2026-09-21T20:25:47.801669+00:00",
+  "reportDate": "2026-09-17",
+  "category": "submitted alternate canonical",
+  "rows": [
+    {
+      "url": "https://paddletoday.com/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/bark-river-bark-river-park-delafield/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/bark-river-bark-river-park-delafield/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/pine-river-richland-center-canoe-port-1-port-4/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/pine-river-richland-center-canoe-port-1-port-4/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/turtle-creek-school-section-east-creek/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/turtle-creek-school-section-east-creek/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/hay-river-county-ff-highway-25/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/hay-river-county-ff-highway-25/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/by-river/french-creek/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/by-river/french-creek/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/mississippi-river-county-road-72-county-line/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/mississippi-river-county-road-72-county-line/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/crow-wing-river-green-oak-lake-placid/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/crow-wing-river-green-oak-lake-placid/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/red-lake-river-huot-crookston/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/red-lake-river-huot-crookston/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/des-moines-river-highway-30-sportsman/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/des-moines-river-highway-30-sportsman/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/tradewater-river-fishtrap-granger-landing/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/tradewater-river-fishtrap-granger-landing/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/allen-creek-highway-59-old-highway-92/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/allen-creek-highway-59-old-highway-92/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/winnebago-river-fertile-mason-city/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/winnebago-river-fertile-mason-city/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/kansas-river-ogden-st-george/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/kansas-river-ogden-st-george/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/by-river/cottonwood-river/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/by-river/cottonwood-river/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/pine-river-cross-lake-rock-dam/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/pine-river-cross-lake-rock-dam/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/upper-iowa-river-iverson-bridge-kumpf/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/upper-iowa-river-iverson-bridge-kumpf/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/des-moines-river-douds-austin-park/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/des-moines-river-douds-austin-park/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/mecan-river-cumberland-11th-road/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/mecan-river-cumberland-11th-road/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/yellow-breeches-creek-mccormick-park-liberty-forge/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/yellow-breeches-creek-mccormick-park-liberty-forge/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/north-fork-white-river-north-fork-blair/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/north-fork-white-river-north-fork-blair/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/sauk-river-sauk-centre-dam-mill-pond/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/sauk-river-sauk-centre-dam-mill-pond/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/sheboygan-river-rochester-esslingen/",
+      "status": "404",
+      "canonical": "https://paddletoday.com/404/",
+      "inCurrentSitemap": false,
+      "noindex": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/west-fork-white-river-canoe-country-edgewater/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/west-fork-white-river-canoe-country-edgewater/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/mississippi-river-montissippi-norin/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/mississippi-river-montissippi-norin/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/big-fork-river-highway-6-north-johnson/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/big-fork-river-highway-6-north-johnson/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/cottonwood-river-highway-4-county-road-10/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/cottonwood-river-highway-4-county-road-10/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/susquehanna-river-canal-park-wetlands/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/susquehanna-river-canal-park-wetlands/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/boone-river-bells-mill-boone-forks/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/boone-river-bells-mill-boone-forks/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/susquehanna-river-towanda-terrytown/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/susquehanna-river-towanda-terrytown/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/red-lake-river-crookston-fisher/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/red-lake-river-crookston-fisher/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    },
+    {
+      "url": "https://paddletoday.com/rivers/baraboo-river-rock-springs-north-freedom/",
+      "status": "404",
+      "canonical": "https://paddletoday.com/404/",
+      "inCurrentSitemap": false,
+      "noindex": true
+    },
+    {
+      "url": "https://paddletoday.com/rivers/shell-rock-river-frank-hall-st-nicholas/",
+      "status": "200",
+      "canonical": "https://paddletoday.com/rivers/shell-rock-river-frank-hall-st-nicholas/",
+      "inCurrentSitemap": true,
+      "noindex": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "batch": "2026-09-17-batch-22",
+  "providerCountAfterSourceEdit": 560,
+  "addedProviderIds": [
+    "tx_guadalupe_state_park_paddling_access_anchor",
+    "id_willow_creek_campground_access_anchor",
+    "sd_mary_jo_wegner_hwy42_access_anchor",
+    "id_twin_falls_park_boat_ramp_access_anchor",
+    "mt_chief_looking_glass_fas_access_anchor"
+  ],
+  "reclassifiedProviderIds": [
+    "nissequogue_river_paul_given_state_park"
+  ],
+  "notes": "NY control remains at the three official launch-area coordinates but is now categorized as authoritative access-area anchor; three held sites did not receive positive access controls."
+}

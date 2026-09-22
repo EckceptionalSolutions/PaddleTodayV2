@@ -1,0 +1,42 @@
+{
+  "batch": "B114",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "priest-river-dickensheet-white-tail",
+  "endpoint": "takeOut",
+  "endpointName": "White Tail Butte Landing",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 344.36418646246807,
+    "distanceFeetToMappedWater": 275.4664862045183
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 344.36418646246807,
+    "distanceFeetToMappedWater": 275.4664862045183,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "The USFS Priest Lake Ranger District guide documents White Tail Butte Landing as public Priest River access with undeveloped parking. Retain the stored point as the conditional landing-area anchor; the 344-foot connected-network offset reflects parking/carry and shoreline context.",
+  "condition": "Confirm current Forest Service access, undeveloped parking, carry path, river level, and seasonal or local restrictions before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 11,
+      "suspiciousAfter": 10,
+      "reviewBefore": 3926,
+      "reviewAfter": 3927
+    },
+    "inventory": {
+      "suspiciousBefore": 64,
+      "suspiciousAfter": 63,
+      "reviewBefore": 4230,
+      "reviewAfter": 4231
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1256,
+      "authoritativeAccessAfter": 1257,
+      "conflictsAfter": 0
+    }
+  }
+}

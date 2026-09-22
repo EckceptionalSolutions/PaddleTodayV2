@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:58:33.591Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 0,
+    "over-300ft": 2,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Idaho",
+      "name": "Troutdale Campground riverside access area",
+      "latitude": 43.7162,
+      "longitude": -115.6226,
+      "distanceFeetToMappedWater": 353.4893868548079,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "putIn",
+          "endpointName": "Troutdale Campground riverside access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Willow Creek Campground access-area anchor",
+      "latitude": 43.6452,
+      "longitude": -115.7517,
+      "distanceFeetToMappedWater": 337.10324796046774,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "takeOut",
+          "endpointName": "Willow Creek Campground access-area anchor",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "boise-river-troutdale-willow",
+      "routeName": "Boise River",
+      "reach": "Troutdale Campground to Willow Creek Campground",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Willow Creek Campground access-area anchor",
+      "latitude": 43.6452,
+      "longitude": -115.7517,
+      "matchedRiverName": "Boise River",
+      "distanceFeetToMatchedRiver": 337.10324796046774,
+      "nearestMatchedLatitude": 43.646124,
+      "nearestMatchedLongitude": -115.751689,
+      "nearestWaterwayName": "Willow Creek",
+      "distanceFeetToNearestWaterway": 337.10324796046774,
+      "nearestWaterwayLatitude": 43.646124,
+      "nearestWaterwayLongitude": -115.751689,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 377.32290624159634,
+      "nearestWaterbodyLatitude": 43.64432,
+      "nearestWaterbodyLongitude": -115.750949,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 337.10324796046774,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 337 ft of a topology-connected NHD river trace that includes Boise River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "boise-river-troutdale-willow",
+      "routeName": "Boise River",
+      "reach": "Troutdale Campground to Willow Creek Campground",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Troutdale Campground riverside access area",
+      "latitude": 43.7162,
+      "longitude": -115.6226,
+      "matchedRiverName": "Boise River",
+      "distanceFeetToMatchedRiver": 397.7892430880308,
+      "nearestMatchedLatitude": 43.71727998111751,
+      "nearestMatchedLongitude": -115.6228078634799,
+      "nearestWaterwayName": "Middle Fork Boise River",
+      "distanceFeetToNearestWaterway": 397.7893351455912,
+      "nearestWaterwayLatitude": 43.71728008345492,
+      "nearestWaterwayLongitude": -115.62280684563764,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 353.4893868548079,
+      "nearestWaterbodyLatitude": 43.7169807227809,
+      "nearestWaterbodyLongitude": -115.62339400224933,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 353.4893868548079,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://content.govdelivery.com/attachments/USDAFSR4/2020/04/06/file_attachments/1420746/0402-00-58%20COVID19%20Grimes-Addl%20Developed%20Rec%20Sites%20Order%20SIGNED.pdf",
+      "coordinateEvidenceDetail": "id_usfs_troutdale_boise_river_access_20260919 boise-troutdale-campground-riverside-access: USDA Forest Service Boise National Forest records identify Troutdale Campground on FS Road 268, and the USGS Sheep Creek quadrangle places Troutdale Campground along the Middle Fork Boise River. Current campground guidance describes riverside fishing, swimming, and walk-down access. Retain the stored route point as a conditional campground/riverside access anchor; the 398-foot flowline offset reflects campground/shoreline context.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_usfs_troutdale_boise_river_access_20260919 boise-troutdale-campground-riverside-access) on Boise River; access is conditional (Confirm current Boise National Forest campground season, FS Road 268 condition, parking, bank carry, river level, and local fishing/swimming safety before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

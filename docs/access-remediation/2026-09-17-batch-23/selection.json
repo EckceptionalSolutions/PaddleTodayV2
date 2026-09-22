@@ -1,0 +1,354 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites from the cache-only access-quality queue at or after rank 258, excluding sites frozen in Batches 1–22 and rows without a currently public unwithheld route. Current publication eligibility is publicRivers minus generated coordinate-withheld route IDs; rank is prioritization only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "priorFrozenSiteCount": 210,
+  "currentWithheldRouteCount": 169,
+  "queueStartRank": 258,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntries": [
+    {
+      "rank": 262,
+      "name": "Creekside Park",
+      "routes": [
+        "minnehaha-creek-grays-bay-longfellow-lagoon"
+      ]
+    },
+    {
+      "rank": 267,
+      "name": "Frog Pond access",
+      "routes": [
+        "potlatch-river-frog-pond-kendrick"
+      ]
+    }
+  ],
+  "skippedPriorSites": [],
+  "sites": [
+    {
+      "state": "Pennsylvania",
+      "name": "Ramcat Launch, Ohiopyle State Park",
+      "latitude": 39.82632,
+      "longitude": -79.37891,
+      "distanceFeetToMappedWater": 323.7098003151944,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "youghiogheny-river-middle-ramcat-ohiopyle",
+          "endpoint": "putIn",
+          "endpointName": "Ramcat Launch, Ohiopyle State Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 258,
+      "eligibleUnwithheldRoutes": [
+        "youghiogheny-river-middle-ramcat-ohiopyle"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Concrete CCC Bridge Put-In",
+      "latitude": 44.06972,
+      "longitude": -111.25917,
+      "distanceFeetToMappedWater": 322.3972432107128,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fall-river-concrete-ccc-kirkham",
+          "endpoint": "putIn",
+          "endpointName": "Concrete CCC Bridge Put-In",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 259,
+      "eligibleUnwithheldRoutes": [
+        "fall-river-concrete-ccc-kirkham"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+      "latitude": 42.290382,
+      "longitude": -75.480797,
+      "distanceFeetToMappedWater": 322.1392048932539,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "susquehanna-river-bainbridge-afton",
+          "endpoint": "putIn",
+          "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 260,
+      "eligibleUnwithheldRoutes": [
+        "susquehanna-river-bainbridge-afton"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Auger Falls Heritage Park Put-In",
+      "latitude": 42.6211,
+      "longitude": -114.5131,
+      "distanceFeetToMappedWater": 321.20370046160025,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-auger-falls-park",
+          "endpoint": "putIn",
+          "endpointName": "Auger Falls Heritage Park Put-In",
+          "severity": "review"
+        }
+      ],
+      "rank": 261,
+      "eligibleUnwithheldRoutes": [
+        "snake-river-auger-falls-park"
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Bunker Hill Road Gunpowder access",
+      "latitude": 39.60945583472603,
+      "longitude": -76.67235868652139,
+      "distanceFeetToMappedWater": 317.98875704393254,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "Bunker Hill Road Gunpowder access",
+          "severity": "review"
+        }
+      ],
+      "rank": 263,
+      "eligibleUnwithheldRoutes": [
+        "gunpowder-falls-masemore-monkton"
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "name": "Rock Hill River Park carry-in launch (water-entry edge)",
+      "latitude": 34.95701,
+      "longitude": -80.951471,
+      "distanceFeetToMappedWater": 315.3372255071285,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catawba-river-fort-mill-rock-hill",
+          "endpoint": "takeOut",
+          "endpointName": "Rock Hill River Park carry-in launch (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "catawba-river-rock-hill-landsford",
+          "endpoint": "putIn",
+          "endpointName": "Rock Hill River Park carry-in launch (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "catawba-river-rock-hill-sc9",
+          "endpoint": "putIn",
+          "endpointName": "Rock Hill River Park carry-in launch (water-entry edge)",
+          "severity": "unknown"
+        }
+      ],
+      "rank": 264,
+      "eligibleUnwithheldRoutes": [
+        "catawba-river-rock-hill-landsford",
+        "catawba-river-rock-hill-sc9"
+      ]
+    },
+    {
+      "state": "Florida",
+      "name": "Peacock Slough River Camp landing (water-entry edge)",
+      "latitude": 30.1015,
+      "longitude": -83.136167,
+      "distanceFeetToMappedWater": 312.5764093475572,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "suwannee-river-dowling-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-gibson-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-holton-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-lafayette-blue-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-peacock-slough-adams-tract",
+          "endpoint": "putIn",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-spirit-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-state-park-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-stephen-foster-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "suwannee-river-woods-ferry-peacock-slough",
+          "endpoint": "takeOut",
+          "endpointName": "Peacock Slough River Camp landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 265,
+      "eligibleUnwithheldRoutes": [
+        "suwannee-river-dowling-peacock-slough",
+        "suwannee-river-gibson-peacock-slough",
+        "suwannee-river-holton-peacock-slough",
+        "suwannee-river-lafayette-blue-peacock-slough",
+        "suwannee-river-peacock-slough-adams-tract",
+        "suwannee-river-spirit-peacock-slough",
+        "suwannee-river-state-park-peacock-slough",
+        "suwannee-river-stephen-foster-peacock-slough",
+        "suwannee-river-woods-ferry-peacock-slough"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Germanium carry-in access at Brookview Park",
+      "latitude": 45.2826032,
+      "longitude": -93.4079762,
+      "distanceFeetToMappedWater": 310.15823842561826,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rum-river-germanium-south-county-park",
+          "endpoint": "putIn",
+          "endpointName": "Germanium carry-in access at Brookview Park",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "rum-river-north-county-germanium",
+          "endpoint": "takeOut",
+          "endpointName": "Germanium carry-in access at Brookview Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 266,
+      "eligibleUnwithheldRoutes": [
+        "rum-river-germanium-south-county-park",
+        "rum-river-north-county-germanium"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Meadow Creek Campground Take-Out",
+      "latitude": 48.81987,
+      "longitude": -116.14733,
+      "distanceFeetToMappedWater": 309.4796852318125,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "moyie-river-twin-bridges-meadow-creek",
+          "endpoint": "takeOut",
+          "endpointName": "Meadow Creek Campground Take-Out",
+          "severity": "review"
+        }
+      ],
+      "rank": 268,
+      "eligibleUnwithheldRoutes": [
+        "moyie-river-twin-bridges-meadow-creek"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Johnson Creek Airport access staging point",
+      "latitude": 44.911722,
+      "longitude": -115.485528,
+      "distanceFeetToMappedWater": 306.88409985035264,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "johnson-creek-yellow-pine-airport-gauge",
+          "endpoint": "putIn",
+          "endpointName": "Johnson Creek Airport access staging point",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 269,
+      "eligibleUnwithheldRoutes": [
+        "johnson-creek-yellow-pine-airport-gauge"
+      ]
+    }
+  ]
+}

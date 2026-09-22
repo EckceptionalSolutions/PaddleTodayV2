@@ -1,0 +1,26 @@
+{
+  "batch": "2026-09-17-batch-07",
+  "checkedAt": "2026-09-17",
+  "checks": {
+    "frozenSelectionCount": { "status": "passed", "expected": 10, "actual": 10 },
+    "sourceSnapshotHashes": { "status": "passed", "detail": "The verifier checks all 13 successful snapshots against their recorded SHA-256 hashes. Two rejected source retrievals remain documented as failed attempts, not evidence." },
+    "controlRegistryJson": { "status": "passed", "detail": "Controls JSON parses; the Greer map control points to the accepted Eleven Point map snapshot and its published access coordinates." },
+    "editedTypeScriptSyntax": { "status": "passed", "detail": "TypeScript parser reported no syntax diagnostics in all 10 edited TypeScript files." },
+    "routeCoordinateCopies": { "status": "passed", "detail": "Verifier confirms the five route and seven trip-detail Greer coordinate copies, removal of the rapid scout marker, matching Riverside anchor labels, and explicit Fisherman's Park launch uncertainty." },
+    "routeHolds": { "status": "passed", "expectedBatchRoutes": 8, "actualBatchRoutes": 8 },
+    "withheldRouteManifest": { "status": "passed", "routeCount": 134, "detail": "Generated from the 126 existing withheld routes plus eight Batch 07 dependencies." },
+    "batchVerifier": { "status": "passed", "command": "node docs/access-remediation/2026-09-17-batch-07/verify.mjs" },
+    "routeTypecheck": { "status": "blocked", "detail": "The workspace still lacks @paddletoday/api-contract; the prior batch recorded cascading contract-type diagnostics. Batch 07 source syntax is independently verified." },
+    "targetedVitest": { "status": "blocked", "detail": "The workspace still lacks @jridgewell/sourcemap-codec, which prevented Vitest startup in Batch 06." },
+    "fullQualityAudit": { "status": "blocked", "detail": "The workspace still lacks @paddletoday/geo; the cached full audit remains stale and is used only to prioritize research." },
+    "canonicalGeometry": { "status": "blocked", "detail": "The missing @paddletoday/geo dependency prevents route geometry regeneration and inspection; eight dependent routes remain withheld." },
+    "servedCatalogAssembly": { "status": "blocked", "detail": "The missing @paddletoday/geo dependency prevents served-catalog assembly. All eight dependent routes remain in the generated withheld manifest." },
+    "accessRegistryGeneration": { "status": "not-run", "detail": "Run only after a fresh full quality audit per the remediation runbook; do not feed the stale cached audit to the registry generator." }
+  },
+  "knownBlockers": [
+    "@paddletoday/geo is absent, blocking the full audit, canonical geometry generation, and served-catalog assembly.",
+    "@paddletoday/api-contract is absent, blocking route typechecking.",
+    "@jridgewell/sourcemap-codec is absent, preventing Vitest startup."
+  ],
+  "publicationState": "Batch 07 source decisions and holds are recorded. Keep the eight dependent routes withheld until corrected geometry is regenerated and inspected, the served catalog is rebuilt, and held routes are confirmed absent from public bundles."
+}

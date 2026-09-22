@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:49:34.594Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "buffalo-river-erbie-hasty",
+      "routeName": "Buffalo River",
+      "reach": "Erbie to Hasty",
+      "state": "Arkansas",
+      "endpoint": "putIn",
+      "endpointName": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779,
+      "matchedRiverName": "Buffalo River",
+      "distanceFeetToMatchedRiver": 148.32475106538814,
+      "nearestMatchedLatitude": 36.071185,
+      "nearestMatchedLongitude": -93.211862,
+      "nearestWaterwayName": "Buffalo River",
+      "distanceFeetToNearestWaterway": 148.32475106538814,
+      "nearestWaterwayLatitude": 36.071185,
+      "nearestWaterwayLongitude": -93.211862,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 41.23669758118814,
+      "nearestWaterbodyLatitude": 36.07088869019247,
+      "nearestWaterbodyLongitude": -93.21172626876378,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 41.23669758118814,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+      "coordinateEvidenceDetail": "nps_buffalo_erbie_river_landing_aerial_20260918 nps-erbie-buffalo-river-water-entry: NPS lists Erbie as a designated Buffalo River access, and the NPS campground/access information supports the public Erbie site. Its published 36.070346,-93.211886 point is a campground/access-area anchor inland from the river. Current Google Maps aerial imagery shows the approach reaching the Buffalo River at 36.070784,-93.211779; this water-entry coordinate is imagery-derived with 75-foot uncertainty and is not a surveyed NPS coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (nps_buffalo_erbie_river_landing_aerial_20260918 nps-erbie-buffalo-river-water-entry) on Buffalo River; the 148 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    },
+    {
+      "routeId": "buffalo-river-erbie-hasty",
+      "routeName": "Buffalo River",
+      "reach": "Erbie to Hasty",
+      "state": "Arkansas",
+      "endpoint": "takeOut",
+      "endpointName": "Hasty river access / Chimney Rock Bluff take-out",
+      "latitude": 36.008993,
+      "longitude": -93.08242,
+      "matchedRiverName": "Buffalo River",
+      "distanceFeetToMatchedRiver": 71.92341948488748,
+      "nearestMatchedLatitude": 36.00917411353712,
+      "nearestMatchedLongitude": -93.0823237201178,
+      "nearestWaterwayName": "Buffalo River",
+      "distanceFeetToNearestWaterway": 71.92341948488748,
+      "nearestWaterwayLatitude": 36.00917411353712,
+      "nearestWaterwayLongitude": -93.0823237201178,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 19.98654445495146,
+      "nearestWaterbodyLatitude": 36.00904578305093,
+      "nearestWaterbodyLongitude": -93.08240185834651,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 19.98654445495146,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 20 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

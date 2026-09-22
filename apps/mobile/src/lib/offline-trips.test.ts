@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import type { RiverDetailApiResult, RiverGeometryResponse } from '@paddletoday/api-contract';
-import { downloadOfflineTrip, listOfflineTrips, loadOfflineTrip, removeOfflineTrip, retryOfflineGeometry } from './offline-trips';
+import { downloadOfflineTrip, listOfflineTrips, loadOfflineTrip, removeOfflineTrip, retryOfflineGeometry, updateOfflineTripDraft } from './offline-trips';
 import { buildOfflineTripSegment, selectedSegmentDistance } from './offline-trip-segment';
+import { compareOfflineTripDraft } from './offline-trip-freshness';
 import type { TripDraft } from './trip-drafts';
 
 function memory() {
@@ -54,8 +55,8 @@ describe('offline trip packets', () => {
     expect(packet.missing).toEqual([]);
     expect(packet.geometry?.lines[0]).toHaveLength(3);
     expect(packet.draft.note).toBe('Meet at the landing');
-    expect(JSON.stringify(packet)).not.toContain('gauge');
-    expect(JSON.stringify(packet)).not.toContain('forecast');
+    expect(packet.conditions?.generatedAt).toBe(detail.generatedAt);
+    expect(packet.conditions?.downloadedAt).toBe(packet.savedAt);
     const reopened = await loadOfflineTrip(storage, packet.target);
     expect(reopened).toMatchObject({ putIn: { id: 'put-in' }, takeOut: { id: 'take-out' }, geometry: packet.geometry });
     expect((await listOfflineTrips(storage)).records).toHaveLength(1);
@@ -66,6 +67,34 @@ describe('offline trip packets', () => {
     const first = await downloadOfflineTrip(storage, { detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], draft }, async () => geometry, signal());
     await expect(downloadOfflineTrip(storage, { detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], draft: { ...draft, note: 'New note' } }, async () => { throw new Error('offline'); }, signal())).rejects.toThrow('previous complete offline trip');
     expect((await loadOfflineTrip(storage, first.target))?.draft.note).toBe('Meet at the landing');
+  });
+
+  it('preserves dated conditions through storage, draft updates and geometry retries', async () => {
+    const storage = memory();
+    const withConditions = { ...detail, score: 88, rating: 'Good', readiness: { status: 'ready' }, confidence: { label: 'High' },
+      gauge: { current: 6.31, unit: 'ft', observedAt: '2026-09-12T09:00:00Z', gaugeSource: 'USGS', trend: 'steady' } } as unknown as RiverDetailApiResult;
+    const packet = await downloadOfflineTrip(storage, { detail: withConditions, putIn: detail.river.putIn, takeOut: detail.river.takeOut, draft }, async () => geometry, signal());
+    expect((await loadOfflineTrip(storage, packet.target))?.conditions).toEqual(packet.conditions);
+    await updateOfflineTripDraft(storage, packet.target, { ...draft, note: 'Changed later' }, signal());
+    const retried = await retryOfflineGeometry(storage, packet.target, async () => geometry, signal());
+    expect(retried.conditions).toEqual(packet.conditions);
+    expect(retried.conditions?.facts.find(fact => fact.label === 'Gauge reading')).toMatchObject({ text: '6.31 ft', observedAt: '2026-09-12T09:00:00Z' });
+  });
+
+  it('opens older version-1 and version-2 packets without conditions', async () => {
+    for (const version of [1, 2]) {
+      const storage = memory();
+      const packet = await downloadOfflineTrip(storage, { detail, putIn: detail.river.putIn, takeOut: detail.river.takeOut, draft }, async () => geometry, signal());
+      const entry = [...storage.values.entries()].find(([key]) => key.startsWith('paddletoday:offline-trip-data:'))!;
+      const legacy = JSON.parse(entry[1]);
+      legacy.version = version;
+      delete legacy.conditions;
+      storage.values.set(entry[0], JSON.stringify(legacy));
+      const loaded = await loadOfflineTrip(storage, packet.target);
+      expect(loaded?.version).toBe(version);
+      expect(loaded?.conditions).toBeUndefined();
+      expect(loaded?.geometry).toEqual(packet.geometry);
+    }
   });
 
   it('keeps the previous packet when the visible pointer cannot be committed', async () => {
@@ -90,6 +119,19 @@ describe('offline trip packets', () => {
     const retried = await retryOfflineGeometry(storage, partial.target, async () => geometry, signal());
     expect(retried.missing).not.toContain('Route geometry');
     expect((await loadOfflineTrip(storage, partial.target))?.geometry?.source).toBe('canonical');
+  });
+
+  it('flags saved draft differences and updates only the local draft snapshot', async () => {
+    const storage = memory();
+    const packet = await downloadOfflineTrip(storage, { detail, putIn: detail.river.accessPoints![0], takeOut: detail.river.accessPoints![1], draft }, async () => geometry, signal());
+    const changed = { ...draft, launch: '2030-06-15 10:00', note: 'Meet at the south lot' };
+    expect(compareOfflineTripDraft(packet, { target: packet.target, draft: changed, savedAt: new Date().toISOString() })).toMatchObject({ state: 'differs', changedFields: ['launch', 'note'] });
+    const updated = await updateOfflineTripDraft(storage, packet.target, changed, signal());
+    expect(updated.draft).toEqual(changed);
+    expect(updated.geometry).toEqual(packet.geometry);
+    expect(updated.facts).toEqual(packet.facts);
+    expect(updated.conditions).toEqual(packet.conditions);
+    expect(compareOfflineTripDraft(updated, { target: packet.target, draft: changed, savedAt: new Date().toISOString() }).state).toBe('matches');
   });
 
   it('removes only the packet and leaves the normal trip draft store untouched', async () => {

@@ -1,0 +1,22 @@
+{
+  "batch": 81,
+  "reviewDate": "2026-09-19",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:53:24.237Z; 2,750 public routes, 6,058 endpoints, 44 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "West Virginia",
+    "name": "Twist and Shout railroad-bridge take-out, Tygart Valley River",
+    "storedCoordinate": {
+      "latitude": 39.40187,
+      "longitude": -80.09554
+    },
+    "publicCoordinateOccurrences": 1,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "wv-tygart-valley-falls-hammond"
+    ],
+    "preReviewFinding": "The stored point is 484 feet from the named Tygart Valley River flowline but within 2 feet of Glady Creek and within mapped-water review distance. The endpoint name identifies a specific railroad-bridge take-out, so source review must distinguish a documented landing from an informal or inaccessible bank.",
+    "decision": "verify-the-exact-whitewater-takeout-and-hold-as-conditional-until-current-legal-access-is-confirmed",
+    "selectionFrozenBeforeResearch": true
+  }
+}

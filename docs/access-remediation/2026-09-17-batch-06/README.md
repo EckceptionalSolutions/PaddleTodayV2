@@ -1,0 +1,18 @@
+# Access point remediation batch 06
+
+Reviewed September 17, 2026 using the [access-point remediation runbook](../../access-point-remediation-runbook.md). The ten physical sites were frozen before research in [selection.json](selection.json). The cached audit is stale because `@paddletoday/geo` is missing; ranks are research priorities only, and current source evidence controls each decision.
+
+Five sites received coordinate corrections: Milburn Landing, Parks/Cecil Poche, Cricket Park, the distinct Ames dam and River Valley Park features, and Massillon. Sheep Crossing remains at its published access-site anchor with the launch-edge claim removed. 45 Ranch was removed from the assumed-public list because BLM says permission is required. Cooks Crossing could not be verified as a public landing; New Bethlehem's point is the municipal parking lot; and the NPS Ozark point is the campground, separate from its mapped but unlocated River Access symbol.
+
+Twenty-nine dependent routes are held. Massillon remains optional on its route, and Sheep Crossing remains a supported access-area anchor, so neither needs a route hold. Corrected coordinates still require geometry regeneration and inspection before release. See [review.json](review.json) for site evidence and decisions; [source-metadata.json](source-metadata.json) records source URLs, retrieval status, snapshot paths, byte counts, and hashes.
+
+## Repeatable steps for a weaker model
+
+1. Read the repository [runbook](../../access-point-remediation-runbook.md), this README, `selection.json`, then `review.json`. Work the ten frozen sites in order. Do not replace a hard case with an easier site.
+2. Identify what each coordinate represents: water-entry edge, managed access feature, park/area anchor, parking lot, facility, or navigation feature. Decimal precision does not prove launch accuracy.
+3. Verify public access with a current land manager, agency, or trail operator. Record private-property, closure, parking, and carry requirements. Keep launch, facility GPS, and nearby parking as separate features.
+4. Prefer current agency GIS or manager maps. Save the exact source response in the batch cache and record the URL, retrieval date/status, feature ID/attributes, coordinate system, uncertainty, byte count, and SHA-256. Use a historical plan only as a labeled anchor and corroborate the named site with a current operator source.
+5. Edit every source copy: route endpoints/access points, trip details, names, evidence notes, and registry controls. Preserve supported anchors when there is no better point; remove false public-access claims instead of guessing replacement coordinates.
+6. If a route endpoint changes, hold every dependent route until geometry and served catalog assets are regenerated and inspected. If an optional exit is uncertain but the route remains viable, remove that bailout claim rather than holding the whole route. Keep private or unverified endpoints withheld.
+7. Run `node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts`, then `node docs/access-remediation/2026-09-17-batch-06/verify.mjs`. Run route typecheck, focused tests, full access audit, canonical geometry generation, catalog assembly, and access-registry generation in the runbook order. Never generate the registry from a stale cache-only audit.
+8. If a required package or source is unavailable, record the exact command/error in `validation.json` and leave affected routes withheld. Clear holds only after coordinate copies agree, regenerated geometry follows the intended river reach, the served catalog contains updated locations, and held routes are absent from public bundles.

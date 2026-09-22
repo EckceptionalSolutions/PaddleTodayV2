@@ -1,4 +1,4 @@
-import { snapshotFreshnessMetadata, staleSnapshotReadiness, type RiverDetailApiResult, type RiverDetailResponse,
+import { snapshotFreshnessMetadata, staleSnapshotReadiness, type ExploreCatalogResponse, type RiverDetailApiResult, type RiverDetailResponse,
   type RiverGroupResponse, type RiverSummaryApiItem, type RiverSummaryResponse, type SnapshotResponseMetadata,
   type WeekendSummaryApiItem, type WeekendSummaryResponse } from '@paddletoday/api-contract';
 
@@ -41,6 +41,27 @@ export function currentSummarySnapshot(response: RiverSummaryResponse, now: numb
   });
   return rivers.some((item, index) => item !== response.rivers[index])
     ? { ...response, ...(anyExpired ? metadata(response, now) : {}), rivers } : response;
+}
+
+// Catalog availability does not imply fresh conditions. A catalog can arrive
+// without a score snapshot and must still expose its planning routes.
+export function currentExploreSnapshot(response: ExploreCatalogResponse, now: number): ExploreCatalogResponse {
+  const projected = currentSummarySnapshot({
+    ...response,
+    generatedAt: response.generatedAt ?? '',
+    snapshotStatus: response.snapshotStatus === 'stale' ? 'stale' : undefined,
+  }, now);
+  return {
+    ...response,
+    snapshotStatus: response.generatedAt && projected.snapshotStatus === 'stale' ? 'stale' : response.snapshotStatus,
+    rivers: projected.rivers.map((item, index) => {
+      const original = response.rivers[index];
+      if (original.river.scoreEligibility !== 'planning') return item;
+      // Planning records have no score timestamp to expire. Preserve their
+      // explanation while keeping them out of current-condition calls.
+      return { ...original, readiness: { ...original.readiness, status: 'withheld', label: 'Withheld' } };
+    }),
+  };
 }
 export function currentWeekendSnapshot(response: WeekendSummaryResponse, now: number): WeekendSummaryResponse {
   if (!response.rivers.length) return response;

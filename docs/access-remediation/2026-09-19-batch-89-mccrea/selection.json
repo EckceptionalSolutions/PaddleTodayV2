@@ -1,0 +1,13 @@
+{
+  "batch": "B89",
+  "selectedAt": "2026-09-19",
+  "routeId": "henrys-fork-upper-coffee-pot-mccrea",
+  "routeName": "Henrys Fork",
+  "reach": "Upper Coffee Pot Campground to McCrea Bridge Campground",
+  "state": "Idaho",
+  "endpoint": "takeOut",
+  "endpointName": "McCrea Bridge Campground Take-Out",
+  "storedCoordinate": { "latitude": 44.461326, "longitude": -111.400613 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 352.37572454415323, "nearestWaterwayName": "Henrys Fork", "distanceFeetToMappedWater": 193.91215563006807, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "connected-network" },
+  "selectionReason": "The Henrys Fork Angler Access catalog publishes the same McCrea Bridge Campground coordinate and documents a paved boat ramp and parking; Recreation.gov independently confirms the campground ramp and its seasonal reservoir-access limitation."
+}

@@ -5,7 +5,7 @@ import { publicRivers } from '../data/rivers';
 
 describe('North Carolina strategic expansion', () => {
   it('adds the three adjacent New River State Park access sections', () => {
-    expect(northCarolinaRoutes).toHaveLength(45);
+    expect(northCarolinaRoutes).toHaveLength(50);
 
     const routes = [
       northCarolinaRoutes.find((route) => route.id === 'new-river-elk-shoals-wagoner'),

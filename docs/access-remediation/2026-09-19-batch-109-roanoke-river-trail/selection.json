@@ -1,0 +1,23 @@
+{
+  "batch": "B109",
+  "selectedAt": "2026-09-19",
+  "routeId": "roanoke-river-niagara-explore-park",
+  "routeName": "Roanoke River",
+  "reach": "Blue Ridge Parkway Roanoke River Trail to Explore Park/Rutrough Point",
+  "state": "Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Blue Ridge Parkway Roanoke River Trail public access",
+  "storedCoordinate": {
+    "latitude": 37.253125,
+    "longitude": -79.871598
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 373.81815394556395,
+    "nearestWaterwayName": "Roanoke River",
+    "distanceFeetToMappedWater": 276.7860006740378,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "The Roanoke River Blueway access-point record publishes the exact stored GPS at Blue Ridge Parkway Mile Post 114.9 and identifies shoreline access via a steep natural-surface trail and steps from the overlook parking area. NPS independently confirms the Roanoke River Trail descends from the Parkway overlook toward the river. Retain the stored point as a conditional access-area anchor."
+}

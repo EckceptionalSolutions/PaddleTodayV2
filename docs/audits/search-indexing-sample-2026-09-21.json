@@ -1,0 +1,177 @@
+{
+  "observedAt": "2026-09-21",
+  "reportUpdatedAt": "2026-09-17",
+  "method": "30 discovered examples (first 10 plus every 25th across first 500 alphabetic examples), first 10 crawled examples, both 403 examples. Not a random or exhaustive sample. Category labels can lag inspection.",
+  "samples": [
+    {
+      "path": "/rivers/allagash-river-allagash-falls-twin-brook/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/allagash-river-michaud-farm-allagash-falls/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/allegheny-river-olean-portville/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/american-river-harrington-howe/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/american-river-harrington-watt/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/american-river-sailor-bar-watt/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/american-river-upper-sunrise-harrington/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/american-river-upper-sunrise-watt/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/anacostia-river-bladensburg-anacostia-park/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/androscoggin-river-brunswick-topsham/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/aroostook-river-ashland-washburn/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/bayou-teche-breaux-bridge-parks/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/bitterroot-river-wally-anglers-roost/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/blackfoot-river-scotty-brown-roundup/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/broad-river-daltons-lockhart/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/by-river/bog-river-flow/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/by-river/gunpowder-falls-maryland/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/by-river/oswego-canal/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/by-river/snake-river-wyoming/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/canandaigua-outlet-littleville-manchester/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/chattahoochee-river-bowmans-island-jones-bridge/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/chattahoochee-river-medlock-bridge-island-ford/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/clearwater-river-mckays-bend-pink-house/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/deerfield-river-fife-brook-east-charlemont/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/elk-river-rogues-harbor-loop/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/fox-river-frame-park-greenway-waukesha/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/haw-river-indian-valley-great-bend/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/independence-river-bailey-donnattsburg/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/kennebec-river-norridgewock-waterville/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/lamoille-river-waterman-dog-head/",
+      "category": "discovered"
+    },
+    {
+      "path": "/rivers/redwood-river-vesta-wabasso/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/green-river-roachville-american-legion/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/juniata-river-greenwood-amity-hall/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/north-fork-kentucky-river-watts-hazard-city-ramp/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/eleven-point-river-thomasville-greer-crossing/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/meramec-river-state-park-sand-ford/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/des-moines-river-bentonsport-bonaparte/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/susquehanna-river-sayre-towanda/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/wisconsin-river-sauk-city-arena/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/eleven-point-river-cane-bluff-whitten/",
+      "category": "crawled"
+    },
+    {
+      "path": "/rivers/by-river/upper-iowa-river/",
+      "category": "403",
+      "lastCrawl": "2026-06-03"
+    },
+    {
+      "path": "/rivers/by-river/minnesota-river/",
+      "category": "403",
+      "lastCrawl": "2026-06-03"
+    }
+  ]
+}

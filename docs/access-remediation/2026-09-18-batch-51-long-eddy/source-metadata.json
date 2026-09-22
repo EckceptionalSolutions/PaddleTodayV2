@@ -1,0 +1,76 @@
+{
+  "batch": 51,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "id": "nps-long-eddy-river-access",
+      "title": "Long Eddy River Access",
+      "url": "https://www.nps.gov/places/long-eddy-river-access.htm",
+      "provider": "National Park Service",
+      "lastUpdated": "2024-11-21",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Public Upper Delaware River access at 10 Ferry Street, Long Eddy, New York, near river mile 315.",
+        "Owned/managed by New York DEC; non-motorized boats only; gravel boat ramp available.",
+        "Parking lot is gravel and can accommodate approximately 10 vehicles with trailers."
+      ],
+      "use": "Primary confirmation that the named Long Eddy launch is public and usable for non-motorized boats; it gives a street address rather than a GPS toe coordinate."
+    },
+    {
+      "id": "nps-upper-delaware-public-access-dataset",
+      "title": "NPS Upper Delaware public access dataset, May 2025",
+      "url": "https://www.nps.gov/common/uploads/sortable_dataset/upde/19D4715E-02B1-7A0E-5A92EF04A2607424/upde-UPDEAccessDatasetforWebsite2025May24.csv?t=1765651043547",
+      "provider": "National Park Service",
+      "retrieved": "2026-09-18",
+      "records": [
+        {
+          "name": "Long Eddy",
+          "location": "10 Ferry St, Long Eddy, NY 12760",
+          "riverMile": 315,
+          "state": "NY",
+          "type": "Non-motorized only",
+          "boatRamp": "Gravel",
+          "parking": "Yes; large lot",
+          "managedBy": "NY DEC"
+        },
+        {
+          "name": "Kellams Bridge",
+          "location": "Kellam Bridge Road, Long Eddy, NY (41.823937,-75.112437)",
+          "riverMile": 312,
+          "state": "NY",
+          "type": "Fishing only",
+          "boatRamp": "None",
+          "parking": "Yes; small lot",
+          "managedBy": "NY DEC"
+        }
+      ],
+      "use": "Disambiguates the old coordinate from the real Long Eddy launch and establishes that the old site is not a boat launch."
+    },
+    {
+      "id": "delaware-river-water-trail-long-eddy",
+      "title": "Long Eddy public access, Delaware River Water Trail",
+      "url": "https://delawareriverwatertrail.org/map_locations/long-eddy/",
+      "provider": "Delaware River Water Trail",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Names Long Eddy public access at river mile 315.6.",
+        "Publishes coordinate 41.8497, -75.1352.",
+        "Describes a gravel ramp and cartop/non-motorized launch."
+      ],
+      "use": "Coordinate source, corroborated by NPS's current public-access site description and NPS dataset. The point is retained as an access-site anchor, not claimed as a surveyed toe."
+    },
+    {
+      "id": "google-maps-long-eddy-satellite",
+      "title": "Satellite imagery at the Water Trail Long Eddy point",
+      "url": "https://www.google.com/maps/place/41.8497,-75.1352/@41.8497,-75.1352,450m/data=!3m1!1e3",
+      "provider": "Google Maps imagery",
+      "retrieved": "2026-09-18",
+      "observation": "The published point sits within the Ferry Street / Railroad Street access corridor near the mapped Long Eddy Access label and the Delaware River. Imagery supports the access-area location but does not resolve the gravel-ramp toe.",
+      "use": "Visual corroboration only."
+    }
+  ],
+  "auditEvidence": {
+    "before": "targeted-before-hancock-callicoon.json and targeted-before-lordville-long-eddy.json; old point was 370.48 feet from matched flowline and 200.81 feet from mapped water, suspicious in both route occurrences.",
+    "after": "targeted-after-hancock-callicoon.json and targeted-after-lordville-long-eddy.json; corrected point matches the public access anchor, is 168.46 feet from mapped water, and classifies review on both routes; source issues 0."
+  }
+}

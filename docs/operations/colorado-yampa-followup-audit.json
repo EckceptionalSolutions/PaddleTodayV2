@@ -1,0 +1,114 @@
+{
+  "state": "Colorado",
+  "routes": [
+    {
+      "routeId": "yampa-river-hayden-pump-station-headquarters",
+      "routeName": "Yampa River Hayden Pump Station to Yampa River State Park Headquarters",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "09244490",
+        "relationship": "direct same-river telemetry near the downstream end of the Hayden reach",
+        "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold",
+        "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections"
+      },
+      "access": {
+        "putIn": { "name": "Hayden Pump Station boat ramp", "latitude": 40.4879929, "longitude": -107.1606119 },
+        "takeOut": { "name": "Yampa River State Park Headquarters boat ramp", "latitude": 40.4907151, "longitude": -107.3126886 },
+        "source": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-hayden-pump-station-yampa-river-state"
+      },
+      "safety": { "difficulty": "Flow-dependent Class I-V", "controls": ["named diversion before Headquarters", "cold water", "rapidly changing flow", "limited public land", "utility intake trespass boundary", "private banks", "public access only"] },
+      "camping": { "classification": "nearby_basecamp", "rule": "Headquarters campground is a separate reservation-based basecamp; overnight camping is not allowed at the pump station and no on-route camping is claimed." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Headquarters boat-ramp same-river context, not pump-station conditions." },
+      "deduplication": "Distinct 13-mile CPW Site 1-to-Site 2 section ending at Headquarters; adjacent to, but not overlapping, Headquarters-to-Dorsey.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    },
+    {
+      "routeId": "yampa-river-headquarters-dorsey",
+      "routeName": "Yampa River State Park Headquarters to State Wildlife Area (Dorsey)",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": {
+        "siteId": "09244490",
+        "relationship": "direct same-river telemetry at the downstream Dorsey reach",
+        "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold",
+        "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections"
+      },
+      "access": {
+        "putIn": { "name": "Yampa River State Park Headquarters boat ramp", "latitude": 40.4907151, "longitude": -107.3126886 },
+        "takeOut": { "name": "State Wildlife Area (Dorsey) boat ramp", "latitude": 40.5175631, "longitude": -107.3990594 },
+        "source": "https://www.waterqualitydata.us/provider/STORET/CORIVWCH_WQX/CORIVWCH_WQX-4268/"
+      },
+      "safety": { "difficulty": "Flow-dependent Class I-V", "controls": ["cold water", "rapidly changing flow", "limited public land", "small gravel take-out", "State Wildlife Area license rule", "private banks", "public access only"] },
+      "camping": { "classification": "endpoint_campground", "rule": "Headquarters campground is a separate reservation-based basecamp; no Dorsey overnight camping is claimed for this route." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Headquarters boat-ramp same-river context, not Dorsey conditions." },
+      "deduplication": "Distinct 7-mile CPW Site 2-to-Site 3 section; shared Headquarters access is the official CPW boundary and is not a duplicate route.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    },
+    {
+      "routeId": "yampa-river-golf-course-loudy-simpson",
+      "routeName": "Yampa River Yampa Valley Golf Course to Loudy Simpson Park",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": { "siteId": "09247600", "relationship": "direct same-river telemetry near the downstream Craig reach", "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold", "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections" },
+      "access": { "putIn": { "name": "Yampa Valley Golf Course boat ramp", "latitude": 40.4969673, "longitude": -107.5218658 }, "takeOut": { "name": "Loudy Simpson Park boat ramp", "latitude": 40.4961291, "longitude": -107.5578321 }, "source": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson" },
+      "safety": { "difficulty": "Flow-dependent Class I-V", "controls": ["undeveloped joint-owned launch", "cold water", "rapidly changing flow", "limited public land", "private banks", "county park hours", "public access only"] },
+      "camping": { "classification": "endpoint_campground", "rule": "Loudy Simpson camping requires county permission; no Golf Course overnight camping claim." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Yampa State Park boat-ramp same-river context, not Craig endpoint conditions." },
+      "deduplication": "Distinct 3.5-mile CPW Site 4-to-Site 5 section; separate from Headquarters-to-Dorsey and Loudy Simpson-to-South Beach.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    },
+    {
+      "routeId": "yampa-river-loudy-simpson-south-beach",
+      "routeName": "Yampa River Loudy Simpson Park to South Beach / Yampa Project Pump Station",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": { "siteId": "09247600", "relationship": "direct same-river telemetry adjacent to the South Beach reach", "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold", "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections" },
+      "access": { "putIn": { "name": "Loudy Simpson Park boat ramp", "latitude": 40.4961291, "longitude": -107.5578321 }, "takeOut": { "name": "South Beach / Yampa Project Pump Station boat ramp", "latitude": 40.4796656, "longitude": -107.6162596 }, "source": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-yampa-valley-golf-course-loudy-simpson" },
+      "safety": { "difficulty": "Flow-dependent Class I-V", "controls": ["industrial intake restriction", "private access road", "cold water", "rapidly changing flow", "private banks", "limited vehicle access", "public access only"] },
+      "camping": { "classification": "endpoint_campground", "rule": "Loudy Simpson requires county permission; South Beach primitive camping requires a current permit and posted stay limit." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Yampa State Park boat-ramp same-river context, not Craig endpoint conditions." },
+      "deduplication": "Distinct 5.5-mile CPW Site 5-to-Site 6 section; separate from Golf Course-to-Loudy Simpson and downstream Little Yampa Canyon.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    },
+    {
+      "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+      "routeName": "Yampa River Duffy Mountain to Juniper Canyon",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": { "siteId": "09251000", "relationship": "direct same-river telemetry near the downstream Maybell reach", "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold", "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-duffy-mountain-juniper-canyon-maybell" },
+      "access": { "putIn": { "name": "Duffy Mountain boat ramp", "latitude": 40.4192778, "longitude": -107.8695 }, "takeOut": { "name": "Juniper Canyon boat ramp", "latitude": 40.4766667, "longitude": -107.9652222 }, "source": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-duffy-mountain-juniper-canyon-maybell" },
+      "safety": { "difficulty": "Flow-dependent Class III-IV at Juniper", "controls": ["Class III-IV diversion and portage", "cold water", "rough roads", "limited egress", "private banks", "primitive access", "advanced crew required"] },
+      "camping": { "classification": "on_route_campsite", "rule": "Duffy has one primitive site and Juniper has five; park and camping passes are required and sites are designated only." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Yampa State Park boat-ramp same-river context, not Duffy or Juniper current conditions." },
+      "deduplication": "Distinct 12-mile CPW Site 7-to-Site 8 section; separate from South Beach-to-Duffy and Juniper-to-Maybell.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    },
+    {
+      "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+      "routeName": "Yampa River Juniper Canyon to Maybell Bridge",
+      "status": "published_planning",
+      "scoreEligibility": "planning",
+      "gauge": { "siteId": "09251000", "relationship": "direct same-river telemetry near the downstream Maybell endpoint", "threshold": "CPW seasonal flow ranges and class guidance only; no station-certified recreational threshold", "thresholdSource": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-duffy-mountain-juniper-canyon-maybell" },
+      "access": { "putIn": { "name": "Juniper Canyon boat ramp", "latitude": 40.4766667, "longitude": -107.9652222 }, "takeOut": { "name": "Maybell Bridge boat ramp", "latitude": 40.5013658, "longitude": -108.032923 }, "source": "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-duffy-mountain-juniper-canyon-maybell" },
+      "safety": { "difficulty": "Flow-dependent Class III-IV at Juniper", "controls": ["Class III-IV diversion and portage", "cold water", "rapidly changing flow", "limited egress", "private banks", "primitive access", "advanced crew required"] },
+      "camping": { "classification": "on_route_campsite", "rule": "Juniper has five primitive sites and Maybell has six; park and camping passes are required and sites are designated only." },
+      "imagery": { "source": "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG", "rights": "CC BY 4.0", "captionPosture": "Yampa State Park boat-ramp same-river context, not Juniper or Maybell current conditions." },
+      "deduplication": "Distinct 13-mile CPW Site 8-to-Site 9 section; separate from Duffy-to-Juniper and Maybell-to-Sunbeam.",
+      "validation": { "routeDataAudit": "passed", "safetyAudit": "passed", "corridorAudit": "passed", "geometryManifest": "matched", "accessRegistry": "no conflicts" }
+    }
+  ],
+  "sourceSet": [
+    "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-hayden-pump-station-yampa-river-state",
+    "https://cpw.state.co.us/state-parks/yampa-river-state-park/yampa-river-state-park-river-sections",
+    "https://cpw.state.co.us/sites/default/files/dam/4lmgle6crm/yampa-river-state-park-brochure.pdf",
+    "https://coloradostateparks.net/parks/yampa-river/boating/",
+    "https://coloradostateparks.net/parks/yampa-river/directions/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09244490/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09247600/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-09251000/",
+    "https://www.waterqualitydata.us/provider/STORET/CORIVWCH_WQX/CORIVWCH_WQX-4268/",
+    "https://www.waterqualitydata.us/provider/STORET/CORIVWCH_WQX/CORIVWCH_WQX-410/",
+    "https://commons.wikimedia.org/wiki/File%3AYampa_River_State_Park_boat_ramp.JPG"
+  ]
+}

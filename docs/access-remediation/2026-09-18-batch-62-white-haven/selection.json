@@ -1,0 +1,19 @@
+{
+  "batch": 62,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before researching the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T20:52:32.915Z; 2,750 public routes, 6,058 endpoints, 64 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Pennsylvania",
+    "name": "White Haven South Access Area, Lehigh River",
+    "storedCoordinate": { "latitude": 41.05527, "longitude": -75.771581 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "lehigh-river-white-haven-rockport",
+      "lehigh-river-white-haven-glen-onoko"
+    ],
+    "preReviewFinding": "Both occurrences share the coordinate published by Pennsylvania DCNR for White Haven South Access Area; the point is about 305 feet from the matched Lehigh River flowline and 229 feet from mapped water.",
+    "decision": "confirm-the-designated-white-haven-boat-launch-area-and-model-the-official-area-coordinate-with-evidence-and-uncertainty-rather-than-moving-to-an-unsurveyed-wet-toe",
+    "selectionFrozenBeforeResearch": true
+  }
+}

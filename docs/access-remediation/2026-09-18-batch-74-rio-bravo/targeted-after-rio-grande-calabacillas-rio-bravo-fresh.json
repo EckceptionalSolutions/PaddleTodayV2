@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:01:14.798Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "rio-grande-calabacillas-rio-bravo",
+      "routeName": "Rio Grande",
+      "reach": "Calabacillas Arroyo access to Rio Bravo Boulevard access",
+      "state": "New Mexico",
+      "endpoint": "putIn",
+      "endpointName": "Calabacillas Arroyo public river access (parking-area anchor)",
+      "latitude": 35.187115971800154,
+      "longitude": -106.65177189116153,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 154.74150467415228,
+      "nearestMatchedLatitude": 35.18743662068995,
+      "nearestMatchedLongitude": -106.6514321453774,
+      "nearestWaterwayName": "Arroyo de las Calabacillas",
+      "distanceFeetToNearestWaterway": 154.7419745727788,
+      "nearestWaterwayLatitude": 35.18743730518834,
+      "nearestWaterwayLongitude": -106.6514331125722,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 110.8724789309825,
+      "nearestWaterbodyLatitude": 35.187342514616006,
+      "nearestWaterbodyLongitude": -106.65152401015901,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 110.8724789309825,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 111 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "rio-grande-calabacillas-rio-bravo",
+      "routeName": "Rio Grande",
+      "reach": "Calabacillas Arroyo access to Rio Bravo Boulevard access",
+      "state": "New Mexico",
+      "endpoint": "takeOut",
+      "endpointName": "Rio Bravo Boulevard public river access (access-area anchor)",
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 61.626602550247924,
+      "nearestMatchedLatitude": 35.02745208717353,
+      "nearestMatchedLongitude": -106.67441610388194,
+      "nearestWaterwayName": "Rio Grande",
+      "distanceFeetToNearestWaterway": 441.7544010246652,
+      "nearestWaterwayLatitude": 35.027427,
+      "nearestWaterwayLongitude": -106.673144,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 333.2196685931911,
+      "nearestWaterbodyLatitude": 35.027381367883706,
+      "nearestWaterbodyLongitude": -106.67351087019492,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 61.626602550247924,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.cabq.gov/parksandrecreation/documents/bosque-assessment-update-prioritization-final_smaller-1.pdf",
+      "coordinateEvidenceDetail": "nm_cabq_rio_bravo_nw_launch_access_anchor_20260918 cabq-rio-bravo-nw-emergency-launch-access-area: The City Open Space assessment distinguishes the northwest-bank Rio Bravo access from the northeast Poco Loco picnic/fishing site: it records informal parking and trails along Kelsey Road, limited access due to bridge expansion, and an emergency launch at the northwest site. The 2025 USACE project notice for NMDOT's bridge replacement includes recontouring an existing boat ramp; 2024 project materials identify a new northwest parking lot and impacts to the boat launch. Construction began in September 2026. Quiet Waters publishes the stored coordinate as the Rio Bravo SW access GPS reference. Keep it as a public launch/access-area anchor, not a surveyed wet-toe point, and treat availability as conditional during bridge construction.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nm_cabq_rio_bravo_nw_launch_access_anchor_20260918 cabq-rio-bravo-nw-emergency-launch-access-area) on Rio Grande; access is conditional (The City identifies this northwest-bank location as an emergency launch/access area with limited informal parking and trails. The NM 500 bridge replacement is active and includes work on the existing boat ramp. Verify the west-bank gate, launch and carry are open before staging; access and the coordinate may change during construction.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

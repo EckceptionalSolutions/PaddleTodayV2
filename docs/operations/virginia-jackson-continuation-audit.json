@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "stateId": "VA",
+  "stateName": "Virginia",
+  "windowId": "va-jackson-blueway-continuation-2026-09-20",
+  "updatedAt": "2026-09-20T00:00:00.000Z",
+  "status": "published_scored_route",
+  "route": {
+    "slug": "jackson-river-indian-draft-interstate",
+    "riverId": "jackson-river",
+    "reach": "Indian Draft Boat Landing to Interstate Park River Access",
+    "distance": "approximately 7.5 river miles",
+    "difficulty": "Class I–II",
+    "scoreEligibility": "scored",
+    "gauge": "USGS 02011800",
+    "thresholdCfs": [200, 1000],
+    "putIn": { "name": "Indian Draft Jackson River Boat Landing", "latitude": 37.8687028, "longitude": -79.9893444 },
+    "takeOut": { "name": "Interstate Park Jackson River Access", "latitude": 37.8182222, "longitude": -79.98725 }
+  },
+  "evidence": {
+    "bluewayPlan": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/plan-a-trip/",
+    "bluewayMap": "https://visitalleghanyhighlands.com/wp-content/uploads/2022/11/section2-gathright-to-dryrun.pdf",
+    "flowGuidance": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/check-water-levels/",
+    "safety": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/safety-tips/",
+    "camping": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/faqs/",
+    "dwrTailwater": "https://dwr.virginia.gov/wp-content/uploads/Jackson-River-Tailwater-Report-2015.pdf",
+    "usaceReleases": "https://www.nao-wc.usace.army.mil/nao/projected_Q.html",
+    "usgs": "https://waterdata.usgs.gov/monitoring-location/USGS-02011800/"
+  },
+  "qualityGates": {
+    "publicEndpoints": true,
+    "stationLinkedThreshold": true,
+    "safety": true,
+    "camping": true,
+    "imagery": true,
+    "canonicalGeometry": true,
+    "deduplication": "Distinct Jackson River Blueway endpoint pair; no duplicate route ID or reversed endpoint pair found.",
+    "highClassRapids": "No Class IV+ rapids identified; Blueway character is Class I–II, with release-driven current and mandatory downstream industrial boundary handled explicitly."
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "queueEvidenceMode": "cache-only; rank is prioritization, not current evidence",
+  "sitesReviewed": 10,
+  "uniqueRoutesBefore": 20,
+  "newHolds": [
+    "sheboygan-river-rochester-esslingen"
+  ],
+  "resolvedHolds": [
+    "blackfoot-river-angevine-marco-flats",
+    "blackfoot-river-k-ross-toole-marco-flats",
+    "blackfoot-river-marco-flats-johnsrud",
+    "blackfoot-river-marco-flats-weigh-station",
+    "blackfoot-river-roundup-marco-flats",
+    "blackfoot-river-russell-gates-marco-flats",
+    "blackfoot-river-scotty-brown-marco-flats",
+    "blackfoot-river-whitaker-marco-flats"
+  ],
+  "eligibleRoutesAfter": 19,
+  "coordinateSitesCorrected": 3,
+  "addedAccessAnchorProviders": 10,
+  "reclassifiedProviders": 0,
+  "optionalAccessWaypointsRemoved": 0,
+  "withheldRoutesAfter": 185,
+  "deletions": 0,
+  "scope": "Three site coordinates were corrected. All eight Marco Flats routes were regenerated, inspected against the current Montana FWP access-area anchor, and released. Rochester Park remains held until public carry and parking are confirmed outside the cleanup closure and route geometry is reviewed. No route records were deleted.",
+  "decisions": [
+    {
+      "rank": 236,
+      "site": "Mirabeau Park small-craft access area",
+      "decision": "keep-access-anchor",
+      "routes": [
+        "spokane-river-barker-mirabeau",
+        "spokane-river-harvard-mirabeau"
+      ]
+    },
+    {
+      "rank": 237,
+      "site": "Chautauqua Park accessible launch",
+      "decision": "keep-access-anchor",
+      "routes": [
+        "sheyenne-river-fish-hatchery-chautauqua"
+      ]
+    },
+    {
+      "rank": 238,
+      "site": "Oak Township County Park canoe access",
+      "decision": "keep-access-anchor",
+      "routes": [
+        "sauk-river-mill-pond-oak-township",
+        "sauk-river-oak-township-spring-hill"
+      ]
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park river access",
+      "decision": "correct-park-anchor-and-hold",
+      "routes": [
+        "sheboygan-river-rochester-esslingen"
+      ]
+    },
+    {
+      "rank": 240,
+      "site": "Marco Flats Fishing Access Site",
+      "decision": "correct-to-current-FWP-anchor-and-release-after-geometry-audit",
+      "routes": [
+        "blackfoot-river-angevine-marco-flats",
+        "blackfoot-river-k-ross-toole-marco-flats",
+        "blackfoot-river-marco-flats-johnsrud",
+        "blackfoot-river-marco-flats-weigh-station",
+        "blackfoot-river-roundup-marco-flats",
+        "blackfoot-river-russell-gates-marco-flats",
+        "blackfoot-river-scotty-brown-marco-flats",
+        "blackfoot-river-whitaker-marco-flats"
+      ]
+    },
+    {
+      "rank": 241,
+      "site": "Cameron Mills County Route 110 launch area",
+      "decision": "correct-coordinate-transcription-and-keep-anchor",
+      "routes": [
+        "canisteo-river-canisteo-addison"
+      ]
+    },
+    {
+      "rank": 242,
+      "site": "Trego Town Park Landing",
+      "decision": "keep-access-anchor",
+      "routes": [
+        "namekagon-river-big-bend-trego"
+      ]
+    },
+    {
+      "rank": 243,
+      "site": "Heath Canyon / La Linda U.S.-side access",
+      "decision": "keep-permit-limited-access-anchor",
+      "routes": [
+        "rio-grande-rio-grande-village-heath-canyon"
+      ]
+    },
+    {
+      "rank": 244,
+      "site": "Three Forks Recreation Site, Oregon",
+      "decision": "keep-BLM-access-anchor",
+      "routes": [
+        "north-fork-owyhee-campground-three-forks",
+        "owyhee-river-three-forks-rome"
+      ]
+    },
+    {
+      "rank": 246,
+      "site": "Riverdale Lane Goliad Paddling Trail access",
+      "decision": "keep-address-access-anchor",
+      "routes": [
+        "san-antonio-river-riverdale-goliad-state-park"
+      ]
+    }
+  ],
+  "reopeningEvidence": {
+    "sheboygan-river-rochester-esslingen": "City/EPA confirms the public parking-to-river carry and landing are open outside the cleanup closure, then regenerate and inspect geometry from the EPA park-site anchor."
+  }
+}

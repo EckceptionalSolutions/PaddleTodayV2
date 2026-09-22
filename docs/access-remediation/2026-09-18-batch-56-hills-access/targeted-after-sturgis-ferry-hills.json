@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:56:48.878Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "iowa-river-sturgis-ferry-hills-access",
+      "routeName": "Iowa River",
+      "reach": "Sturgis Ferry Park to Hills Access",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Hills Access & Campground (Johnson County Conservation)",
+      "latitude": 41.5544618,
+      "longitude": -91.5257829,
+      "matchedRiverName": "Iowa River",
+      "distanceFeetToMatchedRiver": 318.5789964648503,
+      "nearestMatchedLatitude": 41.55384422937118,
+      "nearestMatchedLongitude": -91.52660794054295,
+      "nearestWaterwayName": "Iowa River",
+      "distanceFeetToNearestWaterway": 1658.7241410838851,
+      "nearestWaterwayLatitude": 41.558825,
+      "nearestWaterwayLongitude": -91.52407399999998,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 274.53106853647364,
+      "nearestWaterbodyLatitude": 41.5539305653771,
+      "nearestWaterbodyLongitude": -91.52649513322704,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 274.53106853647364,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.johnsoncountyiowa.gov/conservation/camping",
+      "coordinateEvidenceDetail": "ia_johnson_county_hills_access_campground_anchor_20260918 johnson-county-hills-access-official-map-coordinate: Johnson County Conservation's current camping record publishes Hills Access map coordinates 41.5544618,-91.5257829, exactly matching the two route endpoints, and states that the site has boat-ramp access to the Iowa River. Johnson County's public-use-area page identifies Hills Access as a 40-acre river-access park with a boat ramp; Iowa DNR's Iowa River Water Trail description identifies the cement boat ramp at Hills Access as a launch for the reach to River Junction. The official coordinate is the campground/site anchor, not a separately georeferenced ramp toe. Imagery places it at the 520th Street entrance/approach, with the ramp and shoreline displaced from that point; retain it as an access-site anchor and preserve the mapped-water offset for review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_johnson_county_hills_access_campground_anchor_20260918 johnson-county-hills-access-official-map-coordinate) on Iowa River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "iowa-river-sturgis-ferry-hills-access",
+      "routeName": "Iowa River",
+      "reach": "Sturgis Ferry Park to Hills Access",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Sturgis Ferry Park boat ramp (Iowa City)",
+      "latitude": 41.640199994977,
+      "longitude": -91.538966712124,
+      "matchedRiverName": "Iowa River",
+      "distanceFeetToMatchedRiver": 223.3463838984258,
+      "nearestMatchedLatitude": 41.640264,
+      "nearestMatchedLongitude": -91.538152,
+      "nearestWaterwayName": "Iowa River",
+      "distanceFeetToNearestWaterway": 223.3463838984258,
+      "nearestWaterwayLatitude": 41.640264,
+      "nearestWaterwayLongitude": -91.538152,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 131.59168723151217,
+      "nearestWaterbodyLatitude": 41.64025523815529,
+      "nearestWaterbodyLongitude": -91.53848974755584,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 131.59168723151217,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 132 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

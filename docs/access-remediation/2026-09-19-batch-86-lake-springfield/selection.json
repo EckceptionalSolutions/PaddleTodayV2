@@ -1,0 +1,21 @@
+{
+  "batch": "B86",
+  "selectedAt": "2026-09-19",
+  "routeId": "james-river-joe-crighton-lake-springfield",
+  "routeName": "James River",
+  "reach": "Joe Crighton Access to Lake Springfield Boathouse",
+  "state": "Missouri",
+  "endpoint": "takeOut",
+  "endpointName": "Lake Springfield Boathouse",
+  "storedCoordinate": { "latitude": 37.1159741, "longitude": -93.2517345 },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 755.271860192275,
+    "nearestWaterwayName": "James River",
+    "distanceFeetToMappedWater": 184.5490846789324,
+    "nearestWaterbodyName": "Lake Springfield",
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "The Park Board documents a public boathouse shoreline facility with boat rentals, accessible parking, and James River Water Trail use; verify the off-flowline point as a lake-finish facility anchor rather than moving it onto the upstream James River flowline."
+}

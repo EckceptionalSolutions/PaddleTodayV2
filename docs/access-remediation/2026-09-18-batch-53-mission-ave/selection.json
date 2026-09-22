@@ -1,0 +1,19 @@
+{
+  "batch": 53,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the highest-ranked repeated public suspicious site from the latest full public audit, freeze its route occurrences, then compare its location to the current water-trail feature record and access description.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:22:49.412Z; 2,750 public routes, 6,058 endpoints, 82 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Washington",
+    "name": "Mission Ave. paddler access, Spokane River",
+    "storedCoordinate": { "latitude": 47.671585, "longitude": -117.180981 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "spokane-river-harvard-mission",
+      "spokane-river-barker-mission"
+    ],
+    "preReviewFinding": "Both shared occurrences were 359.2 feet from the matched Spokane River flowline and 289.0 feet from mapped water and were classified suspicious.",
+    "decision": "retain-the-exact-Spokane-River-Water-Trail-coordinate-as-a-paddler-access-site-anchor; record-the-whitewater-park-play-only-and-canoe-kayak-restrictions; exact-landing-toe-remains-unverified",
+    "selectionFrozenBeforeResearch": true
+  }
+}

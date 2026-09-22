@@ -1,0 +1,318 @@
+{
+  "batch": 29,
+  "frozenAt": "2026-09-18T00:52:12.990Z",
+  "auditGeneratedAt": "2026-09-18T00:50:19.553Z",
+  "auditScope": "public-routes",
+  "publicRouteCount": 2761,
+  "publicEndpointCount": 6082,
+  "previouslyReviewedSiteCount": 246,
+  "queueSitesRemaining": 29,
+  "sites": [
+    {
+      "priority": 1,
+      "state": "North Carolina",
+      "name": "Hammocks Beach State Park mainland kayak-launch area",
+      "previousCoordinate": {
+        "latitude": 34.671,
+        "longitude": -77.1429
+      },
+      "distanceFeetToMappedWater": 461.2561742348116,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "putIn",
+          "endpointName": "Hammocks Beach State Park mainland kayak-launch area",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Hammocks Beach State Park mainland kayak-launch area",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "priority": 2,
+      "state": "Arizona",
+      "name": "Dry Canyon boater take-out access area (BLM)",
+      "previousCoordinate": {
+        "latitude": 32.8922,
+        "longitude": -109.4921
+      },
+      "distanceFeetToMappedWater": 459.8137917575366,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gila-river-old-safford-dry-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Dry Canyon boater take-out access area (BLM)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "priority": 3,
+      "state": "Michigan",
+      "name": "Riverside Kayak Park / universal-access dock area",
+      "previousCoordinate": {
+        "latitude": 42.186122,
+        "longitude": -86.373262
+      },
+      "distanceFeetToMappedWater": 455.8514585204221,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "paw-paw-river-riverside-graham-avenue",
+          "endpoint": "putIn",
+          "endpointName": "Riverside Kayak Park / universal-access dock area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "priority": 4,
+      "state": "New York",
+      "name": "NPS/DEC Mongaup River Access / Route 97 carry area",
+      "previousCoordinate": {
+        "latitude": 41.425313,
+        "longitude": -74.757813
+      },
+      "distanceFeetToMappedWater": 454.0937631701415,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mongaup-river-rio-powerhouse-delaware",
+          "endpoint": "takeOut",
+          "endpointName": "NPS/DEC Mongaup River Access / Route 97 carry area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 5,
+      "state": "Iowa",
+      "name": "Eureka Bridge concrete boat-ramp access area",
+      "previousCoordinate": {
+        "latitude": 42.0156,
+        "longitude": -94.4384
+      },
+      "distanceFeetToMappedWater": 447.6161355690887,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-eureka-henderson",
+          "endpoint": "putIn",
+          "endpointName": "Eureka Bridge concrete boat-ramp access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 6,
+      "state": "Iowa",
+      "name": "Interstate Park east-end canoe-ramp area",
+      "previousCoordinate": {
+        "latitude": 43.319134,
+        "longitude": -92.879648
+      },
+      "distanceFeetToMappedWater": 446.6816000209598,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-halvorson-interstate",
+          "endpoint": "takeOut",
+          "endpointName": "Interstate Park east-end canoe-ramp area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "cedar-river-interstate-bennett",
+          "endpoint": "putIn",
+          "endpointName": "Interstate Park east-end canoe-ramp area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "priority": 7,
+      "state": "Montana",
+      "name": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+      "previousCoordinate": {
+        "latitude": 46.94277,
+        "longitude": -113.59983
+      },
+      "distanceFeetToMappedWater": 446.18729779455,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-roundup-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 8,
+      "state": "Idaho",
+      "name": "Salmon Island Park public ramp area",
+      "previousCoordinate": {
+        "latitude": 45.170721,
+        "longitude": -113.894916
+      },
+      "distanceFeetToMappedWater": 444.5564442928534,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-kilpatrick-salmon-island",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon Island Park public ramp area",
+          "severity": "review"
+        },
+        {
+          "routeId": "salmon-river-salmon-island-north-fork",
+          "endpoint": "putIn",
+          "endpointName": "Salmon Island Park public ramp area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 9,
+      "state": "Nebraska",
+      "name": "Columbus hotel parking / Pawnee Park Trail access area",
+      "previousCoordinate": {
+        "latitude": 41.4195401,
+        "longitude": -97.3672208
+      },
+      "distanceFeetToMappedWater": 439.1134412178915,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "loup-river-columbus-adm-access",
+          "endpoint": "putIn",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-adm-access",
+          "endpoint": "accessPoint",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-columbus",
+          "endpoint": "takeOut",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "priority": 10,
+      "state": "Rhode Island",
+      "name": "Esmond Park below-dam launch / carry area",
+      "previousCoordinate": {
+        "latitude": 41.8782,
+        "longitude": -71.4994
+      },
+      "distanceFeetToMappedWater": 438.1849398771325,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ]
+}

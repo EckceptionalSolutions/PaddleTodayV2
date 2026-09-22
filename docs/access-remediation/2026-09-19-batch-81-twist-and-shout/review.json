@@ -1,0 +1,84 @@
+{
+  "batch": 81,
+  "reviewDate": "2026-09-19",
+  "location": "Twist and Shout railroad-bridge take-out, Tygart Valley River, West Virginia",
+  "selectedCoordinate": {
+    "latitude": 39.40187,
+    "longitude": -80.09554
+  },
+  "correctedCoordinate": {
+    "latitude": 39.40187,
+    "longitude": -80.09554
+  },
+  "routeIds": [
+    "wv-tygart-valley-falls-hammond"
+  ],
+  "decision": "retain-as-conditional-whitewater-takeout-anchor",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "American Whitewater exact take-out coordinate beneath an active railroad bridge; access-area anchor, not surveyed wet-toe coordinate.",
+  "accessStatus": "conditional",
+  "accessCondition": "Confirm current legal land access, parking, carry path, bridge-area restrictions, and any gates before launching. Never walk the active railroad line.",
+  "evidence": [
+    {
+      "claim": "American Whitewater identifies the Twist and Shout take-out under the railroad bridge and publishes 39.40187, -80.09554, exactly matching the stored route coordinate.",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "sourceType": "American Whitewater reach guide"
+    },
+    {
+      "claim": "Current route guidance warns that the lower take-out is below an active railroad bridge and requires a separate shuttle plan; the state park confirms kayaking is available at Valley Falls.",
+      "sourceUrl": "https://wvstateparks.com/parks/valley-falls-state-park/activities/",
+      "sourceType": "state park activity and access context"
+    },
+    {
+      "claim": "American Whitewater historical reports document past changes to gates and take-out access, so current legal access cannot be assumed from the coordinate alone.",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/reports",
+      "sourceType": "historical access report"
+    },
+    {
+      "claim": "The endpoint was 484 feet from the named Tygart Valley River flowline but within 2 feet of Glady Creek and had complete hydrography coverage before source review.",
+      "sourceUrl": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-before-public-cache-only.json",
+      "sourceType": "frozen route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "wv-tygart-valley-falls-hammond": {
+      "twistAndShoutTakeOutSeverity": "review",
+      "accessReviewLocations": 1,
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 44,
+      "suspiciousAfter": 43,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3894,
+        "suspicious": 43,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 97,
+      "suspiciousAfter": 96,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4198,
+        "suspicious": 96,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1229
+    }
+  }
+}

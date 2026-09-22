@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "label": "NPS Buffalo National River river-access list and mileage chart",
+      "url": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+      "type": "official-park-access-source",
+      "supports": "Identifies Erbie as a designated Buffalo River put-in/take-out and gives mileage context for the river-access chain.",
+      "doesNotSupport": "Does not provide exact coordinates for the water-entry point."
+    },
+    {
+      "label": "NPS Erbie campground/access coordinate and general travel guidance",
+      "url": "https://www.nps.gov/buff/planyourvisit/getting-around.htm",
+      "type": "official-park-coordinate",
+      "supports": "Publishes the Erbie campground/access-area coordinate 36.0703459086,-93.2118858701 and warns GPS can be unreliable in the park.",
+      "doesNotSupport": "The point is an access-area/campground anchor and does not claim to mark the water-entry edge."
+    },
+    {
+      "label": "Current Google Maps aerial imagery at the Buffalo River Erbie access",
+      "url": "https://www.google.com/maps/@36.070784,-93.211779,347m/data=!3m1!1e3",
+      "type": "imagery-localization",
+      "supports": "Visible campground approach and its connection to the Buffalo River edge.",
+      "doesNotSupport": "Aerial imagery does not establish public access independently or provide survey accuracy; NPS establishes public-site identity."
+    },
+    {
+      "label": "USGS National Hydrography Dataset route-coordinate audit",
+      "url": "https://www.usgs.gov/national-hydrography/access-national-hydrography-products",
+      "type": "hydrography-quality-check",
+      "supports": "Mapped waterbody proximity and named flowline offset for the published point and imagery-derived landing.",
+      "doesNotSupport": "Generalized centerlines do not replace local landing surveys."
+    }
+  ],
+  "coordinateMethod": "Aerial imagery estimate at the visible public river landing, checked against mapped water; approximately 75 ft uncertainty. Not surveyed."
+}

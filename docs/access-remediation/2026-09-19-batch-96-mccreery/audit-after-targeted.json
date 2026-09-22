@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:07:44.902Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-new-mccreery-stone-cliff",
+      "routeName": "New River",
+      "reach": "McCreery River Access to Stone Cliff",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "McCreery River Access",
+      "latitude": 37.848591,
+      "longitude": -81.092046,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 521.5549512900536,
+      "nearestMatchedLatitude": 37.849688,
+      "nearestMatchedLongitude": -81.090885,
+      "nearestWaterwayName": "Piney Creek",
+      "distanceFeetToNearestWaterway": 350.0724420063906,
+      "nearestWaterwayLatitude": 37.848569453450594,
+      "nearestWaterwayLongitude": -81.09326091849388,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 238.41458108485728,
+      "nearestWaterbodyLatitude": 37.84913,
+      "nearestWaterbodyLongitude": -81.091578,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 238.41458108485728,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+      "coordinateEvidenceDetail": "wv_nps_mccreery_new_river_access_20260919 nps-mccreery-new-river-access: NPS New River Gorge fishing guidance lists McCreery among public New River access points off Hwy. 41 near Prince. NPS public assembly material separately identifies a McCreery River Access site and its parking/meeting footprint. Retain the stored route point as the McCreery access-area anchor; the 522-foot named-flowline offset reflects the gorge road/parking facility placement rather than a wrong access coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_nps_mccreery_new_river_access_20260919 nps-mccreery-new-river-access) on New River; access is conditional (Confirm current NPS road condition, parking, carry/ramp route, river level, and any seasonal or safety restrictions at arrival.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wv-new-mccreery-stone-cliff",
+      "routeName": "New River",
+      "reach": "McCreery River Access to Stone Cliff",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Stone Cliff River Access",
+      "latitude": 37.933013,
+      "longitude": -81.063513,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 379.4606962686807,
+      "nearestMatchedLatitude": 37.93352296798897,
+      "nearestMatchedLongitude": -81.06236362244377,
+      "nearestWaterwayName": "Little Stony Creek",
+      "distanceFeetToNearestWaterway": 184.57926741042544,
+      "nearestWaterwayLatitude": 37.93269438225022,
+      "nearestWaterwayLongitude": -81.06301469997136,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 189.33715509841147,
+      "nearestWaterbodyLatitude": 37.93327003947707,
+      "nearestWaterbodyLongitude": -81.06294135844165,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 184.57926741042544,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf",
+      "coordinateEvidenceDetail": "wv_wvdnr_stone_cliff_new_river_access_20260919 wvdnr-stone-cliff-new-river-access: West Virginia DNR District 4 access table lists Stone Cliff in Fayette County on the New River with a parking lot and boat access at 37.9337,-81.0639. NPS identifies Stone Cliff as a public New River access near Thurmond. Retain the stored endpoint as the access-area anchor; its 274-foot offset from the published DNR point and 379-foot named-flowline distance reflect the gorge access road and facility placement.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_wvdnr_stone_cliff_new_river_access_20260919 wvdnr-stone-cliff-new-river-access) on New River; access is conditional (Confirm current NPS/WVDNR road, parking, ramp, and carry conditions at arrival; gorge roads and river access can be seasonal or weather-affected.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

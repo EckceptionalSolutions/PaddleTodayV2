@@ -1,0 +1,41 @@
+{
+  "batch": "2026-09-17-batch-22",
+  "commands": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated src/data/generated/withheld-route-slugs.ts with 169 withheld routes; this batch added the three documented holds."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-22/verify.mjs",
+      "status": "passed",
+      "result": "Ten frozen ranks and 13 routes verified; five source controls and three route holds verified; generated manifest includes all held routes; 4043-entry registry has zero conflicts. Registry evidence staleness is separately recorded."
+    },
+    {
+      "command": "TypeScript transpileModule syntax check and JSON parse for changed files",
+      "status": "passed",
+      "result": "TypeScript transpileModule syntax checks passed for all changed TS files; changed JSON parsed successfully."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- scoped Batch 22 files",
+      "status": "passed",
+      "result": "Scoped diff check passed with CRLF whitespace handling."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-route-access-registry.ts --audit=docs/access-point-quality-audit.json",
+      "status": "passed-with-limit",
+      "result": "Generated 4043 entries with zero conflicts from the cache-only audit. The generator reads docs/route-coordinate-authoritative-evidence.json, still dated 2026-09-05 with 505 providers; it does not directly read the edited control list, so the new controls and Sunken Meadow reclassification are not reflected in generated registry evidence."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "status": "blocked",
+      "result": "Known workspace dependency blocker: @paddletoday/geo is missing."
+    }
+  ],
+  "notes": [
+    "Three routes are withheld because the current public-access premise or exact launch identity is not verified.",
+    "No route coordinates were moved, so there are no Batch 22 geometry deltas to regenerate.",
+    "Cached audit ranks are prioritization only; fresh audit still requires @paddletoday/geo.",
+    "The authoritative-evidence gatherer has no local statewide inventory caches; refreshing its generated evidence would fetch the full configured state inventories. That derived artifact was left untouched, and the registry's unchanged evidence limitation is explicit in registry-control-snapshot.json."
+  ]
+}

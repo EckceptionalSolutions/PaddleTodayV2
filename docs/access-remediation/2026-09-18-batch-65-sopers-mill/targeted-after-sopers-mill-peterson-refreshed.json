@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:23:27.110Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "south-skunk-river-sopers-mill-peterson-park",
+      "routeName": "South Skunk River",
+      "reach": "Soper's Mill to Peterson Park West",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Peterson Park West Access #233",
+      "latitude": 42.0847077,
+      "longitude": -93.5974389,
+      "matchedRiverName": "South Skunk River",
+      "distanceFeetToMatchedRiver": 1148.973097085238,
+      "nearestMatchedLatitude": 42.086135,
+      "nearestMatchedLongitude": -93.593656,
+      "nearestWaterwayName": "South Skunk River",
+      "distanceFeetToNearestWaterway": 1148.973097085238,
+      "nearestWaterwayLatitude": 42.086135,
+      "nearestWaterwayLongitude": -93.593656,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 93.5791073561577,
+      "nearestWaterbodyLatitude": 42.08468388823511,
+      "nearestWaterbodyLongitude": -93.5970947639706,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 93.5791073561577,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 94 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "south-skunk-river-sopers-mill-peterson-park",
+      "routeName": "South Skunk River",
+      "reach": "Soper's Mill to Peterson Park West",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Soper's Mill Access #235",
+      "latitude": 42.104244318429394,
+      "longitude": -93.5729709396775,
+      "matchedRiverName": "South Skunk River",
+      "distanceFeetToMatchedRiver": 66.4239553781705,
+      "nearestMatchedLatitude": 42.10415872889689,
+      "nearestMatchedLongitude": -93.57275433650223,
+      "nearestWaterwayName": "South Skunk River",
+      "distanceFeetToNearestWaterway": 66.4239553781705,
+      "nearestWaterwayLatitude": 42.10415872889689,
+      "nearestWaterwayLongitude": -93.57275433650223,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 28.84150575699078,
+      "nearestWaterbodyLatitude": 42.10420553206203,
+      "nearestWaterbodyLongitude": -93.57287808803478,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 28.84150575699078,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=218&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "ia_dnr_story_sopers_mill_access_235_feature_218_20260918 b8930fe9-14ab-4667-b94f-40cc4eb24579: Iowa DNR's public access feature 218 is Sopers Mill A, access number 235, in Story County, managed and owned by the county conservation board, with a 10-by-71-foot concrete access surface, 20 gravel parking stalls, and parking 10 feet from access. Its published South Skunk River coordinate is 42.104244318429394,-93.5729709396775. The same GIS contains nearby feature 1312 (Sopers Mill B) with fewer site identity attributes; this control follows feature 218 and confirms the access point, not a surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_dnr_story_sopers_mill_access_235_feature_218_20260918 b8930fe9-14ab-4667-b94f-40cc4eb24579) on South Skunk River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

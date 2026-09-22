@@ -1,0 +1,295 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First 10 distinct physical sites in the access-quality queue that affect at least one route not listed in the current generated coordinate-withholding manifest; rank order is the queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cache-only report predates this batch and does not import current route coordinates. The previous runbook command failed because workspace dependency @paddletoday/geo is missing; current generated withholding manifest was used to filter likely public routes."
+  },
+  "sites": [
+    {
+      "rank": 1,
+      "state": "Idaho",
+      "name": "Boundary Creek / Saddle Pass upper access",
+      "latitude": 49.005,
+      "longitude": -116.655,
+      "distanceFeetToMappedWater": 5775.533410221341,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boundary-creek-canadian-border-kootenai",
+          "endpoint": "putIn",
+          "endpointName": "Boundary Creek / Saddle Pass upper access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "boundary-creek-canadian-border-kootenai",
+          "endpoint": "putIn",
+          "endpointName": "Boundary Creek / Saddle Pass upper access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "state": "Wyoming",
+      "name": "Fremont Bay / Lakeside shoreline turnaround",
+      "latitude": 43.353,
+      "longitude": -108.117,
+      "distanceFeetToMappedWater": 5494.4738821371475,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "endpoint": "accessPoint",
+          "endpointName": "Fremont Bay / Lakeside shoreline turnaround",
+          "severity": "unknown"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "endpoint": "accessPoint",
+          "endpointName": "Fremont Bay / Lakeside shoreline turnaround",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "state": "Wyoming",
+      "name": "Sandy Beach boat ramp / Glendo State Park",
+      "latitude": 42.50262,
+      "longitude": -105.02732,
+      "distanceFeetToMappedWater": 3741.4005248214885,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "putIn",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "putIn",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "state": "New York",
+      "name": "South Hill Road High Tor marsh turnaround area",
+      "latitude": 42.6733017,
+      "longitude": -77.3376007,
+      "distanceFeetToMappedWater": 3208.3783665363408,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "west-river-marsh-sunnyside-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "South Hill Road High Tor marsh turnaround area",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "west-river-marsh-sunnyside-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "South Hill Road High Tor marsh turnaround area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "state": "Maryland",
+      "name": "MD 136 / Priestford Road gravel parking and water access",
+      "latitude": 39.64594,
+      "longitude": -76.20495,
+      "distanceFeetToMappedWater": 2664.175678335653,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "deer-creek-sandy-hook-md136",
+          "endpoint": "takeOut",
+          "endpointName": "MD 136 / Priestford Road gravel parking and water access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "deer-creek-sandy-hook-md136",
+          "endpoint": "takeOut",
+          "endpointName": "MD 136 / Priestford Road gravel parking and water access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "state": "Minnesota",
+      "name": "County Road 4 bridge carry-in",
+      "latitude": 47.429,
+      "longitude": -92.255,
+      "distanceFeetToMappedWater": 2479.6434577734276,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "st-louis-river-county-road-4-95",
+          "endpoint": "putIn",
+          "endpointName": "County Road 4 bridge carry-in",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "st-louis-river-county-road-4-95",
+          "endpoint": "putIn",
+          "endpointName": "County Road 4 bridge carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "state": "Nebraska",
+      "name": "Pender Logan Creek canoe access (east side of town)",
+      "latitude": 42.113332,
+      "longitude": -96.712814,
+      "distanceFeetToMappedWater": 2311.912919950301,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "logan-creek-pender-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Pender Logan Creek canoe access (east side of town)",
+          "severity": "unknown"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "logan-creek-pender-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Pender Logan Creek canoe access (east side of town)",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "state": "Minnesota",
+      "name": "Orchard Creek trailer access",
+      "latitude": 43.578,
+      "longitude": -92.963,
+      "distanceFeetToMappedWater": 2211.2765413890547,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-riverwood-state-line",
+          "endpoint": "accessPoint",
+          "endpointName": "Orchard Creek trailer access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "cedar-river-riverwood-state-line",
+          "endpoint": "accessPoint",
+          "endpointName": "Orchard Creek trailer access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "state": "Maryland",
+      "name": "York Road Gunpowder access",
+      "latitude": 39.60415,
+      "longitude": -76.65625,
+      "distanceFeetToMappedWater": 2141.069412288869,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "York Road Gunpowder access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "York Road Gunpowder access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "state": "Wisconsin",
+      "name": "Highway 39 bridge",
+      "latitude": 42.8534,
+      "longitude": -90.2242,
+      "distanceFeetToMappedWater": 2128.806232116811,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pecatonica-river-mineral-point-ludden-north-oak",
+          "endpoint": "accessPoint",
+          "endpointName": "Highway 39 bridge",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "pecatonica-river-mineral-point-ludden-north-oak",
+          "endpoint": "accessPoint",
+          "endpointName": "Highway 39 bridge",
+          "severity": "review"
+        }
+      ]
+    }
+  ]
+}

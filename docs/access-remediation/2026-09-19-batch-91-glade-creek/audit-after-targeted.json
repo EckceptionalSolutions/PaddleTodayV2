@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:42:25.897Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-new-glade-creek-grandview-sandbar",
+      "routeName": "New River",
+      "reach": "Glade Creek River Access to Grandview Sandbar",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Glade Creek River Access",
+      "latitude": 37.82912,
+      "longitude": -81.014533,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 354.00124324126034,
+      "nearestMatchedLatitude": 37.830048,
+      "nearestMatchedLongitude": -81.014892,
+      "nearestWaterwayName": "New River",
+      "distanceFeetToNearestWaterway": 354.00124324126034,
+      "nearestWaterwayLatitude": 37.830048,
+      "nearestWaterwayLongitude": -81.014892,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 204.64884239933906,
+      "nearestWaterbodyLatitude": 37.82965359319705,
+      "nearestWaterbodyLongitude": -81.01475213804866,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 204.64884239933906,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/neri/planyourvisit/finding-your-way-around-the-park.htm",
+      "coordinateEvidenceDetail": "wv_nps_glade_creek_new_river_access_20260919 nps-glade-creek-new-river-access: NPS identifies Glade Creek as a New River access area reached from Glade Creek Road, with a primitive campground, river access, and trailhead. NPS fishing guidance independently lists Glade Creek among public New River access points near Prince. Retain the stored point as the managed access-area anchor; its 354-foot named-flowline offset and 205-foot mapped-water distance reflect the gorge road/campground placement.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_nps_glade_creek_new_river_access_20260919 nps-glade-creek-new-river-access) on New River; access is conditional (Confirm current NPS Glade Creek Road, campground, parking, ramp/carry, and river conditions at arrival; the road is gravel and gorge access can be seasonal or weather-affected.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wv-new-glade-creek-grandview-sandbar",
+      "routeName": "New River",
+      "reach": "Glade Creek River Access to Grandview Sandbar",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Grandview Sandbar River Access",
+      "latitude": 37.857024,
+      "longitude": -81.053783,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 287.82402860798106,
+      "nearestMatchedLatitude": 37.85771027620684,
+      "nearestMatchedLongitude": -81.05427594176258,
+      "nearestWaterwayName": "New River",
+      "distanceFeetToNearestWaterway": 287.82402860818297,
+      "nearestWaterwayLatitude": 37.857710276206966,
+      "nearestWaterwayLongitude": -81.0542759417623,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 164.1332998769103,
+      "nearestWaterbodyLatitude": 37.857431435751565,
+      "nearestWaterbodyLongitude": -81.05402468197761,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 164.1332998769103,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 288 ft of a topology-connected NHD river trace that includes New River; unnamed downstream stream segments are accepted as part of the same network."
+    }
+  ]
+}

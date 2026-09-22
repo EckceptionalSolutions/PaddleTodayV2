@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:31:01.274Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "New York",
+      "name": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+      "latitude": 42.290382,
+      "longitude": -75.480797,
+      "distanceFeetToMappedWater": 322.1392048932539,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "susquehanna-river-bainbridge-afton",
+          "endpoint": "putIn",
+          "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "susquehanna-river-bainbridge-afton",
+      "routeName": "Susquehanna River",
+      "reach": "William S. Payne Memorial Park, Bainbridge to Afton Route 41 access",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+      "latitude": 42.290382,
+      "longitude": -75.480797,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 480.0440691634162,
+      "nearestMatchedLatitude": 42.28940757293014,
+      "nearestMatchedLongitude": -75.47960162209127,
+      "nearestWaterwayName": "Susquehanna River",
+      "distanceFeetToNearestWaterway": 480.0440691653358,
+      "nearestWaterwayLatitude": 42.28940757293013,
+      "nearestWaterwayLongitude": -75.47960162209127,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 322.1392048932539,
+      "nearestWaterbodyLatitude": 42.289721153030946,
+      "nearestWaterbodyLongitude": -75.48000529620036,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 322.1392048932539,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/places/susquehanna-river",
+      "coordinateEvidenceDetail": "ny_nysdec_bainbridge_payne_park_susquehanna_access_20260919 bainbridge-payne-park-susquehanna-access: NYSDEC lists Bainbridge William Payne Park as a Susquehanna River hard-surface ramp downstream of the Route 206 bridge, and the Town of Bainbridge confirms boat access to the Susquehanna at Payne Park. Retain the route coordinate as the public launch-area anchor; the 480-foot named-flowline offset is facility/shoreline context rather than evidence of a wrong river.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ny_nysdec_bainbridge_payne_park_susquehanna_access_20260919 bainbridge-payne-park-susquehanna-access) on Susquehanna River; access is conditional (Confirm current Town of Bainbridge park access, ramp condition, parking, river level, and any seasonal or event restrictions before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "susquehanna-river-bainbridge-afton",
+      "routeName": "Susquehanna River",
+      "reach": "William S. Payne Memorial Park, Bainbridge to Afton Route 41 access",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "NYSDEC Afton Susquehanna River access at Route 41",
+      "latitude": 42.228255,
+      "longitude": -75.52386,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 308.4776089889107,
+      "nearestMatchedLatitude": 42.227869,
+      "nearestMatchedLongitude": -75.522844,
+      "nearestWaterwayName": "Kelsey Creek",
+      "distanceFeetToNearestWaterway": 308.4776089889107,
+      "nearestWaterwayLatitude": 42.227869,
+      "nearestWaterwayLongitude": -75.522844,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 166.1927514802102,
+      "nearestWaterbodyLatitude": 42.22784043377745,
+      "nearestWaterbodyLongitude": -75.52360497035653,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 166.1927514802102,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/things-to-do/boating/launch-sites/chenango-county",
+      "coordinateEvidenceDetail": "ny_nysdec_afton_route_41_unimproved_launch_anchor_20260918 nysdec-chenango-county-susquehanna-afton-launch-coordinate: NYSDEC's current Chenango County Boat Launch Sites directory lists the Susquehanna River at Afton at the exact shared route coordinate 42.228255,-75.523860, classifies it as an unimproved trailer launch, and lists parking for 12 cars and trailers. NYSDEC's Susquehanna River access page places the Afton gravel ramp at the Route 41 bridge. The published coordinate establishes the public launch site, but neither page identifies it as a surveyed wet-toe point. Retain the exact state coordinate as an authoritative access anchor and leave the mapped-water offset open for review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ny_nysdec_afton_route_41_unimproved_launch_anchor_20260918 nysdec-chenango-county-susquehanna-afton-launch-coordinate) on Susquehanna River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

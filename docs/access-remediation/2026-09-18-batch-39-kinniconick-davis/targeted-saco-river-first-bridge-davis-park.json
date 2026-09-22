@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:05:55.618Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "saco-river-first-bridge-davis-park",
+      "routeName": "Saco River",
+      "reach": "First Bridge River Access Conservation Area to Davis Park",
+      "state": "New Hampshire",
+      "endpoint": "putIn",
+      "endpointName": "First Bridge River Access Conservation Area, North Conway (water-entry edge)",
+      "latitude": 44.05704,
+      "longitude": -71.13699,
+      "matchedRiverName": "Saco River",
+      "distanceFeetToMatchedRiver": 278.50656563503986,
+      "nearestMatchedLatitude": 44.05702933475398,
+      "nearestMatchedLongitude": -71.13805218951161,
+      "nearestWaterwayName": "Saco River",
+      "distanceFeetToNearestWaterway": 278.50656563503986,
+      "nearestWaterwayLatitude": 44.05702933475398,
+      "nearestWaterwayLongitude": -71.13805218951161,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 223.3465866765707,
+      "nearestWaterbodyLatitude": 44.05699390502282,
+      "nearestWaterbodyLongitude": -71.13783948097965,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 223.3465866765707,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is 279 ft from the matched NHD flowline; likely an access/parking anchor but worth review."
+    },
+    {
+      "routeId": "saco-river-first-bridge-davis-park",
+      "routeName": "Saco River",
+      "reach": "First Bridge River Access Conservation Area to Davis Park",
+      "state": "New Hampshire",
+      "endpoint": "takeOut",
+      "endpointName": "Davis Park public access, Conway (access-area anchor)",
+      "latitude": 43.98290003852706,
+      "longitude": -71.11596852920452,
+      "matchedRiverName": "Saco River",
+      "distanceFeetToMatchedRiver": 249.67671130772126,
+      "nearestMatchedLatitude": 43.98245379243487,
+      "nearestMatchedLongitude": -71.11668966904054,
+      "nearestWaterwayName": "Saco River",
+      "distanceFeetToNearestWaterway": 249.67671130772126,
+      "nearestWaterwayLatitude": 43.98245379243487,
+      "nearestWaterwayLongitude": -71.11668966904054,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 143.86112852445677,
+      "nearestWaterbodyLatitude": 43.98265919157858,
+      "nearestWaterbodyLongitude": -71.11640247101715,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 143.86112852445677,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://nhgeodata.unh.edu/hosting/rest/services/Hosted/CSD_RecreationResources/FeatureServer/0/query?where=pubacc_id%3D%270156%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "coordinateEvidenceDetail": "nh_granit_davis_park_saco_access_anchor_20260918 nh-pubacc-0156-objectid-67: UNH GRANIT's New Hampshire public-water access layer lists feature PUBACC_ID 0156 / OBJECTID 67 as Davis Park, Town - Conway, on the Saco River, with shorebank access. Its point geometry is retained as the public park/access anchor. Conway confirms a canoe launch, but the inventory classifies this feature as Beach/Picnic and does not give a surveyed launch-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nh_granit_davis_park_saco_access_anchor_20260918 nh-pubacc-0156-objectid-67) on Saco River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

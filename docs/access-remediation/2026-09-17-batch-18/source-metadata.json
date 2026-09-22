@@ -1,0 +1,176 @@
+{
+  "batch": "2026-09-17-batch-18",
+  "retrievedOn": "2026-09-17",
+  "sources": [
+    {
+      "rank": 204,
+      "site": "Boiceville Supermarket",
+      "sources": [
+        {
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1301/main",
+          "type": "route description",
+          "result": "Describes private-business pullout and school overflow parking, not current permission.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/ny-aw-esopus.html",
+          "sha256": "764D25E27D6574CE571F4930F88B68D35151EE02C8994AAF4492504466540D62"
+        }
+      ]
+    },
+    {
+      "rank": 205,
+      "site": "Teton Dam",
+      "sources": [
+        {
+          "url": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22510-fishing-and-boating-access-site-teton",
+          "type": "current agency access listing",
+          "result": "Names Teton Dam and boat ramp; facility map marker is about 0.3 mi north of retained legacy point.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/idfg-teton.html",
+          "sha256": "C938D011B30FE33DF1A5CC93FED3608F786B9B395E51012E7020504CD781B464"
+        },
+        {
+          "url": "https://www.blm.gov/sites/blm.gov/files/BLM_ID_TetonRiver.pdf",
+          "type": "agency map",
+          "result": "Teton River Canyon access/map context; supports dam-area access, not exact selected point.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/id-blm-teton-canyon.pdf",
+          "sha256": "E2F0BC9B0B44D3B1490B72308F3A0B74FF34686FE688BEE1133FC0D63F5567E7"
+        }
+      ]
+    },
+    {
+      "rank": 206,
+      "site": "Germania Marsh Dam",
+      "sources": [
+        {
+          "url": "https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/germania",
+          "type": "current state land-manager page",
+          "result": "Non-motorized boating/canoeing is allowed in the wildlife area; no exact ramp coordinate.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/wi-germania-wildlife-area.html",
+          "sha256": "734914CB2AAF16EF411347582D84AA5015D74980D0565FA24F95810F728E1B54"
+        },
+        {
+          "url": "https://www.wisconsinrivertrips.com/segments/mecan-river/hwy-22",
+          "type": "current route operator access description",
+          "result": "Describes public ramp just north of dam and notes seasonal access.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/wi-wrt-germania.html",
+          "sha256": "DC03A201128D05B06A3CE4944ECD4E1D3E5213BF0DE75E9B737FC2823A1F020C"
+        }
+      ]
+    },
+    {
+      "rank": 207,
+      "site": "Bell Crossing FAS",
+      "sources": [
+        {
+          "url": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1/query?where=OBJECTID%3D158&outFields=*&outSR=4326&returnGeometry=true&f=json",
+          "type": "current official Montana FWP GIS feature query",
+          "result": "OBJECTID 158 / LMS_ID 39754137; NAME Bell Crossing; BOAT_FAC Ramp (Gravel); WGS84 x=-114.12630602302092, y=46.4443416261623.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/mt-bell-query-objectid-158.json",
+          "sha256": "13AA6C9450CE30FD744A2A6F8DCEF536E07CD14F8013E96DF696DF3EE51DDB3A"
+        },
+        {
+          "url": "https://myfwp.mt.gov/fishMT/fas/39754137",
+          "type": "current official FWP site page",
+          "result": "Names Bell Crossing Fishing Access Site; lists boating/access site.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/mt-bell.html",
+          "sha256": "2E22D1EDFB0E0CA366AA661CFABBF4840FB5A7985839885BAD8A50B94073F011"
+        }
+      ]
+    },
+    {
+      "rank": 208,
+      "site": "Gardiner Wallkill launch",
+      "sources": [
+        {
+          "url": "https://www.wallkillalliance.org/wp-content/uploads/2016/04/WallkillRiver_AccessPoints.pdf",
+          "type": "water-trail access inventory",
+          "result": "Lists Gardiner launch at 215 Farmer’s Turnpike as active; generalized and dated, not GPS.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/ny-wallkill-access-points.pdf",
+          "sha256": "B7530FD0EE96B6DB853EB6A8F84B4833A5D3379C3839D9485D1EEF762A5C8565"
+        },
+        {
+          "url": "https://www.wallkillalliance.org/paddle-the-wallkill/",
+          "type": "current water-trail access/safety page",
+          "result": "Current page presents Wallkill Water Trail access system; does not publish exact Gardiner GPS."
+        }
+      ]
+    },
+    {
+      "rank": 210,
+      "site": "Woodway Memorial Park",
+      "sources": [
+        {
+          "url": "https://tpwd.texas.gov/fishboat/boat/paddlingtrails/inland/buffalobayou/",
+          "type": "current state paddling-trail coordinate list",
+          "result": "Lists Woodway Memorial Park as public access at 29.7647,-95.4569.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/tx-buffalo-bayou-current.html",
+          "sha256": "F4B95C526EB9AEAC53B23EB295CD237D317D3B1BAAA2FCCE67D5A05B1270AF56"
+        }
+      ]
+    },
+    {
+      "rank": 211,
+      "site": "Baker Creek / upper Big Wood",
+      "sources": [
+        {
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/11411/main",
+          "type": "route description",
+          "result": "Names Baker Creek-to-North Fork section but does not establish public legal staging or the actual water entry."
+        },
+        {
+          "url": "https://www.ketchumidaho.org/sites/default/files/fileattachments/recreation/page/2681/big_wood_fishing_access_map_-_copy.pdf",
+          "type": "City fishing-access map",
+          "result": "Shows public fishing easements/access but does not verify paddlecraft staging or the selected upstream route start.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/id-ketchum-access-map.pdf",
+          "sha256": "9F356A9AB4923FF485B87E38A2721EC63E94E6B2FD1C14903E89583F8A00FC9C"
+        },
+        {
+          "url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1145496437852",
+          "type": "current agency water record",
+          "result": "Identifies Baker Creek as a Big Wood tributary and lists no boat ramp."
+        }
+      ]
+    },
+    {
+      "rank": 212,
+      "site": "Falls Dam public launch",
+      "sources": [
+        {
+          "url": "https://raleighnc.gov/river-access",
+          "type": "current city public launch page",
+          "result": "Updated Aug 17 2026; identifies six nonmotorized launches; directs Falls Dam users to right-side gravel road before bridge and distinguishes left-side Corps tailrace lot."
+        },
+        {
+          "url": "https://www.saw.usace.army.mil/portals/59/docs/recreation/fallslake/images/falls%20lake%20master%20plan%20june%2021%202013%20final.pdf",
+          "type": "Corps facility plan",
+          "result": "Distinguishes Neuse River Greenway/Canoe Launch from Tailrace Access Area."
+        }
+      ]
+    },
+    {
+      "rank": 213,
+      "site": "Turner Bend",
+      "sources": [
+        {
+          "url": "https://www.turnerbend.com/BOATING-SHUTTLE.html",
+          "type": "current landing operator rules",
+          "result": "Landing is load/unload access; private boaters need wristbands and must follow parking/loading permissions.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/turner-bend-current.html",
+          "sha256": "E102F41BF18004362B16906E426210C791555BE7A85F6B687B7C3D0EDA65796E"
+        }
+      ]
+    },
+    {
+      "rank": 214,
+      "site": "Chenango Bridge Route 12A",
+      "sources": [
+        {
+          "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/broome-county",
+          "type": "current NYSDEC public launch coordinate table",
+          "result": "Lists Chenango River Route 12A DOT Park and Ride as a hand launch with coordinate 42.167396,-75.874293.",
+          "localPath": "node_modules/.cache/access-batch-18/sources/ny-dec-broome-current.html",
+          "sha256": "B58B8FEC333C27E6449C7D83ABDCD264DCA7D2CA09AC6BE705998FE94FC95F75"
+        }
+      ]
+    }
+  ],
+  "note": "The Wisconsin DNR map service response stored as wi-germania.json returned “service not started” and was excluded as evidence."
+}

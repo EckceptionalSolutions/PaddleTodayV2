@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "label": "TECHE Project Bayou Teche Paddle Trail dock locations",
+      "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "type": "official-trail-operator",
+      "supports": "Identifies Centerville's official dock at Schwan Park, 514 Parish Road 131, at river mile 114.0.",
+      "doesNotSupport": "Does not publish a surveyed latitude/longitude for the dock's water-entry point."
+    },
+    {
+      "label": "Google Maps aerial imagery at corrected point",
+      "url": "https://www.google.com/maps/@29.760737,-91.419060,93m/data=!3m1!1e3",
+      "type": "imagery-localization",
+      "supports": "Visible park-side landing and its relationship to the Bayou Teche shoreline.",
+      "doesNotSupport": "Aerial imagery does not establish access permission independently or provide survey accuracy; public identity comes from TECHE's dock listing."
+    },
+    {
+      "label": "USGS National Hydrography Dataset route-coordinate audit",
+      "url": "https://www.usgs.gov/national-hydrography/access-national-hydrography-products",
+      "type": "hydrography-quality-check",
+      "supports": "Mapped waterbody proximity and named flowline offset for the old and corrected points.",
+      "doesNotSupport": "Generalized/incomplete NHD centerlines are not a parcel or landing survey."
+    }
+  ],
+  "coordinateMethod": "Aerial imagery estimate at the public dock landing, checked against NHD water geometry; approximately 50 ft uncertainty. Not surveyed."
+}

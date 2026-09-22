@@ -1,0 +1,43 @@
+{
+  "batch": 55,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Cedar River Paddling Trips guide, published by Charles City Chamber of Commerce",
+      "url": "https://media.rainpos.com/8576/cedar_river_flatwater_paddling_trips.pdf",
+      "page": 3,
+      "observations": [
+        "Names Idlewild Park Access, gives the address 1374 Quarry Road, Floyd, and publishes GPS 43.1633388,-92.75409209999998, matching the shared route coordinate.",
+        "Lists the downstream Rotary Park Access 5.6 miles away, matching the route chain."
+      ],
+      "limits": "The guide provides an access-area GPS coordinate but does not describe a ramp, landing toe, or the on-site carry."
+    },
+    {
+      "name": "Floyd County / MyCountyParks West Idlewild Campground record",
+      "url": "https://www.mycountyparks.com/County/Floyd/Park/West-Idlewild-Campground/",
+      "observations": [
+        "Current county-managed park record locates West Idlewild at 1374 Quarry Road, two miles northwest of Floyd along the Cedar River.",
+        "Lists Canoe access among the facilities and identifies camping, fishing, and boating activities."
+      ],
+      "limits": "Confirms a public canoe-access site but does not give a separate waterline coordinate."
+    },
+    {
+      "name": "Floyd County Conservation Cedar River Float listing",
+      "url": "https://www.floydco.iowa.gov/Calendar.aspx?EID=1971&calType=0&day=9&month=7&year=2024",
+      "observations": [
+        "County Conservation describes a Cedar River float ending at West Idlewild Park, 1374 Quarry Road, with vehicle shuttle support."
+      ],
+      "limits": "Corroborates route use at the public facility, not the exact landing point."
+    },
+    {
+      "name": "Google Maps satellite imagery at stored point",
+      "url": "https://www.google.com/maps/place/43.1633388,-92.7540921/@43.1633388,-92.7540921,18z/data=!3m1!1e3",
+      "observations": [
+        "The coordinate falls by Quarry Road in the West Idlewild approach area on the Cedar River bank.",
+        "Heavy tree cover obscures the specific river carry and landing."
+      ],
+      "limits": "Visual check only; no coordinate was derived from the imagery."
+    }
+  ],
+  "decision": "Retain the published matching access-area coordinate as an authoritative site anchor; do not claim it is a surveyed water-entry toe."
+}

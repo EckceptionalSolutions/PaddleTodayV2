@@ -1,0 +1,65 @@
+{
+  "capturedAt": "2026-09-17T12:45:53.342Z",
+  "files": [
+    {
+      "file": "src/data/route-access-review-holds.ts",
+      "sha256": "266ca695991f4e98e103c3251749947a1a279c63f06216c6e9e7b7f62e1e3611",
+      "bytes": 12819,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__route-access-review-holds.ts"
+    },
+    {
+      "file": "src/data/generated/withheld-route-slugs.ts",
+      "sha256": "c354be02773c86692d201a777b15313c4f566b9c0af84e3575056cb503916aa3",
+      "bytes": 3050,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__generated__withheld-route-slugs.ts"
+    },
+    {
+      "file": "src/data/route-access-official-map-controls.json",
+      "sha256": "490700e399143424ab417f4212ea24060645bb0354a3f4e8a9bfb02a06c423a3",
+      "bytes": 1177524,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__route-access-official-map-controls.json"
+    },
+    {
+      "file": "src/data/routes/idaho.ts",
+      "sha256": "330750b0ad42ec46cdf627cb80eb072059e5a750f852d14c162b2582eafb6f04",
+      "bytes": 844334,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__routes__idaho.ts"
+    },
+    {
+      "file": "src/data/routes/wyoming.ts",
+      "sha256": "963ddb4425c6601de0330f7cc8a7dea872bba8cf8fca7f207d157edd855b4103",
+      "bytes": 89171,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__routes__wyoming.ts"
+    },
+    {
+      "file": "src/data/routes/new-york.ts",
+      "sha256": "e5f2f0eed79c70d3e41a03360b36d0433b298c43c07d4df4434ee4ae8d8bf4e2",
+      "bytes": 3536829,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__routes__new-york.ts"
+    },
+    {
+      "file": "src/data/routes/maryland.ts",
+      "sha256": "ff2a237bb1cad4c0c400bd083ceeebe5d66b6e7bf2b77198c51d967b65a39ec9",
+      "bytes": 728939,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__routes__maryland.ts"
+    },
+    {
+      "file": "src/data/routes/nebraska.ts",
+      "sha256": "baadb66c0871a90cbe350c3da45d46468c0d144efe8ccf240f60122aab5f6819",
+      "bytes": 98851,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__routes__nebraska.ts"
+    },
+    {
+      "file": "src/data/trip-details/nebraska.ts",
+      "sha256": "d4d842591860f251e61d9cb5908214e89e4f413ded48e1bd2192a58bbabe4b38",
+      "bytes": 47746,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__trip-details__nebraska.ts"
+    },
+    {
+      "file": "src/data/trip-details/wisconsin.ts",
+      "sha256": "dbca852af21c3c9eef01ce7b1d96f804ac134a02f582949a847124b80631d75c",
+      "bytes": 531662,
+      "backup": "node_modules\\.cache\\access-batch-02\\before-source-unique\\src__data__trip-details__wisconsin.ts"
+    }
+  ]
+}

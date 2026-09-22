@@ -12,7 +12,7 @@ for (const path of ['/river/rice-creek-peltier-to-long-lake', '/saved', '/weeken
     });
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
     await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', (route) => route.fulfill({ json: fixture }));
-    await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [{
+    await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [{
       ...fixture.result,
       summary: { gaugeNow: 'Check source', shortExplanation: 'QA fixture.' },
       liveData: { overall: 'stale', summary: 'Check current conditions.' },

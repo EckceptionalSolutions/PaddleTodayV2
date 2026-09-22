@@ -1,0 +1,482 @@
+{
+  "url": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/query?f=json&where=1%3D1&geometry=-80.91%2C34.67%2C-80.80%2C34.76&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=4326&returnGeometry=true",
+  "retrievedAt": "2026-09-17T11:56:30.803Z",
+  "objectIdFieldName": "OBJECTID",
+  "uniqueIdField": {
+    "name": "OBJECTID",
+    "isSystemMaintained": true
+  },
+  "globalIdFieldName": "GlobalID",
+  "geometryType": "esriGeometryPoint",
+  "spatialReference": {
+    "wkid": 4326,
+    "latestWkid": 4326
+  },
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "sqlType": "sqlTypeOther",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "GlobalID",
+      "type": "esriFieldTypeGlobalID",
+      "alias": "GlobalID",
+      "sqlType": "sqlTypeOther",
+      "length": 38,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "PropertyID",
+      "type": "esriFieldTypeString",
+      "alias": "PropertyID",
+      "sqlType": "sqlTypeOther",
+      "length": 10,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "RelatedPropertyID",
+      "type": "esriFieldTypeString",
+      "alias": "Related Property ID",
+      "sqlType": "sqlTypeOther",
+      "length": 10,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SpeciesID",
+      "type": "esriFieldTypeString",
+      "alias": "Species ID",
+      "sqlType": "sqlTypeOther",
+      "length": 10,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessID",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access ID",
+      "sqlType": "sqlTypeOther",
+      "length": 10,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessType",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access Type",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessSubType",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access SubType",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessName",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access Name",
+      "sqlType": "sqlTypeOther",
+      "length": 250,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessMaterial",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access Material",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterAccessDescription",
+      "type": "esriFieldTypeString",
+      "alias": "Water Access Description",
+      "sqlType": "sqlTypeOther",
+      "length": 500,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Waterbody",
+      "type": "esriFieldTypeString",
+      "alias": "Waterbody Name",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterbodyType",
+      "type": "esriFieldTypeString",
+      "alias": "Water Body Type",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "WaterType",
+      "type": "esriFieldTypeString",
+      "alias": "Water Type",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "TroutWater",
+      "type": "esriFieldTypeString",
+      "alias": "Trout Water",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Parking",
+      "type": "esriFieldTypeString",
+      "alias": "Parking",
+      "sqlType": "sqlTypeOther",
+      "length": 300,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ParkingSurface",
+      "type": "esriFieldTypeString",
+      "alias": "Parking Surface",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "LaunchLanes",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Launch Lanes",
+      "sqlType": "sqlTypeOther",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "CourtesyDock",
+      "type": "esriFieldTypeString",
+      "alias": "Courtesy Dock",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "FishingPier",
+      "type": "esriFieldTypeString",
+      "alias": "Fishing Pier",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "PicnicArea",
+      "type": "esriFieldTypeString",
+      "alias": "Picnic Area",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Camping",
+      "type": "esriFieldTypeString",
+      "alias": "Camping",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Accessible",
+      "type": "esriFieldTypeString",
+      "alias": "Handicap Accessible",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "AccessibleDescription",
+      "type": "esriFieldTypeString",
+      "alias": "Accessbility Description",
+      "sqlType": "sqlTypeOther",
+      "length": 500,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Restrooms",
+      "type": "esriFieldTypeString",
+      "alias": "Restrooms",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Owner",
+      "type": "esriFieldTypeString",
+      "alias": "Owner",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Maintenance",
+      "type": "esriFieldTypeString",
+      "alias": "Maintenance",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "GameZone",
+      "type": "esriFieldTypeString",
+      "alias": "SCDNR Game Zone",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SCDNR_Region",
+      "type": "esriFieldTypeString",
+      "alias": "SCDNR Region",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "County",
+      "type": "esriFieldTypeString",
+      "alias": "County",
+      "sqlType": "sqlTypeOther",
+      "length": 35,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Address",
+      "type": "esriFieldTypeString",
+      "alias": "Address",
+      "sqlType": "sqlTypeOther",
+      "length": 255,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Directions",
+      "type": "esriFieldTypeString",
+      "alias": "Directions",
+      "sqlType": "sqlTypeOther",
+      "length": 255,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Latitude",
+      "type": "esriFieldTypeDouble",
+      "alias": "Latitude",
+      "sqlType": "sqlTypeOther",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Longitude",
+      "type": "esriFieldTypeDouble",
+      "alias": "Longitude",
+      "sqlType": "sqlTypeOther",
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Status",
+      "type": "esriFieldTypeString",
+      "alias": "Status",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "PublicAccess",
+      "type": "esriFieldTypeString",
+      "alias": "Public Access",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Comments",
+      "type": "esriFieldTypeString",
+      "alias": "Comments",
+      "sqlType": "sqlTypeOther",
+      "length": 500,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SpeciesList",
+      "type": "esriFieldTypeString",
+      "alias": "Species List",
+      "sqlType": "sqlTypeOther",
+      "length": 1000,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SpeciesCodes",
+      "type": "esriFieldTypeString",
+      "alias": "Species Codes",
+      "sqlType": "sqlTypeOther",
+      "length": 300,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "StateLake",
+      "type": "esriFieldTypeString",
+      "alias": "State Lake",
+      "sqlType": "sqlTypeOther",
+      "length": 30,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "TroutID",
+      "type": "esriFieldTypeString",
+      "alias": "Trout Group ID",
+      "sqlType": "sqlTypeOther",
+      "length": 30,
+      "domain": null,
+      "defaultValue": null
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 969,
+        "GlobalID": "7fa7e963-646d-4cef-8312-da68f58e23c0",
+        "PropertyID": null,
+        "RelatedPropertyID": null,
+        "SpeciesID": "SPRS011",
+        "WaterAccessID": "PL022",
+        "WaterAccessType": "Paddle Launch",
+        "WaterAccessSubType": "Ramp",
+        "WaterAccessName": "Hwy 9 Access Point",
+        "WaterAccessMaterial": null,
+        "WaterAccessDescription": null,
+        "Waterbody": "Catawba River",
+        "WaterbodyType": "River",
+        "WaterType": "Freshwater",
+        "TroutWater": "No",
+        "Parking": "Parking",
+        "ParkingSurface": null,
+        "LaunchLanes": null,
+        "CourtesyDock": null,
+        "FishingPier": null,
+        "PicnicArea": null,
+        "Camping": "No",
+        "Accessible": null,
+        "AccessibleDescription": null,
+        "Restrooms": "No",
+        "Owner": "South Carolina Department of Transportation",
+        "Maintenance": "South Carolina Department of Transportation",
+        "GameZone": "2",
+        "SCDNR_Region": "2",
+        "County": "Lancaster",
+        "Address": "Nectar RD Lancaster, SC 29720 ",
+        "Directions": null,
+        "Latitude": 34.70904956,
+        "Longitude": -80.86579624,
+        "Status": "Active",
+        "PublicAccess": "Open",
+        "Comments": null,
+        "SpeciesList": "Largemouth Bass, Redbreast Sunfish, Bluegill, Redear Sunfish, Warmouth, Flathead Catfish, Blue Catfish, Channel Catfish",
+        "SpeciesCodes": "LMB, RBS, BLG, RES, WAR, FCF, BCF, CCF",
+        "StateLake": null,
+        "TroutID": null
+      },
+      "geometry": {
+        "x": -80.8657962370408,
+        "y": 34.709049559410175
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 349,
+        "GlobalID": "5d7b8555-fc87-4b2f-aa2b-865a474ce513",
+        "PropertyID": null,
+        "RelatedPropertyID": null,
+        "SpeciesID": "SPRS011",
+        "WaterAccessID": "BR506",
+        "WaterAccessType": "Boat Ramp",
+        "WaterAccessSubType": "Improved",
+        "WaterAccessName": "Highway 9",
+        "WaterAccessMaterial": "Concrete or Paved",
+        "WaterAccessDescription": null,
+        "Waterbody": "Catawba River",
+        "WaterbodyType": "River",
+        "WaterType": "Freshwater",
+        "TroutWater": null,
+        "Parking": "20 Parking Spaces",
+        "ParkingSurface": "Gravel",
+        "LaunchLanes": 1,
+        "CourtesyDock": "No",
+        "FishingPier": "No",
+        "PicnicArea": null,
+        "Camping": null,
+        "Accessible": null,
+        "AccessibleDescription": null,
+        "Restrooms": null,
+        "Owner": "SCDOT",
+        "Maintenance": "Lancaster County",
+        "GameZone": "2",
+        "SCDNR_Region": "2",
+        "County": "Lancaster",
+        "Address": null,
+        "Directions": "One lane boat ramp and gravel parking for approximately 20 vehicle/trailers",
+        "Latitude": 34.70913328,
+        "Longitude": -80.86601498,
+        "Status": "Active",
+        "PublicAccess": "Open",
+        "Comments": null,
+        "SpeciesList": "Largemouth Bass, Redbreast Sunfish, Bluegill, Redear Sunfish, Warmouth, Flathead Catfish, Blue Catfish, Channel Catfish",
+        "SpeciesCodes": "LMB, RBS, BLG, RES, WAR, FCF, BCF, CCF",
+        "StateLake": null,
+        "TroutID": null
+      },
+      "geometry": {
+        "x": -80.86601498130406,
+        "y": 34.70913328417539
+      }
+    }
+  ]
+}

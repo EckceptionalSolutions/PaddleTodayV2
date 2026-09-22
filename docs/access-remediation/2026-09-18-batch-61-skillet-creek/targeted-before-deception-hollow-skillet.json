@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T20:42:24.055Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "des-moines-river-deception-hollow-skillet",
+      "routeName": "Des Moines River",
+      "reach": "Deception Hollow to Skillet Creek Access",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Skillet Creek Access",
+      "latitude": 42.2523,
+      "longitude": -93.9975,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 354.15560225161386,
+      "nearestMatchedLatitude": 42.252577,
+      "nearestMatchedLongitude": -93.99624299999999,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 354.15560225161386,
+      "nearestWaterwayLatitude": 42.252577,
+      "nearestWaterwayLongitude": -93.99624299999999,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 226.4052918504763,
+      "nearestWaterbodyLatitude": 42.25240356014306,
+      "nearestWaterbodyLongitude": -93.99667332320716,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 226.4052918504763,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 354 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "des-moines-river-deception-hollow-skillet",
+      "routeName": "Des Moines River",
+      "reach": "Deception Hollow to Skillet Creek Access",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Deception Hollow carry-down access",
+      "latitude": 42.3273,
+      "longitude": -94.0206,
+      "matchedRiverName": "Des Moines River",
+      "distanceFeetToMatchedRiver": 161.08302481993164,
+      "nearestMatchedLatitude": 42.32770171185254,
+      "nearestMatchedLongitude": -94.02035209996501,
+      "nearestWaterwayName": "Des Moines River",
+      "distanceFeetToNearestWaterway": 161.08302481993164,
+      "nearestWaterwayLatitude": 42.32770171185254,
+      "nearestWaterwayLongitude": -94.02035209996501,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 30.763815179151337,
+      "nearestWaterbodyLatitude": 42.32738212168264,
+      "nearestWaterbodyLongitude": -94.02057408663059,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 30.763815179151337,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 31 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

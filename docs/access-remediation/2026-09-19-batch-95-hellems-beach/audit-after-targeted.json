@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:01:33.813Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-new-tug-creek-hellems",
+      "routeName": "New River",
+      "reach": "Tug Creek River Access to Hellems Beach",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Hellems Beach River Access",
+      "latitude": 37.724596,
+      "longitude": -80.896656,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 573.1911408787522,
+      "nearestMatchedLatitude": 37.725494,
+      "nearestMatchedLongitude": -80.895026,
+      "nearestWaterwayName": "New River",
+      "distanceFeetToNearestWaterway": 573.1911408787522,
+      "nearestWaterwayLatitude": 37.725494,
+      "nearestWaterwayLongitude": -80.895026,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 222.63519176014594,
+      "nearestWaterbodyLatitude": 37.72495360571006,
+      "nearestWaterbodyLongitude": -80.89603079408346,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 222.63519176014594,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/neri/planyourvisit/fishing.htm",
+      "coordinateEvidenceDetail": "wv_nps_hellems_beach_new_river_access_20260919 nps-hellems-beach-new-river-access: NPS New River Gorge fishing guidance lists Hellems Beach among public New River access points reached via River Road at Hinton. NPS planning material independently groups Tug Creek, Hellems Beach, and Camp Brookside as upper-gorge public river accesses. Retain the stored route point as the Hellems Beach access-area anchor; the 573-foot named-flowline offset reflects the gorge road/shoreline facility placement rather than a wrong access coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_nps_hellems_beach_new_river_access_20260919 nps-hellems-beach-new-river-access) on New River; access is conditional (Confirm current NPS road condition, parking/carry route, shoreline access, river level, and any seasonal or safety restrictions at arrival.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wv-new-tug-creek-hellems",
+      "routeName": "New River",
+      "reach": "Tug Creek River Access to Hellems Beach",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Tug Creek River Access",
+      "latitude": 37.698042,
+      "longitude": -80.884106,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 0.7158484485659902,
+      "nearestMatchedLatitude": 37.69804337247932,
+      "nearestMatchedLongitude": -80.88410422766685,
+      "nearestWaterwayName": "New River",
+      "distanceFeetToNearestWaterway": 0.7158484485659902,
+      "nearestWaterwayLatitude": 37.69804337247932,
+      "nearestWaterwayLongitude": -80.88410422766685,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 37.698042,
+      "nearestWaterbodyLongitude": -80.884106,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

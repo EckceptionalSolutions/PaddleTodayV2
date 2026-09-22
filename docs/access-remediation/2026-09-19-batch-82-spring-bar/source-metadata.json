@@ -1,0 +1,30 @@
+{
+  "batch": "B82",
+  "sources": [
+    {
+      "title": "Recreation.gov Spring Bar Campground",
+      "url": "https://www.recreation.gov/camping/poi/240698",
+      "publisher": "USDA Forest Service / Recreation.gov",
+      "supports": ["Salmon River take-out", "boat-launching ramp", "18 tent campsites"]
+    },
+    {
+      "title": "Forest Service Visit Destinations listing",
+      "url": "https://www.fs.usda.gov/visit/destinations?field_fs_states_tid_selective=All&field_rec_activities_target_id=All&field_rec_activities_tid_selective=11919&field_rec_forest_target_id=All&field_rec_forest_tid_selective=12023&page=709",
+      "publisher": "USDA Forest Service",
+      "supports": ["Nez Perce-Clearwater National Forests site identity", "take-out and boat-launching ramp"]
+    },
+    {
+      "title": "Idaho Fish and Game / Nez Perce-Clearwater access partnership",
+      "url": "https://idfg.idaho.gov/article/fg-and-nez-perce-clearwater-national-forest-partnership-will-maintain-trails-and-increase",
+      "publisher": "Idaho Department of Fish and Game",
+      "supports": ["Spring Bar ramp restoration project"]
+    },
+    {
+      "title": "Mapped Spring Bar Campground feature",
+      "url": "https://mapcarta.com/23562536",
+      "publisher": "Mapcarta / mapped place feature",
+      "supports": ["stored coordinate fit"]
+    }
+  ],
+  "sourceQuality": "The public-access decision is based on federal Forest Service/Recreation.gov and Idaho Fish and Game sources; the mapped feature is used only to corroborate the coordinate anchor."
+}

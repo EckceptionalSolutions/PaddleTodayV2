@@ -1,0 +1,13 @@
+{
+  "batch": "B90",
+  "decision": "retain-coordinate-classify",
+  "routeId": "fox-river-yorkville-whitewater-course",
+  "endpoint": "takeOut",
+  "endpointName": "Marge Cline Whitewater Course take-out / downstream portage",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 41.641998, "longitude": -88.443001 }, "distanceFeetToMatchedRiver": 479.56101219224274, "distanceFeetToMappedWater": 195.92668082349104, "sourceIssues": 0 },
+  "evidence": { "cityFacility": "Yorkville identifies the course as free and open-use, with a boat launch at the east end and portage points at both ends.", "downstreamPortage": "The city identifies a designated canoe portage west of Route 47 on the south bank next to the Parks and Recreation building.", "coordinateFit": "The stored point is retained as the downstream portage/course facility anchor. Its 480-foot connected-network offset and 196-foot mapped-water distance reflect the bypass-course facility layout, not a wrong Fox River location."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "il_yorkville_marge_cline_whitewater_course_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 479.56101219224274, "distanceFeetToMappedWater": 195.92668082349104, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 35, "after": 34 }, "inventorySuspicious": { "before": 88, "after": 87 }, "publicReview": { "before": 3902, "after": 3903 }, "inventoryReview": { "before": 4206, "after": 4207 }, "registryAuthoritativeAccess": { "before": 1235, "after": 1236 } }
+}

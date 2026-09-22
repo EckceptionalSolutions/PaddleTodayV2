@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:47:43.198Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-guyandotte-wylo-man",
+      "routeName": "Guyandotte River",
+      "reach": "Wylo public access to Man public access",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Man public access",
+      "latitude": 37.731,
+      "longitude": -81.875,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 375.96996586099704,
+      "nearestMatchedLatitude": 37.730373551278284,
+      "nearestMatchedLongitude": -81.87396533079651,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 375.96996586866686,
+      "nearestWaterwayLatitude": 37.73037355127822,
+      "nearestWaterwayLongitude": -81.87396533079654,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 282.2037467433619,
+      "nearestWaterbodyLatitude": 37.73075737334537,
+      "nearestWaterbodyLongitude": -81.87407128640191,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 282.2037467433619,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 376 ft of a topology-connected NHD river trace that includes Guyandotte River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "wv-guyandotte-wylo-man",
+      "routeName": "Guyandotte River",
+      "reach": "Wylo public access to Man public access",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Wylo public access",
+      "latitude": 37.677,
+      "longitude": -81.848,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 218.87626858017515,
+      "nearestMatchedLatitude": 37.67674011240868,
+      "nearestMatchedLongitude": -81.84868322488431,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 218.87668413700084,
+      "nearestWaterwayLatitude": 37.67673906033888,
+      "nearestWaterwayLongitude": -81.8486825860371,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 113.01664668249003,
+      "nearestWaterbodyLatitude": 37.67694,
+      "nearestWaterbodyLongitude": -81.848384,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 113.01664668249003,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 113 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

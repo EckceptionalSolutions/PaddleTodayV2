@@ -1,0 +1,13 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "files": {
+    "src/data/route-access-official-map-controls.json": "f3009aacb2f07600663ec3332f1a5e3499b676a8f0746156bedf15750b9e30aa",
+    "src/data/route-access-review-holds.ts": "2a352d602ec14c81cab36a37fe420fc02e9dc07b4ca14cef850de49fe375d911",
+    "src/data/generated/withheld-route-slugs.ts": "033b078c6f8d7e9cafb9226cb53910b66003536733f0c18454561ee0aaf9c9a6",
+    "src/data/routes/south-carolina-broad.ts": "0fc2dc918a94f7eabc8f4d336a4c4b02a64c0343358e597af8ad9fd9420fd1a2",
+    "src/data/routes/vermont-otter-creek.ts": "08c7276e9b70e329d1f461d2eee1a5b7d80cc2972bb7f2aa7a047dd0df0c5ace",
+    "src/data/routes/iowa.ts": "0b3b5f567a67954f358b1293f82e755d89cf4163bac1e93a1055cb806bc04075",
+    "src/data/trip-details/iowa.ts": "a95027dde9df3d9e480920f9f919813d53a61beb176ab9d67aef0aca4d8e73cd",
+    "src/data/trip-details/texas.ts": "3d0b78327799c2f305158645af0128e09c0ca57ccf89cd33af722893e1eb35d0"
+  }
+}

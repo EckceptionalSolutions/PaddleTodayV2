@@ -1,0 +1,13 @@
+{
+  "batch": "B92",
+  "decision": "retain-coordinate-classify",
+  "routeId": "mississippi-river-east-river-flats-hidden-falls",
+  "endpoint": "putIn",
+  "endpointName": "East River Flats Park",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 44.9703514, "longitude": -93.2350599 }, "distanceFeetToMatchedRiver": 416.6842206478721, "distanceFeetToMappedWater": 208.1675112836612, "sourceIssues": 0 },
+  "evidence": { "parkPlan": "MPRB's Mississippi Gorge plan identifies East River Flats as one of the best places to access the river and lists a boat launch, river access, pay parking, and the University of Minnesota rowing facility.", "stateContext": "Minnesota DNR's metro river guide identifies East River Flats as a carry-in access.", "coordinateFit": "The stored point is retained as the park/shoreline access-area anchor. The 417-foot flowline offset and 208-foot mapped-water distance reflect the broad riverbank, rowing facility, and shoreline access layout rather than an incorrect river assignment."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "mn_mprb_east_river_flats_mississippi_access_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 416.6842206478721, "distanceFeetToMappedWater": 208.1675112836612, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 33, "after": 32 }, "inventorySuspicious": { "before": 86, "after": 85 }, "publicReview": { "before": 3904, "after": 3905 }, "inventoryReview": { "before": 4208, "after": 4209 }, "registryAuthoritativeAccess": { "before": 1237, "after": 1238 } }
+}

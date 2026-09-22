@@ -1,0 +1,52 @@
+{
+  "reviewDate": "2026-09-17",
+  "decision": "fix-coordinate",
+  "site": "George D. Syas WMA fishing access",
+  "storedCoordinate": {
+    "latitude": 41.43328221,
+    "longitude": -97.68464875
+  },
+  "correctedCoordinate": {
+    "latitude": 41.42442894,
+    "longitude": -97.6963078
+  },
+  "finding": "NGPC's current interactive Water Trails map contains a named George D. Syas WMA Paddlecraft Launch feature on the Loup River. Its shore-launch flag and coordinate provide a defensible replacement for the former WMA property representative point. The feature is open in its latest mapped status, but it is a non-designated, unmaintained ramp with a long walking path.",
+  "coordinateAction": "Update every shared route occurrence to the NGPC Paddlecraft Launch feature coordinate. Preserve the former coordinate as the WMA area anchor in the source-control record; do not treat its property point as the access.",
+  "routeAction": "Generate and inspect corrected geometry for each dependent route. Release Syas–Monroe after its single continuous network trace passes with a 193-foot maximum endpoint snap. Keep Syas–Columbus and Syas–ADM withheld because their named-flowline fallbacks contain disconnected fragments and a 55,652-foot maximum endpoint snap.",
+  "affectedRoutes": [
+    "loup-river-george-syas-monroe",
+    "loup-river-george-syas-columbus",
+    "loup-river-george-syas-adm-access"
+  ],
+  "sourceDataEdits": [
+    "Added the NGPC Paddlecraft Launch GIS feature as an authoritative-water-entry control.",
+    "Corrected the shared put-in coordinate in the three route records and trip-detail records.",
+    "Updated route notes to describe the mapped shore launch, unmaintained/non-designated status, long walking path, and need to verify current conditions.",
+    "Reviewed fresh route geometries. Released only Syas–Monroe; retained manual holds for Syas–Columbus and Syas–ADM."
+  ],
+  "routeGeometryReview": [
+    {
+      "routeId": "loup-river-george-syas-monroe",
+      "traceMode": "network-traced",
+      "segments": 1,
+      "vertices": 438,
+      "endpointSnapMaxFeet": 193,
+      "decision": "release"
+    },
+    {
+      "routeId": "loup-river-george-syas-columbus",
+      "traceMode": "named-fallback",
+      "segments": 42,
+      "endpointSnapMaxFeet": 55652,
+      "decision": "keep-withheld"
+    },
+    {
+      "routeId": "loup-river-george-syas-adm-access",
+      "traceMode": "named-fallback",
+      "segments": 48,
+      "endpointSnapMaxFeet": 55652,
+      "decision": "keep-withheld"
+    }
+  ],
+  "reopenWhen": "Revisit Syas–Columbus and Syas–ADM after route geometry can follow the documented Loup River corridor continuously from the verified Syas shore launch. Confirm current walking-path and water-entry conditions before recommending a trip."
+}

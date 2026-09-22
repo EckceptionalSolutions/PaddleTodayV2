@@ -1,0 +1,330 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites from the cached quality queue starting at rank 236, excluding sites frozen in batches 1–20 and queue rows whose route occurrences are all held. Route eligibility is checked against the current generated withholding manifest. Cached ranks prioritize research only and are not current evidence.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh access audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "priorFrozenSiteCount": 200,
+  "currentWithheldRouteCount": 157,
+  "queueStartRank": 236,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 1,
+  "sites": [
+    {
+      "state": "Washington",
+      "name": "Mirabeau Park public boat launch (water-entry edge)",
+      "latitude": 47.68201,
+      "longitude": -117.223061,
+      "distanceFeetToMappedWater": 350.6570922114214,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-barker-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public boat launch (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "spokane-river-harvard-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public boat launch (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 236,
+      "eligibleUnwithheldRoutes": [
+        "spokane-river-barker-mirabeau",
+        "spokane-river-harvard-mirabeau"
+      ]
+    },
+    {
+      "state": "North Dakota",
+      "name": "Chautauqua Park accessible launch",
+      "latitude": 46.939,
+      "longitude": -97.992,
+      "distanceFeetToMappedWater": 350.36919926610074,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sheyenne-river-fish-hatchery-chautauqua",
+          "endpoint": "takeOut",
+          "endpointName": "Chautauqua Park accessible launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 237,
+      "eligibleUnwithheldRoutes": [
+        "sheyenne-river-fish-hatchery-chautauqua"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Oak Township County Park canoe access",
+      "latitude": 45.60927,
+      "longitude": -94.75344,
+      "distanceFeetToMappedWater": 349.9844673777662,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sauk-river-mill-pond-oak-township",
+          "endpoint": "takeOut",
+          "endpointName": "Oak Township County Park canoe access",
+          "severity": "review"
+        },
+        {
+          "routeId": "sauk-river-oak-township-spring-hill",
+          "endpoint": "putIn",
+          "endpointName": "Oak Township County Park carry-in access",
+          "severity": "review"
+        }
+      ],
+      "rank": 238,
+      "eligibleUnwithheldRoutes": [
+        "sauk-river-mill-pond-oak-township",
+        "sauk-river-oak-township-spring-hill"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Rochester Park river access",
+      "latitude": 43.7266,
+      "longitude": -87.8166,
+      "distanceFeetToMappedWater": 348.645593097502,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sheboygan-river-rochester-esslingen",
+          "endpoint": "putIn",
+          "endpointName": "Rochester Park river access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 239,
+      "eligibleUnwithheldRoutes": [
+        "sheboygan-river-rochester-esslingen"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Marco Flats Fishing Access Site (water-entry edge)",
+      "latitude": 46.89104,
+      "longitude": -113.82732,
+      "distanceFeetToMappedWater": 347.2997415786823,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-angevine-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-k-ross-toole-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-marco-flats-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-marco-flats-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-roundup-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-marco-flats",
+          "endpoint": "takeOut",
+          "endpointName": "Marco Flats Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 240,
+      "eligibleUnwithheldRoutes": [
+        "blackfoot-river-angevine-marco-flats",
+        "blackfoot-river-k-ross-toole-marco-flats",
+        "blackfoot-river-marco-flats-johnsrud",
+        "blackfoot-river-marco-flats-weigh-station",
+        "blackfoot-river-roundup-marco-flats",
+        "blackfoot-river-russell-gates-marco-flats",
+        "blackfoot-river-scotty-brown-marco-flats",
+        "blackfoot-river-whitaker-marco-flats"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Cameron Mills County Route 110 designated access",
+      "latitude": 42.178617,
+      "longitude": -77.370556,
+      "distanceFeetToMappedWater": 347.0699215823852,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "canisteo-river-canisteo-addison",
+          "endpoint": "accessPoint",
+          "endpointName": "Cameron Mills County Route 110 designated access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 241,
+      "eligibleUnwithheldRoutes": [
+        "canisteo-river-canisteo-addison"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Trego Town Park Landing",
+      "latitude": 45.9106187,
+      "longitude": -91.8238907,
+      "distanceFeetToMappedWater": 345.11641301539936,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "namekagon-river-big-bend-trego",
+          "endpoint": "takeOut",
+          "endpointName": "Trego Town Park Landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 242,
+      "eligibleUnwithheldRoutes": [
+        "namekagon-river-big-bend-trego"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Heath Canyon / La Linda take-out",
+      "latitude": 29.45025,
+      "longitude": -102.82346,
+      "distanceFeetToMappedWater": 343.10895269739143,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rio-grande-rio-grande-village-heath-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Heath Canyon / La Linda take-out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 243,
+      "eligibleUnwithheldRoutes": [
+        "rio-grande-rio-grande-village-heath-canyon"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Three Forks Recreation Site Boat Launch",
+      "latitude": 42.545023,
+      "longitude": -117.167067,
+      "distanceFeetToMappedWater": 342.90167099718036,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-owyhee-campground-three-forks",
+          "endpoint": "takeOut",
+          "endpointName": "Three Forks Recreation Site Boat Launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "owyhee-river-three-forks-rome",
+          "endpoint": "putIn",
+          "endpointName": "Three Forks Recreation Site Boat Launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 244,
+      "eligibleUnwithheldRoutes": [
+        "north-fork-owyhee-campground-three-forks",
+        "owyhee-river-three-forks-rome"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Riverdale Lane Access",
+      "latitude": 28.67067,
+      "longitude": -97.54198,
+      "distanceFeetToMappedWater": 340.44139859468487,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "san-antonio-river-riverdale-goliad-state-park",
+          "endpoint": "putIn",
+          "endpointName": "Riverdale Lane Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 246,
+      "eligibleUnwithheldRoutes": [
+        "san-antonio-river-riverdale-goliad-state-park"
+      ]
+    }
+  ]
+}

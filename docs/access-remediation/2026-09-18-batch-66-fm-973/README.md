@@ -1,0 +1,9 @@
+# Batch 66 — FM 973 / Del Valle Bridge
+
+Reviewed 2026-09-18. The frozen candidate was suspicious because its stored coordinate, `30.21, -97.64`, sat 510 feet from the matched Colorado River line and 429 feet from mapped water. LCRA's official *Paddle the Colorado* guide confirms this is a TxDOT-managed public access on the north side of FM 973, with limited roadside parking and an uneven carry down to the river. Its embedded map gives marker 17275 the more precise coordinate `30.2089962, -97.6382568`, while the site card rounds that marker to two decimal places.
+
+Moved the shared access anchor 660 feet to the LCRA map pin in both route records: Texas River School to FM 973, and FM 973 to Little Webberville. Refreshed NHD evidence places the marker 295 feet from the matched Colorado River flowline and 153 feet from mapped water. The formerly suspicious put-in is now review; the shared take-out remains review. Both targeted audits completed without source issues. The access site is verified, but the exact wetted edge is not: follow signs and the currently open carry from the bridge.
+
+Evidence: [LCRA Paddle the Colorado access guide and map](https://lcraparks.com/paddle-the-colorado) and [TPWD's Colorado River description](https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/15_c_tx_colorado.phtml). The hydrography measurement is in the targeted after reports.
+
+The refreshed public audit covers 2,750 routes and 6,058 endpoints: 58 suspicious, down from 59; mapped-water counts are 4,717 within 100 feet, 1,081 within 300 feet, and 179 over 300 feet. The full inventory covers 2,998 routes and 6,641 endpoints: 112 suspicious, down from 113; 51 failure and 89 unknown classifications remain. See `review.json`, `source-metadata.json`, the targeted before/after reports, and the full before/after audits.

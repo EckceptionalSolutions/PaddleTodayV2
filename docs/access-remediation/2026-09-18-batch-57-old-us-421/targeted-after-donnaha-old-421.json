@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T20:03:33.837Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "yadkin-river-donnaha-old-421",
+      "routeName": "Yadkin River",
+      "reach": "Donnaha Access to Old U.S. 421 River Park",
+      "state": "North Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "Old U.S. 421 River Park Access",
+      "latitude": 36.1323,
+      "longitude": -80.4439,
+      "matchedRiverName": "Yadkin River",
+      "distanceFeetToMatchedRiver": 344.0261959473555,
+      "nearestMatchedLatitude": 36.133165,
+      "nearestMatchedLongitude": -80.444365,
+      "nearestWaterwayName": "Yadkin River",
+      "distanceFeetToNearestWaterway": 344.0261959473555,
+      "nearestWaterwayLatitude": 36.133165,
+      "nearestWaterwayLongitude": -80.444365,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 262.905669485375,
+      "nearestWaterbodyLatitude": 36.132920888068355,
+      "nearestWaterbodyLongitude": -80.44435296131162,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 262.905669485375,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.co.forsyth.nc.us/parks/421river/facilities.aspx",
+      "coordinateEvidenceDetail": "nc_forsyth_old_us_421_river_park_access_anchor_20260918 ncwrc-old-us-hwy-421-park-yadkin-canoe-access-coordinate: Forsyth County confirms a concrete ramp for river access at Old U.S. 421 River Park and provides the park address; the County history page confirms permanent public access to the Yadkin River. The North Carolina Wildlife Resources Commission access report identifies Old Us Hwy 421 Park on the Yadkin River at the exact stored coordinate and classifies it as bank and canoe access. The coordinate is an official public-access-site point, but neither source georeferences the ramp toe. Imagery places the point near the park approach/parking area, with the river edge obscured by vegetation. Retain it as an access-site anchor and keep the mapped-water offset open for review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nc_forsyth_old_us_421_river_park_access_anchor_20260918 ncwrc-old-us-hwy-421-park-yadkin-canoe-access-coordinate) on Yadkin River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "yadkin-river-donnaha-old-421",
+      "routeName": "Yadkin River",
+      "reach": "Donnaha Access to Old U.S. 421 River Park",
+      "state": "North Carolina",
+      "endpoint": "putIn",
+      "endpointName": "Donnaha Yadkin River Access",
+      "latitude": 36.215616,
+      "longitude": -80.434332,
+      "matchedRiverName": "Yadkin River",
+      "distanceFeetToMatchedRiver": 212.22635944511222,
+      "nearestMatchedLatitude": 36.215078662449905,
+      "nearestMatchedLongitude": -80.43405572842074,
+      "nearestWaterwayName": "Yadkin River",
+      "distanceFeetToNearestWaterway": 212.22635944592312,
+      "nearestWaterwayLatitude": 36.21507866244991,
+      "nearestWaterwayLongitude": -80.43405572842072,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 62.46699954068846,
+      "nearestWaterbodyLatitude": 36.215453,
+      "nearestWaterbodyLongitude": -80.43426699999999,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 62.46699954068846,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 62 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

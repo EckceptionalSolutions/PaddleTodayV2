@@ -1,0 +1,9 @@
+{
+  "batch": "B89",
+  "sources": [
+    { "title": "Henrys Fork Angler Access — McCrea Bridge Campground", "url": "https://henrysfork.org/wp-content/uploads/Henrys-Fork-Angler-Access-Upper-River-Updated.pdf", "publisher": "Henrys Fork Foundation", "supports": ["published McCrea coordinate", "Caribou-Targhee National Forest ownership", "paved boat ramp", "parking"] },
+    { "title": "McCrea Bridge Campground", "url": "https://www.recreation.gov/camping/campgrounds/231926", "publisher": "Recreation.gov / Caribou-Targhee National Forest", "supports": ["campground and boat ramp", "Island Park Reservoir backwaters", "seasonal loss of reservoir access by August"] },
+    { "title": "Caribou-Targhee National Forest recreation facilities guide", "url": "https://www.fs.usda.gov/media/248399", "publisher": "U.S. Forest Service", "supports": ["McCrea Bridge concrete ramp and reservoir facility context"] }
+  ],
+  "sourceQuality": "The stored coordinate is confirmed by the Henrys Fork access catalog, with Recreation.gov and Forest Service material documenting the public ramp and seasonal operating constraint."
+}

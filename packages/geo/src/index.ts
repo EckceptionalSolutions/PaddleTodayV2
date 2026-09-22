@@ -161,6 +161,24 @@ export function endpointSnappedRiverLine(
     .filter((point): point is { distanceSquared: number; measure: number } => point !== null);
   if (projected.length < 2) return null;
 
+  // A reviewed round trip can start and finish at the same launch. Both
+  // projections otherwise select measure zero, dropping the return trip
+  // (or clipping it to an intermediate bailout). Preserve only an explicitly
+  // closed trace whose start matches both requested endpoints; ordinary
+  // point-to-point selections continue through the normal slicing path.
+  const start = routePoints[0];
+  const end = routePoints.at(-1)!;
+  const first = line[0];
+  const last = line.at(-1)!;
+  if (first[0] === last[0] && first[1] === last[1]
+    && start.longitude === first[0] && start.latitude === first[1]
+    && end.longitude === first[0] && end.latitude === first[1]) {
+    return {
+      coordinates: line,
+      errorSquared: projected.reduce((sum, point) => sum + point.distanceSquared, 0) / projected.length,
+    };
+  }
+
   const coordinates = sliceLine(
     line,
     measurements,

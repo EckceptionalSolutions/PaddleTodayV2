@@ -1,0 +1,19 @@
+{
+  "batch": 56,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before determining the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:53:54.782Z; 2,750 public routes, 6,058 endpoints, 76 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Hills Access & Campground, Iowa River",
+    "storedCoordinate": { "latitude": 41.5544618, "longitude": -91.5257829 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "iowa-river-sturgis-ferry-hills-access",
+      "iowa-river-hills-river-junction"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 319 feet from the matched Iowa River flowline and 275 feet from mapped water and were classified suspicious.",
+    "decision": "confirm-the-county-published-coordinate-as-the-public-boat-ramp-facility-anchor; retain-the-ramp-to-water-offset-as-a-review-item",
+    "selectionFrozenBeforeResearch": true
+  }
+}

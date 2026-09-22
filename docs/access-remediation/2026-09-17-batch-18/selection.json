@@ -1,0 +1,292 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct public access sites from the cached quality queue at or after rank 204, excluding previously frozen physical sites and sites with no currently unwithheld route. Preserve queue order. Cached ranks prioritize research only; recheck each site with current sources.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; @paddletoday/geo is missing, so queue ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "priorFrozenSiteCount": 160,
+  "currentWithheldRouteCount": 152,
+  "queueStartRank": 204,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 1,
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Boiceville Supermarket Esopus Creek pullout above Route 28A bridge",
+      "latitude": 42.00685,
+      "longitude": -74.26772,
+      "distanceFeetToMappedWater": 387.42513613083173,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "esopus-creek-phoenicia-boiceville",
+          "endpoint": "takeOut",
+          "endpointName": "Boiceville Supermarket Esopus Creek pullout above Route 28A bridge",
+          "severity": "review"
+        }
+      ],
+      "rank": 204,
+      "eligibleUnwithheldRoutes": [
+        "esopus-creek-phoenicia-boiceville"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Teton Dam Site Boat Ramp / Carry-In",
+      "latitude": 43.9097213745117,
+      "longitude": -111.538330078125,
+      "distanceFeetToMappedWater": 387.16306651219185,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "teton-river-dam-site-teton-forks",
+          "endpoint": "putIn",
+          "endpointName": "Teton Dam Site Boat Ramp / Carry-In",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 205,
+      "eligibleUnwithheldRoutes": [
+        "teton-river-dam-site-teton-forks"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Germania Marsh Dam access",
+      "latitude": 43.8917924,
+      "longitude": -89.2522052,
+      "distanceFeetToMappedWater": 387.0209777900949,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mecan-river-highway-22-germania",
+          "endpoint": "takeOut",
+          "endpointName": "Germania Marsh Dam access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 206,
+      "eligibleUnwithheldRoutes": [
+        "mecan-river-highway-22-germania"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Bell Crossing Fishing Access Site (water-entry edge)",
+      "latitude": 46.44434,
+      "longitude": -114.12629,
+      "distanceFeetToMappedWater": 386.1188904449564,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bitterroot-river-bell-crossing-chief-looking-glass",
+          "endpoint": "putIn",
+          "endpointName": "Bell Crossing Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bitterroot-river-bell-crossing-poker-joe",
+          "endpoint": "putIn",
+          "endpointName": "Bell Crossing Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bitterroot-river-tucker-crossing-bell-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Bell Crossing Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 207,
+      "eligibleUnwithheldRoutes": [
+        "bitterroot-river-bell-crossing-chief-looking-glass",
+        "bitterroot-river-bell-crossing-poker-joe",
+        "bitterroot-river-tucker-crossing-bell-crossing"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Gardiner Wallkill River launch",
+      "latitude": 41.679,
+      "longitude": -74.152,
+      "distanceFeetToMappedWater": 383.84550175720346,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wallkill-river-gardiner-new-paltz",
+          "endpoint": "putIn",
+          "endpointName": "Gardiner Wallkill River launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "wallkill-river-popp-gardiner",
+          "endpoint": "takeOut",
+          "endpointName": "Gardiner Wallkill River launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 208,
+      "eligibleUnwithheldRoutes": [
+        "wallkill-river-gardiner-new-paltz",
+        "wallkill-river-popp-gardiner"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Woodway Memorial Park",
+      "latitude": 29.7647,
+      "longitude": -95.4569,
+      "distanceFeetToMappedWater": 380.10078724045,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-bayou-west-sam-houston-woodway",
+          "endpoint": "takeOut",
+          "endpointName": "Woodway Memorial Park",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-bayou-woodway-sabine-street",
+          "endpoint": "putIn",
+          "endpointName": "Woodway Memorial Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 210,
+      "eligibleUnwithheldRoutes": [
+        "buffalo-bayou-west-sam-houston-woodway",
+        "buffalo-bayou-woodway-sabine-street"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Baker Creek access",
+      "latitude": 43.784896,
+      "longitude": -114.556579,
+      "distanceFeetToMappedWater": 377.5108700621411,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-wood-river-baker-north-fork",
+          "endpoint": "putIn",
+          "endpointName": "Baker Creek access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 211,
+      "eligibleUnwithheldRoutes": [
+        "big-wood-river-baker-north-fork"
+      ]
+    },
+    {
+      "state": "North Carolina",
+      "name": "Falls Lake Dam Tailrace Access",
+      "latitude": 35.939118,
+      "longitude": -78.577094,
+      "distanceFeetToMappedWater": 377.4991121169638,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "neuse-river-falls-dam-thornton",
+          "endpoint": "putIn",
+          "endpointName": "Falls Lake Dam Tailrace Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 212,
+      "eligibleUnwithheldRoutes": [
+        "neuse-river-falls-dam-thornton"
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Turner Bend landing / Highway 23 bridge",
+      "latitude": 35.671667,
+      "longitude": -93.829444,
+      "distanceFeetToMappedWater": 376.5281519562483,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mulberry-river-redding-turner-bend",
+          "endpoint": "takeOut",
+          "endpointName": "Turner Bend landing / Highway 23 bridge",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 213,
+      "eligibleUnwithheldRoutes": [
+        "mulberry-river-redding-turner-bend"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Chenango Bridge Route 12A hand launch",
+      "latitude": 42.167396,
+      "longitude": -75.874293,
+      "distanceFeetToMappedWater": 375.7306802782281,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "chenango-river-chenango-bridge-port-dickinson",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Chenango Bridge Route 12A hand launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chenango-river-port-crane-chenango-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Chenango Bridge Route 12A hand launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 214,
+      "eligibleUnwithheldRoutes": [
+        "chenango-river-chenango-bridge-port-dickinson",
+        "chenango-river-port-crane-chenango-bridge"
+      ]
+    }
+  ]
+}

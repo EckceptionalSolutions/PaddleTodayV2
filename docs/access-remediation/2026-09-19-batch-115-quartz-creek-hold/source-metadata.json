@@ -1,0 +1,23 @@
+{
+  "batch": "B115",
+  "endpoint": "Quartz Creek bridge / Forest Road 247 mile 32",
+  "routeId": "north-fork-clearwater-washington-quartz",
+  "sources": [
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/543/main",
+      "publisher": "American Whitewater",
+      "supports": "Describes a fair access point where Quartz Creek joins the North Fork Clearwater and an Aquarius campground near the bridge, but does not establish a dedicated public take-out at the stored coordinate."
+    },
+    {
+      "url": "https://northidahorivers.com/North_Fork_Clearwater.htm",
+      "publisher": "North Idaho Rivers",
+      "supports": "Warns that there is not good take-out access for inflatables at Quartz Creek or elsewhere along the section."
+    },
+    {
+      "url": "https://www.fs.usda.gov/media/212550",
+      "publisher": "USDA Forest Service",
+      "supports": "Identifies Forest Service road access in the Quartz Creek area but does not identify a public boat landing or carry at the stored point."
+    }
+  ],
+  "sourceAssessment": "The evidence supports the road/bridge vicinity and river context but not lawful public take-out access. Keep the route withheld until the Forest Service confirms the landing, parking/carry approach, and exact endpoint."
+}

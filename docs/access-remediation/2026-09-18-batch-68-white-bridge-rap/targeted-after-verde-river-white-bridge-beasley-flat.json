@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:59:46.415Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "verde-river-white-bridge-beasley-flat",
+      "routeName": "Verde River",
+      "reach": "White Bridge RAP to Beasley Flat RAP",
+      "state": "Arizona",
+      "endpoint": "putIn",
+      "endpointName": "White Bridge RAP",
+      "latitude": 34.549539,
+      "longitude": -111.850602,
+      "matchedRiverName": "Verde River",
+      "distanceFeetToMatchedRiver": 199.6808976625361,
+      "nearestMatchedLatitude": 34.54979134522511,
+      "nearestMatchedLongitude": -111.85119170884806,
+      "nearestWaterwayName": "Verde River",
+      "distanceFeetToNearestWaterway": 405.72230641921504,
+      "nearestWaterwayLatitude": 34.550192,
+      "nearestWaterwayLongitude": -111.85169499999999,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 2405.825835393993,
+      "nearestWaterbodyLatitude": 34.555812,
+      "nearestWaterbodyLongitude": -111.84813199999999,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 199.6808976625361,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=9740&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "az_usfs_white_bridge_picnic_site_access_9740_20260918 usfs-edw-recreation-opportunities-objectid-9740-recid-77748: Forest Service EDW feature 9740 / recreation area 77748 identifies the White Bridge Picnic Site at 34.549539,-111.850602. Its official description states that the developed public picnic site provides access to the Verde River and non-motorized boating; its linked site photos document the trail from the picnic area to the river. This is the current recreation-site access marker and is about 63 feet from the former route point, which matches the Friends of the Verde access-table coordinate. The Forest Service paddle guide also identifies White Bridge RAP but lists a waypoint about 545 feet north and cautions that its map is for reference and accuracy is not guaranteed. Prefer the Forest Service recreation-site feature for the managed public access-area pin. The feature is not a surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (az_usfs_white_bridge_picnic_site_access_9740_20260918 usfs-edw-recreation-opportunities-objectid-9740-recid-77748) on Verde River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "verde-river-white-bridge-beasley-flat",
+      "routeName": "Verde River",
+      "reach": "White Bridge RAP to Beasley Flat RAP",
+      "state": "Arizona",
+      "endpoint": "takeOut",
+      "endpointName": "Beasley Flat RAP",
+      "latitude": 34.4734,
+      "longitude": -111.802,
+      "matchedRiverName": "Verde River",
+      "distanceFeetToMatchedRiver": 155.2219020862483,
+      "nearestMatchedLatitude": 34.47303503860119,
+      "nearestMatchedLongitude": -111.80226530309818,
+      "nearestWaterwayName": "Verde River",
+      "distanceFeetToNearestWaterway": 333.8802542399657,
+      "nearestWaterwayLatitude": 34.47341208256215,
+      "nearestWaterwayLongitude": -111.80088994155479,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 4272.811909703692,
+      "nearestWaterbodyLatitude": 34.484412,
+      "nearestWaterbodyLongitude": -111.806839,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 155.2219020862483,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 155 ft of a topology-connected NHD river trace that includes Verde River; unnamed downstream stream segments are accepted as part of the same network."
+    }
+  ]
+}

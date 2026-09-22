@@ -1,0 +1,211 @@
+{
+  "batch": "2026-09-17-batch-08",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 1,
+  "retainedAccessAnchorCount": 6,
+  "removedUnsupportedAccessMarkerCount": 1,
+  "unverifiedPublicAccessCount": 2,
+  "accessRoleClarifiedSiteCount": 1,
+  "uniqueBatchRouteHoldCount": 4,
+  "decisions": [
+    {
+      "rank": 99,
+      "state": "Wisconsin",
+      "site": "Highway 31 / Ole Davidson Road Root River access",
+      "decision": "removed-unsupported-intermediate-access",
+      "removedAccessPoint": true,
+      "routes": [
+        "root-river-five-mile-horlick"
+      ],
+      "reason": "American Whitewater says there is no official landing designation at the Hwy 31/Ole Davidson utility pull-off and describes muddy banks and a potentially overgrown path. A roadside utility pull-off is not verified public paddler parking. Removed the optional bailout marker from route and trip-detail access lists; the documented Five Mile Road start and Horlick Park finish remain.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/5027/main",
+        "https://www.wisconsinrivertrips.com/segments/root-river"
+      ]
+    },
+    {
+      "rank": 100,
+      "state": "Wyoming",
+      "site": "Fontenelle Creek Recreation Area boat ramp",
+      "decision": "corrected-to-manager-gis-boat-ramp-feature",
+      "oldCoordinate": [
+        42.0722577,
+        -110.1537967
+      ],
+      "newCoordinate": [
+        42.07868016,
+        -110.15335551
+      ],
+      "coordinateRole": "authoritative-access-anchor",
+      "routes": [
+        "fontenelle-reservoir-creek-recreation-area-loop"
+      ],
+      "reason": "BLM's current recreation page confirms a concrete boat ramp and dock. Its National Recreation Boat Ramp GIS publishes the distinct ramp feature OBJECTID 83549 at 42.07868016,-110.15335551. The former point was the larger recreation-area pin, about 0.7 mile south; the new point is the mapped ramp access anchor, not a surveyed wetted edge. Keep the dependent route withheld until geometry is regenerated and inspected.",
+      "sources": [
+        "https://www.blm.gov/visit/fontenelle-creek-recreation-area",
+        "https://gis.blm.gov/arcgis/rest/services/recreation/BLM_Natl_Recs_pts/MapServer/1/query?where=FET_NAME+LIKE+%27%25Fontenelle%25%27+OR+UNIT_NAME+LIKE+%27%25Fontenelle%25%27&outFields=OBJECTID%2CFET_NAME%2CFET_TYPE%2CFET_SUBTYPE%2CADMIN_ST%2CDESCRIPTION%2CUNIT_NAME%2CLAT%2CLONG%2CWEB_LINK&returnGeometry=true&outSR=4326&f=json"
+      ]
+    },
+    {
+      "rank": 101,
+      "state": "Minnesota",
+      "site": "Big Fork River, Johnson Public Water Access Site",
+      "queueAliases": [
+        {
+          "rank": 102,
+          "name": "Johnson Landing carry-in access",
+          "samePoint": true
+        }
+      ],
+      "decision": "retained-dnr-carry-in-access-anchor",
+      "coordinate": [
+        48.0886283542472,
+        -93.68169266740433
+      ],
+      "routes": [
+        "big-fork-river-highway-6-north-johnson",
+        "big-fork-river-highway-6-south-johnson",
+        "big-fork-river-johnson-big-falls-east"
+      ],
+      "reason": "Minnesota DNR's current Big Fork Map 2 identifies Johnson Landing at river mile 67.5 as a left-bank carry-in, rest area, and watercraft campsite; DNR recommends it as the put-in for the 14.5-mile Big Falls day trip. Audit queue ranks 101 and 102 use effectively identical coordinates for this same access and are reviewed as one physical site. Keep the published access anchor; no surveyed water-edge replacement was found.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf"
+      ]
+    },
+    {
+      "rank": 103,
+      "state": "New York",
+      "site": "Greenvale Park Wappinger Creek access area",
+      "decision": "public-park-event-endpoint-but-everyday-paddle-access-unverified",
+      "coordinate": [
+        41.67151,
+        -73.87866
+      ],
+      "routes": [
+        "wappinger-creek-cady-greenvale"
+      ],
+      "routeHold": true,
+      "reason": "The Town confirms Greenvale Park is open at 2260 New Hackensack Road, its current recreation guide lists fishing, DEC's public-fishing-rights map places the park on Wappinger Creek, and the 2026 Water Derby organizer lists Greenvale as its event endpoint. None of the available manager sources confirms an everyday lawful kayak landing, carry from public parking, or staging permission; an event permit may cover only race day. Retain the park-area coordinate for record context but rename it as unverified and withhold the route until the Town confirms access.",
+      "sources": [
+        "https://poughkeepsieny.myrec.com/info/facilities/details.aspx?ActivityID=144703",
+        "https://www.townofpoughkeepsie-ny.gov/DocumentCenter/View/4571/RSG---Final-Print-Version-PDF",
+        "https://extapps.dec.ny.gov/docs/fish_marine_pdf/pfrwapingers.pdf",
+        "https://aquaticexplorers.org/canoe-derby"
+      ]
+    },
+    {
+      "rank": 104,
+      "state": "New York",
+      "site": "Casey Road Saranac River canoe carry",
+      "decision": "retained-state-land-carry-area-anchor",
+      "coordinate": [
+        44.524872,
+        -73.901676
+      ],
+      "routes": [
+        "saranac-river-union-falls-casey-road"
+      ],
+      "reason": "NYSDEC's Taylor Pond Complex plan documents the canoe portage between Casey Road and the Saranac River and says canoeists use it to carry boats in and out; American Whitewater describes the marked state-land carry trail. The coordinate is a nearby road/carry-area anchor, not a surveyed river landing. Keep the point and its existing carry/parking warnings.",
+      "sources": [
+        "https://extapps.dec.ny.gov/docs/lands_forests_pdf/tpmcump.pdf",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1411/main"
+      ]
+    },
+    {
+      "rank": 105,
+      "state": "New York",
+      "site": "NYSDEC Carmans River hand launch off Montauk Highway",
+      "decision": "retained-dec-access-site-anchor-300-yard-carry",
+      "coordinate": [
+        40.800856,
+        -72.881074
+      ],
+      "routes": [
+        "carmans-river-montauk-beaverdam"
+      ],
+      "reason": "NYSDEC's current Suffolk County launch directory publishes this coordinate and confirms a hand launch, parking for ten cars, an approximately 300-yard carry, electric-motor restriction, and cooperative access through Wertheim National Wildlife Refuge. Retain the manager-published site pin and change its coordinate role from water-entry point to access-area anchor; do not snap it to the river line or imply that it marks the wetted edge.",
+      "sources": [
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk"
+      ]
+    },
+    {
+      "rank": 106,
+      "state": "North Carolina",
+      "site": "Raven Rock State Park area public access anchor",
+      "decision": "public-put-in-unverified-route-withheld",
+      "coordinate": [
+        35.4692,
+        -78.9095
+      ],
+      "routes": [
+        "cape-fear-river-raven-rock-lillington"
+      ],
+      "routeHold": true,
+      "reason": "NC State Parks says there is no kayak/canoe launch inside Raven Rock State Park. The legacy NCWRC area pin and the separate paddle-in campground do not establish a public carry, parking-to-water path, or lawful put-in. Changed the route copy to describe the point as an unverified area anchor and withheld the route pending manager confirmation of a usable public entry.",
+      "sources": [
+        "https://www.ncparks.gov/state-parks/raven-rock-state-park/camping",
+        "https://www.ncpaws.org/ncwrcmaps/BoatingAccessAreas"
+      ]
+    },
+    {
+      "rank": 107,
+      "state": "Iowa",
+      "site": "Schram Park",
+      "decision": "retained-public-river-ramp-park-anchor",
+      "coordinate": [
+        42.4679,
+        -91.4448
+      ],
+      "routes": [
+        "maquoketa-river-quaker-mill-baileys-ford"
+      ],
+      "reason": "Manchester's park page and 2024 city parks plan distinguish a river ramp from a separate pond ramp at Schram Park. The official Maquoketa access plan maps Schram Park Access downstream of the whitewater park. Existing coordinate is retained as the public park/ramp-area anchor; available manager sources do not publish a more precise ramp-edge coordinate.",
+      "sources": [
+        "https://www.manchester-ia.org/vnews/display.v/ART/60f9de1f8bc4e",
+        "https://www.manchester-ia.org/vimages/shared/vnews/stories/61042d72db3d2/Manchester%20Parks%20Plan_REVISED%20FINAL%202024.pdf",
+        "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/plans/wtplan_maquoketa.pdf"
+      ]
+    },
+    {
+      "rank": 108,
+      "state": "West Virginia",
+      "site": "Baileysville WVDNR public access",
+      "decision": "retained-listed-public-access-area-anchor",
+      "coordinate": [
+        37.5891667,
+        -81.6791667
+      ],
+      "routes": [
+        "wv-guyandotte-baileysville-rd-bailey-campground",
+        "wv-guyandotte-pineville-baileysville"
+      ],
+      "reason": "WVDNR's District 4 guide lists the Guyandotte float trips from Pineville to Baileysville and from Baileysville to the USCOE campground, and the state public-access inventory lists Guyandotte River—Baileysville. These sources support the named access area, but not a surveyed landing edge. Preserve the existing anchor and the current field-verification warning; no more precise manager coordinate was found.",
+      "sources": [
+        "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf",
+        "https://wvdnr.gov/lands-waters/boating/"
+      ]
+    },
+    {
+      "rank": 109,
+      "state": "Iowa",
+      "site": "Otranto Park below-dam access",
+      "decision": "temporarily-closed-current-manager-status; route withheld",
+      "coordinate": [
+        43.458242,
+        -92.97915
+      ],
+      "routes": [
+        "cedar-river-otranto-acorn"
+      ],
+      "reason": "Mitchell County Conservation Board currently reports Otranto Park closed for season 2026 for renovations and identifies its boat ramp on the Cedar River. Keep the dependent route withheld until the Board confirms reopening and current below-dam water entry. Iowa DNR Fish Iowa lists a nearby Otranto Impoundment ramp at 43.45884333,-92.98175335, but that point is above the dam and cannot substitute for the route’s below-dam entry. The existing coordinate remains a park-area record only.",
+      "sources": [
+        "https://mitchellcountyconservation.com/otranto-park/",
+        "https://programs.iowadnr.gov/lakemanagement/FishIowa/LakeDetails/OTI66",
+        "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf"
+      ],
+      "routeHold": true
+    }
+  ]
+}

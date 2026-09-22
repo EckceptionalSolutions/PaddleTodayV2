@@ -1,0 +1,156 @@
+{
+  "baselineCommit": "189ce67f0ea2bd889cde0d00826ce4ac2e9ce613",
+  "method": "Exact slug search within src/data at the latest reachable main-history commit before August 19 UTC (189ce67f, committed August 14 local time). Source inventory, not published/indexed state. Nonrandom diagnostic sample, not whole backlog. Same search finds Little Miami Kelley-Milford as a positive control.",
+  "rows": [
+    {
+      "path": "/rivers/allagash-river-allagash-falls-twin-brook/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/allagash-river-michaud-farm-allagash-falls/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/allegheny-river-olean-portville/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/american-river-harrington-howe/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/american-river-harrington-watt/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/american-river-sailor-bar-watt/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/american-river-upper-sunrise-harrington/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/american-river-upper-sunrise-watt/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/anacostia-river-bladensburg-anacostia-park/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/androscoggin-river-brunswick-topsham/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/aroostook-river-ashland-washburn/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/bayou-teche-breaux-bridge-parks/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/bitterroot-river-wally-anglers-roost/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/blackfoot-river-scotty-brown-roundup/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/broad-river-daltons-lockhart/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/by-river/bog-river-flow/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/by-river/gunpowder-falls-maryland/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/by-river/oswego-canal/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/by-river/snake-river-wyoming/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/canandaigua-outlet-littleville-manchester/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/chattahoochee-river-bowmans-island-jones-bridge/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/chattahoochee-river-medlock-bridge-island-ford/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/clearwater-river-mckays-bend-pink-house/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/deerfield-river-fife-brook-east-charlemont/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/elk-river-rogues-harbor-loop/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/fox-river-frame-park-greenway-waukesha/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/haw-river-indian-valley-great-bend/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/independence-river-bailey-donnattsburg/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/kennebec-river-norridgewock-waterville/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    },
+    {
+      "path": "/rivers/lamoille-river-waterman-dog-head/",
+      "category": "discovered",
+      "presentInAug18Source": false
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "batch": "2026-09-17-batch-18",
+  "capturedAfterSourceEdits": true,
+  "providers": [
+    {
+      "id": "idfg_teton_dam_site_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22510-fishing-and-boating-access-site-teton",
+      "controls": [
+        {
+          "featureId": "teton-dam-old-dam-carry-in-anchor",
+          "name": "Teton Dam access corridor / carry-in",
+          "aliases": [
+            "Teton Dam Site",
+            "Teton Dam remnant ramp carry-in"
+          ],
+          "waterbody": "Teton River",
+          "latitude": 43.9097213745117,
+          "longitude": -111.538330078125,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Legacy route point retained as a generalized former-dam access-area anchor; IDFG current facility map marks a separate point about 0.3 mi north; field verification required."
+        }
+      ]
+    },
+    {
+      "id": "wi_germania_marsh_dam_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://www.wisconsinrivertrips.com/segments/mecan-river/hwy-22",
+      "controls": [
+        {
+          "featureId": "germania-marsh-dam-public-ramp-area",
+          "name": "Germania Marsh Dam public access area",
+          "aliases": [
+            "Germania Marsh Dam access",
+            "Mecan River Germania public ramp"
+          ],
+          "waterbody": "Mecan River",
+          "latitude": 43.8917924,
+          "longitude": -89.2522052,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Stored route access-area point; operator describes a public ramp north of the dam but publishes no GPS for the ramp toe."
+        }
+      ]
+    },
+    {
+      "id": "mt_fwp_bell_crossing_fas",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1/query?where=OBJECTID%3D158&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "controls": [
+        {
+          "featureId": "mt-fwp-bell-crossing-fas-39754137",
+          "name": "Bell Crossing Fishing Access Site",
+          "aliases": [
+            "Bell Crossing FAS",
+            "Bell Crossing gravel ramp"
+          ],
+          "waterbody": "Bitterroot River",
+          "latitude": 46.44434,
+          "longitude": -114.12629,
+          "uncertaintyFeet": 75,
+          "coordinateText": "Stored point rounds to Montana FWP public site coordinates; GIS feature 158 / LMS_ID 39754137 identifies a gravel ramp."
+        }
+      ]
+    },
+    {
+      "id": "wallkill_gardiner_launch_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://www.wallkillalliance.org/wp-content/uploads/2016/04/WallkillRiver_AccessPoints.pdf",
+      "controls": [
+        {
+          "featureId": "gardiner-wallkill-river-launch-access-area",
+          "name": "Gardiner Wallkill River launch access area",
+          "aliases": [
+            "Gardiner Wallkill access",
+            "215 Farmer’s Turnpike launch",
+            "Wallkill River Gardiner launch"
+          ],
+          "waterbody": "Wallkill River",
+          "latitude": 41.679,
+          "longitude": -74.152,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Address/map matched access-area anchor for the listed active launch at 215 Farmer’s Turnpike; exact water entry and current Town rules are not published."
+        }
+      ]
+    },
+    {
+      "id": "tpwd_buffalo_bayou_woodway_access",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://tpwd.texas.gov/fishboat/boat/paddlingtrails/inland/buffalobayou/",
+      "controls": [
+        {
+          "featureId": "tpwd-woodway-memorial-park-access",
+          "name": "Woodway Memorial Park public access",
+          "aliases": [
+            "Buffalo Bayou Woodway Memorial Park",
+            "Woodway Memorial Park launch"
+          ],
+          "waterbody": "Buffalo Bayou",
+          "latitude": 29.7647,
+          "longitude": -95.4569,
+          "uncertaintyFeet": 100,
+          "coordinateText": "Coordinate published by TPWD for the named public paddling-trail access point; retained as a park/access anchor."
+        }
+      ]
+    },
+    {
+      "id": "raleigh_neuse_falls_dam_launch_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://raleighnc.gov/river-access",
+      "controls": [
+        {
+          "featureId": "raleigh-falls-dam-paddlecraft-access-area",
+          "name": "Falls Dam public paddlecraft launch access area",
+          "aliases": [
+            "Falls Dam access",
+            "Neuse River Greenway and Canoe Launch"
+          ],
+          "waterbody": "Neuse River",
+          "latitude": 35.939118,
+          "longitude": -78.577094,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Legacy local map access-area coordinate; Raleigh’s current route page confirms launch directions but publishes no GPS. Do not confuse with the separate USACE Tailrace Fishing Area lot."
+        }
+      ]
+    },
+    {
+      "id": "turner_bend_private_fee_landing_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://www.turnerbend.com/BOATING-SHUTTLE.html",
+      "controls": [
+        {
+          "featureId": "turner-bend-private-fee-landing-area",
+          "name": "Turner Bend private-fee landing access area",
+          "aliases": [
+            "Turner Bend landing",
+            "Turner Bend Highway 23 take-out",
+            "Mulberry River Turner Bend access"
+          ],
+          "waterbody": "Mulberry River",
+          "latitude": 35.671667,
+          "longitude": -93.829444,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Highway 23 corridor point retained as access-area anchor; operator requires current wristband and loading/parking permission."
+        }
+      ]
+    }
+  ],
+  "updatedProviders": [
+    {
+      "id": "wallkill_river_popp_gardiner",
+      "coordinateRole": "authoritative-access-anchor",
+      "controls": [
+        {
+          "featureId": "popp-park-wallkill-river-launch",
+          "name": "Popp Memorial Park Wallkill River launch",
+          "aliases": [
+            "Popp Park Wallkill access",
+            "Wallkill River Popp Park launch",
+            "3081 Route 208 Wallkill launch"
+          ],
+          "waterbody": "Wallkill River",
+          "latitude": 41.601722,
+          "longitude": -74.182912,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Popp Park active-launch address and mapped access-area anchor"
+        }
+      ]
+    }
+  ],
+  "existingChenangoProvider": {
+    "id": "chenango_river_port_crane_chenango_bridge",
+    "name": "Chenango River Port Crane to Chenango Bridge public paddling access",
+    "state": "New York",
+    "sourceUrl": "https://dec.ny.gov/things-to-do/boating/launch-sites/broome-county",
+    "sourceType": "official-and-county-blueway-access-listing",
+    "sourceDocumentDate": null,
+    "sourceSha256": null,
+    "coordinateRole": "authoritative-water-entry",
+    "method": "The current NYSDEC Broome County directory lists the Port Crane DOT Park and Ride and Chenango Bridge Route 12A hand launches. Broome County’s River Guide identifies Port Crane as the alternative start for the distinct Chenango Forks-to-Chenango Bridge itinerary. Both controls are public access-area anchors requiring current field verification; Chenango Bridge is the hard endpoint before the downstream urban dam corridor.",
+    "controls": [
+      {
+        "featureId": "port-crane-chenango-river-launch",
+        "name": "NYSDEC Port Crane DOT Park and Ride Chenango River hand launch",
+        "aliases": [
+          "Port Crane Chenango River launch",
+          "Port Crane DOT Park and Ride",
+          "Chenango River Port Crane put-in"
+        ],
+        "waterbody": "Chenango River",
+        "latitude": 42.168236,
+        "longitude": -75.832324,
+        "uncertaintyFeet": 250,
+        "coordinateText": "Current NYSDEC Broome County public hand-launch coordinate; confirm carry, waterline, traffic, parking, and public-use signs"
+      },
+      {
+        "featureId": "chenango-bridge-route-12a-launch",
+        "name": "NYSDEC Chenango Bridge Route 12A hand launch",
+        "aliases": [
+          "Chenango Bridge Chenango River launch",
+          "Route 12A Chenango River hand launch",
+          "Chenango Bridge public canoe launch"
+        ],
+        "waterbody": "Chenango River",
+        "latitude": 42.167396,
+        "longitude": -75.874293,
+        "uncertaintyFeet": 250,
+        "coordinateText": "Current NYSDEC Broome County public hand-launch coordinate; confirm carry, landing, parking, traffic, and safe take-out before the downstream urban dam corridor"
+      }
+    ]
+  },
+  "generatedRegistryRebuildRequired": true
+}

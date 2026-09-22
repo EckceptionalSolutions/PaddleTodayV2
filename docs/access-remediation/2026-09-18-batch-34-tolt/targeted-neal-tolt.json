@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:43:56.771Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "snoqualmie-river-neal-tolt",
+      "routeName": "Snoqualmie River",
+      "reach": "Richter / Neal Road access to Tolt-MacDonald Park boat launch",
+      "state": "Washington",
+      "endpoint": "putIn",
+      "endpointName": "Richter / Neal Road access, WDFW",
+      "latitude": 47.59621,
+      "longitude": -121.91386,
+      "matchedRiverName": "Snoqualmie River",
+      "distanceFeetToMatchedRiver": 161.68677556029107,
+      "nearestMatchedLatitude": 47.59646968692656,
+      "nearestMatchedLongitude": -121.91439258753962,
+      "nearestWaterwayName": "Snoqualmie River",
+      "distanceFeetToNearestWaterway": 161.68677556332878,
+      "nearestWaterwayLatitude": 47.596469686926575,
+      "nearestWaterwayLongitude": -121.91439258753962,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 76.38779192038523,
+      "nearestWaterbodyLatitude": 47.59632642008678,
+      "nearestWaterbodyLongitude": -121.91411808211737,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 76.38779192038523,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 76 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "snoqualmie-river-neal-tolt",
+      "routeName": "Snoqualmie River",
+      "reach": "Richter / Neal Road access to Tolt-MacDonald Park boat launch",
+      "state": "Washington",
+      "endpoint": "takeOut",
+      "endpointName": "Tolt-MacDonald Park boat launch (imagery-derived water-entry edge)",
+      "latitude": 47.6385904,
+      "longitude": -121.9263098,
+      "matchedRiverName": "Snoqualmie River",
+      "distanceFeetToMatchedRiver": 120.4160767165086,
+      "nearestMatchedLatitude": 47.638899,
+      "nearestMatchedLongitude": -121.926136,
+      "nearestWaterwayName": "Tolt River",
+      "distanceFeetToNearestWaterway": 449.46963031654917,
+      "nearestWaterwayLatitude": 47.639715,
+      "nearestWaterwayLongitude": -121.925563,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 329.42555338626846,
+      "nearestWaterbodyLatitude": 47.639084,
+      "nearestWaterbodyLongitude": -121.927432,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 120.4160767165086,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/parks/tolt-macdonald",
+      "coordinateEvidenceDetail": "king_county_tolt_macdonald_snoqualmie_launch_aerial_20260918 tolt-macdonald-park-snoqualmie-boat-launch: King County identifies Tolt-MacDonald Park as a public park with a boat launch, and its park map includes a boat-launch facility. The named Snoqualmie River Boat Launch map feature is linked to King County park information; current aerial imagery places that ramp on the Snoqualmie River bank at 47.6385904,-121.9263098. The previous route point was about 393 feet from the matched Snoqualmie flowline and 282 feet from mapped water. This replacement has approximately 50-foot uncertainty and is not a surveyed King County coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (king_county_tolt_macdonald_snoqualmie_launch_aerial_20260918 tolt-macdonald-park-snoqualmie-boat-launch) on Snoqualmie River; the 120 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

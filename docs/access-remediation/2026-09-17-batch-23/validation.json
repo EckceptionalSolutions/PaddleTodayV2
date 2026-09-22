@@ -1,0 +1,41 @@
+{
+  "batch": "2026-09-17-batch-23",
+  "commands": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated the withholding manifest with 181 route holds; this batch added twelve held route IDs."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-23/verify.mjs",
+      "status": "passed",
+      "result": "Ten frozen ranks and 20 selected routes verified; two official controls, one shared coordinate correction, twelve source holds, generated manifest, and 4042-entry zero-conflict registry verified."
+    },
+    {
+      "command": "TypeScript transpileModule syntax checks and scoped JSON parse",
+      "status": "passed",
+      "result": "Syntax checks passed for four changed TS files; all changed batch/control JSON parsed."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- scoped Batch 23 files",
+      "status": "passed",
+      "result": "Scoped diff check passed with CRLF whitespace handling."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-route-access-registry.ts --audit=docs/access-point-quality-audit.json",
+      "status": "passed-with-limit",
+      "result": "Generated 4042 entries, 1201 repeated entries, zero conflicts from the cache-only audit. The generator reads docs/route-coordinate-authoritative-evidence.json, last generated 2026-09-05 with 505 providers, and does not include new source controls."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "status": "blocked",
+      "result": "Command failed because @paddletoday/geo is not installed; the frozen cache-only audit remains the queue source."
+    }
+  ],
+  "notes": [
+    "One shared public route endpoint changed coordinate, so all nine dependent Suwannee routes remain withheld pending geometry regeneration and inspection.",
+    "The generated registry still does not consume source controls directly; no manual generated-registry edits were made.",
+    "Evidence gathering would download all configured statewide inventories because no local inventory caches are present; the existing generated authoritative evidence was left untouched.",
+    "No route records were deleted."
+  ]
+}

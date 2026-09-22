@@ -1,0 +1,114 @@
+{
+  "checkedAt": "2026-09-18T12:03:34.040Z",
+  "sites": 10,
+  "correctedSites": 2,
+  "rejectedSites": 8,
+  "checkedOccurrences": 20,
+  "checkedTripDetailCopies": 2,
+  "affectedInventoryRoutesRetained": 20,
+  "affectedRoutesPublic": 7,
+  "affectedRoutesWithheld": 13,
+  "farmFieldAnchor": {
+    "latitude": 43.5013198,
+    "longitude": -96.7504983,
+    "uncertaintyFeet": 100
+  },
+  "refreshedAuthoritativeEvidenceCopies": 2,
+  "refreshedRegistryEntries": 4041,
+  "regeneratedPublicRouteGeometries": 5,
+  "heldRouteGeometryAssetsPresent": 0,
+  "publicGeometryManifest": {
+    "routes": 2755,
+    "matched": 2742,
+    "unmatched": 13
+  },
+  "networkAudit": {
+    "generatedAt": "2026-09-18T11:59:00.434Z",
+    "scope": "public-routes",
+    "routes": 2755,
+    "endpoints": 6068,
+    "sourceIssues": 276,
+    "severity": {
+      "ok": 2036,
+      "review": 3787,
+      "suspicious": 167,
+      "failure": 0,
+      "unknown": 78
+    },
+    "sourceIssueMessageCounts": {
+      "NHD response is truncated (exceededTransferLimit)": 276
+    },
+    "waterProximity": {
+      "within-100ft": 4654,
+      "within-300ft": 1118,
+      "over-300ft": 214,
+      "over-800ft": 8,
+      "unknown": 74
+    },
+    "farmFieldWaterDistanceFeet": [
+      41.26291374489779,
+      41.26291374489779
+    ],
+    "mirabeauAuditEndpoints": [
+      {
+        "routeId": "spokane-river-harvard-mirabeau",
+        "severity": "review",
+        "waterProximity": "within-300ft",
+        "distanceFeetToMappedWater": 224.4890943514926,
+        "hydrographyCoverageComplete": true
+      },
+      {
+        "routeId": "spokane-river-barker-mirabeau",
+        "severity": "review",
+        "waterProximity": "within-300ft",
+        "distanceFeetToMappedWater": 224.4890943514926,
+        "hydrographyCoverageComplete": true
+      }
+    ]
+  },
+  "additionalChecks": {
+    "canonicalGeometryAudit": {
+      "status": "passed-with-unmatched-routes",
+      "matched": 2742,
+      "publicRoutes": 2755,
+      "unmatched": 13,
+      "heldBatchRouteAssetsPresent": 0
+    },
+    "routeCorridorAudit": {
+      "status": "passed",
+      "definitions": 216,
+      "coveredRoutes": 508
+    },
+    "routeMapOverview": {
+      "status": "regenerated",
+      "routes": 2742
+    },
+    "accessRegistry": {
+      "status": "generated-from-full-access-audit-and-authoritative-evidence",
+      "entries": 4041,
+      "conflicts": 1,
+      "conflictsBeforeBatch": 1,
+      "authoritativeAccessMismatches": 0
+    },
+    "routeDataTypecheck": {
+      "status": "failed-unrelated-workspace-errors",
+      "errors": 6,
+      "files": [
+        "src/data/routes/new-york.ts",
+        "src/data/routes/wisconsin.ts",
+        "src/data/trip-details/iowa.ts"
+      ]
+    },
+    "routeDataAudit": {
+      "status": "failed-unrelated-blocking-route-issue",
+      "blockingRouteId": "south-skunk-river-ames-13th-street",
+      "issue": "0.074 mi route label is shorter than the 0.1 mi straight-line endpoint distance",
+      "planningIssues": 137
+    },
+    "focusedTests": {
+      "status": "could-not-start",
+      "missingDependency": "@jridgewell/sourcemap-codec",
+      "importedBy": "magic-string"
+    }
+  }
+}

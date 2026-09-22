@@ -5,7 +5,7 @@ const key = 'paddletoday:board-preferences';
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{
     ...fixture.result, summary: { gaugeNow: 'QA', shortExplanation: 'QA' },
     liveData: { overall: 'stale', summary: 'QA' },
   }] } }));

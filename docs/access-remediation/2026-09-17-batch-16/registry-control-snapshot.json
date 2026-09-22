@@ -1,0 +1,241 @@
+{
+  "batch": "2026-09-17-batch-16",
+  "capturedBeforeEdits": true,
+  "files": [
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "0C150342AD4B6CDB33C78EC17D8B7D3770852A9B3DEC1ED57C44DE3E93D15F4A",
+      "bytes": 1267119,
+      "matchedRecordCount": 5,
+      "matchedRecords": [
+        {
+          "provider": {
+            "id": "hudson_river_newcomb_indian_confluence",
+            "name": "Hudson River Newcomb to Indian River confluence public paddling access",
+            "state": "New York",
+            "sourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+            "sourceType": "official-and-community-access-listing",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-access-anchor",
+            "method": "NYSDEC publishes the Town of Newcomb launch, Polaris Bridge parking area and 0.3-mile carry to the hand launch, and Outer Gooley parking area with a 0.1-mile carry to the marked take-out. The stored points are public access/parking anchors; only the Newcomb point is the published launch location. Verify seasonal roads, carries, and the marked landings."
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "outer-gooley-hudson-river-takeout",
+                "name": "Outer Gooley Hudson River take-out parking/carry anchor",
+                "aliases": [
+                  "Outer Gooley take-out",
+                  "Old Outer Gooley Club Hudson access",
+                  "Hudson River access above Indian River confluence"
+                ],
+                "waterbody": "Hudson River",
+                "latitude": 43.8275,
+                "longitude": -74.2008,
+                "uncertaintyFeet": 600,
+                "coordinateText": "NYSDEC Outer Gooley Parking Area coordinate; 0.1-mile carry to the marked Hudson River take-out"
+              },
+              "nearSites": [
+                {
+                  "rank": 185,
+                  "distanceM": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "provider": {
+            "id": "hudson_river_indian_confluence_north_river",
+            "name": "Hudson Gorge Indian River confluence to North River public paddling access",
+            "state": "New York",
+            "sourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+            "sourceType": "official-and-community-access-listing",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-water-entry",
+            "method": "NYSDEC publishes the Old Outer Gooley parking/carry anchor and North River take-out parking area for the Hudson Gorge Wilderness, while American Whitewater publishes the distinct Indian River-to-North River Class III–IV reach and describes the Old Gooley path as the gorge put-in when the release is not being used. Both stored points are carry/parking anchors requiring current field verification."
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "old-outer-gooley-hudson-gorge-put-in",
+                "name": "Old Outer Gooley Club Hudson Gorge access anchor",
+                "aliases": [
+                  "Hudson Gorge Old Gooley put-in",
+                  "Indian River confluence Hudson Gorge access",
+                  "Outer Gooley Hudson Gorge launch"
+                ],
+                "waterbody": "Hudson River",
+                "latitude": 43.8275,
+                "longitude": -74.2008,
+                "uncertaintyFeet": 600,
+                "coordinateText": "NYSDEC Outer Gooley Parking Area coordinate; marked carry/path leads to Hudson River access"
+              },
+              "nearSites": [
+                {
+                  "rank": 185,
+                  "distanceM": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "provider": {
+            "id": "cedar_river_pelon_outer_gooley",
+            "name": "Cedar River Pelon Road to Outer Gooley public-access anchors",
+            "state": "New York",
+            "sourceUrl": "https://dec.ny.gov/places/essex-chain-lakes-complex",
+            "sourceType": "official-state-land-access",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-water-entry",
+            "method": "NYSDEC publishes the Pelon Road River Parking Area and Cedar River access, the Outer Gooley Parking Area and Hudson take-out, seasonal road/gate context, and required exit above the Indian River confluence. American Whitewater publishes preferred Pelon/Benton water entry, Outer Gooley river-side take-out, approximately 4-foot historical stage screen, single mid-route egress, and Cedar/Hudson hazards. Stored points are access/waterline anchors; verify road, carry, landing, parking, seasonal signs, and public-use corridor in field."
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "cedar-river-pelon-outer-gooley-outer-gooley",
+                "name": "Outer Gooley Hudson River take-out",
+                "aliases": [
+                  "Outer Gooley take-out",
+                  "Outer Gooley Club Hudson take-out",
+                  "Old Outer Gooley Club Hudson access",
+                  "Outer Gooley Hudson River access"
+                ],
+                "waterbody": "Hudson River",
+                "latitude": 43.827301,
+                "longitude": -74.200674,
+                "riverMile": 18,
+                "uncertaintyFeet": 300,
+                "terminalAlternateWaterbody": {
+                  "routeWaterbody": "Cedar River",
+                  "relationship": "downstream-after-confluence",
+                  "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1281/main",
+                  "sourceLabel": "American Whitewater Cedar River route boundary and Outer Gooley take-out context",
+                  "maximumDownstreamDistanceFeet": 30000
+                },
+                "coordinateText": "NYSDEC Outer Gooley Parking Area/Hudson access anchor corroborated by American Whitewater river-side take-out GPS; exit before Indian River confluence and separate Hudson Gorge"
+              },
+              "nearSites": [
+                {
+                  "rank": 185,
+                  "distanceM": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "provider": {
+            "id": "indian_river_abanakee_dam_outer_gooley",
+            "name": "Indian River Abanakee Dam to Outer Gooley public-access anchors",
+            "state": "New York",
+            "sourceUrl": "https://dec.ny.gov/places/blue-mountain-wild-forest",
+            "sourceType": "official-coordinate-table",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-water-entry",
+            "method": "NYSDEC identifies the Rafters Parking Area and Indian River whitewater section, the Outer Gooley Hudson access/carry, seasonal roads, and the mandatory boundary before the Hudson Gorge. American Whitewater publishes the distinct Abanakee Dam-to-Hudson reach, direct Indian River gauge, feature hazards, and route-side take-out context. Stored points are public access/waterline anchors; verify dam exclusion, release instructions, road/gate status, carry, landing, parking, and posted private/outfitter boundaries in field."
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "indian-river-abanakee-dam-outer-gooley-outer-gooley",
+                "name": "Outer Gooley Hudson River take-out above Indian River confluence",
+                "aliases": [
+                  "Outer Gooley take-out",
+                  "Outer Gooley Hudson access",
+                  "Outer Gooley Club Hudson take-out",
+                  "Hudson access above Indian River confluence"
+                ],
+                "waterbody": "Hudson River",
+                "latitude": 43.827301,
+                "longitude": -74.200674,
+                "riverMile": 2.3,
+                "uncertaintyFeet": 300,
+                "terminalAlternateWaterbody": {
+                  "routeWaterbody": "Indian River",
+                  "relationship": "downstream-after-confluence",
+                  "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/1325/main",
+                  "sourceLabel": "American Whitewater Indian River route boundary and Outer Gooley take-out context",
+                  "maximumDownstreamDistanceFeet": 30000
+                },
+                "coordinateText": "NYSDEC Outer Gooley Hudson access/carry anchor corroborated by American Whitewater; exit above the Indian River confluence and do not continue into the separate Hudson Gorge"
+              },
+              "nearSites": [
+                {
+                  "rank": 185,
+                  "distanceM": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "provider": {
+            "id": "md_gunpowder_monkton_phoenix",
+            "name": "Maryland Gunpowder Falls Monkton to Phoenix public access anchors",
+            "state": "Maryland",
+            "sourceUrl": "https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx",
+            "sourceType": "official-state-park-and-public-recreation-guidance",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-access-anchor",
+            "method": "Maryland DNR identifies the Gunpowder Falls State Park and NCR trail facilities, including Monkton Station, Sparks Bank Nature Center, and public park access. American Whitewater names the Monkton, Merryman/Corbett, Glencoe, Sparks, and Phoenix sequence and identifies Phoenix as the last take-out before city property. Stored points are access-area anchors; confirm parking, stairs, carry, and water entry on launch day."
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "gunpowder-glencoe-road",
+                "name": "Glencoe Road access",
+                "aliases": [
+                  "Glencoe Road access",
+                  "Home Road NCR trail lot",
+                  "Glencoe Gunpowder access"
+                ],
+                "waterbody": "Gunpowder Falls",
+                "latitude": 39.5497,
+                "longitude": -76.6364,
+                "riverMile": 4.5,
+                "uncertaintyFeet": 750,
+                "coordinateText": "American Whitewater names the Glencoe/Home Road access and describes a muddy carry to the river; stored point is an access-area anchor, not a surveyed landing."
+              },
+              "nearSites": [
+                {
+                  "rank": 193,
+                  "distanceM": 1119
+                }
+              ]
+            },
+            {
+              "control": {
+                "featureId": "gunpowder-sparks-road",
+                "name": "Sparks Road / Sparks Bank Nature Center access",
+                "aliases": [
+                  "Sparks Road access",
+                  "Sparks Bank Nature Center",
+                  "Sparks Gunpowder access"
+                ],
+                "waterbody": "Gunpowder Falls",
+                "latitude": 39.5397,
+                "longitude": -76.6377,
+                "riverMile": 5.4,
+                "uncertaintyFeet": 700,
+                "coordinateText": "Maryland DNR identifies Sparks Bank Nature Center and American Whitewater identifies the Sparks Road river access; verify limited parking, recreation use, carry, and bank condition."
+              },
+              "nearSites": [
+                {
+                  "rank": 193,
+                  "distanceM": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

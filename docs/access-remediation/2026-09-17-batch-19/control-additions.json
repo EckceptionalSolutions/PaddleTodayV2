@@ -1,0 +1,194 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "addedProviderCount": 6,
+  "addedProviders": [
+    {
+      "id": "usfs_upstate_neal_shoals_access_anchor",
+      "name": "USFS Sumter National Forest Neal Shoals canoe access and Upper Broad Blueway map",
+      "state": "South Carolina",
+      "sourceUrl": "https://www.fs.usda.gov/media/231964",
+      "sourceType": "official-access-page-and-water-trail-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "USFS identifies Neal Shoals Dam Canoe Access as a portage. The Upper Broad Blueway map places parking at the end of Shoals Road (FS 304) and says river access is a 500-foot walk from parking to avoid the dam. The stored coordinate remains a generalized access-area anchor; it is not asserted to be the ramp toe or exact end of the carry.",
+      "controls": [
+        {
+          "featureId": "neal-shoals-dam-public-access-carry-area",
+          "name": "Neal Shoals Dam public access / 500-foot carry area",
+          "aliases": [
+            "Neal Shoals Dam Canoe Access",
+            "Neal Shoals portage access",
+            "Shoals Road FS 304 access"
+          ],
+          "waterbody": "Broad River",
+          "latitude": 34.6653839999791,
+          "longitude": -81.4452990001266,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Generalized site anchor; map places parking at the end of FS 304 and describes a 500-foot walk to river access. Keep boats and people away from dam and tailrace."
+        }
+      ]
+    },
+    {
+      "id": "siouxfalls_farm_field_park_kayak_canoe_access",
+      "name": "City of Sioux Falls Farm Field Park kayak and canoe access",
+      "state": "South Dakota",
+      "sourceUrl": "https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field",
+      "sourceType": "official-municipal-park-page-and-coordinate",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The City lists Farm Field Park kayak/canoe access and publishes 43.5028832,-96.749131 with a boat-launch photo and park hours. The published point identifies the public park/access facility, not a surveyed water-edge point; retain as an access-area anchor.",
+      "controls": [
+        {
+          "featureId": "siouxfalls-farm-field-park-paddle-access",
+          "name": "Farm Field Park kayak and canoe access area",
+          "aliases": [
+            "Farm Field Park Boat Launch",
+            "Farm Field Park canoe/kayak access"
+          ],
+          "waterbody": "Big Sioux River / Skunk Creek confluence area",
+          "latitude": 43.5028832,
+          "longitude": -96.749131,
+          "uncertaintyFeet": 350,
+          "coordinateText": "City-published park coordinate and paddle-access amenity; access area only, not a verified launch toe."
+        }
+      ]
+    },
+    {
+      "id": "iowa_dnr_bluffton_fir_stand_paddle_access",
+      "name": "Iowa DNR Bluffton Fir Stand canoe-access parking area",
+      "state": "Iowa",
+      "sourceUrl": "https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand",
+      "sourceType": "official-state-preserve-access-description",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Iowa DNR describes the W20/Bluffton Road parking area beside the Upper Iowa River as canoe access only. The route point is an access-area anchor; the page does not publish an exact launch-toe coordinate, and the route name no longer calls the parking-area point a ramp.",
+      "controls": [
+        {
+          "featureId": "upper-iowa-bluffton-fir-stand-access-area",
+          "name": "Bluffton Fir Stand canoe-access parking area",
+          "aliases": [
+            "Bluffton Road/W20 canoe access",
+            "Bluffton Fir Stand access"
+          ],
+          "waterbody": "Upper Iowa River",
+          "latitude": 43.3996,
+          "longitude": -91.8884,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Iowa DNR identifies canoe-only access from the nearby W20 parking area; coordinate is not an exact water entry."
+        }
+      ]
+    },
+    {
+      "id": "san_marcos_city_park_river_access_anchor",
+      "name": "City of San Marcos City Park river access",
+      "state": "Texas",
+      "sourceUrl": "https://sanmarcostx.gov/facilities/facility/details/City-Park-35",
+      "sourceType": "official-municipal-park-facility-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The City identifies City Park river access and permits visitors to bring kayaks and canoes. The stored facility point is a park/access-area anchor, not a published or surveyed water-entry point; parking rules and fees depend on residency and current City notices.",
+      "controls": [
+        {
+          "featureId": "san-marcos-city-park-river-access",
+          "name": "San Marcos City Park river access area",
+          "aliases": [
+            "City Park San Marcos River",
+            "San Marcos City Park paddle access"
+          ],
+          "waterbody": "San Marcos River",
+          "latitude": 29.8859203,
+          "longitude": -97.9344384,
+          "uncertaintyFeet": 300,
+          "coordinateText": "Municipal facility coordinate/access-area anchor; verify current river-side carry and parking conditions."
+        }
+      ]
+    },
+    {
+      "id": "blm_mckays_bend_access_area_anchor",
+      "name": "BLM McKay’s Bend Recreation Site access area",
+      "state": "Idaho",
+      "sourceUrl": "https://www.blm.gov/visit/mckays-bend-recreation-site",
+      "sourceType": "official-federal-recreation-site-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "BLM identifies McKay’s Bend as a developed Clearwater River recreation site with river access and parking; the page coordinate matches the stored site point. Treat it as the developed access-area anchor, not a surveyed water-entry edge, and confirm site operations and shoreline conditions.",
+      "controls": [
+        {
+          "featureId": "clearwater-mckays-bend-recreation-site-access",
+          "name": "McKay’s Bend Recreation Site river access area",
+          "aliases": [
+            "McKay’s Bend",
+            "McKays Bend access"
+          ],
+          "waterbody": "Clearwater River",
+          "latitude": 46.4975,
+          "longitude": -116.726944,
+          "uncertaintyFeet": 250,
+          "coordinateText": "BLM-developed recreation-site coordinate; public river-access anchor, not a surveyed ramp-toe point."
+        }
+      ]
+    },
+    {
+      "id": "vt_fish_wildlife_kwonumosk_access_anchor",
+      "name": "Vermont Fish & Wildlife Otter Creek–Kwonumosk access",
+      "state": "Vermont",
+      "sourceUrl": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/163/query?where=AccessName%20LIKE%20%27%25Kwonumosk%25%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "sourceType": "official-agency-gis-query",
+      "sourceDocumentDate": null,
+      "sourceSha256": "D5DA3E04BF22E5783664BC702947A65EE684EF1C02C040BE3ECFB7D32D64A312",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Vermont Fish & Wildlife GIS returns feature OID 238 / id 357, AccessName “Otter Creek - Kwonumosk,” waterbody Otter Creek, town Weybridge, manager F&W, access type Boating/Fishing and ramp type Steps. Geometry is x=-73.2472,y=44.086 (longitude,latitude). The state GIS point is the facility/access anchor; it does not claim a surveyed waterline toe.",
+      "controls": [
+        {
+          "featureId": "vt-fish-wildlife-otter-creek-kwonumosk-357",
+          "name": "Otter Creek–Kwonumosk public access area",
+          "aliases": [
+            "Otter Creek - Kwonumosk",
+            "Kwonumosk Fishing Access",
+            "Weybridge State Fishing Access"
+          ],
+          "waterbody": "Otter Creek",
+          "latitude": 44.086,
+          "longitude": -73.2472,
+          "uncertaintyFeet": 100,
+          "coordinateText": "Official state GIS facility point, OID 238 / id 357; steps access in Weybridge. Coordinate is an access anchor, not a surveyed water-edge location."
+        }
+      ]
+    }
+  ],
+  "reclassifiedProviders": [
+    {
+      "id": "indian_river_abanakee_dam_outer_gooley",
+      "name": "Indian River Abanakee Dam to Outer Gooley public-access anchors",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "NYSDEC identifies the Rafters Parking Area and Indian River whitewater section, the Outer Gooley Hudson access/carry, seasonal roads, and the mandatory boundary before the Hudson Gorge. American Whitewater publishes the distinct Abanakee Dam-to-Hudson reach, direct Indian River gauge, feature hazards, and route-side take-out context. Stored points are public access/waterline anchors; verify dam exclusion, release instructions, road/gate status, carry, landing, parking, and posted private/outfitter boundaries in field."
+    },
+    {
+      "id": "md_pocomoke_snow_hill_shad_access",
+      "name": "Maryland Pocomoke River Snow Hill to Shad Landing public access anchors",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Town of Snow Hill identifies Byrd Park as a public Pocomoke River canoe/kayak launch, and Maryland DNR documents Shad Landing as a public state-park boat ramp and soft launch. Coordinates preserve the named town and state-park public access-area anchors; confirm hours, parking, carry, launch surface, events, and current conditions before use."
+    },
+    {
+      "id": "md_pocomoke_shad_milburn_access",
+      "name": "Maryland Pocomoke River State Park Shad to Milburn public access anchors",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Maryland DNR identifies the Shad Landing boat/soft launch, Milburn Landing boat ramp/kayak launch, camping, and the April–mid-December seasonal operation at Milburn; the DNR land-unit plan identifies the Shad–Milburn water trail as 4.5 miles. Coordinates preserve both public park access areas; confirm seasonal operations, parking, carry, and public access-area anchors before use."
+    },
+    {
+      "id": "saranac_river_kent_falls_military_turnpike",
+      "name": "New York Saranac River Foot of Kent Falls to Military Turnpike public water-entry controls",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "American Whitewater identifies the Fisherman’s parking/access area immediately downstream of the Kent Falls Powerhouse and the Military Turnpike parking area between the dam and power-plant intake as the bounded endpoint pair. Current NYSDEC PFR and Saranac River Trail Greenway materials provide public-access and facility context, but the route deliberately excludes the no-legal-access Kent Falls bypass and requires current confirmation of the below-powerhouse carry, river landing, dam exclusion, intake boundary, parking, and operator instructions."
+    }
+  ],
+  "notes": [
+    "Coordinates are access-area anchors unless the source explicitly identifies a launch-toe coordinate.",
+    "Maryland DNR lists possible fall 2026 access limitations during Shad Landing marina construction."
+  ]
+}

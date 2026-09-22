@@ -1,0 +1,243 @@
+{
+  "batch": "2026-09-17-batch-13",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 0,
+  "retainedAccessAnchorCount": 8,
+  "reclassifiedNavigationWaypointCount": 1,
+  "unverifiedAccessSiteCount": 1,
+  "routesHeldForAccessVerificationCount": 1,
+  "uniqueBatchRouteHoldCount": 1,
+  "totalWithheldRouteCountAfterBatch": 149,
+  "decisions": [
+    {
+      "rank": 151,
+      "state": "Iowa",
+      "site": "Eureka Bridge Access",
+      "resolvedSiteName": "Eureka Bridge public concrete ramp / access area",
+      "decision": "retained-public-concrete-ramp-access-area-anchor",
+      "coordinate": [
+        42.0156,
+        -94.4384
+      ],
+      "coordinateRole": "County public boat-access coordinate retained as an access-area anchor; no separate surveyed wet-edge coordinate found",
+      "reason": "Greene County identifies a concrete ramp for canoes, kayaks, and motorboats, and places Eureka 4.5 miles upstream from Henderson Park. That supports the named public access and route split; the reviewed manager source does not publish a separate water-edge pin. Keep the saved point and describe it as the access-area anchor.",
+      "sources": [
+        "https://www.mycountyparks.com/county/Greene/Park/Eureka-Bridge-Access",
+        "https://www.iowadnr.gov/media/8704/download?inline="
+      ],
+      "publicationAction": "Keep the existing coordinate as a public access-area anchor. Distinguish the concrete ramp from bridge/parking locations and retain the Henderson rock-dam scouting note.",
+      "routes": [
+        "north-raccoon-river-eureka-henderson"
+      ]
+    },
+    {
+      "rank": 152,
+      "state": "Iowa",
+      "site": "Interstate Park / Mitchell",
+      "resolvedSiteName": "Interstate Park east-end canoe-ramp area",
+      "decision": "retained-manager-marked-canoe-ramp-area-anchor",
+      "coordinate": [
+        43.319134,
+        -92.879648
+      ],
+      "coordinateRole": "Park/ramp access-area anchor; manager map labels a canoe ramp but does not publish a surveyed water-entry GPS",
+      "reason": "Current Mitchell County Conservation guidance identifies water-trail access point 263 at the park east end, and its 2024 park map labels a canoe ramp. A legacy DNR link failed retrieval and is not used as evidence either way. Preserve the point while keeping the route boundary and dam carry/relaunch instructions explicit; the park map does not establish a survey-grade ramp coordinate.",
+      "sources": [
+        "https://mitchellcountyconservation.com/interstate-park/",
+        "https://mitchellcountyconservation.com/wp-content/uploads/2024/01/Interstate-Park-web.pdf"
+      ],
+      "publicationAction": "Keep the access-area coordinate. Direct paddlers to the current manager-marked canoe ramp and verify the legal portage/relaunch path around the Mitchell dam; do not treat the point as an exact wet-edge pin.",
+      "routes": [
+        "cedar-river-halvorson-interstate",
+        "cedar-river-interstate-bennett"
+      ]
+    },
+    {
+      "rank": 153,
+      "state": "Idaho",
+      "site": "Salmon Island Park boat ramp",
+      "resolvedSiteName": "Salmon Island Park public ramp area",
+      "decision": "retained-official-boater-guide-access-anchor",
+      "coordinate": [
+        45.170721,
+        -113.894916
+      ],
+      "coordinateRole": "Official interagency Upper Salmon guide mile 126.3 municipal-ramp/access anchor; not a surveyed ramp edge",
+      "reason": "The BLM/USFS/IDFG guide publishes this Salmon Island access anchor and river mile; IDFG and the City of Salmon currently confirm a public city park with two boat ramps. The sources establish the public ramp area but do not identify which ramp edge matches a separate exact coordinate. Keep the published guide point and the route-specific north/left-channel approach note.",
+      "sources": [
+        "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22441-fishing-and-boating-access-site-island",
+        "https://www.cityofsalmon.com/page/public-parks",
+        "https://www.blm.gov/sites/default/files/documents/files/Media-Center_Public-Room_Idaho_Upper-Salmon-river_BoaterGuide.pdf"
+      ],
+      "publicationAction": "Keep the interagency access anchor, call it a ramp area, and direct users to current signs and the appropriate channel; do not snap it to mapped water.",
+      "routes": [
+        "salmon-river-kilpatrick-salmon-island",
+        "salmon-river-salmon-island-north-fork"
+      ]
+    },
+    {
+      "rank": 154,
+      "state": "New York",
+      "site": "East Canada Creek island/head-of-rapids turn-around landmark",
+      "resolvedSiteName": "East Canada Creek island / head-of-rapids navigation landmark",
+      "decision": "reclassified-navigation-waypoint",
+      "coordinate": [
+        43.2915,
+        -74.671
+      ],
+      "coordinateRole": "NYSDEC-described on-water navigation/turnaround landmark, not an access site",
+      "reason": "NYSDEC tells paddlers to turn around at the island/head of rapids about 1.75 miles below Powley Place and does not identify a public landing there. Retain the water objective and hazard boundary for navigation, but mark it as accessPointRole navigation-waypoint so the quality audit stops treating it as a launch/take-out candidate.",
+      "sources": [
+        "https://dec.ny.gov/places/ferris-lake-wild-forest"
+      ],
+      "publicationAction": "Keep the coordinate and route instruction as a navigation waypoint. Exclude it from access-quality findings; preserve the strict turn-around warning and no-landing/private-bank rule.",
+      "routes": [
+        "east-canada-creek-powley-place-out-and-back"
+      ]
+    },
+    {
+      "rank": 155,
+      "state": "Idaho",
+      "site": "Barber Flat Forest Service Station Access",
+      "resolvedSiteName": "Barber Flat Forest Service station/cabin area (launch unverified)",
+      "decision": "rejected-unverified-route-withheld",
+      "coordinate": [
+        43.8129514,
+        -115.536488
+      ],
+      "coordinateRole": "Forest Service station/cabin/trailhead area; no public boat-entry coordinate verified",
+      "reason": "Recreation.gov/Forest Service material describes a historic guard station cabin and nearby trailhead, not a river launch or lawful carry to the North Fork Boise. Its current alert says a wildfire is affecting the site and asks visitors not to go until it is safe. A station/cabin pin cannot establish boat access or safe current approach.",
+      "sources": [
+        "https://www.recreation.gov/camping/campgrounds/233962"
+      ],
+      "publicationAction": "Preserve the source record, rename it to show launch status, and withhold the dependent route until the Forest Service confirms public river entry, parking/carry, and current fire-safe status.",
+      "routes": [
+        "north-fork-boise-barber-flat-troutdale"
+      ]
+    },
+    {
+      "rank": 156,
+      "state": "Nebraska",
+      "site": "Columbus hotel-side finish near Pawnee Park Trail",
+      "resolvedSiteName": "Columbus hotel parking / Pawnee Park Trail access area",
+      "decision": "retained-permission-dependent-hotel-trail-access-area-anchor",
+      "coordinate": [
+        41.4195401,
+        -97.3672208
+      ],
+      "coordinateRole": "Hotel parking / Pawnee Park Trail access-area anchor; not the river landing",
+      "reason": "The City of Columbus identifies the Loup River Water Trail approach behind the hotel and says the owners voluntarily provided space in part of the lot. Current Nebraska DOT bridge information says public fishing/kayaking access east of the northbound bridge will be maintained during construction, expected through fall 2027. Retain the route-area anchor, but do not imply the hotel lot is public parking or that the point is the water edge; require current posted permission and construction-routing checks.",
+      "sources": [
+        "https://www.columbusne.us/CivicAlerts.asp?AID=1190&ARC=2360",
+        "https://dot.nebraska.gov/media/awaczehj/cn-31983-columbus-south-bridges-factsheet-eng-final.pdf"
+      ],
+      "publicationAction": "Keep the coordinate as the hotel / Pawnee Park Trail access-area anchor. Follow current public-access signs; use private hotel parking only with current permission and check construction detours before shuttle staging.",
+      "routes": [
+        "loup-river-columbus-adm-access",
+        "loup-river-george-syas-adm-access",
+        "loup-river-george-syas-columbus",
+        "loup-river-monroe-adm-access",
+        "loup-river-monroe-columbus"
+      ]
+    },
+    {
+      "rank": 157,
+      "state": "Rhode Island",
+      "site": "Esmond Park river access below dam",
+      "resolvedSiteName": "Esmond Park below-dam launch / carry area",
+      "decision": "retained-public-below-dam-carry-area-anchor",
+      "coordinate": [
+        41.8782,
+        -71.4994
+      ],
+      "coordinateRole": "Public park and below-dam carry/launch area anchor; no surveyed water-edge coordinate found",
+      "reason": "The Town of Smithfield identifies Esmond Park and public parking, while the Woonasquatucket River Watershed Council paddling guide identifies the below-dam launch/take-out and portage around Esmond Dam. These confirm the access sequence but do not establish that the saved point is the wet-edge landing. Keep the coordinate as a carry-area anchor and retain the below-dam and dam-portage boundary.",
+      "sources": [
+        "https://www.smithfieldri.gov/departments/boards-commissions/conservation-commission/esmond-park",
+        "https://wrwc.org/wp/wp-content/uploads/2020/05/completePaddlingGuide.pdf",
+        "https://www.smithfieldri.gov/home/showpublisheddocument/550/638112861235100000"
+      ],
+      "publicationAction": "Keep the coordinate as park/carry-area anchor; launch below the dam only from the documented area and verify current parking, carry, and landing conditions.",
+      "routes": [
+        "woonasquatucket-river-esmond-cricket",
+        "woonasquatucket-river-esmond-manton",
+        "woonasquatucket-river-esmond-riverside",
+        "woonasquatucket-river-esmond-south-water",
+        "woonasquatucket-river-esmond-waterplace",
+        "woonasquatucket-river-georgiaville-esmond",
+        "woonasquatucket-river-whipple-esmond"
+      ]
+    },
+    {
+      "rank": 158,
+      "state": "Washington",
+      "site": "Sullivan Park public boat launch (water-entry edge)",
+      "resolvedSiteName": "Sullivan Park public river access / parking area",
+      "decision": "retained-public-park-access-area-anchor",
+      "coordinate": [
+        47.674537,
+        -117.197426
+      ],
+      "coordinateRole": "Public river access and parking-area anchor; official sources do not publish the exact water-entry coordinate",
+      "reason": "Spokane Valley identifies Sullivan Park as a public Spokane River access and park with substantial parking; Spokane River Water Trail materials list Sullivan as a canoe/kayak/SUP launch, and Spokane Conservation District material documents restored public river access. Together they confirm the named public access, not the saved point as the launch edge. Keep the point and remove the inaccurate water-entry-edge claim.",
+      "sources": [
+        "https://www.spokanevalleywa.gov/Facilities/Facility/Details/Sullivan-Park-22",
+        "https://www.spokaneriver.net/watertrail/launches/",
+        "https://spokanecd.org/blogs/news/spokane-river-restored-access-points"
+      ],
+      "publicationAction": "Keep the existing point as a park/access-area anchor. Direct paddlers to the signed public river launch and preserve current parking/carry checks.",
+      "routes": [
+        "spokane-river-barker-sullivan",
+        "spokane-river-harvard-sullivan"
+      ]
+    },
+    {
+      "rank": 159,
+      "state": "Iowa",
+      "site": "Tailwater East public boat ramp below Coralville Dam",
+      "resolvedSiteName": "Tailwater East campground / public boat-ramp area",
+      "decision": "retained-corps-campground-ramp-area-anchor",
+      "coordinate": [
+        41.7249,
+        -91.5257
+      ],
+      "coordinateRole": "Tailwater East campground/access-area point; not a surveyed ramp edge",
+      "reason": "USACE identifies a public boat ramp from Tailwater East Campground to the Iowa River below Coralville Dam; Recreation.gov identifies the east-bank campground below the dam. These verify the facility and dam side but the reviewed pages do not publish an exact ramp-edge coordinate matching the saved point. Keep the campground/access-area coordinate and remove stale status wording from an unavailable USACE recreation-status URL.",
+      "sources": [
+        "https://www.mvr.usace.army.mil/coralvillelake/recreation/boating-swimming/",
+        "https://www.recreation.gov/camping/campgrounds/156340"
+      ],
+      "publicationAction": "Keep the campground/ramp-area anchor. Follow onsite signs to the public below-dam ramp; check current Corps closures, fees, and releases before unloading.",
+      "routes": [
+        "iowa-river-tailwater-east-sturgis-ferry"
+      ]
+    },
+    {
+      "rank": 160,
+      "state": "Arkansas",
+      "site": "Highway 278 Access / Cossatot State Park corridor",
+      "resolvedSiteName": "U.S. 278 Cossatot River access area",
+      "decision": "retained-public-state-park-access-area-anchor",
+      "coordinate": [
+        34.29388,
+        -94.17704
+      ],
+      "coordinateRole": "Public Highway 278 park/natural-area access anchor; not a surveyed landing coordinate",
+      "reason": "Arkansas Natural Heritage Commission identifies the public developed canoe-launch area within Cossatot River State Park Natural Area, and the selected location matches the Highway 278 access-area point used for this route. The source verifies the public access site but does not survey the precise landing edge. Keep the point and route-specific rough-road, bridge, and landing confirmation warnings.",
+      "sources": [
+        "https://www.arkansasheritage.com/arkansas-natural-heritage/naturalareas/find-a-natural-area/cossatot-river-state-park-natural-area"
+      ],
+      "publicationAction": "Keep the existing point as a Highway 278 access-area anchor; direct users to the named river access rather than the visitor center and confirm landing/parking before launching.",
+      "routes": [
+        "cossatot-river-ed-banks-highway-278"
+      ]
+    }
+  ],
+  "limitations": [
+    "Selection ranks came from a cache-only access-quality report and only prioritized research. Do not interpret the selected water-distance as proof of a bad coordinate.",
+    "No replacement water-entry coordinate was supported strongly enough to justify moving a point. Eight coordinates remain in place as access-area anchors; a park, campground, parking, or carry GPS is not claimed to be the shoreline.",
+    "One route is withheld because Barber Flat launch legality and current fire-safe access could not be verified. One existing on-water navigation landmark was reclassified so it is not counted as an access site.",
+    "Failed 404/403 source retrievals are listed in source-metadata.json and were excluded from evidence."
+  ]
+}

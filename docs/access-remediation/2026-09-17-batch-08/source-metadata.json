@@ -1,0 +1,260 @@
+{
+  "batch": "2026-09-17-batch-08",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-08/sources",
+  "snapshots": [
+    {
+      "id": "root-american-whitewater",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/5027/main",
+      "localPath": "node_modules/.cache/access-batch-08/sources/root-american-whitewater.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 92820,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "4265232B63F08E78E486E6318658EBE78BA92A5B6F758609033F78C096391082"
+    },
+    {
+      "id": "root-wisconsin-river-trips",
+      "url": "https://www.wisconsinrivertrips.com/segments/root-river",
+      "localPath": "node_modules/.cache/access-batch-08/sources/root-wisconsin-river-trips.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 161632,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F62F9659F10F79B3FED7EE92D6647EAEE6EF7EF14F6064F098C30EE4244AE4C8"
+    },
+    {
+      "id": "blm-fontenelle-recreation",
+      "url": "https://www.blm.gov/visit/fontenelle-creek-recreation-area",
+      "localPath": "node_modules/.cache/access-batch-08/sources/blm-fontenelle-recreation.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 94261,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "338089C6675D58723D0982976479032A9ADDEC554771002BE687B8324CE53864"
+    },
+    {
+      "id": "blm-fontenelle-ramp-gis",
+      "url": "https://gis.blm.gov/arcgis/rest/services/recreation/BLM_Natl_Recs_pts/MapServer/1/query?where=FET_NAME+LIKE+%27%25Fontenelle%25%27+OR+UNIT_NAME+LIKE+%27%25Fontenelle%25%27&outFields=OBJECTID%2CFET_NAME%2CFET_TYPE%2CFET_SUBTYPE%2CADMIN_ST%2CDESCRIPTION%2CUNIT_NAME%2CLAT%2CLONG%2CWEB_LINK&returnGeometry=true&outSR=4326&f=json",
+      "localPath": "node_modules/.cache/access-batch-08/sources/blm-fontenelle-ramp-gis.json",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "bytes": 1891,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8A253D51B6D7E308E9176FF32DDEF2ECE95B937061AE0713F6C2DE1760685A10"
+    },
+    {
+      "id": "big-fork-dnr-segments",
+      "url": "https://www.dnr.state.mn.us/state-water-trails/big-fork-river/segments-maps.html",
+      "localPath": "node_modules/.cache/access-batch-08/sources/big-fork-dnr-segments.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 61747,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "9FBB15E209EB697DDA9E996ACF24385166D9DA5221C36B34BDCD187BFE5B0A4D"
+    },
+    {
+      "id": "big-fork-dnr-map-2",
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/big-fork-dnr-map-2.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 6557088,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "43BFDC2C57A59FF092319CE071431453A13566FFDEC978393D5162F3FC59ED50"
+    },
+    {
+      "id": "greenvale-town-facility",
+      "url": "https://poughkeepsieny.myrec.com/info/facilities/details.aspx?ActivityID=144703",
+      "localPath": "node_modules/.cache/access-batch-08/sources/greenvale-town-facility.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 84452,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "0EAE2183519AC5685FA1AA0E93AD472957834F7FD0C4FF92F6877F9C973BCFC9"
+    },
+    {
+      "id": "greenvale-town-recreation-guide",
+      "url": "https://www.townofpoughkeepsie-ny.gov/DocumentCenter/View/4571/RSG---Final-Print-Version-PDF",
+      "localPath": "node_modules/.cache/access-batch-08/sources/greenvale-town-recreation-guide.html",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 18147664,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F7A01783B870B738325B0786FA0C6AC1B805DB0B53DCCC1DE4798F5D85A8CB4C"
+    },
+    {
+      "id": "greenvale-dec-pfr-map",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/pfrwapingers.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/greenvale-dec-pfr-map.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html",
+      "bytes": 12415,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404 Not Found",
+      "sha256": null
+    },
+    {
+      "id": "greenvale-water-derby-2026",
+      "url": "https://aquaticexplorers.org/canoe-derby",
+      "localPath": "node_modules/.cache/access-batch-08/sources/greenvale-water-derby-2026.html",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 367437,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "696827E8CE993F2EBBA6EA6473235D221DE6B82036E806C05400A453639AA387"
+    },
+    {
+      "id": "saranac-taylor-pond-plan",
+      "url": "https://extapps.dec.ny.gov/docs/lands_forests_pdf/tpmcump.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/saranac-taylor-pond-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 10653423,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "731C84F37A8C6F6DBC62B138133F6E709D649F53E76630BBB60D5595A690BF74"
+    },
+    {
+      "id": "saranac-casey-american-whitewater",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/1411/main",
+      "localPath": "node_modules/.cache/access-batch-08/sources/saranac-casey-american-whitewater.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 66851,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8F6040E4C56E09A94FBA908A380DA4237FC88564EC2A8C6A57950E632046D264"
+    },
+    {
+      "id": "carmans-dec-suffolk-launches",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+      "localPath": "node_modules/.cache/access-batch-08/sources/carmans-dec-suffolk-launches.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 166126,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "A798D83724F79E042B054B9546223C42541D053DBBABF0DABF3EA95901E78D54"
+    },
+    {
+      "id": "raven-rock-ncparks-launch-status",
+      "url": "https://www.ncparks.gov/state-parks/raven-rock-state-park/camping",
+      "localPath": "node_modules/.cache/access-batch-08/sources/raven-rock-ncparks-launch-status.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 106981,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "D3AAA1D8D998D1E49251105DB973145BD87532834981D47882FB088BDB42F065"
+    },
+    {
+      "id": "raven-rock-ncwrc-boat-access-map",
+      "url": "https://www.ncpaws.org/ncwrcmaps/BoatingAccessAreas",
+      "localPath": "node_modules/.cache/access-batch-08/sources/raven-rock-ncwrc-boat-access-map.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 136905,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "370C79F8B6769A7A47BAFFFA4285F91D127029786F6EFA108CBB80F1F7C690C4"
+    },
+    {
+      "id": "schram-city-park",
+      "url": "https://www.manchester-ia.org/vnews/display.v/ART/60f9de1f8bc4e",
+      "localPath": "node_modules/.cache/access-batch-08/sources/schram-city-park.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 67469,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "207EA19DE5640A8059F78250FAE905900A96036C012132A65CC7CD2F3F8D72E6"
+    },
+    {
+      "id": "schram-city-parks-plan",
+      "url": "https://www.manchester-ia.org/vimages/shared/vnews/stories/61042d72db3d2/Manchester%20Parks%20Plan_REVISED%20FINAL%202024.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/schram-city-parks-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 22115371,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "505C197072132858FBFA0C8894A4FA96ADD1ED4163CDCC1CE98ADE3BF84E21FB"
+    },
+    {
+      "id": "maquoketa-iowa-dnr-water-trail",
+      "url": "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_maq_del.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/maquoketa-iowa-dnr-water-trail.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 424341,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404 Not Found",
+      "sha256": null
+    },
+    {
+      "id": "otranto-cedar-iowa-dnr-water-trail",
+      "url": "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_cedar_mitchell.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/otranto-cedar-iowa-dnr-water-trail.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 343249,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404 Not Found",
+      "sha256": null
+    },
+    {
+      "id": "guyandotte-wvdnr-district-guide",
+      "url": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/guyandotte-wvdnr-district-guide.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 7500681,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8C4EF8D294E65A27BEAD241F40A40631D6FEF8EAA9190BFD51304469B1EAAF89"
+    },
+    {
+      "id": "otranto-cedar-paddling-guide",
+      "url": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+      "localPath": "node_modules/.cache/access-batch-08/sources/otranto-cedar-paddling-guide.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 3636586,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "D9E945465D2B4C364A46E44579A3C086FF371D31FD671BA00EB095541EF96E01"
+    },
+    {
+      "id": "mitchell-county-otranto-park",
+      "url": "https://mitchellcountyconservation.com/otranto-park/",
+      "localPath": "node_modules/.cache/access-batch-08/sources/mitchell-county-otranto-park.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 191776,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "EC729E1200BE8BD6F9123CACA5FCF8ED460047DE1E24243FB6DC0DAD44F933F1"
+    },
+    {
+      "id": "iowa-dnr-otranto-impoundment",
+      "url": "https://programs.iowadnr.gov/lakemanagement/FishIowa/LakeDetails/OTI66",
+      "localPath": "node_modules/.cache/access-batch-08/sources/iowa-dnr-otranto-impoundment.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 26056,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "08DCD74CAB1F9B5A1503A9BC1A906F6A04ABB04847988FE5C7A2DD17D252353F"
+    }
+  ]
+}

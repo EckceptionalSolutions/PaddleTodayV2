@@ -1,0 +1,32 @@
+{
+  "batch": "2026-09-17-batch-16",
+  "createdAt": "2026-09-17",
+  "backupRoot": "node_modules/.cache/access-batch-16/before-source",
+  "files": {
+    "src/data/routes/minnesota.ts": {
+      "sha256": "D27B094680C89CD9D4CB9034BAEE35A885057DC442B8649535FC204B2D6FAA09",
+      "backupPath": "node_modules/.cache/access-batch-16/before-source/src__data__routes__minnesota.ts",
+      "bytes": 1723538
+    },
+    "src/data/trip-details/minnesota.ts": {
+      "sha256": "2D88B78328ECCB187640FC4AE8725ADF8A3AB23E7ABDE6FEE519517EB7B4A084",
+      "backupPath": "node_modules/.cache/access-batch-16/before-source/src__data__trip-details__minnesota.ts",
+      "bytes": 754912
+    },
+    "src/data/route-access-official-map-controls.json": {
+      "sha256": "0C150342AD4B6CDB33C78EC17D8B7D3770852A9B3DEC1ED57C44DE3E93D15F4A",
+      "backupPath": "node_modules/.cache/access-batch-16/before-source/src__data__route-access-official-map-controls.json",
+      "bytes": 1267119
+    },
+    "src/data/route-access-review-holds.ts": {
+      "sha256": "002884282E2FEA2CDA9321DEBFCA5C3E124CF06A4C72E1EA9638133D4C54630B",
+      "backupPath": "node_modules/.cache/access-batch-16/before-source/src__data__route-access-review-holds.ts",
+      "bytes": 41311
+    },
+    "src/data/generated/withheld-route-slugs.ts": {
+      "sha256": "4A5637F7AFC541F621DBC6541D227C89CC0F5A0E9B10578B8B3E98D4BD8BFF07",
+      "backupPath": "node_modules/.cache/access-batch-16/before-source/src__data__generated__withheld-route-slugs.ts",
+      "bytes": 6263
+    }
+  }
+}

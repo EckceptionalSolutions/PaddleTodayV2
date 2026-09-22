@@ -1,0 +1,19 @@
+{
+  "batch": 57,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before determining the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:59:06.252Z; 2,750 public routes, 6,058 endpoints, 74 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "North Carolina",
+    "name": "Old U.S. 421 River Park Access, Yadkin River",
+    "storedCoordinate": { "latitude": 36.1323, "longitude": -80.4439 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "yadkin-river-donnaha-old-421",
+      "yadkin-river-old-421-huntsville"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 344 feet from the matched Yadkin River flowline and 263 feet from mapped water and were classified suspicious.",
+    "decision": "verify-the-shared-coordinate-against-the-county-river-park-ramp-and-ncwrc-canoe-access-record; retain-as-site-anchor-if-supported",
+    "selectionFrozenBeforeResearch": true
+  }
+}

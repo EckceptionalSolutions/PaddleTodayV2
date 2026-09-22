@@ -20,7 +20,7 @@ export const newHampshireSacoRoutes: River[] = [{
   scoreEligibility: 'scored',
   reach: 'Bartlett River Street access to Cooks Crossing access',
   putIn: { name: 'Bartlett River Street access (water-entry edge)', latitude: 44.08372, longitude: -71.28521 },
-  takeOut: { name: 'Cooks Crossing access (water-entry edge)', latitude: 44.08979, longitude: -71.20563 },
+  takeOut: { name: 'Cooks Crossing area (exact public launch unverified)', latitude: 44.08979, longitude: -71.20563 },
   latitude: 44.08372,
   longitude: -71.28521,
   summary: 'A 5.3-mile White Mountain Saco River float through gentle Class I–II water, with sandy beaches, riffles and mountain scenery.',
@@ -56,7 +56,7 @@ export const newHampshireSacoRoutes: River[] = [{
   sourceLinks: [wildernessGuide, accessGuide, whitewaterGuide, { label: 'USGS Conway Saco gauge', url: gauge.detailUrl, provider: 'usgs' as const }],
   accessPoints: [
     { name: 'Bartlett River Street access (water-entry edge)', latitude: 44.08372, longitude: -71.28521, id: 'saco-river-bartlett-cooks-crossing-put-in', mileFromStart: 0, segmentKind: 'transition', note: 'Wilderness Portal identifies the Bartlett start; confirm public parking, carry and current water entry before unloading.' },
-    { name: 'Cooks Crossing access (water-entry edge)', latitude: 44.08979, longitude: -71.20563, id: 'saco-river-bartlett-cooks-crossing-take-out', mileFromStart: 5.3, segmentKind: 'transition', note: 'Use the documented Cooks Crossing take-out area only after confirming current public access, parking and a safe river landing.' },
+    { name: 'Cooks Crossing area (exact public launch unverified)', latitude: 44.08979, longitude: -71.20563, id: 'saco-river-bartlett-cooks-crossing-take-out', mileFromStart: 5.3, segmentKind: 'transition', note: 'The coordinate identifies the Cooks Crossing area, not a verified public launch. Confirm a lawful public landing, parking, and safe water-entry carry before use.' },
   ],
   logistics: {
     distanceLabel: 'About 5.3 river miles',
@@ -166,7 +166,7 @@ newHampshireSacoRoutes.push(
     difficulty: 'moderate',
     summary: 'A short 2.5-mile Class II Saco River reach linking Conway’s Davis Park and Smith-Eastman canoe launch.',
     time: 'Allow 1.5–3 hours with rapid scouting, access checks and shuttle time',
-    note: 'Davis Park is a public town beach and launch; confirm posted hours, parking and a clear water entry before unloading.',
+    note: 'Conway lists a canoe launch at this public town park. The NH public-water inventory point anchors the access site, not a surveyed water-entry edge; verify the signed launch path, hours and parking on arrival.',
     hazards: ['low_water', 'strainers', 'fast_rise', 'cold_water', 'whitewater', 'private_banks'],
   }),
   makeSacoExpansionRoute({
@@ -208,7 +208,7 @@ newHampshireSacoRoutes.push(
   makeSacoExpansionRoute({
     id: 'saco-river-cooks-crossing-davis-park',
     reach: 'Cooks Crossing access to Davis Park',
-    putIn: { name: 'Cooks Crossing access (water-entry edge)', latitude: 44.08979, longitude: -71.20563 },
+    putIn: { name: 'Cooks Crossing area (exact public launch unverified)', latitude: 44.08979, longitude: -71.20563 },
     takeOut: { name: 'Davis Park and Beach, Conway (water-entry edge)', latitude: 43.982113, longitude: -71.113689 },
     miles: 8.5,
     difficulty: 'easy',
@@ -220,7 +220,7 @@ newHampshireSacoRoutes.push(
   makeSacoExpansionRoute({
     id: 'saco-river-cooks-crossing-smith-eastman',
     reach: 'Cooks Crossing access to Smith-Eastman Recreation Area',
-    putIn: { name: 'Cooks Crossing access (water-entry edge)', latitude: 44.08979, longitude: -71.20563 },
+    putIn: { name: 'Cooks Crossing area (exact public launch unverified)', latitude: 44.08979, longitude: -71.20563 },
     takeOut: { name: 'Smith-Eastman Recreation Area, Redstone Village (water-entry edge)', latitude: 44.000982, longitude: -71.083071 },
     miles: 10.5,
     difficulty: 'moderate',
@@ -244,7 +244,7 @@ newHampshireSacoRoutes.push(
   makeSacoExpansionRoute({
     id: 'saco-river-cooks-crossing-first-bridge',
     reach: 'Cooks Crossing access to First Bridge River Access Conservation Area',
-    putIn: { name: 'Cooks Crossing access (water-entry edge)', latitude: 44.08979, longitude: -71.20563 },
+    putIn: { name: 'Cooks Crossing area (exact public launch unverified)', latitude: 44.08979, longitude: -71.20563 },
     takeOut: { name: 'First Bridge River Access Conservation Area, North Conway (water-entry edge)', latitude: 44.05704, longitude: -71.13699 },
     miles: 4.0,
     difficulty: 'easy',

@@ -20,7 +20,7 @@ for (const path of ['/', '/explore']) {
       cardText: 'Local QA fixture', shortExplanation: 'Conditions withheld', rawSignalLine: '',
       gaugeNow: '', confidenceText: '', freshnessText: '', primaryFactor: '', secondaryFactor: '',
     } };
-    await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [river] } }));
+    await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [river] } }));
     await page.goto(path);
     if (path === '/') {
       const score = page.getByRole('button', { name: 'Score ranking', exact: true });

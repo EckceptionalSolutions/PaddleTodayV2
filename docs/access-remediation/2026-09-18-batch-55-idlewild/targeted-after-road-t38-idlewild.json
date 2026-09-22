@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:51:39.663Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "cedar-river-road-t38-idlewild",
+      "routeName": "Cedar River",
+      "reach": "Road T38 Access to Idlewild Park Access",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Idlewild Park Access",
+      "latitude": 43.1633388,
+      "longitude": -92.7540921,
+      "matchedRiverName": "Cedar River",
+      "distanceFeetToMatchedRiver": 354.2120028283537,
+      "nearestMatchedLatitude": 43.16364156612989,
+      "nearestMatchedLongitude": -92.75282734496665,
+      "nearestWaterwayName": "Cedar River",
+      "distanceFeetToNearestWaterway": 354.2120028283537,
+      "nearestWaterwayLatitude": 43.16364156612989,
+      "nearestWaterwayLongitude": -92.75282734496665,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 276.25067330729274,
+      "nearestWaterbodyLatitude": 43.163571906250915,
+      "nearestWaterbodyLongitude": -92.75310436551764,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 276.25067330729274,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://media.rainpos.com/8576/cedar_river_flatwater_paddling_trips.pdf",
+      "coordinateEvidenceDetail": "ia_floyd_county_idlewild_canoe_access_anchor_20260918 cedar-river-guide-idlewild-access-coordinate-floyd-county-west-idlewild-canoe-access: The Charles City Chamber of Commerce Cedar River Paddling Trips guide names Idlewild Park Access, gives the West Idlewild address at 1374 Quarry Road, and publishes 43.1633388,-92.7540921, matching the stored point. Floyd County's current West Idlewild Campground record identifies the county facility on the Cedar River and lists canoe access; Floyd County Conservation also describes a Cedar River float taking out at West Idlewild. The matching point identifies the access area, not a surveyed river-entry toe. Imagery shows the park/road approach beside the river under heavy tree cover; retain the point as an access-site anchor and leave the mapped-water offset reviewable.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_floyd_county_idlewild_canoe_access_anchor_20260918 cedar-river-guide-idlewild-access-coordinate-floyd-county-west-idlewild-canoe-access) on Cedar River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "cedar-river-road-t38-idlewild",
+      "routeName": "Cedar River",
+      "reach": "Road T38 Access to Idlewild Park Access",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Road T38 Access",
+      "latitude": 43.253006,
+      "longitude": -92.811759,
+      "matchedRiverName": "Cedar River",
+      "distanceFeetToMatchedRiver": 237.82649843601837,
+      "nearestMatchedLatitude": 43.253639,
+      "nearestMatchedLongitude": -92.811545,
+      "nearestWaterwayName": "Cedar River",
+      "distanceFeetToNearestWaterway": 237.82649843601837,
+      "nearestWaterwayLatitude": 43.253639,
+      "nearestWaterwayLongitude": -92.811545,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 168.10129153605183,
+      "nearestWaterbodyLatitude": 43.25336236040942,
+      "nearestWaterbodyLongitude": -92.8113579340157,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 168.10129153605183,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is 238 ft from the matched NHD flowline; likely an access/parking anchor but worth review."
+    }
+  ]
+}

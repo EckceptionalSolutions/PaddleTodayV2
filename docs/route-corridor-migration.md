@@ -1,10 +1,10 @@
 # Route corridor migration inventory
 
-Generated 2026-09-16T12:37:29.090Z.
+Generated 2026-09-22T14:56:11.346Z.
 
 - Defined corridors: 216
 - Routes covered by a corridor definition: 508
-- Remaining multi-route families: 321
+- Remaining multi-route families: 335
 
 ## Defined corridors
 
@@ -73,7 +73,7 @@ Generated 2026-09-16T12:37:29.090Z.
 | md-catoctin-catoctin-park-lander | Catoctin Creek Park to Lander/Potomac corridor | verified | 1 | 1 |
 | md-deer-creek-sandy-hook-md136 | Deer Creek Sandy Hook to MD 136 corridor | verified | 1 | 1 |
 | md-gunpowder-gorge-prettyboy-falls-road | Gunpowder Falls Prettyboy tailwater to Falls Road corridor | verified | 1 | 1 |
-| md-gunpowder-masemore-monkton | Gunpowder Falls Masemore Road to Monkton Road corridor | verified | 1 | 5 |
+| md-gunpowder-masemore-monkton | Gunpowder Falls Masemore Road to Monkton Road corridor | verified | 1 | 3 |
 | md-gunpowder-monkton-phoenix | Gunpowder Falls Monkton Road to Phoenix Road corridor | verified | 1 | 4 |
 | md-conococheague-kemps-mill-williamsport | Conococheague Creek Kemps Mill Park to Williamsport River Bottom corridor | verified | 1 | 1 |
 | md-patuxent-governor-bridge-queen-anne | Patuxent River Governor Bridge to Queen Anne corridor | verified | 1 | 2 |
@@ -248,44 +248,44 @@ Generated 2026-09-16T12:37:29.090Z.
 | --- | --- | ---: |
 | Oregon | Willamette River | 50 |
 | Louisiana | Bayou Teche | 44 |
-| Florida | Suwannee River | 43 |
+| Florida | Suwannee River | 44 |
+| Arizona | Verde River | 39 |
+| New York | Old Erie Canal | 37 |
+| California | Russian River | 37 |
 | Montana | Blackfoot River | 36 |
-| New York | Old Erie Canal | 36 |
 | Connecticut | Willimantic River | 34 |
 | Kentucky | Green River | 32 |
+| Washington | Spokane River | 29 |
 | Mississippi | Black Creek | 28 |
 | Vermont | Lamoille River | 28 |
 | Rhode Island | Woonasquatucket River | 28 |
 | South Carolina | Broad River | 25 |
+| Nevada | Truckee River | 24 |
 | Arkansas | Buffalo River | 23 |
 | Massachusetts | Millers River | 22 |
 | Kentucky | Floyds Fork | 21 |
-| California | Russian River | 21 |
 | Missouri | Eleven Point River | 20 |
+| New Hampshire | Merrimack River | 20 |
 | Rhode Island | Blackstone River | 18 |
 | West Virginia | Guyandotte River | 17 |
 | Maine | Kennebec River | 17 |
 | Maine | Penobscot River | 17 |
 | Missouri | Current River | 16 |
+| Massachusetts | Housatonic River | 15 |
 | Missouri | Jacks Fork River | 15 |
-| Nevada | Truckee River | 15 |
+| New Mexico | Rio Grande | 14 |
+| Alabama | Bartram Canoe Trail | 13 |
 | Texas | Colorado River | 13 |
 | Idaho | Salmon River | 13 |
 | New Jersey | Delaware River | 12 |
 | New York | Hudson River | 12 |
-| Arizona | Verde River | 12 |
+| Mississippi | Pascagoula River | 12 |
 | Vermont | Winooski River | 12 |
 | Maine | Androscoggin River | 11 |
 | Kansas | Kansas River | 11 |
-| New Mexico | Rio Grande | 11 |
+| New Mexico | San Juan River | 11 |
 | Minnesota | St. Louis River | 11 |
 | California | American River | 10 |
-| Kentucky | Barren River | 10 |
-| South Dakota | Big Sioux River | 10 |
-| Minnesota | Red Lake River | 10 |
-| Minnesota | Rum River | 10 |
-| New Hampshire | Saco River | 10 |
-| Arizona | Salt River | 10 |
-| Additional families omitted | See route data and overlap audit | 281 |
+| Additional families omitted | See route data and overlap audit | 295 |
 
 This inventory is a migration queue, not an automatic deletion list. Each family still requires source review for continuity, hazards, access legality, gauge boundaries, and explicit trip edges.

@@ -2,6 +2,7 @@ import type { RiverAccessPoint, RiverDetailApiResult, RiverGeometryResponse } fr
 import { parseTripDraftRecord, type TripDraft, type TripDraftTarget } from './trip-drafts';
 import { isRecord, parseJson } from './storage';
 import { buildOfflineTripSegment, clipOfflineSegmentGeometry, type OfflineTripSegment } from './offline-trip-segment';
+import { captureOfflineConditions, validOfflineConditions, type OfflineConditions } from './offline-conditions';
 
 export interface OfflineStorage {
   getItem(key: string): Promise<string | null>;
@@ -20,7 +21,8 @@ export interface OfflineTrip {
   putIn: OfflineAccess;
   takeOut: OfflineAccess;
   draft: TripDraft;
-  // Only reference facts are retained. Scores, forecasts and gauge readings never enter this store.
+  // Historical conditions have their own timestamps and never become live query data.
+  conditions?: OfflineConditions;
   facts: Array<{ label: string; text: string }>;
   geometry: { lines: number[][][]; source: string } | null;
   segment?: OfflineTripSegment;
@@ -81,7 +83,8 @@ function parsePacket(raw: string | null): OfflineTrip | null {
     || !Array.isArray(p.facts) || !p.facts.every(f => isRecord(f) && typeof f.label === 'string' && typeof f.text === 'string')
     || !Array.isArray(p.missing) || !p.missing.every(m => typeof m === 'string')
     || !(p.geometry === null || isRecord(p.geometry) && typeof p.geometry.source === 'string' && validLines(p.geometry.lines))
-    || (p.segment !== undefined && !validSegment(p.segment))) return null;
+    || (p.segment !== undefined && !validSegment(p.segment))
+    || (p.conditions !== undefined && !validOfflineConditions(p.conditions))) return null;
   const packet = p as unknown as OfflineTrip;
   if (packet.target.putInId !== packet.putIn.id || packet.target.takeOutId !== packet.takeOut.id
     || packet.putIn.id === packet.takeOut.id || (!packet.geometry && !packet.missing.includes('Route geometry'))) return null;
@@ -154,6 +157,14 @@ export function retryOfflineGeometry(storage: OfflineStorage, target: TripDraftT
     return commit(storage, { ...previous, geometry, segment, savedAt: new Date().toISOString(), missing: previous.missing.filter(m => m !== 'Route geometry') }, signal);
   });
 }
+export function updateOfflineTripDraft(storage: OfflineStorage, target: TripDraftTarget, draft: TripDraft, signal: AbortSignal) {
+  return queued(storage, target, async () => {
+    const previous = await read(storage, target);
+    if (!previous) throw new Error('Offline trip is no longer saved. Prepare it again from the route.');
+    if (signal.aborted) throw new Error('Update cancelled. Previous offline trip is unchanged.');
+    return commit(storage, { ...previous, draft: { ...draft }, savedAt: new Date().toISOString() }, signal);
+  });
+}
 export function downloadOfflineTrip(storage: OfflineStorage, input: {
   detail: RiverDetailApiResult; putIn: RiverAccessPoint | undefined; takeOut: RiverAccessPoint | undefined; draft: TripDraft;
 }, fetchGeometry: (slug: string, signal: AbortSignal) => Promise<RiverGeometryResponse>, signal: AbortSignal) {
@@ -178,6 +189,7 @@ export function downloadOfflineTrip(storage: OfflineStorage, input: {
     referenceGeneratedAt: Number.isFinite(Date.parse(detail.generatedAt)) ? detail.generatedAt : null,
     name: river.name, reach: river.reach, putIn: access(putIn), takeOut: access(takeOut), draft: { ...input.draft }, facts,
     geometry: null, segment: undefined, missing: logistics?.shuttle ? [] : ['Shuttle logistics'] };
+  packet.conditions = captureOfflineConditions(detail, packet.savedAt);
   return queued(storage, target, async () => {
     if (signal.aborted) throw new Error('Download cancelled. Previous offline trip is unchanged.');
     const previous = await read(storage, target); // Failed reads must never authorize replacing a saved trip.

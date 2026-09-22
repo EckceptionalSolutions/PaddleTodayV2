@@ -1,0 +1,42 @@
+{
+  "batch": "B119",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "wv-big-coal-whitesville-orgas",
+  "endpoint": "putIn",
+  "endpointName": "Whitesville Public Access / water intake",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 324.6336597242945,
+    "distanceFeetToMappedWater": 284.0621436420907
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 324.6336597242945,
+    "distanceFeetToMappedWater": 284.0621436420907,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "WVDNR and WVU Coal River Water Trail records document Whitesville public access on the Big Coal River. Retain the stored point as the conditional access-area anchor; the 325-foot named-flowline offset reflects the lot, road, and shoreline footprint.",
+  "condition": "Confirm current WVDNR access status, parking lot, carry path, river level, and any seasonal or local restrictions before launching.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 6,
+      "suspiciousAfter": 5,
+      "reviewBefore": 3927,
+      "reviewAfter": 3928
+    },
+    "inventory": {
+      "suspiciousBefore": 61,
+      "suspiciousAfter": 60,
+      "reviewBefore": 4233,
+      "reviewAfter": 4234
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1259,
+      "authoritativeAccessAfter": 1260,
+      "conflictsAfter": 0
+    }
+  }
+}

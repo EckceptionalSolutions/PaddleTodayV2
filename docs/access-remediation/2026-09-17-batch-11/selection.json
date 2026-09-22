@@ -1,0 +1,373 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue after rank 130 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-10; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "priorFrozenSiteCount": 100,
+  "currentWithheldRouteCount": 145,
+  "queueStartRank": 131,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Altmar Lower Fly / County Route 52 launch",
+      "latitude": 43.5125,
+      "longitude": -76.004167,
+      "distanceFeetToMappedWater": 479.40161758523084,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-altmar-pineville",
+          "endpoint": "putIn",
+          "endpointName": "Altmar Lower Fly / County Route 52 launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 131,
+      "eligibleUnwithheldRoutes": [
+        "salmon-river-altmar-pineville"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Tower Rock Recreation Site",
+      "latitude": 45.3125,
+      "longitude": -113.905833,
+      "distanceFeetToMappedWater": 479.1652310823716,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-salmon-island-north-fork",
+          "endpoint": "accessPoint",
+          "endpointName": "Tower Rock Recreation Site",
+          "severity": "review"
+        }
+      ],
+      "rank": 132,
+      "eligibleUnwithheldRoutes": [
+        "salmon-river-salmon-island-north-fork"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Henrys Lake South Shore Boat Access",
+      "latitude": 44.614582,
+      "longitude": -111.417834,
+      "distanceFeetToMappedWater": 478.4369577385013,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "henrys-lake-south-shore-loop",
+          "endpoint": "putIn",
+          "endpointName": "Henrys Lake South Shore Boat Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "henrys-lake-south-shore-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Henrys Lake South Shore Boat Access",
+          "severity": "review"
+        }
+      ],
+      "rank": 133,
+      "eligibleUnwithheldRoutes": [
+        "henrys-lake-south-shore-loop"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+      "latitude": 47.0234361031,
+      "longitude": -113.306023437,
+      "distanceFeetToMappedWater": 474.34414331350587,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-russell-gates-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-marco-flats",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-roundup",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-scotty-brown",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 134,
+      "eligibleUnwithheldRoutes": [
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-russell-gates-johnsrud",
+        "blackfoot-river-russell-gates-k-ross-toole",
+        "blackfoot-river-russell-gates-marco-flats",
+        "blackfoot-river-russell-gates-roundup",
+        "blackfoot-river-russell-gates-scotty-brown",
+        "blackfoot-river-russell-gates-weigh-station",
+        "blackfoot-river-russell-gates-whitaker"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Coeur d'Alene River confluence access",
+      "latitude": 47.5572204589844,
+      "longitude": -116.254997253418,
+      "distanceFeetToMappedWater": 474.24111677331,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-north-fork-coeur-dalene-laverne-mouth",
+          "endpoint": "takeOut",
+          "endpointName": "Coeur d'Alene River confluence access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 135,
+      "eligibleUnwithheldRoutes": [
+        "little-north-fork-coeur-dalene-laverne-mouth"
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Loreauville official dock (119 Bridge St)",
+      "latitude": 30.0564348,
+      "longitude": -91.7386437,
+      "distanceFeetToMappedWater": 472.97343360231554,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-jeanerette",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-st-martinville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock (119 Bridge St)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 136,
+      "eligibleUnwithheldRoutes": [
+        "bayou-teche-arnaudville-loreauville",
+        "bayou-teche-breaux-bridge-loreauville",
+        "bayou-teche-leonville-loreauville",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-loreauville-new-iberia",
+        "bayou-teche-st-martinville-loreauville"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Grandjean Campground Put-In",
+      "latitude": 44.14852,
+      "longitude": -115.15204,
+      "distanceFeetToMappedWater": 472.1370998035766,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-payette-grandjean-deadwood",
+          "endpoint": "putIn",
+          "endpointName": "Grandjean Campground Put-In",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 137,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-payette-grandjean-deadwood"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Millertown Bridge Access / Monmouth corridor",
+      "latitude": 42.084,
+      "longitude": -90.762,
+      "distanceFeetToMappedWater": 471.1640152873333,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-monmouth-maquoketa",
+          "endpoint": "putIn",
+          "endpointName": "Millertown Bridge Access / Monmouth corridor",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 138,
+      "eligibleUnwithheldRoutes": [
+        "maquoketa-river-monmouth-maquoketa"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Old Outer Gooley Club Hudson River access / Indian River confluence area",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-indian-confluence-north-river",
+          "endpoint": "putIn",
+          "endpointName": "Old Outer Gooley Club Hudson River access / Indian River confluence area",
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "takeOut",
+          "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+          "severity": "review"
+        }
+      ],
+      "rank": 139,
+      "eligibleUnwithheldRoutes": [
+        "hudson-river-indian-confluence-north-river",
+        "hudson-river-newcomb-indian-confluence"
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "River Meadows Park river access, Jordan Road",
+      "latitude": 48.1797,
+      "longitude": -122.0837,
+      "distanceFeetToMappedWater": 468.7469619576468,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+          "endpoint": "putIn",
+          "endpointName": "River Meadows Park river access, Jordan Road",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "putIn",
+          "endpointName": "River Meadows Park river access, Jordan Road",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 140,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+        "stillaguamish-river-river-meadows-haller"
+      ]
+    }
+  ]
+}

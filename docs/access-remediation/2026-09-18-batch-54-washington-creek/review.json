@@ -1,0 +1,32 @@
+{
+  "batch": 54,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Washington Creek Campground, North Fork Clearwater River, Idaho",
+  "affectedRoutes": [
+    "north-fork-clearwater-weitas-washington",
+    "north-fork-clearwater-washington-quartz"
+  ],
+  "decision": "retain-the-named-campground-locality-as-an-authoritative-access-site-anchor; the actual carry and landing toe remain unverified",
+  "decisionScope": "American Whitewater's current North Fork Clearwater access chain identifies Washington Creek Campground Access at Forest Road 247 mile 42.7, describes it as the take-out for the Weitas-to-Washington segment and put-in for Washington-to-Quartz, and locates the paddler access on the upstream river-right side of the campground bridge. Current USFS recreation data identifies Washington Creek Campground (RECAREAID 80046) and says river access runs along the campground's full length. Google aerial imagery places the stored point within the campground/approach area, inland from mapped water; the imagery does not reveal a defensible precise carry or landing toe. I retained the named campground locality as a broad access anchor, registered route-scoped provenance, and clarified the endpoint label and notes. The nearby stream/flowline discrepancy stays reviewable.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 46.70436, "longitude": -115.55598 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 370.1,
+    "mappedWaterDistanceFeet": 286.2,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/routes/idaho.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": { "latitude": 46.70436, "longitude": -115.55598 },
+    "to": { "latitude": 46.70436, "longitude": -115.55598 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "id_usfs_aw_washington_creek_campground_access_anchor_20260918",
+    "rationale": "The location is the named campground/approach locality, not a verified shoreline toe. American Whitewater establishes the public access point's relationship to the campground bridge and both route roles; USFS records river access along the campground. Preserve the point and make the anchor uncertainty explicit rather than moving it to an unsupported shoreline pixel."
+  },
+  "remainingUncertainty": "The audit measures approximately 286 feet to mapped water and 370 feet to the matched NHD flowline. Neither reviewed source supplies a georeferenced landing toe or carry path, and aerial tree cover does not resolve one. Confirm the route from campground to water, current campground access, and exact landing locally. Washington-to-Quartz still has a separate suspicious Quartz Creek take-out; this batch only resolves the shared Washington Creek endpoint classification.",
+  "outcome": "Two suspicious public endpoint occurrences at one supported campground access site moved to review. Coordinates and route geometry did not change; the exact landing remains unverified."
+}

@@ -1,0 +1,13 @@
+{
+  "batch": "B101",
+  "selectedAt": "2026-09-19",
+  "routeId": "kansas-river-eudora-turner-bridge",
+  "routeName": "Kansas River",
+  "reach": "Turner Bridge Access Ramp",
+  "state": "Kansas",
+  "endpoint": "takeOut",
+  "endpointName": "Turner Bridge Access Ramp",
+  "storedCoordinate": { "latitude": 39.09396, "longitude": -94.71176 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 462.11565395496444, "nearestWaterwayName": "Kansas River", "distanceFeetToMappedWater": 331.7486080890399, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "Friends of the Kaw's current Kansas River Water Trail access page identifies Turner Bridge Access Ramp at River Mile 9.2 and publishes the exact stored GPS coordinate. Kansas Department of Wildlife and Parks materials independently identify Turner Boat Ramp as a public access point. Retain the exact published coordinate as a conditional access anchor."
+}

@@ -1,0 +1,19 @@
+{
+  "batch": 52,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the next repeated public suspicious location from the latest full public audit, freeze its affected route IDs, then verify the access identity and coordinate against current managing-agency records.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:14:31.046Z; 2,750 public routes, 6,058 endpoints, 84 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Montana",
+    "name": "Hannon Memorial Fishing Access Site, Bitterroot River",
+    "storedCoordinate": { "latitude": 45.97282, "longitude": -114.1401 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "bitterroot-river-hannon-chief-looking-glass",
+      "bitterroot-river-hannon-wally"
+    ],
+    "preReviewFinding": "Both occurrences share FWP's published site coordinate. The audit measured about 321.6 feet to the named Bitterroot flowline and 277.7 feet to mapped water and classified both suspicious.",
+    "decision": "retain-the-current-FWP-published-coordinate-as-an-authoritative-access-site-anchor; correct-the-route-label-to-avoid-claiming-it-is-the-ramp-toe; keep-the-exact-water-entry-in-review",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue starting at rank 161 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-13; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "priorFrozenSiteCount": 120,
+  "currentWithheldRouteCount": 149,
+  "queueStartRank": 161,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 2,
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Miami River substantial-beaver-dam turnaround",
+      "latitude": 43.6282,
+      "longitude": -74.4165,
+      "distanceFeetToMappedWater": 434.72587072351826,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "miami-river-lewey-lake-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "Miami River substantial-beaver-dam turnaround",
+          "severity": "review"
+        }
+      ],
+      "rank": 161,
+      "eligibleUnwithheldRoutes": [
+        "miami-river-lewey-lake-out-and-back"
+      ]
+    },
+    {
+      "state": "Delaware",
+      "name": "Blackbird Creek Reserve canoe/kayak launch",
+      "latitude": 39.390111,
+      "longitude": -75.636328,
+      "distanceFeetToMappedWater": 430.72748301339965,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackbird-creek-reserve-the-rocks",
+          "endpoint": "putIn",
+          "endpointName": "Blackbird Creek Reserve canoe/kayak launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 163,
+      "eligibleUnwithheldRoutes": [
+        "blackbird-creek-reserve-the-rocks"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+      "latitude": 42.0283,
+      "longitude": -77.1397,
+      "distanceFeetToMappedWater": 429.2461214914157,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "tioga-river-lindley-mulholland",
+          "endpoint": "putIn",
+          "endpointName": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 164,
+      "eligibleUnwithheldRoutes": [
+        "tioga-river-lindley-mulholland"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64,
+      "distanceFeetToMappedWater": 428.94242163963463,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm973-little-webberville",
+          "endpoint": "putIn",
+          "endpointName": "FM 973 / Del Valle Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "colorado-river-texas-river-school-fm973",
+          "endpoint": "takeOut",
+          "endpointName": "FM 973 / Del Valle Bridge",
+          "severity": "review"
+        }
+      ],
+      "rank": 165,
+      "eligibleUnwithheldRoutes": [
+        "colorado-river-fm973-little-webberville",
+        "colorado-river-texas-river-school-fm973"
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Meramec State Park River Stop Store / river launch",
+      "latitude": 38.20379,
+      "longitude": -91.099735,
+      "distanceFeetToMappedWater": 424.4900289821923,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "meramec-river-sappington-bridge-meramec-state-park",
+          "endpoint": "takeOut",
+          "endpointName": "Meramec State Park River Stop Store / river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "meramec-river-state-park-sand-ford",
+          "endpoint": "putIn",
+          "endpointName": "Meramec State Park River Stop Store / river launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 167,
+      "eligibleUnwithheldRoutes": [
+        "meramec-river-sappington-bridge-meramec-state-park",
+        "meramec-river-state-park-sand-ford"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Soper's Mill Access #235",
+      "latitude": 42.1044299,
+      "longitude": -93.5754935,
+      "distanceFeetToMappedWater": 424.44458158904035,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-lekwa-sopers-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Soper's Mill Access #235",
+          "severity": "review"
+        },
+        {
+          "routeId": "south-skunk-river-sopers-mill-peterson-park",
+          "endpoint": "putIn",
+          "endpointName": "Soper's Mill Access #235",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 168,
+      "eligibleUnwithheldRoutes": [
+        "south-skunk-river-lekwa-sopers-mill",
+        "south-skunk-river-sopers-mill-peterson-park"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Spring Creek Campground Access",
+      "latitude": 45.39203,
+      "longitude": -114.25161,
+      "distanceFeetToMappedWater": 422.0930590962819,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-north-fork-corn-creek",
+          "endpoint": "accessPoint",
+          "endpointName": "Spring Creek Campground Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 169,
+      "eligibleUnwithheldRoutes": [
+        "salmon-river-north-fork-corn-creek"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "East Golden Lake Lane access",
+      "latitude": 45.1348215,
+      "longitude": -93.1471925,
+      "distanceFeetToMappedWater": 420.2935353976761,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "East Golden Lake Lane access",
+          "severity": "review"
+        }
+      ],
+      "rank": 170,
+      "eligibleUnwithheldRoutes": [
+        "rice-creek-peltier-to-long-lake"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+      "latitude": 42.21972,
+      "longitude": -73.87,
+      "distanceFeetToMappedWater": 414.11802001706064,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catskill-creek-kiwanis-dutchmans",
+          "endpoint": "putIn",
+          "endpointName": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 171,
+      "eligibleUnwithheldRoutes": [
+        "catskill-creek-kiwanis-dutchmans"
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+      "latitude": 46.943,
+      "longitude": -113.6,
+      "distanceFeetToMappedWater": 410.8925418140773,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-roundup-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-marco-flats",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 172,
+      "eligibleUnwithheldRoutes": [
+        "blackfoot-river-roundup-whitaker",
+        "blackfoot-river-russell-gates-whitaker",
+        "blackfoot-river-scotty-brown-whitaker",
+        "blackfoot-river-whitaker-angevine",
+        "blackfoot-river-whitaker-johnsrud",
+        "blackfoot-river-whitaker-k-ross-toole",
+        "blackfoot-river-whitaker-marco-flats",
+        "blackfoot-river-whitaker-weigh-station"
+      ]
+    }
+  ]
+}

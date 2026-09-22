@@ -266,6 +266,82 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
       { "id": "upper-colorado-catamount-take-out", "name": "BLM Catamount Bridge Boat Launch", "latitude": 39.89047, "longitude": -106.83205, "mileFromStart": 16, "segmentKind": "transition", "note": "BLM documents a concrete boat ramp, vault toilets, and designated campsites at Catamount; exit before the separate downstream reach." }
     ]
   },
+  "upper-colorado-pumphouse-radium": {
+    "putIn": { "id": "upper-colorado-pumphouse-radium-put-in", "name": "BLM Pumphouse Recreation Area Boat Ramp", "latitude": 39.98727778, "longitude": -106.50846667 },
+    "takeOut": { "id": "upper-colorado-pumphouse-radium-take-out", "name": "BLM Radium Recreation Area boat ramp", "latitude": 39.95136, "longitude": -106.55598 },
+    "logistics": {
+      "distanceLabel": "4.5 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for Class II–III scouting, breaks, cold-water preparation, and shuttle timing.",
+      "shuttle": "Stage the Radium take-out, then use the Colorado River Headwaters Scenic Byway to Pumphouse. Confirm current road, parking, fee, ramp, and seasonal conditions before launch.",
+      "permits": "Follow current BLM recreation-site rules, posted day-use and camping fees, parking requirements, and all boating/PFD and closure rules.",
+      "camping": "Designated BLM camping is available at Pumphouse and Radium by reservation/fee. No on-river or private-bank camping is implied.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A public 4.5-mile Pumphouse-to-Radium Class II–III section with direct 09058000 telemetry and designated BLM endpoint camping.",
+      "accessCaveats": ["Use only the BLM Pumphouse and Radium sites; Pumphouse is heavily used and Radium has two developed ramps.", "Confirm the marked launch, parking, fee, and waterline at both sites before unloading.", "The 900 cfs value is a conservative planning floor, not a runnable guarantee; exit at Radium before the separate downstream reach."],
+      "watchFor": ["USGS 09058000 below 900 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Eye of the Needle, larger holes above roughly 4,000 cfs, cold water, wood/strainers, and limited recovery", "BLM closures, fees, parking, road changes, commercial traffic, and private-bank temptation"]
+    },
+    "accessPoints": [
+      { "id": "upper-colorado-pumphouse-radium-put-in", "name": "BLM Pumphouse Recreation Area Boat Ramp", "latitude": 39.98727778, "longitude": -106.50846667, "mileFromStart": 0, "segmentKind": "transition", "note": "BLM documents three ramps, restrooms, parking, fees, and designated camping at Pumphouse." },
+      { "id": "upper-colorado-pumphouse-radium-take-out", "name": "BLM Radium Recreation Area boat ramp", "latitude": 39.95136, "longitude": -106.55598, "mileFromStart": 4.5, "segmentKind": "transition", "note": "BLM documents two developed ramps, restrooms, day use, overnight parking, and designated campsites at Radium." }
+    ]
+  },
+  "upper-colorado-radium-rancho": {
+    "putIn": { "id": "upper-colorado-radium-rancho-put-in", "name": "BLM Radium Recreation Area boat ramp", "latitude": 39.95136, "longitude": -106.55598 },
+    "takeOut": { "id": "upper-colorado-radium-rancho-take-out", "name": "Rancho Del Rio fee river access", "latitude": 39.8941534, "longitude": -106.6075353 },
+    "logistics": {
+      "distanceLabel": "6.5 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for Class II–III scouting, breaks, cold-water preparation, and shuttle timing.",
+      "shuttle": "Stage the Rancho Del Rio take-out and confirm the operator’s current shuttle, launch, parking, and fee terms before using the private access.",
+      "permits": "Follow BLM rules at Radium and Rancho Del Rio’s current private fee-access and camping requirements; carry a PFD and follow posted closures.",
+      "camping": "Radium offers designated BLM campsites by reservation/fee. Rancho Del Rio is a private fee campground; confirm availability and terms directly. No private-bank camping is implied.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A public-to-fee-access 6.5-mile Radium-to-Rancho Class II–III section with direct 09058000 telemetry and explicit private-access controls.",
+      "accessCaveats": ["Radium is a BLM developed access; Rancho Del Rio is private and fee-based. Confirm the operator’s current landing, parking, fee, and shuttle rules.", "Do not substitute adjacent shoreline or informal roadside pullouts for the named endpoints.", "The 900 cfs value is a conservative planning floor; take out at Rancho before the separate Rancho-to-State Bridge section."],
+      "watchFor": ["USGS 09058000 below 900 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "Red Eye and Class III Yarmony, cold water, wood/strainers, and limited recovery", "private-access rules, fees, parking, road changes, weather, and commercial traffic"]
+    },
+    "accessPoints": [
+      { "id": "upper-colorado-radium-rancho-put-in", "name": "BLM Radium Recreation Area boat ramp", "latitude": 39.95136, "longitude": -106.55598, "mileFromStart": 0, "segmentKind": "transition", "note": "BLM documents Radium’s two developed boat ramps and designated camping." },
+      { "id": "upper-colorado-radium-rancho-take-out", "name": "Rancho Del Rio fee river access", "latitude": 39.8941534, "longitude": -106.6075353, "mileFromStart": 6.5, "segmentKind": "transition", "note": "Rancho Del Rio’s current operator page lists river access and shuttle services; confirm private fee and landing terms before launch." }
+    ]
+  },
+  "upper-colorado-state-bridge-two-bridges": {
+    "putIn": { "id": "upper-colorado-state-bridge-two-bridges-put-in", "name": "BLM State Bridge Recreation Site boat launch", "latitude": 39.856779, "longitude": -106.648539 },
+    "takeOut": { "id": "upper-colorado-state-bridge-two-bridges-take-out", "name": "BLM Two Bridges River Access boat ramp", "latitude": 39.890978, "longitude": -106.704113 },
+    "logistics": {
+      "distanceLabel": "4.7 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for moving-water checks, breaks, shuttle timing, and changing weather.",
+      "shuttle": "Stage the Two Bridges take-out, then drive the Colorado River Headwaters Scenic Byway/Highway 131 to State Bridge. Confirm current ramp, parking, fee, and road conditions.",
+      "permits": "Follow BLM day-use rules, posted fees, parking requirements, and all boating/PFD and closure rules.",
+      "camping": "State Bridge and Two Bridges are day-use endpoints; BLM Two Bridges expressly prohibits camping. Arrange overnight camping separately at a designated campground such as Pumphouse or Radium.",
+      "campingClassification": "none",
+      "summary": "A public 4.7-mile State Bridge-to-Two Bridges Class I–II section with BLM endpoints, direct Catamount telemetry context, and no endpoint camping.",
+      "accessCaveats": ["BLM documents a paved/small-craft launch at State Bridge and a boat ramp, parking, and seasonal restroom at Two Bridges.", "The Two Bridges ramp bottom can accumulate sediment; verify the physical launch and waterline before committing.", "Use Two Bridges as the mandatory take-out before the separate Two Bridges-to-Catamount section."],
+      "watchFor": ["USGS 09060799 below 700 cfs, above 9,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "cold water, wood/strainers, bridge hazards, and weather changes", "day-use-only rules, parking saturation, fees, road changes, and private-bank temptation"]
+    },
+    "accessPoints": [
+      { "id": "upper-colorado-state-bridge-two-bridges-put-in", "name": "BLM State Bridge Recreation Site boat launch", "latitude": 39.856779, "longitude": -106.648539, "mileFromStart": 0, "segmentKind": "transition", "note": "BLM documents paved and unpaved small-craft launches, toilets, parking, and day-use status at State Bridge." },
+      { "id": "upper-colorado-state-bridge-two-bridges-take-out", "name": "BLM Two Bridges River Access boat ramp", "latitude": 39.890978, "longitude": -106.704113, "mileFromStart": 4.7, "segmentKind": "transition", "note": "BLM documents a boat ramp, parking, seasonal restroom, and no-camping day-use status at Two Bridges." }
+    ]
+  },
+  "upper-colorado-two-bridges-catamount": {
+    "putIn": { "id": "upper-colorado-two-bridges-catamount-put-in", "name": "BLM Two Bridges River Access boat ramp", "latitude": 39.890978, "longitude": -106.704113 },
+    "takeOut": { "id": "upper-colorado-two-bridges-catamount-take-out", "name": "BLM Catamount Bridge Boat Launch", "latitude": 39.89047, "longitude": -106.83205 },
+    "logistics": {
+      "distanceLabel": "10.1 river miles",
+      "estimatedPaddleTime": "Plan a full daylight window for moving-water checks, breaks, shuttle timing, and changing weather.",
+      "shuttle": "Stage the Catamount take-out, then drive Colorado River Road to Two Bridges. Confirm current ramp, parking, seasonal congestion, and road conditions before launch.",
+      "permits": "Follow current BLM recreation-site rules, posted fees, parking requirements, camping limits, and all boating/PFD and closure rules.",
+      "camping": "Two Bridges is day use only with no camping. Catamount has designated BLM campsites and vault toilets; reserve or confirm a lawful site separately and do not infer dispersed or private-bank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "A public 10.1-mile Two Bridges-to-Catamount Class I–II section with BLM endpoints, direct Catamount telemetry, and designated Catamount camping.",
+      "accessCaveats": ["BLM documents a day-use ramp and parking at Two Bridges and a concrete ramp, vault toilets, and designated campsites at Catamount.", "Catamount parking may be unavailable during the May–September high-use season; verify current parking and ramp conditions.", "Stop at Catamount before the separate Catamount-to-Dotsero/Burns Canyon reach, which has harder water."],
+      "watchFor": ["USGS 09060799 below 700 cfs, above 9,000 cfs, rapidly rising, unavailable, or inconsistent with local conditions", "cold water, wood/strainers, bridges, and weather changes", "Catamount parking/camping limits, road changes, fees, and failure to take out before harder downstream water"]
+    },
+    "accessPoints": [
+      { "id": "upper-colorado-two-bridges-catamount-put-in", "name": "BLM Two Bridges River Access boat ramp", "latitude": 39.890978, "longitude": -106.704113, "mileFromStart": 0, "segmentKind": "transition", "note": "BLM documents a public boat ramp, parking, seasonal restroom, and no-camping day-use status at Two Bridges." },
+      { "id": "upper-colorado-two-bridges-catamount-take-out", "name": "BLM Catamount Bridge Boat Launch", "latitude": 39.89047, "longitude": -106.83205, "mileFromStart": 10.1, "segmentKind": "transition", "note": "BLM documents a concrete ramp, vault toilets, designated campsites, and seasonal parking limits at Catamount." }
+    ]
+  },
   "eagle-river-camp-hale-red-cliff": {
     "putIn": { "id": "eagle-river-camp-hale-put-in", "name": "Camp Hale historical-site access / 100-yard carry to river", "latitude": 39.466812, "longitude": -106.33931 },
     "takeOut": { "id": "eagle-river-red-cliff-take-out", "name": "Red Cliff / Gilman Gorge put-in access at Homestake confluence", "latitude": 39.507498, "longitude": -106.378315 },
@@ -966,7 +1042,7 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "accessPoints": [
       { "id": "arkansas-granite-boat-chute-put-in", "name": "Granite Boat Chute AHRA river access", "latitude": 39.025903, "longitude": -106.244336, "mileFromStart": 0, "segmentKind": "transition", "note": "CPW lists Granite Boat Chute as a public AHRA river-access site with a boat ramp/slide and portage trail." },
-      { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.847248805868695, "longitude": -106.12221661900705, "mileFromStart": 18, "segmentKind": "transition", "note": "CPW lists Buena Vista Whitewater Park as a public river-access site managed by the Town of Buena Vista." }
+      { "id": "arkansas-buena-vista-whitewater-park-take-out", "name": "Buena Vista Whitewater Park public boat ramp", "latitude": 38.847248805868695, "longitude": -106.12221661900705, "mileFromStart": 18, "segmentKind": "transition", "note": "CPW’s public facilities GIS maps a boat-ramp feature at the Buena Vista Whitewater Park access area. Treat this as an access-area anchor rather than the surveyed ramp toe; follow site signs and confirm the marked landing, parking, carry, and same-day conditions." }
     ]
   },
   "taylor-river-748-pieplant": {
@@ -1137,4 +1213,35 @@ export const coloradoRiverTripDetails: Record<string, RiverTripDetails> = {
       { "id": "gunnison-river-whitewater-park-take-out", "name": "Gunnison Whitewater Park downstream exit", "latitude": 38.531, "longitude": -106.951, "mileFromStart": 0.5, "segmentKind": "transition", "note": "American Whitewater identifies the downstream take-out access at 38.53100, -106.95100. Treat it as the mandatory exit and do not continue into the downstream town-run features without a separate plan." }
     ]
   }
+};
+
+coloradoRiverTripDetails['gunnison-river-chukar-gunnison-forks'] = {
+  putIn: { id: 'gunnison-river-chukar-gunnison-forks-put-in', name: 'Chukar Boat Launch', latitude: 38.62281, longitude: -107.8318 },
+  takeOut: { id: 'gunnison-river-chukar-gunnison-forks-take-out', name: 'Gunnison Forks Day-Use Recreation Site', latitude: 38.78475, longitude: -107.83655 },
+  logistics: {
+    distanceLabel: 'Approximately 13.5 river miles',
+    estimatedPaddleTime: 'Plan a full daylight window or permitted overnight itinerary; timing varies with flow, scouting, portages, camps, and wilderness logistics.',
+    shuttle: 'Stage Gunnison Forks, then use the rough Chukar Road and one-mile boat carry to the launch. Do not take a trailer down Chukar Road; check road and closure conditions before departure.',
+    permits: 'BLM wilderness registration, user fees, and any required day-use or overnight permit apply. Groups are limited to 12; use designated river camps and follow current BLM carry-out, fire, and wildlife rules.',
+    camping: 'Designated primitive river camps are available within the Gunnison Gorge Wilderness by permit/registration. Chukar Trailhead also has four designated campsites; Gunnison Forks is day-use only. Never camp on an unmarked bank or private shoreline.',
+    campingClassification: 'on_route_campsite',
+    summary: 'A guarded public Gunnison Gorge wilderness float with direct 09128000 telemetry, designated BLM camps, a one-mile boat carry, Class III–IV rapids, and a public Gunnison Forks take-out. Planning-only until a station-tied recreational threshold is published.',
+    accessCaveats: [
+      'The Chukar boat launch is reached from the Chukar Trailhead by a one-mile wilderness hike. Carry boats and all gear; carts and wheeled devices are prohibited.',
+      'Gunnison Forks offers public walk-in river access and a natural-surface ramp. Confirm current parking, fees, sanitation, river level, and shuttle arrangements before committing.',
+      'Private Gunnison River Pleasure Park access is separate from the BLM public take-out. Do not substitute it without current permission and a separate access review.',
+    ],
+    watchFor: [
+      'USGS 09128000 rapid change, high-water hydraulics, or readings outside the conservative 600–2,000 cfs planning cues',
+      'Class III–IV Chukar, Red Canyon, Gate Keeper, and named gorge rapids',
+      'cold water, strainers, undercuts, canyon walls, and limited recovery',
+      'BLM closures, wilderness registration/fee requirements, group-size limits, and designated-camp rules',
+      'rough 4WD Chukar Road, one-mile carry, and missed Gunnison Forks take-out',
+    ],
+  },
+  accessPoints: [
+    { id: 'gunnison-river-chukar-gunnison-forks-put-in', name: 'Chukar Boat Launch', latitude: 38.62281, longitude: -107.8318, mileFromStart: 0, segmentKind: 'transition', note: 'BLM identifies Chukar as the only boater put-in for the wilderness gorge; reach the mapped river launch by the one-mile carry after registration.' },
+    { id: 'gunnison-river-chukar-gunnison-forks-take-out', name: 'Gunnison Forks Day-Use Recreation Site', latitude: 38.78475, longitude: -107.83655, mileFromStart: 13.5, segmentKind: 'transition', note: 'BLM identifies Gunnison Forks as a public river-access site with a natural-surface boat ramp at the North Fork confluence; confirm current access before launch.' },
+  ],
+  continuityStatus: 'verified',
 };

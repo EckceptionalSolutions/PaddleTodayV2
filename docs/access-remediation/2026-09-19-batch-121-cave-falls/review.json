@@ -1,0 +1,16 @@
+{
+  "batch":"B121",
+  "decision":"retain-authoritative-conditional-access-anchor",
+  "routeId":"fall-river-cave-falls-concrete",
+  "endpoint":"putIn",
+  "endpointName":"Cave Falls Campground Put-In",
+  "before":{"severity":"suspicious","distanceFeetToMatchedRiver":322.8581735840039,"distanceFeetToMappedWater":255.14935282958106},
+  "after":{"severity":"review","distanceFeetToMatchedRiver":322.8581735840039,"distanceFeetToMappedWater":255.14935282958106,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale":"American Whitewater names Cave Falls Campground as the route put-in and federal campground records document the developed Fall River site. Retain the stored point as a conditional campground/access-area anchor; the 323-foot named-flowline offset reflects the campground road and shoreline footprint.",
+  "condition":"Confirm current Forest Service campground status, parking, carry path, shoreline access, river level, and any Yellowstone-boundary or seasonal restrictions before launching.",
+  "fullAuditDelta": {
+    "public": {"suspiciousBefore":4,"suspiciousAfter":3,"reviewBefore":3929,"reviewAfter":3930},
+    "inventory": {"suspiciousBefore":59,"suspiciousAfter":58,"reviewBefore":4235,"reviewAfter":4236},
+    "registry": {"authoritativeAccessBefore":1261,"authoritativeAccessAfter":1262,"conflictsAfter":0}
+  }
+}

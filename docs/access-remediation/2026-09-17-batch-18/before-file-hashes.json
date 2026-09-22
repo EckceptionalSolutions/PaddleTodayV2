@@ -1,0 +1,52 @@
+[
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "sha256": "211F961C6890D48838ECE111C9B8116259D2B32EDAA18E2504A98FEBD9B94B7A",
+    "backup": "src__data__route-access-official-map-controls.json"
+  },
+  {
+    "path": "src/data/route-access-review-holds.ts",
+    "sha256": "E9C9E506B4A551672E8615A5E831E230B64B050F729DD2C4C904EF3E7206906D",
+    "backup": "src__data__route-access-review-holds.ts"
+  },
+  {
+    "path": "src/data/routes/idaho.ts",
+    "sha256": "8B12009B2534EA7CF1AAF2AA31CD085C7618E19C9540F3C584CF38FB392529D3",
+    "backup": "src__data__routes__idaho.ts"
+  },
+  {
+    "path": "src/data/routes/new-york.ts",
+    "sha256": "6FA97C840AD6DCB43928C1A03F7535CF22ECD423E62EBE52996A2253246F2B31",
+    "backup": "src__data__routes__new-york.ts"
+  },
+  {
+    "path": "src/data/routes/north-carolina.ts",
+    "sha256": "A55CF4DAEF452AC959284CEF24CD764D02AA3627CF6AE810461194F410C85F59",
+    "backup": "src__data__routes__north-carolina.ts"
+  },
+  {
+    "path": "src/data/routes/arkansas.ts",
+    "sha256": "6E19E4312C2113791FFCE44D98891FB3A4EF277F609E7ED98203C5167BD55EFE",
+    "backup": "src__data__routes__arkansas.ts"
+  },
+  {
+    "path": "src/data/trip-details/arkansas.ts",
+    "sha256": "F8F26CB8F31B2F6E3F323798FE633063B299540C185916A422C610052D77D380",
+    "backup": "src__data__trip-details__arkansas.ts"
+  },
+  {
+    "path": "src/data/generated/withheld-route-slugs.ts",
+    "sha256": "B9F73E8EBC8DD46EB478D69811A45421BB48246574D05DF1CA8419F7150AC9AE",
+    "backup": "src__data__generated__withheld-route-slugs.ts"
+  },
+  {
+    "path": "src/data/generated/route-access-registry.json",
+    "sha256": "2ADDEBE858057070515693DE70F94090B849BEC4A645516403B746F94B10BF17",
+    "backup": "src__data__generated__route-access-registry.json"
+  },
+  {
+    "path": "src/data/routes/montana-bitterroot.ts",
+    "sha256": "F5397CD0B0E6A40AD4CB43F92DE0009B496C94F157EB0264E2407517EA70DE50",
+    "backup": "src__data__routes__montana-bitterroot.ts"
+  }
+]

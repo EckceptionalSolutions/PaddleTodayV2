@@ -1,0 +1,1760 @@
+{
+  "description": "Large intermediate audits and downloaded reference files retained locally, outside the source commit. Compact reviews, selections, source metadata, and targeted audits are versioned alongside this inventory.",
+  "artifacts": [
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-01/baldwin-aerial.png",
+      "bytes": 1049073,
+      "sha256": "a9b60df5009ecfd8221ab7012ea95ed44af91239644129b96b0fa69ed9f5ca88"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-01/central-aerial.png",
+      "bytes": 1180295,
+      "sha256": "393e8484d43c63aeeb9e45b4ae89fd01e57261700c54ba681f8dfceb5b0060fb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/american-whitewater-cohocton-route.html",
+      "bytes": 94071,
+      "sha256": "24a66a9509e0f5cef7a9b2a18287d424fa519a1472a64bccccad2630e2e522a5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/american-whitewater-salmon-route.html",
+      "bytes": 139823,
+      "sha256": "b79a936bbd29ded48b2346dd40c6d58acd52a82db56b008a66aa117c3a63a955"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/canwepaddle-unadilla-rockdale-sidney.html",
+      "bytes": 82558,
+      "sha256": "b755f7e60643a6db3ac7c77c5da8f596d9f75accd25a3aa90d9a37434d72b80c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/greatwestern-catskills-access.html",
+      "bytes": 62990,
+      "sha256": "20abfc2d69f67e1679d67176b16f97e5a7767507ae90337913d5fcc09a0219e4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/laurel-hill-park-guide.pdf",
+      "bytes": 3580599,
+      "sha256": "2d958d86f8a001bb46ec2aec0204c538fa57b2f512f4a518d09be32027cabc15"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/md-gunpowder-river-recreation.html",
+      "bytes": 58648,
+      "sha256": "4334bfe61032b43fe2ef35dc51faba679731df4dbfd9e9c2a7c668bce1635b69"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/montgomery-county-cobleskill-paddling.html",
+      "bytes": 109018,
+      "sha256": "dbc1146f01eb4126e976f517ef7f203d2c454382c93b60460acfaf01c7ceaac8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-boat-launch-layer.json",
+      "bytes": 64764,
+      "sha256": "e9bb0e65f14e9def0a525d14e7cd57b2646a937a2dbb89b448b92a7d38e9d80e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-hudson-gorge.html",
+      "bytes": 117056,
+      "sha256": "9d82dea41ed350126c9a054827d77b28b50f317c1b480445444a49afead12b37"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-otsego-sidney.html",
+      "bytes": 140527,
+      "sha256": "0787ab857e9662cdf3b8a8105d7b487bae1938a85848775121fc2f80c1417f7a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-raquette-boreal.html",
+      "bytes": 154174,
+      "sha256": "3c4c427d8e79ff496d3ec299ade72404b6041729029023f7b91fe48edc2c87ab"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/nysdec-salmon-river.html",
+      "bytes": 103573,
+      "sha256": "ee41c3899f86e2494f02e8264178c18556f5ba3a35ead82da959fc79fc49c6ae"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/otsego-outdoors-rockdale-sidney.html",
+      "bytes": 1091568,
+      "sha256": "8768866f91047fa3e9a7c8785059b6bd4e437fdb43e90e4d3678a367b72c1fc8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/pa-laurel-hill-boating.html",
+      "bytes": 215157,
+      "sha256": "6ce4d6c8d60650afedd88a88fc321c17d3b944d4338f183cc9c67320d97711e9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/srbc-cohocton-survey.pdf",
+      "bytes": 3667448,
+      "sha256": "c12d7cb56b47b8107b7276f585df4b53b3165308fdb48c7f9520f85a5fd189e6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-03/sources/suny-cobleskill-creek-map.pdf",
+      "bytes": 5069255,
+      "sha256": "def0359aa6ae1c319481ae9d727c7acb718c82bf404ceaec00a41ff0830ee354"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-28/audit-all-inventory-evidence-input.json",
+      "bytes": 10573396,
+      "sha256": "b4fc9dd92ce8dbe0f5c9fb290d1b7f5e2510336c0a2f557c7dd551457779b4cb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-28/audit-final-recomputed-cache.json",
+      "bytes": 9630996,
+      "sha256": "0a10006cf799c2b900481a14ffac758bd37fcaf5e1c1fecc3ef3996e451aa271"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-28/audit-post-change-cache-recomputed.json",
+      "bytes": 9631513,
+      "sha256": "befa7bcaa33046fc58629c3ac9c50bae22f24c483a39a7ca2229e9dc9c141e99"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-28/audit-pre-change-cache.json",
+      "bytes": 9619740,
+      "sha256": "6f393f9e89e61090005ccdc2287833f5b0ad79acae257cd327af22fd05381898"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-28/audit-pre-change-refreshed.json",
+      "bytes": 9621731,
+      "sha256": "4536b6146eeebc8646eaf3b47b64acaba123f6c9395a7e06eca65a01201d5ec0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-29/audit-final-refreshed.json",
+      "bytes": 9639924,
+      "sha256": "2f5b340f92b1124d08fcbc5e272d1b6afa761d49691033fd7e086573d542cace"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-17-batch-30/audit-final-refreshed.json",
+      "bytes": 9573238,
+      "sha256": "046cd80bf22015d4e54e4e84bf1c8ada75195a84e6954cb9d6830bf96d9e951b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-31-suspicious/audit-after.json",
+      "bytes": 9610368,
+      "sha256": "0adde31ed3c332628968651a4898827424e1865f9c17d071bd112e506bc3e2b2"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-32-shared-suspicious/audit-after.json",
+      "bytes": 9625517,
+      "sha256": "d2943147b7aa7e342d11d7b97c04f6aa7dafbc7fe01cabf54834d245c3a9304e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-39-kinniconick-davis/audit-cache-only.json",
+      "bytes": 9636427,
+      "sha256": "e6dcda9549589815978bddb4c92f4ca126b33af31755b38749b333c66dffd37e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-39-kinniconick-davis/before-source/audit-route-coordinate-river-distance.ts",
+      "bytes": 64928,
+      "sha256": "e5ff2c156bb381514fab22acb3eaea8e7fbdc4d96ed1705a7b0d25e8e8b65152"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-39-kinniconick-davis/before-source/kentucky.ts",
+      "bytes": 1016463,
+      "sha256": "6660cd583fee8f3ad87480823695668d088e26c437abaf42ede77ae8d4dca59e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-39-kinniconick-davis/before-source/new-hampshire-saco.ts",
+      "bytes": 20730,
+      "sha256": "8481fea808fff83918391ea04871d2debcfc1235c504c9d17cd062dfa81ecf73"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-39-kinniconick-davis/before-source/route-access-official-map-controls.json",
+      "bytes": 1416809,
+      "sha256": "e08fa5eca29b91e0f70a1c6a73c1efa4c20e3a82437c1ea82c703cfc4d259939"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-40-rock-hill/audit-cache-only.json",
+      "bytes": 9637398,
+      "sha256": "a6e4143f51068acececc57ba4eb53d0735e35c8d57612fff051cdfa897dbdbea"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-40-rock-hill/before-source/audit-route-coordinate-river-distance.ts",
+      "bytes": 65687,
+      "sha256": "c2ac0be73928483c55904b11688de058dae0e7f407540b7fbd8de7ffe49bba61"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-40-rock-hill/before-source/route-access-official-map-controls.json",
+      "bytes": 1419906,
+      "sha256": "5b8bec64c0aeaaf670776cbf1d8529f167851aacf91ff9850f6ece105949d364"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-40-rock-hill/before-source/south-carolina-catawba.ts",
+      "bytes": 12839,
+      "sha256": "1c0cb5ae5609cbf6837d403ccadd03d8f94d621bd9aa48f4363a8037106f809a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-41-willow-mill/before-source/pennsylvania.ts",
+      "bytes": 425766,
+      "sha256": "a87db9d4d85e381dcc71e7030350e28baf93b616daf0f2cbbca7fef4de23cd36"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-42-bolton-canoe/audit-full-cache-only.json",
+      "bytes": 9639064,
+      "sha256": "07642f622de6696d215e0e6b63458f5b78cfca3c981325e67559531251032501"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-43-river-meadows/audit-full-cache-only.json",
+      "bytes": 9631375,
+      "sha256": "dff2da9f5f6d20354e8558b0451058115dde91a18d5f2254d3000e9d6d548a19"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-44-three-forks/audit-full-cache-only.json",
+      "bytes": 9632819,
+      "sha256": "40be43e8df87523ca7b28b83ca100537d18547d0ec251172a0633901005c2c3f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-44-three-forks/audit-full-inventory-cache-only.json",
+      "bytes": 10628923,
+      "sha256": "84a8ad896869d799516a4bcdb8ec7f0fb610fb9c2a581e033524b7a2ed884f7a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-45-germanium/audit-full-inventory-cache-only.json",
+      "bytes": 10631114,
+      "sha256": "ebc71d05cbdab0633ec3dbe5b0e1532bf2f3a919f0346e4d28af5a9563e828d9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-45-germanium/audit-full-public-cache-only.json",
+      "bytes": 9634983,
+      "sha256": "ba710dccfd048d5ea731de4927c41a85b45296e7d9537bca742da9f040f1aae0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-46-willow-mill/audit-full-inventory-cache-only.json",
+      "bytes": 10636410,
+      "sha256": "9d2af70a67d93e132a5acef5f0fb124c1ec57b2620fa76d870c978f1cdd42997"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-46-willow-mill/audit-full-public-cache-only.json",
+      "bytes": 9639997,
+      "sha256": "f3f34f005676e60e7beffd0fa77e4e9dc623a3a2aa7bfef148b4fa4ded7b2727"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-47-sullivan/audit-full-inventory-cache-only.json",
+      "bytes": 10635731,
+      "sha256": "10530a5217bdc15cee29e8451ec2afdc7d123477453bdf7868c2c16b1316f3ef"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-47-sullivan/audit-full-public-cache-only.json",
+      "bytes": 9639367,
+      "sha256": "e9ad66ce1cad445b12e6293e48feae9328b15cfe768e62493cbf71e2443f6e9b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-48-hampden/audit-full-inventory-cache-only.json",
+      "bytes": 10637266,
+      "sha256": "75ea10691bd1829d4fcb88a0c249f3a04138258c792ce0aae8cf34dc657f75bd"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-48-hampden/audit-full-public-cache-only.json",
+      "bytes": 9640853,
+      "sha256": "1fabad0f5e859c8952625b6afa5d4c4203653ed2f1976724c9812ef94f350056"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-49-man/audit-full-inventory-cache-only.json",
+      "bytes": 10638742,
+      "sha256": "a3869284d8289311bfc56913334cfe462db6cf0b12c8e2b2ecac79ba19380fff"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-49-man/audit-full-public-cache-only.json",
+      "bytes": 9642378,
+      "sha256": "c3993fb17c9e9670767842bce78a57e1248bac3c9e14bda50b5849e79aea4aa2"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-50-sabine-street/audit-full-inventory-cache-only.json",
+      "bytes": 10640192,
+      "sha256": "2c6702abea2aa687f459dbc785a4f44f2c9a5f1bc49980a95fc71e4205917d43"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-50-sabine-street/audit-full-public-cache-only.json",
+      "bytes": 9643779,
+      "sha256": "bf13db79f6c9527cf60035f1361381ad4243991a36285e37a768304c69f33715"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-51-long-eddy/audit-full-inventory-cache-only.json",
+      "bytes": 10641829,
+      "sha256": "6053d3169487bc55be6ed4118911a5a0ec559950c30e71dcf76eedaf14909e74"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-51-long-eddy/audit-full-public-cache-only.json",
+      "bytes": 9645423,
+      "sha256": "bce57b282cdc02e3eeada46bf73553094c303647b97440903633515624d54a22"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-52-hannon-memorial/audit-after-inventory-cache-only.json",
+      "bytes": 10643870,
+      "sha256": "bfbb06e12968547316be5525bfc4fb504f8ca9fb8d2d847d84d755a30f60416a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-52-hannon-memorial/audit-after-public-cache-only.json",
+      "bytes": 9647481,
+      "sha256": "ea3895db0eb74ac95a6fd667ff60314e6b3c49ce8fe45405d9998a568dc028a8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-52-hannon-memorial/audit-before-inventory-cache-only.json",
+      "bytes": 10641829,
+      "sha256": "6053d3169487bc55be6ed4118911a5a0ec559950c30e71dcf76eedaf14909e74"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-52-hannon-memorial/audit-before-public-cache-only.json",
+      "bytes": 9645423,
+      "sha256": "bce57b282cdc02e3eeada46bf73553094c303647b97440903633515624d54a22"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-53-mission-ave/audit-after-inventory-cache-only.json",
+      "bytes": 10646078,
+      "sha256": "e1ae56497b159ea4c190559e454cd77aa09f8d8e51f2ed430f2cb5a7d4a041a3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-53-mission-ave/audit-after-public-cache-only.json",
+      "bytes": 9649707,
+      "sha256": "61994cb64c61cab0a25e566ccb07ad5be63364c47c1cf12e6b9d65af8809f8af"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-53-mission-ave/audit-before-inventory-cache-only.json",
+      "bytes": 10643870,
+      "sha256": "bfbb06e12968547316be5525bfc4fb504f8ca9fb8d2d847d84d755a30f60416a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-53-mission-ave/audit-before-public-cache-only.json",
+      "bytes": 9647481,
+      "sha256": "ea3895db0eb74ac95a6fd667ff60314e6b3c49ce8fe45405d9998a568dc028a8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-54-washington-creek/audit-after-inventory-cache-only.json",
+      "bytes": 10648385,
+      "sha256": "b23d4d4a61cae9539b0646a2ee5578d1875ee37d007ecf6a004bbb699378a73b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-54-washington-creek/audit-after-public-cache-only.json",
+      "bytes": 9652021,
+      "sha256": "8784ccc5e35873e48b5edbd3094e8d298f9ab46a71f42e30fdcde74ec43e78b5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-54-washington-creek/audit-before-inventory-cache-only.json",
+      "bytes": 10646078,
+      "sha256": "e1ae56497b159ea4c190559e454cd77aa09f8d8e51f2ed430f2cb5a7d4a041a3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-54-washington-creek/audit-before-public-cache-only.json",
+      "bytes": 9649707,
+      "sha256": "61994cb64c61cab0a25e566ccb07ad5be63364c47c1cf12e6b9d65af8809f8af"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-55-idlewild/audit-after-inventory-cache-only.json",
+      "bytes": 10650657,
+      "sha256": "6152feeaad9ec5c1e99f099a879edf867831425060304eb2d37af6146365787e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-55-idlewild/audit-after-public-cache-only.json",
+      "bytes": 9654286,
+      "sha256": "177cf43d5c7bb1d37e9ec33ef8a14e16e96b4fede84558383789a6dc787ac1e5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-55-idlewild/audit-before-inventory-cache-only.json",
+      "bytes": 10648385,
+      "sha256": "b23d4d4a61cae9539b0646a2ee5578d1875ee37d007ecf6a004bbb699378a73b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-55-idlewild/audit-before-public-cache-only.json",
+      "bytes": 9652021,
+      "sha256": "8784ccc5e35873e48b5edbd3094e8d298f9ab46a71f42e30fdcde74ec43e78b5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-56-hills-access/audit-after-inventory-cache-only.json",
+      "bytes": 10652821,
+      "sha256": "94e1497e7052124d85b9637ebbd89990fc37e1a88be52bb1087396a8c8750c23"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-56-hills-access/audit-after-public-cache-only.json",
+      "bytes": 9656450,
+      "sha256": "88f4f3da9633befdac60b7bd053a3dce62840625fddb32faa6d5ff9f9a031dc3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-56-hills-access/audit-before-inventory-cache-only.json",
+      "bytes": 10650657,
+      "sha256": "6152feeaad9ec5c1e99f099a879edf867831425060304eb2d37af6146365787e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-56-hills-access/audit-before-public-cache-only.json",
+      "bytes": 9654286,
+      "sha256": "177cf43d5c7bb1d37e9ec33ef8a14e16e96b4fede84558383789a6dc787ac1e5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-57-old-us-421/audit-after-inventory-cache-only.json",
+      "bytes": 10655066,
+      "sha256": "5dd81901570aaa4f1f64616b3177219383d01d2d4608e92d2f08e3df1109e939"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-57-old-us-421/audit-after-public-cache-only.json",
+      "bytes": 9658660,
+      "sha256": "daa73792e891fab2048099d402b8be1252704930b77f3d69986ebf13eda4348d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-57-old-us-421/audit-before-inventory-cache-only.json",
+      "bytes": 10652821,
+      "sha256": "94e1497e7052124d85b9637ebbd89990fc37e1a88be52bb1087396a8c8750c23"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-57-old-us-421/audit-before-public-cache-only.json",
+      "bytes": 9656450,
+      "sha256": "88f4f3da9633befdac60b7bd053a3dce62840625fddb32faa6d5ff9f9a031dc3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-58-heller-bar/audit-after-inventory-cache-only.json",
+      "bytes": 10657581,
+      "sha256": "4d52a1111393d52890927b3918ca6d915dfc93d3a64f36876c1a1abc63eef20d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-58-heller-bar/audit-after-public-cache-only.json",
+      "bytes": 9661168,
+      "sha256": "e476a7f2f8b3cebf90d74f6cb1359a85ba00b83decddf1c609c06c8093d1d534"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-58-heller-bar/audit-before-inventory-cache-only.json",
+      "bytes": 10655066,
+      "sha256": "5dd81901570aaa4f1f64616b3177219383d01d2d4608e92d2f08e3df1109e939"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-58-heller-bar/audit-before-public-cache-only.json",
+      "bytes": 9658660,
+      "sha256": "daa73792e891fab2048099d402b8be1252704930b77f3d69986ebf13eda4348d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-59-afton-route-41/audit-after-inventory-cache-only.json",
+      "bytes": 10659470,
+      "sha256": "1b8dfb81115379916d775a2d621f26407beeea73b1a3b99e4c32a811ec659015"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-59-afton-route-41/audit-after-public-cache-only.json",
+      "bytes": 9663088,
+      "sha256": "196194b95152d00853ee58178518c142017f2bee8f2951d3ac458a7a9780a146"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-59-afton-route-41/audit-before-inventory-cache-only.json",
+      "bytes": 10657581,
+      "sha256": "4d52a1111393d52890927b3918ca6d915dfc93d3a64f36876c1a1abc63eef20d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-59-afton-route-41/audit-before-public-cache-only.json",
+      "bytes": 9661168,
+      "sha256": "e476a7f2f8b3cebf90d74f6cb1359a85ba00b83decddf1c609c06c8093d1d534"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-60-halvorson-park/audit-after-inventory-cache-only.json",
+      "bytes": 10661571,
+      "sha256": "b9390e9fa663bf9fabee5ba8f2f243af57a54e5d34d6beed0e94df9805fc7a54"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-60-halvorson-park/audit-after-public-cache-only.json",
+      "bytes": 9665200,
+      "sha256": "09eaf47391e4ff804a59290b0cab1de17bf72a0dd237b9fb5a1cad67fefcfdaf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-60-halvorson-park/audit-before-inventory-cache-only.json",
+      "bytes": 10659470,
+      "sha256": "1b8dfb81115379916d775a2d621f26407beeea73b1a3b99e4c32a811ec659015"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-60-halvorson-park/audit-before-public-cache-only.json",
+      "bytes": 9663088,
+      "sha256": "196194b95152d00853ee58178518c142017f2bee8f2951d3ac458a7a9780a146"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-61-skillet-creek/audit-after-inventory-cache-only.json",
+      "bytes": 10663637,
+      "sha256": "bdd03d18e135cc3617c1e7e043a9ee68c715dd8d83aa8e4142ed461540900a41"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-61-skillet-creek/audit-after-public-cache-only.json",
+      "bytes": 9667308,
+      "sha256": "7d647865d4c901b8d0aada45ad9617fab600df1a91a2c65e135b613c72997d56"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-61-skillet-creek/audit-before-inventory-cache-only.json",
+      "bytes": 10661571,
+      "sha256": "b9390e9fa663bf9fabee5ba8f2f243af57a54e5d34d6beed0e94df9805fc7a54"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-61-skillet-creek/audit-before-public-cache-only.json",
+      "bytes": 9665200,
+      "sha256": "09eaf47391e4ff804a59290b0cab1de17bf72a0dd237b9fb5a1cad67fefcfdaf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-62-white-haven/audit-after-inventory-cache-only.json",
+      "bytes": 10665282,
+      "sha256": "aab87a829fee04bd3aea7a732f0220f460cf287f10de165ad6abe842eec03221"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-62-white-haven/audit-after-public-cache-only.json",
+      "bytes": 9668960,
+      "sha256": "4dd8a9d980a61340643bad578e38a228162eea03d468bc4ca400053b8f12c7c0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-62-white-haven/audit-before-inventory-cache-only.json",
+      "bytes": 10663637,
+      "sha256": "bdd03d18e135cc3617c1e7e043a9ee68c715dd8d83aa8e4142ed461540900a41"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-62-white-haven/audit-before-public-cache-only.json",
+      "bytes": 9667308,
+      "sha256": "7d647865d4c901b8d0aada45ad9617fab600df1a91a2c65e135b613c72997d56"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-63-tailwater-east/audit-after-inventory-cache-only.json",
+      "bytes": 10665705,
+      "sha256": "8322dbe5be94175171776bb28e83659a620932366c6aef21c501a6f61c44b802"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-63-tailwater-east/audit-after-public-cache-only.json",
+      "bytes": 9669383,
+      "sha256": "4dba5b408710d72d0e65aeb84f0a0ec96fe07f0280c1a1ba08cccc99716c266b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-63-tailwater-east/audit-before-inventory-cache-only.json",
+      "bytes": 10665282,
+      "sha256": "aab87a829fee04bd3aea7a732f0220f460cf287f10de165ad6abe842eec03221"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-63-tailwater-east/audit-before-public-cache-only.json",
+      "bytes": 9668960,
+      "sha256": "4dd8a9d980a61340643bad578e38a228162eea03d468bc4ca400053b8f12c7c0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-64-lindley-road/audit-after-inventory-cache-only.json",
+      "bytes": 10666042,
+      "sha256": "19b537dc3dcce4f8d03e95cf895ffa06c4fe369e0fcc810648ca7f8dfa4f6b7e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-64-lindley-road/audit-after-public-cache-only.json",
+      "bytes": 9669636,
+      "sha256": "b9ce3722c12ee78e0c9fb30c2c00bbaf0b48f0b1372119b40e30da2253f2e93e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-64-lindley-road/audit-before-inventory-cache-only.json",
+      "bytes": 10665705,
+      "sha256": "8322dbe5be94175171776bb28e83659a620932366c6aef21c501a6f61c44b802"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-64-lindley-road/audit-before-public-cache-only.json",
+      "bytes": 9669383,
+      "sha256": "4dba5b408710d72d0e65aeb84f0a0ec96fe07f0280c1a1ba08cccc99716c266b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-65-sopers-mill/audit-after-inventory-cache-only.json",
+      "bytes": 10667413,
+      "sha256": "1cfebfc11445f43c04240568396e38bfdb70297933bf7359e1bb5074db66b01c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-65-sopers-mill/audit-after-public-cache-only.json",
+      "bytes": 9671031,
+      "sha256": "398356119bb52d7c77cda3d3c2378ce0c6efa28689f0339aab83c72b79562205"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-65-sopers-mill/audit-before-inventory-cache-only.json",
+      "bytes": 10666042,
+      "sha256": "19b537dc3dcce4f8d03e95cf895ffa06c4fe369e0fcc810648ca7f8dfa4f6b7e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-65-sopers-mill/audit-before-public-cache-only.json",
+      "bytes": 9669636,
+      "sha256": "b9ce3722c12ee78e0c9fb30c2c00bbaf0b48f0b1372119b40e30da2253f2e93e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-66-fm-973/audit-after-inventory-cache-only.json",
+      "bytes": 10668302,
+      "sha256": "a43f4e6b46369ed7d2c17816f00f194f61d68c613e57a998c7f589732f78ec14"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-66-fm-973/audit-after-public-cache-only.json",
+      "bytes": 9671955,
+      "sha256": "faf37b26d52e4ebf619a26245c93c939a6420c659d1b5d4df825433fe6405f00"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-66-fm-973/audit-before-inventory-cache-only.json",
+      "bytes": 10667413,
+      "sha256": "1cfebfc11445f43c04240568396e38bfdb70297933bf7359e1bb5074db66b01c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-66-fm-973/audit-before-public-cache-only.json",
+      "bytes": 9671031,
+      "sha256": "398356119bb52d7c77cda3d3c2378ce0c6efa28689f0339aab83c72b79562205"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-67-spring-creek-campground/audit-after-inventory-cache-only.json",
+      "bytes": 10669492,
+      "sha256": "904885fa68bd8f0042cd3766c9114ad4e66c2deee62efe0470b7a241e85b03a1"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-67-spring-creek-campground/audit-after-public-cache-only.json",
+      "bytes": 9673121,
+      "sha256": "ef3b194e743939522709711181e13408d32d61524af0b1293df8d671997322b0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-67-spring-creek-campground/audit-before-inventory-cache-only.json",
+      "bytes": 10668302,
+      "sha256": "a43f4e6b46369ed7d2c17816f00f194f61d68c613e57a998c7f589732f78ec14"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-67-spring-creek-campground/audit-before-public-cache-only.json",
+      "bytes": 9671955,
+      "sha256": "faf37b26d52e4ebf619a26245c93c939a6420c659d1b5d4df825433fe6405f00"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-68-white-bridge-rap/audit-after-inventory-cache-only.json",
+      "bytes": 10675910,
+      "sha256": "4e4e58ec9f84dca288c06664fd74f7f6954c0d1d394b5c9a2a988a91bfc00398"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-68-white-bridge-rap/audit-after-public-cache-only.json",
+      "bytes": 9679499,
+      "sha256": "52a75eb14ed5dbc1ff667715a38e259e7b23a1b1d62e435a7d73cc2f8c82683d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-68-white-bridge-rap/audit-before-inventory-cache-only.json",
+      "bytes": 10669492,
+      "sha256": "904885fa68bd8f0042cd3766c9114ad4e66c2deee62efe0470b7a241e85b03a1"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-68-white-bridge-rap/audit-before-public-cache-only.json",
+      "bytes": 9673121,
+      "sha256": "ef3b194e743939522709711181e13408d32d61524af0b1293df8d671997322b0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-69-highway-142-narrows/audit-after-inventory-cache-only.json",
+      "bytes": 10681163,
+      "sha256": "2b242f2211bed8ba43757237fe8eb9e84df70bde798f05bbfe9cb756e11d3519"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-69-highway-142-narrows/audit-after-public-cache-only.json",
+      "bytes": 9684799,
+      "sha256": "a0f7804bf8906159c6e1c552ac519f8f0e0d9de78683fe20238f54d9b9d8cd74"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-69-highway-142-narrows/audit-before-inventory-cache-only.json",
+      "bytes": 10675910,
+      "sha256": "4e4e58ec9f84dca288c06664fd74f7f6954c0d1d394b5c9a2a988a91bfc00398"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-69-highway-142-narrows/audit-before-public-cache-only.json",
+      "bytes": 9679499,
+      "sha256": "52a75eb14ed5dbc1ff667715a38e259e7b23a1b1d62e435a7d73cc2f8c82683d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-70-shorts-bar/audit-after-inventory-cache-only.json",
+      "bytes": 10684653,
+      "sha256": "ac892597df500547f95e71e16a6eec266707ba081529454fd03499637cdec8f3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-70-shorts-bar/audit-after-public-cache-only.json",
+      "bytes": 9688282,
+      "sha256": "7676defd0bdbe47d24508365fe1b64eefd41551fa361785f5cc7e05608706909"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-70-shorts-bar/audit-before-inventory-cache-only.json",
+      "bytes": 10681163,
+      "sha256": "2b242f2211bed8ba43757237fe8eb9e84df70bde798f05bbfe9cb756e11d3519"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-70-shorts-bar/audit-before-public-cache-only.json",
+      "bytes": 9684799,
+      "sha256": "a0f7804bf8906159c6e1c552ac519f8f0e0d9de78683fe20238f54d9b9d8cd74"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-71-contoocook-canoe-company/audit-after-inventory-cache-only.json",
+      "bytes": 10687814,
+      "sha256": "060da0e71b7be5723a1bbf94ef261180fc1c2bd9094bb2719718c0106d320cd9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-71-contoocook-canoe-company/audit-after-public-cache-only.json",
+      "bytes": 9691443,
+      "sha256": "8b2aeaa6c66db4d4672c5f9c8cd44a9d8bf05cbda6d15eb491968e418ca40c1e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-71-contoocook-canoe-company/audit-before-inventory-cache-only.json",
+      "bytes": 10684653,
+      "sha256": "ac892597df500547f95e71e16a6eec266707ba081529454fd03499637cdec8f3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-71-contoocook-canoe-company/audit-before-public-cache-only.json",
+      "bytes": 9688282,
+      "sha256": "7676defd0bdbe47d24508365fe1b64eefd41551fa361785f5cc7e05608706909"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-72-ulster-bridge/audit-after-inventory-cache-only.json",
+      "bytes": 10691071,
+      "sha256": "923997468ce22b6c1b02508a8f7de9d13516552f12f5f32cd4dc233fc9904804"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-72-ulster-bridge/audit-after-public-cache-only.json",
+      "bytes": 9693836,
+      "sha256": "6b42a80f47acb950eefea6d49652ebe7fd5655a51f7b441a36d7b402b894c5dc"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-72-ulster-bridge/audit-before-inventory-cache-only.json",
+      "bytes": 10687814,
+      "sha256": "060da0e71b7be5723a1bbf94ef261180fc1c2bd9094bb2719718c0106d320cd9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-72-ulster-bridge/audit-before-public-cache-only.json",
+      "bytes": 9691443,
+      "sha256": "8b2aeaa6c66db4d4672c5f9c8cd44a9d8bf05cbda6d15eb491968e418ca40c1e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-73-central-avenue/audit-after-inventory-cache-only.json",
+      "bytes": 10692999,
+      "sha256": "4855ce1f5e394609054724770886165b7d226573a3e2a3d35e99984e2bb4397f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-73-central-avenue/audit-after-public-cache-only.json",
+      "bytes": 9695764,
+      "sha256": "8529912c73f17ccd34bff3b9fc5e3707ac6556c1ee21b87fb7fdd23bf51e277c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-73-central-avenue/audit-before-inventory-cache-only.json",
+      "bytes": 10691071,
+      "sha256": "923997468ce22b6c1b02508a8f7de9d13516552f12f5f32cd4dc233fc9904804"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-73-central-avenue/audit-before-public-cache-only.json",
+      "bytes": 9693836,
+      "sha256": "6b42a80f47acb950eefea6d49652ebe7fd5655a51f7b441a36d7b402b894c5dc"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-74-rio-bravo/audit-after-inventory-cache-only.json",
+      "bytes": 10695982,
+      "sha256": "6e0c319f0edcfa60ad67df2ca96cd3448f64d911db71b62d8126ad8aa2e85cb5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-74-rio-bravo/audit-after-public-cache-only.json",
+      "bytes": 9698789,
+      "sha256": "5a1790b9de3920ed9b508ee0986f758f8f04bd363c6a6710e454f3fa6f5dd7f7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-74-rio-bravo/audit-before-inventory-cache-only.json",
+      "bytes": 10692999,
+      "sha256": "4855ce1f5e394609054724770886165b7d226573a3e2a3d35e99984e2bb4397f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-74-rio-bravo/audit-before-public-cache-only.json",
+      "bytes": 9695764,
+      "sha256": "8529912c73f17ccd34bff3b9fc5e3707ac6556c1ee21b87fb7fdd23bf51e277c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-75-welch-mill/audit-after-inventory-cache-only.json",
+      "bytes": 10698348,
+      "sha256": "4f4aafd5d8cab3ef87bec59a24cea0d162bfec4c9b9d670d7b2929da0ef01dd7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-75-welch-mill/audit-after-public-cache-only.json",
+      "bytes": 9701177,
+      "sha256": "17e889f12daf57f36ac8418de72a8a6dd82b42fe2ca50f1257ef82eed8516ad7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-75-welch-mill/audit-before-inventory-cache-only.json",
+      "bytes": 10695982,
+      "sha256": "6e0c319f0edcfa60ad67df2ca96cd3448f64d911db71b62d8126ad8aa2e85cb5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-75-welch-mill/audit-before-public-cache-only.json",
+      "bytes": 9698789,
+      "sha256": "5a1790b9de3920ed9b508ee0986f758f8f04bd363c6a6710e454f3fa6f5dd7f7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-76-horse-shoe/audit-after-inventory-cache-only.json",
+      "bytes": 10700457,
+      "sha256": "71c100af4c3cc0ec2f7f19cbb34eda8bba50b9a8163db07140942a893eba627e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-76-horse-shoe/audit-after-public-cache-only.json",
+      "bytes": 9703229,
+      "sha256": "842d8e9490a74d2855565f20d9a4915e93c2f0fbfcfebd481d89c62b1139b4ba"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-76-horse-shoe/audit-before-inventory-cache-only.json",
+      "bytes": 10698348,
+      "sha256": "4f4aafd5d8cab3ef87bec59a24cea0d162bfec4c9b9d670d7b2929da0ef01dd7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-76-horse-shoe/audit-before-public-cache-only.json",
+      "bytes": 9701177,
+      "sha256": "17e889f12daf57f36ac8418de72a8a6dd82b42fe2ca50f1257ef82eed8516ad7"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-after-inventory-cache-only.json",
+      "bytes": 10702534,
+      "sha256": "6615872949071bdcf61cd6162cb0686495d2e61f353652cd44171cbc11d8fbee"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-after-public-cache-only.json",
+      "bytes": 9705306,
+      "sha256": "aa41dc740f4319f9590958caf7919c1bc34db6f5f68bbaf3c7390b77080c41cd"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-before-inventory-cache-only.json",
+      "bytes": 10700457,
+      "sha256": "71c100af4c3cc0ec2f7f19cbb34eda8bba50b9a8163db07140942a893eba627e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-before-public-cache-only.json",
+      "bytes": 9703229,
+      "sha256": "842d8e9490a74d2855565f20d9a4915e93c2f0fbfcfebd481d89c62b1139b4ba"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-after-inventory-cache-only.json",
+      "bytes": 10704904,
+      "sha256": "29a05efb26151edfd38309ea17c7397d2bb7ebd6351a5803f31cc4548a5f5225"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-after-public-cache-only.json",
+      "bytes": 9707712,
+      "sha256": "3bb2963fe70a71e4a6dcb10f7d7181c0c91afce5367cd1e2d2a1d16b71f2fa41"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-before-inventory-cache-only.json",
+      "bytes": 10702534,
+      "sha256": "6615872949071bdcf61cd6162cb0686495d2e61f353652cd44171cbc11d8fbee"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-before-public-cache-only.json",
+      "bytes": 9705306,
+      "sha256": "aa41dc740f4319f9590958caf7919c1bc34db6f5f68bbaf3c7390b77080c41cd"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-after-inventory-cache-only.json",
+      "bytes": 10707001,
+      "sha256": "40f93dd2ce4e58187080ca7c14c2a19a36e278d439d7c555e0d2755cc27df7f6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-after-public-cache-only.json",
+      "bytes": 9709725,
+      "sha256": "c9a517d3233b7bb21b6c8ae557e7a2f98869fc8247a2068a232e3e098d22154b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-before-inventory-cache-only.json",
+      "bytes": 10704904,
+      "sha256": "29a05efb26151edfd38309ea17c7397d2bb7ebd6351a5803f31cc4548a5f5225"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-before-public-cache-only.json",
+      "bytes": 9707712,
+      "sha256": "3bb2963fe70a71e4a6dcb10f7d7181c0c91afce5367cd1e2d2a1d16b71f2fa41"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-100-payne-park/audit-after-inventory-cache-only.json",
+      "bytes": 10727188,
+      "sha256": "1f143221ac885faf917a839dce5cf77e4b3b011efb3a45f314b00fefd522295b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-100-payne-park/audit-after-public-cache-only.json",
+      "bytes": 9729936,
+      "sha256": "1205ba530a5a4fb95e63176dd339aadc1a13996a11467e8a5b9d040a444fd8b6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-100-payne-park/audit-before-inventory-cache-only.json",
+      "bytes": 10726319,
+      "sha256": "ba49444e61db2155fc016b761add6f71e380d59d0c56f8674de460a81ccf7112"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-100-payne-park/audit-before-public-cache-only.json",
+      "bytes": 9729085,
+      "sha256": "295075481b8b3a88595597d1963d40509e85138a66e77259578c34fc6c344991"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-101-turner-bridge/audit-after-inventory-cache-only.json",
+      "bytes": 10727945,
+      "sha256": "b9519b6f8864c8fca8b3ce3407d7c9262f60591f9cecb213f4a47a931d363d64"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-101-turner-bridge/audit-after-public-cache-only.json",
+      "bytes": 9730718,
+      "sha256": "21514af82214f3b47b5ba1895207a48477b70f970428d394d0650c7ee81cebc6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-101-turner-bridge/audit-before-inventory-cache-only.json",
+      "bytes": 10727188,
+      "sha256": "1f143221ac885faf917a839dce5cf77e4b3b011efb3a45f314b00fefd522295b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-101-turner-bridge/audit-before-public-cache-only.json",
+      "bytes": 9729936,
+      "sha256": "1205ba530a5a4fb95e63176dd339aadc1a13996a11467e8a5b9d040a444fd8b6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-102-jack-shuger/audit-after-inventory-cache-only.json",
+      "bytes": 10728849,
+      "sha256": "8352631e9127e18031b3ae8a2b4f21331fa5bbc6e83a2939afea3d269bb5a9d4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-102-jack-shuger/audit-after-public-cache-only.json",
+      "bytes": 9731580,
+      "sha256": "1c3c89ecbc7ddc20b22a1a8b9322cb7b7ffaafdf4ca08384a2983c9d7a91d8c5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-102-jack-shuger/audit-before-inventory-cache-only.json",
+      "bytes": 10727945,
+      "sha256": "b9519b6f8864c8fca8b3ce3407d7c9262f60591f9cecb213f4a47a931d363d64"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-102-jack-shuger/audit-before-public-cache-only.json",
+      "bytes": 9730718,
+      "sha256": "21514af82214f3b47b5ba1895207a48477b70f970428d394d0650c7ee81cebc6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-103-black-river-hwy35/audit-after-inventory-cache-only.json",
+      "bytes": 10729677,
+      "sha256": "8952023225aace6d29be88608a5f273eb6ba63c46081675faf0d4d244af07828"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-103-black-river-hwy35/audit-after-public-cache-only.json",
+      "bytes": 9732450,
+      "sha256": "7fb7806fcc3ae60d84c9c1fbdf7fa988d1b3682fd6d9e8b26f21ca33ac6a883a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-103-black-river-hwy35/audit-before-inventory-cache-only.json",
+      "bytes": 10728849,
+      "sha256": "8352631e9127e18031b3ae8a2b4f21331fa5bbc6e83a2939afea3d269bb5a9d4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-103-black-river-hwy35/audit-before-public-cache-only.json",
+      "bytes": 9731580,
+      "sha256": "1c3c89ecbc7ddc20b22a1a8b9322cb7b7ffaafdf4ca08384a2983c9d7a91d8c5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-104-heritage-park/audit-after-inventory-cache-only.json",
+      "bytes": 10730692,
+      "sha256": "2b22b44579a17de3cfe51e692ff22827a5b1cff9431dbacfd90f1116b24fc15f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-104-heritage-park/audit-after-public-cache-only.json",
+      "bytes": 9733458,
+      "sha256": "d9aef2ea05a8ec29545bd66c236a77e67c5ed6e85c132fcdb8c765fdf581df07"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-104-heritage-park/audit-before-inventory-cache-only.json",
+      "bytes": 10729677,
+      "sha256": "8952023225aace6d29be88608a5f273eb6ba63c46081675faf0d4d244af07828"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-104-heritage-park/audit-before-public-cache-only.json",
+      "bytes": 9732450,
+      "sha256": "7fb7806fcc3ae60d84c9c1fbdf7fa988d1b3682fd6d9e8b26f21ca33ac6a883a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-105-cunard/audit-after-inventory-cache-only.json",
+      "bytes": 10731561,
+      "sha256": "1505e95db96180fcb766c1dee49358dae1615680d439011e81597184ba3809b6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-105-cunard/audit-after-public-cache-only.json",
+      "bytes": 9734300,
+      "sha256": "8276d8fd3130653c880e58dbbe03d8c5b73563d7a7d821930dbb41105bfe19fa"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-105-cunard/audit-before-inventory-cache-only.json",
+      "bytes": 10730692,
+      "sha256": "2b22b44579a17de3cfe51e692ff22827a5b1cff9431dbacfd90f1116b24fc15f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-105-cunard/audit-before-public-cache-only.json",
+      "bytes": 9733458,
+      "sha256": "d9aef2ea05a8ec29545bd66c236a77e67c5ed6e85c132fcdb8c765fdf581df07"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-106-mill-road-park/audit-after-inventory-cache-only.json",
+      "bytes": 10732616,
+      "sha256": "4a1548c187f28b7bb556ca6a48688d5f72cf8ee86610063f8da87e36c64f9cbf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-106-mill-road-park/audit-after-public-cache-only.json",
+      "bytes": 9735389,
+      "sha256": "68c0fb3c003b6fe2450fb9c4b0a7f901f6a471057637480e38ee0dafbc21b83d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-106-mill-road-park/audit-before-inventory-cache-only.json",
+      "bytes": 10731561,
+      "sha256": "1505e95db96180fcb766c1dee49358dae1615680d439011e81597184ba3809b6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-106-mill-road-park/audit-before-public-cache-only.json",
+      "bytes": 9734300,
+      "sha256": "8276d8fd3130653c880e58dbbe03d8c5b73563d7a7d821930dbb41105bfe19fa"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-107-troutdale/audit-after-inventory-cache-only.json",
+      "bytes": 10733638,
+      "sha256": "85fb8adfc2fa2735f3e6903de5971a05580dffbec5abba86bff478e9f69ef2d3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-107-troutdale/audit-after-public-cache-only.json",
+      "bytes": 9736411,
+      "sha256": "f93f9dd85162dd2c66d74fd82bf3c491939f636037d7f0fd1304177d5085fef6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-107-troutdale/audit-before-inventory-cache-only.json",
+      "bytes": 10732616,
+      "sha256": "4a1548c187f28b7bb556ca6a48688d5f72cf8ee86610063f8da87e36c64f9cbf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-107-troutdale/audit-before-public-cache-only.json",
+      "bytes": 9735389,
+      "sha256": "68c0fb3c003b6fe2450fb9c4b0a7f901f6a471057637480e38ee0dafbc21b83d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-108-hadley/audit-after-inventory-cache-only.json",
+      "bytes": 10734500,
+      "sha256": "74ac5512cef3e1acba334a033e74620fd4eb4c19322392f1583c24b05c79c424"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-108-hadley/audit-after-public-cache-only.json",
+      "bytes": 9737266,
+      "sha256": "42cfe92f2b4e05810a70fd7546e42b1e8dd63052cc99493f76020ce85c358b35"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-108-hadley/audit-before-inventory-cache-only.json",
+      "bytes": 10733638,
+      "sha256": "85fb8adfc2fa2735f3e6903de5971a05580dffbec5abba86bff478e9f69ef2d3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-108-hadley/audit-before-public-cache-only.json",
+      "bytes": 9736411,
+      "sha256": "f93f9dd85162dd2c66d74fd82bf3c491939f636037d7f0fd1304177d5085fef6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-109-roanoke-river-trail/audit-after-inventory-cache-only.json",
+      "bytes": 10735671,
+      "sha256": "1f023b94e31670ae5124f75c4623e6bbe7d645fdc7cf4b7b8989802d9a959854"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-109-roanoke-river-trail/audit-after-public-cache-only.json",
+      "bytes": 9738395,
+      "sha256": "9fc1ce7535f20883cdf1467f3793e467c385120ded8347c07b62dc2dfce85609"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-109-roanoke-river-trail/audit-before-inventory-cache-only.json",
+      "bytes": 10734500,
+      "sha256": "74ac5512cef3e1acba334a033e74620fd4eb4c19322392f1583c24b05c79c424"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-109-roanoke-river-trail/audit-before-public-cache-only.json",
+      "bytes": 9737266,
+      "sha256": "42cfe92f2b4e05810a70fd7546e42b1e8dd63052cc99493f76020ce85c358b35"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-110-kelley-nature-preserve/audit-after-inventory-cache-only.json",
+      "bytes": 10736605,
+      "sha256": "c5be6345d59aef675611e4f5ffa154611e341ae8a131bbf95d905c74977f1d4f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-110-kelley-nature-preserve/audit-after-public-cache-only.json",
+      "bytes": 9739420,
+      "sha256": "ae41557378944851c6ccef68c2e745d4b03a25e2d3c94e8080a149c01b440ee5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-110-kelley-nature-preserve/audit-before-inventory-cache-only.json",
+      "bytes": 10735671,
+      "sha256": "1f023b94e31670ae5124f75c4623e6bbe7d645fdc7cf4b7b8989802d9a959854"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-110-kelley-nature-preserve/audit-before-public-cache-only.json",
+      "bytes": 9738395,
+      "sha256": "9fc1ce7535f20883cdf1467f3793e467c385120ded8347c07b62dc2dfce85609"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-111-conservation-park/audit-after-inventory-cache-only.json",
+      "bytes": 10737653,
+      "sha256": "fab8a2eab37c8745f8941c183813592f07967bc0a31ec0e4123fee3caf391633"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-111-conservation-park/audit-after-public-cache-only.json",
+      "bytes": 9740384,
+      "sha256": "be9d7aec663f9476e2890fb5862ee672e8e0f1b0e70141dca0d364f37833288d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-111-conservation-park/audit-before-inventory-cache-only.json",
+      "bytes": 10736605,
+      "sha256": "c5be6345d59aef675611e4f5ffa154611e341ae8a131bbf95d905c74977f1d4f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-111-conservation-park/audit-before-public-cache-only.json",
+      "bytes": 9739420,
+      "sha256": "ae41557378944851c6ccef68c2e745d4b03a25e2d3c94e8080a149c01b440ee5"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-112-big-bend/audit-after-inventory-cache-only.json",
+      "bytes": 10738622,
+      "sha256": "5108ad1862d1472a6332d4517206307519f8f3c082051e6eb930490b208a83f9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-112-big-bend/audit-after-public-cache-only.json",
+      "bytes": 9741395,
+      "sha256": "f7050b07afe962bd789a49c5a1ef2af18628ce623f4ee449e5a6fea1efb47c76"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-112-big-bend/audit-before-inventory-cache-only.json",
+      "bytes": 10737653,
+      "sha256": "fab8a2eab37c8745f8941c183813592f07967bc0a31ec0e4123fee3caf391633"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-112-big-bend/audit-before-public-cache-only.json",
+      "bytes": 9740384,
+      "sha256": "be9d7aec663f9476e2890fb5862ee672e8e0f1b0e70141dca0d364f37833288d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-113-redding/audit-after-inventory-cache-only.json",
+      "bytes": 10739682,
+      "sha256": "0010328fdc601c36d17035eefc9acbaefe9d6c58af6ab4a28b8c92c27197fd89"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-113-redding/audit-after-public-cache-only.json",
+      "bytes": 9742470,
+      "sha256": "c94be4be8fb0f1c51ac30efc8795f7f95793d7343ce3bb95acda18956656366b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-113-redding/audit-before-inventory-cache-only.json",
+      "bytes": 10738622,
+      "sha256": "5108ad1862d1472a6332d4517206307519f8f3c082051e6eb930490b208a83f9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-113-redding/audit-before-public-cache-only.json",
+      "bytes": 9741395,
+      "sha256": "f7050b07afe962bd789a49c5a1ef2af18628ce623f4ee449e5a6fea1efb47c76"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-114-white-tail-butte/audit-after-inventory-cache-only.json",
+      "bytes": 10740616,
+      "sha256": "cf79ce93a10d9ef9f5a207a0699f776933eb57ee6a54d63cecbf4bf5d37c247c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-114-white-tail-butte/audit-after-public-cache-only.json",
+      "bytes": 9743424,
+      "sha256": "09ecebd493c90170f3deaf504cd0d47895ba2c01ac2e0bb5e705ff0285cf1f01"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-114-white-tail-butte/audit-before-inventory-cache-only.json",
+      "bytes": 10739682,
+      "sha256": "0010328fdc601c36d17035eefc9acbaefe9d6c58af6ab4a28b8c92c27197fd89"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-114-white-tail-butte/audit-before-public-cache-only.json",
+      "bytes": 9742470,
+      "sha256": "c94be4be8fb0f1c51ac30efc8795f7f95793d7343ce3bb95acda18956656366b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-115-quartz-creek-hold/audit-after-inventory-cache-only.json",
+      "bytes": 10740609,
+      "sha256": "ecae08c34b1c3ccdda7109e76e6e5799d74890d0fb2f351dc6a461f47636c1fb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-115-quartz-creek-hold/audit-after-public-cache-only.json",
+      "bytes": 9739198,
+      "sha256": "9a765fa7aac14c5bef403b4d1a093dea6f6738c19f242367d01f55bd3d5119d2"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-115-quartz-creek-hold/audit-before-inventory-cache-only.json",
+      "bytes": 10740616,
+      "sha256": "cf79ce93a10d9ef9f5a207a0699f776933eb57ee6a54d63cecbf4bf5d37c247c"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-115-quartz-creek-hold/audit-before-public-cache-only.json",
+      "bytes": 9743424,
+      "sha256": "09ecebd493c90170f3deaf504cd0d47895ba2c01ac2e0bb5e705ff0285cf1f01"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-116-willow-creek-hold/audit-after-inventory-cache-only.json",
+      "bytes": 10740658,
+      "sha256": "b1221ca7136b0768e233fa0121e6e9e4c895443af733c11d7578b93eab0105d8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-116-willow-creek-hold/audit-after-public-cache-only.json",
+      "bytes": 9734135,
+      "sha256": "d9309760376515c7ab3f63dcb0dcace868fe259bdb86e300860ba44c93184639"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-116-willow-creek-hold/audit-before-inventory-cache-only.json",
+      "bytes": 10740609,
+      "sha256": "ecae08c34b1c3ccdda7109e76e6e5799d74890d0fb2f351dc6a461f47636c1fb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-116-willow-creek-hold/audit-before-public-cache-only.json",
+      "bytes": 9739198,
+      "sha256": "9a765fa7aac14c5bef403b4d1a093dea6f6738c19f242367d01f55bd3d5119d2"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-117-cannon-riverside/audit-after-inventory-cache-only.json",
+      "bytes": 10741489,
+      "sha256": "1c939e206e5f8d0ff7437e2d53d0320665cf644ffe81ca12053cf58571645055"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-117-cannon-riverside/audit-after-public-cache-only.json",
+      "bytes": 9735017,
+      "sha256": "7d032de4836342d95fb6eae4cc96b7bd7cd6ca996069fbfc13959a50bf0bf4b9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-117-cannon-riverside/audit-before-inventory-cache-only.json",
+      "bytes": 10740658,
+      "sha256": "b1221ca7136b0768e233fa0121e6e9e4c895443af733c11d7578b93eab0105d8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-117-cannon-riverside/audit-before-public-cache-only.json",
+      "bytes": 9734135,
+      "sha256": "d9309760376515c7ab3f63dcb0dcace868fe259bdb86e300860ba44c93184639"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-118-broadway-run/audit-after-inventory-cache-only.json",
+      "bytes": 10742399,
+      "sha256": "1b8616daab9740c98bf71100eebef54fae673f0039fb853eb685ea478bb9bceb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-118-broadway-run/audit-after-public-cache-only.json",
+      "bytes": 9735940,
+      "sha256": "a1be1e7dfbb53b7c1eb8274a38e2e9c6d4e2b3ac2f3a92e65a5e0db4d07002bc"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-118-broadway-run/audit-before-inventory-cache-only.json",
+      "bytes": 10741489,
+      "sha256": "1c939e206e5f8d0ff7437e2d53d0320665cf644ffe81ca12053cf58571645055"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-118-broadway-run/audit-before-public-cache-only.json",
+      "bytes": 9735017,
+      "sha256": "7d032de4836342d95fb6eae4cc96b7bd7cd6ca996069fbfc13959a50bf0bf4b9"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-119-whitesville/audit-after-inventory-cache-only.json",
+      "bytes": 10743428,
+      "sha256": "6dd214f9e81cadd6e72bd533edf992cbbc4c4e683811392fd69d51a40804c684"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-119-whitesville/audit-after-public-cache-only.json",
+      "bytes": 9736947,
+      "sha256": "1e9a5294eb1d4b777e31b37f382297a861f9a82ee15845f864f6ca6bc59e637e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-119-whitesville/audit-before-inventory-cache-only.json",
+      "bytes": 10742399,
+      "sha256": "1b8616daab9740c98bf71100eebef54fae673f0039fb853eb685ea478bb9bceb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-119-whitesville/audit-before-public-cache-only.json",
+      "bytes": 9735940,
+      "sha256": "a1be1e7dfbb53b7c1eb8274a38e2e9c6d4e2b3ac2f3a92e65a5e0db4d07002bc"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-120-terrapin-ellisville/audit-after-inventory-cache-only.json",
+      "bytes": 10744563,
+      "sha256": "69ef919b0f8115c111a1908d0ea61ceb19b84b48c3a522ea6c8710e952a36448"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-120-terrapin-ellisville/audit-after-public-cache-only.json",
+      "bytes": 9738082,
+      "sha256": "e852208d6e07790614fd03fbe49598dcaeb1711bb076143fdc1fa555f7a84a3f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-120-terrapin-ellisville/audit-before-inventory-cache-only.json",
+      "bytes": 10743428,
+      "sha256": "6dd214f9e81cadd6e72bd533edf992cbbc4c4e683811392fd69d51a40804c684"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-120-terrapin-ellisville/audit-before-public-cache-only.json",
+      "bytes": 9736947,
+      "sha256": "1e9a5294eb1d4b777e31b37f382297a861f9a82ee15845f864f6ca6bc59e637e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-121-cave-falls/audit-after-inventory-cache-only.json",
+      "bytes": 10745606,
+      "sha256": "397181d8aab1633000d28a53f5baf6eb1db707bb0585ac2703a94663e0ecf619"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-121-cave-falls/audit-after-public-cache-only.json",
+      "bytes": 9739108,
+      "sha256": "5e579d87eaace0a3ce331b90a5ab60cbdbca59c9966f6e767bd1103c21038ca3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-121-cave-falls/audit-before-inventory-cache-only.json",
+      "bytes": 10744563,
+      "sha256": "69ef919b0f8115c111a1908d0ea61ceb19b84b48c3a522ea6c8710e952a36448"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-121-cave-falls/audit-before-public-cache-only.json",
+      "bytes": 9738082,
+      "sha256": "e852208d6e07790614fd03fbe49598dcaeb1711bb076143fdc1fa555f7a84a3f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-122-mcmahon/audit-after-inventory-cache-only.json",
+      "bytes": 10746490,
+      "sha256": "042dd2f608334f80cac272db996eb48bf6165b49903a8b89fe529b4f2d4f6262"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-122-mcmahon/audit-after-public-cache-only.json",
+      "bytes": 9739967,
+      "sha256": "5db5959b3acf03d9289fad1b0c07956333a84c70fbc438fc2a7a8a96ed02ecf6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-122-mcmahon/audit-before-inventory-cache-only.json",
+      "bytes": 10745606,
+      "sha256": "397181d8aab1633000d28a53f5baf6eb1db707bb0585ac2703a94663e0ecf619"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-122-mcmahon/audit-before-public-cache-only.json",
+      "bytes": 9739108,
+      "sha256": "5e579d87eaace0a3ce331b90a5ab60cbdbca59c9966f6e767bd1103c21038ca3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-123-valley-city-hatchery/audit-after-inventory-cache-only.json",
+      "bytes": 10747508,
+      "sha256": "a9cca99db872beee6f7cd7a0971bc4531a95d4214c868d7e02dba1150feceed4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-123-valley-city-hatchery/audit-after-public-cache-only.json",
+      "bytes": 9741084,
+      "sha256": "7b384e7093956c81730fd96f787c21654e51e102e3ff3385965c67bf7d92a1ce"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-123-valley-city-hatchery/audit-before-inventory-cache-only.json",
+      "bytes": 10746490,
+      "sha256": "042dd2f608334f80cac272db996eb48bf6165b49903a8b89fe529b4f2d4f6262"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-123-valley-city-hatchery/audit-before-public-cache-only.json",
+      "bytes": 9739967,
+      "sha256": "5db5959b3acf03d9289fad1b0c07956333a84c70fbc438fc2a7a8a96ed02ecf6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-124-san-marcos-retreat/audit-after-inventory-cache-only.json",
+      "bytes": 10748593,
+      "sha256": "6914233fd28f3b19431c0956324fe0d8607eec68b7c425a347b927a96f2f7fef"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-124-san-marcos-retreat/audit-after-public-cache-only.json",
+      "bytes": 9742070,
+      "sha256": "97251a9115f808c5d5ff0efea6942b2ef93d156b3cad567972405ad0188be55b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-124-san-marcos-retreat/audit-before-inventory-cache-only.json",
+      "bytes": 10747508,
+      "sha256": "a9cca99db872beee6f7cd7a0971bc4531a95d4214c868d7e02dba1150feceed4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-124-san-marcos-retreat/audit-before-public-cache-only.json",
+      "bytes": 9741084,
+      "sha256": "7b384e7093956c81730fd96f787c21654e51e102e3ff3385965c67bf7d92a1ce"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-125-inventory-suspicious/audit-after-inventory-cache-only.json",
+      "bytes": 10750433,
+      "sha256": "07080346bfc731663499dca1e54b2db09f95c75ae8c0a68160e57c93c44c840e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-125-inventory-suspicious/audit-after-public-cache-only.json",
+      "bytes": 9742070,
+      "sha256": "7233b7bdf42af73849ef048b5aed569cf3b26feb69e840bc4f0435df4085c4db"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-125-inventory-suspicious/audit-before-inventory-cache-only.json",
+      "bytes": 10748593,
+      "sha256": "6914233fd28f3b19431c0956324fe0d8607eec68b7c425a347b927a96f2f7fef"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-125-inventory-suspicious/audit-before-public-cache-only.json",
+      "bytes": 9742070,
+      "sha256": "97251a9115f808c5d5ff0efea6942b2ef93d156b3cad567972405ad0188be55b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-after-inventory-cache-only.json",
+      "bytes": 10706268,
+      "sha256": "49b9bde1047b969404b88e2aa8348d3e459511d3eccecb779c57437910831917"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-after-public-cache-only.json",
+      "bytes": 9708994,
+      "sha256": "9600bf514ab24cb326fcc21631cb6d3eda9898f4880f810be67b5bfc491d44fb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-before-inventory-cache-only.json",
+      "bytes": 10707001,
+      "sha256": "40f93dd2ce4e58187080ca7c14c2a19a36e278d439d7c555e0d2755cc27df7f6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-80-kelly-forks/audit-before-public-cache-only.json",
+      "bytes": 9709725,
+      "sha256": "c9a517d3233b7bb21b6c8ae557e7a2f98869fc8247a2068a232e3e098d22154b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-after-inventory-cache-only.json",
+      "bytes": 10707587,
+      "sha256": "6e5179d70b1186f0f477b27d2a8b5617683d59e2914c1650aaf4c3e07edb4495"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-after-public-cache-only.json",
+      "bytes": 9710353,
+      "sha256": "6f649aeb9853fbc1a800ca3359bd11ea1c872bd4608e049ef83bef69f6cb566a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-before-inventory-cache-only.json",
+      "bytes": 10706268,
+      "sha256": "49b9bde1047b969404b88e2aa8348d3e459511d3eccecb779c57437910831917"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-before-public-cache-only.json",
+      "bytes": 9708994,
+      "sha256": "9600bf514ab24cb326fcc21631cb6d3eda9898f4880f810be67b5bfc491d44fb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-82-spring-bar/audit-after-inventory-cache-only.json",
+      "bytes": 10708651,
+      "sha256": "34109f0f5260537dcec396ef93b6a3a216a6fab6b274b747030b96d8c250669e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-82-spring-bar/audit-after-public-cache-only.json",
+      "bytes": 9711375,
+      "sha256": "56c2f284de4a15f6be98642ff66b1facecedba96e6243757922acc5283a440cb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-82-spring-bar/audit-before-inventory-cache-only.json",
+      "bytes": 10707587,
+      "sha256": "6e5179d70b1186f0f477b27d2a8b5617683d59e2914c1650aaf4c3e07edb4495"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-82-spring-bar/audit-before-public-cache-only.json",
+      "bytes": 9710353,
+      "sha256": "6f649aeb9853fbc1a800ca3359bd11ea1c872bd4608e049ef83bef69f6cb566a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-83-bisset-park/audit-after-inventory-cache-only.json",
+      "bytes": 10709691,
+      "sha256": "47c87e8eb7416521716f68601bd88973816ee676339566482ca97f3db0435a56"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-83-bisset-park/audit-after-public-cache-only.json",
+      "bytes": 9712459,
+      "sha256": "d3206a7ea8484b4c4da90d17bf5e29cf3f8094dc52695d81304c174cf6ece03d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-83-bisset-park/audit-before-inventory-cache-only.json",
+      "bytes": 10708651,
+      "sha256": "34109f0f5260537dcec396ef93b6a3a216a6fab6b274b747030b96d8c250669e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-83-bisset-park/audit-before-public-cache-only.json",
+      "bytes": 9711375,
+      "sha256": "56c2f284de4a15f6be98642ff66b1facecedba96e6243757922acc5283a440cb"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-84-gambril/audit-after-inventory-cache-only.json",
+      "bytes": 10710597,
+      "sha256": "ff5a525ea7625a3cfaec2ff1bc66de8a6e41f7825131f176717900f91497498f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-84-gambril/audit-after-public-cache-only.json",
+      "bytes": 9713363,
+      "sha256": "5d54fb2d45a052c6af558f9ff28921f6ca6880b482558d5226f69da788e3de55"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-84-gambril/audit-before-inventory-cache-only.json",
+      "bytes": 10709691,
+      "sha256": "47c87e8eb7416521716f68601bd88973816ee676339566482ca97f3db0435a56"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-84-gambril/audit-before-public-cache-only.json",
+      "bytes": 9712459,
+      "sha256": "d3206a7ea8484b4c4da90d17bf5e29cf3f8094dc52695d81304c174cf6ece03d"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-85-talcott/audit-after-inventory-cache-only.json",
+      "bytes": 10711682,
+      "sha256": "435caf1e78fbc222092fc92da6bdb5f61ef39216093c5c1110a7060ca2c3cfa6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-85-talcott/audit-after-public-cache-only.json",
+      "bytes": 9714490,
+      "sha256": "74c241c40ae32b5adcb3e1af26f8d4d5d0cb4d6d4f54a0bbf380213fa82da277"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-85-talcott/audit-before-inventory-cache-only.json",
+      "bytes": 10710597,
+      "sha256": "ff5a525ea7625a3cfaec2ff1bc66de8a6e41f7825131f176717900f91497498f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-85-talcott/audit-before-public-cache-only.json",
+      "bytes": 9713363,
+      "sha256": "5d54fb2d45a052c6af558f9ff28921f6ca6880b482558d5226f69da788e3de55"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-86-lake-springfield/audit-after-inventory-cache-only.json",
+      "bytes": 10712910,
+      "sha256": "fb6fd1d7d960b11f955a3757303fd823ba582fd407d72562a41fa15246e0bb8e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-86-lake-springfield/audit-after-public-cache-only.json",
+      "bytes": 9715676,
+      "sha256": "eaad16c7535d02dfcad94e32870e5be094ed829b7cd336bb956a85fd0072e6ea"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-86-lake-springfield/audit-before-inventory-cache-only.json",
+      "bytes": 10711682,
+      "sha256": "435caf1e78fbc222092fc92da6bdb5f61ef39216093c5c1110a7060ca2c3cfa6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-86-lake-springfield/audit-before-public-cache-only.json",
+      "bytes": 9714490,
+      "sha256": "74c241c40ae32b5adcb3e1af26f8d4d5d0cb4d6d4f54a0bbf380213fa82da277"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-87-stone-cliff/audit-after-inventory-cache-only.json",
+      "bytes": 10713825,
+      "sha256": "d9f51ab2ffa08dcf0a22cd32cf78ddaa53868c0ea879b715061a017783a4bcd8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-87-stone-cliff/audit-after-public-cache-only.json",
+      "bytes": 9716591,
+      "sha256": "8d4cac68e0835079f3c5222ae4d967e3bb07ba79cf0357bae1a431d84609ad14"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-87-stone-cliff/audit-before-inventory-cache-only.json",
+      "bytes": 10712910,
+      "sha256": "fb6fd1d7d960b11f955a3757303fd823ba582fd407d72562a41fa15246e0bb8e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-87-stone-cliff/audit-before-public-cache-only.json",
+      "bytes": 9715676,
+      "sha256": "eaad16c7535d02dfcad94e32870e5be094ed829b7cd336bb956a85fd0072e6ea"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-88-canoe-creek/audit-after-inventory-cache-only.json",
+      "bytes": 10714734,
+      "sha256": "871dbd3e465a5b22ed77890e5464b3c17ad2bfcaa9b7d1b9cabb51e2087fdba8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-88-canoe-creek/audit-after-public-cache-only.json",
+      "bytes": 9717500,
+      "sha256": "f22bac1191581f8792f2eaf3156cb6dc323c7447d28b594a479a3e203a59f50e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-88-canoe-creek/audit-before-inventory-cache-only.json",
+      "bytes": 10713825,
+      "sha256": "d9f51ab2ffa08dcf0a22cd32cf78ddaa53868c0ea879b715061a017783a4bcd8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-88-canoe-creek/audit-before-public-cache-only.json",
+      "bytes": 9716591,
+      "sha256": "8d4cac68e0835079f3c5222ae4d967e3bb07ba79cf0357bae1a431d84609ad14"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-89-mccrea/audit-after-inventory-cache-only.json",
+      "bytes": 10715806,
+      "sha256": "c9239358e3264dee3c08cb8c19c12d57c717de89d954975d1418768ad1e6f666"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-89-mccrea/audit-after-public-cache-only.json",
+      "bytes": 9718614,
+      "sha256": "9251ca6765ef3084b4b2d0d60b80e45c3ca4497be93a704d1e9286167ed734cf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-89-mccrea/audit-before-inventory-cache-only.json",
+      "bytes": 10714734,
+      "sha256": "871dbd3e465a5b22ed77890e5464b3c17ad2bfcaa9b7d1b9cabb51e2087fdba8"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-89-mccrea/audit-before-public-cache-only.json",
+      "bytes": 9717500,
+      "sha256": "f22bac1191581f8792f2eaf3156cb6dc323c7447d28b594a479a3e203a59f50e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-90-marge-cline/audit-after-inventory-cache-only.json",
+      "bytes": 10716761,
+      "sha256": "f16aec67f6364b789ddc0790b0beea8e6bdfaa9dd3c54591e166a8e86073d731"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-90-marge-cline/audit-after-public-cache-only.json",
+      "bytes": 9719542,
+      "sha256": "9f711d45ee83f4226e34faa87ba1740e94d0f09840b6f98bfcc7c57c7bc080de"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-90-marge-cline/audit-before-inventory-cache-only.json",
+      "bytes": 10715806,
+      "sha256": "c9239358e3264dee3c08cb8c19c12d57c717de89d954975d1418768ad1e6f666"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-90-marge-cline/audit-before-public-cache-only.json",
+      "bytes": 9718614,
+      "sha256": "9251ca6765ef3084b4b2d0d60b80e45c3ca4497be93a704d1e9286167ed734cf"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-91-glade-creek/audit-after-inventory-cache-only.json",
+      "bytes": 10717771,
+      "sha256": "787f7bf54e32267771a5c8d25ed7b7381cf40b007c1bf7bff49a72ab9ecf8b8a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-91-glade-creek/audit-after-public-cache-only.json",
+      "bytes": 9720537,
+      "sha256": "be191bd3698644d48171e40054a83e911f343c850347750d7724f3f2b26416ca"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-91-glade-creek/audit-before-inventory-cache-only.json",
+      "bytes": 10716761,
+      "sha256": "f16aec67f6364b789ddc0790b0beea8e6bdfaa9dd3c54591e166a8e86073d731"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-91-glade-creek/audit-before-public-cache-only.json",
+      "bytes": 9719542,
+      "sha256": "9f711d45ee83f4226e34faa87ba1740e94d0f09840b6f98bfcc7c57c7bc080de"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-92-east-river-flats/audit-after-inventory-cache-only.json",
+      "bytes": 10718961,
+      "sha256": "83bde570ca11a68133dd280ea66025395b917330291ba81c61d78a57328b6585"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-92-east-river-flats/audit-after-public-cache-only.json",
+      "bytes": 9721727,
+      "sha256": "7054fda16329bcea92d5b9f4b5f192212b6364ba21eb72f61b48be59c562780e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-92-east-river-flats/audit-before-inventory-cache-only.json",
+      "bytes": 10717771,
+      "sha256": "787f7bf54e32267771a5c8d25ed7b7381cf40b007c1bf7bff49a72ab9ecf8b8a"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-92-east-river-flats/audit-before-public-cache-only.json",
+      "bytes": 9720537,
+      "sha256": "be191bd3698644d48171e40054a83e911f343c850347750d7724f3f2b26416ca"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-93-nineveh-bridge/audit-after-inventory-cache-only.json",
+      "bytes": 10719937,
+      "sha256": "bc1bb30bb026dae7b0b73ffd419e128a01f80351c3ba7834801c77d94b6cc7d0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-93-nineveh-bridge/audit-after-public-cache-only.json",
+      "bytes": 9722745,
+      "sha256": "54344e7d9389ef06745d0bdb32e542f5e8ac6a80b362719395bb1bc32252a7b4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-93-nineveh-bridge/audit-before-inventory-cache-only.json",
+      "bytes": 10718961,
+      "sha256": "83bde570ca11a68133dd280ea66025395b917330291ba81c61d78a57328b6585"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-93-nineveh-bridge/audit-before-public-cache-only.json",
+      "bytes": 9721727,
+      "sha256": "7054fda16329bcea92d5b9f4b5f192212b6364ba21eb72f61b48be59c562780e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-94-rowlesburg/audit-after-inventory-cache-only.json",
+      "bytes": 10721001,
+      "sha256": "81561d4dbe414330d3df35dc1b5a5b3b04684ed2e7c2026851bc71c87aa81c5f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-94-rowlesburg/audit-after-public-cache-only.json",
+      "bytes": 9723767,
+      "sha256": "21a683fbb35e7c37ee56e3c6837bf2505f8d0e2199e237b1259e4a9457149369"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-94-rowlesburg/audit-before-inventory-cache-only.json",
+      "bytes": 10719937,
+      "sha256": "bc1bb30bb026dae7b0b73ffd419e128a01f80351c3ba7834801c77d94b6cc7d0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-94-rowlesburg/audit-before-public-cache-only.json",
+      "bytes": 9722745,
+      "sha256": "54344e7d9389ef06745d0bdb32e542f5e8ac6a80b362719395bb1bc32252a7b4"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-95-hellems-beach/audit-after-inventory-cache-only.json",
+      "bytes": 10721905,
+      "sha256": "be4cb8146d9f9b2820055b1ad587506b53d0ef379abd816f2a23acf771ca7020"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-95-hellems-beach/audit-after-public-cache-only.json",
+      "bytes": 9724686,
+      "sha256": "a042e8fc88e4c3ae41bad71f49361967ef598ee797797806ee0264a0322c8ec6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-95-hellems-beach/audit-before-inventory-cache-only.json",
+      "bytes": 10721001,
+      "sha256": "81561d4dbe414330d3df35dc1b5a5b3b04684ed2e7c2026851bc71c87aa81c5f"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-95-hellems-beach/audit-before-public-cache-only.json",
+      "bytes": 9723767,
+      "sha256": "21a683fbb35e7c37ee56e3c6837bf2505f8d0e2199e237b1259e4a9457149369"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-96-mccreery/audit-after-inventory-cache-only.json",
+      "bytes": 10722829,
+      "sha256": "171930edfe141f50c51a3a1b3b78b209ca9886fdd34cbb6c8bbc3c83939c015e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-96-mccreery/audit-after-public-cache-only.json",
+      "bytes": 9725553,
+      "sha256": "b59eaef165b4ac583efa132c95f7fd5cc79c3f6288ddb179da2bb685298ae089"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-96-mccreery/audit-before-inventory-cache-only.json",
+      "bytes": 10721905,
+      "sha256": "be4cb8146d9f9b2820055b1ad587506b53d0ef379abd816f2a23acf771ca7020"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-96-mccreery/audit-before-public-cache-only.json",
+      "bytes": 9724686,
+      "sha256": "a042e8fc88e4c3ae41bad71f49361967ef598ee797797806ee0264a0322c8ec6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-97-river-junction/audit-after-inventory-cache-only.json",
+      "bytes": 10724144,
+      "sha256": "807fc7c6c03d20f7c61d9d0a1fee651c712e903cb3719ef19d65592dd7b2ebd3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-97-river-junction/audit-after-public-cache-only.json",
+      "bytes": 9726910,
+      "sha256": "bee14ac1b4e9e0ee40d32069724d4afd32a1276ee650264596961a7e320d8cd6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-97-river-junction/audit-before-inventory-cache-only.json",
+      "bytes": 10722829,
+      "sha256": "171930edfe141f50c51a3a1b3b78b209ca9886fdd34cbb6c8bbc3c83939c015e"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-97-river-junction/audit-before-public-cache-only.json",
+      "bytes": 9725553,
+      "sha256": "b59eaef165b4ac583efa132c95f7fd5cc79c3f6288ddb179da2bb685298ae089"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-98-radcliffe/audit-after-inventory-cache-only.json",
+      "bytes": 10725324,
+      "sha256": "a70c53edbeb17e7b17005c8fcc2a7dfd576f63e281a7d3bfe654d2d1bb2cffb0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-98-radcliffe/audit-after-public-cache-only.json",
+      "bytes": 9728048,
+      "sha256": "724ca8bf7913108b1d5df9bfb0870ab3fccfe73b7fb65393b55093b24f9e4f1b"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-98-radcliffe/audit-before-inventory-cache-only.json",
+      "bytes": 10724144,
+      "sha256": "807fc7c6c03d20f7c61d9d0a1fee651c712e903cb3719ef19d65592dd7b2ebd3"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-98-radcliffe/audit-before-public-cache-only.json",
+      "bytes": 9726910,
+      "sha256": "bee14ac1b4e9e0ee40d32069724d4afd32a1276ee650264596961a7e320d8cd6"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-99-patton-park/audit-after-inventory-cache-only.json",
+      "bytes": 10726319,
+      "sha256": "ba49444e61db2155fc016b761add6f71e380d59d0c56f8674de460a81ccf7112"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-99-patton-park/audit-after-public-cache-only.json",
+      "bytes": 9729085,
+      "sha256": "295075481b8b3a88595597d1963d40509e85138a66e77259578c34fc6c344991"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-99-patton-park/audit-before-inventory-cache-only.json",
+      "bytes": 10725324,
+      "sha256": "a70c53edbeb17e7b17005c8fcc2a7dfd576f63e281a7d3bfe654d2d1bb2cffb0"
+    },
+    {
+      "file": "docs/access-remediation/2026-09-19-batch-99-patton-park/audit-before-public-cache-only.json",
+      "bytes": 9728048,
+      "sha256": "724ca8bf7913108b1d5df9bfb0870ab3fccfe73b7fb65393b55093b24f9e4f1b"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "batch": 43,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "River Meadows Park, Snohomish County, Washington",
+  "storedCoordinate": { "latitude": 48.1797, "longitude": -122.0837 },
+  "affectedRoutes": [
+    "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+    "stillaguamish-river-river-meadows-haller"
+  ],
+  "decision": "reject-unverified-route-coordinate-and-withhold-dependent-routes",
+  "decisionScope": "The County park and public river access are verified. This decision rejects the route coordinate as a verified launch point and withholds the dependent route cards; it does not reject public access at the park.",
+  "findings": [
+    {
+      "source": "2026-09-18 full audit snapshot",
+      "url": "docs/access-point-quality-audit.json",
+      "result": "The stored point is 468.7 feet from mapped water and 566.6 feet from the matched South Fork Stillaguamish River flowline. Both public route occurrences are suspicious; hydrography coverage is complete."
+    },
+    {
+      "source": "Snohomish County Park Inventory Report, updated 2025-12-23",
+      "url": "https://snohomishcountywa.gov/DocumentCenter/View/23860/Report---Park-Inventory?bidId=",
+      "result": "Confirms River Meadows is a County park with river access and a boat launch. It does not publish a georeferenced launch or carry coordinate."
+    },
+    {
+      "source": "Snohomish County River Meadows Park facility page",
+      "url": "https://snohomishcountywa.gov/Facilities/Facility/Details/River-Meadows-Park-46",
+      "result": "Confirms the 20416 Jordan Road park location, riverside recreation setting, and day-use hours. Its embedded feature marker at 48.1810259919157,-122.078125393669 is a general facility location, not the launch edge."
+    },
+    {
+      "source": "Snohomish County River Meadows Park Map (revision 1, 2024-02-07)",
+      "url": "https://www.snohomishcountywa.gov/DocumentCenter/View/120376/RiverMeadowsPark-Map2024?bidId=",
+      "result": "Shows the South Fork Stillaguamish River, campground, trails, and facilities. It does not identify or georeference a boat launch or signed carry."
+    },
+    {
+      "source": "Snohomish County Water Access page",
+      "url": "https://snohomishcountywa.gov/1369/Water-Access",
+      "result": "Lists River Meadows among the County's riverfront parks, corroborating public water access at the park but not an exact endpoint coordinate."
+    }
+  ],
+  "candidateTest": {
+    "coordinate": { "latitude": 48.1810259919157, "longitude": -122.078125393669 },
+    "source": "County facility-page map marker for facility ID 46",
+    "result": "Rejected as a route coordinate. Refreshed audit measured 724.5 feet to mapped water and 820.3 feet to the matched South Fork Stillaguamish River flowline; the nearest named waterway was Jim Creek at 776.9 feet. This confirms the facility marker is not the launch toe. See targeted-river-meadows-twin-rivers.json and targeted-river-meadows-haller.json for the candidate test outputs."
+  },
+  "routeDisposition": "Add manual holds to both dependent route IDs and regenerate the withheld route manifest. Retain the source route records and existing park coordinates for future review; do not substitute the facility marker.",
+  "reopenWhen": [
+    "Snohomish County publishes a georeferenced launch or carry location, or provides it directly.",
+    "A sufficiently clear, georeferenced map or imagery identifies the signed public carry and water-entry edge, and the legal approach is verified."
+  ],
+  "remainingQuestion": "Which signed trail and shoreline point is the County boat-launch access, and where are the lawful staging/parking and carry?"
+}

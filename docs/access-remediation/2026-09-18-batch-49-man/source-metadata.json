@@ -1,0 +1,56 @@
+{
+  "batch": 49,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "id": "wvdnr-live-gis-man-489",
+      "title": "West Virginia Fishing and Boating Access Sites GIS, ObjectID 489",
+      "url": "https://services.wvgis.wvu.edu/arcgis/rest/services/Applications/dnrRec_fishing/MapServer/2/query?where=OBJECTID%3D489&outFields=OBJECTID%2CSiteName%2CCounty%2CWaterbody%2CAccessType%2COwnership%2CActive%2CxLong%2CyLat&returnGeometry=true&outSR=4326&f=pjson",
+      "provider": "West Virginia DNR GIS service",
+      "retrieved": "2026-09-18",
+      "record": {
+        "objectId": 489,
+        "siteName": "Man",
+        "county": "Logan",
+        "waterbody": "Guyandotte River",
+        "accessType": "Carry Down",
+        "ownership": "WVDNR Wildlife",
+        "active": true,
+        "latitude": 37.7441,
+        "longitude": -81.887894
+      },
+      "use": "Authoritative access-site anchor shared by Guyandotte Water Trail Trips 9 and 10; exact wetted-edge point is not claimed."
+    },
+    {
+      "id": "wvdnr-district-5-guide-coordinate-conflict",
+      "title": "WVDNR District 5 Fishing Guide",
+      "url": "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf",
+      "provider": "West Virginia Division of Natural Resources",
+      "retrieved": "2026-09-18",
+      "observation": "The Man: Logan row lists the Guyandotte River access with coordinate 37.7441, -81.8979, about 0.55 mile west of the current live GIS point at the same latitude.",
+      "use": "Primary-source conflict documented; do not merge the PDF coordinate with the live feature without field or newer official confirmation."
+    },
+    {
+      "id": "guyandotte-water-trail-map-3",
+      "title": "Guyandotte River Water Trail Map 3",
+      "url": "https://guyandottewatertrail.com/wp-content/uploads/2021/11/Map3_12-11-20.pdf",
+      "provider": "Guyandotte River Water Trail",
+      "retrieved": "2026-09-18",
+      "observation": "The route dossier names Trips 9 and 10 as Wylo-to-Man (5 miles) and Man-to-Earling (3.8 miles). It describes the Man access as a gravel pull-off or a concrete boat ramp at a public access sign; the PDF itself was not used to independently georeference the pin in this session.",
+      "use": "Confirms the shared access's route identity, while its ramp description conflicts with current WVDNR GIS's Carry Down classification."
+    },
+    {
+      "id": "google-satellite-man-live-gis-point",
+      "title": "Google Maps satellite imagery at WVDNR Man point",
+      "url": "https://www.google.com/maps/place/37.7440987,-81.8878937/@37.7440987,-81.8878937,150m/data=!3m1!1e3",
+      "provider": "Google Maps imagery",
+      "retrieved": "2026-09-18",
+      "observation": "The state GIS point falls at the river-side access corridor near the highway and visible road/clearing approach. Imagery supports site placement but does not resolve ramp material, a current sign, or a survey-grade water-entry toe.",
+      "use": "Visual corroboration only; imagery is not public-access authorization."
+    }
+  ],
+  "auditEvidence": {
+    "before": "targeted-before-wylo-man.json; old Man endpoint was suspicious at 375.97 feet from the matched flowline and 282.20 feet from mapped water.",
+    "after": "targeted-after-wylo-man.json and targeted-after-man-earling.json; moved Man endpoint is 52.51 feet from matched hydrography, 0 feet from mapped water, and matches an authoritative-access-anchor; both targeted runs report zero source issues."
+  }
+}

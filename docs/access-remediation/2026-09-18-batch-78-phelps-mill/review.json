@@ -1,0 +1,88 @@
+{
+  "batch": 78,
+  "reviewDate": "2026-09-18",
+  "location": "Phelps Mill County Park carry-in access, Otter Tail River, Minnesota",
+  "selectedCoordinate": {
+    "latitude": 46.3821667,
+    "longitude": -95.8210176
+  },
+  "correctedCoordinate": {
+    "latitude": 46.3821667,
+    "longitude": -95.8210176
+  },
+  "routeIds": [
+    "otter-tail-river-phelps-mill-west-lost-lake",
+    "otter-tail-river-phelps-mill-west-red-river-lake"
+  ],
+  "decision": "retain-as-mn-dnr-public-carry-in-access-anchor",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "Minnesota DNR Water Access Sites GPS point for the public natural-surface carry-in access; not a surveyed wet-toe coordinate.",
+  "accessStatus": "public",
+  "accessCondition": "Hand-carry only; portage across the park lawn and launch west of the parking area. The county says there are no conventional boat-launch facilities. Check current park notices.",
+  "evidence": [
+    {
+      "claim": "Minnesota DNR feature 2258 / WAS00559 identifies Phelps Mill as administered by Otter Tail County, Carry-In launch, Natural surface, and publishes GPS geometry at 46.3821666505, -95.8210176143.",
+      "sourceUrl": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=objectid%3D2258&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "sourceType": "Minnesota DNR Water Access Sites GIS feature"
+    },
+    {
+      "claim": "Minnesota DNR lists Phelps Mill County Park carry-in access at river mile 85 and directs paddlers to portage across the park lawn and launch west of the parking area.",
+      "sourceUrl": "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html",
+      "sourceType": "Minnesota DNR State Water Trail route guide"
+    },
+    {
+      "claim": "Otter Tail County confirms the public park and states there are no boat-launch facilities, clarifying that paddlers should expect hand-carry access rather than a conventional trailer ramp.",
+      "sourceUrl": "https://www.co.otter-tail.mn.us/location/phelps-mill/",
+      "sourceType": "county park facility page"
+    },
+    {
+      "claim": "The two route occurrences share the official access coordinate; pre-review, the selected endpoint was 521 feet from the named flowline and 181 feet from mapped water, with complete hydrography coverage.",
+      "sourceUrl": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-before-public-cache-only.json",
+      "sourceType": "frozen route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "otter-tail-river-phelps-mill-west-lost-lake": {
+      "phelpsMillPutInSeverity": "review",
+      "sourceIssues": 0
+    },
+    "otter-tail-river-phelps-mill-west-red-river-lake": {
+      "phelpsMillPutInSeverity": "review",
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 47,
+      "suspiciousAfter": 46,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3891,
+        "suspicious": 46,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 100,
+      "suspiciousAfter": 99,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4195,
+        "suspicious": 99,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1226
+    }
+  }
+}

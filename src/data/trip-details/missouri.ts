@@ -513,7 +513,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.055459
     },
     "takeOut": {
-      "name": "Van Buren Riverfront Park Access",
+      "name": "Van Buren Riverfront Park access area",
       "latitude": 36.9939,
       "longitude": -91.014
     },
@@ -526,7 +526,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Waymeyer and take out at Van Buren Riverfront Park for the NPS-listed lower Current River day section. Use the direct Van Buren gauge as a conservative low-water check and expect a busier, more motorized lower-river character than the upper Current.",
       "accessCaveats": [
         "NPS has described Waymeyer as a non-commercial floater access, but also warned that erosion leaves limited safe unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.",
-        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.",
+        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking.",
         "The Van Buren coordinate is a practical ramp anchor from MDC map/directions context, not an official coordinate table. Use the signed ramp, parking, and loading zones on arrival."
       ],
       "watchFor": [
@@ -539,7 +539,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "current-river-van-buren-big-spring": {
     "putIn": {
-      "name": "Van Buren Riverfront Park Access",
+      "name": "Van Buren Riverfront Park access area",
       "latitude": 36.9939,
       "longitude": -91.014
     },
@@ -558,7 +558,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Confirm the signed upper landing before leaving a vehicle.",
         "The Big Spring coordinate is the USGS-topo-derived Big Spring River Access point in the access/campground area, not the spring overlook, natural-area point, or lower motorized-only boat ramp.",
-        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations."
+        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking."
       ],
       "watchFor": [
         "Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.",
@@ -601,7 +601,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "current-river-van-buren-cataract": {
     "putIn": {
-      "name": "Van Buren Riverfront Park Access",
+      "name": "Van Buren Riverfront Park access area",
       "latitude": 36.9939,
       "longitude": -91.014
     },
@@ -618,7 +618,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Treat this as a long day unless you have a separate legal campground plan before or after the float. Do not assume private banks or informal gravel bars are legal overnight stops.",
       "summary": "Launch at Van Buren Riverfront Park and take out at Cataract for a longer lower Current continuation. Use the direct Van Buren gauge as a conservative low-water check and plan for motorboats, crowds, limited exits, and a lower-river shuttle.",
       "accessCaveats": [
-        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.",
+        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking.",
         "The Cataract coordinate is a topo-derived landing point, not an official NPS GIS table. Follow the signed landing, parking, and turnaround layout on arrival.",
         "This route passes the Big Spring area mid-run; do not confuse the signed upper river landing with the lower trailered-boat-only ramp if you stop there."
       ],
@@ -758,7 +758,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "current-river-van-buren-gooseneck": {
     "putIn": {
-      "name": "Van Buren Riverfront Park Access",
+      "name": "Van Buren Riverfront Park access area",
       "latitude": 36.9939,
       "longitude": -91.014
     },
@@ -775,7 +775,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Plan this as a very long day or an intentionally staged overnight. Gooseneck / Hawes has primitive NPS campground context at the finish, but campsite availability, closures, fees, and river conditions can change.",
       "summary": "Launch at Van Buren Riverfront Park and finish at Gooseneck / Hawes for a long lower Current River continuation. Use the direct Van Buren gauge as a conservative low-water check and expect motorboats, long pool sections, limited exits, and end-of-river logistics.",
       "accessCaveats": [
-        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.",
+        "Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond MDC-listed boating regulations. The stored route point is a generalized park/access anchor, not a surveyed ramp toe; MDC's map shows the ramp and parking.",
         "NPS materials use both Gooseneck and Hawes naming for the downstream endpoint. Confirm the signed Gooseneck / Hawes river access before leaving a vehicle.",
         "The Gooseneck coordinate is the existing USGS-topo-derived Hawes Recreation Area point already used by the adjacent route, not an official NPS GIS landing table.",
         "This route ends near the Current River mouth. Do not continue onto the Black River or other downstream big-river water without a separate plan."
@@ -1674,7 +1674,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Sappington Bridge is an MDC river access with public boating and fishing access, but same-day signs and area rules still control parking, hours, and use.",
         "Meramec State Park has both a concrete boat launch and canoe launch near River Stop Store. Use the public launch area rather than campground-only gravel launches unless you are a camping patron.",
-        "Coordinates are practical access anchors from public paddling/location records and Missouri State Parks River Stop Store context; follow on-site signs for the exact ramp or canoe-launch landing."
+        "Missouri State Parks publishes a distinct coordinate for the concrete boat launch; use it as the launch-area anchor and follow on-site signs to choose the public concrete or canoe launch and exact landing."
       ],
       "watchFor": [
         "Shallow riffles and dragging when the Sullivan gauge falls near or below the 200 cfs floor.",
@@ -1705,6 +1705,7 @@ export const missouriRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Meramec State Park has a concrete boat launch and canoe launch near River Stop Store. Use the public launch area rather than campground-only gravel launches unless you are a camping patron.",
         "Sand Ford is an MDC river access with public boat and fishing access, but same-day signs and area rules still control parking, hours, and use.",
+        "Missouri State Parks publishes a separate coordinate for its named concrete boat launch; use that point as an access-area anchor and follow current signs to the exact public landing.",
         "The mileage is an approximate access-to-access derivation from MDC planning material. Inspect both landings and leave enough daylight rather than treating the distance as a precise outfitter schedule."
       ],
       "watchFor": [

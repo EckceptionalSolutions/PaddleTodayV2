@@ -1,0 +1,42 @@
+{
+  "batch": 72,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Ulster Bridge Municipal Access, North Branch Susquehanna River, Bradford County, Pennsylvania",
+  "affectedRoutes": [
+    "susquehanna-river-ulster-bridge-towanda",
+    "susquehanna-river-ulster-bridge-wysox-township-park",
+    "susquehanna-river-ulster-bridge-terrytown",
+    "susquehanna-river-sayre-towanda"
+  ],
+  "decision": "retire-the-superseded-private-gravel-pin-and-move-shared-records-to-the-newer-municipal-carry-in-access-coordinate",
+  "decisionScope": "The 2008 PFBC Section 1 table identifies 41.8525,-76.497222 as a distinct Gravel Private point. The 2021 North Branch Water Trail access table instead identifies Ulster Bridge Municipal Access at 41.849146,-76.497242 (river mile 278.8, river right, carry-in, 30 parking spaces nearby) and lists it in a municipal access trip. All route records now use this newer municipal point.",
+  "preChangeFinding": {
+    "oldCoordinate": { "latitude": 41.8525, "longitude": -76.497222 },
+    "publicOccurrences": 3,
+    "publicSuspiciousOccurrences": 1,
+    "inventoryOccurrences": 4,
+    "inventorySuspiciousOccurrences": 2,
+    "matchedFlowlineDistanceFeet": 332,
+    "mappedWaterDistanceFeet": 166,
+    "hydrographyCoverageComplete": true,
+    "oldSiteStatus": "The 2008 PFBC map labels this separate coordinate Gravel Private."
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/routes/pennsylvania.ts",
+      "src/data/trip-details/pennsylvania.ts",
+      "src/data/route-access-official-map-controls.json",
+      "src/data/generated/route-access-registry.json"
+    ],
+    "from": { "latitude": 41.8525, "longitude": -76.497222 },
+    "to": { "latitude": 41.849146, "longitude": -76.497242 },
+    "movedFeet": 1224,
+    "publicOccurrences": 3,
+    "inventoryOccurrences": 4,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "pa_emhr_ulster_bridge_municipal_access_20260918",
+    "rationale": "The 2021 water-trail access table publishes the current municipal carry-in coordinate and parking details. Updated three route put-ins, one intermediate access point, the route-start map point, names, and evidence notes; retired the old separate private-gravel point from active routing. Added source control. Fresh NHD audits place the new point about 10 feet from the connected Susquehanna route network."
+  },
+  "remainingUncertainty": "The published municipal coordinate is an access-area point, not a surveyed wet toe. The three corrected route starts are about 10 feet from the connected Susquehanna route network; the nearest named flowline is Cash Creek and the nearest water polygon is about 251 feet away. In the Sayre-to-Towanda inventory route, the named Susquehanna flowline is about 492 feet away while Cash Creek is about 10 feet away. Coverage is complete. Keep the anchor in review.",
+  "outcome": "One suspicious public endpoint moved to review and was corrected to the newer public municipal site. Across the full inventory, two suspicious occurrences moved to review. The obsolete private point is no longer used."
+}

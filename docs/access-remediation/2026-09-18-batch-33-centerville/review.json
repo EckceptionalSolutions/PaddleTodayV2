@@ -1,0 +1,55 @@
+{
+  "batch": 33,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 3,
+  "uniqueRoutesChanged": 3,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Louisiana",
+      "name": "Centerville Schwan Park official dock",
+      "routeIds": [
+        "bayou-teche-franklin-centerville",
+        "bayou-teche-charenton-centerville",
+        "bayou-teche-baldwin-centerville"
+      ],
+      "decision": "correct-to-imagery-derived-public-dock-water-entry",
+      "previousCoordinate": {
+        "latitude": 29.7599302,
+        "longitude": -91.4191962
+      },
+      "updatedCoordinate": {
+        "latitude": 29.760737,
+        "longitude": -91.41906
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "TECHE Project identifies the official National Paddle Trail dock at Schwan Park, 514 Parish Road 131, Centerville. Current Google Maps aerial imagery shows the park-side landing at the Bayou Teche edge. The old point was about 253 feet from mapped water and 408 feet from the matched flowline; the selected point lies on mapped water. The exact coordinate is imagery-derived, not published or surveyed by TECHE.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 3,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 3",
+        "flowlineDistanceFeet": 111.8,
+        "severity": "review for all 3 due to generalized/incomplete NHD flowline coverage"
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if TECHE or the managing authority relocates or closes the dock, or publishes an exact surveyed coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 3,
+    "targetedRouteAuditResults": "All three separate route-scoped audit runs reported zero suspicious, failure, unknown, or source-issue results.",
+    "changedRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

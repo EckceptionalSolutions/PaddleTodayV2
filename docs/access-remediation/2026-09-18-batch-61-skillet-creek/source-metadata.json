@@ -1,0 +1,43 @@
+{
+  "batch": 61,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Iowa DNR Water Accesses NEW PUBLIC GIS feature 25 (access 261)",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=25&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "The live feature is named Skillet Creek Access, access number 261, on the Des Moines River in Webster County, managed by Iowa DNR.",
+        "Its WGS84 point is 42.26169114946014,-93.99540928857351. The feature classifies it as a natural access, with a 9-foot width, 53-foot access length, eight gravel parking stalls, and parking 31 feet from access.",
+        "The feature point is about 3,472 feet from the old route coordinate. Cached NHD places the new point about 29 feet from mapped water; the route-matched Des Moines River flowline is about 184 feet away, while the nearest named line is Dry Branch at about 166 feet."
+      ],
+      "limits": "The DNR feature identifies and locates the public access site but does not survey its wet toe. NHD line naming is locally ambiguous at the access; mapped-water proximity and the state's named access feature support retaining it for review."
+    },
+    {
+      "name": "Iowa DNR Des Moines River Water Trail map, Webster and Boone Counties",
+      "url": "https://www.iowadnr.gov/media/8696/download?inline=",
+      "observations": [
+        "The state map labels Skillet Creek Access as access 261 and Deception Hollow as access 276.",
+        "The map states that access numbers correspond to river miles rounded up and can be subtracted to estimate the distance between access sites."
+      ],
+      "limits": "The map establishes site identity and route order but does not publish point coordinates or a surveyed water-entry toe."
+    },
+    {
+      "name": "Iowa DNR Des Moines River Water Trail guide, Webster County",
+      "url": "https://www.iowadnr.gov/media/8886/download?inline=",
+      "observations": [
+        "The guide names the Deception Hollow-to-Skillet Creek Access stream reach and lists it as 15.5 miles.",
+        "The guide describes the meandered river's beaches and warns paddlers to avoid adjacent private uplands."
+      ],
+      "limits": "The guide does not publish a coordinate for Skillet Creek Access."
+    },
+    {
+      "name": "USGS Des Moines River near Stratford monitoring location",
+      "url": "https://waterdata.usgs.gov/monitoring-location/USGS-05481300/",
+      "observations": [
+        "The USGS station is in the Stratford gauge corridor, near the previous route pin; its station description places it 0.1 mile downstream from Skillet Creek."
+      ],
+      "limits": "The gauge is a hydrologic reference and does not identify or georeference the public access."
+    }
+  ],
+  "decision": "Use the exact current Iowa DNR access-feature coordinate for site 261, corroborated by the state water-trail map and guide. Retain it as an access anchor because the feature is a natural carry-down and does not survey the wet toe."
+}

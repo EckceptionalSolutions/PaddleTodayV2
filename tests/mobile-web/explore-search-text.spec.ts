@@ -4,7 +4,7 @@ import fixture from './fixtures/route-detail.json' with { type: 'json' };
 test('Explore matches accents and repeated spaces without changing the typed query', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: ['Cañon Creek', 'Other Creek'].map((name, index) => ({
+  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: ['Cañon Creek', 'Other Creek'].map((name, index) => ({
     ...fixture.result, score: 80, rating: 'Good',
     river: { ...fixture.result.river, name, slug: `search-${index}`, riverId: `search-${index}`, difficulty: 'easy' },
     summary: { gaugeNow: 'Check source', shortExplanation: 'QA fixture.' },

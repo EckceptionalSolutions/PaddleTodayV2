@@ -60,6 +60,42 @@ const upperColoradoStateBridgeCatamountPhoto: RouteGalleryPhoto = {
   takenLabel: 'Wikimedia Commons: CC BY 2.0',
 };
 
+const upperColoradoPumphouseRadiumPhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-pumphouse-radium-blm',
+  src: 'https://cdn.recreation.gov/public/2023/03/27/06/02/261786_8625cccb-734f-4c24-8e0b-8bddfa84be9b_1440.jpg',
+  alt: 'The Upper Colorado River at the BLM Pumphouse recreation corridor in Colorado.',
+  caption: 'Upper Colorado River near Pumphouse and the Radium section',
+  credit: 'Bureau of Land Management via Recreation.gov',
+  takenLabel: 'BLM recreation-site image',
+};
+
+const upperColoradoRadiumRanchoPhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-radium-rancho-blm',
+  src: 'https://cdn.recreation.gov/public/2023/03/27/07/16/262815_ad7938db-4ed1-4b42-a3b8-4dc6067c3085_1440.webp',
+  alt: 'The Colorado River at the BLM Radium recreation area in Colorado.',
+  caption: 'Upper Colorado River near Radium and Rancho Del Rio',
+  credit: 'Bureau of Land Management via Recreation.gov',
+  takenLabel: 'BLM recreation-site image',
+};
+
+const upperColoradoStateBridgeTwoBridgesPhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-state-bridge-two-bridges-blm',
+  src: 'https://cdn.recreation.gov/public/images/84874_700.webp',
+  alt: 'The Colorado River near State Bridge in Colorado.',
+  caption: 'State Bridge to Two Bridges section on the Upper Colorado River',
+  credit: 'Bureau of Land Management via Recreation.gov',
+  takenLabel: 'BLM recreation-site image',
+};
+
+const upperColoradoTwoBridgesCatamountPhoto: RouteGalleryPhoto = {
+  id: 'upper-colorado-two-bridges-catamount-blm',
+  src: 'https://cdn.recreation.gov/public/images/83652_1440.webp',
+  alt: 'The Upper Colorado River at Catamount Bridge in Colorado.',
+  caption: 'Two Bridges to Catamount section on the Upper Colorado River',
+  credit: 'Bureau of Land Management via Recreation.gov',
+  takenLabel: 'BLM recreation-site image',
+};
+
 const eagleRiverCampHaleRedCliffPhoto: RouteGalleryPhoto = {
   id: 'eagle-river-camp-hale-red-cliff-commons',
   src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Top%20of%20the%20Rockies%20-%20Mountain%20Backdrop%20at%20Camp%20Hale%20Memorial%20-%20NARA%20-%207722422.jpg?width=1600',
@@ -1968,6 +2004,10 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'potomac-river-monocacy-edwards': [potomacMarylandPhoto],
   'upper-colorado-pumphouse-state-bridge': [upperColoradoPumphouseStateBridgePhoto],
   'upper-colorado-state-bridge-catamount': [upperColoradoStateBridgeCatamountPhoto],
+  'upper-colorado-pumphouse-radium': [upperColoradoPumphouseRadiumPhoto],
+  'upper-colorado-radium-rancho': [upperColoradoRadiumRanchoPhoto],
+  'upper-colorado-state-bridge-two-bridges': [upperColoradoStateBridgeTwoBridgesPhoto],
+  'upper-colorado-two-bridges-catamount': [upperColoradoTwoBridgesCatamountPhoto],
   'eagle-river-camp-hale-red-cliff': [eagleRiverCampHaleRedCliffPhoto],
   'homestake-creek-gold-park': [homestakeCreekGoldParkPhoto],
   'eagle-river-minturn-town-run': [eagleRiverMinturnTownRunPhoto],
@@ -1992,6 +2032,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'east-river-cb-south-almont': [eastRiverLowerPhoto],
   'gunnison-river-almont-north-bridge': [gunnisonTownRunPhoto],
   'gunnison-river-whitewater-park': [gunnisonTownRunPhoto],
+  'gunnison-river-chukar-gunnison-forks': [gunnisonTownRunPhoto],
   'uwharrie-river-low-water-bridge-hwy-109': [uwharrieRiverLowWaterBridgePhoto],
   'grizzly-creek-two-rivers': [grizzlyCreekTwoRiversPhoto],
   'lower-colorado-two-rivers-south-canyon': [lowerColoradoTwoRiversSouthCanyonPhoto],
@@ -7423,6 +7464,7 @@ export function getRouteGalleryPhotos(route: RoutePhotoTarget): RouteGalleryPhot
 // Some river systems have approved photography on only one or two routes. Reuse
 // that same-river context before falling back to a generic river placeholder.
 const approvedRiverFallbackRouteById: Record<string, string> = {
+  'erie-canal': 'erie-canal-frankfort-lock-e18',
   'chattahoochee-river': 'chattahoochee-river-powers-island-paces-mill',
   'big-fork-river': 'big-fork-river-highway-6-north-big-falls-east',
   'big-sioux-river': 'big-sioux-river-farm-field-rotary',
@@ -9320,6 +9362,14 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     credit: 'Matthew Trump via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
   },
+  'yampa-river': {
+    id: 'yampa-river-state-park-boat-ramp-commons',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Yampa%20River%20State%20Park%20boat%20ramp.JPG?width=1600',
+    alt: 'A boat ramp at Yampa River State Park in Colorado.',
+    caption: 'Yampa River State Park boat ramp; same-river context',
+    credit: 'Jeffrey Beall via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: CC BY 4.0',
+  },
   'dan-river': {
     id: 'dan-river-danville-commons',
     src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dan_River_Danville_Virginia.JPG?width=1600',
@@ -9327,6 +9377,22 @@ const approvedRiverContextPhotosByRiverId: Record<string, RouteGalleryPhoto> = {
     caption: 'Dan River at Danville; same-river context',
     credit: 'MarmadukePercy via Wikimedia Commons',
     takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+  },
+  'jackson-river': {
+    id: 'jackson-river-hidden-valley-public-domain',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Jackson%20River%20in%20Hidden%20Valley%2C%20upstream.jpg?width=1600',
+    alt: 'The Jackson River flows through Hidden Valley in Bath County, Virginia.',
+    caption: 'Jackson River in Hidden Valley; same-river context',
+    credit: 'Nyttend via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
+  },
+  'cowpasture-river': {
+    id: 'cowpasture-river-public-domain',
+    src: 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cowpasture%20River.jpg?width=1600',
+    alt: 'The Cowpasture River flows through a rural Virginia valley.',
+    caption: 'Cowpasture River; same-river context',
+    credit: 'Hamiltonl via Wikimedia Commons',
+    takenLabel: 'Wikimedia Commons: public domain',
   },
   'french-broad-river': {
     id: 'french-broad-morning-paddle-commons',

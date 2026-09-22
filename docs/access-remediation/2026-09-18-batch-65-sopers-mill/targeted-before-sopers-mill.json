@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:21:33.236Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Iowa",
+      "name": "Soper's Mill Access #235",
+      "latitude": 42.1044299,
+      "longitude": -93.5754935,
+      "distanceFeetToMappedWater": 424.44458158904035,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-sopers-mill-peterson-park",
+          "endpoint": "putIn",
+          "endpointName": "Soper's Mill Access #235",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "south-skunk-river-sopers-mill-peterson-park",
+      "routeName": "South Skunk River",
+      "reach": "Soper's Mill to Peterson Park West",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Soper's Mill Access #235",
+      "latitude": 42.1044299,
+      "longitude": -93.5754935,
+      "matchedRiverName": "South Skunk River",
+      "distanceFeetToMatchedRiver": 525.2774560413814,
+      "nearestMatchedLatitude": 42.103175,
+      "nearestMatchedLongitude": -93.574542,
+      "nearestWaterwayName": "Keigley Branch",
+      "distanceFeetToNearestWaterway": 424.44458158904035,
+      "nearestWaterwayLatitude": 42.105579,
+      "nearestWaterwayLongitude": -93.575739,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 488.35265021040163,
+      "nearestWaterbodyLatitude": 42.103415862009435,
+      "nearestWaterbodyLongitude": -93.57431567170717,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 424.44458158904035,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 525 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "south-skunk-river-sopers-mill-peterson-park",
+      "routeName": "South Skunk River",
+      "reach": "Soper's Mill to Peterson Park West",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Peterson Park West Access #233",
+      "latitude": 42.0847077,
+      "longitude": -93.5974389,
+      "matchedRiverName": "South Skunk River",
+      "distanceFeetToMatchedRiver": 1148.973097085238,
+      "nearestMatchedLatitude": 42.086135,
+      "nearestMatchedLongitude": -93.593656,
+      "nearestWaterwayName": "South Skunk River",
+      "distanceFeetToNearestWaterway": 1148.973097085238,
+      "nearestWaterwayLatitude": 42.086135,
+      "nearestWaterwayLongitude": -93.593656,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 93.5791073561577,
+      "nearestWaterbodyLatitude": 42.08468388823511,
+      "nearestWaterbodyLongitude": -93.5970947639706,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 93.5791073561577,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 94 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

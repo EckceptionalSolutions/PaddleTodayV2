@@ -1,0 +1,9 @@
+# Willow Mill Park launch coordinate review — batch 41
+
+The refreshed full audit ranked Willow Mill Park first among remaining shared suspicious locations: three public route endpoints use 40.2567096, -77.0411725. Each is 318.8 ft from the topology-connected Conodoguinet flowline and 189.7 ft from mapped water, with complete hydrography coverage.
+
+Public access itself is verified. Cumberland County's [current water-trail guide](https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024) lists Willow Mill as a concrete boat launch with an improved ramp, short carry, and shallow slope to water. Silver Spring Township's [facility page](https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17) says the boat launch is at the rear of the park. The coordinate evidence conflicts: the county guide's B4 site point (40.2578, -77.0426) is 562 ft from the route point, while PFBC's general access-area point (40.26081773, -77.04177531) is 1,511 ft away and labels `RAMP N`. Neither source identifies the concrete ramp toe.
+
+I kept the public route endpoints in place and held the coordinate change. The county and township confirm the launch, but replacing the current point with either park-area pin would move the route to an unverified site anchor. I corrected the route notes so they no longer claim that the stored Willow Mill point is the county table coordinate. The three route-scoped audits still classify the shared point as suspicious and report no source issues or unknown evidence. This batch does not reduce the full-audit suspicious count.
+
+Continue when current aerial imagery clearly shows the improved ramp, or Silver Spring Township/PFBC provides a georeferenced launch coordinate. See [selection.json](selection.json), [source metadata](source-metadata.json), and [review results](review.json).

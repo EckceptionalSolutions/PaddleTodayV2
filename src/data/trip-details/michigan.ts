@@ -22,7 +22,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "kalamazoo-river-ceresco-historic-bridge": {
     "putIn": {"id": "ceresco-green", "name": "Ceresco Green public carry-in access", "latitude": 42.2704, "longitude": -85.06105},
-    "takeOut": {"id": "historic-bridge-park", "name": "Historic Bridge Park public kayak launch", "latitude": 42.29236, "longitude": -85.11431},
+    "takeOut": {"id": "historic-bridge-park", "name": "Historic Bridge Park public kayak-launch access area", "latitude": 42.29236, "longitude": -85.11431},
     "logistics": {
       "distanceLabel": "About 3.6 mi",
       "estimatedPaddleTime": "About 2 to 3 hr depending on flow, current, scouting, and stops",
@@ -85,7 +85,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "No on-route camping is assumed. Use designated nearby campgrounds or lodging and do not camp on park or private river frontage.",
       "campingClassification": "none",
       "summary": "Launch at the Comstock Township DNR carry-in access and take out at the city boat launch at Mayor's Riverfront Park. The short reach is a bounded urban corridor with a clear public endpoint pair; downstream dams and portages are outside this route and require separate planning.",
-      "accessCaveats": ["Comstock is a small carry-down access with parking and no restrooms; confirm current signage, shoreline, and launch conditions before loading boats.", "Mayor's Riverfront Park is a public city boat ramp with parking and restrooms; confirm hours, construction notices, and take-out access before launching.", "The 500-3000 cfs range is a broad community estimate, not a go/no-go rule; pair it with the direct USGS reading and same-day visual judgment."],
+      "accessCaveats": ["Comstock is a small carry-down access with parking and no restrooms; confirm current signage, shoreline, and launch conditions before loading boats.", "Michigan Water Trails locates Mayor's Riverfront Park access at 42.29142, -85.56233 and describes a developed carry-in under 50 yards; use this public access anchor and confirm the exact bank entry before take-out.", "The 500-3000 cfs range is a broad community estimate, not a go/no-go rule; pair it with the direct USGS reading and same-day visual judgment."],
       "watchFor": ["Current changes, cold water, wind, and motorboat traffic.", "Downstream dams and portages if continuing beyond Mayor's Riverfront Park.", "Fast rises after storms and changing urban access or construction conditions."]
     },
     "corridorId": "kalamazoo-river-comstock-mayors-riverfront",
@@ -455,7 +455,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
     "continuityStatus": "verified"
   },
   "paw-paw-river-riverside-graham-avenue": {
-    "putIn": {"id": "riverside-kayak-park", "name": "Riverside Kayak Park public dock and carry-in access", "latitude": 42.186122, "longitude": -86.373262},
+    "putIn": {"id": "riverside-kayak-park", "name": "Riverside Kayak Park / universal-access dock area", "latitude": 42.186122, "longitude": -86.373262},
     "takeOut": {"id": "graham-avenue-water-access", "name": "Graham Avenue public boat launch, Benton Harbor", "latitude": 42.117303, "longitude": -86.468198},
     "logistics": {
       "distanceLabel": "Approximately 11 river miles",
@@ -465,7 +465,7 @@ export const michiganRiverTripDetails: Record<string, RiverTripDetails> = {
       "camping": "Treat this as a day route. Use designated Paw Paw River campgrounds or nearby lodging after verifying current season and reservations.",
       "campingClassification": "nearby_basecamp",
       "summary": "This approximately 11-mile Paw Paw River Water Trail route links Riverside Kayak Park with Graham Avenue and direct USGS 04102500 telemetry. The advanced upstream section has tree fall and slide-overs; 6 ft at Riverside is conservative community planning guidance, not a safety guarantee.",
-      "accessCaveats": ["Riverside Kayak Park has a public dock and parking; verify carry and parking conditions before loading boats.", "Graham Avenue has a developed public launch and parking fee; stage the take-out before launch.", "Do not assume intermediate take-outs on the nine-mile Riverside-to-Benton Harbor section; portage or turn around when wood blocks the channel.", "Avoid the St. Joseph River confluence and railroad-trestle area unless separately planned for larger current and motorized traffic."],
+      "accessCaveats": ["Michigan Water Trails publishes the Riverside park GPS, not a surveyed dock-edge coordinate; follow the signed public universal-access dock, verify the under-50-yard carry and parking conditions before loading boats.", "Graham Avenue has a developed public launch and parking fee; stage the take-out before launch.", "Do not assume intermediate take-outs on the nine-mile Riverside-to-Benton Harbor section; portage or turn around when wood blocks the channel.", "Avoid the St. Joseph River confluence and railroad-trestle area unless separately planned for larger current and motorized traffic."],
       "watchFor": ["Tree falls, slide-overs, shallow water, cold water, and rapid rises after storms.", "Limited take-outs and shuttle dependence.", "Open-water and motorized-traffic hazards near the Graham Avenue/St. Joseph River end."]
     },
     "corridorId": "paw-paw-river-riverside-graham-avenue",

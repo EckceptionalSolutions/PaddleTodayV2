@@ -1,0 +1,34 @@
+{
+  "batch": 71,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "observations": [
+        "Names Contoocook River Canoe Company as the take-out for the one-way route and publishes exact coordinates 43.25013,-71.62135.",
+        "Describes the 9-mile one-way route as involving a fee-based shuttle from CRCC and says personal boats can be shuttled for a fee."
+      ],
+      "name": "Forest Society — Contoocook River paddle guide (2023)",
+      "url": "https://www.forestsociety.org/document/contoocook-river-paddleedited2023pdf.pdf",
+      "limits": "Identifies the managed take-out area but does not give a surveyed wet-toe coordinate or establish shuttle coverage for the longer Henniker launches."
+    },
+    {
+      "observations": [
+        "Describes a private riverfront beach with direct access and a 9-mile paid shuttle option.",
+        "Prohibits self-shuttling personal boats and states parking is for renting or shuttle customers only."
+      ],
+      "name": "Contoocook River Canoe Company — current rental and access policy",
+      "url": "https://contoocookcanoe.com/contoocook-river-rentals/",
+      "limits": "Confirms the operator-controlled access terms but does not guarantee the longer Henniker routes are included in its shuttle service."
+    },
+    {
+      "observations": [
+        "The shared coordinate is 390 feet from the generalized matched Contoocook flowline and 284 feet from mapped water; coverage is complete.",
+        "All three targeted endpoints now classify review against the exact source-backed access-area control, with no hydrography source issues."
+      ],
+      "name": "USGS NHD Large Scale — targeted cache-only audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "limits": "Mapped proximity is not an exact landing survey or legal access authorization."
+    }
+  ],
+  "decision": "Keep the exact Forest Society coordinate as the conditional outfitter access-area marker. Preserve review status, and require confirmation of operator access and shuttle coverage before staging, especially for the two longer Henniker routes."
+}

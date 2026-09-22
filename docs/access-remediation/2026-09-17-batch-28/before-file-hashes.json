@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-09-17T19:04:08.4456954-05:00",
+  "files": [
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\scripts\\audit-route-coordinate-river-distance.ts",
+      "path": "scripts/audit-route-coordinate-river-distance.ts",
+      "sha256": "08B92BA632CCEC9CDA065FC16F63BCFF3E2FBC7EA9E2F4730DB62B50126CD1E8"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\src\\data\\routes\\louisiana-bayou-teche.ts",
+      "path": "src/data/routes/louisiana-bayou-teche.ts",
+      "sha256": "91753C8BE5AC12CA5489F4B8260EAA27AEF0EAAF13A6F27E1AAB6ECF1C733067"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\src\\data\\route-access-official-map-controls.json",
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "F9A19E7F522B8D730BF84D14C4C3A7DA4E7B042562E24154B266C9BB19099601"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\README.md",
+      "path": "docs/access-remediation/2026-09-17-batch-28/README.md",
+      "sha256": "1AE16F73CCFEBA6878457A1439FDF642DC468E8B6FF8909686FFF501F30742E2"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\review.json",
+      "path": "docs/access-remediation/2026-09-17-batch-28/review.json",
+      "sha256": "ADD272F5B326A9506E57A445D2BE0B0177E0E8969B90063632807AC82FA7BA19"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\selection.json",
+      "path": "docs/access-remediation/2026-09-17-batch-28/selection.json",
+      "sha256": "5CC92EF0789D5822ACAE885C2EF3348D6EA0BB30045ED92D9E112525FEA9D589"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\selection-audit-queue.json",
+      "path": "docs/access-remediation/2026-09-17-batch-28/selection-audit-queue.json",
+      "sha256": "D8872DC4AA889D5E8D0014589588AD3B59069D92994A9B34BBFA2A8D32DF6B5C"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\source-metadata.json",
+      "path": "docs/access-remediation/2026-09-17-batch-28/source-metadata.json",
+      "sha256": "1ED2D39BFC3AD875A757D53C5D976C23D1368BD3800D088C087B54692AC0A46C"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\validation.json",
+      "path": "docs/access-remediation/2026-09-17-batch-28/validation.json",
+      "sha256": "882C1A4213D1BF711C7E742F756287CC63D892685954EE7AA345F051F9F058FE"
+    },
+    {
+      "backup": "node_modules\\.cache\\access-remediation-batch28-preservation\\docs\\access-remediation\\2026-09-17-batch-28\\verify.mjs",
+      "path": "docs/access-remediation/2026-09-17-batch-28/verify.mjs",
+      "sha256": "6FB41DBC17E301B912869FCF306778246124892D4894E0456582FD39BA29D5BA"
+    }
+  ]
+}

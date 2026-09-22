@@ -1,0 +1,45 @@
+{
+  "batch": 47,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Sullivan Park north bank, near Sullivan Road bridge, Spokane Valley, Washington",
+  "affectedRoutes": [
+    "spokane-river-harvard-sullivan",
+    "spokane-river-barker-sullivan"
+  ],
+  "decision": "replace-the-off-bank-park-point-with-the-bridge-side-north-bank-water-entry-visible-in-aerial-imagery",
+  "decisionScope": "The Spokane Conservation District documents two pedestrian/small-craft accesses on the north bank at Sullivan Park, including one by the bridge, and says boulders and fencing direct users to the entry points. The district and City confirm the park and access; current aerial imagery identifies the bridge-side shore entry. The coordinate is imagery-georeferenced, not surveyed, with about 50 feet estimated uncertainty.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 47.674537, "longitude": -117.197426 },
+    "occurrences": 2,
+    "mappedWaterDistanceFeet": 436.8129,
+    "matchedFlowlineDistanceFeet": 468.3849,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/routes/washington-spokane.ts",
+    "from": { "latitude": 47.674537, "longitude": -117.197426 },
+    "to": { "latitude": 47.672873, "longitude": -117.196939 },
+    "occurrences": 2,
+    "coordinateRole": "imagery-georeferenced-water-entry",
+    "rationale": "The new point follows the bridge-side north-bank footpath to the visible shoreline entry documented by Spokane Conservation District. It is not an official surveyed coordinate."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeet": 4.0198,
+    "mappedWaterDistanceFeet": 0,
+    "endpointOnWaterbody": true,
+    "interpretation": "The imagery-derived point is at the bank entry and is only about four feet from the Spokane River flowline. Both named route occurrences now audit ok with no source issues."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "spokane-river-harvard-sullivan",
+      "file": "targeted-harvard-sullivan.json",
+      "result": "Sullivan take-out is ok at 4.0 feet from the flowline and on mapped water; the other endpoint remains review; source issues 0."
+    },
+    {
+      "routeId": "spokane-river-barker-sullivan",
+      "file": "targeted-barker-sullivan.json",
+      "result": "Sullivan take-out is ok at 4.0 feet from the flowline and on mapped water; the other endpoint remains review; source issues 0."
+    }
+  ],
+  "outcome": "Two suspicious route occurrences moved to an imagery-georeferenced bridge-side water entry. The shared endpoint now audits ok on both routes; the coordinate is still approximate and should not be represented as surveyed."
+}

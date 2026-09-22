@@ -1,0 +1,9 @@
+# Batch 65 — Soper's Mill Access 235
+
+Reviewed 2026-09-18. The shared old coordinate served two South Skunk River route occurrences; one was suspicious at 525 feet from the matched flowline and 424 feet from mapped water. Iowa DNR's current access GIS feature 218 identifies Sopers Mill A as access 235 on the South Skunk River, county-managed, with a 10-by-71-foot concrete access and parking 10 feet away. The layer also contains a nearby Sopers Mill B point for access 235, but its waterbody and county fields are blank. Story County distinguishes the North and South sites and lists the South access on its public water trail.
+
+Moved both occurrences 686 feet to feature 218 at `42.104244318429394,-93.5729709396775`. Refreshed hydrography places the new point 29 feet from mapped water and 66 feet from the named South Skunk River flowline; both targeted route audits report no source issues. The endpoints audit as review because the access GIS point does not survey the wet toe and paddlers must follow current posted north/south and riffle directions.
+
+Evidence: [Iowa DNR access feature 218](https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=218&outFields=*&returnGeometry=true&outSR=4326&f=pjson), [Story County's current South Skunk Water Trail list](https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail), and [Story County Soper's Mill site details](https://www.mycountyparks.com/County/Story/Park/Sopers-Mill).
+
+The public audit now has 59 suspicious endpoints (down from 60), and the full inventory has 113 (down from 114). Because the old point was shared, public endpoints within 100 feet of mapped water rose by two to 4,717 and endpoints over 300 feet away fell by two to 181. See `review.json`, `source-metadata.json`, and before/after reports for the full record.

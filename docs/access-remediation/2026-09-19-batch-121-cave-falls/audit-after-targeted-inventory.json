@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T03:13:46.401Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "fall-river-cave-falls-concrete",
+      "routeName": "Fall River",
+      "reach": "Cave Falls Campground to Concrete CCC Bridge (Cave Falls Run)",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Cave Falls Campground Put-In",
+      "latitude": 44.13110694041538,
+      "longitude": -111.01426686449537,
+      "matchedRiverName": "Fall River",
+      "distanceFeetToMatchedRiver": 322.8581735840039,
+      "nearestMatchedLatitude": 44.130425,
+      "nearestMatchedLongitude": -111.013481,
+      "nearestWaterwayName": "Fall River",
+      "distanceFeetToNearestWaterway": 322.8581735840039,
+      "nearestWaterwayLatitude": 44.130425,
+      "nearestWaterwayLongitude": -111.013481,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 255.14935282958106,
+      "nearestWaterbodyLatitude": 44.13057658046303,
+      "nearestWaterbodyLongitude": -111.01363165545047,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 255.14935282958106,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/553/main",
+      "coordinateEvidenceDetail": "id_cave_falls_fall_river_campground_access_20260919 cave-falls-campground-fall-river-putin: American Whitewater identifies Cave Falls Campground as the put-in for the Cave Falls Run on Fall River. Federal campground material identifies Cave Falls as a developed Caribou-Targhee site on Fall River near the Yellowstone boundary; campground status and shoreline use can be seasonal or site-specific. Retain the stored point as a conditional campground/access-area anchor; the 323-foot named-flowline offset reflects the campground road and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_cave_falls_fall_river_campground_access_20260919 cave-falls-campground-fall-river-putin) on Fall River; access is conditional (Confirm current Forest Service campground status, parking, carry path, shoreline access, river level, and any Yellowstone-boundary or seasonal restrictions before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "fall-river-cave-falls-concrete",
+      "routeName": "Fall River",
+      "reach": "Cave Falls Campground to Concrete CCC Bridge (Cave Falls Run)",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Concrete CCC Bridge Take-Out",
+      "latitude": 44.06775688888254,
+      "longitude": -111.24611103275933,
+      "matchedRiverName": "Fall River",
+      "distanceFeetToMatchedRiver": 129.16297843931147,
+      "nearestMatchedLatitude": 44.067573250689044,
+      "nearestMatchedLongitude": -111.2456897487586,
+      "nearestWaterwayName": "Fall River",
+      "distanceFeetToNearestWaterway": 226.26851421339433,
+      "nearestWaterwayLatitude": 44.06836952743094,
+      "nearestWaterwayLongitude": -111.24597643377186,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 120.02680988594672,
+      "nearestWaterbodyLatitude": 44.06808526559104,
+      "nearestWaterbodyLongitude": -111.24613933314585,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 120.02680988594672,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 120 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

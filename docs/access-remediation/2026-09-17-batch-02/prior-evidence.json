@@ -1,0 +1,509 @@
+{
+  "capturedAt": "2026-09-17T12:45:53.390Z",
+  "selectedSites": [
+    {
+      "name": "Boundary Creek / Saddle Pass upper access",
+      "coordinates": [
+        49.005,
+        -116.655
+      ],
+      "occurrences": [
+        {
+          "routeId": "boundary-creek-canadian-border-kootenai",
+          "endpoint": "putIn",
+          "endpointName": "Boundary Creek / Saddle Pass upper access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "Fremont Bay / Lakeside shoreline turnaround",
+      "coordinates": [
+        43.353,
+        -108.117
+      ],
+      "occurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "endpoint": "accessPoint",
+          "endpointName": "Fremont Bay / Lakeside shoreline turnaround",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "Sandy Beach boat ramp / Glendo State Park",
+      "coordinates": [
+        42.50262,
+        -105.02732
+      ],
+      "occurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "putIn",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Sandy Beach boat ramp / Glendo State Park",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "South Hill Road High Tor marsh turnaround area",
+      "coordinates": [
+        42.6733017,
+        -77.3376007
+      ],
+      "occurrences": [
+        {
+          "routeId": "west-river-marsh-sunnyside-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "South Hill Road High Tor marsh turnaround area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "MD 136 / Priestford Road gravel parking and water access",
+      "coordinates": [
+        39.64594,
+        -76.20495
+      ],
+      "occurrences": [
+        {
+          "routeId": "deer-creek-sandy-hook-md136",
+          "endpoint": "takeOut",
+          "endpointName": "MD 136 / Priestford Road gravel parking and water access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "County Road 4 bridge carry-in",
+      "coordinates": [
+        47.429,
+        -92.255
+      ],
+      "occurrences": [
+        {
+          "routeId": "st-louis-river-county-road-4-95",
+          "endpoint": "putIn",
+          "endpointName": "County Road 4 bridge carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "Pender Logan Creek canoe access (east side of town)",
+      "coordinates": [
+        42.113332,
+        -96.712814
+      ],
+      "occurrences": [
+        {
+          "routeId": "logan-creek-pender-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Pender Logan Creek canoe access (east side of town)",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "Orchard Creek trailer access",
+      "coordinates": [
+        43.578,
+        -92.963
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-riverwood-state-line",
+          "endpoint": "accessPoint",
+          "endpointName": "Orchard Creek trailer access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "York Road Gunpowder access",
+      "coordinates": [
+        39.60415,
+        -76.65625
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "York Road Gunpowder access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "name": "Highway 39 bridge",
+      "coordinates": [
+        42.8534,
+        -90.2242
+      ],
+      "occurrences": [
+        {
+          "routeId": "pecatonica-river-mineral-point-ludden-north-oak",
+          "endpoint": "accessPoint",
+          "endpointName": "Highway 39 bridge",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "providerMatches": [
+    {
+      "id": "neversink_river_oakland_valley_us_209",
+      "name": "Neversink River Oakland Valley to US 209 public paddling access",
+      "state": "New York",
+      "sourceUrl": "https://www.riverfacts.com/maps/12169.html",
+      "sourceType": "route-map-and-official-park-context",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "American Whitewater publishes the distinct Oakland Valley-to-US 209 Class II–III reach and its take-out boundary, Riverfacts publishes matching endpoint coordinates, NYSDEC identifies the Oakland Valley corridor, and Orange County documents D&H Canal Park at the Neversink take-out area. Treat both stored points as access-area anchors requiring current confirmation of legal parking, carry, landing, and water entry.",
+      "controls": [
+        {
+          "featureId": "neversink-river-oakland-valley-us-209-put-in",
+          "name": "Oakland Valley Road Neversink access area",
+          "aliases": [
+            "Neversink Oakland Valley put-in",
+            "Oakland Valley Road launch",
+            "County Road 49 Neversink access"
+          ],
+          "waterbody": "Neversink River",
+          "latitude": 41.504,
+          "longitude": -74.6478,
+          "uncertaintyFeet": 400,
+          "coordinateText": "Riverfacts route-map endpoint and NYSDEC Oakland Valley corridor context; current public parking, carry, and water entry require field verification"
+        },
+        {
+          "featureId": "neversink-river-oakland-valley-us-209-take-out",
+          "name": "US 209 / D&H Canal Park Neversink take-out area",
+          "aliases": [
+            "Neversink US 209 take-out",
+            "D&H Canal Park Neversink access",
+            "Neversink Valley Museum take-out"
+          ],
+          "waterbody": "Neversink River",
+          "latitude": 41.45529,
+          "longitude": -74.6001,
+          "uncertaintyFeet": 300,
+          "coordinateText": "American Whitewater US 209 boundary and Orange County D&H Canal Park river-adjacent context; verify current landing, parking, park hours, and downstream boundary"
+        }
+      ]
+    },
+    {
+      "id": "oak_orchard_creek_route_63_knowlesville",
+      "name": "Oak Orchard Creek Route 63 to Knowlesville public water-trail access",
+      "state": "New York",
+      "sourceUrl": "https://www.fws.gov/refuge/iroquois/visit-us/activities/boating---non-motorized",
+      "sourceType": "official-federal-refuge-and-county-paddling-access-listing",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-water-entry",
+      "method": "The U.S. Fish and Wildlife Service authorizes non-motorized boating on Oak Orchard Creek between Knowlesville Road and Route 63 and identifies both as water-trail access points. Orleans County independently identifies the Route 63 / Oak Orchard Ridge Road entry and Knowlesville Road carry-in. Stored points are public access-area/waterline anchors and require field verification of shoulder safety, legal parking, daylight access, primitive carry, and current refuge conditions.",
+      "controls": [
+        {
+          "featureId": "oak-orchard-creek-route-63-knowlesville-put-in",
+          "name": "Route 63 at Oak Orchard Ridge Road Oak Orchard Creek access",
+          "aliases": [
+            "Iroquois NWR Route 63 launch",
+            "Oak Orchard Ridge Road launch",
+            "Oak Orchard Creek Route 63 access"
+          ],
+          "waterbody": "Oak Orchard Creek",
+          "latitude": 43.1365607,
+          "longitude": -78.3903897,
+          "riverMile": 0,
+          "uncertaintyFeet": 250,
+          "coordinateText": "U.S. Fish and Wildlife Service / Orleans County Route 63 at Oak Orchard Ridge Road public access-area anchor at the Oak Orchard Creek bridge"
+        },
+        {
+          "featureId": "oak-orchard-creek-route-63-knowlesville-take-out",
+          "name": "Knowlesville Road Oak Orchard Creek water-trail access",
+          "aliases": [
+            "Iroquois NWR Knowlesville launch",
+            "Oak Orchard River Road Knowlesville access",
+            "Knowlesville Oak Orchard Creek take-out"
+          ],
+          "waterbody": "Oak Orchard Creek",
+          "latitude": 43.1205962,
+          "longitude": -78.3249631,
+          "riverMile": 5.5,
+          "uncertaintyFeet": 250,
+          "coordinateText": "U.S. Fish and Wildlife Service preferred Knowlesville Road water-trail access and Orleans County Knowlesville / Oak Orchard River Road carry-in anchor"
+        }
+      ]
+    },
+    {
+      "id": "md_deer_creek_sandy_hook_md136",
+      "name": "Maryland Deer Creek Sandy Hook to MD 136 access anchors",
+      "state": "Maryland",
+      "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/10983/main",
+      "sourceType": "authoritative-route-access-description",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "American Whitewater names the Deer Creek Conservation Area/Sandy Hook Road parking put-in and the large gravel parking area downstream of MD 136 as the route endpoints. Coordinates are conservative near-water/access anchors; confirm current parking, legal water entry, traffic exposure, and private-property boundaries.",
+      "controls": [
+        {
+          "featureId": "deer-creek-sandy-hook-conservation",
+          "name": "Sandy Hook Road / Deer Creek Conservation Area access",
+          "aliases": [
+            "Sandy Hook Road Deer Creek put-in",
+            "Sandy Hook Road / Deer Creek Conservation Area parking access"
+          ],
+          "waterbody": "Deer Creek",
+          "latitude": 39.6301765,
+          "longitude": -76.29379,
+          "riverMile": 0,
+          "uncertaintyFeet": 900,
+          "coordinateText": "Near-water conservation-area anchor from the named access directions; verify current public parking, muddy bank, carry, and posted restrictions."
+        },
+        {
+          "featureId": "deer-creek-md136-priestford",
+          "name": "MD 136 / Priestford Road downstream gravel access",
+          "aliases": [
+            "MD 136 Deer Creek take-out",
+            "MD 136 / Priestford Road gravel parking and water access"
+          ],
+          "waterbody": "Deer Creek",
+          "latitude": 39.64594,
+          "longitude": -76.20495,
+          "riverMile": 5.6,
+          "uncertaintyFeet": 600,
+          "coordinateText": "American Whitewater gravel-parking/water-access anchor downstream river-right of MD 136; confirm legal parking, traffic, and a safe landing."
+        }
+      ]
+    },
+    {
+      "id": "md_gunpowder_masemore_monkton",
+      "name": "Maryland Gunpowder Falls Masemore to Monkton public access anchors",
+      "state": "Maryland",
+      "sourceUrl": "https://fishandhuntmaryland.com/articles/gunpowder-falls-0",
+      "sourceType": "official-public-recreation-and-state-park-guidance",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Maryland public recreation guidance identifies the Masemore, Bunker Hill, York, and Blue Mount parking areas and the designated Gunpowder Falls crossings, while Maryland DNR establishes the Hereford Area park context and American Whitewater names the complete access sequence through Monkton. Stored points are access-area anchors; confirm parking, carry, and water entry on launch day.",
+      "controls": [
+        {
+          "featureId": "gunpowder-masemore-road",
+          "name": "Masemore Road Gunpowder Falls State Park access",
+          "aliases": [
+            "Masemore Road parking area",
+            "Masemore Road put-in",
+            "Hereford Area Masemore access"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.61094836739932,
+          "longitude": -76.6827253610619,
+          "riverMile": 0,
+          "uncertaintyFeet": 300,
+          "coordinateText": "Maryland public recreation guidance publishes the Masemore Road parking-area coordinate and identifies it as the river access; verify lot capacity, carry, and exact wetted-edge entry."
+        },
+        {
+          "featureId": "gunpowder-bunker-hill-road",
+          "name": "Bunker Hill Road Gunpowder access",
+          "aliases": [
+            "Bunker Hill parking area",
+            "Bunker Hill Road access"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.60945583472603,
+          "longitude": -76.67235868652139,
+          "riverMile": 1.3,
+          "uncertaintyFeet": 400,
+          "coordinateText": "Maryland public recreation guidance publishes the Bunker Hill parking-area coordinate; use the designated lot and verify the river carry and bank condition."
+        },
+        {
+          "featureId": "gunpowder-york-road",
+          "name": "York Road Gunpowder access",
+          "aliases": [
+            "York Road parking area",
+            "MD 45 Gunpowder access"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.60415,
+          "longitude": -76.65625,
+          "riverMile": 2.1,
+          "uncertaintyFeet": 650,
+          "coordinateText": "Maryland public recreation guidance identifies the York Road crossing and parking area; stored point is a near-water access anchor, not a bridge-shoulder launch."
+        },
+        {
+          "featureId": "gunpowder-big-falls-road",
+          "name": "Big Falls Road Gunpowder access",
+          "aliases": [
+            "Big Falls Road parking area",
+            "Big Falls access"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.59685,
+          "longitude": -76.64425,
+          "riverMile": 4.4,
+          "uncertaintyFeet": 650,
+          "coordinateText": "Maryland public recreation guidance identifies the Big Falls Road crossing and parking area; verify parking, quarry-section carry, wood, and water entry before using it as a bailout."
+        },
+        {
+          "featureId": "gunpowder-blue-mount-road",
+          "name": "Blue Mount Road Gunpowder access",
+          "aliases": [
+            "Blue Mount Road parking area",
+            "Blue Mount access"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.59957894085351,
+          "longitude": -76.62635205931682,
+          "riverMile": 5.4,
+          "uncertaintyFeet": 450,
+          "coordinateText": "Maryland public recreation guidance publishes the Blue Mount parking-area coordinate; American Whitewater reports constrained parking, so confirm current lot status and carry before relying on it."
+        },
+        {
+          "featureId": "gunpowder-monkton-road",
+          "name": "Monkton Road / Monkton Station Gunpowder access",
+          "aliases": [
+            "Monkton Road access",
+            "Monkton Station",
+            "Monkton take-out"
+          ],
+          "waterbody": "Gunpowder Falls",
+          "latitude": 39.5793956,
+          "longitude": -76.61554,
+          "riverMile": 7.8,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Maryland DNR identifies Monkton Station at 1820 Monkton Road as a public park facility, and American Whitewater names Monkton Road as the downstream access. Parking and river carry are limited; verify before relying on this endpoint."
+        }
+      ]
+    },
+    {
+      "id": "mn_dnr_cedar_orchard_creek_access_anchor",
+      "name": "Minnesota DNR Cedar River Orchard Creek access anchor",
+      "state": "Minnesota",
+      "sourceUrl": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf",
+      "sourceType": "official-state-water-trail-map-derived",
+      "sourceDocumentDate": "2026",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Minnesota DNR Cedar River Map identifies Orchard Creek trailer access at river mile 7.9 on the mapped Cedar River corridor. The stored point is a map-derived arrival/access anchor for the named tributary access rather than a claimed Cedar River shoreline GPS fix; confirm the current trailer approach, parking, carry, and Orchard Creek water entry in the field.",
+      "controls": [
+        {
+          "featureId": "cedar-orchard-creek-trailer-access",
+          "name": "Orchard Creek trailer access",
+          "aliases": [
+            "Orchard Creek access",
+            "Cedar River Orchard Creek access"
+          ],
+          "waterbody": "Cedar River",
+          "latitude": 43.578,
+          "longitude": -92.963,
+          "riverMile": 7.9,
+          "uncertaintyFeet": 250,
+          "coordinateText": "MN DNR Cedar River Map-derived arrival/access anchor for the named Orchard Creek trailer access; not a substitute for current water-entry verification."
+        }
+      ]
+    },
+    {
+      "id": "wy_boysen_state_park_launch",
+      "name": "Boysen State Park Fremont Bay access",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.recreation.gov/gateways/1230",
+      "sourceType": "official-recreationgov-and-wyoming-state-parks-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies Boysen Reservoir as a public boating gateway with developed ramps and campgrounds; the Wyoming State Parks overview map identifies Fremont Bay and multiple boat ramps. The stored gateway coordinate is retained as a facility anchor and requires on-site confirmation of the signed Fremont Bay ramp.",
+      "controls": [
+        {
+          "featureId": "wyoming-boysen-fremont-bay-ramp",
+          "name": "Fremont Bay boat ramp / Boysen State Park",
+          "aliases": [
+            "Fremont Bay boat ramp",
+            "Boysen State Park boat ramp",
+            "Boysen Reservoir access"
+          ],
+          "waterbody": "Boysen Reservoir",
+          "latitude": 43.321348,
+          "longitude": -108.124512,
+          "uncertaintyFeet": 700,
+          "coordinateText": "Recreation.gov gateway / state-park map anchor; confirm the signed ramp and parking on arrival."
+        }
+      ]
+    },
+    {
+      "id": "wy_glendo_state_park_sandy_beach_launch",
+      "name": "Glendo State Park Sandy Beach access",
+      "state": "Wyoming",
+      "sourceUrl": "https://www.recreation.gov/gateways/1233",
+      "sourceType": "official-recreationgov-and-wyoming-state-parks-gateway",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Recreation.gov identifies Glendo State Park as a public boating gateway with six ramps, seven campgrounds, and a marina; the stored gateway coordinate is retained as the Sandy Beach staging anchor and requires on-site confirmation of the signed ramp.",
+      "controls": [
+        {
+          "featureId": "wyoming-glendo-sandy-beach-ramp",
+          "name": "Sandy Beach boat ramp / Glendo State Park",
+          "aliases": [
+            "Sandy Beach ramp",
+            "Glendo State Park boat ramp",
+            "Glendo Reservoir access"
+          ],
+          "waterbody": "Glendo Reservoir",
+          "latitude": 42.50262,
+          "longitude": -105.02732,
+          "uncertaintyFeet": 700,
+          "coordinateText": "Recreation.gov gateway/state-park staging anchor; confirm the signed Sandy Beach ramp and parking on arrival."
+        }
+      ]
+    },
+    {
+      "id": "id_boundary_creek_canadian_border_kootenai",
+      "name": "Boundary Creek Canadian border and Kootenai confluence access controls",
+      "state": "Idaho",
+      "sourceUrl": "https://www.northidahorivers.com/Boundary_Creek.htm",
+      "sourceType": "remote-whitewater-guide-and-usgs-gauge-access-context",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "North Idaho Rivers identifies the Canadian-border headwater bridge/Saddle Pass road as the upper access and the USGS gauge at the lower canyon as the take-out context. Both coordinates remain approximate forest-road or monitoring-site anchors, not surveyed public ramps; confirm gates, Border Patrol restrictions, legal parking, and an actual river landing before committing.",
+      "controls": [
+        {
+          "featureId": "id-boundary-creek-saddle-pass-upper",
+          "name": "Boundary Creek Saddle Pass upper access",
+          "aliases": [
+            "Boundary Creek Canadian border put-in",
+            "Saddle Pass Boundary Creek",
+            "Boundary Creek headwater bridge"
+          ],
+          "waterbody": "Boundary Creek",
+          "latitude": 49.005,
+          "longitude": -116.655,
+          "uncertaintyFeet": 5000,
+          "coordinateText": "Approximate North Idaho Rivers upper access near the Canadian border and Saddle Pass road; verify the current road, gate, legal staging, and no-crossing boundary on site."
+        },
+        {
+          "featureId": "id-boundary-creek-usgs-gauge-takeout",
+          "name": "Boundary Creek USGS gauge / Kootenai confluence",
+          "aliases": [
+            "Boundary Creek near Porthill gauge",
+            "Boundary Creek lower take-out",
+            "Boundary Creek Kootenai confluence"
+          ],
+          "waterbody": "Boundary Creek",
+          "latitude": 48.99722222,
+          "longitude": -116.56916667,
+          "uncertaintyFeet": 900,
+          "coordinateText": "USGS 12321500 monitoring-site anchor at the mouth of the canyon; confirm a safe river landing, parking, and current access restrictions rather than treating the gauge as a ramp."
+        }
+      ]
+    }
+  ]
+}

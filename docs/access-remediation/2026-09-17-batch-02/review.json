@@ -1,0 +1,249 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "summary": {
+    "frozenDistinctSites": 10,
+    "uniqueRoutesAffected": 10,
+    "keptSites": 2,
+    "rejectedSites": 8,
+    "optionalAccessRecordsRemoved": 4,
+    "terminalRoutesHeldFromFrozenSites": 4,
+    "additionalBoysenRouteHoldFromRelatedTerminalReview": 1,
+    "coordinateChangesWithinFrozenTen": 0,
+    "coordinateChangesInLoganFollowUp": 2
+  },
+  "sites": [
+    {
+      "rank": 1,
+      "name": "Boundary Creek / Saddle Pass upper access",
+      "state": "Idaho",
+      "decision": "reject: unverified",
+      "original": {
+        "latitude": 49.005,
+        "longitude": -116.655
+      },
+      "distanceFeetToMappedWater": 5775.533410221341,
+      "routeIds": [
+        "boundary-creek-canadian-border-kootenai"
+      ],
+      "finding": "Stored coordinate is north of the 49th-parallel boundary. The cited guide describes an approximate border/headwater bridge and forest-road approach but does not establish current lawful U.S.-side staging or exact water entry.",
+      "action": "Retained as rejected evidence with corrected label/note; route held.",
+      "reopenWhen": "Current land-manager or official map identifies lawful U.S.-side approach and exact entry preserving the advertised reach.",
+      "sources": [
+        "https://www.northidahorivers.com/Boundary_Creek.htm",
+        "https://idfg.idaho.gov/sites/default/files/2014-2023-BoundarySCWMA-Plan-Final.pdf"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Fremont Bay / Lakeside shoreline turnaround",
+      "state": "Wyoming",
+      "decision": "reject: unverified optional access",
+      "original": {
+        "latitude": 43.353,
+        "longitude": -108.117
+      },
+      "distanceFeetToMappedWater": 5494.4738821371475,
+      "routeIds": [
+        "boysen-reservoir-fremont-bay-loop"
+      ],
+      "finding": "This was explicitly a shoreline exploration waypoint, not a guaranteed landing.",
+      "action": "Removed the waypoint. The route is separately held until the Fremont Bay terminal ramp is located.",
+      "reopenWhen": "Current operator source confirms lawful landing and parking at this shoreline point.",
+      "sources": [
+        "https://www.usbr.gov/gp/boat/",
+        "https://www.usbr.gov/gp/recreation/boyrrec.html",
+        "https://wyoparks.wyo.gov/index.php/files/310/Boysen/8/Boysen-Map.pdf"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Sandy Beach boat ramp / Glendo State Park",
+      "state": "Wyoming",
+      "decision": "reject: invalid",
+      "original": {
+        "latitude": 42.50262,
+        "longitude": -105.02732
+      },
+      "distanceFeetToMappedWater": 3741.4005248214885,
+      "routeIds": [
+        "glendo-reservoir-sandy-beach-loop"
+      ],
+      "finding": "The stored coordinate resolves to the Recreation.gov gateway in Glendo town, miles from Sandy Beach. Official park map labels Sandy Beach Campground but does not show a ramp there. No same-site replacement entry was verified.",
+      "action": "Renamed retained terminal as rejected gateway evidence, removed an unverified Muddy Bay waypoint, removed the misleading official-control entry, and held route.",
+      "reopenWhen": "Current park/USBR GIS or georeferenced map identifies exact public Sandy Beach water entry and route fit.",
+      "sources": [
+        "https://wyoparks.wyo.gov/index.php/places-to-go/glendo",
+        "https://www.usbr.gov/gp/boat/",
+        "https://www.usbr.gov/gp/recreation/glerrec.html",
+        "https://wyoparks.wyo.gov/index.php/files/453/Glendo/1447/Glendo-Park-Map.pdf",
+        "https://www.recreation.gov/gateways/1233"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "South Hill Road High Tor marsh turnaround area",
+      "state": "New York",
+      "decision": "reject: unverified optional access",
+      "original": {
+        "latitude": 42.6733017,
+        "longitude": -77.3376007
+      },
+      "distanceFeetToMappedWater": 3208.3783665363408,
+      "routeIds": [
+        "west-river-marsh-sunnyside-out-and-back"
+      ],
+      "finding": "NYSDEC identifies a parking/trail-to-river access area, not an authorized boat landing. Route is a Sunnyside out-and-back; South Hill is a turnaround objective, not a take-out.",
+      "action": "Removed South Hill from route access list; kept the narrative turnaround context and Sunnyside endpoints. No route hold.",
+      "reopenWhen": "NYSDEC or another managing agency identifies a public boat landing and lawful carry.",
+      "sources": [
+        "https://dec.ny.gov/places/high-tor-wildlife-management-area",
+        "https://cayugatrailsclub.org/event/west-river-marsh-canandaigua-lake-k/"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "MD 136 / Priestford Road gravel take-out",
+      "state": "Maryland",
+      "decision": "reject: invalid stored coordinate; exact replacement unverified",
+      "original": {
+        "latitude": 39.64594,
+        "longitude": -76.20495
+      },
+      "distanceFeetToMappedWater": 2664.175678335653,
+      "routeIds": [
+        "deer-creek-sandy-hook-md136"
+      ],
+      "finding": "American Whitewater describes a large gravel area downstream river-right of MD 136. The stored point is a church/street-address geocode, not that take-out. Imagery shows the bridge and nearby gravel area but does not resolve lawful landing or parking boundary.",
+      "action": "Kept old coordinate only as rejected evidence, removed misleading control, and held route.",
+      "reopenWhen": "Current agency/county source or field-verified map identifies public parking, lawful carry and exact water entry.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/10983/main"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "County Road 4 bridge carry-in",
+      "state": "Minnesota",
+      "decision": "keep: official access-area anchor",
+      "original": {
+        "latitude": 47.429,
+        "longitude": -92.255
+      },
+      "distanceFeetToMappedWater": 2479.6434577734276,
+      "routeIds": [
+        "st-louis-river-county-road-4-95"
+      ],
+      "finding": "Minnesota DNR identifies County Road 4 bridge at river mile 151.9 and specifies a hand carry on the downstream side. The coordinate is a bridge/access-area anchor; NHD offset alone does not show it is wrong.",
+      "action": "No coordinate change; keep route and existing carry caveat.",
+      "reopenWhen": "A surveyed feature or more precise mapped downstream-side carry endpoint is published.",
+      "sources": [
+        "https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Pender Logan Creek canoe access (east side of town)",
+      "state": "Nebraska",
+      "decision": "reject: unverified",
+      "original": {
+        "latitude": 42.113332,
+        "longitude": -96.712814
+      },
+      "distanceFeetToMappedWater": 2311.912919950301,
+      "routeIds": [
+        "logan-creek-pender-oakland"
+      ],
+      "finding": "Official trail map shows a Pender access area schematically. The current state launch-layer query contains Bancroft and Oakland but no Pender feature; stored coordinate is not an exact verified entry.",
+      "action": "Retained as rejected evidence, labeled unverified, and held route. Corrected Bancroft/Oakland in separate follow-up.",
+      "reopenWhen": "Current agency/municipal launch feature or georeferenced operator map locates legal water entry.",
+      "sources": [
+        "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Logan_Creek_River.pdf",
+        "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Orchard Creek trailer access",
+      "state": "Minnesota",
+      "decision": "keep: official water-trail access-area anchor",
+      "original": {
+        "latitude": 43.578,
+        "longitude": -92.963
+      },
+      "distanceFeetToMappedWater": 2211.2765413890547,
+      "routeIds": [
+        "cedar-river-riverwood-state-line"
+      ],
+      "finding": "Minnesota DNR Cedar map names Orchard Creek trailer access at Cedar River mile 7.9. The source supports the access-area identity, not a surveyed Cedar shoreline point; offset is consistent with a named tributary/access-area anchor.",
+      "action": "No coordinate change; retain DNR map-derived anchor and field-verification note.",
+      "reopenWhen": "Current DNR launch feature resolves trailer approach and water-entry point.",
+      "sources": [
+        "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf"
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "York Road Gunpowder access",
+      "state": "Maryland",
+      "decision": "reject: unverified optional access",
+      "original": {
+        "latitude": 39.60415,
+        "longitude": -76.65625
+      },
+      "distanceFeetToMappedWater": 2141.069412288869,
+      "routeIds": [
+        "gunpowder-falls-masemore-monkton"
+      ],
+      "finding": "Maryland DNR treats York Road as the boundary between harder upstream and easier downstream sections. VisitMaryland describes parking near a crossing, but reviewed sources do not verify a public water entry at this stored point or establish bridge-shoulder parking. Masemore-to-Monkton route remains independently valid.",
+      "action": "Removed waypoint/control pending verified water entry; route remains public.",
+      "reopenWhen": "Maryland DNR identifies lawful parking/carry and water entry matching the point.",
+      "sources": [
+        "https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx",
+        "https://dnr.maryland.gov/publiclands/Pages/central/GunpowderFalls/Hereford-Area-Directions.aspx",
+        "https://fishandhuntmaryland.com/articles/gunpowder-falls-0"
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Highway 39 bridge",
+      "state": "Wisconsin",
+      "decision": "reject: unverified optional access",
+      "original": {
+        "latitude": 42.8534,
+        "longitude": -90.2242
+      },
+      "distanceFeetToMappedWater": 2128.806232116811,
+      "routeIds": [
+        "pecatonica-river-mineral-point-ludden-north-oak"
+      ],
+      "finding": "Wisconsin River Trips describes Hwy 39 as a possible/doable alternative bridge launch but does not establish current public parking or lawful bank approach. Main Ludden Lake and North Oak endpoints remain independent.",
+      "action": "Removed from the public access list pending current route-specific permission; no route hold.",
+      "reopenWhen": "Route operator or land manager confirms the bridge, public staging/parking and water entry.",
+      "sources": [
+        "https://www.wisconsinrivertrips.com/segments/pecatonica-river/mineral-point-branch/ludden-lake"
+      ]
+    }
+  ],
+  "routeDependencyReviews": [
+    {
+      "site": "Fremont Bay boat ramp / Boysen State Park",
+      "countedInFrozenTen": false,
+      "routeId": "boysen-reservoir-fremont-bay-loop",
+      "original": {
+        "latitude": 43.321348,
+        "longitude": -108.124512
+      },
+      "decision": "hold: exact terminal entry unverified",
+      "finding": "USBR lists multiple Boysen ramps and Wyoming State Parks map shows Fremont Bay and ramp symbols. The stored coordinate is a Recreation.gov gateway/access-area point; neither the gateway nor schematic map locates the exact public ramp-water edge.",
+      "action": "Retained as explicitly unverified access-area evidence, removed the optional shoreline waypoint, and held route.",
+      "reopenWhen": "Current operator GIS/map or imagery resolves ramp entry and lawful vehicle/hand-launch approach.",
+      "sources": [
+        "https://www.usbr.gov/gp/boat/",
+        "https://www.usbr.gov/gp/recreation/boyrrec.html",
+        "https://wyoparks.wyo.gov/index.php/files/310/Boysen/8/Boysen-Map.pdf",
+        "https://www.recreation.gov/gateways/1230"
+      ]
+    }
+  ]
+}

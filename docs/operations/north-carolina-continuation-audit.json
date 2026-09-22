@@ -3,18 +3,18 @@
   "stateId": "NC",
   "stateName": "North Carolina",
   "windowId": "nc-continuation-11-14",
-  "updatedAt": "2026-09-02T08:05:00.000Z",
+  "updatedAt": "2026-09-20T20:30:00.000Z",
   "status": "published_with_explicit_proxy_and_access_anchor_controls",
   "routes": [
     {
-    "slug": "new-river-todd-wagoner",
-    "riverId": "new-river",
-    "name": "South Fork New River",
-    "reach": "Todd Island Park to Wagoner Access",
-    "distance": "approximately 7 river miles",
-    "difficulty": "Class II",
-    "scoreEligibility": "planning",
-    "scoreEligibilityReason": "proxy_gauge"
+      "slug": "new-river-todd-wagoner",
+      "riverId": "new-river",
+      "name": "South Fork New River",
+      "reach": "Todd Island Park to Wagoner Access",
+      "distance": "approximately 7 river miles",
+      "difficulty": "Class II",
+      "scoreEligibility": "planning",
+      "scoreEligibilityReason": "proxy_gauge"
     },
     {
       "slug": "cape-fear-river-raven-rock-lillington",
@@ -27,17 +27,37 @@
       "evidence": {
         "publicAccess": {
           "status": "verified_with_upper_access_caveat",
-          "putIn": { "name": "Raven Rock State Park area public access anchor", "latitude": 35.4692, "longitude": -78.9095, "source": "NCWRC; Raven Rock State Park access caveat" },
-          "takeOut": { "name": "Lillington Boating Access Area", "latitude": 35.39751617, "longitude": -78.77375061, "source": "NCWRC" }
+          "putIn": {
+            "name": "Raven Rock State Park area public access anchor",
+            "latitude": 35.4692,
+            "longitude": -78.9095,
+            "source": "NCWRC; Raven Rock State Park access caveat"
+          },
+          "takeOut": {
+            "name": "Lillington Boating Access Area",
+            "latitude": 35.39751617,
+            "longitude": -78.77375061,
+            "source": "NCWRC"
+          }
         },
         "flow": {
           "status": "qualified_direct_gauge",
           "gauge": "USGS 02102500",
           "relationship": "direct lower-endpoint gauge at Lillington",
-          "publishedPlanningRangeCfs": [200, 5000],
+          "publishedPlanningRangeCfs": [
+            200,
+            5000
+          ],
           "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
         },
-        "safety": ["Lanier Rapids and Fish Traps Rapids", "Northington Lock and Dam remains", "ledges and strainers", "fast rising water", "cold water", "upper access carry uncertainty"],
+        "safety": [
+          "Lanier Rapids and Fish Traps Rapids",
+          "Northington Lock and Dam remains",
+          "ledges and strainers",
+          "fast rising water",
+          "cold water",
+          "upper access carry uncertainty"
+        ],
         "camping": "nearby_basecamp",
         "imagery": "approved Raven Rock Cape Fear same-river context image; no endpoint depiction implied"
       }
@@ -53,17 +73,37 @@
       "evidence": {
         "publicAccess": {
           "status": "verified",
-          "putIn": { "name": "C.J. Harris / Dillsboro River Access", "latitude": 35.36368769, "longitude": -83.24683552, "source": "NCWRC" },
-          "takeOut": { "name": "Barker’s Creek Boating Access Area", "latitude": 35.38902721, "longitude": -83.29471806, "source": "NCWRC" }
+          "putIn": {
+            "name": "C.J. Harris / Dillsboro River Access",
+            "latitude": 35.36368769,
+            "longitude": -83.24683552,
+            "source": "NCWRC"
+          },
+          "takeOut": {
+            "name": "Barker’s Creek Boating Access Area",
+            "latitude": 35.38902721,
+            "longitude": -83.29471806,
+            "source": "NCWRC"
+          }
         },
         "flow": {
           "status": "qualified_direct_gauge",
           "gauge": "USGS 03510577",
           "relationship": "direct lower-endpoint gauge at Barker’s Creek",
-          "publishedPlanningRangeCfs": [500, 2500],
+          "publishedPlanningRangeCfs": [
+            500,
+            2500
+          ],
           "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
         },
-        "safety": ["Class II wave trains and small rapids", "regulated releases", "Dillsboro dam/structure portage", "shallow low water", "strainers", "cold water"],
+        "safety": [
+          "Class II wave trains and small rapids",
+          "regulated releases",
+          "Dillsboro dam/structure portage",
+          "shallow low water",
+          "strainers",
+          "cold water"
+        ],
         "camping": "none",
         "imagery": "approved Dillsboro Tuckasegee same-river context image; no endpoint depiction implied"
       }
@@ -79,36 +119,187 @@
       "evidence": {
         "publicAccess": {
           "status": "verified_with_lower_landing_caveat",
-          "putIn": { "name": "Valley River Public Fishing Area, Andrews", "latitude": 35.206, "longitude": -83.8158, "source": "NCWRC" },
-          "takeOut": { "name": "Valley River at Tomotla gauge / Murphy-area access anchor", "latitude": 35.13888889, "longitude": -83.9805556, "source": "USGS station; separate legal landing confirmation required" }
+          "putIn": {
+            "name": "Valley River Public Fishing Area, Andrews",
+            "latitude": 35.206,
+            "longitude": -83.8158,
+            "source": "NCWRC"
+          },
+          "takeOut": {
+            "name": "Valley River at Tomotla gauge / Murphy-area access anchor",
+            "latitude": 35.13888889,
+            "longitude": -83.9805556,
+            "source": "USGS station; separate legal landing confirmation required"
+          }
         },
         "flow": {
           "status": "qualified_direct_gauge",
           "gauge": "USGS 03550000",
           "relationship": "direct lower-endpoint station at Tomotla",
-          "publishedPlanningRangeCfs": [60, 1000],
+          "publishedPlanningRangeCfs": [
+            60,
+            1000
+          ],
           "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
         },
-        "safety": ["shallow low water", "rainfall-driven rise", "strainers/logjams", "barbed wire/fence warning below Main Street in Andrews", "cold water", "private-bank and lower take-out uncertainty"],
+        "safety": [
+          "shallow low water",
+          "rainfall-driven rise",
+          "strainers/logjams",
+          "barbed wire/fence warning below Main Street in Andrews",
+          "cold water",
+          "private-bank and lower take-out uncertainty"
+        ],
         "camping": "none",
         "imagery": "approved Valley River Murphy same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "new-river-kings-creek-alleghany",
+      "riverId": "new-river",
+      "name": "South Fork New River",
+      "reach": "Kings Creek Access to Alleghany Paddle-In Access",
+      "distance": "approximately 5 river miles",
+      "difficulty": "Class I / shallow gentle river",
+      "scoreEligibility": "planning",
+      "scoreEligibilityReason": "proxy_gauge",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified",
+          "putIn": {
+            "name": "New River State Park Kings Creek Access",
+            "latitude": 36.5278,
+            "longitude": -81.3374,
+            "source": "NC State Parks and NCWRC"
+          },
+          "takeOut": {
+            "name": "New River State Park Alleghany Paddle-In Access",
+            "latitude": 36.554608,
+            "longitude": -81.324092,
+            "source": "NC State Parks Alleghany access map"
+          }
+        },
+        "flow": {
+          "status": "qualified_proxy",
+          "gauge": "USGS 03161000",
+          "relationship": "same-river proxy near Jefferson",
+          "publishedPlanningRangeCfs": [
+            100,
+            2500
+          ],
+          "source": "Existing New River State Park route-family proxy context; no numeric threshold transferred"
+        },
+        "safety": [
+          "shallow moving water",
+          "cold water",
+          "wood and strainers",
+          "locked gate/no vehicle access at Alleghany",
+          "public access only"
+        ],
+        "camping": "endpoint_campground",
+        "imagery": "approved existing New River same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "neuse-river-thornton-river-bend",
+      "riverId": "neuse-river",
+      "name": "Neuse River",
+      "reach": "Thornton Road to River Bend Park",
+      "distance": "approximately 5.6 river miles",
+      "difficulty": "moderate moving water / planning-only threshold",
+      "scoreEligibility": "planning",
+      "scoreEligibilityReason": "proxy_gauge",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified",
+          "putIn": { "name": "Thornton Road Boat Launch", "latitude": 35.90224, "longitude": -78.54063, "source": "City of Raleigh and Mountains-to-Sea access document" },
+          "takeOut": { "name": "River Bend Park kayak launch", "latitude": 35.8603603, "longitude": -78.527847, "source": "City of Raleigh access page and River Bend coordinate corroboration" }
+        },
+        "flow": { "status": "qualified_proxy", "gauge": "USGS 02087183", "relationship": "direct same-river Falls-area telemetry; no downstream route-specific cutoff transferred", "source": "City of Raleigh Neuse River access and flow guidance" },
+        "safety": ["fast current", "downed trees/log jams/bridge footings", "PFD required", "thunderstorms", "water quality", "dawn-to-dusk access", "no overnight vehicles"],
+        "camping": "none; access lots prohibit overnight use",
+        "imagery": "approved existing Neuse River same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "neuse-river-river-bend-buffaloe",
+      "riverId": "neuse-river",
+      "name": "Neuse River",
+      "reach": "River Bend Park to Buffaloe Road",
+      "distance": "approximately 1 river mile",
+      "difficulty": "moderate moving water / planning-only threshold",
+      "scoreEligibility": "planning",
+      "scoreEligibilityReason": "proxy_gauge",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified",
+          "putIn": { "name": "River Bend Park kayak launch", "latitude": 35.8603603, "longitude": -78.527847, "source": "City of Raleigh access page and River Bend coordinate corroboration" },
+          "takeOut": { "name": "Buffaloe Road canoe launch", "latitude": 35.847706, "longitude": -78.530812, "source": "City of Raleigh access page and Buffaloe coordinate corroboration" }
+        },
+        "flow": { "status": "qualified_proxy", "gauge": "USGS 02087183", "relationship": "direct same-river Falls-area telemetry; no downstream route-specific cutoff transferred", "source": "City of Raleigh Neuse River access and flow guidance" },
+        "safety": ["fast current", "limited Buffaloe parking", "downed trees/log jams", "PFD required", "thunderstorms", "no overnight vehicles"],
+        "camping": "none; access lots prohibit overnight use",
+        "imagery": "approved existing Neuse River same-river context image; no endpoint depiction implied"
+      }
+    },
+    {
+      "slug": "neuse-river-buffaloe-anderson",
+      "riverId": "neuse-river",
+      "name": "Neuse River",
+      "reach": "Buffaloe Road to Anderson Point",
+      "distance": "approximately 6 river miles",
+      "difficulty": "moderate moving water / planning-only threshold",
+      "scoreEligibility": "planning",
+      "scoreEligibilityReason": "proxy_gauge",
+      "evidence": {
+        "publicAccess": {
+          "status": "verified",
+          "putIn": { "name": "Buffaloe Road canoe launch", "latitude": 35.847706, "longitude": -78.530812, "source": "City of Raleigh access page and Buffaloe coordinate corroboration" },
+          "takeOut": { "name": "Anderson Point Park canoe launch", "latitude": 35.772287, "longitude": -78.54305, "source": "City of Raleigh and NCWRC Anderson Point coordinate record" }
+        },
+        "flow": { "status": "qualified_proxy", "gauge": "USGS 02087183", "relationship": "direct same-river Falls-area telemetry; no downstream route-specific cutoff transferred", "source": "City of Raleigh Neuse River access and flow guidance" },
+        "safety": ["fast current", "downed trees/log jams/bridge footings", "PFD required", "thunderstorms", "water quality", "Anderson Point restroom walk", "no overnight vehicles"],
+        "camping": "none; access lots prohibit overnight use",
+        "imagery": "approved existing Neuse River same-river context image; no endpoint depiction implied"
       }
     }
   ],
   "evidence": {
     "publicAccess": {
       "status": "verified",
-      "putIn": { "name": "Todd Island Park Public Fishing Area", "latitude": 36.2784, "longitude": -81.5703, "source": "NCWRC" },
-      "takeOut": { "name": "New River State Park Wagoner Access", "latitude": 36.4165, "longitude": -81.387, "source": "NCWRC and NC State Parks" }
+      "putIn": {
+        "name": "Todd Island Park Public Fishing Area",
+        "latitude": 36.2784,
+        "longitude": -81.5703,
+        "source": "NCWRC"
+      },
+      "takeOut": {
+        "name": "New River State Park Wagoner Access",
+        "latitude": 36.4165,
+        "longitude": -81.387,
+        "source": "NCWRC and NC State Parks"
+      }
     },
     "flow": {
       "status": "qualified_proxy",
       "gauge": "USGS 03161000",
       "relationship": "same-river proxy near Jefferson",
-      "publishedPlanningRangeCfs": [100, 2500],
+      "publishedPlanningRangeCfs": [
+        100,
+        2500
+      ],
       "source": "CanWePaddle section estimate; explicitly informational and not a go/no-go authority"
     },
-    "safety": ["Class II wave trains and small rapids", "shallow/bony low water", "fast rising water", "wood and strainers", "bridge and changing-channel hazards", "cold water", "post-storm debris", "access carry and closure checks"],
+    "safety": [
+      "Class II wave trains and small rapids",
+      "shallow/bony low water",
+      "fast rising water",
+      "wood and strainers",
+      "bridge and changing-channel hazards",
+      "cold water",
+      "post-storm debris",
+      "access carry and closure checks"
+    ],
     "camping": "nearby_basecamp",
     "imagery": "approved existing new-river context image; no endpoint depiction implied"
   },
@@ -138,5 +329,12 @@
     "productionBuild": "passed; 1844 pages generated, including the North Carolina state page and all 14 North Carolina route pages",
     "knownSharedWorktreeCaveat": "Other state workers continue writing generated/global artifacts; preserve unrelated changes. Global coordinate audit has 27 failures and 141 unknowns outside NC, and the safety audit has 2 unrelated West Virginia issues."
   },
-  "deferredCandidates": ["New River State Park additional access pairs", "Lumber River State Park", "Deep River sections", "Smith River", "Tuckasegee River", "lower Neuse", "other NC state-designated and public-access corridors requiring distinct threshold packages"]
+  "deferredCandidates": [
+    "Lumber River State Park",
+    "Deep River sections",
+    "Smith River",
+    "Tuckasegee River",
+    "lower Neuse extensions beyond Anderson Point and Poole Road",
+    "other NC state-designated and public-access corridors requiring distinct threshold packages"
+  ]
 }

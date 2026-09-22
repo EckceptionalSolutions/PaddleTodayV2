@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-09-18T01:39:51.685Z",
+  "sitesReviewed": 10,
+  "coordinatesChanged": 2,
+  "uniqueRoutesWithChangedCoordinates": 9,
+  "selectedOccurrencesChecked": 0,
+  "uniqueRoutesRetainedPublic": 25,
+  "newRouteHolds": 0,
+  "publicAudit": {
+    "evidenceMode": "refreshed",
+    "routeCount": 2761,
+    "endpointCount": 6082,
+    "sourceIssues": 277,
+    "correctedOccurrencesHydrographyComplete": true
+  },
+  "sourceBackedAccessAnchorsChecked": 5,
+  "wetEdgeCoordinatesUnresolved": 10,
+  "validationNotes": [
+    "Full typecheck is blocked by six existing errors in src/data/routes/new-york.ts, src/data/routes/wisconsin.ts, and src/data/trip-details/iowa.ts (the Iowa error is outside this batch’s changed lines).",
+    "Route geometry audit passed with 2,748/2,761 public routes matched; the same 13 existing unmatched routes remain."
+  ]
+}

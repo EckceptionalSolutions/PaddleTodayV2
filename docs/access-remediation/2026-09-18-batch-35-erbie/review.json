@@ -1,0 +1,61 @@
+{
+  "batch": 35,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "publicSuspiciousEndpointOccurrencesCorrected": 3,
+  "sharedRouteRecordsUpdated": 7,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Arkansas",
+      "name": "Erbie Campground / Buffalo River access",
+      "routeIds": [
+        "buffalo-river-ponca-erbie",
+        "buffalo-river-ponca-pruitt",
+        "buffalo-river-kyles-landing-erbie",
+        "buffalo-river-erbie-ozark",
+        "buffalo-river-erbie-pruitt",
+        "buffalo-river-steel-creek-erbie",
+        "buffalo-river-erbie-hasty"
+      ],
+      "decision": "correct-to-imagery-derived-public-river-entry",
+      "previousCoordinate": {
+        "latitude": 36.070346,
+        "longitude": -93.211886
+      },
+      "updatedCoordinate": {
+        "latitude": 36.070784,
+        "longitude": -93.211779
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 75,
+      "rationale": "NPS lists Erbie as a designated Buffalo River access and publishes 36.070346,-93.211886 as an inland campground/access-area anchor. Current Google Maps aerial imagery shows the campground approach reaching the Buffalo River at the selected point. The old point was about 307 feet from mapped water and 306 feet from the matched flowline; the updated point is within 100 feet of mapped water. The updated coordinate is imagery-derived and not surveyed.",
+      "postCorrectionAudit": {
+        "publicEndpointOccurrences": 3,
+        "publicSuspicious": 0,
+        "publicFailure": 0,
+        "publicUnknown": 0,
+        "publicSourceIssues": 0,
+        "waterProximity": "within-100ft for all three public Erbie endpoints",
+        "flowlineDistanceFeet": 148,
+        "severity": "review for all three because NHD flowline coverage is generalized at the landing",
+        "withheldRoutesChecked": 4,
+        "withheldAuditNote": "Other pre-existing suspicious intermediate access points remain on buffalo-river-ponca-pruitt and buffalo-river-erbie-ozark, including the unresolved Ozark campground water entry; the Erbie endpoint itself matches the control in all seven dependent route records."
+      },
+      "geometryRegeneratedForPublicRoutes": 3,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if NPS relocates or closes the Erbie landing, or publishes a surveyed river-entry coordinate."
+    }
+  ],
+  "validation": {
+    "publicRoutesAudited": 3,
+    "withheldRoutesAudited": 4,
+    "changedPublicRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

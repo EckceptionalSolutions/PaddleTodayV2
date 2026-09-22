@@ -1,0 +1,22 @@
+{
+  "batch": 42,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "next shared suspicious access location reviewed after Willow Mill batch 41",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T16:38:12.920Z (cache-only); 2,752 public routes, 6,062 endpoints, and 106 suspicious endpoints",
+  "queueRank": 58,
+  "selectedLocations": [
+    {
+      "state": "Vermont",
+      "name": "Bolton Canoe Access Area",
+      "storedCoordinate": { "latitude": 44.3768, "longitude": -72.8755 },
+      "suspiciousPublicOccurrences": 2,
+      "routeIds": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-bolton-canoe"
+      ],
+      "preReviewFinding": "Both public endpoints share a 409.7-foot offset from the topology-connected Winooski trace and nearest named Joiner Brook; no NHD waterbody polygon matched within the audit search area. The full audit labels the location suspicious.",
+      "decision": "replace-residential-road-pin-with-vermont-anr-public-canoe-access-area-feature",
+      "selectionFrozenBeforeResearch": true
+    }
+  ]
+}

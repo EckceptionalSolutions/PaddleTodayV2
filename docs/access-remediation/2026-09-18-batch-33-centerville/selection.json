@@ -1,0 +1,21 @@
+{
+  "batch": 33,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Rank current suspicious endpoint occurrences by exact shared coordinates; review the highest repeated location that can be tied to a public site.",
+  "auditSource": "docs/access-point-quality-audit.json (full audit before this batch's edit)",
+  "selectedLocation": {
+    "name": "Centerville Schwan Park official dock",
+    "state": "Louisiana",
+    "waterbody": "Bayou Teche",
+    "previousCoordinate": { "latitude": 29.7599302, "longitude": -91.4191962 },
+    "previousDistanceFeetToMatchedFlowline": 407.9,
+    "previousDistanceFeetToMappedWater": 252.7,
+    "suspiciousOccurrences": 3,
+    "routeIds": [
+      "bayou-teche-franklin-centerville",
+      "bayou-teche-charenton-centerville",
+      "bayou-teche-baldwin-centerville"
+    ]
+  },
+  "selectionRationale": "One correction resolves three repeated endpoint occurrences at a clearly identified official paddle-trail dock. TECHE Project establishes public-site identity; aerial imagery was used to localize the water entry."
+}

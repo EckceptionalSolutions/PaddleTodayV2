@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:55:00.184Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "rio-grande-calabacillas-central",
+      "routeName": "Rio Grande",
+      "reach": "Calabacillas Arroyo access to Central Avenue access",
+      "state": "New Mexico",
+      "endpoint": "takeOut",
+      "endpointName": "Central Avenue public river access (parking-area anchor)",
+      "latitude": 35.08728077195977,
+      "longitude": -106.68221819147834,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 236.15107183076842,
+      "nearestMatchedLatitude": 35.08751,
+      "nearestMatchedLongitude": -106.682958,
+      "nearestWaterwayName": "Atrisco Ditch",
+      "distanceFeetToNearestWaterway": 393.90741312852504,
+      "nearestWaterwayLatitude": 35.086978210967914,
+      "nearestWaterwayLongitude": -106.68348485315097,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 664.8434503701777,
+      "nearestWaterbodyLatitude": 35.088565,
+      "nearestWaterbodyLongitude": -106.680638,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 236.15107183076842,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.cabq.gov/parksandrecreation/open-space/enjoying-the-rio-grande",
+      "coordinateEvidenceDetail": "nm_cabq_central_avenue_public_access_anchor_20260918 cabq-central-avenue-sunset-sw-parking-access-area: The City identifies public boating access on the north side of the Central Avenue bridge on both river banks, requiring a walk to the river. Its March 2025 notice confirms the bosque parking lot at the southwest corner of Central and the river and says the river access point there would be improved for paddle sports. Quiet Waters publishes the stored coordinate as the Central Avenue Access GPS point after directions to the Sunset SW parking area. Retain it as the public parking/access-area anchor; it is not a surveyed water-entry toe, and users must carry boats to the current landing.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nm_cabq_central_avenue_public_access_anchor_20260918 cabq-central-avenue-sunset-sw-parking-access-area) on Rio Grande; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "rio-grande-calabacillas-central",
+      "routeName": "Rio Grande",
+      "reach": "Calabacillas Arroyo access to Central Avenue access",
+      "state": "New Mexico",
+      "endpoint": "putIn",
+      "endpointName": "Calabacillas Arroyo public river access (parking-area anchor)",
+      "latitude": 35.187115971800154,
+      "longitude": -106.65177189116153,
+      "matchedRiverName": "Rio Grande",
+      "distanceFeetToMatchedRiver": 154.74150467415228,
+      "nearestMatchedLatitude": 35.18743662068995,
+      "nearestMatchedLongitude": -106.6514321453774,
+      "nearestWaterwayName": "Arroyo de las Calabacillas",
+      "distanceFeetToNearestWaterway": 154.7419745727788,
+      "nearestWaterwayLatitude": 35.18743730518834,
+      "nearestWaterwayLongitude": -106.6514331125722,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 110.8724789309825,
+      "nearestWaterbodyLatitude": 35.187342514616006,
+      "nearestWaterbodyLongitude": -106.65152401015901,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 110.8724789309825,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 111 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -72,7 +72,10 @@ type OfficialMapProvider = {
 type OfficialMapControls = { schemaVersion: number; providers: OfficialMapProvider[] };
 
 const root = process.cwd();
-const auditPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
+const auditArg = process.argv.find((arg) => arg.startsWith('--audit='));
+const auditPath = auditArg
+  ? path.resolve(root, auditArg.slice('--audit='.length))
+  : path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const outputPath = path.join(root, 'docs', 'route-coordinate-authoritative-evidence.json');
 const officialMapControlsPath = path.join(root, 'src', 'data', 'route-access-official-map-controls.json');
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-authoritative-evidence');

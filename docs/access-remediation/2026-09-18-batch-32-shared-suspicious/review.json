@@ -1,0 +1,160 @@
+{
+  "batch": 32,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 4,
+  "endpointOccurrencesCorrected": 24,
+  "uniqueRoutesChanged": 24,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Montana",
+      "name": "Angevine Fishing Access Site",
+      "routeIds": [
+        "blackfoot-river-angevine-marco-flats",
+        "blackfoot-river-angevine-weigh-station",
+        "blackfoot-river-whitaker-angevine",
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-k-ross-toole-angevine",
+        "blackfoot-river-angevine-johnsrud",
+        "blackfoot-river-roundup-angevine",
+        "blackfoot-river-scotty-brown-angevine"
+      ],
+      "decision": "correct-to-public-hand-launch-water-entry-edge",
+      "previousCoordinate": {
+        "latitude": 46.89659,
+        "longitude": -113.76427
+      },
+      "updatedCoordinate": {
+        "latitude": 46.8958721652,
+        "longitude": -113.7639273234
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 75,
+      "rationale": "Montana FWP identifies Angevine as a public hand launch on the Blackfoot and provides the official site location and boundary. The replacement is within that FWP parcel at its mapped-water edge, checked against current aerial imagery; the prior point was about 330 feet from the matched flowline and 275 feet from the waterbody. This is imagery-derived, not a surveyed FWP coordinate.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 8,
+        "suspicious": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 8",
+        "flowlineDistanceFeet": 55.4,
+        "severity": "ok for all 8"
+      },
+      "holdAdded": false,
+      "reopenWhen": "Recheck if FWP relocates or closes the site, or publishes a surveyed launch coordinate."
+    },
+    {
+      "state": "Mississippi",
+      "name": "Moody’s Landing primitive sandbar landing",
+      "routeIds": [
+        "black-creek-old-highway-49-moodys",
+        "black-creek-moodys-janice",
+        "black-creek-moodys-cypress",
+        "black-creek-moodys-fairley",
+        "black-creek-big-creek-moodys",
+        "black-creek-churchwell-moodys",
+        "black-creek-ashe-nursery-moodys"
+      ],
+      "decision": "correct-to-imagery-derived-public-sandbar-landing",
+      "previousCoordinate": {
+        "latitude": 31.0545,
+        "longitude": -89.1176
+      },
+      "updatedCoordinate": {
+        "latitude": 31.053755,
+        "longitude": -89.117915
+      },
+      "coordinateRole": null,
+      "uncertaintyFeet": 75,
+      "rationale": "Seven Rivers Canoe Club describes the Moody’s Landing gravel-road approach, Forest Service sign and primitive sandbar launch on Black Creek; the Forest Service identifies the managed Black Creek Wild and Scenic corridor. Current aerial imagery and NHD waterbody geometry place the updated point at the nearby landing. The prior point was about 386 feet from the matched flowline and 289 feet from mapped water. No agency-published exact coordinate was found, so the replacement is explicitly imagery-derived and is not presented as surveyed or agency-controlled.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 7,
+        "suspicious": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 7",
+        "flowlineDistanceFeet": 100.4,
+        "nearestWaterbodyDistanceFeet": 0,
+        "severity": "review for all 7"
+      },
+      "holdAdded": false,
+      "reopenWhen": "Recheck the landing after major channel/sandbar change, an access closure or publication of a manager-confirmed water-entry coordinate."
+    },
+    {
+      "state": "Louisiana",
+      "name": "Jeanerette T.J. Viator City Park official dock",
+      "routeIds": [
+        "bayou-teche-new-iberia-jeanerette",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-st-martinville-jeanerette",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-jeanerette-baldwin"
+      ],
+      "decision": "correct-to-official-dock-visible-at-water-edge",
+      "previousCoordinate": {
+        "latitude": 29.9176966,
+        "longitude": -91.6672004
+      },
+      "updatedCoordinate": {
+        "latitude": 29.918431,
+        "longitude": -91.66681
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "TECHE Project lists the official Bayou Teche National Paddle Trail dock at T.J. Viator City Park off Tarleton Street. Current aerial imagery shows the dock/landing at the bayou edge; the coordinate was taken from the visible landing. The prior point was about 482 feet from the matched flowline and 152 feet from mapped-water geometry. The site identity is official, while the exact coordinate is imagery-derived rather than published or surveyed.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 5,
+        "suspicious": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 5",
+        "flowlineDistanceFeet": 223.2,
+        "nearestWaterbodyDistanceFeet": 93.2,
+        "severity": "review for all 5"
+      },
+      "holdAdded": false,
+      "reopenWhen": "Recheck if TECHE relocates/closes the dock, if park access changes, or if a verified GPS location is provided."
+    },
+    {
+      "state": "Washington",
+      "name": "Redband Park public boat slide launch",
+      "routeIds": [
+        "spokane-river-redband-tj-meenach",
+        "spokane-river-redband-aubrey-white",
+        "spokane-river-redband-nine-mile-dam",
+        "spokane-river-redband-plese-flats"
+      ],
+      "decision": "correct-to-city-boat-slide-water-entry",
+      "previousCoordinate": {
+        "latitude": 47.660252,
+        "longitude": -117.425334
+      },
+      "updatedCoordinate": {
+        "latitude": 47.66001,
+        "longitude": -117.432231
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "The City of Spokane confirms the Redband Park boat launch and describes the ramp/steps to the river; Spokane Conservation District documents the slide-rail launch. The prior point was near the downtown falls, about 324 feet from the matched river flowline, and did not identify Redband Park. Current aerial imagery shows the public slide at the park’s south-bank shoreline. The replacement is an imagery estimate, not a surveyed City coordinate.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 4,
+        "suspicious": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 4",
+        "flowlineDistanceFeet": 128.9,
+        "nearestWaterbodyDistanceFeet": 50.2,
+        "severity": "review for all 4"
+      },
+      "holdAdded": false,
+      "reopenWhen": "Recheck if the City relocates or closes the launch, or publishes a surveyed coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 24,
+    "targetedRouteAuditResults": "Each affected public route had zero suspicious endpoints, zero failures, zero unknown endpoints, and zero source issues. Other endpoints on each route may remain review/ok according to their own access evidence.",
+    "changedRouteGeometryRegenerated": 24,
+    "fullAuditStatus": "completed: 2,752 routes / 6,062 endpoints; 129 suspicious, 0 failures, 78 unknown, 271 source issues. This audit preceded batch 33.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched)."
+  }
+}

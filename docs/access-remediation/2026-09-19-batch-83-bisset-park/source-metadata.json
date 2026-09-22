@@ -1,0 +1,10 @@
+{
+  "batch": "B83",
+  "sources": [
+    { "title": "Virginia DWR New River waterbody guide", "url": "https://dwr.es.virginia.gov/waterbody/new-river/", "publisher": "Virginia Department of Wildlife Resources", "supports": ["Bisset Park Boat Ramp / Dudley’s Landing launch and take-out"] },
+    { "title": "City of Radford The New River", "url": "https://www.radfordva.gov/514/The-New-River", "publisher": "City of Radford", "supports": ["Dudley’s Landing boat launch", "Bisset Park river access"] },
+    { "title": "Bisset Park Boat Access Facility FONSI", "url": "https://nrvrc.org/news/public-notifications/fonsi-bisset-park", "publisher": "New River Valley Regional Commission", "supports": ["public boat launch, parking, and foot path project"] },
+    { "title": "American Whitewater Claytor Dam to above McCoy Falls", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/4620/main", "publisher": "American Whitewater", "supports": ["Bisset Park/Dudley’s Landing boat ramp and parking"] }
+  ],
+  "sourceQuality": "The decision is based on state, municipal, regional, and whitewater access sources; no coordinate move was justified."
+}

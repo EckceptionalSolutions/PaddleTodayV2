@@ -105,22 +105,13 @@ export const utahRiverTripDetails: Record<string, RiverTripDetails> = {
         "note": "Default put-in; Forest Service publishes Willows coordinates and says the South Fork Ogden River flows through the campground."
       },
       {
-        "id": "lower-meadows-campground-south-fork-ogden",
-        "name": "Lower Meadows Campground",
-        "latitude": 41.286623,
-        "longitude": -111.643195,
-        "mileFromStart": 0.9,
-        "segmentKind": "creek",
-        "note": "Intermediate Forest Service campground river-adjacent access; use only if current signs and parking allow it."
-      },
-      {
         "id": "perception-park-family-campground-south-fork-ogden",
-        "name": "Perception Park Family Campground",
+        "name": "Perception Park riverside campground access area",
         "latitude": 41.289719,
         "longitude": -111.640667,
         "mileFromStart": 1.3,
         "segmentKind": "creek",
-        "note": "Intermediate accessible campground area with river platforms and river access context."
+        "note": "Intermediate public riverside campground access-area anchor. Recreation.gov confirms river access and popular tubing/fishing, but does not publish a paddling launch or exact water-entry coordinate; use posted paths and do not treat this as a dedicated boat ramp."
       },
       {
         "id": "south-fork-campground-south-fork-ogden",

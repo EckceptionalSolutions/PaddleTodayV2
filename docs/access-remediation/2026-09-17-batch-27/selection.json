@@ -1,0 +1,16 @@
+{
+  "batch": 27,
+  "selectedAt": "2026-09-17",
+  "selectionMethod": "From the refreshed full audit's unheld access review queue, prioritize an off-water access with a current public-water-trail listing that publishes site GPS and carry distance.",
+  "siteCount": 1,
+  "sites": [
+    {
+      "state": "Michigan",
+      "name": "Mayor's Riverfront Park Boat Launch",
+      "routeIds": ["kalamazoo-river-comstock-mayors-riverfront"],
+      "endpoint": "takeOut",
+      "previousCoordinate": {"latitude": 42.29059, "longitude": -85.56645},
+      "reviewQueueMappedWaterOffsetFeet": 821
+    }
+  ]
+}

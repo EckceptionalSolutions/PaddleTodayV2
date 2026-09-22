@@ -1,0 +1,60 @@
+{
+  "batch": "2026-09-17-batch-18",
+  "validatedOn": "2026-09-17",
+  "checks": [
+    {
+      "name": "batch verifier",
+      "command": "node docs/access-remediation/2026-09-17-batch-18/verify.mjs",
+      "status": "passed",
+      "result": "10 selected sites accounted for; 7 anchor providers, 2 holds, 154 manifest entries, and all 12 locally stored source hashes verified."
+    },
+    {
+      "name": "withholding manifest generation",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated src/data/generated/withheld-route-slugs.ts with 154 withheld route(s). The npm wrapper itself cannot find tsx on PATH in this workspace, so the installed CLI was invoked directly."
+    },
+    {
+      "name": "TypeScript syntax",
+      "command": "typescript.transpileModule on changed TypeScript files",
+      "status": "passed",
+      "result": "route-access-review-holds.ts, routes/idaho.ts, routes/north-carolina.ts, routes/montana-bitterroot.ts, and trip-details/arkansas.ts transpile without syntax errors."
+    },
+    {
+      "name": "whitespace check",
+      "command": "git -c core.whitespace=cr-at-eol diff --check on batch source files",
+      "status": "passed",
+      "result": "No whitespace errors."
+    },
+    {
+      "name": "route typecheck",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked-by-workspace-dependency",
+      "result": "The workspace cannot resolve @paddletoday/api-contract; cascading route access type errors follow from the absent contract types."
+    },
+    {
+      "name": "focused access tests",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked-by-workspace-dependency",
+      "result": "Vitest startup cannot resolve @jridgewell/sourcemap-codec, imported by magic-string."
+    },
+    {
+      "name": "fresh full access quality audit",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --cache-only --output=docs/access-point-quality-audit.json",
+      "status": "blocked-by-workspace-dependency",
+      "result": "The audit cannot resolve @paddletoday/geo. The existing cache-only audit was not overwritten."
+    },
+    {
+      "name": "generated access registry",
+      "command": "npm run routes:access-registry:generate -- --audit=docs/access-point-quality-audit.json",
+      "status": "not-run",
+      "result": "A fresh full audit could not be produced, so the stale audit was not passed to the registry generator. Generated route-access-registry.json still needs refresh when workspace dependencies are restored."
+    },
+    {
+      "name": "route geometry",
+      "command": "not applicable",
+      "status": "not-run",
+      "result": "No route coordinates changed. The two routes removed from publication need no public geometry rebuild."
+    }
+  ]
+}

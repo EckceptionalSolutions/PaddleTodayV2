@@ -1,0 +1,16 @@
+[
+  {
+    "domain": "paddletoday.com",
+    "error": null,
+    "expiresOn": "2027-02-25T23:59:59Z",
+    "isDefault": true,
+    "status": "Ready"
+  },
+  {
+    "domain": "www.paddletoday.com",
+    "error": null,
+    "expiresOn": "2027-03-21T23:59:59Z",
+    "isDefault": false,
+    "status": "Ready"
+  }
+]

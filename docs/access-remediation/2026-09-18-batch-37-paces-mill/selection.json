@@ -1,0 +1,27 @@
+{
+  "batch": 37,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "highest-impact repeated suspicious coordinate in the post-batch-36 full audit; all route occurrences reviewed together",
+  "selectedLocations": [
+    {
+      "state": "Georgia",
+      "name": "Paces Mill public launch",
+      "previousCoordinate": { "latitude": 33.870198, "longitude": -84.453659 },
+      "updatedCoordinate": { "latitude": 33.870403, "longitude": -84.45231 },
+      "endpointOccurrencesCorrected": 7,
+      "routeIds": [
+        "chattahoochee-river-island-ford-paces-mill",
+        "chattahoochee-river-johnson-ferry-paces-mill",
+        "chattahoochee-river-johnson-ferry-south-paces-mill",
+        "chattahoochee-river-jones-bridge-paces-mill",
+        "chattahoochee-river-morgan-falls-park-paces-mill",
+        "chattahoochee-river-overlook-park-paces-mill",
+        "chattahoochee-river-whitewater-creek-paces-mill"
+      ],
+      "decision": "correct-to-imagery-derived-public-river-entry",
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "NPS identifies Paces Mill as a canoe/kayak/small-boat launch and final take-out. The old point was a park-area anchor; current aerial imagery shows the public approach reaching the Chattahoochee at the replacement point. The exact coordinate is imagery-derived, not surveyed."
+    }
+  ]
+}

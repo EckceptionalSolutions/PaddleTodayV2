@@ -1,0 +1,713 @@
+{
+  "batch": 28,
+  "selectedAt": "2026-09-17",
+  "scope": "public-routes",
+  "selectionMethod": "First ten distinct physical sites in the listRivers() public access-review queue, excluding sites reviewed in batches 1-27. Frozen before source research; all public route occurrences retained. The initial distances are cache-only and are rechecked against the full network refresh.",
+  "siteCount": 10,
+  "refreshedAudit": {
+    "file": "audit-pre-change-refreshed.json",
+    "generatedAt": "2026-09-18T00:26:45.966Z",
+    "evidenceMode": "refreshed",
+    "routeCount": 2761,
+    "endpointCount": 6082,
+    "sourceIssueCount": 282,
+    "selectedOccurrenceCount": 27,
+    "selectedOccurrencesWithCompleteHydrography": 21,
+    "selectedOccurrencesWithIncompleteHydrography": 6,
+    "incompleteRouteIds": [
+      "bayou-teche-arnaudville-loreauville",
+      "bayou-teche-breaux-bridge-loreauville",
+      "bayou-teche-leonville-loreauville",
+      "bayou-teche-loreauville-charenton",
+      "bayou-teche-new-iberia-charenton"
+    ],
+    "publicReviewQueueOrderConfirmed": true
+  },
+  "sites": [
+    {
+      "selectionOrder": 1,
+      "state": "Wisconsin",
+      "name": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+      "routeIds": [
+        "manitowoc-river-clark-mills-county-s"
+      ],
+      "occurrences": [
+        {
+          "routeId": "manitowoc-river-clark-mills-county-s",
+          "endpoint": "accessPoint",
+          "endpointName": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "accessPoint"
+      ],
+      "previousCoordinate": {
+        "latitude": 44.0903,
+        "longitude": -87.8439
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 494.1,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 494.1,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "manitowoc-river-clark-mills-county-s",
+          "endpoint": "accessPoint",
+          "endpointName": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+          "distanceFeetToMappedWater": 494.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 2,
+      "state": "Louisiana",
+      "name": "Charenton official dock access area (3726 Chitimacha Trail)",
+      "routeIds": [
+        "bayou-teche-charenton-baldwin",
+        "bayou-teche-charenton-centerville",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-new-iberia-charenton"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-charenton-baldwin",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-charenton-centerville",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-jeanerette-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-new-iberia-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "putIn",
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 29.8842751,
+        "longitude": -91.5348949
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 491.1,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 491.1,
+      "refreshedHydrographyCoverageComplete": false,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "bayou-teche-charenton-baldwin",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "distanceFeetToMappedWater": 491.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-charenton-centerville",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "distanceFeetToMappedWater": 491.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-jeanerette-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "distanceFeetToMappedWater": 491.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "distanceFeetToMappedWater": 491.1,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-new-iberia-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "distanceFeetToMappedWater": 491.1,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 3,
+      "state": "West Virginia",
+      "name": "Valley Falls State Park river-right check-in / access area",
+      "routeIds": [
+        "wv-tygart-valley-falls-hammond"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-tygart-valley-falls-hammond",
+          "endpoint": "putIn",
+          "endpointName": "Valley Falls State Park river-right check-in / access area",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "putIn"
+      ],
+      "previousCoordinate": {
+        "latitude": 39.38897,
+        "longitude": -80.08733
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 487.4,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 487.4,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "wv-tygart-valley-falls-hammond",
+          "endpoint": "putIn",
+          "endpointName": "Valley Falls State Park river-right check-in / access area",
+          "distanceFeetToMappedWater": 487.4,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 4,
+      "state": "Wisconsin",
+      "name": "Holiday Heights public canoe landing / park access area",
+      "routeIds": [
+        "la-crosse-river-veterans-holiday-heights"
+      ],
+      "occurrences": [
+        {
+          "routeId": "la-crosse-river-veterans-holiday-heights",
+          "endpoint": "takeOut",
+          "endpointName": "Holiday Heights public canoe landing / park access area",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 43.86201,
+        "longitude": -91.20178
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 487.0,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 487.0,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "la-crosse-river-veterans-holiday-heights",
+          "endpoint": "takeOut",
+          "endpointName": "Holiday Heights public canoe landing / park access area",
+          "distanceFeetToMappedWater": 487.0,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 5,
+      "state": "Montana",
+      "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "routeIds": [
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-russell-gates-johnsrud",
+        "blackfoot-river-russell-gates-k-ross-toole",
+        "blackfoot-river-russell-gates-roundup",
+        "blackfoot-river-russell-gates-scotty-brown",
+        "blackfoot-river-russell-gates-weigh-station",
+        "blackfoot-river-russell-gates-whitaker"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-russell-gates-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-roundup",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-scotty-brown",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "putIn"
+      ],
+      "previousCoordinate": {
+        "latitude": 47.0234361031,
+        "longitude": -113.306023437
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 474.3,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 474.3,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "blackfoot-river-russell-gates-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-roundup",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-scotty-brown",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "distanceFeetToMappedWater": 474.3,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 6,
+      "state": "Louisiana",
+      "name": "Loreauville official dock access area (119 Bridge St)",
+      "routeIds": [
+        "bayou-teche-arnaudville-loreauville",
+        "bayou-teche-breaux-bridge-loreauville",
+        "bayou-teche-leonville-loreauville",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-loreauville-new-iberia",
+        "bayou-teche-st-martinville-loreauville"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-jeanerette",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-st-martinville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "putIn",
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 30.0564348,
+        "longitude": -91.7386437
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 473.0,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 473.0,
+      "refreshedHydrographyCoverageComplete": false,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "bayou-teche-arnaudville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "unknown",
+          "hydrographyCoverageComplete": false,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-jeanerette",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-st-martinville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "distanceFeetToMappedWater": 473.0,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 7,
+      "state": "New York",
+      "name": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "routeIds": [
+        "hudson-river-indian-confluence-north-river",
+        "hudson-river-newcomb-indian-confluence"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-indian-confluence-north-river",
+          "endpoint": "putIn",
+          "endpointName": "Outer Gooley Parking Area / Hudson Gorge carry",
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "takeOut",
+          "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+          "severity": "review"
+        }
+      ],
+      "endpointKinds": [
+        "putIn",
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 43.8275,
+        "longitude": -74.2008
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 469.1,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 469.1,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "hudson-river-indian-confluence-north-river",
+          "endpoint": "putIn",
+          "endpointName": "Outer Gooley Parking Area / Hudson Gorge carry",
+          "distanceFeetToMappedWater": 469.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "takeOut",
+          "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+          "distanceFeetToMappedWater": 469.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "review"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 8,
+      "state": "New York",
+      "name": "Noblewood Park cartop launch / Boquet mouth access area",
+      "routeIds": [
+        "boquet-river-willsboro-noblewood"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boquet-river-willsboro-noblewood",
+          "endpoint": "takeOut",
+          "endpointName": "Noblewood Park cartop launch / Boquet mouth access area",
+          "severity": "review"
+        }
+      ],
+      "endpointKinds": [
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 44.3523,
+        "longitude": -73.359958
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 468.1,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 468.1,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "boquet-river-willsboro-noblewood",
+          "endpoint": "takeOut",
+          "endpointName": "Noblewood Park cartop launch / Boquet mouth access area",
+          "distanceFeetToMappedWater": 468.1,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "review"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    },
+    {
+      "selectionOrder": 9,
+      "state": "New York",
+      "name": "NYSDEC Sevey Hand Launch access area",
+      "routeIds": [
+        "raquette-river-piercefield-parmenter"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Sevey Hand Launch access area",
+          "severity": "review"
+        }
+      ],
+      "endpointKinds": [
+        "accessPoint"
+      ],
+      "previousCoordinate": {
+        "latitude": 44.3071,
+        "longitude": -74.7059
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 466.8,
+      "initialReasons": [
+        "documented-access-anchor-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 466.8,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Sevey Hand Launch access area",
+          "distanceFeetToMappedWater": 466.8,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "review"
+        }
+      ],
+      "refreshedQueueReasons": "documented-access-anchor-offset"
+    },
+    {
+      "selectionOrder": 10,
+      "state": "Michigan",
+      "name": "Historic Bridge Park public kayak-launch access area",
+      "routeIds": [
+        "kalamazoo-river-ceresco-historic-bridge"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kalamazoo-river-ceresco-historic-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Historic Bridge Park public kayak-launch access area",
+          "severity": "suspicious"
+        }
+      ],
+      "endpointKinds": [
+        "takeOut"
+      ],
+      "previousCoordinate": {
+        "latitude": 42.29236,
+        "longitude": -85.11431
+      },
+      "cacheOnlyMappedWaterOffsetFeet": 462.8,
+      "initialReasons": [
+        "mapped-water-offset"
+      ],
+      "refreshedMappedWaterOffsetFeet": 462.8,
+      "refreshedHydrographyCoverageComplete": true,
+      "refreshedOccurrenceEvidence": [
+        {
+          "routeId": "kalamazoo-river-ceresco-historic-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Historic Bridge Park public kayak-launch access area",
+          "distanceFeetToMappedWater": 462.8,
+          "waterProximity": "over-300ft",
+          "hydrographyCoverageComplete": true,
+          "severity": "suspicious"
+        }
+      ],
+      "refreshedQueueReasons": "mapped-water-offset"
+    }
+  ]
+}

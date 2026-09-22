@@ -1,0 +1,46 @@
+{
+  "batch": 48,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Hampden public boat-launch site, Penobscot River, Maine",
+  "affectedRoutes": [
+    "penobscot-river-bangor-hampden",
+    "penobscot-river-hampden-eddington"
+  ],
+  "decision": "retain-the-exact-official-dacf-site-coordinate-as-an-access-anchor-and-explicitly-keep-the-ramp-toe-under-review",
+  "decisionScope": "Maine DACF's public boat-launch inventory publishes the stored coordinate for a local Penobscot River launch site and describes a hard 50-foot by 200-foot all-tide ramp. The point is therefore supported as a public launch site. The source does not say whether its coordinate is the dry head of the long ramp or its wet toe. Satellite imagery shows the site beside the marina and river, but does not resolve a surveyed toe coordinate. Do not move the point based only on generalized NHD distances.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 44.76540, "longitude": -68.79690 },
+    "occurrences": 2,
+    "mappedWaterDistanceFeet": 204.3139,
+    "matchedFlowlineDistanceFeet": 461.6256,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 44.76540, "longitude": -68.79690 },
+    "to": { "latitude": 44.76540, "longitude": -68.79690 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "maine_dacf_penobscot_hampden_19280",
+    "rationale": "Keep the unchanged, exact state-inventory coordinate but distinguish a confirmed public access site from a verified water-entry toe. Route endpoint labels and caveats now make that precision limit explicit."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeet": 461.6256,
+    "mappedWaterDistanceFeet": 204.3139,
+    "endpointOnWaterbody": false,
+    "interpretation": "The public site is officially supported, but the stored point remains off mapped water. The audit downgrades the issue to review and keeps exact ramp-toe placement open."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "penobscot-river-bangor-hampden",
+      "file": "targeted-bangor-hampden.json",
+      "result": "Both endpoints review; Hampden matches DACF access anchor; source issues 0."
+    },
+    {
+      "routeId": "penobscot-river-hampden-eddington",
+      "file": "targeted-hampden-eddington.json",
+      "result": "Both endpoints review; Hampden matches DACF access anchor; source issues 0."
+    }
+  ],
+  "outcome": "Two suspicious route occurrences moved to review based on exact official site evidence. The current coordinate is retained; finding the actual wet ramp toe remains unresolved."
+}

@@ -1,0 +1,19 @@
+# Access point remediation batch 09
+
+Reviewed September 17, 2026 using the [step-by-step operator runbook](../../access-point-remediation-runbook.md). The ten physical sites were frozen in [selection.json](selection.json) from the cached access-quality queue after excluding batches 01–08 and routes already held at the time. The audit snapshot is stale because `@paddletoday/geo` is unavailable; ranks only set research order, and current source evidence controls decisions.
+
+No access coordinate was moved. Seven sites remain at source-supported public access-area anchors because their manager sources establish the site but do not publish an exact wet-edge coordinate: Canton Bridge, Neal Bridge, Tivoli Bays, Upper Mills, Botna Bend, Manton/Aleppo, and Skidmore. Lower Meadows was removed as an unsupported optional paddling marker; its current campground listing does not establish launch or bailout access. The Henrys Lake turnaround is now typed as a navigation waypoint, so it no longer enters the access-quality queue. Lutsen Ski Area access remains unverified, so its dependent route is withheld. See [review.json](review.json) for every decision and affected route.
+
+The audit improvement adds `accessPointRole: "navigation-waypoint"` for an interior route-shape point that is not a launch or landing. The audit omits only explicitly classified navigation waypoints; older intermediate access records stay in the queue by default. A focused unit test covers both behaviors. The cached JSON audit was not edited by hand; it will drop Henrys Lake from its queue when a fresh audit can run.
+
+## Repeatable steps for a weaker model
+
+1. Read the runbook, this README, `selection.json`, and `review.json`. Work the ten frozen sites in order. Do not substitute an easier point.
+2. For each coordinate, identify what it represents: a wet-edge launch, carry trail, ramp, parking/access-area pin, campground, bridge, or route-only waypoint. Use current sources from the managing agency or water-trail operator. A nearby water line is not evidence that a coordinate is wrong.
+3. Separate a feature's public identity from its coordinate precision. Record the exact official map feature and published coordinate when available. If the manager confirms the site but publishes no wet-edge point, retain an honest access-area anchor and say what it represents.
+4. Check present-day access restrictions and route continuity. Remove a marker only when it is optional and the route remains valid. For a required put-in or take-out with unverified lawful access, retain the record, state what remains unknown, and hold every dependent route.
+5. If an interior `accessPoints` entry is only for route shape, set `accessPointRole: "navigation-waypoint"`; do not infer that role from a lake segment or from distance to water. Keep true intermediate launches and landings audited.
+6. Before editing, hash and copy each source file. Record every retrieved source URL, retrieval status, local snapshot path, and SHA-256 in `source-metadata.json`. Failed retrievals stay in the log but never count as evidence.
+7. Regenerate the withholding manifest, run `verify.mjs`, then follow the runbook validation order. Never regenerate the registry from a stale cache-only audit. If shared packages block typechecking, the fresh audit, or geometry generation, record the exact error and leave dependent routes withheld.
+
+Fourteen source snapshots were accepted and five retrieval attempts failed; full details and hashes are in [source-metadata.json](source-metadata.json). Original source hashes and exact pre-edit backups are listed in [before-file-hashes.json](before-file-hashes.json); bulky snapshots and backups are under `node_modules/.cache/access-batch-09/`. Validation outcomes and blockers are in [validation.json](validation.json).

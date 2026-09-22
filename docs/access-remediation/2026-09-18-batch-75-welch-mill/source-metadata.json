@@ -1,0 +1,31 @@
+{
+  "batch": 75,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "url": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Current page accessed 2026-09-18",
+      "role": "Official confirmation that Welch lacks developed public access and has limited parking; recommends considering an outfitter and identifies County Road 7 bridge drop-off context."
+    },
+    {
+      "url": "https://www.dnr.state.mn.us/state-water-trails/virtual-tour/cannon-river/snapshot.html",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Current page accessed 2026-09-18",
+      "role": "Official confirmation that Welch has no formal public water access, that local outfitters serve paddlers, and that the Highway 61 landing is used by paddlers finishing from Welch."
+    },
+    {
+      "url": "https://www.welchmill.com/canoeing-kayaking",
+      "publisher": "Welch Mill",
+      "sourceDate": "Current operator page accessed 2026-09-18",
+      "role": "Confirms service model: trips start at the mill, shuttle customers upstream, return to the mill, and recommend reservations; lists address 26389 County 7 Blvd."
+    },
+    {
+      "url": "https://www.openstreetmap.org/node/1411658044",
+      "publisher": "OpenStreetMap",
+      "sourceDate": "Map point accessed 2026-09-18",
+      "role": "Secondary coordinate cross-check for the Welch Mill shop/business pin; not evidence of public landing rights or a surveyed water-entry point."
+    }
+  ],
+  "coordinateMethod": "Compared the stored route coordinate against the public map point for Welch Mill, which agrees within about 16 feet. Kept the stored point as an access-area/business anchor because the official operator and DNR materials confirm outfitter service and access limitations but do not publish a surveyed wet-toe coordinate."
+}

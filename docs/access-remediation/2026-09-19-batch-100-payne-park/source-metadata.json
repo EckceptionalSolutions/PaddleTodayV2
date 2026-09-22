@@ -1,0 +1,11 @@
+{
+  "batch": "B100",
+  "endpoint": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+  "routeId": "susquehanna-river-bainbridge-afton",
+  "sources": [
+    {"url":"https://dec.ny.gov/places/susquehanna-river","publisher":"New York State Department of Environmental Conservation","supports":"Lists Bainbridge William Payne Park downstream of the Route 206 bridge as a Susquehanna River hard-surface ramp with parking."},
+    {"url":"https://www.townofbainbridgeny.gov/parks-recreation","publisher":"Town of Bainbridge","supports":"Confirms William Payne Park has boat access to the Susquehanna."},
+    {"url":"https://www.villageofbainbridgeny.org/resident-information.html","publisher":"Village of Bainbridge","supports":"Confirms boat launch ramps for the Susquehanna at Payne and Clinton parks."}
+  ],
+  "sourceAssessment": "NYSDEC is the controlling launch inventory; municipal pages corroborate that Payne Park is a public Susquehanna access site. The sources support a launch-area anchor, not an exact wet-toe coordinate."
+}

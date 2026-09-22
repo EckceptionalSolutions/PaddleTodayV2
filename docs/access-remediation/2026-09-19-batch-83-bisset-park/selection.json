@@ -1,0 +1,20 @@
+{
+  "batch": "B83",
+  "selectedAt": "2026-09-19",
+  "routeId": "new-river-radford-peppers-ferry",
+  "routeName": "New River",
+  "reach": "Bisset Park / Dudley’s Landing to Peppers Ferry",
+  "state": "Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Bisset Park Boat Ramp / Dudley’s Landing",
+  "storedCoordinate": { "latitude": 37.142947, "longitude": -80.561986 },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 436.9020557665805,
+    "nearestWaterwayName": "New River",
+    "distanceFeetToMappedWater": 151.33404194553557,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "The endpoint is a named city park boat ramp/Dudley’s Landing and is close to mapped water; verify the park/ramp anchor before moving it."
+}

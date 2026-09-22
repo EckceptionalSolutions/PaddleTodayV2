@@ -14,7 +14,12 @@ describe('Washington Spokane River scored routes', () => {
       expect(route.profile.idealMin).toBe(2500);
       expect(route.accessPoints).toHaveLength(2);
       for (const point of route.accessPoints ?? []) {
-        expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        if (point.name.startsWith('Mission Ave.')) {
+          expect(point).toMatchObject({ latitude: 47.671585, longitude: -117.180981 });
+          expect(point.name).toContain('whitewater park/play only');
+        } else {
+          expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        }
         if (point.name.startsWith('Sullivan Park')) {
           expect(point).toMatchObject({ latitude: 47.672873, longitude: -117.196939 });
           expect(point.name).toContain('imagery-derived');
@@ -40,7 +45,12 @@ describe('Washington Spokane expansion routes', () => {
       expect(route.gaugeSource).toMatchObject({ siteId: '12422500', kind: 'direct' });
       expect(route.accessPoints).toHaveLength(2);
       for (const point of route.accessPoints ?? []) {
-        expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        if (point.name.startsWith('Mission Ave.')) {
+          expect(point).toMatchObject({ latitude: 47.671585, longitude: -117.180981 });
+          expect(point.name).toContain('whitewater park/play only');
+        } else {
+          expect(point.name).toMatch(/water-entry edge|shoreline entry/);
+        }
         if (point.name.startsWith('Sullivan Park')) {
           expect(point).toMatchObject({ latitude: 47.672873, longitude: -117.196939 });
           expect(point.name).toContain('imagery-derived');

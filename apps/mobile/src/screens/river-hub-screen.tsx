@@ -3,6 +3,7 @@ import { RouteComparisonSheet } from '../components/route-comparison-sheet';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { ROUTE_COMPARISON_LIMIT, toggleRouteComparison } from '../lib/route-comparison';
+import { readRiverHubSession, writeRiverHubSession } from '../lib/river-hub-session';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import {
   buildSourceStrengthViewModel,
@@ -66,27 +67,35 @@ type MapCoordinate = { latitude: number; longitude: number };
 type HubAccessPoint = NonNullable<RiverDetailApiResult['river']['accessPoints']>[number];
 
 export default function RiverHubScreen() {
+  const params = useLocalSearchParams<{ riverId?: string | string[] }>();
+  const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
+  return <RiverHubContent key={riverId} riverId={riverId} />;
+}
+
+function RiverHubContent({ riverId }: { riverId: string }) {
   const reducedMotion = useReducedMotion();
   const { location } = useStoredLocation();
-  const [comparison, setComparison] = useState<{ riverId: string; slugs: string[] }>({ riverId: '', slugs: [] });
+  const [session] = useState(() => readRiverHubSession(riverId));
+  const [comparison, setComparison] = useState({ riverId, slugs: session.slugs });
   const [comparisonOpenFor, setComparisonOpenFor] = useState<string | null>(null);
   const [comparisonBarHeight, setComparisonBarHeight] = useState(130);
-  const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const [expandedRoutes, setExpandedRoutes] = useState<Set<string>>(() => new Set());
   const [selectedRouteSlug, setSelectedRouteSlug] = useState<string | null>(null);
-  const [sortMode, setSortMode] = useState<SortMode>('Best');
-  const [distanceFilter, setDistanceFilter] = useState<HubDistanceFilter>('all');
-  const [difficultyFilter, setDifficultyFilter] = useState<HubDifficultyFilter>('all');
-  const [regionFilter, setRegionFilter] = useState<string | null>(null);
+  const [sortMode, setSortMode] = useState<SortMode>(session.sort);
+  const [distanceFilter, setDistanceFilter] = useState<HubDistanceFilter>(session.distance);
+  const [difficultyFilter, setDifficultyFilter] = useState<HubDifficultyFilter>(session.difficulty);
+  const [regionFilter, setRegionFilter] = useState<string | null>(session.region);
   const [showMoreFilters, setShowMoreFilters] = useState(false);
   const [mapZoomLevel, setMapZoomLevel] = useState(5);
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const routeCardScrollRequestRef = useRef<{ index: number; retries: number } | null>(null);
   const routeCardScrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const trackedHubIdRef = useRef<string | null>(null);
-  const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
+  useEffect(() => {
+    writeRiverHubSession({ riverId, slugs: comparison.slugs, sort: sortMode, distance: distanceFilter, difficulty: difficultyFilter, region: regionFilter });
+  }, [riverId, comparison.slugs, sortMode, distanceFilter, difficultyFilter, regionFilter]);
   const groupQuery = useRiverGroupQuery(riverId);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const result = groupQuery.data?.result ?? null;
@@ -352,7 +361,9 @@ export default function RiverHubScreen() {
                 <Text style={styles.kicker}>{result.group.stateSummary} · River guide</Text>
                 <Text accessibilityRole="header" style={styles.title}>{result.group.name}</Text>
                 <Text style={styles.subtitle}>
-                  {riverHubChoiceLine(result.group.routeCount, regions.length)} Compare paddle length, difficulty, and today’s conditions.
+                  {riverHubChoiceLine(result.group.routeCount, regions.length)} {result.routes.some(route => route.river.scoreEligibility !== 'planning')
+                    ? 'Compare paddle length, difficulty, and current scores where available.'
+                    : 'Compare paddle length, difficulty, and access. These planning routes have no live conditions score.'}
                 </Text>
                 <Text style={styles.routeCalls}>{hubStatusLine(summary, result.group.routeCount)}</Text>
               </View>

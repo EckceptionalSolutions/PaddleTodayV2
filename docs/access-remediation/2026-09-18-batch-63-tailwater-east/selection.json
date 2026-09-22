@@ -1,0 +1,16 @@
+{
+  "batch": 63,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrence before reviewing access-source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:00:42.616Z; 2,750 public routes, 6,058 endpoints, 62 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Tailwater East campground public boat-ramp area, Iowa River",
+    "storedCoordinate": { "latitude": 41.7249, "longitude": -91.5257 },
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": ["iowa-river-tailwater-east-sturgis-ferry"],
+    "preReviewFinding": "The put-in is about 642 feet from the matched Iowa River flowline and 437 feet from mapped water, and is classified suspicious.",
+    "decision": "verify-the-public-below-dam-ramp-site-and-coordinate-against-USACE-and-campground-management-sources; move only if a better supported ramp coordinate is available",
+    "selectionFrozenBeforeResearch": true
+  }
+}

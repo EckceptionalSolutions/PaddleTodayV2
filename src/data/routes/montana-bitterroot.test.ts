@@ -9,8 +9,9 @@ describe('Montana Bitterroot expansion', () => {
       expect(route.gaugeSource?.siteId).toBe('12350250');
       expect(route.safetyProfile?.reviewStatus).toBe('reviewed');
       expect(route.logistics?.campingClassification).toBe('nearby_basecamp');
-      expect(route.putIn?.name).toContain('water-entry edge');
-      expect(route.takeOut?.name).toContain('water-entry edge');
+      expect(route.putIn?.name).toMatch(/Fishing Access|FAS/);
+      expect(route.takeOut?.name).toMatch(/Fishing Access|FAS/);
+      expect(route.evidenceNotes.find(note => note.label === 'Launch coordinate provenance')?.note).toContain('not necessarily surveyed water-entry toes');
       expect(route.sourceLinks.length).toBeGreaterThanOrEqual(7);
     }
   });

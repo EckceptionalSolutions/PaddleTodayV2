@@ -1,0 +1,48 @@
+{
+  "batch": "2026-09-17-batch-09",
+  "validatedOn": "2026-09-17",
+  "results": {
+    "sourceSnapshotsAndBackups": {
+      "status": "passed",
+      "command": "node docs/access-remediation/2026-09-17-batch-09/verify.mjs",
+      "details": "The verifier confirms all ten frozen sites and decisions, seven retained access anchors, one removed optional access marker, one navigation waypoint exclusion, one route hold, 139 withheld slugs, 14 accepted snapshot hashes, five failed retrieval records, pre-edit backup hashes, and TypeScript syntax."
+    },
+    "withholdingManifest": {
+      "status": "passed",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "details": "Generated src/data/generated/withheld-route-slugs.ts with 139 withheld routes. The Lutsen route is included."
+    },
+    "accessAuditRoleUnitLogic": {
+      "status": "passed",
+      "command": "node node_modules/tsx/dist/cli.mjs -e 'import { isAccessPointForQualityAudit } from \"./scripts/lib/access-point-audit-role.ts\"; if (!isAccessPointForQualityAudit({})) throw new Error(\"legacy access point should stay audited\"); if (isAccessPointForQualityAudit({ accessPointRole: \"navigation-waypoint\" })) throw new Error(\"navigation waypoint should be excluded\"); console.log(\"audit role checks passed\");'",
+      "details": "Legacy intermediate access entries remain audited; a point explicitly marked navigation-waypoint is excluded. A focused Vitest file was also added, but the installed Vitest runner cannot start."
+    },
+    "routeFactoryClassification": {
+      "status": "passed",
+      "command": "node node_modules/tsx/dist/cli.mjs -e 'import { idahoRoutes } from \"./src/data/routes/idaho.ts\"; const route = idahoRoutes.find((item) => item.id === \"henrys-lake-south-shore-loop\"); const point = route?.accessPoints?.find((item) => item.name.includes(\"turnaround waypoint\")); if (point?.accessPointRole !== \"navigation-waypoint\") throw new Error(\"route factory did not preserve navigation waypoint role\"); console.log(point.accessPointRole);'",
+      "details": "Confirmed the Idaho route factory preserves the waypoint role in the enriched route data consumed by the audit."
+    },
+    "routeTypecheck": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "details": "The workspace package @paddletoday/api-contract is absent. TypeScript reports that unresolved import first, followed by thousands of cascading route-data errors because core access-point fields lose their contract type. No clean repository typecheck result is available."
+    },
+    "fullAccessAudit": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "details": "The script cannot import @paddletoday/geo, which is absent from node_modules. The cached quality report was not edited by hand and remains stale, including the former Henrys Lake false-positive queue entry."
+    },
+    "focusedVitest": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/vitest/vitest.mjs run scripts/lib/access-point-audit-role.test.ts",
+      "details": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from node_modules. The standalone role check and route-factory check passed."
+    },
+    "geometryAndCatalog": {
+      "status": "blocked-by-workspace-dependency",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --reuse-existing",
+      "details": "Catalog/geometry assembly cannot import @paddletoday/geo. No access coordinate changed in this batch. The Lutsen route remains withheld in the generated route list, and public route indexing filters that generated withheld list."
+    }
+  },
+  "withheldRouteCount": 139,
+  "batchRouteHolds": ["poplar-river-lutsen-seventh-bridge"]
+}

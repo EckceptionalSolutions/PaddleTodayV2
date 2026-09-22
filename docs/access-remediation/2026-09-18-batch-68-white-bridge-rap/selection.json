@@ -1,0 +1,26 @@
+{
+  "batch": 68,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by shared occurrence count and then mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:51:59.273Z; 2,750 public routes, 6,058 endpoints, 57 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Arizona",
+    "name": "White Bridge Recreation Access Point, Verde River",
+    "storedCoordinate": {
+      "latitude": 34.5496,
+      "longitude": -111.8508
+    },
+    "publicCoordinateOccurrences": 5,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "verde-river-skidmore-white",
+      "verde-river-white-bridge-clear-creek",
+      "verde-river-white-bridge-beasley-flat",
+      "verde-river-white-bridge-childs",
+      "verde-river-black-bridge-white"
+    ],
+    "preReviewFinding": "The selected Skidmore-to-White take-out is about 345 feet from its matched Verde River flowline and 2,404 feet from the nearest mapped NHD waterbody. Four other route occurrences share the exact coordinate and audit as review; those occurrences are about 137 feet from the matched line. NHD coverage is complete.",
+    "decision": "determine-whether-the-shared-white-bridge-rap-pin-is-a-public-access-anchor-or-a-misplaced-water-entry; correct only from authoritative site evidence and recheck all five route occurrences",
+    "selectionFrozenBeforeResearch": true
+  }
+}

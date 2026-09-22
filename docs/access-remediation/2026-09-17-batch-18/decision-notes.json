@@ -1,0 +1,230 @@
+{
+  "batch": "2026-09-17-batch-18",
+  "method": "Apply the repository runbook: verify identity and current public access; separate water entry from facility/address/map anchors; decide coordinate support independently from publication; preserve records and hold unresolved terminal access.",
+  "decisions": [
+    {
+      "rank": 204,
+      "site": "Boiceville Supermarket Esopus Creek pullout above Route 28A bridge",
+      "decision": "reject-unverified-and-hold",
+      "coordinate": [
+        42.00685,
+        -74.26772
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "esopus-creek-phoenicia-boiceville"
+      ],
+      "publication": "withheld",
+      "action": "Preserve the route record and withhold it.",
+      "finding": "Insufficient current evidence for a lawful public take-out.",
+      "requiredReopenEvidence": "Current land-manager/property permission plus lawful parking/staging, carry, and a defensible water-entry location.",
+      "sourceUrls": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1301/main",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1301/access/108837"
+      ]
+    },
+    {
+      "rank": 205,
+      "site": "Teton Dam Site Boat Ramp / Carry-In",
+      "decision": "keep-as-generalized-access-anchor",
+      "coordinate": [
+        43.9097213745117,
+        -111.538330078125
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "teton-river-dam-site-teton-forks"
+      ],
+      "publication": "retained-public",
+      "action": "Retain legacy point; rename the endpoint and document the discrepancy with IDFG facility map marker.",
+      "finding": "Dam-site access exists, but exact point and current gated carry require field confirmation.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22510-fishing-and-boating-access-site-teton",
+        "https://www.blm.gov/sites/blm.gov/files/BLM_ID_TetonRiver.pdf",
+        "https://eplanning.blm.gov/public_projects/nepa/49403/138991/171039/FINAL_Snake_River_Planning_Area_%26_Teton_River_Canyon_Capacity_EA_22March2018.pdf"
+      ]
+    },
+    {
+      "rank": 206,
+      "site": "Germania Marsh Dam access",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "coordinate": [
+        43.8917924,
+        -89.2522052
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "mecan-river-highway-22-germania"
+      ],
+      "publication": "retained-public",
+      "action": "Retain point as public ramp/access-area anchor; note seasonal ramp/gate uncertainty.",
+      "finding": "Current WRT route source and DNR wildlife-area listing support public nonmotorized access.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/germania",
+        "https://www.wisconsinrivertrips.com/segments/mecan-river/hwy-22"
+      ]
+    },
+    {
+      "rank": 207,
+      "site": "Bell Crossing Fishing Access Site (water-entry edge)",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "coordinate": [
+        46.44434,
+        -114.12629
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "bitterroot-river-bell-crossing-chief-looking-glass",
+        "bitterroot-river-bell-crossing-poker-joe",
+        "bitterroot-river-tucker-crossing-bell-crossing"
+      ],
+      "publication": "retained-public",
+      "action": "Retain point matching rounded current Montana FWP site coordinates.",
+      "finding": "Official FWP GIS identifies a gravel ramp at Bell Crossing.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://myfwp.mt.gov/fishMT/fas/39754137"
+      ]
+    },
+    {
+      "rank": 208,
+      "site": "Gardiner Wallkill River launch",
+      "decision": "keep-coordinate-split-access-controls",
+      "coordinate": [
+        41.679,
+        -74.152
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "wallkill-river-gardiner-new-paltz",
+        "wallkill-river-popp-gardiner"
+      ],
+      "publication": "retained-public",
+      "action": "Keep Gardiner anchor; remove its duplicates from mixed provider records; reclassify Popp Park from water-entry to access-anchor.",
+      "finding": "Active launch is listed, but coordinate is address/map matched and current municipal approach should be reconfirmed.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://www.wallkillalliance.org/wp-content/uploads/2016/04/WallkillRiver_AccessPoints.pdf",
+        "https://www.wallkillalliance.org/paddle-the-wallkill/",
+        "https://www.orangecountygov.com/DocumentCenter/View/24587/Public-lands-adjacent-to-the-Wallkill-River-Map-September-2018-PDF?bidId="
+      ]
+    },
+    {
+      "rank": 210,
+      "site": "Woodway Memorial Park",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "coordinate": [
+        29.7647,
+        -95.4569
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "buffalo-bayou-west-sam-houston-woodway",
+        "buffalo-bayou-woodway-sabine-street"
+      ],
+      "publication": "retained-public",
+      "action": "Retain TPWD point as named park/access anchor.",
+      "finding": "Current TPWD paddling-trail page lists the site and exact coordinate.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://tpwd.texas.gov/fishboat/boat/paddlingtrails/inland/buffalobayou/"
+      ]
+    },
+    {
+      "rank": 211,
+      "site": "Baker Creek access",
+      "decision": "reject-unverified-and-hold",
+      "coordinate": [
+        43.784896,
+        -114.556579
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "big-wood-river-baker-north-fork"
+      ],
+      "publication": "withheld",
+      "action": "Preserve route record and withhold it pending land-manager confirmation.",
+      "finding": "Current sources do not verify Big Wood paddlecraft entry, legal staging, or carry at the stored point.",
+      "requiredReopenEvidence": "Current land-manager/property permission plus lawful parking/staging, carry, and a defensible water-entry location.",
+      "sourceUrls": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/11411/main",
+        "https://www.ketchumidaho.org/sites/default/files/fileattachments/recreation/page/2681/big_wood_fishing_access_map_-_copy.pdf",
+        "https://idfg.idaho.gov/ifwis/fishingplanner/water/1145496437852"
+      ]
+    },
+    {
+      "rank": 212,
+      "site": "Falls Lake Dam Tailrace Access",
+      "decision": "keep-coordinate-correct-access-description",
+      "coordinate": [
+        35.939118,
+        -78.577094
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "neuse-river-falls-dam-thornton"
+      ],
+      "publication": "retained-public",
+      "action": "Retain legacy access-area point, rename launch and distinguish it from the USACE tailrace fishing lot.",
+      "finding": "Current Raleigh page confirms public nonmotorized Falls Dam launch and route to Thornton; no precise GPS is published.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://raleighnc.gov/river-access",
+        "https://www.saw.usace.army.mil/portals/59/docs/recreation/fallslake/images/falls%20lake%20master%20plan%20june%2021%202013%20final.pdf"
+      ]
+    },
+    {
+      "rank": 213,
+      "site": "Turner Bend landing / Highway 23 bridge",
+      "decision": "keep-coordinate-clarify-conditional-access-anchor",
+      "coordinate": [
+        35.671667,
+        -93.829444
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "mulberry-river-redding-turner-bend"
+      ],
+      "publication": "retained-public",
+      "action": "Retain Highway 23 corridor anchor; name private fee/wristband rules and uncertainty.",
+      "finding": "Current operator confirms landing use is conditional on wristband, parking, and loading rules.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://www.turnerbend.com/BOATING-SHUTTLE.html"
+      ]
+    },
+    {
+      "rank": 214,
+      "site": "NYSDEC Chenango Bridge Route 12A hand launch",
+      "decision": "keep-coordinate-existing-authoritative-control",
+      "coordinate": [
+        42.167396,
+        -75.874293
+      ],
+      "replacement": null,
+      "affectedRouteIds": [
+        "chenango-river-chenango-bridge-port-dickinson",
+        "chenango-river-port-crane-chenango-bridge"
+      ],
+      "publication": "retained-public",
+      "action": "Retain published NYSDEC hand-launch coordinate and existing water-entry control.",
+      "finding": "Current NYSDEC table lists Chenango Bridge Route 12A hand launch and coordinate.",
+      "requiredReopenEvidence": null,
+      "sourceUrls": [
+        "https://dec.ny.gov/things-to-do/boating/launch-sites/broome-county"
+      ]
+    }
+  ],
+  "summary": {
+    "distinctSites": 10,
+    "retainedSites": 8,
+    "heldSites": 2,
+    "coordinateMoves": 0,
+    "accessAnchorControlsAdded": 7,
+    "controlRoleCorrections": 1,
+    "uniqueRoutesAffected": 15,
+    "newHolds": 2
+  }
+}

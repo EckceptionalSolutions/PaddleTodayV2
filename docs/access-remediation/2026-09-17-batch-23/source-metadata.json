@@ -1,0 +1,114 @@
+{
+  "batch": "2026-09-17-batch-23",
+  "sourceCount": 18,
+  "sources": [
+    {
+      "title": "Pennsylvania DCNR Ohiopyle park guide",
+      "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=4597224&ViewerMode=2&action=PDFStream&chksum=&docID=1737406&docName=OHIO_ParkGuide&nativeExt=pdf&overlay=0&revision=2",
+      "retrievedAt": "2026-09-17",
+      "finding": "Identifies the Middle Yough/Ramcat launch context and managed boating route."
+    },
+    {
+      "title": "Pennsylvania DCNR Ohiopyle park map",
+      "url": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3849767&ViewerMode=2&action=PDFStream&chksum=&docID=1737407&docName=OHIO_ParkMap&nativeExt=pdf&overlay=0&revision=2",
+      "retrievedAt": "2026-09-17",
+      "finding": "Names Ramcat; route evidence provides an access-area coordinate, not a water-edge survey."
+    },
+    {
+      "title": "Idaho Fish and Game Fall River access site",
+      "url": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22416-fishing-and-boating-access-site-fall",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current listing says access is foot traffic only/day use and does not tie the facility to Concrete CCC Bridge."
+    },
+    {
+      "title": "American Whitewater Fall River Lower Run",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/552/main",
+      "retrievedAt": "2026-09-17",
+      "finding": "Provides approximate bridge-area route context, not current manager permission for boat carry."
+    },
+    {
+      "title": "NYSDEC Chenango County boat launches",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/chenango-county",
+      "retrievedAt": "2026-09-17",
+      "finding": "Lists Payne Memorial public launch coordinate and facilities."
+    },
+    {
+      "title": "NYSDEC Susquehanna River",
+      "url": "https://dec.ny.gov/places/susquehanna-river",
+      "retrievedAt": "2026-09-17",
+      "finding": "Official recreation and access context for Bainbridge segment."
+    },
+    {
+      "title": "City of Twin Falls parks and facilities",
+      "url": "https://www.tfid.org/182/Parks-and-Facilities",
+      "retrievedAt": "2026-09-17",
+      "finding": "City park listing identifies Auger Falls Heritage Park and trail context."
+    },
+    {
+      "title": "Idaho Snake River access and watercraft inspections",
+      "url": "https://invasivespecies.idaho.gov/snake-river-access",
+      "retrievedAt": "2026-09-17",
+      "finding": "State inspection/access rules for Snake reach."
+    },
+    {
+      "title": "Maryland DNR Gunpowder Falls State Park",
+      "url": "https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx",
+      "retrievedAt": "2026-09-17",
+      "finding": "Describes Hereford Area and Bunker Hill Road parking location."
+    },
+    {
+      "title": "Maryland DNR Hereford Area river recreation",
+      "url": "https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx",
+      "retrievedAt": "2026-09-17",
+      "finding": "Public recreation context; route retains bank/carry confirmation caveat."
+    },
+    {
+      "title": "City of Rock Hill River Park",
+      "url": "https://www.cityofrockhill.com/Home/Components/FacilityDirectory/FacilityDirectory/102/8194",
+      "retrievedAt": "2026-09-17",
+      "finding": "Confirms canoe/kayak launch and seasonal park hours, without exact launch-edge GPS."
+    },
+    {
+      "title": "Florida State Parks Peacock Slough River Camp",
+      "url": "https://www.floridastateparks.org/parks-and-trails/peacock-slough-river-camp",
+      "retrievedAt": "2026-09-17",
+      "finding": "Publishes N 30 6.09, W 83 8.23 and river mile 95.8."
+    },
+    {
+      "title": "Florida State Parks Suwannee River Camps",
+      "url": "https://www.floridastateparks.org/parks-and-trails/suwannee-river-wilderness-trail/river-camps",
+      "retrievedAt": "2026-09-17",
+      "finding": "General river-camp access guidance, not a precise Peacock water-entry edge."
+    },
+    {
+      "title": "Suwannee River Water Management District boating",
+      "url": "https://www.mysuwanneeriver.com/64/Boating-Canoeing",
+      "retrievedAt": "2026-09-17",
+      "finding": "Regional paddling context along the Suwannee."
+    },
+    {
+      "title": "Minnesota DNR Rum River Map 3",
+      "url": "https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Rum%203%20GEO.pdf",
+      "retrievedAt": "2026-09-17",
+      "finding": "Identifies Germanium carry-in at mile 9, river right, Brookview City Park."
+    },
+    {
+      "title": "Boundary County Moyie recreation plan",
+      "url": "https://www2.boundarycountyid.org/planning/compplan/final_draft/00CP2008-23.htm",
+      "retrievedAt": "2026-09-17",
+      "finding": "Older plan calls Meadow Creek a day-use landing; insufficient to establish current permission."
+    },
+    {
+      "title": "Idaho Fish and Game Meadow Creek Campground notice",
+      "url": "https://idfg.idaho.gov/visit/head-barrel-meadow-creek-campground-october-3-through-january-31",
+      "retrievedAt": "2026-09-17",
+      "finding": "Corroborates campground existence, not public paddling carry."
+    },
+    {
+      "title": "Idaho Transportation Department 2026 Airport Facilities Directory",
+      "url": "https://itd.idaho.gov/wp-content/uploads/2026/03/Airport-Facilities-Directory.pdf",
+      "retrievedAt": "2026-09-17",
+      "finding": "Identifies Johnson Creek Airport and operator context, not public river carry."
+    }
+  ]
+}

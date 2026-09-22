@@ -1,0 +1,67 @@
+{
+  "batch": 43,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "Snohomish County Park Inventory Report",
+      "url": "https://snohomishcountywa.gov/DocumentCenter/View/23860/Report---Park-Inventory?bidId=",
+      "documentUpdated": "2025-12-23",
+      "site": "River Meadows",
+      "location": "20416 Jordan Rd., Arlington, WA 98223",
+      "relevantCountyClassification": ["river access", "boat launch", "parking"],
+      "coordinatePublishedForLaunch": false,
+      "interpretation": "Authoritative confirmation that the site offers public river access and a boat launch; not a coordinate source for the launch edge."
+    },
+    {
+      "title": "Snohomish County River Meadows Park facility page",
+      "url": "https://snohomishcountywa.gov/Facilities/Facility/Details/River-Meadows-Park-46",
+      "facilityId": "46",
+      "facilityMapMarker": { "latitude": 48.1810259919157, "longitude": -122.078125393669, "accuracyField": "100" },
+      "coordinateInterpretation": "General park facility marker embedded in the official page, not an advertised launch/toe coordinate. Do not interpret the page's accuracy field as proof of launch precision.",
+      "pageLocation": "20416 Jordan Road, Arlington, WA 98223",
+      "dayUseHours": "7 a.m. until dusk (20 minutes after sunset)"
+    },
+    {
+      "title": "Snohomish County River Meadows Park Map 2024",
+      "url": "https://www.snohomishcountywa.gov/DocumentCenter/View/120376/RiverMeadowsPark-Map2024?bidId=",
+      "revision": "1 (2024-02-07)",
+      "mappedFeaturesRelevantToReview": ["South Fork Stillaguamish River", "River Trail", "campground", "park facilities"],
+      "launchOrCarryPointGeoreferenced": false,
+      "interpretation": "Useful for park context and identifying the river-side trail; not sufficient to locate the boat launch toe."
+    },
+    {
+      "title": "Snohomish County Water Access",
+      "url": "https://snohomishcountywa.gov/1369/Water-Access",
+      "relevantClassification": "Riverfront Parks; lists River Meadows",
+      "coordinatePublished": false
+    },
+    {
+      "title": "USGS National Hydrography Dataset Flowline, Area, and Waterbody",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "resultForStoredPoint": {
+        "coordinate": { "latitude": 48.1797, "longitude": -122.0837 },
+        "matchedRiver": "South Fork Stillaguamish River",
+        "distanceFeetToMatchedFlowline": 566.5908,
+        "distanceFeetToMappedWater": 468.747,
+        "coverageComplete": true
+      },
+      "resultForCountyFacilityMarker": {
+        "coordinate": { "latitude": 48.1810259919157, "longitude": -122.078125393669 },
+        "matchedRiver": "South Fork Stillaguamish River",
+        "distanceFeetToMatchedFlowline": 820.3421,
+        "nearestNamedWaterway": "Jim Creek",
+        "distanceFeetToNearestNamedWaterway": 776.9406,
+        "distanceFeetToMappedWater": 724.5391,
+        "coverageComplete": true
+      }
+    }
+  ],
+  "candidateAuditFiles": [
+    "targeted-river-meadows-twin-rivers.json",
+    "targeted-river-meadows-haller.json"
+  ]
+}

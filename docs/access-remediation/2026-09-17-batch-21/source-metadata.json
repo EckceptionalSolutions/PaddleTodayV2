@@ -1,0 +1,205 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "retrievedAt": "2026-09-17",
+  "sourcePolicy": "Current managing-agency, municipal and operator sources establish access and restrictions. Local paddling guides and event reports corroborate use where no current official GPS is published. No land manager was contacted.",
+  "sources": [
+    {
+      "rank": 236,
+      "site": "Mirabeau Park",
+      "label": "Spokane Conservation District restored river access points",
+      "url": "https://spokanecd.org/blogs/news/spokane-river-restored-access-points",
+      "evidenceUse": "Documents Mirabeau as small-boat and pedestrian access and describes its gravel pathway restoration.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 236,
+      "site": "Mirabeau Park",
+      "label": "City of Spokane Valley Parks and Recreation Comprehensive Plan",
+      "url": "https://www.spokanevalleywa.gov/DocumentCenter/View/499/Parks-and-Recreation-Master-Plan-PDF",
+      "evidenceUse": "Identifies Mirabeau South/North Trailheads and a gravel path to the river; supports an access-area anchor.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 237,
+      "site": "Chautauqua Park",
+      "label": "Valley City Parks and Recreation Chautauqua Park",
+      "url": "https://www.vcparks.com/chautauquapark",
+      "evidenceUse": "City listing confirms a boat launch and fishing dock.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 237,
+      "site": "Chautauqua Park",
+      "label": "Valley City Parks RiverFest logistics",
+      "url": "https://www.vcparks.com/riverfest",
+      "evidenceUse": "2026 event logistics identify the National Fish Hatchery launch and Chautauqua Park take-out/staging.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 238,
+      "site": "Oak Township County Park",
+      "label": "Stearns County Oak Township County Park map",
+      "url": "https://content.civicplus.com/api/assets/3e22f1a4-3d41-4151-9b0a-2b134bde872c",
+      "evidenceUse": "Map shows canoe access, parking, campsite context and the Sauk River; it is not ground-accurate.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 238,
+      "site": "Oak Township County Park",
+      "label": "Minnesota DNR Sauk River Water Trail Map 1",
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk1.pdf",
+      "evidenceUse": "Confirms public access and Oak Township-to-Spring Hill route context.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park",
+      "label": "EPA Rochester Park site profile",
+      "url": "https://response.epa.gov/site/site_profile.aspx?site_id=16866",
+      "evidenceUse": "Current EPA page says state/local officials closed parts of the contaminated park; closure boundary does not resolve the launch path.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park",
+      "label": "EPA Rochester Park Action Memorandum",
+      "url": "https://semspub.epa.gov/work/05/701248.pdf",
+      "evidenceUse": "Publishes 43.725730,-87.803695 as the cleanup site center, not a launch coordinate.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park",
+      "label": "City of Sheboygan Falls park shelter information",
+      "url": "https://www.cityofsheboyganfalls.com/park-shelter-rentals/",
+      "evidenceUse": "Confirms Rochester Park at 710 Hickory Street.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 239,
+      "site": "Rochester Park",
+      "label": "Visit Sheboygan County river recreation",
+      "url": "https://visitsheboygancounty.com/water/",
+      "evidenceUse": "Corroborates Rochester Park as a paddling put-in and a two-portage route.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 240,
+      "site": "Marco Flats",
+      "label": "Montana FWP Marco Flats Fishing Access Site",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754175",
+      "evidenceUse": "FWP page gives 46.88969,-113.82973, Blackfoot River, hand launch and nonmotorized restriction.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 240,
+      "site": "Marco Flats",
+      "label": "Visit Montana Marco Flats FAS record",
+      "url": "https://data.visitmt.com/data/site/3789",
+      "evidenceUse": "State feed describes day-use access, year-round season and canoe/raft hand launch.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 241,
+      "site": "Cameron Mills CR 110",
+      "label": "Finger Lakes Canisteo River Access Guide",
+      "url": "https://www.ilovethefingerlakes.com/rivers/canisteo.htm",
+      "evidenceUse": "Publishes 42°10.717′N, 077°21.814′W for the CR 110 launch area.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 241,
+      "site": "Cameron Mills CR 110",
+      "label": "Hornell Sun 2026 Rathbone Old Home Day report",
+      "url": "https://hornellsun.com/2026/08/13/the-10th-annual-rathbone-old-home-day-in-pictures/",
+      "evidenceUse": "Current local report documents a canoe/kayak race starting at the CR 110 boat launch.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 242,
+      "site": "Trego Town Park Landing",
+      "label": "NPS Namekagon River maps",
+      "url": "https://home.nps.gov/sacn/planyourvisit/maps.htm",
+      "evidenceUse": "Current NPS map links support Trego Town Park Landing; separately notes Lakeside Road permanent closure.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 242,
+      "site": "Trego Town Park Landing",
+      "label": "Town of Trego Parks and Recreation",
+      "url": "https://townoftregowi.com/parks-recreation/",
+      "evidenceUse": "Current town page identifies the campground beside the Namekagon.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 243,
+      "site": "Heath Canyon",
+      "label": "NPS Floating the Lower Canyons",
+      "url": "https://www.nps.gov/rigr/planyourvisit/lower_cyns.htm",
+      "evidenceUse": "NPS locates U.S.-side access just downstream of La Linda bridge; describes difficult access and Limited Use Permit.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 243,
+      "site": "Heath Canyon",
+      "label": "TPWD 2025 Heath Canyon Ranch acquisition announcement",
+      "url": "https://tpwd.texas.gov/newsmedia/releases/?req=20250506a",
+      "evidenceUse": "Documents public river access following ranch acquisition.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 244,
+      "site": "Three Forks Recreation Site",
+      "label": "BLM Three Forks Recreation Site",
+      "url": "https://www.blm.gov/visit/three-forks",
+      "evidenceUse": "Confirms Oregon location, boat launch, parking, exact site coordinate, rough road and 4WD recommendation.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 244,
+      "site": "Three Forks Recreation Site",
+      "label": "BLM Bruneau-Jarbidge-Owyhee Boater Guide",
+      "url": "https://www.blm.gov/sites/blm.gov/files/documents/files/Media-Center_Public-Room_Idaho_Bruneau-Jarbidge-Owyhee_BoaterGuide.pdf",
+      "evidenceUse": "Shows the launch and Owyhee/North Fork corridor toward Rome.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 246,
+      "site": "Riverdale Lane",
+      "label": "San Antonio River Authority Parks and Trails",
+      "url": "https://www.sariverauthority.org/parks-trails/",
+      "evidenceUse": "Current SARA page lists Riverdale, Ferry Street and Goliad State Park as open; separate Hwy 59 landing remains closed.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    },
+    {
+      "rank": 246,
+      "site": "Riverdale Lane",
+      "label": "U.S. Census Bureau Geocoder for 1777 N Riverdale Lane",
+      "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1777%20N%20Riverdale%20LN%2C%20Goliad%2C%20TX%2077963&benchmark=Public_AR_Current&format=json",
+      "evidenceUse": "Supports the stored address anchor, not an exact launch toe.",
+      "retrievedAt": "2026-09-17",
+      "sha256": null
+    }
+  ]
+}

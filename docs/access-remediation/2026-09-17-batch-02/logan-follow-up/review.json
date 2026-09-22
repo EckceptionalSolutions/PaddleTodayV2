@@ -1,0 +1,141 @@
+{
+  "reviewDate": "2026-09-17",
+  "relationshipToFrozenBatch": "Follow-up discovered while reviewing public routes affected by the frozen ten. It does not replace any selected site. Logan Creek remains withheld because its Pender terminal is unresolved.",
+  "sites": [
+    {
+      "site": "Bancroft - 24th Rd",
+      "state": "Nebraska",
+      "routeId": "logan-creek-pender-oakland",
+      "roles": [
+        "accessPoint at river mile 12"
+      ],
+      "decision": "fix",
+      "original": {
+        "latitude": 42.012773,
+        "longitude": -96.57281
+      },
+      "replacement": {
+        "latitude": 42.02187581,
+        "longitude": -96.57456907
+      },
+      "uncertaintyFeet": 100,
+      "method": "Use current Nebraska Game and Parks ArcGIS point geometry and the published Paddle_Lat/Paddle_Long. Geometry and coordinate attributes agree to under a foot; 100 feet is a conservative reviewer estimate, not an agency accuracy statement. Aerial imagery and NHD flowline distance provide secondary context, not permission.",
+      "evidence": {
+        "featureId": "65448e45-38e8-4ec1-847a-f9edbd6f9fdc",
+        "objectId": 20,
+        "areaName": "Bancroft - 24th Rd",
+        "waterbodyLayerValue": "Logan Creek Dredge",
+        "accessType": "Public",
+        "rampStatus": "Open",
+        "shoreLaunch": "Yes",
+        "substrate": "Sand/Gravel",
+        "owner": "County Area",
+        "maintainer": "County Area",
+        "siteNotes": "Steep dropoff from ramp to water.",
+        "geometry": {
+          "longitude": -96.5745690740224,
+          "latitude": 42.02187580688375
+        },
+        "matchedNhdFlowlineDistanceFeet": 92.53
+      },
+      "affectedOccurrences": [
+        {
+          "file": "src/data/routes/nebraska.ts",
+          "field": "accessPoints",
+          "coordinate": "42.012773, -96.57281 -> 42.02187581, -96.57456907"
+        }
+      ],
+      "publicationAction": "Corrected in retained inventory. Route remains withheld because Pender is unresolved.",
+      "reopenWhen": "Pender entry is located and the full shuttle reach, endpoint access, current flow, and route geometry are reviewed."
+    },
+    {
+      "site": "Oakland City Park Access",
+      "state": "Nebraska",
+      "routeId": "logan-creek-pender-oakland",
+      "roles": [
+        "accessPoint at river mile 32",
+        "takeOut"
+      ],
+      "decision": "fix",
+      "original": {
+        "latitude": 41.8263,
+        "longitude": -96.4931
+      },
+      "replacement": {
+        "latitude": 41.82960424,
+        "longitude": -96.48265492
+      },
+      "uncertaintyFeet": 100,
+      "method": "Use current Nebraska Game and Parks ArcGIS point geometry and published Paddle_Lat/Paddle_Long. Geometry and coordinate attributes agree to under a foot; 100 feet is a conservative reviewer estimate, not an agency accuracy statement. Aerial imagery and NHD flowline distance are secondary checks.",
+      "evidence": {
+        "featureId": "5efc7a98-ec2c-4c0a-888f-3d4110f89b16",
+        "objectId": 19,
+        "areaName": "Oakland City Park Access",
+        "waterbodyLayerValue": "Logan Creek Dredge",
+        "accessType": "Public",
+        "rampStatus": "Open",
+        "shoreLaunch": "Yes",
+        "substrate": "Sand/Gravel",
+        "owner": "City Area",
+        "maintainer": "City Area",
+        "siteNotes": "Steep drop off from launch to waterline.",
+        "geometry": {
+          "longitude": -96.48265492020185,
+          "latitude": 41.82960424379789
+        },
+        "matchedNhdFlowlineDistanceFeet": 85.52
+      },
+      "affectedOccurrences": [
+        {
+          "file": "src/data/routes/nebraska.ts",
+          "field": "accessPoints",
+          "coordinate": "41.8263, -96.4931 -> 41.82960424, -96.48265492"
+        },
+        {
+          "file": "src/data/trip-details/nebraska.ts",
+          "field": "takeOut",
+          "coordinate": "41.8263, -96.4931 -> 41.82960424, -96.48265492"
+        }
+      ],
+      "publicationAction": "Coordinate copies corrected in inventory and official control registry. Route remains withheld because Pender is unresolved.",
+      "reopenWhen": "Pender entry is located and the full shuttle reach, endpoint access, current flow, and route geometry are reviewed."
+    }
+  ],
+  "source": {
+    "url": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1",
+    "queryUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1/query?where=Paddle_Waterbody%3D%27Logan%20Creek%20Dredge%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+    "retrievedAt": "2026-09-17",
+    "featureEditDates": "The source layer attributes report last feature edits on 2025-11-25; retrieval was on the review date."
+  },
+  "downloads": [
+    {
+      "path": "docs\\access-remediation\\2026-09-17-batch-02\\logan-follow-up\\official-launch-layer-query.json",
+      "bytes": 15648,
+      "sha256": "3a60dcf43e1ae00b8ba6aeca5664a26957e7d9d01904c85f0426baabb0400504"
+    },
+    {
+      "path": "docs\\access-remediation\\2026-09-17-batch-02\\logan-follow-up\\nhd-bancroft.json",
+      "bytes": 34733,
+      "sha256": "f768fce01f5d1ef20c252f2217f65ecf46e32435b2ed7b7fe703f3d343414269"
+    },
+    {
+      "path": "docs\\access-remediation\\2026-09-17-batch-02\\logan-follow-up\\nhd-oakland.json",
+      "bytes": 37946,
+      "sha256": "f00695d7a60ef390a164724af77159fefa640e7b5c944b5d4a266a9a170dfda7"
+    }
+  ],
+  "imagery": [
+    {
+      "sourceCachePath": "node_modules\\.cache\\access-batch-02\\bancroft-launch.png",
+      "bytes": 1535476,
+      "sha256": "50af6e841a3ec0a5dd3b1cf33ab23ddaca9dba93de15231c6f35ddc052e17030",
+      "use": "Visual aerial cross-check of the official feature location and creek approach; not used to derive coordinates."
+    },
+    {
+      "sourceCachePath": "node_modules\\.cache\\access-batch-02\\oakland-launch.png",
+      "bytes": 1522900,
+      "sha256": "3f16137acd5c3511f56dd0f8dcf7171a5745126d7e2edc1803aac5372464e5b6",
+      "use": "Visual aerial cross-check of the official feature location and creek approach; not used to derive coordinates."
+    }
+  ]
+}

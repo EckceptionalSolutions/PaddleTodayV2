@@ -1,0 +1,19 @@
+{
+  "batch": 59,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before researching the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T20:14:33.824Z; 2,750 public routes, 6,058 endpoints, 70 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New York",
+    "name": "NYSDEC Afton Susquehanna River Access at Route 41",
+    "storedCoordinate": { "latitude": 42.228255, "longitude": -75.52386 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "susquehanna-river-bainbridge-afton",
+      "susquehanna-river-afton-nineveh"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 308 feet from the matched Susquehanna River flowline and 166 feet from mapped water and were classified suspicious.",
+    "decision": "verify-against-current-nysdec-access-record-and-water-trail-map; correct-only-if-the-agency-or-map-supports-a-defensible-entry-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "batch": 38,
+  "sources": [
+    {
+      "id": "pfbc-verified-good-hope-gis-point",
+      "url": "https://services.pasda.psu.edu/arcgis/rest/services/pasda/PAFishBoat/MapServer/0",
+      "queryUrl": "https://services.pasda.psu.edu/arcgis/rest/services/pasda/PAFishBoat/MapServer/0/query?where=ACC_NAME%20LIKE%20%27%25Good%20Hope%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "type": "official-verified-access-gis",
+      "supports": "Record ID_NO 665 / OBJECTID 128 names Good Hope in Cumberland County on Conodoguinet Creek, lists PFBC ownership and access-area class, marks PFBC_Verif Y, and provides point geometry 40.2588980574, -76.9763923626.",
+      "coordinatePrecision": "Agency point geometry; treated as an access-area anchor, not a surveyed water-entry edge."
+    },
+    {
+      "id": "cumberland-county-conodoguinet-guide-2024",
+      "url": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "type": "official-current-public-access-guide",
+      "supports": "The June 2024 table identifies Good Hope Access in the 700 block of Good Hope Road as a PFBC-owned public unpowered-boat access; it describes a shallow earthen ramp with matting, a short carry, and a shallow slope to water.",
+      "coordinatePrecision": "General address block only; no coordinate in this current guide."
+    },
+    {
+      "id": "google-maps-aerial-2026-09-18",
+      "url": "https://www.google.com/maps/@40.258898,-76.976392,328m/data=!3m1!1e3",
+      "type": "current-aerial-imagery-context",
+      "supports": "Viewed the agency point in aerial context to check its placement against roads and the wooded creek corridor.",
+      "uncertaintyFeet": 75,
+      "limitations": "Imagery context does not identify a clear ramp-toe pixel; it is not used as a wet-edge coordinate."
+    }
+  ]
+}

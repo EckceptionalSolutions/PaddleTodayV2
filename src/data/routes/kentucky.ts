@@ -16282,7 +16282,7 @@ export const kentuckyRoutes: River[] = [
       {
         "label": "Put-in access",
         "value": "Leatherwood Branch Park Access, 38.5105, -83.3274",
-        "note": "KDFWR access detail identifies Leatherwood Branch Park Access as a public ramp with no listed camping support.",
+        "note": "KDFWR classifies Leatherwood Branch Park Access as carry-down only, with no constructed ramp; users walk equipment a short distance from the parking area to the creek. The published coordinate is retained as the access-site anchor, not as a surveyed water-entry point.",
         "sourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130"
       },
       {
@@ -16418,7 +16418,7 @@ export const kentuckyRoutes: River[] = [
       {
         "label": "Put-in access",
         "value": "Leatherwood Branch Park Access, 38.5105, -83.3274",
-        "note": "KDFWR access detail identifies Leatherwood Branch Park Access as a public ramp with no listed camping support.",
+        "note": "KDFWR classifies Leatherwood Branch Park Access as carry-down only, with no constructed ramp; users walk equipment a short distance from the parking area to the creek. The published coordinate is retained as the access-site anchor, not as a surveyed water-entry point.",
         "sourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130"
       },
       {
@@ -16964,7 +16964,7 @@ export const kentuckyRoutes: River[] = [
       {
         "label": "Put-in access",
         "value": "Leatherwood Branch Park Access, 38.5105, -83.3274",
-        "note": "KDFWR access detail identifies Leatherwood Branch Park Access as a public park launch with a paved parking area and no listed camping support.",
+        "note": "KDFWR classifies Leatherwood Branch Park Access as carry-down only, with no constructed ramp; users walk equipment a short distance from the parking area to the creek. The published coordinate is retained as the access-site anchor, not as a surveyed water-entry point.",
         "sourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1130"
       },
       {

@@ -1,0 +1,42 @@
+{
+  "reviewStatus": "complete",
+  "siteCount": 10,
+  "coordinateCorrections": 1,
+  "routesReleased": 1,
+  "routesStillWithheldFromSyasFollowUp": 2,
+  "fullAudit": {
+    "report": "docs/access-point-quality-audit-refreshed.json",
+    "evidenceMode": "refreshed",
+    "routeCount": 2998,
+    "endpointCount": 6642,
+    "accessReviewLocations": 232,
+    "sourceIssues": 297,
+    "severity": {
+      "ok": 2205,
+      "review": 4026,
+      "suspicious": 262,
+      "failure": 61,
+      "unknown": 88
+    },
+    "waterProximity": {
+      "within-100ft": 4940,
+      "within-300ft": 1225,
+      "over-300ft": 324,
+      "over-800ft": 64,
+      "unknown": 89
+    }
+  },
+  "checks": {
+    "siteSelection": "passed; ten distinct unreviewed locations were selected from the preserved full-audit queue snapshot",
+    "riversideCorrection": "passed; Milwaukee County and the Urban Ecology Center corroborate the Riverkeeper map launch point; refreshed audit matches it to Milwaukee River within 67 ft",
+    "accessAnchorClassification": "passed; parking, carry-in, campground, and difficult-haul points retain authoritative-access-anchor roles and remain visible in the queue with documented offsets",
+    "registryConsensusGuard": "passed; authoritative-access-anchor is carried through the registry input and excluded from derived wet-edge consensus along with authoritative-area-anchor",
+    "canonicalGeometryAudit": "passed; 2,748 of 2,761 public routes matched, 48 state assets present, 13 unmatched routes reported",
+    "syasRelease": "passed; Monroe uses one continuous 438-vertex network trace with 193 ft maximum endpoint snap; Columbus and ADM remain held and absent from served geometry",
+    "withheldManifest": "passed; 180 routes withheld; Monroe is released, Columbus and ADM remain withheld",
+    "changedTypeScriptSyntax": "passed using TypeScript transpileModule on all edited TypeScript files",
+    "routeDataTypecheck": "blocked by three unrelated existing type errors in src/data/routes/new-york.ts and src/data/trip-details/iowa.ts",
+    "focusedAccessTests": "blocked at Vitest startup because @jridgewell/sourcemap-codec is missing from node_modules/magic-string",
+    "unknownCoverage": "89 endpoints remain unknown and 297 source issues remain reported; no conclusions should be drawn from incomplete hydrography at those locations"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "batch": 77,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4",
+      "publisher": "Iowa Department of Natural Resources",
+      "sourceDate": "Current GIS layer accessed 2026-09-18",
+      "role": "Layer 4 is described as Paddling Access Sites, a collection of boating/paddling access points. It provides named access-site records and site attributes."
+    },
+    {
+      "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Keosauqua%25%27&outFields=Name%2CCounty%2Clat%2Clong%2CWA_id%2CWT_id%2CType&returnGeometry=true&outSR=4326&f=pjson",
+      "publisher": "Iowa Department of Natural Resources",
+      "sourceDate": "Feature query accessed 2026-09-18",
+      "role": "Returns Keosauqua Ramp, Van Buren County, Type Boat Ramp, WA_id/WT_id WA-535, published coordinates 40.73062147, -91.95994375. This is a public access-area point, not a surveyed shoreline toe."
+    },
+    {
+      "url": "https://www.iowadnr.gov/media/8889/download?inline=",
+      "publisher": "Iowa Department of Natural Resources",
+      "sourceDate": "Current Lower Des Moines River Water Trail guide accessed 2026-09-18",
+      "role": "Documents Austin Park to Keosauqua at 5.8 miles and Keosauqua to Bentonsport at 8.6 miles. It states the latter reach begins at the Keosauqua boat ramp near Hotel Manning and documents bridge-piling and old-dam/rock hazards."
+    },
+    {
+      "url": "https://villagesofvanburen.com/explore/des_moines_river_trail",
+      "publisher": "Villages of Van Buren",
+      "sourceDate": "Page accessed 2026-09-18",
+      "role": "Lists eight public river access points, including Keosauqua, and locates the Keosauqua Boat Ramp across from Hotel Manning."
+    },
+    {
+      "url": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-before-public-cache-only.json",
+      "publisher": "PaddleToday access-point quality audit",
+      "sourceDate": "Frozen selection snapshot generated 2026-09-18T23:26:48.934Z",
+      "role": "Records the original suspicious put-in and the shared Austin Park route occurrence before the source review and coordinate edit."
+    }
+  ],
+  "coordinateMethod": "Moved every route-level and trip-detail reference for the shared Keosauqua Boat Ramp to the current Iowa DNR feature's published lat/long. The feature point is close to mapped water and is explicitly represented as an access-area anchor. No claim is made that it is the exact wet-toe position."
+}

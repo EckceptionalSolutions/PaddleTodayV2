@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T17:09:27.502Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "winooski-river-bolton-dam-bolton-canoe",
+      "routeName": "Winooski River",
+      "reach": "Bolton Dam Access to Bolton Canoe Access Area",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Bolton Canoe Access Area",
+      "latitude": 44.372557093828576,
+      "longitude": -72.89744466026545,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 285.1838888317221,
+      "nearestMatchedLatitude": 44.37319589628808,
+      "nearestMatchedLongitude": -72.896814317633,
+      "nearestWaterwayName": "Winooski River",
+      "distanceFeetToNearestWaterway": 285.1838888317221,
+      "nearestWaterwayLatitude": 44.37319589628808,
+      "nearestWaterwayLongitude": -72.896814317633,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 152.25932817205145,
+      "nearestWaterbodyLatitude": 44.37291586718268,
+      "nearestWaterbodyLongitude": -72.89714634682258,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 152.25932817205145,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/166/query?where=OBJECTID%3D1061&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061: Vermont ANR Outdoor Recreation Sites Inventory feature OBJECTID 1061 is labeled CHSP / WINOOSKI RIVER ACCESS AREA (CANOE ACCESS), has public priority 1, boating and water-access flags, names WINOOSKI RIVER, and publishes 20 summer parking spaces. The adopted 2025 Bolton Town Plan says ANR and the Town maintain the Bolton Canoe Access on the Winooski River; Richmond places Bolton Canoe Access about four miles west on River Road from Bolton Dam. The GIS point matches that public site and is retained as an access-area anchor; the exact water-entry toe is not published. Its current mapped-flowline offset is about 285 feet. The former point reverse-geocodes to a Bolton Valley Access Road residence and does not fit the Town's stated access location.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061) on Winooski River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "winooski-river-bolton-dam-bolton-canoe",
+      "routeName": "Winooski River",
+      "reach": "Bolton Dam Access to Bolton Canoe Access Area",
+      "state": "Vermont",
+      "endpoint": "putIn",
+      "endpointName": "Bolton Dam Access, Green Mountain Power",
+      "latitude": 44.35858,
+      "longitude": -72.81639,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 268.29492038910604,
+      "nearestMatchedLatitude": 44.359036,
+      "nearestMatchedLongitude": -72.817197,
+      "nearestWaterwayName": "Winooski River",
+      "distanceFeetToNearestWaterway": 268.29492038910604,
+      "nearestWaterwayLatitude": 44.359036,
+      "nearestWaterwayLongitude": -72.817197,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 126.8180441759397,
+      "nearestWaterbodyLatitude": 44.35826062681185,
+      "nearestWaterbodyLongitude": -72.8165819820574,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 126.8180441759397,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 127 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

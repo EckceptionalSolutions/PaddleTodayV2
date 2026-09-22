@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:35:18.938Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "colorado-river-texas-river-school-fm973",
+      "routeName": "Colorado River",
+      "reach": "Texas River School River Camp to FM 973 / Del Valle Bridge",
+      "state": "Texas",
+      "endpoint": "takeOut",
+      "endpointName": "FM 973 / Del Valle Bridge",
+      "latitude": 30.2089962,
+      "longitude": -97.6382568,
+      "matchedRiverName": "Colorado River",
+      "distanceFeetToMatchedRiver": 295.16260703732166,
+      "nearestMatchedLatitude": 30.20818799211566,
+      "nearestMatchedLongitude": -97.63830002581463,
+      "nearestWaterwayName": "Colorado River",
+      "distanceFeetToNearestWaterway": 295.16260703732166,
+      "nearestWaterwayLatitude": 30.20818799211566,
+      "nearestWaterwayLongitude": -97.63830002581463,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 152.78552307011225,
+      "nearestWaterbodyLatitude": 30.2085789537786,
+      "nearestWaterbodyLongitude": -97.63821508535867,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 152.78552307011225,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://lcraparks.com/paddle-the-colorado",
+      "coordinateEvidenceDetail": "tx_lcra_fm973_del_valle_access_marker_17275_20260918 lcra-paddle-colorado-marker-17275-address: LCRA's Paddle the Colorado page marks FM 973 / Del Valle Bridge as a TxDOT-managed river access on the north side of the road, with limited roadside parking and an uneven carry to launch. The page's embedded map marker 17275-address locates the site at 30.2089962,-97.6382568; the displayed card rounds this to 30.21,-97.64. This is the public access-area pin, not a surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (tx_lcra_fm973_del_valle_access_marker_17275_20260918 lcra-paddle-colorado-marker-17275-address) on Colorado River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "colorado-river-texas-river-school-fm973",
+      "routeName": "Colorado River",
+      "reach": "Texas River School River Camp to FM 973 / Del Valle Bridge",
+      "state": "Texas",
+      "endpoint": "putIn",
+      "endpointName": "Texas River School River Camp",
+      "latitude": 30.256179,
+      "longitude": -97.634178,
+      "matchedRiverName": "Colorado River",
+      "distanceFeetToMatchedRiver": 100.8195432232605,
+      "nearestMatchedLatitude": 30.25590264370684,
+      "nearestMatchedLongitude": -97.63417849271731,
+      "nearestWaterwayName": "Colorado River",
+      "distanceFeetToNearestWaterway": 100.8195432232605,
+      "nearestWaterwayLatitude": 30.25590264370684,
+      "nearestWaterwayLongitude": -97.63417849271731,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 30.256179,
+      "nearestWaterbodyLongitude": -97.634178,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

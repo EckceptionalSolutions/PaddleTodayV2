@@ -1,0 +1,293 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct sites from the cached quality queue starting at rank 225, excluding all physical sites frozen in batches 1–19 and excluding queue rows whose route occurrences are all held. Public-route eligibility is based on the current generated withholding manifest; cached ranks prioritize research only and are not current evidence.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh access audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "priorFrozenSiteCount": 190,
+  "currentWithheldRouteCount": 156,
+  "queueStartRank": 225,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 1,
+  "sites": [
+    {
+      "state": "Idaho",
+      "name": "Grace Dam Bridge / Grace Dam Road put-in",
+      "latitude": 42.58694,
+      "longitude": -111.72639,
+      "distanceFeetToMappedWater": 363.3953247897572,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bear-river-black-canyon-grace-powerhouse",
+          "endpoint": "putIn",
+          "endpointName": "Grace Dam Bridge / Grace Dam Road put-in",
+          "severity": "review"
+        }
+      ],
+      "rank": 225,
+      "eligibleUnwithheldRoutes": [
+        "bear-river-black-canyon-grace-powerhouse"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Mattituck Creek Waterway Access Site / Naugles Road",
+      "latitude": 41.011552,
+      "longitude": -72.55586,
+      "distanceFeetToMappedWater": 363.3154407498538,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mattituck-creek-dec-waterway-access-route-48",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Mattituck Creek Waterway Access Site / Naugles Road",
+          "severity": "review"
+        }
+      ],
+      "rank": 226,
+      "eligibleUnwithheldRoutes": [
+        "mattituck-creek-dec-waterway-access-route-48"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Sunset Park Boat Launch, Kimberly",
+      "latitude": 44.2735557,
+      "longitude": -88.3457597,
+      "distanceFeetToMappedWater": 363.2517188451867,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-sunset-kimberly-lutz-appleton",
+          "endpoint": "putIn",
+          "endpointName": "Sunset Park Boat Launch, Kimberly",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 227,
+      "eligibleUnwithheldRoutes": [
+        "fox-river-sunset-kimberly-lutz-appleton"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Lenon Mill Park Access",
+      "latitude": 41.6867975,
+      "longitude": -94.3692621,
+      "distanceFeetToMappedWater": 362.7191511270993,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "middle-raccoon-river-lenon-mill-p28",
+          "endpoint": "putIn",
+          "endpointName": "Lenon Mill Park Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 228,
+      "eligibleUnwithheldRoutes": [
+        "middle-raccoon-river-lenon-mill-p28"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Town of Turtle Canoe Launch",
+      "latitude": 42.5507585,
+      "longitude": -88.9925722,
+      "distanceFeetToMappedWater": 361.452897566033,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "turtle-creek-town-of-turtle-milwaukee-road",
+          "endpoint": "putIn",
+          "endpointName": "Town of Turtle Canoe Launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 229,
+      "eligibleUnwithheldRoutes": [
+        "turtle-creek-town-of-turtle-milwaukee-road"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Osgood Pond Hand Launch Site",
+      "latitude": 44.44319,
+      "longitude": -74.23838,
+      "distanceFeetToMappedWater": 358.94030385038394,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "osgood-river-osgood-pond-out-and-back",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Osgood Pond Hand Launch Site",
+          "severity": "review"
+        },
+        {
+          "routeId": "osgood-river-osgood-pond-out-and-back",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Osgood Pond Hand Launch Site",
+          "severity": "review"
+        }
+      ],
+      "rank": 231,
+      "eligibleUnwithheldRoutes": [
+        "osgood-river-osgood-pond-out-and-back"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Troutdale Campground Put-In",
+      "latitude": 43.7162,
+      "longitude": -115.6226,
+      "distanceFeetToMappedWater": 353.4893868548079,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "putIn",
+          "endpointName": "Troutdale Campground Put-In",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 232,
+      "eligibleUnwithheldRoutes": [
+        "boise-river-troutdale-willow"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Red’s Twilight on the Erie RV Resort",
+      "latitude": 43.07712,
+      "longitude": -77.32804,
+      "distanceFeetToMappedWater": 351.34671539149537,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-bushnells-basin-macedon",
+          "endpoint": "accessPoint",
+          "endpointName": "Red’s Twilight on the Erie RV Resort",
+          "severity": "review"
+        }
+      ],
+      "rank": 233,
+      "eligibleUnwithheldRoutes": [
+        "erie-canal-bushnells-basin-macedon"
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Van Buren Riverfront Park Access",
+      "latitude": 36.9939,
+      "longitude": -91.014,
+      "distanceFeetToMappedWater": 351.0529075109896,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-van-buren-big-spring",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-van-buren-cataract",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-van-buren-gooseneck",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-waymeyer-van-buren",
+          "endpoint": "takeOut",
+          "endpointName": "Van Buren Riverfront Park Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 234,
+      "eligibleUnwithheldRoutes": [
+        "current-river-van-buren-big-spring",
+        "current-river-van-buren-cataract",
+        "current-river-van-buren-gooseneck",
+        "current-river-waymeyer-van-buren"
+      ]
+    },
+    {
+      "state": "Wyoming",
+      "name": "Deadmans Bar",
+      "latitude": 43.7578839,
+      "longitude": -110.6178224,
+      "distanceFeetToMappedWater": 350.81179428465157,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "endpoint": "putIn",
+          "endpointName": "Deadmans Bar",
+          "severity": "review"
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "endpoint": "takeOut",
+          "endpointName": "Deadmans Bar",
+          "severity": "review"
+        }
+      ],
+      "rank": 235,
+      "eligibleUnwithheldRoutes": [
+        "snake-river-deadmans-bar-moose",
+        "snake-river-pacific-creek-deadmans-bar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "url": "https://paddletoday.com/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Paddle Today | Best Rivers to Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/about/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/about/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "About Paddle Today | How Route Scores Work"
+  },
+  {
+    "url": "https://paddletoday.com/contact/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/contact/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Contact Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/contribute/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/contribute/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Contribute Photos | Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/explore/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/explore/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Browse Paddle Results | Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/guides/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/guides/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Paddling Guides | Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/guides/best-minnesota-paddle-trips/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/guides/best-minnesota-paddle-trips/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Best Minnesota Paddle Trips: Weekend Routes, Long Days &amp; Canoe Camping | Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/guides/best-weekend-paddle-trips-minnesota/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/guides/best-weekend-paddle-trips-minnesota/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Best Weekend Paddle Trips in Minnesota | Paddle Today"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/allagash-river-allagash-falls-twin-brook/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/allagash-river-allagash-falls-twin-brook/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Allagash River: Allagash Falls to Twin Brook / Allagash Village, Maine | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/bayou-teche-breaux-bridge-st-martinville/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/bayou-teche-breaux-bridge-st-martinville/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Bayou Teche: Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St) to St. Martinville Old Market Street dock, Louisiana | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/blackfoot-river-russell-gates-k-ross-toole/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/blackfoot-river-russell-gates-k-ross-toole/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Blackfoot River: Russell Gates Memorial Fishing Access Site (water-entry edge) to K. Ross Toole Fishing Access Site (water-entry edge), Montana | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/calvert-solomons-island-patuxent-loop/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/calvert-solomons-island-patuxent-loop/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Calvert County Water Trails: Solomons Island Patuxent River loop, Maryland | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/chattahoochee-river-rogers-bridge-azalea-park/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/chattahoochee-river-rogers-bridge-azalea-park/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Chattahoochee River: Rogers Bridge Park to Azalea Park, Georgia | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/current-river-cedar-grove-pulltite/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/current-river-cedar-grove-pulltite/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Current River: Cedar Grove to Pulltite, Missouri | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/erie-canal-german-flatts-st-johnsville/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/erie-canal-german-flatts-st-johnsville/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Erie Canal / Mohawk River: German Flatts to St. Johnsville, New York | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/grizzly-creek-two-rivers/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/grizzly-creek-two-rivers/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Colorado River: Grizzly Creek Boat Ramp to Two Rivers Park, Colorado | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/kennebec-river-augusta-hallowell/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/kennebec-river-augusta-hallowell/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Kennebec River: Augusta landing facility to Hallowell public access, Maine | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/looking-glass-riverfront-riverside-dewitt/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/looking-glass-riverfront-riverside-dewitt/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Looking Glass River: Looking Glass Riverfront Park to Riverside City Park, Michigan | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/minnesota-river-skalbekken-morton/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/minnesota-river-skalbekken-morton/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Minnesota River: Skalbekken County Park to Morton Access, Minnesota | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/north-fork-payette-kellys-whitewater-park/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/north-fork-payette-kellys-whitewater-park/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "North Fork Payette River: Kelly&#39;s Whitewater Park circuit, Idaho | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/piscataquis-river-medford-howland/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/piscataquis-river-medford-howland/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Piscataquis River: Medford public access to Howland Piscataquis access, Maine | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/russian-river-alexander-healdsburg/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/russian-river-alexander-healdsburg/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Russian River: Alexander Valley Road / campground river access (water-entry edge) to Healdsburg Memorial Beach below Avenue dam (water-entry edge), California | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/schoharie-creek-burtonsville-fort-hunter/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/schoharie-creek-burtonsville-fort-hunter/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Schoharie Creek: Burtonsville Schoharie Creek hand launch to Dufel Road / Schoharie Crossing State Historic Site and return boundary at Fort Hunter, New York | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/spokane-river-plese-flats-nine-mile-dam/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/spokane-river-plese-flats-nine-mile-dam/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Spokane River: Plese Flats public river access (water-entry edge) to Nine Mile Dam public river access (water-entry edge), Washington | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/terrapin-creek-chief-ladiga-cr70/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/terrapin-creek-chief-ladiga-cr70/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Terrapin Creek: Chief Ladiga Trail Campground to County Road 70 bridge, Alabama | Paddle Route"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/volga-river-osborne-mederville/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/volga-river-osborne-mederville/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Volga River: Osborne Canoe Access to Mederville Canoe Access, Iowa | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/winooski-river-bolton-dam-jonesville/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/winooski-river-bolton-dam-jonesville/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Winooski River: Bolton Dam Access to Jonesville, Vermont | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/zumbro-river-zumbro-falls-hammond/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/zumbro-river-zumbro-falls-hammond/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Zumbro River: Zumbro Falls to Hammond Village Park, Minnesota | Paddle Conditions"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/allagash-river/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/allagash-river/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Allagash River, Maine | Paddle Routes &amp; Trip Planning"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/allegheny-river/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/allegheny-river/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Allegheny River, New York | Paddle Routes &amp; Trip Planning"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/allen-creek/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/allen-creek/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Allens Creek, New York, Wisconsin | Water Levels &amp; Paddle Routes"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/american-river-california/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/american-river-california/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "American River, California | Water Levels &amp; Paddle Routes"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/american-river-south-fork-california/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/american-river-south-fork-california/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "South Fork American River, California | Water Levels &amp; Paddle Routes"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/androscoggin-river-new-hampshire/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/androscoggin-river-new-hampshire/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Androscoggin River, New Hampshire | Paddle Routes &amp; Trip Planning"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/androscoggin-river/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/androscoggin-river/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Androscoggin River, Maine | Paddle Routes &amp; Trip Planning"
+  },
+  {
+    "url": "https://paddletoday.com/rivers/by-river/animas-river-new-mexico/",
+    "status": 200,
+    "canonical": "https://paddletoday.com/rivers/by-river/animas-river-new-mexico/",
+    "selfCanonical": true,
+    "noindex": false,
+    "title": "Animas River, New Mexico | Water Levels &amp; Paddle Routes"
+  }
+]

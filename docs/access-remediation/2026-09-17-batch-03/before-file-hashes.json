@@ -1,0 +1,81 @@
+{
+  "capturedAt": "2026-09-17T13:14:00.639Z",
+  "backupDirectory": "node_modules/.cache/access-batch-03/before-source-unique",
+  "files": [
+    {
+      "path": "src/data/routes/idaho.ts",
+      "sha256": "81bf06e4035766d34f2bb2b06fe8e0a330505fa4157ada5b89886023679eff1b",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\routes\\idaho.ts"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "sha256": "3405e302f98afeeb88abdb39524f5ad95e61778354905e7c45b017e3c4f694d4",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\routes\\new-york.ts"
+    },
+    {
+      "path": "src/data/routes/pennsylvania.ts",
+      "sha256": "d0f530c845ed6b82fcd49bf8a2b3c0d0ad31069c516c344b8018f3e51db3fbc9",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\routes\\pennsylvania.ts"
+    },
+    {
+      "path": "src/data/routes/maryland.ts",
+      "sha256": "20975282e3de8c186711a9497d55689dda85d2386f59a241c45e7415b01d6bb1",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\routes\\maryland.ts"
+    },
+    {
+      "path": "src/data/trip-details/idaho.ts",
+      "sha256": "6dc1682852ba948105fc124b43f6e90e4379da75da9d5cb5ddf1f47b9da30638",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\trip-details\\idaho.ts"
+    },
+    {
+      "path": "src/data/trip-details/new-york.ts",
+      "sha256": "fa4ee2fd813ec25d7ce0f41f498237de2fb9b5d9a4f56ff39dc2423ff2862f34",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\trip-details\\new-york.ts"
+    },
+    {
+      "path": "src/data/trip-details/pennsylvania.ts",
+      "sha256": "3d8ee6bdd6b07cf9b45864b23711444f0c552d9b3c809d4888a0ef9570086fbb",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\trip-details\\pennsylvania.ts"
+    },
+    {
+      "path": "src/data/trip-details/maryland.ts",
+      "sha256": "e4eea653a536127f18f55c0aba97e8ac044e3597807d5e062594a6fc675600d5",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\trip-details\\maryland.ts"
+    },
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "7cdd8839fdfe1977638a7314439f52ab35962a9ce2b51f5d8dfa5ecfd1e55353",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\route-access-official-map-controls.json"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "sha256": "d95c1031658c27a38b8d2cc4d9338668783ce09fc623616339e809873efb3f4f",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\route-access-review-holds.ts"
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "sha256": "6b6014190c2f9386b9c7efbde0b9a5ef03732abbba78bf8e39587b92f2d4fabc",
+      "backup": "node_modules\\.cache\\access-batch-03\\before-source-unique\\src\\data\\generated\\withheld-route-slugs.ts"
+    },
+    {
+      "path": "src/data/route-corridors.ts",
+      "sha256": "AB2315D884FC3EBA7F26F2FB57EF570AA0343309EA88032DC13B41AC34563114",
+      "backup": "node_modules/.cache/access-batch-03/before-source-unique/src/data/route-corridors.ts"
+    },
+    {
+      "path": "docs/access-point-remediation-runbook.md",
+      "sha256": "41A2503D5074F9A0C4A50BC315C12E5FC08384F3F7F353EA6B1EC647F8EDDBAE",
+      "backup": "node_modules/.cache/access-batch-03/before-source-unique/docs/access-point-remediation-runbook.md"
+    },
+    {
+      "path": "scripts/lib/access-water-quality.ts",
+      "sha256": "1d49b72cf15534f8d6157324b4956ec830efa0319e8627ccb80f8ec9ed54557f",
+      "backup": "node_modules/.cache/access-batch-03/before-source-unique/scripts/lib/access-water-quality.ts"
+    },
+    {
+      "path": "src/lib/access-water-quality.test.ts",
+      "sha256": "ce190cc126aed002c844b7530e2a47b2ad76945090994f837074434e1872f982",
+      "backup": "node_modules/.cache/access-batch-03/before-source-unique/src/lib/access-water-quality.test.ts"
+    }
+  ]
+}

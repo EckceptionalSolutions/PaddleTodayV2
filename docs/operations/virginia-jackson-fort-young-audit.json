@@ -1,0 +1,39 @@
+{
+  "state": "Virginia",
+  "routeId": "jackson-river-fort-young-teddy-dressler",
+  "routeName": "Jackson River Fort Young to Teddy Dressler",
+  "status": "published_scored",
+  "scoreEligibility": "scored",
+  "gauge": {
+    "siteId": "02011800",
+    "relationship": "direct Gathright tailwater telemetry",
+    "threshold": "500-1900 cfs",
+    "thresholdSource": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/check-water-levels/"
+  },
+  "access": {
+    "putIn": { "name": "Fort Young Park Jackson River Boat Ramp", "latitude": 37.7779722, "longitude": -79.9894833 },
+    "takeOut": { "name": "Teddy J. Dressler Wayside Park Jackson River Ramp", "latitude": 37.75765, "longitude": -79.9869528 },
+    "source": "https://visitalleghanyhighlands.com/wp-content/uploads/2022/11/Section3-RoseDalePark-to-HeadofJamesRiver.pdf"
+  },
+  "safety": {
+    "difficulty": "Class I mild float",
+    "controls": ["dam release pulse", "cold water", "low-water rocks/logs", "private shorelines", "named public ramps only"]
+  },
+  "camping": {
+    "classification": "nearby_basecamp",
+    "rule": "No endpoint or on-route camping; use separately verified regional lodging/campground."
+  },
+  "imagery": {
+    "source": "https://commons.wikimedia.org/wiki/File:Jackson_River_in_Hidden_Valley,_upstream.jpg",
+    "rights": "public domain",
+    "captionPosture": "Same-river context, not an endpoint or current-conditions photograph."
+  },
+  "deduplication": "Distinct 3.9-mile Section 3 float; no duplicate endpoint pair with Indian Draft-to-Interstate route.",
+  "validation": {
+    "routeDataAudit": "passed",
+    "safetyAudit": "passed",
+    "corridorAudit": "passed",
+    "geometryManifest": "matched",
+    "accessRegistry": "no conflicts"
+  }
+}

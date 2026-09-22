@@ -1,0 +1,190 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "method": "Follow docs/access-point-remediation-runbook.md: decide site identity/access and publication separately, distinguish access-area anchors from exact water entry, update every shared coordinate copy, and hold dependent routes when access or regenerated geometry is unresolved.",
+  "decisions": [
+    {
+      "rank": 215,
+      "site": "Neal Shoals Dam River Access",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        34.6653839999791,
+        -81.4452990001266
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "broad-river-broad-river-landing-neal-shoals",
+        "broad-river-daltons-neal-shoals",
+        "broad-river-lockhart-neal-shoals",
+        "broad-river-neal-shoals-sandy",
+        "broad-river-neal-shoals-shelton",
+        "broad-river-neal-shoals-strother"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "USFS identifies Neal Shoals Dam Canoe Access as a portage. The Upper Broad Blueway map places parking at the end of Shoals Road/FS 304 and says the river is a 500-foot walk away. The stored point remains a generalized public access-area anchor; no ramp-toe replacement was verified.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 216,
+      "site": "Farm Field Park kayak and canoe access",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        43.5028832,
+        -96.749131
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "big-sioux-river-farm-field-rotary",
+        "skunk-creek-legacy-park-farm-field"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "City of Sioux Falls confirms kayak/canoe access and publishes the exact stored coordinate for Farm Field Park. The city point identifies the park/access facility, not a surveyed water edge; retain it as an access anchor.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 217,
+      "site": "Rock Springs Firemen's Park canoe landing",
+      "decision": "reject-unverified-and-hold",
+      "originalCoordinate": [
+        43.4779,
+        -89.9143
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "baraboo-river-rock-springs-north-freedom"
+      ],
+      "publication": "withheld",
+      "action": "Preserve route record; hold pending manager confirmation of usable launch or lawful replacement.",
+      "finding": "The 2025 field report describes Firemen’s Park canoe access as a steep, slick clay bank that was not physically feasible to launch from. Older county planning documents establish the site’s existence but not present usability. No newer manager confirmation or defensible replacement entry was found.",
+      "requiredReopenEvidence": "Village/current manager confirms the launch is usable again or documents another lawful public launch, parking area, and carry."
+    },
+    {
+      "rank": 218,
+      "site": "Fisherman’s parking/access below Kent Falls Powerhouse",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        44.6814002990723,
+        -73.6806030273438
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "saranac-river-kent-falls-military-turnpike"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "American Whitewater distinguishes the closed/negotiated Kent Falls reach from the lower route and identifies a Fisherman’s parking-area put-in immediately below the powerhouse. The Saranac River Trail Greenway plan also describes public parking and a downstream powerhouse put-in. Retain as an access-area anchor with existing checks for carry, parking, facility limits and operations.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 219,
+      "site": "Shad Landing Area public boat ramp and soft launch",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        38.13902,
+        -75.440431
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "corkers-creek-blackwater-canoe-trail",
+        "pocomoke-river-shad-milburn",
+        "pocomoke-river-snow-hill-shad"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "Maryland DNR confirms the public Shad Landing boat ramp and kayak/canoe soft launch. The stored point is an access-area anchor, not a verified launch toe. DNR currently warns that marina construction is anticipated in fall 2026 and access limitations may occur; check park alerts before staging.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 220,
+      "site": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        43.8015,
+        -74.23
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "indian-river-abanakee-dam-outer-gooley"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "NYSDEC confirms the Rafters Parking Area as Indian River whitewater access. The stored coordinate is a parking/access anchor; actual water entry, release access, dam exclusion and road/gate conditions remain field checks stated in the route record.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 221,
+      "site": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+      "decision": "fix-coordinate-and-hold-for-geometry",
+      "originalCoordinate": [
+        44.0655,
+        -73.2185
+      ],
+      "replacementCoordinate": [
+        44.086,
+        -73.2472
+      ],
+      "affectedRouteIds": [
+        "otter-creek-quaker-village-weybridge",
+        "otter-creek-weybridge-fort-cassin",
+        "otter-creek-weybridge-vergennes"
+      ],
+      "publication": "withheld",
+      "action": "Correct shared source coordinate to state GIS feature; hold until geometry/catalog rebuild.",
+      "finding": "Vermont Fish & Wildlife GIS feature OID 238/id 357 is named Otter Creek - Kwonumosk, in Weybridge, with Boating/Fishing access and steps. Its geometry is 44.086,-73.2472, about 2.1 miles from the former 44.0655,-73.2185 point. It supports a facility anchor, not a surveyed water edge. The sole previously public dependent route is held until route geometry and served catalog are rebuilt.",
+      "requiredReopenEvidence": "Regenerate and inspect canonical route geometry and catalog against the corrected state GIS point; verify current carry/parking and dam boundary."
+    },
+    {
+      "rank": 222,
+      "site": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+      "decision": "keep-access-anchor-and-correct-label",
+      "originalCoordinate": [
+        43.3996,
+        -91.8884
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "upper-iowa-river-cattle-creek-malanaphy",
+        "upper-iowa-river-kendallville-bluffton"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "Iowa DNR identifies the W20/Bluffton Road parking area beside the Upper Iowa River as canoe access only. No exact launch-toe coordinate is published. Retain the stored location as an access-area anchor and rename it from “canoe ramp” to canoe-access parking area.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 223,
+      "site": "City Park",
+      "decision": "keep-access-anchor-and-correct-label",
+      "originalCoordinate": [
+        29.8859203,
+        -97.9344384
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "san-marcos-river-city-park-smrr"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "City of San Marcos confirms City Park river access and visitors may bring kayaks/canoes. The stored facility coordinate is a park/access-area anchor, not a surveyed entry. Clarify the endpoint name and check current city parking/carry rules.",
+      "requiredReopenEvidence": null
+    },
+    {
+      "rank": 224,
+      "site": "McKay's Bend Recreation Site",
+      "decision": "keep-access-anchor",
+      "originalCoordinate": [
+        46.4975,
+        -116.726944
+      ],
+      "replacementCoordinate": null,
+      "affectedRouteIds": [
+        "clearwater-river-mckays-bend-pink-house"
+      ],
+      "publication": "public",
+      "action": "Retain as documented access-area anchor and state remaining exact-entry/current-access checks.",
+      "finding": "BLM identifies McKay’s Bend as a developed Clearwater River recreation site with river access and parking, and its site coordinate matches the stored location. Retain as an access-area anchor rather than describing it as a surveyed waterline point.",
+      "requiredReopenEvidence": null
+    }
+  ]
+}

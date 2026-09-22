@@ -71,7 +71,7 @@ export const illinoisRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "nearby_basecamp",
       "summary": "Launch at Wes Block Trail Access and take out at Tutty's Crossing for a gentle Pecatonica day entering Freeport. The route is shorter and friendlier than the long rural lower-Pec shuttles, but the Darlington gauge is still only a same-river proxy and muddy banks are part of the experience.",
       "accessCaveats": [
-        "Both endpoints are official trailheads with boat-launch amenities, but they are trailhead-style accesses rather than large paved-ramp complexes. Scout unloading and parking before staging a shuttle.",
+        "Both endpoints are official trailheads with boat-launch amenities, but the stored coordinates are trailhead/access-area anchors rather than surveyed water-entry points. Follow the signed launch paths and scout unloading and parking before staging a shuttle.",
         "Wes Block is the cleaner upstream public start. Tutty's Crossing is the logical downtown finish before longer Freeport combinations continue toward Hancock or the VFW.",
         "The Pecatonica is navigable, but banks outside public access areas are private and often muddy. Stay with named public launches for staging and take-out."
       ],

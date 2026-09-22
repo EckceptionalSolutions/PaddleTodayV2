@@ -1,0 +1,76 @@
+{
+  "reviewDate": "2026-09-17",
+  "auditReport": "docs/access-point-quality-audit-refreshed.json",
+  "siteCount": 10,
+  "correctedCoordinates": [
+    {
+      "site": "Riverside Park / Urban Ecology Center canoe launch",
+      "state": "Wisconsin",
+      "routeId": "milwaukee-river-riverside-bruce-street",
+      "oldCoordinate": { "latitude": 43.0674, "longitude": -87.89238 },
+      "newCoordinate": { "latitude": 43.06739422, "longitude": -87.89480066 },
+      "decision": "fix-coordinate",
+      "reason": "The old coordinate represented the park/branch area and sat about 621 feet from mapped water. The Milwaukee Riverkeeper trail map publishes GPS for a concrete ramp at Riverside Park; Milwaukee County independently designates the East Bank launch, and the Urban Ecology Center documents the path from the parking lot to the launch."
+    }
+  ],
+  "siteDecisions": [
+    {
+      "site": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+      "decision": "retain-access-anchor",
+      "finding": "NYSDEC publishes the parking coordinate and says the hand launch is downstream of the bridge after a 0.3-mile carry. The mapped offset is expected for the parking anchor; keep the route point as a carry-site anchor and identify the hand launch separately."
+    },
+    {
+      "site": "County Highway K public canoe-access anchor",
+      "decision": "retain-access-anchor",
+      "finding": "Portage County confirms a small county highway right-of-way used for canoe access at the Plover River crossing. It does not publish a surveyed point or parking layout, so retain the bridge-area coordinate with lawful parking and carry cautions."
+    },
+    {
+      "site": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+      "decision": "retain-access-anchor",
+      "finding": "NYSDEC confirms a five-car hand-launch access with a 0.8-mile carry to Fish Creek. The stored point identifies the access/carry site, not the water edge; preserve the carry distance and the distinct Route 184 access."
+    },
+    {
+      "site": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+      "decision": "retain-access-anchor-with-carry-caution",
+      "finding": "The Friends of the Verde River paddle map lists Sheep Crossing at the stored coordinate and marks it as a difficult put-in requiring a long boat haul. Retain it as a published access anchor; do not describe it as a maintained ramp or exact shoreline point."
+    },
+    {
+      "site": "Johnson Landing carry-in access",
+      "decision": "retain-access-anchor",
+      "finding": "Minnesota DNR identifies Johnson Landing as a carry-in at Big Fork River Mile 67.5 and names it as a public day-trip put-in. The DNR page/map does not give a surveyed GPS point, so retain the mapped site anchor and verify the river trail on site."
+    },
+    {
+      "site": "NYSDEC Carmans River hand-launch access (300-yard carry)",
+      "decision": "retain-access-anchor",
+      "finding": "NYSDEC publishes this site coordinate, ten-car parking, a 300-yard carry, electric-motor restriction, and cooperative access through Wertheim National Wildlife Refuge. The current point is the access anchor, not a wet-edge fix."
+    },
+    {
+      "site": "Manton Avenue / Aleppo Street small-boat-launch access area",
+      "decision": "retain-access-anchor",
+      "finding": "RIDOT identifies a small boat launch for the Woonasquatucket River at the Aleppo Street trail start and lists Aleppo Street among public parking directions. It does not publish a launch GPS, so retain the local area anchor. One dependent route was already withheld for a separate unresolved issue; that hold remains."
+    },
+    {
+      "site": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "decision": "retain-carry-in-anchor",
+      "finding": "The Friends of the Verde River map publishes the access-site coordinate. The Forest Service-hosted paddle guide says the river is about 150 yards down the trail; the Forest Service site description calls it pedestrian access with no developed boat launch. Retain only as a carry-in RAP, not a ramp."
+    },
+    {
+      "site": "Perception Park riverside campground access area",
+      "decision": "retain-campground-anchor-only",
+      "finding": "The Forest Service campground record confirms the campground sits beside the South Fork Ogden River and has river recreation and a riverside trail, but it does not designate a paddlecraft launch. Keep the point as an intermediate campground/access-area marker, not an endpoint launch."
+    }
+  ],
+  "routeDisposition": {
+    "newlyRejectedSites": [],
+    "existingHoldsPreserved": ["woonasquatucket-river-cricket-manton"],
+    "syasFollowUp": {
+      "released": ["loup-river-george-syas-monroe"],
+      "stillWithheld": [
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-adm-access"
+      ],
+      "reason": "The Monroe route now has one continuous network-traced Loup River line with a 193 ft maximum endpoint snap. Columbus and ADM only produced disconnected named-flowline fallback segments with a 55,652 ft maximum snap, so they remain withheld."
+    }
+  },
+  "reopenWhen": "Recheck the parking/carry path and exact landing for access anchors before upgrading them to water-entry points. Revisit the two withheld Syas routes after the correct connected Loup River reach can be generated from the verified Syas launch."
+}

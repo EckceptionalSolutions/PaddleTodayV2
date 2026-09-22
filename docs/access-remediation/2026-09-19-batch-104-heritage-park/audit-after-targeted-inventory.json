@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:46:32.069Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 0,
+    "over-300ft": 2,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Ohio",
+      "name": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+      "latitude": 39.26157,
+      "longitude": -84.68773,
+      "distanceFeetToMappedWater": 399.76453503224496,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "great-miami-river-heritage-dravo",
+          "endpoint": "takeOut",
+          "endpointName": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Heritage Park canoe ramp",
+      "latitude": 39.291548,
+      "longitude": -84.661803,
+      "distanceFeetToMappedWater": 304.06738508978344,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "great-miami-river-heritage-dravo",
+          "endpoint": "putIn",
+          "endpointName": "Heritage Park canoe ramp",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "great-miami-river-heritage-dravo",
+      "routeName": "Great Miami River",
+      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
+      "state": "Ohio",
+      "endpoint": "takeOut",
+      "endpointName": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+      "latitude": 39.26157,
+      "longitude": -84.68773,
+      "matchedRiverName": "Great Miami River",
+      "distanceFeetToMatchedRiver": 702.4587629899947,
+      "nearestMatchedLatitude": 39.263459,
+      "nearestMatchedLongitude": -84.687248,
+      "nearestWaterwayName": "Great Miami River",
+      "distanceFeetToNearestWaterway": 702.4587629899947,
+      "nearestWaterwayLatitude": 39.263459,
+      "nearestWaterwayLongitude": -84.687248,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 399.76453503224496,
+      "nearestWaterbodyLatitude": 39.260493,
+      "nearestWaterbodyLongitude": -84.687991,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 399.76453503224496,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.colerain.org/Facilities/Facility/Details/Obergiesing-Soccer-Complex-at-Dravo-Park-33",
+      "coordinateEvidenceDetail": "oh_colerain_obergiesing_dravo_canoe_ramp colerain-obergiesing-soccer-complex-dravo-park: Colerain Township identifies the named facility as one of its two Great Miami River canoe ramps and lists parking and dawn-to-dusk public hours. Retain the existing facility-area point; the township publishes no exact ramp-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (oh_colerain_obergiesing_dravo_canoe_ramp colerain-obergiesing-soccer-complex-dravo-park) on Great Miami River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "great-miami-river-heritage-dravo",
+      "routeName": "Great Miami River",
+      "reach": "Heritage Park to Obergiesing Soccer Complex at Dravo Park",
+      "state": "Ohio",
+      "endpoint": "putIn",
+      "endpointName": "Heritage Park canoe ramp",
+      "latitude": 39.291548,
+      "longitude": -84.661803,
+      "matchedRiverName": "Great Miami River",
+      "distanceFeetToMatchedRiver": 424.92848904688043,
+      "nearestMatchedLatitude": 39.290876869871454,
+      "nearestMatchedLongitude": -84.66303305652178,
+      "nearestWaterwayName": "Great Miami River",
+      "distanceFeetToNearestWaterway": 424.92848904688043,
+      "nearestWaterwayLatitude": 39.290876869871454,
+      "nearestWaterwayLongitude": -84.66303305652178,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 304.06738508978344,
+      "nearestWaterbodyLatitude": 39.29097164021823,
+      "nearestWaterbodyLongitude": -84.66258094180706,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 304.06738508978344,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.colerain.org/facilities/facility/details/Heritage-Park-29",
+      "coordinateEvidenceDetail": "oh_colerain_heritage_park_great_miami_access_20260919 colerain-heritage-park-great-miami-canoe-ramp: Colerain Township identifies a canoe access ramp onto the Great Miami River at Heritage Park, with one mile of river frontage and dawn-to-dusk park hours. The township canoe-ramp page confirms Heritage Park as the upstream public canoe ramp and distinguishes the downstream Dravo ramp. Retain the stored route point as a conditional canoe-launch anchor; the 425-foot named-flowline offset reflects park/shoreline context.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (oh_colerain_heritage_park_great_miami_access_20260919 colerain-heritage-park-great-miami-canoe-ramp) on Great Miami River; access is conditional (Confirm current Colerain Township park hours, canoe-ramp condition, parking, water level, and the township restriction against motorized boats before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

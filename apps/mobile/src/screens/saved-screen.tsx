@@ -22,7 +22,7 @@ import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, Platform, TextInput, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, TextInput, Pressable, RefreshControl, ScrollView, SectionList, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
 import { AppLoadingState, AppRefreshNotice } from '../components/app-state';
@@ -177,9 +177,84 @@ export default function SavedScreen() {
     );
   }
 
+  const routeSections = [
+    { key: 'paddle', title: 'Paddle today', subtitle: 'Saved routes with a current Paddle call.', data: visibleGroups.paddle },
+    { key: 'watch', title: 'Watch closely', subtitle: 'Saved routes that need a closer look.', data: visibleGroups.watch },
+    { key: 'unavailable', title: 'Call unavailable', subtitle: 'Saved routes that need current evidence before PaddleToday can make a call.', data: visibleGroups.unavailable },
+    { key: 'skip', title: 'Skip today', subtitle: 'Saved routes to recheck later.', data: visibleGroups.skip },
+  ].filter(section => section.data.length > 0);
+
+  const routesList = <SectionList
+    keyboardShouldPersistTaps="handled"
+    style={styles.screen}
+    sections={routeSections}
+    keyExtractor={river => river.river.slug}
+    refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
+    contentContainerStyle={[
+      styles.content,
+      { paddingTop: spacing.md + insets.top, paddingBottom: spacing.xl + bottomContentInset + (showComparisonBar ? comparisonBarHeight : 0) },
+    ]}
+    ListHeaderComponent={<View style={styles.routesListHeader}>
+      <AlertPreferencesNotice />
+      <AppRefreshNotice label={hasLoadError ? 'Route details could not be refreshed.' : 'Your saved-route list is still available.'}
+        isError={summaryQuery.isError} isStale={summaryQuery.data?.snapshotStatus === 'stale'} retrying={summaryQuery.isFetching}
+        dataUpdatedAt={summaryQuery.dataUpdatedAt} onRetry={() => void summaryQuery.refetch()} />
+      <Text accessibilityRole="header" style={styles.title}>Saved routes</Text>
+      <Text style={styles.subtitle}>A status board for rivers you check often.</Text>
+      <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
+      {(savedRivers.length > 1 || savedSearch.length > 0) ? <View style={styles.searchBox}>
+        <MaterialCommunityIcons name="magnify" size={22} color={colors.textMuted} accessible={false} />
+        <TextInput ref={searchInput} style={styles.searchInput} accessibilityLabel="Search saved routes" placeholder="River, reach, area, or note"
+          placeholderTextColor={colors.textMuted} value={savedSearch} onChangeText={setSavedSearch}
+          autoCorrect={false} autoCapitalize="none" returnKeyType="search" onSubmitEditing={() => Keyboard.dismiss()} />
+        {savedSearch ? <Pressable accessibilityRole="button" accessibilityLabel="Clear saved route search" style={styles.searchClear}
+          onPress={() => { setSavedSearch(''); searchInput.current?.focus(); }}><MaterialCommunityIcons name="close" size={20} color={colors.textMuted} /></Pressable> : null}
+      </View> : null}
+      {filtering ? <Text accessibilityLiveRegion="polite" style={styles.compareHelp}>Showing {visibleSavedRivers.length} of {savedRivers.length} saved routes.</Text> : null}
+      {filtering && savedRivers.length > 0 && visibleSavedRivers.length === 0 ? <SectionCard title="No saved routes match" subtitle="Try a river name, reach, area, or words from your personal notes.">
+        <AppButton label="Show all saved routes" variant="secondary" onPress={() => { setSavedSearch(''); Keyboard.dismiss(); }} />
+      </SectionCard> : null}
+      {savedSummaries.length >= 2 && !comparisonMode ? <Pressable ref={compareStart} accessibilityRole="button" accessibilityLabel="Compare saved routes" style={styles.compareStart} onPress={() => setComparisonMode(true)}>
+        <MaterialCommunityIcons name="compare-horizontal" accessible={false} size={20} color={colors.accentDeep} /><Text style={styles.compareStartText}>Compare saved routes</Text>
+      </Pressable> : null}
+      {savedRivers.length > 0 && !filtering ? <View style={styles.savedOverview}>
+        <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
+        <OverviewTile icon="bell-ring-outline" label="Alerts" value={alertsHydrated && !alertsLoadError ? `${savedAlertCount}/${savedRivers.length}` : 'Unknown'} />
+        <OverviewTile icon="waves" label="Current calls" value={`${savedGroups.paddle.length + savedGroups.watch.length + savedGroups.skip.length}/${savedRivers.length}`} />
+      </View> : null}
+      {savedRivers.length === 0 && !hasLoadError ? <View style={styles.emptyPanel}>
+        <View style={styles.emptyIcon}><MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} /></View>
+        <Text style={styles.emptyTitle}>No saved routes yet</Text><Text style={styles.emptyBody}>Save repeat routes here, then turn on alerts for the conditions you care about.</Text>
+        <View style={styles.emptyActions}><Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => router.push('/')}><Text style={styles.primaryButtonText}>Find today's picks</Text></Pressable>
+          <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => router.push('/explore')}><Text style={styles.secondaryButtonText}>Open map</Text></Pressable></View>
+      </View> : null}
+      {visibleSummaries.length > 0 ? <View style={styles.statusBoard}>
+        <StatusTile label="Paddle" value={visibleGroups.paddle.length} tone={styles.statusPaddle} /><StatusTile label="Watch" value={visibleGroups.watch.length} tone={styles.statusWatch} />
+        <StatusTile label="No call" value={visibleGroups.unavailable.length} tone={styles.statusUnavailable} /><StatusTile label="Skip" value={visibleGroups.skip.length} tone={styles.statusSkip} />
+      </View> : null}
+    </View>}
+    renderSectionHeader={({ section }) => <View style={styles.virtualSectionHeader}><Text accessibilityRole="header" style={styles.virtualSectionTitle}>{section.title}</Text><Text style={styles.subtitle}>{section.subtitle}</Text></View>}
+    renderItem={({ item }) => <SavedRouteListItem comparison={compareSelection} river={item} changes={changes} savedRivers={savedRivers}
+      onEditNotes={setNotesRiver} isSaved={isSaved} onToggleSaved={toggleSavedRiver}
+      onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} />}
+    ListFooterComponent={<View style={styles.routesListFooter}>
+      <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} />
+      {visibleSavedRivers.some(route => !riverLookup.has(route.slug)) ? <SectionCard
+        title={summaryQuery.isPending ? 'Checking saved routes' : 'Saved routes without a call'}
+        subtitle={summaryQuery.isPending ? 'Your list is ready while current calls load.' : 'Still saved. You can open route details or try refreshing the calls.'}
+      ><View style={styles.list}>{visibleSavedRivers.filter(river => !riverLookup.has(river.slug)).map(river => <View key={river.slug} style={styles.savedFallbackCard}>
+        <View style={styles.savedFallbackCopy}><Pressable accessibilityRole="link" accessibilityLabel={`Open ${river.name}: ${river.reach}`} onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.slug } })}>
+          <Text style={styles.savedFallbackName}>{river.name}</Text><Text style={styles.savedFallbackReach}>{river.reach}</Text></Pressable>
+          <Text style={styles.savedFallbackNote}>{summaryQuery.isPending ? 'Loading current call…' : 'Current call unavailable.'}</Text>
+          <SavedRouteNotes river={river} onEdit={setNotesRiver} /><SaveToggleButton routeSlug={river.slug} routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
+        </View></View>)}</View></SectionCard> : null}
+      {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
+    </View>}
+  />;
+
   return (
     <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : Platform.OS === 'android' ? 'height' : undefined}>
-    <ScrollView
+    {activeTab === 'routes' ? routesList : <ScrollView
       keyboardShouldPersistTaps="handled"
       style={styles.screen}
       refreshControl={<RefreshControl refreshing={summaryQuery.isFetching} onRefresh={() => void summaryQuery.refetch()} tintColor={colors.accent} />}
@@ -206,155 +281,12 @@ export default function SavedScreen() {
       </Text>
       <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
       {activeTab === 'trips' ? <SavedOfflineTrips /> : null}
-      {activeTab === 'routes' && (savedRivers.length > 1 || savedSearch.length > 0) ? <View style={styles.searchBox}>
-        <MaterialCommunityIcons name="magnify" size={22} color={colors.textMuted} accessible={false} />
-        <TextInput ref={searchInput} style={styles.searchInput} accessibilityLabel="Search saved routes" placeholder="River, reach, area, or note"
-          placeholderTextColor={colors.textMuted} value={savedSearch} onChangeText={setSavedSearch}
-          autoCorrect={false} autoCapitalize="none" returnKeyType="search" onSubmitEditing={() => Keyboard.dismiss()} />
-        {savedSearch ? <Pressable accessibilityRole="button" accessibilityLabel="Clear saved route search" style={styles.searchClear}
-          onPress={() => { setSavedSearch(''); searchInput.current?.focus(); }}>
-          <MaterialCommunityIcons name="close" size={20} color={colors.textMuted} />
-        </Pressable> : null}
-      </View> : null}
-      {filtering ? <Text accessibilityLiveRegion="polite" style={styles.compareHelp}>Showing {visibleSavedRivers.length} of {savedRivers.length} saved routes.</Text> : null}
-      {filtering && savedRivers.length > 0 && visibleSavedRivers.length === 0 ? <SectionCard title="No saved routes match" subtitle="Try a river name, reach, area, or words from your personal notes.">
-        <AppButton label="Show all saved routes" variant="secondary" onPress={() => { setSavedSearch(''); Keyboard.dismiss(); }} />
-      </SectionCard> : null}
-      {activeTab === 'routes' && savedSummaries.length >= 2 && !comparisonMode ? (
-        <Pressable ref={compareStart} accessibilityRole="button" accessibilityLabel="Compare saved routes" style={styles.compareStart} onPress={() => setComparisonMode(true)}>
-          <MaterialCommunityIcons name="compare-horizontal" accessible={false} size={20} color={colors.accentDeep} />
-          <Text style={styles.compareStartText}>Compare saved routes</Text>
-        </Pressable>
-      ) : null}
       {activeTab === 'trips' ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
         onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
           putin: record.target.putInId ?? '', takeout: record.target.takeOutId ?? '', prepare: Date.now().toString() } })} /> : null}
       {activeTab === 'alerts' ? <SectionCard title="Nearby alerts and delivery" subtitle="Manage area-wide Today and Weekend updates, planning location, and device notification settings.">
         <AppButton label="Open notification settings" variant="secondary" icon="bell-outline" onPress={() => router.push('/notifications')} />
       </SectionCard> : null}
-      {activeTab === 'routes' && savedRivers.length > 0 && !filtering ? (
-        <View style={styles.savedOverview}>
-          <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
-          <OverviewTile icon="bell-ring-outline" label="Alerts" value={alertsHydrated && !alertsLoadError ? `${savedAlertCount}/${savedRivers.length}` : 'Unknown'} />
-          <OverviewTile icon="waves" label="Current calls" value={`${savedGroups.paddle.length + savedGroups.watch.length + savedGroups.skip.length}/${savedRivers.length}`} />
-        </View>
-      ) : null}
-
-      {activeTab === 'routes' && savedRivers.length === 0 && !hasLoadError ? (
-        <View style={styles.emptyPanel}>
-          <View style={styles.emptyIcon}>
-            <MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} />
-          </View>
-          <Text style={styles.emptyTitle}>No saved routes yet</Text>
-          <Text style={styles.emptyBody}>
-            Save repeat routes here, then turn on alerts for the conditions you care about.
-          </Text>
-          <View style={styles.emptyActions}>
-            <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => router.push('/')}>
-              <Text style={styles.primaryButtonText}>Find today's picks</Text>
-            </Pressable>
-            <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => router.push('/explore')}>
-              <Text style={styles.secondaryButtonText}>Open map</Text>
-            </Pressable>
-          </View>
-        </View>
-      ) : null}
-
-
-
-      {activeTab === 'routes' && visibleSummaries.length > 0 ? (
-        <>
-          <View style={styles.statusBoard}>
-            <StatusTile label="Paddle" value={visibleGroups.paddle.length} tone={styles.statusPaddle} />
-            <StatusTile label="Watch" value={visibleGroups.watch.length} tone={styles.statusWatch} />
-            <StatusTile label="No call" value={visibleGroups.unavailable.length} tone={styles.statusUnavailable} />
-            <StatusTile label="Skip" value={visibleGroups.skip.length} tone={styles.statusSkip} />
-          </View>
-
-          <SavedRouteGroup
-            comparison={compareSelection}
-            title="Paddle today"
-            subtitle="Saved routes with a current Paddle call."
-            changes={changes}
-            savedRivers={savedRivers}
-            onEditNotes={setNotesRiver}
-            rivers={visibleGroups.paddle}
-            isSaved={isSaved}
-            onToggleSaved={toggleSavedRiver}
-            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-          />
-          <SavedRouteGroup
-            comparison={compareSelection}
-            title="Watch closely"
-            subtitle="Saved routes that need a closer look."
-            changes={changes}
-            savedRivers={savedRivers}
-            onEditNotes={setNotesRiver}
-            rivers={visibleGroups.watch}
-            isSaved={isSaved}
-            onToggleSaved={toggleSavedRiver}
-            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-          />
-          <SavedRouteGroup
-            comparison={compareSelection}
-            title="Call unavailable"
-            subtitle="Saved routes that need current evidence before PaddleToday can make a call."
-            changes={changes}
-            savedRivers={savedRivers}
-            onEditNotes={setNotesRiver}
-            rivers={visibleGroups.unavailable}
-            isSaved={isSaved}
-            onToggleSaved={toggleSavedRiver}
-            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-          />
-          <SavedRouteGroup
-            comparison={compareSelection}
-            title="Skip today"
-            subtitle="Saved routes to recheck later."
-            changes={changes}
-            savedRivers={savedRivers}
-            onEditNotes={setNotesRiver}
-            rivers={visibleGroups.skip}
-            isSaved={isSaved}
-            onToggleSaved={toggleSavedRiver}
-            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-          />
-        </>
-      ) : null}
-
-      {activeTab === 'routes' ? <RecentRoutes onOpen={slug => router.push({ pathname: '/river/[slug]', params: { slug } })} /> : null}
-
-      {activeTab === 'routes' && visibleSavedRivers.some(route => !riverLookup.has(route.slug)) ? (
-        <SectionCard
-          title={summaryQuery.isPending ? 'Checking saved routes' : 'Saved routes without a call'}
-          subtitle={summaryQuery.isPending ? 'Your list is ready while current calls load.' : 'Still saved. You can open route details or try refreshing the calls.'}
-        >
-          <View style={styles.list}>
-            {visibleSavedRivers
-              .filter((river) => !riverLookup.has(river.slug))
-              .map((river) => (
-                <View key={river.slug} style={styles.savedFallbackCard}>
-                  <View style={styles.savedFallbackCopy}>
-                    <Pressable
-                      accessibilityRole="link"
-                      accessibilityLabel={`Open ${river.name}: ${river.reach}`}
-                      onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.slug } })}
-                    >
-                      <Text style={styles.savedFallbackName}>{river.name}</Text>
-                      <Text style={styles.savedFallbackReach}>{river.reach}</Text>
-                    </Pressable>
-                    <Text style={styles.savedFallbackNote}>
-                      {summaryQuery.isPending ? 'Loading current call…' : 'Current call unavailable.'}
-                    </Text>
-                    <SavedRouteNotes river={river} onEdit={setNotesRiver} />
-                    <SaveToggleButton routeSlug={river.slug} routeLabel={`${river.name}: ${river.reach}`} saved onPress={() => void toggleSavedRiver(river)} />
-                  </View>
-                </View>
-              ))}
-          </View>
-        </SectionCard>
-      ) : null}
-
       {activeTab === 'alerts' && alertSummaries.length > 0 ? (
         <SectionCard
           title="Condition alerts"
@@ -406,7 +338,7 @@ export default function SavedScreen() {
       </SectionCard> : null}
 
       {notesRiver ? <SavedRouteNotesEditor key={notesRiver.slug} river={notesRiver} onClose={() => setNotesRiver(null)} /> : null}
-    </ScrollView>
+    </ScrollView>}
     {showComparisonBar ? <View style={styles.comparisonBar} onLayout={event => setComparisonBarHeight(event.nativeEvent.layout.height)}>
       <Text accessibilityLiveRegion="polite" style={styles.compareHelp}>{comparedRoutes.length} of {ROUTE_COMPARISON_LIMIT} selected. {savedSummaries.length < 2 ? 'Two saved routes with details are needed.' : comparedRoutes.length < 2 ? 'Select at least two saved routes.' : 'Ready to compare.'}</Text>
       <View style={styles.comparisonActions}>
@@ -567,11 +499,9 @@ function SavedAlertRow({
   );
 }
 
-function SavedRouteGroup({
+function SavedRouteListItem({
   comparison,
-  title,
-  subtitle,
-  rivers,
+  river,
   changes,
   savedRivers,
   onEditNotes,
@@ -579,10 +509,8 @@ function SavedRouteGroup({
   onToggleSaved,
   onOpen,
 }: {
-  title: string;
-  subtitle: string;
   comparison?: SavedComparisonSelection;
-  rivers: RiverSummaryApiItem[];
+  river: RiverSummaryApiItem;
   changes: Record<string, string[]>;
   savedRivers: SavedRiverRecord[];
   onEditNotes: (river: SavedRiverRecord) => void;
@@ -590,34 +518,21 @@ function SavedRouteGroup({
   onToggleSaved: (river: { slug: string; riverId?: string; name: string; reach: string }) => void | Promise<void>;
   onOpen: (slug: string) => void;
 }) {
-  if (rivers.length === 0) return null;
+  const savedRiver = savedRivers.find((item) => item.slug === river.river.slug);
   return (
-    <SectionCard title={title} subtitle={subtitle}>
-      <View style={styles.list}>
-        {rivers.map((river) => (
-          <View key={river.river.slug}>
-          <RiverCard
-            river={river}
-            changes={changes[river.river.slug]}
-            showPhoto
-            saved={isSaved(river.river.slug)}
-            onToggleSaved={() =>
-              void onToggleSaved({
-                slug: river.river.slug,
-                riverId: river.river.riverId,
-                name: river.river.name,
-                reach: river.river.reach,
-              })
-            }
-            onPress={() => onOpen(river.river.slug)}
-            segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
-          />
-          {comparison ? <SavedCompareChoice river={river} comparison={comparison} /> : null}
-          {savedRivers.find((item) => item.slug === river.river.slug) ? <SavedRouteNotes river={savedRivers.find((item) => item.slug === river.river.slug)!} onEdit={onEditNotes} /> : null}
-          </View>
-        ))}
-      </View>
-    </SectionCard>
+    <View style={styles.virtualRouteItem}>
+      <RiverCard
+        river={river}
+        changes={changes[river.river.slug]}
+        showPhoto
+        saved={isSaved(river.river.slug)}
+        onToggleSaved={() => void onToggleSaved({ slug: river.river.slug, riverId: river.river.riverId, name: river.river.name, reach: river.river.reach })}
+        onPress={() => onOpen(river.river.slug)}
+        segmentLabel={formatRouteSegmentLabel(routeSegmentSummary(river.river), null)}
+      />
+      {comparison ? <SavedCompareChoice river={river} comparison={comparison} /> : null}
+      {savedRiver ? <SavedRouteNotes river={savedRiver} onEdit={onEditNotes} /> : null}
+    </View>
   );
 }
 
@@ -669,6 +584,11 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     gap: spacing.md,
   },
+  routesListHeader: { gap: spacing.md },
+  routesListFooter: { gap: spacing.md, paddingTop: spacing.md },
+  virtualSectionHeader: { paddingTop: spacing.md, paddingBottom: spacing.sm, gap: spacing.xs, borderTopWidth: 1, borderTopColor: colors.border },
+  virtualSectionTitle: { color: colors.text, fontSize: 18, lineHeight: 24, fontWeight: '800' },
+  virtualRouteItem: { gap: spacing.xs, paddingBottom: spacing.md },
   title: {
     color: colors.text,
     fontSize: 24,

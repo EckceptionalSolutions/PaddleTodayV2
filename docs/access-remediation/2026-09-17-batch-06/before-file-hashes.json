@@ -1,0 +1,82 @@
+[
+  {
+    "path": "src/data/routes/maryland.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__maryland.ts",
+    "sha256": "0F57CFAB804B570D48B22571891447E236574B452C26CBCB6661E29F9D840D19"
+  },
+  {
+    "path": "src/data/routes/idaho.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__idaho.ts",
+    "sha256": "4FAA3C0D80172E6C576A06647BE9A05FC35D5F83A9E837AE96FE4C7396DC4C88"
+  },
+  {
+    "path": "src/data/routes/louisiana-bayou-teche.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__louisiana-bayou-teche.ts",
+    "sha256": "245FDCA651EEB0E556D05A814DDB91381871D8738C917D4501C0EF2335966AF9"
+  },
+  {
+    "path": "src/data/routes/rhode-island-woonasquatucket.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__rhode-island-woonasquatucket.ts",
+    "sha256": "FE391DCC6997003A23105E60387FEA4198BF360CA914C1C9ECF926EDCB145C11"
+  },
+  {
+    "path": "src/data/routes/iowa.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__iowa.ts",
+    "sha256": "C5D2EB21412D625F08819784B2B666EFDAEEED491ACBF9A4BD6A66EC8B180D2F"
+  },
+  {
+    "path": "src/data/routes/wisconsin.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__wisconsin.ts",
+    "sha256": "D7335C6D6C6EAFB46D2278C59178623AA1DFF355F9C402181096FE8BDBB1D507"
+  },
+  {
+    "path": "src/data/routes/arizona-verde-expansion.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__arizona-verde-expansion.ts",
+    "sha256": "B75775FF0B9565AB3220DA7BA04223FD8BCCC31BDD36F33F355574C022D7311E"
+  },
+  {
+    "path": "src/data/routes/new-hampshire-saco.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__new-hampshire-saco.ts",
+    "sha256": "281837D72E8D15CA2B450FFE56983831E6B84415EFD408399C49E598ED009FDE"
+  },
+  {
+    "path": "src/data/routes/pennsylvania.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__pennsylvania.ts",
+    "sha256": "3C0A15DE9699251C4A0BDAD6E55B91756D330DD6BB6C0FDFA521A9BCFEF9887F"
+  },
+  {
+    "path": "src/data/routes/arkansas.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__routes__arkansas.ts",
+    "sha256": "96F20A80918B449E41BDA21DC1FFF23196B7C5BAD65D6853AA987515B2A60EDE"
+  },
+  {
+    "path": "src/data/trip-details/iowa.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__trip-details__iowa.ts",
+    "sha256": "ECBD04BE77D1B1245F1143F74A892F6E9DF6BA69DAAFA7EDF8D46A9563E302BE"
+  },
+  {
+    "path": "src/data/trip-details/pennsylvania.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__trip-details__pennsylvania.ts",
+    "sha256": "55B2EDD4E223FFA0F94AC1AE79901CFE9EAA12C05A6C25C255503BD1A4923DC4"
+  },
+  {
+    "path": "src/data/trip-details/arkansas.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__trip-details__arkansas.ts",
+    "sha256": "76C87CDB466C0BCF0EED3C15AA3A5045C895F87A012F173DCB5DCFBFFEBF8CB8"
+  },
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__route-access-official-map-controls.json",
+    "sha256": "EAB061FC98818CEEBFD4D95EA2EA645691CFA5F7B47989DE594E2643C99F4334"
+  },
+  {
+    "path": "src/data/route-access-review-holds.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__route-access-review-holds.ts",
+    "sha256": "C63A4F2BFE46A25B00DF4BE4D3A243D93199AECC0AD43FB4BA4886FCA8B269AC"
+  },
+  {
+    "path": "src/data/generated/withheld-route-slugs.ts",
+    "backup": "node_modules/.cache/access-batch-06/before-source/src__data__generated__withheld-route-slugs.ts",
+    "sha256": "9380277E9B9C5ACA048A7FBBB11B18C07A3BD0E69FC1D8ECBBDA7AD254F909F0"
+  }
+]

@@ -1,0 +1,295 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First 10 distinct physical sites in the cached access-quality queue that affect at least one route outside the current generated withholding manifest, excluding sites frozen in batches 01 and 02; retain queue rank order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The cache-only report predates earlier source edits and does not import current route coordinates. The runbook audit command remains blocked by missing @paddletoday/geo; current generated withholding manifest was used to filter likely public routes."
+  },
+  "sites": [
+    {
+      "rank": 1,
+      "state": "Idaho",
+      "name": "Moyie Reservoir Boating Take-Out",
+      "latitude": 48.73135,
+      "longitude": -116.1831,
+      "distanceFeetToMappedWater": 1406.2343354217483,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "moyie-river-meadow-creek-reservoir",
+          "endpoint": "takeOut",
+          "endpointName": "Moyie Reservoir Boating Take-Out",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "moyie-river-meadow-creek-reservoir",
+          "endpoint": "takeOut",
+          "endpointName": "Moyie Reservoir Boating Take-Out",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "state": "New York",
+      "name": "Peakville bridge access",
+      "latitude": 41.945,
+      "longitude": -75.037,
+      "distanceFeetToMappedWater": 1311.9825497229378,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "beaver-kill-cooks-falls-peakville",
+          "endpoint": "takeOut",
+          "endpointName": "Peakville bridge access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "beaver-kill-cooks-falls-peakville",
+          "endpoint": "takeOut",
+          "endpointName": "Peakville bridge access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "state": "New York",
+      "name": "Campbell Cohocton River access area",
+      "latitude": 42.235,
+      "longitude": -77.196,
+      "distanceFeetToMappedWater": 1158.8782931169965,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cohocton-river-bath-campbell",
+          "endpoint": "takeOut",
+          "endpointName": "Campbell Cohocton River access area",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "cohocton-river-bath-campbell",
+          "endpoint": "takeOut",
+          "endpointName": "Campbell Cohocton River access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "state": "Pennsylvania",
+      "name": "Laurel Hill State Park Beach Area canoe/kayak launch",
+      "latitude": 40.01023,
+      "longitude": -79.2244,
+      "distanceFeetToMappedWater": 1145.7054085037646,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Laurel Hill State Park Beach Area canoe/kayak launch",
+          "severity": "failure"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Laurel Hill State Park Beach Area canoe/kayak launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "state": "Maryland",
+      "name": "Big Falls Road Gunpowder access",
+      "latitude": 39.59685,
+      "longitude": -76.64425,
+      "distanceFeetToMappedWater": 1122.7482244089115,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "Big Falls Road Gunpowder access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "Big Falls Road Gunpowder access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "state": "New York",
+      "name": "Salmon River Black Hole north-bank access",
+      "latitude": 43.56388,
+      "longitude": -76.13889,
+      "distanceFeetToMappedWater": 1096.1927869318195,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-route-2a-black-hole",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon River Black Hole north-bank access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "salmon-river-route-2a-black-hole",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon River Black Hole north-bank access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "state": "New York",
+      "name": "Polaris Bridge Hudson River hand launch",
+      "latitude": 43.8952,
+      "longitude": -74.169,
+      "distanceFeetToMappedWater": 1029.9589560661548,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "accessPoint",
+          "endpointName": "Polaris Bridge Hudson River hand launch",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "accessPoint",
+          "endpointName": "Polaris Bridge Hudson River hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "state": "New York",
+      "name": "Sidney Susquehanna confluence access",
+      "latitude": 42.313,
+      "longitude": -75.406,
+      "distanceFeetToMappedWater": 957.7526908332057,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "unadilla-river-rockdale-sidney",
+          "endpoint": "takeOut",
+          "endpointName": "Sidney Susquehanna confluence access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "unadilla-river-rockdale-sidney",
+          "endpoint": "takeOut",
+          "endpointName": "Sidney Susquehanna confluence access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "state": "New York",
+      "name": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+      "latitude": 42.64666,
+      "longitude": -74.53473,
+      "distanceFeetToMappedWater": 953.3954120270947,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cobleskill-creek-warnerville-central-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "cobleskill-creek-warnerville-central-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "state": "New York",
+      "name": "Jamestown Falls Hand Launch / Landing",
+      "latitude": 44.3262,
+      "longitude": -74.7226,
+      "distanceFeetToMappedWater": 938.740083263988,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "takeOut",
+          "endpointName": "Jamestown Falls Hand Launch / Landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Jamestown Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ],
+      "publicOccurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "takeOut",
+          "endpointName": "Jamestown Falls Hand Launch / Landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Jamestown Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ]
+    }
+  ]
+}

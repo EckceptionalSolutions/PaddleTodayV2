@@ -1,0 +1,19 @@
+{
+  "batch": 55,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before determining the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:46:39.743Z; 2,750 public routes, 6,058 endpoints, 78 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Idlewild Park Access, Cedar River",
+    "storedCoordinate": { "latitude": 43.1633388, "longitude": -92.7540921 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "cedar-river-road-t38-idlewild",
+      "cedar-river-idlewild-rotary"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 354 feet from the matched Cedar River flowline and 276 feet from mapped water and were classified suspicious.",
+    "decision": "check-the-chamber-guide-coordinate-against-the-current-county-canoe-access-record-and-imagery; retain-as-site-anchor-if-supported",
+    "selectionFrozenBeforeResearch": true
+  }
+}

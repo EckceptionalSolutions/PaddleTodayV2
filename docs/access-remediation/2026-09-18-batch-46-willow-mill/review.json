@@ -1,0 +1,53 @@
+{
+  "batch": 46,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Willow Mill Park, Silver Spring Township, Pennsylvania",
+  "affectedRoutes": [
+    "conodoguinet-creek-willow-mill-vincent-difilippo",
+    "conodoguinet-creek-willow-mill-good-hope",
+    "conodoguinet-creek-willow-mill-acri-meadow"
+  ],
+  "decision": "replace-the-shared-coordinate-with-the-published-county-site-marker-and-keep-the-ramp-point-under-review",
+  "decisionScope": "Cumberland County's current Conodoguinet guide publishes Willow Mill Park's B4 coordinate and describes a concrete boat launch with a short carry and shallow slope to the water. Silver Spring Township confirms a boat launch at the rear of the park. The official coordinate identifies the named park access site but is rounded to four decimals and does not locate the exact ramp toe. Current satellite imagery did not resolve the ramp through the tree cover, so this is an authoritative site-coordinate correction, not an exact on-water launch fix.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 40.2567096, "longitude": -77.0411725 },
+    "occurrences": 3,
+    "mappedWaterDistanceFeet": 189.7433,
+    "matchedFlowlineDistanceFeet": 318.7868,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/trip-details/pennsylvania.ts",
+    "from": { "latitude": 40.2567096, "longitude": -77.0411725 },
+    "to": { "latitude": 40.2578, "longitude": -77.0426 },
+    "occurrences": 3,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "cumberland_county_conodoguinet_b4",
+    "rationale": "Use the official county B4 named access-site coordinate instead of the unsupported old coordinate. Do not treat this park-level point as the concrete ramp toe."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeet": 682.1736,
+    "mappedWaterDistanceFeet": 571.5837,
+    "endpointOnNhdWaterbody": false,
+    "interpretation": "The published park access-site marker remains over 300 feet from mapped water and is less water-proximate than the previous point. The agency source verifies the public site and launch, not the exact water-edge position; keep review status and continue seeking a georeferenced ramp point."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "file": "targeted-willow-mill-vincent.json",
+      "result": "Both endpoints are review; Willow Mill matches official B4 anchor, source issues 0."
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-good-hope",
+      "file": "targeted-willow-mill-good-hope.json",
+      "result": "Both endpoints are review; Willow Mill matches official B4 anchor, source issues 0."
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-acri-meadow",
+      "file": "targeted-willow-mill-acri.json",
+      "result": "Both endpoints are review; Willow Mill matches official B4 anchor, source issues 0."
+    }
+  ],
+  "auditTextChange": "Access-anchor matches now state that an authoritative site coordinate confirms the public access site, not the exact water-edge point. They no longer describe every anchor as on/near-water evidence.",
+  "outcome": "Three suspicious occurrences were moved to the published county park access coordinate and now classify as review. The public launch is verified; the exact water-entry toe remains unresolved and mapped-water distance is still flagged."
+}

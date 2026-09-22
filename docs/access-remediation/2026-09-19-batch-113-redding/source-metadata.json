@@ -1,0 +1,23 @@
+{
+  "batch": "B113",
+  "endpoint": "Redding Recreation Area canoe launch",
+  "routeId": "mulberry-river-redding-turner-bend",
+  "sources": [
+    {
+      "url": "https://www.recreation.gov/camping/campgrounds/10158827",
+      "publisher": "Recreation.gov / USDA Forest Service",
+      "supports": "Identifies Redding Campground on the Mulberry River in the Ozark-St. Francis National Forests."
+    },
+    {
+      "url": "https://rivers.gov/apps/sites/rivers/files/documents/plans/mulberry-plan.pdf",
+      "publisher": "National Wild and Scenic Rivers System",
+      "supports": "States that Redding campground is adjacent to a Mulberry River access point and is within the river corridor."
+    },
+    {
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd612127.pdf",
+      "publisher": "USDA Forest Service",
+      "supports": "Lists Redding on the Mulberry River with day-use/launch access."
+    }
+  ],
+  "sourceAssessment": "Federal recreation, river-plan, and Forest Service schedule records independently document Redding as a public Mulberry River access area. Retain the stored point as a conditional launch-area anchor."
+}

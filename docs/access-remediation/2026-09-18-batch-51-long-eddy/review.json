@@ -1,0 +1,51 @@
+{
+  "batch": 51,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Long Eddy NYSDEC non-motorized launch, Delaware River, New York",
+  "affectedRoutes": [
+    "delaware-river-hancock-callicoon",
+    "delaware-river-lordville-long-eddy"
+  ],
+  "decision": "replace-the-misidentified-Kellams-Bridge-fishing-point-with-the-published-Long-Eddy-access-site-coordinate; retain review status pending exact water-entry verification",
+  "decisionScope": "NPS's current Long Eddy River Access page identifies a NY DEC-managed public non-motorized gravel launch at 10 Ferry Street near river mile 315, with trailer parking. NPS's downloadable 2025 public-access dataset distinguishes Long Eddy near mile 315 from Kellams Bridge at the route's old coordinate, 41.823937,-75.112437; Kellams Bridge is fishing-only and has no boat ramp. The Delaware River Water Trail publishes 41.8497,-75.1352 for Long Eddy at river mile 315.6. I replaced the shared point with that coordinate, registered it as an access-site anchor, and added route notes explaining the old-site mismatch. Satellite imagery places the published point in the Ferry Street / Long Eddy access corridor but does not establish the exact gravel-ramp toe.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 41.823937, "longitude": -75.112437 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 370.4760,
+    "mappedWaterDistanceFeet": 200.8092,
+    "endpointOnWaterbody": false,
+    "severity": "suspicious",
+    "npsCurrentDatasetIdentity": "Kellams Bridge; fishing only; no boat ramp"
+  },
+  "change": {
+    "sourceFile": "src/data/routes/new-york.ts",
+    "from": { "latitude": 41.823937, "longitude": -75.112437 },
+    "to": { "latitude": 41.8497, "longitude": -75.1352 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "upper_delaware_long_eddy_access",
+    "rationale": "NPS confirms the public Long Eddy launch at 10 Ferry Street and separately lists the old coordinate as a fishing-only Kellams Bridge site. The Water Trail publishes the replacement coordinate for Long Eddy at river mile 315.6. The corrected point remains a site anchor because neither source identifies the exact water-entry toe."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeetByRoute": {
+      "delaware-river-hancock-callicoon": 342.9808,
+      "delaware-river-lordville-long-eddy": 161.5934
+    },
+    "mappedWaterDistanceFeet": 168.4628,
+    "endpointOnWaterbody": false,
+    "interpretation": "Both route occurrences now match the named state-managed Long Eddy access anchor and classify review. NHD's generalized flowline and waterbody layers do not place the published access point within 150 feet of mapped water; keep exact ramp-toe verification open rather than infer a new toe from generalized hydrography."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "delaware-river-hancock-callicoon",
+      "file": "targeted-after-hancock-callicoon.json",
+      "result": "The Long Eddy accessPoint is review and matches the NPS-corroborated Water Trail access anchor; source issues 0."
+    },
+    {
+      "routeId": "delaware-river-lordville-long-eddy",
+      "file": "targeted-after-lordville-long-eddy.json",
+      "result": "Both endpoints review; Long Eddy matches the NPS-corroborated Water Trail access anchor; source issues 0."
+    }
+  ],
+  "outcome": "Two suspicious public occurrences moved to review at the correct named public-launch site. The old coordinate is explicitly identified as a different fishing-only site; exact water entry remains open."
+}

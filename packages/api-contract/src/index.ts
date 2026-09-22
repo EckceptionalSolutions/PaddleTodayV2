@@ -18,6 +18,9 @@ export type SourceProvider =
   | 'wisconsin_river_trips'
   | 'wisconsin_trail_guide'
   | 'nps'
+  | 'milwaukee_county'
+  | 'urban_ecology_center'
+  | 'milwaukee_riverkeeper'
   | 'local'
   | 'manual';
 export type RouteType = 'recreational' | 'whitewater';

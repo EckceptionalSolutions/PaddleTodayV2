@@ -1,0 +1,9 @@
+{
+  "batch": "B95",
+  "sources": [
+    { "title": "Fishing — New River Gorge National Park & Preserve", "url": "https://www.nps.gov/neri/planyourvisit/fishing.htm", "publisher": "National Park Service", "supports": ["Hellems Beach is a public New River access", "access is reached via River Road at Hinton"] },
+    { "title": "New River Gorge public-access planning material", "url": "https://parkplanning.nps.gov/showFile.cfm?projectID=11040&sfid=191065", "publisher": "National Park Service", "supports": ["upper-gorge public river access cluster including Tug Creek and Hellems Beach"] },
+    { "title": "NPS New River Gorge access and driving guide", "url": "https://home.nps.gov/neri/planyourvisit/finding-your-way-around-the-park.htm", "publisher": "National Park Service", "supports": ["park access context and road-based river access"] }
+  ],
+  "sourceQuality": "The access classification is anchored by current NPS public-access guidance, with NPS planning material independently confirming the upper-gorge access cluster."
+}

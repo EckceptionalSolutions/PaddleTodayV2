@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:28:10.511Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Arkansas",
+      "name": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
+      "latitude": 35.671667,
+      "longitude": -93.829444,
+      "distanceFeetToMappedWater": 376.5281519562483,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mulberry-river-redding-turner-bend",
+          "endpoint": "takeOut",
+          "endpointName": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "mulberry-river-redding-turner-bend",
+      "routeName": "Mulberry River",
+      "reach": "Redding Recreation Area to Turner Bend",
+      "state": "Arkansas",
+      "endpoint": "takeOut",
+      "endpointName": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
+      "latitude": 35.671667,
+      "longitude": -93.829444,
+      "matchedRiverName": "Mulberry River",
+      "distanceFeetToMatchedRiver": 434.3402783582305,
+      "nearestMatchedLatitude": 35.67136381798193,
+      "nearestMatchedLongitude": -93.82802676914692,
+      "nearestWaterwayName": "Mulberry River",
+      "distanceFeetToNearestWaterway": 434.3406093957247,
+      "nearestWaterwayLatitude": 35.67136240369465,
+      "nearestWaterwayLongitude": -93.82802722759463,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 376.5281519562483,
+      "nearestWaterbodyLatitude": 35.671263205843566,
+      "nearestWaterbodyLongitude": -93.82827479222345,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 376.5281519562483,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.turnerbend.com/BOATING-SHUTTLE.html",
+      "coordinateEvidenceDetail": "turner_bend_private_fee_landing_anchor turner-bend-private-fee-landing-area: Turner Bend’s operator identifies its landing at the Highway 23 / Mulberry River corridor and describes it as load/unload access for private boaters subject to an access wristband, parking permission, and shuttle/loading rules. The route coordinate is a bridge-corridor/access-area anchor, not a surveyed landing toe; access is conditional on current operator terms and fees.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (turner_bend_private_fee_landing_anchor turner-bend-private-fee-landing-area) on Mulberry River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "mulberry-river-redding-turner-bend",
+      "routeName": "Mulberry River",
+      "reach": "Redding Recreation Area to Turner Bend",
+      "state": "Arkansas",
+      "endpoint": "putIn",
+      "endpointName": "Redding Recreation Area canoe launch",
+      "latitude": 35.68282778,
+      "longitude": -93.78651111,
+      "matchedRiverName": "Mulberry River",
+      "distanceFeetToMatchedRiver": 347.1707117490259,
+      "nearestMatchedLatitude": 35.68289062857242,
+      "nearestMatchedLongitude": -93.78768013822386,
+      "nearestWaterwayName": "Mulberry River",
+      "distanceFeetToNearestWaterway": 347.1707117490259,
+      "nearestWaterwayLatitude": 35.68289062857242,
+      "nearestWaterwayLongitude": -93.78768013822386,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 288.72066528237525,
+      "nearestWaterbodyLatitude": 35.68280518375249,
+      "nearestWaterbodyLongitude": -93.78748504878692,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 288.72066528237525,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.recreation.gov/camping/campgrounds/10158827",
+      "coordinateEvidenceDetail": "ar_usfs_redding_mulberry_access_20260919 redding-recreation-area-mulberry-canoe-launch: Recreation.gov identifies Redding Campground on the Mulberry River in the Ozark-St. Francis National Forests. The official Mulberry River Wild and Scenic River plan states the campground is adjacent to a Mulberry River access point, and Forest Service recreation schedules list Redding day-use/launch access. Retain the stored route point as a conditional campground/rock-canoe-launch anchor; the 347-foot named-flowline offset reflects the campground, parking, trail, and shoreline facility footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ar_usfs_redding_mulberry_access_20260919 redding-recreation-area-mulberry-canoe-launch) on Mulberry River; access is conditional (Confirm current Forest Service campground/day-use status, fee, parking, launch condition, river level, and any seasonal or local restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

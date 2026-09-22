@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:50:12.998Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-guyandotte-man-earling",
+      "routeName": "Guyandotte River",
+      "reach": "Man public access to Earling public access",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Earling public access",
+      "latitude": 37.766,
+      "longitude": -81.917,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 202.75137019866912,
+      "nearestMatchedLatitude": 37.76568022635445,
+      "nearestMatchedLongitude": -81.9175750019627,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 202.75137019866912,
+      "nearestWaterwayLatitude": 37.76568022635445,
+      "nearestWaterwayLongitude": -81.9175750019627,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 84.80393177052247,
+      "nearestWaterbodyLatitude": 37.76584916757624,
+      "nearestWaterbodyLongitude": -81.91722374780602,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 84.80393177052247,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 85 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "wv-guyandotte-man-earling",
+      "routeName": "Guyandotte River",
+      "reach": "Man public access to Earling public access",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Man public access",
+      "latitude": 37.7441,
+      "longitude": -81.887894,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 52.51337470148941,
+      "nearestMatchedLatitude": 37.74398928922465,
+      "nearestMatchedLongitude": -81.88801033888319,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 52.51337470148941,
+      "nearestWaterwayLatitude": 37.74398928922465,
+      "nearestWaterwayLongitude": -81.88801033888319,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 37.7441,
+      "nearestWaterbodyLongitude": -81.887894,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://services.wvgis.wvu.edu/arcgis/rest/services/Applications/dnrRec_fishing/MapServer/2",
+      "coordinateEvidenceDetail": "wv_dnr_guyandotte_man_access wv-dnr-guyandotte-man-objectid-489: The active West Virginia Fishing and Boating Access Sites GIS identifies a Logan County site named Man on the Guyandotte River, owned by WVDNR Wildlife, with Carry Down access. Its point geometry supports the shared Man access anchor used by Guyandotte Water Trail Trips 9 and 10. District 5's 2024 PDF gives a conflicting longitude, and the Water Trail describes a ramp where the GIS says Carry Down; retain the current GIS feature point as a public-access anchor and keep exact entry, ramp type, and carry under review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_dnr_guyandotte_man_access wv-dnr-guyandotte-man-objectid-489) on Guyandotte River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}
