@@ -1,0 +1,59 @@
+{
+  "batch": 58,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "RiverBrain Heller Bar Boat Ramp access record",
+      "url": "https://www.riverbrain.com/accesses/349",
+      "observations": [
+        "Names Heller Bar Boat Ramp as a Snake River take-out, gives the exact shared route coordinate 46.08601938,-116.98350549, and describes a concrete ramp, toilets, and parking.",
+        "The WDFW water-access-site point is about 103 feet away, consistent with a facility/site point distinct from the specific ramp endpoint."
+      ],
+      "limits": "RiverBrain publishes an access-point coordinate but does not identify it as a surveyed wet toe; the hydrology audit still places the point away from its mapped flowline and water polygon."
+    },
+    {
+      "name": "Washington Department of Fish and Wildlife Heller Bar access page",
+      "url": "https://wdfw.wa.gov/places-to-go/water-access-sites/heller-bar-395",
+      "observations": [
+        "Confirms a year-round public WDFW-managed Heller Bar access site with one concrete boat ramp and one hand launch.",
+        "WDFW also lists parking and restrooms at the location."
+      ],
+      "limits": "The web page confirms the facility and ramp, but does not publish a precise ramp-toe coordinate."
+    },
+    {
+      "name": "WDFW official Water Access Sites GIS feature layer",
+      "url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/ApplicationServices/Major_Fishing_Area/MapServer/0/query?where=FacilityName%20LIKE%20%27%25Heller%20Bar%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "observations": [
+        "The WDFW water-access-site feature is named Heller Bar and its published point is 46.0857522742,-116.9833745081, approximately 103 feet from the RiverBrain ramp point.",
+        "This is the agency's access-site point; its small offset from the RiverBrain ramp point does not support replacing the route endpoint with a separate site centroid."
+      ],
+      "limits": "The ArcGIS feature is a site point, not a delineated ramp or shoreline geometry."
+    },
+    {
+      "name": "American Whitewater Heller Bar Snake River access record",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/116898",
+      "observations": [
+        "Confirms Heller Bar is a road-accessible Snake River take-out used by floaters from the Lower Salmon, Snake, and Grande Ronde rivers.",
+        "Its access point is 46.08349,-116.98261, about 950 feet from the shared route point, so it does not establish a replacement for the ramp coordinate used by RiverBrain."
+      ],
+      "limits": "The separate American Whitewater point is a broad access marker and is materially displaced from the exact ramp endpoint documented by RiverBrain."
+    },
+    {
+      "name": "WDFW wildlife-program maintenance report",
+      "url": "https://wdfw.wa.gov/about/wildlife-reports/2024/aug16-31",
+      "observations": [
+        "WDFW staff report that the underwater gravel bar in front of the Heller Bar ramp becomes exposed at lower summer flows, corroborating a variable ramp-to-water interface."
+      ],
+      "limits": "The report discusses seasonal conditions but does not provide a coordinate."
+    },
+    {
+      "name": "Bureau of Land Management Lower Salmon recreation-season page",
+      "url": "https://www.blm.gov/press-release/recreation-season-lower-salmon-river-begins",
+      "observations": [
+        "Describes the Lower Salmon reach to its Snake River confluence followed by an additional 20-mile trip along the Snake to the Heller Bar take-out, supporting Heller Bar as the terminal access for the lower-Salmon route after the confluence."
+      ],
+      "limits": "Confirms the route connection and Heller Bar take-out, but does not publish a precise ramp coordinate."
+    }
+  ],
+  "decision": "Retain the RiverBrain ramp coordinate because it matches the exact named endpoint and is corroborated by the managing agency's concrete-ramp record; classify it as an authoritative access-site anchor and keep its mapped-water offset reviewable."
+}

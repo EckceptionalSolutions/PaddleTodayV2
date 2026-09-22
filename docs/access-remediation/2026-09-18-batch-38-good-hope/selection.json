@@ -1,0 +1,23 @@
+{
+  "batch": 38,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "highest-impact repeated suspicious access location in the current full audit; all shared route occurrences reviewed together",
+  "selectedLocations": [
+    {
+      "state": "Pennsylvania",
+      "name": "Good Hope Access",
+      "previousCoordinate": { "latitude": 40.2546304, "longitude": -76.9753045 },
+      "updatedCoordinate": { "latitude": 40.25889805739634, "longitude": -76.97639236255715 },
+      "endpointOccurrencesCorrected": 3,
+      "routeIds": [
+        "conodoguinet-creek-willow-mill-good-hope",
+        "conodoguinet-creek-vincent-difilippo-good-hope",
+        "conodoguinet-creek-good-hope-acri-meadow"
+      ],
+      "decision": "correct-to-pfbc-verified-access-area-anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "uncertaintyFeet": 75,
+      "rationale": "The current PFBC-verified GIS identifies Good Hope as a PFBC-owned access area on Conodoguinet Creek and publishes point geometry. The previous coordinate was a road-address geocode. Cumberland County's updated guide confirms public unpowered-boat access and a shallow ramp with a short carry and slope to water; no surveyed wet-edge coordinate was found."
+    }
+  ]
+}

@@ -24,6 +24,9 @@ export function RouteSearchModal({
   onExplore,
   onRequestRoute,
   onExploreState,
+  loading = false,
+  error,
+  onRetry,
 }: {
   visible: boolean;
   query: string;
@@ -38,6 +41,9 @@ export function RouteSearchModal({
   onExplore: () => void;
   onRequestRoute: () => void;
   onExploreState: (state: string) => void;
+  loading?: boolean;
+  error?: string;
+  onRetry?: () => void;
 }) {
   const reducedMotion = useReducedMotion();
   const inputRef = useRef<TextInput>(null);
@@ -96,7 +102,17 @@ export function RouteSearchModal({
             keyboardDismissMode={Platform.OS === 'web' ? 'none' : 'on-drag'}
             keyboardShouldPersistTaps="handled"
           >
-            {!active ? (
+            {error ? (
+              <View style={styles.searchModalEmpty}>
+                <Text accessibilityRole="alert" style={styles.searchModalEmptyText}>{error}</Text>
+                <AppButton label="Retry route search" onPress={() => onRetry?.()} />
+              </View>
+            ) : null}
+            {loading ? (
+              <View style={styles.searchModalEmpty}>
+                <Text style={styles.searchModalEmptyText}>Loading all routes…</Text>
+              </View>
+            ) : error && results.length === 0 ? null : !active ? (
               <>
                 <View style={styles.searchModalEmpty}>
                   <Text style={styles.searchModalEmptyTitle}>Start typing to search routes</Text>

@@ -1,0 +1,23 @@
+{
+  "batch": "B119",
+  "endpoint": "Whitesville Public Access / water intake",
+  "routeId": "wv-big-coal-whitesville-orgas",
+  "sources": [
+    {
+      "url": "https://wvdnr.gov/wp-content/uploads/2024/02/Pub_D5_FishingGuide_DNR_WILD_digital_rspreads.pdf",
+      "publisher": "West Virginia Division of Natural Resources",
+      "supports": "Lists Whitesville, Boone County, on the Big Coal River with a lot and coordinates 37.9716,-81.5286."
+    },
+    {
+      "url": "https://diyoutdoors.wvu.edu/canoeing/big-coal-river",
+      "publisher": "West Virginia University DIY Outdoors",
+      "supports": "Identifies the Big Coal River canoe route and public access sites from Whitesville downstream."
+    },
+    {
+      "url": "https://diyoutdoors.wvu.edu/files/d/cb4d1660-828d-4609-82bb-c0d5bc36e6ce/big-coal-river-poster-limited-info.pdf",
+      "publisher": "West Virginia University / Coal River Water Trail",
+      "supports": "Labels Whitesville Public Access on the Big Coal River water-trail map."
+    }
+  ],
+  "sourceAssessment": "WVDNR and WVU water-trail records independently document Whitesville public access. Retain the stored point as a conditional access-area anchor."
+}

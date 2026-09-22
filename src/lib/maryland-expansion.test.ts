@@ -231,8 +231,6 @@ describe('Maryland route expansion', () => {
     expect(gunpowderHereford?.accessPoints?.map((point) => point.id)).toEqual([
       'gunpowder-masemore-road',
       'gunpowder-bunker-hill-road',
-      'gunpowder-york-road',
-      'gunpowder-big-falls-road',
       'gunpowder-blue-mount-road',
       'gunpowder-monkton-road',
     ]);

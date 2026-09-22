@@ -1,0 +1,29 @@
+{
+  "batch": 56,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Hills Access & Campground, Iowa River, Iowa",
+  "affectedRoutes": [
+    "iowa-river-sturgis-ferry-hills-access",
+    "iowa-river-hills-river-junction"
+  ],
+  "decision": "retain-the-official-county-site-coordinate-as-a-public-boat-ramp-facility-anchor; the precise ramp toe remains unverified",
+  "decisionScope": "Johnson County Conservation's current camping page publishes 41.5544618,-91.5257829 for Hills Access, matching both route endpoints exactly, and confirms boat-ramp access to the Iowa River. The county's public-use-area record independently identifies the facility as a boat-ramp river-access park and Iowa DNR's Iowa River Water Trail guide describes this reach beginning at the cement Hills Access boat ramp. Google aerial imagery places the published site coordinate at the 520th Street approach rather than the ramp toe; it supports the facility context but does not provide a defensible replacement coordinate. I registered the point as a route-scoped authoritative access anchor and preserved the offset for exact-ramp review.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 41.5544618, "longitude": -91.5257829 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 318.6,
+    "mappedWaterDistanceFeet": 274.5,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 41.5544618, "longitude": -91.5257829 },
+    "to": { "latitude": 41.5544618, "longitude": -91.5257829 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_johnson_county_hills_access_campground_anchor_20260918",
+    "rationale": "The managing county publishes the exact site coordinate and verifies boat-ramp access. Retain its site point as an access-area anchor, without representing it as the ramp toe."
+  },
+  "remainingUncertainty": "The audit measures about 275 feet to mapped water and 319 feet to the matched Iowa River flowline. The county and DNR sources do not publish a separate ramp-toe coordinate. Confirm the exact ramp and carry locally. The River Junction take-out on the Hills-to-River-Junction route remains a separate suspicious endpoint outside this batch.",
+  "outcome": "Two suspicious public endpoint occurrences moved to review with the water offset retained. Coordinates and route geometry did not change."
+}

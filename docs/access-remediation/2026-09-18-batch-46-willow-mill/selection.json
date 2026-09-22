@@ -1,0 +1,20 @@
+{
+  "batch": 46,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Prioritize repeated suspicious shared coordinates, then compare the endpoint against official access tables and mapped-water evidence.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-45-germanium/audit-full-public-cache-only.json generated 2026-09-18T18:04:03.160Z (cache-only); 2,750 public routes, 6,058 endpoints, 97 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Pennsylvania",
+    "name": "Willow Mill Park launch, Conodoguinet Creek",
+    "storedCoordinate": { "latitude": 40.2567096, "longitude": -77.0411725 },
+    "suspiciousPublicOccurrences": 3,
+    "routeIds": [
+      "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "conodoguinet-creek-willow-mill-good-hope",
+      "conodoguinet-creek-willow-mill-acri-meadow"
+    ],
+    "preReviewFinding": "The three routes shared one endpoint at 40.2567096, -77.0411725, 189.7 feet from mapped water and 318.8 feet from the matched Conodoguinet line. Existing route evidence noted that Cumberland County publishes a different B4 park access-site point.",
+    "decision": "use-the-county-published-b4-park-access-site-coordinate-as-an-access-anchor-and-retain-review-status-until-the-ramp-toe-is-located",
+    "selectionFrozenBeforeResearch": true
+  }
+}

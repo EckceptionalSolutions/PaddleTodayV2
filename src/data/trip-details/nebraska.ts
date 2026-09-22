@@ -3,7 +3,7 @@ import type { RiverTripDetails } from '../../lib/types';
 
 export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
   "logan-creek-pender-oakland": {
-    "putIn": {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (east side of town)","latitude":42.113332,"longitude":-96.712814},
+    "putIn": {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (exact water entry unverified)","latitude":42.113332,"longitude":-96.712814},
     "takeOut": {"id":"oakland-logan-creek-canoe-access","name":"Oakland City Park Access","latitude":41.82960424,"longitude":-96.48265492},
     "logistics": {
       "distanceLabel":"About 32 river miles; verify the active channel and current water-trail map",
@@ -189,13 +189,13 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 8 mi",
       "estimatedPaddleTime": "About 3 hr to 4 hr in ordinary conditions, longer near the conservative floor with low-water channel hunting, dragging, wind, or a slow group",
-      "shuttle": "Stage the Monroe county access first, then drive back upstream to the George D. Syas WMA fishing access. The official city directions say to travel south of Monroe on 370th Avenue over the Loup River bridge, continue about one-eighth mile, then turn east and follow the road to its end. Inspect the take-out before launching because the coordinate is a practical public-access anchor from those directions and satellite verification rather than a published county GIS point.",
+      "shuttle": "Stage the Monroe county access first, then drive back upstream to the George D. Syas WMA shore launch. NGPC's Water Trails map marks an open shore launch here, but describes it as a non-designated, unmaintained ramp with a long walking path. Verify the current path, footing, and launch conditions before setting out.",
       "permits": "No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted WMA and county-access rules, and respect any same-day closures, muddy-road issues, or parking limits at either endpoint.",
       "camping": "Nebraska Game and Parks' current fishing guide lists primitive camping at Loup River WMAs, so George D. Syas WMA can support a primitive endpoint overnight when current WMA rules allow it. Do not treat that as route camping: Outdoor Nebraska / Nebraskaland still warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when necessary for safety, shallow-water walking, or obstacle avoidance.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at George D. Syas WMA and take out at the Monroe county access for the short upstream Loup River water-trail segment. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
+      "summary": "Launch from the mapped shore entry at George D. Syas WMA and take out at the Monroe county access. This short upper Loup River water-trail segment uses USGS 06793000 near Genoa as the direct same-river gauge and treats 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
       "accessCaveats": [
-        "The George D. Syas coordinate is the NGPC Public Access Atlas anchor for the named WMA fishing access. Use current WMA signs and parking layout on arrival rather than assuming a polished ramp.",
+        "The put-in coordinate comes from NGPC's Paddlecraft Launch feature for George D. Syas WMA (OBJECTID 97; 41.42442894, -97.6963078). The map labels it an open shore launch, but also says it is non-designated and unmaintained with a long walking path; verify the path and conditions on site.",
         "The Monroe county access is supported by the City of Columbus directions, designated-parking language, and same-run satellite verification of the end-of-road access area. Follow current local signs and obvious public boundaries on arrival.",
         "This route uses a conservative official minimum-only threshold, not a full preferred range. If the Genoa gauge is below about 350 cfs, expect deep-channel searching and occasional dragging.",
         "Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan lunch stops, scouting stops, or casual bank exits on private land.",
@@ -226,16 +226,16 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 24 mi",
       "estimatedPaddleTime": "About 8 hr to 10 hr in ordinary conditions, longer with headwind, low-water channel hunting, breaks, or a slower group",
-      "shuttle": "Stage the Columbus finish first, then drive back to the George D. Syas WMA fishing access. Treat the route as a real all-day shuttle: the finish uses the hotel-side parking and Pawnee Park Trail walk described by Nebraskaland and the City of Columbus, while the put-in is a simple WMA fishing access rather than a developed park ramp.",
+      "shuttle": "Stage the Columbus finish first, then drive back upstream to the George D. Syas WMA shore launch. Treat this as a real all-day shuttle. The NGPC-published endpoint is at the Pawnee Park Trail river access; hotel parking is separate and about a 250-yard walk up the trail. Use the private lot only with current posted permission, check bridge-construction restrictions and detours, and verify the WMA launch's long walking path and current conditions.",
       "permits": "No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted WMA, county, hotel-side, and city-trail rules, and respect same-day closures, muddy-road issues, or parking limits.",
       "camping": "Nebraska Game and Parks' current fishing guide lists primitive camping at Loup River WMAs, so George D. Syas WMA can support a primitive endpoint overnight when current WMA rules allow it. Do not treat that as route camping: Outdoor Nebraska / Nebraskaland still warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at George D. Syas WMA and finish at Columbus for the full Loup River Water Trail continuation. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
+      "summary": "The Loup River Water Trail continues from the mapped George D. Syas WMA shore launch to Columbus. This is an all-day route on the same Loup River near Genoa gauge; treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
       "accessCaveats": [
         "Monroe is the clearest intermediate bailout and should be treated as a real checkpoint before you commit to the final 16 miles toward Columbus.",
-        "The George D. Syas coordinate is the NGPC Public Access Atlas anchor for the named fishing access rather than a polished concrete ramp.",
-        "The Columbus finish is a hotel-side parking and trail walk arrangement, not a staffed marina. Follow current local signs and obvious public boundaries on arrival.",
-        "The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect a current detour or changed trail circulation near the finish."
+        "The put-in coordinate comes from NGPC's Paddlecraft Launch feature for George D. Syas WMA (OBJECTID 97; 41.42442894, -97.6963078). The map labels it an open shore launch, but also says it is non-designated and unmaintained with a long walking path; verify the path and conditions on site.",
+        "The coordinate follows NGPC's published Loup River Water Trail end point at the Pawnee Park Trail river access. The hotel parking lot is separate; the trail is about a 250-yard walk from the riverbank, and hotel parking remains subject to current permission and construction detours.",
+        "Check current city and bridge-construction notices for public river access and trail detours near the bridge; follow same-day signs and do not assume a closed underpass can be bypassed lawfully."
       ],
       "watchFor": [
         "Flows below about 350 cfs at Genoa, when the upper eight miles can require deep-channel work and the full day gets dramatically slower.",
@@ -271,15 +271,15 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 16 mi",
       "estimatedPaddleTime": "About 6 hr to 8 hr in ordinary conditions, longer with headwind, low-water channel hunting, breaks, or a slower group",
-      "shuttle": "Stage the Columbus finish first, then drive back to the Monroe county access south of Monroe. The official city directions say the Monroe public access sits south of Monroe on 370th Avenue, about one-eighth mile past the Loup River bridge, then east to the end of the road. The Columbus finish uses the hotel-side parking and Pawnee Park Trail arrangement described by the City of Columbus and Nebraskaland.",
+      "shuttle": "Stage the Columbus finish first, then drive back to the Monroe county access south of Monroe. The official city directions say the Monroe public access sits south of Monroe on 370th Avenue, about one-eighth mile past the Loup River bridge, then east to the end of the road. The NGPC-published Columbus endpoint is at the Pawnee Park Trail river access; hotel parking is separate and about a 250-yard walk up the trail. Use the private lot only with current posted permission and check construction detours before committing.",
       "permits": "No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted county, hotel-side, and city-trail rules, and respect same-day closures, muddy-road issues, or parking limits.",
       "camping": "Treat this as a committed day trip, not a camping route. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.",
       "campingClassification": "none",
       "summary": "Launch at the Monroe county access and finish at Columbus for the core middle Loup River water-trail day. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
       "accessCaveats": [
         "The Monroe coordinate is a practical public-access anchor based on the official city directions and prior map verification rather than a published county GIS ramp point.",
-        "The Columbus finish is a hotel-side parking and trail walk arrangement, not a staffed marina. Follow current local signs and obvious public boundaries on arrival.",
-        "The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect current detours or changed trail circulation near the finish.",
+        "The coordinate follows NGPC's published Loup River Water Trail end point at the Pawnee Park Trail river access. The hotel parking lot is separate; the trail is about a 250-yard walk from the riverbank, and hotel parking remains subject to current permission and construction detours.",
+        "Check current city and bridge-construction notices for public river access and trail detours near the bridge; follow same-day signs and do not assume a closed underpass can be bypassed lawfully.",
         "Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan casual bank stops on private land."
       ],
       "watchFor": [
@@ -305,13 +305,13 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 4.5 mi",
       "estimatedPaddleTime": "About 2 hr to 3 hr in ordinary conditions, longer with headwind, shallow bars, or slower groups",
-      "shuttle": "Stage the downstream ADM access site area first, then return to the Columbus hotel-side access. The upstream endpoint uses the established Ramada / Quality Inn parking arrangement and Pawnee Park Trail approach; the downstream endpoint is a leased access area on ADM property south of Southeast 9th Street, so inspect current signage, fencing, and riverbank footing before launching.",
+      "shuttle": "Stage the downstream ADM access site area first, then return to the Columbus Pawnee Park Trail river access. The NGPC-published endpoint is at the river; the hotel parking lot is separate and about a 250-yard walk up the trail. Use that private lot only with current posted permission and check construction detours. The downstream endpoint is a leased access area on ADM property south of Southeast 9th Street, so inspect current signage, fencing, and riverbank footing before launching.",
       "permits": "No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted city-trail, hotel-side, and ADM-site access rules, and respect any same-day closures, muddy-road issues, or parking limits.",
       "camping": "Treat this as a short daylight float. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.",
       "campingClassification": "none",
-      "summary": "Launch at the Columbus hotel-side access and finish at the ADM access site for the final short Loup River Water Trail float. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
+      "summary": "Launch at the Pawnee Park Trail river access and finish at the ADM access site for the final short Loup River Water Trail float. Use the hotel lot only with current permission; the river access is about a 250-yard walk from that parking area. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
       "accessCaveats": [
-        "The Columbus put-in is the same hotel-side access described by the City of Columbus and Nebraskaland, not a staffed park marina.",
+        "The coordinate follows NGPC's published Loup River Water Trail end point at the Pawnee Park Trail river access. The hotel parking lot is separate; the trail is about a 250-yard walk from the riverbank, and hotel parking remains subject to current permission and construction detours.",
         "The ADM endpoint is a leased access area on industrial property. The coordinate is a nearby practical plant anchor rather than a surveyed launch pin, so same-day signs and obvious public boundaries control.",
         "Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan casual bank stops on private land."
       ],
@@ -347,7 +347,7 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
         "The Monroe coordinate is a practical public-access anchor based on the official city directions and prior map verification rather than a published county GIS ramp point.",
         "Columbus is the clearest intermediate bailout and should be treated as a real checkpoint before committing to the final 4.5 miles toward the ADM access.",
         "The ADM endpoint is a leased access area on industrial property. The coordinate is a nearby practical plant anchor rather than a surveyed launch pin, so same-day signs and obvious public boundaries control.",
-        "The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect changed trail circulation if you use Columbus as a checkpoint or backup finish."
+        "Check current city and bridge-construction notices for public river access and trail detours if Columbus is a checkpoint or backup finish; follow same-day signs and do not assume a closed underpass can be bypassed lawfully."
       ],
       "watchFor": [
         "Flows below about 350 cfs at Genoa, when shallow-channel choices and dragging become more likely.",
@@ -363,7 +363,7 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -97.367618,
         "mileFromStart": 16,
         "segmentKind": "creek",
-        "note": "Best named checkpoint and bailout before committing to the final 4.5-mile ADM continuation."
+        "note": "NGPC publishes this Loup River Water Trail end coordinate at the Pawnee Park Trail river access. The hotel lot is about a 250-yard walk away and requires current owner permission; follow posted detours."
       }
     ]
   },
@@ -383,16 +383,16 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 28.5 mi",
       "estimatedPaddleTime": "About 10 hr to 12 hr in ordinary conditions, longer with headwind, low-water channel hunting, breaks, or slower groups",
-      "shuttle": "Stage the downstream ADM access area first, then drive back to the George D. Syas WMA fishing access. Treat this as a full-day shuttle and not a casual extension of the shorter Loup routes: the put-in is a simple WMA fishing access, Columbus is only an intermediate checkpoint, and the final access is a leased industrial-edge site.",
+      "shuttle": "Stage the downstream ADM access area first, then drive back to the George D. Syas WMA shore launch. Treat this as a full-day shuttle and not a casual extension of the shorter Loup routes: the mapped put-in is a non-designated, unmaintained shore launch with a long walking path, Columbus is only an intermediate checkpoint, and the final access is a leased industrial-edge site.",
       "permits": "No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted WMA, county, city-trail, hotel-side, and ADM-site rules, and respect same-day closures, muddy-road issues, or parking limits.",
       "camping": "Nebraska Game and Parks' current fishing guide lists primitive camping at Loup River WMAs, so George D. Syas WMA can support a primitive endpoint overnight when current WMA rules allow it. Do not treat that as route camping: Outdoor Nebraska / Nebraskaland still warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when safety, shallow-water walking, or obstacle avoidance requires it.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at George D. Syas WMA and finish at the ADM access site for the longest public Loup River Water Trail continuation in the app. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
+      "summary": "The longest public Loup River Water Trail continuation runs from the mapped George D. Syas WMA shore launch to the ADM access site. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.",
       "accessCaveats": [
         "Monroe is the clearest first bailout and Columbus is the clearest second checkpoint before you commit to the final 4.5 miles toward the ADM access.",
-        "The George D. Syas coordinate is the NGPC Public Access Atlas anchor for the named fishing access rather than a polished concrete ramp.",
+        "The put-in coordinate comes from NGPC's Paddlecraft Launch feature for George D. Syas WMA (OBJECTID 97; 41.42442894, -97.6963078). The map labels it an open shore launch, but also says it is non-designated and unmaintained with a long walking path; verify the path and conditions on site.",
         "The ADM endpoint is a leased access area on industrial property. The coordinate is a nearby practical plant anchor rather than a surveyed launch pin, so same-day signs and obvious public boundaries control.",
-        "The Pawnee Park underpass connecting East and West Pawnee Park has been closed since June 9, 2025, so expect changed trail circulation if Columbus becomes your finish fallback."
+        "Check current city and bridge-construction notices for public river access and trail detours if Columbus is a finish fallback; follow same-day signs and do not assume a closed underpass can be bypassed lawfully."
       ],
       "watchFor": [
         "Flows below about 350 cfs at Genoa, when the upper eight miles can require deep-channel work and the full day gets dramatically slower.",
@@ -417,7 +417,7 @@ export const nebraskaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -97.367618,
         "mileFromStart": 24,
         "segmentKind": "creek",
-        "note": "Best second checkpoint and fallback finish before the final 4.5-mile ADM continuation."
+        "note": "NGPC publishes this Loup River Water Trail end coordinate at the Pawnee Park Trail river access. The hotel lot is about a 250-yard walk away and requires current owner permission; follow posted detours."
       }
     ]
   },

@@ -1,0 +1,55 @@
+{
+  "batch": 42,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 2,
+  "uniquePublicRoutesChanged": 2,
+  "sharedSourceRoutesUpdated": 3,
+  "withheldRoutesAlsoChecked": ["winooski-river-bolton-canoe-floodplain"],
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Vermont",
+      "name": "Bolton Canoe Access Area",
+      "publicRouteIds": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-bolton-canoe"
+      ],
+      "decision": "replace-residential-road-pin-with-vermont-anr-public-canoe-access-area-feature",
+      "previousCoordinate": { "latitude": 44.3768, "longitude": -72.8755 },
+      "updatedCoordinate": { "latitude": 44.372557093828576, "longitude": -72.89744466026545 },
+      "coordinateRole": "authoritative-access-anchor",
+      "uncertaintyFeet": 200,
+      "rationale": "ANR feature OBJECTID 1061 explicitly identifies a public Winooski canoe-access area. The adopted 2025 Bolton Town Plan says ANR and the Town maintain Bolton Canoe Access on the Winooski, and Richmond places it about four miles west on River Road from Bolton Dam. The former pin reverse-geocodes to an address on Bolton Valley Access Road and does not fit that description. ANR does not publish the exact water-entry toe, so the replacement is documented as an access-area anchor.",
+      "postCorrectionAudit": {
+        "publicSiteOccurrences": 2,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "distanceFeetToMatchedWinooskiFlowline": 285.2,
+        "distanceFeetToMappedWater": 152.3,
+        "severity": "review",
+        "reviewReason": "Both refreshed audits match the exact ANR access-area feature and classify it as review, which preserves the distinction between an official access anchor and an unsurveyed wet edge."
+      },
+      "withheldRoute": {
+        "routeId": "winooski-river-bolton-canoe-floodplain",
+        "siteOccurrence": "The corrected Bolton endpoint is review with no source issue or unknown result.",
+        "otherFailure": "Its Floodplain Preserve take-out still fails at 8,452 feet from Winooski River, nearest Johnnie Brook; keep the pre-existing route hold.",
+        "holdChanged": false
+      },
+      "reopenWhen": "Recheck if Vermont ANR relocates or replaces RECSITES feature OBJECTID 1061, or if the Town/ANR publishes a georeferenced ramp or wet-edge coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRouteAudits": "Completed with refreshed hydrography evidence for both public routes and the already-withheld source route; 0 source issues and 0 unknown endpoints. The two public Bolton Canoe occurrences are no longer suspicious.",
+    "canonicalGeometry": "Generated public route geometry assets; geometry audit passed with 2,739/2,752 routes matched and 48 state assets. Explore overview regenerated with 31,010 points / 1,465,357 bytes.",
+    "fullAudit": "Promoted complete cache-only audit generated 2026-09-18T17:14:09.861Z: 2,752 public routes / 6,062 endpoints; 2,047 ok, 3,833 review, 104 suspicious, 0 failure, 78 unknown, 271 source issues, 119 review locations. Compared with the prior full cache-only audit, suspicious endpoints fell from 106 to 104 and review locations from 120 to 119; unknowns/source issues are unchanged.",
+    "registry": "Regenerated from the new full audit: 4,042 canonical entries, 1,201 repeated, 0 conflicts, 1,195 authoritative access entries, 498 authoritative water-entry entries, 2,268 derived water-entry entries.",
+    "typecheck": "Route-data TypeScript check still reports six existing errors in New York, Wisconsin, and Iowa files; no errors refer to Vermont route data or the changed control entry.",
+    "focusedTest": "Vermont Vitest startup is blocked by missing dependency @jridgewell/sourcemap-codec in the existing node_modules tree; canonical geometry and route audits passed."
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "reviewDate": "2026-09-17",
+  "batch": 4,
+  "workflow": "docs/access-point-remediation-runbook.md",
+  "selectionFile": "docs/access-remediation/2026-09-17-batch-04/selection.json",
+  "selectionFrozenBeforeResearch": true,
+  "auditInputLimit": "Selection was frozen from the cached audit report dated 2026-09-17T12:02:46.464Z. The full access audit could not be regenerated because @paddletoday/geo is missing. The stale queue was filtered against current holds and earlier batch decisions; each site was rechecked against source records before editing.",
+  "siteCount": 10,
+  "sites": [
+    {
+      "rank": 1,
+      "site": "Stuyvesant Falls Park public cartop launch context",
+      "routeIds": [
+        "kinderhook-creek-stuyvesant-falls-stockport"
+      ],
+      "originalCoordinate": {
+        "latitude": 42.3553185,
+        "longitude": -73.7308328
+      },
+      "decision": "reject-unverified-and-hold-route",
+      "finding": "The Town’s 2021 Recreation Plan documents no formal public water access within the hydroelectric project boundary and identifies surrounding impoundment/tailrace lands as private; it describes informal access at nearby locations such as Sandbar Park but does not verify a launch or lawful carry at the stored Stuyvesant Falls coordinate. The adopted 2025 plan does not establish that exact entry.",
+      "sourceIds": [
+        "stuyvesant-recreation-plan",
+        "stuyvesant-adopted-plan"
+      ],
+      "sourceAction": "Retained the original coordinate only as a research candidate, changed route wording so it no longer claims a verified public cartop launch or portage, and added a route hold.",
+      "publicationAction": "Withhold the route until a managing authority confirms the launch location and lawful carry around the falls.",
+      "reopenWhen": "A current manager-backed map or written public-access designation identifies the launch, legal carry, parking, and correct side of the falls."
+    },
+    {
+      "rank": 2,
+      "site": "Anderson Ranch Dam Tailwaters Access",
+      "routeIds": [
+        "south-fork-boise-anderson-danskin"
+      ],
+      "originalCoordinate": {
+        "latitude": 43.3589,
+        "longitude": -115.454
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "USBR’s feasibility DEIS identifies Tailwaters as one of the three formal South Fork Boise launch areas, alongside Village and Danskin. The reviewed official material supports the facility identity but not a more precise GPS or surveyed wet edge than the existing control.",
+      "sourceIds": [
+        "idaho-usbr-boise-feasibility"
+      ],
+      "sourceAction": "Kept the existing USBR/Wilderness Portal access-area anchor and its 1,200-foot uncertainty; did not snap it to the mapped channel or a third-party ramp point.",
+      "publicationAction": "No new route hold; retain existing tailwater and dam-hazard caveats.",
+      "reopenWhen": "A current USBR/land-manager GIS feature or field-verified entry resolves the launch within the Tailwaters facility."
+    },
+    {
+      "rank": 3,
+      "site": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+      "routeIds": [
+        "catharine-creek-wma-marsh-connector"
+      ],
+      "originalCoordinate": {
+        "latitude": 42.3590012,
+        "longitude": -76.8411026
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "The NYSDEC Great Divide plan identifies the south-end Airport/Rock Cabin Road area as an informal hand-carry launch context; the WMA map distinguishes launch and parking areas. The source supports the access area, not the stored point as a surveyed wet edge.",
+      "sourceIds": [
+        "ny-catharine-map",
+        "ny-great-divide-plan"
+      ],
+      "sourceAction": "Kept the coordinate and route field checks, changed the provider role from water-entry to access-anchor, and tied its provenance to the current official plan/map.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "A current NYSDEC GIS entry or georeferenced official map isolates the wet-edge entry and carry."
+    },
+    {
+      "rank": 4,
+      "site": "William Rhodes Island Park below-dam access / Fertile Mill Park",
+      "routeIds": [
+        "winnebago-river-fertile-mason-city"
+      ],
+      "originalCoordinate": {
+        "latitude": 43.266,
+        "longitude": -93.424
+      },
+      "replacementCoordinate": {
+        "latitude": 43.263450373072416,
+        "longitude": -93.4209717300344
+      },
+      "decision": "fix-coordinate",
+      "finding": "Iowa DNR FeatureServer object 275 (GlobalID ec2df35d-44b5-445b-94e9-e4415d41e108) identifies City-owned Fertile Mill Park on the Winnebago River, a natural access with gravel parking and a 13-foot parking-to-access distance. The published geometry is a defensible facility anchor; it is not a surveyed wet edge. City materials identify William Rhodes Island Park at the Fertile Dam, so the safe below-dam side must still be confirmed.",
+      "sourceIds": [
+        "ia-fertile-access",
+        "ia-fertile-parks"
+      ],
+      "sourceAction": "Updated route and trip-detail coordinates to the live DNR feature, labeled the point as a natural access-area anchor, retained the dam exclusion, and corrected the saved source snapshot from an HTML directory response to the verified JSON feature query.",
+      "publicationAction": "Temporarily withhold the route because canonical geometry could not be regenerated without @paddletoday/geo; corrected source remains available for regeneration.",
+      "reopenWhen": "Regenerate and audit the canonical route geometry/catalog from the corrected access anchor, then verify safe below-dam entry and the Mason City take-out."
+    },
+    {
+      "rank": 5,
+      "site": "Kemps Mill Park walk-in Conococheague access",
+      "routeIds": [
+        "conococheague-creek-kemps-mill-williamsport"
+      ],
+      "originalCoordinate": {
+        "latitude": 39.62153,
+        "longitude": -77.81077
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "Maryland DNR explicitly identifies public walk-in access at Kemps Mill Park. The park location does not establish a developed boat ramp, and the route already describes it as walk-in access with field confirmation.",
+      "sourceIds": [
+        "md-conococheague",
+        "md-kemps-mill"
+      ],
+      "sourceAction": "Kept the conservative park/access anchor and the walk-in-only caveat; no coordinate snap to hydrography.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "A current park map or field check identifies a better exact water-entry point and confirms permitted carry."
+    },
+    {
+      "rank": 6,
+      "site": "Sayre PFBC access",
+      "routeIds": [
+        "susquehanna-river-sayre-towanda",
+        "susquehanna-river-sayre-wysox-township-park"
+      ],
+      "originalCoordinate": {
+        "latitude": 41.988333,
+        "longitude": -76.611667
+      },
+      "replacementCoordinate": {
+        "latitude": 41.995932,
+        "longitude": -76.473493
+      },
+      "decision": "fix-coordinate",
+      "finding": "The 2021 North Branch guide publishes the PFBC Sayre Access GPS at river mile 290.5. The stored coordinate landed on a different waterway several miles west. The 2008 PFBC Section 1 table prints a conflicting coordinate; the newer guide GPS and route-mile context support the mainstem access.",
+      "sourceIds": [
+        "north-branch-guide",
+        "pfbc-section1"
+      ],
+      "sourceAction": "Updated the route and all trip-detail copies to the 2021 guide GPS, added an authoritative access-anchor control with published source hash, and documented the older-table conflict.",
+      "publicationAction": "Temporarily withhold both dependent routes until their canonical geometries/catalog are regenerated; @paddletoday/geo is missing.",
+      "reopenWhen": "Regenerate and audit both route geometries from the corrected shared Sayre start, then verify each route remains aligned with its named mainstem endpoints."
+    },
+    {
+      "rank": 7,
+      "site": "Catoctin Creek Park & Nature Center water access",
+      "routeIds": [
+        "catoctin-creek-catoctin-park-lander",
+        "catoctin-creek-doubs-meadow-catoctin-park"
+      ],
+      "originalCoordinate": {
+        "latitude": 39.392057,
+        "longitude": -77.564232
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "The current Frederick County park map marks Water Access locations in the park but does not publish georeferenced coordinates for an individual ramp or bank entry. Existing coordinate remains a park/access-area anchor shared by the two route occurrences.",
+      "sourceIds": [
+        "md-catoctin-map"
+      ],
+      "sourceAction": "Kept the conservative shared access anchor; did not infer an exact point from an unreferenced map image.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "A current county GIS feature or georeferenced map ties the named access symbol to a coordinate and route role."
+    },
+    {
+      "rank": 8,
+      "site": "W. Locust Street Union Bridge access anchor",
+      "routeIds": [
+        "little-pipe-creek-union-bridge-double-pipe-park"
+      ],
+      "originalCoordinate": {
+        "latitude": 39.5679572,
+        "longitude": -77.1811811
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "Carroll County’s current water-trails page identifies kayaking at W. Locust Street, describes ample parking, and directs users down steps or a slide on a steep bank. It supports public access context but not a surveyed wet-edge coordinate.",
+      "sourceIds": [
+        "md-carroll-water-trails"
+      ],
+      "sourceAction": "Kept the 800-foot near-water anchor and updated the control method/hash to cite the current county description rather than relying on American Whitewater for the access evidence.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "A county GIS point or field-verified landing identifies the waterline and lawful carry more precisely."
+    },
+    {
+      "rank": 9,
+      "site": "County Highway K Plover River canoe access",
+      "routeIds": [
+        "plover-river-hwy-k-jordan-park"
+      ],
+      "originalCoordinate": {
+        "latitude": 44.6226,
+        "longitude": -89.4822
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "Portage County describes a small county highway right-of-way with canoe access on Plover River at Highway K, but does not publish a precise GPS entry point. The stored bridge-area coordinate is an approximate access anchor, not a proven water-entry point.",
+      "sourceIds": [
+        "wi-portage-parks"
+      ],
+      "sourceAction": "Kept the coordinate, added a county-source access-anchor control with 800-foot uncertainty, and changed route/detail names and notes so they no longer imply a developed bridge launch or exact wet edge.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "A current county GIS feature or field check locates the right-of-way, legal parking, carry, and water entry."
+    },
+    {
+      "rank": 10,
+      "site": "NYSDEC Fish Creek WMA Pope Mills / Route 58 hand launch",
+      "routeIds": [
+        "fish-creek-wma-route-184-pope-mills"
+      ],
+      "originalCoordinate": {
+        "latitude": 44.483638,
+        "longitude": -75.577189
+      },
+      "decision": "keep-as-access-anchor",
+      "finding": "The NYSDEC WMA page supports hand-launch recreation. The current launch directory lists the Pope Mills / Route 58 access with five-car parking and a 0.8-mile hand carry; the published point is therefore an access/carry anchor and should not be presented as a surveyed shoreline entry.",
+      "sourceIds": [
+        "ny-fish-creek-wma",
+        "ny-launch-directory"
+      ],
+      "sourceAction": "Kept the coordinate, corrected the provider role from water-entry to access-anchor, and named the 0.8-mile carry in the terminal/access-point label and note.",
+      "publicationAction": "No coordinate change or route hold.",
+      "reopenWhen": "Current DEC GIS or field verification ties the listed coordinate to the signed carry endpoint and exact public water entry."
+    }
+  ]
+}

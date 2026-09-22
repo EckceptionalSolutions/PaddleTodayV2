@@ -1,0 +1,77 @@
+{
+  "batch": "2026-09-17-batch-06",
+  "checkedAt": "2026-09-17",
+  "checks": {
+    "frozenSelectionCount": {
+      "status": "passed",
+      "expected": 10,
+      "actual": 10
+    },
+    "sourceSnapshotHashes": {
+      "status": "passed",
+      "detail": "All 14 successful local source snapshots match their recorded SHA-256 values. Failed City of Ames (403) and Iowa DNR map (404) retrievals are retained as rejected records."
+    },
+    "controlRegistryJson": {
+      "status": "passed",
+      "detail": "Controls JSON parses; Maryland, Iowa, TECHE, and ExploreRI evidence controls point to accepted snapshot hashes."
+    },
+    "editedTypeScriptSyntax": {
+      "status": "passed",
+      "detail": "TypeScript parser reported no syntax diagnostics in all 13 edited TypeScript files."
+    },
+    "routeCoordinateCopies": {
+      "status": "passed",
+      "detail": "Verifier confirms Milburn coordinate copies, the split Ames dam/access points, the Massillon DNR ramp anchor, private 45 Ranch removal, and corrected public-access labels."
+    },
+    "routeHolds": {
+      "status": "passed",
+      "expectedBatchRoutes": 29,
+      "actualBatchRoutes": 29
+    },
+    "withheldRouteManifest": {
+      "status": "passed",
+      "routeCount": 126,
+      "detail": "Generated from the existing 97 withheld routes plus the 29 Batch 06 dependencies."
+    },
+    "batchVerifier": {
+      "status": "passed",
+      "command": "node docs/access-remediation/2026-09-17-batch-06/verify.mjs"
+    },
+    "routeTypecheck": {
+      "status": "blocked",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "detail": "The workspace lacks @paddletoday/api-contract. TypeScript then reports widespread cascading errors against unavailable contract types; the edited files parse syntactically."
+    },
+    "targetedVitest": {
+      "status": "blocked",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts --reporter=dot",
+      "detail": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from the existing node_modules tree."
+    },
+    "fullQualityAudit": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-06/audit-after.json --cache-only",
+      "detail": "Cannot resolve @paddletoday/geo. The cached full audit remains a stale prioritization source only."
+    },
+    "canonicalGeometry": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id south-skunk-river-ames-13th-street",
+      "detail": "Cannot resolve @paddletoday/geo. Corrected endpoint routes cannot be regenerated or inspected."
+    },
+    "servedCatalogAssembly": {
+      "status": "blocked",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --reuse-existing",
+      "detail": "The same missing @paddletoday/geo dependency prevents served-catalog assembly. Routes remain withheld in the generated TypeScript manifest."
+    },
+    "accessRegistryGeneration": {
+      "status": "not-run",
+      "detail": "Run only after a fresh full quality audit per the runbook; do not feed the stale cache-only audit to the registry generator."
+    }
+  },
+  "knownBlockers": [
+    "@paddletoday/geo is absent, blocking the full audit, canonical geometry generation, and served-catalog assembly.",
+    "@paddletoday/api-contract is absent, blocking route typechecking and causing cascading contract-type diagnostics.",
+    "@jridgewell/sourcemap-codec is absent, preventing Vitest startup.",
+    "Direct TypeScript and tsx entry points were used because the npm shims are absent."
+  ],
+  "publicationState": "Source records and route holds are updated. Keep the 29 Batch 06 route holds until dependencies are restored, corrected geometry is regenerated and inspected, the served catalog is rebuilt, and held routes are confirmed absent from public bundles."
+}

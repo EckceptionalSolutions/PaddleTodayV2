@@ -1,0 +1,31 @@
+{
+  "batch": 79,
+  "reviewDate": "2026-09-19",
+  "sources": [
+    {
+      "url": "https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/",
+      "publisher": "Friends of the Kaw",
+      "sourceDate": "Current page accessed 2026-09-19",
+      "role": "Names the St. George/Boggs Landing Access Ramp at river mile 137, publishes GPS 39.18726,-96.42202, and describes the public concrete ramp, parking, restrooms, lighting, and river-left position."
+    },
+    {
+      "url": "https://www.stgeorgeks.gov/attractions",
+      "publisher": "City of St. George, Kansas",
+      "sourceDate": "Current page accessed 2026-09-19",
+      "role": "Lists Boggs Landing Boat Ramp as a city attraction and links to the Kansas River access map."
+    },
+    {
+      "url": "https://ksoutdoors.gov/content/download/23853/158141/version/1/file/Kaw%2BRiver%2BAccess%2BPoints.pdf",
+      "publisher": "Kansas Department of Wildlife & Parks",
+      "sourceDate": "Official access-point guide accessed 2026-09-19",
+      "role": "Lists St. George / Boggs Landing at Kansas River mile 137.0."
+    },
+    {
+      "url": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-before-public-cache-only.json",
+      "publisher": "PaddleToday access-point quality audit",
+      "sourceDate": "Frozen selection snapshot generated 2026-09-18T23:45:04.959Z",
+      "role": "Records both shared coordinate occurrences and the original suspicious finding before source review."
+    }
+  ],
+  "coordinateMethod": "Retain the shared route coordinate because it exactly matches the Friends of the Kaw public-ramp GPS. The listing's coordinate is an access-area point at the top of the ramp, not a separately surveyed wet-toe measurement."
+}

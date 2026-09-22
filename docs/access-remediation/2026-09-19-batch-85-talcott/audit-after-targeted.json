@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:15:04.047Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-greenbrier-talcott-willowwood",
+      "routeName": "Greenbrier River",
+      "reach": "Talcott to Willowwood",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Talcott access",
+      "latitude": 37.65,
+      "longitude": -80.7511,
+      "matchedRiverName": "Greenbrier River",
+      "distanceFeetToMatchedRiver": 331.4207389387112,
+      "nearestMatchedLatitude": 37.6491171589473,
+      "nearestMatchedLongitude": -80.75137055332061,
+      "nearestWaterwayName": "Greenbrier River",
+      "distanceFeetToNearestWaterway": 331.4207389387112,
+      "nearestWaterwayLatitude": 37.6491171589473,
+      "nearestWaterwayLongitude": -80.75137055332061,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 179.86531699229482,
+      "nearestWaterbodyLatitude": 37.64951284687653,
+      "nearestWaterbodyLongitude": -80.75119585198381,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 179.86531699229482,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf",
+      "coordinateEvidenceDetail": "wv_wvdnr_district4_talcott_greenbrier_access_20260919 wvdnr-talcott-greenbrier-access: West Virginia DNR District 4 access table lists Talcott in Summers County on the Greenbrier River with a parking lot and boat access at 37.6500,-80.7511, matching the stored route coordinate to the published precision. American Whitewater independently describes the Talcott put-in as river right with ramp and parking. Retain the stored point as the public ramp/parking anchor; the 331-foot flowline offset and 180-foot mapped-water distance reflect the facility placement and floodplain geometry, not a wrong access.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_wvdnr_district4_talcott_greenbrier_access_20260919 wvdnr-talcott-greenbrier-access) on Greenbrier River; access is conditional (Confirm current WVDNR access, parking, ramp, and carry conditions at arrival; use the marked public access near the Talcott/Barger Springs bridge corridor.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wv-greenbrier-talcott-willowwood",
+      "routeName": "Greenbrier River",
+      "reach": "Talcott to Willowwood",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Willowwood access",
+      "latitude": 37.6434,
+      "longitude": -80.807,
+      "matchedRiverName": "Greenbrier River",
+      "distanceFeetToMatchedRiver": 237.63602421877732,
+      "nearestMatchedLatitude": 37.643671854928606,
+      "nearestMatchedLongitude": -80.80625243262226,
+      "nearestWaterwayName": "Greenbrier River",
+      "distanceFeetToNearestWaterway": 237.63602421877732,
+      "nearestWaterwayLatitude": 37.643671854928606,
+      "nearestWaterwayLongitude": -80.80625243262226,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 137.47141667079848,
+      "nearestWaterbodyLatitude": 37.643580442013096,
+      "nearestWaterbodyLongitude": -80.80658221687654,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 137.47141667079848,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 137 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

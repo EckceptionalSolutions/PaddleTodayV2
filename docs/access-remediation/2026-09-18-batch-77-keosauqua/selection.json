@@ -1,0 +1,23 @@
+{
+  "batch": 77,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:26:48.934Z; 2,750 public routes, 6,058 endpoints, 48 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Keosauqua Boat Ramp, Des Moines River",
+    "storedCoordinate": {
+      "latitude": 40.7291,
+      "longitude": -91.962
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "des-moines-river-keosauqua-bentonsport",
+      "des-moines-river-austin-park-keosauqua"
+    ],
+    "preReviewFinding": "The Keosauqua-to-Bentonsport route put-in is 452 feet from the matched Des Moines River flowline and 165 feet from mapped water, with complete hydrography coverage. The Austin Park-to-Keosauqua route shares the exact coordinate at its take-out and classifies review.",
+    "decision": "verify-the-shared-keosauqua-boat-ramp-and-determine-whether-the-coordinate-is-a-water-entry-or-facility-anchor",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "batch": 75,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:03:14.783Z; 2,750 public routes, 6,058 endpoints, 50 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Minnesota",
+    "name": "Welch Mill access, Cannon River",
+    "storedCoordinate": {
+      "latitude": 44.5679337,
+      "longitude": -92.7385579
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "cannon-river-byllesby-highway-61",
+      "cannon-river-welch"
+    ],
+    "preReviewFinding": "The Byllesby-to-Highway 61 route's intermediate Welch Mill access point is 348 feet from the matched Cannon River flowline and 309 feet from mapped water. Coverage is complete. The Welch-to-Highway 61 route shares the coordinate at its take-out and classifies review at about 144 feet from mapped water.",
+    "decision": "verify-the-shared-Welch-Mill-public-access-site-and-confirm-whether-the-stored-coordinate-is-the-water-entry-or-an-access-area-anchor",
+    "selectionFrozenBeforeResearch": true
+  }
+}

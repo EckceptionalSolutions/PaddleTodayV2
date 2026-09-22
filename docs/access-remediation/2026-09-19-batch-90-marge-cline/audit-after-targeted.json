@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:38:57.414Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "fox-river-yorkville-whitewater-course",
+      "routeName": "Fox River",
+      "reach": "Marge Cline Whitewater Course",
+      "state": "Illinois",
+      "endpoint": "takeOut",
+      "endpointName": "Marge Cline Whitewater Course take-out / downstream portage",
+      "latitude": 41.641998,
+      "longitude": -88.443001,
+      "matchedRiverName": "Fox River",
+      "distanceFeetToMatchedRiver": 479.56101219224274,
+      "nearestMatchedLatitude": 41.64330235027341,
+      "nearestMatchedLongitude": -88.4427825598532,
+      "nearestWaterwayName": "Fox River",
+      "distanceFeetToNearestWaterway": 479.5610121927239,
+      "nearestWaterwayLatitude": 41.64330235027341,
+      "nearestWaterwayLongitude": -88.44278255985319,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 195.92668082349104,
+      "nearestWaterbodyLatitude": 41.642527,
+      "nearestWaterbodyLongitude": -88.442877,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 195.92668082349104,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.yorkville.il.us/facilities/facility/details/marge-cline-whitewater-course-37",
+      "coordinateEvidenceDetail": "il_yorkville_marge_cline_whitewater_course_20260919 yorkville-marge-cline-whitewater-course-downstream-portage: The City of Yorkville describes the Marge Cline Whitewater Course as a free open-use Fox River facility with a boat launch at the east end, portage points at both ends, and a designated downstream canoe portage west of Route 47. The route stores the downstream portage/facility point; retain it as the managed course access anchor rather than forcing it onto the connected Fox River trace.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (il_yorkville_marge_cline_whitewater_course_20260919 yorkville-marge-cline-whitewater-course-downstream-portage) on Fox River; access is conditional (Confirm current City of Yorkville course status, event activity, parking, and downstream portage signage at arrival; the course is open-use but users must follow posted safety and park rules.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "fox-river-yorkville-whitewater-course",
+      "routeName": "Fox River",
+      "reach": "Marge Cline Whitewater Course",
+      "state": "Illinois",
+      "endpoint": "putIn",
+      "endpointName": "Marge Cline Whitewater Course put-in / upstream launch",
+      "latitude": 41.643002,
+      "longitude": -88.445,
+      "matchedRiverName": "Fox River",
+      "distanceFeetToMatchedRiver": 167.530375492262,
+      "nearestMatchedLatitude": 41.64345887448527,
+      "nearestMatchedLongitude": -88.44493800004393,
+      "nearestWaterwayName": "Fox River",
+      "distanceFeetToNearestWaterway": 167.53039637386055,
+      "nearestWaterwayLatitude": 41.64345889762543,
+      "nearestWaterwayLongitude": -88.44493830538563,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 41.643002,
+      "nearestWaterbodyLongitude": -88.445,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

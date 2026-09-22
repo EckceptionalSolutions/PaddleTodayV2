@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "src/data/routes/new-york.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__routes__new-york.ts",
+      "sha256": "7337ECAC6C0794C1BD535DE542A4F215A033D1B1AAA008E9E2178C3FBD12701C",
+      "backupSha256": "7337ECAC6C0794C1BD535DE542A4F215A033D1B1AAA008E9E2178C3FBD12701C"
+    },
+    {
+      "path": "src/data/routes/idaho.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__routes__idaho.ts",
+      "sha256": "8D268A6D7CB2700968F51F60CCA619FDF471C55340B0D3AD5483916E35425BF3",
+      "backupSha256": "8D268A6D7CB2700968F51F60CCA619FDF471C55340B0D3AD5483916E35425BF3"
+    },
+    {
+      "path": "src/data/routes/montana-blackfoot.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__routes__montana-blackfoot.ts",
+      "sha256": "C84E33B36E3372A1973C8406D95154CCDF781357F8E57DF76FEF7070D8336051",
+      "backupSha256": "C84E33B36E3372A1973C8406D95154CCDF781357F8E57DF76FEF7070D8336051"
+    },
+    {
+      "path": "src/data/routes/louisiana-bayou-teche.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__routes__louisiana-bayou-teche.ts",
+      "sha256": "326FB15A271003980C63AC91D680DCC1C32A30F479BC2CB746517972EE5D5364",
+      "backupSha256": "326FB15A271003980C63AC91D680DCC1C32A30F479BC2CB746517972EE5D5364"
+    },
+    {
+      "path": "src/data/trip-details/iowa.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__trip-details__iowa.ts",
+      "sha256": "7FB3537F9974632FCD778471EAB5F5BC034E344D0E0E9C144687968C8732FF82",
+      "backupSha256": "7FB3537F9974632FCD778471EAB5F5BC034E344D0E0E9C144687968C8732FF82"
+    },
+    {
+      "path": "src/data/routes/washington-stillaguamish.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__routes__washington-stillaguamish.ts",
+      "sha256": "BC59124D121C0BDA43E39551D8313C16239BE2C66B9712A9F749BB80C9E79891",
+      "backupSha256": "BC59124D121C0BDA43E39551D8313C16239BE2C66B9712A9F749BB80C9E79891"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__route-access-review-holds.ts",
+      "sha256": "8908689B74FAC2D44F313576ECB50174A0FDE193F97CCD23B5F14F7298C7D4E5",
+      "backupSha256": "8908689B74FAC2D44F313576ECB50174A0FDE193F97CCD23B5F14F7298C7D4E5"
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-11\\before-source\\src__data__generated__withheld-route-slugs.ts",
+      "sha256": "BBF55B1C5633920B487226E91933BCA691476CC710F47A305C8ED733117BC1D6",
+      "backupSha256": "BBF55B1C5633920B487226E91933BCA691476CC710F47A305C8ED733117BC1D6"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:24:45.824Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "black-creek-old-highway-49-moodys",
+      "routeName": "Black Creek",
+      "reach": "Old Highway 49 landing to Moody’s Landing",
+      "state": "Mississippi",
+      "endpoint": "takeOut",
+      "endpointName": "Moody’s Landing primitive sandbar landing (imagery-derived water-entry edge)",
+      "latitude": 31.053755,
+      "longitude": -89.117915,
+      "matchedRiverName": "Black Creek",
+      "distanceFeetToMatchedRiver": 100.39470045873298,
+      "nearestMatchedLatitude": 31.053480000000004,
+      "nearestMatchedLongitude": -89.117927,
+      "nearestWaterwayName": "Black Creek",
+      "distanceFeetToNearestWaterway": 100.39470045873298,
+      "nearestWaterwayLatitude": 31.053480000000004,
+      "nearestWaterwayLongitude": -89.117927,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1.2960897016241688e-9,
+      "nearestWaterbodyLatitude": 31.053754999999995,
+      "nearestWaterbodyLongitude": -89.117915,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 1.2960897016241688e-9,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "black-creek-old-highway-49-moodys",
+      "routeName": "Black Creek",
+      "reach": "Old Highway 49 landing to Moody’s Landing",
+      "state": "Mississippi",
+      "endpoint": "putIn",
+      "endpointName": "Old Highway 49 landing at Brooklyn (refined river-edge anchor)",
+      "latitude": 31.05194,
+      "longitude": -89.20417,
+      "matchedRiverName": "Black Creek",
+      "distanceFeetToMatchedRiver": 40.65431137740292,
+      "nearestMatchedLatitude": 31.05205008583476,
+      "nearestMatchedLongitude": -89.20419019910986,
+      "nearestWaterwayName": "Black Creek",
+      "distanceFeetToNearestWaterway": 40.65431137740292,
+      "nearestWaterwayLatitude": 31.05205008583476,
+      "nearestWaterwayLongitude": -89.20419019910986,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 31.05194,
+      "nearestWaterbodyLongitude": -89.20417,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

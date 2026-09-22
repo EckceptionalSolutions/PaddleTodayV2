@@ -1,0 +1,631 @@
+[
+  {
+    "siteNumber": 1,
+    "reviewedAt": "2026-09-17",
+    "state": "Louisiana",
+    "name": "Poche's Bridge official dock (behind Poche's Market)",
+    "latitude": 30.2598241,
+    "longitude": -91.8898799,
+    "distanceFeetToMappedWater": 1101.003332719808,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "bayou-teche-arnaudville-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-leonville-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-breaux-bridge",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-loreauville",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-new-iberia",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-parks",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-st-martinville",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-port-barre-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 8,
+    "decision": "reject-unverified",
+    "reason": "The pin is not at the named market. The official dock exists behind Poche’s Market, but the available aerial image does not resolve the 2023 floating dock to a defensible water-entry coordinate.",
+    "sources": [
+      {
+        "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+        "finding": "Poche’s is mile 29.5 behind the market at 3015 Main Hwy."
+      },
+      {
+        "url": "https://www.techeproject.org/2023/05/poche-bridge-dock-completes-bayou-teche-paddle-trail/",
+        "finding": "Official 2023 installation announcement and dock photograph."
+      }
+    ],
+    "reopen": "Locate the installed dock in georeferenced recent imagery or an operator map. Do not reuse the market geocode as the water entry.",
+    "routeIds": [
+      "bayou-teche-arnaudville-poche-bridge",
+      "bayou-teche-leonville-poche-bridge",
+      "bayou-teche-poche-bridge-breaux-bridge",
+      "bayou-teche-poche-bridge-loreauville",
+      "bayou-teche-poche-bridge-new-iberia",
+      "bayou-teche-poche-bridge-parks",
+      "bayou-teche-poche-bridge-st-martinville",
+      "bayou-teche-port-barre-poche-bridge"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 2,
+    "reviewedAt": "2026-09-17",
+    "state": "Rhode Island",
+    "name": "Central Falls Landing river ramp",
+    "latitude": 41.8873726,
+    "longitude": -71.3876472,
+    "distanceFeetToMappedWater": 1383.4288830385206,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "blackstone-river-albion-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-central-falls-chocolateville",
+        "endpoint": "putIn",
+        "endpointName": "Central Falls Landing river ramp (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-kelly-house-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-manville-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-pratt-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-rivers-edge-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-sycamore-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 7,
+    "decision": "fix",
+    "newCoordinate": {
+      "latitude": 41.898833,
+      "longitude": -71.390615
+    },
+    "coordinateMethod": "Visible ramp water end at image pixel (570,596) in central-aerial.png, EPSG:3857 export extent; rounded to six decimals.",
+    "uncertaintyFeet": 50,
+    "reason": "Public ramp west of the landing building, upstream of Valley Falls Dam. Municipal ramp photograph and current watershed directions agree with imagery.",
+    "sources": [
+      {
+        "url": "https://blackstoneriver.org/resources/river-access/",
+        "finding": "Central Falls ramp is immediately upstream of Valley Falls Dam. Pratt below-dam access is a separate documented start."
+      },
+      {
+        "url": "https://dem.ri.gov/sites/g/files/xkgbur861/files/programs/benviron/emerre/grp/br05.pdf",
+        "finding": "Page 4 shows the ramp, adjacent building and downstream dam. Page 2 spill-response coordinates are not ramp coordinates."
+      }
+    ],
+    "routeHold": "Central Falls ramp is corrected, but route continuity is not cleared: verify upstream dam exits/re-entries and legal carries. Pratt below-dam start duplicates the above-dam pin; the Chocolateville itinerary requires an unverified Valley Falls portage.",
+    "reopen": "For each route separately, verify the other terminal, all dam sides, public portage exits/re-entries, distances and geometry before removing its hold.",
+    "routeIds": [
+      "blackstone-river-albion-central-falls",
+      "blackstone-river-central-falls-chocolateville",
+      "blackstone-river-kelly-house-central-falls",
+      "blackstone-river-manville-central-falls",
+      "blackstone-river-pratt-central-falls",
+      "blackstone-river-rivers-edge-central-falls",
+      "blackstone-river-sycamore-central-falls"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 3,
+    "reviewedAt": "2026-09-17",
+    "state": "Washington",
+    "name": "Riverside State Park public boat launch (water-entry edge)",
+    "latitude": 47.75085068,
+    "longitude": -117.5325623,
+    "distanceFeetToMappedWater": 1203.8371994425254,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "spokane-river-aubrey-white-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-plese-flats-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-redband-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-riverside-nine-mile-dam",
+        "endpoint": "putIn",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-tj-meenach-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 5,
+    "decision": "reject-invalid",
+    "reason": "The pin exactly matches the park’s general location, not a launch. The named Riverside launch in the water-trail sequence is below Nine Mile Dam, incompatible with the stored upstream route chain.",
+    "sources": [
+      {
+        "url": "https://parks.wa.gov/find-parks/state-parks/riverside-state-park",
+        "finding": "General park location and multiple separate access areas."
+      },
+      {
+        "url": "https://www.spokaneriver.net/watertrail/launches/",
+        "finding": "Riverside launch appears in the Nine Mile Dam to Little Falls Dam section."
+      }
+    ],
+    "reopen": "Identify the originally intended launch and rebuild the affected itinerary with verified dam boundaries. Do not move these routes across Nine Mile Dam.",
+    "routeIds": [
+      "spokane-river-aubrey-white-riverside",
+      "spokane-river-plese-flats-riverside",
+      "spokane-river-redband-riverside",
+      "spokane-river-riverside-nine-mile-dam",
+      "spokane-river-tj-meenach-riverside"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 4,
+    "reviewedAt": "2026-09-17",
+    "state": "Louisiana",
+    "name": "Baldwin Charenton Road Park and Recreational Complex dock",
+    "latitude": 29.8420027,
+    "longitude": -91.5422904,
+    "distanceFeetToMappedWater": 896.0002106955145,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "bayou-teche-baldwin-centerville",
+        "endpoint": "putIn",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-baldwin-franklin",
+        "endpoint": "putIn",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-charenton-baldwin",
+        "endpoint": "takeOut",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-jeanerette-baldwin",
+        "endpoint": "takeOut",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 4,
+    "decision": "fix",
+    "newCoordinate": {
+      "latitude": 29.833138,
+      "longitude": -91.542615
+    },
+    "coordinateMethod": "Visible park ramp/shore opening at pixel (613,610) in baldwin-aerial.png; EPSG:3857 export extent, rounded to six decimals.",
+    "uncertaintyFeet": 50,
+    "reason": "Current trail operator identifies the public dock at Charenton Road Park; historical trail plan and visible park/cemetery/ramp establish the correct parcel and shoreline. Original point was north of this facility.",
+    "sources": [
+      {
+        "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+        "finding": "Baldwin is the official Charenton Road Park dock at mile 96."
+      },
+      {
+        "url": "https://techeproject.org/wp-content/uploads/2013/05/BTPT-plan-final.pdf",
+        "finding": "Baldwin site map on PDF page 17 identifies the park launch; historical reference corroborates identity, not current operating conditions."
+      }
+    ],
+    "reopen": null,
+    "routeIds": [
+      "bayou-teche-baldwin-centerville",
+      "bayou-teche-baldwin-franklin",
+      "bayou-teche-charenton-baldwin",
+      "bayou-teche-jeanerette-baldwin"
+    ],
+    "publicationAction": "retain-existing-publication-status"
+  },
+  {
+    "siteNumber": 5,
+    "reviewedAt": "2026-09-17",
+    "state": "Vermont",
+    "name": "Quaker Village Road access, Middlebury (water-entry edge)",
+    "latitude": 44.0195,
+    "longitude": -73.1435,
+    "distanceFeetToMappedWater": 2078.1220304117887,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "otter-creek-middlebury-quaker-village",
+        "endpoint": "takeOut",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-quaker-village-vergennes",
+        "endpoint": "putIn",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-quaker-village-weybridge",
+        "endpoint": "putIn",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3,
+    "decision": "reject-unverified",
+    "reason": "The stored point is far from Otter Creek. The cited paddling map starts below Weybridge Dam at Quaker Village Road, contradicting the catalog’s reach description. Exact legal launch and dam-side identity remain unresolved.",
+    "sources": [
+      {
+        "url": "https://www.bostonkayaker.com/publishmap/ottercreekmiddleburypublishpdf.pdf",
+        "finding": "Map start is below Weybridge Dam; do not treat it as a generic Middlebury road crossing."
+      },
+      {
+        "url": "https://lowimpacthydro.org/wp-content/uploads/2020/08/Middlebury_Lower_and_Weybridge_-_LIHI_Attachment_C_Project_D.pdf",
+        "finding": "Historical hydropower project maps provide context, not current launch approval."
+      }
+    ],
+    "reopen": "Verify a current named launch, its side of Weybridge Dam, lawful carry route and revised route lengths.",
+    "routeIds": [
+      "otter-creek-middlebury-quaker-village",
+      "otter-creek-quaker-village-vergennes",
+      "otter-creek-quaker-village-weybridge"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 6,
+    "reviewedAt": "2026-09-17",
+    "state": "South Carolina",
+    "name": "SC 9 Catawba public boat landing (water-entry edge)",
+    "latitude": 34.71042,
+    "longitude": -80.86222,
+    "distanceFeetToMappedWater": 1191.5379462559988,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "catawba-river-fort-mill-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "catawba-river-landsford-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "catawba-river-rock-hill-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3,
+    "decision": "fix",
+    "newCoordinate": {
+      "latitude": 34.709133,
+      "longitude": -80.866015
+    },
+    "coordinateMethod": "SCDNR public GIS feature BR506 (OBJECTID 349), ramp geometry rounded to six decimals; corroborated by official river guide and bridge/bank imagery.",
+    "uncertaintyFeet": 75,
+    "reason": "Official GIS identifies an active/open concrete Highway 9 ramp on the Lancaster side. Nearby paddle-launch feature PL022 is a separate point about 70 feet away; BR506 matches the stored boat-landing identity.",
+    "sources": [
+      {
+        "url": "https://www.dnr.sc.gov/mlands/boatramp/",
+        "finding": "Official entry point links to the ArcGIS application used to discover the service."
+      },
+      {
+        "url": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/349",
+        "finding": "Feature BR506: concrete ramp, public open, active; SCDOT ownership and county maintenance."
+      },
+      {
+        "url": "https://www.dnr.sc.gov/water/river/scenic/catawba.html",
+        "finding": "Public Highway 9 landing is at the bridge on the east/Lancaster bank."
+      }
+    ],
+    "reopen": null,
+    "routeIds": [
+      "catawba-river-fort-mill-sc9",
+      "catawba-river-landsford-sc9",
+      "catawba-river-rock-hill-sc9"
+    ],
+    "publicationAction": "retain-existing-publication-status"
+  },
+  {
+    "siteNumber": 7,
+    "reviewedAt": "2026-09-17",
+    "state": "Vermont",
+    "name": "Floodplain Preserve canoe access, Richmond",
+    "latitude": 44.3831,
+    "longitude": -73.0202,
+    "distanceFeetToMappedWater": 1171.0735323433637,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "winooski-river-bolton-canoe-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      },
+      {
+        "routeId": "winooski-river-bolton-dam-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      },
+      {
+        "routeId": "winooski-river-jonesville-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3,
+    "decision": "reject-unverified",
+    "reason": "Town guidance describes a sandy left-bank landing below Jonesville, but the old point is near Johnnie Brook. Land-trust preserve names and seasonal parking information do not identify one unambiguous water-entry coordinate.",
+    "sources": [
+      {
+        "url": "https://www.richmondvt.gov/community/recreation/default-title/river-access",
+        "finding": "Describes an unmarked sandy access about 1.5 miles below Jonesville Bridge."
+      },
+      {
+        "url": "https://www.richmondlandtrust.org/projects-2-1",
+        "finding": "Beeken/Safford access and parking context."
+      },
+      {
+        "url": "https://www.richmondvt.gov/community/parking",
+        "finding": "Town map lists Beeken seasonal parking; a parking point is not a launch."
+      }
+    ],
+    "reopen": "Resolve the preserve identity and map the actual sandy river entry from an operator map or recent georeferenced imagery; verify current parking/carry access.",
+    "routeIds": [
+      "winooski-river-bolton-canoe-floodplain",
+      "winooski-river-bolton-dam-floodplain",
+      "winooski-river-jonesville-floodplain"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 8,
+    "reviewedAt": "2026-09-17",
+    "state": "Vermont",
+    "name": "Vergennes Main Street town dock below falls (water-entry edge)",
+    "latitude": 44.1662,
+    "longitude": -73.2518,
+    "distanceFeetToMappedWater": 903.9063965613442,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "otter-creek-quaker-village-vergennes",
+        "endpoint": "takeOut",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-vergennes-fort-cassin",
+        "endpoint": "putIn",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-weybridge-vergennes",
+        "endpoint": "takeOut",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3,
+    "decision": "reject-unverified",
+    "reason": "The name conflates Main Street take-out above the falls with municipal docks below them. The city confirms open MacDonough Park docks, but the cited upstream paddle ends above No. 9 Dam. A single replacement would silently change the upstream routes across a dam.",
+    "sources": [
+      {
+        "url": "https://vergennesvt.myrec.com/info/facilities/area_info.aspx?AreaID=14710&FacilityID=14699",
+        "finding": "Open municipal docks are at MacDonough Park, 55 MacDonough Drive, below the falls."
+      },
+      {
+        "url": "https://www.bostonkayaker.com/publishmap/ottercreekmiddleburypublishpdf.pdf",
+        "finding": "Main Street stop is above No. 9 Dam; it is not the below-falls municipal dock."
+      }
+    ],
+    "reopen": "Split above-falls take-out and below-falls launch identities, establish each exact entry and legal access, then assign routes to the correct side. A below-falls coordinate alone cannot clear upstream routes.",
+    "routeIds": [
+      "otter-creek-quaker-village-vergennes",
+      "otter-creek-vergennes-fort-cassin",
+      "otter-creek-weybridge-vergennes"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 9,
+    "reviewedAt": "2026-09-17",
+    "state": "Minnesota",
+    "name": "Mississippi River Overlook Park Carry-in Access",
+    "latitude": 46.3178778,
+    "longitude": -94.2755325,
+    "distanceFeetToMappedWater": 2103.6541124410332,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "mississippi-river-fletcher-creek-overlook",
+        "endpoint": "takeOut",
+        "endpointName": "Mississippi River Overlook Park Carry-in Access",
+        "severity": "review"
+      },
+      {
+        "routeId": "mississippi-river-overlook-belle-prairie",
+        "endpoint": "putIn",
+        "endpointName": "Mississippi River Overlook Park Carry-in Access",
+        "severity": "review"
+      }
+    ],
+    "publicRouteCount": 2,
+    "decision": "reject-unverified",
+    "reason": "The stored coordinate comes from an address geocode with 2,500-foot uncertainty. Official park/DNR references support a carry-in site, but no exact shoreline entry was established from the reviewed map and imagery.",
+    "sources": [
+      {
+        "url": "https://www.baxtermn.gov/amenities/city-parks/mississippi-river-overlook-park",
+        "finding": "City identifies the park at 6005 Oakdale Road; the street address is not the end of the carry trail."
+      },
+      {
+        "url": "https://mobile-maps-files.dnr.state.mn.us/file/Water_Trail/Mississippi%2006%20-%20Brainerd%20to%20Little%20Falls%20GEO.pdf",
+        "finding": "DNR trail map identifies a carry-in access around river mile 995.8, not survey-level shore coordinates."
+      }
+    ],
+    "reopen": "Locate the public carry trail’s river end with an authoritative park trail map or clear georeferenced imagery. Do not reuse the road-address anchor.",
+    "routeIds": [
+      "mississippi-river-fletcher-creek-overlook",
+      "mississippi-river-overlook-belle-prairie"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  },
+  {
+    "siteNumber": 10,
+    "reviewedAt": "2026-09-17",
+    "state": "Maryland",
+    "name": "Phillips Wharf Environmental Center launch",
+    "latitude": 38.7191111,
+    "longitude": -76.3324222,
+    "distanceFeetToMappedWater": 958.4051434884599,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+        "endpoint": "putIn",
+        "endpointName": "Phillips Wharf Environmental Center launch",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+        "endpoint": "takeOut",
+        "endpointName": "Phillips Wharf Environmental Center return",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+        "endpoint": "putIn",
+        "endpointName": "Phillips Wharf Environmental Center launch",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+        "endpoint": "takeOut",
+        "endpointName": "Phillips Wharf Environmental Center return",
+        "severity": "unknown"
+      }
+    ],
+    "publicRouteCount": 2,
+    "decision": "reject-invalid",
+    "reason": "The operator confirms closure of its Tilghman campus and relocation to Easton. The historical Tilghman launch guide does not establish present public access at the former campus.",
+    "sources": [
+      {
+        "url": "https://phillipswharf.org/",
+        "finding": "Operator history confirms Tilghman closure and Easton relocation."
+      },
+      {
+        "url": "https://dx5rc38w5kzi8.cloudfront.net/wp-content/uploads/2014/09/12175532/Tilghman-Island-Water-Trails.pdf",
+        "finding": "Historical Tilghman trail guide predates the closure and cannot prove current launch permission."
+      }
+    ],
+    "reopen": "Obtain current permission for the former campus or independently verify a suitable Tilghman public launch and rebuild both loops. Do not move these Tilghman loops to Easton.",
+    "routeIds": [
+      "tilghman-bay-hundred-pwec-back-creek-loop",
+      "tilghman-bay-hundred-pwec-front-creek-loop"
+    ],
+    "publicationAction": "withhold-dependent-routes"
+  }
+]

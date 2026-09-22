@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T15:10:30.396Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "chattahoochee-river-jones-bridge-paces-mill",
+      "routeName": "Chattahoochee River",
+      "reach": "Jones Bridge to Paces Mill",
+      "state": "Georgia",
+      "endpoint": "putIn",
+      "endpointName": "Jones Bridge public launch",
+      "latitude": 33.999,
+      "longitude": -84.2479,
+      "matchedRiverName": "Chattahoochee River",
+      "distanceFeetToMatchedRiver": 180.52665097286717,
+      "nearestMatchedLatitude": 33.99855808879257,
+      "nearestMatchedLongitude": -84.24763141240953,
+      "nearestWaterwayName": "Chattahoochee River",
+      "distanceFeetToNearestWaterway": 180.52665097286717,
+      "nearestWaterwayLatitude": 33.99855808879257,
+      "nearestWaterwayLongitude": -84.24763141240953,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 77.26509008875058,
+      "nearestWaterbodyLatitude": 33.998803513211435,
+      "nearestWaterbodyLongitude": -84.24780465225254,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 77.26509008875058,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 77 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "chattahoochee-river-jones-bridge-paces-mill",
+      "routeName": "Chattahoochee River",
+      "reach": "Jones Bridge to Paces Mill",
+      "state": "Georgia",
+      "endpoint": "takeOut",
+      "endpointName": "Paces Mill public launch",
+      "latitude": 33.870403,
+      "longitude": -84.45231,
+      "matchedRiverName": "Chattahoochee River",
+      "distanceFeetToMatchedRiver": 156.96015711541997,
+      "nearestMatchedLatitude": 33.87039502326698,
+      "nearestMatchedLongitude": -84.45179191059407,
+      "nearestWaterwayName": "Chattahoochee River",
+      "distanceFeetToNearestWaterway": 156.96015711541997,
+      "nearestWaterwayLatitude": 33.87039502326698,
+      "nearestWaterwayLongitude": -84.45179191059407,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 33.870403,
+      "nearestWaterbodyLongitude": -84.45231,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/places/paces-mill-launch-no1.htm",
+      "coordinateEvidenceDetail": "ga_nps_paces_mill_chattahoochee nps-paces-mill-canoe-raft-launch: NPS identifies Paces Mill as a canoe/kayak/small-boat launch and final take-out on the Chattahoochee River. Current Google Maps aerial imagery shows the public launch approach meeting the river at 33.870403,-84.452310. The selected point is imagery-derived with 50-foot uncertainty; NPS does not publish a surveyed ramp-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (ga_nps_paces_mill_chattahoochee nps-paces-mill-canoe-raft-launch) on Chattahoochee River; the 157 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

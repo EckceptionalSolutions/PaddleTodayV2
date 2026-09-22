@@ -2381,7 +2381,7 @@ export const minnesotaRoutes: River[] = [
     "reach": "Cannon Falls to Welch",
     "state": "Minnesota",
     "region": "Southeast Minnesota",
-    "summary": "Easy-moving day paddle from Cannon Falls to Welch. Flow is the main call, with crowding and private take-out logistics as secondary concerns.",
+    "summary": "Easy-moving day paddle from Cannon Falls to Welch. Welch Mill is a private outfitter landing rather than formal public access; use this take-out only with a confirmed arrangement.",
     "statusText": "Best in the 300 to 700 cfs sweet spot. Still workable through a broader medium band when the river is not spiking after rain.",
     "latitude": 44.5148835,
     "longitude": -92.8990298,
@@ -2395,7 +2395,7 @@ export const minnesotaRoutes: River[] = [
         "cold_water"
       ],
       "safetyNotes": [
-        "Welch has no developed public water access. Confirm permission and any fee with the private Welch Mill outfitter before staging a vehicle or using its landing; do not treat nearby private shoreline as an alternative take-out.",
+        "MN DNR says Welch has no developed public water access. Welch Mill operates paddling trips that return to its landing, so use this take-out only as a current outfitter customer or with explicit permission; confirm hours, reservation, landing, parking, and fees before launching.",
         "Check the Welch gauge and trend before launching. Higher flow can make the otherwise easy Cannon more challenging, while heavy rain can flood the corridor and collect woody debris.",
         "Use Riverside Park's documented canoe launch at Cannon Falls and plan the full shuttle, landing, and cold-water contingency before committing to this 11.75-mile reach."
       ],
@@ -4028,6 +4028,12 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://cityoframsey.com/1119"
       },
       {
+        "label": "MN DNR public access-site coordinate",
+        "value": "WAS02989 at 45.282287, -93.407084",
+        "note": "The current Minnesota DNR public-water-access GIS lists a City of Ramsey-managed Rum River carry-in at river mile 9.0, river right, with a gravel launch and five parking spaces. Its heads-up-digitized point is the access-area anchor, not a surveyed water-entry toe.",
+        "sourceUrl": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer/0/query?where=unique_swas_id%3D%27WAS02989%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson"
+      },
+      {
         "label": "Primary caution",
         "value": "Downed trees, snags, and changeable conditions",
         "note": "DNR Map 3 says hazards on this segment include downed trees and snags, warns that river conditions can change at any time, and directs paddlers to avoid obstacles and overhanging or dead trees.",
@@ -4155,10 +4161,22 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://cityoframsey.com/1119"
       },
       {
+        "label": "MN DNR public access-site coordinate",
+        "value": "WAS02989 at 45.282287, -93.407084",
+        "note": "The current Minnesota DNR public-water-access GIS lists a City of Ramsey-managed Rum River carry-in at river mile 9.0, river right, with a gravel launch and five parking spaces. Its heads-up-digitized point is the access-area anchor, not a surveyed water-entry toe.",
+        "sourceUrl": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer/0/query?where=unique_swas_id%3D%27WAS02989%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson"
+      },
+      {
         "label": "South County endpoint detail",
         "value": "3000 Ferry Street N; 5 a.m. to 10 p.m.",
         "note": "Anoka County Parks lists Rum River South County Park at 3000 Ferry Street N in Anoka and gives the park-hours window as 5 a.m. to 10 p.m.",
         "sourceUrl": "https://www.anokacountyparks.com/parks/rum-river-south"
+      },
+      {
+        "label": "MN DNR South County public-access coordinate",
+        "value": "WAS00289 at 45.213880, -93.389350",
+        "note": "Minnesota DNR public-water-access record WAS00289 places the Anoka County trailer launch at Rum River river mile 1.9 on river right and reports GPS collection. Use the published site point as the access anchor; it is not a surveyed water-entry toe. Anoka County confirms boat and canoe/kayak launches at South County Park.",
+        "sourceUrl": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer/0/query?where=unique_swas_id%3D%27WAS00289%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson"
       },
       {
         "label": "Dam proximity",
@@ -4195,6 +4213,10 @@ export const minnesotaRoutes: River[] = [
       {
         "label": "Anoka County Rum River South County Park directory",
         "url": "https://www.anokacountymn.gov/Directory.aspx?did=150"
+      },
+      {
+        "label": "Minnesota DNR public water access GIS",
+        "url": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer"
       },
       {
         "label": "USGS 05286000 monitoring location",
@@ -33024,13 +33046,13 @@ const grandMaraisDirectGaugeRoutes: River[] = [
     "slug": "poplar-river-lutsen-seventh-bridge",
     "name": "Poplar River",
     "riverId": "poplar-river-minnesota",
-    "reach": "Lutsen Ski Area to Seventh Bridge",
+    "reach": "Lutsen Ski Area corridor (public paddle entry unverified) to Seventh Bridge",
     "state": "Minnesota",
     "region": "Lutsen",
     "routeType": "whitewater",
     "scoreEligibility": "planning",
-    "summary": "Short, steep lower Poplar run with continuous Class III-IV boulder gardens, Bielik's Surprise, and a mandatory exit above the dangerous gorge below Seventh Bridge.",
-    "statusText": "DNR 01063003 reports direct discharge at the Seventh Bridge take-out. No defensible runnable flow band has been published for this station, so the live reading is context only and the route remains a conservative, locally verified expert decision.",
+    "summary": "WITHHELD: Short, steep lower Poplar run with continuous Class III-IV boulder gardens, Bielik's Surprise, and a mandatory exit above the dangerous gorge below Seventh Bridge. The Lutsen-area put-in is not verified as lawful public paddle access.",
+    "statusText": "WITHHELD: The available state and resort sources do not confirm public kayak/canoe parking, carry, and water entry at the Lutsen Ski Area put-in. Verify those with the land manager before using this route. DNR 01063003 is direct gauge context only; no defensible runnable flow band is published.",
     "latitude": 47.664625340847806,
     "longitude": -90.71565087000029,
     "gaugeSource": {
@@ -33057,10 +33079,10 @@ const grandMaraisDirectGaugeRoutes: River[] = [
       "seasonNotes": "The lower Poplar is a snowmelt and rain-event run. Use the direct gauge trend only to decide whether to inspect the river; the app cannot identify a runnable or safe band until source-backed thresholds are available.",
       "difficulty": "hard",
       "difficultyNotes": "American Whitewater rates the reach Class III-IV+(V). Bielik's Surprise is a multi-step cascade with Class V consequences except at the lowest flows, and the gradient remains technical through the golf-course corridor.",
-      "confidenceNotes": "Confidence is strong for the direct gauge relationship, mapped 2.2-mile reach, feature sequence, and Seventh Bridge exit. Confidence is deliberately low for flow interpretation and access: no published runnable band exists, and parking and bank use must be reconfirmed with Lutsen-area land managers."
+      "confidenceNotes": "Confidence is strong for the direct gauge relationship, mapped 2.2-mile reach, feature sequence, and Seventh Bridge exit. Public paddle access at the Lutsen Ski Area put-in is unverified; the DNR lists a trailhead in the area, and the resort source does not confirm boat-launch permission. Keep withheld until the manager confirms lawful parking/carry and the water entry."
     },
     "putIn": {
-      "name": "Lutsen Ski Area carry-in",
+      "name": "Lutsen Ski Area corridor (public paddle access unverified)",
       "latitude": 47.664625340847806,
       "longitude": -90.71565087000029
     },
@@ -33078,7 +33100,7 @@ const grandMaraisDirectGaugeRoutes: River[] = [
       "campingClassification": "nearby_basecamp",
       "summary": "A compact expert creek run whose short mileage does not reduce its scouting, rescue, or access demands.",
       "accessCaveats": [
-        "The common put-in is a carry from the Lutsen Ski Area corridor; confirm current permission and parking rules.",
+        "Public kayak/canoe access at the Lutsen Ski Area corridor has not been confirmed. Do not use this route until the land manager confirms lawful parking, carry, and water entry.",
         "The take-out is above Seventh Bridge. Verify the exit from land before launching."
       ],
       "watchFor": ["Bielik's Surprise", "linked boulder gardens", "wood", "the mandatory Seventh Bridge exit"]
@@ -33094,6 +33116,12 @@ const grandMaraisDirectGaugeRoutes: River[] = [
       "reviewStatus": "reviewed"
     },
     "evidenceNotes": [
+      {
+        "label": "Put-in access status",
+        "value": "Unverified; route withheld",
+        "note": "The Minnesota DNR lists a Poplar River Trailhead at Ski Hill Road for trail use; this does not establish a public kayak/canoe launch. Lutsen Mountains' access rules do not confirm river-launch permission.",
+        "sourceUrl": "https://www.dnr.state.mn.us/state-trails/gitchi-gami/index.html"
+      },
       {
         "label": "Reach and difficulty",
         "value": "2.2 miles; Class III-IV+(V)",

@@ -1,0 +1,384 @@
+[
+  {
+    "state": "Louisiana",
+    "name": "Poche's Bridge official dock (behind Poche's Market)",
+    "latitude": 30.2598241,
+    "longitude": -91.8898799,
+    "distanceFeetToMappedWater": 1101.003332719808,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "bayou-teche-arnaudville-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-leonville-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-breaux-bridge",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-loreauville",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-new-iberia",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-parks",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-poche-bridge-st-martinville",
+        "endpoint": "putIn",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-port-barre-poche-bridge",
+        "endpoint": "takeOut",
+        "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 8
+  },
+  {
+    "state": "Rhode Island",
+    "name": "Central Falls Landing river ramp",
+    "latitude": 41.8873726,
+    "longitude": -71.3876472,
+    "distanceFeetToMappedWater": 1383.4288830385206,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "blackstone-river-albion-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-central-falls-chocolateville",
+        "endpoint": "putIn",
+        "endpointName": "Central Falls Landing river ramp (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-kelly-house-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-manville-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-pratt-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-rivers-edge-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      },
+      {
+        "routeId": "blackstone-river-sycamore-central-falls",
+        "endpoint": "takeOut",
+        "endpointName": "Central Falls Landing river ramp",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 7
+  },
+  {
+    "state": "Washington",
+    "name": "Riverside State Park public boat launch (water-entry edge)",
+    "latitude": 47.75085068,
+    "longitude": -117.5325623,
+    "distanceFeetToMappedWater": 1203.8371994425254,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "spokane-river-aubrey-white-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-plese-flats-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-redband-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-riverside-nine-mile-dam",
+        "endpoint": "putIn",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "spokane-river-tj-meenach-riverside",
+        "endpoint": "takeOut",
+        "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 5
+  },
+  {
+    "state": "Louisiana",
+    "name": "Baldwin Charenton Road Park and Recreational Complex dock",
+    "latitude": 29.8420027,
+    "longitude": -91.5422904,
+    "distanceFeetToMappedWater": 896.0002106955145,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "bayou-teche-baldwin-centerville",
+        "endpoint": "putIn",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-baldwin-franklin",
+        "endpoint": "putIn",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-charenton-baldwin",
+        "endpoint": "takeOut",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      },
+      {
+        "routeId": "bayou-teche-jeanerette-baldwin",
+        "endpoint": "takeOut",
+        "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 4
+  },
+  {
+    "state": "Vermont",
+    "name": "Quaker Village Road access, Middlebury (water-entry edge)",
+    "latitude": 44.0195,
+    "longitude": -73.1435,
+    "distanceFeetToMappedWater": 2078.1220304117887,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "otter-creek-middlebury-quaker-village",
+        "endpoint": "takeOut",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-quaker-village-vergennes",
+        "endpoint": "putIn",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-quaker-village-weybridge",
+        "endpoint": "putIn",
+        "endpointName": "Quaker Village Road access, Middlebury (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3
+  },
+  {
+    "state": "South Carolina",
+    "name": "SC 9 Catawba public boat landing (water-entry edge)",
+    "latitude": 34.71042,
+    "longitude": -80.86222,
+    "distanceFeetToMappedWater": 1191.5379462559988,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "catawba-river-fort-mill-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "catawba-river-landsford-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "catawba-river-rock-hill-sc9",
+        "endpoint": "takeOut",
+        "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3
+  },
+  {
+    "state": "Vermont",
+    "name": "Floodplain Preserve canoe access, Richmond",
+    "latitude": 44.3831,
+    "longitude": -73.0202,
+    "distanceFeetToMappedWater": 1171.0735323433637,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "winooski-river-bolton-canoe-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      },
+      {
+        "routeId": "winooski-river-bolton-dam-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      },
+      {
+        "routeId": "winooski-river-jonesville-floodplain",
+        "endpoint": "takeOut",
+        "endpointName": "Floodplain Preserve canoe access, Richmond",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3
+  },
+  {
+    "state": "Vermont",
+    "name": "Vergennes Main Street town dock below falls (water-entry edge)",
+    "latitude": 44.1662,
+    "longitude": -73.2518,
+    "distanceFeetToMappedWater": 903.9063965613442,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "otter-creek-quaker-village-vergennes",
+        "endpoint": "takeOut",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-vergennes-fort-cassin",
+        "endpoint": "putIn",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      },
+      {
+        "routeId": "otter-creek-weybridge-vergennes",
+        "endpoint": "takeOut",
+        "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+        "severity": "failure"
+      }
+    ],
+    "publicRouteCount": 3
+  },
+  {
+    "state": "Minnesota",
+    "name": "Mississippi River Overlook Park Carry-in Access",
+    "latitude": 46.3178778,
+    "longitude": -94.2755325,
+    "distanceFeetToMappedWater": 2103.6541124410332,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "mississippi-river-fletcher-creek-overlook",
+        "endpoint": "takeOut",
+        "endpointName": "Mississippi River Overlook Park Carry-in Access",
+        "severity": "review"
+      },
+      {
+        "routeId": "mississippi-river-overlook-belle-prairie",
+        "endpoint": "putIn",
+        "endpointName": "Mississippi River Overlook Park Carry-in Access",
+        "severity": "review"
+      }
+    ],
+    "publicRouteCount": 2
+  },
+  {
+    "state": "Maryland",
+    "name": "Phillips Wharf Environmental Center launch",
+    "latitude": 38.7191111,
+    "longitude": -76.3324222,
+    "distanceFeetToMappedWater": 958.4051434884599,
+    "reasons": [
+      "mapped-water-offset"
+    ],
+    "occurrences": [
+      {
+        "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+        "endpoint": "putIn",
+        "endpointName": "Phillips Wharf Environmental Center launch",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+        "endpoint": "takeOut",
+        "endpointName": "Phillips Wharf Environmental Center return",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+        "endpoint": "putIn",
+        "endpointName": "Phillips Wharf Environmental Center launch",
+        "severity": "unknown"
+      },
+      {
+        "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+        "endpoint": "takeOut",
+        "endpointName": "Phillips Wharf Environmental Center return",
+        "severity": "unknown"
+      }
+    ],
+    "publicRouteCount": 2
+  }
+]

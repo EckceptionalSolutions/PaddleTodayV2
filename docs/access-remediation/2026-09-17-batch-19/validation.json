@@ -1,0 +1,50 @@
+{
+  "batch": "2026-09-17-batch-19",
+  "commands": [
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-19/verify.mjs",
+      "status": "passed",
+      "result": "10 frozen sites; 21 unique source routes; 6 added controls; 4 reclassified controls; 2 new holds; 156 withheld routes."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated src/data/generated/withheld-route-slugs.ts with 156 withheld routes."
+    },
+    {
+      "command": "TypeScript transpileModule syntax check for six changed TypeScript source files",
+      "status": "passed",
+      "result": "No TypeScript syntax diagnostics."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- scoped Batch 19 source files",
+      "status": "passed",
+      "result": "No whitespace errors."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --cache-only --output=docs/access-remediation/2026-09-17-batch-19/audit-cache-after.json",
+      "status": "blocked",
+      "result": "Import failed before audit: package @paddletoday/geo is not installed; output file was not produced and existing audit snapshot was not overwritten."
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked",
+      "result": "Workspace lacks @paddletoday/api-contract. The resulting type errors cascade across existing route data."
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "result": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from magic-string dependencies."
+    },
+    {
+      "command": "routes:geometries:generate and routes:access-registry:generate",
+      "status": "not-run",
+      "result": "The only corrected currently public route is withheld pending geometry regeneration. Full registry regeneration depends on the unavailable full audit; generated registry is documented as stale."
+    }
+  ],
+  "notes": [
+    "No public route geometry changed. The Kwonumosk coordinate correction affects routes that were already held or are newly held.",
+    "The access-point quality report remains the prior cache snapshot; selection rankings are prioritization only.",
+    "Generated route-access registry was not manually edited."
+  ]
+}

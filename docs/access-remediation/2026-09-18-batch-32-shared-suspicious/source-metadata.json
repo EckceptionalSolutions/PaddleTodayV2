@@ -1,0 +1,135 @@
+{
+  "batch": 32,
+  "metadataDate": "2026-09-18",
+  "coordinateConvention": "Coordinates identified from current aerial imagery are estimates, not surveyed or GPS-confirmed wet-edge positions. Official sources establish public site identity and access; they do not publish the imagery-derived coordinates unless stated otherwise.",
+  "sources": [
+    {
+      "site": "Angevine Fishing Access Site, Montana",
+      "sources": [
+        {
+          "url": "https://myfwp.mt.gov/fishMT/fas/39754559",
+          "type": "official site record",
+          "establishes": "Montana FWP names Angevine on the Blackfoot River, publishes a site-center coordinate, identifies a hand launch, and lists site size and approach.",
+          "doesNotEstablish": "The published site coordinate is not an exact launch-edge coordinate."
+        },
+        {
+          "url": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1",
+          "type": "official GIS point layer",
+          "establishes": "FWP Fishing Access Site locations; the Angevine feature is named and classified as a hand launch.",
+          "doesNotEstablish": "The site point is not a surveyed wet-edge coordinate."
+        },
+        {
+          "url": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/2",
+          "type": "official GIS boundary layer",
+          "establishes": "The 13.0149-acre FWP Angevine public access-site boundary used to verify the selected point lies on the public parcel at the river edge.",
+          "doesNotEstablish": "The parcel boundary does not by itself identify a particular launch point."
+        },
+        {
+          "url": "https://fwp.mt.gov/binaries/content/assets/fwp/activities/river-recreation/blackfoot-river-float-map.pdf",
+          "type": "official river corridor map",
+          "establishes": "Angevine as a named hand-launch site on the Blackfoot River float corridor.",
+          "doesNotEstablish": "A survey-grade access coordinate."
+        },
+        {
+          "url": "https://www.google.com/maps/@46.8958722,-113.7639273,147m/data=!3m1!1e3",
+          "type": "current aerial imagery",
+          "establishes": "Visible river edge and nearby public access parcel used to estimate the water-entry location.",
+          "doesNotEstablish": "Survey-grade precision. Estimated uncertainty is 75 feet."
+        }
+      ]
+    },
+    {
+      "site": "Moody’s Landing, Black Creek, Mississippi",
+      "sources": [
+        {
+          "url": "https://www.sevenriverscanoe.com/black-creek",
+          "type": "paddling-club route guide",
+          "establishes": "A firsthand paddling guide describes Moody’s Landing at the Brooklyn–Janice Road approach, the primitive sandbar landing and its use as a public float endpoint.",
+          "doesNotEstablish": "A government-managed coordinate or surveyed water-entry point."
+        },
+        {
+          "url": "https://www.fs.usda.gov/recarea/mississippi/recarea/?recid=82488",
+          "type": "official U.S. Forest Service river resource",
+          "establishes": "The Black Creek Wild and Scenic River and Forest Service recreation context for the route corridor.",
+          "doesNotEstablish": "An exact coordinate or facility survey for Moody’s Landing."
+        },
+        {
+          "url": "https://www.google.com/maps/@31.053755,-89.117915,184m/data=!3m1!1e3",
+          "type": "current aerial imagery",
+          "establishes": "The primitive sandbar/shore landing at the selected water-entry edge.",
+          "doesNotEstablish": "A surveyed or agency-published coordinate. Estimated uncertainty is 75 feet."
+        },
+        {
+          "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12",
+          "type": "USGS National Hydrography Dataset waterbody geometry",
+          "establishes": "Mapped waterbody adjacency used as a supporting spatial check.",
+          "doesNotEstablish": "Public permission, landing usability, or a launch survey."
+        }
+      ]
+    },
+    {
+      "site": "Jeanerette T.J. Viator City Park dock, Louisiana",
+      "sources": [
+        {
+          "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+          "type": "official paddle-trail operator listing",
+          "establishes": "TECHE Project identifies the official Bayou Teche National Paddle Trail dock at T.J. Viator City Park off Tarleton Street.",
+          "doesNotEstablish": "The exact launch-edge coordinate."
+        },
+        {
+          "url": "https://www.techeproject.org/wp-content/uploads/2022/08/PaddlePlanner_spreads.pdf",
+          "type": "paddle-trail map and access guide",
+          "establishes": "The Jeanerette dock as a mapped trail access and includes a launch photograph.",
+          "doesNotEstablish": "A surveyed latitude/longitude."
+        },
+        {
+          "url": "https://www.google.com/maps/@29.918431,-91.666810,93m/data=!3m1!1e3",
+          "type": "current aerial imagery",
+          "establishes": "Visible dock/landing at the Bayou Teche edge; the selected point was read at the visible landing.",
+          "doesNotEstablish": "A TECHE-published or surveyed coordinate. Estimated uncertainty is 50 feet."
+        },
+        {
+          "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12",
+          "type": "USGS National Hydrography Dataset waterbody geometry",
+          "establishes": "A secondary mapped-water proximity check; the selected point is within 100 feet of returned waterbody geometry.",
+          "doesNotEstablish": "Dock ownership or exact dock placement."
+        }
+      ]
+    },
+    {
+      "site": "Redband Park boat slide launch, Washington",
+      "sources": [
+        {
+          "url": "https://my.spokanecity.org/news/stories/2019/07/03/ramp-launches-new-river-access/",
+          "type": "official City of Spokane report",
+          "establishes": "A boat launch at Redband Park, with a ramp/raft slide and steps giving access to the river.",
+          "doesNotEstablish": "An exact launch latitude/longitude."
+        },
+        {
+          "url": "https://spokanecd.org/blogs/news/spokane-river-restored-access-points",
+          "type": "project partner access description",
+          "establishes": "The Redband Park slide-rail boat launch and its use for non-motorized boats.",
+          "doesNotEstablish": "A surveyed point at the water edge."
+        },
+        {
+          "url": "https://www.spokaneriver.net/watertrail/launches/",
+          "type": "Spokane River Water Trail launch inventory",
+          "establishes": "Redband Park as an established launch in the water-trail sequence.",
+          "doesNotEstablish": "An exact launch coordinate."
+        },
+        {
+          "url": "https://www.google.com/maps/@47.660010,-117.432231,145m/data=!3m1!1e3",
+          "type": "current aerial imagery",
+          "establishes": "The visible slide/shore entry on the park’s south bank; the selected coordinate was read at this feature.",
+          "doesNotEstablish": "A City-published or surveyed coordinate. Estimated uncertainty is 50 feet."
+        },
+        {
+          "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12",
+          "type": "USGS National Hydrography Dataset waterbody geometry",
+          "establishes": "The replacement lies within 100 feet of mapped Spokane River waterbody geometry.",
+          "doesNotEstablish": "Public access or exact facility ownership."
+        }
+      ]
+    }
+  ]
+}

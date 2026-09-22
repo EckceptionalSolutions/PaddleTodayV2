@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:16:33.290Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Pennsylvania",
+      "name": "Willow Mill Park launch",
+      "latitude": 40.2578,
+      "longitude": -77.0426,
+      "distanceFeetToMappedWater": 571.5837398206015,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "conodoguinet-creek-willow-mill-acri-meadow",
+          "endpoint": "putIn",
+          "endpointName": "Willow Mill Park launch",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "conodoguinet-creek-willow-mill-acri-meadow",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Acri Meadow Park",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Willow Mill Park launch",
+      "latitude": 40.2578,
+      "longitude": -77.0426,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 682.173643658241,
+      "nearestMatchedLatitude": 40.25789254117026,
+      "nearestMatchedLongitude": -77.04015273440145,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 682.173643658241,
+      "nearestWaterwayLatitude": 40.25789254117026,
+      "nearestWaterwayLongitude": -77.04015273440145,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 571.5837398206015,
+      "nearestWaterbodyLatitude": 40.257899298869965,
+      "nearestWaterbodyLongitude": -77.04055108207203,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 571.5837398206015,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "coordinateEvidenceDetail": "cumberland_county_conodoguinet_b4 B4: The current Cumberland County Conodoguinet Creek Water Trail guide's B4 access table publishes 40.2578, -77.0426 for Willow Mill Park. The same guide identifies the site as a concrete boat launch with an improved ramp, short carry, and shallow slope to water; the guide page states the access table was updated in 2023-2024. Silver Spring Township independently confirms that a boat launch is at the rear of the park. The published coordinate is rounded to four decimal places and represents the public launch area, not a surveyed concrete-ramp toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (cumberland_county_conodoguinet_b4 B4) on Conodoguinet Creek; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-acri-meadow",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Acri Meadow Park",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Acri Meadow Park launch",
+      "latitude": 40.27088953152063,
+      "longitude": -76.95155906549849,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 189.39189729976786,
+      "nearestMatchedLatitude": 40.270870250079426,
+      "nearestMatchedLongitude": -76.95087913583798,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 189.39189729976786,
+      "nearestWaterwayLatitude": 40.270870250079426,
+      "nearestWaterwayLongitude": -76.95087913583798,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 40.27088953152063,
+      "nearestWaterbodyLongitude": -76.95155906549849,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "batch": 45,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Choose a repeated suspicious access coordinate, then use current state public-water-access GIS and route map context to distinguish a facility anchor from an exact wet entry.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T17:47:05.189Z (cache-only); 2,750 public routes, 6,058 endpoints, 100 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Minnesota",
+    "name": "Germanium carry-in access at Brookview Park",
+    "storedCoordinate": { "latitude": 45.2826032, "longitude": -93.4079762 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "rum-river-north-county-germanium",
+      "rum-river-germanium-south-county-park"
+    ],
+    "preReviewFinding": "Both occurrences shared the same coordinate, 310.2 feet from mapped water and 386.7 feet from the matched Rum River flowline. Existing route evidence named the DNR carry-in but lacked a published access-site coordinate.",
+    "decision": "replace-the-stale-shared-coordinate-with-the-current-dnr-public-access-anchor-and-record-its-approximate-role",
+    "selectionFrozenBeforeResearch": true
+  },
+  "expandedReview": {
+    "routeId": "rum-river-germanium-south-county-park",
+    "endpoint": "takeOut",
+    "name": "Rum River South County Park access",
+    "storedCoordinate": { "latitude": 45.2121606, "longitude": -93.3907042 },
+    "preReviewFinding": "The route's other endpoint was also suspicious, 339 feet from the matched Rum River flowline. DNR publishes a GPS-collected Anoka County public-access site at the matching river mile and bank; the route was expanded to repair that supported location in the same batch.",
+    "decision": "replace-with-dnr-gps-public-access-anchor-and-retain-review-status"
+  }
+}

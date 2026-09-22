@@ -1,0 +1,13 @@
+{
+  "batch": "B97",
+  "selectedAt": "2026-09-19",
+  "routeId": "iowa-river-hills-river-junction",
+  "routeName": "Iowa River",
+  "reach": "Hills Access to River Junction Access",
+  "state": "Iowa",
+  "endpoint": "takeOut",
+  "endpointName": "River Junction Access & Campground",
+  "storedCoordinate": { "latitude": 41.4912969, "longitude": -91.5017984 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 339.8597857601601, "nearestWaterwayName": "Iowa River", "distanceFeetToMappedWater": 238.44158010910525, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "Johnson County's current camping record publishes the exact stored River Junction map coordinate and states that the campground has boat-ramp access to the Iowa River. The county's River Junction access PDF independently describes the primitive campground, boat ramp, Iowa River Water Trail, and the Hills-to-River-Junction reach. A current county closure notice says River Junction Access is closed until further notice, so the coordinate is retained as a documented but currently unavailable access-area anchor with a closure condition."
+}

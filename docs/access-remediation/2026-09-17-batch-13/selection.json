@@ -1,0 +1,340 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue starting at rank 151 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-12; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "priorFrozenSiteCount": 120,
+  "currentWithheldRouteCount": 148,
+  "queueStartRank": 151,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "Iowa",
+      "name": "Eureka Bridge Access",
+      "latitude": 42.0156,
+      "longitude": -94.4384,
+      "distanceFeetToMappedWater": 447.6161355690887,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-eureka-henderson",
+          "endpoint": "putIn",
+          "endpointName": "Eureka Bridge Access",
+          "severity": "review"
+        }
+      ],
+      "rank": 151,
+      "eligibleUnwithheldRoutes": [
+        "north-raccoon-river-eureka-henderson"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Interstate Park / Mitchell",
+      "latitude": 43.319134,
+      "longitude": -92.879648,
+      "distanceFeetToMappedWater": 446.6816000209598,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-halvorson-interstate",
+          "endpoint": "takeOut",
+          "endpointName": "Interstate Park / Mitchell",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "cedar-river-interstate-bennett",
+          "endpoint": "putIn",
+          "endpointName": "Interstate Park / Mitchell",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 152,
+      "eligibleUnwithheldRoutes": [
+        "cedar-river-halvorson-interstate",
+        "cedar-river-interstate-bennett"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Salmon Island Park boat ramp",
+      "latitude": 45.170721,
+      "longitude": -113.894916,
+      "distanceFeetToMappedWater": 444.5564442928534,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-kilpatrick-salmon-island",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon Island Park boat ramp",
+          "severity": "review"
+        },
+        {
+          "routeId": "salmon-river-salmon-island-north-fork",
+          "endpoint": "putIn",
+          "endpointName": "Salmon Island Park boat ramp",
+          "severity": "review"
+        }
+      ],
+      "rank": 153,
+      "eligibleUnwithheldRoutes": [
+        "salmon-river-kilpatrick-salmon-island",
+        "salmon-river-salmon-island-north-fork"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "East Canada Creek island/head-of-rapids turn-around landmark",
+      "latitude": 43.2915,
+      "longitude": -74.671,
+      "distanceFeetToMappedWater": 444.400497047098,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "east-canada-creek-powley-place-out-and-back",
+          "endpoint": "accessPoint",
+          "endpointName": "East Canada Creek island/head-of-rapids turn-around landmark",
+          "severity": "review"
+        }
+      ],
+      "rank": 154,
+      "eligibleUnwithheldRoutes": [
+        "east-canada-creek-powley-place-out-and-back"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Barber Flat Forest Service Station Access",
+      "latitude": 43.8129514,
+      "longitude": -115.536488,
+      "distanceFeetToMappedWater": 439.22148019016134,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-boise-barber-flat-troutdale",
+          "endpoint": "putIn",
+          "endpointName": "Barber Flat Forest Service Station Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 155,
+      "eligibleUnwithheldRoutes": [
+        "north-fork-boise-barber-flat-troutdale"
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Columbus hotel-side finish near Pawnee Park Trail",
+      "latitude": 41.4195401,
+      "longitude": -97.3672208,
+      "distanceFeetToMappedWater": 439.1134412178915,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "loup-river-columbus-adm-access",
+          "endpoint": "putIn",
+          "endpointName": "Columbus hotel-side access near Pawnee Park Trail",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-george-syas-adm-access",
+          "endpoint": "accessPoint",
+          "endpointName": "Columbus hotel-side finish near Pawnee Park Trail",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-george-syas-columbus",
+          "endpoint": "takeOut",
+          "endpointName": "Columbus hotel-side finish near Pawnee Park Trail",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-adm-access",
+          "endpoint": "accessPoint",
+          "endpointName": "Columbus hotel-side finish near Pawnee Park Trail",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-columbus",
+          "endpoint": "takeOut",
+          "endpointName": "Columbus hotel-side finish near Pawnee Park Trail",
+          "severity": "review"
+        }
+      ],
+      "rank": 156,
+      "eligibleUnwithheldRoutes": [
+        "loup-river-columbus-adm-access",
+        "loup-river-monroe-adm-access",
+        "loup-river-monroe-columbus"
+      ]
+    },
+    {
+      "state": "Rhode Island",
+      "name": "Esmond Park river access below dam",
+      "latitude": 41.8782,
+      "longitude": -71.4994,
+      "distanceFeetToMappedWater": 438.1849398771325,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-esmond-cricket",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park river access below dam",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 157,
+      "eligibleUnwithheldRoutes": [
+        "woonasquatucket-river-esmond-manton",
+        "woonasquatucket-river-esmond-riverside",
+        "woonasquatucket-river-esmond-south-water",
+        "woonasquatucket-river-esmond-waterplace",
+        "woonasquatucket-river-georgiaville-esmond",
+        "woonasquatucket-river-whipple-esmond"
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Sullivan Park public boat launch (water-entry edge)",
+      "latitude": 47.674537,
+      "longitude": -117.197426,
+      "distanceFeetToMappedWater": 436.8128683167188,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-barker-sullivan",
+          "endpoint": "takeOut",
+          "endpointName": "Sullivan Park public boat launch (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "spokane-river-harvard-sullivan",
+          "endpoint": "takeOut",
+          "endpointName": "Sullivan Park public boat launch (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 158,
+      "eligibleUnwithheldRoutes": [
+        "spokane-river-barker-sullivan",
+        "spokane-river-harvard-sullivan"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Tailwater East public boat ramp below Coralville Dam",
+      "latitude": 41.7249,
+      "longitude": -91.5257,
+      "distanceFeetToMappedWater": 436.7555648933325,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "iowa-river-tailwater-east-sturgis-ferry",
+          "endpoint": "putIn",
+          "endpointName": "Tailwater East public boat ramp below Coralville Dam",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 159,
+      "eligibleUnwithheldRoutes": [
+        "iowa-river-tailwater-east-sturgis-ferry"
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Highway 278 Access / Cossatot State Park corridor",
+      "latitude": 34.29388,
+      "longitude": -94.17704,
+      "distanceFeetToMappedWater": 435.435121156092,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cossatot-river-ed-banks-highway-278",
+          "endpoint": "takeOut",
+          "endpointName": "Highway 278 Access / Cossatot State Park corridor",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 160,
+      "eligibleUnwithheldRoutes": [
+        "cossatot-river-ed-banks-highway-278"
+      ]
+    }
+  ]
+}

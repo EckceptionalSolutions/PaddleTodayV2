@@ -1,0 +1,9 @@
+{
+  "batch": "B85",
+  "sources": [
+    { "title": "West Virginia DNR District 4 Fishing Guide access table", "url": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf", "publisher": "West Virginia Division of Natural Resources", "supports": ["Talcott public lot and boat access", "Greenbrier River placement", "published coordinate 37.6500, -80.7511"] },
+    { "title": "WVU DIY Outdoors Greenbrier River canoe guide", "url": "https://diyoutdoors.wvu.edu/canoeing/greenbrier-river-canoe", "publisher": "West Virginia University", "supports": ["Talcott public access coordinate", "route access context"] },
+    { "title": "American Whitewater Greenbrier River reach", "url": "https://www.americanwhitewater.org/content/River/view/river-detail/4199/main", "publisher": "American Whitewater", "supports": ["river-right Talcott put-in", "ramp and parking", "Barger Springs bridge context"] }
+  ],
+  "sourceQuality": "The access decision is anchored by the official WVDNR access table, with WVU and American Whitewater corroboration of the ramp location and physical access context."
+}

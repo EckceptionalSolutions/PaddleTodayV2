@@ -1,0 +1,20 @@
+{
+  "batch": 37,
+  "sources": [
+    {
+      "id": "nps-paces-mill-canoe-raft-launch",
+      "url": "https://www.nps.gov/places/paces-mill-launch-no1.htm",
+      "type": "official-public-access-identity",
+      "supports": "NPS names Paces Mill as a canoe/kayak/small-boat launch and says it is the last place for canoes, kayaks, rafts, and tubes to exit the river.",
+      "coordinatePrecision": "NPS confirms the facility but does not publish the replacement as a surveyed coordinate."
+    },
+    {
+      "id": "google-maps-aerial-2026-09-18",
+      "url": "https://www.google.com/maps/@33.870403,-84.452310,178m/data=!3m1!1e3",
+      "type": "current-aerial-imagery",
+      "supports": "The visible public launch approach meets the Chattahoochee River at the selected water-entry edge.",
+      "uncertaintyFeet": 50,
+      "limitations": "Imagery-derived estimate; not surveyed by NPS."
+    }
+  ]
+}

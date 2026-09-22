@@ -1,0 +1,44 @@
+{
+  "batch": 68,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "USDA Forest Service EDW Recreation Opportunities GIS — White Bridge Picnic Site, recarea 77748",
+      "url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=9740&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "Feature objectid 9740 / recarea 77748 identifies White Bridge Picnic Site. Its WGS84 geometry is approximately 34.5495443,-111.8506131 and published coordinate attributes are 34.549539,-111.850602.",
+        "The official description says the developed site provides access to the Verde River and non-motorized boating. The linked Forest Service photos describe a trail from the picnic area to the river and a paved portion of that trail.",
+        "The feature point is about 63 feet from the former route coordinate."
+      ],
+      "limits": "This managed recreation-site point locates the picnic/boating access area, not a surveyed shoreline toe or a seasonally verified launch location."
+    },
+    {
+      "name": "Forest Service — Verde River Paddle Trail guide",
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
+      "observations": [
+        "The guide describes White Bridge RAP as a heavily used Forest Service access just below the Highway 260 bridge, with restrooms, picnic tables, and ramadas.",
+        "Its waypoint table lists White Bridge RAP at 34.5511,-111.8508, approximately 573 feet north of the current Forest Service recreation-site feature.",
+        "The same publication says its maps are for reference use and map accuracy is not guaranteed."
+      ],
+      "limits": "The guide's waypoint is approximate and conflicts with the current recreation-site GIS marker; it does not identify the exact wet toe."
+    },
+    {
+      "name": "Friends of the Verde River — Verde River Access Points map",
+      "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+      "observations": [
+        "The access table labels the former stored coordinate, 34.5496,-111.8508, as White Bridge at river mile 76.2, matching the Forest Service picnic-site marker to about 63 feet."
+      ],
+      "limits": "This independent river access map supports the named RAP and nearby access location, but does not state that the table coordinate is a surveyed wet toe."
+    },
+    {
+      "name": "USGS National Hydrography Dataset Large Scale — refreshed targeted route-distance audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "observations": [
+        "Across all five refreshed routes, White Bridge is 200–406 feet from the matched Verde River flowline and about 2,406 feet from the nearest mapped waterbody feature.",
+        "All five targeted route audits completed with zero source issues; all five classify the site marker as review."
+      ],
+      "limits": "The waterbody layer does not resolve the wet toe here; hydrography is not public-access or shoreline-entry evidence."
+    }
+  ],
+  "decision": "Use the current official Forest Service recreation-site marker for the White Bridge public picnic/boating access area; retain review status because the precise launch toe is not independently mapped."
+}

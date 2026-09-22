@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:21:28.437Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "james-river-joe-crighton-lake-springfield",
+      "routeName": "James River",
+      "reach": "Joe Crighton Access to Lake Springfield Boathouse",
+      "state": "Missouri",
+      "endpoint": "takeOut",
+      "endpointName": "Lake Springfield Boathouse",
+      "latitude": 37.1159741,
+      "longitude": -93.2517345,
+      "matchedRiverName": "James River",
+      "distanceFeetToMatchedRiver": 755.271860192275,
+      "nearestMatchedLatitude": 37.115128,
+      "nearestMatchedLongitude": -93.249365,
+      "nearestWaterwayName": "James River",
+      "distanceFeetToNearestWaterway": 755.271860192275,
+      "nearestWaterwayLatitude": 37.115128,
+      "nearestWaterwayLongitude": -93.249365,
+      "nearestWaterbodyName": "Lake Springfield",
+      "distanceFeetToNearestWaterbody": 184.5490846789324,
+      "nearestWaterbodyLatitude": 37.11578240387412,
+      "nearestWaterbodyLongitude": -93.25114742959941,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 184.5490846789324,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://parkboard.org/LakeSpringfield",
+      "coordinateEvidenceDetail": "mo_springfield_parkboard_lake_springfield_boathouse_20260919 springfield-park-board-lake-springfield-boathouse: The Springfield-Greene County Park Board identifies Lake Springfield Boathouse as a public park shoreline facility with boat rentals, accessible parking, and James River Water Trail use. The route source records the Park Board map/KML placemark at the stored coordinate and distinguishes the Boathouse from the separate boat launch. Retain the point as the boathouse shoreline/take-out facility anchor; the 755-foot named-flowline offset is expected because the finish is in Lake Springfield rather than on the upstream James River flowline.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mo_springfield_parkboard_lake_springfield_boathouse_20260919 springfield-park-board-lake-springfield-boathouse) on James River / Lake Springfield; access is conditional (Confirm current Park Board hours, shoreline landing, parking, and any event or rental restrictions at arrival; use the marked Boathouse shoreline facility and do not substitute the separate boat launch without route review.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "james-river-joe-crighton-lake-springfield",
+      "routeName": "James River",
+      "reach": "Joe Crighton Access to Lake Springfield Boathouse",
+      "state": "Missouri",
+      "endpoint": "putIn",
+      "endpointName": "Joe Crighton Access",
+      "latitude": 37.1557274593,
+      "longitude": -93.1993452603,
+      "matchedRiverName": "James River",
+      "distanceFeetToMatchedRiver": 60.84482263081056,
+      "nearestMatchedLatitude": 37.1557652690686,
+      "nearestMatchedLongitude": -93.19914144571226,
+      "nearestWaterwayName": "James River",
+      "distanceFeetToNearestWaterway": 60.84482263081056,
+      "nearestWaterwayLatitude": 37.1557652690686,
+      "nearestWaterwayLongitude": -93.19914144571226,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 35.25793664162343,
+      "nearestWaterbodyLatitude": 37.155728,
+      "nearestWaterbodyLongitude": -93.199224,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 35.25793664162343,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 35 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

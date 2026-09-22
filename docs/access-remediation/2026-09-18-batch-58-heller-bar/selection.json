@@ -1,0 +1,19 @@
+{
+  "batch": 58,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before researching the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T20:05:29.808Z; 2,750 public routes, 6,058 endpoints, 72 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Idaho",
+    "name": "Heller Bar Boat Ramp Take-Out",
+    "storedCoordinate": { "latitude": 46.08601938, "longitude": -116.98350549 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "lower-salmon-hammer-heller-bar",
+      "snake-river-pittsburg-heller-bar"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 376 feet from the matched flowline and 158 feet from mapped water and were classified suspicious.",
+    "decision": "check-managing-agency-access-records-and-river-route-sources-for-coordinate-role; retain-an-official-site-anchor-or-correct-only-if-a-defensible-entry-coordinate-is-published",
+    "selectionFrozenBeforeResearch": true
+  }
+}

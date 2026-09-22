@@ -66,8 +66,8 @@ function makeRoute(spec: {
       ]
     },
     accessPoints: [
-      { ...spec.putIn!, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: spec.note },
-      { ...spec.takeOut!, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: 'Confirm the current water-entry edge, parking, shuttle staging and any seasonal closure before unloading.' }
+      { ...spec.putIn!, id: `${spec.id}-put-in`, mileFromStart: 0, segmentKind: 'transition', note: spec.putIn === copper ? `${spec.note} The corrected point is an imagery-checked ramp-edge coordinate with 75-foot uncertainty, not a surveyed GPS position.` : spec.note },
+      { ...spec.takeOut!, id: `${spec.id}-take-out`, mileFromStart: spec.miles, segmentKind: 'transition', note: spec.takeOut === copper ? 'The corrected point is an imagery-checked ramp-edge coordinate with 75-foot uncertainty, not a surveyed GPS position. NPS identifies the public gravel ramp; confirm limited parking and keep the access road clear.' : 'Confirm the current water-entry edge, parking, shuttle staging and any seasonal closure before unloading.' }
     ],
     logistics: {
       distanceLabel: `About ${spec.miles} river miles`,

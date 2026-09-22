@@ -1,0 +1,14 @@
+{
+  "batch": "B88",
+  "selectedAt": "2026-09-19",
+  "routeId": "upper-iowa-river-lower-dam-iverson-bridge",
+  "routeName": "Upper Iowa River",
+  "reach": "Lower Dam Access to Iverson Bridge Access",
+  "state": "Iowa",
+  "endpoint": "accessPoint",
+  "endpointName": "Canoe Creek Access",
+  "storedCoordinateBefore": { "latitude": 43.3673, "longitude": -91.6189 },
+  "storedCoordinateAfter": { "latitude": 43.367178379845065, "longitude": -91.61657052093616 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 719.6182039701705, "nearestWaterwayName": "Canoe Creek", "distanceFeetToMappedWater": 192.72480129520835, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "The Iowa DNR Paddling Access Sites layer provides a current named paddling-access point (OBJECTID 38117 / WA-163), and the Upper Iowa guide places Canoe Creek Access in the same route reach. The stored point was 619 feet from the official DNR access point and warranted correction."
+}

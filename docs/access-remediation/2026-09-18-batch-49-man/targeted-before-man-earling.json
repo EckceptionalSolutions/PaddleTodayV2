@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:47:43.310Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-guyandotte-man-earling",
+      "routeName": "Guyandotte River",
+      "reach": "Man public access to Earling public access",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Man public access",
+      "latitude": 37.731,
+      "longitude": -81.875,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 375.96888197719136,
+      "nearestMatchedLatitude": 37.73037551702161,
+      "nearestMatchedLongitude": -81.87396343752297,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 375.96996586866686,
+      "nearestWaterwayLatitude": 37.73037355127822,
+      "nearestWaterwayLongitude": -81.87396533079654,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 282.2037467433619,
+      "nearestWaterbodyLatitude": 37.73075737334537,
+      "nearestWaterbodyLongitude": -81.87407128640191,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 282.2037467433619,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 376 ft of a topology-connected NHD river trace that includes Guyandotte River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "wv-guyandotte-man-earling",
+      "routeName": "Guyandotte River",
+      "reach": "Man public access to Earling public access",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Earling public access",
+      "latitude": 37.766,
+      "longitude": -81.917,
+      "matchedRiverName": "Guyandotte River",
+      "distanceFeetToMatchedRiver": 202.75137019866912,
+      "nearestMatchedLatitude": 37.76568022635445,
+      "nearestMatchedLongitude": -81.9175750019627,
+      "nearestWaterwayName": "Guyandotte River",
+      "distanceFeetToNearestWaterway": 202.75137019866912,
+      "nearestWaterwayLatitude": 37.76568022635445,
+      "nearestWaterwayLongitude": -81.9175750019627,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 84.80393177052247,
+      "nearestWaterbodyLatitude": 37.76584916757624,
+      "nearestWaterbodyLongitude": -81.91722374780602,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 84.80393177052247,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 85 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

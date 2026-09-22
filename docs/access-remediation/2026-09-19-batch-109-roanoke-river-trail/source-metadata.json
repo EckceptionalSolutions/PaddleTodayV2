@@ -1,0 +1,23 @@
+{
+  "batch": "B109",
+  "endpoint": "Blue Ridge Parkway Roanoke River Trail public access",
+  "routeId": "roanoke-river-niagara-explore-park",
+  "sources": [
+    {
+      "url": "https://www.roanokeriverblueway.org/access-points/",
+      "publisher": "Roanoke River Blueway",
+      "supports": "Publishes Blue Ridge Parkway Roanoke River Trail access at latitude 37.253125, longitude -79.871598 (Mile Post 114.9), river-right shoreline access, a steep 0.5-mile natural-surface trail and steps from parking, and minimum recommended streamflow."
+    },
+    {
+      "url": "https://www.nps.gov/thingstodo/roanoke-river-trail.htm",
+      "publisher": "National Park Service, Blue Ridge Parkway",
+      "supports": "Confirms the Roanoke River Trail begins at the Roanoke River Overlook at Milepost 114.9 and descends toward the river, including Fisherman's Trail."
+    },
+    {
+      "url": "https://www.nps.gov/blri/planyourvisit/roadclosures.htm?lv=true",
+      "publisher": "National Park Service, Blue Ridge Parkway",
+      "supports": "Provides current Parkway road-status guidance for the MP 112.4-115 segment serving the Roanoke River access."
+    }
+  ],
+  "sourceAssessment": "The Roanoke River Blueway supplies the exact named access coordinate and access description; NPS independently corroborates the trail-to-river connection and Parkway location. Retain the point as a conditional shoreline-access anchor."
+}

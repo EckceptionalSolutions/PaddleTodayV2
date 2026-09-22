@@ -1,0 +1,87 @@
+{
+  "retrievedOn": "2026-09-17",
+  "sources": [
+    {
+      "title": "Loup River Water Trail",
+      "url": "https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/",
+      "publisher": "Nebraskaland Magazine / Nebraska Game and Parks Commission",
+      "supports": "Confirms that an existing fishing access on George D. Syas WMA is used as the upstream trail starting point; distinguishes it from the newly built Monroe access. Provides no launch coordinate or exact parking/carry location."
+    },
+    {
+      "title": "Float your boat – Community collaboration powers Loup River Water Trail creation",
+      "url": "https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617",
+      "publisher": "City of Columbus, Nebraska",
+      "supports": "Confirms the WMA fishing access and describes directions to the Monroe access. The directions do not locate the WMA launch."
+    },
+    {
+      "title": "Water Trails",
+      "url": "https://outdoornebraska.gov/parks/explore-trails/water-trails/",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "Current official source for Nebraska water-trail planners and access maps."
+    },
+    {
+      "title": "Loup River Water Trail guide",
+      "url": "https://outdoornebraska.gov/wp-content/uploads/2023/05/Loup-River-Trail-Guide-.pdf",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "Official trip planner gives a coordinate for the Monroe-to-Columbus segment and identifies the Syas WMA fishing access as an upstream point, but does not give a coordinate for that access."
+    },
+    {
+      "title": "2026-27 Public Access Atlas, site index",
+      "url": "https://digital.outdoornebraska.gov/i/1546125-2026-27-public-access-atlas/119",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "Confirms George D. Syas WMA as a public-access property and provides its map-sheet reference; the reviewed index does not publish a launch coordinate."
+    },
+    {
+      "title": "2026-27 Public Access Atlas, map sheet 36 NE",
+      "url": "https://digital.outdoornebraska.gov/i/1546125-2026-27-public-access-atlas/86",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "Locates George D. Syas WMA on the current atlas map but does not label or publish a specific river-entry feature coordinate."
+    },
+    {
+      "title": "NGPC Water Trails interactive map",
+      "url": "https://gismaps.outdoornebraska.gov/ngpc_trails/",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "Official map page linked from NGPC's Water Trails planning page. Its web-map configuration identifies the Paddle Craft Access - Paddlecraft Launch operational feature layer."
+    },
+    {
+      "title": "Paddlecraft Launch feature, George D. Syas WMA (OBJECTID 97)",
+      "url": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1/query?objectIds=97&outFields=%2A&returnGeometry=true&f=json",
+      "publisher": "Nebraska Game and Parks Commission",
+      "featureId": "b88540d4-96d4-4d74-9fed-473304b6e2f7",
+      "attributes": {
+        "Paddle_Waterbody": "Loup River",
+        "Paddle_AreaName": "George D. Syas WMA",
+        "ShoreLaunch": "Yes",
+        "Paddle_Lat": 41.42442894,
+        "Paddle_Long": -97.6963078,
+        "Paddle_Owner": "NGPC WMA",
+        "Paddle_Maintainer": "NGPC WMA",
+        "AccessType": "Non-designated Ramp (not maintained)",
+        "Ramp_Status": "Open",
+        "Ramp_Status_EditDate": "2025-11-19T22:23:13Z",
+        "SiteNotes": "Long walking path to get to launch site."
+      },
+      "supports": "Official water-entry feature for the named WMA. Coordinate comes from the feature's latitude/longitude fields, not the WMA polygon or a map viewport. Treat 100 ft as coordinate uncertainty and verify the long walking path and current status on site."
+    },
+    {
+      "title": "Public Access Boat Ramps",
+      "url": "https://www.arcgis.com/home/item.html?id=590ac9dd7c0946c5b42b6f9a5046eb93",
+      "publisher": "Nebraska Game and Parks Commission",
+      "supports": "NGPC staff describe this as a reference inventory of public boat ramps, updated April 28, 2026, and explicitly state that it is not comprehensive."
+    },
+    {
+      "title": "Public Access Boat Ramps feature service, layer 0",
+      "url": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Boating_App_Web_Layers_Boat_Ramps_OPEN_DATA_PORTAL/FeatureServer/0/query",
+      "publisher": "Nebraska Game and Parks Commission",
+      "query": "where=rAreaName LIKE '%Syas%'&outFields=*&returnGeometry=true&f=json",
+      "result": "No matching feature returned. This official dataset was updated April 28, 2026 but explicitly says its inventory is not comprehensive; absence is corroborative only and does not establish that no fishing access exists.",
+      "supports": "A current exact-name query found no published boat-ramp feature or point for Syas WMA."
+    },
+    {
+      "title": "Local official map-control record",
+      "url": "../../../../src/data/route-access-official-map-controls.json",
+      "publisher": "Repository-reviewed official GIS evidence",
+      "supports": "Records the stored coordinate as the WMA polygon's representative/label point and explicitly excludes interpreting it as a launch, parking, or water-entry coordinate."
+    }
+  ]
+}

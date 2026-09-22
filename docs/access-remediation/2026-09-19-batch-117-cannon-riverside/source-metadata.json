@@ -1,0 +1,23 @@
+{
+  "batch": "B117",
+  "endpoint": "Riverside Park canoe launch (Cannon Falls)",
+  "routeId": "cannon-river-welch",
+  "sources": [
+    {
+      "url": "https://www.cannonfallsmn.gov/1285/Riverside-Park",
+      "publisher": "City of Cannon Falls",
+      "supports": "Confirms Riverside Park on Highway 20 North has a canoe launch point onto the Cannon River."
+    },
+    {
+      "url": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+      "publisher": "Minnesota Department of Natural Resources",
+      "supports": "Identifies Riverside City Park carry-in access at Cannon River mile 25.5."
+    },
+    {
+      "url": "https://files.dnr.state.mn.us/maps/water_access/counties/tcwr_ada.pdf",
+      "publisher": "Minnesota Department of Natural Resources",
+      "supports": "Lists Cannon River Riverside Park public water access in Cannon Falls."
+    }
+  ],
+  "sourceAssessment": "City and state records independently document the public canoe/carry-in access. Retain the stored point as a conditional park/launch-area anchor."
+}

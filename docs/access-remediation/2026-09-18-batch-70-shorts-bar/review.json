@@ -1,0 +1,43 @@
+{
+  "batch": 70,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Shorts Bar Recreation Site, Lower Salmon River, Idaho",
+  "affectedRoutes": [
+    "lower-salmon-island-bar-shorts-bar",
+    "lower-salmon-shorts-bar-lucile",
+    "salmon-river-carey-creek-riggins"
+  ],
+  "decision": "retain-the-stored-coordinate-and-classify-the-shared-site-as-review-using-the-current-official-BLM-site-coordinate",
+  "decisionScope": "BLM publishes the exact stored coordinate (to rounding) and describes Shorts Bar as a frequent Lower Salmon put-in with easy river access. Its official boater guide lists a boat ramp, campsites, and toilets. The access site identity and access area are verified; the wet-toe coordinate is not separately surveyed. The shared Island Bar control also received a Salmon River / Lower Salmon River name alias so both BLM recreation anchors are recognized on the Lower Salmon route records.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 45.411944,
+      "longitude": -116.302222
+    },
+    "publicOccurrences": 3,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 584,
+    "mappedWaterDistanceFeet": 287,
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 45.411944,
+      "longitude": -116.302222
+    },
+    "to": {
+      "latitude": 45.411944,
+      "longitude": -116.302222
+    },
+    "movedFeet": 0,
+    "publicOccurrences": 3,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "id_blm_shorts_bar_recreation_site_20260918",
+    "rationale": "BLM current recreation-site coordinates match the route point; added official site control and river-name alias. The one suspicious Shorts Bar occurrence now reviews as an authoritative access-area anchor. The two river-site anchors on the Island Bar-to-Shorts Bar route now also resolve to review."
+  },
+  "remainingUncertainty": "The BLM site marker is an access-area coordinate rather than a surveyed wet toe. Two targeted route reports have one unrelated/incomplete NHD source query each. On the Carey Creek-to-Riggins route, a separate access point remains suspicious at 427 ft from its matched flowline and needs independent evidence review.",
+  "outcome": "The selected suspicious Shorts Bar occurrence moved to review with no coordinate move. Three Shorts Bar route occurrences match the BLM location; the related Island Bar endpoint also now matches an official control."
+}

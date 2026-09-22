@@ -632,9 +632,7 @@ export const routeCorridorDefinitions: RouteCorridorDefinition[] = [
     slugs: ['gunpowder-falls-masemore-monkton'],
     segmentEdges: [
       { fromId: 'gunpowder-masemore-road', toId: 'gunpowder-bunker-hill-road', status: 'verified' },
-      { fromId: 'gunpowder-bunker-hill-road', toId: 'gunpowder-york-road', status: 'verified' },
-      { fromId: 'gunpowder-york-road', toId: 'gunpowder-big-falls-road', status: 'verified' },
-      { fromId: 'gunpowder-big-falls-road', toId: 'gunpowder-blue-mount-road', status: 'verified' },
+      { fromId: 'gunpowder-bunker-hill-road', toId: 'gunpowder-blue-mount-road', status: 'verified' },
       { fromId: 'gunpowder-blue-mount-road', toId: 'gunpowder-monkton-road', status: 'verified' },
     ],
   },

@@ -1,0 +1,25 @@
+{
+  "batch": 69,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:01:43.483Z; 2,750 public routes, 6,058 endpoints, 56 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Missouri",
+    "name": "Highway 142 River Access / The Narrows, Eleven Point River",
+    "storedCoordinate": {
+      "latitude": 36.550194,
+      "longitude": -91.191532
+    },
+    "publicCoordinateOccurrences": 4,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "eleven-point-river-cane-bluff-narrows",
+      "eleven-point-river-turner-mill-south-narrows",
+      "eleven-point-river-riverton-narrows",
+      "eleven-point-river-whitten-narrows"
+    ],
+    "preReviewFinding": "The selected Cane Bluff-to-Narrows take-out is about 308 feet from its matched Eleven Point River flowline and 218 feet from mapped water; its NHD coverage is incomplete. Three other public routes share the exact coordinate, audit as review, and are about 271 feet from the matched flowline with complete coverage.",
+    "decision": "inspect-the-incomplete-hydrography-query-and-official-access-evidence-before-changing-the-four-route-shared-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

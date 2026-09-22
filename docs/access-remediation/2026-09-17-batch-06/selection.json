@@ -1,0 +1,647 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites in the cached access-quality queue with at least one route outside the current generated withholding manifest; exclude all sites frozen in batches 01-05 by matching name/location or a 250-foot same-feature tolerance; preserve original queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The full audit is stale and cannot be regenerated because @paddletoday/geo is missing. Cached ranks prioritize research only; current source checks and the generated withholding manifest were rechecked before freezing."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "priorFrozenSiteCount": 50,
+  "currentWithheldRouteCount": 97,
+  "skippedBeforeSelection": 76,
+  "sites": [
+    {
+      "rank": 75,
+      "state": "Maryland",
+      "name": "Milburn Landing Area public boat ramp and kayak launch",
+      "latitude": 38.126901,
+      "longitude": -75.490733,
+      "distanceFeetToMappedWater": 660.4603547491379,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pocomoke-river-mattaponi-milburn",
+          "endpoint": "takeOut",
+          "endpointName": "Milburn Landing Area public boat ramp and kayak launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "pocomoke-river-shad-milburn",
+          "endpoint": "takeOut",
+          "endpointName": "Milburn Landing Area public boat ramp and kayak launch",
+          "severity": "review"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "pocomoke-river-mattaponi-milburn",
+          "endpoint": "takeOut",
+          "endpointName": "Milburn Landing Area public boat ramp and kayak launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "pocomoke-river-shad-milburn",
+          "endpoint": "takeOut",
+          "endpointName": "Milburn Landing Area public boat ramp and kayak launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 76,
+      "state": "Idaho",
+      "name": "45 Ranch access area",
+      "latitude": 42.172667,
+      "longitude": -116.8734574,
+      "distanceFeetToMappedWater": 653.9427313402635,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-owyhee-yp-east-fork",
+          "endpoint": "accessPoint",
+          "endpointName": "45 Ranch access area",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "south-fork-owyhee-yp-east-fork",
+          "endpoint": "accessPoint",
+          "endpointName": "45 Ranch access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 78,
+      "state": "Louisiana",
+      "name": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+      "latitude": 30.2138303,
+      "longitude": -91.8309846,
+      "distanceFeetToMappedWater": 652.1420326590128,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-loreauville",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-st-martinville",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-loreauville",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-st-martinville",
+          "endpoint": "putIn",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-parks",
+          "endpoint": "takeOut",
+          "endpointName": "Parks Cecil Poche Memorial Park dock (1019 Periou St)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 80,
+      "state": "Rhode Island",
+      "name": "Cricket Park / Greystone Mill Pond launch",
+      "latitude": 41.8691,
+      "longitude": -71.5004,
+      "distanceFeetToMappedWater": 647.0702530651405,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-cricket-manton",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "woonasquatucket-river-cricket-manton",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-cricket-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-cricket",
+          "endpoint": "takeOut",
+          "endpointName": "Cricket Park / Greystone Mill Pond launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "rank": 81,
+      "state": "Iowa",
+      "name": "River Valley Park access, Ames",
+      "latitude": 42.03535,
+      "longitude": -93.59895,
+      "distanceFeetToMappedWater": 646.3177136391515,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-ames-13th-street",
+          "endpoint": "putIn",
+          "endpointName": "River Valley Park / 13th Street play feature",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "south-skunk-river-ames-13th-street",
+          "endpoint": "takeOut",
+          "endpointName": "River Valley Park / walk-back access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "south-skunk-river-river-valley-cj-shreck",
+          "endpoint": "putIn",
+          "endpointName": "River Valley Park access, Ames",
+          "severity": "review"
+        },
+        {
+          "routeId": "south-skunk-river-sleepy-hollow-river-valley",
+          "endpoint": "takeOut",
+          "endpointName": "River Valley Park access, Ames",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "south-skunk-river-ames-13th-street",
+          "endpoint": "putIn",
+          "endpointName": "River Valley Park / 13th Street play feature",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "south-skunk-river-ames-13th-street",
+          "endpoint": "takeOut",
+          "endpointName": "River Valley Park / walk-back access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "south-skunk-river-river-valley-cj-shreck",
+          "endpoint": "putIn",
+          "endpointName": "River Valley Park access, Ames",
+          "severity": "review"
+        },
+        {
+          "routeId": "south-skunk-river-sleepy-hollow-river-valley",
+          "endpoint": "takeOut",
+          "endpointName": "River Valley Park access, Ames",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 82,
+      "state": "Iowa",
+      "name": "Massillon Area / Massillon Park",
+      "latitude": 41.915409,
+      "longitude": -90.920611,
+      "distanceFeetToMappedWater": 646.0430656718308,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wapsipinicon-river-oxford-mills-syracuse",
+          "endpoint": "accessPoint",
+          "endpointName": "Massillon Area / Massillon Park",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "wapsipinicon-river-oxford-mills-syracuse",
+          "endpoint": "accessPoint",
+          "endpointName": "Massillon Area / Massillon Park",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 83,
+      "state": "Arizona",
+      "name": "Sheep Crossing RAP water-entry edge",
+      "latitude": 34.674,
+      "longitude": -111.9412,
+      "distanceFeetToMappedWater": 644.6669470305822,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-89a-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-bignotti-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-black-canyon-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-crossing-newton",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-tuzigoot-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "verde-river-89a-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-bignotti-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-black-canyon-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-crossing-newton",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-tuzigoot-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP water-entry edge",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 84,
+      "state": "New Hampshire",
+      "name": "Cooks Crossing access (water-entry edge)",
+      "latitude": 44.08979,
+      "longitude": -71.20563,
+      "distanceFeetToMappedWater": 642.9294737051542,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saco-river-bartlett-cooks-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-davis-park",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-first-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-smith-eastman",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "saco-river-bartlett-cooks-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-davis-park",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-first-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-smith-eastman",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing access (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 85,
+      "state": "Pennsylvania",
+      "name": "New Bethlehem kayak launch below the dam",
+      "latitude": 41.0024,
+      "longitude": -79.3322,
+      "distanceFeetToMappedWater": 639.6593307143046,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "endpoint": "putIn",
+          "endpointName": "New Bethlehem kayak launch below the dam",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "endpoint": "putIn",
+          "endpointName": "New Bethlehem kayak launch below the dam",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 86,
+      "state": "Arkansas",
+      "name": "Ozark Campground / river access",
+      "latitude": 36.062132,
+      "longitude": -93.159724,
+      "distanceFeetToMappedWater": 630.0426804952955,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-erbie-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-kyles-landing-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-hasty",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-pruitt",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "buffalo-river-erbie-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-kyles-landing-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-hasty",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-pruitt",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-pruitt",
+          "endpoint": "accessPoint",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground / river access",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ]
+}

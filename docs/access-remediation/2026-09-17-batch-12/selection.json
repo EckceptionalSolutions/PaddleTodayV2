@@ -1,0 +1,271 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue starting at rank 141 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-11; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "priorFrozenSiteCount": 110,
+  "currentWithheldRouteCount": 147,
+  "queueStartRank": 141,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "Washington",
+      "name": "Copper Creek Boat Access, NPS Road 213",
+      "latitude": 48.5910748909,
+      "longitude": -121.3779020782,
+      "distanceFeetToMappedWater": 468.7439905257888,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "skagit-river-copper-howard-miller",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skagit-river-copper-marblemount",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skagit-river-goodell-copper",
+          "endpoint": "takeOut",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 141,
+      "eligibleUnwithheldRoutes": [
+        "skagit-river-copper-howard-miller",
+        "skagit-river-copper-marblemount",
+        "skagit-river-goodell-copper"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Noblewood Park Boquet mouth cartop launch",
+      "latitude": 44.3523,
+      "longitude": -73.359958,
+      "distanceFeetToMappedWater": 468.06661547828423,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boquet-river-willsboro-noblewood",
+          "endpoint": "takeOut",
+          "endpointName": "Noblewood Park Boquet mouth cartop launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 142,
+      "eligibleUnwithheldRoutes": [
+        "boquet-river-willsboro-noblewood"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Sevey Hand Launch",
+      "latitude": 44.3071,
+      "longitude": -74.7059,
+      "distanceFeetToMappedWater": 466.7971350185633,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Sevey Hand Launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 143,
+      "eligibleUnwithheldRoutes": [
+        "raquette-river-piercefield-parmenter"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Turtle Creek Greenway Trail / Milwaukee Road",
+      "latitude": 42.5129469,
+      "longitude": -89.0094751,
+      "distanceFeetToMappedWater": 463.3472312310551,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "turtle-creek-town-of-turtle-milwaukee-road",
+          "endpoint": "takeOut",
+          "endpointName": "Turtle Creek Greenway Trail / Milwaukee Road",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 144,
+      "eligibleUnwithheldRoutes": [
+        "turtle-creek-town-of-turtle-milwaukee-road"
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Historic Bridge Park public kayak launch",
+      "latitude": 42.29236,
+      "longitude": -85.11431,
+      "distanceFeetToMappedWater": 462.76915151563435,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kalamazoo-river-ceresco-historic-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Historic Bridge Park public kayak launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 145,
+      "eligibleUnwithheldRoutes": [
+        "kalamazoo-river-ceresco-historic-bridge"
+      ]
+    },
+    {
+      "state": "North Carolina",
+      "name": "Hammocks Beach State Park designated paddle access",
+      "latitude": 34.671,
+      "longitude": -77.1429,
+      "distanceFeetToMappedWater": 461.2561742348116,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "putIn",
+          "endpointName": "Hammocks Beach State Park designated paddle access",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Hammocks Beach State Park designated paddle access",
+          "severity": "unknown"
+        }
+      ],
+      "rank": 146,
+      "eligibleUnwithheldRoutes": [
+        "hammocks-beach-huggins-island-loop"
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "Dry Canyon boater take-out (BLM public water-entry edge)",
+      "latitude": 32.8922,
+      "longitude": -109.4921,
+      "distanceFeetToMappedWater": 459.8137917575366,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gila-river-old-safford-dry-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Dry Canyon boater take-out (BLM public water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 147,
+      "eligibleUnwithheldRoutes": [
+        "gila-river-old-safford-dry-canyon"
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Riverside Kayak Park public dock and carry-in access",
+      "latitude": 42.186122,
+      "longitude": -86.373262,
+      "distanceFeetToMappedWater": 455.8514585204221,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "paw-paw-river-riverside-graham-avenue",
+          "endpoint": "putIn",
+          "endpointName": "Riverside Kayak Park public dock and carry-in access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 148,
+      "eligibleUnwithheldRoutes": [
+        "paw-paw-river-riverside-graham-avenue"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Mongaup River / Upper Delaware public access near Route 97",
+      "latitude": 41.425313,
+      "longitude": -74.757813,
+      "distanceFeetToMappedWater": 454.0937631701415,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mongaup-river-rio-powerhouse-delaware",
+          "endpoint": "takeOut",
+          "endpointName": "Mongaup River / Upper Delaware public access near Route 97",
+          "severity": "review"
+        }
+      ],
+      "rank": 149,
+      "eligibleUnwithheldRoutes": [
+        "mongaup-river-rio-powerhouse-delaware"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Longfellow Lagoon",
+      "latitude": 44.961125473,
+      "longitude": -93.215049079,
+      "distanceFeetToMappedWater": 451.0066069895504,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+          "endpoint": "takeOut",
+          "endpointName": "Longfellow Lagoon",
+          "severity": "review"
+        }
+      ],
+      "rank": 150,
+      "eligibleUnwithheldRoutes": [
+        "minnehaha-creek-grays-bay-longfellow-lagoon"
+      ]
+    }
+  ]
+}

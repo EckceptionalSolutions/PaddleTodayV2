@@ -1192,7 +1192,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
   "san-marcos-river-city-park-smrr": {
     "putIn": {
       "id": "san-marcos-city-park-access",
-      "name": "City Park",
+      "name": "San Marcos City Park river access area",
       "latitude": 29.8859203,
       "longitude": -97.9344384
     },
@@ -1228,12 +1228,12 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "accessPoints": [
       {
         "id": "san-marcos-city-park-access",
-        "name": "City Park",
+        "name": "San Marcos City Park river access area",
         "latitude": 29.8859203,
         "longitude": -97.9344384,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Public City of San Marcos river access and default put-in."
+        "note": "Public City of San Marcos river access. This coordinate is a park/access-area anchor, not a surveyed water-entry point; follow current city parking and carry rules."
       },
       {
         "id": "westerfield-crossing-cr101",
@@ -1388,7 +1388,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch from Texas River School River Camp and paddle five lower-Colorado miles to FM 973 / Del Valle Bridge. Use the Colorado River at Austin gauge with a conservative 200 cfs floor, then make a same-day call on reservation access, release changes, heat, wind, shallow bars, the FM 973 carry, and private banks.",
       "accessCaveats": [
         "TPWD publishes Texas River School as an active leased-access river camp with a source-backed access anchor. Follow the current gate-code, parking, unloading, fee, and designated-area rules rather than treating the coordinate as a guessed water-entry point.",
-        "TPWD states that River Camp is five miles upriver from the Hwy 973 take-out. LCRA publishes FM 973 / Del Valle Bridge as a TxDOT-managed access, but its coordinates are rounded access anchors; follow the current open route from the bridge area to the water on arrival.",
+        "TPWD states that River Camp is five miles upriver from the Hwy 973 take-out. LCRA's map marker 17275 locates the TxDOT-managed FM 973 access area; it is not the wet toe, so follow the current open route from the bridge area to the water on arrival.",
         "The Austin gauge is upstream of this selected reach and the threshold floor is broad Austin-to-Bastrop guidance. Treat the app score as conservative and verify visible level and current at Texas River School before launching.",
         "This route starts at Texas River School, downstream of the urban upstream access sequence where LCRA warns of a low-head dam between US 183 and FM 973. Do not extend the trip upstream without a separate dam-portage plan.",
         "Do not infer camping or casual private-bank stops from the short rural shoreline, mid-river bars, or islands. Only the Texas River School endpoint campground is included in the route package."
@@ -1418,7 +1418,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -97.6382568,
         "mileFromStart": 5,
         "segmentKind": "creek",
-        "note": "Default downstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before committing."
+        "note": "Default downstream LCRA map-marker access anchor (marker 17275); scout limited roadside parking and the uneven carry before committing. This point locates the access area, not the wet toe."
       }
     ]
   },
@@ -1523,7 +1523,7 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -97.6382568,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default upstream LCRA-listed TxDOT bridge access anchor; scout limited parking and the uneven carry before unloading."
+        "note": "Default upstream LCRA map-marker access anchor (marker 17275); scout limited roadside parking and the uneven carry before unloading. This point locates the access area, not the wet toe."
       },
       {
         "id": "little-webberville-park-boat-ramp",

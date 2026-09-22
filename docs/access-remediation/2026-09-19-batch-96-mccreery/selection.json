@@ -1,0 +1,13 @@
+{
+  "batch": "B96",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-new-mccreery-stone-cliff",
+  "routeName": "New River",
+  "reach": "McCreery River Access to Stone Cliff",
+  "state": "West Virginia",
+  "endpoint": "putIn",
+  "endpointName": "McCreery River Access",
+  "storedCoordinate": { "latitude": 37.848591, "longitude": -81.092046 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 521.5549512900536, "nearestWaterwayName": "Piney Creek", "distanceFeetToMappedWater": 238.414581098, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "NPS current New River Gorge guidance explicitly lists McCreery among public New River access points near Prince, and NPS public assembly material identifies a McCreery River Access site. The route source already pairs this point with the documented Stone Cliff access. Retain the stored McCreery point as a conditional access-area anchor; the 522-foot flowline offset is consistent with the gorge road/parking facility and should not be corrected by moving the point into the channel."
+}

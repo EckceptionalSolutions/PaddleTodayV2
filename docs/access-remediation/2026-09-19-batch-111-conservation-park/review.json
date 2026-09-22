@@ -1,0 +1,42 @@
+{
+  "batch": "B111",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "portage-river-north-fisher-three-rivers",
+  "endpoint": "takeOut",
+  "endpointName": "Conservation Park public boat launch, Three Rivers",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 362.60966567280076,
+    "distanceFeetToMappedWater": 277.1363914964613
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 362.60966567280076,
+    "distanceFeetToMappedWater": 277.1363914964613,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "The City of Three Rivers and Portage River Heritage Water Trail document Conservation Park as a public boat launch. Retain the stored point as the conditional launch-area anchor; the 363-foot connected-network offset reflects the confluence and park/launch footprint.",
+  "condition": "Confirm current City of Three Rivers park hours, launch condition, river level, parking, and any local or seasonal restrictions before use.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 14,
+      "suspiciousAfter": 13,
+      "reviewBefore": 3923,
+      "reviewAfter": 3924
+    },
+    "inventory": {
+      "suspiciousBefore": 67,
+      "suspiciousAfter": 66,
+      "reviewBefore": 4227,
+      "reviewAfter": 4228
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1253,
+      "authoritativeAccessAfter": 1254,
+      "conflictsAfter": 0
+    }
+  }
+}

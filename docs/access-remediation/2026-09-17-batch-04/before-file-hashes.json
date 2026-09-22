@@ -1,0 +1,52 @@
+[
+  {
+    "path": "src/data/routes/new-york.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__routes__new-york.ts",
+    "sha256": "B0A95CAAEC7084F21EEAD11A8D26DD919092929CD9956E4D342F84818290E8D3"
+  },
+  {
+    "path": "src/data/routes/iowa.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__routes__iowa.ts",
+    "sha256": "36AFE4CA23B4E05C4C7FF0F586AFC3B627817147A95B3A978E47E11B1A3E90B0"
+  },
+  {
+    "path": "src/data/trip-details/iowa.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__trip-details__iowa.ts",
+    "sha256": "B9B3B232282B8853CA53C69B14061C2FD33757D9EDD088F8B9C4321F47511ED3"
+  },
+  {
+    "path": "src/data/routes/pennsylvania.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__routes__pennsylvania.ts",
+    "sha256": "D0F530C845ED6B82FCD49BF8A2B3C0D0AD31069C516C344B8018F3E51DB3FBC9"
+  },
+  {
+    "path": "src/data/trip-details/pennsylvania.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__trip-details__pennsylvania.ts",
+    "sha256": "3D8EE6BDD6B07CF9B45864B23711444F0C552D9B3C809D4888A0EF9570086FBB"
+  },
+  {
+    "path": "src/data/trip-details/wisconsin.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__trip-details__wisconsin.ts",
+    "sha256": "BE720364E44B1897D31D448DB107823F8A1E83A9ADB6AA712E06797BEFF7B83C"
+  },
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__route-access-official-map-controls.json",
+    "sha256": "29410B0AC1798B96E5BCEFE7C539A261083E216FF15755542F64F1A5A023097B"
+  },
+  {
+    "path": "src/data/route-access-review-holds.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__route-access-review-holds.ts",
+    "sha256": "AF1690AEDDC31A5DEA58EBCE13855F973FB3B816F629CD1380A460EEFA2CF10D"
+  },
+  {
+    "path": "src/data/generated/withheld-route-slugs.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__generated__withheld-route-slugs.ts",
+    "sha256": "EAF872C4544C5C73C71EAA2974A6F869AA7B39D1684EABCFAEA0EDDE2CF29DCB"
+  },
+  {
+    "path": "src/data/routes/wisconsin.ts",
+    "backup": "node_modules\\.cache\\access-batch-04\\before-source\\src__data__routes__wisconsin.ts",
+    "sha256": "6F26965F40477D2F3736AA279640750D703135912FE15DE376533621BEE8C886"
+  }
+]

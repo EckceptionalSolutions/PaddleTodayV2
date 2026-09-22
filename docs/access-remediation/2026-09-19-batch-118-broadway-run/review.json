@@ -1,0 +1,42 @@
+{
+  "batch": "B118",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "big-wood-river-rotary-broadway",
+  "endpoint": "takeOut",
+  "endpointName": "Broadway Run Road Take-Out",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 332.3261508434727,
+    "distanceFeetToMappedWater": 296.51487906547504
+  },
+  "after": {
+    "severity": "review",
+    "distanceFeetToMatchedRiver": 332.3261508434727,
+    "distanceFeetToMappedWater": 296.51487906547504,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": "authoritative-access-anchor"
+  },
+  "rationale": "Blaine County and American Whitewater document Broadway Run as public Big Wood River access and the route take-out. Retain the stored point as a conditional access-area anchor; the 332-foot connected-network offset reflects the access corridor and shoreline footprint.",
+  "condition": "Confirm current Blaine County access status, parking, carry path, river level, and any seasonal or local restrictions before taking out.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 7,
+      "suspiciousAfter": 6,
+      "reviewBefore": 3926,
+      "reviewAfter": 3927
+    },
+    "inventory": {
+      "suspiciousBefore": 62,
+      "suspiciousAfter": 62,
+      "reviewBefore": 4232,
+      "reviewAfter": 4232
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1258,
+      "authoritativeAccessAfter": 1259,
+      "conflictsAfter": 0
+    }
+  }
+}

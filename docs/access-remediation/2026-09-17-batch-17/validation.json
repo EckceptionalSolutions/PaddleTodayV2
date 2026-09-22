@@ -1,0 +1,48 @@
+{
+  "batch": "2026-09-17-batch-17",
+  "validatedOn": "2026-09-17",
+  "sourceWorktreeOnly": true,
+  "batchVerifier": {
+    "status": "passed",
+    "command": "node docs/access-remediation/2026-09-17-batch-17/verify.mjs",
+    "result": "Frozen ten ranks, DNR GIS feature and coordinate propagation through seven coordinate pairs, nine added controls, one access-role correction, source/backup hashes, unchanged 152-route withholding manifest, and TypeScript syntax verified."
+  },
+  "sourceLineCheck": {
+    "status": "passed",
+    "command": "git -c core.whitespace=cr-at-eol diff --check -- docs/access-remediation/2026-09-17-batch-17 src/data/routes/minnesota.ts src/data/trip-details/minnesota.ts src/data/routes/new-york.ts src/data/route-access-official-map-controls.json",
+    "result": "No whitespace errors after accounting for existing CRLF files."
+  },
+  "typescriptSyntax": {
+    "status": "passed",
+    "result": "The batch verifier used TypeScript transpileModule on the changed Minnesota route data, Minnesota trip details, and New York route data; no syntax diagnostics were reported."
+  },
+  "withholdingManifest": {
+    "status": "unchanged-no-new-holds",
+    "result": "No dependent route was newly held; the existing manifest remains 152 unique sorted slugs. The existing Winooski Jonesville-to-Floodplain hold remains present."
+  },
+  "routeDataTypecheck": {
+    "status": "blocked",
+    "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json --pretty false",
+    "result": "TypeScript cannot resolve the workspace package @paddletoday/api-contract; thousands of cascading route-type errors follow, so route-level type correctness is not established."
+  },
+  "focusedAccessTests": {
+    "status": "blocked",
+    "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+    "result": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from the installed magic-string dependency."
+  },
+  "freshAccessAudit": {
+    "status": "blocked",
+    "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-17/fresh-access-quality-audit.json --cache-only",
+    "result": "The audit cannot import @paddletoday/geo. The cached access-quality report was not replaced, and the requested output file was not produced."
+  },
+  "changedRouteGeometry": {
+    "status": "blocked",
+    "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id sauk-river-eagle-miller-landing",
+    "result": "Geometry generation cannot import @paddletoday/geo. No public route geometry was regenerated for the five Miller Landing routes."
+  },
+  "registryAndCatalogAssembly": {
+    "status": "not-run",
+    "result": "Deferred because the full access audit and changed public route geometries are unavailable. Generated route geometry, served catalog, state bundles, and access registry remain stale relative to the corrected source data; do not treat them as refreshed or release these source changes until dependencies return and the checks pass."
+  },
+  "dependencyNote": "The missing workspace packages and test dependency were not reconstructed or replaced. A previous install attempt in batch 15 failed because the configured private @paddletoday/api-client package returned HTTP 404; no repeat install was attempted."
+}

@@ -1,0 +1,46 @@
+{
+  "batch": 54,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "American Whitewater North Fork Clearwater access chain",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/543/main",
+      "sourceClass": "paddling-access authority",
+      "observations": [
+        "Names Washington Creek Campground Access at Forest Road 247 mile 42.7.",
+        "Places access on the upstream river-right side of the bridge to Washington Creek Campground.",
+        "Identifies the site as the take-out for Weitas Campground to Washington Creek and the put-in for Washington Creek to Quartz Creek."
+      ],
+      "limits": "Describes the bridge-side access but does not publish a georeferenced landing toe or carry path."
+    },
+    {
+      "name": "USDA Forest Service Recreation Opportunities record",
+      "url": "https://www.fs.usda.gov/recarea/nezperceclearwater/recarea/?recid=80046",
+      "layerUrl": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0",
+      "feature": { "OBJECTID": 11679, "RECAREAID": 80046, "name": "Washington Creek Campground", "officialPoint": { "latitude": 46.70187527, "longitude": -115.55594648 } },
+      "observations": [
+        "Identifies the campground as a Forest Service recreation facility on the North Fork Clearwater River.",
+        "Facility description reports river access along the full length of the campground."
+      ],
+      "limits": "The mapped Forest Service feature is a campground location roughly 900 feet south of the stored route point; it is not a launch point. The feature does not pinpoint the carry or landing toe."
+    },
+    {
+      "name": "Google Maps satellite imagery at stored point",
+      "url": "https://www.google.com/maps/place/46.70436,-115.55598/@46.70436,-115.55598,18z/data=!3m1!1e3",
+      "observations": [
+        "The coordinate falls in the campground/approach area on river right, inland from the North Fork Clearwater channel.",
+        "The visible treeline and facilities do not support a precise landing or carry coordinate."
+      ],
+      "limits": "Visual corroboration of general site context only; no coordinate was derived from the screenshot."
+    },
+    {
+      "name": "American Whitewater Lower Bungalow access warning",
+      "url": "https://www.northidahorivers.com/North_Fork_Clearwater.htm",
+      "observations": [
+        "Describes Washington Creek as a take-out camping access for the Bungalow section and distinguishes the adjacent Quartz Creek segment."
+      ],
+      "limits": "Secondary paddling source, used for route context rather than exact access georeferencing."
+    }
+  ],
+  "decision": "Retain the existing point as an access-site anchor; do not invent a waterline point or claim surveyed precision."
+}

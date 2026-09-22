@@ -1,0 +1,167 @@
+{
+  "reviewDate": "2026-09-17",
+  "retrievedAtUtc": "2026-09-17T14:43:16Z",
+  "retrievalMethod": "Direct HTTP snapshots from official managing agencies, municipalities, and the current state water-trail operator. The Iowa DNR GIS snapshot is the corrected JSON feature response; its original saved HTML response was rejected as invalid evidence and overwritten before the coordinate was used.",
+  "retrievals": [
+    {
+      "id": "stuyvesant-recreation-plan",
+      "url": "https://stuyvesantny.us/wp-content/uploads/2021/04/Rec-Plan-SF-Hydroelectric-Proj-4-3-21.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/stuyvesant-rec-plan-2021.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 2233974,
+      "sha256": "813E1E6C2315FE7766006F5D94365A514F919D0B0C2F33F2368C36281B0C95BB",
+      "supports": "2021 Town recreation plan: no formal public access within the hydroelectric project boundary; informal access is discussed at nearby named areas, not at the stored coordinate."
+    },
+    {
+      "id": "stuyvesant-adopted-plan",
+      "url": "https://stuyvesantny.us/wp-content/uploads/2025/10/ADOPTED-Comprehensive-Plan_FINAL-DRAFT_251007.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/stuyvesant-comprehensive-plan-2025.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 15081169,
+      "sha256": "27ACCB1185B30B9223E8799FAF30A3A9C0EFEA210D868D62021E992F771A180F",
+      "supports": "Adopted 2025 Town comprehensive plan: current town/park context, but no exact public water-entry coordinate at Stuyvesant Falls."
+    },
+    {
+      "id": "idaho-usbr-boise-feasibility",
+      "url": "https://www.usbr.gov/pn/studies/boisefeasibility/deis/deis.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/usbr-boise-deis.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 13413276,
+      "sha256": "4AC1AE6538D9B8F56D95BA4EBC686D9F4E513F374F073010054342BAE742C0ED",
+      "supports": "USBR feasibility DEIS identifies formal South Fork Boise launch sites including Tailwaters, Village, and Danskin; it does not publish a more precise GPS for the reviewed tailwaters anchor."
+    },
+    {
+      "id": "ny-catharine-map",
+      "url": "https://dec.ny.gov/sites/default/files/catharinecrkmap.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ny-catharine-creek-wma-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1232071,
+      "sha256": "265A50021465EAAB7670A1A85AA9E225CA118DF5F21486CD1C806753DA02E080",
+      "supports": "Official NYSDEC Catharine Creek WMA map showing launch, parking, and observation-tower access-area symbols."
+    },
+    {
+      "id": "ny-great-divide-plan",
+      "url": "https://dec.ny.gov/sites/default/files/2025-06/greatdivideump.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ny-great-divide-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 14784753,
+      "sha256": "4298946D4D166BA8D0C4BFBE0F0DB055F88D1A5E70337D6253B73462348BF6DB",
+      "supports": "NYSDEC Great Divide Unit plan naming the south-end and observation-tower cartop canoe/kayak launch areas."
+    },
+    {
+      "id": "ia-fertile-access",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D275&outFields=%2A&returnGeometry=true&outSR=4326&f=json",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ia-fertile-mill-access.json",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 20338,
+      "sha256": "608AE217A4426B591766443C9AB2F375F7B70DE62963BD310705BD39D9B45812",
+      "supports": "Live Iowa DNR statewide water-access FeatureServer response for object 275 / GlobalID ec2df35d-44b5-445b-94e9-e4415d41e108, retrieved with outSR=4326."
+    },
+    {
+      "id": "ia-fertile-parks",
+      "url": "https://fertileiowa.us/visitors/parks/",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ia-city-fertile-parks.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 48080,
+      "sha256": "E4EA60BF37252BF8847F86335967448C0EBABAFED2160D63A4AF5CD4826EC094",
+      "supports": "City of Fertile parks page identifying William Rhodes Island Park at the Fertile Dam."
+    },
+    {
+      "id": "md-conococheague",
+      "url": "https://dnr.maryland.gov/fisheries/Pages/hotspots/conococheague.aspx",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/md-conococheague-dnr.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 67803,
+      "sha256": "1E97215CF4C8DD2C85E852C9BD07EEB36F049F6D197FF0443FD8043E11AA617D",
+      "supports": "Maryland DNR Conococheague page identifying public walk-in access at Kemps Mill Park."
+    },
+    {
+      "id": "md-kemps-mill",
+      "url": "https://www.washco-md.net/parks-facilities/county-park/parks-kemps-mill/",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/md-kemps-mill-park.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 149685,
+      "sha256": "54668126F3B9B1315EE83EDE976E9D2DAF904D2CCEA7C81B052CCB4FCC3C8836",
+      "supports": "Washington County Kemps Mill Park page for managed park access and current operating context."
+    },
+    {
+      "id": "pfbc-section1",
+      "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/pfbc-north-branch-section-1-2008.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1659878,
+      "sha256": "5BF8A51DDCCF5C81C1616F9D4C26D090D2A042F5B8FF45AFBBDEADB91E27D4FB",
+      "supports": "Older PFBC Section 1 guide retained to document the conflicting Sayre coordinate in its access table and route context."
+    },
+    {
+      "id": "north-branch-guide",
+      "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/north-branch-trail-guide-2021.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 7205664,
+      "sha256": "5A75676A19FB1126396DEC47F8C3FD6A108E02B026EF3CFAC9BA9DD2328D132A",
+      "supports": "2021 North Branch water-trail guide: PFBC Sayre Access at river mile 290.5 with published GPS 41.995932, -76.473493."
+    },
+    {
+      "id": "md-catoctin-map",
+      "url": "https://www.recreater.com/DocumentCenter/View/2252/Catoctin-Creek-Park?bidId=",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/md-catoctin-park-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 846057,
+      "sha256": "DBAC36D3EA5FC3BE72EEED13E379EAEF05789923D48930307850AD2BB83C6271",
+      "supports": "Frederick County Catoctin Creek Park map marking Water Access symbols; map is not georeferenced to a surveyed entry point."
+    },
+    {
+      "id": "md-carroll-water-trails",
+      "url": "https://ccgprod1.carrollcountymd.gov/government/directory/recreation-parks/places-to-go/water-trails/",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/md-carroll-water-trails.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 29883,
+      "sha256": "F9B8D8551BC2C149057B9F00A32689E02AC895902D5BAD9AAE5A2A4DC8EFB91D",
+      "supports": "Current Carroll County water-trails page describing W. Locust Street kayaking access, parking, and steep-bank steps/slide."
+    },
+    {
+      "id": "wi-portage-parks",
+      "url": "https://www.co.portage.wi.gov/325/Park-Trail-Maps",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/wi-portage-parks.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 120520,
+      "sha256": "2E664775BC53B7A1176497111FFAD31FC4993AE9164E2334B194ED8A8A27901D",
+      "supports": "Portage County parks page identifying a small county highway right-of-way canoe access on Plover River at Highway K."
+    },
+    {
+      "id": "ny-fish-creek-wma",
+      "url": "https://dec.ny.gov/places/fish-creek-wildlife-management-area",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ny-fish-creek-wma.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 100317,
+      "sha256": "68F637636B5BDF6BEF882E2D3A9C27C398E41BD03A66B738D1B100D004408151",
+      "supports": "Current NYSDEC Fish Creek WMA page confirming hand-launch recreation and public WMA status."
+    },
+    {
+      "id": "ny-launch-directory",
+      "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/nyboatlaunching.pdf",
+      "snapshot": "node_modules/.cache/access-batch-04/sources/ny-boat-launch-directory.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1057557,
+      "sha256": "7B28D0375F4AF1338A34E3D177916249E457D3E91BE46BD4ABE15ECDEB45B395",
+      "supports": "NYSDEC launch directory listing Route 184 and Pope Mills / Route 58 Fish Creek hand-carry accesses, including five-car parking and a 0.8-mile carry at Pope Mills."
+    }
+  ]
+}

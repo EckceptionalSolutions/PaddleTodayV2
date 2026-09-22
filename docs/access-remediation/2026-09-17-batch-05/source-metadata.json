@@ -1,0 +1,291 @@
+{
+  "batch": "2026-09-17-batch-05",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-05/sources",
+  "snapshots": [
+    {
+      "id": "nps-buffalo-accesses",
+      "url": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+      "localPath": "node_modules/.cache/access-batch-05/sources/nps-buffalo-accesses.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 56792,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "705B3AE788BED5393BFFE612EE9E99663BD5916809619713C23DE1F42FE15EC5"
+    },
+    {
+      "id": "nps-buffalo-getting-around",
+      "url": "https://www.nps.gov/buff/planyourvisit/getting-around.htm",
+      "localPath": "node_modules/.cache/access-batch-05/sources/nps-buffalo-getting-around.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 42610,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B77E33C148C4ACA4DF248CDE5B1D161B369D6DBD1AB1A6964FD6682011309592"
+    },
+    {
+      "id": "nps-steel-campground",
+      "url": "https://www.nps.gov/buff/planyourvisit/camping.htm",
+      "localPath": "node_modules/.cache/access-batch-05/sources/nps-steel-campground.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 69750,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B42A70ACF322143746B2DAAD97EFA540D5EF5605EC099A91C9D1DA1019E6892D"
+    },
+    {
+      "id": "osm-steel-slipway",
+      "url": "https://api.openstreetmap.org/api/0.6/node/12544125462.json",
+      "localPath": "node_modules/.cache/access-batch-05/sources/osm-steel-slipway.json",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 502,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "A94769E8A31A10FE6C1BA09217A3F1A7EBFD0B59299F22E9B602F0722EE1533D"
+    },
+    {
+      "id": "wgfd-lusby-access",
+      "url": "https://wgfd.wyo.gov/Public-Access/Public-Access-Areas/north-platte-river-lusby",
+      "localPath": "node_modules/.cache/access-batch-05/sources/wgfd-lusby.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 241250,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "1582FF06D206C67F59AF6F1344A43AFD66F6427BC78957E24F23C39F5046FFA4"
+    },
+    {
+      "id": "riggins-ramp-closeout-2025",
+      "url": "https://www.rigginsidaho.org/media/3706",
+      "localPath": "node_modules/.cache/access-batch-05/sources/riggins-ramp-closeout-2025.pdf",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 403 (Forbidden).",
+      "sha256": null
+    },
+    {
+      "id": "riggins-ramp-minutes-2024",
+      "url": "https://www.rigginsidaho.org/media/3271",
+      "localPath": "node_modules/.cache/access-batch-05/sources/riggins-ramp-minutes-2024.pdf",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 403 (Forbidden).",
+      "sha256": null
+    },
+    {
+      "id": "osm-riggins-slipway",
+      "url": "https://api.openstreetmap.org/api/0.6/node/7560987269.json",
+      "localPath": "node_modules/.cache/access-batch-05/sources/osm-riggins-slipway.json",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 520,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "15B7423EFB7E9C29B1729D34038CEE58A6CCB23F6DAE95CF141EDE45397601B5"
+    },
+    {
+      "id": "american-whitewater-little-salmon",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/566/main",
+      "localPath": "node_modules/.cache/access-batch-05/sources/american-whitewater-little-salmon.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 103429,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "1D83B078F129487E25CEFC86095309865B15F2B626B4192EAD12744CC77A2611"
+    },
+    {
+      "id": "ia-dnr-wilkinson-middle-raccoon",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D805%20OR%20OBJECTID%3D896&outFields=%2A&returnGeometry=true&outSR=4326&f=json",
+      "localPath": "node_modules/.cache/access-batch-05/sources/ia-dnr-wilkinson-middle-raccoon.json",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "bytes": 21265,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "3FE897DAE1E111FA31638FE608366E493039ADCFFA38F7B181CBF497A54C9A60"
+    },
+    {
+      "id": "cerro-gordo-wilkinson-park",
+      "url": "https://cerrogordo.gov/conservation/parks/wilkinson_pioneer_park/",
+      "localPath": "node_modules/.cache/access-batch-05/sources/cerro-gordo-wilkinson.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 15001,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "0729D6B1EDC94C5366D366E5533DD27CCC079EE7BD88F5E149F64638A73B59CB"
+    },
+    {
+      "id": "guthrie-middle-raccoon-park",
+      "url": "https://www.mycountyparks.com/county/Guthrie/Park/Middle-Raccoon-River-Access",
+      "localPath": "node_modules/.cache/access-batch-05/sources/guthrie-middle-raccoon.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 28337,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "1A5AAFBD077BE4619CCFDF81756622C4648AD5402FDB47CE80311B595811FCA5"
+    },
+    {
+      "id": "saratoga-driscoll-openspace-plan",
+      "url": "https://www.saratogaspringsny.gov/DocumentCenter/View/19577/Saratoga-Springs-Open-Space-Plan-04302026-FINAL-compressedpdf",
+      "localPath": "node_modules/.cache/access-batch-05/sources/saratoga-open-space-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 8327639,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "5BF67DE708AE768583303F60E61E94A6BB900CAFCBE801143C408746FE1368BC"
+    },
+    {
+      "id": "franklin-waid-facility",
+      "url": "https://www.playfranklincounty.com/facilities/facility/details/waidpark-2",
+      "localPath": "node_modules/.cache/access-batch-05/sources/franklin-waid-facility.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 125834,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8335FBF6D7A00F27327EF58E3A21D7D678E7C27A26AEC98B2D2D90B3FF608367"
+    },
+    {
+      "id": "franklin-waid-blueway",
+      "url": "https://www.playfranklincounty.com/200/Blueway-Access-Maps",
+      "localPath": "node_modules/.cache/access-batch-05/sources/franklin-waid-blueway.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 118066,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "23FA39889F6830CE70606859C1EF453769F1715997F8C4112059D605D724C5D5"
+    },
+    {
+      "id": "yellowstone-boating-regulations-2024",
+      "url": "https://www.nps.gov/yell/planyourvisit/upload/boatingregulations_2024_508web.pdf",
+      "localPath": "node_modules/.cache/access-batch-05/sources/yellowstone-boating-2024.pdf",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 404 (Not Found).",
+      "sha256": null
+    },
+    {
+      "id": "yellowstone-conditions",
+      "url": "https://www.nps.gov/yell/planyourvisit/situationreport.htm?cs_pgIsInLView=1",
+      "localPath": "node_modules/.cache/access-batch-05/sources/yellowstone-conditions.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 125668,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "EDF8878EEAF3583CA2350CAE23ED371F97CA3232BD93AD449A1748C0BD46A4EE"
+    },
+    {
+      "id": "sc-givhans-access",
+      "url": "https://southcarolinaparks.com/givhans-ferry/things-to-do",
+      "localPath": "node_modules/.cache/access-batch-05/sources/sc-givhans-things-to-do.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 199734,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "618A4650AEA897DCBD04E56EAFF8C3113D584443954AA5A98D65D9CCCD05EFB0"
+    },
+    {
+      "id": "sc-givhans-map",
+      "url": "https://embed.widencdn.net/pdf/plus/scprt/tbu5k38koc/25-SCP-5769-Givhans-Ferry-Park-Half-Page-Map_MECH.pdf?u=sgt8lu",
+      "localPath": "node_modules/.cache/access-batch-05/sources/sc-givhans-park-map.pdf",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 24333,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Rejected: endpoint returned an HTML error page instead of a usable park-map PDF; not used to identify water entry.",
+      "sha256": "56803173C9D30B0D22CA5D2200CDFCAEBC8FEAEC84B06B6CDEF8131622CC5380"
+    },
+    {
+      "id": "sc-edisto-trail-guide",
+      "url": "https://www.dnr.sc.gov/water/river/pdf/1998FavoriteSCCanoe-KayakTrails.pdf",
+      "localPath": "node_modules/.cache/access-batch-05/sources/sc-edisto-trail-guide-1998.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1244657,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "9DBA379C2B46EEB16368B973DC1ACD9B9CC208160DA47AD072B4A4A45D611089"
+    },
+    {
+      "id": "american-whitewater-big-bear",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/114/main",
+      "localPath": "node_modules/.cache/access-batch-05/sources/american-whitewater-big-bear.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 537427,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "198ECD7D7050BD5837E61A2ACD55564442F863B3D98BFC2C330ED7B30E2E0BEC"
+    },
+    {
+      "id": "yellowstone-boating",
+      "url": "https://www.nps.gov/yell/planyourvisit/boating.htm",
+      "localPath": "node_modules/.cache/access-batch-05/sources/yellowstone-boating.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 66360,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "03B82F5FD656ED8D978EBFA9AD094309C012541CA4BDF711270744E87E896CB1"
+    },
+    {
+      "id": "yellowstone-boating-booklet",
+      "url": "https://www.nps.gov/yell/planyourvisit/upload/Yellowstone-Boat-Safety-and-Regulations-Booklet.pdf",
+      "localPath": "node_modules/.cache/access-batch-05/sources/yellowstone-boating-booklet.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 967570,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "3EDD6AA0A1BABB550F1D971109D19B70CB8EA7DB9BCB4A4FEE32957E2C823A76"
+    },
+    {
+      "id": "ia-dnr-malformed-query-rejected",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%20IN%20(805%2C896)%26outFields=%2A%26returnGeometry=true%26outSR=4326%26f=json",
+      "localPath": null,
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11034,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Rejected: malformed query encoded parameter separators into the where value; response was an HTML directory page, not GIS feature JSON. The valid query is recorded separately.",
+      "sha256": null
+    }
+  ],
+  "externalEvidenceWithoutLocalSnapshot": [
+    {
+      "url": "https://www.rigginsidaho.org/media/3706",
+      "retrievalMethod": "Browser-extracted city council minutes",
+      "localSnapshot": null,
+      "reason": "Direct HTTP retrieval returned 403 Forbidden; do not assign a file hash."
+    },
+    {
+      "url": "https://www.rigginsidaho.org/media/3271",
+      "retrievalMethod": "Browser-extracted city council minutes",
+      "localSnapshot": null,
+      "reason": "Direct HTTP retrieval returned 403 Forbidden; do not assign a file hash."
+    }
+  ],
+  "hashes": {
+    "osmSteelSlipway": "A94769E8A31A10FE6C1BA09217A3F1A7EBFD0B59299F22E9B602F0722EE1533D",
+    "osmRigginsSlipway": "15B7423EFB7E9C29B1729D34038CEE58A6CCB23F6DAE95CF141EDE45397601B5",
+    "iowaDnrFeatures": "3FE897DAE1E111FA31638FE608366E493039ADCFFA38F7B181CBF497A54C9A60",
+    "wgfdLusby": "1582FF06D206C67F59AF6F1344A43AFD66F6427BC78957E24F23C39F5046FFA4"
+  }
+}

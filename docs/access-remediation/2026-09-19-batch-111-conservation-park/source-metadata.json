@@ -1,0 +1,18 @@
+{
+  "batch": "B111",
+  "endpoint": "Conservation Park public boat launch, Three Rivers",
+  "routeId": "portage-river-north-fisher-three-rivers",
+  "sources": [
+    {
+      "url": "https://www.threeriversmi.org/city-departments/parks/conservation-park/",
+      "publisher": "City of Three Rivers, Michigan",
+      "supports": "Current city park page identifies a boat launch area and canoe/kayak livery at Conservation Park near the Portage, Rocky, and St. Joseph River confluence."
+    },
+    {
+      "url": "https://outdoormichigan.org/feature/4903",
+      "publisher": "Outdoor Michigan / Portage River Heritage Water Trail",
+      "supports": "Identifies Conservation Park Boat Launch as a hard-surface, medium-watercraft access on the Portage River Heritage Water Trail."
+    }
+  ],
+  "sourceAssessment": "The city park page and connected water-trail record independently document the public launch. Retain the stored point as a conditional park/confluence launch-area anchor."
+}

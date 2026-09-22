@@ -1,0 +1,61 @@
+{
+  "batch": "2026-09-17-batch-24",
+  "providers": [
+    {
+      "id": "wi_fox_river_landing_road_access_anchor",
+      "name": "Wisconsin DNR Fox River Landing Road access anchor",
+      "state": "Wisconsin",
+      "sourceUrl": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=5774139",
+      "sourceType": "official-wisconsin-dnr-water-inventory",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Wisconsin DNR water-detail inventory names the public Fox River access at Landing Road south of Berlin (record 10019301). Retain the route point as an access-area anchor; the page names the access but does not publish a surveyed water-entry coordinate. The City of Berlin separately confirms the downstream Riverside Park boat launch.",
+      "controls": [
+        {
+          "featureId": "wi-fox-river-access-landing-road-south-of-berlin",
+          "name": "Fox River Access at Landing Road south of Berlin",
+          "aliases": [
+            "Landing Road Fox River access",
+            "Fox River Landing Road access"
+          ],
+          "waterbody": "Fox River",
+          "riverMile": null,
+          "latitude": 43.9471591,
+          "longitude": -88.9668741,
+          "uncertaintyFeet": 350,
+          "matchedRiverDistanceFeet": 305,
+          "coordinateText": "Existing route anchor for the DNR-named public Landing Road access; access-area point, not a surveyed water-entry edge."
+        }
+      ]
+    },
+    {
+      "id": "wa_haller_park_boat_launch_access_anchor",
+      "name": "City of Arlington Haller Park boat-launch access-area anchor",
+      "state": "Washington",
+      "sourceUrl": "https://www.arlingtonwa.gov/DocumentCenter/View/13960/Combined-Amendment",
+      "sourceType": "current-official-city-parks-plan-and-facility-page",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The City’s current parks-plan amendment lists beach access and an existing boat launch adjacent to the SR-9 bridge, with launch reconstruction among potential improvements; the current facility page confirms Haller Park riverfront beach access and parking. Retain the route coordinate as a park/access-area anchor, not a surveyed ramp toe; confirm current launch condition, carry, parking, and park hours.",
+      "controls": [
+        {
+          "featureId": "stillaguamish-river-haller-park-boat-launch-access-area",
+          "name": "Haller Park boat-launch access area",
+          "aliases": [
+            "Haller Park boat launch",
+            "Stillaguamish River Haller Park public shoreline access"
+          ],
+          "waterbody": "Stillaguamish River",
+          "riverMile": null,
+          "latitude": 48.20245,
+          "longitude": -122.12872,
+          "uncertaintyFeet": 350,
+          "matchedRiverDistanceFeet": 301,
+          "coordinateText": "Existing route anchor for the City-listed Haller Park boat launch beside SR-9; park/access-area anchor, not a surveyed ramp toe."
+        }
+      ]
+    }
+  ]
+}

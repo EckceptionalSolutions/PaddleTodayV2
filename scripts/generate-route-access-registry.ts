@@ -19,7 +19,7 @@ type AuditEndpoint = {
   distanceFeetToMatchedRiver: number | null;
   endpointOnWaterbody: boolean;
   severity: AuditSeverity;
-  coordinateEvidenceRole?: 'authoritative-area-anchor' | 'authoritative-water-entry' | null;
+  coordinateEvidenceRole?: 'authoritative-area-anchor' | 'authoritative-access-anchor' | 'authoritative-water-entry' | null;
 };
 
 type AuditReport = { generatedAt: string; endpoints: AuditEndpoint[] };
@@ -52,6 +52,29 @@ type AuthoritativeEvidence = {
     }>;
   }>;
 };
+type RouteScopedOfficialControls = {
+  providers?: Array<{
+    id: string;
+    name: string;
+    state: string;
+    sourceUrl: string;
+    method: string;
+    sourceType?: string;
+    coordinateRole?: 'authoritative-water-entry' | 'authoritative-access-anchor' | 'authoritative-area-anchor';
+    controls?: Array<{
+      featureId: string;
+      name: string;
+      aliases?: string[];
+      routeIds?: string[];
+      waterbody?: string;
+      latitude: number;
+      longitude: number;
+      uncertaintyFeet?: number | null;
+      parkingToAccessFeet?: number | null;
+      terminalAlternateWaterbody?: AuthoritativeCandidate['terminalAlternateWaterbody'];
+    }>;
+  }>;
+};
 
 type Occurrence = {
   routeId: string;
@@ -65,7 +88,7 @@ type Occurrence = {
   auditSeverity: AuditSeverity | null;
   distanceFeetToMatchedRiver: number | null;
   endpointOnWaterbody: boolean | null;
-  coordinateEvidenceRole: 'authoritative-area-anchor' | 'authoritative-water-entry' | null;
+  coordinateEvidenceRole: 'authoritative-area-anchor' | 'authoritative-access-anchor' | 'authoritative-water-entry' | null;
 };
 
 type Coordinate = { latitude: number; longitude: number };
@@ -73,8 +96,12 @@ type Coordinate = { latitude: number; longitude: number };
 type AuthoritativeCandidate = NonNullable<AuthoritativeEvidence['items']>[number]['candidates'][number];
 
 const root = process.cwd();
-const auditPath = path.join(root, 'docs', 'route-coordinate-river-audit.json');
+const auditArg = process.argv.find((arg) => arg.startsWith('--audit='));
+const auditPath = auditArg
+  ? path.resolve(root, auditArg.slice('--audit='.length))
+  : path.join(root, 'docs', 'route-coordinate-river-audit.json');
 const authoritativePath = path.join(root, 'docs', 'route-coordinate-authoritative-evidence.json');
+const routeControlsPath = path.join(root, 'src', 'data', 'route-access-official-map-controls.json');
 const outputPath = path.join(root, 'src', 'data', 'generated', 'route-access-registry.json');
 
 function normalize(value: string) {
@@ -169,17 +196,55 @@ async function main() {
   let audit: AuditReport | null = null;
   try {
     audit = JSON.parse(await readFile(auditPath, 'utf8')) as AuditReport;
-  } catch {
+  } catch (error) {
+    if (auditArg) throw new Error(`Cannot read requested audit ${auditPath}: ${String(error)}`);
     // The registry is still useful before the coordinate audit has been run.
   }
   let authoritative: AuthoritativeEvidence = {};
   try { authoritative = JSON.parse(await readFile(authoritativePath, 'utf8')) as AuthoritativeEvidence; } catch { /* optional provider evidence */ }
   const authoritativeByRouteAndName = new Map<string, NonNullable<AuthoritativeEvidence['items']>[number]['candidates']>();
-  for (const item of authoritative.items ?? []) {
-    const key = `${item.routeId}:${normalize(item.endpointName)}`;
+  const addAuthoritativeCandidate = (routeId: string, endpointName: string, candidate: AuthoritativeCandidate) => {
+    const key = `${routeId}:${normalize(endpointName)}`;
     const candidates = authoritativeByRouteAndName.get(key) ?? [];
-    const unique = new Map([...candidates, ...item.candidates].map((candidate) => [`${candidate.provider}:${candidate.featureId}`, candidate]));
+    const unique = new Map([...candidates, candidate].map((entry) => [`${entry.provider}:${entry.featureId}`, entry]));
     authoritativeByRouteAndName.set(key, [...unique.values()]);
+  };
+  for (const item of authoritative.items ?? []) {
+    for (const candidate of item.candidates) addAuthoritativeCandidate(item.routeId, item.endpointName, candidate);
+  }
+  let routeScopedControls: RouteScopedOfficialControls = {};
+  try { routeScopedControls = JSON.parse(await readFile(routeControlsPath, 'utf8')) as RouteScopedOfficialControls; } catch { /* optional official map controls */ }
+  for (const provider of routeScopedControls.providers ?? []) {
+    if (!provider.coordinateRole) continue;
+    for (const control of provider.controls ?? []) {
+      if (!control.routeIds?.length || !control.waterbody) continue;
+      const candidate: AuthoritativeCandidate = {
+        provider: provider.id,
+        featureId: control.featureId,
+        name: control.name,
+        officialName: provider.name,
+        aliases: control.aliases ?? [],
+        latitude: control.latitude,
+        longitude: control.longitude,
+        sourceUrl: provider.sourceUrl,
+        waterbody: control.waterbody,
+        coordinateRole: provider.coordinateRole,
+        uncertaintyFeet: control.uncertaintyFeet ?? 25,
+        parkingToAccessFeet: control.parkingToAccessFeet ?? null,
+        terminalAlternateWaterbody: control.terminalAlternateWaterbody,
+      };
+      for (const routeId of control.routeIds) {
+        const route = routeInventory.find((item) => item.id === routeId);
+        if (!route) continue;
+        const details = riverTripDetails[routeId];
+        const points = [details?.putIn ?? route.putIn, details?.takeOut ?? route.takeOut, ...(details?.accessPoints ?? route.accessPoints ?? [])];
+        for (const point of points) {
+          if (validPoint(point) && authoritativeCandidateNameMatches(point.name, candidate, accessNamesAgree)) {
+            addAuthoritativeCandidate(routeId, point.name, candidate);
+          }
+        }
+      }
+    }
   }
   const auditsByRouteAndName = new Map<string, AuditEndpoint[]>();
   for (const endpoint of audit?.endpoints ?? []) {
@@ -271,8 +336,11 @@ async function main() {
         const rolePriority = (role: 'authoritative-water-entry' | 'authoritative-access-anchor' | 'authoritative-area-anchor' | undefined) => role === 'authoritative-water-entry'
           ? 0
           : role === 'authoritative-access-anchor' ? 1 : 2;
-        return rolePriority(left.coordinateRole) - rolePriority(right.coordinateRole)
-          || (left.distanceFromStoredFeet ?? Infinity) - (right.distanceFromStoredFeet ?? Infinity);
+        // Match the closest source-backed feature first. A nearby wet-edge
+        // control must not override an exact parking/carry anchor, while an
+        // exact water-entry coordinate still wins when it is actually nearer.
+        return (left.distanceFromStoredFeet ?? Infinity) - (right.distanceFromStoredFeet ?? Infinity)
+          || rolePriority(left.coordinateRole) - rolePriority(right.coordinateRole);
       });
     const authoritativeAreaAnchor = authoritativeWithDistance
       .find((candidate) => candidate.coordinateRole === 'authoritative-area-anchor'
@@ -297,8 +365,12 @@ async function main() {
     const authoritativeAccessIdentityMismatch = Boolean(authoritativeAccess
       && authoritativeAccess.coordinateRole !== 'authoritative-water-entry'
       && (authoritativeAccessMismatchFeet ?? 0) > Math.max(5280, (authoritativeAccess.parkingToAccessFeet ?? 0) + 1000));
+    // Public parking/carry/campground anchors prove site identity, not wet-edge
+    // position. Keep them in the access registry but never use them to derive a
+    // water-entry consensus coordinate.
     const trusted = occurrences.filter((occurrence) =>
       occurrence.coordinateEvidenceRole !== 'authoritative-area-anchor'
+      && occurrence.coordinateEvidenceRole !== 'authoritative-access-anchor'
       && !authoritativeAccessIdentityMismatch
       && (occurrence.auditSeverity === 'ok'
         || (occurrence.auditSeverity === 'review' && (occurrence.distanceFeetToMatchedRiver ?? Infinity) <= 300)

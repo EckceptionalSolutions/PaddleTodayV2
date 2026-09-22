@@ -1,0 +1,44 @@
+{
+  "batch": 60,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Iowa DNR Water Accesses NEW PUBLIC GIS feature 68 (access 268)",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/68?f=pjson",
+      "observations": [
+        "The live feature is named Halvorson Park, access number 268, on the Cedar River in Mitchell County, managed by the County Conservation Board.",
+        "Its point is 43.35390906447915,-92.9227522910695. Attributes identify a concrete access surface, 22-foot width, 88-foot length, five gravel parking stalls, and parking-to-access distance of 70 feet.",
+        "The feature is about 1,205 feet from the previous route coordinate. Against the warmed route-specific USGS NHD audit, the DNR point is about 147 feet from the Cedar River flowline and 51 feet from mapped water."
+      ],
+      "limits": "The GIS feature locates the public concrete-ramp access. It does not identify a surveyed wet toe or the separate campground beach preferred by paddlers."
+    },
+    {
+      "name": "Iowa DNR Cedar River Water Trail, Mitchell County",
+      "url": "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_cedar_mitchell.pdf",
+      "observations": [
+        "The guide places Halvorson access on the western shoreline just after passing under the Foothill Avenue bridge and describes a concrete boat ramp with docks.",
+        "The guide says paddlers may find it easier to enter or exit at the campground beach about 100 meters upstream and confirms the park has campsites and facilities."
+      ],
+      "limits": "The guide locates the access and describes the separate paddler beach but does not publish coordinates for either wet toe."
+    },
+    {
+      "name": "Cedar River Paddling Trips, Otranto to Janesville",
+      "url": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+      "observations": [
+        "The Chamber of Commerce paddling guide publishes 43.356685,-92.925215 for Halvorson Park, identifies the public park and ramp, and lists the route distances to adjacent accesses."
+      ],
+      "limits": "The guide's coordinate is a named access-site point rather than a ramp-specific point; it is roughly 1,205 feet from Iowa DNR's current concrete-ramp feature. The listed 2.8-mile and 4.7-mile paddling distances were retained."
+    },
+    {
+      "name": "Mitchell County Conservation Halvorson Park page and park map",
+      "url": "https://mitchellcountyconservation.com/halvorson-park/",
+      "mapUrl": "https://mitchellcountyconservation.com/wp-content/uploads/2024/01/Halvorson-Park-web.pdf",
+      "observations": [
+        "The managing county identifies Halvorson Park at 40801 Foothill Avenue on the Cedar River and lists boat ramps, docks, and a swimming beach.",
+        "The county's park map distinguishes boat-ramp and canoe-ramp symbols; it is an illustrative aerial map and does not provide coordinates for the canoe landing."
+      ],
+      "limits": "The county page and map confirm facilities and separate ramp types, but neither georeferences the canoe-ramp wet edge. The map imagery is dated 2011."
+    }
+  ],
+  "decision": "Use Iowa DNR's exact concrete-ramp feature point for both shared route endpoints. Keep the point as an authoritative access anchor because the mapped point and ramp dimensions establish the public launch feature but not the exact wet toe; disclose the easier upstream campground beach in the route guidance."
+}

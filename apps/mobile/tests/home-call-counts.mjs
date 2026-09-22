@@ -12,7 +12,7 @@ try {
     await context.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
     const page = await context.newPage();
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { requestId: 'test', generatedAt: new Date().toISOString(), riverCount: 1, rivers: [{
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { requestId: 'test', generatedAt: new Date().toISOString(), riverCount: 1, rivers: [{
       ...fixture.result, rating: 'Strong', score: 95, generatedAt: new Date().toISOString(),
       river: { ...fixture.result.river, difficulty: fixture.result.river.profile.difficulty },
       readiness: { status, label: category, reason: 'Controlled call fixture' },

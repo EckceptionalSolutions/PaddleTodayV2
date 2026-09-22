@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:50:19.131Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wv-new-cunard-fayette-station",
+      "routeName": "New River",
+      "reach": "Cunard River Access to Fayette Station",
+      "state": "West Virginia",
+      "endpoint": "putIn",
+      "endpointName": "Cunard River Access",
+      "latitude": 38.000299,
+      "longitude": -81.022809,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 410.41919141697133,
+      "nearestMatchedLatitude": 38.000199037435415,
+      "nearestMatchedLongitude": -81.02138699576203,
+      "nearestWaterwayName": "New River",
+      "distanceFeetToNearestWaterway": 410.4191917481631,
+      "nearestWaterwayLatitude": 38.000199,
+      "nearestWaterwayLongitude": -81.021387,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 253.16973849917477,
+      "nearestWaterbodyLatitude": 38.00017629168101,
+      "nearestWaterbodyLongitude": -81.02194222086867,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 253.16973849917477,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf",
+      "coordinateEvidenceDetail": "wv_wvdnr_cunard_new_river_access_20260919 wvdnr-cunard-new-river-access: WVDNR District 4 guide lists Cunard River Access Road in Fayette County on the New River with a public access lot and coordinates 37.9989,-81.0237. NPS planning material confirms Cunard as an established private and commercial river access site. Retain the stored route point as a conditional access-area anchor; the 410-foot flowline offset reflects the access road/parking/shoreline facility context.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (wv_wvdnr_cunard_new_river_access_20260919 wvdnr-cunard-new-river-access) on New River; access is conditional (Confirm current NPS/WVDNR access status, Cunard Road and parking condition, shuttle or outfitter restrictions, river level, and whitewater competence before launching.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wv-new-cunard-fayette-station",
+      "routeName": "New River",
+      "reach": "Cunard River Access to Fayette Station",
+      "state": "West Virginia",
+      "endpoint": "takeOut",
+      "endpointName": "Fayette Station River Access",
+      "latitude": 38.065996,
+      "longitude": -81.080839,
+      "matchedRiverName": "New River",
+      "distanceFeetToMatchedRiver": 191.67472633937638,
+      "nearestMatchedLatitude": 38.065681587975966,
+      "nearestMatchedLongitude": -81.08030433961255,
+      "nearestWaterwayName": "Wolf Creek",
+      "distanceFeetToNearestWaterway": 191.67527320111222,
+      "nearestWaterwayLatitude": 38.06568058343778,
+      "nearestWaterwayLongitude": -81.08030529263597,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 316.3651975899843,
+      "nearestWaterbodyLatitude": 38.066862271115305,
+      "nearestWaterbodyLongitude": -81.08078832949786,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 191.67472633937638,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is on the connected route network, but the nearest named waterway is Wolf Creek; verify the confluence or tributary access before accepting it."
+    }
+  ]
+}

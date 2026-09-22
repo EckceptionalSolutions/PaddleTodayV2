@@ -1,0 +1,20 @@
+{
+  "batch": 40,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "repeated suspicious shared access site in the latest completed full audit; verify the managing-agency point geometry before changing all route occurrences",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T16:25:40.281Z (cache-only, after Batch 39); the audit contained 108 suspicious endpoints",
+  "selectedLocations": [
+    {
+      "state": "South Carolina",
+      "name": "Rock Hill River Park canoe/kayak launch",
+      "previousCoordinate": { "latitude": 34.95701, "longitude": -80.951471 },
+      "suspiciousOccurrences": 2,
+      "routeIds": [
+        "catawba-river-rock-hill-landsford",
+        "catawba-river-rock-hill-sc9"
+      ],
+      "preReviewFinding": "Both shared public put-ins were 556 ft from the matched Catawba flowline and 315 ft from the nearest mapped waterbody.",
+      "decision": "replace-park-area-anchor-with-scdnr-active-paddle-launch-gis-point"
+    }
+  ]
+}

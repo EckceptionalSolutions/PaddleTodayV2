@@ -7,8 +7,10 @@ for (const path of ['/', '/explore', '/weekend']) {
     let mode: 'success' | 'offline' | 'pending' = 'success';
     let pending: Route | null = null;
     let retryRequests = 0;
-    const queryKey = path === '/weekend' ? 'weekend-summary' : 'river-summary';
-    const endpoint = path === '/weekend' ? '**/api/weekend/summary.json' : '**/api/rivers/summary.json';
+    const queryKey = path === '/weekend' ? 'weekend-summary'
+      : path === '/explore' ? 'river-explore-catalog' : 'river-summary';
+    const endpoint = path === '/weekend' ? '**/api/weekend/summary.json'
+      : path === '/explore' ? '**/api/rivers/explore.json' : '**/api/rivers/summary.json';
     await page.route(endpoint, async (route) => {
       if (mode === 'pending') {
         retryRequests += 1;
@@ -27,6 +29,16 @@ for (const path of ['/', '/explore', '/weekend']) {
     await page.evaluate(() => {
       const key = 'paddletoday-mobile-query-cache';
       const cache = JSON.parse(localStorage.getItem(key)!);
+      for (const query of cache.clientState.queries) query.state.dataUpdatedAt = Date.now() - 30 * 60 * 1000;
+      localStorage.setItem(key, JSON.stringify(cache));
+    });
+    // The persister may write a final snapshot after the first page settles.
+    // Reapply the stale timestamp before the reload so hydration deterministically
+    // exercises the cached-data/refetch-error path.
+    await page.addInitScript(() => {
+      const key = 'paddletoday-mobile-query-cache';
+      const cache = JSON.parse(localStorage.getItem(key) || 'null');
+      if (!cache?.clientState?.queries) return;
       for (const query of cache.clientState.queries) query.state.dataUpdatedAt = Date.now() - 30 * 60 * 1000;
       localStorage.setItem(key, JSON.stringify(cache));
     });

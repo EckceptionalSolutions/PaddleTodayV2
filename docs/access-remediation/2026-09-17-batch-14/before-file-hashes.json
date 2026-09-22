@@ -1,0 +1,32 @@
+{
+  "batch": "2026-09-17-batch-14",
+  "createdAt": "2026-09-17",
+  "backupRoot": "node_modules/.cache/access-batch-14/before-source",
+  "files": {
+    "src/data/routes/new-york.ts": {
+      "sha256": "E1FE685346290BCA222F632CA669127C335747F4FFEFD42EB4BD841FC565BACF",
+      "backupPath": "node_modules/.cache/access-batch-14/before-source/src__data__routes__new-york.ts",
+      "bytes": 3537080
+    },
+    "src/data/routes/missouri.ts": {
+      "sha256": "2AF31D4720FFF31A79871FF79F5003CA6C9E499104F1C45C65FC05E95B29AA64",
+      "backupPath": "node_modules/.cache/access-batch-14/before-source/src__data__routes__missouri.ts",
+      "bytes": 667170
+    },
+    "src/data/trip-details/missouri.ts": {
+      "sha256": "044E91630FED27E476C758A272BF686EB8BF800D0A519B6F81B2C88631C11984",
+      "backupPath": "node_modules/.cache/access-batch-14/before-source/src__data__trip-details__missouri.ts",
+      "bytes": 211600
+    },
+    "src/data/routes/montana-blackfoot.ts": {
+      "sha256": "79F8C3ED50B09DEAD78AD2FB9D5789DDC5D0C236C1FCDAF1671A0EA50CB56E4E",
+      "backupPath": "node_modules/.cache/access-batch-14/before-source/src__data__routes__montana-blackfoot.ts",
+      "bytes": 57420
+    },
+    "src/data/route-access-official-map-controls.json": {
+      "sha256": "6D158E128AEB674C679C24A0E183846BAE000B14B8A74233EB7569A219661222",
+      "backupPath": "node_modules/.cache/access-batch-14/before-source/src__data__route-access-official-map-controls.json",
+      "bytes": 1262657
+    }
+  }
+}

@@ -5,8 +5,9 @@ import { newYorkRoutes } from '../data/routes/new-york';
 
 describe('New York strategic expansion', () => {
   it('publishes more than one bounded New York route', () => {
-    expect(newYorkRoutes.length).toBe(302);
+    expect(newYorkRoutes.length).toBe(303);
     expect(newYorkRoutes.map((route) => route.id)).toEqual([
+      'erie-canal-little-falls-lock-e18-return',
       'susquehanna-river-sidney-bainbridge',
       'grass-river-woods-bridge-route47',
       'rondout-creek-high-falls-rosendale',
@@ -693,7 +694,7 @@ describe('New York strategic expansion', () => {
   it('publishes the upper Chenango Sherburne to North Norwich section with current public launches', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'chenango-river-sherburne-north-norwich');
 
-    expect(newYorkRoutes.length).toBe(302);
+    expect(newYorkRoutes.length).toBe(303);
     expect(route?.riverId).toBe('chenango-river');
     expect(route?.routeType).toBe('recreational');
     expect(route?.gaugeSource.kind).toBe('direct');
@@ -1469,7 +1470,7 @@ describe('New York strategic expansion', () => {
   });
 
   it('publishes the bounded Sidney-to-Bainbridge route with complete trip metadata', () => {
-    const route = newYorkRoutes[0];
+    const route = newYorkRoutes.find(route => route.id === 'susquehanna-river-sidney-bainbridge')!;
 
     expect(route.id).toBe('susquehanna-river-sidney-bainbridge');
     expect(route.state).toBe('New York');
@@ -1793,11 +1794,11 @@ describe('New York strategic expansion', () => {
     expect(route?.gaugeSource.siteId).toBe('04218700');
     expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
-    expect(route?.accessPoints).toHaveLength(7);
+    expect(route?.accessPoints).toHaveLength(6);
     expect(route?.accessPoints?.[1]?.name).toContain('Ayrault');
     expect(route?.accessPoints?.[3]?.name).toContain('Fairport');
-    expect(route?.accessPoints?.[6]?.name).toContain('Macedon');
-    expect(route?.logistics?.campingClassification).toBe('endpoint_campground');
+    expect(route?.accessPoints?.at(-1)?.name).toContain('Macedon');
+    expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.safetyProfile?.hazards).toContain('mandatory_takeout');
     expect(getRoutePreviewPhoto(route!)).not.toMatchObject({ isPlaceholder: true });
   });
@@ -2783,7 +2784,9 @@ describe('New York strategic expansion', () => {
     for (const route of newYorkRoutes) {
       expect(['direct', 'proxy']).toContain(route.gaugeSource.kind);
       expect(route.gaugeSource.siteId).toMatch(/^\d{8,15}$/);
-      expect(route.accessPoints?.length).toBeGreaterThanOrEqual(2);
+      const sameLaunch = route.putIn?.latitude === route.takeOut?.latitude
+        && route.putIn?.longitude === route.takeOut?.longitude;
+      expect(route.accessPoints?.length, route.id).toBeGreaterThanOrEqual(sameLaunch ? 1 : 2);
       expect(route.logistics?.campingClassification).toBeTruthy();
       expect(route.profile.thresholdSource.url).toMatch(/^https:\/\//);
       expect(route.sourceLinks.length).toBeGreaterThanOrEqual(5);
@@ -3926,7 +3929,8 @@ describe('New York strategic expansion', () => {
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
     expect(route?.accessPoints).toHaveLength(2);
-    expect(route?.accessPoints?.[0]?.name).toContain('Montauk');
+    expect(route?.accessPoints?.[0]?.name).toContain('NYSDEC Carmans River hand-launch');
+    expect(route?.accessPoints?.[0]?.name).toContain('300-yard carry');
     expect(route?.accessPoints?.[1]?.name).toContain('Beaver Dam');
     expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.safetyProfile?.hazards).toContain('access_uncertain');
@@ -4841,7 +4845,8 @@ describe('New York strategic expansion', () => {
     expect(route?.putIn?.longitude).toBe(route?.takeOut?.longitude);
     expect(route?.accessPoints).toHaveLength(2);
     expect(route?.accessPoints?.[0]?.name).toContain('Powley Place');
-    expect(route?.accessPoints?.[1]?.name).toContain('turn-around');
+    expect(route?.accessPoints?.[1]?.name).toContain('navigation landmark');
+    expect(route?.accessPoints?.[1]?.accessPointRole).toBe('navigation-waypoint');
     expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.safetyProfile?.hazards).toContain('whitewater');
     expect(route?.safetyProfile?.hazards).toContain('mandatory_takeout');
@@ -5296,9 +5301,9 @@ describe('New York strategic expansion', () => {
     expect(route?.profile.tooLow).toBeUndefined();
     expect(route?.putIn.latitude).toBe(route?.takeOut.latitude);
     expect(route?.putIn.longitude).toBe(route?.takeOut.longitude);
-    expect(route?.accessPoints).toHaveLength(2);
+    expect(route?.accessPoints).toHaveLength(1);
     expect(route?.accessPoints[0]?.name).toContain('Sunnyside');
-    expect(route?.accessPoints[1]?.name).toContain('South Hill');
+    expect(route?.accessPoints.some(point => point.name.includes('South Hill'))).toBe(false);
     expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
     expect(route?.safetyProfile?.hazards).toContain('low_water');
     expect(route?.safetyProfile?.hazards).toContain('mandatory_takeout');

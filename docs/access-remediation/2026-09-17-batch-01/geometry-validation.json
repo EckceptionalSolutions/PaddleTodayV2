@@ -1,0 +1,30 @@
+[
+  {
+    "routeId": "bayou-teche-baldwin-centerville",
+    "exitCode": 0
+  },
+  {
+    "routeId": "bayou-teche-baldwin-franklin",
+    "exitCode": 0
+  },
+  {
+    "routeId": "bayou-teche-charenton-baldwin",
+    "exitCode": 0
+  },
+  {
+    "routeId": "bayou-teche-jeanerette-baldwin",
+    "exitCode": 0
+  },
+  {
+    "routeId": "catawba-river-fort-mill-sc9",
+    "exitCode": 0
+  },
+  {
+    "routeId": "catawba-river-landsford-sc9",
+    "exitCode": 0
+  },
+  {
+    "routeId": "catawba-river-rock-hill-sc9",
+    "exitCode": 0
+  }
+]

@@ -398,7 +398,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "mulberry-fork-blountville-cr10",
         "mulberry-fork-blountville-garden-city",
@@ -724,7 +724,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "millers-river-cass-meadow-arch-street",
         "millers-river-cass-meadow-farley",
@@ -763,7 +763,19 @@
       "source": "routes:audit:overlap",
       "firstSeenAt": "2026-09-16T14:04:39.670Z",
       "lastSeenAt": "2026-09-16T15:28:50.828Z",
-      "taskId": "overlap-review-aacd1b9c96e3"
+      "taskId": "overlap-review-aacd1b9c96e3",
+      "lastRunId": "independent-verifier-202609181323-ma-aacd1b9c96e3-blocked",
+      "updatedAt": "2026-09-18T13:23:46Z",
+      "dispositionSummary": "Blocked: route direction, reach-specific gauge, legal access, composite mileage/geometry, and shuttle details need evidence-backed correction before corridor registration.",
+      "blockers": [
+        "Endpoint order is unresolved for millers-river-erving-south-main-dam: the card starts at downstream Erving and ends upstream at Orange Riverfront Park above South Main Street Dam, against the documented downstream order.",
+        "All 22 cards inherit USGS 01166500 at Farley and identical 300 / 600–2,000 / 3,500 cfs thresholds. Cass Meadow–Orange is an above-dam flatwater reach; assess nearby USGS 01165150 at Athol and establish separate reach-specific guidance before modeling composites across the dam.",
+        "Mileage evidence is not reconciled. Nine composite geometry files contain only five coordinates and produce path lengths materially below their labels; examples: Cass Meadow–Railroad 9.34 mi trace vs about 15 mi label, Cass Meadow–Millers Falls 13.34 vs about 18, and South Main Dam–Farley 6.51 vs about 9.5. Reconcile geometry and source mileage.",
+        "Manager-grade evidence does not confirm lawful carry and parking at Farley Road / Bridge Street or the exact below-dam South Main Street Dam portage entry. Existing paddling guides describe these water points but do not establish landowner permission.",
+        "Several variants inherit the Erving-to-Millers Falls shuttle instruction even when their stored endpoints are Route 2, Farley, Railroad Bridge, or Cass Meadow; their put-in and take-out vehicle instructions need route-specific correction.",
+        "No dedicated Millers route trip-detail records were found in src/data/river-trip-details.ts or src/data/trip-details/. The route module contains logistics notes, but evidence repeats the Lower Millers baseline on several variants.",
+        "Verification gates remain unavailable: the focused test cannot start because @jridgewell/sourcemap-codec is missing; the repository route audit has one unrelated South Skunk blocker; the canonical geometry audit reports a stale route count of 2,753 vs 2,752."
+      ]
     },
     {
       "id": "overlap-review-b40481702b1e",
@@ -878,7 +890,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "willamette-river-alton-baker-crystal-lake",
         "willamette-river-alton-baker-harkens",
@@ -1099,7 +1111,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "woonasquatucket-river-cricket-manton",
         "woonasquatucket-river-cricket-riverside",
@@ -1185,7 +1197,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "salt-river-blue-point-goldfield",
         "salt-river-blue-point-granite-reef",
@@ -1221,7 +1233,7 @@
       "category": "route_family_overlap",
       "proposedModel": "route_family_multi_endpoint",
       "priority": "high",
-      "status": "new",
+      "status": "blocked",
       "routes": [
         "spokane-river-aubrey-white-nine-mile-dam",
         "spokane-river-aubrey-white-plese-flats",

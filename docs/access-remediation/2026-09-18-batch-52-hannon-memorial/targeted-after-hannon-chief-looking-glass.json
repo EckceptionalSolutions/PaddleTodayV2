@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:21:00.525Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 1
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "bitterroot-river-hannon-chief-looking-glass__-114.1651-45.9478--114.0285-46.6867__route-network-v1",
+      "message": "Cache unavailable: NHD response is truncated (exceededTransferLimit)"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bitterroot-river-hannon-chief-looking-glass",
+      "routeName": "Bitterroot River",
+      "reach": "Hannon Memorial Fishing Access Site (access-site anchor) to Chief Looking Glass FAS access-area anchor",
+      "state": "Montana",
+      "endpoint": "takeOut",
+      "endpointName": "Chief Looking Glass FAS access-area anchor",
+      "latitude": 46.66165,
+      "longitude": -114.05355,
+      "matchedRiverName": "Bitterroot River",
+      "distanceFeetToMatchedRiver": 563.023071099454,
+      "nearestMatchedLatitude": 46.66127275996475,
+      "nearestMatchedLongitude": -114.0513695090484,
+      "nearestWaterwayName": "Bitterroot River",
+      "distanceFeetToNearestWaterway": 563.023071099454,
+      "nearestWaterwayLatitude": 46.66127275996475,
+      "nearestWaterwayLongitude": -114.0513695090484,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 460.8870850940379,
+      "nearestWaterbodyLatitude": 46.66141560153079,
+      "nearestWaterbodyLongitude": -114.05174118374383,
+      "endpointOnWaterbody": false,
+      "waterProximity": "unknown",
+      "distanceFeetToMappedWater": 460.8870850940379,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://myfwp.mt.gov/fishMT/fas/39754131",
+      "coordinateEvidenceDetail": "mt_chief_looking_glass_fas_access_anchor bitterroot-river-chief-looking-glass-fas: Montana FWP identifies the Bitterroot River site, publishes 46.66165, -114.05355, and lists a hand launch and nonmotorized boating. The coordinate identifies the managed access area, not a surveyed water-entry edge; observe the seasonal open period and 28-foot vehicle/trailer limit.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mt_chief_looking_glass_fas_access_anchor bitterroot-river-chief-looking-glass-fas) on Bitterroot River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "bitterroot-river-hannon-chief-looking-glass",
+      "routeName": "Bitterroot River",
+      "reach": "Hannon Memorial Fishing Access Site (access-site anchor) to Chief Looking Glass FAS access-area anchor",
+      "state": "Montana",
+      "endpoint": "putIn",
+      "endpointName": "Hannon Memorial Fishing Access Site (access-site anchor)",
+      "latitude": 45.97282,
+      "longitude": -114.1401,
+      "matchedRiverName": "Bitterroot River",
+      "distanceFeetToMatchedRiver": 321.5944377000604,
+      "nearestMatchedLatitude": 45.97280901681602,
+      "nearestMatchedLongitude": -114.14136828077571,
+      "nearestWaterwayName": "Bitterroot River",
+      "distanceFeetToNearestWaterway": 321.5944377000604,
+      "nearestWaterwayLatitude": 45.97280901681602,
+      "nearestWaterwayLongitude": -114.14136828077571,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 277.6903326850465,
+      "nearestWaterbodyLatitude": 45.97278985863597,
+      "nearestWaterbodyLongitude": -114.14119436077367,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 277.6903326850465,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1/query?where=NAME%20LIKE%20%27%25Hannon%25%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "montana_fwp_hannon_memorial_access_anchor_20260918 montana-fwp-fas-objectid-198-lms-39754135: Montana FWP's current Fishing Access Site Locations layer feature OBJECTID 198 is named Hannon Memorial, identifies a hand launch and camping, and links to FWP FishMT FAS record 39754135. The FishMT record names the Bitterroot River, publishes the stored coordinate 45.97282,-114.1401, and describes the day-use area as having a concrete boat launch. The GIS point is about 4 feet from the stored coordinate. Retain the published site point as an access-site anchor; neither source surveys the ramp toe. NHD maps the nearest water about 278 feet away.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (montana_fwp_hannon_memorial_access_anchor_20260918 montana-fwp-fas-objectid-198-lms-39754135) on Bitterroot River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

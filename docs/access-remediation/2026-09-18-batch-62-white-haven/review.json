@@ -1,0 +1,32 @@
+{
+  "batch": 62,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "White Haven South Access Area, Lehigh River, Pennsylvania",
+  "affectedRoutes": [
+    "lehigh-river-white-haven-rockport",
+    "lehigh-river-white-haven-glen-onoko"
+  ],
+  "decision": "retain-the-exact-current-dcnr-white-haven-south-access-gps-as-a-designated-access-area-anchor; do-not-invent-a-wet-toe-coordinate",
+  "decisionScope": "Both route endpoints already use 41.055270,-75.771581, the exact coordinate Pennsylvania DCNR publishes for White Haven South Access Area. DCNR lists White Haven to Rockport and White Haven to Glen Onoko as designated whitewater trips, requires launching only at designated areas, and the state park guide map marks a hand-carry boat launch in the White Haven access area. The site coordinate is supported, while an exact wet-edge point is not separately published.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 41.05527, "longitude": -75.771581 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 305,
+    "mappedWaterDistanceFeet": 229,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json",
+      "src/data/trip-details/pennsylvania.ts"
+    ],
+    "from": { "latitude": 41.05527, "longitude": -75.771581 },
+    "to": { "latitude": 41.05527, "longitude": -75.771581 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "pa_dcnr_white_haven_south_access_20260918",
+    "rationale": "No coordinate move: DCNR already publishes the exact stored coordinate for the named public access area. The audit's flowline offset is appropriate evidence for review but does not prove a wrong site or justify moving the pin to a speculative water-edge point. The control changes severity to review and clearly records the access-area versus wet-toe uncertainty."
+  },
+  "remainingUncertainty": "The official GPS locates the White Haven South Access Area, and the official guide map marks a hand-carry boat launch in the area; neither source georeferences the exact shoreline toe. The new control applies only to the exact published point within 25 feet and confirms the site, not a particular bank location. Paddlers must follow current posted park directions to the designated launch.",
+  "outcome": "Both public endpoint occurrences changed from suspicious to review with no coordinate move. Their site identity is now supported by current DCNR sources; the exact hand-carry entry remains unverified."
+}

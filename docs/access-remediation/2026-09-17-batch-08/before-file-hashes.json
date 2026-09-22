@@ -1,0 +1,54 @@
+{
+  "capturedOn": "2026-09-17",
+  "cacheRoot": "node_modules/.cache/access-batch-08/before-source",
+  "files": [
+    {
+      "path": "src/data/routes/wyoming.ts",
+      "sha256": "8500F1D893E27FE07C722FA9C7CB88239924A706349C7F11916F5909C1331EFC",
+      "bytes": 89362,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__routes__wyoming.ts"
+    },
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "CAF8F475CF8942BDD942885A1070DEF5BAA02D51D922133FFC3DFC73432D294D",
+      "bytes": 1256171,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__route-access-official-map-controls.json"
+    },
+    {
+      "path": "src/data/routes/wisconsin.ts",
+      "sha256": "E1139EC07AF05D6A49BC0EFD340AAEDC3A17FBCC8695B480276065064FE861F6",
+      "bytes": 1274099,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__routes__wisconsin.ts"
+    },
+    {
+      "path": "src/data/trip-details/wisconsin.ts",
+      "sha256": "C481691E9B9E042F41B1B4848A62B662EE29223F3015A90B955B30F3E05F0869",
+      "bytes": 531268,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__trip-details__wisconsin.ts"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "sha256": "BEB8CA66F29C33CC043F86F9503189D997022391E5AC45EE78BDC2ED4327D1C0",
+      "bytes": 3536567,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__routes__new-york.ts"
+    },
+    {
+      "path": "src/data/routes/north-carolina.ts",
+      "sha256": "3C889B6526E5A4F40B79FDB10DE04443E5E8162F49CE333D04708FDD9D433857",
+      "bytes": 286268,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__routes__north-carolina.ts"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "sha256": "D0B67DF88CA90EF4FFA2BC6751499430A63AD33619D05571E97785915DDD0278",
+      "bytes": 34844,
+      "backupPath": "node_modules/.cache/access-batch-08/before-source/src__data__route-access-review-holds.ts"
+    },
+    {
+      "path": "src/data/routes/iowa.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-08\\before-source\\src__data__routes__iowa.ts",
+      "sha256": "86BD9E1615C2D4E27E482D20A7510B611DD4EA7D5B00799A9DDDD915D242F5EB",
+      "bytes": 871186
+    }
+  ]
+}

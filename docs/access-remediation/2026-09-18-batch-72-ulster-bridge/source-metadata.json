@@ -1,0 +1,34 @@
+{
+  "batch": 72,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Endless Mountains Heritage Region — 2021 North Branch Susquehanna Water Trail Guide, access table",
+      "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+      "observations": [
+        "Lists Ulster Bridge Municipal Access at river mile 278.8, river right, carry-in, with 30 parking spaces nearby.",
+        "Publishes coordinate 41.849146,-76.497242 and includes Ulster Bridge to Wysox Township Park Municipal Access as an 11.3-mile favorite trip."
+      ],
+      "limits": "Identifies the municipal managed-access area and carry-in facility; it does not provide a surveyed water-toe coordinate."
+    },
+    {
+      "name": "Pennsylvania Fish and Boat Commission — 2008 North Branch Susquehanna Section 1 map",
+      "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+      "observations": [
+        "Its access table separately lists a 2008 Ulster Bridge point at 41 51 09 / -76 29 50 (41.8525,-76.497222), explicitly labeled Gravel Private.",
+        "PFBC guidance identifies nearby river hazards and launch rules; the old private coordinate is retained as superseded-history evidence only."
+      ],
+      "limits": "This 2008 row is not the current municipal point and should not be used as public launch access."
+    },
+    {
+      "name": "USGS National Hydrography Dataset Large Scale — refreshed targeted route audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "observations": [
+        "At the 2021 municipal point, the matched connected Susquehanna route network is about 10 feet away; the nearest named flowline is Cash Creek.",
+        "The nearest mapped-water polygon is about 251 feet away; all three refreshed route audits have complete coverage and zero source issues. On the inventory-only Sayre-to-Towanda route, the named Susquehanna flowline is about 492 feet away and Cash Creek is about 10 feet away."
+      ],
+      "limits": "Hydrography confirms proximity and network connection, not the exact landing toe; the source-backed municipal site coordinate governs the access area."
+    }
+  ],
+  "decision": "Use 41.849146,-76.497242 for Ulster Bridge Municipal Access. Reject the distinct 2008 private-gravel point at 41.8525,-76.497222 as a public put-in."
+}

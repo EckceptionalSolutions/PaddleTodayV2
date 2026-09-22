@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "label": "NPS Paddle the Upper Current River",
+      "url": "https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm",
+      "type": "official-park-river-access",
+      "supports": "Identifies Pulltite as a popular Upper Current River put-in and documents the Pulltite-to-Round-Spring float time.",
+      "doesNotSupport": "Does not publish the exact water-entry coordinate."
+    },
+    {
+      "label": "Current NPS Superintendent's Compendium and landing context",
+      "url": "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+      "type": "official-park-landing-status",
+      "supports": "Identifies Pulltite as a Current River landing and lists flood-related closure markers.",
+      "doesNotSupport": "Does not publish a surveyed water-entry coordinate."
+    },
+    {
+      "label": "Google Maps aerial imagery at the Pulltite landing",
+      "url": "https://www.google.com/maps/@37.335123,-91.477444,341m/data=!3m1!1e3",
+      "type": "imagery-localization",
+      "supports": "Visible County Road EE-356 approach and its connection to the Current River landing.",
+      "doesNotSupport": "Aerial imagery does not establish access permission independently or provide survey accuracy; NPS establishes public-site identity."
+    },
+    {
+      "label": "USGS National Hydrography Dataset route-coordinate audit",
+      "url": "https://www.usgs.gov/national-hydrography/access-national-hydrography-products",
+      "type": "hydrography-quality-check",
+      "supports": "Mapped-water proximity and matched named-flowline distance for the old and updated points.",
+      "doesNotSupport": "Mapped hydrography is not a survey of the ramp or carry path."
+    }
+  ],
+  "coordinateMethod": "Aerial imagery estimate at the visible public Current River landing, checked against mapped-water geometry; approximately 75 ft uncertainty. Not surveyed."
+}

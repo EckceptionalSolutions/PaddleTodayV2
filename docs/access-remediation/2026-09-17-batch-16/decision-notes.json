@@ -1,0 +1,149 @@
+{
+  "184": {
+    "decision": "retained-coordinate-and-added-access-anchor-control",
+    "resolvedSiteName": "BLM Island Bar Lower Salmon access anchor",
+    "coordinateRole": "BLM-published recreation-site coordinate; access/site anchor, not a surveyed wet-edge point",
+    "reason": "BLM publishes 45.41583333, -116.2594444 for the Lower Salmon site, calls it a frequent put-in, and describes easy river access. The stored coordinate is within one foot of the official site coordinate. Keep it as an access-area anchor rather than moving it to a mapped shoreline pixel.",
+    "sourceIds": [
+      "blm-island-bar"
+    ],
+    "sourceUrls": [
+      "https://www.blm.gov/visit/island-bar-recreation-site"
+    ],
+    "publicationAction": "Keep the coordinate and register the BLM site anchor. Paddlers still need to choose the actual beach landing and inspect current flow, shoreline, and site conditions."
+  },
+  "185": {
+    "decision": "retained-distinct-parking-and-river-landing-anchors",
+    "resolvedSiteName": "NYSDEC Outer Gooley parking/carry anchor with separate route-side Hudson landing",
+    "coordinateRole": "Route endpoint is the American Whitewater river-side take-out coordinate; NYSDEC parking coordinate is a distinct 0.1-mile carry anchor",
+    "reason": "NYSDEC publishes Outer Gooley Parking Area at 43.8275, -74.2008 and explicitly says the take-out is reached by a 0.1-mile carry. Existing route controls already distinguish this parking/carry coordinate from the route-side take-out at 43.827301, -74.200674. The cached mapped-water offset is expected and must not be auto-snapped.",
+    "sourceIds": [
+      "nysdec-hudson-gorge"
+    ],
+    "sourceUrls": [
+      "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "https://www.americanwhitewater.org/content/River/view/river-detail/1281/main",
+      "https://www.americanwhitewater.org/content/River/view/river-detail/1325/main"
+    ],
+    "publicationAction": "Keep the two route-side landing coordinates and existing access-control distinction; carry 0.1 mile from the Outer Gooley parking area and verify road/gate status."
+  },
+  "186": {
+    "decision": "rejected-unverified-and-withheld",
+    "resolvedSiteName": "Reese Avenue canoe launch, Greenwood",
+    "coordinateRole": "Existing roadside/trailhead-area point; correct public carry and water-entry feature not established",
+    "reason": "Greenwood's current parks page confirms canoe access at Clark County Park, but it does not identify the distinct Reese Avenue endpoint or parking approach used by this route. The Wisconsin DNR boat-access map query returned HTTP 500 and supplied no evidence either way. A non-government paddling listing is a research lead, not sufficient confirmation of present public approach and parking.",
+    "sourceIds": [
+      "greenwood-wi-parks",
+      "wi-dnr-boat-access-query"
+    ],
+    "sourceUrls": [
+      "https://cityofgreenwood.wi.gov/parks/",
+      "https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_BOAT_BoatAccess_WTM_Ext/MapServer"
+    ],
+    "publicationAction": "Preserve the route/access record and withhold the route until Greenwood, Clark County, or Wisconsin DNR confirms the public Reese Avenue approach, parking, and river-entry path."
+  },
+  "187": {
+    "decision": "retained-public-water-trail-park-anchor",
+    "resolvedSiteName": "Burwell Riverside Park North Loup water-trail start",
+    "coordinateRole": "Park/access-area anchor on the west bank; no exact launch-toe coordinate published",
+    "reason": "Nebraska Game and Parks' North Loup planner names Burwell Riverside Park as the trail start. Burwell's municipal plan places the park on the west bank of the North Loup near North 8th Street. These sources confirm the public destination and bank but do not publish a surveyed point for the landing, so retain the park-area pin with broad uncertainty.",
+    "sourceIds": [
+      "burwell-comp-plan-2024",
+      "ngpc-north-loup-planner",
+      "ngpc-water-trails-page"
+    ],
+    "sourceUrls": [
+      "https://img1.wsimg.com/blobby/go/0d3b4b4b-78f1-468a-9978-86466a885a40/2024%20Burwell%20Comp%20Plan.pdf",
+      "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_North_Loup_River.pdf",
+      "https://outdoornebraska.gov/parks/explore-trails/water-trails/"
+    ],
+    "publicationAction": "Keep the existing park anchor and register its west-bank water-trail role; do not label it a surveyed shoreline point."
+  },
+  "188": {
+    "decision": "retained-official-canoe-ramp-facility-anchor",
+    "resolvedSiteName": "Colerain Township Obergiesing Soccer Complex at Dravo Park canoe ramp",
+    "coordinateRole": "Municipal park/facility access anchor; exact ramp-toe coordinate not published",
+    "reason": "Colerain Township identifies Obergiesing Soccer Complex at Dravo Park as one of its two Great Miami River canoe ramps, publishes its address, parking, and dawn-to-dusk hours, and lists canoe access among its facility amenities. This verifies the intended site, but not an exact ramp toe.",
+    "sourceIds": [
+      "colerain-canoe-ramps",
+      "colerain-obergiesing-facility"
+    ],
+    "sourceUrls": [
+      "https://www.colerain.org/225/Canoe-Ramps",
+      "https://www.colerain.org/Facilities/Facility/Details/Obergiesing-Soccer-Complex-at-Dravo-Park-33"
+    ],
+    "publicationAction": "Keep the facility-area point, add an official access-anchor control, and retain dawn-to-dusk and on-site ramp checks."
+  },
+  "189": {
+    "decision": "retained-exact-state-dnr-access-coordinate",
+    "resolvedSiteName": "Charles Besemer Muskegon River Park boat access below Croton Dam",
+    "coordinateRole": "Michigan DNR-published access-site coordinate; route is explicitly below Croton Dam",
+    "reason": "Michigan DNR publishes exactly 43.435561, -85.66678 for Charles Besemer Muskegon River Park boat access at Croton Dam, describes the steep paved boat launch, parking, and public path below the dam. The cached water-offset flag does not justify shifting this matching official coordinate to another nearby launch pin.",
+    "sourceIds": [
+      "michigan-dnr-croton-access"
+    ],
+    "sourceUrls": [
+      "https://www.michigan.gov/dnr/managing-resources/fisheries/units/c-michigan"
+    ],
+    "publicationAction": "Keep the exact DNR coordinate and add its official control; retain the explicit below-dam route start and current closure/portage checks."
+  },
+  "190": {
+    "decision": "rejected-unverified-and-withheld",
+    "resolvedSiteName": "Sac City Riverview / Lions Park river-access project",
+    "coordinateRole": "Existing park-area point; current completion/open status and exact public entry are unresolved",
+    "reason": "Sac City's water-trail page says improvements included a Riverview access and recommends it as a route endpoint. However, the current City Projects page still says a new river access is under construction and that access amenities are coming soon; the City's Hometown Pride page describes prior clean-up but not the current route into the water. The official pages conflict on whether the currently mapped entry is complete and open, so the route cannot be cleared from a park-area pin alone.",
+    "sourceIds": [
+      "sac-city-water-trails",
+      "sac-city-access-projects",
+      "sac-city-hometown-pride"
+    ],
+    "sourceUrls": [
+      "https://saccity.city/nature-trails/",
+      "https://saccity.city/projects/",
+      "https://saccity.city/hometown-pride/"
+    ],
+    "publicationAction": "Preserve the access and route records; withhold both dependent routes until the City confirms this site's completion/open status, public approach and parking, and exact river entry."
+  },
+  "191": {
+    "decision": "retained-managed-island-campsite-anchor",
+    "resolvedSiteName": "Willamette Riverkeeper-managed Norwood Island paddle-in campsite",
+    "coordinateRole": "Official water-trail island/site coordinate; campsite and landing location vary along the island shore",
+    "reason": "The Willamette Water Trail publishes the stored coordinate for Norwood Island, RM 148.5, identifies Willamette Riverkeeper as manager, and places a campsite on the mainstem side toward the downstream end. It also warns that a back-channel bridge is washed out. The coordinate is a site/campsite anchor, not an exact landing point.",
+    "sourceIds": [
+      "willamette-norwood-island"
+    ],
+    "sourceUrls": [
+      "https://willamettewatertrail.org/map/norwood-island/"
+    ],
+    "publicationAction": "Keep the exact published site coordinate and add an island/campsite access control; require channel, current, back-channel and landing checks."
+  },
+  "192": {
+    "decision": "coordinate-corrected-to-official-dnr-access-feature",
+    "resolvedSiteName": "Minnesota DNR Sauk River Spring Hill public water access, WAS00338",
+    "coordinateRole": "Official public-water-access GIS feature OBJECTID 2500, RM 56.1; access-area anchor, not surveyed launch toe",
+    "reason": "The old point was about 120 m from Minnesota's current public-water-access GIS feature OBJECTID 2500 / WAS00338. The feature returns WGS84 x=-94.775652824582878, y=45.529866726150793, identifies Stearns County as administrator, and locates the west-bank Sauk River access at RM 56.1. DNR Map 2 separately documents Spring Hill carry-ins at RM 56.2 (left bank) and RM 56.1 (right bank); the route records are standardized to the explicit GIS public-access feature, with this distinction retained in the control note.",
+    "sourceIds": [
+      "mn-dnr-spring-hill-access-feature",
+      "mn-dnr-sauk-map-2"
+    ],
+    "sourceUrls": [
+      "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/query?where=1%3D1&geometry=-94.776531%2C45.529026&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=1500&units=esriSRUnit_Meter&outFields=OBJECTID%2CWATER_ACCESS_SITE_NAME%2CADMINISTRATOR%2CDIRECTIONS%2CBOAT_LAUNCH_METHOD%2CLAUNCH_SURFACE_TYPE%2CUNIQUE_SWAS_ID%2CWATER_TRAIL_RIVER_MILE&outSR=4326&returnGeometry=true&f=pjson",
+      "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf"
+    ],
+    "publicationAction": "Replace all Spring Hill coordinate copies with the official WAS00338 feature coordinate, register the GIS control, and retain the route-side distinction between park-area anchor and precise launch toe."
+  },
+  "193": {
+    "decision": "retained-existing-maryland-access-anchor-control",
+    "resolvedSiteName": "Sparks Road / Sparks Bank Nature Center access-area anchor",
+    "coordinateRole": "Existing Maryland DNR park/access anchor with limited parking; not an exact water-entry coordinate",
+    "reason": "Maryland DNR confirms Sparks Bank Nature Center at 1207 Sparks Road, limited parking, and sunrise-to-sunset access. The route's existing official-map control already classifies the point as an access-area anchor, while its river sequence is supported separately by American Whitewater. No better current managing-agency coordinate for the wet edge was found.",
+    "sourceIds": [
+      "md-dnr-sparks-bank"
+    ],
+    "sourceUrls": [
+      "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=torrey+c.+brown+rail+trail",
+      "https://www.americanwhitewater.org/content/River/view/river-detail/1200/main"
+    ],
+    "publicationAction": "Keep the point and existing control unchanged; retain parking, trail-user, carry, and bank-condition caveats."
+  }
+}

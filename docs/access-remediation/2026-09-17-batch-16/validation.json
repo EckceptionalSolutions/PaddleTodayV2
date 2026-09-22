@@ -1,0 +1,52 @@
+{
+  "batch": "2026-09-17-batch-16",
+  "validatedOn": "2026-09-17",
+  "sourceWorktreeOnly": true,
+  "withholdingManifest": {
+    "status": "passed",
+    "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+    "result": "Generated 152 withheld route slugs."
+  },
+  "batchVerifier": {
+    "status": "passed",
+    "command": "node docs/access-remediation/2026-09-17-batch-16/verify.mjs",
+    "result": "Frozen ranks, decisions, exact route/trip-detail edits, controls, hashes, holds, 152-slug manifest and TypeScript syntax all verified."
+  },
+  "sourceLineCheck": {
+    "status": "passed",
+    "command": "git -c core.whitespace=cr-at-eol diff --check -- docs/access-remediation/2026-09-17-batch-16 src/data/routes/minnesota.ts src/data/trip-details/minnesota.ts src/data/route-access-review-holds.ts src/data/route-access-official-map-controls.json src/data/generated/withheld-route-slugs.ts",
+    "result": "No whitespace errors after accounting for the repository's existing CRLF files."
+  },
+  "typescriptSyntax": {
+    "status": "passed",
+    "result": "The verifier used TypeScript transpileModule on the changed route, trip-detail and hold files; no syntax diagnostics were reported."
+  },
+  "routeDataTypecheck": {
+    "status": "blocked",
+    "commands": [
+      "npm run typecheck:routes -- --pretty false",
+      "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json --pretty false"
+    ],
+    "result": "The npm launcher cannot find tsc. Direct TypeScript invocation reports the missing workspace package @paddletoday/api-contract and cascading type errors. Route-level type correctness is not established."
+  },
+  "focusedAccessTests": {
+    "status": "blocked",
+    "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+    "result": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from the installed magic-string dependency."
+  },
+  "freshAccessAudit": {
+    "status": "blocked",
+    "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+    "result": "The audit cannot import @paddletoday/geo. The existing access-quality report remains a cached snapshot and was not replaced."
+  },
+  "changedRouteGeometry": {
+    "status": "blocked",
+    "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id sauk-river-spring-hill-st-martin",
+    "result": "Geometry generation cannot import @paddletoday/geo. No canonical geometry was regenerated for the three corrected public route records."
+  },
+  "registryAndCatalogAssembly": {
+    "status": "not-run",
+    "result": "Deferred because the full access audit and changed public route geometries are unavailable. Generated route geometry, route catalog, state bundles and access registry remain stale relative to the corrected source data. Do not treat them as refreshed or release these source changes until dependencies are restored and these checks pass."
+  },
+  "dependencyNote": "A prior npm install attempt in batch 15 failed because the configured private @paddletoday/api-client package returned HTTP 404. The missing workspace packages and test dependency were not reconstructed or replaced in this batch."
+}

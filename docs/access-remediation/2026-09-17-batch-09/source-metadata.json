@@ -1,0 +1,216 @@
+{
+  "batch": "2026-09-17-batch-09",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-09/sources",
+  "snapshots": [
+    {
+      "id": "canton-county-water-trail",
+      "url": "https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail",
+      "localPath": "node_modules/.cache/access-batch-09/sources/canton-county-water-trail.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 58846,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "2F8C09F68801174235FFA0E2DFA48F5DD3C52911FC08A8AD8FE6205C9FD86755"
+    },
+    {
+      "id": "canton-iowadnr-watertrail",
+      "url": "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_northfolk.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/canton-iowadnr-watertrail.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 424342,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404; retained as a failed retrieval, not evidence",
+      "sha256": null
+    },
+    {
+      "id": "neil-usbr-boise-deis",
+      "url": "https://www.usbr.gov/pn/studies/boisefeasibility/deis/deis.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/neil-usbr-boise-deis.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 13413276,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "4AC1AE6538D9B8F56D95BA4EBC686D9F4E513F374F073010054342BAE742C0ED"
+    },
+    {
+      "id": "neil-idfg-fishing-planner",
+      "url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/70008",
+      "localPath": "node_modules/.cache/access-batch-09/sources/neil-idfg-fishing-planner.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 53170,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F02291E0DB6480D27D0B35DB2719FD2A08F7AFF64825A30B324842401D4A4077"
+    },
+    {
+      "id": "neil-riverfacts-takeout",
+      "url": "https://www.riverfacts.com/maps/11015.html",
+      "localPath": "node_modules/.cache/access-batch-09/sources/neil-riverfacts-takeout.html",
+      "httpStatus": 403,
+      "contentType": "text/html",
+      "bytes": 52,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 403; retained as a failed retrieval, not evidence",
+      "sha256": null
+    },
+    {
+      "id": "tivoli-dec-site",
+      "url": "https://dec.ny.gov/places/tivoli-bays-wildlife-management-area-and-research-reserve",
+      "localPath": "node_modules/.cache/access-batch-09/sources/tivoli-dec-site.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 104620,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "DD15BFEF748E1331A53FFDE381506E8508146DB692249CE568F99DCA1E07D6A2"
+    },
+    {
+      "id": "peconic-dec-suffolk-launches",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+      "localPath": "node_modules/.cache/access-batch-09/sources/peconic-dec-suffolk-launches.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 166126,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "87D8388CF48BEF35A5C3C65991309926691078C6254E29126E05DD4509B960A6"
+    },
+    {
+      "id": "peconic-county-launch",
+      "url": "https://suffolkcountyny.gov/Departments/Parks/Marinas/Peconic-River-Canoe-Launch",
+      "localPath": "node_modules/.cache/access-batch-09/sources/peconic-county-launch.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 21770,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B4C0483DDA2C4F5CCDB26043AC3F0EEF1981DE9BCA3F70952D54CBFC56D76D8C"
+    },
+    {
+      "id": "lower-meadows-recgov",
+      "url": "https://www.recreation.gov/camping/campgrounds/10048229",
+      "localPath": "node_modules/.cache/access-batch-09/sources/lower-meadows-recgov.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 33221,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "FB78926AA6B25BE67ACD630622550428C73FA7A611C83783FF26B4C27E854D01"
+    },
+    {
+      "id": "lower-meadows-forest-closure-2024",
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fsem_035304.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/lower-meadows-forest-closure-2024.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 80848,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404; retained as a failed retrieval, not evidence",
+      "sha256": null
+    },
+    {
+      "id": "botna-county-park",
+      "url": "https://www.pottconservation.com/parks/botna_bend/",
+      "localPath": "node_modules/.cache/access-batch-09/sources/botna-county-park.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 56732,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "4EFE3D526A7A8803DEAC94D2FF316DEDC7C0BC3CA8B294444192FAA73B6C1A5F"
+    },
+    {
+      "id": "botna-county-map",
+      "url": "https://www.pottconservation.com/files/botna_bend_trail_map_81779.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/botna-county-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 738538,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C5B18BF464DD6207C8FBD284E2EAB072745B7ED8CDB9719F82D3F3952E5EDFEE"
+    },
+    {
+      "id": "botna-iowadnr-watertrail-plan",
+      "url": "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/plans/wtplan_west_nish.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/botna-iowadnr-watertrail-plan.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 424332,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404; retained as a failed retrieval, not evidence",
+      "sha256": null
+    },
+    {
+      "id": "manton-ridot-greenway",
+      "url": "https://dot.ri.gov/travel/bikeri/woonasquatucket.php",
+      "localPath": "node_modules/.cache/access-batch-09/sources/manton-ridot-greenway.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 37145,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "5039C1AE3E34B8AD6A5CCB8EC0F01BFC8695126B0C5AE76EE089568F52BBAF16"
+    },
+    {
+      "id": "henrys-idfg-south-shore",
+      "url": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22418-fishing-and-boating-access-site-henrys",
+      "localPath": "node_modules/.cache/access-batch-09/sources/henrys-idfg-south-shore.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 139683,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "14A479B4767157D9F421733AEE0C49754D0C951669C2056E5A16E829B3D7258A"
+    },
+    {
+      "id": "skidmore-usfs-guide",
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/skidmore-usfs-guide.pdf",
+      "httpStatus": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 80857,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "HTTP 404; retained as a failed retrieval, not evidence",
+      "sha256": null
+    },
+    {
+      "id": "skidmore-friends-map",
+      "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+      "localPath": "node_modules/.cache/access-batch-09/sources/skidmore-friends-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 720899,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "AD191C21E2DB4FE63E3B9870686F9319AC3FB799A29EA2F5508F19685374C31C"
+    },
+    {
+      "id": "lutsen-dnr-gitchi-gami",
+      "url": "https://www.dnr.state.mn.us/state-trails/gitchi-gami/index.html",
+      "localPath": "node_modules/.cache/access-batch-09/sources/lutsen-dnr-gitchi-gami.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 60675,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "23C87DDE2DF9257446BB93D9478333FC1A05B093A99750B41F9AB3600EDD6495"
+    },
+    {
+      "id": "lutsen-mountains-safety-conduct",
+      "url": "https://www.lutsen.com/mountain-info/safety-conduct",
+      "localPath": "node_modules/.cache/access-batch-09/sources/lutsen-mountains-safety-conduct.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 83085,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "3A8C13E6103F141FA918DBC4447F92CBC7BC6ACF8D513D45E950122CCC26F465"
+    }
+  ]
+}

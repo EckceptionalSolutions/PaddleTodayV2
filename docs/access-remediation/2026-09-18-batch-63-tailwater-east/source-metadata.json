@@ -1,0 +1,43 @@
+{
+  "batch": 63,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "USACE Recreation Boat Ramp GIS feature 3079 — Tailwater East Boat Ramp",
+      "url": "https://services7.arcgis.com/zs4WYlTH7ZX0t6Fs/ArcGIS/rest/services/USACE_Final_Data/FeatureServer/0/query?objectIds=3079&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "The point feature is named TAILWATER EAST BOAT RAMP, with GlobalID 843e2204-cc2b-49a9-9bbb-e6cbf789df65 and Rock Island District ownership context.",
+        "The feature geometry in WGS84 is 41.720904434727316,-91.52874403208878. Its attributes identify one launch lane and concrete pavement.",
+        "Refreshed NHD checks place the coordinate about 133 feet from the named Iowa River flowline and about 19 feet from mapped water."
+      ],
+      "limits": "The GIS point represents the mapped ramp feature; it does not survey the exact wet toe."
+    },
+    {
+      "name": "USACE Coralville Lake boating and swimming page",
+      "url": "https://www.mvr.usace.army.mil/coralvillelake/recreation/boating-swimming/",
+      "observations": [
+        "USACE states Tailwater East Campground has a boat ramp providing access to the Iowa River below Coralville Dam.",
+        "The page says a fee applies to use the managed areas; registered campers may launch free with the required vehicle permit."
+      ],
+      "limits": "The page verifies site identity and use context but does not publish the ramp coordinate."
+    },
+    {
+      "name": "Recreation.gov Tailwater East Campground page",
+      "url": "https://www.recreation.gov/camping/campgrounds/156340",
+      "observations": [
+        "The campground is located on the east bank of the Iowa River below Coralville Dam.",
+        "The facilities description lists a boat ramp for accessing the Iowa River."
+      ],
+      "limits": "The facility page does not georeference the ramp point."
+    },
+    {
+      "name": "USACE 2023 Coralville Lake Reservoir Master Plan",
+      "url": "https://www.mvr.usace.army.mil/portals/48/docs/Recreation/ODC/Master%20Plan/CoralvilleLakeMasterPlan2023_Final.pdf",
+      "observations": [
+        "The Tailwater East Recreation Area plan section describes a concrete boat ramp with one launch lane into the Iowa River."
+      ],
+      "limits": "The master plan corroborates the feature type but is not the source of the feature's point coordinates."
+    }
+  ],
+  "decision": "Use the USACE GIS point for the specifically named Tailwater East concrete boat ramp, corroborated by USACE operational guidance and Recreation.gov site information. The previous point identified the broader campground and was too far from mapped water for a route put-in."
+}

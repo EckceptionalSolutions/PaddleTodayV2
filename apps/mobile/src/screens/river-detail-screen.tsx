@@ -198,6 +198,7 @@ export default function RiverDetailScreen() {
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
   const [alertSheetVisible, setAlertSheetVisible] = useState(false);
   const [prepareTripVisible, setPrepareTripVisible] = useState(false);
+  const [offlineFirst, setOfflineFirst] = useState(false);
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
@@ -801,6 +802,16 @@ export default function RiverDetailScreen() {
           ) : null}
         </View>
 
+        <Pressable style={styles.prepareTripButton} accessibilityRole="button" accessibilityLabel="Offline trip"
+          onPress={() => { setOfflineFirst(true); setPrepareTripVisible(true); }}>
+          <MaterialCommunityIcons name="download-outline" color={colors.accent} size={24} />
+          <View style={styles.prepareTripButtonCopy}>
+            <Text style={styles.prepareTripButtonTitle}>Offline trip</Text>
+            <Text style={styles.prepareTripButtonText}>Download or open your selected route, plan, and dated conditions.</Text>
+          </View>
+          <Text style={styles.prepareTripButtonArrow}>›</Text>
+        </Pressable>
+
         {detail.river.riverId && siblingRouteCount > 1 ? (
           <Pressable
             style={styles.riverHubLink}
@@ -1154,7 +1165,7 @@ export default function RiverDetailScreen() {
               >
                 <View style={styles.prepareTripButtonCopy}>
                   <Text style={styles.prepareTripButtonTitle}>Prepare this trip</Text>
-                  <Text style={styles.prepareTripButtonText}>Calendar, GPX route, and a shareable float plan.</Text>
+                  <Text style={styles.prepareTripButtonText}>Offline trip, calendar, GPX route, and a shareable float plan.</Text>
                 </View>
                 <Text style={styles.prepareTripButtonArrow}>›</Text>
               </Pressable>
@@ -1186,11 +1197,12 @@ export default function RiverDetailScreen() {
 
       <PrepareTripSheet
         visible={prepareTripVisible}
+        offlineFirst={offlineFirst}
         detail={detail}
         putIn={selectedPutIn}
         takeOut={selectedTakeOut}
         accessPoints={accessPoints}
-        onClose={() => setPrepareTripVisible(false)}
+        onClose={() => { setPrepareTripVisible(false); setOfflineFirst(false); }}
         onAction={(action) => trackAppEvent('prepare_trip_action', {
           slug: riverSlug,
           action,

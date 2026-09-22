@@ -1,0 +1,21 @@
+{
+  "batch": 41,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "highest-occurrence suspicious shared location in the completed full audit after Batch 40",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T16:38:12.920Z (cache-only); the audit contained 106 suspicious endpoints",
+  "selectedLocations": [
+    {
+      "state": "Pennsylvania",
+      "name": "Willow Mill Park launch",
+      "storedCoordinate": { "latitude": 40.2567096, "longitude": -77.0411725 },
+      "suspiciousOccurrences": 3,
+      "routeIds": [
+        "conodoguinet-creek-willow-mill-vincent-difilippo",
+        "conodoguinet-creek-willow-mill-good-hope",
+        "conodoguinet-creek-willow-mill-acri-meadow"
+      ],
+      "preReviewFinding": "All three occurrences share a 318.8-ft offset from the matched topology-connected Conodoguinet flowline and 189.7 ft from mapped water; hydrography coverage is complete.",
+      "decision": "retain-public-access-site-and-hold-coordinate-change-pending-ramp-toe-evidence"
+    }
+  ]
+}

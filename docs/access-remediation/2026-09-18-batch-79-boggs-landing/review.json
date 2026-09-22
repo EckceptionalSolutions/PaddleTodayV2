@@ -1,0 +1,87 @@
+{
+  "batch": 79,
+  "reviewDate": "2026-09-19",
+  "location": "St. George / Boggs Landing Access Ramp, Kansas River, Kansas",
+  "selectedCoordinate": {
+    "latitude": 39.18726,
+    "longitude": -96.42202
+  },
+  "correctedCoordinate": {
+    "latitude": 39.18726,
+    "longitude": -96.42202
+  },
+  "routeIds": [
+    "kansas-river-junction-city-st-george",
+    "kansas-river-ogden-st-george"
+  ],
+  "decision": "retain-as-public-kansas-river-ramp-access-anchor",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "Friends of the Kaw published public ramp GPS point; access-area anchor, not surveyed wet-toe coordinate.",
+  "accessStatus": "public",
+  "evidence": [
+    {
+      "claim": "Friends of the Kaw identifies St. George/Boggs Landing Access Ramp at river mile 137 and publishes GPS 39.18726, -96.42202, exactly matching the shared route point.",
+      "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/",
+      "sourceType": "Kansas River Water Trail access page"
+    },
+    {
+      "claim": "The access page describes a one-vehicle concrete ramp, parking, restrooms, lighting, and community-developed public access.",
+      "sourceUrl": "https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/",
+      "sourceType": "public access facility description"
+    },
+    {
+      "claim": "The City of St. George lists Boggs Landing Boat Ramp, and KDWP's Kaw River guide lists St. George/Boggs Landing at river mile 137.",
+      "sourceUrl": "https://www.stgeorgeks.gov/attractions",
+      "sourceType": "city facility reference"
+    },
+    {
+      "claim": "The corrected access occurrence is 434 feet from the named NHD flowline on the Junction City route and 208 feet on the Ogden route; both are within mapped-water review distance. The Junction City NHD response remains incomplete.",
+      "sourceUrl": "docs/access-remediation/2026-09-18-batch-79-boggs-landing/audit-before-public-cache-only.json",
+      "sourceType": "frozen route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "kansas-river-junction-city-st-george": {
+      "boggsLandingTakeOutSeverity": "review",
+      "sourceIssues": 1
+    },
+    "kansas-river-ogden-st-george": {
+      "boggsLandingTakeOutSeverity": "review",
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 46,
+      "suspiciousAfter": 45,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3892,
+        "suspicious": 45,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 99,
+      "suspiciousAfter": 98,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4196,
+        "suspicious": 98,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1227
+    }
+  }
+}

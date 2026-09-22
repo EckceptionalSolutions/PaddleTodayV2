@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:46:55.764Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "kansas-river-ogden-st-george",
+      "routeName": "Kansas River",
+      "reach": "Ogden to St. George / Boggs Landing",
+      "state": "Kansas",
+      "endpoint": "putIn",
+      "endpointName": "Ogden Access Ramp",
+      "latitude": 39.10503,
+      "longitude": -96.69633,
+      "matchedRiverName": "Kansas River",
+      "distanceFeetToMatchedRiver": 370.12342192527814,
+      "nearestMatchedLatitude": 39.10469583367993,
+      "nearestMatchedLongitude": -96.69509553845373,
+      "nearestWaterwayName": "Kansas River",
+      "distanceFeetToNearestWaterway": 370.1238700218132,
+      "nearestWaterwayLatitude": 39.10469435338732,
+      "nearestWaterwayLongitude": -96.69509620389628,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 103.67349086621873,
+      "nearestWaterbodyLatitude": 39.10487547420125,
+      "nearestWaterbodyLongitude": -96.6960226580124,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 103.67349086621873,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 104 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "kansas-river-ogden-st-george",
+      "routeName": "Kansas River",
+      "reach": "Ogden to St. George / Boggs Landing",
+      "state": "Kansas",
+      "endpoint": "takeOut",
+      "endpointName": "St. George / Boggs Landing Access Ramp",
+      "latitude": 39.18726,
+      "longitude": -96.42202,
+      "matchedRiverName": "Kansas River",
+      "distanceFeetToMatchedRiver": 207.78640806238633,
+      "nearestMatchedLatitude": 39.186736366064316,
+      "nearestMatchedLongitude": -96.42230909819291,
+      "nearestWaterwayName": "Blackjack Creek",
+      "distanceFeetToNearestWaterway": 207.78640806576087,
+      "nearestWaterwayLatitude": 39.18673636606419,
+      "nearestWaterwayLongitude": -96.42230909819256,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 232.86777406950827,
+      "nearestWaterbodyLatitude": 39.186638,
+      "nearestWaterbodyLongitude": -96.421835,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 207.78640806238633,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/",
+      "coordinateEvidenceDetail": "ks_friends_kaw_st_george_boggs_landing_access_20260919 friends-kaw-st-george-boggs-landing-river-mile-137: Friends of the Kaw's current Kansas River access page identifies the St. George/Boggs Landing Access Ramp at river mile 137 in Pottawatomie County and publishes GPS 39.18726,-96.42202, exactly matching the shared route coordinate. The page describes a one-vehicle concrete ramp, parking, restrooms, and the city/community-developed public access. The City of St. George independently lists Boggs Landing Boat Ramp, and Kansas Department of Wildlife & Parks' access-point guide lists St. George/Boggs Landing at river mile 137. Treat the published GPS as the public ramp/access-area anchor, not a surveyed wet-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ks_friends_kaw_st_george_boggs_landing_access_20260919 friends-kaw-st-george-boggs-landing-river-mile-137) on Kansas River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

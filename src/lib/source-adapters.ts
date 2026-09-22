@@ -106,6 +106,27 @@ export const thresholdSourceAdapters: Record<SourceProvider, ThresholdSourceAdap
     sourceBadgeTone: 'official',
     defaultStrength: 'official',
   },
+  milwaukee_county: {
+    provider: 'milwaukee_county',
+    label: 'Milwaukee County Parks',
+    shortLabel: 'Milwaukee County',
+    sourceBadgeTone: 'official',
+    defaultStrength: 'official',
+  },
+  urban_ecology_center: {
+    provider: 'urban_ecology_center',
+    label: 'Urban Ecology Center',
+    shortLabel: 'Urban Ecology',
+    sourceBadgeTone: 'community',
+    defaultStrength: 'community',
+  },
+  milwaukee_riverkeeper: {
+    provider: 'milwaukee_riverkeeper',
+    label: 'Milwaukee Riverkeeper',
+    shortLabel: 'Riverkeeper',
+    sourceBadgeTone: 'community',
+    defaultStrength: 'community',
+  },
   local: {
     provider: 'local',
     label: 'Local water trail source',

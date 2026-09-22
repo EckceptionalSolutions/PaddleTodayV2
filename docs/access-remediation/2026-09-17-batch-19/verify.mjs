@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const dir=path.join(root,'docs/access-remediation/2026-09-17-batch-19');
+const selection=JSON.parse(fs.readFileSync(path.join(dir,'selection.json'),'utf8'));
+assert.equal(selection.sites.length,10);
+assert.deepEqual(selection.sites.map(s=>s.rank),[215,216,217,218,219,220,221,222,223,224]);
+const routeFiles=fs.readdirSync(path.join(root,'src/data/routes')).filter(f=>f.endsWith('.ts')).map(f=>fs.readFileSync(path.join(root,'src/data/routes',f),'utf8'));
+const routeText=routeFiles.join('\n');
+const detailText=fs.readdirSync(path.join(root,'src/data/trip-details')).filter(f=>f.endsWith('.ts')).map(f=>fs.readFileSync(path.join(root,'src/data/trip-details',f),'utf8')).join('\n');
+const all=routeText+'\n'+detailText;
+assert(routeText.includes("name: 'Otter Creek–Kwonumosk public access area', latitude: 44.086, longitude: -73.2472"));
+assert(!all.includes('44.0655')&&!all.includes('-73.2185'));
+assert(all.includes('Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20'));
+assert(detailText.includes('San Marcos City Park river access area'));
+const controls=JSON.parse(fs.readFileSync(path.join(root,'src/data/route-access-official-map-controls.json'),'utf8'));
+for(const id of ['usfs_upstate_neal_shoals_access_anchor','siouxfalls_farm_field_park_kayak_canoe_access','iowa_dnr_bluffton_fir_stand_paddle_access','san_marcos_city_park_river_access_anchor','blm_mckays_bend_access_area_anchor','vt_fish_wildlife_kwonumosk_access_anchor'])assert(controls.providers.some(p=>p.id===id),'missing '+id);
+for(const id of ['md_pocomoke_snow_hill_shad_access','md_pocomoke_shad_milburn_access','indian_river_abanakee_dam_outer_gooley','saranac_river_kent_falls_military_turnpike'])assert.equal(controls.providers.find(p=>p.id===id)?.coordinateRole,'authoritative-access-anchor');
+const holds=fs.readFileSync(path.join(root,'src/data/route-access-review-holds.ts'),'utf8');
+const manifest=fs.readFileSync(path.join(root,'src/data/generated/withheld-route-slugs.ts'),'utf8');
+for(const id of ['baraboo-river-rock-springs-north-freedom','otter-creek-weybridge-fort-cassin']){assert(holds.includes(id));assert(manifest.includes(id));}
+for(const site of selection.sites)for(const route of site.occurrences.map(o=>o.routeId))assert(routeFiles.some(t=>t.includes(route)),'missing source route '+route);
+const count=manifest.split(/\r?\n/).filter(line=>/^\s*["'][a-z0-9-]+["'],?\s*$/.test(line)).length;
+assert.equal(count,156);
+console.log('Batch 19 verifier passed: 10 sites, 21 unique route records, 6 added controls, 4 reclassified controls, 2 new holds, 156 withheld routes.');

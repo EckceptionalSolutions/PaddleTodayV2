@@ -1,0 +1,23 @@
+{
+  "batch": "B112",
+  "selectedAt": "2026-09-19",
+  "routeId": "namekagon-river-big-bend-trego",
+  "routeName": "Namekagon River",
+  "reach": "Big Bend Landing to Trego",
+  "state": "Wisconsin",
+  "endpoint": "putIn",
+  "endpointName": "Big Bend Landing",
+  "storedCoordinate": {
+    "latitude": 45.9320719,
+    "longitude": -91.7516647
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 355.1194758917666,
+    "nearestWaterwayName": "Namekagon River",
+    "distanceFeetToMappedWater": 298.825252999538,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "NPS Namekagon River guidance names Big Bend Landing and describes the Big Bend-to-Trego reach. Wisconsin DNR independently identifies a managed Namekagon River landing in cooperation with NPS. Retain the stored point as a conditional landing-area anchor."
+}

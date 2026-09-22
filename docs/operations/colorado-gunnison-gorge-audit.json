@@ -1,0 +1,55 @@
+{
+  "state": "Colorado",
+  "routeId": "gunnison-river-chukar-gunnison-forks",
+  "routeName": "Gunnison Gorge Chukar to Gunnison Forks",
+  "status": "published_planning_only",
+  "scoreEligibility": "planning",
+  "publicAccess": {
+    "putIn": {
+      "name": "Chukar Boat Launch",
+      "latitude": 38.62281,
+      "longitude": -107.8318,
+      "source": "https://www.blm.gov/sites/blm.gov/files/River%20Map%20in%20PDF%20for%20web.pdf",
+      "note": "Mapped river launch anchor; one-mile boat carry from the Recreation.gov Chukar Trailhead."
+    },
+    "takeOut": {
+      "name": "Gunnison Forks Day-Use Recreation Site",
+      "latitude": 38.78475,
+      "longitude": -107.83655,
+      "source": "https://www.blm.gov/visit/gunnison-forks-day-use-area",
+      "note": "BLM public natural-surface river access at the North Fork confluence."
+    }
+  },
+  "gauge": {
+    "siteId": "09128000",
+    "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-09128000/",
+    "relationship": "direct regional telemetry",
+    "thresholdDisposition": "No station-tied runnable band published; BLM feature cues are retained as planning context only."
+  },
+  "safety": {
+    "difficulty": "Class III-IV expert wilderness whitewater",
+    "highClassHandling": "Mandatory scout/portage language, cold-water and rescue readiness, remote-exit controls, and no assumption that a feature is runnable for any crew.",
+    "sources": [
+      "https://www.blm.gov/sites/blm.gov/files/River%20Map%20in%20PDF%20for%20web.pdf",
+      "https://www.nps.gov/blca/planyourvisit/kayaking.htm"
+    ]
+  },
+  "camping": {
+    "classification": "on_route_campsite",
+    "rule": "Designated BLM river camps only by wilderness registration/permit; Gunnison Forks is day-use only.",
+    "source": "https://www.recreation.gov/activitypass/f10feaca-7b2d-11ec-b5b4-b63fcce679f6"
+  },
+  "imagery": {
+    "source": "https://www.usgs.gov/media/images/gunnison-river-spann-diversion",
+    "rights": "USGS public domain",
+    "captionPosture": "Same-river corridor context; not an endpoint or current-conditions photograph."
+  },
+  "deduplication": "Distinct 09128000 Gunnison Gorge wilderness reach; separate from existing 09114500 Almont/North Bridge and Whitewater Park routes.",
+  "validation": {
+    "routeDataAudit": "passed",
+    "safetyAudit": "passed",
+    "corridorAudit": "passed",
+    "geometryManifest": "matched",
+    "accessRegistry": "no conflicts"
+  }
+}

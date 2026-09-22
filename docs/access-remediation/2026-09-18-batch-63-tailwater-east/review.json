@@ -1,0 +1,31 @@
+{
+  "batch": 63,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Tailwater East public boat ramp, Iowa River below Coralville Dam, Iowa",
+  "affectedRoutes": ["iowa-river-tailwater-east-sturgis-ferry"],
+  "decision": "replace-the-campground-area-pin-with-the-named-USACE-concrete-boat-ramp-GIS-point",
+  "decisionScope": "USACE Recreation Boat Ramp GIS feature 3079 is explicitly named TAILWATER EAST BOAT RAMP, identifies a concrete one-lane ramp, and publishes WGS84 coordinates 41.720904434727316,-91.52874403208878. USACE's current boating page independently confirms Tailwater East Campground has a ramp accessing the Iowa River below the dam. This is a source-georeferenced ramp point, rather than the campground-area pin, though the exact wet toe is not surveyed.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 41.7249, "longitude": -91.5257 },
+    "occurrences": 1,
+    "matchedFlowlineDistanceFeet": 642,
+    "mappedWaterDistanceFeet": 437,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/trip-details/iowa.ts",
+      "src/data/routes/iowa.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": { "latitude": 41.7249, "longitude": -91.5257 },
+    "to": { "latitude": 41.720904434727316, "longitude": -91.52874403208878 },
+    "movedFeet": 1677,
+    "occurrences": 1,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_usace_tailwater_east_boat_ramp_20260918",
+    "rationale": "The old point was the campground-area anchor and was 437 feet from mapped water. USACE's named ramp feature supplies a better spatially explicit concrete ramp point. Refreshed hydrography places the new ramp point 19 feet from mapped water and 133 feet from the named Iowa River flowline."
+  },
+  "remainingUncertainty": "The GIS identifies the physical concrete boat ramp but does not survey the wet toe. The moved coordinate is about 19 feet from mapped water and 133 feet from the named flowline, consistent with a mapped ramp point at the river edge. Follow USACE signs, access rules, and current dam-area notices.",
+  "outcome": "The public put-in moved 1,677 feet from the campground-area pin to USACE's named ramp point. Its severity changed from suspicious to review; refreshed hydrography reports no source issues and places it 19 feet from mapped water."
+}

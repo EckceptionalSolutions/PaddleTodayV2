@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:18:50.203Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "portage-river-north-fisher-three-rivers",
+      "routeName": "Portage River",
+      "reach": "North Fisher Lake Road to Conservation Park",
+      "state": "Michigan",
+      "endpoint": "takeOut",
+      "endpointName": "Conservation Park public boat launch, Three Rivers",
+      "latitude": 41.94153,
+      "longitude": -85.63167,
+      "matchedRiverName": "Portage River",
+      "distanceFeetToMatchedRiver": 362.60966567280076,
+      "nearestMatchedLatitude": 41.94126045483346,
+      "nearestMatchedLongitude": -85.63295618792016,
+      "nearestWaterwayName": "Saint Joseph River",
+      "distanceFeetToNearestWaterway": 362.6099759924676,
+      "nearestWaterwayLatitude": 41.94125921235615,
+      "nearestWaterwayLongitude": -85.63295571730586,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 277.1363914964613,
+      "nearestWaterbodyLatitude": 41.94131065630612,
+      "nearestWaterbodyLongitude": -85.63264778359978,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 277.1363914964613,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.threeriversmi.org/city-departments/parks/conservation-park/",
+      "coordinateEvidenceDetail": "mi_three_rivers_conservation_park_portage_access_20260919 three-rivers-conservation-park-portage-boat-launch: City of Three Rivers identifies Conservation Park as containing a boat launch area and canoe/kayak livery near the confluence of the Portage, Rocky, and St. Joseph Rivers. The connected Portage River Heritage Water Trail record independently identifies Conservation Park Boat Launch as a hard-surface medium-watercraft access. Retain the stored route point as a conditional launch-area anchor; the 363-foot connected-network offset reflects the park, confluence, and launch footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mi_three_rivers_conservation_park_portage_access_20260919 three-rivers-conservation-park-portage-boat-launch) on Portage River; access is conditional (Confirm current City of Three Rivers park hours, launch condition, river level, parking, and any local or seasonal restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "portage-river-north-fisher-three-rivers",
+      "routeName": "Portage River",
+      "reach": "North Fisher Lake Road to Conservation Park",
+      "state": "Michigan",
+      "endpoint": "putIn",
+      "endpointName": "North Fisher Lake Road roadside launch",
+      "latitude": 42.0082036,
+      "longitude": -85.5672093,
+      "matchedRiverName": "Portage River",
+      "distanceFeetToMatchedRiver": 5.212587116873082,
+      "nearestMatchedLatitude": 42.008196448602796,
+      "nearestMatchedLongitude": -85.56719265269462,
+      "nearestWaterwayName": "Portage River",
+      "distanceFeetToNearestWaterway": 5.212587116873082,
+      "nearestWaterwayLatitude": 42.008196448602796,
+      "nearestWaterwayLongitude": -85.56719265269462,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 42.0082036,
+      "nearestWaterbodyLongitude": -85.5672093,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

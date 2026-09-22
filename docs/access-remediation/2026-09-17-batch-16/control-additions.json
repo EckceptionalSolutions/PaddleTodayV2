@@ -1,0 +1,133 @@
+{
+  "providers": [
+    {
+      "id": "id_blm_island_bar_recreation_site",
+      "name": "BLM Island Bar Lower Salmon public put-in access anchor",
+      "state": "Idaho",
+      "sourceId": "blm-island-bar",
+      "sourceType": "official-blm-recreation-site-page",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "BLM publishes the Island Bar site coordinate and identifies this undeveloped Lower Salmon recreation site as a frequent put-in with easy river access. Keep the point as a recreation-site/access anchor; it does not identify a surveyed shoreline landing or ramp toe. Verify current site and beach conditions.",
+      "controls": [
+        {
+          "featureId": "blm-island-bar-recreation-site",
+          "name": "Island Bar Recreation Site",
+          "aliases": ["Island Bar put-in", "Island Bar Lower Salmon access"],
+          "waterbody": "Salmon River",
+          "latitude": 45.41583317,
+          "longitude": -116.25944467,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Stored coordinate matches the BLM-published site coordinate within one foot; BLM describes easy river access but does not designate an exact wetted-edge point."
+        }
+      ]
+    },
+    {
+      "id": "ne_burwell_riverside_park_north_loup",
+      "name": "Burwell Riverside Park North Loup water-trail start access anchor",
+      "state": "Nebraska",
+      "sourceId": "burwell-comp-plan-2024",
+      "sourceType": "official-municipal-park-plan",
+      "sourceDocumentDate": "2024",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Burwell’s municipal plan places Riverside Park on the west bank of the North Loup near North 8th Street. Nebraska Game and Parks’ current water-trails page links its North Loup trip planner, which names Riverside Park as the trail start. The stored point is retained as a park/access-area anchor; neither source publishes a surveyed launch coordinate.",
+      "controls": [
+        {
+          "featureId": "burwell-riverside-park",
+          "name": "Burwell Riverside Park",
+          "aliases": ["Riverside Park North Loup put-in", "Burwell Riverside Park access"],
+          "waterbody": "North Loup River",
+          "latitude": 41.78900058,
+          "longitude": -99.134,
+          "uncertaintyFeet": 700,
+          "coordinateText": "Existing park-side route pin retained; official sources establish the public trail start and west-bank park location, not a specific wet-edge coordinate."
+        }
+      ]
+    },
+    {
+      "id": "oh_colerain_obergiesing_dravo_canoe_ramp",
+      "name": "Colerain Obergiesing Soccer Complex at Dravo Park canoe-ramp access anchor",
+      "state": "Ohio",
+      "sourceId": "colerain-obergiesing-facility",
+      "sourceType": "official-township-facility-listing",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Colerain Township identifies the named facility as one of its two Great Miami River canoe ramps and lists parking and dawn-to-dusk public hours. Retain the existing facility-area point; the township publishes no exact ramp-toe coordinate.",
+      "controls": [
+        {
+          "featureId": "colerain-obergiesing-soccer-complex-dravo-park",
+          "name": "Obergiesing Soccer Complex at Dravo Park canoe-ramp access",
+          "aliases": ["Dravo Park canoe ramp", "Obergiesing canoe access"],
+          "waterbody": "Great Miami River",
+          "latitude": 39.26157,
+          "longitude": -84.68773,
+          "uncertaintyFeet": 600,
+          "coordinateText": "Existing park/facility pin for the township-confirmed public canoe-ramp site; not a surveyed ramp toe."
+        }
+      ]
+    },
+    {
+      "id": "mi_dnr_charles_besemer_croton_dam_boat_access",
+      "name": "Michigan DNR Charles Besemer Muskegon River Park boat access at Croton Dam",
+      "state": "Michigan",
+      "sourceId": "michigan-dnr-croton-access",
+      "sourceType": "official-state-dnr-coordinate-and-access-record",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Michigan DNR publishes this exact coordinate for Charles Besemer Muskegon River Park boat access at Croton Dam and describes the steep paved launch, trailer parking and below-dam access context. The coordinate is the DNR access-site point; retain it and do not shift it to another nearby pin.",
+      "controls": [
+        {
+          "featureId": "charles-besemer-muskegon-river-park-croton-dam",
+          "name": "Charles Besemer Muskegon River Park boat access at Croton Dam",
+          "aliases": ["Croton Dam Tailwater Park public boat launch", "Croton Dam Muskegon access"],
+          "waterbody": "Muskegon River",
+          "latitude": 43.435561,
+          "longitude": -85.66678,
+          "uncertaintyFeet": 100,
+          "coordinateText": "Exact Michigan DNR published coordinate for the named below-dam boat access; public route starts below the dam."
+        }
+      ]
+    },
+    {
+      "id": "or_willamette_norwood_island_campsite",
+      "name": "Willamette Riverkeeper Norwood Island paddle-in campsite access anchor",
+      "state": "Oregon",
+      "sourceId": "willamette-norwood-island",
+      "sourceType": "official-water-trail-operator-site-listing",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Willamette Water Trail publishes the stored site coordinate, RM 148.5, Riverkeeper management, and a campsite on the mainstem side toward the downstream end of the island. Keep this as an island/campsite anchor; paddlers must scout the actual landing and current channel. The back-channel bridge is washed out.",
+      "controls": [
+        {
+          "featureId": "norwood-island-willamette-water-trail-site",
+          "name": "Norwood Island paddle-in campsite",
+          "aliases": ["Norwood Island landing", "Norwood Island water-trail campsite"],
+          "waterbody": "Willamette River",
+          "latitude": 44.3829,
+          "longitude": -123.24693,
+          "riverMile": 148.5,
+          "uncertaintyFeet": 800,
+          "coordinateText": "Water-trail operator site coordinate for the managed island/campsite; landing point varies with channel and bank conditions."
+        }
+      ]
+    },
+    {
+      "id": "mn_dnr_sauk_spring_hill_was00338",
+      "name": "Minnesota DNR Spring Hill Sauk River public water access feature",
+      "state": "Minnesota",
+      "sourceId": "mn-dnr-spring-hill-access-feature",
+      "sourceType": "official-dnr-public-water-access-gis-feature",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Minnesota public-water-access GIS feature OBJECTID 2500 / WAS00338 returns WGS84 x=-94.775652824582878, y=45.529866726150793, names Stearns County as administrator and identifies the Sauk River RM56.1 public access. DNR Map 2 lists Spring Hill carry-in sites at RM56.2 on the left bank and RM56.1 on the right bank; the stored route endpoint is standardized to this named GIS access feature and its mapped access-area coordinate, not claimed as a surveyed launch toe.",
+      "controls": [
+        {
+          "featureId": "OBJECTID-2500-WAS00338",
+          "name": "Sauk River, Spring Hill Public Water Access Site",
+          "aliases": ["Spring Hill County Park carry-in access", "Spring Hill Sauk River public access RM 56.1"],
+          "waterbody": "Sauk River",
+          "latitude": 45.529866726150793,
+          "longitude": -94.775652824582878,
+          "riverMile": 56.1,
+          "uncertaintyFeet": 100,
+          "coordinateText": "Official GIS point for Stearns County public water access WAS00338; DNR water-trail map also lists a distinct RM56.2 access on the opposite bank."
+        }
+      ]
+    }
+  ]
+}

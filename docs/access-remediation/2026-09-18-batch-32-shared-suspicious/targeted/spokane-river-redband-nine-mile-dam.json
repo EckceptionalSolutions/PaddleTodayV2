@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:22:26.272Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "spokane-river-redband-nine-mile-dam",
+      "routeName": "Spokane River",
+      "reach": "Redband Park public boat launch (imagery-derived water-entry edge) to Nine Mile Dam public river access (water-entry edge)",
+      "state": "Washington",
+      "endpoint": "putIn",
+      "endpointName": "Redband Park public boat launch (imagery-derived water-entry edge)",
+      "latitude": 47.66001,
+      "longitude": -117.432231,
+      "matchedRiverName": "Spokane River",
+      "distanceFeetToMatchedRiver": 128.8508027880284,
+      "nearestMatchedLatitude": 47.66036196259051,
+      "nearestMatchedLongitude": -117.43218726390815,
+      "nearestWaterwayName": "Spokane River",
+      "distanceFeetToNearestWaterway": 128.8508027880284,
+      "nearestWaterwayLatitude": 47.66036196259051,
+      "nearestWaterwayLongitude": -117.43218726390815,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 50.1791122652288,
+      "nearestWaterbodyLatitude": 47.660146874717064,
+      "nearestWaterbodyLongitude": -117.43221084782566,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 50.1791122652288,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://my.spokanecity.org/news/stories/2019/07/03/ramp-launches-new-river-access/",
+      "coordinateEvidenceDetail": "spokane_redband_park_launch_aerial_20260918 spokane-redband-park-boat-slide: The City of Spokane confirms a boat launch at Redband Park with a raft slide and steps to the river; the Spokane Conservation District describes the slide-rail boat launch. The prior point was 324 feet from the matched Spokane River flowline and landed near downtown falls, not Redband Park. Current Google Maps aerial imagery shows the public slide/shore entry on the south bank of the river at 47.660010,-117.432231. The imagery-derived point has 50-foot uncertainty and is not a surveyed City coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (spokane_redband_park_launch_aerial_20260918 spokane-redband-park-boat-slide) on Spokane River; the 129 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    },
+    {
+      "routeId": "spokane-river-redband-nine-mile-dam",
+      "routeName": "Spokane River",
+      "reach": "Redband Park public boat launch (imagery-derived water-entry edge) to Nine Mile Dam public river access (water-entry edge)",
+      "state": "Washington",
+      "endpoint": "takeOut",
+      "endpointName": "Nine Mile Dam public river access (water-entry edge)",
+      "latitude": 47.77985,
+      "longitude": -117.54559,
+      "matchedRiverName": "Spokane River",
+      "distanceFeetToMatchedRiver": 104.95793207665577,
+      "nearestMatchedLatitude": 47.77982800817538,
+      "nearestMatchedLongitude": -117.54601688485664,
+      "nearestWaterwayName": "Spokane River",
+      "distanceFeetToNearestWaterway": 104.95793207665577,
+      "nearestWaterwayLatitude": 47.77982800817538,
+      "nearestWaterwayLongitude": -117.54601688485664,
+      "nearestWaterbodyName": "Long Lake",
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 47.77985,
+      "nearestWaterbodyLongitude": -117.54559,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody Long Lake; flowline distance is informational."
+    }
+  ]
+}

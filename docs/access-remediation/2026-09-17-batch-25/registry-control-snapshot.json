@@ -1,0 +1,31 @@
+{
+  "capturedOn": "2026-09-17",
+  "access": "nebraska--george-d-syas-wma-fishing-access",
+  "priorAreaControls": [
+    {
+      "providerId": "ne_ngpc_george_syas_wma_area_anchor",
+      "featureId": "PHA-NGPC-0000104",
+      "name": "George D. Syas WMA",
+      "coordinateRole": "authoritative-area-anchor",
+      "latitude": 41.43328221,
+      "longitude": -97.68464875,
+      "meaning": "WMA property polygon representative/label point, not the launch."
+    },
+    {
+      "providerId": "ne_ngpc_george_syas_public_fishing_stream_area",
+      "featureId": "PFA-0052",
+      "name": "George Syas WMA",
+      "coordinateRole": "authoritative-area-anchor",
+      "latitude": 41.4356113,
+      "longitude": -97.68947913,
+      "meaning": "Centroid of the public-fishing stream polygon, not a launch."
+    }
+  ],
+  "newWaterEntryControl": {
+    "providerId": "ne_ngpc_george_syas_paddlecraft_launch",
+    "featureId": "b88540d4-96d4-4d74-9fed-473304b6e2f7",
+    "latitude": 41.42442894,
+    "longitude": -97.6963078,
+    "coordinateRole": "authoritative-water-entry"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "batch": "B91",
+  "decision": "retain-coordinate-classify",
+  "routeId": "wv-new-glade-creek-grandview-sandbar",
+  "endpoint": "putIn",
+  "endpointName": "Glade Creek River Access",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 37.82912, "longitude": -81.014533 }, "distanceFeetToMatchedRiver": 354.00124324126034, "distanceFeetToMappedWater": 204.64884239933906, "sourceIssues": 0 },
+  "evidence": { "npsAccess": "NPS identifies Glade Creek as a New River access area with a primitive campground, river access, and trailhead at the end of Glade Creek Road.", "publicListing": "NPS fishing guidance independently lists Glade Creek among public New River access points near Prince.", "coordinateFit": "The stored point is retained as the managed campground/access-area anchor. The 354-foot named-flowline offset and 205-foot mapped-water distance reflect the gorge road and facility placement, not a wrong access."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "wv_nps_glade_creek_new_river_access_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 354.00124324126034, "distanceFeetToMappedWater": 204.64884239933906, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 34, "after": 33 }, "inventorySuspicious": { "before": 87, "after": 86 }, "publicReview": { "before": 3903, "after": 3904 }, "inventoryReview": { "before": 4207, "after": 4208 }, "registryAuthoritativeAccess": { "before": 1236, "after": 1237 } }
+}

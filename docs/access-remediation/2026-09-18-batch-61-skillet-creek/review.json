@@ -1,0 +1,42 @@
+{
+  "batch": 61,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Skillet Creek Access 261, Des Moines River, Webster County, Iowa",
+  "affectedRoutes": [
+    "des-moines-river-deception-hollow-skillet",
+    "des-moines-river-skillet-north-fraser"
+  ],
+  "decision": "replace-the-stratford-gauge-area-pin-with-the-iowa-dnr-access-261-gis-coordinate; retain-as-authoritative-access-anchor-pending-wet-toe-check",
+  "decisionScope": "Iowa DNR's public access feature 25 identifies Skillet Creek Access 261 on the Des Moines River and publishes 42.26169114946014,-93.99540928857351. The current state water-trail map labels this site as access 261, defines access numbers as rounded river miles, and shows Deception Hollow as access 276; the DNR guide describes the connecting reach as 15.5 miles. The previous route point 42.2523,-93.9975 was about 0.66 miles from the state GIS location and sat near the Stratford gauge corridor. The state feature is a better supported location for the named access.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 42.2523,
+      "longitude": -93.9975
+    },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 354,
+    "mappedWaterDistanceFeet": 226,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/trip-details/iowa.ts",
+      "src/data/routes/iowa.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 42.2523,
+      "longitude": -93.9975
+    },
+    "to": {
+      "latitude": 42.26169114946014,
+      "longitude": -93.99540928857351
+    },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_dnr_webster_skillet_creek_access_261_20260918",
+    "rationale": "The state GIS point exactly matches named access 261 on the state water-trail map. The refreshed route checks place the new point about 184 feet from the matched Des Moines flowline and 29 feet from mapped water; the access is a natural carry-down, so the control confirms the site rather than a surveyed wet toe."
+  },
+  "remainingUncertainty": "Iowa DNR classifies this as a natural access, with a 9-by-53-foot access surface and a 31-foot parking-to-access distance; it does not survey the wet toe. NHD's nearest named flowline is Dry Branch at about 166 feet, while the route-matched Des Moines flowline is about 184 feet away. The mapped water polygon is about 29 feet away. Walk the landing and carry before launching.",
+  "outcome": "Both suspicious shared occurrences moved to review at the state-mapped access 261 coordinate. North Fraser and Deception Hollow remain independently supported endpoints."
+}

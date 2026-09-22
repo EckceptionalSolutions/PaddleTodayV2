@@ -1,0 +1,16 @@
+{
+  "batch": 66,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected suspicious occurrence before reviewing access-source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T21:27:30.874Z; 2,750 public routes, 6,058 endpoints, 59 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Texas",
+    "name": "FM 973 / Del Valle Bridge, Colorado River",
+    "storedCoordinate": { "latitude": 30.21, "longitude": -97.64 },
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": ["colorado-river-fm973-little-webberville"],
+    "preReviewFinding": "The endpoint is about 510 feet from the matched Colorado River flowline and 429 feet from mapped water.",
+    "decision": "verify-that-a-legal-public-launch-or-carry-exists-at-FM-973-and-whether-the-stored-point-is-the-road-bridge-rather-than-a-water-access; correct-only-to-supported-public-access",
+    "selectionFrozenBeforeResearch": true
+  }
+}

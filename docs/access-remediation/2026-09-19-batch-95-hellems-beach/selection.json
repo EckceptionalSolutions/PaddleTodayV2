@@ -1,0 +1,13 @@
+{
+  "batch": "B95",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-new-tug-creek-hellems",
+  "routeName": "New River",
+  "reach": "Tug Creek River Access to Hellems Beach",
+  "state": "West Virginia",
+  "endpoint": "takeOut",
+  "endpointName": "Hellems Beach River Access",
+  "storedCoordinate": { "latitude": 37.724596, "longitude": -80.896656 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 573.1911408787522, "nearestWaterwayName": "New River", "distanceFeetToMappedWater": 222.63519176014594, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "NPS's current New River Gorge fishing guidance explicitly lists Hellems Beach among the public New River access points reached via River Road at Hinton. NPS planning material independently groups Tug Creek, Hellems Beach, and Camp Brookside as upper-gorge public river accesses. Retain the stored Hellems Beach coordinate as a conditional access-area anchor; the 573-foot flowline offset is consistent with the gorge shoreline/road facility and should not be corrected by projecting the point into the channel."
+}

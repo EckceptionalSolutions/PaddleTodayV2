@@ -16,6 +16,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 type PrepareTripSheetProps = {
   visible: boolean;
+  offlineFirst?: boolean;
   detail: RiverDetailApiResult;
   putIn?: RiverAccessPoint;
   takeOut?: RiverAccessPoint;
@@ -24,7 +25,7 @@ type PrepareTripSheetProps = {
   onAction?: (action: 'gpx' | 'calendar' | 'float_plan') => void;
 };
 
-export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
+export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
   const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
   const distanceMiles = selectedDistance(accessPoints, putIn, takeOut, detail);
@@ -230,6 +231,8 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
         <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Math.max(spacing.lg, insets.bottom) }]} keyboardShouldPersistTaps="handled">
           <TripDraftNotice state={draftState} session={draftSession} defaults={defaults} locked={closing || sharePending || calendarPending}
             onClose={onClose} onReset={() => { setStatus(''); setShareFallback(null); }} />
+          {visible && offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
+            ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
           <Text style={styles.sectionTitle}>Timing</Text>
           <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
           <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('launch')} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
@@ -241,7 +244,7 @@ export function PrepareTripSheet({ visible, detail, putIn, takeOut, accessPoints
           <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
           <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
           <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
-          {visible ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
+          {visible && !offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
             ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
           {validationError && !('field' in validationError) ? <Text accessibilityLiveRegion="polite" style={styles.status}>{validationError.message}</Text> : null}
           {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}

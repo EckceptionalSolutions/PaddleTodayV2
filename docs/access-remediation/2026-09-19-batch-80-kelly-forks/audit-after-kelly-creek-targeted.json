@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:51:27.943Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "kelly-creek-moose-kelly-forks",
+      "routeName": "Kelly Creek",
+      "reach": "Moose Creek to Kelly Forks Campground",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Kelly Forks Campground",
+      "latitude": 46.7167,
+      "longitude": -115.25515,
+      "matchedRiverName": "Kelly Creek",
+      "distanceFeetToMatchedRiver": 305.99352174905073,
+      "nearestMatchedLatitude": 46.715868,
+      "nearestMatchedLongitude": -115.255305,
+      "nearestWaterwayName": "Kelly Creek",
+      "distanceFeetToNearestWaterway": 305.99352174905073,
+      "nearestWaterwayLatitude": 46.715868,
+      "nearestWaterwayLongitude": -115.255305,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 246.14639012754878,
+      "nearestWaterbodyLatitude": 46.71603463015394,
+      "nearestWaterbodyLongitude": -115.25531319937207,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 246.14639012754878,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.northidahorivers.com/Black_Canyon.htm",
+      "coordinateEvidenceDetail": "id_north_fork_clearwater_black_canyon id-north-fork-clearwater-kelly-forks: North Idaho Rivers identifies the Cedars/Forest Road 250 river crossing as the upper boundary and a river-left landing just above the Kelly Forks confluence bridge as the lower boundary. Forest Service recreation pages and the Kelly Forks campground record corroborate the developed lower facility; both stored points remain access-area anchors requiring current road, parking, carry, and landing confirmation.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_north_fork_clearwater_black_canyon id-north-fork-clearwater-kelly-forks) on North Fork Clearwater River / Kelly Creek; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "kelly-creek-moose-kelly-forks",
+      "routeName": "Kelly Creek",
+      "reach": "Moose Creek to Kelly Forks Campground",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Moose Creek / Kelly Creek Work Center",
+      "latitude": 46.72103,
+      "longitude": -115.08541,
+      "matchedRiverName": "Kelly Creek",
+      "distanceFeetToMatchedRiver": 228.3872615670556,
+      "nearestMatchedLatitude": 46.721187,
+      "nearestMatchedLongitude": -115.086294,
+      "nearestWaterwayName": "Moose Creek",
+      "distanceFeetToNearestWaterway": 228.3872615670556,
+      "nearestWaterwayLatitude": 46.721187,
+      "nearestWaterwayLongitude": -115.086294,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 218.43731856810373,
+      "nearestWaterbodyLatitude": 46.72046145697149,
+      "nearestWaterbodyLongitude": -115.08568394729902,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 218.43731856810373,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is on the connected route network, but the nearest named waterway is Moose Creek; verify the confluence or tributary access before accepting it."
+    }
+  ]
+}

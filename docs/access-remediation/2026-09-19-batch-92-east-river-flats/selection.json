@@ -1,0 +1,13 @@
+{
+  "batch": "B92",
+  "selectedAt": "2026-09-19",
+  "routeId": "mississippi-river-east-river-flats-hidden-falls",
+  "routeName": "Mississippi River",
+  "reach": "East River Flats to Hidden Falls Regional Park",
+  "state": "Minnesota",
+  "endpoint": "putIn",
+  "endpointName": "East River Flats Park",
+  "storedCoordinate": { "latitude": 44.9703514, "longitude": -93.2350599 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 416.6842206478721, "nearestWaterwayName": "Mississippi River", "distanceFeetToMappedWater": 208.1675112836612, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "Minneapolis Park Board planning material identifies East River Flats as one of the best Mississippi River access locations and lists a boat launch and river access; Minnesota DNR identifies it as a carry-in access. Verify the stored park point as a shoreline access-area anchor."
+}

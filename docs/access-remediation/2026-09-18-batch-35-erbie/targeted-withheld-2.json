@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:50:53.074Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "buffalo-river-kyles-landing-erbie",
+      "routeName": "Buffalo River",
+      "reach": "Kyle's Landing to Erbie",
+      "state": "Arkansas",
+      "endpoint": "putIn",
+      "endpointName": "Kyle's Landing campground / river access",
+      "latitude": 36.055756,
+      "longitude": -93.2813,
+      "matchedRiverName": "Buffalo River",
+      "distanceFeetToMatchedRiver": 263.93767103887876,
+      "nearestMatchedLatitude": 36.055445,
+      "nearestMatchedLongitude": -93.282108,
+      "nearestWaterwayName": "Bear Creek",
+      "distanceFeetToNearestWaterway": 263.93767103887876,
+      "nearestWaterwayLatitude": 36.055445,
+      "nearestWaterwayLongitude": -93.282108,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 302.3814660508515,
+      "nearestWaterbodyLatitude": 36.05651257478552,
+      "nearestWaterbodyLongitude": -93.28171874106616,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 263.93767103887876,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is on the connected route network, but the nearest named waterway is Bear Creek; verify the confluence or tributary access before accepting it."
+    },
+    {
+      "routeId": "buffalo-river-kyles-landing-erbie",
+      "routeName": "Buffalo River",
+      "reach": "Kyle's Landing to Erbie",
+      "state": "Arkansas",
+      "endpoint": "takeOut",
+      "endpointName": "Erbie Campground / river access (imagery-derived water-entry edge)",
+      "latitude": 36.070784,
+      "longitude": -93.211779,
+      "matchedRiverName": "Buffalo River",
+      "distanceFeetToMatchedRiver": 148.32475106538814,
+      "nearestMatchedLatitude": 36.071185,
+      "nearestMatchedLongitude": -93.211862,
+      "nearestWaterwayName": "Buffalo River",
+      "distanceFeetToNearestWaterway": 148.32475106538814,
+      "nearestWaterwayLatitude": 36.071185,
+      "nearestWaterwayLongitude": -93.211862,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 41.23669758118814,
+      "nearestWaterbodyLatitude": 36.07088869019247,
+      "nearestWaterbodyLongitude": -93.21172626876378,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 41.23669758118814,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+      "coordinateEvidenceDetail": "nps_buffalo_erbie_river_landing_aerial_20260918 nps-erbie-buffalo-river-water-entry: NPS lists Erbie as a designated Buffalo River access, and the NPS campground/access information supports the public Erbie site. Its published 36.070346,-93.211886 point is a campground/access-area anchor inland from the river. Current Google Maps aerial imagery shows the approach reaching the Buffalo River at 36.070784,-93.211779; this water-entry coordinate is imagery-derived with 75-foot uncertainty and is not a surveyed NPS coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (nps_buffalo_erbie_river_landing_aerial_20260918 nps-erbie-buffalo-river-water-entry) on Buffalo River; the 148 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

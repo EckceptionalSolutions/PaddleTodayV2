@@ -1,0 +1,29 @@
+{
+  "batch": 58,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Heller Bar Boat Ramp, Snake River, Washington",
+  "affectedRoutes": [
+    "lower-salmon-hammer-heller-bar",
+    "snake-river-pittsburg-heller-bar"
+  ],
+  "decision": "retain-the-riverbrain-ramp-coordinate-corroborated-by-wdfw-as-the-public-concrete-ramp-anchor; leave-the-water-edge-offset-visible",
+  "decisionScope": "RiverBrain's Heller Bar Boat Ramp record publishes 46.08601938,-116.98350549, exactly matching both route endpoints, and describes a concrete take-out/launch with toilets and parking. WDFW confirms the nearby year-round public Heller Bar site has a concrete ramp and hand launch; its official GIS access-site point is about 103 feet from the RiverBrain ramp coordinate. WDFW notes that the gravel bar in front of the ramp becomes exposed at lower summer flows. The American Whitewater marker is about 950 feet away and does not establish a replacement coordinate. Because the exact ramp point is independently supported while the wet edge varies and is not surveyed by the cited pages, I registered the location as an authoritative access anchor without moving it.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 46.08601938, "longitude": -116.98350549 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 376,
+    "mappedWaterDistanceFeet": 158,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 46.08601938, "longitude": -116.98350549 },
+    "to": { "latitude": 46.08601938, "longitude": -116.98350549 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "wa_wdfw_heller_bar_ramp_access_anchor_20260918",
+    "rationale": "The exact RiverBrain ramp point is corroborated by WDFW's public concrete-ramp record and nearby official GIS access-site point. Neither agency source georeferences the seasonal wet toe."
+  },
+  "remainingUncertainty": "The retained ramp point remains about 158 feet from mapped water and 376 feet from the matched Snake River flowline. WDFW reports a variable gravel bar at the ramp. The exact wetted edge changes with flow and is not established as a permanent coordinate. The Lower Salmon route reaches Heller Bar after the Salmon-Snake confluence; the Snake route uses the same ramp directly.",
+  "outcome": "Two suspicious endpoint occurrences moved to review with the mapped-water offset retained. Coordinates and route geometry did not change."
+}

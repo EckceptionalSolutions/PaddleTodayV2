@@ -1,0 +1,23 @@
+{
+  "batch": "B112",
+  "endpoint": "Big Bend Landing",
+  "routeId": "namekagon-river-big-bend-trego",
+  "sources": [
+    {
+      "url": "https://www.nps.gov/sacn/planyourvisit/upload/Namekagon-PG-Final.pdf",
+      "publisher": "National Park Service, Saint Croix National Scenic Riverway",
+      "supports": "Names Big Bend Landing in the Namekagon River paddling guide and includes the Big Bend Landing to Lakeside Road Landing segment."
+    },
+    {
+      "url": "https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm",
+      "publisher": "National Park Service, Saint Croix National Scenic Riverway",
+      "supports": "Describes the Big Bend-to-Trego Namekagon reach and the river from Stinnett Landing down to Big Bend Landing."
+    },
+    {
+      "url": "https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/5050namekagonriver",
+      "publisher": "Wisconsin Department of Natural Resources",
+      "supports": "Identifies a managed Namekagon River landing on the western fishery-area parcel in cooperation with NPS."
+    }
+  ],
+  "sourceAssessment": "NPS and Wisconsin DNR independently document Big Bend/Namekagon landing access. Retain the stored point as a conditional landing-area anchor."
+}

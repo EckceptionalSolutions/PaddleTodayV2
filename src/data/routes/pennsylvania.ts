@@ -67,11 +67,11 @@ export const pennsylvaniaRoutes: River[] = [
     "id": "redbank-creek-new-bethlehem-climax",
     "slug": "redbank-creek-new-bethlehem-climax",
     "name": "Redbank Creek",
-    "reach": "New Bethlehem Kayak Launch to Climax",
+    "reach": "New Bethlehem / Gumtown Park area to Climax (launch edge unverified)",
     "aliases": ["Redbank Creek - New Bethlehem to Climax", "Redbank Creek New Bethlehem kayak launch to Climax", "Redbank Creek Trail Mile 20 to 17"],
     "state": "Pennsylvania",
     "region": "Western Pennsylvania",
-    "summary": "A six-mile Redbank Creek float from the public New Bethlehem kayak launch below the dam to the Climax access at Trail Mile 17. The Pennsylvania Angler & Boater guide names the launch and take-out, gives a 2.7–under-6 ft runnable window, and the Redbank Valley Trails Association publishes endpoint coordinates, parking, camping, and access cautions.",
+    "summary": "A documented six-mile Redbank Creek corridor from New Bethlehem to Climax at Trail Mile 17. The published New Bethlehem coordinate is the municipal lot; the exact Gumtown Park launch edge and carry remain unresolved, so this route stays withheld pending access verification.",
     "statusText": "Use USGS 03031882 at Brookville as the live gauge. Launch only when the gauge is at least 2.7 ft and below 6 ft, with a stable trend; confirm current access, shuttle, debris, and downstream hazards before putting in.",
     "latitude": 41.002551,
     "longitude": -79.337332,
@@ -81,7 +81,7 @@ export const pennsylvaniaRoutes: River[] = [
       "hazards": ["low_water", "fast_rise", "strainers", "remote", "cold_water"],
       "safetyNotes": [
         "The Pennsylvania Angler & Boater guide recommends at least 2.7 ft and definitely less than 6 ft for an enjoyable Redbank float. Treat this as a conservative station-tied operating window, not a guarantee; stand down for rapidly rising water, debris, or poor visibility.",
-        "Use the named New Bethlehem kayak launch below the dam and the Climax access at Trail Mile 17. Do not launch from private property, block driveways, or improvise roadside access; the Climax parking is very limited.",
+        "Do not launch from the New Bethlehem municipal lot. Confirm the Gumtown Park kayak-launch edge, carry, and lawful parking first. Do not launch from private property, block driveways, or improvise roadside access; Climax parking is very limited.",
         "The reach includes bridges, strainers, and a narrow valley. Wear a PFD, carry a shuttle plan, and scout conditions. Cell service is limited in parts of the corridor.",
         "Camping is only permitted in designated areas; Redbank Valley Trails Association identifies nearby designated camping, but this route is a day float and requires a separate logistics plan for overnight use.",
         "Follow current Pennsylvania Fish and Boat Commission registration/launch-permit rules and local closures."
@@ -102,11 +102,11 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The guide identifies the best float levels generally April–June and September–November; check the live gauge and trend immediately before launch.",
       "difficulty": "moderate",
       "difficultyNotes": "A moving-water float with low-water, wood, bridge, and cold-water considerations; suitable only for paddlers who can self-rescue and manage a shuttle.",
-      "confidenceNotes": "High confidence for route identity, public endpoint names, coordinates, threshold, and logistics: the official Pennsylvania Angler & Boater article names New Bethlehem and Climax access, while the Redbank Valley Trails Association publishes matching coordinates, parking, camping, and permit/safety guidance. The route is distinct from any Brookville or lower Redbank opportunity because it uses the named New Bethlehem-to-Climax corridor."
+      "confidenceNotes": "Route identity, mileage, and flow threshold are documented, but the RVTA coordinate 41.0024,-79.3322 is the New Bethlehem municipal parking lot, not a verified kayak-launch edge. The exact Gumtown Park launch, carry, and parking-to-water connection remain unresolved, so the route is withheld pending access verification."
     },
     "evidenceNotes": [
       {"label": "Official route and threshold", "value": "New Bethlehem to Climax; 2.7–under 6 ft", "note": "Pennsylvania Angler & Boater names the New Bethlehem kayak launch, Climax take-out, and the 2.7 ft minimum / under 6 ft window.", "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/fishandboat/documents/about-us/angler-and-boater/legacy-issues/2020s/documents/mayjune2023.pdf"},
-      {"label": "Endpoint coordinates", "value": "New Bethlehem 41.0024,-79.3322; Climax 40.9859,-79.3751", "note": "Redbank Valley Trails Association publishes the municipal New Bethlehem launch/parking coordinate and the Climax access coordinate near 4365 Climax Road.", "sourceUrl": "https://www.redbankvalleytrails.org/parking/"},
+      {"label": "Endpoint coordinates", "value": "New Bethlehem 41.0024,-79.3322; Climax 40.9859,-79.3751", "note": "Redbank Valley Trails Association identifies 41.0024,-79.3322 as the New Bethlehem municipal parking lot and separately describes the kayak launch at Gumtown Park; it does not publish the launch-edge coordinate.", "sourceUrl": "https://www.redbankvalleytrails.org/parking/"},
       {"label": "Live direct gauge", "value": "USGS 03031882 at Brookville", "note": "USGS provides continuous discharge and stage telemetry for the Brookville station; the trail guide explicitly directs paddlers to use this gauge or St. Charles.", "sourceUrl": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03031882"},
       {"label": "Camping and logistics", "value": "Designated camping near the Redbank Valley Trail; shuttle required", "note": "The Redbank Valley Trails Association map identifies designated camping, trail access, parking, and limited-service/cell-coverage cautions.", "sourceUrl": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf"}
     ],
@@ -998,7 +998,7 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Endpoint coordinates",
         "value": "PFBC access-site coordinates",
-        "note": "The PFBC Section 1 access table publishes Sayre PFBC at 41 59 18 / -76 36 42 and Wysox Township Park at 41 46 15 / -76 23 52.",
+        "note": "The older PFBC Section 1 table prints Sayre at 41 59 18 / -76 36 42, conflicting with the mainstem location. The 2021 North Branch guide publishes Sayre Access GPS 41.995932, -76.473493 at river mile 290.5; the newer GPS and route mileage support the corrected access anchor.",
         "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
       },
       {
@@ -1176,7 +1176,7 @@ export const pennsylvaniaRoutes: River[] = [
     ],
     "state": "Pennsylvania",
     "region": "North Branch Susquehanna",
-    "summary": "Eight-mile North Branch Susquehanna day from Ulster Bridge to Towanda Riverfront Park. The official PFBC Section 1 guide publishes both access coordinates, maps the caution miles that matter before town, and ties the whole corridor directly to the Towanda gauge for conservative same-day planning.",
+    "summary": "Eight-mile North Branch Susquehanna day from the current Ulster Bridge Municipal Access carry-in to Towanda Riverfront Park. The 2021 North Branch guide identifies the municipal launch and nearby parking; PFBC Section 1 flags the caution miles before town and ties the corridor to the direct Towanda gauge.",
     "statusText": "Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft there is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.",
     "latitude": 41.849146,
     "longitude": -76.497242,
@@ -1239,9 +1239,9 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "PFBC access-site coordinates",
-        "note": "The PFBC Section 1 access table publishes Ulster Bridge at 41 51 09 / -76 29 50 and Towanda Riverfront Park at 41 46 07 / -76 26 19.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+        "value": "2021 North Branch municipal access coordinate",
+        "note": "The 2021 access table lists Ulster Bridge Municipal Access at 41.849146, -76.497242 (river mile 278.8; carry-in; parking nearby). The older 2008 PFBC coordinate at 41.8525, -76.497222 is a separate Gravel Private point.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
       },
       {
         "label": "Direct gauge",
@@ -1297,7 +1297,7 @@ export const pennsylvaniaRoutes: River[] = [
     ],
     "state": "Pennsylvania",
     "region": "North Branch Susquehanna",
-    "summary": "Eleven-mile upper North Branch day from Ulster Bridge to Wysox Township Park. The official PFBC guide family publishes both access coordinates, lists this route as a favorite day trip, and ties the whole corridor directly to the Towanda gauge for conservative same-day planning.",
+    "summary": "Eleven-mile upper North Branch day from the current Ulster Bridge Municipal Access carry-in to Wysox Township Park. The 2021 guide lists this as a favorite day trip and identifies the updated municipal access; the route uses the direct Towanda gauge and preserves PFBC caution-mile guidance.",
     "statusText": "Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft at Towanda is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.",
     "latitude": 41.811667,
     "longitude": -76.4475,
@@ -1349,7 +1349,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "PFBC says the North Branch in this corridor often stays paddleable in lower summer water, but the wide channel still reacts quickly to thunderstorms, wood, and headwind.",
       "difficulty": "easy",
       "difficultyNotes": "This remains broad-audience river mileage in the conservative band, but the bridge-current line near Towanda, the strainer-prone riffle zone, and the 11.3-mile length keep it above a casual float.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch guide family publishes exact coordinates for Ulster Bridge and Wysox Township Park, labels the route as an 11.3-mile favorite trip, and flags the main caution miles that need to stay in product copy. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft at 2026-07-14 01:45 EDT for direct USGS 01531500 during this restore pass."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: the updated 2021 access table places Ulster Bridge Municipal Access at 41.849146,-76.497242 and lists this as an 11.3-mile favorite trip to Wysox Township Park. This supersedes the older 2008 PFBC row labeled Gravel Private; PFBC Section 1 supplies the caution miles retained in product copy. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 14, 2026 values of 1,940 cfs and 0.54 ft at 2026-07-14 01:45 EDT for direct USGS 01531500 during this restore pass."
     },
     "evidenceNotes": [
       {
@@ -1360,9 +1360,9 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "PFBC access-site coordinates",
-        "note": "The PFBC Section 1 access table publishes Ulster Bridge at 41 51 09 / -76 29 50 and Wysox Township Park at 41 46 15 / -76 23 52.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+        "value": "2021 North Branch municipal access coordinate",
+        "note": "The 2021 access table lists Ulster Bridge Municipal Access at 41.849146, -76.497242 (river mile 278.8; carry-in; parking nearby). The older 2008 PFBC coordinate at 41.8525, -76.497222 is a separate Gravel Private point.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
       },
       {
         "label": "Direct gauge",
@@ -1470,7 +1470,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "PFBC says the North Branch often stays paddleable through summer low water, but broad-river wind, thunderstorms, and flooded treelines still change the feel quickly on a long day like this.",
       "difficulty": "easy",
       "difficultyNotes": "This is still broad-audience flatwater in the conservative band, but the 25-mile length, exposed wind, and repeated quick-water zones make it a serious long-day commitment rather than a casual float.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Ulster Bridge and Terrytown PFBC, defines the corridor with official river miles, and flags the exact caution sequence that matters from Towanda down to the lower Bradford reach. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 20:45 EDT for direct USGS 01531500 during this restore pass."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: the updated 2021 access table places Ulster Bridge Municipal Access at 41.849146,-76.497242; this replaces the distinct older 2008 PFBC point labeled Gravel Private. PFBC Section 1 defines the corridor river miles and the caution sequence from Towanda to the lower Bradford reach. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day July 13, 2026 values of 1,960 cfs and 0.55 ft at 2026-07-13 20:45 EDT for direct USGS 01531500 during this restore pass."
     },
     "evidenceNotes": [
       {
@@ -1481,9 +1481,9 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "PFBC access-site coordinates",
-        "note": "The PFBC Section 1 access table publishes Ulster Bridge at 41 51 09 / -76 29 50 and Terrytown PFBC at 41 42 51 / -76 16 54.",
-        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+        "value": "2021 North Branch municipal access coordinate",
+        "note": "The 2021 access table lists Ulster Bridge Municipal Access at 41.849146, -76.497242 (river mile 278.8; carry-in; parking nearby). The older 2008 PFBC coordinate at 41.8525, -76.497222 is a separate Gravel Private point.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
       },
       {
         "label": "Direct gauge",
@@ -4046,7 +4046,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The county treats this as a warm-season creek route that needs enough depth at Hogestown to avoid scraping. Rain can quickly raise current, debris, and bridge-clearance consequences even when the baseline route is otherwise approachable.",
       "difficulty": "easy",
       "difficultyNotes": "This is a short moving-water creek link with improved public launches, but it still needs a same-day check for wood, dragging, and stronger post-rain current.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still publishes Willow Mill Park and Vincent DiFilippo Nature Preserve as named public Conodoguinet launches with official mile markers of 23.2 and 18.8, which define this 4.4-mile access pair. The same county page still says boating should be above 1.7 ft at the direct Hogestown gauge, while USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
+      "confidenceNotes": "Confidence is good for the public Conodoguinet access sites. The route now uses Cumberland County's published B4 coordinate for Willow Mill Park, which the county identifies as a concrete boat launch and Silver Spring Township places at the rear of the park. The county coordinate is rounded to four decimal places and anchors the named park access site; the exact ramp toe is not separately surveyed. Cumberland County publishes the 23.2 and 18.8 mile markers, and USGS Water Services returned 219 cfs and 1.52 ft at Hogestown on July 10, 2026, below the county's 1.7 ft boating floor."
     },
     "evidenceNotes": [
       {
@@ -4058,8 +4058,14 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "80 Willow Mill Park Road to 110 Sample Bridge Road",
-        "note": "Cumberland County identifies Willow Mill Park and Vincent DiFilippo Nature Preserve as named public launch sites and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
+        "note": "Cumberland County publishes the Willow Mill B4 park access-site coordinate, now used by the route. The coordinate is rounded to four decimal places and does not locate a surveyed ramp toe.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
+      },
+      {
+        "label": "Willow Mill Park launch location",
+        "value": "Boat launch at the rear of the park",
+        "note": "Silver Spring Township's facility page confirms the boat launch is at the rear of the park, separate from the published B4 park access-site marker.",
+        "sourceUrl": "https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17"
       },
       {
         "label": "Direct gauge",
@@ -4163,7 +4169,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "This upper-middle Conodoguinet corridor works best in the warm season when the creek stays above the county floor. Thunderstorms can quickly raise current, move wood, and make bridge approaches more consequential on the same day.",
       "difficulty": "moderate",
       "difficultyNotes": "This is still broad-audience moving water, but the 9.6-mile length, shallow-floor posture, and mixed launch character make it more committed than the shorter Conodoguinet split routes.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Good Hope Access as named public Conodoguinet launches at miles 23.2 and 13.6, which defines this 9.6-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 13, 2026 values of 275 cfs and 1.69 ft at 2026-07-13 15:30 EDT. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
+      "confidenceNotes": "Confidence is good for the public Conodoguinet access sites: Cumberland County lists Willow Mill Park and Good Hope Access at miles 23.2 and 13.6, and the Hogestown reading was below the county's 1.7 ft boating floor. Good Hope is verified by PFBC and uses the agency access-area anchor. Willow Mill now uses the county's published B4 park access-site point; the township confirms the boat launch at the rear of the park, while the county coordinate is rounded and does not locate the surveyed ramp toe."
     },
     "evidenceNotes": [
       {
@@ -4174,9 +4180,15 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Public access addresses",
-        "value": "80 Willow Mill Park Road to 700 Good Hope Road",
-        "note": "Cumberland County identifies both endpoints as named public launches and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
+        "value": "80 Willow Mill Park Road to the 700 block of Good Hope Road",
+        "note": "The county guide identifies both endpoints by name and address and publishes Willow Mill's B4 park access-site point, now used by the route. The coordinate is rounded to four decimal places, and the exact ramp toe remains unverified. Good Hope's endpoint coordinate is taken from PFBC-verified access GIS as an access-area anchor.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
+      },
+      {
+        "label": "Willow Mill Park launch location",
+        "value": "Boat launch at the rear of the park",
+        "note": "Silver Spring Township's facility page confirms the boat launch is at the rear of the park, separate from the published B4 park access-site marker.",
+        "sourceUrl": "https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17"
       },
       {
         "label": "Direct gauge",
@@ -4287,7 +4299,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "This middle Conodoguinet corridor can work through much of the warm season when the creek is above the county low-water floor, but rain raises current and floating wood quickly on the same day.",
       "difficulty": "easy",
       "difficultyNotes": "The route stays in the easier creek-day bucket when Hogestown is above the county floor, but it still needs a real same-day check for wood, shallow bridge approaches, and the PFBC launch conditions at Good Hope.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Good Hope Access as named public launches at miles 18.8 and 13.6, which defines this 5.2-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The Good Hope endpoint legitimacy is especially strong because the county table identifies it as a PFBC access requiring the normal launch-permit or registration package. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Vincent DiFilippo Nature Preserve and Good Hope Access as named public launches at miles 18.8 and 13.6, which defines this 5.2-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. Good Hope is verified by PFBC and Cumberland County as a public launch; its shared marker uses the PFBC access-area point, not a surveyed wet-edge coordinate."
     },
     "evidenceNotes": [
       {
@@ -4298,8 +4310,8 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Public access addresses",
-        "value": "110 Sample Bridge Road to 700 Good Hope Road",
-        "note": "Cumberland County identifies both endpoints as named public launches with those street addresses. Route coordinates are derived from those official access addresses using the U.S. Census geocoder.",
+        "value": "110 Sample Bridge Road to the 700 block of Good Hope Road",
+        "note": "The county guide identifies both endpoints by access name and address. Good Hope's endpoint coordinate is taken from the PFBC-verified access GIS record as an access-area anchor.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -4528,7 +4540,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The lower-central creek stays usable in the warm season when depth clears the county floor, but rain raises current and bridge-area consequences quickly while broad urban-edge banks stay muddy after floods.",
       "difficulty": "easy",
       "difficultyNotes": "This is a straightforward creek day when Hogestown is above the minimum, but the 7.8-mile length, mixed launch quality, and bridge/wood scouting still make it more committed than a park pond outing.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri Meadow Park as named public launches at miles 13.6 and 5.8, which defines this 7.8-mile lower-central route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal high band. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
+      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Good Hope Access and Acri Meadow Park as named public launches at miles 13.6 and 5.8, which defines this 7.8-mile lower-central route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 10, 2026 values of 219 cfs and 1.52 ft at 2026-07-10 15:30 EDT, below the county floor. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal high band. Good Hope is verified by PFBC and Cumberland County as a public launch; its shared marker uses the PFBC access-area point, not a surveyed wet-edge coordinate."
     },
     "evidenceNotes": [
       {
@@ -4539,8 +4551,8 @@ export const pennsylvaniaRoutes: River[] = [
       },
       {
         "label": "Public access addresses",
-        "value": "700 Good Hope Road to 55 Acri Meadow Drive",
-        "note": "Cumberland County identifies both endpoints as named public launches with those street addresses. Route coordinates are derived from those official access addresses using the U.S. Census geocoder.",
+        "value": "The 700 block of Good Hope Road to 55 Acri Meadow Drive",
+        "note": "The county guide identifies both endpoints by access name and address. Good Hope's endpoint coordinate is taken from the PFBC-verified access GIS record as an access-area anchor.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
       },
       {
@@ -4650,7 +4662,7 @@ export const pennsylvaniaRoutes: River[] = [
       "seasonNotes": "The central creek can work in the warm season when the county floor is met, but this longer route amplifies same-day consequences from thunderstorms, bridge current, and debris shifts.",
       "difficulty": "moderate",
       "difficultyNotes": "This remains broad-audience moving water, but the 17.4-mile length, scrape-prone floor, and longer shuttle make it a serious full-day creek plan rather than a casual outing.",
-      "confidenceNotes": "Confidence is good for a conservative Pennsylvania add: Cumberland County still lists Willow Mill Park and Acri Meadow Park as named public Conodoguinet launches at miles 23.2 and 5.8, which defines this 17.4-mile route. The county still says recommended boating is above 1.7 ft at the direct Hogestown gauge, and USGS Water Services returned same-day July 6, 2026 values of 282 cfs and 1.71 ft at 2026-07-06 19:30 EDT. The route intentionally stays minimum-only because the county publishes a launch recommendation floor plus action and flood stages, not a route-specific ideal band. Endpoint coordinates follow the current official access-table coordinate rows rather than inferred shoreline projections."
+      "confidenceNotes": "Confidence is good for the public Conodoguinet access sites. Willow Mill now uses Cumberland County's published B4 park access-site coordinate, which is rounded to four decimal places; the county identifies the concrete launch and Silver Spring Township places its boat launch at the rear of the park. The coordinate is a park-level anchor, not a surveyed ramp toe. The county guide lists Acri Meadow at mile 5.8, and the route keeps its minimum-only gauge posture because the county publishes a boating floor plus action and flood stages, not a route-specific ideal band."
     },
     "evidenceNotes": [
       {
@@ -4662,8 +4674,14 @@ export const pennsylvaniaRoutes: River[] = [
       {
         "label": "Public access addresses",
         "value": "80 Willow Mill Park Road to 55 Acri Meadow Drive",
-        "note": "Cumberland County identifies both endpoints as named public launches and publishes access-table coordinates; those official coordinates are used instead of address geocoding.",
+        "note": "Cumberland County lists Willow Mill and Acri Meadow as public launches and publishes site coordinates. Willow Mill's B4 point is now used as the park access-site anchor; its rounded coordinate does not claim a surveyed ramp toe.",
         "sourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024"
+      },
+      {
+        "label": "Willow Mill Park launch location",
+        "value": "Boat launch at the rear of the park",
+        "note": "Silver Spring Township's facility page confirms the boat launch is at the rear of the park, separate from the published B4 park access-site marker.",
+        "sourceUrl": "https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17"
       },
       {
         "label": "Direct gauge",

@@ -1,0 +1,346 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct public access sites from the cached quality queue at or after rank 194, excluding previously frozen physical sites and sites with no currently unwithheld route. Preserve queue order. Cached ranks prioritize research only; recheck each site with current sources.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; @paddletoday/geo is missing, so queue ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "priorFrozenSiteCount": 150,
+  "currentWithheldRouteCount": 152,
+  "queueStartRank": 194,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "Minnesota",
+      "name": "Lexington Avenue access",
+      "latitude": 45.1196142,
+      "longitude": -93.1647156,
+      "distanceFeetToMappedWater": 395.9726702675105,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Lexington Avenue access",
+          "severity": "review"
+        }
+      ],
+      "rank": 194,
+      "eligibleUnwithheldRoutes": [
+        "rice-creek-peltier-to-long-lake"
+      ]
+    },
+    {
+      "state": "Georgia",
+      "name": "Paces Mill public launch",
+      "latitude": 33.870198,
+      "longitude": -84.453659,
+      "distanceFeetToMappedWater": 393.9997424459968,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "chattahoochee-river-island-ford-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-south-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-jones-bridge-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-morgan-falls-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-overlook-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-whitewater-creek-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 195,
+      "eligibleUnwithheldRoutes": [
+        "chattahoochee-river-island-ford-paces-mill",
+        "chattahoochee-river-johnson-ferry-paces-mill",
+        "chattahoochee-river-johnson-ferry-south-paces-mill",
+        "chattahoochee-river-jones-bridge-paces-mill",
+        "chattahoochee-river-morgan-falls-park-paces-mill",
+        "chattahoochee-river-overlook-park-paces-mill",
+        "chattahoochee-river-whitewater-creek-paces-mill"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Miller Landing carry-in access",
+      "latitude": 45.5504544,
+      "longitude": -94.2641031,
+      "distanceFeetToMappedWater": 393.0983520757883,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sauk-river-frogtown-miller-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-miller-landing-heims-mill",
+          "endpoint": "putIn",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-miller-landing-knights-of-columbus",
+          "endpoint": "putIn",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-rockville-miller-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "review"
+        }
+      ],
+      "rank": 196,
+      "eligibleUnwithheldRoutes": [
+        "sauk-river-frogtown-miller-landing",
+        "sauk-river-miller-landing-heims-mill",
+        "sauk-river-miller-landing-knights-of-columbus",
+        "sauk-river-rockville-miller-landing"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Murtaugh Boating Access",
+      "latitude": 42.49916,
+      "longitude": -114.1475,
+      "distanceFeetToMappedWater": 392.77264267106233,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-murtaugh-bridge-twin-falls",
+          "endpoint": "putIn",
+          "endpointName": "Murtaugh Boating Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 197,
+      "eligibleUnwithheldRoutes": [
+        "snake-river-murtaugh-bridge-twin-falls"
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Round Spring river access / campground area",
+      "latitude": 37.27996,
+      "longitude": -91.40792,
+      "distanceFeetToMappedWater": 392.07103639493954,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-cedar-grove-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring (middle) river landing",
+          "severity": "review"
+        }
+      ],
+      "rank": 198,
+      "eligibleUnwithheldRoutes": [
+        "current-river-akers-ferry-round-spring",
+        "current-river-cedar-grove-round-spring",
+        "current-river-pulltite-round-spring"
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "Ohiopyle State Park Lower Yough launch",
+      "latitude": 39.866528,
+      "longitude": -79.493395,
+      "distanceFeetToMappedWater": 391.92419538935684,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
+          "endpoint": "putIn",
+          "endpointName": "Ohiopyle State Park Lower Yough launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 199,
+      "eligibleUnwithheldRoutes": [
+        "youghiogheny-river-lower-yough-ohiopyle-bruner-run"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "First Brook Hand Launch",
+      "latitude": 44.3042,
+      "longitude": -74.994,
+      "distanceFeetToMappedWater": 391.09280694579786,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-branch-grass-river-spruce-first-brook",
+          "endpoint": "takeOut",
+          "endpointName": "First Brook Hand Launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 200,
+      "eligibleUnwithheldRoutes": [
+        "south-branch-grass-river-spruce-first-brook"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Taylors Falls Lion's Park dam portage take-out",
+      "latitude": 45.42645,
+      "longitude": -92.6515,
+      "distanceFeetToMappedWater": 389.7900305631928,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "st-croix-river-wild-river-lions-park",
+          "endpoint": "takeOut",
+          "endpointName": "Taylors Falls Lion's Park dam portage take-out",
+          "severity": "review"
+        }
+      ],
+      "rank": 201,
+      "eligibleUnwithheldRoutes": [
+        "st-croix-river-wild-river-lions-park"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Grant Park below-dam relaunch",
+      "latitude": 42.273,
+      "longitude": -94.872,
+      "distanceFeetToMappedWater": 389.27516250039616,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-grant-rainbow-bend",
+          "endpoint": "putIn",
+          "endpointName": "Grant Park below-dam relaunch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 202,
+      "eligibleUnwithheldRoutes": [
+        "north-raccoon-river-grant-rainbow-bend"
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Jonesville takeout below Cochran Road Bridge",
+      "latitude": 44.40243,
+      "longitude": -72.99653,
+      "distanceFeetToMappedWater": 388.13413110750713,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-jonesville-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 203,
+      "eligibleUnwithheldRoutes": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-jonesville"
+      ]
+    }
+  ]
+}

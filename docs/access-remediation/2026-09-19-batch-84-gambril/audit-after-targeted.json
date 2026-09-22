@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:10:32.227Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "wapsipinicon-river-allens-grove-gambril",
+      "routeName": "Wapsipinicon River",
+      "reach": "Allen's Grove Access to Gambril Access",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Gambril Access",
+      "latitude": 41.7653717,
+      "longitude": -90.5340683,
+      "matchedRiverName": "Wapsipinicon River",
+      "distanceFeetToMatchedRiver": 367.9122650061805,
+      "nearestMatchedLatitude": 41.766346789088495,
+      "nearestMatchedLongitude": -90.53372323133915,
+      "nearestWaterwayName": "Wapsipinicon River",
+      "distanceFeetToNearestWaterway": 367.9122650061805,
+      "nearestWaterwayLatitude": 41.766346789088495,
+      "nearestWaterwayLongitude": -90.53372323133915,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 178.83150760525143,
+      "nearestWaterbodyLatitude": 41.765409,
+      "nearestWaterbodyLongitude": -90.533413,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 178.83150760525143,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.iowadnr.gov/media/8702/download?inline=",
+      "coordinateEvidenceDetail": "ia_iowadnr_gambril_wapsipinicon_access_20260919 iowa-dnr-gambril-wapsipinicon-access: The Iowa DNR Wapsipinicon River Water Trail guide identifies Gambril Access as a public paddling access with a cement ramp pointed downriver and an eddy. The route already uses the same named access and coordinate; the 368-foot named-flowline distance is consistent with a ramp/road access-area anchor in a meandering floodplain, not a wrong river. Retain the stored coordinate and verify current parking, ramp, and eddy conditions on arrival.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_iowadnr_gambril_wapsipinicon_access_20260919 iowa-dnr-gambril-wapsipinicon-access) on Wapsipinicon River; access is conditional (Confirm current parking, ramp surface, eddy, and safe carry at arrival; Iowa DNR notes no bathrooms or other facilities at Gambril.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "wapsipinicon-river-allens-grove-gambril",
+      "routeName": "Wapsipinicon River",
+      "reach": "Allen's Grove Access to Gambril Access",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Allen's Grove Access",
+      "latitude": 41.74988,
+      "longitude": -90.6753,
+      "matchedRiverName": "Wapsipinicon River",
+      "distanceFeetToMatchedRiver": 282.8848332971635,
+      "nearestMatchedLatitude": 41.749674,
+      "nearestMatchedLongitude": -90.676302,
+      "nearestWaterwayName": "Mud Creek",
+      "distanceFeetToNearestWaterway": 282.8848332971635,
+      "nearestWaterwayLatitude": 41.749674,
+      "nearestWaterwayLongitude": -90.676302,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 84.20112518077363,
+      "nearestWaterbodyLatitude": 41.750036,
+      "nearestWaterbodyLongitude": -90.675072,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 84.20112518077363,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 84 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

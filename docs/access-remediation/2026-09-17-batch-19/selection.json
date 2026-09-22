@@ -1,0 +1,338 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct sites from the cached quality queue starting at rank 215, excluding all physical sites frozen in batches 1–18 and excluding queue rows whose route occurrences are all held. Public-route eligibility is based on the current generated withholding manifest; cached ranks prioritize research only and are not current evidence.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "priorFrozenSiteCount": 170,
+  "currentWithheldRouteCount": 154,
+  "queueStartRank": 215,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "South Carolina",
+      "name": "Neal Shoals Dam River Access",
+      "latitude": 34.6653839999791,
+      "longitude": -81.4452990001266,
+      "distanceFeetToMappedWater": 375.2893830425943,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "broad-river-broad-river-landing-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "broad-river-daltons-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "broad-river-lockhart-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-sandy",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-shelton",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-strother",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam River Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 215,
+      "eligibleUnwithheldRoutes": [
+        "broad-river-broad-river-landing-neal-shoals",
+        "broad-river-daltons-neal-shoals",
+        "broad-river-lockhart-neal-shoals",
+        "broad-river-neal-shoals-sandy",
+        "broad-river-neal-shoals-shelton",
+        "broad-river-neal-shoals-strother"
+      ]
+    },
+    {
+      "state": "South Dakota",
+      "name": "Farm Field Park kayak and canoe access",
+      "latitude": 43.5028832,
+      "longitude": -96.749131,
+      "distanceFeetToMappedWater": 374.13390042637485,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sioux-river-farm-field-rotary",
+          "endpoint": "putIn",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skunk-creek-legacy-park-farm-field",
+          "endpoint": "takeOut",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "review"
+        }
+      ],
+      "rank": 216,
+      "eligibleUnwithheldRoutes": [
+        "big-sioux-river-farm-field-rotary",
+        "skunk-creek-legacy-park-farm-field"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Rock Springs Firemen's Park canoe landing",
+      "latitude": 43.4779,
+      "longitude": -89.9143,
+      "distanceFeetToMappedWater": 373.9262971388927,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "baraboo-river-rock-springs-north-freedom",
+          "endpoint": "putIn",
+          "endpointName": "Rock Springs Firemen's Park canoe landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 217,
+      "eligibleUnwithheldRoutes": [
+        "baraboo-river-rock-springs-north-freedom"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Fisherman’s parking/access below Kent Falls Powerhouse",
+      "latitude": 44.6814002990723,
+      "longitude": -73.6806030273438,
+      "distanceFeetToMappedWater": 372.5829447103591,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saranac-river-kent-falls-military-turnpike",
+          "endpoint": "putIn",
+          "endpointName": "Fisherman’s parking/access below Kent Falls Powerhouse",
+          "severity": "review"
+        }
+      ],
+      "rank": 218,
+      "eligibleUnwithheldRoutes": [
+        "saranac-river-kent-falls-military-turnpike"
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Shad Landing Area public boat ramp and soft launch",
+      "latitude": 38.13902,
+      "longitude": -75.440431,
+      "distanceFeetToMappedWater": 371.4830555066568,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "corkers-creek-blackwater-canoe-trail",
+          "endpoint": "putIn",
+          "endpointName": "Pocomoke River State Park Shad Landing soft launch",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "corkers-creek-blackwater-canoe-trail",
+          "endpoint": "takeOut",
+          "endpointName": "Pocomoke River State Park Shad Landing soft launch return",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "pocomoke-river-shad-milburn",
+          "endpoint": "putIn",
+          "endpointName": "Shad Landing Area public boat ramp and soft launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "pocomoke-river-snow-hill-shad",
+          "endpoint": "takeOut",
+          "endpointName": "Shad Landing Area public boat ramp and soft launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 219,
+      "eligibleUnwithheldRoutes": [
+        "corkers-creek-blackwater-canoe-trail",
+        "pocomoke-river-snow-hill-shad"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+      "latitude": 43.8015,
+      "longitude": -74.23,
+      "distanceFeetToMappedWater": 370.1828963875723,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "indian-river-abanakee-dam-outer-gooley",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+          "severity": "review"
+        }
+      ],
+      "rank": 220,
+      "eligibleUnwithheldRoutes": [
+        "indian-river-abanakee-dam-outer-gooley"
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+      "latitude": 44.0655,
+      "longitude": -73.2185,
+      "distanceFeetToMappedWater": 367.26885657963516,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "otter-creek-quaker-village-weybridge",
+          "endpoint": "takeOut",
+          "endpointName": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "otter-creek-weybridge-fort-cassin",
+          "endpoint": "putIn",
+          "endpointName": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "otter-creek-weybridge-vergennes",
+          "endpoint": "putIn",
+          "endpointName": "Weybridge State Fishing Access / Kwonumosk (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 221,
+      "eligibleUnwithheldRoutes": [
+        "otter-creek-weybridge-fort-cassin"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+      "latitude": 43.3996,
+      "longitude": -91.8884,
+      "distanceFeetToMappedWater": 367.1740385361434,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-iowa-river-cattle-creek-malanaphy",
+          "endpoint": "accessPoint",
+          "endpointName": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "upper-iowa-river-kendallville-bluffton",
+          "endpoint": "takeOut",
+          "endpointName": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 222,
+      "eligibleUnwithheldRoutes": [
+        "upper-iowa-river-cattle-creek-malanaphy",
+        "upper-iowa-river-kendallville-bluffton"
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "City Park",
+      "latitude": 29.8859203,
+      "longitude": -97.9344384,
+      "distanceFeetToMappedWater": 366.22030326915876,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "san-marcos-river-city-park-smrr",
+          "endpoint": "putIn",
+          "endpointName": "City Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 223,
+      "eligibleUnwithheldRoutes": [
+        "san-marcos-river-city-park-smrr"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "McKay's Bend Recreation Site",
+      "latitude": 46.4975,
+      "longitude": -116.726944,
+      "distanceFeetToMappedWater": 365.0504952977477,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "clearwater-river-mckays-bend-pink-house",
+          "endpoint": "putIn",
+          "endpointName": "McKay's Bend Recreation Site",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 224,
+      "eligibleUnwithheldRoutes": [
+        "clearwater-river-mckays-bend-pink-house"
+      ]
+    }
+  ]
+}

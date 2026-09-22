@@ -1,0 +1,32 @@
+{
+  "batch": 50,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "id": "tpwd-buffalo-bayou-paddling-trail",
+      "title": "TPWD Buffalo Bayou Paddling Trail",
+      "url": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/buffalo-bayou/",
+      "provider": "Texas Parks and Wildlife Department",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Names Sabine Street Access as a trail access point and publishes GPS 29.7622, -95.3736.",
+        "Lists a Sabine Street to Allen's Landing segment at about one hour and gives the downtown access sequence.",
+        "Warns that water quality is generally unsuitable for swimming, high/turbulent water should be avoided, strainers are hazardous, and private-bank use beyond navigable-stream rights can be trespass."
+      ],
+      "use": "Primary confirmation of shared access identity and exact access-site coordinate; it does not claim a survey-grade water-entry toe."
+    },
+    {
+      "id": "tpwd-buffalo-bayou-map",
+      "title": "TPWD Buffalo Bayou Paddling Trail Map",
+      "url": "https://tpwd.texas.gov/documents/513/Buffalo_Bayou_map.pdf",
+      "provider": "Texas Parks and Wildlife Department",
+      "retrieved": "2026-09-18",
+      "observation": "The official trail map includes Sabine Promenade in Buffalo Bayou Park and the downstream route to Allen's Landing.",
+      "use": "Corroborates the route layout and access sequence, not exact toe placement."
+    }
+  ],
+  "auditEvidence": {
+    "before": "targeted-before-sabine-allens.json and targeted-before-woodway-sabine.json; Sabine was suspicious at 329.01 feet from the matched flowline and 267.98 feet from mapped water in both route occurrences.",
+    "after": "targeted-after-sabine-allens.json and targeted-after-woodway-sabine.json; Sabine now matches the official TPWD access anchor and is classified review; both route audits report zero source issues."
+  }
+}

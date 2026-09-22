@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-19T14:20:57.774Z",
-  "auditGeneratedAt": "2026-09-19T14:20:03.472Z",
+  "generatedAt": "2026-09-20T20:46:45.249Z",
+  "auditGeneratedAt": "2026-09-20T13:11:01.443Z",
   "summary": {
-    "entryCount": 4042,
-    "repeatedEntryCount": 1201,
+    "entryCount": 4081,
+    "repeatedEntryCount": 1222,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
     "derivedWaterEntryCount": 2278,
@@ -19178,7 +19178,8 @@
         "BLM Catamount Bridge Boat Launch"
       ],
       "sourceIds": [
-        "upper-colorado-catamount-take-out"
+        "upper-colorado-catamount-take-out",
+        "upper-colorado-two-bridges-catamount-take-out"
       ],
       "storedAccessCoordinate": {
         "latitude": 39.89047,
@@ -19255,8 +19256,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "39.89047,-106.83205",
@@ -19264,10 +19265,11 @@
             "latitude": 39.89047,
             "longitude": -106.83205
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "upper-colorado-state-bridge-catamount"
+            "upper-colorado-state-bridge-catamount",
+            "upper-colorado-two-bridges-catamount"
           ]
         }
       ],
@@ -19299,6 +19301,34 @@
           "distanceFeetToMatchedRiver": 278.56047880260786,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "upper-colorado-two-bridges-catamount",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-two-bridges-catamount-take-out",
+          "name": "BLM Catamount Bridge Boat Launch",
+          "latitude": 39.89047,
+          "longitude": -106.83205,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-two-bridges-catamount",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "upper-colorado-two-bridges-catamount-take-out",
+          "name": "BLM Catamount Bridge Boat Launch",
+          "latitude": 39.89047,
+          "longitude": -106.83205,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -19310,7 +19340,8 @@
         "BLM Pumphouse Recreation Area Boat Ramp"
       ],
       "sourceIds": [
-        "upper-colorado-pumphouse-put-in"
+        "upper-colorado-pumphouse-put-in",
+        "upper-colorado-pumphouse-radium-put-in"
       ],
       "storedAccessCoordinate": {
         "latitude": 39.98727778,
@@ -19387,8 +19418,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "39.98728,-106.50847",
@@ -19396,14 +19427,43 @@
             "latitude": 39.98727778,
             "longitude": -106.50846667
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
+            "upper-colorado-pumphouse-radium",
             "upper-colorado-pumphouse-state-bridge"
           ]
         }
       ],
       "occurrences": [
+        {
+          "routeId": "upper-colorado-pumphouse-radium",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-pumphouse-radium-put-in",
+          "name": "BLM Pumphouse Recreation Area Boat Ramp",
+          "latitude": 39.98727778,
+          "longitude": -106.50846667,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-pumphouse-radium",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "upper-colorado-pumphouse-radium-put-in",
+          "name": "BLM Pumphouse Recreation Area Boat Ramp",
+          "latitude": 39.98727778,
+          "longitude": -106.50846667,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
         {
           "routeId": "upper-colorado-pumphouse-state-bridge",
           "routeName": "Colorado River",
@@ -19431,6 +19491,116 @@
           "distanceFeetToMatchedRiver": 675.7920256549509,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--blm-radium-recreation-area-boat-ramp",
+      "state": "Colorado",
+      "name": "BLM Radium Recreation Area boat ramp",
+      "aliases": [
+        "BLM Radium Recreation Area boat ramp"
+      ],
+      "sourceIds": [
+        "upper-colorado-pumphouse-radium-take-out",
+        "upper-colorado-radium-rancho-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.95136,
+        "longitude": -106.55598
+      },
+      "accessCoordinate": {
+        "latitude": 39.95136,
+        "longitude": -106.55598
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "39.95136,-106.55598",
+          "coordinate": {
+            "latitude": 39.95136,
+            "longitude": -106.55598
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "upper-colorado-pumphouse-radium",
+            "upper-colorado-radium-rancho"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-colorado-pumphouse-radium",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-pumphouse-radium-take-out",
+          "name": "BLM Radium Recreation Area boat ramp",
+          "latitude": 39.95136,
+          "longitude": -106.55598,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-pumphouse-radium",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "upper-colorado-pumphouse-radium-take-out",
+          "name": "BLM Radium Recreation Area boat ramp",
+          "latitude": 39.95136,
+          "longitude": -106.55598,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-radium-rancho",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-radium-rancho-put-in",
+          "name": "BLM Radium Recreation Area boat ramp",
+          "latitude": 39.95136,
+          "longitude": -106.55598,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-radium-rancho",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "upper-colorado-radium-rancho-put-in",
+          "name": "BLM Radium Recreation Area boat ramp",
+          "latitude": 39.95136,
+          "longitude": -106.55598,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -19696,7 +19866,8 @@
       ],
       "sourceIds": [
         "upper-colorado-state-bridge-put-in",
-        "upper-colorado-state-bridge-take-out"
+        "upper-colorado-state-bridge-take-out",
+        "upper-colorado-state-bridge-two-bridges-put-in"
       ],
       "storedAccessCoordinate": {
         "latitude": 39.856779,
@@ -19773,8 +19944,8 @@
       "coordinateStatus": "nearby-variants",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 238,
-      "occurrenceCount": 4,
-      "routeCount": 2,
+      "occurrenceCount": 6,
+      "routeCount": 3,
       "coordinateVariants": [
         {
           "key": "39.85678,-106.64854",
@@ -19782,10 +19953,11 @@
             "latitude": 39.856779,
             "longitude": -106.648539
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "upper-colorado-pumphouse-state-bridge"
+            "upper-colorado-pumphouse-state-bridge",
+            "upper-colorado-state-bridge-two-bridges"
           ]
         },
         {
@@ -19857,6 +20029,144 @@
           "distanceFeetToMatchedRiver": 232.21844021820004,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "upper-colorado-state-bridge-two-bridges",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-state-bridge-two-bridges-put-in",
+          "name": "BLM State Bridge Recreation Site boat launch",
+          "latitude": 39.856779,
+          "longitude": -106.648539,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-state-bridge-two-bridges",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "upper-colorado-state-bridge-two-bridges-put-in",
+          "name": "BLM State Bridge Recreation Site boat launch",
+          "latitude": 39.856779,
+          "longitude": -106.648539,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--blm-two-bridges-river-access-boat-ramp",
+      "state": "Colorado",
+      "name": "BLM Two Bridges River Access boat ramp",
+      "aliases": [
+        "BLM Two Bridges River Access boat ramp"
+      ],
+      "sourceIds": [
+        "upper-colorado-state-bridge-two-bridges-take-out",
+        "upper-colorado-two-bridges-catamount-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.890978,
+        "longitude": -106.704113
+      },
+      "accessCoordinate": {
+        "latitude": 39.890978,
+        "longitude": -106.704113
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "39.89098,-106.70411",
+          "coordinate": {
+            "latitude": 39.890978,
+            "longitude": -106.704113
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "upper-colorado-state-bridge-two-bridges",
+            "upper-colorado-two-bridges-catamount"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-colorado-state-bridge-two-bridges",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-state-bridge-two-bridges-take-out",
+          "name": "BLM Two Bridges River Access boat ramp",
+          "latitude": 39.890978,
+          "longitude": -106.704113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-state-bridge-two-bridges",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "upper-colorado-state-bridge-two-bridges-take-out",
+          "name": "BLM Two Bridges River Access boat ramp",
+          "latitude": 39.890978,
+          "longitude": -106.704113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-two-bridges-catamount",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-two-bridges-catamount-put-in",
+          "name": "BLM Two Bridges River Access boat ramp",
+          "latitude": 39.890978,
+          "longitude": -106.704113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-two-bridges-catamount",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "upper-colorado-two-bridges-catamount-put-in",
+          "name": "BLM Two Bridges River Access boat ramp",
+          "latitude": 39.890978,
+          "longitude": -106.704113,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -20669,6 +20979,86 @@
           "distanceFeetToMatchedRiver": 86.34254295162123,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--chukar-boat-launch",
+      "state": "Colorado",
+      "name": "Chukar Boat Launch",
+      "aliases": [
+        "Chukar Boat Launch"
+      ],
+      "sourceIds": [
+        "gunnison-river-chukar-gunnison-forks-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.62281,
+        "longitude": -107.8318
+      },
+      "accessCoordinate": {
+        "latitude": 38.62281,
+        "longitude": -107.8318
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.62281,-107.83180",
+          "coordinate": {
+            "latitude": 38.62281,
+            "longitude": -107.8318
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-chukar-gunnison-forks"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-chukar-gunnison-forks",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-chukar-gunnison-forks-put-in",
+          "name": "Chukar Boat Launch",
+          "latitude": 38.62281,
+          "longitude": -107.8318,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-chukar-gunnison-forks",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": "gunnison-river-chukar-gunnison-forks-put-in",
+          "name": "Chukar Boat Launch",
+          "latitude": 38.62281,
+          "longitude": -107.8318,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -21608,6 +21998,86 @@
           "distanceFeetToMatchedRiver": 108.23360323857456,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--duffy-mountain-boat-ramp",
+      "state": "Colorado",
+      "name": "Duffy Mountain boat ramp",
+      "aliases": [
+        "Duffy Mountain boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-duffy-mountain-juniper-canyon-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4192778,
+        "longitude": -107.8695
+      },
+      "accessCoordinate": {
+        "latitude": 40.4192778,
+        "longitude": -107.8695
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.41928,-107.86950",
+          "coordinate": {
+            "latitude": 40.4192778,
+            "longitude": -107.8695
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-duffy-mountain-juniper-canyon"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-duffy-mountain-juniper-canyon-put-in",
+          "name": "Duffy Mountain boat ramp",
+          "latitude": 40.4192778,
+          "longitude": -107.8695,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Duffy Mountain boat ramp",
+          "latitude": 40.4192778,
+          "longitude": -107.8695,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -22611,6 +23081,86 @@
       ]
     },
     {
+      "id": "colorado--gunnison-forks-day-use-recreation-site",
+      "state": "Colorado",
+      "name": "Gunnison Forks Day-Use Recreation Site",
+      "aliases": [
+        "Gunnison Forks Day-Use Recreation Site"
+      ],
+      "sourceIds": [
+        "gunnison-river-chukar-gunnison-forks-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 38.78475,
+        "longitude": -107.83655
+      },
+      "accessCoordinate": {
+        "latitude": 38.78475,
+        "longitude": -107.83655
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "38.78475,-107.83655",
+          "coordinate": {
+            "latitude": 38.78475,
+            "longitude": -107.83655
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "gunnison-river-chukar-gunnison-forks"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunnison-river-chukar-gunnison-forks",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "gunnison-river-chukar-gunnison-forks-take-out",
+          "name": "Gunnison Forks Day-Use Recreation Site",
+          "latitude": 38.78475,
+          "longitude": -107.83655,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "gunnison-river-chukar-gunnison-forks",
+          "routeName": "Gunnison River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "gunnison-river-chukar-gunnison-forks-take-out",
+          "name": "Gunnison Forks Day-Use Recreation Site",
+          "latitude": 38.78475,
+          "longitude": -107.83655,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--gunnison-whitewater-park-downstream-exit",
       "state": "Colorado",
       "name": "Gunnison Whitewater Park downstream exit",
@@ -22769,6 +23319,86 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 104.20528363149563,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--hayden-pump-station-boat-ramp",
+      "state": "Colorado",
+      "name": "Hayden Pump Station boat ramp",
+      "aliases": [
+        "Hayden Pump Station boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-hayden-pump-station-headquarters-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4879929,
+        "longitude": -107.1606119
+      },
+      "accessCoordinate": {
+        "latitude": 40.4879929,
+        "longitude": -107.1606119
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.48799,-107.16061",
+          "coordinate": {
+            "latitude": 40.4879929,
+            "longitude": -107.1606119
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-hayden-pump-station-headquarters"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-hayden-pump-station-headquarters",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-hayden-pump-station-headquarters-put-in",
+          "name": "Hayden Pump Station boat ramp",
+          "latitude": 40.4879929,
+          "longitude": -107.1606119,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-hayden-pump-station-headquarters",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Hayden Pump Station boat ramp",
+          "latitude": 40.4879929,
+          "longitude": -107.1606119,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -23119,6 +23749,116 @@
       ]
     },
     {
+      "id": "colorado--juniper-canyon-boat-ramp",
+      "state": "Colorado",
+      "name": "Juniper Canyon boat ramp",
+      "aliases": [
+        "Juniper Canyon boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-duffy-mountain-juniper-canyon-take-out",
+        "yampa-river-juniper-canyon-maybell-bridge-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4766667,
+        "longitude": -107.9652222
+      },
+      "accessCoordinate": {
+        "latitude": 40.4766667,
+        "longitude": -107.9652222
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "40.47667,-107.96522",
+          "coordinate": {
+            "latitude": 40.4766667,
+            "longitude": -107.9652222
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yampa-river-duffy-mountain-juniper-canyon",
+            "yampa-river-juniper-canyon-maybell-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-duffy-mountain-juniper-canyon-take-out",
+          "name": "Juniper Canyon boat ramp",
+          "latitude": 40.4766667,
+          "longitude": -107.9652222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-duffy-mountain-juniper-canyon",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Juniper Canyon boat ramp",
+          "latitude": 40.4766667,
+          "longitude": -107.9652222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-juniper-canyon-maybell-bridge-put-in",
+          "name": "Juniper Canyon boat ramp",
+          "latitude": 40.4766667,
+          "longitude": -107.9652222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Juniper Canyon boat ramp",
+          "latitude": 40.4766667,
+          "longitude": -107.9652222,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--legacy-park-bridge-take-out",
       "state": "Colorado",
       "name": "Legacy Park Bridge take-out",
@@ -23245,6 +23985,196 @@
           "distanceFeetToMatchedRiver": 198.5470514662667,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--loudy-simpson-park-boat-ramp",
+      "state": "Colorado",
+      "name": "Loudy Simpson Park boat ramp",
+      "aliases": [
+        "Loudy Simpson Park boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-golf-course-loudy-simpson-take-out",
+        "yampa-river-loudy-simpson-south-beach-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4961291,
+        "longitude": -107.5578321
+      },
+      "accessCoordinate": {
+        "latitude": 40.4961291,
+        "longitude": -107.5578321
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "40.49613,-107.55783",
+          "coordinate": {
+            "latitude": 40.4961291,
+            "longitude": -107.5578321
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yampa-river-golf-course-loudy-simpson",
+            "yampa-river-loudy-simpson-south-beach"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-golf-course-loudy-simpson",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-golf-course-loudy-simpson-take-out",
+          "name": "Loudy Simpson Park boat ramp",
+          "latitude": 40.4961291,
+          "longitude": -107.5578321,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-golf-course-loudy-simpson",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Loudy Simpson Park boat ramp",
+          "latitude": 40.4961291,
+          "longitude": -107.5578321,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-loudy-simpson-south-beach",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-loudy-simpson-south-beach-put-in",
+          "name": "Loudy Simpson Park boat ramp",
+          "latitude": 40.4961291,
+          "longitude": -107.5578321,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-loudy-simpson-south-beach",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Loudy Simpson Park boat ramp",
+          "latitude": 40.4961291,
+          "longitude": -107.5578321,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--maybell-bridge-boat-ramp",
+      "state": "Colorado",
+      "name": "Maybell Bridge boat ramp",
+      "aliases": [
+        "Maybell Bridge boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-juniper-canyon-maybell-bridge-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.5013658,
+        "longitude": -108.032923
+      },
+      "accessCoordinate": {
+        "latitude": 40.5013658,
+        "longitude": -108.032923
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.50137,-108.03292",
+          "coordinate": {
+            "latitude": 40.5013658,
+            "longitude": -108.032923
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-juniper-canyon-maybell-bridge"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-juniper-canyon-maybell-bridge-take-out",
+          "name": "Maybell Bridge boat ramp",
+          "latitude": 40.5013658,
+          "longitude": -108.032923,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-juniper-canyon-maybell-bridge",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Maybell Bridge boat ramp",
+          "latitude": 40.5013658,
+          "longitude": -108.032923,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -23998,6 +24928,86 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 0.09289389084510606,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--rancho-del-rio-fee-river-access",
+      "state": "Colorado",
+      "name": "Rancho Del Rio fee river access",
+      "aliases": [
+        "Rancho Del Rio fee river access"
+      ],
+      "sourceIds": [
+        "upper-colorado-radium-rancho-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 39.8941534,
+        "longitude": -106.6075353
+      },
+      "accessCoordinate": {
+        "latitude": 39.8941534,
+        "longitude": -106.6075353
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "39.89415,-106.60754",
+          "coordinate": {
+            "latitude": 39.8941534,
+            "longitude": -106.6075353
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "upper-colorado-radium-rancho"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-colorado-radium-rancho",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "upper-colorado-radium-rancho-take-out",
+          "name": "Rancho Del Rio fee river access",
+          "latitude": 39.8941534,
+          "longitude": -106.6075353,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "upper-colorado-radium-rancho",
+          "routeName": "Colorado River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": "upper-colorado-radium-rancho-take-out",
+          "name": "Rancho Del Rio fee river access",
+          "latitude": 39.8941534,
+          "longitude": -106.6075353,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -25311,6 +26321,86 @@
       ]
     },
     {
+      "id": "colorado--south-beach-yampa-project-pump-station-boat-ramp",
+      "state": "Colorado",
+      "name": "South Beach / Yampa Project Pump Station boat ramp",
+      "aliases": [
+        "South Beach / Yampa Project Pump Station boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-loudy-simpson-south-beach-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4796656,
+        "longitude": -107.6162596
+      },
+      "accessCoordinate": {
+        "latitude": 40.4796656,
+        "longitude": -107.6162596
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.47967,-107.61626",
+          "coordinate": {
+            "latitude": 40.4796656,
+            "longitude": -107.6162596
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-loudy-simpson-south-beach"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-loudy-simpson-south-beach",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-loudy-simpson-south-beach-take-out",
+          "name": "South Beach / Yampa Project Pump Station boat ramp",
+          "latitude": 40.4796656,
+          "longitude": -107.6162596,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-loudy-simpson-south-beach",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "South Beach / Yampa Project Pump Station boat ramp",
+          "latitude": 40.4796656,
+          "longitude": -107.6162596,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "colorado--south-gate-designated-river-access",
       "state": "Colorado",
       "name": "South Gate designated river access",
@@ -25437,6 +26527,86 @@
           "distanceFeetToMatchedRiver": 181.36071133811978,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--state-wildlife-area-dorsey-boat-ramp",
+      "state": "Colorado",
+      "name": "State Wildlife Area (Dorsey) boat ramp",
+      "aliases": [
+        "State Wildlife Area (Dorsey) boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-headquarters-dorsey-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.5175631,
+        "longitude": -107.3990594
+      },
+      "accessCoordinate": {
+        "latitude": 40.5175631,
+        "longitude": -107.3990594
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.51756,-107.39906",
+          "coordinate": {
+            "latitude": 40.5175631,
+            "longitude": -107.3990594
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-headquarters-dorsey"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-headquarters-dorsey",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-headquarters-dorsey-take-out",
+          "name": "State Wildlife Area (Dorsey) boat ramp",
+          "latitude": 40.5175631,
+          "longitude": -107.3990594,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-headquarters-dorsey",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "State Wildlife Area (Dorsey) boat ramp",
+          "latitude": 40.5175631,
+          "longitude": -107.3990594,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -26247,6 +27417,196 @@
           "distanceFeetToMatchedRiver": 267.46378934569856,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "colorado--yampa-river-state-park-headquarters-boat-ramp",
+      "state": "Colorado",
+      "name": "Yampa River State Park Headquarters boat ramp",
+      "aliases": [
+        "Yampa River State Park Headquarters boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-hayden-pump-station-headquarters-take-out",
+        "yampa-river-headquarters-dorsey-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4907151,
+        "longitude": -107.3126886
+      },
+      "accessCoordinate": {
+        "latitude": 40.4907151,
+        "longitude": -107.3126886
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "40.49072,-107.31269",
+          "coordinate": {
+            "latitude": 40.4907151,
+            "longitude": -107.3126886
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "yampa-river-hayden-pump-station-headquarters",
+            "yampa-river-headquarters-dorsey"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-hayden-pump-station-headquarters",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-hayden-pump-station-headquarters-take-out",
+          "name": "Yampa River State Park Headquarters boat ramp",
+          "latitude": 40.4907151,
+          "longitude": -107.3126886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-hayden-pump-station-headquarters",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Yampa River State Park Headquarters boat ramp",
+          "latitude": 40.4907151,
+          "longitude": -107.3126886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-headquarters-dorsey",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-headquarters-dorsey-put-in",
+          "name": "Yampa River State Park Headquarters boat ramp",
+          "latitude": 40.4907151,
+          "longitude": -107.3126886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-headquarters-dorsey",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Yampa River State Park Headquarters boat ramp",
+          "latitude": 40.4907151,
+          "longitude": -107.3126886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "colorado--yampa-valley-golf-course-boat-ramp",
+      "state": "Colorado",
+      "name": "Yampa Valley Golf Course boat ramp",
+      "aliases": [
+        "Yampa Valley Golf Course boat ramp"
+      ],
+      "sourceIds": [
+        "yampa-river-golf-course-loudy-simpson-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 40.4969673,
+        "longitude": -107.5218658
+      },
+      "accessCoordinate": {
+        "latitude": 40.4969673,
+        "longitude": -107.5218658
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "40.49697,-107.52187",
+          "coordinate": {
+            "latitude": 40.4969673,
+            "longitude": -107.5218658
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "yampa-river-golf-course-loudy-simpson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "yampa-river-golf-course-loudy-simpson",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "accessPoint",
+          "sourceId": "yampa-river-golf-course-loudy-simpson-put-in",
+          "name": "Yampa Valley Golf Course boat ramp",
+          "latitude": 40.4969673,
+          "longitude": -107.5218658,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "yampa-river-golf-course-loudy-simpson",
+          "routeName": "Yampa River",
+          "state": "Colorado",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Yampa Valley Golf Course boat ramp",
+          "latitude": 40.4969673,
+          "longitude": -107.5218658,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -316900,6 +318260,86 @@
       ]
     },
     {
+      "id": "north-carolina--anderson-point-park-canoe-launch",
+      "state": "North Carolina",
+      "name": "Anderson Point Park canoe launch",
+      "aliases": [
+        "Anderson Point Park canoe launch"
+      ],
+      "sourceIds": [
+        "neuse-river-buffaloe-anderson-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.772287,
+        "longitude": -78.54305
+      },
+      "accessCoordinate": {
+        "latitude": 35.772287,
+        "longitude": -78.54305
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "35.77229,-78.54305",
+          "coordinate": {
+            "latitude": 35.772287,
+            "longitude": -78.54305
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "neuse-river-buffaloe-anderson"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "neuse-river-buffaloe-anderson",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-buffaloe-anderson-take-out",
+          "name": "Anderson Point Park canoe launch",
+          "latitude": 35.772287,
+          "longitude": -78.54305,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-buffaloe-anderson",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Anderson Point Park canoe launch",
+          "latitude": 35.772287,
+          "longitude": -78.54305,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--anglin-mill-mayo-beach-access",
       "state": "North Carolina",
       "name": "Anglin Mill / Mayo Beach Access",
@@ -317349,6 +318789,116 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 67.60270666617792,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--buffaloe-road-canoe-launch",
+      "state": "North Carolina",
+      "name": "Buffaloe Road canoe launch",
+      "aliases": [
+        "Buffaloe Road canoe launch"
+      ],
+      "sourceIds": [
+        "neuse-river-buffaloe-anderson-put-in",
+        "neuse-river-river-bend-buffaloe-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.847706,
+        "longitude": -78.530812
+      },
+      "accessCoordinate": {
+        "latitude": 35.847706,
+        "longitude": -78.530812
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "35.84771,-78.53081",
+          "coordinate": {
+            "latitude": 35.847706,
+            "longitude": -78.530812
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "neuse-river-buffaloe-anderson",
+            "neuse-river-river-bend-buffaloe"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "neuse-river-buffaloe-anderson",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-buffaloe-anderson-put-in",
+          "name": "Buffaloe Road canoe launch",
+          "latitude": 35.847706,
+          "longitude": -78.530812,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-buffaloe-anderson",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Buffaloe Road canoe launch",
+          "latitude": 35.847706,
+          "longitude": -78.530812,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-river-bend-buffaloe",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-river-bend-buffaloe-take-out",
+          "name": "Buffaloe Road canoe launch",
+          "latitude": 35.847706,
+          "longitude": -78.530812,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-river-bend-buffaloe",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Buffaloe Road canoe launch",
+          "latitude": 35.847706,
+          "longitude": -78.530812,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -320064,6 +321614,86 @@
       ]
     },
     {
+      "id": "north-carolina--n-c-88-bridge-public-canoe-access",
+      "state": "North Carolina",
+      "name": "N.C. 88 Bridge Public Canoe Access",
+      "aliases": [
+        "N.C. 88 Bridge Public Canoe Access"
+      ],
+      "sourceIds": [
+        "new-river-nc88-wagoner-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.3947,
+        "longitude": -81.407
+      },
+      "accessCoordinate": {
+        "latitude": 36.3947,
+        "longitude": -81.407
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.39470,-81.40700",
+          "coordinate": {
+            "latitude": 36.3947,
+            "longitude": -81.407
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "new-river-nc88-wagoner"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "new-river-nc88-wagoner",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "new-river-nc88-wagoner-put-in",
+          "name": "N.C. 88 Bridge Public Canoe Access",
+          "latitude": 36.3947,
+          "longitude": -81.407,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "new-river-nc88-wagoner",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "N.C. 88 Bridge Public Canoe Access",
+          "latitude": 36.3947,
+          "longitude": -81.407,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--nc-109-public-fishing-area",
       "state": "North Carolina",
       "name": "NC 109 Public Fishing Area",
@@ -320387,6 +322017,86 @@
       ]
     },
     {
+      "id": "north-carolina--new-river-state-park-alleghany-paddle-in-access",
+      "state": "North Carolina",
+      "name": "New River State Park Alleghany Paddle-In Access",
+      "aliases": [
+        "New River State Park Alleghany Paddle-In Access"
+      ],
+      "sourceIds": [
+        "new-river-kings-creek-alleghany-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.554608,
+        "longitude": -81.324092
+      },
+      "accessCoordinate": {
+        "latitude": 36.554608,
+        "longitude": -81.324092
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.55461,-81.32409",
+          "coordinate": {
+            "latitude": 36.554608,
+            "longitude": -81.324092
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "new-river-kings-creek-alleghany"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "new-river-kings-creek-alleghany",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "new-river-kings-creek-alleghany-take-out",
+          "name": "New River State Park Alleghany Paddle-In Access",
+          "latitude": 36.554608,
+          "longitude": -81.324092,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "new-river-kings-creek-alleghany",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "New River State Park Alleghany Paddle-In Access",
+          "latitude": 36.554608,
+          "longitude": -81.324092,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "north-carolina--new-river-state-park-elk-shoals-access",
       "state": "North Carolina",
       "name": "New River State Park Elk Shoals Access",
@@ -320474,6 +322184,7 @@
         "New River State Park Kings Creek Access"
       ],
       "sourceIds": [
+        "new-river-kings-creek-alleghany-put-in",
         "new-river-us221-kings-creek-take-out"
       ],
       "storedAccessCoordinate": {
@@ -320499,8 +322210,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "36.52780,-81.33740",
@@ -320508,14 +322219,43 @@
             "latitude": 36.5278,
             "longitude": -81.3374
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
+            "new-river-kings-creek-alleghany",
             "new-river-us221-kings-creek"
           ]
         }
       ],
       "occurrences": [
+        {
+          "routeId": "new-river-kings-creek-alleghany",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "new-river-kings-creek-alleghany-put-in",
+          "name": "New River State Park Kings Creek Access",
+          "latitude": 36.5278,
+          "longitude": -81.3374,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "new-river-kings-creek-alleghany",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "New River State Park Kings Creek Access",
+          "latitude": 36.5278,
+          "longitude": -81.3374,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
         {
           "routeId": "new-river-us221-kings-creek",
           "routeName": "South Fork New River",
@@ -320668,6 +322408,7 @@
       ],
       "sourceIds": [
         "new-river-elk-shoals-wagoner-take-out",
+        "new-river-nc88-wagoner-take-out",
         "new-river-todd-wagoner-take-out",
         "new-river-wagoner-us221-put-in"
       ],
@@ -320722,8 +322463,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "authoritative-water-entry",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
+      "occurrenceCount": 8,
+      "routeCount": 4,
       "coordinateVariants": [
         {
           "key": "36.41650,-81.38700",
@@ -320731,10 +322472,11 @@
             "latitude": 36.41649999999999,
             "longitude": -81.387
           },
-          "occurrenceCount": 6,
-          "routeCount": 3,
+          "occurrenceCount": 8,
+          "routeCount": 4,
           "routes": [
             "new-river-elk-shoals-wagoner",
+            "new-river-nc88-wagoner",
             "new-river-todd-wagoner",
             "new-river-wagoner-us221"
           ]
@@ -320768,6 +322510,34 @@
           "distanceFeetToMatchedRiver": 132.93383980657853,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
+        },
+        {
+          "routeId": "new-river-nc88-wagoner",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "new-river-nc88-wagoner-take-out",
+          "name": "New River State Park Wagoner Access",
+          "latitude": 36.4165,
+          "longitude": -81.387,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "new-river-nc88-wagoner",
+          "routeName": "South Fork New River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "New River State Park Wagoner Access",
+          "latitude": 36.4165,
+          "longitude": -81.387,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         },
         {
           "routeId": "new-river-todd-wagoner",
@@ -321483,6 +323253,116 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 91.74353250189563,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "north-carolina--river-bend-park-kayak-launch",
+      "state": "North Carolina",
+      "name": "River Bend Park kayak launch",
+      "aliases": [
+        "River Bend Park kayak launch"
+      ],
+      "sourceIds": [
+        "neuse-river-river-bend-buffaloe-put-in",
+        "neuse-river-thornton-river-bend-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 35.8603603,
+        "longitude": -78.527847
+      },
+      "accessCoordinate": {
+        "latitude": 35.8603603,
+        "longitude": -78.527847
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "35.86036,-78.52785",
+          "coordinate": {
+            "latitude": 35.8603603,
+            "longitude": -78.527847
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "neuse-river-river-bend-buffaloe",
+            "neuse-river-thornton-river-bend"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "neuse-river-river-bend-buffaloe",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-river-bend-buffaloe-put-in",
+          "name": "River Bend Park kayak launch",
+          "latitude": 35.8603603,
+          "longitude": -78.527847,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-river-bend-buffaloe",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "River Bend Park kayak launch",
+          "latitude": 35.8603603,
+          "longitude": -78.527847,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-thornton-river-bend",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-thornton-river-bend-take-out",
+          "name": "River Bend Park kayak launch",
+          "latitude": 35.8603603,
+          "longitude": -78.527847,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-thornton-river-bend",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "River Bend Park kayak launch",
+          "latitude": 35.8603603,
+          "longitude": -78.527847,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -322312,7 +324192,9 @@
       "aliases": [
         "Thornton Road Boat Launch"
       ],
-      "sourceIds": [],
+      "sourceIds": [
+        "neuse-river-thornton-river-bend-put-in"
+      ],
       "storedAccessCoordinate": {
         "latitude": 35.90224,
         "longitude": -78.54063
@@ -322336,8 +324218,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 1,
-      "routeCount": 1,
+      "occurrenceCount": 3,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "35.90224,-78.54063",
@@ -322345,10 +324227,11 @@
             "latitude": 35.90224,
             "longitude": -78.54063
           },
-          "occurrenceCount": 1,
-          "routeCount": 1,
+          "occurrenceCount": 3,
+          "routeCount": 2,
           "routes": [
-            "neuse-river-falls-dam-thornton"
+            "neuse-river-falls-dam-thornton",
+            "neuse-river-thornton-river-bend"
           ]
         }
       ],
@@ -322365,6 +324248,34 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 172.19203405567498,
           "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-thornton-river-bend",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "accessPoint",
+          "sourceId": "neuse-river-thornton-river-bend-put-in",
+          "name": "Thornton Road Boat Launch",
+          "latitude": 35.90224,
+          "longitude": -78.54063,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "neuse-river-thornton-river-bend",
+          "routeName": "Neuse River",
+          "state": "North Carolina",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Thornton Road Boat Launch",
+          "latitude": 35.90224,
+          "longitude": -78.54063,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -368442,7 +370353,8 @@
         "Bassett River Access / North Bassett Canoe Access"
       ],
       "sourceIds": [
-        "smith-river-bassett-great-road-put-in"
+        "smith-river-bassett-great-road-put-in",
+        "smith-river-philpott-bassett-take-out"
       ],
       "storedAccessCoordinate": {
         "latitude": 36.76992,
@@ -368517,8 +370429,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "36.76992,-80.00147",
@@ -368526,10 +370438,11 @@
             "latitude": 36.76992,
             "longitude": -80.00147
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "smith-river-bassett-great-road"
+            "smith-river-bassett-great-road",
+            "smith-river-philpott-bassett"
           ]
         }
       ],
@@ -368561,6 +370474,34 @@
           "distanceFeetToMatchedRiver": 158.90504855839214,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "smith-river-philpott-bassett",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-philpott-bassett-take-out",
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "latitude": 36.76992,
+          "longitude": -80.00147,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-philpott-bassett",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Bassett River Access / North Bassett Canoe Access",
+          "latitude": 36.76992,
+          "longitude": -80.00147,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -369588,6 +371529,116 @@
       ]
     },
     {
+      "id": "virginia--cardinal-criminal-justice-academy-canoe-kayak-ramp",
+      "state": "Virginia",
+      "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
+      "aliases": [
+        "Cardinal Criminal Justice Academy canoe/kayak ramp"
+      ],
+      "sourceIds": [
+        "roanoke-river-cardinal-eddy-put-in",
+        "roanoke-river-west-riverside-cardinal-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.282902,
+        "longitude": -80.065399
+      },
+      "accessCoordinate": {
+        "latitude": 37.282902,
+        "longitude": -80.065399
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "37.28290,-80.06540",
+          "coordinate": {
+            "latitude": 37.282902,
+            "longitude": -80.065399
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "roanoke-river-cardinal-eddy",
+            "roanoke-river-west-riverside-cardinal"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-cardinal-eddy",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-cardinal-eddy-put-in",
+          "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
+          "latitude": 37.282902,
+          "longitude": -80.065399,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-cardinal-eddy",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
+          "latitude": 37.282902,
+          "longitude": -80.065399,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-west-riverside-cardinal",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-west-riverside-cardinal-take-out",
+          "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
+          "latitude": 37.282902,
+          "longitude": -80.065399,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-west-riverside-cardinal",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
+          "latitude": 37.282902,
+          "longitude": -80.065399,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--chapman-s-landing-dwr-concrete-ramp",
       "state": "Virginia",
       "name": "Chapman's Landing DWR concrete ramp",
@@ -369924,6 +371975,86 @@
           "distanceFeetToMatchedRiver": 508.50882827615817,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--doe-run-river-access",
+      "state": "Virginia",
+      "name": "Doe Run River Access",
+      "aliases": [
+        "Doe Run River Access"
+      ],
+      "sourceIds": [
+        "smith-river-fieldale-doe-run-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6695026,
+        "longitude": -79.8867143
+      },
+      "accessCoordinate": {
+        "latitude": 36.6695026,
+        "longitude": -79.8867143
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.66950,-79.88671",
+          "coordinate": {
+            "latitude": 36.6695026,
+            "longitude": -79.8867143
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-fieldale-doe-run"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-fieldale-doe-run",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-fieldale-doe-run-take-out",
+          "name": "Doe Run River Access",
+          "latitude": 36.6695026,
+          "longitude": -79.8867143,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-fieldale-doe-run",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Doe Run River Access",
+          "latitude": 36.6695026,
+          "longitude": -79.8867143,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -370513,6 +372644,196 @@
       ]
     },
     {
+      "id": "virginia--eddy-avenue-canoe-kayak-ramp",
+      "state": "Virginia",
+      "name": "Eddy Avenue canoe/kayak ramp",
+      "aliases": [
+        "Eddy Avenue canoe/kayak ramp"
+      ],
+      "sourceIds": [
+        "roanoke-river-cardinal-eddy-take-out",
+        "roanoke-river-eddy-salem-rotary-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.281898,
+        "longitude": -80.059303
+      },
+      "accessCoordinate": {
+        "latitude": 37.281898,
+        "longitude": -80.059303
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "37.28190,-80.05930",
+          "coordinate": {
+            "latitude": 37.281898,
+            "longitude": -80.059303
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "roanoke-river-cardinal-eddy",
+            "roanoke-river-eddy-salem-rotary"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-cardinal-eddy",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-cardinal-eddy-take-out",
+          "name": "Eddy Avenue canoe/kayak ramp",
+          "latitude": 37.281898,
+          "longitude": -80.059303,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-cardinal-eddy",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Eddy Avenue canoe/kayak ramp",
+          "latitude": 37.281898,
+          "longitude": -80.059303,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-eddy-salem-rotary",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-eddy-salem-rotary-put-in",
+          "name": "Eddy Avenue canoe/kayak ramp",
+          "latitude": 37.281898,
+          "longitude": -80.059303,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-eddy-salem-rotary",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Eddy Avenue canoe/kayak ramp",
+          "latitude": 37.281898,
+          "longitude": -80.059303,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--evans-tract-cowpasture-river-access",
+      "state": "Virginia",
+      "name": "Evans Tract Cowpasture River Access",
+      "aliases": [
+        "Evans Tract Cowpasture River Access"
+      ],
+      "sourceIds": [
+        "cowpasture-river-sharon-evans-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.7939,
+        "longitude": -79.7583
+      },
+      "accessCoordinate": {
+        "latitude": 37.7939,
+        "longitude": -79.7583
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.79390,-79.75830",
+          "coordinate": {
+            "latitude": 37.7939,
+            "longitude": -79.7583
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cowpasture-river-sharon-evans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cowpasture-river-sharon-evans",
+          "routeName": "Cowpasture River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "cowpasture-river-sharon-evans-take-out",
+          "name": "Evans Tract Cowpasture River Access",
+          "latitude": 37.7939,
+          "longitude": -79.7583,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cowpasture-river-sharon-evans",
+          "routeName": "Cowpasture River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Evans Tract Cowpasture River Access",
+          "latitude": 37.7939,
+          "longitude": -79.7583,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--explore-park-rutrough-point-public-canoe-kayak-ramp",
       "state": "Virginia",
       "name": "Explore Park/Rutrough Point public canoe/kayak ramp",
@@ -370659,6 +372980,196 @@
       ]
     },
     {
+      "id": "virginia--fieldale-river-access",
+      "state": "Virginia",
+      "name": "Fieldale River Access",
+      "aliases": [
+        "Fieldale River Access"
+      ],
+      "sourceIds": [
+        "smith-river-fieldale-doe-run-put-in",
+        "smith-river-great-road-fieldale-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6909,
+        "longitude": -79.9328
+      },
+      "accessCoordinate": {
+        "latitude": 36.6909,
+        "longitude": -79.9328
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.69090,-79.93280",
+          "coordinate": {
+            "latitude": 36.6909,
+            "longitude": -79.9328
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "smith-river-fieldale-doe-run",
+            "smith-river-great-road-fieldale"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-fieldale-doe-run",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-fieldale-doe-run-put-in",
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-fieldale-doe-run",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-great-road-fieldale",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-great-road-fieldale-take-out",
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-great-road-fieldale",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Fieldale River Access",
+          "latitude": 36.6909,
+          "longitude": -79.9328,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--fort-young-park-jackson-river-boat-ramp",
+      "state": "Virginia",
+      "name": "Fort Young Park Jackson River Boat Ramp",
+      "aliases": [
+        "Fort Young Park Jackson River Boat Ramp"
+      ],
+      "sourceIds": [
+        "jackson-river-fort-young-teddy-dressler-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.7779722,
+        "longitude": -79.9894833
+      },
+      "accessCoordinate": {
+        "latitude": 37.7779722,
+        "longitude": -79.9894833
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.77797,-79.98948",
+          "coordinate": {
+            "latitude": 37.7779722,
+            "longitude": -79.9894833
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "jackson-river-fort-young-teddy-dressler"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-river-fort-young-teddy-dressler",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-river-fort-young-teddy-dressler-put-in",
+          "name": "Fort Young Park Jackson River Boat Ramp",
+          "latitude": 37.7779722,
+          "longitude": -79.9894833,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-river-fort-young-teddy-dressler",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Fort Young Park Jackson River Boat Ramp",
+          "latitude": 37.7779722,
+          "longitude": -79.9894833,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--foster-falls-public-boat-ramp",
       "state": "Virginia",
       "name": "Foster Falls public boat ramp",
@@ -370734,6 +373245,116 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 218.3329657549722,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--frith-drive-river-access",
+      "state": "Virginia",
+      "name": "Frith Drive River Access",
+      "aliases": [
+        "Frith Drive River Access"
+      ],
+      "sourceIds": [
+        "smith-river-frith-sports-complex-put-in",
+        "smith-river-south-martinsville-frith-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6502639,
+        "longitude": -79.8605262
+      },
+      "accessCoordinate": {
+        "latitude": 36.6502639,
+        "longitude": -79.8605262
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.65026,-79.86053",
+          "coordinate": {
+            "latitude": 36.6502639,
+            "longitude": -79.8605262
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "smith-river-frith-sports-complex",
+            "smith-river-south-martinsville-frith"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-frith-sports-complex",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-frith-sports-complex-put-in",
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-frith-sports-complex",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-south-martinsville-frith",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-south-martinsville-frith-take-out",
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-south-martinsville-frith",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Frith Drive River Access",
+          "latitude": 36.6502639,
+          "longitude": -79.8605262,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -371115,6 +373736,116 @@
       ]
     },
     {
+      "id": "virginia--green-hill-park-public-access",
+      "state": "Virginia",
+      "name": "Green Hill Park public access",
+      "aliases": [
+        "Green Hill Park public access"
+      ],
+      "sourceIds": [
+        "roanoke-river-green-hill-west-riverside-put-in",
+        "roanoke-river-wayside-green-hill-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.2757,
+        "longitude": -80.113602
+      },
+      "accessCoordinate": {
+        "latitude": 37.2757,
+        "longitude": -80.113602
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "37.27570,-80.11360",
+          "coordinate": {
+            "latitude": 37.2757,
+            "longitude": -80.113602
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "roanoke-river-green-hill-west-riverside",
+            "roanoke-river-wayside-green-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-green-hill-west-riverside",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-green-hill-west-riverside-put-in",
+          "name": "Green Hill Park public access",
+          "latitude": 37.2757,
+          "longitude": -80.113602,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-green-hill-west-riverside",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Green Hill Park public access",
+          "latitude": 37.2757,
+          "longitude": -80.113602,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-wayside-green-hill",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-wayside-green-hill-take-out",
+          "name": "Green Hill Park public access",
+          "latitude": 37.2757,
+          "longitude": -80.113602,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-wayside-green-hill",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Green Hill Park public access",
+          "latitude": 37.2757,
+          "longitude": -80.113602,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--hardware-river-route-6-dwr-ramp",
       "state": "Virginia",
       "name": "Hardware River / Route 6 DWR ramp",
@@ -371276,6 +374007,166 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 1.8198187742680492,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--indian-draft-jackson-river-boat-landing",
+      "state": "Virginia",
+      "name": "Indian Draft Jackson River Boat Landing",
+      "aliases": [
+        "Indian Draft Jackson River Boat Landing"
+      ],
+      "sourceIds": [
+        "jackson-river-indian-draft-interstate-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.8687028,
+        "longitude": -79.9893444
+      },
+      "accessCoordinate": {
+        "latitude": 37.8687028,
+        "longitude": -79.9893444
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.86870,-79.98934",
+          "coordinate": {
+            "latitude": 37.8687028,
+            "longitude": -79.9893444
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "jackson-river-indian-draft-interstate"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-river-indian-draft-interstate",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-river-indian-draft-interstate-put-in",
+          "name": "Indian Draft Jackson River Boat Landing",
+          "latitude": 37.8687028,
+          "longitude": -79.9893444,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-river-indian-draft-interstate",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Indian Draft Jackson River Boat Landing",
+          "latitude": 37.8687028,
+          "longitude": -79.9893444,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--interstate-park-jackson-river-access",
+      "state": "Virginia",
+      "name": "Interstate Park Jackson River Access",
+      "aliases": [
+        "Interstate Park Jackson River Access"
+      ],
+      "sourceIds": [
+        "jackson-river-indian-draft-interstate-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.8182222,
+        "longitude": -79.98725
+      },
+      "accessCoordinate": {
+        "latitude": 37.8182222,
+        "longitude": -79.98725
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.81822,-79.98725",
+          "coordinate": {
+            "latitude": 37.8182222,
+            "longitude": -79.98725
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "jackson-river-indian-draft-interstate"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-river-indian-draft-interstate",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-river-indian-draft-interstate-take-out",
+          "name": "Interstate Park Jackson River Access",
+          "latitude": 37.8182222,
+          "longitude": -79.98725,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-river-indian-draft-interstate",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Interstate Park Jackson River Access",
+          "latitude": 37.8182222,
+          "longitude": -79.98725,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -372036,6 +374927,116 @@
       ]
     },
     {
+      "id": "virginia--marrowbone-creek-river-access",
+      "state": "Virginia",
+      "name": "Marrowbone Creek River Access",
+      "aliases": [
+        "Marrowbone Creek River Access"
+      ],
+      "sourceIds": [
+        "smith-river-marrowbone-mitchell-put-in",
+        "smith-river-sports-complex-marrowbone-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6134323,
+        "longitude": -79.8235886
+      },
+      "accessCoordinate": {
+        "latitude": 36.6134323,
+        "longitude": -79.8235886
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.61343,-79.82359",
+          "coordinate": {
+            "latitude": 36.6134323,
+            "longitude": -79.8235886
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "smith-river-marrowbone-mitchell",
+            "smith-river-sports-complex-marrowbone"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-marrowbone-mitchell",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-marrowbone-mitchell-put-in",
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-marrowbone-mitchell",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-sports-complex-marrowbone",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-sports-complex-marrowbone-take-out",
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-sports-complex-marrowbone",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Marrowbone Creek River Access",
+          "latitude": 36.6134323,
+          "longitude": -79.8235886,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--meems-bottom-dwr-gravel-access",
       "state": "Virginia",
       "name": "Meems Bottom DWR gravel access",
@@ -372314,6 +375315,86 @@
           "distanceFeetToMatchedRiver": 109.62616313726484,
           "endpointOnWaterbody": false,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--mitchell-bridge-river-access",
+      "state": "Virginia",
+      "name": "Mitchell Bridge River Access",
+      "aliases": [
+        "Mitchell Bridge River Access"
+      ],
+      "sourceIds": [
+        "smith-river-marrowbone-mitchell-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.5978174,
+        "longitude": -79.7827387
+      },
+      "accessCoordinate": {
+        "latitude": 36.5978174,
+        "longitude": -79.7827387
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.59782,-79.78274",
+          "coordinate": {
+            "latitude": 36.5978174,
+            "longitude": -79.7827387
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-marrowbone-mitchell"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-marrowbone-mitchell",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-marrowbone-mitchell-take-out",
+          "name": "Mitchell Bridge River Access",
+          "latitude": 36.5978174,
+          "longitude": -79.7827387,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-marrowbone-mitchell",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Mitchell Bridge River Access",
+          "latitude": 36.5978174,
+          "longitude": -79.7827387,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -373129,6 +376210,86 @@
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 268.94638881906076,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--philpott-dam-tailrace-access",
+      "state": "Virginia",
+      "name": "Philpott Dam Tailrace Access",
+      "aliases": [
+        "Philpott Dam Tailrace Access"
+      ],
+      "sourceIds": [
+        "smith-river-philpott-bassett-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.780576,
+        "longitude": -80.025937
+      },
+      "accessCoordinate": {
+        "latitude": 36.780576,
+        "longitude": -80.025937
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.78058,-80.02594",
+          "coordinate": {
+            "latitude": 36.780576,
+            "longitude": -80.025937
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-philpott-bassett"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-philpott-bassett",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-philpott-bassett-put-in",
+          "name": "Philpott Dam Tailrace Access",
+          "latitude": 36.780576,
+          "longitude": -80.025937,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-philpott-bassett",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Philpott Dam Tailrace Access",
+          "latitude": 36.780576,
+          "longitude": -80.025937,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -374162,6 +377323,86 @@
       ]
     },
     {
+      "id": "virginia--salem-rotary-park-canoe-kayak-ramp",
+      "state": "Virginia",
+      "name": "Salem Rotary Park canoe/kayak ramp",
+      "aliases": [
+        "Salem Rotary Park canoe/kayak ramp"
+      ],
+      "sourceIds": [
+        "roanoke-river-eddy-salem-rotary-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.2677,
+        "longitude": -80.036201
+      },
+      "accessCoordinate": {
+        "latitude": 37.2677,
+        "longitude": -80.036201
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.26770,-80.03620",
+          "coordinate": {
+            "latitude": 37.2677,
+            "longitude": -80.036201
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roanoke-river-eddy-salem-rotary"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-eddy-salem-rotary",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-eddy-salem-rotary-take-out",
+          "name": "Salem Rotary Park canoe/kayak ramp",
+          "latitude": 37.2677,
+          "longitude": -80.036201,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-eddy-salem-rotary",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Salem Rotary Park canoe/kayak ramp",
+          "latitude": 37.2677,
+          "longitude": -80.036201,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--salem-rotary-park-public-canoe-kayak-ramp",
       "state": "Virginia",
       "name": "Salem Rotary Park public canoe/kayak ramp",
@@ -374309,6 +377550,356 @@
           "auditSeverity": "ok",
           "distanceFeetToMatchedRiver": 2.869019030315451,
           "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--sharon-park-cowpasture-river-access",
+      "state": "Virginia",
+      "name": "Sharon Park Cowpasture River Access",
+      "aliases": [
+        "Sharon Park Cowpasture River Access"
+      ],
+      "sourceIds": [
+        "cowpasture-river-sharon-evans-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.8184167,
+        "longitude": -79.7408556
+      },
+      "accessCoordinate": {
+        "latitude": 37.8184167,
+        "longitude": -79.7408556
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.81842,-79.74086",
+          "coordinate": {
+            "latitude": 37.8184167,
+            "longitude": -79.7408556
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "cowpasture-river-sharon-evans"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "cowpasture-river-sharon-evans",
+          "routeName": "Cowpasture River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "cowpasture-river-sharon-evans-put-in",
+          "name": "Sharon Park Cowpasture River Access",
+          "latitude": 37.8184167,
+          "longitude": -79.7408556,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "cowpasture-river-sharon-evans",
+          "routeName": "Cowpasture River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Sharon Park Cowpasture River Access",
+          "latitude": 37.8184167,
+          "longitude": -79.7408556,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--smith-river-sports-complex-river-access",
+      "state": "Virginia",
+      "name": "Smith River Sports Complex River Access",
+      "aliases": [
+        "Smith River Sports Complex River Access"
+      ],
+      "sourceIds": [
+        "smith-river-frith-sports-complex-take-out",
+        "smith-river-sports-complex-marrowbone-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.6383425,
+        "longitude": -79.8258697
+      },
+      "accessCoordinate": {
+        "latitude": 36.6383425,
+        "longitude": -79.8258697
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "36.63834,-79.82587",
+          "coordinate": {
+            "latitude": 36.6383425,
+            "longitude": -79.8258697
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "smith-river-frith-sports-complex",
+            "smith-river-sports-complex-marrowbone"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-frith-sports-complex",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-frith-sports-complex-take-out",
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-frith-sports-complex",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-sports-complex-marrowbone",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-sports-complex-marrowbone-put-in",
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-sports-complex-marrowbone",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Smith River Sports Complex River Access",
+          "latitude": 36.6383425,
+          "longitude": -79.8258697,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--south-martinsville-river-access",
+      "state": "Virginia",
+      "name": "South Martinsville River Access",
+      "aliases": [
+        "South Martinsville River Access"
+      ],
+      "sourceIds": [
+        "smith-river-south-martinsville-frith-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 36.660071,
+        "longitude": -79.879664
+      },
+      "accessCoordinate": {
+        "latitude": 36.660071,
+        "longitude": -79.879664
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "36.66007,-79.87966",
+          "coordinate": {
+            "latitude": 36.660071,
+            "longitude": -79.879664
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "smith-river-south-martinsville-frith"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "smith-river-south-martinsville-frith",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-south-martinsville-frith-put-in",
+          "name": "South Martinsville River Access",
+          "latitude": 36.660071,
+          "longitude": -79.879664,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-south-martinsville-frith",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "South Martinsville River Access",
+          "latitude": 36.660071,
+          "longitude": -79.879664,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "virginia--teddy-j-dressler-wayside-park-jackson-river-ramp",
+      "state": "Virginia",
+      "name": "Teddy J. Dressler Wayside Park Jackson River Ramp",
+      "aliases": [
+        "Teddy J. Dressler Wayside Park Jackson River Ramp"
+      ],
+      "sourceIds": [
+        "jackson-river-fort-young-teddy-dressler-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.75765,
+        "longitude": -79.9869528
+      },
+      "accessCoordinate": {
+        "latitude": 37.75765,
+        "longitude": -79.9869528
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.75765,-79.98695",
+          "coordinate": {
+            "latitude": 37.75765,
+            "longitude": -79.9869528
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "jackson-river-fort-young-teddy-dressler"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "jackson-river-fort-young-teddy-dressler",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "jackson-river-fort-young-teddy-dressler-take-out",
+          "name": "Teddy J. Dressler Wayside Park Jackson River Ramp",
+          "latitude": 37.75765,
+          "longitude": -79.9869528,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "jackson-river-fort-young-teddy-dressler",
+          "routeName": "Jackson River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Teddy J. Dressler Wayside Park Jackson River Ramp",
+          "latitude": 37.75765,
+          "longitude": -79.9869528,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -374533,7 +378124,8 @@
         "The Great Road River Access"
       ],
       "sourceIds": [
-        "smith-river-bassett-great-road-take-out"
+        "smith-river-bassett-great-road-take-out",
+        "smith-river-great-road-fieldale-put-in"
       ],
       "storedAccessCoordinate": {
         "latitude": 36.7272223,
@@ -374608,8 +378200,8 @@
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "36.72722,-79.94878",
@@ -374617,10 +378209,11 @@
             "latitude": 36.7272223,
             "longitude": -79.9487802
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "smith-river-bassett-great-road"
+            "smith-river-bassett-great-road",
+            "smith-river-great-road-fieldale"
           ]
         }
       ],
@@ -374652,6 +378245,34 @@
           "distanceFeetToMatchedRiver": 129.62427786443774,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        },
+        {
+          "routeId": "smith-river-great-road-fieldale",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "smith-river-great-road-fieldale-put-in",
+          "name": "The Great Road River Access",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "smith-river-great-road-fieldale",
+          "routeName": "Smith River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "The Great Road River Access",
+          "latitude": 36.7272223,
+          "longitude": -79.9487802,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -375081,6 +378702,86 @@
       ]
     },
     {
+      "id": "virginia--wayside-park-public-access",
+      "state": "Virginia",
+      "name": "Wayside Park public access",
+      "aliases": [
+        "Wayside Park public access"
+      ],
+      "sourceIds": [
+        "roanoke-river-wayside-green-hill-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.2477,
+        "longitude": -80.175102
+      },
+      "accessCoordinate": {
+        "latitude": 37.2477,
+        "longitude": -80.175102
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "37.24770,-80.17510",
+          "coordinate": {
+            "latitude": 37.2477,
+            "longitude": -80.175102
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "roanoke-river-wayside-green-hill"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-wayside-green-hill",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-wayside-green-hill-put-in",
+          "name": "Wayside Park public access",
+          "latitude": 37.2477,
+          "longitude": -80.175102,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-wayside-green-hill",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Wayside Park public access",
+          "latitude": 37.2477,
+          "longitude": -80.175102,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "virginia--wayside-park-public-boat-launch",
       "state": "Virginia",
       "name": "Wayside Park public boat launch",
@@ -375275,6 +378976,116 @@
           "distanceFeetToMatchedRiver": 101.0421481911314,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-access-anchor"
+        }
+      ]
+    },
+    {
+      "id": "virginia--west-riverside-drive-canoe-kayak-ramp",
+      "state": "Virginia",
+      "name": "West Riverside Drive canoe/kayak ramp",
+      "aliases": [
+        "West Riverside Drive canoe/kayak ramp"
+      ],
+      "sourceIds": [
+        "roanoke-river-green-hill-west-riverside-take-out",
+        "roanoke-river-west-riverside-cardinal-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 37.2864,
+        "longitude": -80.076897
+      },
+      "accessCoordinate": {
+        "latitude": 37.2864,
+        "longitude": -80.076897
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "37.28640,-80.07690",
+          "coordinate": {
+            "latitude": 37.2864,
+            "longitude": -80.076897
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "roanoke-river-green-hill-west-riverside",
+            "roanoke-river-west-riverside-cardinal"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "roanoke-river-green-hill-west-riverside",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-green-hill-west-riverside-take-out",
+          "name": "West Riverside Drive canoe/kayak ramp",
+          "latitude": 37.2864,
+          "longitude": -80.076897,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-green-hill-west-riverside",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "West Riverside Drive canoe/kayak ramp",
+          "latitude": 37.2864,
+          "longitude": -80.076897,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-west-riverside-cardinal",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "accessPoint",
+          "sourceId": "roanoke-river-west-riverside-cardinal-put-in",
+          "name": "West Riverside Drive canoe/kayak ramp",
+          "latitude": 37.2864,
+          "longitude": -80.076897,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "roanoke-river-west-riverside-cardinal",
+          "routeName": "Roanoke River",
+          "state": "Virginia",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "West Riverside Drive canoe/kayak ramp",
+          "latitude": 37.2864,
+          "longitude": -80.076897,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },

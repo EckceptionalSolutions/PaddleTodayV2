@@ -1,0 +1,126 @@
+{
+  "batch": "2026-09-18-batch-31-suspicious",
+  "retrievedAt": "2026-09-18",
+  "coordinateConventions": {
+    "input": "WGS84 latitude, longitude",
+    "arcgis": "The WVDNR feature query was requested in EPSG:4326; feature attributes xLong=-81.6645737 and yLat=37.5876617 mean longitude then latitude.",
+    "imagery": "Google Maps place coordinates were used only when the named public access was also supported by a managing-agency source and the marker was visually checked against aerial imagery. Imagery-derived positions are not described as surveyed GPS."
+  },
+  "sources": [
+    {
+      "siteNumbers": [1],
+      "provider": "Vermont Fish & Wildlife / Vermont DEC",
+      "urls": [
+        "https://www.vtfishandwildlife.com/fish/boating-in-vermont/fishing-access-areas",
+        "https://anrweb.vermont.gov/DEC/SGA/projects/phase1/data/Step1.aspx?option=view&phid=1&pid=12&rid=2"
+      ],
+      "use": "Public ramp identity and official Lamoille-to-Arrowhead Mountain Lake relationship."
+    },
+    {
+      "siteNumbers": [2],
+      "provider": "Chickasaw County / Cedar River Paddling Trips guide / Google Maps imagery",
+      "urls": [
+        "https://www.mycountyparks.com/County/Chickasaw/Park/Pearl-Rock-Canoe-Launch-Site.aspx",
+        "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+        "https://www.google.com/maps/place/Pearl+Rock+Canoe%2FKayak+Launch/@42.910715,-92.5411825,157m/data=!3m1!1e3!4m12!1m5!3m4!2zNDLCsDU0JzM4LjYiTiA5MsKwMzInMzQuOCJX!8m2!3d42.910715!4d-92.543001!3m5!1s0x87f073691a692149:0x78c736d376679d23!8m2!3d42.9107066!4d-92.5408445!16s%2Fg%2F11s55gnh3l"
+      ],
+      "use": "County access identity and guide context; named place marker coordinate cross-checked against imagery. 50-foot uncertainty, not agency-surveyed."
+    },
+    {
+      "siteNumbers": [3],
+      "provider": "City of Princeton / Princeton Visitors Guide / Google Maps imagery",
+      "urls": [
+        "https://www.cityofprincetonwi.com/index.asp?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E&Type=B_BASIC",
+        "https://www.cityofprincetonwi.com/vertical/sites/%7B39FA6B64-E7EC-4BF1-A0FF-4A1B75EF2D8C%7D/uploads/PrincetonVG2024.pdf",
+        "https://www.google.com/maps/@43.8526044,-89.1334048,155m/data=!3m1!1e3"
+      ],
+      "use": "City and tourism sources verify the public Hiestand Park kayak launch; aerial imagery locates the pier's water-entry end at 50-foot uncertainty, not surveyed."
+    },
+    {
+      "siteNumbers": [9],
+      "provider": "Jane Addams Trail / Illinois Paddling Council / Google Maps imagery",
+      "urls": [
+        "https://janeaddamstrail.com/",
+        "https://illinoispaddling.org/newest-boat-launch-completed-at-wes-block-landing-on-the-pecatonica-river/",
+        "https://www.google.com/maps/@42.3300675,-89.6663288,318m/data=!3m1!1e3"
+      ],
+      "use": "Trail operator and paddling council confirm public launch access; the named place marker is used as a parking/carry anchor. Exact kayak-launch water-entry edge remains unlocated."
+    },
+    {
+      "siteNumbers": [4],
+      "provider": "City of Manchester / Iowa DNR / Google Maps imagery",
+      "urls": [
+        "https://www.manchester-ia.org/vnews/display.v/ART/60f9de1f8bc4e",
+        "https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_maq_del.pdf",
+        "https://www.google.com/maps/place/Schram+Park/@42.4712649,-91.4525313,634m/data=!3m2!1e3!4b1!4m6!3m5!1s0x87e4b4052e7dc0bb:0xd172c011ddfbe6f1!8m2!3d42.4712649!4d-91.4525313!16s%2Fg%2F11h13n8pt"
+      ],
+      "use": "Official ramp/access identity; named park marker checked against aerial imagery. 75-foot uncertainty, not agency-surveyed."
+    },
+    {
+      "siteNumbers": [5],
+      "provider": "WVDNR / WV GIS service / West Virginia fishing guide",
+      "urls": [
+        "https://wvats.cedwvu.org/media/2441/fishingguide.pdf",
+        "https://services.wvgis.wvu.edu/arcgis/rest/services/Applications/dnrRec_fishing/MapServer/2/query?where=OBJECTID%3D229&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+        "https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf"
+      ],
+      "use": "Compare older Baileysville fishing-site coordinate with current active boating-access feature CR 14 Bridge; the named paddling endpoint remains unresolved."
+    },
+    {
+      "siteNumbers": [6],
+      "provider": "Jackson County / Iowa DNR",
+      "urls": [
+        "https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail",
+        "https://www.iowadnr.gov/event/2023-05-16/maquoketa-north-fork-maquoketa-water-trail-dedicated-may-31"
+      ],
+      "use": "Public access identity and connected water-trail relationship for the generic Maquoketa route name."
+    },
+    {
+      "siteNumbers": [7],
+      "provider": "Bureau of Reclamation / Idaho Fish and Game / USGS / OpenStreetMap / RiverFacts",
+      "urls": [
+        "https://www.usbr.gov/pn/studies/boisefeasibility/docs/FR.pdf",
+        "https://idfg.idaho.gov/blog/2021/06/wild-trout-and-wildfire-monitoring-trout-populations-south-fork-boise-river-after",
+        "https://idfg.idaho.gov/ifwis/fishingplanner/water/70008",
+        "https://waterdata.usgs.gov/monitoring-location/USGS-13192200",
+        "https://nominatim.openstreetmap.org/search.php?q=Neal%20Bridge%2C%20Elmore%20County%2C%20Idaho&format=jsonv2",
+        "https://www.riverfacts.com/maps/11015.html"
+      ],
+      "use": "Confirm Neal Bridge as the public take-out and compare the stored community coordinate with the mapped bridge; exact river-left landing remains unverified, so the route is withheld."
+    },
+    {
+      "siteNumbers": [10],
+      "provider": "Jackson County / Iowa DNR / OpenStreetMap / Google Maps imagery",
+      "urls": [
+        "https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail",
+        "https://www.manchester-ia.org/vimages/shared/vnews/stories/60face3d1263d/Maq-FINAL.pdf",
+        "https://www.openstreetmap.org/way/48197353",
+        "https://nominatim.openstreetmap.org/reverse?lat=42.084&lon=-90.762&format=jsonv2",
+        "https://www.google.com/maps/@42.124429,-90.858443,159m/data=!3m1!1e3"
+      ],
+      "use": "County and DNR sources establish public Millertown access; bridge geometry and aerial imagery locate a 30th Avenue bridge-axis anchor, with 100-foot uncertainty and no claim of an exact surveyed landing."
+    },
+    {
+      "siteNumbers": [8],
+      "provider": "National Park Service / Skagit County / Google Maps imagery",
+      "urls": [
+        "https://www.nps.gov/thingstodo/rafting-in-the-north-cascades.htm",
+        "https://skagitcounty.net/OfficeOfLandUseHearings/Documents/decisions/SL050748%20Seattle%20City%20Light.pdf",
+        "https://www.google.com/maps/@48.5912,-121.3728,71m/data=!3m1!1e3"
+      ],
+      "use": "NPS and county sources establish a public Copper Creek ramp and its water-edge function; imagery places a 75-foot-uncertainty ramp-edge coordinate shared by three routes."
+    }
+  ],
+  "validationOutputs": [
+    {"siteNumbers":[1],"path":"node_modules/.cache/access-batch31-arrowhead-after.json","result":"take-out changed from suspicious to review using the exact named lake-ramp control; 2 source issues on the other incomplete/unknown route evidence remain."},
+    {"siteNumbers":[2],"path":"node_modules/.cache/access-batch31-pearl-nashua-after.json","result":"Both route endpoints now have zero suspicious classifications and zero source issues; Pearl Rock matches the exact named launch control."},
+    {"siteNumbers":[2],"path":"node_modules/.cache/access-batch31-pearl-north-cedar-after.json","result":"Pearl Rock put-in changed from suspicious to review; zero source issues."},
+    {"siteNumbers":[4],"path":"node_modules/.cache/access-batch31-schram-after.json","result":"Schram access point changed from suspicious to review; 5 endpoints checked, zero source issues."},
+    {"siteNumbers":[6],"path":"node_modules/.cache/access-batch31-canton-after.json","result":"Canton put-in changed from suspicious to review using the county access anchor and source-backed route-waterbody connection; 2 endpoints checked, zero source issues."},
+    {"siteNumbers":[7],"path":"docs/access-remediation/2026-09-18-batch-31-suspicious/review.json","result":"Reject stored coordinate about 3,900 feet west of Neal Bridge; hold route until the required river-left landing is georeferenced."},
+    {"siteNumbers":[10],"path":"node_modules/.cache/access-batch31-millertown-after.json","result":"Targeted audit: 3 endpoints, zero suspicious, zero source issues; Millertown put-in matches its access-anchor control and is 33 feet from it. Route-scoped geometry regenerated."},
+    {"siteNumbers":[8],"path":"node_modules/.cache/access-batch31-skagit-river-copper-howard-miller-after.json","result":"Targeted audits of all three routes: 6 endpoints, zero suspicious, zero source issues; corrected Copper Creek endpoints match the authoritative ramp control and fall within 100 feet of NHD waterbody geometry."},
+    {"siteNumbers":[3],"path":"node_modules/.cache/access-batch31-fox-river-princeton-locks-city-landing-after.json","result":"Public-route audit: 2 endpoints, zero suspicious, zero source issues; Hiestand take-out matches the named launch control. All-inventory audit also cleared Hiestand on the second route; its unrelated Old St. Marie access point remains a 1,275-foot failure."},
+    {"siteNumbers":[9],"path":"node_modules/.cache/access-batch31-wes-block-after.json","result":"Targeted audit: 2 endpoints, zero suspicious, zero source issues; Wes Block is now an authoritative public access-area anchor at 75-foot uncertainty, with exact water-entry still unlocated."}
+  ]
+}

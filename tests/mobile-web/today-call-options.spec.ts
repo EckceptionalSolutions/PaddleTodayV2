@@ -4,7 +4,7 @@ import fixture from './fixtures/route-detail.json' with { type: 'json' };
 test('Today omits the no-call tile while keeping the other call shortcuts', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{
     ...fixture.result, summary: { gaugeNow: 'Unavailable', shortExplanation: 'Fixture' },
     liveData: { overall: 'offline', summary: 'Unavailable' },
   }] } }));

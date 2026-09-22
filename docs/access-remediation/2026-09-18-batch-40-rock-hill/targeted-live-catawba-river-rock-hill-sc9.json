@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:34:23.566Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "catawba-river-rock-hill-sc9",
+      "routeName": "Catawba River",
+      "reach": "Rock Hill River Park to SC 9 Landing",
+      "state": "South Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+      "latitude": 34.709133,
+      "longitude": -80.866015,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 284.18400143207646,
+      "nearestMatchedLatitude": 34.7088821250012,
+      "nearestMatchedLongitude": -80.8669121102946,
+      "nearestWaterwayName": "Catawba River",
+      "distanceFeetToNearestWaterway": 284.18400143207646,
+      "nearestWaterwayLatitude": 34.7088821250012,
+      "nearestWaterwayLongitude": -80.8669121102946,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 49.46307196849871,
+      "nearestWaterbodyLatitude": 34.70908434109223,
+      "nearestWaterbodyLongitude": -80.86616894491085,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 49.46307196849871,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 49 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "catawba-river-rock-hill-sc9",
+      "routeName": "Catawba River",
+      "reach": "Rock Hill River Park to SC 9 Landing",
+      "state": "South Carolina",
+      "endpoint": "putIn",
+      "endpointName": "River Park in Rock Hill (SCDNR paddle launch)",
+      "latitude": 34.95615028378521,
+      "longitude": -80.94933899432193,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 273.2749556653138,
+      "nearestMatchedLatitude": 34.956626,
+      "nearestMatchedLongitude": -80.948633,
+      "nearestWaterwayName": "Manchester Creek",
+      "distanceFeetToNearestWaterway": 27.005287738394838,
+      "nearestWaterwayLatitude": 34.956078162818635,
+      "nearestWaterwayLongitude": -80.94931864520217,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 5.902231237123037,
+      "nearestWaterbodyLatitude": 34.956134571222854,
+      "nearestWaterbodyLongitude": -80.94933429044276,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 5.902231237123037,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/936?f=pjson",
+      "coordinateEvidenceDetail": "scdnr_rock_hill_river_park_paddle_launch_20260918 PL103-OBJECTID-936: SCDNR feature PL103 / OBJECTID 936 lists River Park in Rock Hill as an active, open Paddle Launch / Ramp on the Catawba River. SCDNR's Catawba Scenic River page places the carry-in launch at the mouth of Manchester Creek with nearby parking; the City confirms the canoe/kayak launch. The stored coordinate follows official feature geometry at 34.95615028378521,-80.94933899432193 with 75-foot uncertainty. The ramp toe is not field-surveyed.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (scdnr_rock_hill_river_park_paddle_launch_20260918 PL103-OBJECTID-936) on Catawba River; the 273 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batch": 74,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "observations": [
+        "Identifies the northwest Rio Bravo site as an emergency launch/access area.",
+        "Describes informal parking and trails along Kelsey Road and limited access because of proposed bridge expansion; separately describes the northeast Poco Loco site as formal parking, picnic grounds and fishing access."
+      ],
+      "name": "City of Albuquerque Open Space — Bosque Assessment and Update Prioritization (December 2023)",
+      "url": "https://www.cabq.gov/parksandrecreation/documents/bosque-assessment-update-prioritization-final_smaller-1.pdf",
+      "limits": "The assessment documents the managed site and its informal/limited state, but it does not publish an exact boat launch coordinate."
+    },
+    {
+      "observations": [
+        "Describes the Rio Bravo Bridge as an access point requiring some walking to the river and mentions parking/picnic facilities on the northeast side.",
+        "Identifies the Rio Bravo Riverside Picnic Area/Poco Loco east-bank site and its path to the Paseo del Bosque Trail."
+      ],
+      "name": "City of Albuquerque — Enjoying the Rio Grande / Rio Grande Valley State Park",
+      "url": "https://www.cabq.gov/parksandrecreation/open-space/enjoying-the-rio-grande",
+      "limits": "The general City page does not publish coordinates for the separate northwest emergency launch; route directions must distinguish the two banks and facilities."
+    },
+    {
+      "observations": [
+        "Describes the NM 500 project and states it includes recontouring an existing boat ramp.",
+        "Documents bridge alignment, construction impacts and the project footprint at Rio Bravo."
+      ],
+      "name": "U.S. Army Corps of Engineers — NM 500 Rio Bravo Bridge Replacement public notice (April 14, 2025)",
+      "url": "https://www.spa.usace.army.mil/Missions/Regulatory-Program-and-Permits/Public-Notices/Article/4154409/408-spa-2024-007-request-for-permission-to-alter-a-us-army-corps-of-engineers-p/",
+      "limits": "The notice confirms the ramp is affected by the project, but does not give temporary public access arrangements or an as-built launch coordinate."
+    },
+    {
+      "observations": [
+        "Documents the new northwest parking lot intended to facilitate river and bosque access.",
+        "States that the new bridge alignment impacts the existing west-bank boat launch north of Rio Bravo Boulevard."
+      ],
+      "name": "City of Albuquerque — NM 500 Rio Bravo Bridge Replacement environmental/project attachments (2024)",
+      "url": "https://documents.cabq.gov/planning/environmental-planning-commission/2024/09-September/Agenda_2b_PR-2024-10771_SI-2024-01142-RioBravoEF-AttachmentsF-J.pdf",
+      "limits": "The design materials describe planned impacts and replacement facilities, not current day-by-day access at the launch."
+    },
+    {
+      "observations": [
+        "Reports that the Rio Bravo bridge replacement construction phase is beginning and documents traffic restrictions during the current September 2026 work period.",
+        "Confirms the road work is part of the bridge replacement project over the Rio Grande."
+      ],
+      "name": "KOAT — Rio Bravo Bridge construction project and closures (September 14, 2026)",
+      "url": "https://www.koat.com/article/rio-bravo-bridge-construction-project-closures/73718467",
+      "limits": "The report is about traffic restrictions; it does not say whether the boat launch or west-bank gate is open on any given day."
+    },
+    {
+      "observations": [
+        "Publishes 35.0274595846295,-106.67462218892496 as the Rio Bravo SW access GPS reference.",
+        "Describes the approach via Kelsey Road and a gate, and locates the commonly used river access northwest of the bridge."
+      ],
+      "name": "Quiet Waters — Middle Rio Grande public access information",
+      "url": "https://www.quietwaterspaddling.com/middle-rio-grande-public-access-information",
+      "limits": "The coordinate is a published access-area reference, not a surveyed river-entry toe; the information predates current bridge construction."
+    },
+    {
+      "observations": [
+        "Fresh candidate-centered NHD audits return complete coverage and no source issues for both affected public routes.",
+        "The access-area control classifies both shared endpoint occurrences as review; their cached connected-flowline distances remain route-specific (442 feet and 62 feet)."
+      ],
+      "name": "USGS National Hydrography Dataset — targeted route audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "limits": "Flowline offsets reflect generalized river mapping and route-specific connected-network traces; they are not a survey of the boat ramp."
+    }
+  ],
+  "decision": "Retain the published coordinate as the northwest-bank conditional launch/access-area anchor, distinguish it from the northeast Poco Loco site, and require confirmation that the west-bank gate, ramp and carry are open during bridge construction. Re-audit the point after the bridge project changes the site."
+}

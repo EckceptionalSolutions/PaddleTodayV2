@@ -1,0 +1,380 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First 10 distinct physical sites in the cached access-quality queue that affect at least one route outside the current generated withholding manifest; exclude every site frozen in batches 01 through 04; retain queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The full audit is stale and cannot be regenerated because @paddletoday/geo is missing. The selected queue was filtered against the generated 82-route withholding list and all prior frozen physical-site selections; recheck every selected candidate before editing."
+  },
+  "skippedBeforeSelection": 64,
+  "sites": [
+    {
+      "rank": 63,
+      "state": "Arkansas",
+      "name": "Steel Creek campground / river access",
+      "latitude": 36.040776,
+      "longitude": -93.344048,
+      "distanceFeetToMappedWater": 725.8098464868078,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-ponca-pruitt",
+          "endpoint": "accessPoint",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-steel-creek",
+          "endpoint": "takeOut",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-erbie",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-hasty",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-kyles-landing",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-ozark",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-pruitt",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "buffalo-river-ponca-pruitt",
+          "endpoint": "accessPoint",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-steel-creek",
+          "endpoint": "takeOut",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-erbie",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-hasty",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-kyles-landing",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-ozark",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-pruitt",
+          "endpoint": "putIn",
+          "endpointName": "Steel Creek campground / river access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 64,
+      "state": "Wyoming",
+      "name": "Lusby Public Access Area",
+      "latitude": 42.598552238,
+      "longitude": -106.614216517,
+      "distanceFeetToMappedWater": 724.3505176018868,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "endpoint": "takeOut",
+          "endpointName": "Lusby Public Access Area",
+          "severity": "review"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "endpoint": "takeOut",
+          "endpointName": "Lusby Public Access Area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 65,
+      "state": "Idaho",
+      "name": "Riggins City Park Take-Out",
+      "latitude": 45.41777,
+      "longitude": -116.31806,
+      "distanceFeetToMappedWater": 722.3682660390513,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-salmon-hazard-creek-riggins",
+          "endpoint": "takeOut",
+          "endpointName": "Riggins City Park Take-Out",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "little-salmon-hazard-creek-riggins",
+          "endpoint": "takeOut",
+          "endpointName": "Riggins City Park Take-Out",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 67,
+      "state": "Iowa",
+      "name": "Wilkinson Pioneer Park canoe/kayak launch",
+      "latitude": 43.1916328,
+      "longitude": -93.0668688,
+      "distanceFeetToMappedWater": 710.2255701136986,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "shell-rock-river-strand-wilkinson",
+          "endpoint": "takeOut",
+          "endpointName": "Wilkinson Pioneer Park canoe/kayak launch",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "shell-rock-river-strand-wilkinson",
+          "endpoint": "takeOut",
+          "endpointName": "Wilkinson Pioneer Park canoe/kayak launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 68,
+      "state": "New York",
+      "name": "Driscoll Road Landing public canoe/kayak access",
+      "latitude": 43.0363086,
+      "longitude": -73.7935509,
+      "distanceFeetToMappedWater": 700.0961371559227,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kayaderosseras-creek-grays-crossing-driscoll-road",
+          "endpoint": "takeOut",
+          "endpointName": "Driscoll Road Landing public canoe/kayak access",
+          "severity": "review"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "kayaderosseras-creek-grays-crossing-driscoll-road",
+          "endpoint": "takeOut",
+          "endpointName": "Driscoll Road Landing public canoe/kayak access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 69,
+      "state": "Virginia",
+      "name": "Waid Park public kayak/canoe launch",
+      "latitude": 36.969965,
+      "longitude": -79.942977,
+      "distanceFeetToMappedWater": 696.5787768334973,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "endpoint": "putIn",
+          "endpointName": "Waid Park public kayak/canoe launch",
+          "severity": "review"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "endpoint": "putIn",
+          "endpointName": "Waid Park public kayak/canoe launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "rank": 70,
+      "state": "Wyoming",
+      "name": "Lewis River Channel northern shallow section",
+      "latitude": 44.324,
+      "longitude": -110.64,
+      "distanceFeetToMappedWater": 690.299378852845,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "endpoint": "accessPoint",
+          "endpointName": "Lewis River Channel northern shallow section",
+          "severity": "unknown"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "lewis-lake-shoshone-channel-wilderness-paddle",
+          "endpoint": "accessPoint",
+          "endpointName": "Lewis River Channel northern shallow section",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "rank": 72,
+      "state": "Iowa",
+      "name": "Middle Raccoon River Access / 248th Trail",
+      "latitude": 41.641,
+      "longitude": -94.321,
+      "distanceFeetToMappedWater": 675.2733338686721,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "middle-raccoon-river-p28-cowles",
+          "endpoint": "accessPoint",
+          "endpointName": "Middle Raccoon River Access / 248th Trail",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "middle-raccoon-river-p28-cowles",
+          "endpoint": "accessPoint",
+          "endpointName": "Middle Raccoon River Access / 248th Trail",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 73,
+      "state": "South Carolina",
+      "name": "Givhans Ferry State Park river access",
+      "latitude": 33.0425,
+      "longitude": -80.386944,
+      "distanceFeetToMappedWater": 671.4735632708887,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "edisto-river-givhans-good-hope",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-givhans-messervy",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-mars-oldfield-givhans",
+          "endpoint": "takeOut",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "edisto-river-givhans-good-hope",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-givhans-messervy",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-mars-oldfield-givhans",
+          "endpoint": "takeOut",
+          "endpointName": "Givhans Ferry State Park river access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "rank": 74,
+      "state": "Idaho",
+      "name": "Kendrick High School endpoint",
+      "latitude": 46.651668548584,
+      "longitude": -116.661666870117,
+      "distanceFeetToMappedWater": 671.0681956878278,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-bear-creek-highway-8-kendrick",
+          "endpoint": "takeOut",
+          "endpointName": "Kendrick High School endpoint",
+          "severity": "suspicious"
+        }
+      ],
+      "sourceAuditOccurrences": [
+        {
+          "routeId": "big-bear-creek-highway-8-kendrick",
+          "endpoint": "takeOut",
+          "endpointName": "Kendrick High School endpoint",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ]
+}

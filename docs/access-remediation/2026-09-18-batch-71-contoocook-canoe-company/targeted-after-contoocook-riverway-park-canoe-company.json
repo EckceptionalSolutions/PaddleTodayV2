@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:27:29.024Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "contoocook-riverway-park-canoe-company",
+      "routeName": "Contoocook River",
+      "reach": "Contoocook Riverway Park to Contoocook River Canoe Company",
+      "state": "New Hampshire",
+      "endpoint": "takeOut",
+      "endpointName": "Contoocook River Canoe Company",
+      "latitude": 43.25013,
+      "longitude": -71.62135,
+      "matchedRiverName": "Contoocook River",
+      "distanceFeetToMatchedRiver": 389.6861078003217,
+      "nearestMatchedLatitude": 43.24935534965333,
+      "nearestMatchedLongitude": -71.62034027063459,
+      "nearestWaterwayName": "Contoocook River",
+      "distanceFeetToNearestWaterway": 389.6861078022016,
+      "nearestWaterwayLatitude": 43.24935534965332,
+      "nearestWaterwayLongitude": -71.62034027063459,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 283.8367239634103,
+      "nearestWaterbodyLatitude": 43.24953088767234,
+      "nearestWaterbodyLongitude": -71.62066851580926,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 283.8367239634103,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.forestsociety.org/document/contoocook-river-paddleedited2023pdf.pdf",
+      "coordinateEvidenceDetail": "nh_forest_society_contoocook_canoe_company_takeout_20260918 forest-society-contoocook-guide-company-takeout: The Forest Society's 2023 Contoocook guide explicitly identifies the Canoe Company as the one-way take-out and publishes 43.25013,-71.62135. This validates the managed access-area coordinate, not a surveyed wet-toe point. The company's current page describes its private river beach, paid shuttle service, and parking limited to renting or shuttle customers. Classify this as a conditional outfitter take-out, not unrestricted public parking; the published nine-mile itinerary does not establish shuttle coverage for longer upstream starts.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nh_forest_society_contoocook_canoe_company_takeout_20260918 forest-society-contoocook-guide-company-takeout) on Contoocook River; access is conditional (Private outfitter beach; use only with a confirmed rental/shuttle reservation or explicit permission. Parking is for renting or shuttle customers only.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "contoocook-riverway-park-canoe-company",
+      "routeName": "Contoocook River",
+      "reach": "Contoocook Riverway Park to Contoocook River Canoe Company",
+      "state": "New Hampshire",
+      "endpoint": "putIn",
+      "endpointName": "Contoocook Riverway Park",
+      "latitude": 43.22281,
+      "longitude": -71.71269,
+      "matchedRiverName": "Contoocook River",
+      "distanceFeetToMatchedRiver": 152.91907098621388,
+      "nearestMatchedLatitude": 43.22308,
+      "nearestMatchedLongitude": -71.71225,
+      "nearestWaterwayName": "Contoocook River",
+      "distanceFeetToNearestWaterway": 245.11522764511008,
+      "nearestWaterwayLatitude": 43.223427,
+      "nearestWaterwayLongitude": -71.713055,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 129.00092147918846,
+      "nearestWaterbodyLatitude": 43.223141107585796,
+      "nearestWaterbodyLongitude": -71.71286032236604,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 129.00092147918846,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 129 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

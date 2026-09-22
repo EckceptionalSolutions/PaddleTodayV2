@@ -7,7 +7,7 @@ for (const routeCount of [1, 2]) {
     await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
     const reason = 'Coverage is limited. Check current sources and access conditions before planning this paddle.';
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: Array.from({ length: routeCount }, (_, index) => ({ ...fixture.result,
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: Array.from({ length: routeCount }, (_, index) => ({ ...fixture.result,
       river: { ...fixture.result.river, slug: `qa-route-${index}`, difficulty: 'easy' },
       readiness: { status: 'withheld', label: 'Withheld', reason },
       summary: { gaugeNow: 'QA', shortExplanation: reason }, liveData: { overall: 'stale', summary: 'QA' },
@@ -33,7 +33,7 @@ test('Explore drawer keeps actions and expanded facts reachable on a short scree
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
     river: { ...fixture.result.river, difficulty: 'easy' },
     summary: { gaugeNow: 'QA', shortExplanation: 'QA fixture' }, liveData: { overall: 'stale', summary: 'QA' },
   }] } }));

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T17:40:29.382Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Idaho",
+      "name": "Three Forks Recreation Site Boat Launch",
+      "latitude": 42.545023,
+      "longitude": -117.167067,
+      "distanceFeetToMappedWater": 342.90167099718036,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-owyhee-campground-three-forks",
+          "endpoint": "takeOut",
+          "endpointName": "Three Forks Recreation Site Boat Launch",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "north-fork-owyhee-campground-three-forks",
+      "routeName": "North Fork Owyhee River",
+      "reach": "North Fork Campground to Three Forks",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Three Forks Recreation Site Boat Launch",
+      "latitude": 42.545023,
+      "longitude": -117.167067,
+      "matchedRiverName": "North Fork Owyhee River",
+      "distanceFeetToMatchedRiver": 345.4694922221473,
+      "nearestMatchedLatitude": 42.544126,
+      "nearestMatchedLongitude": -117.166655,
+      "nearestWaterwayName": "North Fork Owyhee River",
+      "distanceFeetToNearestWaterway": 345.4694922221473,
+      "nearestWaterwayLatitude": 42.544126,
+      "nearestWaterwayLongitude": -117.166655,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 342.90167099718036,
+      "nearestWaterbodyLatitude": 42.544143702570345,
+      "nearestWaterbodyLongitude": -117.16661621505149,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 342.90167099718036,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.blm.gov/visit/three-forks",
+      "coordinateEvidenceDetail": "id_three_forks_blm_boat_launch_anchor owyhee-river-three-forks-blm-site: BLM identifies the Three Forks Recreation Site as an Oregon site at the confluence of the Owyhee, North Fork Owyhee and Middle Fork Owyhee, lists a boat launch and vehicle parking, and publishes the exact coordinate used by the route. This is a recreation-site anchor, not a launch-toe coordinate; BLM warns the final road is steep and rough and high-clearance 4WD is recommended.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_three_forks_blm_boat_launch_anchor owyhee-river-three-forks-blm-site) on Owyhee River / North Fork Owyhee River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "north-fork-owyhee-campground-three-forks",
+      "routeName": "North Fork Owyhee River",
+      "reach": "North Fork Campground to Three Forks",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "North Fork Campground Boat Access",
+      "latitude": 42.591389,
+      "longitude": -116.982222,
+      "matchedRiverName": "North Fork Owyhee River",
+      "distanceFeetToMatchedRiver": 139.78987352920134,
+      "nearestMatchedLatitude": 42.591770459605,
+      "nearestMatchedLongitude": -116.98217275882676,
+      "nearestWaterwayName": "North Fork Owyhee River",
+      "distanceFeetToNearestWaterway": 139.78987352920134,
+      "nearestWaterwayLatitude": 42.591770459605,
+      "nearestWaterwayLongitude": -116.98217275882676,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 122.0319402671978,
+      "nearestWaterbodyLatitude": 42.59172052259043,
+      "nearestWaterbodyLongitude": -116.98216149193904,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 122.0319402671978,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 122 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

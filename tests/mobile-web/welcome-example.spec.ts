@@ -6,7 +6,7 @@ for (const status of ['offline', 'withheld', 'ready'] as const) {
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
     if (status !== 'offline') {
       const generatedAt = new Date().toISOString();
-      await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+      await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
         ...fixture.result, generatedAt, river: { ...fixture.result.river, name: 'QA Current Route' },
         score: 95, rating: 'Strong', readiness: { status, label: status, reason: 'QA fixture.' },
         summary: { shortExplanation: 'QA fixture.', cardText: 'QA fixture.', gaugeNow: 'Fixture reading',

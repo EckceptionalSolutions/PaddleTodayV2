@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { Modal, ScrollView, Share, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { type OfflineTrip, offlineTripBytes } from '../lib/offline-trips';
+import { offlineTripDraftFreshnessLabel, type OfflineTripDraftFreshness } from '../lib/offline-trip-freshness';
 import { openExternalUrl } from '../lib/external-links';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 import { AppButton } from './app-button';
 import { SectionCard } from './section-card';
 
-export function OfflineTripView({ packet, onClose }: { packet: OfflineTrip; onClose: () => void }) {
+export function OfflineTripView({ packet, freshness, onClose }: { packet: OfflineTrip; freshness?: OfflineTripDraftFreshness; onClose: () => void }) {
   const insets = useSafeAreaInsets();
   const [shareText, setShareText] = useState('');
+  const [showFullRoute, setShowFullRoute] = useState(!packet.segment?.geometry);
+  const [showConditions, setShowConditions] = useState(false);
   const draftFields = [ ['Launch (local time)', packet.draft.launch], ['Expected take-out (local time)', packet.draft.expected],
     ['Check-in (local time)', packet.draft.checkIn], ['Group size', packet.draft.groupSize], ['Boat / gear', packet.draft.boat],
     ['Vehicle / shuttle notes', packet.draft.vehicle], ['Group note', packet.draft.note] ];
@@ -28,9 +31,23 @@ export function OfflineTripView({ packet, onClose }: { packet: OfflineTrip; onCl
       <Text style={styles.body}>{packet.putIn.name} to {packet.takeOut.name}</Text>
       <Text style={styles.body}>{offlineStatus(packet)} · {Math.ceil(offlineTripBytes(packet) / 1024)} KB on this device</Text>
       <Text style={styles.body}>Saved {new Date(packet.savedAt).toLocaleString()}</Text>
-      <SectionCard title="Current conditions unavailable" subtitle="This is a saved reference plan. Scores, gauge readings and forecasts are not available as live conditions here. Expired conditions cannot be used for a launch decision.">
+      {freshness ? <Text accessibilityLiveRegion="polite" style={styles.body}>{offlineTripDraftFreshnessLabel(freshness)}</Text> : null}
+      <SectionCard title="Current conditions unavailable" subtitle="This offline plan does not update automatically. Any conditions below are a historical snapshot, not a current launch recommendation.">
         <Text style={styles.body}>Check current gauge, weather, closures and access before launching. PaddleToday does not monitor your trip or check-in.</Text>
         <Text style={styles.body}>Route reference: {packet.referenceGeneratedAt ? new Date(packet.referenceGeneratedAt).toLocaleString() : 'date unavailable'}. Access information may have changed.</Text>
+      </SectionCard>
+      <SectionCard title="Conditions saved at download" subtitle="Historical reference only — these conditions are not current.">
+        {packet.conditions ? <>
+          <Text style={styles.label}>Downloaded: {new Date(packet.conditions.downloadedAt).toLocaleString()}</Text>
+          <Text style={styles.body}>Conditions generated: {packet.conditions.generatedAt ? new Date(packet.conditions.generatedAt).toLocaleString() : 'time unavailable'}. Readings may already have been old when downloaded.</Text>
+          <AppButton label={showConditions ? 'Hide downloaded conditions' : 'Show downloaded conditions'} variant="secondary" expanded={showConditions} onPress={() => setShowConditions(value => !value)} />
+          {showConditions ? packet.conditions.facts.map(fact => <View key={fact.label} style={styles.group}>
+            <Text style={styles.label}>{fact.label}</Text><Text style={styles.body}>{fact.text}</Text>
+            {fact.source ? <Text style={styles.body}>Source: {fact.source}</Text> : null}
+            {fact.observedAt ? <Text style={styles.body}>Observed / issued: {new Date(fact.observedAt).toLocaleString()}</Text> : null}
+          </View>) : null}
+          <Text style={styles.body}>Forecast periods refer to the original data time. Updating timing or notes does not refresh these conditions.</Text>
+        </> : <Text style={styles.body}>This older download has no conditions snapshot. Refresh the offline download from the route page when connected to include one.</Text>}
       </SectionCard>
       {packet.missing.length ? <SectionCard title="Download incomplete" subtitle={`Missing: ${packet.missing.join(', ')}. Available details are saved; this packet is not complete.`} /> : null}
       <SectionCard title="Selected landings" subtitle="Coordinates and access notes are available without a connection.">
@@ -53,10 +70,11 @@ export function OfflineTripView({ packet, onClose }: { packet: OfflineTrip; onCl
         {packet.segment?.missing.length ? <Text style={styles.body}>Unavailable here: {packet.segment.missing.join(', ')}.</Text> : null}
       </SectionCard>
       <SectionCard title="Reference route geometry" subtitle="Full route outline with your selected launch and landing. No background map or live navigation.">
-        <OfflineRouteOutline packet={packet} />
+        <AppButton label={showFullRoute ? 'Hide full route outline' : 'Show full route outline'} variant="secondary" expanded={showFullRoute} onPress={() => setShowFullRoute(value => !value)} />
+        {showFullRoute ? <OfflineRouteOutline packet={packet} /> : null}
         {packet.geometry ? <Text style={styles.body}>Source: {packet.geometry.source}. This is full-route context; the selected segment is shown above when available.</Text> : <Text style={styles.body}>Route geometry was not downloaded. Retry from Saved when connected.</Text>}
       </SectionCard>
-      <SectionCard title="Your saved plan" subtitle="Timing and notes captured when you prepared this offline trip. Later draft edits need an updated download.">
+      <SectionCard title="Your saved plan" subtitle="Timing and notes saved on this device. Use Update offline copy to include later draft edits, even without a connection.">
         {draftFields.filter(([, value]) => value).map(([label, value]) => <View style={styles.group} key={label}>
           <Text style={styles.label}>{label}</Text><Text selectable style={styles.body}>{value}</Text>
         </View>)}

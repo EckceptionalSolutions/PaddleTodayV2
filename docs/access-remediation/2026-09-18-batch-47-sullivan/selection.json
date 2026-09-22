@@ -1,0 +1,19 @@
+{
+  "batch": 47,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Prioritize shared suspicious coordinates in the latest public audit; select the next repeated location with clear river-access source coverage.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-46-willow-mill/audit-full-public-cache-only.json generated 2026-09-18T18:22:22.666Z (cache-only); 2,750 public routes, 6,058 endpoints, 94 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Washington",
+    "name": "Sullivan Park north-bank access, Spokane River",
+    "storedCoordinate": { "latitude": 47.674537, "longitude": -117.197426 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "spokane-river-harvard-sullivan",
+      "spokane-river-barker-sullivan"
+    ],
+    "preReviewFinding": "Both routes shared one park/parking-area coordinate about 436.8 feet from mapped water and 468.4 feet from the matched Spokane River flowline.",
+    "decision": "use-the-bridge-side-north-bank-shoreline-entry-confirmed-by-imagery-and-conservation-district-description; retain-review-status-only-if-hydrology-audit-does-not-support-on-water",
+    "selectionFrozenBeforeResearch": true
+  }
+}

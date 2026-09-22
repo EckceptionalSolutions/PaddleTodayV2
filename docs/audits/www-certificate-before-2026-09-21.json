@@ -1,0 +1,14 @@
+{
+  "id": "/subscriptions/a2cc52c3-7f4e-4de7-bf59-9cc6f99bc8e2/resourceGroups/paddletoday/providers/Microsoft.Web/staticSites/PaddleToday/customDomains/www.paddletoday.com",
+  "location": "Central US",
+  "name": "www.paddletoday.com",
+  "properties": {
+    "createdOn": "2026-04-01T02:11:52.0900615Z",
+    "domainName": "www.paddletoday.com",
+    "errorMessage": "An unknown error has occurred while attempting to renew your custom domain. Please ensure your domain is directing traffic to the static web app, and check again later.",
+    "expiresOn": "2026-10-01T23:59:59+00:00",
+    "isDefault": false,
+    "status": "Unhealthy"
+  },
+  "type": "Microsoft.Web/staticSites/customDomains"
+}

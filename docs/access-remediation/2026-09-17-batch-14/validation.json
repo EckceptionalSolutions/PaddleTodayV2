@@ -1,0 +1,79 @@
+{
+  "batch": "2026-09-17-batch-14",
+  "validatedOn": "2026-09-17",
+  "sourceLevelStatus": "reviewed",
+  "checks": [
+    {
+      "name": "regenerate withheld-route manifest",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 149 unique held route slugs; no new holds were required."
+    },
+    {
+      "name": "batch-specific verifier",
+      "command": "node docs/access-remediation/2026-09-17-batch-14/verify.mjs",
+      "status": "passed",
+      "result": "Verified ten frozen sites and decisions, two coordinate updates in ten route records, seven access-area anchors, one navigation waypoint, 20 unwithheld route records, 22 accepted source hashes, the failed retrieval exclusion, five source backups, prior registry/control snapshot, and TypeScript syntax."
+    },
+    {
+      "name": "JSON/source metadata parsing",
+      "command": "Performed by batch-specific verifier",
+      "status": "passed",
+      "result": "Source controls, selections, review records, snapshots, hashes, and withholding manifest parse."
+    },
+    {
+      "name": "route TypeScript typecheck",
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/api-contract. Type declarations disappear and trigger broad cascading route type errors, including RiverRouteAccessPoint properties."
+    },
+    {
+      "name": "fresh route coordinate/access audit",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-14/after-audit.json --cache-only",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/geo. No after-audit.json was produced. The cached quality queue ranks remain research-only."
+    },
+    {
+      "name": "focused access tests",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "blocker": "Missing @jridgewell/sourcemap-codec during Vitest startup."
+    },
+    {
+      "name": "changed route geometry generation",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id meramec-river-state-park-sand-ford",
+      "status": "blocked",
+      "blocker": "Missing @paddletoday/geo before generation begins."
+    },
+    {
+      "name": "geometry assembly, overview, and registry generation",
+      "status": "not-run",
+      "reason": "The required changed-route geometries and fresh full access audit could not be generated. Per runbook, do not reuse existing route geometry or generate the registry from stale evidence."
+    },
+    {
+      "name": "substantive diff / whitespace review",
+      "status": "passed-with-preexisting-worktree-noise",
+      "result": "Batch-specific verifier checks all intended values and syntax. Raw git diff --check reports repository CRLF noise; a separate trailing-space scan found six unrelated pre-existing lines in src/data/routes/new-york.ts (10623, 10633, 10634, 10645-10647), all present in the byte-for-byte before-source backup. No line-ending cleanup was applied."
+    }
+  ],
+  "changedPublicRouteGeometryIds": [
+    "meramec-river-sappington-bridge-meramec-state-park",
+    "meramec-river-state-park-sand-ford",
+    "blackfoot-river-roundup-whitaker",
+    "blackfoot-river-russell-gates-whitaker",
+    "blackfoot-river-scotty-brown-whitaker",
+    "blackfoot-river-whitaker-angevine",
+    "blackfoot-river-whitaker-johnsrud",
+    "blackfoot-river-whitaker-k-ross-toole",
+    "blackfoot-river-whitaker-marco-flats",
+    "blackfoot-river-whitaker-weigh-station"
+  ],
+  "servedArtifactsPending": [
+    "src/data/generated/route-access-registry.json",
+    "public/data/canonical-river-geometries/routes/* for the ten route IDs above",
+    "public/data/canonical-river-geometries/states/missouri.json",
+    "public/data/canonical-river-geometries/states/montana.json",
+    "public/data/explore-map-overview.json"
+  ],
+  "publicationStatus": "Source changes are in place but generated route assets and the access registry remain stale. Do not release these access corrections until all ten public-route geometries are regenerated and checked, then the geometry catalog, state bundles, overview, and full-report registry are rebuilt and audited."
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:05:58.986Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "saco-river-davis-park-smith-eastman",
+      "routeName": "Saco River",
+      "reach": "Davis Park and Beach to Smith-Eastman Recreation Area",
+      "state": "New Hampshire",
+      "endpoint": "putIn",
+      "endpointName": "Davis Park public access, Conway (access-area anchor)",
+      "latitude": 43.98290003852706,
+      "longitude": -71.11596852920452,
+      "matchedRiverName": "Saco River",
+      "distanceFeetToMatchedRiver": 249.67671130772126,
+      "nearestMatchedLatitude": 43.98245379243487,
+      "nearestMatchedLongitude": -71.11668966904054,
+      "nearestWaterwayName": "Saco River",
+      "distanceFeetToNearestWaterway": 249.67671130772126,
+      "nearestWaterwayLatitude": 43.98245379243487,
+      "nearestWaterwayLongitude": -71.11668966904054,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 143.86112852445677,
+      "nearestWaterbodyLatitude": 43.98265919157858,
+      "nearestWaterbodyLongitude": -71.11640247101715,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 143.86112852445677,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://nhgeodata.unh.edu/hosting/rest/services/Hosted/CSD_RecreationResources/FeatureServer/0/query?where=pubacc_id%3D%270156%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "coordinateEvidenceDetail": "nh_granit_davis_park_saco_access_anchor_20260918 nh-pubacc-0156-objectid-67: UNH GRANIT's New Hampshire public-water access layer lists feature PUBACC_ID 0156 / OBJECTID 67 as Davis Park, Town - Conway, on the Saco River, with shorebank access. Its point geometry is retained as the public park/access anchor. Conway confirms a canoe launch, but the inventory classifies this feature as Beach/Picnic and does not give a surveyed launch-toe coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nh_granit_davis_park_saco_access_anchor_20260918 nh-pubacc-0156-objectid-67) on Saco River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "saco-river-davis-park-smith-eastman",
+      "routeName": "Saco River",
+      "reach": "Davis Park and Beach to Smith-Eastman Recreation Area",
+      "state": "New Hampshire",
+      "endpoint": "takeOut",
+      "endpointName": "Smith-Eastman Recreation Area, Redstone Village (water-entry edge)",
+      "latitude": 44.000982,
+      "longitude": -71.083071,
+      "matchedRiverName": "Saco River",
+      "distanceFeetToMatchedRiver": 164.84585819006796,
+      "nearestMatchedLatitude": 44.00082598616378,
+      "nearestMatchedLongitude": -71.08248146252394,
+      "nearestWaterwayName": "Saco River",
+      "distanceFeetToNearestWaterway": 164.84585819006796,
+      "nearestWaterwayLatitude": 44.00082598616378,
+      "nearestWaterwayLongitude": -71.08248146252394,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 60.81730495655975,
+      "nearestWaterbodyLatitude": 44.00095716483251,
+      "nearestWaterbodyLongitude": -71.08284183317707,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 60.81730495655975,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 61 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

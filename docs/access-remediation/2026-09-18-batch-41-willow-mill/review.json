@@ -1,0 +1,51 @@
+{
+  "batch": 41,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-source-conflict-review",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 0,
+  "uniqueRoutesWithSourceNotesCorrected": 3,
+  "publicSiteOccurrencesHeldForCoordinateEvidence": 3,
+  "routesWithheld": 0,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Pennsylvania",
+      "name": "Willow Mill Park launch",
+      "routeIds": [
+        "conodoguinet-creek-willow-mill-vincent-difilippo",
+        "conodoguinet-creek-willow-mill-good-hope",
+        "conodoguinet-creek-willow-mill-acri-meadow"
+      ],
+      "decision": "retain-verified-public-launch-but-hold-coordinate-change",
+      "storedCoordinate": { "latitude": 40.2567096, "longitude": -77.0411725 },
+      "countySiteCoordinate": { "latitude": 40.2578, "longitude": -77.0426 },
+      "coordinateRole": "unresolved-launch-area-point",
+      "rationale": "Cumberland County and Silver Spring Township confirm a public concrete/boat launch. However, the county's B4 site pin is 562 ft from the stored route point and PFBC's separate general access-area point is 1,511 ft away and marks RAMP N. The stored point is 189.7 ft from mapped water and 318.8 ft from the connected flowline. None of the records georeferences the ramp toe, so moving to either park-area pin would substitute a different, less precise coordinate without proving the water entry.",
+      "postReviewAudit": {
+        "siteOccurrences": 3,
+        "suspicious": 3,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "waterbodyDistanceFeet": 189.7,
+        "matchedFlowlineDistanceFeet": 318.8,
+        "hydrographyCoverageComplete": true,
+        "severity": "suspicious for all 3 route occurrences pending exact launch localization"
+      },
+      "routeCopyCorrected": true,
+      "routeGeometryRegenerated": false,
+      "reopenWhen": "Revisit when current aerial imagery clearly locates the improved concrete ramp or Silver Spring Township/PFBC publishes a launch-toe coordinate or georeferenced park map."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 3,
+    "targetedRouteAuditResults": "All three cache-preferred route-scoped audits reproduce the same suspicious Willow Mill point (319 ft from connected flowline, within 300 ft of mapped water) with no unknown endpoint or source issue.",
+    "changedRouteGeometryRegenerated": 0,
+    "fullAuditStatus": "unchanged full cache-only audit 2026-09-18T16:38:12.920Z: 2,752 public routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues, 120 review locations. Willow Mill's three suspicious occurrences remain in that report.",
+    "registryStatus": "unchanged: no route coordinate or access control was added; current registry has 4,042 entries and 0 conflicts.",
+    "overviewStatus": "unchanged: no geometry changed; canonical geometry audit remains 2,739/2,752 routes matched."
+  }
+}

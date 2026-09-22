@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { SNAPSHOT_MAX_AGE_MS, type RiverDetailResponse, type RiverGroupResponse, type RiverSummaryResponse, type WeekendSummaryResponse } from '@paddletoday/api-contract';
 import fixture from '../../../../tests/mobile-web/fixtures/route-detail.json';
-import { currentDetailSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from './cached-snapshot';
+import { currentDetailSnapshot, currentExploreSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from './cached-snapshot';
+import type { ExploreCatalogResponse } from '@paddletoday/api-contract';
 
 const capturedAt = Date.parse('2030-06-15T12:00:00Z');
 function detail(): RiverDetailResponse {
@@ -19,6 +20,20 @@ function summary(): RiverSummaryResponse {
 }
 
 describe('display freshness of cached snapshots', () => {
+  it('keeps planning discovery available without inventing fresh conditions when the score snapshot is missing', () => {
+    const scored = summary().rivers[0];
+    const planning = { ...scored, river: { ...scored.river, scoreEligibility: 'planning' as const },
+      readiness: { status: 'withheld' as const, label: 'Withheld' as const, reason: 'Planning only; check local sources.' } };
+    const catalog: ExploreCatalogResponse = { requestId: 'test', generatedAt: null, snapshotStatus: 'unavailable', riverCount: 2,
+      rivers: [scored, planning], coverage: { catalogRevision: 'test', publicRoutes: 2, scoredRoutes: 1, planningRoutes: 1, missingScores: 1, missingScoreStates: [] } };
+    const result = currentExploreSnapshot(catalog, capturedAt);
+    expect(result.rivers).toHaveLength(2);
+    expect(result.generatedAt).toBeNull();
+    expect(result.snapshotStatus).toBe('unavailable');
+    expect(result.rivers[0].readiness.status).toBe('withheld');
+    expect(result.rivers[1]).toEqual(planning);
+    expect(scored.readiness.status).toBe('ready');
+  });
   it('withholds planning-only summary calls without marking fresh data old or mutating the response', () => {
     const original = summary();
     original.rivers[0].river = { ...original.rivers[0].river, scoreEligibility: 'planning' };

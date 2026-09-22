@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:59:46.352Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 0,
+    "over-300ft": 2,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Arizona",
+      "name": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "latitude": 34.694,
+      "longitude": -111.9616,
+      "distanceFeetToMappedWater": 518.1083594883318,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-skidmore-white",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "White Bridge RAP access area",
+      "latitude": 34.549539,
+      "longitude": -111.850602,
+      "distanceFeetToMappedWater": 405.72230641921504,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-skidmore-white",
+          "endpoint": "takeOut",
+          "endpointName": "White Bridge RAP access area",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "verde-river-skidmore-white",
+      "routeName": "Verde River",
+      "reach": "Skidmore Drive RAP access area (river about 150 yards down trail) to White Bridge RAP access area",
+      "state": "Arizona",
+      "endpoint": "putIn",
+      "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "latitude": 34.694,
+      "longitude": -111.9616,
+      "matchedRiverName": "Verde River",
+      "distanceFeetToMatchedRiver": 554.4786352076309,
+      "nearestMatchedLatitude": 34.69257188097671,
+      "nearestMatchedLongitude": -111.96223257964311,
+      "nearestWaterwayName": "Verde River",
+      "distanceFeetToNearestWaterway": 554.4786352076309,
+      "nearestWaterwayLatitude": 34.69257188097671,
+      "nearestWaterwayLongitude": -111.96223257964311,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 518.1083594883318,
+      "nearestWaterbodyLatitude": 34.69268085273613,
+      "nearestWaterbodyLongitude": -111.96223986347518,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 518.1083594883318,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+      "coordinateEvidenceDetail": "verde_river_skidmore_drive skidmore-drive-river-access-point: Friends of the Verde River publishes the Skidmore Drive public-access coordinate at 34.6940,-111.9616. The Forest Service-hosted Verde River Paddle Trail guide names the Skidmore RAP, directs users from parking to a trail, and says the river is about 150 yards down that trail. Preserve the published access-area anchor and disclose the carry; it is not the water-entry edge.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (verde_river_skidmore_drive skidmore-drive-river-access-point) on Verde River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "verde-river-skidmore-white",
+      "routeName": "Verde River",
+      "reach": "Skidmore Drive RAP access area (river about 150 yards down trail) to White Bridge RAP access area",
+      "state": "Arizona",
+      "endpoint": "takeOut",
+      "endpointName": "White Bridge RAP access area",
+      "latitude": 34.549539,
+      "longitude": -111.850602,
+      "matchedRiverName": "Verde River",
+      "distanceFeetToMatchedRiver": 405.72230641921504,
+      "nearestMatchedLatitude": 34.550192,
+      "nearestMatchedLongitude": -111.85169499999999,
+      "nearestWaterwayName": "Verde River",
+      "distanceFeetToNearestWaterway": 405.72230641921504,
+      "nearestWaterwayLatitude": 34.550192,
+      "nearestWaterwayLongitude": -111.85169499999999,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 2405.825835393993,
+      "nearestWaterbodyLatitude": 34.555812,
+      "nearestWaterbodyLongitude": -111.84813199999999,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 405.72230641921504,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=9740&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "az_usfs_white_bridge_picnic_site_access_9740_20260918 usfs-edw-recreation-opportunities-objectid-9740-recid-77748: Forest Service EDW feature 9740 / recreation area 77748 identifies the White Bridge Picnic Site at 34.549539,-111.850602. Its official description states that the developed public picnic site provides access to the Verde River and non-motorized boating; its linked site photos document the trail from the picnic area to the river. This is the current recreation-site access marker and is about 63 feet from the former route point, which matches the Friends of the Verde access-table coordinate. The Forest Service paddle guide also identifies White Bridge RAP but lists a waypoint about 545 feet north and cautions that its map is for reference and accuracy is not guaranteed. Prefer the Forest Service recreation-site feature for the managed public access-area pin. The feature is not a surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (az_usfs_white_bridge_picnic_site_access_9740_20260918 usfs-edw-recreation-opportunities-objectid-9740-recid-77748) on Verde River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

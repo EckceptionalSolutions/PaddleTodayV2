@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:52:17.085Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Willow Mill Park launch",
+      "latitude": 40.2567096,
+      "longitude": -77.0411725,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 318.78681885711234,
+      "nearestMatchedLatitude": 40.256817807486655,
+      "nearestMatchedLongitude": -77.04003629556385,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 318.78687761824665,
+      "nearestWaterwayLatitude": 40.25681834003244,
+      "nearestWaterwayLongitude": -77.04003638264682,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 189.743253736427,
+      "nearestWaterbodyLatitude": 40.256766,
+      "nearestWaterbodyLongitude": -77.040495,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 189.743253736427,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is within 319 ft of a topology-connected NHD river trace that includes Conodoguinet Creek; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "conodoguinet-creek-willow-mill-vincent-difilippo",
+      "routeName": "Conodoguinet Creek",
+      "reach": "Willow Mill Park to Vincent DiFilippo Nature Preserve",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Vincent DiFilippo Nature Preserve launch",
+      "latitude": 40.2561,
+      "longitude": -77.0192,
+      "matchedRiverName": "Conodoguinet Creek",
+      "distanceFeetToMatchedRiver": 206.33686794684766,
+      "nearestMatchedLatitude": 40.25601930261804,
+      "nearestMatchedLongitude": -77.0184664698993,
+      "nearestWaterwayName": "Conodoguinet Creek",
+      "distanceFeetToNearestWaterway": 206.33686794721754,
+      "nearestWaterwayLatitude": 40.256019302618036,
+      "nearestWaterwayLongitude": -77.0184664698993,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 122.51360049900029,
+      "nearestWaterbodyLatitude": 40.25606444911695,
+      "nearestWaterbodyLongitude": -77.01876243318226,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 122.51360049900029,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "coordinateEvidenceDetail": "cumberland_county_conodoguinet_b5 B5: The current Cumberland County access table identifies B5, Vincent DiFilippo Nature Preserve, as a named concrete Conodoguinet launch and publishes 40.2561, -77.0192. The official table coordinate is retained as the shared launch pin; it is not projected to an NHD centerline.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (cumberland_county_conodoguinet_b5 B5) on Conodoguinet Creek; the 206 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

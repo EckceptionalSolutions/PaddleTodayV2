@@ -1,0 +1,59 @@
+{
+  "batch": 40,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 2,
+  "uniqueRoutesChanged": 2,
+  "sharedSourceRoutesUpdated": 3,
+  "withheldSourceRoutesAlsoChecked": [
+    "catawba-river-fort-mill-rock-hill"
+  ],
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "South Carolina",
+      "name": "River Park in Rock Hill",
+      "routeIds": [
+        "catawba-river-rock-hill-landsford",
+        "catawba-river-rock-hill-sc9"
+      ],
+      "decision": "replace-park-area-anchor-with-scdnr-active-paddle-launch-gis-point",
+      "previousCoordinate": { "latitude": 34.95701, "longitude": -80.951471 },
+      "updatedCoordinate": { "latitude": 34.95615028378521, "longitude": -80.94933899432193 },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 75,
+      "rationale": "SCDNR feature PL103 / OBJECTID 936 is active, open, and explicitly classified Paddle Launch / Ramp on the Catawba. SCDNR's river page locates the carry-in at the Manchester Creek mouth with nearby parking. The exact ramp toe is not field-surveyed.",
+      "postCorrectionAudit": {
+        "publicSiteOccurrences": 2,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "nearestMappedWaterDistanceFeet": 5.9,
+        "matchedFlowlineDistanceFeet": {
+          "catawba-river-rock-hill-landsford": 27.0,
+          "catawba-river-rock-hill-sc9": 273.3
+        },
+        "severity": {
+          "catawba-river-rock-hill-landsford": "ok",
+          "catawba-river-rock-hill-sc9": "review because its generalized matched flowline is 273 ft away despite the official launch point being 6 ft from mapped water"
+        },
+        "withheldRoute": "catawba-river-fort-mill-rock-hill was audited separately: review, 87 ft from mapped water, no source issues or unknown endpoints."
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if SCDNR replaces or relocates feature PL103, or field imagery identifies a materially different launch point."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 2,
+    "targetedRouteAuditResults": "Both public routes passed targeted live-backed audits; 0 suspicious, failure, unknown, or source issues. One route is ok and one remains review because of generalized flowline offset. One withheld source route was separately audited and also has no suspicious, failure, unknown, or source issue.",
+    "changedRouteGeometryRegenerated": 2,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 public routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues, 120 review locations. Compared with the prior complete cache-only audit, suspicious endpoints fell from 108 to 106.",
+    "registryStatus": "regenerated from the 2026-09-18T16:38:12.920Z full audit at 2026-09-18T16:38:50.492Z: 4,042 canonical entries, 1,201 repeated entries, 0 conflicts; 2,268 derived water-entry and 498 authoritative water-entry entries.",
+    "overviewStatus": "regenerated: 2,739 routes; canonical geometry audit passed with 2,739/2,752 routes matched and 48 state assets present; overview has 31,010 points / 1,465,276 bytes."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "batch": "2026-09-17-batch-11",
+  "validatedOn": "2026-09-17",
+  "sourceReview": "passed",
+  "checks": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 147 unique withheld route slugs, including both batch 11 holds."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-11/verify.mjs",
+      "status": "passed",
+      "result": "Ten frozen sites and decisions; eight retained access anchors with corrected labels/notes; two unresolved-access holds; 147 unique withheld route IDs; 26 accepted source snapshot hashes; two failed retrievals excluded; all pre-edit backups verified; edited TypeScript syntax verified."
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked",
+      "result": "The route project cannot resolve @paddletoday/api-contract. This causes broad cascading RiverRouteAccessPoint diagnostics across the repository; the project typecheck is not a valid pass in this checkout."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "status": "blocked",
+      "result": "The audit exits before reading data because @paddletoday/geo is unavailable. The frozen cache-only queue was used for selection only, not as current evidence."
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "result": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from node_modules."
+    },
+    {
+      "command": "npm run routes:access-registry:generate -- --audit=docs/access-point-quality-audit.json; npm run routes:geometries:generate -- --reuse-existing; npm run routes:overview:generate",
+      "status": "not-run",
+      "result": "Skipped because a fresh audit and supported project package graph are unavailable. The stale cached audit and existing geometry were not used to assemble generated artifacts."
+    }
+  ],
+  "servedArtifacts": {
+    "status": "stale-and-not-regenerated",
+    "finding": "The source withholding manifest contains both new holds, but the current access registry and static Idaho geometry artifacts still contain records for these routes. The existing route geometry files, Idaho state bundle, and explore-map overview were not rebuilt or audited. Keep both routes held and do not treat the source manifest alone as proof that every generated artifact is pruned.",
+    "affectedRouteIds": [
+      "little-north-fork-coeur-dalene-laverne-mouth",
+      "south-fork-payette-grandjean-deadwood"
+    ],
+    "affectedFiles": [
+      "src/data/generated/route-access-registry.json",
+      "public/data/canonical-river-geometries/routes/little-north-fork-coeur-dalene-laverne-mouth.json",
+      "public/data/canonical-river-geometries/routes/south-fork-payette-grandjean-deadwood.json",
+      "public/data/canonical-river-geometries/states/idaho.json",
+      "public/data/explore-map-overview.json"
+    ],
+    "action": "When the missing project packages are restored, regenerate and audit the route access registry, both route geometries, Idaho state bundle, explore-map overview, and any served route catalog. Keep both routes held until the generated artifacts have been checked."
+  },
+  "limitations": [
+    "Selection ranks came from a cached audit snapshot and prioritized research only.",
+    "No water-edge coordinate move was defensible from the reviewed evidence. Eight sites were retained as accurately named public access-area anchors; two routes were withheld for unverified access.",
+    "Project typecheck, fresh access audit, unit tests, registry/catalog generation, and static-geometry pruning remain incomplete because required packages are missing.",
+    "The failed USDA Forest Service corridor PDF and legacy Iowa DNR PDF retrievals returned HTTP 404 and were not used as evidence."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:07:48.716Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "eleven-point-river-whitten-narrows",
+      "routeName": "Eleven Point River",
+      "reach": "Whitten River Access to Highway 142 River Access",
+      "state": "Missouri",
+      "endpoint": "takeOut",
+      "endpointName": "Highway 142 River Access / The Narrows",
+      "latitude": 36.550194,
+      "longitude": -91.191532,
+      "matchedRiverName": "Eleven Point River",
+      "distanceFeetToMatchedRiver": 270.94080444270145,
+      "nearestMatchedLatitude": 36.55093652733852,
+      "nearestMatchedLongitude": -91.19151348460817,
+      "nearestWaterwayName": "Eleven Point River",
+      "distanceFeetToNearestWaterway": 308.21546954081845,
+      "nearestWaterwayLatitude": 36.55098201820404,
+      "nearestWaterwayLongitude": -91.1919112069789,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 217.94759448643862,
+      "nearestWaterbodyLatitude": 36.55077067271705,
+      "nearestWaterbodyLongitude": -91.19172626717965,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 217.94759448643862,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=6729&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "mo_usfs_mark_twain_highway_142_narrows_access_20260918 usfs-edw-recreation-opportunities-objectid-6729-recid-21706: Forest Service EDW Recreation Opportunities feature objectid 6729 / recarea 21706 identifies the Mark Twain National Forest Highway 142 River Access, known as The Narrows, and publishes 36.550194,-91.191532. Its description calls this the developed last take-out for the Eleven Point National Scenic River, with a single-lane concrete boat ramp, paved parking, and vault toilet; its activity is non-motorized boating and status is open. MoDOT independently locates the east-side Narrows access and confirms the concrete ramp and paved parking; MDC lists The Narrows (142) among lower-river accesses. The Forest Service point is an access-site anchor, not a surveyed wet toe. A targeted NHD refresh still reports a truncated route-network response for the Cane Bluff reach, so retain review status and document that source limitation.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mo_usfs_mark_twain_highway_142_narrows_access_20260918 usfs-edw-recreation-opportunities-objectid-6729-recid-21706) on Eleven Point River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "eleven-point-river-whitten-narrows",
+      "routeName": "Eleven Point River",
+      "reach": "Whitten River Access to Highway 142 River Access",
+      "state": "Missouri",
+      "endpoint": "putIn",
+      "endpointName": "Whitten River Access",
+      "latitude": 36.732356,
+      "longitude": -91.214837,
+      "matchedRiverName": "Eleven Point River",
+      "distanceFeetToMatchedRiver": 218.60431183935373,
+      "nearestMatchedLatitude": 36.7326790712853,
+      "nearestMatchedLongitude": -91.21420730084374,
+      "nearestWaterwayName": "Eleven Point River",
+      "distanceFeetToNearestWaterway": 218.60487156796873,
+      "nearestWaterwayLatitude": 36.73268021462477,
+      "nearestWaterwayLongitude": -91.214208214121,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 133.92220847020437,
+      "nearestWaterbodyLatitude": 36.73245221768216,
+      "nearestWaterbodyLongitude": -91.2143949687533,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 133.92220847020437,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 134 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "observedAt": "2026-09-17",
+  "sources": [
+    {
+      "id": "wi-lower-cato-county-park",
+      "url": "https://manitowoccountywi.gov/departments/parks/county-parks/lower-cato-falls/",
+      "title": "Lower Cato Falls County Park",
+      "publisher": "Manitowoc County Parks",
+      "sourceType": "current county park manager page",
+      "supports": ["Park frontage on the Manitowoc River", "About 2,040 feet of river frontage", "Four steep stairways to the river", "Seasonal opening dates and park hours"],
+      "doesNotEstablish": ["A specific stair's exact coordinate", "A bypass portage around Lower Cato Falls", "Current water level or whether a group can safely run the rapid"]
+    },
+    {
+      "id": "wi-lower-cato-american-whitewater",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3471/main",
+      "title": "Manitowoc River route description",
+      "publisher": "American Whitewater",
+      "sourceType": "whitewater route description",
+      "supports": ["Public park parking and stair access are used to scout Lower Cato Falls", "Whitewater hazards and downstream take-out context"],
+      "doesNotEstablish": ["A current bypass carry around the falls"]
+    },
+    {
+      "id": "la-teche-dock-directory",
+      "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "title": "Bayou Teche Paddle Trail dock locations",
+      "publisher": "TECHE Project",
+      "sourceType": "current paddle-trail operator dock directory",
+      "supports": ["Official Charenton dock at 3726 Chitimacha Trail", "Official Loreauville dock at 119 Bridge Street next to the Acadian Odyssey Monument", "Named dock chain on Bayou Teche"],
+      "doesNotEstablish": ["Survey-grade wet-edge coordinates for both docks"]
+    },
+    {
+      "id": "la-charenton-osm-dock",
+      "url": "https://www.openstreetmap.org/node/12990648902",
+      "title": "Charenton Bayou Teche Paddle Trail Dock (node 12990648902)",
+      "publisher": "OpenStreetMap contributors",
+      "sourceType": "named mapped point feature; Open Database License",
+      "retrievedAt": "2026-09-17",
+      "feature": { "type": "node", "id": 12990648902, "tags": { "name": "Charenton Bayou Teche Paddle Trail Dock", "waterway": "dock", "dock": "drydock", "website": "https://www.techeproject.org" }, "coordinate": { "latitude": 29.8859107, "longitude": -91.5351294 } },
+      "supports": ["Mapped named dock feature linked to the TECHE Project operator", "Replacement dock-location coordinate used for five route endpoint occurrences"],
+      "doesNotEstablish": ["A field-surveyed position or present dock condition", "Legal access rules beyond the operator's official dock listing"]
+    },
+    {
+      "id": "la-loreauville-iberia-travel",
+      "url": "https://iberiatravel.com/things-to-do/outdoors/paddling-boating/",
+      "title": "Paddling & Boating",
+      "publisher": "Iberia Parish Convention & Visitors Bureau / Iberia Travel",
+      "sourceType": "current parish visitors bureau paddling listing with GPS",
+      "supports": ["Loreauville floating dock coordinate 30.056667,-91.740000"],
+      "doesNotEstablish": ["Survey-grade wet-edge location; longitude is rounded", "Dock closure or water conditions on a given day"]
+    },
+    {
+      "id": "wv-valley-falls-american-whitewater",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "title": "Tygart Valley River / Valley Falls route description",
+      "publisher": "American Whitewater",
+      "sourceType": "route-specific whitewater access directions",
+      "supports": ["Published put-in coordinates send paddlers to the river-right park office for required sign-in", "Park directions are given for the subsequent river approach"],
+      "doesNotEstablish": ["The office/check-in coordinate as exact water entry"]
+    },
+    {
+      "id": "wv-valley-falls-state-parks",
+      "url": "https://wvstateparks.com/parks/valley-falls-state-park/activities/",
+      "title": "Valley Falls State Park activities",
+      "publisher": "West Virginia State Parks",
+      "sourceType": "current state park activity and access page",
+      "supports": ["Kayaking is offered at the park", "Seasonal road/access caveats"],
+      "doesNotEstablish": ["A specific river-entry coordinate at the park"]
+    },
+    {
+      "id": "wi-holiday-heights-onalaska-plan",
+      "url": "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf",
+      "title": "Onalaska redevelopment planning report",
+      "publisher": "City of Onalaska",
+      "sourceType": "municipal redevelopment plan PDF",
+      "supports": ["An accessible canoe launch area exists along the La Crosse River at public Holiday Heights Park"],
+      "doesNotEstablish": ["A georeferenced canoe-launch point"]
+    },
+    {
+      "id": "wi-holiday-heights-onalaska-board",
+      "url": "https://cms3.revize.com/revize/onalaska/Documents/Government/Agendas%20%26%20Minutes/Parks%2C%20Recreation%20%26%20Library%20Board/2024/Parks%2C%20Rec%20%26%20Library%20Agenda%20%26%20Packet%205-20-24.pdf",
+      "title": "Parks, Recreation & Library Board agenda and packet (May 20, 2024)",
+      "publisher": "City of Onalaska Parks, Recreation & Library Board",
+      "sourceType": "municipal board packet",
+      "supports": ["City staff and board refer to use of the canoe launch at Holiday Heights"],
+      "doesNotEstablish": ["A launch GPS or exact wet-edge feature"]
+    },
+    {
+      "id": "mt-russell-gates-fwp",
+      "url": "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39754195",
+      "title": "Russell Gates Memorial Fishing Access Site",
+      "publisher": "Montana Fish, Wildlife & Parks",
+      "sourceType": "official state access-site record",
+      "supports": ["Official GPS 47.0234361031,-113.306023437", "Gravel ramp", "Non-motorized boating and access details"],
+      "doesNotEstablish": ["Surveyed ramp-edge position", "Unrestricted permission for every watercraft type or current ramp condition"]
+    },
+    {
+      "id": "mt-russell-gates-fwp-map",
+      "url": "https://fwp.mt.gov/binaries/content/assets/fwp/gisresources/visitmaps/fas/39754195.pdf",
+      "title": "Russell Gates Memorial Fishing Access Site map",
+      "publisher": "Montana Fish, Wildlife & Parks",
+      "sourceType": "official access-site map PDF",
+      "supports": ["Site layout and access context for the FWP site record"],
+      "doesNotEstablish": ["Survey-grade water-edge coordinates"]
+    },
+    {
+      "id": "ny-hudson-gorge-dec",
+      "url": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "title": "Hudson Gorge Wilderness",
+      "publisher": "New York State Department of Environmental Conservation",
+      "sourceType": "current official wilderness access and trail page",
+      "supports": ["Outer Gooley parking coordinates 43.8275,-74.2008", "Outer Gooley take-out trail is about 0.1 mile from parking to river", "Indian River confluence takeout is reached by a 0.1-mile carry"],
+      "doesNotEstablish": ["Parking coordinate as exact river entry"]
+    },
+    {
+      "id": "ny-noblewood-empire-trail",
+      "url": "https://www.empirestatewatertrail.org/findaccesssites.php",
+      "title": "Empire State Water Trail access site listing",
+      "publisher": "New York State Department of Environmental Conservation / Empire State Water Trail",
+      "sourceType": "state water-trail access listing",
+      "supports": ["Noblewood Park is a Lake Champlain Water Trail cartop launch", "Published GPS 44.3523,-73.3600 and trail mile 67.0"],
+      "doesNotEstablish": ["Survey-grade exact wet-edge coordinate; the published longitude is rounded"]
+    },
+    {
+      "id": "ny-noblewood-boquet-blueway",
+      "url": "https://passageport.org/things-to-do/blueway-trail-the-bouquet-river/",
+      "title": "Blueway Trail: The Boquet River",
+      "publisher": "Lake Champlain Basin / Lakes to Locks Passage",
+      "sourceType": "regional blueway route description",
+      "supports": ["Public paddling corridor from the Boquet River Nature Preserve toward the mouth and Noblewood Park"],
+      "doesNotEstablish": ["Exact dock or shoreline-entry GPS"]
+    },
+    {
+      "id": "ny-sevey-nysdec",
+      "url": "https://dec.ny.gov/places/raquette-boreal-complex",
+      "title": "Raquette Boreal Complex",
+      "publisher": "New York State Department of Environmental Conservation",
+      "sourceType": "current official unit access page",
+      "supports": ["Names Sevey Hand Launch in the public access chain", "Seasonal road and hand-launch context"],
+      "doesNotEstablish": ["A surveyed hand-launch edge coordinate"]
+    },
+    {
+      "id": "mi-historic-bridge-calhoun-master-plan",
+      "url": "https://cms5.revize.com/revize/calhouncountymi24/Parks/2025-2029%20Park%20Master%20Plan%20FINAL%20with%20maps.pdf",
+      "title": "Calhoun County Parks Master Plan 2025–2029",
+      "publisher": "Calhoun County Parks",
+      "sourceType": "current county park master plan and amenity inventory",
+      "supports": ["Historic Bridge Park address and public kayak/canoe launch facilities", "Accessible launch and EZ-Dock amenity context"],
+      "doesNotEstablish": ["A georeferenced dock coordinate from the plan map"]
+    },
+    {
+      "id": "mi-historic-bridge-calhoun-brochure",
+      "url": "https://cms5.revize.com/revize/calhouncountymi24/Parks/ParkBrochureMap%20with%20amenities%20FINAL%202023.pdf",
+      "title": "Calhoun County Parks brochure and map",
+      "publisher": "Calhoun County Parks",
+      "sourceType": "county park map and amenity guide",
+      "supports": ["Labels the Historic Bridge Park kayak launch and water access"],
+      "doesNotEstablish": ["Georeferenced launch coordinates"]
+    },
+    {
+      "id": "mi-historic-bridge-county-gis",
+      "url": "https://maps.calhouncountymi.gov/",
+      "title": "Calhoun County GIS / Interactive Park Map",
+      "publisher": "Calhoun County",
+      "sourceType": "official GIS landing page",
+      "supports": ["Confirms an official interactive park/amenity map exists"],
+      "doesNotEstablish": ["Exact launch feature in the accessed map layer"],
+      "queryAttempt": { "result": "The linked ArcGIS web map item was identified, but its feature service REST endpoint returned HTTP 401; the launch feature could not be independently queried." }
+    }
+  ]
+}

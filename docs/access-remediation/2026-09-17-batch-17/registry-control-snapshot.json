@@ -1,0 +1,93 @@
+{
+  "batch": "2026-09-17-batch-17",
+  "files": [
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "B3D5A1C9AB4D3F83313C3F6E4EE428E33119355357FA563D78D56872E83994D0",
+      "bytes": 1276246,
+      "matchedRecordCount": 1,
+      "matchedRecords": [
+        {
+          "provider": {
+            "id": "south_branch_grass_river_spruce_first_brook",
+            "name": "South Branch Grass River Spruce Mountain to First Brook public paddling access",
+            "state": "New York",
+            "sourceUrl": "https://dec.ny.gov/places/grass-river-complex",
+            "sourceType": "official-state-land-access",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "coordinateRole": "authoritative-water-entry",
+            "method": "NYSDEC Grass River Complex lists the Spruce Mountain Road and First Brook hand-launch parking areas on the South Branch Grass River with coordinates and public-land context. The DEC page identifies the South Branch as challenging whitewater used during high water; stored points are the named hand-launch anchors and require current seasonal-road, gate, carry, waterline, and posted-rule confirmation.",
+            "controls": [
+              {
+                "featureId": "south-branch-grass-river-spruce-first-brook-spruce",
+                "name": "Spruce Mountain Road Hand Launch",
+                "aliases": [
+                  "Spruce Mountain Hand Launch",
+                  "Spruce Mountain Road launch",
+                  "South Branch Grass River Spruce access"
+                ],
+                "waterbody": "South Branch Grass River",
+                "latitude": 44.2881,
+                "longitude": -74.8858,
+                "riverMile": 0,
+                "uncertaintyFeet": 175,
+                "coordinateText": "NYSDEC Grass River Complex coordinate for the Spruce Mountain Road Hand Launch and parking area"
+              },
+              {
+                "featureId": "south-branch-grass-river-spruce-first-brook-first-brook",
+                "name": "First Brook Hand Launch",
+                "aliases": [
+                  "First Brook launch",
+                  "Tooley Pond Road First Brook access",
+                  "South Branch Grass River First Brook access"
+                ],
+                "waterbody": "South Branch Grass River",
+                "latitude": 44.3042,
+                "longitude": -74.994,
+                "riverMile": 6.5,
+                "uncertaintyFeet": 175,
+                "coordinateText": "NYSDEC Grass River Complex coordinate for the First Brook Hand Launch parking area"
+              }
+            ]
+          },
+          "matchedControls": [
+            {
+              "control": {
+                "featureId": "south-branch-grass-river-spruce-first-brook-first-brook",
+                "name": "First Brook Hand Launch",
+                "aliases": [
+                  "First Brook launch",
+                  "Tooley Pond Road First Brook access",
+                  "South Branch Grass River First Brook access"
+                ],
+                "waterbody": "South Branch Grass River",
+                "latitude": 44.3042,
+                "longitude": -74.994,
+                "riverMile": 6.5,
+                "uncertaintyFeet": 175,
+                "coordinateText": "NYSDEC Grass River Complex coordinate for the First Brook Hand Launch parking area"
+              },
+              "nearSites": [
+                {
+                  "rank": 200,
+                  "distanceM": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generatedArtifacts": [
+    {
+      "path": "src/data/generated/route-access-registry.json",
+      "sha256": "2ADDEBE858057070515693DE70F94090B849BEC4A645516403B746F94B10BF17",
+      "bytes": 15455857,
+      "status": "snapshot only; remains stale because the full quality audit and registry generator dependencies are unavailable"
+    }
+  ],
+  "controlRecordsFromPreEditBackup": true,
+  "generatedArtifactSnapshotCapturedAfterSourceEdits": true
+}

@@ -1,0 +1,9 @@
+{
+  "batch": "B98",
+  "sources": [
+    { "title": "John J. Radcliffe Conservation Area facilities page", "url": "https://www.chesterfield.gov/facilities/facility/details/John-J-Radcliffe-Conservation-Area-440", "publisher": "Chesterfield County, Virginia", "supports": ["public Appomattox River Canoe Launch", "parking area", "boat slide for small non-powered craft", "21501 Chesdin Road"] },
+    { "title": "Radcliffe Conservation Area and Appomattox River Canoe Launch Layout", "url": "https://www.chesterfield.gov/DocumentCenter/View/1923/John-J-Radcliffe-Conservation-Area-and-Appomattox-River-Canoe-Launch-Layout-PDF?bidId=", "publisher": "Chesterfield County, Virginia", "supports": ["official launch and conservation-area layout"] },
+    { "title": "Water Access and Fishing", "url": "https://www.chesterfield.gov/5097/Water-Access-and-Fishing", "publisher": "Chesterfield County, Virginia", "supports": ["Appomattox River Canoe Launch and Radcliffe Conservation Area water access"] }
+  ],
+  "sourceQuality": "The access classification is anchored by current Chesterfield County facility and water-access records, with the county layout PDF providing an independent site document."
+}

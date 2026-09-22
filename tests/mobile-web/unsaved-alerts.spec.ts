@@ -17,7 +17,7 @@ for (const available of [true, false]) {
       if (route.request().method() !== 'GET') writes++;
       return route.fulfill({ status: 503, json: { error: 'offline' } });
     });
-    if (available) await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+    if (available) await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
       summary: { gaugeNow: 'QA', shortExplanation: 'QA' },
     }] } }));
     await page.goto('/saved?tab=alerts');

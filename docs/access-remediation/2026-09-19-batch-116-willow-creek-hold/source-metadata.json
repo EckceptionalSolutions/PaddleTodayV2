@@ -1,0 +1,23 @@
+{
+  "batch": "B116",
+  "endpoint": "Willow Creek Campground access-area anchor",
+  "routeId": "boise-river-troutdale-willow",
+  "sources": [
+    {
+      "url": "https://www.recreation.gov/camping/campgrounds/10158827",
+      "publisher": "Recreation.gov / USDA Forest Service",
+      "supports": "Federal recreation records establish the Boise National Forest campground setting and river corridor."
+    },
+    {
+      "url": "https://idahocampgroundreview.com/campgrounds/willowcreek",
+      "publisher": "Idaho Campground Review",
+      "supports": "Current campground access guidance reports no boat access at Willow Creek Campground."
+    },
+    {
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5370786.pdf",
+      "publisher": "USDA Forest Service",
+      "supports": "Lists Willow Creek campground among Boise National Forest recreation sites."
+    }
+  ],
+  "sourceAssessment": "The reviewed evidence establishes a campground but not a lawful public boat landing or carry. Keep the route withheld until the Forest Service confirms an exact water entry and legal approach."
+}

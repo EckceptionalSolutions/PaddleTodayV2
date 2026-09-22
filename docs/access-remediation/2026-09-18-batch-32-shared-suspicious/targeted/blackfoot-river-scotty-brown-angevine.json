@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:24:45.802Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "blackfoot-river-scotty-brown-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "Scotty Brown Bridge Fishing Access Site (water-entry edge) to Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "state": "Montana",
+      "endpoint": "putIn",
+      "endpointName": "Scotty Brown Bridge Fishing Access Site (water-entry edge)",
+      "latitude": 47.0184,
+      "longitude": -113.2402,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 162.37254036253245,
+      "nearestMatchedLatitude": 47.01800471329132,
+      "nearestMatchedLongitude": -113.23989995743248,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 162.37254036253245,
+      "nearestWaterwayLatitude": 47.01800471329132,
+      "nearestWaterwayLongitude": -113.23989995743248,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 90.43350272115345,
+      "nearestWaterbodyLatitude": 47.01817934945889,
+      "nearestWaterbodyLongitude": -113.24003430228886,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 90.43350272115345,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 90 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "blackfoot-river-scotty-brown-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "Scotty Brown Bridge Fishing Access Site (water-entry edge) to Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "state": "Montana",
+      "endpoint": "takeOut",
+      "endpointName": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "latitude": 46.8958721652,
+      "longitude": -113.7639273234,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 55.43136050033439,
+      "nearestMatchedLatitude": 46.89573248682562,
+      "nearestMatchedLongitude": -113.76383980325973,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 55.43136050033439,
+      "nearestWaterwayLatitude": 46.89573248682562,
+      "nearestWaterwayLongitude": -113.76383980325973,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0.0000072942391691763595,
+      "nearestWaterbodyLatitude": 46.89587216518099,
+      "nearestWaterbodyLongitude": -113.76392732339092,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0.0000072942391691763595,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://myfwp.mt.gov/fishMT/fas/39754559",
+      "coordinateEvidenceDetail": "montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge: Montana FWP identifies Angevine as a hand launch on the Blackfoot River and gives the site location at 46.89663,-113.76333. FWP GIS layer 2 defines the 13.0149-acre public Angevine boundary; the selected point lies within that boundary at its Blackfoot River edge. The previous route coordinate was 275.5 feet from NHD waterbody geometry and 329.8 feet from the matched flowline. The replacement uses the nearest NHD shoreline point, checked against current Google Maps aerial imagery and the public parcel. It is imagery-derived with 75-foot uncertainty, not a surveyed FWP water-entry coordinate.",
+      "severity": "ok",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge) on Blackfoot River; the 55 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

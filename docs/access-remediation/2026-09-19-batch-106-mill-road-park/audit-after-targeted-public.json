@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T01:54:13.823Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "cazenovia-creek-west-falls-mill-road",
+      "routeName": "Cazenovia Creek",
+      "reach": "West Falls to Mill Road",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "Mill Road Park creek-side access",
+      "latitude": 42.831204,
+      "longitude": -78.743148,
+      "matchedRiverName": "Cazenovia Creek",
+      "distanceFeetToMatchedRiver": 406.79553580840764,
+      "nearestMatchedLatitude": 42.830117,
+      "nearestMatchedLongitude": -78.742809,
+      "nearestWaterwayName": "Cazenovia Creek",
+      "distanceFeetToNearestWaterway": 406.79553580840764,
+      "nearestWaterwayLatitude": 42.830117,
+      "nearestWaterwayLongitude": -78.742809,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 284.0832872607714,
+      "nearestWaterbodyLatitude": 42.830431926085716,
+      "nearestWaterbodyLongitude": -78.74300976378089,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 284.0832872607714,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.westseneca.gov/facilities/facility/details/Mill-Road-Park-17",
+      "coordinateEvidenceDetail": "ny_west_seneca_mill_road_cazenovia_access_20260919 west-seneca-mill-road-cazenovia-creek-access: The Town of West Seneca identifies Mill Road Park at 733 Mill Road and confirms creek-side recreation at Cazenovia Creek. Town recreation records list fishing, public parking, open status, and dawn-to-dusk rules. Independent watershed guidance identifies Mill Road Park as public shore access and reports no formal boat launch. Retain the stored route point as a conditional creek-side take-out anchor; the 407-foot flowline offset reflects park/shoreline context.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ny_west_seneca_mill_road_cazenovia_access_20260919 west-seneca-mill-road-cazenovia-creek-access) on Cazenovia Creek; access is conditional (Confirm current West Seneca park hours, creek-side carry and bank condition, parking, water level, and that the site is suitable for a hand-carry take-out rather than a formal boat ramp.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "cazenovia-creek-west-falls-mill-road",
+      "routeName": "Cazenovia Creek",
+      "reach": "West Falls to Mill Road",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "West Falls public park / below-dam access area",
+      "latitude": 42.702,
+      "longitude": -78.68192,
+      "matchedRiverName": "West Branch Cazenovia Creek",
+      "distanceFeetToMatchedRiver": 9.786732658624077,
+      "nearestMatchedLatitude": 42.7019853951473,
+      "nearestMatchedLongitude": -78.68188938002208,
+      "nearestWaterwayName": "West Branch Cazenovia Creek",
+      "distanceFeetToNearestWaterway": 9.786732658624077,
+      "nearestWaterwayLatitude": 42.7019853951473,
+      "nearestWaterwayLongitude": -78.68188938002208,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 42.702,
+      "nearestWaterbodyLongitude": -78.68192,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

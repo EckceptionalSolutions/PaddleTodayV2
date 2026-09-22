@@ -1,0 +1,30 @@
+{
+  "batch": 52,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Hannon Memorial Fishing Access Site, Bitterroot River, Montana",
+  "affectedRoutes": [
+    "bitterroot-river-hannon-chief-looking-glass",
+    "bitterroot-river-hannon-wally"
+  ],
+  "decision": "retain-the-exact-coordinate-published-by-Montana-FWP-as-an-access-site-anchor; the live FWP GIS facility point corroborates it within about 4 feet; the exact ramp toe remains unverified",
+  "decisionScope": "Montana FWP's FishMT detail for Hannon Memorial FAS (record 39754135) identifies the Bitterroot River, publishes 45.97282,-114.1401, and describes the day-use site as having a concrete boat launch. The current FWP Fishing Access Site Locations layer has feature OBJECTID 198 / LMS_ID 39754135, named Hannon Memorial, with a hand-launch facility; its WGS84 geometry is approximately 45.97282957,-114.14011431, about 4 feet from the published point. The existing route coordinate therefore identifies the official public access site. Neither source locates the exact ramp toe. I registered a route-scoped authoritative access anchor, changed the point's label from water-entry edge to access-site anchor, and kept the remaining mapped-water offset in review.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 45.97282, "longitude": -114.1401 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 321.5944,
+    "mappedWaterDistanceFeet": 277.6903,
+    "endpointOnWaterbody": false,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 45.97282, "longitude": -114.1401 },
+    "to": { "latitude": 45.97282, "longitude": -114.1401 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "montana_fwp_hannon_memorial_access_anchor_20260918",
+    "rationale": "The current state GIS facility and FishMT record corroborate the retained FWP coordinate as the public access site. Keeping it as a site anchor avoids implying an unverified ramp-toe location."
+  },
+  "remainingUncertainty": "The FWP access point is about 277.7 feet from mapped water. Current imagery and the official sources confirm the access facility and boat-launch availability, but they do not publish a surveyed water-entry toe. Do not auto-snap the point; verify the carry and ramp edge on a detailed current map or in the field.",
+  "outcome": "Two suspicious public endpoint occurrences moved to review on exact state access-site evidence. Coordinates did not change; exact current water entry remains open."
+}

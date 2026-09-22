@@ -15,11 +15,12 @@ import type {
 import { queryOptions, useMutation, useQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useFreshnessClock } from '../hooks/use-freshness-clock';
-import { currentDetailSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from '../lib/cached-snapshot';
+import { currentDetailSnapshot, currentExploreSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from '../lib/cached-snapshot';
 import { apiClient } from './client';
 import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from '../lib/submission-results';
 
 export const riverQueryKeys = {
+  explore: ['river-explore-catalog'] as const,
   summary: ['river-summary'] as const,
   weekend: ['weekend-summary'] as const,
   detail: (slug: string) => ['river-detail', slug] as const,
@@ -47,6 +48,24 @@ export function useRiverSummaryQuery(enabled = true) {
     select: useCallback((response: RiverSummaryResponse) => currentSummarySnapshot(dedupeRiverSummaryResponse(response), now), [now]),
     retry: false,
     staleTime: 5 * 60 * 1000,
+  });
+}
+
+export function exploreCatalogQueryOptions() {
+  return queryOptions({
+    queryKey: riverQueryKeys.explore,
+    queryFn: ({ signal }) => apiClient.getExplore({ signal }),
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
+export function useExploreCatalogQuery(enabled = true) {
+  const now = useFreshnessClock();
+  return useQuery({
+    ...exploreCatalogQueryOptions(),
+    enabled,
+    select: useCallback((response: Awaited<ReturnType<typeof apiClient.getExplore>>) => currentExploreSnapshot(response, now), [now]),
   });
 }
 

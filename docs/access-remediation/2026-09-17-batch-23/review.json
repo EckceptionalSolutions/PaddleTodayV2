@@ -1,0 +1,147 @@
+{
+  "batch": "2026-09-17-batch-23",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "queueEvidenceMode": "cache-only; rank is prioritization, not evidence",
+  "sitesReviewed": 10,
+  "uniqueRoutesBefore": 20,
+  "newHolds": [
+    "fall-river-concrete-ccc-kirkham",
+    "johnson-creek-yellow-pine-airport-gauge",
+    "moyie-river-twin-bridges-meadow-creek",
+    "suwannee-river-dowling-peacock-slough",
+    "suwannee-river-gibson-peacock-slough",
+    "suwannee-river-holton-peacock-slough",
+    "suwannee-river-lafayette-blue-peacock-slough",
+    "suwannee-river-peacock-slough-adams-tract",
+    "suwannee-river-spirit-peacock-slough",
+    "suwannee-river-state-park-peacock-slough",
+    "suwannee-river-stephen-foster-peacock-slough",
+    "suwannee-river-woods-ferry-peacock-slough"
+  ],
+  "eligibleRoutesAfter": 8,
+  "coordinateSitesCorrected": 1,
+  "addedAccessAnchorProviders": 2,
+  "reclassifiedProviders": 0,
+  "optionalAccessWaypointsRemoved": 0,
+  "withheldRoutesBefore": 169,
+  "withheldRoutesAfter": 181,
+  "deletions": 0,
+  "scope": "Two official access-anchor controls were added, Rock Hill was relabeled to an access-area anchor, and Peacock Slough’s shared coordinate was corrected from current State Parks GPS. Four sites require holds covering 12 routes until geometry, precise water entry, or current legal carry is verified. Six sites/eight routes remain eligible.",
+  "decisions": [
+    {
+      "rank": 258,
+      "site": "Ramcat Launch, Ohiopyle State Park",
+      "decision": "keep-official-access-area-anchor",
+      "routes": [
+        "youghiogheny-river-middle-ramcat-ohiopyle"
+      ],
+      "finding": "DCNR’s park map identifies the Ramcat launch area and the current park guide confirms the Middle Yough begins there. Retain 39.82632,-79.37891 as the published access-area anchor; mapped-water offset is about 324 feet, so it is not labeled an exact water-edge point."
+    },
+    {
+      "rank": 259,
+      "site": "Concrete CCC Bridge Put-In",
+      "decision": "reject-unverified-public-entry-and-hold",
+      "routes": [
+        "fall-river-concrete-ccc-kirkham"
+      ],
+      "finding": "American Whitewater gives an approximate bridge-area point. IDFG’s current Fall River page says foot traffic only and day use, but does not connect that facility to this bridge or document boat carry here."
+    },
+    {
+      "rank": 260,
+      "site": "William S. Payne Memorial Park, Bainbridge",
+      "decision": "keep-current-official-launch-coordinate",
+      "routes": [
+        "susquehanna-river-bainbridge-afton"
+      ],
+      "finding": "NYSDEC lists the public Susquehanna launch at the stored 42.290382,-75.480797 coordinate and describes a hard-surface ramp with trailer parking. No coordinate change."
+    },
+    {
+      "rank": 261,
+      "site": "Auger Falls Heritage Park Put-In",
+      "decision": "keep-park-access-anchor-with-foot-shuttle",
+      "routes": [
+        "snake-river-auger-falls-park"
+      ],
+      "finding": "Twin Falls documents the undeveloped park and trails to the Snake; state inspection controls apply. Existing route text explains foot carry, Broken Bridge, and private-gate constraints; retain as an access anchor."
+    },
+    {
+      "rank": 263,
+      "site": "Bunker Hill Road Gunpowder access",
+      "decision": "keep-public-parking-anchor-with-carry-caveat",
+      "routes": [
+        "gunpowder-falls-masemore-monkton"
+      ],
+      "finding": "Maryland DNR confirms Bunker Hill Road parking in the Hereford recreation corridor. The route treats it as a named access anchor and asks users to confirm designated bank/carry; no coordinate change."
+    },
+    {
+      "rank": 264,
+      "site": "Rock Hill River Park canoe/kayak launch",
+      "decision": "reclassify-as-park-access-area-anchor",
+      "routes": [
+        "catawba-river-rock-hill-landsford",
+        "catawba-river-rock-hill-sc9"
+      ],
+      "finding": "Rock Hill’s current facility page confirms a canoe/kayak launch and seasonal park hours, but publishes no surveyed water-entry coordinate. Retain 34.95701,-80.951471 as an access-area anchor and remove the water-entry-edge label."
+    },
+    {
+      "rank": 265,
+      "site": "Peacock Slough River Camp",
+      "decision": "correct-official-camp-coordinate-and-hold-dependent-routes",
+      "routes": [
+        "suwannee-river-dowling-peacock-slough",
+        "suwannee-river-gibson-peacock-slough",
+        "suwannee-river-holton-peacock-slough",
+        "suwannee-river-lafayette-blue-peacock-slough",
+        "suwannee-river-peacock-slough-adams-tract",
+        "suwannee-river-spirit-peacock-slough",
+        "suwannee-river-state-park-peacock-slough",
+        "suwannee-river-stephen-foster-peacock-slough",
+        "suwannee-river-woods-ferry-peacock-slough"
+      ],
+      "finding": "Florida State Parks publishes N 30 6.09, W 83 8.23 (30.1015,-83.137167), river mile 95.8. Stored longitude -83.136167 was about 300 feet east. General camp guidance indicates river-oriented access but no surveyed landing. Correct the shared anchor and hold all nine routes until geometry and water entry are verified."
+    },
+    {
+      "rank": 266,
+      "site": "Germanium carry-in access at Brookview Park",
+      "decision": "keep-official-water-trail-carry-in-anchor",
+      "routes": [
+        "rum-river-germanium-south-county-park",
+        "rum-river-north-county-germanium"
+      ],
+      "finding": "Minnesota DNR Rum River Map 3 identifies Germanium at river mile 9 on river right in Brookview City Park as a carry-in. Retain the access anchor."
+    },
+    {
+      "rank": 268,
+      "site": "Meadow Creek Campground Take-Out",
+      "decision": "reject-current-public-landing-unverified-and-hold",
+      "routes": [
+        "moyie-river-twin-bridges-meadow-creek"
+      ],
+      "finding": "An older Boundary County plan and paddling guide describe a day-use landing/eddy. Current records show the campground exists but do not verify public day-use boat carry, parking permission, or exact landing. Clarify route copy and hold pending manager confirmation."
+    },
+    {
+      "rank": 269,
+      "site": "Johnson Creek Airport access staging point",
+      "decision": "reject-unverified-river-carry-and-hold",
+      "routes": [
+        "johnson-creek-yellow-pine-airport-gauge"
+      ],
+      "finding": "The 2026 Idaho airport directory identifies the seasonal public-use airstrip and nearby camp facilities, but not a lawful public paddle carry to Johnson Creek. Hold until the managing agency confirms access and safe water entry."
+    }
+  ],
+  "reopeningEvidence": {
+    "fall-river-concrete-ccc-kirkham": "A current manager must tie lawful public parking and a boat carry to the exact Concrete CCC Bridge access; the general Fall River foot-only site listing is not sufficient.",
+    "johnson-creek-yellow-pine-airport-gauge": "The airport/land manager must confirm public paddle access, lawful approach, and safe water entry from the Yellow Pine airstrip area.",
+    "moyie-river-twin-bridges-meadow-creek": "The current campground or land manager must confirm day-use boating permission, parking, and the precise Meadow Creek landing.",
+    "suwannee-river-dowling-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-gibson-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-holton-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-lafayette-blue-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-peacock-slough-adams-tract": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-spirit-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-state-park-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-stephen-foster-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release.",
+    "suwannee-river-woods-ferry-peacock-slough": "Regenerate and inspect this dependent route line from the corrected State Parks anchor 30.1015,-83.137167; also verify the river-camp landing or safe carry before release."
+  }
+}

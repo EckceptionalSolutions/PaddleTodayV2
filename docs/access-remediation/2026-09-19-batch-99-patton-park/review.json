@@ -1,0 +1,13 @@
+{
+  "batch": "B99",
+  "decision": "retain-authoritative-conditional-access-anchor",
+  "routeId": "appomattox-river-radcliffe-patton-park",
+  "endpoint": "takeOut",
+  "endpointName": "Patton Park / Campbell’s Bridge river access",
+  "before": {"severity":"suspicious","distanceFeetToMatchedRiver":391.1282606515705,"distanceFeetToMappedWater":287.0220616409128},
+  "after": {"severity":"review","distanceFeetToMatchedRiver":391.1282606515705,"distanceFeetToMappedWater":287.0220616409128,"coordinateChanged":false,"geometryChanged":false,"sourceIssues":0,"coordinateEvidenceRole":"authoritative-access-anchor"},
+  "rationale": "Retain the stored city coordinate as the managed Patton Park/Campbell’s Bridge access-area anchor. The city’s adopted plan documents public waterfront access, multiple paved ramps, fishing access, and a natural kayak/canoe launch; the connected-network offset is facility/shoreline context. Do not force a wet-toe move without a more precise launch survey.",
+  "condition": "Confirm current Petersburg park hours, bridge/road status, shoreline carry, ramp or natural-launch condition, and river level before using as a take-out.",
+  "fullAuditDelta": {"public":{"suspiciousBefore":26,"suspiciousAfter":25,"reviewBefore":3911,"reviewAfter":3912},"inventory":{"suspiciousBefore":79,"suspiciousAfter":78,"reviewBefore":4215,"reviewAfter":4216},"registry":{"authoritativeAccessBefore":1244,"authoritativeAccessAfter":1245,"conflictsAfter":0}
+}
+}

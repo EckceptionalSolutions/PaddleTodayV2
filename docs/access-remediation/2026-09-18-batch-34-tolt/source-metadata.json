@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "label": "King County Tolt-MacDonald Park and Campground",
+      "url": "https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/parks/tolt-macdonald",
+      "type": "official-park-manager",
+      "supports": "Identifies Tolt-MacDonald as a King County park, lists a boat launch as a facility, and provides the public park address.",
+      "doesNotSupport": "Does not publish exact latitude/longitude for the boat-launch water edge."
+    },
+    {
+      "label": "King County Tolt River-John MacDonald Park map (June 2021)",
+      "url": "https://cdn.kingcounty.gov/-/media/king-county/depts/dnrp/nature-recreation/parks-recreation/parks/tolt-macdonald/bct_toltames_brochure.pdf?hash=248546D0FB0C8EBF98BE3C6385C5A6C8&rev=7e38dfac5e334c008e6c52bceffde0a5",
+      "type": "official-park-map",
+      "supports": "Identifies boat launch as a park facility and maps the facility among other park features.",
+      "doesNotSupport": "The map is not a survey and King County disclaims survey-level accuracy."
+    },
+    {
+      "label": "Snoqualmie River Boat Launch map feature and aerial imagery",
+      "url": "https://www.google.com/maps/place/Snoqualmie+River+Boat+Launch/@47.6385904,-121.9263098,579m/data=!3m1!1e3",
+      "type": "imagery-localization",
+      "supports": "Names the river launch and shows its location at the Snoqualmie bank; its listing links to King County park information.",
+      "doesNotSupport": "The map pin is not a surveyed county coordinate; public-site identity rests on King County's park information."
+    }
+  ],
+  "coordinateMethod": "Named map feature localized against current aerial imagery at the visible launch/bank; approximately 50 ft uncertainty. Not surveyed."
+}

@@ -1,0 +1,43 @@
+{
+  "batch": 78,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "url": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Current GIS layer accessed 2026-09-18",
+      "role": "Authoritative point-feature layer for Minnesota public water access sites; its feature attributes include access name, administrator, launch type, ramp surface, parking, and river mile."
+    },
+    {
+      "url": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=objectid%3D2258&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Feature query accessed 2026-09-18",
+      "role": "Returns feature 2258 / WAS00559, Otter Tail River, Phelps Mill Public Water Access Site; administrator Otter Tail County, launch type Carry-In, surface Natural, 50 car spaces, river mile 84.6, and GPS geometry 46.3821666505, -95.8210176143."
+    },
+    {
+      "url": "https://www.dnr.state.mn.us/state-water-trails/otter-tail-river/segments-maps.html",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Current water-trail guide accessed 2026-09-18",
+      "role": "Names Phelps Mill County Park carry-in access at river mile 85. Its recommended route directs paddlers to portage across the park lawn and launch west of the parking area."
+    },
+    {
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/ottertail2.pdf",
+      "publisher": "Minnesota Department of Natural Resources",
+      "sourceDate": "Otter Tail River Map 2 accessed 2026-09-18",
+      "role": "Maps Phelps Mill carry-in access and the recommended routes to West Lost Lake and West Red River Lake."
+    },
+    {
+      "url": "https://www.co.otter-tail.mn.us/location/phelps-mill/",
+      "publisher": "Otter Tail County",
+      "sourceDate": "Current park page accessed 2026-09-18",
+      "role": "Confirms the public county park and says there are fishing areas along the Otter Tail River but no boat-launch facilities. Interpret alongside the DNR carry-in listing as hand-carried access without a conventional ramp."
+    },
+    {
+      "url": "docs/access-remediation/2026-09-18-batch-78-phelps-mill/audit-before-public-cache-only.json",
+      "publisher": "PaddleToday access-point quality audit",
+      "sourceDate": "Frozen selection snapshot generated 2026-09-18T23:37:34.035Z",
+      "role": "Records both route occurrences and the original suspicious finding before source review."
+    }
+  ],
+  "coordinateMethod": "Retain the existing route coordinate because it matches Minnesota DNR's GPS geometry for WAS00559 to within a fraction of a foot. The coordinate marks the public carry-in access area; the source does not claim a surveyed shoreline entry point."
+}

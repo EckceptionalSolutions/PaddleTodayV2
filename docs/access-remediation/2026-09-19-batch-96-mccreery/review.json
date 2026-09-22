@@ -1,0 +1,21 @@
+{
+  "batch": "B96",
+  "routeAudit": {
+    "routeId": "wv-new-mccreery-stone-cliff",
+    "beforeSeverity": "suspicious",
+    "afterSeverity": "review",
+    "beforeDistanceFeetToMatchedRiver": 521.5549512900536,
+    "afterDistanceFeetToMatchedRiver": 521.5549512900536,
+    "mappedWaterDistanceFeet": 238.41458108485728,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0
+  },
+  "fullAuditDelta": {
+    "public": { "beforeSuspicious": 29, "afterSuspicious": 28, "beforeReview": 3908, "afterReview": 3909 },
+    "inventory": { "beforeSuspicious": 82, "afterSuspicious": 81, "beforeReview": 4212, "afterReview": 4213 },
+    "registry": { "beforeAuthoritativeAccessCount": 1241, "afterAuthoritativeAccessCount": 1242, "conflictCount": 0 }
+  },
+  "decision": "Retain the stored coordinate as a conditional authoritative NPS access-area anchor. NPS confirms McCreery as a public New River access, but the point is not a surveyed wet-toe coordinate, so the 522-foot flowline offset remains review-level evidence rather than a coordinate error.",
+  "followUp": "Confirm current NPS road condition, parking, carry/ramp route, river level, and seasonal or safety restrictions at arrival."
+}

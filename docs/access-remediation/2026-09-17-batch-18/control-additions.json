@@ -1,0 +1,214 @@
+{
+  "batch": "2026-09-17-batch-18",
+  "addedProviderCount": 7,
+  "addedProviders": [
+    {
+      "id": "idfg_teton_dam_site_access_anchor",
+      "name": "Idaho Fish and Game Teton Dam site access area",
+      "state": "Idaho",
+      "sourceUrl": "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22510-fishing-and-boating-access-site-teton",
+      "sourceType": "official-agency-access-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": "C938D011B30FE33DF1A5CC93FED3608F786B9B395E51012E7020504CD781B464",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "IDFG confirms a named Teton Dam boating-access facility, while BLM/USBR materials describe multiple informal trails and take-outs around the former dam. The retained route point is a legacy old-dam access-area anchor, not the IDFG facility-map marker or a surveyed water entry; keep the ~0.3 mi discrepancy visible and require field confirmation of the actual gated-road carry and lawful launch.",
+      "controls": [
+        {
+          "featureId": "teton-dam-old-dam-carry-in-anchor",
+          "name": "Teton Dam access corridor / carry-in",
+          "aliases": [
+            "Teton Dam Site",
+            "Teton Dam remnant ramp carry-in"
+          ],
+          "waterbody": "Teton River",
+          "latitude": 43.9097213745117,
+          "longitude": -111.538330078125,
+          "uncertaintyFeet": 500,
+          "coordinateText": "Legacy route point retained as a generalized former-dam access-area anchor; IDFG current facility map marks a separate point about 0.3 mi north; field verification required."
+        }
+      ]
+    },
+    {
+      "id": "wi_germania_marsh_dam_access_anchor",
+      "name": "Wisconsin DNR and Wisconsin River Trips Germania Marsh access",
+      "state": "Wisconsin",
+      "sourceUrl": "https://www.wisconsinrivertrips.com/segments/mecan-river/hwy-22",
+      "sourceType": "official-and-route-operator-access-listing",
+      "sourceDocumentDate": null,
+      "sourceSha256": "DC03A201128D05B06A3CE4944ECD4E1D3E5213BF0DE75E9B737FC2823A1F020C",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Wisconsin River Trips identifies a public ramp just north of Germania Marsh Dam at the south end of the route; Wisconsin DNR confirms non-motorized boating/canoeing in Germania Marsh Wildlife Area. The stored point is a site-area anchor, not a surveyed ramp toe, and the main ramp may be seasonal; confirm gates and access before launch.",
+      "controls": [
+        {
+          "featureId": "germania-marsh-dam-public-ramp-area",
+          "name": "Germania Marsh Dam public access area",
+          "aliases": [
+            "Germania Marsh Dam access",
+            "Mecan River Germania public ramp"
+          ],
+          "waterbody": "Mecan River",
+          "latitude": 43.8917924,
+          "longitude": -89.2522052,
+          "uncertaintyFeet": 250,
+          "coordinateText": "Stored route access-area point; operator describes a public ramp north of the dam but publishes no GPS for the ramp toe."
+        }
+      ]
+    },
+    {
+      "id": "mt_fwp_bell_crossing_fas",
+      "name": "Montana FWP Bell Crossing Fishing Access Site",
+      "state": "Montana",
+      "sourceUrl": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1/query?where=OBJECTID%3D158&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "sourceType": "official-agency-gis-query",
+      "sourceDocumentDate": null,
+      "sourceSha256": "13AA6C9450CE30FD744A2A6F8DCEF536E07CD14F8013E96DF696DF3EE51DDB3A",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Montana FWP identifies Bell Crossing FAS and its GIS record (LMS_ID 39754137 / OBJECTID 158) specifies a gravel ramp at x=-114.1263060, y=46.4443416. The route point matches FWP’s published five-decimal latitude/longitude; treat it as the access-site anchor, not the surveyed waterline toe.",
+      "controls": [
+        {
+          "featureId": "mt-fwp-bell-crossing-fas-39754137",
+          "name": "Bell Crossing Fishing Access Site",
+          "aliases": [
+            "Bell Crossing FAS",
+            "Bell Crossing gravel ramp"
+          ],
+          "waterbody": "Bitterroot River",
+          "latitude": 46.44434,
+          "longitude": -114.12629,
+          "uncertaintyFeet": 75,
+          "coordinateText": "Stored point rounds to Montana FWP public site coordinates; GIS feature 158 / LMS_ID 39754137 identifies a gravel ramp."
+        }
+      ]
+    },
+    {
+      "id": "wallkill_gardiner_launch_anchor",
+      "name": "Wallkill River Watershed Alliance and Orange County Gardiner launch access area",
+      "state": "New York",
+      "sourceUrl": "https://www.wallkillalliance.org/wp-content/uploads/2016/04/WallkillRiver_AccessPoints.pdf",
+      "sourceType": "community-water-trail-and-county-access-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": "B7530FD0EE96B6DB853EB6A8F84B4833A5D3379C3839D9485D1EEF762A5C8565",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "The Wallkill River Watershed Alliance inventory lists Gardiner Launch at 215 Farmer’s Turnpike as active, and Orange County maps the Gardiner launch within the Wallkill water-trail section. The stored coordinate is a generalized location matched to the mapped/address point; no current municipal GPS or surveyed water-entry coordinate was located. Reconfirm the Town’s current parking and carry rules.",
+      "controls": [
+        {
+          "featureId": "gardiner-wallkill-river-launch-access-area",
+          "name": "Gardiner Wallkill River launch access area",
+          "aliases": [
+            "Gardiner Wallkill access",
+            "215 Farmer’s Turnpike launch",
+            "Wallkill River Gardiner launch"
+          ],
+          "waterbody": "Wallkill River",
+          "latitude": 41.679,
+          "longitude": -74.152,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Address/map matched access-area anchor for the listed active launch at 215 Farmer’s Turnpike; exact water entry and current Town rules are not published."
+        }
+      ]
+    },
+    {
+      "id": "tpwd_buffalo_bayou_woodway_access",
+      "name": "Texas Parks and Wildlife Buffalo Bayou Paddling Trail access points",
+      "state": "Texas",
+      "sourceUrl": "https://tpwd.texas.gov/fishboat/boat/paddlingtrails/inland/buffalobayou/",
+      "sourceType": "official-coordinate-table",
+      "sourceDocumentDate": null,
+      "sourceSha256": "F4B95C526EB9AEAC53B23EB295CD237D317D3B1BAAA2FCCE67D5A05B1270AF56",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "TPWD’s current Buffalo Bayou Paddling Trail page lists Woodway Memorial Park as a public access point and publishes 29.7647,-95.4569. The coordinate is retained as the park/access anchor; bank conditions and exact carry can change with erosion and water level, so do not describe it as a surveyed water-entry toe.",
+      "controls": [
+        {
+          "featureId": "tpwd-woodway-memorial-park-access",
+          "name": "Woodway Memorial Park public access",
+          "aliases": [
+            "Buffalo Bayou Woodway Memorial Park",
+            "Woodway Memorial Park launch"
+          ],
+          "waterbody": "Buffalo Bayou",
+          "latitude": 29.7647,
+          "longitude": -95.4569,
+          "uncertaintyFeet": 100,
+          "coordinateText": "Coordinate published by TPWD for the named public paddling-trail access point; retained as a park/access anchor."
+        }
+      ]
+    },
+    {
+      "id": "raleigh_neuse_falls_dam_launch_anchor",
+      "name": "City of Raleigh Falls Dam public paddlecraft launch",
+      "state": "North Carolina",
+      "sourceUrl": "https://raleighnc.gov/river-access",
+      "sourceType": "official-current-access-directions",
+      "sourceDocumentDate": "2026-08-17",
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Raleigh currently identifies Falls Dam as a public launch for nonmotorized paddlecraft and directs users to a gravel access road on the right before crossing the Neuse River. The Corps Tailrace Fishing Area parking lot is a distinct access on the left. The stored coordinate is retained from an older local paddling map as a generalized access-area anchor; Raleigh does not publish a GPS point or surveyed water-entry coordinate.",
+      "controls": [
+        {
+          "featureId": "raleigh-falls-dam-paddlecraft-access-area",
+          "name": "Falls Dam public paddlecraft launch access area",
+          "aliases": [
+            "Falls Dam access",
+            "Neuse River Greenway and Canoe Launch"
+          ],
+          "waterbody": "Neuse River",
+          "latitude": 35.939118,
+          "longitude": -78.577094,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Legacy local map access-area coordinate; Raleigh’s current route page confirms launch directions but publishes no GPS. Do not confuse with the separate USACE Tailrace Fishing Area lot."
+        }
+      ]
+    },
+    {
+      "id": "turner_bend_private_fee_landing_anchor",
+      "name": "Turner Bend private-fee landing",
+      "state": "Arkansas",
+      "sourceUrl": "https://www.turnerbend.com/BOATING-SHUTTLE.html",
+      "sourceType": "official-private-operator-access-rules",
+      "sourceDocumentDate": null,
+      "sourceSha256": "E102F41BF18004362B16906E426210C791555BE7A85F6B687B7C3D0EDA65796E",
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Turner Bend’s operator identifies its landing at the Highway 23 / Mulberry River corridor and describes it as load/unload access for private boaters subject to an access wristband, parking permission, and shuttle/loading rules. The route coordinate is a bridge-corridor/access-area anchor, not a surveyed landing toe; access is conditional on current operator terms and fees.",
+      "controls": [
+        {
+          "featureId": "turner-bend-private-fee-landing-area",
+          "name": "Turner Bend private-fee landing access area",
+          "aliases": [
+            "Turner Bend landing",
+            "Turner Bend Highway 23 take-out",
+            "Mulberry River Turner Bend access"
+          ],
+          "waterbody": "Mulberry River",
+          "latitude": 35.671667,
+          "longitude": -93.829444,
+          "uncertaintyFeet": 350,
+          "coordinateText": "Highway 23 corridor point retained as access-area anchor; operator requires current wristband and loading/parking permission."
+        }
+      ]
+    }
+  ],
+  "correctedProviderRoles": [
+    {
+      "providerId": "wallkill_river_popp_gardiner",
+      "previousRole": "authoritative-water-entry",
+      "currentRole": "authoritative-access-anchor",
+      "retainedControlIds": [
+        "popp-park-wallkill-river-launch"
+      ],
+      "removedControlIds": [
+        "gardiner-wallkill-river-launch"
+      ],
+      "reason": "Both stored points are generalized/address-matched launch-area anchors, not defensible water-entry coordinates."
+    }
+  ],
+  "removedDuplicateProviders": [
+    {
+      "providerId": "wallkill_river_gardiner_new_paltz",
+      "reason": "The mixed Gardiner/New Paltz provider assigned one evidence role to two different coordinate qualities. Gardiner now has its own access-anchor provider; New Paltz remains under NYSDEC official launch controls."
+    }
+  ],
+  "retainedExistingControl": {
+    "providerId": "nysdec_chenango_bridge_route12a",
+    "note": "The matching current NYSDEC hand-launch control remains unchanged."
+  }
+}

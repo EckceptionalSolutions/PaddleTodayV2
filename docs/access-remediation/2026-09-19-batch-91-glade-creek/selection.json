@@ -1,0 +1,13 @@
+{
+  "batch": "B91",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-new-glade-creek-grandview-sandbar",
+  "routeName": "New River",
+  "reach": "Glade Creek River Access to Grandview Sandbar",
+  "state": "West Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Glade Creek River Access",
+  "storedCoordinate": { "latitude": 37.82912, "longitude": -81.014533 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 354.00124324126034, "nearestWaterwayName": "New River", "distanceFeetToMappedWater": 204.64884239933906, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "NPS documents Glade Creek as a public New River access with a primitive campground and trailhead reached by Glade Creek Road; verify the off-flowline point as the managed campground/access anchor."
+}

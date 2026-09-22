@@ -1,9 +1,9 @@
-import { listRiverGroups, listScoredRivers } from '../lib/rivers';
+import { listRiverGroups, listRivers } from '../lib/rivers';
 
 export const prerender = true;
 
 export function GET() {
-  const routeItems = listScoredRivers()
+  const routeItems = listRivers()
     .map((river) => ({
       kind: 'route',
       kindLabel: river.scoreEligibility === 'planning' ? 'Planning route' : 'Scored route',

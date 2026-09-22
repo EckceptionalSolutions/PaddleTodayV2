@@ -1,0 +1,23 @@
+{
+  "batch": 80,
+  "reviewDate": "2026-09-19",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:48:52.639Z; 2,750 public routes, 6,058 endpoints, 45 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Idaho",
+    "name": "Kelly Forks Campground / Kelly Forks landing, North Fork Clearwater River",
+    "storedCoordinate": {
+      "latitude": 46.7167,
+      "longitude": -115.25515
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "kelly-creek-moose-kelly-forks",
+      "north-fork-clearwater-hidden-kelly"
+    ],
+    "preReviewFinding": "The Kelly Creek route take-out is 306 feet from the named Kelly Creek flowline and 246 feet from mapped water with complete hydrography coverage. The same coordinate on the North Fork Clearwater route is already review under the shared Kelly Forks access control.",
+    "decision": "verify-the-shared-kelly-forks-campground-landing-and-extend-the-route-scoped-authoritative-control-to-the-kelly-creek-route",
+    "selectionFrozenBeforeResearch": true
+  }
+}

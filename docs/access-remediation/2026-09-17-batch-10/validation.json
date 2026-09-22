@@ -1,0 +1,62 @@
+{
+  "batch": "2026-09-17-batch-10",
+  "validatedOn": "2026-09-17",
+  "sourceReview": "passed",
+  "checks": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 145 unique withheld route slugs."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-10/verify.mjs",
+      "status": "passed",
+      "result": "Ten frozen sites and decisions; one evidence-backed coordinate correction; six retained access anchors; three unverified-access route holds; three geometry-regeneration holds; 145 unique withheld route IDs; 21 accepted source snapshot hashes; one failed retrieval excluded; source backups and TypeScript syntax verified."
+    },
+    {
+      "command": "npm run typecheck:routes",
+      "status": "blocked",
+      "result": "The npm shim could not find tsc in node_modules/.bin. Direct invocation of node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json ran but failed across the route project because the deleted workspace package @paddletoday/api-contract is unavailable; this also produced cascading RiverRouteAccessPoint type errors."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "status": "blocked",
+      "result": "The fresh access-quality audit could not start: ERR_MODULE_NOT_FOUND for @paddletoday/geo. The cached report was not regenerated or used as current evidence."
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "result": "Vitest startup failed because @jridgewell/sourcemap-codec is missing from node_modules."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id <each Fort Mill route ID>",
+      "status": "blocked",
+      "result": "Attempted separately for catawba-river-fort-mill-rock-hill, catawba-river-fort-mill-landsford, and catawba-river-fort-mill-sc9. Each failed before writing because @paddletoday/geo is unavailable."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-canonical-river-geometries.ts",
+      "status": "blocked",
+      "result": "Geometry audit could not start because @paddletoday/api-contract is unavailable through src/lib/camping-classification.ts."
+    },
+    {
+      "command": "npm run routes:access-registry:generate -- --audit=docs/access-point-quality-audit.json; npm run routes:geometries:generate -- --reuse-existing; npm run routes:overview:generate",
+      "status": "not-run",
+      "result": "Skipped because the required fresh full audit and route geometry could not be produced. The runbook forbids assembling catalog/registry outputs from the stale cached audit or stale changed-route geometry."
+    }
+  ],
+  "servedArtifacts": {
+    "status": "stale-and-not-regenerated",
+    "finding": "The old Fort Mill route features remain in the existing South Carolina state geometry bundle, explore-map-overview.json, and their three individual route geometry files. The current source withholding manifest includes all three IDs, but generated public catalog/state/overview artifacts could not be rebuilt or audited in this workspace.",
+    "affectedRouteIds": [
+      "catawba-river-fort-mill-rock-hill",
+      "catawba-river-fort-mill-landsford",
+      "catawba-river-fort-mill-sc9"
+    ],
+    "action": "Keep these routes held. Regenerate all three route geometries and rebuild/audit the catalog, state bundle, overview and access registry when the missing workspace packages are restored. Do not treat source-manifest inclusion as proof that every served artifact excludes these routes."
+  },
+  "limitations": [
+    "The audit selection came from a cache-only report; ranks prioritized research and were not treated as launch evidence.",
+    "Project typecheck, unit tests, fresh access audit, geometry generation and served-catalog checks remain incomplete because required packages are missing.",
+    "The unchanged access-area anchors have no manager-published surveyed wet-edge coordinates; their updated names and notes state the supported role and uncertainty."
+  ]
+}

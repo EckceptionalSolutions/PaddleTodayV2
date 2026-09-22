@@ -1,0 +1,53 @@
+{
+  "batch": 41,
+  "retrievedOn": "2026-09-18",
+  "sources": [
+    {
+      "id": "cumberland-county-conodoguinet-water-trail-guide-b4",
+      "url": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "publisher": "Cumberland County Planning Department",
+      "facts": [
+        "B4 Willow Mill Park is listed at 40.2578,-77.0426, with the site address 80 Willow Mill Park Road.",
+        "The current access table classifies it as a concrete boat launch with an improved concrete ramp, short carry from parking, and a shallow slope to water.",
+        "The county guide does not separately georeference the exact ramp toe."
+      ]
+    },
+    {
+      "id": "silver-spring-township-willow-mill-park-facility",
+      "url": "https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17",
+      "publisher": "Silver Spring Township Parks and Recreation",
+      "facts": [
+        "The township describes Willow Mill as an 18-acre park along the Conodoguinet Creek.",
+        "The township says the boat launch is at the rear of the park and gives the park address as 80 Willow Mill Park Road."
+      ]
+    },
+    {
+      "id": "pfbc-fishing-and-boating-access-fid-808",
+      "url": "https://services8.arcgis.com/qnunbWxvlJsj1oVm/ArcGIS/rest/services/Fishing_and_Boating_Access/FeatureServer/20/808?f=pjson",
+      "queryUrl": "https://services8.arcgis.com/qnunbWxvlJsj1oVm/ArcGIS/rest/services/Fishing_and_Boating_Access/FeatureServer/20/query?where=FID%3D808&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "publisher": "Pennsylvania Fish and Boat Commission",
+      "record": {
+        "fid": 808,
+        "waterTrailId": "U14",
+        "name": "Willow Mill Park",
+        "locationType": "access area",
+        "waterbody": "Conodoguinet Creek",
+        "owner": "Silver Spring township",
+        "ramp": "N",
+        "parking": "10 spaces or more",
+        "latitude": 40.26081773,
+        "longitude": -77.04177531
+      },
+      "interpretation": "This is a general public-access-area point rather than a ramp point. It is about 1,511 ft from the route coordinate and conflicts with the county guide's ramp classification, so it does not locate the ramp toe."
+    }
+  ],
+  "coordinateComparison": {
+    "routeCoordinate": { "latitude": 40.2567096, "longitude": -77.0411725 },
+    "countyB4SiteCoordinate": { "latitude": 40.2578, "longitude": -77.0426 },
+    "distanceBetweenFeet": 562.3,
+    "pfbcAccessAreaDistanceFromRouteFeet": 1511.1,
+    "routeAuditDistanceToMappedWaterFeet": 189.7,
+    "routeAuditDistanceToMatchedFlowlineFeet": 318.8
+  },
+  "imageryCheck": "No imagery-derived coordinate was applied. The coordinate discrepancies and route audit support keeping the site under review, but neither the county table pin nor PFBC's general access-area point verifies the concrete ramp toe."
+}

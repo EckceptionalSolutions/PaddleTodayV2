@@ -1,0 +1,9 @@
+{
+  "batch": "B96",
+  "sources": [
+    { "title": "Fishing — New River Gorge National Park & Preserve", "url": "https://www.nps.gov/neri/planyourvisit/fishing.htm", "publisher": "National Park Service", "supports": ["McCreery is a public New River access", "access is off Hwy. 41 near Prince"] },
+    { "title": "NPS public assembly maps", "url": "https://www.nps.gov/neri/planyourvisit/public-assembly-maps.htm", "publisher": "National Park Service", "supports": ["McCreery River Access site and parking/meeting footprint"] },
+    { "title": "NPS New River Gorge access and driving guide", "url": "https://www.nps.gov/neri/planyourvisit/finding-your-way-around-the-park.htm", "publisher": "National Park Service", "supports": ["McCreery/Grandview road and gorge access context"] }
+  ],
+  "sourceQuality": "The access classification is anchored by current NPS public-access guidance and a separate NPS site map/assembly record."
+}

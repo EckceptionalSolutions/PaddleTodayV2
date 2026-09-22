@@ -1,0 +1,19 @@
+{
+  "batch": "2026-09-17-batch-23",
+  "capturedAt": "2026-09-17",
+  "sourceRegistryPath": "src/data/route-access-official-map-controls.json",
+  "generatedRegistryPath": "src/data/generated/route-access-registry.json",
+  "generatedRegistryStatus": "generator completed from the cache-only audit, but its authoritative-evidence input is stale and excludes these provider edits",
+  "providerCountBefore": 560,
+  "providerCountAfter": 562,
+  "newProviderIds": [
+    "pa_ohiopyle_ramcat_launch_access_anchor",
+    "fl_peacock_slough_river_camp_access_anchor"
+  ],
+  "reclassifiedProviderIds": [],
+  "generatedEvidenceProviderCount": 505,
+  "generatedEvidenceAsOf": "2026-09-05T12:17:43.891Z",
+  "generatedEvidencePath": "docs/route-coordinate-authoritative-evidence.json",
+  "newControlsVisibleInGeneratedRegistry": false,
+  "note": "Source controls are saved in source data. The evidence gatherer has no cached statewide inventory caches and would download them; the generated evidence artifact was left unchanged. Registry generation completed with 4042 entries and zero conflicts from the cache-only audit but does not include these controls. No manual generated-registry edits."
+}

@@ -1,0 +1,23 @@
+{
+  "batch": "B115",
+  "selectedAt": "2026-09-19",
+  "routeId": "north-fork-clearwater-washington-quartz",
+  "routeName": "North Fork Clearwater River",
+  "reach": "Washington Creek to Quartz Creek",
+  "state": "Idaho",
+  "endpoint": "takeOut",
+  "endpointName": "Quartz Creek bridge / Forest Road 247 mile 32",
+  "storedCoordinate": {
+    "latitude": 46.80769,
+    "longitude": -115.45681
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 339.3449462189893,
+    "nearestWaterwayName": "North Fork Clearwater River",
+    "distanceFeetToMappedWater": 287.8132925149304,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "The stored point is a bridge/road vicinity. Reviewed sources do not establish a lawful public take-out, parking/carry route, or exact water-entry coordinate. Hold the route pending Forest Service confirmation rather than treating the bridge shoulder as public access."
+}

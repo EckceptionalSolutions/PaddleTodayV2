@@ -1470,7 +1470,7 @@ function updatePickerControls(visibleCount, totalCount) {
       ? 'any difficulty'
       : `${difficultyFilter.slice(0, 1).toUpperCase()}${difficultyFilter.slice(1)}`;
     const sortLabel = sortMode === 'recommended'
-      ? 'ranked by today’s conditions'
+      ? (routes.some((route) => !isPlanningRoute(route)) ? 'ranked by current scores where available' : 'ordered for trip planning')
       : sortMode === 'shortest'
         ? 'shortest first'
         : sortMode === 'longest'
@@ -1642,7 +1642,7 @@ async function loadGroup({ silent = false } = {}) {
       && callStateForDecision(route.rating, route.readiness?.status) === 'paddle').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
-      planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,
+      scoredRoutes.length === 0 ? `${planningCount} planning routes · no live scores` : planningCount > 0 ? `${readyCount} scored routes ready today · ${planningCount} planning routes` : `${readyCount} of ${routes.length} routes look ready today.`,
       planningCount > 0
         ? 'Planning routes have access details but are not included in same-day scoring.'
         : liveCount === routes.length

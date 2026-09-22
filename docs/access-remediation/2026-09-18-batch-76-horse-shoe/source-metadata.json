@@ -1,0 +1,37 @@
+{
+  "batch": 76,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "url": "https://frenchbroadpaddle.com/en/access-points",
+      "publisher": "French Broad Paddle Trail",
+      "sourceDate": "Current page accessed 2026-09-18",
+      "role": "Names Horse Shoe BAA at river mile 41.5, Henderson County as manager, current OPEN status, and a linked map pin. It warns that Helene recovery can change access amenities and river conditions."
+    },
+    {
+      "url": "https://www.google.com/maps/place/Horse+Shoe+River+Bend+Access/@35.3274933,-82.5788787,16z/data=!4m6!3m5!1s0x8859bf8343c5db9d:0xa971d58fd4f07e35!8m2!3d35.3293739!4d-82.5747687!16s%2Fg%2F11hbkfb__b",
+      "publisher": "Google Maps via the French Broad Paddle Trail map link",
+      "sourceDate": "Current link followed 2026-09-18",
+      "role": "The linked Horse Shoe River Bend Access place resolves to 35.3293739, -82.5747687, the exact route coordinate. This is an access-area map pin, not a surveyed wet-toe measurement."
+    },
+    {
+      "url": "https://ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&Universal=0",
+      "publisher": "North Carolina Wildlife Resources Commission",
+      "sourceDate": "Official report accessed 2026-09-18",
+      "role": "Names Horse Shoe Boating Access Area at 5437 Brevard Road, lists universally accessible boat ramp and canoe access, and gives 35.328847, -82.575234 as the facility coordinate."
+    },
+    {
+      "url": "https://ncpaws.org/ncwrcmaps/boatingaccessareas",
+      "publisher": "North Carolina Wildlife Resources Commission",
+      "sourceDate": "Current locator accessed 2026-09-18",
+      "role": "Describes BAAs as public, free access facilities and provides the current interactive access locator."
+    },
+    {
+      "url": "https://henderson.recdesk.com/Community/Facility/Detail?facilityId=64",
+      "publisher": "Henderson County Parks and Recreation",
+      "sourceDate": "Current facility page accessed 2026-09-18",
+      "role": "Identifies US 64 River Bend Access Park at 5437 Brevard Road and describes parking and a boat put-in to the French Broad River."
+    }
+  ],
+  "coordinateMethod": "Kept the exact point linked by the current French Broad Paddle Trail access list. The NCWRC facility inventory publishes a second point about 230 feet away; do not collapse these into a claim of survey-grade wet-toe precision."
+}

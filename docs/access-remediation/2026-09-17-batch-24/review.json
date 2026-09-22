@@ -1,0 +1,59 @@
+{
+  "batch": "2026-09-17-batch-24",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "queueEvidenceMode": "cache-only; rank is prioritization, not evidence",
+  "sitesReviewed": 4,
+  "uniqueRoutesBefore": 5,
+  "newHolds": [],
+  "eligibleRoutesAfter": 5,
+  "coordinateSitesCorrected": 0,
+  "addedAccessAnchorProviders": 2,
+  "revalidatedExistingProviders": 2,
+  "reclassifiedProviders": 0,
+  "endpointLabelsClarified": 3,
+  "optionalAccessWaypointsRemoved": 0,
+  "withheldRoutesBefore": 181,
+  "withheldRoutesAfter": 181,
+  "deletions": 0,
+  "scope": "The last four eligible queue locations were reviewed. Two missing official access-area controls were added for Landing Road and Haller Park; existing Virginia DWR and Eastern Park controls were checked. The route labels/copy now distinguish crossing, roadside, and park anchors from precise water-entry points. All five routes remain eligible; no coordinate moved and no record was deleted.",
+  "decisions": [
+    {
+      "rank": 270,
+      "site": "Route 710 Alvarado crossing take-out area",
+      "decision": "keep-dwr-named-bridge-takeout-access-anchor",
+      "routes": [
+        "south-fork-holston-route58-alvarado"
+      ],
+      "finding": "Virginia DWR’s current South Fork Holston float guide identifies the Route 710 bridge at Alvarado as the Float 4 take-out. Keep its existing crossing coordinate and anchor control; the point is not a surveyed water-exit edge, so retain parking/carry/bank confirmation."
+    },
+    {
+      "rank": 271,
+      "site": "Fox River Access at Landing Road south of Berlin",
+      "decision": "keep-dnr-named-public-access-area-anchor",
+      "routes": [
+        "fox-river-landing-road-riverside-berlin"
+      ],
+      "finding": "Current Wisconsin DNR water inventory names the Fox River public access at Landing Road south of Berlin (feature 10019301); the City separately confirms Riverside Park’s public boat launch. The stored Landing Road coordinate is an area anchor; DNR does not publish a surveyed toe. Route copy now says this explicitly."
+    },
+    {
+      "rank": 274,
+      "site": "Haller Park boat launch, Arlington",
+      "decision": "reclassify-to-park-access-area-anchor",
+      "routes": [
+        "stillaguamish-river-river-meadows-haller",
+        "stillaguamish-river-twin-rivers-haller"
+      ],
+      "finding": "The City’s current parks-plan amendment lists beach access and an existing boat launch beside SR-9, with launch reconstruction among potential improvements; its current facility page confirms public riverfront beach access and parking. Retain the stored coordinate as a park/launch-area anchor and confirm current condition; no exact ramp coordinate is published."
+    },
+    {
+      "rank": 275,
+      "site": "Eastern Park Kayak Launch, Tonawanda",
+      "decision": "keep-city-and-blueway-public-launch-anchor",
+      "routes": [
+        "ellicott-creek-park-eastern-park"
+      ],
+      "finding": "The City of Tonawanda’s Eastern Park pamphlet lists a kayak boat launch and maps its location at 280 Fillmore Avenue; the current Buffalo Blueway confirms public roller access for hand-launched craft. Existing source control correctly treats the stored point as an access-area anchor, not an exact roller coordinate."
+    }
+  ]
+}

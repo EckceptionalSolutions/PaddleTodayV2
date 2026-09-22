@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:13:15.507Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "little-miami-river-kelley-milford",
+      "routeName": "Little Miami River",
+      "reach": "Kelley Nature Preserve to Jim Terrell Park",
+      "state": "Ohio",
+      "endpoint": "putIn",
+      "endpointName": "Kelley Nature Preserve canoe/kayak access",
+      "latitude": 39.20997,
+      "longitude": -84.30608,
+      "matchedRiverName": "Little Miami River",
+      "distanceFeetToMatchedRiver": 369.30864251594016,
+      "nearestMatchedLatitude": 39.209095,
+      "nearestMatchedLongitude": -84.305423,
+      "nearestWaterwayName": "Little Miami River",
+      "distanceFeetToNearestWaterway": 369.30864251594016,
+      "nearestWaterwayLatitude": 39.209095,
+      "nearestWaterwayLongitude": -84.305423,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 286.2940980895538,
+      "nearestWaterbodyLatitude": 39.20920892540281,
+      "nearestWaterbodyLongitude": -84.30583304255795,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 286.2940980895538,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.clermontparks.org/kelley-nature-preserve/",
+      "coordinateEvidenceDetail": "oh_clermont_kelley_nature_preserve_little_miami_access_20260919 kelley-nature-preserve-little-miami-canoe-launch: Clermont County Park District identifies Kelley Nature Preserve at 297 OH-126 and confirms canoe/kayak access to the Little Miami River. The official park map labels the canoe launch, parking, and Little Miami River. Retain the stored route point as a conditional park/launch-area anchor; the 369-foot named-flowline offset reflects the park, parking, trail, and launch footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (oh_clermont_kelley_nature_preserve_little_miami_access_20260919 kelley-nature-preserve-little-miami-canoe-launch) on Little Miami River; access is conditional (Confirm current Clermont County park hours, parking, launch condition, river level, and any seasonal or weather-related restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "little-miami-river-kelley-milford",
+      "routeName": "Little Miami River",
+      "reach": "Kelley Nature Preserve to Jim Terrell Park",
+      "state": "Ohio",
+      "endpoint": "takeOut",
+      "endpointName": "Jim Terrell Park canoe launch",
+      "latitude": 39.17041,
+      "longitude": -84.29856,
+      "matchedRiverName": "Little Miami River",
+      "distanceFeetToMatchedRiver": 145.7176883371095,
+      "nearestMatchedLatitude": 39.17053298633926,
+      "nearestMatchedLongitude": -84.29806982060641,
+      "nearestWaterwayName": "Little Miami River",
+      "distanceFeetToNearestWaterway": 145.7176883371095,
+      "nearestWaterwayLatitude": 39.17053298633926,
+      "nearestWaterwayLongitude": -84.29806982060641,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 48.178526496184915,
+      "nearestWaterbodyLatitude": 39.17045260913147,
+      "nearestWaterbodyLongitude": -84.29839876649501,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 48.178526496184915,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 48 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

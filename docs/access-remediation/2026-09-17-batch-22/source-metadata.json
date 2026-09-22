@@ -1,0 +1,126 @@
+{
+  "batch": "2026-09-17-batch-22",
+  "sourceCount": 20,
+  "sources": [
+    {
+      "title": "NYSDEC Sunken Meadow public launch coordinate",
+      "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+      "retrievedAt": "2026-09-17",
+      "finding": "NYSDEC lists 40.909309,-73.246686, hand launch, ample parking, kayaks/canoes only, OPRHP."
+    },
+    {
+      "title": "NYS Parks Sunken Meadow access and tide context",
+      "url": "https://parks.ny.gov/visit/state-parks/sunken-meadow-state-park-governor-alfred-e-smith",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current page places launches on east side of Field 3 and describes tidal flats and park hours."
+    },
+    {
+      "title": "NYS Parks Long Island kayak and canoe guide",
+      "url": "https://parks.ny.gov/sites/default/files/KayakandCanoeGuide.pdf",
+      "retrievedAt": "2026-09-17",
+      "finding": "Map and text identify two launch contexts at Field 3; tide, salt marsh/beach carry and seasonal parking-pass guidance."
+    },
+    {
+      "title": "TPWD Guadalupe River State Park Paddling Trail",
+      "url": "https://tpwd.texas.gov/boating/paddling-trails/hill-country/guadalupe-river/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current trail page publishes park put-in GPS, five-mile trail, Nichol’s Landing endpoint and access conditions."
+    },
+    {
+      "title": "USFS Boise National Forest recreation listings",
+      "url": "https://www.fs.usda.gov/r04/boise/recreation/opportunities/hunting-fishing-and-shooting?page=%2C10",
+      "retrievedAt": "2026-09-17",
+      "finding": "Forest Service listing says Willow Creek Campground is open along the Middle Fork Boise at Arrowrock Reservoir head; last updated April 2025."
+    },
+    {
+      "title": "American Whitewater Willow Creek access point",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/point-of-interest/access/116232",
+      "retrievedAt": "2026-09-17",
+      "finding": "Access record used for the stored campground take-out coordinate; corroborated by official campground identity."
+    },
+    {
+      "title": "City of Sioux Falls Mary Jo Wegner Arboretum",
+      "url": "https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/mary-jo-arboretum",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current city park directory lists boat/canoe/kayak access."
+    },
+    {
+      "title": "South Dakota GFP Jay Heath access GIS",
+      "url": "https://services.arcgis.com/jWPBXspaQsJStWX8/arcgis/rest/services/CanoeTrails/FeatureServer/0",
+      "retrievedAt": "2026-09-17",
+      "finding": "Access record OID 18 maps Highway 42 as parking canoe-site anchor and marks Launch No; use arboretum launch guidance for the actual entry."
+    },
+    {
+      "title": "Mary Jo Wegner Arboretum canoe launch directions",
+      "url": "https://www.maryjowegnerarboretum.com/activities/canoe-launch.html",
+      "retrievedAt": "2026-09-17",
+      "finding": "Arboretum operator describes canoe/kayak launch on park edge next to Highway 42 bridge."
+    },
+    {
+      "title": "Idaho Power Twin Falls Park",
+      "url": "https://idahopower.com/recreation/parks-and-campgrounds/twin-falls-park/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current operator page confirms ramp/docks, Murtaugh Reach take-out, free day use and 8 a.m.-dark hours."
+    },
+    {
+      "title": "Friends of the Teton River recreation map",
+      "url": "https://www.tetonwater.org/get-out/recreation-map/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current recreation guidance says to use designated public access points and that conservation easements are private."
+    },
+    {
+      "title": "American Whitewater Teton Dam to Teton Forks reach",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/643/main",
+      "retrievedAt": "2026-09-17",
+      "finding": "Older trip report describes a river-right exit downstream of 2750 E with parking; not current manager permission."
+    },
+    {
+      "title": "Montana FWP Chief Looking Glass FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754131",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current FWP record publishes 46.66165,-114.05355, Bitterroot River, hand launch, nonmotorized boating, seasonal open period and vehicle/trailer limit."
+    },
+    {
+      "title": "Butler County Heery Woods canoeing/kayaking page",
+      "url": "https://www.mycountyparks.com/County/Butler/Park/Heery-Woods-State-Park-North-Side/Activity/Canoeing-Kayaking",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current county operator distinguishes the above-dam North Side ramp from the separate below-dam ramp across the river off Timber Avenue by its shop."
+    },
+    {
+      "title": "Butler County Heery Woods fishing page",
+      "url": "https://www.mycountyparks.com/County/Butler/Park/Heery-Woods-State-Park-North-Side/Activity/Fishing",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current county page locates Heery Woods and identifies the park boat ramp above the dam."
+    },
+    {
+      "title": "Iowa DNR Shell Rock River details",
+      "url": "https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RSR12",
+      "retrievedAt": "2026-09-17",
+      "finding": "Updated December 2025; discusses the dam/low-head-riffle and recommended public ramps."
+    },
+    {
+      "title": "American Whitewater Portneuf reach to PVC diversion",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/598/main",
+      "retrievedAt": "2026-09-17",
+      "finding": "Reach record and trip reports mention the diversion corridor and older exits; does not verify current legal public access at the stored point."
+    },
+    {
+      "title": "Portneuf Watershed Partnership Topaz/diversion control",
+      "url": "https://portneufwatershed.org/sites/ISU-PR-Topaz/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Identifies the monitoring station by the canal diversion; used as a hazard/location control only, not access authority."
+    },
+    {
+      "title": "NJDEP Manasquan River public access areas",
+      "url": "https://www.nj.gov/dep/fgw/mansqnaccess.htm",
+      "retrievedAt": "2026-09-17",
+      "finding": "NJDEP lists Brice Park as public shore access and says canoe/kayak use is possible; existing route source already classifies point as anchor."
+    },
+    {
+      "title": "NJDEP education guide coordinate for Brice Park",
+      "url": "https://www.nj.gov/dep/fgw/pdf/education/tic_release_day_guide.pdf",
+      "retrievedAt": "2026-09-17",
+      "finding": "Official guide publishes 40.138930,-74.108585 and a parking-to-water carry of about 100 feet."
+    }
+  ]
+}

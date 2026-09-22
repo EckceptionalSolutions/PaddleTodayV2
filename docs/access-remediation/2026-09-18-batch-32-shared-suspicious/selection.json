@@ -1,0 +1,84 @@
+{
+  "batch": 32,
+  "selectionDate": "2026-09-18",
+  "auditSource": "../2026-09-18-batch-31-suspicious/audit-after.json",
+  "auditScope": "public-routes",
+  "baseline": {
+    "routeCount": 2752,
+    "endpointCount": 6062,
+    "suspiciousEndpointCount": 153
+  },
+  "method": "Group suspicious endpoint occurrences that share an exact stored coordinate and named physical site; rank groups by occurrence count. Freeze the first four multi-route locations so one supported coordinate correction can repair every dependent public route.",
+  "selectedLocationCount": 4,
+  "selectedEndpointOccurrenceCount": 24,
+  "locations": [
+    {
+      "rank": 1,
+      "state": "Montana",
+      "name": "Angevine Fishing Access Site",
+      "previousCoordinate": { "latitude": 46.89659, "longitude": -113.76427 },
+      "occurrences": 8,
+      "matchedFlowlineDistanceFeet": 329.8,
+      "nearestWaterbodyDistanceFeet": 275.5,
+      "routeIds": [
+        "blackfoot-river-angevine-marco-flats",
+        "blackfoot-river-angevine-weigh-station",
+        "blackfoot-river-whitaker-angevine",
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-k-ross-toole-angevine",
+        "blackfoot-river-angevine-johnsrud",
+        "blackfoot-river-roundup-angevine",
+        "blackfoot-river-scotty-brown-angevine"
+      ]
+    },
+    {
+      "rank": 2,
+      "state": "Mississippi",
+      "name": "Moody’s Landing, Black Creek",
+      "previousCoordinate": { "latitude": 31.0545, "longitude": -89.1176 },
+      "occurrences": 7,
+      "matchedFlowlineDistanceFeet": 386,
+      "nearestWaterbodyDistanceFeet": 289,
+      "routeIds": [
+        "black-creek-old-highway-49-moodys",
+        "black-creek-moodys-janice",
+        "black-creek-moodys-cypress",
+        "black-creek-moodys-fairley",
+        "black-creek-big-creek-moodys",
+        "black-creek-churchwell-moodys",
+        "black-creek-ashe-nursery-moodys"
+      ]
+    },
+    {
+      "rank": 3,
+      "state": "Louisiana",
+      "name": "Jeanerette T.J. Viator City Park official dock",
+      "previousCoordinate": { "latitude": 29.9176966, "longitude": -91.6672004 },
+      "occurrences": 5,
+      "matchedFlowlineDistanceFeet": 481.5,
+      "nearestWaterbodyDistanceFeet": 152.1,
+      "routeIds": [
+        "bayou-teche-new-iberia-jeanerette",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-st-martinville-jeanerette",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-jeanerette-baldwin"
+      ]
+    },
+    {
+      "rank": 4,
+      "state": "Washington",
+      "name": "Redband Park public boat launch, Spokane River",
+      "previousCoordinate": { "latitude": 47.660252, "longitude": -117.425334 },
+      "occurrences": 4,
+      "matchedFlowlineDistanceFeet": 324.1,
+      "nearestWaterbodyDistanceFeet": 250.4,
+      "routeIds": [
+        "spokane-river-redband-tj-meenach",
+        "spokane-river-redband-aubrey-white",
+        "spokane-river-redband-nine-mile-dam",
+        "spokane-river-redband-plese-flats"
+      ]
+    }
+  ]
+}

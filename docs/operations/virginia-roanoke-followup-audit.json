@@ -1,0 +1,77 @@
+{
+  "state": "Virginia",
+  "river": "Roanoke River",
+  "status": "published_scored",
+  "gauge": {
+    "siteId": "02054530",
+    "relationship": "direct same-river Glenvar telemetry used by the Blueway for the upper and Salem-area access minimums",
+    "threshold": "150 cfs minimum for each new segment, using the higher of the two endpoint recommendations",
+    "source": "https://www.roanokeriverblueway.org/access-points/"
+  },
+  "routes": [
+    {
+      "routeId": "roanoke-river-wayside-green-hill",
+      "reach": "Wayside Park to Green Hill Park",
+      "miles": 7,
+      "putIn": { "name": "Wayside Park", "latitude": 37.2477, "longitude": -80.175102 },
+      "takeOut": { "name": "Green Hill Park", "latitude": 37.2757, "longitude": -80.113602 },
+      "safety": ["low-water scraping", "Bohon Hollow Road high-water portage", "cold water", "strainers", "private banks"],
+      "camping": "nearby_basecamp; no endpoint or on-route camping claimed",
+      "deduplication": "Adjacent to the existing Eastern Montgomery Park→Wayside route and the new Green Hill→West Riverside route; no overlapping river miles.",
+      "validation": "route-data, safety, access-registry, and geometry checks passed"
+    },
+    {
+      "routeId": "roanoke-river-green-hill-west-riverside",
+      "reach": "Green Hill Park to West Riverside Drive",
+      "miles": 2.7,
+      "putIn": { "name": "Green Hill Park", "latitude": 37.2757, "longitude": -80.113602 },
+      "takeOut": { "name": "West Riverside Drive", "latitude": 37.2864, "longitude": -80.076897 },
+      "safety": ["low-water scraping", "fast-rising water", "urban bridge current", "cold water", "private banks"],
+      "camping": "nearby_basecamp; day-use public parks",
+      "deduplication": "Consecutive Blueway access pair between Wayside→Green Hill and West Riverside→Cardinal; no overlap.",
+      "validation": "route-data, safety, access-registry, and geometry checks passed"
+    },
+    {
+      "routeId": "roanoke-river-west-riverside-cardinal",
+      "reach": "West Riverside Drive to Cardinal Criminal Justice Academy",
+      "miles": 2.1,
+      "putIn": { "name": "West Riverside Drive", "latitude": 37.2864, "longitude": -80.076897 },
+      "takeOut": { "name": "Cardinal Criminal Justice Academy", "latitude": 37.282902, "longitude": -80.065399 },
+      "safety": ["Mill Lane Bridge portage at approximately 600 cfs", "low-water hazards", "cold water", "private banks"],
+      "camping": "nearby_basecamp; no endpoint camping claimed",
+      "deduplication": "Consecutive Blueway access pair between Green Hill→West Riverside and Cardinal→Eddy; no overlap.",
+      "validation": "route-data, safety, access-registry, and geometry checks passed"
+    },
+    {
+      "routeId": "roanoke-river-cardinal-eddy",
+      "reach": "Cardinal Criminal Justice Academy to Eddy Avenue",
+      "miles": 0.9,
+      "putIn": { "name": "Cardinal Criminal Justice Academy", "latitude": 37.282902, "longitude": -80.065399 },
+      "takeOut": { "name": "Eddy Avenue", "latitude": 37.281898, "longitude": -80.059303 },
+      "safety": ["variable urban current", "low-water hazards", "cold water", "private banks"],
+      "camping": "nearby_basecamp; day-use public ramps",
+      "deduplication": "Short consecutive public-ramp section between West Riverside→Cardinal and Eddy→Salem Rotary; no overlap.",
+      "validation": "route-data, safety, access-registry, and geometry checks passed"
+    },
+    {
+      "routeId": "roanoke-river-eddy-salem-rotary",
+      "reach": "Eddy Avenue to Salem Rotary Park",
+      "miles": 1.7,
+      "putIn": { "name": "Eddy Avenue", "latitude": 37.281898, "longitude": -80.059303 },
+      "takeOut": { "name": "Salem Rotary Park", "latitude": 37.2677, "longitude": -80.036201 },
+      "safety": ["150 cfs launch gate at Eddy", "low-water hazards", "cold water", "private banks"],
+      "camping": "nearby_basecamp; no endpoint camping claimed",
+      "deduplication": "Ends at the existing Salem Rotary→Wasena route's put-in, with no duplicated river miles.",
+      "validation": "route-data, safety, access-registry, and geometry checks passed"
+    }
+  ],
+  "sourceSet": [
+    "https://www.roanokeriverblueway.org/access-points/",
+    "https://www.roanokeriverblueway.org/water-level/",
+    "https://www.roanokeriverblueway.org/portages-and-hazards/",
+    "https://www.roanokeriverblueway.org/maps/",
+    "https://waterdata.usgs.gov/monitoring-location/USGS-02054530/",
+    "https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=02054530",
+    "https://commons.wikimedia.org/wiki/File:View_of_Roanoke_River.jpg"
+  ]
+}

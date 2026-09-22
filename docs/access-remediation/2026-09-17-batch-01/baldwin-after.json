@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T12:00:22.104Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-baldwin-franklin",
+      "routeName": "Bayou Teche",
+      "reach": "Baldwin Charenton Road Park and Recreational Complex dock to Franklin Parc Sur La Teche dock (700 Teche Dr)",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Franklin Parc Sur La Teche dock (700 Teche Dr)",
+      "latitude": 29.79354,
+      "longitude": -91.5003891,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 287.4957294313038,
+      "nearestMatchedLatitude": 29.79377495935521,
+      "nearestMatchedLongitude": -91.49952231554039,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 287.4957294313038,
+      "nearestWaterwayLatitude": 29.79377495935521,
+      "nearestWaterwayLongitude": -91.49952231554039,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 171.92570535692943,
+      "nearestWaterbodyLatitude": 29.793673131748317,
+      "nearestWaterbodyLongitude": -91.49986817435658,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 171.92570535692943,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is 287 ft from the matched NHD flowline; likely an access/parking anchor but worth review."
+    },
+    {
+      "routeId": "bayou-teche-baldwin-franklin",
+      "routeName": "Bayou Teche",
+      "reach": "Baldwin Charenton Road Park and Recreational Complex dock to Franklin Parc Sur La Teche dock (700 Teche Dr)",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+      "latitude": 29.833138,
+      "longitude": -91.542615,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 124.01342557565086,
+      "nearestMatchedLatitude": 29.833230394651018,
+      "nearestMatchedLongitude": -91.54223788820795,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 124.01342557565086,
+      "nearestWaterwayLatitude": 29.833230394651018,
+      "nearestWaterwayLongitude": -91.54223788820795,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 29.833138,
+      "nearestWaterbodyLongitude": -91.542615,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

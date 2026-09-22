@@ -29,6 +29,36 @@ const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longi
   'rice-creek-peltier-to-long-lake': [
     { latitude: 45.1637486, longitude: -93.1154357, maxFeet: 500, label: 'Aqua Lane northern lake-chain exit' },
   ],
+  'blackfoot-river-angevine-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-k-ross-toole-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-marco-flats-johnsrud': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-marco-flats-weigh-station': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-roundup-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-russell-gates-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-scotty-brown-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'blackfoot-river-whitaker-marco-flats': [
+    { latitude: 46.88969, longitude: -113.82973, maxFeet: 600, label: 'Marco Flats FWP access-area anchor' },
+  ],
+  'spokane-river-barker-mirabeau': [
+    { latitude: 47.68186, longitude: -117.22255, maxFeet: 500, label: 'Mirabeau gravel-path shoreline entry' },
+  ],
+  'spokane-river-harvard-mirabeau': [
+    { latitude: 47.68186, longitude: -117.22255, maxFeet: 500, label: 'Mirabeau gravel-path shoreline entry' },
+  ],
 };
 
 function stateSlug(value: string) {

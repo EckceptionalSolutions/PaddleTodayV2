@@ -1,0 +1,9 @@
+{
+  "batch": "B93",
+  "sources": [
+    { "title": "Boat Launch Sites for Broome County", "url": "https://dec.ny.gov/things-to-do/boating/launch-sites/broome-county", "publisher": "New York State Department of Environmental Conservation", "supports": ["Ninevah Bridge exact coordinate 42.193440,-75.599460", "DEC hard-surface launch", "eight cars and trailers"] },
+    { "title": "Susquehanna River access page", "url": "https://dec.ny.gov/places/susquehanna-river", "publisher": "New York State Department of Environmental Conservation", "supports": ["Nineveh concrete ramp on County Route 26", "eight cars and trailers"] },
+    { "title": "Susquehanna River fishing brochure", "url": "https://extapps.dec.ny.gov/docs/fish_marine_pdf/r7susqhanbroc.pdf", "publisher": "New York State Department of Environmental Conservation", "supports": ["Nineveh hard-surface ramp and bank fishing at the northeast corner of the bridge"] }
+  ],
+  "sourceQuality": "The coordinate is an exact current NYSDEC launch-directory coordinate, with two independent NYSDEC pages describing the ramp and its bridge-side location."
+}

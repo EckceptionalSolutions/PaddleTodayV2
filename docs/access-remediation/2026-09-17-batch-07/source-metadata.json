@@ -1,0 +1,187 @@
+{
+  "batch": "2026-09-17-batch-07",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-07/sources",
+  "snapshots": [
+    {
+      "id": "iowa-dnr-des-moines-trail",
+      "url": "https://www.iowadnr.gov/media/8886/download?inline=",
+      "localPath": "node_modules/.cache/access-batch-07/sources/iowa-dnr-des-moines-trail.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 1152819,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "E6A08363BB052CBCBAC82327B56CA26BEB96BA4087D03D57ADCA90F5F6549E6D"
+    },
+    {
+      "id": "milwaukee-county-river-trails",
+      "url": "https://county.milwaukee.gov/EN/Parks/Explore/Trails/River-Trails",
+      "localPath": "node_modules/.cache/access-batch-07/sources/milwaukee-county-river-trails.html",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 403 (Forbidden).",
+      "sha256": null
+    },
+    {
+      "id": "urban-ecology-riverside",
+      "url": "https://www.urbanecologycenter.org/branches/riverside-park",
+      "localPath": "node_modules/.cache/access-batch-07/sources/urban-ecology-riverside.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 137362,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "57A78F15263A1921EA9FCF8D9159464242283787B3E515C15FDEB1B7738A9E49"
+    },
+    {
+      "id": "sunbeam-american-whitewater",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/609/main",
+      "localPath": "node_modules/.cache/access-batch-07/sources/sunbeam-american-whitewater.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 115761,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "EC5ACBA173983DD6C61C22A528AEBE8533F2BEBD7CA78D56D539ED5700B0416D"
+    },
+    {
+      "id": "sunbeam-how-s-your-river",
+      "url": "https://www.howsyourriver.com/runs/3-rough-creek-bridge-to-torrey-s-hole-river-access-salmon-id",
+      "localPath": "node_modules/.cache/access-batch-07/sources/sunbeam-how-s-your-river.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 175263,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "44873A494504206279FE9D49A1A706DE45AED5EFB3002F504F863DBCAB5A33BF"
+    },
+    {
+      "id": "canalside-boater-info",
+      "url": "https://buffalowaterfront.com/activities/boaterinfo",
+      "localPath": "node_modules/.cache/access-batch-07/sources/canalside-boater-info.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 109821,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "19E1747096DD36B0663F716E543D181014AD041BC5482D7A32CC8E80E749E457"
+    },
+    {
+      "id": "buffalo-waterfront-plan",
+      "url": "https://www.buffalony.gov/DocumentCenter/View/8026/2020-Local-Waterfront-Revitalization-Plan?bidId=",
+      "localPath": "node_modules/.cache/access-batch-07/sources/buffalo-waterfront-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 12643364,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "78A52CDBC4F13A75B94635758B896E50EC9DCEE9BC8A7BF33789D6E727476B44"
+    },
+    {
+      "id": "eleven-point-river-access-map",
+      "url": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf",
+      "localPath": "node_modules/.cache/access-batch-07/sources/eleven-point-river-access-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 5852283,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "792BDF8790A199DAE11E1B108EF50358C48535C1A34E3D0B443E02D3E3BBE6BD"
+    },
+    {
+      "id": "usfs-eleven-point-travel-guide",
+      "url": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5200703.pdf",
+      "localPath": "node_modules/.cache/access-batch-07/sources/usfs-eleven-point-travel-guide.pdf",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 404 (Not Found).",
+      "sha256": null
+    },
+    {
+      "id": "usfs-greer-destination",
+      "url": "https://www.fs.usda.gov/visit/destinations?field_rec_activities_target_id=All&field_rec_forest_target_id=All&page=816",
+      "localPath": "node_modules/.cache/access-batch-07/sources/usfs-greer-destination.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 80140,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "BA74BBEE76018081A76A8AB1CCE64F3D575A73BBCAA1557DC2E35839A92D5248"
+    },
+    {
+      "id": "maryland-gunpowder-falls",
+      "url": "https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx",
+      "localPath": "node_modules/.cache/access-batch-07/sources/maryland-gunpowder-falls.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 124385,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C2E16A4AB422F7F95343F54D89A1A53FF9D9B25B352B16E5DC5AA978937271FE"
+    },
+    {
+      "id": "pearl-rock-county-park",
+      "url": "https://www.mycountyparks.com/county/chickasaw/Park/Pearl-Rock-Canoe-Launch-Site",
+      "localPath": "node_modules/.cache/access-batch-07/sources/pearl-rock-county-park.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 45147,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "3DB9559A498BF9D10A23974E0C6F0ACEEBB47F5187A21A170FD314A04CAA9A92"
+    },
+    {
+      "id": "newfane-waterfront-plan",
+      "url": "https://dos.ny.gov/system/files/documents/2019/05/town-newfane.pdf",
+      "localPath": "node_modules/.cache/access-batch-07/sources/newfane-waterfront-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 8514710,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "2CE78B1AE94275DFEEB469184FF2924B712E3409B70C9B99E8860FBBEB739387"
+    },
+    {
+      "id": "princeton-fox-river-paddling",
+      "url": "https://www.cityofprincetonwi.com/index.asp?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E&Type=B_BASIC",
+      "localPath": "node_modules/.cache/access-batch-07/sources/princeton-fox-river-paddling.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 33143,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "848C5B631C19CA99CDE8FAD5BAA50AA7C069032FADFE73E6CEEEF055D3AE0DCA"
+    },
+    {
+      "id": "wisconsin-river-trips-sheboygan",
+      "url": "https://www.wisconsinrivertrips.com/segments/sheboygan-river/johnsonville",
+      "localPath": "node_modules/.cache/access-batch-07/sources/wisconsin-river-trips-sheboygan.html",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 155828,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "0B63FD6FCA57B829836992F70A96FCFA5AEC6E75DC4421813EA7971D63D8C499"
+    }
+  ],
+  "hashes": {
+    "iowa-dnr-des-moines-trail": "E6A08363BB052CBCBAC82327B56CA26BEB96BA4087D03D57ADCA90F5F6549E6D",
+    "urban-ecology-riverside": "57A78F15263A1921EA9FCF8D9159464242283787B3E515C15FDEB1B7738A9E49",
+    "sunbeam-american-whitewater": "EC5ACBA173983DD6C61C22A528AEBE8533F2BEBD7CA78D56D539ED5700B0416D",
+    "sunbeam-how-s-your-river": "44873A494504206279FE9D49A1A706DE45AED5EFB3002F504F863DBCAB5A33BF",
+    "canalside-boater-info": "19E1747096DD36B0663F716E543D181014AD041BC5482D7A32CC8E80E749E457",
+    "buffalo-waterfront-plan": "78A52CDBC4F13A75B94635758B896E50EC9DCEE9BC8A7BF33789D6E727476B44",
+    "eleven-point-river-access-map": "792BDF8790A199DAE11E1B108EF50358C48535C1A34E3D0B443E02D3E3BBE6BD",
+    "usfs-greer-destination": "BA74BBEE76018081A76A8AB1CCE64F3D575A73BBCAA1557DC2E35839A92D5248",
+    "maryland-gunpowder-falls": "C2E16A4AB422F7F95343F54D89A1A53FF9D9B25B352B16E5DC5AA978937271FE",
+    "pearl-rock-county-park": "3DB9559A498BF9D10A23974E0C6F0ACEEBB47F5187A21A170FD314A04CAA9A92",
+    "newfane-waterfront-plan": "2CE78B1AE94275DFEEB469184FF2924B712E3409B70C9B99E8860FBBEB739387",
+    "princeton-fox-river-paddling": "848C5B631C19CA99CDE8FAD5BAA50AA7C069032FADFE73E6CEEEF055D3AE0DCA",
+    "wisconsin-river-trips-sheboygan": "0B63FD6FCA57B829836992F70A96FCFA5AEC6E75DC4421813EA7971D63D8C499"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "batch": 30,
+  "retrievedAt": "2026-09-18",
+  "timezone": "UTC date; local workspace date was 2026-09-17 America/Chicago",
+  "coordinateStandard": "Coordinates are decimal degrees WGS84 unless the cited agency states otherwise. Distances in selection.json are hydrography audit distances to mapped water, not surveyed carry lengths.",
+  "sources": [
+    {"siteNumber":1,"url":"https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx","publisher":"Maryland DNR","finding":"Bunker Hill parking directions; York is a river-difficulty marker, not identified as a canoe/kayak launch."},
+    {"siteNumber":1,"url":"https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx","publisher":"Maryland DNR","finding":"River recreation difficulty and safety guidance; no York Road public landing at the selected point."},
+    {"siteNumber":1,"url":"https://fishandhuntmaryland.com/articles/gunpowder-falls-0","publisher":"Visit Maryland","finding":"York crossing roadside parking is described for fishing/wading; not paddling access evidence."},
+    {"siteNumber":2,"url":"https://dec.ny.gov/places/raquette-boreal-complex","publisher":"NYSDEC","finding":"Jamestown Falls Trailhead Parking Area coordinate is 44.3262,-74.7226; 100-foot carry to the river."},
+    {"siteNumber":3,"url":"https://www.co.portage.wi.gov/325/Park-Trail-Maps","publisher":"Portage County","finding":"Highway K right-of-way canoe access is confirmed; no exact entry coordinate is published."},
+    {"siteNumber":3,"url":"https://www.co.portage.wi.gov/DocumentCenter/View/1214/Plover-River-Wayside-PDF","publisher":"Portage County","finding":"Official map marks primitive access without a mapped wet-edge."},
+    {"siteNumber":3,"url":"https://www.co.portage.wi.gov/ArchiveCenter/ViewFile/Item/237","publisher":"Portage County","finding":"2025–2029 outdoor recreation plan lists the Highway K wayside as a 0.3-acre canoe access."},
+    {"siteNumber":4,"url":"https://dec.ny.gov/places/fish-creek-wildlife-management-area","publisher":"NYSDEC","finding":"Two parking areas near hand-launch sites; Fish Creek drainage has obstacles."},
+    {"siteNumber":4,"url":"https://dec.ny.gov/things-to-do/boating/launch-sites/st-lawrence-county","publisher":"NYSDEC","finding":"Pope Mills access is 44.483638,-75.577189 with a 0.8-mile hand carry."},
+    {"siteNumber":5,"url":"https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf","publisher":"Friends of the Verde River","finding":"Sheep Crossing at RM 62.2, coordinate 34.6740,-111.9412; asterisk legend means difficult put-in/long boat haul."},
+    {"siteNumber":5,"url":"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf","publisher":"U.S. Forest Service","finding":"Public access immediately upstream of RV resort fence; difficult carry and hazardous downstream diversion context."},
+    {"siteNumber":5,"url":"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3836193.pdf","publisher":"U.S. Forest Service","finding":"Corridor map context; does not locate the water-entry toe."},
+    {"siteNumber":6,"url":"https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field","publisher":"City of Sioux Falls","finding":"Confirms public kayak/canoe access and a boat-launch photo; 43.5028832,-96.749131 is the general park location; hours are 5 a.m.–10 p.m."},
+    {"siteNumber":6,"url":"https://gis.siouxfalls.gov/arcgis/rest/services/Data/Park/MapServer/3/query?where=Park%20like%20%27%25Farm%25%27&outFields=OBJECTID%2CPark%2CAmenityType%2CName%2CInformation%2CAddress%2CNotes%2CGlobalID&returnGeometry=true&outSR=4326&f=json","publisher":"City of Sioux Falls GIS","finding":"Amenities query returns a parking lot record, not a launch-entry feature."},
+    {"siteNumber":6,"url":"https://www.google.com/maps/place/Farm+Field+Park+Kayak+%26+Canoe+Access/@43.5013198,-96.7530732,623m/data=!3m2!1e3!4b1!4m6!3m5!1s0x878ec90045dc01af:0xb29ff98a93bb23fb!8m2!3d43.5013198!4d-96.7504983!16s%2Fg%2F11w4s5j1yk","publisher":"Google Maps feature linked from City park page","finding":"Boat-ramp feature ID 0x878ec90045dc01af:0xb29ff98a93bb23fb at 43.5013198,-96.7504983; current satellite imagery corroborates a riverside access-area location. Not survey-grade water edge."},
+    {"siteNumber":7,"url":"https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand","publisher":"Iowa DNR","finding":"Bluffton Road/W20 parking is for canoe access only; exact landing coordinate is not published."},
+    {"siteNumber":8,"url":"https://www.blm.gov/visit/mckays-bend-recreation-site","publisher":"Bureau of Land Management","finding":"Developed Clearwater River recreation site with river access; published site coordinate 46.4975,-116.726944."},
+    {"siteNumber":8,"url":"https://www.blm.gov/announcement/blm-reopens-mckays-bend-campground-and-boat-launch-after-wildfire","publisher":"Bureau of Land Management","finding":"Boat launch reopened to public on 2024-08-22; no exact launch coordinate."},
+    {"siteNumber":8,"url":"https://www.blm.gov/sites/blm.gov/files/documents/files/idaho_clearwaterriver_guide-and-maps_0.pdf","publisher":"Bureau of Land Management","finding":"Site map context; no exact water-edge coordinate."},
+    {"siteNumber":9,"url":"https://spokanecd.org/blogs/news/spokane-river-restored-access-points","publisher":"Spokane Conservation District","finding":"Mirabeau is small-boat/pedestrian access with restored gravel pathway; no exact pathway endpoint coordinate."},
+    {"siteNumber":9,"url":"https://www.spokanevalleywa.gov/DocumentCenter/View/499/Parks-and-Recreation-Master-Plan-PDF","publisher":"City of Spokane Valley","finding":"2019 park plan describes the gravel path down to the river at the north end of the bridge beside the Mirabeau South Trailhead."},
+    {"siteNumber":9,"url":"https://www.spokanevalleywa.gov/DocumentCenter/View/349/Mirabeau-Point-Park-Walking-Trails-Map-and-Geology-Brochure-and-Map-PDF","publisher":"City of Spokane Valley","finding":"Park map locates Centennial Trailheads along the Spokane River and provides local path context."},
+    {"siteNumber":9,"url":"https://www.spokaneriver.net/watertrail/paddling/stateline-to-upriver-dam/","publisher":"Spokane River Water Trail","finding":"Lists Barker Road to Mirabeau as a 4.5-mile reach and describes the rapids and hazards before the take-out."},
+    {"siteNumber":9,"url":"https://www.google.com/maps/@47.68201,-117.223061,145m/data=!3m1!1e3","publisher":"Google Maps aerial imagery (Airbus/Maxar attribution)","finding":"Current aerial shows the gravel path reaching the riverbank. Water-side toe estimated as 47.68186,-117.22255; map attribution shows 2026 imagery copyright but no scene acquisition date."},
+    {"siteNumber":10,"url":"https://www.nps.gov/rigr/planyourvisit/boq_cyn.htm","publisher":"National Park Service","finding":"Heath Canyon take-out is on the U.S. side downstream of La Linda bridge; TPWD operation requires Limited Use Permit and self-registration."},
+    {"siteNumber":10,"url":"https://www.nps.gov/rigr/planyourvisit/lower_cyns.htm","publisher":"National Park Service","finding":"Heath Canyon is Lower Canyons put-in; access is difficult and constrained by private land."},
+    {"siteNumber":10,"url":"https://tpwd.texas.gov/newsmedia/releases/?req=20250506a","publisher":"Texas Parks and Wildlife Department","finding":"2025 Heath Canyon Ranch acquisition for Black Gap WMA management; public river access to continue."},
+    {"siteNumber":10,"url":"https://www.nps.gov/rigr/learn/management/upload/RIGR_gmp-eis.pdf","publisher":"National Park Service","finding":"Background on access areas and ownership; no current landing coordinate."}
+  ],
+  "imageryMethod": {
+    "farmFieldPark": "Inspected current Google Maps satellite view at the feature-linked map location. The access POI appears at the riverbank; the exact wet edge is not surveyed. No image file is archived, so treat imagery confirmation as qualitative and use 100-foot uncertainty.",
+    "mirabeauPark": {
+      "retrievedDate": "2026-09-18",
+      "sourceUrl": "https://www.google.com/maps/@47.68201,-117.223061,145m/data=!3m1!1e3",
+      "imageryAttribution": "Google Maps; Airbus/Maxar copyright 2026 (scene acquisition date not displayed)",
+      "view": "Satellite, map center 47.68201,-117.223061, Google Maps 145m view parameter; visible 50-foot scale bar; viewport 1280x720, map canvas x=72..1279 and y=0..719.",
+      "selectedWaterSidePixel": {"x":960,"y":440},
+      "mapCanvasCenterPixel": {"x":676,"y":360},
+      "conversion": "Approximate local scale from the 50-foot bar (~74 px): selected toe is about 192 feet east and 54 feet south of the map center. Convert local east/north offsets to WGS84 at latitude 47.68201, yielding 47.68186,-117.22255. This is a reviewer georeference from the visible gravel-path toe, not a surveyed coordinate.",
+      "uncertaintyFeet": 40,
+      "screenshotArchived": false
+    },
+    "otherSites": "No other replacement coordinate was inferred from imagery. Access/trailhead coordinates remain source-backed area anchors; unresolved water-entry positions remain held."
+  },
+  "provenanceCaution": "Farm Field is an authoritative access-area anchor with 100-foot uncertainty, not a surveyed water edge. Mirabeau is a separate imagery-georeferenced water-entry estimate with 40-foot uncertainty, supported by the City's path location and the Conservation District's small-craft access record."
+}

@@ -1,0 +1,209 @@
+{
+  "batch": "2026-09-18-batch-31-suspicious",
+  "reviewedAt": "2026-09-18",
+  "reviewStatus": "in-progress",
+  "reviewScope": "Ten frozen physical sites ranked from the network-backed suspicious queue. A suspicious severity is treated as a distance flag, then checked against the named waterbody, public access identity, access geometry, route role, and imagery. This record preserves completed decisions while the remaining frozen sites continue through review.",
+  "auditGeneratedAt": "2026-09-18T11:59:00.434Z",
+  "sites": [
+    {
+      "siteNumber": 1,
+      "state": "Vermont",
+      "name": "Arrowhead Mountain Lake public boat ramp, Fairfax",
+      "latitude": 44.68217,
+      "longitude": -73.087,
+      "distanceFeetToMatchedRiver": 791.4,
+      "routeIds": ["lamoille-river-upper-access-arrowhead"],
+      "decision": "keep-access-anchor",
+      "reason": "The endpoint is at the public Arrowhead Mountain Lake ramp. Vermont Fish & Wildlife identifies the access area, satellite imagery shows the lake-side ramp, and Vermont DEC identifies the lake at the downstream end of the Lamoille mainstem. The large flowline distance was a waterbody-model mismatch, not evidence that the launch was misplaced.",
+      "coordinateUncertaintyFeet": 50,
+      "sources": [
+        {"url":"https://www.vtfishandwildlife.com/fish/boating-in-vermont/fishing-access-areas","finding":"Vermont Fish & Wildlife's public access-area source supports the named Arrowhead Mountain Lake access."},
+        {"url":"https://anrweb.vermont.gov/DEC/SGA/projects/phase1/data/Step1.aspx?option=view&phid=1&pid=12&rid=2","finding":"Vermont DEC describes the Lamoille River mainstem reach as ending at Clarks Falls Dam at the downstream end of Arrowhead Mountain Lake."}
+      ],
+      "publicationAction": "retain-coordinate-and-route; map terminal lake connection in audit control"
+    },
+    {
+      "siteNumber": 2,
+      "state": "Iowa",
+      "name": "Pearl Rock Canoe/Kayak Launch",
+      "originalCoordinate": {"latitude":42.910715,"longitude":-92.543001},
+      "newCoordinate": {"latitude":42.9107066,"longitude":-92.5408445},
+      "distanceFeetToMappedWaterBefore": 597.7,
+      "routeIds": ["cedar-river-nashua-pearl-rock","cedar-river-pearl-rock-north-cedar"],
+      "publicRouteIds": ["cedar-river-nashua-pearl-rock","cedar-river-pearl-rock-north-cedar"],
+      "decision": "fix",
+      "coordinateMethod": "Chickasaw County confirms the named canoe launch on the Cedar River. The guide-published pin was about 600 feet west on 305th Street. The replacement uses the named Google Maps launch-place coordinate, checked against current aerial imagery showing the public access drive at the river-side landing.",
+      "coordinateUncertaintyFeet": 50,
+      "reason": "The original guide coordinate resolves to the road rather than the mapped launch. The replacement matches the named access marker and shoreline evidence.",
+      "sources": [
+        {"url":"https://www.mycountyparks.com/County/Chickasaw/Park/Pearl-Rock-Canoe-Launch-Site.aspx","finding":"Chickasaw County identifies Pearl Rock Canoe Launch Site and its Cedar River access."},
+        {"url":"https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf","finding":"The Cedar River paddling guide publishes the previous coordinate and route context; its location is displaced from the named launch on imagery."},
+        {"url":"https://www.google.com/maps/place/Pearl+Rock+Canoe%2FKayak+Launch/@42.910715,-92.5411825,157m/data=!3m1!1e3!4m12!1m5!3m4!2zNDLCsDU0JzM4LjYiTiA5MsKwMzInMzQuOCJX!8m2!3d42.910715!4d-92.543001!3m5!1s0x87f073691a692149:0x78c736d376679d23!8m2!3d42.9107066!4d-92.5408445!16s%2Fg%2F11s55gnh3l","finding":"Named launch-place record supplies the replacement coordinate; aerial imagery was manually checked on 2026-09-18. This is imagery-derived, not surveyed agency GPS."}
+      ],
+      "validation": "Both affected route audits have zero suspicious endpoints and no source issues. Pearl Rock now resolves to the exact named water-entry control; the remaining 191-foot flowline offset is review-only and reflects generalized hydrography.",
+      "publicationAction": "keep-both-public-routes; regenerate route geometry and registry"
+    },
+    {
+      "siteNumber": 3,
+      "state": "Wisconsin",
+      "name": "Princeton Jefferson Street / Hiestand Park Landing",
+      "latitude": 43.8512,
+      "longitude": -89.1289,
+      "distanceFeetToMappedWater": 585.5,
+      "newCoordinate": {"latitude": 43.85238, "longitude": -89.133973},
+      "distanceFeetToMappedWaterAfter": null,
+      "coordinateUncertaintyFeet": 50,
+      "routeIds": ["fox-river-princeton-locks-city-landing", "fox-river-princeton-locks-white-river-locks"],
+      "decision": "fix-water-entry",
+      "reason": "The prior point 43.8512,-89.1289 is over 600 feet from the matched Fox River flowline. The City of Princeton identifies the kayak launch and boat pier at Hiestand Park; the Princeton Visitors Guide places the public launch off Mechanic Street. Current aerial imagery shows the river-entry pier on the east bank. The replacement coordinate 43.852380,-89.133973 marks its visible water-entry end with 50-foot uncertainty; it is imagery-derived, not surveyed.",
+      "sources": [
+        {"url":"https://www.cityofprincetonwi.com/index.asp?SEC=F11B550A-B808-473A-AA87-8145A5C4B32E&Type=B_BASIC","finding":"City page documents the 2018 kayak launch and boat pier at Hiestand Park."},
+        {"url":"https://www.cityofprincetonwi.com/vertical/sites/%7B39FA6B64-E7EC-4BF1-A0FF-4A1B75EF2D8C%7D/uploads/PrincetonVG2024.pdf","finding":"Princeton Visitors Guide locates the public launch off Highways 23/73 on Mechanic Street and describes an accessible kayak/canoe EZ Launch."},
+        {"url":"https://www.google.com/maps/@43.8526044,-89.1334048,155m/data=!3m1!1e3","finding":"Current aerial imagery shows the park pier extending from the Fox River's east bank; map coordinate checked at the visible water-entry end, not surveyed."}
+      ],
+      "validation": "The public-route audit checked 2 endpoints, found zero suspicious results and zero source issues; Hiestand matches the named water-entry control. The all-inventory audit of the second route also cleared Hiestand, but that route remains withheld for a separate 1,275-foot Old St. Marie access-point failure.",
+      "publicationAction": "regenerate-both-affected-route-geometries-and-registry"
+    },
+    {
+      "siteNumber": 4,
+      "state": "Iowa",
+      "name": "Schram Park public boat ramp",
+      "originalCoordinate": {"latitude":42.4679,"longitude":-91.4448},
+      "newCoordinate": {"latitude":42.4712649,"longitude":-91.4525313},
+      "distanceFeetToMappedWaterBefore": 556.1,
+      "routeIds": ["maquoketa-river-quaker-mill-baileys-ford"],
+      "decision": "fix",
+      "coordinateMethod": "The City of Manchester confirms a boat ramp at Schram Park for Maquoketa River access; the Iowa DNR water-trail guide marks the park as an alternate put-in. The old point was in Manchester's residential street grid. The replacement uses the river-side Schram Park place marker checked against aerial imagery on 2026-09-18.",
+      "coordinateUncertaintyFeet": 75,
+      "reason": "The old coordinate was about 2,416 feet from the park access and did not identify the boat ramp. The replacement is at the documented public ramp area.",
+      "sources": [
+        {"url":"https://www.manchester-ia.org/vnews/display.v/ART/60f9de1f8bc4e","finding":"City of Manchester confirms a boat ramp at Schram Park for Maquoketa River access."},
+        {"url":"https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_maq_del.pdf","finding":"Iowa DNR identifies Schram Park as an alternate put-in on the Maquoketa water trail."},
+        {"url":"https://www.google.com/maps/place/Schram+Park/@42.4712649,-91.4525313,634m/data=!3m2!1e3!4b1!4m6!3m5!1s0x87e4b4052e7dc0bb:0xd172c011ddfbe6f1!8m2!3d42.4712649!4d-91.4525313!16s%2Fg%2F11h13n8pt","finding":"Named park marker and satellite imagery place the public access at the river side of the park. Coordinate is imagery-derived, not a surveyed city point."}
+      ],
+      "validation": "Targeted route audit: 5 endpoints checked, zero suspicious, zero source issues; the Schram access point matches the named water-entry control. The remaining 331-foot flowline offset is review-only, with NHD water proximity within 100 feet.",
+      "publicationAction": "keep-route-public; regenerate route geometry and registry"
+    },
+    {
+      "siteNumber": 5,
+      "state": "West Virginia",
+      "name": "Baileysville WVDNR public access",
+      "latitude": 37.5891667,
+      "longitude": -81.6791667,
+      "distanceFeetToMappedWater": 554.9,
+      "routeIds": ["wv-guyandotte-baileysville-rd-bailey-campground","wv-guyandotte-pineville-baileysville"],
+      "heldRouteIds": ["wv-guyandotte-baileysville-rd-bailey-campground","wv-guyandotte-pineville-baileysville"],
+      "decision": "reject-unverified",
+      "reason": "An older state fishing guide publishes the stored point, but that listing does not establish a boat entry. The current WVDNR GIS layer has an active CR 14 Bridge carry-down/pull-off about 0.8 mile east. Aerial review of the saved point does not establish a public boat carry or landing. Do not silently substitute CR 14 for the named Baileysville water-trail endpoint.",
+      "sources": [
+        {"url":"https://wvats.cedwvu.org/media/2441/fishingguide.pdf","finding":"The older guide publishes 37°35′21″ N, 81°40′45″ W as Baileysville - Guyandotte River, but does not describe boat access there."},
+        {"url":"https://services.wvgis.wvu.edu/arcgis/rest/services/Applications/dnrRec_fishing/MapServer/2/query?where=OBJECTID%3D229&outFields=*&returnGeometry=true&outSR=4326&f=pjson","finding":"Current WVDNR fishing/boating layer identifies active CR 14 Bridge, Guyandotte River, Carry Down, Pull-Off at 37.5876617,-81.6645737."},
+        {"url":"https://wvdnr.gov/wp-content/uploads/2023/04/Pub_District4FishingGuide_DNR_WILD_digital.pdf","finding":"Current District 4 guide lists CR 14 Bridge as a river access and the Guyandotte Campground downstream; it does not resolve the stored point as the paddling endpoint."}
+      ],
+      "reopen": "Confirm the intended public Baileysville put-in/take-out with a current WVDNR water-trail map or access inventory and georeference its legal carry and water entry. Use CR 14 only if the water-trail itinerary confirms it is the intended site.",
+      "publicationAction": "withhold-dependent-routes"
+    },
+    {
+      "siteNumber": 6,
+      "state": "Iowa",
+      "name": "Canton Bridge Access / Canton County Park",
+      "latitude": 42.1627901,
+      "longitude": -90.8918068,
+      "distanceFeetToMappedWater": 544.7,
+      "routeIds": ["maquoketa-river-canton-royertown"],
+      "decision": "keep-access-anchor",
+      "reason": "Jackson County names Canton Bridge Access at County Road E17. Iowa DNR's water-trail material documents the Canton-to-Royertown corridor. The broad Maquoketa route name had failed the control's exact South Fork name match; an explicit source-backed connected-water-trail relationship now makes the control visible to the audit. The coordinate remains a bridge/park anchor, not a surveyed river-entry point.",
+      "sources": [
+        {"url":"https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail","finding":"Jackson County names Canton Bridge Access at the E17 bridge."},
+        {"url":"https://www.iowadnr.gov/event/2023-05-16/maquoketa-north-fork-maquoketa-water-trail-dedicated-may-31","finding":"Iowa DNR documents the connected Maquoketa/North Fork water-trail corridor and guided Canton-to-Royertown paddle."}
+      ],
+      "validation": "Targeted audit now reports review with the authoritative access-anchor source instead of suspicious; the 609-foot flowline offset remains a human review item.",
+      "publicationAction": "retain-route-and-coordinate-as-access-area-anchor; preserve exact-entry caveat"
+    },
+    {
+      "siteNumber": 7,
+      "state": "Idaho",
+      "name": "Neal Bridge Take-Out",
+      "latitude": 43.5519,
+      "longitude": -115.737,
+      "distanceFeetToMappedWater": 541.3,
+      "routeIds": ["south-fork-boise-danskin-neal"],
+      "decision": "reject-unverified; hold-route",
+      "reason": "The Bureau of Reclamation confirms Neal Bridge as the downstream take-out, and Idaho Fish and Game identifies the reach from Neal Bridge / Forest Road 189 upstream. The stored RiverFacts point (43.55194,-115.73723) is about 3,900 feet west of the mapped bridge and reverse-geocodes to Blacks Creek Road. No reviewed source georeferences the required river-left landing immediately before the bridge, so the stored point is rejected and the expert route is withheld rather than silently moved to the bridge axis.",
+      "sources": [
+        {"url":"https://www.usbr.gov/pn/studies/boisefeasibility/docs/FR.pdf","finding":"Bureau of Reclamation identifies the Danskin-to-Neal Bridge take-out above Arrowrock backwater; it does not publish exact landing coordinates."},
+        {"url":"https://idfg.idaho.gov/blog/2021/06/wild-trout-and-wildfire-monitoring-trout-populations-south-fork-boise-river-after","finding":"Idaho Fish and Game identifies the canyon run from Danskin Bridge to Neal Bridge and describes extremely limited access."},
+        {"url":"https://idfg.idaho.gov/ifwis/fishingplanner/water/70008","finding":"Idaho Fish and Game locates the regulated South Fork reach from Neal Bridge (Forest Road 189) upstream to Anderson Ranch Dam."},
+        {"url":"https://waterdata.usgs.gov/monitoring-location/USGS-13192200","finding":"The USGS monitoring station is named for Neal Bridge and places the river station near 43.55056,-115.72194."},
+        {"url":"https://nominatim.openstreetmap.org/search.php?q=Neal%20Bridge%2C%20Elmore%20County%2C%20Idaho&format=jsonv2","finding":"OpenStreetMap maps the Neal Bridge crossing at 43.5502113,-115.7218012; this locates the bridge axis, not the exact public landing."},
+        {"url":"https://www.riverfacts.com/maps/11015.html","finding":"The community source underlying the stored endpoint publishes 43.55194,-115.73723, which is substantially west of Neal Bridge."}
+      ],
+      "reopen": "Locate and verify the legal river-left landing just upstream of Neal Bridge from a current Forest Service/Reclamation map or direct managing-agency confirmation; replace the held route endpoint only when that water-entry point is supported."
+    },
+    {
+      "siteNumber": 8,
+      "state": "Washington",
+      "name": "Copper Creek Boat Access, NPS Road 213",
+      "latitude": 48.5910748909,
+      "longitude": -121.3779020782,
+      "distanceFeetToMappedWater": 495.6,
+      "newCoordinate": {"latitude": 48.5911, "longitude": -121.373204},
+      "distanceFeetToMappedWaterAfter": null,
+      "coordinateUncertaintyFeet": 75,
+      "routeIds": ["skagit-river-copper-howard-miller","skagit-river-copper-marblemount","skagit-river-goodell-copper"],
+      "decision": "fix-water-entry",
+      "reason": "The old coordinate is about 650 feet from the matched Skagit flowline. NPS identifies the public Copper Creek take-out; the county's approved permit decision places it south of SR 20 east of MP 111.5 and describes a 40-foot gravel boat ramp at the water's edge. Current aerial imagery shows the ramp/landing at the end of the access road. The replacement 48.591100,-121.373204 is imagery-derived with 75-foot uncertainty, not surveyed.",
+      "sources": [
+        {"url":"https://www.nps.gov/thingstodo/rafting-in-the-north-cascades.htm","finding":"NPS names the Copper Creek Take-Out near SR 20 milepost 112 as a public Skagit access."},
+        {"url":"https://skagitcounty.net/OfficeOfLandUseHearings/Documents/decisions/SL050748%20Seattle%20City%20Light.pdf","finding":"The approved permit decision locates the facility south of SR 20 immediately east of MP 111.5, confirms public river access, and documents a 40-foot gravel ramp at the water's edge."},
+        {"url":"https://www.google.com/maps/@48.5912,-121.3728,71m/data=!3m1!1e3","finding":"Current aerial imagery was checked at the access road end; the selected coordinate is an imagery-derived ramp-edge location, not a surveyed coordinate."}
+      ],
+      "validation": "Targeted audits checked all 6 endpoints across the three affected routes, found zero suspicious results and zero source issues. The corrected Copper Creek endpoints match the named authoritative ramp control; all are within 100 feet of NHD waterbody geometry. Route-scoped geometry regeneration is pending full refresh.",
+      "publicationAction": "regenerate-all-affected-route-geometry-and-registry"
+    },
+    {
+      "siteNumber": 9,
+      "state": "Illinois",
+      "name": "Wes Block Trail Access",
+      "latitude": 42.330992586134,
+      "longitude": -89.666227460683,
+      "distanceFeetToMappedWater": 481.9,
+      "newCoordinate": {"latitude": 42.3300675, "longitude": -89.6663288},
+      "distanceFeetToMappedWaterAfter": null,
+      "coordinateUncertaintyFeet": 75,
+      "routeIds": ["pecatonica-river-wes-block-tuttys"],
+      "decision": "fix-access-anchor",
+      "reason": "The previous point was 482 feet from mapped water. The Jane Addams Trail operator verifies Wes Block Trail Access at 2636 W Fairview Road with parking and a boat launch; Illinois Paddling Council documents a kayak launch completed in 2022. Current imagery checks the named trailhead marker at 42.3300675,-89.6663288 as the public access area. Keep the coordinate explicitly as a 75-foot-uncertainty parking/carry anchor because the reviewed sources do not georeference the 2022 launch's exact water-entry edge.",
+      "sources": [
+        {"url":"https://janeaddamstrail.com/","finding":"Jane Addams Trail lists Wes Block Trail Access at 2636 W Fairview Road with parking and boat-launch amenities."},
+        {"url":"https://illinoispaddling.org/newest-boat-launch-completed-at-wes-block-landing-on-the-pecatonica-river/","finding":"Illinois Paddling Council documents completion of a new kayak launch at Wes Block Landing in August 2022."},
+        {"url":"https://www.google.com/maps/@42.3300675,-89.6663288,318m/data=!3m1!1e3","finding":"Aerial imagery checks the named Wes Block trailhead/public access area; it does not resolve the precise launch-edge coordinate."}
+      ],
+      "validation": "Targeted audit checked 2 endpoints, found zero suspicious results and zero source issues. Wes Block matches the named authoritative access-area control; the endpoint is 361 feet from the NHD flowline, so retain the exact-water-entry caveat for field review.",
+      "publicationAction": "retain-route-with-explicit-access-area-anchor-and-water-entry-caveat"
+    },
+    {
+      "siteNumber": 10,
+      "state": "Iowa",
+      "name": "Millertown Bridge Access / Monmouth corridor",
+      "latitude": 42.084,
+      "longitude": -90.762,
+      "distanceFeetToMappedWater": 471.2,
+      "newCoordinate": {"latitude": 42.124508, "longitude": -90.857821},
+      "distanceFeetToMappedWaterAfter": null,
+      "coordinateUncertaintyFeet": 100,
+      "routeIds": ["maquoketa-river-monmouth-maquoketa"],
+      "decision": "fix-access-anchor",
+      "reason": "The stored point is about 29,850 feet southeast of the public access and reverse-geocodes to 116th Avenue. Jackson County places Millertown Bridge Access at the 30th Avenue bridge; OSM bridge geometry and current aerial imagery locate the crossing at 42.124508,-90.857821. The coordinate is an access/bridge-axis anchor with 100-foot uncertainty, not a surveyed wet-edge landing.",
+      "sources": [
+        {"url":"https://www.mycountyparks.com/county/jackson/Park/Maquoketa-River-Water-Trail","finding":"Jackson County names Millertown Bridge Access at the 30th Avenue bridge, three miles north of Monmouth."},
+        {"url":"https://www.manchester-ia.org/vimages/shared/vnews/stories/60face3d1263d/Maq-FINAL.pdf","finding":"Iowa DNR water-trail map labels Millertown in the Maquoketa corridor."},
+        {"url":"https://www.openstreetmap.org/way/48197353","finding":"30th Avenue bridge geometry (bridge=yes) places the crossing at 42.124508,-90.857821; this is the road axis, not the exact water-entry point."},
+        {"url":"https://nominatim.openstreetmap.org/reverse?lat=42.084&lon=-90.762&format=jsonv2","finding":"The rejected stored point reverse-geocodes to 116th Avenue, far southeast of Millertown."},
+        {"url":"https://www.google.com/maps/@42.124429,-90.858443,159m/data=!3m1!1e3","finding":"Current aerial imagery shows the access road and crossing at the Maquoketa; used to check the bridge-axis access anchor, not to claim a surveyed wet-edge coordinate."}
+      ],
+      "validation": "Targeted audit checked 3 endpoints, found zero suspicious results and zero source issues; the Millertown put-in is a named authoritative access anchor and 33 feet from its control. Route-scoped geometry was regenerated.",
+      "publicationAction": "regenerate-route-geometry-and-registry"
+    }
+  ]
+}

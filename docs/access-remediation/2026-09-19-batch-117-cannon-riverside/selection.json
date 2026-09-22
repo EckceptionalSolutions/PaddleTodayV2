@@ -1,0 +1,23 @@
+{
+  "batch": "B117",
+  "selectedAt": "2026-09-19",
+  "routeId": "cannon-river-welch",
+  "routeName": "Cannon River",
+  "reach": "Riverside Park to Welch Mill",
+  "state": "Minnesota",
+  "endpoint": "putIn",
+  "endpointName": "Riverside Park canoe launch (Cannon Falls)",
+  "storedCoordinate": {
+    "latitude": 44.5148835,
+    "longitude": -92.8990298
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 333.38000643495843,
+    "nearestWaterwayName": "Cannon River",
+    "distanceFeetToMappedWater": 277.3488264287071,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "The City of Cannon Falls confirms a canoe launch at Riverside Park, and Minnesota DNR identifies Riverside City Park carry-in access at river mile 25.5. Retain the stored point as a conditional city-park/carry-in anchor."
+}

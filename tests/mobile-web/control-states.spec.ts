@@ -50,7 +50,7 @@ test('route sections and shorter-trip access choices work by keyboard and announ
 });
 
 test('Explore exposes search, view, and filter state to keyboard users', async ({ page }) => {
-  await page.route('**/api/rivers/summary.json', (route) => route.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/rivers/{summary,explore}.json', (route) => route.fulfill({ json: { rivers: [] } }));
   await page.goto('/explore');
   const search = page.getByRole('textbox', { name: 'Search routes', exact: true });
   await search.fill('Rice Creek');

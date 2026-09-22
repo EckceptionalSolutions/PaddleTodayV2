@@ -1,0 +1,25 @@
+{
+  "id": "nps_fort_niobrara_launch_site",
+  "name": "National Park Service / Fort Niobrara NWR Launch Site",
+  "state": "Nebraska",
+  "sourceUrl": "https://www.recreation.gov/camping/gateways/12803",
+  "sourceType": "official-federal-access-record",
+  "sourceDocumentDate": null,
+  "sourceSha256": null,
+  "coordinateRole": "authoritative-water-entry",
+  "method": "Recreation.gov publishes the Fort Niobrara Wilderness access GPS coordinate for the refuge canoe launch; the NPS identifies the same site as the public canoe/kayak launch adjacent to Cornell Bridge.",
+  "controls": [
+    {
+      "featureId": "fort-niobrara-nwr-launch-site",
+      "name": "Fort Niobrara NWR Launch Site near Cornell Bridge",
+      "aliases": [
+        "Fort Niobrara Launch Site",
+        "Fort Niobrara Wildlife Refuge Launch Site"
+      ],
+      "waterbody": "Niobrara River",
+      "latitude": 42.893222,
+      "longitude": -100.476967,
+      "uncertaintyFeet": 25
+    }
+  ]
+}

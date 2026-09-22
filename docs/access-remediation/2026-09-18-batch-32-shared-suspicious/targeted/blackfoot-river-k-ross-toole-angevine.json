@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:24:44.939Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "blackfoot-river-k-ross-toole-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "K. Ross Toole Fishing Access Site to Angevine Fishing Access Site",
+      "state": "Montana",
+      "endpoint": "putIn",
+      "endpointName": "K. Ross Toole Fishing Access Site (water-entry edge)",
+      "latitude": 46.90393,
+      "longitude": -113.72594,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 114.73799891919354,
+      "nearestMatchedLatitude": 46.904234,
+      "nearestMatchedLongitude": -113.726058,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 114.73799891919354,
+      "nearestWaterwayLatitude": 46.904234,
+      "nearestWaterwayLongitude": -113.726058,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 85.41987651729941,
+      "nearestWaterbodyLatitude": 46.9041475717189,
+      "nearestWaterbodyLongitude": -113.72606663957166,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 85.41987651729941,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 85 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "blackfoot-river-k-ross-toole-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "K. Ross Toole Fishing Access Site to Angevine Fishing Access Site",
+      "state": "Montana",
+      "endpoint": "takeOut",
+      "endpointName": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "latitude": 46.8958721652,
+      "longitude": -113.7639273234,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 55.43136050033439,
+      "nearestMatchedLatitude": 46.89573248682562,
+      "nearestMatchedLongitude": -113.76383980325973,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 55.43136050033439,
+      "nearestWaterwayLatitude": 46.89573248682562,
+      "nearestWaterwayLongitude": -113.76383980325973,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0.0000072942391691763595,
+      "nearestWaterbodyLatitude": 46.89587216518099,
+      "nearestWaterbodyLongitude": -113.76392732339092,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0.0000072942391691763595,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://myfwp.mt.gov/fishMT/fas/39754559",
+      "coordinateEvidenceDetail": "montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge: Montana FWP identifies Angevine as a hand launch on the Blackfoot River and gives the site location at 46.89663,-113.76333. FWP GIS layer 2 defines the 13.0149-acre public Angevine boundary; the selected point lies within that boundary at its Blackfoot River edge. The previous route coordinate was 275.5 feet from NHD waterbody geometry and 329.8 feet from the matched flowline. The replacement uses the nearest NHD shoreline point, checked against current Google Maps aerial imagery and the public parcel. It is imagery-derived with 75-foot uncertainty, not a surveyed FWP water-entry coordinate.",
+      "severity": "ok",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge) on Blackfoot River; the 55 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

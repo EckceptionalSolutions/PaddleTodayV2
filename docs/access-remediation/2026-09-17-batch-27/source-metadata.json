@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "id": "mi-mayors-riverfront-michigan-water-trails",
+      "url": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av",
+      "title": "Mayor's Riverfront Park — Michigan Water Trails",
+      "publisher": "Michigan Water Trails / Kalamazoo River Watershed Council",
+      "sourceType": "public-water-trail-access-listing",
+      "observedAt": "2026-09-17",
+      "supports": [
+        "City park boat ramp / developed carry-in access",
+        "GPS 42° 17.48520, -85° 33.73980 (42.29142, -85.56233)",
+        "Access length under 50 yards",
+        "251 Mills Street, Kalamazoo, Michigan"
+      ],
+      "doesNotEstablish": [
+        "A surveyed exact wet-edge coordinate",
+        "Current bank conditions or temporary construction closures"
+      ]
+    }
+  ]
+}

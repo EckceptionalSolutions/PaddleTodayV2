@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:48:30.978Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "cannon-river-welch",
+      "routeName": "Cannon River",
+      "reach": "Cannon Falls to Welch",
+      "state": "Minnesota",
+      "endpoint": "putIn",
+      "endpointName": "Riverside Park canoe launch (Cannon Falls)",
+      "latitude": 44.5148835,
+      "longitude": -92.8990298,
+      "matchedRiverName": "Cannon River",
+      "distanceFeetToMatchedRiver": 333.38000643495843,
+      "nearestMatchedLatitude": 44.51397203594741,
+      "nearestMatchedLongitude": -92.89893767094915,
+      "nearestWaterwayName": "Cannon River",
+      "distanceFeetToNearestWaterway": 333.38002744754937,
+      "nearestWaterwayLatitude": 44.51397201265144,
+      "nearestWaterwayLongitude": -92.8989381242139,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 277.3488264287071,
+      "nearestWaterbodyLatitude": 44.51415617060555,
+      "nearestWaterbodyLongitude": -92.89871950004846,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 277.3488264287071,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.cannonfallsmn.gov/1285/Riverside-Park",
+      "coordinateEvidenceDetail": "mn_cannon_falls_riverside_park_cannon_access_20260919 cannon-falls-riverside-park-cannon-canoe-launch: City of Cannon Falls identifies Riverside Park on Highway 20 North and confirms a canoe launch point onto the Cannon River. Minnesota DNR Cannon River State Water Trail guidance identifies Riverside City Park carry-in access at river mile 25.5. Retain the stored point as a conditional city-park/carry-in anchor; the 333-foot connected-network offset reflects the park, trail, and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mn_cannon_falls_riverside_park_cannon_access_20260919 cannon-falls-riverside-park-cannon-canoe-launch) on Cannon River; access is conditional (Confirm current City of Cannon Falls park status, parking, carry path, river level, and any seasonal or local restrictions before use.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "cannon-river-welch",
+      "routeName": "Cannon River",
+      "reach": "Cannon Falls to Welch",
+      "state": "Minnesota",
+      "endpoint": "takeOut",
+      "endpointName": "Welch Mill private outfitter landing (conditional)",
+      "latitude": 44.5679337,
+      "longitude": -92.7385579,
+      "matchedRiverName": "Cannon River",
+      "distanceFeetToMatchedRiver": 143.82146673501967,
+      "nearestMatchedLatitude": 44.56795706356623,
+      "nearestMatchedLongitude": -92.73800550529718,
+      "nearestWaterwayName": "Cannon River",
+      "distanceFeetToNearestWaterway": 347.53074095674594,
+      "nearestWaterwayLatitude": 44.56698184050587,
+      "nearestWaterwayLongitude": -92.73850458229485,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 308.73633115148755,
+      "nearestWaterbodyLatitude": 44.56708755522335,
+      "nearestWaterbodyLongitude": -92.73857895159992,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 143.82146673501967,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.dnr.state.mn.us/state-water-trails/cannon-river/segments-maps.html",
+      "coordinateEvidenceDetail": "mn_dnr_welch_mill_outfitter_landing_20260918 welch-mill-cannon-river-outfitter-landing: MN DNR says parking is at a premium in Welch and there is no developed public access; its virtual tour says paddlers use outfitter service and can drop off at County Road 7 Bridge. Welch Mill's current operator page says its trips start at the mill, shuttle customers upstream, and return them to the mill. The stored route coordinate is retained as the Welch Mill access-area/business anchor, not a surveyed wet-toe point or unrestricted public landing. Use only with a current reservation or explicit permission; otherwise select a separately verified legal access.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mn_dnr_welch_mill_outfitter_landing_20260918 welch-mill-cannon-river-outfitter-landing) on Cannon River; access is conditional (Welch has no developed public water access. Use the mill landing only with a current Welch Mill reservation or explicit permission and confirmation of today's hours, landing, carry, parking, and fees. It is not a public emergency bailout.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    }
+  ]
+}

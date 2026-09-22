@@ -22,21 +22,21 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     ]
   },
   "redbank-creek-new-bethlehem-climax": {
-    "putIn": {"name": "New Bethlehem kayak launch below the dam", "latitude": 41.0024, "longitude": -79.3322},
+    "putIn": {"name": "New Bethlehem municipal lot (Gumtown Park launch edge unverified)", "latitude": 41.0024, "longitude": -79.3322},
     "takeOut": {"name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751},
     "logistics": {
       "distanceLabel": "About 6 river mi",
       "estimatedPaddleTime": "About 3 to 5 on-water hours, plus shuttle and access checks",
-      "shuttle": "Stage Climax first, then use the named New Bethlehem kayak launch. Verify current parking, carry, and closure conditions before launch.",
+      "shuttle": "Stage Climax first. The published New Bethlehem coordinate is the municipal lot, not a verified launch edge; confirm the Gumtown Park launch and carry before launch.",
       "permits": "Follow current Pennsylvania Fish and Boat Commission registration and launch-permit rules and local access signs.",
       "camping": "Use only designated Redbank Valley Trail camping or nearby lodging; never camp on creek banks or access property.",
       "campingClassification": "nearby_basecamp",
-      "summary": "A named six-mile Redbank Creek float with a public New Bethlehem launch, limited Climax parking, and a same-day gauge check.",
+      "summary": "A documented six-mile New Bethlehem-to-Climax corridor. The municipal-lot coordinate does not locate the Gumtown Park launch edge or carry, so verify access before treating this as a launch itinerary.",
       "accessCaveats": ["Climax parking is limited; do not block driveways or use private banks.", "The USGS gauge and guide thresholds are operating references, not guarantees; inspect actual water, wood, and current."],
       "watchFor": ["Low water", "Fast rise and debris", "Strainers and bridges", "Cold water", "Limited cell service"]
     },
     "accessPoints": [
-      {"id": "redbank-new-bethlehem-kayak-launch", "name": "New Bethlehem kayak launch below the dam", "latitude": 41.0024, "longitude": -79.3322, "mileFromStart": 0, "segmentKind": "creek", "note": "Named public launch; follow current local parking and access signs."},
+      {"id": "redbank-new-bethlehem-kayak-launch", "name": "New Bethlehem municipal lot (Gumtown Park launch edge unverified)", "latitude": 41.0024, "longitude": -79.3322, "mileFromStart": 0, "segmentKind": "creek", "note": "RVTA identifies this coordinate as the municipal parking lot; exact Gumtown Park kayak launch edge and carry remain unverified."},
       {"id": "redbank-climax-trail-mile-17", "name": "Climax access at Trail Mile 17", "latitude": 40.9859, "longitude": -79.3751, "mileFromStart": 6, "segmentKind": "creek", "note": "Named guide/RVTA access with limited parking; do not block driveways or ramp."}
     ]
   },
@@ -243,7 +243,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -76.497242,
         "mileFromStart": 11.7,
         "segmentKind": "creek",
-        "note": "Useful shorter-day finish from Sayre or restart for the Towanda corridor."
+        "note": "Current municipal carry-in access with nearby parking, as listed in the 2021 North Branch guide. Do not use the separate, older private-gravel point."
       },
       {
         "id": "hornbrook-park",
@@ -1112,7 +1112,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at the PFBC Good Hope Access for a longer upper-middle Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on wood, current, and whether the creek looks too scrape-prone to justify the mileage.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
+        "Cumberland County's B4 coordinate is the Willow Mill park-access anchor; follow park signs to the concrete ramp at the rear. The exact ramp toe is not georeferenced. Good Hope uses the PFBC-verified access-area point, not a surveyed wet edge.",
         "Willow Mill is an improved concrete ramp with parking and portable toilets, while Good Hope is a shallower PFBC launch with matting and more limited parking.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect low-water scraping rather than a generous margin."
       ],
@@ -1144,7 +1144,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Vincent DiFilippo Nature Preserve and take out at Acri Meadow Park for a long middle-to-lower Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day call on current, wood, and whether the creek has enough depth to justify the full mileage.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
+        "Cumberland County's B4 coordinate is the Willow Mill park-access anchor; follow park signs to the concrete ramp at the rear. The exact ramp toe is not georeferenced.",
         "Vincent DiFilippo is listed as a concrete launch, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect a slower low-water day if you go near the floor."
       ],
@@ -1176,7 +1176,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at Acri Meadow Park for a full central Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a conservative same-day judgment on whether the creek has enough water and clear enough channels to justify the full 17.4-mile plan.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
+        "Cumberland County lists both endpoints as public launches. Good Hope's marker uses the PFBC-verified access-area point; the exact wet edge is not surveyed.",
         "Willow Mill is an improved concrete launch with parking, while Acri Meadow is a more basic municipal-park finish with an unimproved slope to the water.",
         "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so the app treats it as a marginal low-water full day rather than a routine green-light recommendation."
       ],
@@ -1208,7 +1208,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch at Willow Mill Park and take out at Vincent DiFilippo Nature Preserve for a short Conodoguinet day. Use the direct Hogestown gauge and the county floor of 1.7 ft, then make a same-day visual call on wood, current, and bridge approaches.",
       "accessCaveats": [
-        "Cumberland County lists both endpoints as named public launches and its current access table publishes launch coordinates; those official coordinates are used here.",
+        "Cumberland County's B4 coordinate is the Willow Mill park-access anchor; follow park signs to the concrete ramp at the rear. The exact ramp toe is not georeferenced. Vincent DiFilippo uses the county's published B5 launch coordinate.",
         "Willow Mill is an improved concrete ramp with parking and portable toilets, while Vincent DiFilippo is also listed as a concrete launch. Same-day mud, maintenance, and fallen trees can still change launch ease.",
         "The county says boating should be above 1.7 ft at Hogestown. Treat lower readings as a scrape-and-drag signal, not as a casual green light."
       ],
@@ -1307,6 +1307,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at White Haven and take out at Rockport for the upper Lehigh Gorge whitewater section. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and skip the route when water, weather, access status, or group skill is not clearly right.",
       "accessCaveats": [
         "DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.",
+        "The published White Haven South Access GPS is an official access-area point; the exact hand-carry launch toe is not separately georeferenced. Follow current park signs to the designated launch.",
         "White Haven access has had traffic and access routing changes; use current DCNR signs rather than stale directions.",
         "The Rockport coordinate is a cross-checked access-area coordinate because the DCNR Rockport page appears to publish an impossible latitude typo. Verify the exact take-out with current park signs on arrival.",
         "This is a whitewater route. DCNR says inexperienced boaters should not attempt the Lehigh River without qualified guides.",
@@ -1381,6 +1382,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at White Haven and take out at Glen Onoko for the full Lehigh Gorge whitewater corridor. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and make a hard same-day call on water, weather, release timing, and total daylight before committing.",
       "accessCaveats": [
         "DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.",
+        "The published White Haven South Access GPS is an official access-area point; the exact hand-carry launch toe is not separately georeferenced. Follow current park signs to the designated launch.",
         "This full-corridor route combines the White Haven-to-Rockport and Rockport-to-Glen-Onoko sections into one long commitment that should not be treated as a casual default trip.",
         "Glen Onoko GPS context is cross-checked to 40.8835, -75.75914 because the current state-park page appears to publish the correct longitude with a northing typo in the latitude.",
         "This is a whitewater route. DCNR says inexperienced boaters should not attempt the Lehigh River without qualified guides.",
@@ -1495,7 +1497,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "on_route_campsite",
       "summary": "Launch at Sayre PFBC and take out at Wysox Township Park for a long upper-to-mid Section 1 Susquehanna continuation. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the Towanda bridge sequence plus long exposed mileage as real same-day factors.",
       "accessCaveats": [
-        "PFBC Section 1 publishes both Sayre PFBC and Wysox Township Park coordinates directly in the official access tables.",
+        "The 2021 North Branch guide publishes Sayre Access at river mile 290.5 and GPS 41.995932, -76.473493; the older 2008 PFBC Section 1 table conflicts, so the corrected pin follows the newer guide.",
         "This is a long mainstem day for a nominally easy river. PFBC says 15 to 18 miles around the 2-foot Towanda level is already more of an experienced-paddler distance, so do not underrate a 23-mile continuation.",
         "Harrigan Island, Hornbrook County Park, and Riverside Acres are legal supports on the corridor, but the route still begins at Sayre PFBC and should finish at Wysox Township Park unless you have made a deliberate legal stop plan.",
         "Stay within the named public accesses, campgrounds, and support points rather than treating islands or private banks as casual options."
@@ -1522,13 +1524,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 8.8 mi",
       "estimatedPaddleTime": "About 3 hr to 4.5 hr in ordinary conditions, longer with low-water line picking, headwind, or a careful approach to the Towanda bridge corridor",
-      "shuttle": "Stage the take-out at Towanda Riverfront Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because mud, current angle, storm cleanup, or town-side activity can change the practical landing line.",
+      "shuttle": "Stage the take-out at Towanda Riverfront Park first, then drive back to Ulster Bridge Municipal Access. Inspect both accesses before launching because mud, current angle, storm cleanup, or town-side activity can change the practical landing line.",
       "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.",
       "camping": "Hornbrook County Park is listed in the official North Branch corridor camping table and sits on this route. Treat that as legal on-route camping support only, not as permission to land on arbitrary islands or private banks.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Ulster Bridge and take out at Towanda Riverfront Park for a shorter Towanda-corridor Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the strainer and bridge-current sequence on the same-day checklist.",
+      "summary": "Launch at Ulster Bridge Municipal Access and take out at Towanda Riverfront Park for a shorter Towanda-corridor Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the strainer and bridge-current sequence on the same-day checklist.",
       "accessCaveats": [
-        "PFBC Section 1 publishes both Ulster Bridge and Towanda Riverfront Park coordinates directly in the official access table.",
+        "The 2021 North Branch access table lists Ulster Bridge Municipal Access at 41.849146, -76.497242. The older 2008 PFBC row at 41.8525, -76.497222 is explicitly marked Gravel Private.",
         "Hornbrook County Park is a legal support point on the corridor, but the slug itself still starts at Ulster and ends at Towanda Riverfront Park.",
         "Towanda is a stronger town landing than Ulster, but the current toward structure and the busier riverfront setting still require finish discipline.",
         "Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes."
@@ -1555,13 +1557,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 11.3 mi",
       "estimatedPaddleTime": "About 3.5 hr to 5.5 hr in ordinary conditions, longer with low-water scouting, bridge-current caution, or a windy day across the Towanda corridor",
-      "shuttle": "Stage the take-out at Wysox Township Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because broad-river mud, storm cleanup, bridge-current push, or local activity can change the practical carry and landing line.",
+      "shuttle": "Stage the take-out at Wysox Township Park first, then drive back to Ulster Bridge Municipal Access. Inspect both accesses before launching because broad-river mud, storm cleanup, bridge-current push, or local activity can change the practical carry and landing line.",
       "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, municipal, boating, and PFD rules.",
       "camping": "Larnard Hornbrook County Park and Riverside Acres Campground both sit on this official corridor and can support legal overnight use with current site rules or reservations. Treat that as on-route camping support rather than permission to stop on undeveloped banks.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Ulster Bridge and take out at Wysox Township Park for a route that carries you through the Towanda bridge corridor. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the mile-274 strainer and bridge-current sequence as real same-day hazards.",
+      "summary": "Launch at Ulster Bridge Municipal Access and take out at Wysox Township Park for a route that carries you through the Towanda bridge corridor. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the mile-274 strainer and bridge-current sequence as real same-day hazards.",
       "accessCaveats": [
-        "PFBC and the North Branch guide family publish both Ulster Bridge and Wysox Township Park coordinates directly in the official access tables.",
+        "The 2021 North Branch access table identifies Ulster Bridge Municipal Access at 41.849146, -76.497242 as a carry-in launch with parking nearby; use this current municipal point, not the older private-gravel site.",
         "This route includes the Towanda bridge area and its current lines, so do not relax just because the river looks broad and mostly open.",
         "Wysox Township Park is a stronger park finish with parking and amenities, but it still requires a committed finish discipline rather than ad hoc take-outs on islands or private banks.",
         "Hornbrook Park and Riverside Acres are helpful legal support on the corridor, but the slug itself still starts at Ulster and ends at Wysox Township Park."
@@ -1588,13 +1590,13 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 24.9 mi",
       "estimatedPaddleTime": "About 7.5 hr to 10 hr in ordinary conditions, longer with headwind, low-water scouting, or a deliberate legal overnight-style pace",
-      "shuttle": "Stage the take-out at Terrytown PFBC first, then drive back to Ulster Bridge. Inspect both landings before launching because mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.",
+      "shuttle": "Stage the take-out at Terrytown PFBC first, then drive back to Ulster Bridge Municipal Access. Inspect both landings before launching because mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.",
       "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, township-park, municipal, boating, and PFD rules.",
       "camping": "Hornbrook County Park and Riverside Acres Campground both sit on this official corridor and support legal overnight planning. Treat that as on-route camping support only and not as permission to camp on broad bars, islands, or private banks.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch at Ulster Bridge and take out at Terrytown PFBC for a long Section 1 Susquehanna continuation. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat wind plus the repeated fast-water zones as real long-day factors.",
+      "summary": "Launch at Ulster Bridge Municipal Access and take out at Terrytown PFBC for a long Section 1 Susquehanna continuation. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat wind plus the repeated fast-water zones as real long-day factors.",
       "accessCaveats": [
-        "PFBC Section 1 publishes both Ulster Bridge and Terrytown PFBC coordinates directly in the official access table.",
+        "The 2021 North Branch access table identifies Ulster Bridge Municipal Access at 41.849146, -76.497242 as a carry-in launch with parking nearby; use this current municipal point, not the older private-gravel site.",
         "This route includes the Towanda bridge area and its current lines, so do not relax just because the river looks broad and mostly open.",
         "Hornbrook County Park and Riverside Acres are helpful legal overnight supports, but the route still starts at Ulster Bridge and should finish at the Terrytown PFBC landing unless you have made a deliberate legal stop plan.",
         "Stay within the named public accesses, campgrounds, and support points rather than treating islands or private banks as casual options."

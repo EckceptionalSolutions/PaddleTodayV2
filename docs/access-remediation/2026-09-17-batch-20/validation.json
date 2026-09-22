@@ -1,0 +1,45 @@
+{
+  "batch": "2026-09-17-batch-20",
+  "commands": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 157 withheld route slugs after adding the Town of Turtle review hold."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-20/verify.mjs",
+      "status": "passed",
+      "result": "10 frozen sites, 14 unique selected route IDs, one new hold, three added controls, one reclassified control, one optional waypoint removed, and 157 withheld routes."
+    },
+    {
+      "command": "TypeScript transpileModule syntax check for changed .ts files and JSON parse for access controls",
+      "status": "passed",
+      "result": "No TypeScript syntax diagnostics; access-control JSON parsed successfully."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- scoped Batch 20 files",
+      "status": "passed",
+      "result": "No whitespace errors."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --cache-only",
+      "status": "blocked",
+      "result": "Known workspace blocker from Batch 19: audit imports @paddletoday/geo, which is not installed. Existing cached audit was not overwritten; queue ranks remain prioritization only."
+    },
+    {
+      "command": "routes:geometries:generate and routes:access-registry:generate",
+      "status": "not-run",
+      "result": "No route coordinate changed. The access registry was not manually edited; a full audit/generator refresh remains blocked by the missing @paddletoday/geo package."
+    },
+    {
+      "command": "route-data typecheck and focused Vitest startup",
+      "status": "not-run",
+      "result": "No route logic changed. Batch 19 already established that route typechecking and focused Vitest startup are blocked by missing @paddletoday/api-contract and @jridgewell/sourcemap-codec dependencies."
+    }
+  ],
+  "notes": [
+    "No source coordinate was moved or snapped to mapped water; reviewed pins are access-area anchors unless exact water-entry evidence exists.",
+    "The Town Resolution 2026-11 body and the scope of its activity restrictions still need verification before the held route can reopen.",
+    "The three Troutdale campground pins across route records remain distinct pending a current manager-provided coordinate; they are not averaged."
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T01:01:43.808Z",
+  "generatedAt": "2026-09-22T01:01:13.524Z",
   "groups": [
     {
       "category": "gauge/provider",
@@ -290,7 +290,8 @@
         "route-opportunity-co-usgs-09169500",
         "route-opportunity-co-usgs-09171100",
         "nc-state-coverage-gauge-review-batch-02094500",
-        "overlap-review-71878511407b"
+        "overlap-review-71878511407b",
+        "overlap-review-aacd1b9c96e3"
       ],
       "titles": [
         "Investigate route opportunity: BIG CREEK NEAR RANDOLPH, UT",
@@ -579,7 +580,8 @@
         "Screen Colorado gauge usgs:09169500",
         "Screen Colorado gauge usgs:09171100",
         "Review the eighteenth North Carolina provider-baseline gauge window",
-        "Review route consolidation candidate: Georgia · chattahoochee-river-abbotts-bridge-azalea-park ↔ chattahoochee-river-abbotts-bridge-don-white ↔ chattahoochee-river-abbotts-bridge-garrard-landing +74"
+        "Review route consolidation candidate: Georgia · chattahoochee-river-abbotts-bridge-azalea-park ↔ chattahoochee-river-abbotts-bridge-don-white ↔ chattahoochee-river-abbotts-bridge-garrard-landing +74",
+        "Review route consolidation candidate: Massachusetts · millers-river-cass-meadow-arch-street ↔ millers-river-cass-meadow-farley ↔ millers-river-cass-meadow-millers-falls +19"
       ],
       "summaries": [
         "usgs:10023000 is classified research_needed. Find a station-specific paddling threshold or conservative minimum-only source tied to this gauge. This is a bounded research task, not permission to publish a route.",
@@ -868,7 +870,8 @@
         "No route added; durable blocked/route_capable direct disposition recorded for 09169500 because the Bedrock-to-Gateway Dolores reach is gauge-tied and documented, but current endpoint rights/parking/security, conservative release threshold, route-specific hazard/logistics, imagery, and canonical geometry gates remain incomplete.",
         "No route added; durable blocked/route_capable direct disposition recorded for 09171100 because the Gateway-to-Colorado-River Dolores reach is gauge-tied and documented, but cross-state endpoint/permit handling, current access, conservative release threshold, route-specific hazard/logistics, imagery, and canonical geometry gates remain incomplete.",
         "Completed the eighteenth bounded North Carolina window: Reedy Fork near Gibsonville is retained as a blocked route-capable public-blueway lead; South Buffalo Creek near Pomona, South Buffalo Creek at U.S. 220, Ryan Creek below U.S. 220, and South Buffalo Creek near Greensboro are screened out as urban records without distinct station-tied public paddle corridors. No route was added and the pointer advanced to usgs:02095181.",
-        "Existing Georgia Chattahoochee condition-family model independently approved for 77 selectable endpoint-pair cards; completion blocked by unrelated workspace test failures. Preserve every put-in/take-out, portage, hazard, gauge reach, and logistics difference."
+        "Existing Georgia Chattahoochee condition-family model independently approved for 77 selectable endpoint-pair cards; completion blocked by unrelated workspace test failures. Preserve every put-in/take-out, portage, hazard, gauge reach, and logistics difference.",
+        "Blocked: the 22 Millers River cards span an above-dam flatwater trail and a lower whitewater reach, with one reversed route, shared gauge thresholds, inaccurate shuttle notes, unresolved access and mileage evidence, and incomplete verification gates. Preserve every route card; do not register a corridor until these issues are resolved."
       ]
     },
     {
@@ -958,7 +961,10 @@
         "route-opportunity-ut-usgs-10132500",
         "route-opportunity-pa-usgs-04212895",
         "route-opportunity-pa-usgs-03038000",
-        "route-opportunity-pa-usgs-03108000"
+        "route-opportunity-pa-usgs-03108000",
+        "overlap-review-74ca7a9ff6a4",
+        "overlap-review-cf5bc6afa40a",
+        "overlap-review-2e4d8f27096d"
       ],
       "titles": [
         "Audit Nebraska coverage-complete state for saturation",
@@ -1045,7 +1051,10 @@
         "Investigate route opportunity: LOST CREEK NEAR CROYDON, UTAH",
         "Investigate route opportunity: Conneaut Creek at Dickonsburg, PA",
         "Investigate route opportunity: Crooked Creek at Idaho, PA",
-        "Investigate route opportunity: Raccoon Creek at Moffatts Mill, PA"
+        "Investigate route opportunity: Raccoon Creek at Moffatts Mill, PA",
+        "Review route consolidation candidate: Alabama · mulberry-fork-blountville-cr10 ↔ mulberry-fork-blountville-garden-city ↔ mulberry-fork-cr10-garden-city",
+        "Review route consolidation candidate: Oregon · willamette-river-alton-baker-crystal-lake ↔ willamette-river-alton-baker-harkens ↔ willamette-river-alton-baker-harrisburg +42",
+        "Review route consolidation candidate: Arizona · salt-river-blue-point-goldfield ↔ salt-river-blue-point-granite-reef ↔ salt-river-blue-point-phon-d +7"
       ],
       "summaries": [
         "Completed the bounded Nebraska coverage-complete audit without adding a route. Nebraska has 9 scored direct-USGS routes and no planning routes, but saturation is blocked by unresolved George D. Syas WMA put-in coordinate failures and missing route-scoped geometries for three George D. Syas-starting Loup routes; bounded image and camping metadata gaps were fixed.",
@@ -1132,7 +1141,10 @@
         "No-add: USGS 10132500 is Lost Creek near Croydon, not the Weber Taggart-to-Morgan reach. Preserve blocked pending Lost Creek-specific public endpoint, threshold, geometry, and safety evidence.",
         "usgs:04212895 remains a route-capable opportunity, but the bounded review did not establish a named public endpoint pair with defensible coordinates or a station-specific paddling threshold. Keep blocked; reopen only when those evidence gaps materially change.",
         "usgs:03038000 has live data and limited access-project evidence, but no named coordinate-backed public endpoint pair or paddling threshold was established. Keep blocked until a complete route package exists.",
-        "usgs:03108000 has three named canoe-guide reaches and stage guidance, but no complete public, coordinate-backed endpoint pair was established. Keep blocked; reopen only when access coordinates and station mapping are verified."
+        "usgs:03108000 has three named canoe-guide reaches and stage guidance, but no complete public, coordinate-backed endpoint pair was established. Keep blocked; reopen only when access coordinates and station mapping are verified.",
+        "Blocked: current authoritative evidence does not verify legal public carry and parking at Blountville Road, and the 12.5/19-mile route labels conflict with NHD geometry lengths of about 13.32/19.95 miles. Preserve all three route cards; do not register a verified corridor until access and mileage evidence are reconciled.",
+        "Blocked: the 45 Willamette cards support a same-river condition family, but route-specific geometry and shuttle evidence are not yet trustworthy. Preserve every card and do not register a corridor until the fallback traces and endpoint-pair logistics are reconciled.",
+        "Blocked after independent review. Preserve all ten distinct route cards; rebuild/reconcile selected geometry and replace generic endpoint-pair logistics before corridor registration."
       ]
     },
     {
@@ -1305,7 +1317,8 @@
         "route-opportunity-tx-usgs-08063562",
         "route-opportunity-tx-usgs-08064100",
         "route-opportunity-tx-usgs-08163880",
-        "route-opportunity-tx-usgs-08189718"
+        "route-opportunity-tx-usgs-08189718",
+        "overlap-review-14d99d5e0164"
       ],
       "titles": [
         "Investigate route opportunity: BUFFALO RIVER NEAR DILWORTH, MN",
@@ -1439,7 +1452,8 @@
         "Investigate route opportunity: Chambers Ck at FM 55 nr Avalon, TX",
         "Investigate route opportunity: Chambers Ck nr Rice, TX",
         "Investigate route opportunity: Chicolette Ck at US 77 nr Yoakum, TX",
-        "Investigate route opportunity: Chiltipin Ck at US 77 nr Sinton, TX"
+        "Investigate route opportunity: Chiltipin Ck at US 77 nr Sinton, TX",
+        "Review route consolidation candidate: Rhode Island · woonasquatucket-river-cricket-manton ↔ woonasquatucket-river-cricket-riverside ↔ woonasquatucket-river-cricket-south-water +25"
       ],
       "summaries": [
         "Durable no-add after the bounded Minnesota fast screen: USGS 05062000 is live and Buffalo River State Park provides river-adjacent context, but no named public Dilworth-area endpoint pair or station-specific paddling threshold and complete route package cleared. Reopen only for fresh manager-backed evidence.",
@@ -1573,7 +1587,8 @@
         "Fast triage confirmed stale low-flow telemetry (5.50 cfs latest; 38 cfs median), no station-tied paddling endpoints or threshold, and only reservoir access evidence. Durable blocked/no-add recorded; no route data changed.",
         "Fast triage confirmed stale low-flow telemetry (0.74 cfs latest; 2.3 cfs median), no station-tied paddling endpoints or threshold, and only reservoir access evidence. Durable blocked/no-add recorded; no route data changed.",
         "Fast triage confirmed telemetry only through 2026-08-10, no station-tied Chicolette paddling endpoints or threshold, and no TPWD access/trail evidence for this reach. Durable blocked/no-add recorded; no route data changed.",
-        "Fast triage confirmed stage-only telemetry last observed 2026-04-08, no station-tied Chiltipin paddling endpoints or threshold, and Welder Park shoreline access rather than a boat launch. Durable blocked/no-add recorded; no route data changed."
+        "Fast triage confirmed stage-only telemetry last observed 2026-04-08, no station-tied Chiltipin paddling endpoints or threshold, and Welder Park shoreline access rather than a boat launch. Durable blocked/no-add recorded; no route data changed.",
+        "Blocked: the 28 Woonasquatucket cards are provisionally one downstream access family, but the Greystone-to-Manton portage/access evidence, fallback geometries, withheld card, and endpoint-pair logistics are not independently trustworthy. Preserve every route card and do not register a corridor until these issues are reconciled."
       ]
     },
     {

@@ -14,7 +14,7 @@ test('Explore focuses a saved planning city without replacing it with GPS', asyn
   }, location);
   const generatedAt = new Date().toISOString();
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
     ...fixture.result, generatedAt, readiness: { status: 'ready', label: 'Ready', reason: 'QA fixture' },
     summary: { shortExplanation: 'QA fixture', gaugeNow: 'QA reading' },
     liveData: { overall: 'live', summary: 'Fixture', gaugeState: 'live', weatherState: 'live' },
@@ -41,7 +41,7 @@ test('Explore location controls share pending state and expose failed retry', as
   });
   const generatedAt = new Date().toISOString();
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
     ...fixture.result, generatedAt, readiness: { status: 'ready', label: 'Ready', reason: 'QA fixture' },
     summary: { shortExplanation: 'QA fixture', gaugeNow: 'QA reading' },
     liveData: { overall: 'live', summary: 'Fixture', gaugeState: 'live', weatherState: 'live' },

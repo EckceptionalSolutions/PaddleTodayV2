@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:57:20.684Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "buffalo-bayou-sabine-street-allens-landing",
+      "routeName": "Buffalo Bayou",
+      "reach": "Sabine Street to Allen's Landing",
+      "state": "Texas",
+      "endpoint": "putIn",
+      "endpointName": "Sabine Street Access",
+      "latitude": 29.7622,
+      "longitude": -95.3736,
+      "matchedRiverName": "Buffalo Bayou",
+      "distanceFeetToMatchedRiver": 329.0094426360804,
+      "nearestMatchedLatitude": 29.761332432165524,
+      "nearestMatchedLongitude": -95.37388370723437,
+      "nearestWaterwayName": "Buffalo Bayou",
+      "distanceFeetToNearestWaterway": 329.0094426360804,
+      "nearestWaterwayLatitude": 29.761332432165524,
+      "nearestWaterwayLongitude": -95.37388370723437,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 267.97981099713405,
+      "nearestWaterbodyLatitude": 29.76148552891586,
+      "nearestWaterbodyLongitude": -95.37379653879611,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 267.97981099713405,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://tpwd.texas.gov/boating/paddling-trails/gulf-coast/buffalo-bayou/",
+      "coordinateEvidenceDetail": "tpwd_buffalo_bayou_sabine_access tpwd-sabine-street-buffalo-bayou-access: TPWD's current Buffalo Bayou Paddling Trail page identifies Sabine Street Access as a public trail access point, publishes coordinate 29.7622,-95.3736, and places it between Eleanor Tinsley Park and Allen's Landing on the downtown trail. Retain the published access-site point as an anchor; it is not a survey of the current water-entry toe, which may shift with bank and water conditions.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (tpwd_buffalo_bayou_sabine_access tpwd-sabine-street-buffalo-bayou-access) on Buffalo Bayou; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "buffalo-bayou-sabine-street-allens-landing",
+      "routeName": "Buffalo Bayou",
+      "reach": "Sabine Street to Allen's Landing",
+      "state": "Texas",
+      "endpoint": "takeOut",
+      "endpointName": "Allen's Landing Park",
+      "latitude": 29.7647,
+      "longitude": -95.3592,
+      "matchedRiverName": "Buffalo Bayou",
+      "distanceFeetToMatchedRiver": 115.64182496914745,
+      "nearestMatchedLatitude": 29.764995315893106,
+      "nearestMatchedLongitude": -95.35906730379317,
+      "nearestWaterwayName": "Buffalo Bayou",
+      "distanceFeetToNearestWaterway": 115.6418249715624,
+      "nearestWaterwayLatitude": 29.764995315893113,
+      "nearestWaterwayLongitude": -95.35906730379317,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 57.209507911420694,
+      "nearestWaterbodyLatitude": 29.764840910863473,
+      "nearestWaterbodyLongitude": -95.35912072467129,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 57.209507911420694,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 57 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

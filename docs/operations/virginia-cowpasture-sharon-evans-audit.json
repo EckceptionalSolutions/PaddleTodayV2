@@ -1,0 +1,39 @@
+{
+  "state": "Virginia",
+  "routeId": "cowpasture-river-sharon-evans",
+  "routeName": "Cowpasture River Sharon Park to Evans Tract",
+  "status": "published_scored",
+  "scoreEligibility": "scored",
+  "gauge": {
+    "siteId": "02016000",
+    "relationship": "direct Cowpasture River telemetry near Clifton Forge",
+    "threshold": "200-1400 cfs",
+    "thresholdSource": "https://visitalleghanyhighlands.com/uniquely-alleghany/alleghany-highlands-blueway/check-water-levels/"
+  },
+  "access": {
+    "putIn": { "name": "Sharon Park Cowpasture River Access", "latitude": 37.8184167, "longitude": -79.7408556 },
+    "takeOut": { "name": "Evans Tract Cowpasture River Access", "latitude": 37.7939, "longitude": -79.7583 },
+    "source": "https://visitalleghanyhighlands.com/wp-content/uploads/2022/11/section4-sharonpark-to-headofjames.pdf"
+  },
+  "safety": {
+    "difficulty": "Class I-II",
+    "controls": ["low-water shallows and exposed rocks/logs", "rain-driven rises", "cold water", "strainers", "private farm banks", "named public accesses only"]
+  },
+  "camping": {
+    "classification": "nearby_basecamp",
+    "rule": "The Blueway mentions primitive camping along portions of the Cowpasture but does not establish a campsite for this section; use separately verified lawful camping or nearby lodging."
+  },
+  "imagery": {
+    "source": "https://commons.wikimedia.org/wiki/File:Cowpasture_River.jpg",
+    "rights": "public domain",
+    "captionPosture": "Same-river context, not an endpoint or current-conditions photograph."
+  },
+  "deduplication": "Distinct 4.5-mile Cowpasture Blueway Section 4 float; separate channel, endpoints, and direct gauge from both Jackson River additions.",
+  "validation": {
+    "routeDataAudit": "passed",
+    "safetyAudit": "passed",
+    "corridorAudit": "passed",
+    "geometryManifest": "matched",
+    "accessRegistry": "no conflicts"
+  }
+}

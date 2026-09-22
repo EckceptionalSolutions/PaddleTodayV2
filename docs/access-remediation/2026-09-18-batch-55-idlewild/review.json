@@ -1,0 +1,29 @@
+{
+  "batch": 55,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Idlewild Park Access / West Idlewild Campground, Cedar River, Iowa",
+  "affectedRoutes": [
+    "cedar-river-road-t38-idlewild",
+    "cedar-river-idlewild-rotary"
+  ],
+  "decision": "retain-the-exact-locally-published-park-access-coordinate-as-a-public-access-area-anchor; the precise water-entry toe remains unverified",
+  "decisionScope": "The Charles City Chamber of Commerce Cedar River Paddling Trips guide names Idlewild Park Access, gives 1374 Quarry Road, and publishes 43.1633388,-92.75409209999998, matching the shared route point; it also lists Rotary Park 5.6 miles downstream. Floyd County's current West Idlewild Campground record identifies the county-managed site on the Cedar River and lists canoe access. The county also describes a Cedar River float ending at West Idlewild. Satellite imagery places the matching point by Quarry Road in the park approach area beside the river, but tree cover hides the carry and landing. The evidence supports the public access-area coordinate, not a surveyed water edge. I registered it as a route-scoped access-site anchor and left the offset visible for local landing verification.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 43.1633388, "longitude": -92.7540921 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 354.2,
+    "mappedWaterDistanceFeet": 276.3,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 43.1633388, "longitude": -92.7540921 },
+    "to": { "latitude": 43.1633388, "longitude": -92.7540921 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_floyd_county_idlewild_canoe_access_anchor_20260918",
+    "rationale": "The exact shared point appears in the local guide as Idlewild Park Access GPS, and the county's current site record confirms canoe access at the matching facility. Keep the coordinate as an access-area anchor instead of displacing it onto an image-derived shoreline point."
+  },
+  "remainingUncertainty": "The audit measures about 276 feet to mapped water and 354 feet to the matched Cedar River flowline. The guide and county site record do not georeference the carry or landing toe, and the tree-covered aerial does not resolve them. Confirm the on-site path, parking, and landing before paddling.",
+  "outcome": "Two suspicious public endpoint occurrences moved to review with the mapped offset retained. Coordinates and route geometry did not change."
+}

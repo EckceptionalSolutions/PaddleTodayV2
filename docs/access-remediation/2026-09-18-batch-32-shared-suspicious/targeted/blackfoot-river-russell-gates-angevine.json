@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:24:44.200Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Montana",
+      "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "latitude": 47.0234361031,
+      "longitude": -113.306023437,
+      "distanceFeetToMappedWater": 474.34414331350587,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-russell-gates-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "blackfoot-river-russell-gates-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "Russell Gates Memorial Fishing Access Site (public ramp/access area) to Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "state": "Montana",
+      "endpoint": "putIn",
+      "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "latitude": 47.0234361031,
+      "longitude": -113.306023437,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 560.2905922237371,
+      "nearestMatchedLatitude": 47.02218137484012,
+      "nearestMatchedLongitude": -113.30732260531374,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 560.2905922237371,
+      "nearestWaterwayLatitude": 47.02218137484012,
+      "nearestWaterwayLongitude": -113.30732260531374,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 474.34414331350587,
+      "nearestWaterbodyLatitude": 47.02236788078164,
+      "nearestWaterbodyLongitude": -113.30711081819587,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 474.34414331350587,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39754195",
+      "coordinateEvidenceDetail": "mt_russell_gates_memorial_fas mt-fwp-russell-gates-memorial-fas: Montana Fish, Wildlife & Parks publishes this site coordinate (47.0234361031,-113.306023437), lists a gravel ramp, and allows non-motorized boating. The coordinate is the public FAS access-area GPS, not a surveyed ramp-edge point. Confirm fees/license rules, parking, and current ramp conditions.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mt_russell_gates_memorial_fas mt-fwp-russell-gates-memorial-fas) on Blackfoot River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "blackfoot-river-russell-gates-angevine",
+      "routeName": "Blackfoot River",
+      "reach": "Russell Gates Memorial Fishing Access Site (public ramp/access area) to Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "state": "Montana",
+      "endpoint": "takeOut",
+      "endpointName": "Angevine Fishing Access Site (imagery-derived water-entry edge)",
+      "latitude": 46.8958721652,
+      "longitude": -113.7639273234,
+      "matchedRiverName": "Blackfoot River",
+      "distanceFeetToMatchedRiver": 55.43136050033439,
+      "nearestMatchedLatitude": 46.89573248682562,
+      "nearestMatchedLongitude": -113.76383980325973,
+      "nearestWaterwayName": "Blackfoot River",
+      "distanceFeetToNearestWaterway": 55.43136050033439,
+      "nearestWaterwayLatitude": 46.89573248682562,
+      "nearestWaterwayLongitude": -113.76383980325973,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0.0000072942391691763595,
+      "nearestWaterbodyLatitude": 46.89587216518099,
+      "nearestWaterbodyLongitude": -113.76392732339092,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0.0000072942391691763595,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://myfwp.mt.gov/fishMT/fas/39754559",
+      "coordinateEvidenceDetail": "montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge: Montana FWP identifies Angevine as a hand launch on the Blackfoot River and gives the site location at 46.89663,-113.76333. FWP GIS layer 2 defines the 13.0149-acre public Angevine boundary; the selected point lies within that boundary at its Blackfoot River edge. The previous route coordinate was 275.5 feet from NHD waterbody geometry and 329.8 feet from the matched flowline. The replacement uses the nearest NHD shoreline point, checked against current Google Maps aerial imagery and the public parcel. It is imagery-derived with 75-foot uncertainty, not a surveyed FWP water-entry coordinate.",
+      "severity": "ok",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (montana_fwp_angevine_hand_launch_river_edge_20260918 montana-fwp-angevine-hand-launch-water-edge) on Blackfoot River; the 55 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

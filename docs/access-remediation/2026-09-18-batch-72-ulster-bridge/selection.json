@@ -1,0 +1,24 @@
+{
+  "batch": 72,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:29:31.301Z; 2,750 public routes, 6,058 endpoints, 53 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Pennsylvania",
+    "name": "Ulster Bridge access, North Branch Susquehanna River",
+    "storedCoordinate": {
+      "latitude": 41.8525,
+      "longitude": -76.497222
+    },
+    "publicCoordinateOccurrences": 3,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "susquehanna-river-ulster-bridge-towanda",
+      "susquehanna-river-ulster-bridge-wysox-township-park",
+      "susquehanna-river-ulster-bridge-terrytown"
+    ],
+    "preReviewFinding": "The Ulster Bridge-to-Towanda put-in is about 332 feet from a topology-connected North Branch Susquehanna trace and 166 feet from mapped water. Coverage is complete. Two other routes share the exact coordinate and classify review.",
+    "decision": "verify-the-shared-Ulster-Bridge-access-coordinate-and-public-use-status-before-changing-the-shared-route-endpoint",
+    "selectionFrozenBeforeResearch": true
+  }
+}

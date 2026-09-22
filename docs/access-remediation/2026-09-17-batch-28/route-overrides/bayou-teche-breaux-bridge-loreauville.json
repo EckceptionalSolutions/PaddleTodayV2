@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:28:42.509Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-breaux-bridge-loreauville",
+      "routeName": "Bayou Teche",
+      "reach": "Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St) to Loreauville official dock access area (119 Bridge St)",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St)",
+      "latitude": 30.2760518,
+      "longitude": -91.8998297,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 201.42413378226846,
+      "nearestMatchedLatitude": 30.276555074536112,
+      "nearestMatchedLongitude": -91.89956678002049,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 201.42413378226846,
+      "nearestWaterwayLatitude": 30.276555074536112,
+      "nearestWaterwayLongitude": -91.89956678002049,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 119.29007988774214,
+      "nearestWaterbodyLatitude": 30.276352020512267,
+      "nearestWaterbodyLongitude": -91.89967966944101,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 119.29007988774214,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 119 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "bayou-teche-breaux-bridge-loreauville",
+      "routeName": "Bayou Teche",
+      "reach": "Breaux Bridge Parc des Ponts trailhead (120 St. Bernard St) to Loreauville official dock access area (119 Bridge St)",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Loreauville official dock access area (119 Bridge St)",
+      "latitude": 30.056667,
+      "longitude": -91.74,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 94.43794632175968,
+      "nearestMatchedLatitude": 30.056713870307085,
+      "nearestMatchedLongitude": -91.74029413812919,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 94.43794632175968,
+      "nearestWaterwayLatitude": 30.056713870307085,
+      "nearestWaterwayLongitude": -91.74029413812919,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 37.022316831894095,
+      "nearestWaterbodyLatitude": 30.056694149366226,
+      "nearestWaterbodyLongitude": -91.74011297454572,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 37.022316831894095,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://iberiatravel.com/things-to-do/outdoors/paddling-boating/",
+      "coordinateEvidenceDetail": "la_loreauville_teche_dock iberia-travel-loreauville-floating-dock: TECHE Project lists the current official dock at 119 Bridge Street next to the Acadian Odyssey Monument. Iberia Travel publishes the Loreauville floating-dock coordinate 30.056667,-91.740000. The public coordinate has a rounded longitude and is an access-area anchor, not a surveyed wet-edge point. Verify the dock, parking, and posted route into Bayou Teche.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (la_loreauville_teche_dock iberia-travel-loreauville-floating-dock) on Bayou Teche; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "batch": 30,
+  "reviewedAt": "2026-09-18",
+  "reviewScope": "Ten physical public-access sites frozen before source research. Decisions distinguish the access-area coordinate from an exact water-entry coordinate and route publication from coordinate status.",
+  "sites": [
+    {
+      "siteNumber": 1,
+      "state": "Maryland",
+      "name": "York Road Gunpowder access",
+      "latitude": 39.60415,
+      "longitude": -76.65625,
+      "distanceFeetToMappedWater": 2141.0694,
+      "reasons": ["mapped-water-offset"],
+      "occurrences": [{"routeId":"gunpowder-falls-masemore-monkton","endpoint":"accessPoint","endpointName":"York Road Gunpowder access","severity":"failure"}],
+      "decision": "reject-invalid-identity",
+      "reason": "The Maryland DNR source identifies York Road as a river-difficulty boundary and directs paddlers to the Bunker Hill parking area above the river. Other public recreation guidance describes roadside parking at York for fishing/wading; it does not establish a public canoe/kayak landing at this stored pin. Remove this optional point while keeping the independently supported Masemore-to-Monkton route public.",
+      "sources": [
+        {"url":"https://dnr.maryland.gov/publiclands/pages/central/gunpowder.aspx","finding":"Hereford directions direct visitors to Bunker Hill Road parking; York Road is discussed as a river boundary/difficulty marker, not a paddling launch."},
+        {"url":"https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx","finding":"Provides river difficulty and safety information, including the York boundary; no public landing at the selected pin is identified."},
+        {"url":"https://fishandhuntmaryland.com/articles/gunpowder-falls-0","finding":"Describes roadside parking at York and other crossings for fishing/wading; this does not establish a paddling launch."}
+      ],
+      "reopen": "Restore an access point only if Maryland DNR or the land manager confirms a public canoe/kayak landing, legal parking, and a usable carry at this crossing.",
+      "routeIds": ["gunpowder-falls-masemore-monkton"],
+      "publicRouteIds": ["gunpowder-falls-masemore-monkton"],
+      "heldRouteIds": [],
+      "publicationAction": "remove-invalid-optional-access-keep-route-public"
+    },
+    {
+      "siteNumber": 2,
+      "state": "New York",
+      "name": "Jamestown Falls Hand Launch / Landing",
+      "latitude": 44.3262,
+      "longitude": -74.7226,
+      "distanceFeetToMappedWater": 938.7401,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [
+        {"routeId":"raquette-river-dead-creek-jamestown","endpoint":"takeOut","endpointName":"Jamestown Falls Hand Launch / Landing","severity":"review"},
+        {"routeId":"raquette-river-piercefield-parmenter","endpoint":"accessPoint","endpointName":"NYSDEC Jamestown Falls Hand Launch / carry","severity":"review"}
+      ],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "NYSDEC publishes this coordinate for trailhead parking and says the hand launch is reached by a 100-foot carry. The coordinate is a valid access-area anchor, but the published point does not resolve the actual water-entry edge or whether the proposed take-out is below the falls. Preserve it as an optional route waypoint; hold only the route that depends on it as a terminal take-out.",
+      "sources": [{"url":"https://dec.ny.gov/places/raquette-boreal-complex","finding":"Publishes the parking coordinate 44.3262,-74.7226 and describes a 100-foot carry to the river; warns of difficult whitewater/portages in the complex."}],
+      "reopen": "Identify the landing below the falls on current DEC mapping or imagery, confirm the public carry, then regenerate and inspect the terminal route geometry.",
+      "routeIds": ["raquette-river-dead-creek-jamestown","raquette-river-piercefield-parmenter"],
+      "publicRouteIds": ["raquette-river-piercefield-parmenter"],
+      "heldRouteIds": ["raquette-river-dead-creek-jamestown"],
+      "publicationAction": "withhold-terminal-route-keep-optional-waypoint"
+    },
+    {
+      "siteNumber": 3,
+      "state": "Wisconsin",
+      "name": "County Highway K public canoe-access anchor",
+      "latitude": 44.6226,
+      "longitude": -89.4822,
+      "distanceFeetToMappedWater": 738.2658,
+      "reasons": ["mapped-water-offset"],
+      "occurrences": [{"routeId":"plover-river-hwy-k-jordan-park","endpoint":"putIn","endpointName":"County Highway K public canoe-access anchor","severity":"review"}],
+      "decision": "reject-unverified",
+      "reason": "Portage County confirms a Highway K right-of-way canoe access and its map marks primitive access, but the county does not publish an exact entry coordinate. The selected point is a crossing-area anchor about 738 feet from mapped water; the reviewed evidence does not locate the carry or establish lawful vehicle staging at the landing.",
+      "sources": [
+        {"url":"https://www.co.portage.wi.gov/325/Park-Trail-Maps","finding":"Names Plover River Wayside at Highway K and describes county right-of-way canoe access."},
+        {"url":"https://www.co.portage.wi.gov/DocumentCenter/View/1214/Plover-River-Wayside-PDF","finding":"Official site map marks primitive access but does not publish a water-entry coordinate."},
+        {"url":"https://www.co.portage.wi.gov/ArchiveCenter/ViewFile/Item/237","finding":"2025–2029 plan identifies the 0.3-acre Highway K site as canoe access; it does not map a precise landing."}
+      ],
+      "reopen": "Obtain a manager-approved coordinate or georeference the public carry/landing from current authoritative mapping and confirm legal staging.",
+      "routeIds": ["plover-river-hwy-k-jordan-park"],
+      "publicRouteIds": [],
+      "heldRouteIds": ["plover-river-hwy-k-jordan-park"],
+      "publicationAction": "withhold-dependent-route"
+    },
+    {
+      "siteNumber": 4,
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+      "latitude": 44.483638,
+      "longitude": -75.577189,
+      "distanceFeetToMappedWater": 731.3157,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [{"routeId":"fish-creek-wma-route-184-pope-mills","endpoint":"takeOut","endpointName":"NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)","severity":"review"}],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "NYSDEC confirms two parking areas near hand-launch sites and its launch list publishes this Pope Mills access coordinate with a 0.8-mile hand carry. The coordinate represents the access/carry area, not the endpoint on Fish Creek. The current carry's exact landing and route fit are not resolved.",
+      "sources": [
+        {"url":"https://dec.ny.gov/places/fish-creek-wildlife-management-area","finding":"Confirms two parking areas near hand-launch sites and notes obstacles on the Fish Creek drainage."},
+        {"url":"https://dec.ny.gov/things-to-do/boating/launch-sites/st-lawrence-county","finding":"Lists Fish Creek WMA at 44.483638,-75.577189 and a 0.8-mile hand carry."}
+      ],
+      "reopen": "Map and verify the full current public carry to the intended Fish Creek landing, record the water-entry edge, then regenerate the route geometry.",
+      "routeIds": ["fish-creek-wma-route-184-pope-mills"],
+      "publicRouteIds": [],
+      "heldRouteIds": ["fish-creek-wma-route-184-pope-mills"],
+      "publicationAction": "withhold-dependent-route"
+    },
+    {
+      "siteNumber": 5,
+      "state": "Arizona",
+      "name": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+      "latitude": 34.674,
+      "longitude": -111.9412,
+      "distanceFeetToMappedWater": 644.6669,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [
+        {"routeId":"verde-river-89a-sheep-crossing","endpoint":"takeOut","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-bignotti-sheep-crossing","endpoint":"takeOut","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-black-canyon-sheep-crossing","endpoint":"takeOut","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-sheep-crossing-newton","endpoint":"putIn","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-sheep-parsons","endpoint":"putIn","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-skidmore-sheep-crossing","endpoint":"takeOut","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"},
+        {"routeId":"verde-river-tuzigoot-sheep-crossing","endpoint":"takeOut","endpointName":"Sheep Crossing RAP access-site anchor (launch edge unverified)","severity":"review"}
+      ],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "Friends of the Verde River publishes the access anchor and flags a difficult/long boat haul. The Forest Service confirms public access and a difficult carry, but neither reviewed map publishes a defensible water-entry coordinate or route from the parking point to the landing. Keep the published site anchor as research evidence; do not treat it as the river edge.",
+      "sources": [
+        {"url":"https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf","finding":"Lists Sheep Crossing at river mile 62.2 and 34.6740,-111.9412; the map legend marks an asterisk as a difficult put-in/long boat haul."},
+        {"url":"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf","finding":"Forest Service paddle trail says public access exists immediately upstream from the RV resort fence and describes a difficult carry; it warns of a downstream diversion dam and portage."},
+        {"url":"https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3836193.pdf","finding":"Forest Service corridor map provides context but does not resolve the launch edge."}
+      ],
+      "reopen": "Georeference the public carry's water-side end from a current land-manager map or clear current imagery, check ownership/fence limits, and review the nearby diversion-dam route before publication.",
+      "routeIds": ["verde-river-89a-sheep-crossing","verde-river-bignotti-sheep-crossing","verde-river-black-canyon-sheep-crossing","verde-river-sheep-crossing-newton","verde-river-sheep-parsons","verde-river-skidmore-sheep-crossing","verde-river-tuzigoot-sheep-crossing"],
+      "publicRouteIds": [],
+      "heldRouteIds": ["verde-river-89a-sheep-crossing","verde-river-bignotti-sheep-crossing","verde-river-black-canyon-sheep-crossing","verde-river-sheep-crossing-newton","verde-river-sheep-parsons","verde-river-skidmore-sheep-crossing","verde-river-tuzigoot-sheep-crossing"],
+      "publicationAction": "withhold-dependent-routes"
+    },
+    {
+      "siteNumber": 6,
+      "state": "South Dakota",
+      "name": "Farm Field Park kayak and canoe access",
+      "latitude": 43.5028832,
+      "longitude": -96.749131,
+      "distanceFeetToMappedWater": 374.1339,
+      "reasons": ["mapped-water-offset"],
+      "occurrences": [
+        {"routeId":"big-sioux-river-farm-field-rotary","endpoint":"putIn","endpointName":"Farm Field Park kayak and canoe access","severity":"suspicious"},
+        {"routeId":"skunk-creek-legacy-park-farm-field","endpoint":"takeOut","endpointName":"Farm Field Park kayak and canoe access","severity":"review"}
+      ],
+      "decision": "fix-access-area-anchor",
+      "newCoordinate": {"latitude":43.5013198,"longitude":-96.7504983},
+      "uncertaintyFeet": 100,
+      "reason": "The City confirms public kayak/canoe access and a boat-launch photo, but its published coordinate identifies the general park. Its amenities GIS query returned a parking lot rather than a launch feature. A separate Google Maps Boat ramp feature linked to the City page is at the riverbank in current satellite imagery. Use it as a mapped launch-area anchor with 100-foot reviewer-estimated uncertainty, not as a surveyed water-edge coordinate.",
+      "sources": [
+        {"url":"https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field","finding":"City park record confirms kayak/canoe access and boat-launch photo, gives 43.5028832,-96.749131 as the general facility location, and lists 5 a.m.–10 p.m. daily hours."},
+        {"url":"https://gis.siouxfalls.gov/arcgis/rest/services/Data/Park/MapServer/3/query?where=Park%20like%20%27%25Farm%25%27&outFields=OBJECTID%2CPark%2CAmenityType%2CName%2CInformation%2CAddress%2CNotes%2CGlobalID&returnGeometry=true&outSR=4326&f=json","finding":"City amenities layer returned a Farm Field parking lot feature, not a water-entry feature."},
+        {"url":"https://www.google.com/maps/place/Farm+Field+Park+Kayak+%26+Canoe+Access/@43.5013198,-96.7530732,623m/data=!3m2!1e3!4b1!4m6!3m5!1s0x878ec90045dc01af:0xb29ff98a93bb23fb!8m2!3d43.5013198!4d-96.7504983!16s%2Fg%2F11w4s5j1yk","finding":"Boat-ramp POI (place ID 0x878ec90045dc01af:0xb29ff98a93bb23fb) links to the City page; feature coordinate is 43.5013198,-96.7504983. Current satellite imagery corroborates a riverside location, but the precise wet edge is not surveyed."}
+      ],
+      "reopen": "Replace the mapped access-area anchor only if the City publishes a launch-specific coordinate or a current georeferenced source resolves the ramp's water-side endpoint more precisely.",
+      "routeIds": ["big-sioux-river-farm-field-rotary","skunk-creek-legacy-park-farm-field"],
+      "publicRouteIds": ["big-sioux-river-farm-field-rotary","skunk-creek-legacy-park-farm-field"],
+      "heldRouteIds": [],
+      "publicationAction": "correct-anchor-keep-both-routes-public"
+    },
+    {
+      "siteNumber": 7,
+      "state": "Iowa",
+      "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+      "latitude": 43.3996,
+      "longitude": -91.8884,
+      "distanceFeetToMappedWater": 367.174,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [
+        {"routeId":"upper-iowa-river-cattle-creek-malanaphy","endpoint":"accessPoint","endpointName":"Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20","severity":"review"},
+        {"routeId":"upper-iowa-river-kendallville-bluffton","endpoint":"takeOut","endpointName":"Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20","severity":"review"}
+      ],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "Iowa DNR documents Bluffton Road/W20 parking for canoe access only. The stored point remains a valid access-area anchor, but the DNR record does not publish the water-entry edge. Preserve the optional intermediate access and withhold only the route that relies on it as a take-out.",
+      "sources": [{"url":"https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand","finding":"Confirms parking at Bluffton Road/W20 for canoe access only; the page does not provide an exact landing coordinate."}],
+      "reopen": "Map the water-side end of the canoe carry and confirm it remains on public access land; then regenerate the terminal route geometry.",
+      "routeIds": ["upper-iowa-river-cattle-creek-malanaphy","upper-iowa-river-kendallville-bluffton"],
+      "publicRouteIds": ["upper-iowa-river-cattle-creek-malanaphy"],
+      "heldRouteIds": ["upper-iowa-river-kendallville-bluffton"],
+      "publicationAction": "withhold-terminal-route-keep-optional-waypoint"
+    },
+    {
+      "siteNumber": 8,
+      "state": "Idaho",
+      "name": "McKay's Bend Recreation Site",
+      "latitude": 46.4975,
+      "longitude": -116.726944,
+      "distanceFeetToMappedWater": 365.0505,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [{"routeId":"clearwater-river-mckays-bend-pink-house","endpoint":"putIn","endpointName":"McKay's Bend Recreation Site","severity":"review"}],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "BLM confirms the developed recreation site has river access and publishes 46.4975,-116.726944 as the site coordinate; the reopening notice confirms the campground and boat launch are open. Neither page locates the exact water-side launch edge. Keep the access-area anchor in the inventory and hold the route until the launch position and relevant river-route continuity are verified.",
+      "sources": [
+        {"url":"https://www.blm.gov/visit/mckays-bend-recreation-site","finding":"Confirms Clearwater River access, parking and site coordinate 46.4975,-116.726944."},
+        {"url":"https://www.blm.gov/announcement/blm-reopens-mckays-bend-campground-and-boat-launch-after-wildfire","finding":"Confirms the boat launch reopened to the public on August 22, 2024 after a temporary wildfire closure."},
+        {"url":"https://www.blm.gov/sites/blm.gov/files/documents/files/idaho_clearwaterriver_guide-and-maps_0.pdf","finding":"Provides site map context; it does not supply an exact landing coordinate."}
+      ],
+      "reopen": "Locate the public boat ramp/launch toe on current BLM mapping or imagery and inspect route geometry and any hazards between McKay's Bend and Pink House.",
+      "routeIds": ["clearwater-river-mckays-bend-pink-house"],
+      "publicRouteIds": [],
+      "heldRouteIds": ["clearwater-river-mckays-bend-pink-house"],
+      "publicationAction": "withhold-dependent-route"
+    },
+    {
+      "siteNumber": 9,
+      "state": "Washington",
+      "name": "Mirabeau Park public small-craft access area (access-area anchor)",
+      "latitude": 47.68201,
+      "longitude": -117.223061,
+      "newCoordinate": {"latitude":47.68186,"longitude":-117.22255},
+      "uncertaintyFeet": 40,
+      "distanceFeetToMappedWater": 350.6571,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [
+        {"routeId":"spokane-river-barker-mirabeau","endpoint":"takeOut","endpointName":"Mirabeau Park public small-craft access area (access-area anchor)","severity":"review"},
+        {"routeId":"spokane-river-harvard-mirabeau","endpoint":"takeOut","endpointName":"Mirabeau Park public small-craft access area (access-area anchor)","severity":"review"}
+      ],
+      "decision": "fix-imagery-georeferenced-water-entry",
+      "reason": "The City park plan places a gravel path down to the river at the north end of the bridge; Spokane Conservation District confirms the Mirabeau access is for small boats and pedestrians. Current 2026 Google Maps aerial imagery shows the path reaching the riverbank. Georeference the water-side toe at 47.68186,-117.22255 with an estimated 40-foot uncertainty, then regenerate and inspect both take-out geometries.",
+      "sources": [
+        {"url":"https://spokanecd.org/blogs/news/spokane-river-restored-access-points","finding":"Confirms Mirabeau is small-boat and pedestrian access with a restored gravel path."},
+        {"url":"https://www.spokanevalleywa.gov/DocumentCenter/View/499/Parks-and-Recreation-Master-Plan-PDF","finding":"City park plan describes a gravel path down to the river at the north end of the bridge beside the Mirabeau South Trailhead."},
+        {"url":"https://www.spokanevalleywa.gov/DocumentCenter/View/349/Mirabeau-Point-Park-Walking-Trails-Map-and-Geology-Brochure-and-Map-PDF","finding":"City map places park trailheads along the Spokane River and shows the local path context."},
+        {"url":"https://www.google.com/maps/@47.68201,-117.223061,145m/data=!3m1!1e3","finding":"Google Maps aerial imagery (attribution: 2026 Airbus/Maxar) shows the gravel path reaching the riverbank. The water-side toe was georeferenced from the visible map scale and selected shoreline pixel; estimate 40-foot uncertainty, not survey-grade."},
+        {"url":"https://www.spokaneriver.net/watertrail/paddling/stateline-to-upriver-dam/","finding":"Spokane River Water Trail lists Barker Road to Mirabeau as a 4.5-mile reach and describes the rapids and hazards before the take-out."}
+      ],
+      "reopen": "Revise if the City relocates the gravel path or publishes a more precise surveyed landing coordinate.",
+      "routeIds": ["spokane-river-barker-mirabeau","spokane-river-harvard-mirabeau"],
+      "publicRouteIds": ["spokane-river-barker-mirabeau","spokane-river-harvard-mirabeau"],
+      "heldRouteIds": [],
+      "publicationAction": "correct-to-imagery-georeferenced-water-entry-and-release-routes"
+    },
+    {
+      "siteNumber": 10,
+      "state": "Texas",
+      "name": "Heath Canyon / La Linda take-out",
+      "latitude": 29.45025,
+      "longitude": -102.82346,
+      "distanceFeetToMappedWater": 343.109,
+      "reasons": ["documented-access-anchor-offset"],
+      "occurrences": [{"routeId":"rio-grande-rio-grande-village-heath-canyon","endpoint":"takeOut","endpointName":"Heath Canyon / La Linda take-out","severity":"review"}],
+      "decision": "reject-unverified-terminal-entry",
+      "reason": "NPS confirms the Heath Canyon take-out is on the U.S. side just downstream of La Linda bridge; TPWD now owns/operates the take-out and requires a Limited Use Permit and self-registration. TPWD also confirms the 2025 acquisition will continue public river access. The stored American Whitewater point is an access-area anchor about 343 feet from mapped water; no reviewed official source resolves the exact landing or lawful approach. Keep withheld pending georeferencing.",
+      "sources": [
+        {"url":"https://www.nps.gov/rigr/planyourvisit/boq_cyn.htm","finding":"Confirms the 33-mile Rio Grande Village-to-Heath Canyon trip, take-out on the U.S. side downstream of La Linda bridge, TPWD operation and Limited Use Permit/self-registration requirements."},
+        {"url":"https://www.nps.gov/rigr/planyourvisit/lower_cyns.htm","finding":"Confirms Heath Canyon access downstream of La Linda and warns that Lower Canyons access is limited, difficult and constrained by private land."},
+        {"url":"https://tpwd.texas.gov/newsmedia/releases/?req=20250506a","finding":"Confirms the 2025 acquisition for Black Gap WMA management and continued public river access; it does not map a landing."},
+        {"url":"https://www.nps.gov/rigr/learn/management/upload/RIGR_gmp-eis.pdf","finding":"Provides background on access points and ownership; it does not provide a current landing coordinate."}
+      ],
+      "reopen": "Obtain a TPWD/NPS map or current georeferenced image that identifies the public take-out landing and approach; verify current permit instructions and regenerate route geometry.",
+      "routeIds": ["rio-grande-rio-grande-village-heath-canyon"],
+      "publicRouteIds": [],
+      "heldRouteIds": ["rio-grande-rio-grande-village-heath-canyon"],
+      "publicationAction": "withhold-dependent-route"
+    }
+  ]
+}

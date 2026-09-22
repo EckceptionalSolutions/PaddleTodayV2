@@ -1,0 +1,50 @@
+{
+  "batch": 38,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 3,
+  "uniqueRoutesChanged": 3,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Pennsylvania",
+      "name": "Good Hope Access",
+      "routeIds": [
+        "conodoguinet-creek-willow-mill-good-hope",
+        "conodoguinet-creek-vincent-difilippo-good-hope",
+        "conodoguinet-creek-good-hope-acri-meadow"
+      ],
+      "decision": "correct-to-pfbc-verified-access-area-anchor",
+      "previousCoordinate": { "latitude": 40.2546304, "longitude": -76.9753045 },
+      "updatedCoordinate": { "latitude": 40.25889805739634, "longitude": -76.97639236255715 },
+      "coordinateRole": "authoritative-access-anchor",
+      "uncertaintyFeet": 75,
+      "rationale": "The PFBC-verified GIS point replaces a road-address geocode. Cumberland County confirms the access as public and describes the short carry and shallow ramp approach. Exact wet-edge placement remains unverified.",
+      "postCorrectionAudit": {
+        "goodHopeEndpointOccurrences": 3,
+        "goodHopeSuspicious": 0,
+        "goodHopeFailure": 0,
+        "goodHopeUnknown": 0,
+        "goodHopeSeverity": "review for all 3 as authoritative access-area anchors",
+        "mappedWaterDistance": "71.6 ft for all 3",
+        "matchedFlowlineDistanceFeet": 200,
+        "sourceIssues": 0,
+        "otherRouteEndpoint": "The Willow Mill put-in remains suspicious at 319 ft in that route-scoped audit; unrelated to this correction."
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck when PFBC or the township publishes a surveyed ramp-toe coordinate, or when current imagery clearly identifies the public wet edge."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 3,
+    "targetedRouteAuditResults": "All three route-scoped audits match Good Hope to the PFBC verified access-area control and classify it review; no targeted source issues or unknown endpoints.",
+    "changedRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

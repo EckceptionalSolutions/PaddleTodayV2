@@ -1,0 +1,113 @@
+{
+  "batch": "2026-09-17-batch-15",
+  "capturedBeforeEdits": true,
+  "files": [
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "1421F15EE0F68DBCB20FD9E7BB0CDCE49217A060C3435A8D98270E37C6CA65F7",
+      "bytes": 1265573,
+      "matchedRecordCount": 2,
+      "matchedRecords": [
+        {
+          "id": "peconic_river_river_road_edwards_avenue",
+          "name": "Peconic River River Road to Edwards Avenue public paddling access",
+          "state": "New York",
+          "sourceUrl": "https://dec.ny.gov/things-to-do/boating/launch-sites/boat-launch-suffolk",
+          "sourceType": "official-nysdec-launch-directory-and-blueway-map",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "coordinateRole": "authoritative-water-entry",
+          "method": "NYSDEC lists River Road East, River Road West, and the Mill Road at Edwards Avenue hand-launch contexts with map coordinates, carry/parking notes, and electric-motor restrictions. The Peconic River Blueway map independently identifies the upper launch sequence; stored points follow the state map anchors and remain subject to current permit, gate, carry, waterline, and dam-status confirmation.",
+          "controls": [
+            {
+              "featureId": "peconic-river-river-road-edwards-avenue-river-road-east",
+              "name": "Peconic River River Road East hand launch",
+              "aliases": [
+                "River Road East",
+                "Peconic River Upper River Road East"
+              ],
+              "waterbody": "Peconic River",
+              "latitude": 40.904308,
+              "longitude": -72.766228,
+              "riverMile": 0,
+              "uncertaintyFeet": 120,
+              "coordinateText": "NYSDEC Suffolk County public-launch coordinate for the River Road East hand launch"
+            },
+            {
+              "featureId": "peconic-river-river-road-edwards-avenue-river-road-west",
+              "name": "Peconic River River Road West hand launch",
+              "aliases": [
+                "River Road West",
+                "Peconic River Upper River Road West"
+              ],
+              "waterbody": "Peconic River",
+              "latitude": 40.904454,
+              "longitude": -72.769347,
+              "riverMile": 0.2,
+              "uncertaintyFeet": 120,
+              "coordinateText": "NYSDEC Suffolk County public-launch coordinate for the River Road West hand launch"
+            },
+            {
+              "featureId": "peconic-river-river-road-edwards-avenue-edwards",
+              "name": "Peconic River Upper at Edwards Avenue and Mill Road",
+              "aliases": [
+                "Edwards Avenue launch",
+                "Mill Road at Edwards Avenue",
+                "Peconic River Upper Edwards access"
+              ],
+              "waterbody": "Peconic River",
+              "latitude": 40.90461,
+              "longitude": -72.743566,
+              "riverMile": 2,
+              "uncertaintyFeet": 150,
+              "coordinateText": "NYSDEC Suffolk County public-launch coordinate for the Mill Road at Edwards Avenue hand launch"
+            }
+          ]
+        },
+        {
+          "id": "co_ahra_granite_buena_vista_access",
+          "name": "Colorado Arkansas Headwaters Granite to Buena Vista access anchors",
+          "state": "Colorado",
+          "sourceUrl": "https://cpw.state.co.us/state-parks/arkansas-headwaters-recreation-area/arkansas-headwaters-recreation-area-leadville-buena",
+          "sourceType": "official-cpw-recreation-area-access-page",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "coordinateRole": "authoritative-access-anchor",
+          "method": "Colorado Parks and Wildlife identifies Granite Boat Chute and Buena Vista Whitewater Park as public Arkansas Headwaters Recreation Area river-access sites. Preserve the stored coordinates as named access-area anchors and verify the marked ramp/slide, carry, parking, fees, and current water entry before launch.",
+          "controls": [
+            {
+              "featureId": "ahra-granite-boat-chute",
+              "name": "Granite Boat Chute AHRA river access",
+              "aliases": [
+                "Granite Boat Chute",
+                "Granite AHRA access",
+                "Granite boat ramp"
+              ],
+              "waterbody": "Arkansas River",
+              "latitude": 39.025903,
+              "longitude": -106.244336,
+              "riverMile": 0,
+              "uncertaintyFeet": 500,
+              "coordinateText": "CPW/AHRA public Granite Boat Chute river-access anchor; verify the boat slide, portage trail, parking, and water entry."
+            },
+            {
+              "featureId": "ahra-buena-vista-whitewater-park",
+              "name": "Buena Vista Whitewater Park public boat ramp",
+              "aliases": [
+                "Buena Vista Whitewater Park",
+                "Buena Vista public boat ramp",
+                "Buena Vista river access"
+              ],
+              "waterbody": "Arkansas River",
+              "latitude": 38.842,
+              "longitude": -106.131,
+              "riverMile": 18,
+              "uncertaintyFeet": 500,
+              "coordinateText": "CPW/AHRA and Town of Buena Vista public river-access anchor; verify the current ramp, parking, carry, and take-out landing."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

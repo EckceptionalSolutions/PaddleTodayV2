@@ -1,0 +1,48 @@
+{
+  "batch": "2026-09-17-batch-24",
+  "sourceCount": 7,
+  "sources": [
+    {
+      "title": "Virginia DWR South Fork Holston Float Guide",
+      "url": "https://dwr.virginia.gov/waterbody/holston-river-south-fork/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current page identifies Float 4 from Route 58 to Route 710 at Alvarado and says the take-out is at the Route 710 bridge."
+    },
+    {
+      "title": "Wisconsin DNR Fox River water detail",
+      "url": "https://apps.dnr.wi.gov/water/waterDetail.aspx?key=5774139",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current DNR inventory lists feature 10019301, Fox River access at Landing Road south of Berlin."
+    },
+    {
+      "title": "City of Berlin Parks and Recreation",
+      "url": "https://cityofberlin.net/parks-and-recreation/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current City page confirms Riverside Park along the Fox, a public boat launch, facilities, and 161 W Waushara Street address."
+    },
+    {
+      "title": "City of Arlington Haller Park plan amendment",
+      "url": "https://www.arlingtonwa.gov/DocumentCenter/View/13960/Combined-Amendment",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current City amendment lists existing beach access and boat launch beside SR-9; launch reconstruction is a potential improvement."
+    },
+    {
+      "title": "City of Arlington Haller Park facility page",
+      "url": "https://www.arlingtonwa.gov/Facilities/Facility/Details/Haller-Park-9",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current facility page lists beach access, parking, and park on the Stillaguamish; it does not give launch-edge coordinates."
+    },
+    {
+      "title": "City of Tonawanda Eastern Park pamphlet",
+      "url": "https://cms4files1.revize.com/tonawandany/Eastern%20Park%20Pamphlet%202023.pdf",
+      "retrievedAt": "2026-09-17",
+      "finding": "City pamphlet lists a kayak boat launch and labels its position at 280 Fillmore Avenue."
+    },
+    {
+      "title": "Buffalo Blueway public launch directory",
+      "url": "https://buffaloblueway.com/plan-your-trip/",
+      "retrievedAt": "2026-09-17",
+      "finding": "Current directory confirms public Eastern Park roller access for kayaks and other hand-launched craft at 278–286 Fillmore Avenue."
+    }
+  ]
+}

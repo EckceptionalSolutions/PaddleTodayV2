@@ -1,0 +1,13 @@
+{
+  "batch": "B90",
+  "selectedAt": "2026-09-19",
+  "routeId": "fox-river-yorkville-whitewater-course",
+  "routeName": "Fox River",
+  "reach": "Marge Cline Whitewater Course",
+  "state": "Illinois",
+  "endpoint": "takeOut",
+  "endpointName": "Marge Cline Whitewater Course take-out / downstream portage",
+  "storedCoordinate": { "latitude": 41.641998, "longitude": -88.443001 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 479.56101219224274, "nearestWaterwayName": "Fox River", "distanceFeetToMappedWater": 195.92668082349104, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "connected-network" },
+  "selectionReason": "Yorkville's official facility page describes the Marge Cline course as a free open-use Fox River facility with an east-end boat launch, portage points at both ends, and a designated downstream canoe portage; verify the stored downstream facility point as an access-area anchor."
+}

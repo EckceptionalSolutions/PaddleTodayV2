@@ -1,0 +1,82 @@
+{
+  "downloadedSources": [
+    {
+      "file": "baxter.html.metadata.json",
+      "url": "https://www.baxtermn.gov/Home/Components/News/News/175/166?arch=1",
+      "finalUrl": "https://www.baxtermn.gov/Home/Components/News/News/175/166?arch=1",
+      "retrievedAt": "2026-09-17T11:45:58.337Z",
+      "sha256": "3a05f0f2c636a1566a8abe909e54467542783724be8ed2f5fb8762d6edc65066"
+    },
+    {
+      "file": "blackstone.html.metadata.json",
+      "url": "https://blackstoneriver.org/resources/river-access/",
+      "finalUrl": "https://blackstoneriver.org/resources/river-access/",
+      "retrievedAt": "2026-09-17T11:45:57.848Z",
+      "sha256": "b6ae8fff30e90d24d48a90754aced59780ea8c82c0ac91eacab41853b005bff4"
+    },
+    {
+      "file": "central-falls.pdf.metadata.json",
+      "url": "https://dem.ri.gov/sites/g/files/xkgbur861/files/programs/benviron/emerre/grp/br05.pdf",
+      "finalUrl": "https://dem.ri.gov/sites/g/files/xkgbur861/files/programs/benviron/emerre/grp/br05.pdf",
+      "retrievedAt": "2026-09-17T11:45:57.577Z",
+      "sha256": "59331a1f7412ef6d2b1f7db912c5e02252e03125a5b4c889ecae65c811c8ce87"
+    },
+    {
+      "file": "richmond-map.html.metadata.json",
+      "url": "https://www.richmondlandtrust.org/directions-to-preserves",
+      "finalUrl": "https://www.richmondlandtrust.org/directions-to-preserves",
+      "retrievedAt": "2026-09-17T11:45:59.089Z",
+      "sha256": "c3722a71e0681e8083812e195efafbf55b434c9582bb31b376343bc089085164"
+    },
+    {
+      "file": "spokane.html.metadata.json",
+      "url": "https://www.spokaneriver.net/watertrail/launches/",
+      "finalUrl": "https://www.spokaneriver.net/watertrail/launches/",
+      "retrievedAt": "2026-09-17T11:46:07.132Z",
+      "sha256": "47d0eefb686ed0ddb3f18af471d9bc45a279587b88f2f515df32545b2b41b01e"
+    },
+    {
+      "file": "teche-plan.pdf.metadata.json",
+      "url": "https://techeproject.org/wp-content/uploads/2013/05/BTPT-plan-final.pdf",
+      "finalUrl": "https://techeproject.org/wp-content/uploads/2013/05/BTPT-plan-final.pdf",
+      "retrievedAt": "2026-09-17T11:45:58.578Z",
+      "sha256": "2523ecbc368026994ddd6ba1803d1c49df9a44841bf34c5dd3e3be43003bd734"
+    },
+    {
+      "file": "teche-planner.pdf.metadata.json",
+      "url": "https://www.techeproject.org/wp-content/uploads/2022/08/PaddlePlanner_spreads.pdf",
+      "finalUrl": "https://www.techeproject.org/wp-content/uploads/2022/08/PaddlePlanner_spreads.pdf",
+      "retrievedAt": "2026-09-17T11:45:58.809Z",
+      "sha256": "85caccaaf6589590ea868d47083fdcb58ba6dbb773c3dd8bd84d719085df5af2"
+    },
+    {
+      "file": "teche.html.metadata.json",
+      "url": "https://www.techeproject.org/bayou-teche-paddle-trail/",
+      "finalUrl": "https://www.techeproject.org/bayou-teche-paddle-trail/",
+      "retrievedAt": "2026-09-17T11:45:58.351Z",
+      "sha256": "b5c6bc6b8ae4248fa6420d44aa96733925f989a96cb5f0d895eba53bd40c4c19"
+    }
+  ],
+  "preservedEvidence": [
+    {
+      "file": "central-aerial.png",
+      "sha256": "393e8484d43c63aeeb9e45b4ae89fd01e57261700c54ba681f8dfceb5b0060fb"
+    },
+    {
+      "file": "central-aerial.json",
+      "sha256": "d13ac7c7346673379542b980a6e98a25145ea6fb479bf334f72f4f697389b598"
+    },
+    {
+      "file": "baldwin-aerial.png",
+      "sha256": "a9b60df5009ecfd8221ab7012ea95ed44af91239644129b96b0fa69ed9f5ca88"
+    },
+    {
+      "file": "baldwin-aerial.json",
+      "sha256": "60b7ab87a3f15fae5ba5483e02a651f1eb29fc87501d173b6c147c824a3b3fa9"
+    },
+    {
+      "file": "sc9-official.json",
+      "sha256": "e95a9ff0a066feae1866816d448b648068181cac182f13a10a7ae0ce92edecb9"
+    }
+  ]
+}

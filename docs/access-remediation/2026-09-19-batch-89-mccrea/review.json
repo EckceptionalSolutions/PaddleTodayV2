@@ -1,0 +1,13 @@
+{
+  "batch": "B89",
+  "decision": "retain-coordinate-classify",
+  "routeId": "henrys-fork-upper-coffee-pot-mccrea",
+  "endpoint": "takeOut",
+  "endpointName": "McCrea Bridge Campground Take-Out",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 44.461326, "longitude": -111.400613 }, "distanceFeetToMatchedRiver": 352.37572454415323, "distanceFeetToMappedWater": 193.91215563006807, "sourceIssues": 0 },
+  "evidence": { "accessCatalog": "The Henrys Fork Angler Access catalog lists McCrea Bridge Campground at 44.46132608,-111.40061335, with Caribou-Targhee National Forest ownership, paved boat ramp, and parking.", "agencyContext": "Recreation.gov confirms the McCrea Bridge campground and ramp, and warns that Island Park Reservoir drawdown can make the ramp inaccessible by August.", "coordinateFit": "The stored coordinate matches the published access point to sub-meter precision. The 352-foot connected-network offset and 194-foot mapped-water distance reflect the campground/ramp facility on the reservoir backwater corridor, not a wrong take-out."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "id_henrysfork_mccrea_bridge_campground_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 352.37572454415323, "distanceFeetToMappedWater": 193.91215563006807, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 36, "after": 35 }, "inventorySuspicious": { "before": 89, "after": 88 }, "publicReview": { "before": 3901, "after": 3902 }, "inventoryReview": { "before": 4205, "after": 4206 }, "registryAuthoritativeAccess": { "before": 1234, "after": 1235 } }
+}

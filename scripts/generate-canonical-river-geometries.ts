@@ -4,6 +4,7 @@ import path from 'node:path';
 import { endpointSnappedRiverGeometry, endpointSnappedRiverNetwork, stitchRiverLines } from '@paddletoday/geo';
 import { listAllRiversForAudit, listRivers } from '../src/lib/rivers';
 import type { River } from '../src/lib/types';
+import { compactGeometryCoordinates } from './lib/compact-geometry';
 
 type Point = [number, number];
 
@@ -709,6 +710,8 @@ const endpointBoundedNamedRoutes = new Set([
   'spokane-river-aubrey-white-plese-flats',
   'spokane-river-aubrey-white-nine-mile-dam',
   'spokane-river-redband-tj-meenach',
+  'spokane-river-barker-mirabeau',
+  'spokane-river-harvard-mirabeau',
   'spokane-river-tj-meenach-aubrey-white',
   'spokane-river-aubrey-white-riverside',
   'spokane-river-tj-meenach-riverside',
@@ -3138,6 +3141,29 @@ const officialCuratedRouteCoordinates: Record<string, Point[]> = {
     [-75.92142, 43.07335],
     [-75.87072, 43.06041],
   ],
+  // Official Canalway 6.2-mile no-lock day trip. Follow the reviewed NHD
+  // Section 22 centerline west from DEC's Rotary Park ramp and retrace it.
+  // The western point is an in-water turnaround short of E18, not an access.
+  'erie-canal-little-falls-lock-e18-return': [
+    [-74.866107, 43.033539], [-74.867678, 43.033443],
+    [-74.869539, 43.030799], [-74.870681, 43.030359],
+    [-74.871261, 43.030137], [-74.874614, 43.028847],
+    [-74.877932, 43.025846], [-74.877973, 43.025839],
+    [-74.8842, 43.024735], [-74.890915, 43.022651],
+    [-74.895429, 43.02125], [-74.898436, 43.018277],
+    [-74.898778, 43.017938], [-74.905699, 43.016571],
+    [-74.906326, 43.016452], [-74.908657, 43.015993],
+    [-74.911729, 43.016234], [-74.9142, 43.016427],
+    [-74.911729, 43.016234], [-74.908657, 43.015993],
+    [-74.906326, 43.016452], [-74.905699, 43.016571],
+    [-74.898778, 43.017938], [-74.898436, 43.018277],
+    [-74.895429, 43.02125], [-74.890915, 43.022651],
+    [-74.8842, 43.024735], [-74.877973, 43.025839],
+    [-74.877932, 43.025846], [-74.874614, 43.028847],
+    [-74.871261, 43.030137], [-74.870681, 43.030359],
+    [-74.869539, 43.030799], [-74.867678, 43.033443],
+    [-74.866107, 43.033539],
+  ],
   'erie-canal-waterford-flight': [
     [-73.71451, 42.80789],
     [-73.71336, 42.8049],
@@ -3611,6 +3637,8 @@ async function main() {
         state: route.state,
         source: route.id === 'hammocks-beach-huggins-island-loop'
           ? 'North Carolina Coastal Plain Paddle Trails GIS mapped trail vertices with Hammocks Beach State Park access anchor'
+          : route.id === 'erie-canal-little-falls-lock-e18-return'
+          ? 'Reviewed USGS NHD channel trace with NYSDEC Rotary Park ramp; official Canalway no-lock out-and-back'
           : route.id === 'north-fork-coeur-dalene-babins-little-north'
           || route.id === 'little-north-fork-coeur-dalene-laverne-mouth'
           ? 'Reviewed USGS NHD Flowline centerline sample with American Whitewater access anchors'
@@ -3623,8 +3651,19 @@ async function main() {
       geometry: { type: 'MultiLineString', coordinates: [coordinates] },
     }];
   });
-  const curatedFeatures = [
+  // Prefer a fresh connected NHD route for Russell Gates–Marco Flats when it
+  // is available. Keep the reviewed access-anchor line as a fallback for
+  // network outages or disconnected hydrography responses.
+  const networkPreferredCuratedRouteIds = new Set([
+    'blackfoot-river-russell-gates-marco-flats',
+  ]);
+  const networkPreferredCuratedFallbacks = builtInCuratedFeatures.filter((feature) =>
+    networkPreferredCuratedRouteIds.has(feature.properties.routeId),
+  );
+  let curatedFeatures = [
     ...existingFeatures.filter((feature) =>
+      !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
+      &&
       !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)
       // A route-scoped refresh must preserve every existing asset except the
       // requested route. Full generation still rebuilds endpoint-bounded
@@ -3633,7 +3672,9 @@ async function main() {
         ? feature.properties.routeId !== requestedRouteId
         : !(endpointBoundedNamedRoutes.has(feature.properties.routeId)
           || (feature.properties.source === 'USGS NHD Flowline' && feature.properties.routeId === requestedRouteId)))),
-    ...builtInCuratedFeatures,
+    ...builtInCuratedFeatures.filter((feature) =>
+      !networkPreferredCuratedRouteIds.has(feature.properties.routeId),
+    ),
   ];
   let matchedRoutes = 0;
   let nextRouteIndex = 0;
@@ -3700,6 +3741,8 @@ async function main() {
         || route.id === 'blackfoot-river-russell-gates-roundup'
         || route.id === 'blackfoot-river-johnsrud-weigh-station'
         || route.id === 'blackfoot-river-roundup-johnsrud'
+        || route.id === 'blackfoot-river-russell-gates-marco-flats'
+        || route.id === 'blackfoot-river-whitaker-marco-flats'
         || route.id === 'saco-river-bartlett-cooks-crossing'
         || route.id === 'saco-river-first-bridge-davis-park'
         || route.id === 'saco-river-davis-park-smith-eastman'
@@ -3853,12 +3896,26 @@ async function main() {
   }
 
   await Promise.all(Array.from({ length: 6 }, () => processNextRoute()));
+  const generatedNetworkRouteIds = new Set(
+    features
+      .filter((feature) => feature.properties.traceMode === 'network-traced')
+      .map((feature) => feature.properties.routeId),
+  );
+  curatedFeatures = [
+    ...curatedFeatures,
+    ...networkPreferredCuratedFallbacks.filter((feature) =>
+      !generatedNetworkRouteIds.has(feature.properties.routeId),
+    ),
+  ];
   const curatedRouteIds = new Set(curatedFeatures.map((feature) => feature.properties.routeId));
   for (let index = features.length - 1; index >= 0; index -= 1) {
     if (curatedRouteIds.has(features[index].properties.routeId)) features.splice(index, 1);
   }
   features.push(...curatedFeatures);
   features.sort((left, right) => left.properties.routeId.localeCompare(right.properties.routeId));
+  for (const feature of features) {
+    feature.geometry.coordinates = compactGeometryCoordinates(feature.geometry.coordinates) as Point[][];
+  }
   if (requestedRouteId && !reviewMode) {
     const requestedFeature = features.find((feature) => feature.properties.routeId === requestedRouteId);
     if (!requestedFeature) throw new Error(`No canonical geometry matched requested route ${requestedRouteId}.`);

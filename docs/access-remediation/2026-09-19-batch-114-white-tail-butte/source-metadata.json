@@ -1,0 +1,18 @@
+{
+  "batch": "B114",
+  "endpoint": "White Tail Butte Landing",
+  "routeId": "priest-river-dickensheet-white-tail",
+  "sources": [
+    {
+      "url": "https://www.sandpoint.com/recreation/priest-river-kayaking.pdf",
+      "publisher": "USDA Forest Service, Priest Lake Ranger District",
+      "supports": "Lists White Tail Butte Landing as public Priest River access point 3, identifies undeveloped parking, and places it between Dickensheet Campground and Big Creek."
+    },
+    {
+      "url": "https://priestlake.org/activities/river-running/",
+      "publisher": "Priest Lake Chamber of Commerce",
+      "supports": "Directs visitors to the USFS Priest River float pamphlet and describes seasonal river conditions and the need to check with the Ranger District."
+    }
+  ],
+  "sourceAssessment": "The USFS float guide directly documents White Tail Butte Landing as public access with undeveloped parking; local chamber guidance corroborates the official pamphlet and seasonal restrictions. Retain the stored point as a conditional landing-area anchor."
+}

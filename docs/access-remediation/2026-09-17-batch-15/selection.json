@@ -1,0 +1,288 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue starting at rank 173 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-14; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "priorFrozenSiteCount": 130,
+  "currentWithheldRouteCount": 149,
+  "queueStartRank": 173,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 1,
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Peconic River River Road West hand launch",
+      "latitude": 40.904454,
+      "longitude": -72.769347,
+      "distanceFeetToMappedWater": 409.994156172778,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-river-road-edwards-avenue",
+          "endpoint": "accessPoint",
+          "endpointName": "Peconic River River Road West hand launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 173,
+      "eligibleUnwithheldRoutes": [
+        "peconic-river-river-road-edwards-avenue"
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Bolton Canoe Access Area",
+      "latitude": 44.3768,
+      "longitude": -72.8755,
+      "distanceFeetToMappedWater": 409.7028613540117,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "failure"
+        },
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-bolton-canoe",
+          "endpoint": "takeOut",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 174,
+      "eligibleUnwithheldRoutes": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-bolton-canoe"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Inner Harbor Bear Street public launch",
+      "latitude": 43.0611993,
+      "longitude": -76.1701988,
+      "distanceFeetToMappedWater": 409.3650104538896,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "onondaga-creek-meachem-inner-harbor",
+          "endpoint": "takeOut",
+          "endpointName": "Inner Harbor Bear Street public launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 176,
+      "eligibleUnwithheldRoutes": [
+        "onondaga-creek-meachem-inner-harbor"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "North Nebraska Street Boat Landing",
+      "latitude": 43.45514,
+      "longitude": -88.63936,
+      "distanceFeetToMappedWater": 409.1139524554411,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "horicon-marsh-greenhead-nebraska",
+          "endpoint": "takeOut",
+          "endpointName": "North Nebraska Street Boat Landing",
+          "severity": "unknown"
+        }
+      ],
+      "rank": 177,
+      "eligibleUnwithheldRoutes": [
+        "horicon-marsh-greenhead-nebraska"
+      ]
+    },
+    {
+      "state": "Colorado",
+      "name": "Buena Vista Whitewater Park public boat ramp",
+      "latitude": 38.842,
+      "longitude": -106.131,
+      "distanceFeetToMappedWater": 408.7384394108848,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "arkansas-river-granite-boat-chute-buena-vista",
+          "endpoint": "takeOut",
+          "endpointName": "Buena Vista Whitewater Park public boat ramp",
+          "severity": "review"
+        }
+      ],
+      "rank": 178,
+      "eligibleUnwithheldRoutes": [
+        "arkansas-river-granite-boat-chute-buena-vista"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Moody Falls Trailhead / Raquette River hand launch",
+      "latitude": 44.3125,
+      "longitude": -74.7197,
+      "distanceFeetToMappedWater": 406.9065311723425,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "accessPoint",
+          "endpointName": "Moody Falls Trailhead / Raquette River hand launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Moody Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ],
+      "rank": 179,
+      "eligibleUnwithheldRoutes": [
+        "raquette-river-dead-creek-jamestown",
+        "raquette-river-piercefield-parmenter"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Aqua Lane / Rice Lake carry-in",
+      "latitude": 45.1637486,
+      "longitude": -93.1154357,
+      "distanceFeetToMappedWater": 405.64372623779036,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Aqua Lane / Rice Lake carry-in",
+          "severity": "review"
+        }
+      ],
+      "rank": 180,
+      "eligibleUnwithheldRoutes": [
+        "rice-creek-peltier-to-long-lake"
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "Kents Lane Portage Park public Reed Creek access",
+      "latitude": 36.9483187505498,
+      "longitude": -81.0252784830942,
+      "distanceFeetToMappedWater": 404.1205202440736,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "endpoint": "putIn",
+          "endpointName": "Kents Lane Portage Park public Reed Creek access",
+          "severity": "review"
+        }
+      ],
+      "rank": 181,
+      "eligibleUnwithheldRoutes": [
+        "reed-creek-kents-millers-blueway"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Route 184 hand launch",
+      "latitude": 44.517396,
+      "longitude": -75.526104,
+      "distanceFeetToMappedWater": 403.9183729371126,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Fish Creek WMA Route 184 hand launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 182,
+      "eligibleUnwithheldRoutes": [
+        "fish-creek-wma-route-184-pope-mills"
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Pulltite river access / campground area",
+      "latitude": 37.33505,
+      "longitude": -91.47959,
+      "distanceFeetToMappedWater": 403.3689221413702,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-cedar-grove-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "putIn",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 183,
+      "eligibleUnwithheldRoutes": [
+        "current-river-akers-ferry-pulltite",
+        "current-river-cedar-grove-pulltite",
+        "current-river-pulltite-round-spring"
+      ]
+    }
+  ]
+}

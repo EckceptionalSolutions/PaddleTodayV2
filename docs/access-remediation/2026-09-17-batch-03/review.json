@@ -1,0 +1,130 @@
+{
+  "reviewDate": "2026-09-17",
+  "batch": 3,
+  "workflow": "docs/access-point-remediation-runbook.md",
+  "selectionFile": "docs/access-remediation/2026-09-17-batch-03/selection.json",
+  "selectionFrozenBeforeResearch": true,
+  "auditInputLimit": "Selection was frozen from the cached audit report dated 2026-09-17T12:02:46.464Z. The full audit could not be regenerated because the workspace is missing @paddletoday/geo. The current withholding manifest was used to filter public routes.",
+  "siteCount": 10,
+  "sites": [
+    {
+      "rank": 1,
+      "site": "Moyie Reservoir Boating Take-Out",
+      "routeIds": ["moyie-river-meadow-creek-reservoir"],
+      "originalCoordinate": { "latitude": 48.73135, "longitude": -116.1831 },
+      "decision": "keep-as-access-anchor",
+      "finding": "The City of Bonners Ferry's February 2025 recreation study identifies a Moyie Reservoir Boating Takeout and Day-Use Area. The published study establishes the facility area but not a survey-grade shoreline-entry point. The large hydrography offset is not grounds to snap the pin across a reservoir map layer.",
+      "sourceIds": ["bonners-ferry-moyie-study"],
+      "sourceAction": "Retain the existing 700-foot-uncertainty facility anchor and current route caveat to verify shoreline carry, parking, reservoir level, and dam exclusion postings.",
+      "reopenWhen": "A current operator map or field-verified landing point identifies the public water entry within this facility."
+    },
+    {
+      "rank": 2,
+      "site": "Peakville bridge access",
+      "routeIds": ["beaver-kill-cooks-falls-peakville"],
+      "originalCoordinate": { "latitude": 41.945, "longitude": -75.037 },
+      "decision": "reject-unverified-and-hold-route",
+      "finding": "The stored coordinate is a community route-map pin. The reviewed regional source and NYSDEC Public Fishing Rights material do not establish public paddling entry, parking, or a legal carry at Peakville bridge. NYSDEC explains that public fishing-rights easements authorize fishing and bank walking only, not general access for another purpose.",
+      "sourceIds": ["nysdec-beaverkill-pfr", "greatwestern-catskills-access"],
+      "sourceAction": "Removed the Peakville control from authoritative access candidates, preserved the original source coordinate in route history, and added a publication hold.",
+      "reopenWhen": "A current managing-agency or landowner source confirms paddling access and identifies parking/carry, or a field check documents lawful access with permission."
+    },
+    {
+      "rank": 3,
+      "site": "Campbell Cohocton River access area",
+      "routeIds": ["cohocton-river-bath-campbell"],
+      "originalCoordinate": { "latitude": 42.235, "longitude": -77.196 },
+      "decision": "reject-unverified-and-hold-route",
+      "finding": "The Susquehanna River Basin Commission survey names canoe/kayak launches at Route 11 in Bath, Wood Road in Campbell, and Kinsella Park in Erwin. It does not establish the stored, separate Campbell endpoint. Wood Road is already an intermediate access about 2.3 route miles upstream, so using it as a replacement would shorten and materially change the trip.",
+      "sourceIds": ["srbc-cohocton-survey"],
+      "sourceAction": "Removed the unverified Campbell endpoint from authoritative access candidates, retained the route coordinate as source evidence, and added a publication hold. Kept the verified Wood Road intermediate launch in place.",
+      "reopenWhen": "A current public access source or field check identifies the intended downstream Campbell landing and confirms legal staging."
+    },
+    {
+      "rank": 4,
+      "site": "Laurel Hill State Park Beach Area canoe/kayak launch",
+      "routeIds": ["laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge"],
+      "originalCoordinate": { "latitude": 40.01023, "longitude": -79.2244 },
+      "decision": "keep-as-access-anchor",
+      "finding": "Pennsylvania DCNR confirms an additional canoe/kayak launch in the Beach Area on Laurel Hill Lake and a six-mile water trail ending at the improved take-out at historic Kings Covered Bridge. The stored coordinate is a park/Beach Area GPS anchor, not a surveyed creek or lake-edge coordinate. The quality report's nearest-water offset compares the lake launch context with stream hydrography and does not disprove the named access.",
+      "sourceIds": ["pa-laurel-hill-boating", "pa-laurel-hill-park-guide"],
+      "sourceAction": "Changed the official-control role from authoritative-water-entry to authoritative-access-anchor and clarified that users must follow park signs to the actual launch. Kept the route and coordinate.",
+      "reopenWhen": "An official map or field measurement identifies a more precise Beach Area launch coordinate."
+    },
+    {
+      "rank": 5,
+      "site": "Big Falls Road Gunpowder access",
+      "routeIds": ["gunpowder-falls-masemore-monkton"],
+      "originalCoordinate": { "latitude": 39.59685, "longitude": -76.64425 },
+      "decision": "reject-optional-access-and-remove-waypoint",
+      "finding": "Maryland DNR states that the river flows into private property downriver of Big Falls Road. The reviewed page does not identify a public boat launch, parking, or carry at the stored coordinate. The route has independently supported Masemore, Blue Mount, and Monkton access points and does not rely on this intermediate point.",
+      "sourceIds": ["md-gunpowder-river-recreation"],
+      "sourceAction": "Removed the optional Big Falls point from the route, route-access controls, and route-corridor node list. Collapsed the adjacent corridor links and retained the overall route without a hold.",
+      "reopenWhen": "A managing-agency source verifies a designated public launch/carry at Big Falls Road and confirms that the location is appropriate as a bailout."
+    },
+    {
+      "rank": 6,
+      "site": "Salmon River Black Hole north-bank access",
+      "routeIds": ["salmon-river-route-2a-black-hole"],
+      "originalCoordinate": { "latitude": 43.56388, "longitude": -76.13889 },
+      "decision": "reject-unverified-and-hold-route",
+      "finding": "NYSDEC lists Blackhole at North Jefferson and Bridge Streets as parking. Its page does not identify a boat launch or river landing there. Public north-bank context and a route-map endpoint do not establish a safe, lawful river exit. The opposite bank has a separate private DSR boundary.",
+      "sourceIds": ["nysdec-salmon-river", "american-whitewater-salmon-route"],
+      "sourceAction": "Kept the coordinate as a parking/access-area candidate, changed its control text to say parking only, and added a publication hold.",
+      "reopenWhen": "A current public landing and lawful exit path are documented for the north bank, including parking and private-bank boundaries."
+    },
+    {
+      "rank": 7,
+      "site": "Polaris Bridge Hudson River hand launch",
+      "routeIds": ["hudson-river-newcomb-indian-confluence"],
+      "originalCoordinate": { "latitude": 43.8952, "longitude": -74.169 },
+      "decision": "keep-as-parking-carry-anchor",
+      "finding": "NYSDEC identifies this coordinate as Polaris Bridge Parking Area. The hand launch is downstream of the bridge and requires a 0.3-mile carry. The map offset is expected for the published parking anchor and does not identify a bad coordinate.",
+      "sourceIds": ["nysdec-hudson-gorge"],
+      "sourceAction": "Changed the route point name/note and provider role to identify the parking/carry anchor; kept the coordinate.",
+      "reopenWhen": "An official launch map supplies a more precise coordinate at the hand-launch landing."
+    },
+    {
+      "rank": 8,
+      "site": "Sidney Susquehanna confluence access",
+      "routeIds": ["unadilla-river-rockdale-sidney"],
+      "originalCoordinate": { "latitude": 42.313, "longitude": -75.406 },
+      "replacementCoordinate": { "latitude": 42.315483, "longitude": -75.414102 },
+      "uncertaintyFeet": 150,
+      "decision": "fix-and-keep-public",
+      "finding": "NYSDEC's current Otsego County launch directory identifies a public Susquehanna River hand launch at Sidney at the replacement coordinate and lists parking for 30 cars. The prior point came from a route map at the confluence and lacked a verified legal landing. A separate existing Sidney route uses the same DEC coordinate. The eight-mile distance remains the published planning estimate; no exact-mile recalculation was claimed.",
+      "sourceIds": ["nysdec-otsego-sidney"],
+      "sourceAction": "Updated route center, takeOut, duplicate access point, endpoint name, reach text, shuttle text, and official-control coordinate/provenance. No trip-detail override was found.",
+      "reopenWhen": "Recheck DEC directory and current launch access before a trip; change the coordinate only if NYSDEC publishes a new location or a better surveyed point."
+    },
+    {
+      "rank": 9,
+      "site": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+      "routeIds": ["cobleskill-creek-warnerville-central-bridge"],
+      "originalCoordinate": { "latitude": 42.64666, "longitude": -74.53473 },
+      "decision": "keep-as-access-anchor",
+      "finding": "Montgomery County publishes this as the Cobleskill Creek paddling start near SUNY Cobleskill trail and pavilion. The county warns its paddling route information is volunteer-shared and not monitored. The record is already an authoritative-access-anchor, and no better official wet-edge coordinate was found. Current campus permission, carry, and parking need confirmation.",
+      "sourceIds": ["montgomery-county-cobleskill-paddling", "suny-cobleskill-creek-map"],
+      "sourceAction": "Kept the current anchor and existing permission/carry caveats; did not snap the county coordinate to hydrography.",
+      "reopenWhen": "The county or campus publishes current public-entry rules or a more precise launch map."
+    },
+    {
+      "rank": 10,
+      "site": "Jamestown Falls Hand Launch / Landing",
+      "routeIds": ["raquette-river-dead-creek-jamestown", "raquette-river-piercefield-parmenter"],
+      "originalCoordinate": { "latitude": 44.3262, "longitude": -74.7226 },
+      "decision": "keep-as-parking-carry-anchor",
+      "finding": "NYSDEC publishes 44.3262, -74.7226 for Jamestown Falls Trailhead Parking Area and documents a 100-foot carry to the river. The point's offset is expected for a parking/carry anchor; it is not a precise hand-launch edge.",
+      "sourceIds": ["nysdec-raquette-boreal"],
+      "sourceAction": "Changed the two route-facing names and control records to say Trailhead Parking Area / carry and downgraded both provider roles to authoritative-access-anchor. Kept the official coordinate and route links.",
+      "reopenWhen": "An official launch map supplies a surveyed water-entry coordinate or NYSDEC changes the parking/carry location."
+    }
+  ],
+  "publicationActions": {
+    "newHolds": ["beaver-kill-cooks-falls-peakville", "cohocton-river-bath-campbell", "salmon-river-route-2a-black-hole"],
+    "optionalWaypointRemoved": ["gunpowder-big-falls-road"],
+    "coordinateCorrections": ["unadilla-river-rockdale-sidney-take-out"],
+    "anchorReclassifications": ["laurel-hill-state-park-beach-area", "polaris-bridge-parking-area", "jamestown-falls-trailhead-parking-area"]
+  },
+  "validation": "See validation.json. Withholding generation and targeted data checks passed. Full access audit, registry regeneration, typecheck, and route geometry/catalog generation remain blocked by missing shared @paddletoday/geo and @paddletoday/api-contract packages. No deployment was performed."
+}

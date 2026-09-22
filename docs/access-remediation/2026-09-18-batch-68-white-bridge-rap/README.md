@@ -1,0 +1,13 @@
+# Batch 68 — White Bridge Picnic Site / RAP
+
+Reviewed 2026-09-18. The frozen candidate was suspicious because the shared stored coordinate, `34.5496, -111.8508`, sat about 345 feet from the matched Verde River flowline and 2,404 feet from the nearest mapped waterbody. Five public routes share this location; one occurrence was suspicious and four were review.
+
+Refined the shared coordinate by about 63 feet to the Forest Service Recreation Opportunities GIS point for White Bridge Picnic Site (`34.549539, -111.850602`). The official site description states that the developed public picnic area provides access to the Verde River and non-motorized boating, and its linked photos document a trail from the picnic area to the river. The old point also matches Friends of the Verde's published White Bridge RAP coordinate. The Forest Service paddle guide has a second waypoint about 573 feet north, but its map says it is for reference and accuracy is not guaranteed. The current recreation-site GIS marker is the better anchor for the managed access area.
+
+Renamed the shared generated endpoint from “White Bridge RAP water-entry edge” to “White Bridge RAP access area” and documented that this pin is not a surveyed wet toe. All five targeted refreshed route audits now classify White Bridge as review, with 200–406 feet to the matched flowline, about 2,406 feet to the nearest mapped waterbody, and zero source issues. This resolves the suspicious access-area identity without claiming that NHD or the Forest Service GIS locates the exact shoreline entry.
+
+Evidence: [Forest Service recreation-site GIS feature](https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=9740&outFields=*&returnGeometry=true&outSR=4326&f=pjson), [USFS Verde River Paddle Trail guide](https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprd3818300.pdf), and [Friends of the Verde access map](https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf). Per-route refreshed NHD evidence and full before/after audits are included in this folder.
+
+See `selection.json`, `review.json`, and `source-metadata.json` for the frozen candidate, source comparison, and decision limits.
+
+The refreshed public audit covers 2,750 routes and 6,058 endpoints: 56 suspicious, down from 57; 3,876 review, 2,048 okay, and 78 unknown. The full inventory covers 2,998 routes and 6,641 endpoints: 110 suspicious, down from 111; 51 failure and 89 unknown classifications remain. Cache-only source issues are unchanged at 271 public and 314 inventory. The access registry now has 4,042 canonical entries, 1,201 repeated entries, zero conflicts, and 1,218 authoritative access matches.

@@ -42,6 +42,7 @@ apps/mobile/*.tsbuildinfo
 /.github/
 /automations/
 /docs/
+/artifacts/
 /public/
 /scripts/*
 !/scripts/apply-react-native-android-drawing-order-fix.mjs

@@ -1,0 +1,41 @@
+{
+  "batch": "B116",
+  "decision": "withhold-route-unverified-public-takeout",
+  "routeId": "boise-river-troutdale-willow",
+  "endpoint": "takeOut",
+  "endpointName": "Willow Creek Campground access-area anchor",
+  "before": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 337.10324796046774,
+    "distanceFeetToMappedWater": 337.10324796046774
+  },
+  "after": {
+    "publicScope": "withheld",
+    "inventoryScope": "suspicious",
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "coordinateEvidenceRole": null
+  },
+  "rationale": "Federal records establish Willow Creek Campground but do not establish a public boat landing; current access guidance says there is no boat access at the campground. Withhold the route pending Forest Service confirmation of lawful carry, parking, and exact water entry.",
+  "condition": "Require Forest Service confirmation of a public landing, legal parking/carry approach, and exact water-entry coordinate before release.",
+  "fullAuditDelta": {
+    "public": {
+      "suspiciousBefore": 9,
+      "suspiciousAfter": 8,
+      "reviewBefore": 3926,
+      "reviewAfter": 3925
+    },
+    "inventory": {
+      "suspiciousBefore": 63,
+      "suspiciousAfter": 63,
+      "reviewBefore": 4231,
+      "reviewAfter": 4231
+    },
+    "registry": {
+      "authoritativeAccessBefore": 1257,
+      "authoritativeAccessAfter": 1257,
+      "conflictsAfter": 0
+    }
+  }
+}

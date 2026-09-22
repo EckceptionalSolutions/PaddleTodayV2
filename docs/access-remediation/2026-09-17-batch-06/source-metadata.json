@@ -1,0 +1,199 @@
+{
+  "batch": "2026-09-17-batch-06",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-06/sources",
+  "snapshots": [
+    {
+      "id": "md-milburn-access-feature",
+      "url": "https://dnr.geodata.md.gov/dnrdata/rest/services/Fisheries/PublicFishingAccessSites/MapServer/0/query?where=Name%20LIKE%20%27%25Milburn%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "localPath": "node_modules/.cache/access-batch-06/sources/md-milburn-access-feature.json",
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "bytes": 10750,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F7696B982718509002833FA8119B16B113C11DE3BFADA7B68401F35D6DD29B85"
+    },
+    {
+      "id": "ia-river-valley-and-massillon-access-features",
+      "url": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Massillon%25%27%20OR%20Name%20LIKE%20%27%25River%20Valley%25%27&outFields=*&returnGeometry=true&outSR=4326&f=json",
+      "localPath": "node_modules/.cache/access-batch-06/sources/ia-river-valley-and-massillon-access-features.json",
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "bytes": 3100,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "83D416834F6A61544B4044F9F81861581E4CF2F63E7F84838936F9A78DE37500"
+    },
+    {
+      "id": "nps-ozark-campground-map",
+      "url": "https://www.nps.gov/buff/planyourvisit/upload/Ozark-Campground.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/nps-ozark-campground-map.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 546273,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "5A9CA8568F17701B010A191C1D6903B3A21571E2DCCB88D24E1D92DD7657DFB5"
+    },
+    {
+      "id": "nps-buffalo-getting-around",
+      "url": "https://www.nps.gov/buff/planyourvisit/getting-around.htm",
+      "localPath": "node_modules/.cache/access-batch-06/sources/nps-buffalo-getting-around.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 42610,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B77E33C148C4ACA4DF248CDE5B1D161B369D6DBD1AB1A6964FD6682011309592"
+    },
+    {
+      "id": "blm-owyhee-boater-guide",
+      "url": "https://www.blm.gov/sites/blm.gov/files/documents/files/Media-Center_Public-Room_Idaho_Bruneau-Jarbidge-Owyhee%20Boater%20Guide.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/blm-owyhee-boater-guide.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 9924242,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "01A5FC97848FBDC9152EFE3B3A3D70E394C899B458CC75C0467A6E407FC74BC8"
+    },
+    {
+      "id": "teche-bayou-paddle-trail-plan",
+      "url": "https://techeproject.org/wp-content/uploads/2013/05/BTPT-plan-final.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/teche-bayou-paddle-trail-plan.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 8057643,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "2523ECBC368026994DDD6BA1803D1C49DF9A44841BF34C5DD3E3BE43003BD734"
+    },
+    {
+      "id": "teche-dock-locations",
+      "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "localPath": "node_modules/.cache/access-batch-06/sources/teche-dock-locations.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 48658,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "DC36C9719197C9213AA96F533011FEEEB83B28583D8957739B057E6B0134CFF1"
+    },
+    {
+      "id": "ri-explore-greystone-site",
+      "url": "https://exploreri.org/siteReport.php?siteID=284&src=criteria",
+      "localPath": "node_modules/.cache/access-batch-06/sources/ri-explore-greystone-site.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 15723,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "CD4789BDA21CB208864547D1B151BB28113636E58B7C049B576594F1B94B7C52"
+    },
+    {
+      "id": "ri-wrwc-cricket-field",
+      "url": "https://wrwc.org/what-we-do/greenway/parks/cricket-field/",
+      "localPath": "node_modules/.cache/access-batch-06/sources/ri-wrwc-cricket-field.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 77669,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "E6E9A988ECF7D353B5B899F21AEF1347C4E6F90F746CE22E242715B05B8EACDE"
+    },
+    {
+      "id": "verde-river-access-points",
+      "url": "https://verderiver.org/wp-content/uploads/2022/03/river-access-points.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/verde-river-access-points.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 720899,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "AD191C21E2DB4FE63E3B9870686F9319AC3FB799A29EA2F5508F19685374C31C"
+    },
+    {
+      "id": "rvta-map-2025",
+      "url": "https://www.redbankvalleytrails.org/wp-content/uploads/2025/09/RVTA-Map-2025Ed-Final-Web.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/rvta-map-2025.pdf",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 4935648,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C14D9C95586EBF6DF4BEE62E9565B3C6F94DAB7930EA78F47CAC776C82F5DADB"
+    },
+    {
+      "id": "saco-american-whitewater-index",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-index/state/USA-NHM",
+      "localPath": "node_modules/.cache/access-batch-06/sources/saco-american-whitewater-index.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 160322,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "465B51CE0805FA1E8612B0A4FAC5438DFC00A67A0BA590FE9CE51537539CE911"
+    },
+    {
+      "id": "ames-river-valley-park",
+      "url": "https://www.cityofames.org/My-Government/Departments/Parks-and-Recreation/Parks/River-Valley-Park",
+      "localPath": "node_modules/.cache/access-batch-06/sources/ames-river-valley-park.html",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 403 (Forbidden).",
+      "sha256": null
+    },
+    {
+      "id": "story-county-south-skunk-trail",
+      "url": "https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail",
+      "localPath": "node_modules/.cache/access-batch-06/sources/story-county-south-skunk-trail.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 138454,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "CBF52EEA3475117861F052E520E807E79957878CD9BB21BAA06D12A50CEEF689"
+    },
+    {
+      "id": "iowa-dnr-wapsipinicon-map",
+      "url": "https://www.iowadnr.gov/portals/idnr/uploads/riverprograms/map_wapsipinicon.pdf",
+      "localPath": "node_modules/.cache/access-batch-06/sources/iowa-dnr-wapsipinicon-map.pdf",
+      "httpStatus": null,
+      "contentType": null,
+      "bytes": null,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 404 (Not Found).",
+      "sha256": null
+    },
+    {
+      "id": "md-pocomoke-boating-fishing",
+      "url": "https://dnr.maryland.gov/publiclands/pages/eastern/pocomoke/boating-fishing.aspx",
+      "localPath": "node_modules/.cache/access-batch-06/sources/md-pocomoke-boating-fishing.html",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 58380,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "A6951F5B74EF4176553AA67E573726D6BD59FD71B10A8301FA8DF71C6BD02B2B"
+    }
+  ],
+  "hashes": {
+    "md-milburn-access-feature": "F7696B982718509002833FA8119B16B113C11DE3BFADA7B68401F35D6DD29B85",
+    "ia-river-valley-and-massillon-access-features": "83D416834F6A61544B4044F9F81861581E4CF2F63E7F84838936F9A78DE37500",
+    "nps-ozark-campground-map": "5A9CA8568F17701B010A191C1D6903B3A21571E2DCCB88D24E1D92DD7657DFB5",
+    "nps-buffalo-getting-around": "B77E33C148C4ACA4DF248CDE5B1D161B369D6DBD1AB1A6964FD6682011309592",
+    "blm-owyhee-boater-guide": "01A5FC97848FBDC9152EFE3B3A3D70E394C899B458CC75C0467A6E407FC74BC8",
+    "teche-bayou-paddle-trail-plan": "2523ECBC368026994DDD6BA1803D1C49DF9A44841BF34C5DD3E3BE43003BD734",
+    "teche-dock-locations": "DC36C9719197C9213AA96F533011FEEEB83B28583D8957739B057E6B0134CFF1",
+    "ri-explore-greystone-site": "CD4789BDA21CB208864547D1B151BB28113636E58B7C049B576594F1B94B7C52",
+    "ri-wrwc-cricket-field": "E6E9A988ECF7D353B5B899F21AEF1347C4E6F90F746CE22E242715B05B8EACDE",
+    "verde-river-access-points": "AD191C21E2DB4FE63E3B9870686F9319AC3FB799A29EA2F5508F19685374C31C",
+    "rvta-map-2025": "C14D9C95586EBF6DF4BEE62E9565B3C6F94DAB7930EA78F47CAC776C82F5DADB",
+    "saco-american-whitewater-index": "465B51CE0805FA1E8612B0A4FAC5438DFC00A67A0BA590FE9CE51537539CE911",
+    "story-county-south-skunk-trail": "CBF52EEA3475117861F052E520E807E79957878CD9BB21BAA06D12A50CEEF689",
+    "md-pocomoke-boating-fishing": "A6951F5B74EF4176553AA67E573726D6BD59FD71B10A8301FA8DF71C6BD02B2B"
+  }
+}

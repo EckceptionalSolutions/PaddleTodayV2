@@ -1,0 +1,290 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations in the cached access-quality queue that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate features frozen in batches 01-09; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "priorFrozenSiteCount": 80,
+  "currentWithheldRouteCount": 139,
+  "skippedPriorSiteCount": 48,
+  "skippedHeldQueueEntryCount": 72,
+  "sites": [
+    {
+      "state": "Utah",
+      "name": "Perception Park Family Campground",
+      "latitude": 41.289719,
+      "longitude": -111.640667,
+      "distanceFeetToMappedWater": 501.006793936464,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-ogden-river-willows-magpie",
+          "endpoint": "accessPoint",
+          "endpointName": "Perception Park Family Campground",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 121,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-ogden-river-willows-magpie"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Little North Fork Reservoir backwaters take-out",
+      "latitude": 46.90233,
+      "longitude": -115.84746,
+      "distanceFeetToMappedWater": 499.25875059251814,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-north-fork-clearwater-headwaters-reservoir",
+          "endpoint": "takeOut",
+          "endpointName": "Little North Fork Reservoir backwaters take-out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 122,
+      "eligibleUnwithheldRoutes": [
+        "little-north-fork-clearwater-headwaters-reservoir"
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "name": "Fort Mill River Access below Lake Wylie Dam (water-entry edge)",
+      "latitude": 35.02243,
+      "longitude": -81.00291,
+      "distanceFeetToMappedWater": 495.8160469839635,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catawba-river-fort-mill-landsford",
+          "endpoint": "putIn",
+          "endpointName": "Fort Mill River Access below Lake Wylie Dam (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "catawba-river-fort-mill-rock-hill",
+          "endpoint": "putIn",
+          "endpointName": "Fort Mill River Access below Lake Wylie Dam (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "catawba-river-fort-mill-sc9",
+          "endpoint": "putIn",
+          "endpointName": "Fort Mill River Access below Lake Wylie Dam (water-entry edge)",
+          "severity": "unknown"
+        }
+      ],
+      "rank": 123,
+      "eligibleUnwithheldRoutes": [
+        "catawba-river-fort-mill-landsford",
+        "catawba-river-fort-mill-rock-hill",
+        "catawba-river-fort-mill-sc9"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Lower Cato Falls County Park",
+      "latitude": 44.0903,
+      "longitude": -87.8439,
+      "distanceFeetToMappedWater": 494.10712699238724,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "manitowoc-river-clark-mills-county-s",
+          "endpoint": "accessPoint",
+          "endpointName": "Lower Cato Falls County Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 124,
+      "eligibleUnwithheldRoutes": [
+        "manitowoc-river-clark-mills-county-s"
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Charenton official dock (3726 Chitimacha Trail)",
+      "latitude": 29.8842751,
+      "longitude": -91.5348949,
+      "distanceFeetToMappedWater": 491.0694950152614,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-charenton-baldwin",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock (3726 Chitimacha Trail)",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "bayou-teche-charenton-centerville",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-jeanerette-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-new-iberia-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 125,
+      "eligibleUnwithheldRoutes": [
+        "bayou-teche-charenton-baldwin",
+        "bayou-teche-charenton-centerville",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-new-iberia-charenton"
+      ]
+    },
+    {
+      "state": "Delaware",
+      "name": "Edward H. McCabe Preserve public floating canoe dock",
+      "latitude": 38.7771,
+      "longitude": -75.2838,
+      "distanceFeetToMappedWater": 488.29896174214093,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "broadkill-river-milton-mccabe",
+          "endpoint": "takeOut",
+          "endpointName": "Edward H. McCabe Preserve public floating canoe dock",
+          "severity": "review"
+        }
+      ],
+      "rank": 126,
+      "eligibleUnwithheldRoutes": [
+        "broadkill-river-milton-mccabe"
+      ]
+    },
+    {
+      "state": "West Virginia",
+      "name": "Valley Falls State Park river-right put-in / superintendent office",
+      "latitude": 39.38897,
+      "longitude": -80.08733,
+      "distanceFeetToMappedWater": 487.4103253320535,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-tygart-valley-falls-hammond",
+          "endpoint": "putIn",
+          "endpointName": "Valley Falls State Park river-right put-in / superintendent office",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 127,
+      "eligibleUnwithheldRoutes": [
+        "wv-tygart-valley-falls-hammond"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Holiday Heights Park / Holiday Heights Landing",
+      "latitude": 43.86201,
+      "longitude": -91.20178,
+      "distanceFeetToMappedWater": 487.0181869829171,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "la-crosse-river-veterans-holiday-heights",
+          "endpoint": "takeOut",
+          "endpointName": "Holiday Heights Park / Holiday Heights Landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 128,
+      "eligibleUnwithheldRoutes": [
+        "la-crosse-river-veterans-holiday-heights"
+      ]
+    },
+    {
+      "state": "Illinois",
+      "name": "Wes Block Trail Access",
+      "latitude": 42.330992586134,
+      "longitude": -89.666227460683,
+      "distanceFeetToMappedWater": 481.8981995724994,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pecatonica-river-wes-block-tuttys",
+          "endpoint": "putIn",
+          "endpointName": "Wes Block Trail Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 129,
+      "eligibleUnwithheldRoutes": [
+        "pecatonica-river-wes-block-tuttys"
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Gilbert river access",
+      "latitude": 35.987738,
+      "longitude": -92.715563,
+      "distanceFeetToMappedWater": 481.29216814416554,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-tyler-bend-gilbert",
+          "endpoint": "takeOut",
+          "endpointName": "Gilbert river access",
+          "severity": "review"
+        }
+      ],
+      "rank": 130,
+      "eligibleUnwithheldRoutes": [
+        "buffalo-river-tyler-bend-gilbert"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "batch": 36,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 3,
+  "uniqueRoutesChanged": 3,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Missouri",
+      "name": "Pulltite Campground / Current River landing",
+      "routeIds": [
+        "current-river-cedar-grove-pulltite",
+        "current-river-akers-ferry-pulltite",
+        "current-river-pulltite-round-spring"
+      ],
+      "decision": "correct-to-imagery-derived-public-river-entry",
+      "previousCoordinate": {
+        "latitude": 37.33505,
+        "longitude": -91.47959
+      },
+      "updatedCoordinate": {
+        "latitude": 37.335123,
+        "longitude": -91.477444
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 75,
+      "rationale": "NPS lists Pulltite among the popular Upper Current River put-ins and documents the Pulltite-to-Round-Spring float. Current Google Maps aerial imagery shows the County Road EE-356 campground approach reaching the Current River at the selected point. The old coordinate was a practical campground-area anchor, about 403 feet from mapped water and 485 feet from the matched flowline. The updated point is on mapped water and 66 feet from the named flowline; it is an imagery estimate and not surveyed by NPS.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 3,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 3; mapped-water distance 0 ft",
+        "flowlineDistanceFeet": 66.3,
+        "severity": "ok for all 3"
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if NPS relocates or closes the Pulltite landing, or publishes a surveyed coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 3,
+    "targetedRouteAuditResults": "All three separate route-scoped audit runs returned zero suspicious, failure, unknown, or source-issue results.",
+    "changedRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

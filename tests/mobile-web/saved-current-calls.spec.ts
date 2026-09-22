@@ -10,7 +10,7 @@ for (const scenario of ['ready', 'withheld', 'planning', 'expired'] as const) {
     });
     const generatedAt = scenario === 'expired' ? '2020-01-01T00:00:00Z' : new Date().toISOString();
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: [{
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: [{
       ...fixture.result, generatedAt, score: 95, rating: 'Strong',
       river: { ...fixture.result.river, scoreEligibility: scenario === 'planning' ? 'planning' : 'scored' },
       readiness: { status: scenario === 'withheld' ? 'withheld' : 'ready', label: 'QA', reason: 'QA source coverage.' },

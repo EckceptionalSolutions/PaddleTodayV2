@@ -1,0 +1,40 @@
+{
+  "batch": 44,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "BLM Three Forks Recreation Site",
+      "url": "https://www.blm.gov/visit/three-forks",
+      "siteState": "Oregon",
+      "publishedGeographicCoordinate": { "latitude": 42.545023, "longitude": -117.167067 },
+      "accessEvidence": "BLM describes the site at the Owyhee / North Fork Owyhee / Middle Fork Owyhee confluence and lists a boat launch and vehicle parking.",
+      "coordinateRole": "recreation-site/access-area anchor, not surveyed ramp toe",
+      "roadCaveat": "BLM warns the final two miles are rocky and steep, may be impassable when wet, and recommends high-clearance four-wheel drive.",
+      "routeIdsScopedInAudit": [
+        "north-fork-owyhee-campground-three-forks",
+        "owyhee-river-three-forks-rome"
+      ]
+    },
+    {
+      "title": "BLM Three Forks Recreation Site Map",
+      "url": "https://www.blm.gov/sites/default/files/documents/files/VAL_ThreeForks_map.pdf",
+      "relevantMapContent": ["Owyhee River", "North Fork", "launching ramp", "parking", "campsites", "restrooms"],
+      "scaleFeet": [0, 50, 100, 150, 200],
+      "coordinateForLaunchToe": false,
+      "interpretation": "Confirms the site contains a ramp and related facilities; the reviewed map is not a coordinate publication for the ramp toe."
+    },
+    {
+      "title": "USGS National Hydrography Dataset Flowline, Area, and Waterbody",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "siteCoordinateDistancesFeet": {
+        "matchedFlowline": 345.4695,
+        "mappedWater": 342.9017
+      },
+      "interpretation": "The NHD offset identifies why this site marker entered the audit queue; it is not evidence that the launch is absent."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "batch": "2026-09-17-batch-20",
+  "addedProviderCount": 3,
+  "addedProviders": [
+    {
+      "id": "wi_kimberly_sunset_park_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://www.vokimberlywi.gov/wp-content/uploads/2025/03/2025-Program-Guide.pdf",
+      "control": "Sunset Park boat and kayak launch access area, 44.2735557,-88.3457597, 350-foot uncertainty."
+    },
+    {
+      "id": "ia_guthrie_lenon_mill_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://www.mycountyparks.com/county/guthrie/park/lenon-mill-park",
+      "control": "Lenon Mill Park canoe access area below the dam, 41.6867975,-94.3692621, 350-foot uncertainty."
+    },
+    {
+      "id": "mo_van_buren_riverfront_park_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "sourceUrl": "https://mdc.mo.gov/discover-nature/places/van-buren-riverfront-park",
+      "control": "Van Buren Riverfront Park boat-ramp access area, 36.9939,-91.014, 350-foot uncertainty."
+    }
+  ],
+  "reclassifiedProviders": [
+    {
+      "id": "osgood_river_osgood_pond_out_and_back",
+      "roleBefore": "authoritative-water-entry",
+      "coordinateRole": "authoritative-access-anchor",
+      "reason": "NYSDEC confirms the hand-launch site but the stored point represents its access area rather than a surveyed waterline toe."
+    }
+  ],
+  "notes": [
+    "Existing coordinate values were retained in all controls; they document access-area anchors only.",
+    "The cached generated access registry was not manually changed because the full generator depends on the unavailable @paddletoday/geo package."
+  ]
+}

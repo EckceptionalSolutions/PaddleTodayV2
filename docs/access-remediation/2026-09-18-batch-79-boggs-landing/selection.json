@@ -1,0 +1,23 @@
+{
+  "batch": 79,
+  "reviewDate": "2026-09-19",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:45:04.959Z; 2,750 public routes, 6,058 endpoints, 46 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Kansas",
+    "name": "St. George / Boggs Landing Access Ramp, Kansas River",
+    "storedCoordinate": {
+      "latitude": 39.18726,
+      "longitude": -96.42202
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "kansas-river-junction-city-st-george",
+      "kansas-river-ogden-st-george"
+    ],
+    "preReviewFinding": "The Junction City-to-St. George take-out is 434 feet from the named Kansas River flowline and 208 feet from mapped water with incomplete hydrography coverage. The exact same coordinate on the Ogden-to-St. George route is review on the connected network.",
+    "decision": "verify-the-shared-boggs-landing-access-ramp-and-determine-whether-the-existing-coordinate-is-the-public-ramp-anchor",
+    "selectionFrozenBeforeResearch": true
+  }
+}

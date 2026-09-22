@@ -1,0 +1,53 @@
+{
+  "batch": 68,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "White Bridge Picnic Site / RAP, Verde River, Yavapai County, Arizona",
+  "affectedRoutes": [
+    "verde-river-skidmore-white",
+    "verde-river-white-bridge-clear-creek",
+    "verde-river-white-bridge-beasley-flat",
+    "verde-river-white-bridge-childs",
+    "verde-river-black-bridge-white"
+  ],
+  "decision": "refine-the-shared-coordinate-to-the-current-USFS-recreation-site-marker-and-label-it-as-an-access-area-not-a-verified-water-edge",
+  "decisionScope": "Five public route records shared the same point, including one suspicious occurrence. The current Forest Service Recreation Opportunities feature identifies the public White Bridge Picnic Site, gives an access coordinate within about 63 feet of the stored pin, and describes access to the Verde River and non-motorized boating. Friends of the Verde independently maps the old coordinate as the White Bridge RAP. The Forest Service paddle guide lists a separate waypoint coordinate about 573 feet north but warns that its maps are for reference and accuracy is not guaranteed. Prefer the current official recreation-site feature for the managed picnic/boat-access area; do not claim it is the surveyed wet toe.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 34.5496,
+      "longitude": -111.8508
+    },
+    "publicOccurrences": 5,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 345,
+    "mappedWaterDistanceFeet": 2404,
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/routes/arizona-verde-expansion.ts",
+      "src/data/routes/arizona-verde.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 34.5496,
+      "longitude": -111.8508
+    },
+    "to": {
+      "latitude": 34.549539,
+      "longitude": -111.850602
+    },
+    "movedFeet": 63,
+    "publicOccurrences": 5,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "az_usfs_white_bridge_picnic_site_access_9740_20260918",
+    "rationale": "The precise Forest Service recreation-site feature refines the nearby coordinate and independently establishes the public river access. All five targeted refreshed audits have zero source issues and classify the White Bridge point as review rather than suspicious. The site is an access-area anchor; no source maps its exact wet toe.",
+    "postChangeTargetedMeasurements": {
+      "matchedFlowlineDistanceFeetRange": [200, 406],
+      "mappedWaterDistanceFeet": 2406,
+      "sourceIssuesAcrossFiveRoutes": 0,
+      "severityAcrossFiveOccurrences": "review"
+    }
+  },
+  "remainingUncertainty": "The Forest Service GIS point identifies the picnic/boating access area and its description/photos show a trail to the river; it is not a surveyed water-entry point. The Forest Service paddle guide lists a separate waypoint 573 feet north and labels its map reference-only with no accuracy guarantee. NHD's nearest-waterbody distance is about 2,406 feet even though refreshed Verde River flowlines are 200–406 feet away; mapped-water polygons therefore do not resolve the wet toe at this site. Confirm the carry and current landing on site.",
+  "outcome": "One suspicious public occurrence was cleared across a five-route shared location. All five now audit as review with no targeted source issues; the public access is supported, but the exact shoreline entry remains unverified."
+}

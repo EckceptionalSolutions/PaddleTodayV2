@@ -1,0 +1,16 @@
+{
+  "batch": "B85",
+  "decision": "retain-coordinate-classify",
+  "routeId": "wv-greenbrier-talcott-willowwood",
+  "endpoint": "putIn",
+  "endpointName": "Talcott access",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 37.65, "longitude": -80.7511 }, "distanceFeetToMatchedRiver": 331.4207, "distanceFeetToMappedWater": 179.8653, "sourceIssues": 0 },
+  "evidence": {
+    "stateAccess": "West Virginia DNR District 4's fishing guide access table lists Talcott on the Greenbrier River as a lot and boat access at 37.6500, -80.7511.",
+    "routeContext": "WVU DIY Outdoors places the Talcott public access at 37.650054, -80.750994; American Whitewater describes a river-right ramp and parking near the Barger Springs bridge.",
+    "coordinateFit": "The stored point matches the WVDNR published precision and is retained as the public ramp/parking access-area anchor. The 331-foot flowline offset is consistent with a facility point near a bridge corridor; mapped water is 180 ft away and hydrography is complete."
+  },
+  "action": { "coordinateChanged": false, "routeGeometryRegenerated": false, "controlAdded": "wv_wvdnr_district4_talcott_greenbrier_access_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "distanceFeetToMatchedRiver": 331.4207, "distanceFeetToMappedWater": 179.8653, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 40, "after": 39 }, "inventorySuspicious": { "before": 93, "after": 92 }, "publicReview": { "before": 3897, "after": 3898 }, "inventoryReview": { "before": 4201, "after": 4202 }, "registryAuthoritativeAccess": { "before": 1231, "after": 1232 } }
+}

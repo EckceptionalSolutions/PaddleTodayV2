@@ -1,0 +1,84 @@
+{
+  "batch": 76,
+  "reviewDate": "2026-09-18",
+  "location": "Horse Shoe Boating Access Area, French Broad River, North Carolina",
+  "selectedCoordinate": {
+    "latitude": 35.3293739,
+    "longitude": -82.5747687
+  },
+  "routeIds": [
+    "french-broad-blantyre-horse-shoe",
+    "french-broad-horse-shoe-lazy-otter"
+  ],
+  "decision": "retain-as-public-access-area-map-pin",
+  "coordinateMoved": false,
+  "coordinateInterpretation": "French Broad Paddle Trail's mapped county-managed access-area point, not a surveyed water-entry toe.",
+  "accessStatus": "public",
+  "accessCondition": "Current French Broad Paddle Trail list marks it open; verify current closures and post-storm water, landing, and amenity conditions before travel.",
+  "evidence": [
+    {
+      "claim": "The current access list names Horse Shoe BAA at river mile 41.5, identifies Henderson County as manager, marks it open, and links to the stored coordinate.",
+      "sourceUrl": "https://frenchbroadpaddle.com/en/access-points",
+      "sourceType": "current French Broad Paddle Trail access list and embedded map"
+    },
+    {
+      "claim": "NCWRC's official access inventory names the public Horse Shoe boat ramp/canoe access at 5437 Brevard Road and publishes a facility point approximately 230 feet from the route map pin.",
+      "sourceUrl": "https://ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&Universal=0",
+      "sourceType": "North Carolina Wildlife Resources Commission access inventory"
+    },
+    {
+      "claim": "Henderson County describes the facility as providing parking and a boat put-in to the French Broad River.",
+      "sourceUrl": "https://henderson.recdesk.com/Community/Facility/Detail?facilityId=64",
+      "sourceType": "county facility page"
+    },
+    {
+      "claim": "The second route occurrence at the same coordinate lies 33 feet from the connected French Broad trace; the selected take-out is 306 feet from the named flowline, with incomplete hydrography coverage.",
+      "sourceUrl": "docs/access-remediation/2026-09-18-batch-76-horse-shoe/audit-before-public-cache-only.json",
+      "sourceType": "frozen route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "french-broad-blantyre-horse-shoe": {
+      "horseShoeEndpointSeverity": "review",
+      "sourceIssues": 1
+    },
+    "french-broad-horse-shoe-lazy-otter": {
+      "horseShoeEndpointSeverity": "review",
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 49,
+      "suspiciousAfter": 48,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3889,
+        "suspicious": 48,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 102,
+      "suspiciousAfter": 101,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4193,
+        "suspicious": 101,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1226
+    }
+  }
+}

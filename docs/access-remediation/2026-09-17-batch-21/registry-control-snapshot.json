@@ -1,0 +1,36 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "capturedAt": "2026-09-17",
+  "sourceRegistryPath": "src/data/route-access-official-map-controls.json",
+  "generatedRegistryPath": "src/data/generated/route-access-registry.json",
+  "generatedRegistryStatus": "refreshed from the updated source controls using the existing cache-only audit; audit ranking remains stale and cache-only",
+  "providerCountBefore": 545,
+  "providerCountAfter": 555,
+  "newProviderIds": [
+    "wa_mirabeau_small_craft_access_anchor",
+    "nd_chautauqua_park_access_anchor",
+    "mn_oak_township_county_park_access_anchor",
+    "wi_rochester_park_site_center_anchor",
+    "mt_marco_flats_fas_access_anchor",
+    "ny_cameron_mills_cr110_access_anchor",
+    "wi_trego_town_park_landing_anchor",
+    "tx_heath_canyon_access_anchor",
+    "id_three_forks_blm_boat_launch_anchor",
+    "tx_riverdale_lane_access_anchor"
+  ],
+  "reclassifiedProviderIds": [],
+  "note": "The generated registry was refreshed by its generator and not edited manually. The registry reflects updated source controls but uses the existing cache-only audit snapshot; access-quality ranks remain research priorities, not fresh evidence.",
+  "generatedAt": "2026-09-17T20:59:51.543Z",
+  "auditGeneratedAt": "2026-09-17T12:02:46.464Z",
+  "registrySummary": {
+    "entryCount": 4043,
+    "repeatedEntryCount": 1201,
+    "conflictCount": 0,
+    "distinctLocationNameCount": 3,
+    "derivedWaterEntryCount": 2350,
+    "authoritativeAccessCount": 1190,
+    "authoritativeWaterEntryCount": 552,
+    "areaAnchorOnlyCount": 1,
+    "authoritativeAccessMismatchCount": 0
+  }
+}

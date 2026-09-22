@@ -1,0 +1,48 @@
+{
+  "validatedAtUtc": "2026-09-17T13:52Z",
+  "passed": [
+    {
+      "check": "withholding generation",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "result": "Generated src/data/generated/withheld-route-slugs.ts with 78 withheld routes; the three new batch 03 holds are included."
+    },
+    {
+      "check": "batch 03 source verifier",
+      "command": "node docs/access-remediation/2026-09-17-batch-03/verify.mjs",
+      "result": "Passed: Sidney source coordinate is consistent in route/control records; three unresolved terminal routes are held; Big Falls optional point is removed from route/control/corridor data; access anchors have correct roles; every source ID resolves; source snapshots and pre-edit backups match recorded SHA-256 values."
+    },
+    {
+      "check": "access-quality reason verifier",
+      "command": "node node_modules/tsx/dist/cli.mjs docs/access-remediation/2026-09-17-batch-03/verify-quality.ts",
+      "result": "Passed: a far documented access anchor returns documented-access-anchor-offset; a far coordinate without access evidence returns mapped-water-offset; an area centroid retains area-anchor-not-launch."
+    },
+    {
+      "check": "JSON parsing",
+      "command": "node -e parse controls, batch review, source metadata, and backup manifest",
+      "result": "All parsed successfully."
+    }
+  ],
+  "blocked": [
+    {
+      "check": "standard Vitest unit runner",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts",
+      "reason": "The installed Vitest dependency graph is incomplete: @jridgewell/sourcemap-codec cannot be resolved. The pure-function assertion script passed under the available tsx runtime."
+    },
+    {
+      "check": "full access-quality audit",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --cache-only",
+      "reason": "The audit cannot load because shared package @paddletoday/geo is missing. docs/access-point-quality-audit.json remains the stale 2026-09-17T12:02:46.464Z cache-only snapshot."
+    },
+    {
+      "check": "route typecheck",
+      "command": "npm run typecheck:routes",
+      "reason": "The script cannot start because tsc is not installed or resolvable in this checkout. Earlier direct compiler attempts also encountered missing shared @paddletoday/api-contract imports."
+    },
+    {
+      "check": "route geometry, registry, and catalog refresh",
+      "reason": "Not run: shared route packages needed by the full audit and geometry pipeline are absent. The Sidney source coordinate is corrected, but generated route geometry/access registry/catalog assets still reflect prior source data; the new holds have been added to the generated withholding list but have not been assembled into served catalogs."
+    }
+  ],
+  "lineEndingNote": "git diff --check --ignore-space-at-eol reports CRLF as trailing whitespace across existing tracked files. This workspace has pre-existing widespread line-ending and unrelated changes; source line endings were preserved and no mass normalization was applied.",
+  "deployment": "No deployment or external publication was performed."
+}

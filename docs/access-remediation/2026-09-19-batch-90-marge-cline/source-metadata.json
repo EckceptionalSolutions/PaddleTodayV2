@@ -1,0 +1,9 @@
+{
+  "batch": "B90",
+  "sources": [
+    { "title": "Marge Cline Whitewater Course facility page", "url": "https://www.yorkville.il.us/facilities/facility/details/marge-cline-whitewater-course-37", "publisher": "United City of Yorkville", "supports": ["free open-use Fox River course", "east-end boat launch", "portage points at both ends", "designated downstream canoe portage"] },
+    { "title": "Illinois DNR dam-safety information", "url": "https://dnr.illinois.gov/waterresources/safetyatdams.html", "publisher": "Illinois Department of Natural Resources", "supports": ["Marge Cline Whitewater Bypass Channel is open to the public"] },
+    { "title": "Fabulous Fox Water Trail access sites", "url": "https://fabulousfoxwatertrail.org/access-sites/", "publisher": "Fabulous Fox Water Trail", "supports": ["Marge Cline course carry-in access, parking, city ownership, and Fox River location"] }
+  ],
+  "sourceQuality": "The access decision is anchored by Yorkville's official facility page, with Illinois DNR and the regional water-trail catalog providing independent public-access context."
+}

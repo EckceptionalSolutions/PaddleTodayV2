@@ -1,0 +1,13 @@
+{
+  "batch": "B99",
+  "selectedAt": "2026-09-19",
+  "routeId": "appomattox-river-radcliffe-patton-park",
+  "routeName": "Appomattox River",
+  "reach": "John J. Radcliffe Conservation Area to Patton Park",
+  "state": "Virginia",
+  "endpoint": "takeOut",
+  "endpointName": "Patton Park / Campbell’s Bridge river access",
+  "storedCoordinate": { "latitude": 37.23236, "longitude": -77.41496 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 391.1282606515705, "nearestWaterwayName": "Appomattox River", "distanceFeetToMappedWater": 287.0220616409128, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "connected-network" },
+  "selectionReason": "Petersburg's current adopted comprehensive-plan materials identify Patton Park as a public waterfront access site with multiple paved ramps to the Appomattox River. The same city plan identifies Patton Park as an anchor/regional park with natural kayak/canoe launch and fishing access, while FOLAR describes Patton Park as the flatwater start of the lower Appomattox River Trail. Retain the stored point as a conditional park/take-out access anchor; the 391-foot connected-network offset reflects the park/shoreline facility and bridge context rather than a wrong river endpoint."
+}

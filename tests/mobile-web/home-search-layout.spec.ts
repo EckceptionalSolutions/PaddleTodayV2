@@ -7,7 +7,7 @@ test('Today search keeps close, full route names and empty-result actions reacha
   const name = 'Long northern branch of the wandering river';
   const reach = 'Historic county park landing to the downstream nature preserve';
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
     river: { ...fixture.result.river, name, reach },
     summary: { shortExplanation: 'QA', gaugeNow: 'QA' },
   }] } }));

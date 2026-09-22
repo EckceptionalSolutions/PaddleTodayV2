@@ -1,0 +1,166 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "Continue the cache-only access-quality queue after rank 269, excluding sites frozen in Batches 1–23, sites already covered by earlier source controls, and rows with no currently public unwithheld route. Rank only orders review; source evidence determines decisions.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; fresh audit unavailable because @paddletoday/geo is missing, so ranks are prioritization hints only."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "priorFrozenSiteCount": 220,
+  "currentWithheldRouteCount": 181,
+  "queueStartRank": 270,
+  "skippedPriorSiteCount": 2,
+  "skippedPriorSites": [
+    {
+      "rank": 272,
+      "name": "Heritage Park canoe ramp",
+      "routes": [
+        "great-miami-river-heritage-dravo"
+      ],
+      "reason": "Previously reviewed in Batch 16 as Obergiesing Soccer Complex / Dravo Park canoe access."
+    },
+    {
+      "rank": 273,
+      "name": "Peconic River River Road East hand launch",
+      "routes": [
+        "peconic-river-river-road-edwards-avenue"
+      ],
+      "reason": "Batch 15 official NYSDEC control already covers this River Road East hand-launch coordinate and access site."
+    }
+  ],
+  "skippedHeldQueueEntries": [
+    {
+      "rank": 276,
+      "name": "George D. Syas WMA fishing access",
+      "routes": [
+        "loup-river-george-syas-adm-access",
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-monroe"
+      ]
+    }
+  ],
+  "sites": [
+    {
+      "state": "Virginia",
+      "name": "Route 710 Alvarado crossing take-out area",
+      "latitude": 36.651001,
+      "longitude": -81.887001,
+      "distanceFeetToMappedWater": 304.80045925405403,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "endpoint": "takeOut",
+          "endpointName": "Route 710 Alvarado crossing take-out area",
+          "severity": "review"
+        }
+      ],
+      "rank": 270,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-holston-route58-alvarado"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Fox River Access at Landing Road south of Berlin",
+      "latitude": 43.9471591,
+      "longitude": -88.9668741,
+      "distanceFeetToMappedWater": 304.79018493959865,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-landing-road-riverside-berlin",
+          "endpoint": "putIn",
+          "endpointName": "Fox River Access at Landing Road south of Berlin",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 271,
+      "eligibleUnwithheldRoutes": [
+        "fox-river-landing-road-riverside-berlin"
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Haller Park boat launch, Arlington",
+      "latitude": 48.20245,
+      "longitude": -122.12872,
+      "distanceFeetToMappedWater": 300.82957390183424,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "takeOut",
+          "endpointName": "Haller Park boat launch, Arlington",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "stillaguamish-river-twin-rivers-haller",
+          "endpoint": "takeOut",
+          "endpointName": "Haller Park boat launch, Arlington",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 274,
+      "eligibleUnwithheldRoutes": [
+        "stillaguamish-river-river-meadows-haller",
+        "stillaguamish-river-twin-rivers-haller"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Eastern Park Kayak Launch, Tonawanda",
+      "latitude": 43.015349,
+      "longitude": -78.867328,
+      "distanceFeetToMappedWater": 300.8125476363385,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "ellicott-creek-park-eastern-park",
+          "endpoint": "takeOut",
+          "endpointName": "Eastern Park Kayak Launch, Tonawanda",
+          "severity": "review"
+        }
+      ],
+      "rank": 275,
+      "eligibleUnwithheldRoutes": [
+        "ellicott-creek-park-eastern-park"
+      ]
+    }
+  ]
+}

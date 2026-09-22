@@ -1,0 +1,1334 @@
+{
+  "batch": "2026-09-17-batch-14",
+  "capturedBeforeEdits": true,
+  "files": [
+    {
+      "path": "src/data/route-access-official-map-controls.json",
+      "sha256": "6D158E128AEB674C679C24A0E183846BAE000B14B8A74233EB7569A219661222",
+      "bytes": 1262657,
+      "matchedRecordCount": 3,
+      "matchedRecords": [
+        {
+          "id": "miami_river_lewey_lake_out_and_back",
+          "name": "Lewey Lake and Miami River public launch/turnaround anchors",
+          "state": "New York",
+          "sourceUrl": "https://dec.ny.gov/places/lewey-lake-campground-and-day-use-area",
+          "sourceType": "official-nysdec-access-and-route-context",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "coordinateRole": "authoritative-water-entry",
+          "method": "NYSDEC publishes the Lewey Lake Campground public launch, shallow-launch warning, seasonal operation, parking capacity, and camping facilities. Experience Our Adirondacks identifies the Miami River as accessed from the south end of Lewey Lake and passable approximately one mile upstream; the current Hamilton County paddling guide publishes a five-mile out-and-back route and a substantial-beaver-dam turnaround. The campground coordinate is the authoritative water-entry/return anchor; the Miami turnaround is an area objective, not a public take-out.",
+          "controls": [
+            {
+              "featureId": "miami-river-lewey-lake-out-and-back-lewey-campground",
+              "name": "NYSDEC Lewey Lake Campground beach/boat launch",
+              "aliases": [
+                "Lewey Lake Campground launch",
+                "Lewey Lake beach launch",
+                "DEC Lewey Lake boat launch"
+              ],
+              "waterbody": "Lewey Lake",
+              "latitude": 43.647363,
+              "longitude": -74.388535,
+              "riverMile": 0,
+              "uncertaintyFeet": 150,
+              "coordinateText": "NYSDEC Hamilton County launch-directory coordinate for the Lewey Lake Campground launch; DEC notes shallow water and small-vessel suitability; confirm opening, fee, parking, beach landing, and water entry"
+            },
+            {
+              "featureId": "miami-river-lewey-lake-out-and-back-miami-turnaround",
+              "name": "Miami River substantial-beaver-dam turnaround",
+              "aliases": [
+                "Miami River turnaround",
+                "Miami River beaver dam",
+                "Miami River paddling objective"
+              ],
+              "waterbody": "Miami River",
+              "latitude": 43.6282,
+              "longitude": -74.4165,
+              "riverMile": 2.5,
+              "uncertaintyFeet": 1200,
+              "coordinateText": "Approximate route-objective anchor derived from the documented Miami River marsh reach; not a surveyed public access or take-out; confirm actual obstruction, channel, and lawful landing conditions in field"
+            }
+          ]
+        },
+        {
+          "id": "catskill_creek_kiwanis_dutchmans",
+          "name": "New York Catskill Creek Kiwanis Park to Dutchman’s Landing public tidal access",
+          "state": "New York",
+          "sourceUrl": "https://dec.ny.gov/sites/default/files/hrefbmapfg.pdf",
+          "sourceType": "official-Hudson-Estuary-access-map-with-current-regional-launch-corroboration",
+          "sourceDocumentDate": null,
+          "sourceSha256": null,
+          "coordinateRole": "authoritative-water-entry",
+          "method": "The official NYSDEC Hudson River Estuary access directory identifies Kiwanis Park/Catskill Creek as a municipal hand launch with six-car parking and Dutchman’s Landing as a municipal concrete launch at the mouth of Catskill Creek. Current regional tourism and school-district material corroborate the Catskill Middle School/West Main hand-launch area, while current launch guidance describes Dutchman’s Landing as a public ramp. Retain both as park-area water-entry controls and require field confirmation of school/park public-use boundaries, carry, parking, tide, and the wetted edge.",
+          "controls": [
+            {
+              "featureId": "catskill-creek-kiwanis-dutchmans-kiwanis",
+              "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+              "aliases": [
+                "Kiwanis Park Catskill Creek launch",
+                "Catskill Middle School hand launch",
+                "West Main Street Catskill Creek access"
+              ],
+              "waterbody": "Catskill Creek",
+              "latitude": 42.21972,
+              "longitude": -73.87,
+              "riverMile": 0,
+              "uncertaintyFeet": 500,
+              "coordinateText": "NYSDEC lists Kiwanis Park/Catskill Creek as a municipal hand launch; current regional material identifies the Catskill Middle School site as a kayak/canoe hand launch. Stored point is a school-and-creek access-area anchor and requires field confirmation of public use, carry, parking, and waterline."
+            },
+            {
+              "featureId": "catskill-creek-kiwanis-dutchmans-dutchmans",
+              "name": "Dutchman’s Landing Catskill Creek mouth launch",
+              "aliases": [
+                "Dutchman's Landing",
+                "Dutchman’s Landing Park",
+                "Catskill Point launch"
+              ],
+              "waterbody": "Catskill Creek / Hudson River estuary",
+              "latitude": 42.21312,
+              "longitude": -73.85521,
+              "riverMile": 1.6,
+              "uncertaintyFeet": 300,
+              "coordinateText": "NYSDEC lists Dutchman’s Landing as a municipal concrete launch at the mouth of Catskill Creek; current launch guidance corroborates the public ramp and coordinate. Confirm current operations, closures, parking, tide, ramp traffic, and legal carry."
+            }
+          ]
+        },
+        {
+          "id": "de_blackbird_reserve_rocks",
+          "name": "Delaware Blackbird Creek Reserve to The Rocks access anchors",
+          "state": "Delaware",
+          "sourceUrl": "https://documents.dnrec.delaware.gov/coastal/DNERR/2022-DNERR-Management-Plan.pdf",
+          "sourceType": "dnerr-management-plan-and-dnrec-reserve-guidance",
+          "sourceDocumentDate": "2022-06-01",
+          "sourceSha256": null,
+          "coordinateRole": "authoritative-water-entry",
+          "method": "DNREC directly identifies the Blackbird Creek Reserve canoe/kayak launch, while the DNERR management plan identifies The Rocks as a downstream Fish & Wildlife boat-launch property. Coordinates are practical near-water access anchors corroborated by public mapping context; verify carry, wetted edge, gate, parking, CAP, landing, and current closure status in the field.",
+          "controls": [
+            {
+              "featureId": "blackbird-creek-reserve-put-in",
+              "name": "Blackbird Creek Reserve canoe/kayak launch",
+              "aliases": [
+                "Blackbird Creek Reserve launch",
+                "801 Blackbird Landing Road canoe launch"
+              ],
+              "waterbody": "Blackbird Creek",
+              "latitude": 39.390111,
+              "longitude": -75.636328,
+              "uncertaintyFeet": 350,
+              "coordinateText": "DNREC-published public canoe/kayak launch area near 801 Blackbird Landing Road; coordinate is an access-area anchor and the launch requires a carry from parking. Verify daylight, hunting closures, carry, waterline, and posted rules."
+            },
+            {
+              "featureId": "blackbird-creek-the-rocks-take-out",
+              "name": "The Rocks Fish & Wildlife boat launch",
+              "aliases": [
+                "The Rocks Tract launch",
+                "Staves Landing / Blackbird Creek access context"
+              ],
+              "waterbody": "Blackbird Creek",
+              "latitude": 39.4311,
+              "longitude": -75.6012,
+              "uncertaintyFeet": 500,
+              "coordinateText": "DNERR management-plan endpoint at The Rocks, a Fish & Wildlife property several miles downstream; coordinate is a near-water public wildlife-area anchor corroborated by public GIS context. Verify gate, Conservation Access Pass, parking, carry, landing, and current launch permission before committing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/data/generated/route-access-registry.json",
+      "sha256": "2ADDEBE858057070515693DE70F94090B849BEC4A645516403B746F94B10BF17",
+      "bytes": 15455857,
+      "matchedRecordCount": 11,
+      "matchedRecords": [
+        {
+          "id": "delaware--blackbird-creek-reserve-canoe-kayak-launch",
+          "state": "Delaware",
+          "name": "Blackbird Creek Reserve canoe/kayak launch",
+          "aliases": [
+            "Blackbird Creek Reserve canoe/kayak launch"
+          ],
+          "sourceIds": [
+            "blackbird-creek-reserve-put-in"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 39.390111,
+            "longitude": -75.636328
+          },
+          "accessCoordinate": {
+            "latitude": 39.390111,
+            "longitude": -75.636328
+          },
+          "accessCoordinateSource": "de_blackbird_reserve_rocks",
+          "authoritativeAccess": {
+            "provider": "de_blackbird_reserve_rocks",
+            "featureId": "blackbird-creek-reserve-put-in",
+            "name": "Blackbird Creek Reserve launch",
+            "officialName": "Blackbird Creek Reserve canoe/kayak launch",
+            "aliases": [
+              "Blackbird Creek Reserve launch",
+              "801 Blackbird Landing Road canoe launch"
+            ],
+            "latitude": 39.390111,
+            "longitude": -75.636328,
+            "distanceFromCurrentFeet": 0,
+            "distanceFromMatchedRiverPointFeet": 491.1253586490503,
+            "sourceUrl": "https://documents.dnrec.delaware.gov/coastal/DNERR/2022-DNERR-Management-Plan.pdf",
+            "coordinateRole": "authoritative-water-entry",
+            "sourceType": "dnerr-management-plan-and-dnrec-reserve-guidance",
+            "sourceDocumentDate": "2022-06-01",
+            "sourceSha256": null,
+            "extractionMethod": "DNREC directly identifies the Blackbird Creek Reserve canoe/kayak launch, while the DNERR management plan identifies The Rocks as a downstream Fish & Wildlife boat-launch property. Coordinates are practical near-water access anchors corroborated by public mapping context; verify carry, wetted edge, gate, parking, CAP, landing, and current closure status in the field.",
+            "waterbody": "Blackbird Creek",
+            "uncertaintyFeet": 350,
+            "onNhdWaterbody": false,
+            "coordinateText": "DNREC-published public canoe/kayak launch area near 801 Blackbird Landing Road; coordinate is an access-area anchor and the launch requires a carry from parking. Verify daylight, hunting closures, carry, waterline, and posted rules.",
+            "distanceFromStoredFeet": 0
+          },
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": {
+            "latitude": 39.390111,
+            "longitude": -75.636328
+          },
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "authoritative-water-entry",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "39.39011,-75.63633",
+              "coordinate": {
+                "latitude": 39.390111,
+                "longitude": -75.636328
+              },
+              "occurrenceCount": 2,
+              "routeCount": 1,
+              "routes": [
+                "blackbird-creek-reserve-the-rocks"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "blackbird-creek-reserve-the-rocks",
+              "routeName": "Blackbird Creek",
+              "state": "Delaware",
+              "endpoint": "accessPoint",
+              "sourceId": "blackbird-creek-reserve-put-in",
+              "name": "Blackbird Creek Reserve canoe/kayak launch",
+              "latitude": 39.390111,
+              "longitude": -75.636328,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 491.1253586490503,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            },
+            {
+              "routeId": "blackbird-creek-reserve-the-rocks",
+              "routeName": "Blackbird Creek",
+              "state": "Delaware",
+              "endpoint": "putIn",
+              "sourceId": "blackbird-creek-reserve-put-in",
+              "name": "Blackbird Creek Reserve canoe/kayak launch",
+              "latitude": 39.390111,
+              "longitude": -75.636328,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 491.1253586490503,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            }
+          ]
+        },
+        {
+          "id": "delaware--the-rocks-fish-and-wildlife-boat-launch",
+          "state": "Delaware",
+          "name": "The Rocks Fish & Wildlife boat launch",
+          "aliases": [
+            "The Rocks Fish & Wildlife boat launch"
+          ],
+          "sourceIds": [
+            "blackbird-creek-the-rocks-take-out"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 39.4311,
+            "longitude": -75.6012
+          },
+          "accessCoordinate": {
+            "latitude": 39.4311,
+            "longitude": -75.6012
+          },
+          "accessCoordinateSource": "de_blackbird_reserve_rocks",
+          "authoritativeAccess": {
+            "provider": "de_blackbird_reserve_rocks",
+            "featureId": "blackbird-creek-the-rocks-take-out",
+            "name": "The Rocks Fish & Wildlife boat launch",
+            "officialName": "The Rocks Fish & Wildlife boat launch",
+            "aliases": [
+              "The Rocks Tract launch",
+              "Staves Landing / Blackbird Creek access context"
+            ],
+            "latitude": 39.4311,
+            "longitude": -75.6012,
+            "distanceFromCurrentFeet": 0,
+            "distanceFromMatchedRiverPointFeet": 160.2240638261918,
+            "sourceUrl": "https://documents.dnrec.delaware.gov/coastal/DNERR/2022-DNERR-Management-Plan.pdf",
+            "coordinateRole": "authoritative-water-entry",
+            "sourceType": "dnerr-management-plan-and-dnrec-reserve-guidance",
+            "sourceDocumentDate": "2022-06-01",
+            "sourceSha256": null,
+            "extractionMethod": "DNREC directly identifies the Blackbird Creek Reserve canoe/kayak launch, while the DNERR management plan identifies The Rocks as a downstream Fish & Wildlife boat-launch property. Coordinates are practical near-water access anchors corroborated by public mapping context; verify carry, wetted edge, gate, parking, CAP, landing, and current closure status in the field.",
+            "waterbody": "Blackbird Creek",
+            "uncertaintyFeet": 500,
+            "onNhdWaterbody": false,
+            "coordinateText": "DNERR management-plan endpoint at The Rocks, a Fish & Wildlife property several miles downstream; coordinate is a near-water public wildlife-area anchor corroborated by public GIS context. Verify gate, Conservation Access Pass, parking, carry, landing, and current launch permission before committing.",
+            "distanceFromStoredFeet": 0
+          },
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": {
+            "latitude": 39.4311,
+            "longitude": -75.6012
+          },
+          "waterEntryConsensusRouteCount": 1,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": true,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "authoritative-water-entry",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "39.43110,-75.60120",
+              "coordinate": {
+                "latitude": 39.4311,
+                "longitude": -75.6012
+              },
+              "occurrenceCount": 2,
+              "routeCount": 1,
+              "routes": [
+                "blackbird-creek-reserve-the-rocks"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "blackbird-creek-reserve-the-rocks",
+              "routeName": "Blackbird Creek",
+              "state": "Delaware",
+              "endpoint": "accessPoint",
+              "sourceId": "blackbird-creek-the-rocks-take-out",
+              "name": "The Rocks Fish & Wildlife boat launch",
+              "latitude": 39.4311,
+              "longitude": -75.6012,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 160.2240638261918,
+              "endpointOnWaterbody": true,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            },
+            {
+              "routeId": "blackbird-creek-reserve-the-rocks",
+              "routeName": "Blackbird Creek",
+              "state": "Delaware",
+              "endpoint": "takeOut",
+              "sourceId": "blackbird-creek-the-rocks-take-out",
+              "name": "The Rocks Fish & Wildlife boat launch",
+              "latitude": 39.4311,
+              "longitude": -75.6012,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 160.2240638261918,
+              "endpointOnWaterbody": true,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            }
+          ]
+        },
+        {
+          "id": "idaho--spring-creek-campground-access",
+          "state": "Idaho",
+          "name": "Spring Creek Campground Access",
+          "aliases": [
+            "Spring Creek Campground Access"
+          ],
+          "sourceIds": [
+            "salmon-river-north-fork-corn-creek-2-spring-creek-campground-access"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 45.39203,
+            "longitude": -114.25161
+          },
+          "accessCoordinate": {
+            "latitude": 45.39203,
+            "longitude": -114.25161
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "45.39203,-114.25161",
+              "coordinate": {
+                "latitude": 45.39203,
+                "longitude": -114.25161
+              },
+              "occurrenceCount": 1,
+              "routeCount": 1,
+              "routes": [
+                "salmon-river-north-fork-corn-creek"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "salmon-river-north-fork-corn-creek",
+              "routeName": "Salmon River",
+              "state": "Idaho",
+              "endpoint": "accessPoint",
+              "sourceId": "salmon-river-north-fork-corn-creek-2-spring-creek-campground-access",
+              "name": "Spring Creek Campground Access",
+              "latitude": 45.39203,
+              "longitude": -114.25161,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 478.00498941537836,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "iowa--soper-s-mill-access-235",
+          "state": "Iowa",
+          "name": "Soper's Mill Access #235",
+          "aliases": [
+            "Soper's Mill Access #235"
+          ],
+          "sourceIds": [],
+          "storedAccessCoordinate": {
+            "latitude": 42.1044299,
+            "longitude": -93.5754935
+          },
+          "accessCoordinate": {
+            "latitude": 42.1044299,
+            "longitude": -93.5754935
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 2,
+          "coordinateVariants": [
+            {
+              "key": "42.10443,-93.57549",
+              "coordinate": {
+                "latitude": 42.1044299,
+                "longitude": -93.5754935
+              },
+              "occurrenceCount": 2,
+              "routeCount": 2,
+              "routes": [
+                "south-skunk-river-lekwa-sopers-mill",
+                "south-skunk-river-sopers-mill-peterson-park"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "south-skunk-river-lekwa-sopers-mill",
+              "routeName": "South Skunk River",
+              "state": "Iowa",
+              "endpoint": "takeOut",
+              "sourceId": null,
+              "name": "Soper's Mill Access #235",
+              "latitude": 42.1044299,
+              "longitude": -93.5754935,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 424.44458158904035,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "south-skunk-river-sopers-mill-peterson-park",
+              "routeName": "South Skunk River",
+              "state": "Iowa",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Soper's Mill Access #235",
+              "latitude": 42.1044299,
+              "longitude": -93.5754935,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 525.2774560413814,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "minnesota--east-golden-lake-lane-access",
+          "state": "Minnesota",
+          "name": "East Golden Lake Lane access",
+          "aliases": [
+            "East Golden Lake Lane access"
+          ],
+          "sourceIds": [
+            "east-golden-lake-lane"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 45.1348215,
+            "longitude": -93.1471925
+          },
+          "accessCoordinate": {
+            "latitude": 45.1348215,
+            "longitude": -93.1471925
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "45.13482,-93.14719",
+              "coordinate": {
+                "latitude": 45.1348215,
+                "longitude": -93.1471925
+              },
+              "occurrenceCount": 1,
+              "routeCount": 1,
+              "routes": [
+                "rice-creek-peltier-to-long-lake"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "rice-creek-peltier-to-long-lake",
+              "routeName": "Rice Creek",
+              "state": "Minnesota",
+              "endpoint": "accessPoint",
+              "sourceId": "east-golden-lake-lane",
+              "name": "East Golden Lake Lane access",
+              "latitude": 45.1348215,
+              "longitude": -93.1471925,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 513.0814808815172,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "missouri--meramec-state-park-river-stop-store-river-launch",
+          "state": "Missouri",
+          "name": "Meramec State Park River Stop Store / river launch",
+          "aliases": [
+            "Meramec State Park River Stop Store / river launch"
+          ],
+          "sourceIds": [],
+          "storedAccessCoordinate": {
+            "latitude": 38.20379,
+            "longitude": -91.099735
+          },
+          "accessCoordinate": {
+            "latitude": 38.20379,
+            "longitude": -91.099735
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 2,
+          "coordinateVariants": [
+            {
+              "key": "38.20379,-91.09973",
+              "coordinate": {
+                "latitude": 38.20379,
+                "longitude": -91.099735
+              },
+              "occurrenceCount": 2,
+              "routeCount": 2,
+              "routes": [
+                "meramec-river-sappington-bridge-meramec-state-park",
+                "meramec-river-state-park-sand-ford"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "meramec-river-sappington-bridge-meramec-state-park",
+              "routeName": "Meramec River",
+              "state": "Missouri",
+              "endpoint": "takeOut",
+              "sourceId": null,
+              "name": "Meramec State Park River Stop Store / river launch",
+              "latitude": 38.20379,
+              "longitude": -91.099735,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 478.0224426407198,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "meramec-river-state-park-sand-ford",
+              "routeName": "Meramec River",
+              "state": "Missouri",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Meramec State Park River Stop Store / river launch",
+              "latitude": 38.20379,
+              "longitude": -91.099735,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 478.0217378714983,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "montana--whitaker-bridge-fishing-access-site-water-entry-edge",
+          "state": "Montana",
+          "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+          "aliases": [
+            "Whitaker Bridge Fishing Access Site (water-entry edge)"
+          ],
+          "sourceIds": [
+            "blackfoot-river-roundup-whitaker-take-out",
+            "blackfoot-river-russell-gates-whitaker-take-out",
+            "blackfoot-river-scotty-brown-whitaker-take-out",
+            "blackfoot-river-whitaker-angevine-put-in",
+            "blackfoot-river-whitaker-johnsrud-put-in",
+            "blackfoot-river-whitaker-k-ross-toole-put-in",
+            "blackfoot-river-whitaker-marco-flats-put-in",
+            "blackfoot-river-whitaker-weigh-station-put-in"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 46.94299999999999,
+            "longitude": -113.59999999999997
+          },
+          "accessCoordinate": {
+            "latitude": 46.94299999999999,
+            "longitude": -113.59999999999997
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 16,
+          "routeCount": 8,
+          "coordinateVariants": [
+            {
+              "key": "46.94300,-113.60000",
+              "coordinate": {
+                "latitude": 46.94299999999999,
+                "longitude": -113.59999999999997
+              },
+              "occurrenceCount": 16,
+              "routeCount": 8,
+              "routes": [
+                "blackfoot-river-roundup-whitaker",
+                "blackfoot-river-russell-gates-whitaker",
+                "blackfoot-river-scotty-brown-whitaker",
+                "blackfoot-river-whitaker-angevine",
+                "blackfoot-river-whitaker-johnsrud",
+                "blackfoot-river-whitaker-k-ross-toole",
+                "blackfoot-river-whitaker-marco-flats",
+                "blackfoot-river-whitaker-weigh-station"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "blackfoot-river-roundup-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-roundup-whitaker-take-out",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-roundup-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "takeOut",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-russell-gates-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-russell-gates-whitaker-take-out",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-russell-gates-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "takeOut",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-scotty-brown-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-scotty-brown-whitaker-take-out",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-scotty-brown-whitaker",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "takeOut",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3709996951314,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-angevine",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-whitaker-angevine-put-in",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-angevine",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-johnsrud",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-whitaker-johnsrud-put-in",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-johnsrud",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-k-ross-toole",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-whitaker-k-ross-toole-put-in",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-k-ross-toole",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-marco-flats",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-whitaker-marco-flats-put-in",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-marco-flats",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-weigh-station",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "accessPoint",
+              "sourceId": "blackfoot-river-whitaker-weigh-station-put-in",
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "blackfoot-river-whitaker-weigh-station",
+              "routeName": "Blackfoot River",
+              "state": "Montana",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Whitaker Bridge Fishing Access Site (water-entry edge)",
+              "latitude": 46.943,
+              "longitude": -113.6,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 477.3708754525416,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "new-york--kiwanis-park-catskill-middle-school-catskill-creek-hand-launch",
+          "state": "New York",
+          "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+          "aliases": [
+            "Kiwanis Park / Catskill Middle School Catskill Creek hand launch"
+          ],
+          "sourceIds": [
+            "catskill-creek-kiwanis-dutchmans-kiwanis"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 42.21972,
+            "longitude": -73.87
+          },
+          "accessCoordinate": {
+            "latitude": 42.21972,
+            "longitude": -73.87
+          },
+          "accessCoordinateSource": "catskill_creek_kiwanis_dutchmans",
+          "authoritativeAccess": {
+            "provider": "catskill_creek_kiwanis_dutchmans",
+            "featureId": "catskill-creek-kiwanis-dutchmans-kiwanis",
+            "name": "Kiwanis Park Catskill Creek launch",
+            "officialName": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+            "aliases": [
+              "Kiwanis Park Catskill Creek launch",
+              "Catskill Middle School hand launch",
+              "West Main Street Catskill Creek access"
+            ],
+            "latitude": 42.21972,
+            "longitude": -73.87,
+            "distanceFromCurrentFeet": 0,
+            "distanceFromMatchedRiverPointFeet": 520.7707195155241,
+            "sourceUrl": "https://dec.ny.gov/sites/default/files/hrefbmapfg.pdf",
+            "coordinateRole": "authoritative-water-entry",
+            "sourceType": "official-Hudson-Estuary-access-map-with-current-regional-launch-corroboration",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "extractionMethod": "The official NYSDEC Hudson River Estuary access directory identifies Kiwanis Park/Catskill Creek as a municipal hand launch with six-car parking and Dutchman’s Landing as a municipal concrete launch at the mouth of Catskill Creek. Current regional tourism and school-district material corroborate the Catskill Middle School/West Main hand-launch area, while current launch guidance describes Dutchman’s Landing as a public ramp. Retain both as park-area water-entry controls and require field confirmation of school/park public-use boundaries, carry, parking, tide, and the wetted edge.",
+            "waterbody": "Catskill Creek",
+            "riverMile": 0,
+            "uncertaintyFeet": 500,
+            "onNhdWaterbody": false,
+            "coordinateText": "NYSDEC lists Kiwanis Park/Catskill Creek as a municipal hand launch; current regional material identifies the Catskill Middle School site as a kayak/canoe hand launch. Stored point is a school-and-creek access-area anchor and requires field confirmation of public use, carry, parking, and waterline.",
+            "distanceFromStoredFeet": 0
+          },
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": {
+            "latitude": 42.21972,
+            "longitude": -73.87
+          },
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "authoritative-water-entry",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "42.21972,-73.87000",
+              "coordinate": {
+                "latitude": 42.21972,
+                "longitude": -73.87
+              },
+              "occurrenceCount": 2,
+              "routeCount": 1,
+              "routes": [
+                "catskill-creek-kiwanis-dutchmans"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "catskill-creek-kiwanis-dutchmans",
+              "routeName": "Catskill Creek",
+              "state": "New York",
+              "endpoint": "accessPoint",
+              "sourceId": "catskill-creek-kiwanis-dutchmans-kiwanis",
+              "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+              "latitude": 42.21972,
+              "longitude": -73.87,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 520.7707195155241,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            },
+            {
+              "routeId": "catskill-creek-kiwanis-dutchmans",
+              "routeName": "Catskill Creek",
+              "state": "New York",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+              "latitude": 42.21972,
+              "longitude": -73.87,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 520.7707195155241,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            }
+          ]
+        },
+        {
+          "id": "new-york--miami-river-substantial-beaver-dam-turnaround",
+          "state": "New York",
+          "name": "Miami River substantial-beaver-dam turnaround",
+          "aliases": [
+            "Miami River substantial-beaver-dam turnaround"
+          ],
+          "sourceIds": [
+            "miami-river-lewey-lake-out-and-back-miami-turnaround"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 43.6282,
+            "longitude": -74.4165
+          },
+          "accessCoordinate": {
+            "latitude": 43.6282,
+            "longitude": -74.4165
+          },
+          "accessCoordinateSource": "miami_river_lewey_lake_out_and_back",
+          "authoritativeAccess": {
+            "provider": "miami_river_lewey_lake_out_and_back",
+            "featureId": "miami-river-lewey-lake-out-and-back-miami-turnaround",
+            "name": "Miami River turnaround",
+            "officialName": "Miami River substantial-beaver-dam turnaround",
+            "aliases": [
+              "Miami River turnaround",
+              "Miami River beaver dam",
+              "Miami River paddling objective"
+            ],
+            "latitude": 43.6282,
+            "longitude": -74.4165,
+            "distanceFromCurrentFeet": 0,
+            "distanceFromMatchedRiverPointFeet": 1193.449581906808,
+            "sourceUrl": "https://dec.ny.gov/places/lewey-lake-campground-and-day-use-area",
+            "coordinateRole": "authoritative-water-entry",
+            "sourceType": "official-nysdec-access-and-route-context",
+            "sourceDocumentDate": null,
+            "sourceSha256": null,
+            "extractionMethod": "NYSDEC publishes the Lewey Lake Campground public launch, shallow-launch warning, seasonal operation, parking capacity, and camping facilities. Experience Our Adirondacks identifies the Miami River as accessed from the south end of Lewey Lake and passable approximately one mile upstream; the current Hamilton County paddling guide publishes a five-mile out-and-back route and a substantial-beaver-dam turnaround. The campground coordinate is the authoritative water-entry/return anchor; the Miami turnaround is an area objective, not a public take-out.",
+            "waterbody": "Miami River",
+            "riverMile": 2.5,
+            "uncertaintyFeet": 1200,
+            "onNhdWaterbody": false,
+            "coordinateText": "Approximate route-objective anchor derived from the documented Miami River marsh reach; not a surveyed public access or take-out; confirm actual obstruction, channel, and lawful landing conditions in field",
+            "distanceFromStoredFeet": 0
+          },
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": {
+            "latitude": 43.6282,
+            "longitude": -74.4165
+          },
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "authoritative-water-entry",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "43.62820,-74.41650",
+              "coordinate": {
+                "latitude": 43.6282,
+                "longitude": -74.4165
+              },
+              "occurrenceCount": 1,
+              "routeCount": 1,
+              "routes": [
+                "miami-river-lewey-lake-out-and-back"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "miami-river-lewey-lake-out-and-back",
+              "routeName": "Miami River",
+              "state": "New York",
+              "endpoint": "accessPoint",
+              "sourceId": "miami-river-lewey-lake-out-and-back-miami-turnaround",
+              "name": "Miami River substantial-beaver-dam turnaround",
+              "latitude": 43.6282,
+              "longitude": -74.4165,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 1193.449581906808,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": "authoritative-water-entry"
+            }
+          ]
+        },
+        {
+          "id": "new-york--nys-parks-dec-tioga-river-lindley-road-hand-launch",
+          "state": "New York",
+          "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+          "aliases": [
+            "NYS Parks/DEC Tioga River Lindley Road hand launch"
+          ],
+          "sourceIds": [
+            "tioga-river-lindley-mulholland-lindley"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 42.0283,
+            "longitude": -77.1397
+          },
+          "accessCoordinate": {
+            "latitude": 42.0283,
+            "longitude": -77.1397
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "coordinateVariants": [
+            {
+              "key": "42.02830,-77.13970",
+              "coordinate": {
+                "latitude": 42.0283,
+                "longitude": -77.1397
+              },
+              "occurrenceCount": 2,
+              "routeCount": 1,
+              "routes": [
+                "tioga-river-lindley-mulholland"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "tioga-river-lindley-mulholland",
+              "routeName": "Tioga River",
+              "state": "New York",
+              "endpoint": "accessPoint",
+              "sourceId": "tioga-river-lindley-mulholland-lindley",
+              "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+              "latitude": 42.0283,
+              "longitude": -77.1397,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 429.2461214941727,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "tioga-river-lindley-mulholland",
+              "routeName": "Tioga River",
+              "state": "New York",
+              "endpoint": "putIn",
+              "sourceId": null,
+              "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+              "latitude": 42.0283,
+              "longitude": -77.1397,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 429.2461214941727,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        },
+        {
+          "id": "texas--fm-973-del-valle-bridge",
+          "state": "Texas",
+          "name": "FM 973 / Del Valle Bridge",
+          "aliases": [
+            "FM 973 / Del Valle Bridge"
+          ],
+          "sourceIds": [
+            "fm-973-del-valle-bridge"
+          ],
+          "storedAccessCoordinate": {
+            "latitude": 30.21,
+            "longitude": -97.64
+          },
+          "accessCoordinate": {
+            "latitude": 30.21,
+            "longitude": -97.64
+          },
+          "accessCoordinateSource": "stored-route-consensus",
+          "authoritativeAccess": null,
+          "authoritativeFacilityAnchor": null,
+          "authoritativeAreaAnchor": null,
+          "storedCoordinateIsAreaAnchor": false,
+          "authoritativeAccessIdentityMismatch": false,
+          "authoritativeAccessMismatchFeet": null,
+          "waterEntryCoordinate": null,
+          "waterEntryConsensusRouteCount": 0,
+          "waterEntryExactOnRiver": false,
+          "waterEntryWaterbodyConfirmed": false,
+          "authoritativeResolvesDistinctLocation": false,
+          "coordinateStatus": "consistent",
+          "verificationStatus": "unverified",
+          "maximumSeparationFeet": 0,
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "coordinateVariants": [
+            {
+              "key": "30.21000,-97.64000",
+              "coordinate": {
+                "latitude": 30.21,
+                "longitude": -97.64
+              },
+              "occurrenceCount": 4,
+              "routeCount": 2,
+              "routes": [
+                "colorado-river-fm973-little-webberville",
+                "colorado-river-texas-river-school-fm973"
+              ]
+            }
+          ],
+          "occurrences": [
+            {
+              "routeId": "colorado-river-fm973-little-webberville",
+              "routeName": "Colorado River",
+              "state": "Texas",
+              "endpoint": "accessPoint",
+              "sourceId": "fm-973-del-valle-bridge",
+              "name": "FM 973 / Del Valle Bridge",
+              "latitude": 30.21,
+              "longitude": -97.64,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 510.02267548749984,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "colorado-river-fm973-little-webberville",
+              "routeName": "Colorado River",
+              "state": "Texas",
+              "endpoint": "putIn",
+              "sourceId": "fm-973-del-valle-bridge",
+              "name": "FM 973 / Del Valle Bridge",
+              "latitude": 30.21,
+              "longitude": -97.64,
+              "auditSeverity": "suspicious",
+              "distanceFeetToMatchedRiver": 510.02267548749984,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "colorado-river-texas-river-school-fm973",
+              "routeName": "Colorado River",
+              "state": "Texas",
+              "endpoint": "accessPoint",
+              "sourceId": "fm-973-del-valle-bridge",
+              "name": "FM 973 / Del Valle Bridge",
+              "latitude": 30.21,
+              "longitude": -97.64,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 510.02267548749984,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            },
+            {
+              "routeId": "colorado-river-texas-river-school-fm973",
+              "routeName": "Colorado River",
+              "state": "Texas",
+              "endpoint": "takeOut",
+              "sourceId": "fm-973-del-valle-bridge",
+              "name": "FM 973 / Del Valle Bridge",
+              "latitude": 30.21,
+              "longitude": -97.64,
+              "auditSeverity": "review",
+              "distanceFeetToMatchedRiver": 510.02267548749984,
+              "endpointOnWaterbody": false,
+              "coordinateEvidenceRole": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

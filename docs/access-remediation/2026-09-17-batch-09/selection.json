@@ -1,0 +1,349 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites in the cached access-quality queue with at least one occurrence outside the current generated withholding manifest; exclude sites frozen in batches 01-08 by same state/name or 250-foot same-feature tolerance; deduplicate same-feature queue entries; preserve original queue order. Queue ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The audit remains a cached snapshot and cannot currently be regenerated because @paddletoday/geo is missing. Queue rank prioritizes research only; each access and route will be rechecked against current sources before source edits."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "priorFrozenSiteCount": 80,
+  "currentWithheldRouteCount": 138,
+  "skippedBeforeSelection": 109,
+  "sites": [
+    {
+      "state": "Iowa",
+      "name": "Canton Bridge Access / Canton County Park",
+      "latitude": 42.1627901,
+      "longitude": -90.8918068,
+      "distanceFeetToMappedWater": 544.7340742451154,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-canton-royertown",
+          "endpoint": "putIn",
+          "endpointName": "Canton Bridge Access / Canton County Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 110,
+      "eligibleUnwithheldRoutes": [
+        "maquoketa-river-canton-royertown"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Neal Bridge Take-Out",
+      "latitude": 43.5519,
+      "longitude": -115.737,
+      "distanceFeetToMappedWater": 541.3081785027514,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-boise-danskin-neal",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Bridge Take-Out",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 111,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-boise-danskin-neal"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+      "latitude": 42.046229,
+      "longitude": -73.906715,
+      "distanceFeetToMappedWater": 536.4344921575118,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-tivoli-north-bay-loop",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-tivoli-north-bay-loop",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 112,
+      "eligibleUnwithheldRoutes": [
+        "hudson-river-tivoli-north-bay-loop"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Peconic River Canoe Launch / Upper Mills",
+      "latitude": 40.916106,
+      "longitude": -72.701705,
+      "distanceFeetToMappedWater": 533.499674830328,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-forge-pond-upper-mills",
+          "endpoint": "takeOut",
+          "endpointName": "Peconic River Canoe Launch / Upper Mills",
+          "severity": "review"
+        },
+        {
+          "routeId": "peconic-river-upper-mills-weeping-willow",
+          "endpoint": "putIn",
+          "endpointName": "Suffolk County Peconic River Canoe Launch / Upper Mills",
+          "severity": "review"
+        }
+      ],
+      "rank": 113,
+      "eligibleUnwithheldRoutes": [
+        "peconic-river-forge-pond-upper-mills",
+        "peconic-river-upper-mills-weeping-willow"
+      ]
+    },
+    {
+      "state": "Utah",
+      "name": "Lower Meadows Campground",
+      "latitude": 41.286623,
+      "longitude": -111.643195,
+      "distanceFeetToMappedWater": 529.2666455339825,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-ogden-river-willows-magpie",
+          "endpoint": "accessPoint",
+          "endpointName": "Lower Meadows Campground",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 114,
+      "eligibleUnwithheldRoutes": [
+        "south-fork-ogden-river-willows-magpie"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Botna Bend Park / Hancock Water Trail Access",
+      "latitude": 41.39009,
+      "longitude": -95.36811,
+      "distanceFeetToMappedWater": 521.5882275443726,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "west-nishnabotna-river-avoca-hancock",
+          "endpoint": "takeOut",
+          "endpointName": "Botna Bend Park / Hancock Water Trail Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "west-nishnabotna-river-hancock-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Botna Bend Park / Hancock Water Trail Access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 115,
+      "eligibleUnwithheldRoutes": [
+        "west-nishnabotna-river-avoca-hancock",
+        "west-nishnabotna-river-hancock-oakland"
+      ]
+    },
+    {
+      "state": "Rhode Island",
+      "name": "Manton Avenue river launch",
+      "latitude": 41.8202194,
+      "longitude": -71.4469799,
+      "distanceFeetToMappedWater": 519.8537506353589,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-cricket-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue river launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 116,
+      "eligibleUnwithheldRoutes": [
+        "woonasquatucket-river-esmond-manton",
+        "woonasquatucket-river-georgiaville-manton",
+        "woonasquatucket-river-manton-riverside",
+        "woonasquatucket-river-manton-south-water",
+        "woonasquatucket-river-manton-waterplace",
+        "woonasquatucket-river-whipple-manton"
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "South-shore open-water turnaround",
+      "latitude": 44.6382,
+      "longitude": -111.3744,
+      "distanceFeetToMappedWater": 518.7562355063444,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "henrys-lake-south-shore-loop",
+          "endpoint": "accessPoint",
+          "endpointName": "South-shore open-water turnaround",
+          "severity": "unknown"
+        }
+      ],
+      "rank": 117,
+      "eligibleUnwithheldRoutes": [
+        "henrys-lake-south-shore-loop"
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "Skidmore Drive RAP water-entry edge",
+      "latitude": 34.694,
+      "longitude": -111.9616,
+      "distanceFeetToMappedWater": 518.1083594883318,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-skidmore-bignotti",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-black-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-black-canyon",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-newton",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-white",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP water-entry edge",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 118,
+      "eligibleUnwithheldRoutes": [
+        "verde-river-skidmore-bignotti",
+        "verde-river-skidmore-black-bridge",
+        "verde-river-skidmore-black-canyon",
+        "verde-river-skidmore-newton",
+        "verde-river-skidmore-parsons",
+        "verde-river-skidmore-sheep-crossing",
+        "verde-river-skidmore-white"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Lutsen Ski Area carry-in",
+      "latitude": 47.664625340847806,
+      "longitude": -90.71565087000029,
+      "distanceFeetToMappedWater": 515.714530212559,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "poplar-river-lutsen-seventh-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Lutsen Ski Area carry-in",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 119,
+      "eligibleUnwithheldRoutes": [
+        "poplar-river-lutsen-seventh-bridge"
+      ]
+    }
+  ]
+}

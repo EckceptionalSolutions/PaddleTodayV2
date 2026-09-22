@@ -1,0 +1,97 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "commands": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id <each route in geometry-repair.json>; then --reuse-existing",
+      "status": "passed",
+      "result": "Regenerated the eight Marco routes and assembled the public assets; all eight are visible in listRivers()."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-canonical-river-geometries.ts",
+      "status": "passed",
+      "result": "2,742 of 2,755 public routes matched; 13 previously unmatched routes remain."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --concurrency=8",
+      "status": "passed",
+      "result": "Full report written for 2,755 routes and 6,068 endpoints: 2,036 ok, 3,787 review, 167 suspicious, 0 failure, 78 unknown; 276 truncated NHD responses. Marco Flats is 165.7 feet from mapped water (review / within-300ft); Mirabeau is 224.5 feet (review / within-300ft)."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-route-access-registry.ts --audit=docs/access-point-quality-audit.json",
+      "status": "passed",
+      "result": "Generated 4,041 entries with 1 conflict and 0 authoritative access mismatches."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs docs/access-remediation/2026-09-17-batch-21/verify.mjs",
+      "status": "passed",
+      "result": "Verifier confirms eight Marco releases and Rochester remains held."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs docs/access-remediation/2026-09-17-batch-30/verify.ts",
+      "status": "passed",
+      "result": "10 sites and 20 routes retained; 7 public, 13 held; both Mirabeau traces within 500 feet; no held route has a public geometry asset."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-data.ts",
+      "status": "failed-unrelated-blocking-route-issue",
+      "result": "One unrelated South Skunk mileage blocker remains; 137 planning issues are tracked."
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "failed-unrelated-workspace-errors",
+      "result": "Six errors remain in unrelated New York, Wisconsin, and Iowa route files."
+    }
+  ],
+  "notes": [
+    "Rochester Park is the remaining hold among the nine endpoints originally held in Batch 21; confirm lawful carry and parking outside the EPA cleanup closure, then inspect its regenerated geometry.",
+    "A later full-catalog triage also held the unverified Center Rutland Otter Creek route; see docs/access-remediation/2026-09-18-audit-failure-triage/README.md.",
+    "Marco Flats remains an official public access-area anchor, not a surveyed water-entry point. Route traces pass within 560 feet of the anchor; the quality audit places the coordinate 165.7 feet from mapped water.",
+    "The full quality report has 276 truncated NHD responses, 74 unknown water-proximity results, and 78 unknown severity outcomes; none establishes that access is valid or invalid.",
+    "The canonical geometry audit retains 13 unmatched public routes already present in the broader catalog. No deployment was performed."
+  ],
+  "initialRun": {
+    "note": "Historical first pass from September 17, before the geometry dependency became available and before the Marco routes were repaired.",
+    "commands": [
+      {
+        "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+        "status": "passed",
+        "result": "Generated 166 withheld route slugs after adding nine Batch 21 holds."
+      },
+      {
+        "command": "node docs/access-remediation/2026-09-17-batch-21/verify.mjs",
+        "status": "passed",
+        "result": "Verifier passed for the frozen ten-site selection, affected routes, source controls, corrections, holds, and generated withholding manifest."
+      },
+      {
+        "command": "TypeScript transpileModule syntax check for changed TypeScript sources and JSON parse for controls",
+        "status": "passed",
+        "result": "Changed TypeScript sources transpiled without diagnostics; route access control JSON parsed."
+      },
+      {
+        "command": "git -c core.whitespace=cr-at-eol diff --check -- <scoped Batch 21 source files>",
+        "status": "passed",
+        "result": "No whitespace errors in the scoped Batch 21 changes."
+      },
+      {
+        "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-route-access-registry.ts --audit=docs/access-point-quality-audit.json",
+        "status": "passed",
+        "result": "Generated registry at 2026-09-17T20:59:51.543Z: 4043 entries, 0 conflicts, 1190 authoritative access records, 1 area-anchor-only entries. Registry refreshed against existing cache-only audit at 2026-09-17T12:02:46.464Z."
+      },
+      {
+        "command": "npm run routes:audit:access-quality -- --cache-only",
+        "status": "blocked",
+        "result": "npm wrapper could not start because 'tsx' is not recognized in the current shell."
+      },
+      {
+        "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+        "status": "blocked",
+        "result": "Direct runner fails at module load because @paddletoday/geo is not installed; existing access-quality report and queue were left unchanged."
+      },
+      {
+        "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts",
+        "status": "blocked",
+        "result": "Module load fails because @paddletoday/geo is not installed. Eight Marco Flats endpoint geometries and one Rochester endpoint geometry remain stale; all nine routes are held."
+      }
+    ]
+  }
+}

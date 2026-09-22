@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:28:44.081Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Texas",
+      "name": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64,
+      "distanceFeetToMappedWater": 428.94242163963463,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm973-little-webberville",
+          "endpoint": "putIn",
+          "endpointName": "FM 973 / Del Valle Bridge",
+          "severity": "suspicious"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "colorado-river-fm973-little-webberville",
+      "routeName": "Colorado River",
+      "reach": "FM 973 / Del Valle Bridge to Little Webberville Park",
+      "state": "Texas",
+      "endpoint": "putIn",
+      "endpointName": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64,
+      "matchedRiverName": "Colorado River",
+      "distanceFeetToMatchedRiver": 510.02267548749984,
+      "nearestMatchedLatitude": 30.208909999999996,
+      "nearestMatchedLongitude": -97.641013,
+      "nearestWaterwayName": "Colorado River",
+      "distanceFeetToNearestWaterway": 510.02267548749984,
+      "nearestWaterwayLatitude": 30.208909999999996,
+      "nearestWaterwayLongitude": -97.641013,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 428.94242163963463,
+      "nearestWaterbodyLatitude": 30.209029494615844,
+      "nearestWaterbodyLongitude": -97.64076806055579,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 428.94242163963463,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 510 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "colorado-river-fm973-little-webberville",
+      "routeName": "Colorado River",
+      "reach": "FM 973 / Del Valle Bridge to Little Webberville Park",
+      "state": "Texas",
+      "endpoint": "takeOut",
+      "endpointName": "Little Webberville Park",
+      "latitude": 30.23,
+      "longitude": -97.52,
+      "matchedRiverName": "Colorado River",
+      "distanceFeetToMatchedRiver": 216.9799513808612,
+      "nearestMatchedLatitude": 30.229406194899255,
+      "nearestMatchedLongitude": -97.5200390754062,
+      "nearestWaterwayName": "Colorado River",
+      "distanceFeetToNearestWaterway": 216.9799513808612,
+      "nearestWaterwayLatitude": 30.229406194899255,
+      "nearestWaterwayLongitude": -97.5200390754062,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 133.27816647995888,
+      "nearestWaterbodyLatitude": 30.22964860701755,
+      "nearestWaterbodyLongitude": -97.52011567103827,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 133.27816647995888,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 133 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

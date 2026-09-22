@@ -1,0 +1,9 @@
+{
+  "batch": "B91",
+  "sources": [
+    { "title": "NPS Finding Your Way Around New River Gorge", "url": "https://www.nps.gov/neri/planyourvisit/finding-your-way-around-the-park.htm", "publisher": "National Park Service", "supports": ["Glade Creek New River access", "primitive campground", "trailhead", "Glade Creek Road approach"] },
+    { "title": "NPS New River Gorge fishing access", "url": "https://www.nps.gov/neri/planyourvisit/fishing.htm", "publisher": "National Park Service", "supports": ["Glade Creek public New River access near Prince"] },
+    { "title": "NPS Glade Creek / Hamlet", "url": "https://home.nps.gov/neri/learn/historyculture/glade-creek-hamlet.htm", "publisher": "National Park Service", "supports": ["Glade Creek campground, boating, river access, and road directions"] }
+  ],
+  "sourceQuality": "The decision is based on multiple National Park Service sources documenting public river access, campground facilities, and the road approach."
+}

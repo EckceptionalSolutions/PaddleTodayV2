@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:51:21.591Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "susquehanna-river-afton-nineveh",
+      "routeName": "Susquehanna River",
+      "reach": "Afton Route 41 access to Nineveh Bridge Susquehanna access",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "NYSDEC Nineveh Bridge Susquehanna access",
+      "latitude": 42.19344,
+      "longitude": -75.59946,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 434.70565277234346,
+      "nearestMatchedLatitude": 42.19398178834453,
+      "nearestMatchedLongitude": -75.60089245872149,
+      "nearestWaterwayName": "Susquehanna River",
+      "distanceFeetToNearestWaterway": 434.70565277470064,
+      "nearestWaterwayLatitude": 42.193981788344544,
+      "nearestWaterwayLongitude": -75.60089245872149,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 213.70762589182547,
+      "nearestWaterbodyLatitude": 42.193698431504984,
+      "nearestWaterbodyLongitude": -75.60016957146495,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 213.70762589182547,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/things-to-do/boating/launch-sites/broome-county",
+      "coordinateEvidenceDetail": "ny_nysdec_nineveh_bridge_susquehanna_access_20260919 nysdec-nineveh-bridge-susquehanna-access: NYSDEC's current Broome County boat-launch directory publishes Ninevah Bridge at 42.193440,-75.599460 as a DEC hard-surface launch with parking for eight cars and trailers. NYSDEC's Susquehanna River access page independently describes Nineveh as a concrete ramp on County Route 26, and the DEC fishing brochure identifies the northeast corner of the Nineveh bridge as a hard-surface ramp and bank-fishing site. Retain the exact state coordinate as the public launch/access-area anchor; the 435-foot connected-network offset reflects bridge/shoreline facility placement rather than a wrong access.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ny_nysdec_nineveh_bridge_susquehanna_access_20260919 nysdec-nineveh-bridge-susquehanna-access) on Susquehanna River; access is conditional (Confirm current DEC parking, ramp condition, bridge-side carry route, and river conditions at arrival.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "susquehanna-river-afton-nineveh",
+      "routeName": "Susquehanna River",
+      "reach": "Afton Route 41 access to Nineveh Bridge Susquehanna access",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "NYSDEC Afton Susquehanna River access at Route 41",
+      "latitude": 42.228255,
+      "longitude": -75.52386,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 308.4776089889107,
+      "nearestMatchedLatitude": 42.227869,
+      "nearestMatchedLongitude": -75.522844,
+      "nearestWaterwayName": "Kelsey Creek",
+      "distanceFeetToNearestWaterway": 308.4776089889107,
+      "nearestWaterwayLatitude": 42.227869,
+      "nearestWaterwayLongitude": -75.522844,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 166.1927514802102,
+      "nearestWaterbodyLatitude": 42.22784043377745,
+      "nearestWaterbodyLongitude": -75.52360497035653,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 166.1927514802102,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/things-to-do/boating/launch-sites/chenango-county",
+      "coordinateEvidenceDetail": "ny_nysdec_afton_route_41_unimproved_launch_anchor_20260918 nysdec-chenango-county-susquehanna-afton-launch-coordinate: NYSDEC's current Chenango County Boat Launch Sites directory lists the Susquehanna River at Afton at the exact shared route coordinate 42.228255,-75.523860, classifies it as an unimproved trailer launch, and lists parking for 12 cars and trailers. NYSDEC's Susquehanna River access page places the Afton gravel ramp at the Route 41 bridge. The published coordinate establishes the public launch site, but neither page identifies it as a surveyed wet-toe point. Retain the exact state coordinate as an authoritative access anchor and leave the mapped-water offset open for review.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ny_nysdec_afton_route_41_unimproved_launch_anchor_20260918 nysdec-chenango-county-susquehanna-afton-launch-coordinate) on Susquehanna River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

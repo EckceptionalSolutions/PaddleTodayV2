@@ -11,7 +11,7 @@ test('Today retains sorting after Nearest is denied GPS', async ({ page }) => {
     } });
   });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{
     ...fixture.result, river: { ...fixture.result.river, difficulty: 'easy' },
     summary: { gaugeNow: 'QA', shortExplanation: 'QA fixture' }, liveData: { overall: 'stale', summary: 'QA' },
   }] } }));

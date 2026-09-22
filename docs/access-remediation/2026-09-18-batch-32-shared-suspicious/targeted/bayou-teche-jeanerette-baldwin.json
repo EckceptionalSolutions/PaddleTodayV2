@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T14:22:27.883Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "bayou-teche-jeanerette-baldwin",
+      "routeName": "Bayou Teche",
+      "reach": "Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge) to Baldwin Charenton Road Park and Recreational Complex dock",
+      "state": "Louisiana",
+      "endpoint": "putIn",
+      "endpointName": "Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge)",
+      "latitude": 29.918431,
+      "longitude": -91.66681,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 223.18246673849546,
+      "nearestMatchedLatitude": 29.91879518927037,
+      "nearestMatchedLongitude": -91.6662428688873,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 223.18246673849546,
+      "nearestWaterwayLatitude": 29.91879518927037,
+      "nearestWaterwayLongitude": -91.6662428688873,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 93.1557853610337,
+      "nearestWaterbodyLatitude": 29.918596717470884,
+      "nearestWaterbodyLongitude": -91.66658585941676,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 93.1557853610337,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "coordinateEvidenceDetail": "jeanerette_tj_viator_city_park_dock_aerial_20260918 jeanerette-tj-viator-city-park-dock: TECHE Project lists the official Bayou Teche National Paddle Trail dock at T.J. Viator City Park off Tarleton Street. The stored point was about 482 feet from the matched NHD flowline and 152 feet from mapped-water geometry. Current Google Maps aerial imagery shows the park dock/landing at the Bayou edge; the selected point 29.918431,-91.666810 is the visible landing coordinate. The image-derived point has 50-foot uncertainty and is not a surveyed TECHE coordinate.",
+      "severity": "review",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (jeanerette_tj_viator_city_park_dock_aerial_20260918 jeanerette-tj-viator-city-park-dock) on Bayou Teche; the 223 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    },
+    {
+      "routeId": "bayou-teche-jeanerette-baldwin",
+      "routeName": "Bayou Teche",
+      "reach": "Jeanerette T.J. Viator City Park dock (imagery-derived water-entry edge) to Baldwin Charenton Road Park and Recreational Complex dock",
+      "state": "Louisiana",
+      "endpoint": "takeOut",
+      "endpointName": "Baldwin Charenton Road Park and Recreational Complex dock",
+      "latitude": 29.833138,
+      "longitude": -91.542615,
+      "matchedRiverName": "Bayou Teche",
+      "distanceFeetToMatchedRiver": 124.01342557565086,
+      "nearestMatchedLatitude": 29.833230394651018,
+      "nearestMatchedLongitude": -91.54223788820795,
+      "nearestWaterwayName": "Bayou Teche",
+      "distanceFeetToNearestWaterway": 124.01342557565086,
+      "nearestWaterwayLatitude": 29.833230394651018,
+      "nearestWaterwayLongitude": -91.54223788820795,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 29.833138,
+      "nearestWaterbodyLongitude": -91.542615,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

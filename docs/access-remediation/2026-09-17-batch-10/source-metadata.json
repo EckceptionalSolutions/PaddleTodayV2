@@ -1,0 +1,249 @@
+{
+  "batch": "2026-09-17-batch-10",
+  "retrievedOn": "2026-09-17",
+  "sourceSnapshotRoot": "node_modules/.cache/access-batch-10/sources",
+  "snapshots": [
+    {
+      "id": "perception-recgov",
+      "url": "https://www.recreation.gov/camping/campgrounds/232084",
+      "localPath": "node_modules/.cache/access-batch-10/sources/perception-recgov.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 31696,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "EFE37B3DC541E38030640D2CD69355713A15589852219AADCA1D8F8C1E62EFA9"
+    },
+    {
+      "id": "lnf-aw-reach",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/3248/main",
+      "localPath": "node_modules/.cache/access-batch-10/sources/lnf-aw-reach.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 125940,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "D85F5AD15A778D61B8EC31D99651B8B958B3FA3FD884D43FD5F682889EC6B252"
+    },
+    {
+      "id": "lnf-north-idaho-rivers",
+      "url": "https://www.northidahorivers.com/Clearwater_LNF.htm",
+      "localPath": "node_modules/.cache/access-batch-10/sources/lnf-north-idaho-rivers.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 16228,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "7111828D141AE47A546592F641971A0BEA3293C89C2C210DC7CDA402742D96EE"
+    },
+    {
+      "id": "lnf-idfg-water",
+      "url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1158767468868",
+      "localPath": "node_modules/.cache/access-batch-10/sources/lnf-idfg-water.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 54605,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "87DE53721951493F5CA12BE2612DCD82242DAF8AAF19FF6EE0C794B22FB07C14"
+    },
+    {
+      "id": "lnf-usfs-plan",
+      "url": "https://www.fs.usda.gov/sites/nfs/files/r01/idahopanhandle/publication/Final%20EIS%20Appendices%202013.pdf",
+      "localPath": "node_modules/.cache/access-batch-10/sources/lnf-usfs-plan.pdf",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 15277266,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "36BD3BE40E559F84003D57A54760D05202E05B211DA23682003BF02E2F2FC94A"
+    },
+    {
+      "id": "fort-mill-scdnr-scenic",
+      "url": "https://www.dnr.sc.gov/water/river/scenic/catawba.html",
+      "localPath": "node_modules/.cache/access-batch-10/sources/fort-mill-scdnr-scenic.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 11048,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "ECC92EFC61D5A43142BD132BF005D4B3A72B11EEFAE75E8DA827D6F3DA68D2B4"
+    },
+    {
+      "id": "fort-mill-scdnr-feature-739",
+      "url": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/739?f=pjson",
+      "localPath": "node_modules/.cache/access-batch-10/sources/fort-mill-scdnr-feature-739.json",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 1687,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "D1F9ECEF7D9463CEF26DEB2319FDA0B86ACCC73502075441716633FD25692291"
+    },
+    {
+      "id": "cato-county-park",
+      "url": "https://manitowoccountywi.gov/departments/parks/county-parks/lower-cato-falls/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/cato-county-park.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 125232,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B72256713A3DE8EA97A0563D3A4AACD58669FCB6DDC3C09D6F61E23926477452"
+    },
+    {
+      "id": "cato-watershed-plan",
+      "url": "https://www.manitowoc.org/DocumentCenter/View/31544/Manitowoc-River-Watershed---Water-Trail-Plan",
+      "localPath": "node_modules/.cache/access-batch-10/sources/cato-watershed-plan.pdf",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 6080950,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "8B15602BA56411CFE977759E1259B25C3F3C27EFBDEB00784FD00598E64AD0FE"
+    },
+    {
+      "id": "charenton-teche-docks",
+      "url": "https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/charenton-teche-docks.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 48658,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C6483CD7B11D0023EFADC3D9AFF544C0F1A89D49BC67E0BF020F1CE3452F2BAD"
+    },
+    {
+      "id": "mccabe-tnc-page",
+      "url": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/edward-h-mccabe-preserve/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/mccabe-tnc-page.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 228482,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "C52D205E893DA28AE671F544F808B98B68801D7C80CC2BE7871D16A9241FEF77"
+    },
+    {
+      "id": "mccabe-tnc-brochure",
+      "url": "https://www.nature.org/content/dam/tnc/nature/en/documents/DE_McCabe-Brochure_PWP.pdf",
+      "localPath": "node_modules/.cache/access-batch-10/sources/mccabe-tnc-brochure.pdf",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 965299,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "F9E346DE31108A43BEFF0391C253C0FCFDADFC9DAF11711F966A95858B93742A"
+    },
+    {
+      "id": "valley-falls-aw",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "localPath": "node_modules/.cache/access-batch-10/sources/valley-falls-aw.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 104906,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "85E48E589B55A6C2A495F5565D3F723781B2DB2BA3F07905EA790DA049706417"
+    },
+    {
+      "id": "valley-falls-state-park",
+      "url": "https://wvstateparks.com/parks/valley-falls-state-park/activities/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/valley-falls-state-park.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 228841,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "1B85E2CCDD9D5F148CEA4C49B1F2642349DB4D22469A6CDDAF0009B64C82F723"
+    },
+    {
+      "id": "holiday-heights-onalaska-plan",
+      "url": "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf",
+      "localPath": "node_modules/.cache/access-batch-10/sources/holiday-heights-onalaska-plan.pdf",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 13712199,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "CF8DE10DD823E2A8C1BF704147C1D8083124B53D749E21FC46FAC8207C07B113"
+    },
+    {
+      "id": "holiday-heights-city-facility",
+      "url": "https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84",
+      "localPath": "node_modules/.cache/access-batch-10/sources/holiday-heights-city-facility.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 98829,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "E2004CBEC8FE600614D3B7558BE617EA4BD90DEDD390693F479F9C075981C393"
+    },
+    {
+      "id": "wes-block-jane-addams",
+      "url": "https://janeaddamstrail.com/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/wes-block-jane-addams.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 89975,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "87F93A54FF1611EC0126653E84EAE1E4824FC4735130F8B97097998FE787916E"
+    },
+    {
+      "id": "wes-block-illinois-paddling-council",
+      "url": "https://illinoispaddling.org/newest-boat-launch-completed-at-wes-block-landing-on-the-pecatonica-river/",
+      "localPath": "node_modules/.cache/access-batch-10/sources/wes-block-illinois-paddling-council.html",
+      "httpStatus": 403,
+      "contentType": "",
+      "bytes": 0,
+      "acceptedAsEvidence": false,
+      "retrievalNote": "Response status code does not indicate success: 403 (Forbidden).",
+      "sha256": null
+    },
+    {
+      "id": "gilbert-nps-getting-around",
+      "url": "https://www.nps.gov/buff/planyourvisit/getting-around.htm",
+      "localPath": "node_modules/.cache/access-batch-10/sources/gilbert-nps-getting-around.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 42610,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B77E33C148C4ACA4DF248CDE5B1D161B369D6DBD1AB1A6964FD6682011309592"
+    },
+    {
+      "id": "gilbert-nps-river-access",
+      "url": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+      "localPath": "node_modules/.cache/access-batch-10/sources/gilbert-nps-river-access.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 56792,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "705B3AE788BED5393BFFE612EE9E99663BD5916809619713C23DE1F42FE15EC5"
+    },
+    {
+      "id": "gilbert-nps-river-float",
+      "url": "https://www.nps.gov/thingstodo/grinder-s-ferry-to-gilbert.htm",
+      "localPath": "node_modules/.cache/access-batch-10/sources/gilbert-nps-river-float.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 36536,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "ECDE05F04CE06E8DD4EC962F43995B1C612E0894F57E17415DE24EA7FE881BDC"
+    },
+    {
+      "id": "gilbert-nps-camping",
+      "url": "https://www.nps.gov/buff/planyourvisit/camping.htm",
+      "localPath": "node_modules/.cache/access-batch-10/sources/gilbert-nps-camping.html",
+      "httpStatus": 200,
+      "contentType": null,
+      "bytes": 69750,
+      "acceptedAsEvidence": true,
+      "retrievalNote": null,
+      "sha256": "B42A70ACF322143746B2DAAD97EFA540D5EF5605EC099A91C9D1DA1019E6892D"
+    }
+  ]
+}

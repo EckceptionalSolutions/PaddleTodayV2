@@ -24,10 +24,10 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
         {isStale ? <Text accessibilityLiveRegion="polite" style={styles.warning}>Saved conditions need an update. These stored calls are not a current recommendation.</Text> : null}
         {routes.length < 2 ? <Text accessibilityLiveRegion="polite" style={styles.body}>Close this comparison to choose {routes.length ? 'another route' : 'two or three routes'}.</Text> : null}
         {routes.length > 0 ? <ScrollView horizontal contentContainerStyle={styles.tableScroll} showsHorizontalScrollIndicator accessibilityLabel="Horizontally scrollable route comparison">
-          <View style={[styles.table, { minWidth: Math.max(320, routes.length * 190 + 112) }]}>
+          <View testID="route-comparison-table" style={[styles.table, { width: routes.length * 190 + 114 }]}>
             <View style={styles.routeHeaders}>
               <View style={styles.labelColumn} />
-              {routes.map((route, index) => <View key={route.river.slug} style={styles.routeHeader}>
+              {routes.map((route, index) => <View key={route.river.slug} testID={`comparison-header-${index}`} style={styles.routeHeader}>
                 <Text style={styles.eyebrow}>ROUTE {index + 1}</Text>
                 <Text style={styles.riverName}>{route.river.name}</Text>
                 <Text accessibilityRole="header" style={styles.routeTitle}>{route.river.reach}</Text>
@@ -48,7 +48,7 @@ export function RouteComparisonSheet<T extends ComparableRoute>({ visible, route
                   const differs = new Set(comparableValues).size > 1;
                   return <View key={fact.id} style={[styles.factRow, differs ? styles.factRowDifferent : null]}>
                     <View style={styles.labelColumn}><Text style={styles.label}>{fact.label}</Text>{differs ? <Text style={styles.differs}>Differs</Text> : null}</View>
-                    {values.map((value, index) => <Text key={`${routes[index].river.slug}-${fact.id}`} style={styles.value}>{value}</Text>)}
+                    {values.map((value, index) => <View key={`${routes[index].river.slug}-${fact.id}`} testID={`comparison-${fact.id}-${index}`} style={styles.valueCell}><Text style={styles.value}>{value}</Text></View>)}
                   </View>;
                 })}
               </View>;
@@ -69,13 +69,14 @@ const styles = StyleSheet.create({
   tableScroll: { paddingBottom: spacing.sm },
   table: { backgroundColor: colors.surfaceStrong, borderRadius: radius.lg, borderWidth: 1, borderColor: colors.border, overflow: 'hidden' },
   routeHeaders: { flexDirection: 'row', borderBottomWidth: 1, borderColor: colors.border, backgroundColor: colors.canvasMuted },
-  routeHeader: { width: 190, padding: spacing.sm, gap: spacing.xs, borderLeftWidth: 1, borderColor: colors.border },
-  labelColumn: { width: 112, padding: spacing.sm, justifyContent: 'center' },
+  routeHeader: { width: 190, flexShrink: 0, minWidth: 0, padding: spacing.sm, gap: spacing.xs, borderLeftWidth: 1, borderColor: colors.border },
+  labelColumn: { width: 112, flexShrink: 0, padding: spacing.sm, justifyContent: 'center' },
   eyebrow: { color: colors.accent, fontSize: 11, fontWeight: '800', letterSpacing: 1 },
   riverName: { color: colors.accentDeep, fontSize: 14, lineHeight: 20, fontWeight: '700' },
   routeTitle: { color: colors.text, fontSize: 19, lineHeight: 25, fontWeight: '800' },
-  label: { width: 110, color: colors.textMuted, fontSize: 13, lineHeight: 19 },
-  value: { flex: 1, minWidth: 100, color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '600' },
+  label: { color: colors.textMuted, fontSize: 13, lineHeight: 19 },
+  valueCell: { width: 190, flexShrink: 0, minWidth: 0, padding: spacing.sm, borderLeftWidth: 1, borderColor: colors.border },
+  value: { color: colors.text, fontSize: 14, lineHeight: 20, fontWeight: '600' },
   actions: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, paddingTop: spacing.xs },
   group: { borderBottomWidth: 1, borderColor: colors.border },
   groupTitle: { padding: spacing.sm, color: colors.accentDeep, fontSize: 13, lineHeight: 18, fontWeight: '800' },

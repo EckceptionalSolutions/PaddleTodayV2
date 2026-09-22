@@ -1,0 +1,23 @@
+{
+  "batch": "B118",
+  "selectedAt": "2026-09-19",
+  "routeId": "big-wood-river-rotary-broadway",
+  "routeName": "Big Wood River",
+  "reach": "Ketchum Rotary Park to Broadway Run Road",
+  "state": "Idaho",
+  "endpoint": "takeOut",
+  "endpointName": "Broadway Run Road Take-Out",
+  "storedCoordinate": {
+    "latitude": 43.634474,
+    "longitude": -114.349838
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 332.3261508434727,
+    "nearestWaterwayName": "Big Wood River",
+    "distanceFeetToMappedWater": 296.51487906547504,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "Blaine County lists Broadway Run North and South as public Big Wood River water-access sites, and American Whitewater identifies Broadway Run Road as the take-out for the Rotary Park reach. Retain the stored point as a conditional access-area anchor."
+}

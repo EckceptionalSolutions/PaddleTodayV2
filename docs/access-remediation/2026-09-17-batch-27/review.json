@@ -1,0 +1,21 @@
+{
+  "batch": 27,
+  "siteCount": 1,
+  "decisions": [
+    {
+      "state": "Michigan",
+      "name": "Mayor's Riverfront Park Boat Launch",
+      "routeIds": ["kalamazoo-river-comstock-mayors-riverfront"],
+      "decision": "correct-access-anchor-coordinate",
+      "previousCoordinate": {"latitude": 42.29059, "longitude": -85.56645},
+      "updatedCoordinate": {"latitude": 42.29142, "longitude": -85.56233},
+      "sourceCoordinateText": "42° 17.48520, -85° 33.73980",
+      "coordinateRole": "authoritative-access-anchor",
+      "rationale": "Michigan Water Trails identifies a public city park boat-ramp/carry-in access and publishes the GPS. It describes the developed carry as under 50 yards. The previous park-entrance pin was 888 ft from the named river; the refreshed replacement is 135 ft away, consistent with the published carry. The page does not claim its coordinate is the exact wet edge, so the point remains an access anchor.",
+      "routePublished": true,
+      "holdAdded": false,
+      "exactWetEdgeVerified": false,
+      "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av"
+    }
+  ]
+}

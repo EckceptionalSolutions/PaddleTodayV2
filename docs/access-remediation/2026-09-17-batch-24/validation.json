@@ -1,0 +1,36 @@
+{
+  "batch": "2026-09-17-batch-24",
+  "commands": [
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-24/verify.mjs",
+      "status": "passed",
+      "result": "Four frozen eligible ranks and five routes verified; two new access-area controls, existing Virginia/Eastern Park controls, unchanged 181 holds, and zero coordinate edits verified."
+    },
+    {
+      "command": "TypeScript transpileModule syntax checks and scoped JSON parse",
+      "status": "passed",
+      "result": "Syntax checks passed for the three changed route files; changed control/selection/review/source metadata JSON parsed."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- scoped Batch 24 files",
+      "status": "passed",
+      "result": "Scoped diff check passed with CRLF whitespace handling."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-route-access-registry.ts --audit=docs/access-point-quality-audit.json",
+      "status": "passed-with-limit",
+      "result": "Generated 4042 entries, 1201 repeated entries, zero conflicts, and 1189 authoritative access matches from the cache-only audit. It uses the separate authoritative-evidence artifact last generated 2026-09-05; the new source controls are not reflected."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "status": "blocked",
+      "result": "@paddletoday/geo is not installed; queue review used the frozen audit generated 2026-09-17T12:02:46.464Z."
+    }
+  ],
+  "notes": [
+    "The cache-only audit queue ends at rank 276. Ranks 272 and 273 were already covered by source-reviewed controls in Batches 16 and 15; rank 276 has no currently eligible route because all three routes are withheld.",
+    "Four new physical sites were the only unreviewed rows with currently public unwithheld routes remaining.",
+    "No coordinates changed and no geometry regeneration was required in this batch.",
+    "No route records were deleted."
+  ]
+}

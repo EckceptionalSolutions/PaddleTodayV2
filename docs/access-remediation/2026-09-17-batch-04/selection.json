@@ -1,0 +1,307 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First 10 distinct physical sites in the cached access-quality queue affecting routes outside the current generated withholding manifest; exclude physical sites frozen in batches 01-03 and preserve queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The cache-only report predates source edits in batches 01-03. The full audit is blocked by missing @paddletoday/geo; current generated withholding manifest was used to filter public routes. Queue order and original site coordinates are frozen only for review selection."
+  },
+  "sites": [
+    {
+      "state": "New York",
+      "name": "Stuyvesant Falls Park public cartop launch context",
+      "latitude": 42.3553185,
+      "longitude": -73.7308328,
+      "distanceFeetToMappedWater": 896.4042484126194,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kinderhook-creek-stuyvesant-falls-stockport",
+          "endpoint": "putIn",
+          "endpointName": "Stuyvesant Falls Park public cartop launch context",
+          "severity": "review"
+        }
+      ],
+      "rank": 46,
+      "publicOccurrences": [
+        {
+          "routeId": "kinderhook-creek-stuyvesant-falls-stockport",
+          "endpoint": "putIn",
+          "endpointName": "Stuyvesant Falls Park public cartop launch context",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Anderson Ranch Dam Tailwaters Access",
+      "latitude": 43.3589,
+      "longitude": -115.454,
+      "distanceFeetToMappedWater": 872.5800703135191,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-boise-anderson-danskin",
+          "endpoint": "putIn",
+          "endpointName": "Anderson Ranch Dam Tailwaters Access",
+          "severity": "review"
+        }
+      ],
+      "rank": 47,
+      "publicOccurrences": [
+        {
+          "routeId": "south-fork-boise-anderson-danskin",
+          "endpoint": "putIn",
+          "endpointName": "Anderson Ranch Dam Tailwaters Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+      "latitude": 42.3590012,
+      "longitude": -76.8411026,
+      "distanceFeetToMappedWater": 837.3490124090807,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catharine-creek-wma-marsh-connector",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+          "severity": "review"
+        }
+      ],
+      "rank": 49,
+      "publicOccurrences": [
+        {
+          "routeId": "catharine-creek-wma-marsh-connector",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "William Rhodes Island Park below-dam access",
+      "latitude": 43.266,
+      "longitude": -93.424,
+      "distanceFeetToMappedWater": 795.2515105149944,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winnebago-river-fertile-mason-city",
+          "endpoint": "putIn",
+          "endpointName": "William Rhodes Island Park below-dam access",
+          "severity": "review"
+        }
+      ],
+      "rank": 53,
+      "publicOccurrences": [
+        {
+          "routeId": "winnebago-river-fertile-mason-city",
+          "endpoint": "putIn",
+          "endpointName": "William Rhodes Island Park below-dam access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Kemps Mill Park walk-in Conococheague access",
+      "latitude": 39.62153,
+      "longitude": -77.81077,
+      "distanceFeetToMappedWater": 791.6874553633622,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "conococheague-creek-kemps-mill-williamsport",
+          "endpoint": "putIn",
+          "endpointName": "Kemps Mill Park walk-in Conococheague access",
+          "severity": "review"
+        }
+      ],
+      "rank": 55,
+      "publicOccurrences": [
+        {
+          "routeId": "conococheague-creek-kemps-mill-williamsport",
+          "endpoint": "putIn",
+          "endpointName": "Kemps Mill Park walk-in Conococheague access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "Sayre PFBC access",
+      "latitude": 41.988333,
+      "longitude": -76.611667,
+      "distanceFeetToMappedWater": 780.346430033958,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "susquehanna-river-sayre-towanda",
+          "endpoint": "putIn",
+          "endpointName": "Sayre PFBC access",
+          "severity": "review"
+        },
+        {
+          "routeId": "susquehanna-river-sayre-wysox-township-park",
+          "endpoint": "putIn",
+          "endpointName": "Sayre PFBC access",
+          "severity": "review"
+        }
+      ],
+      "rank": 57,
+      "publicOccurrences": [
+        {
+          "routeId": "susquehanna-river-sayre-towanda",
+          "endpoint": "putIn",
+          "endpointName": "Sayre PFBC access",
+          "severity": "review"
+        },
+        {
+          "routeId": "susquehanna-river-sayre-wysox-township-park",
+          "endpoint": "putIn",
+          "endpointName": "Sayre PFBC access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Catoctin Creek Park & Nature Center water access",
+      "latitude": 39.392057,
+      "longitude": -77.564232,
+      "distanceFeetToMappedWater": 751.4247385340918,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catoctin-creek-catoctin-park-lander",
+          "endpoint": "putIn",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        },
+        {
+          "routeId": "catoctin-creek-doubs-meadow-catoctin-park",
+          "endpoint": "takeOut",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        }
+      ],
+      "rank": 59,
+      "publicOccurrences": [
+        {
+          "routeId": "catoctin-creek-catoctin-park-lander",
+          "endpoint": "putIn",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        },
+        {
+          "routeId": "catoctin-creek-doubs-meadow-catoctin-park",
+          "endpoint": "takeOut",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "W. Locust Street Union Bridge access anchor",
+      "latitude": 39.5679572,
+      "longitude": -77.1811811,
+      "distanceFeetToMappedWater": 738.6454963694923,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-pipe-creek-union-bridge-double-pipe-park",
+          "endpoint": "putIn",
+          "endpointName": "W. Locust Street Union Bridge access anchor",
+          "severity": "review"
+        }
+      ],
+      "rank": 60,
+      "publicOccurrences": [
+        {
+          "routeId": "little-pipe-creek-union-bridge-double-pipe-park",
+          "endpoint": "putIn",
+          "endpointName": "W. Locust Street Union Bridge access anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "County Highway K bridge launch",
+      "latitude": 44.6226,
+      "longitude": -89.4822,
+      "distanceFeetToMappedWater": 738.2657500128345,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "plover-river-hwy-k-jordan-park",
+          "endpoint": "putIn",
+          "endpointName": "County Highway K bridge launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 61,
+      "publicOccurrences": [
+        {
+          "routeId": "plover-river-hwy-k-jordan-park",
+          "endpoint": "putIn",
+          "endpointName": "County Highway K bridge launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Pope Mills / Route 58 hand launch",
+      "latitude": 44.483638,
+      "longitude": -75.577189,
+      "distanceFeetToMappedWater": 731.315672652531,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Fish Creek WMA Pope Mills / Route 58 hand launch",
+          "severity": "review"
+        }
+      ],
+      "rank": 62,
+      "publicOccurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Fish Creek WMA Pope Mills / Route 58 hand launch",
+          "severity": "review"
+        }
+      ]
+    }
+  ]
+}

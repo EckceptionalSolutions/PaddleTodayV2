@@ -9,7 +9,7 @@ test('requesting an unfound route carries over the search without submitting it'
     if (route.request().method() === 'POST') submissions++;
     return route.fulfill({ status: 503, json: { error: 'offline' } });
   });
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [{ ...fixture.result,
     summary: { gaugeNow: 'QA', shortExplanation: 'QA' },
   }] } }));
   await page.goto('/');

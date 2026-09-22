@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T18:36:39.860Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "penobscot-river-bangor-hampden",
+      "routeName": "Penobscot River",
+      "reach": "Bangor landing facility to Hampden public access",
+      "state": "Maine",
+      "endpoint": "takeOut",
+      "endpointName": "Hampden public access (DACF site pin; exact water-entry toe unverified)",
+      "latitude": 44.7654,
+      "longitude": -68.7969,
+      "matchedRiverName": "Penobscot River",
+      "distanceFeetToMatchedRiver": 461.62563238786214,
+      "nearestMatchedLatitude": 44.76637342195462,
+      "nearestMatchedLongitude": -68.79803867893176,
+      "nearestWaterwayName": "Penobscot River",
+      "distanceFeetToNearestWaterway": 666.5375189663407,
+      "nearestWaterwayLatitude": 44.763772,
+      "nearestWaterwayLongitude": -68.795732,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 204.3138773774054,
+      "nearestWaterbodyLatitude": 44.76487221105043,
+      "nearestWaterbodyLongitude": -68.79663616662141,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 204.3138773774054,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+      "coordinateEvidenceDetail": "maine_dacf_penobscot_hampden_19280 19280: Maine DACF's public boat-launch inventory lists the local Penobscot River / Hampden site as a hard 50-foot by 200-foot all-tide ramp and publishes 44.76540, -68.79690. The point confirms the named public access site, but the listing does not say whether the coordinate is at the ramp toe; NHD places it about 204 feet from mapped water, consistent with an access-area marker at this long ramp. Keep as an access anchor and review the exact water edge.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (maine_dacf_penobscot_hampden_19280 19280) on Penobscot River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "penobscot-river-bangor-hampden",
+      "routeName": "Penobscot River",
+      "reach": "Bangor landing facility to Hampden public access",
+      "state": "Maine",
+      "endpoint": "putIn",
+      "endpointName": "Bangor landing facility",
+      "latitude": 44.79617,
+      "longitude": -68.77012,
+      "matchedRiverName": "Penobscot River",
+      "distanceFeetToMatchedRiver": 401.16433462594955,
+      "nearestMatchedLatitude": 44.79577855292685,
+      "nearestMatchedLongitude": -68.76867190255221,
+      "nearestWaterwayName": "Penobscot River",
+      "distanceFeetToNearestWaterway": 401.16433462687235,
+      "nearestWaterwayLatitude": 44.79577855292684,
+      "nearestWaterwayLongitude": -68.76867190255221,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 90.09615105888483,
+      "nearestWaterbodyLatitude": 44.796065,
+      "nearestWaterbodyLongitude": -68.769805,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 90.09615105888483,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 90 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

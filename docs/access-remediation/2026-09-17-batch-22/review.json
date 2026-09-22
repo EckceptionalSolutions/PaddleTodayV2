@@ -1,0 +1,122 @@
+{
+  "batch": "2026-09-17-batch-22",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "queueEvidenceMode": "cache-only; rank is prioritization, not current evidence",
+  "sitesReviewed": 10,
+  "uniqueRoutesBefore": 13,
+  "newHolds": [
+    "teton-river-dam-site-teton-forks",
+    "shell-rock-river-heery-woods-renning",
+    "portneuf-river-lava-hot-springs-pvc"
+  ],
+  "eligibleRoutesAfter": 10,
+  "coordinateSitesCorrected": 0,
+  "addedAccessAnchorProviders": 5,
+  "reclassifiedProviders": 1,
+  "optionalAccessWaypointsRemoved": 0,
+  "withheldRoutesBefore": 166,
+  "withheldRoutesAfter": 169,
+  "deletions": 0,
+  "scope": "Five source-backed anchor controls were added and the shared Nissequogue control was reclassified from water-entry to access-area anchor. No coordinates moved. Three routes were withheld for public-access/location conflicts; seven sites and ten other routes remain eligible.",
+  "decisions": [
+    {
+      "rank": 247,
+      "site": "Sunken Meadow State Park Field 3 Nissequogue launch",
+      "decision": "keep-official-access-anchor",
+      "routes": [
+        "nissequogue-river-paul-given-state-park"
+      ],
+      "finding": "NYSDEC publishes the exact coordinate as a kayak/canoe hand launch with ample parking; NYS Parks places launches on the east side of Field 3 and warns about tide/mudflat context. Reclassified the shared Nissequogue provider as access-area anchors, not surveyed water-entry points."
+    },
+    {
+      "rank": 248,
+      "site": "Guadalupe River State Park paddling access",
+      "decision": "keep-official-trail-anchor",
+      "routes": [
+        "guadalupe-river-state-park-nichols-landing"
+      ],
+      "finding": "TPWD publishes the matching 29.8720,-98.4900 endpoint GPS as the official five-mile paddling-trail put-in. Retained coordinate as an access-area anchor."
+    },
+    {
+      "rank": 249,
+      "site": "Willow Creek Campground Take-Out",
+      "decision": "keep-campground-access-anchor",
+      "routes": [
+        "boise-river-troutdale-willow"
+      ],
+      "finding": "American Whitewater names the campground take-out and the Forest Service lists the campground open along the Middle Fork Boise at the north end of Arrowrock Reservoir. Keep the current point as an access-area anchor; confirm day-use parking, carry and reservoir boundary locally."
+    },
+    {
+      "rank": 250,
+      "site": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+      "decision": "keep-park-and-GIS-access-anchor",
+      "routes": [
+        "big-sioux-river-highway-42-grandview",
+        "big-sioux-river-rec-area-south-highway-42"
+      ],
+      "finding": "The City identifies boat/canoe/kayak access at the arboretum. GFP maps Highway 42 as a parking canoe-site anchor with Launch No; existing route copy correctly directs users to the signed launch on the park edge by the bridge. No coordinate change."
+    },
+    {
+      "rank": 252,
+      "site": "Twin Falls Park boat ramp",
+      "decision": "keep-official-park-access-anchor",
+      "routes": [
+        "snake-river-murtaugh-bridge-twin-falls"
+      ],
+      "finding": "Idaho Power confirms this day-use park has a boat ramp and docks and is the Murtaugh Reach take-out; day use is free from 8 a.m. to dark. Stored point remains a park-area anchor, not a surveyed ramp toe."
+    },
+    {
+      "rank": 253,
+      "site": "2750 E Bridge River-Right Take-Out",
+      "decision": "reject-unverified-public-access-and-hold",
+      "routes": [
+        "teton-river-dam-site-teton-forks"
+      ],
+      "finding": "A 2012 American Whitewater report describes a river-right egress and parking, but Friends of the Teton River currently says to use designated public access points and that conservation easements are private. No current manager source designates this bridge landing."
+    },
+    {
+      "rank": 254,
+      "site": "Chief Looking Glass Fishing Access Site (water-entry edge)",
+      "decision": "reclassify-as-official-access-area-anchor",
+      "routes": [
+        "bitterroot-river-bell-crossing-chief-looking-glass",
+        "bitterroot-river-hannon-chief-looking-glass",
+        "bitterroot-river-poker-joe-chief-looking-glass"
+      ],
+      "finding": "Current Montana FWP publishes this exact Bitterroot River FAS coordinate and lists a hand launch and nonmotorized boating. Removed the false water-entry-edge label; retained coordinate as a site anchor with season and trailer limits."
+    },
+    {
+      "rank": 255,
+      "site": "Heery Woods State Park below-dam launch",
+      "decision": "reject-location-conflict-and-hold",
+      "routes": [
+        "shell-rock-river-heery-woods-renning"
+      ],
+      "finding": "Butler County distinguishes the North Side ramp within Heery Woods above the dam from a different below-dam ramp across the river off Timber Avenue near its Conservation Board shop. The stored coordinate is not tied to that below-dam ramp, and Iowa DNR warns of the dam/low-head-riffle context."
+    },
+    {
+      "rank": 256,
+      "site": "PVC Diversion / Public Park Take-Out",
+      "decision": "reject-unverified-public-landing-and-hold",
+      "routes": [
+        "portneuf-river-lava-hot-springs-pvc"
+      ],
+      "finding": "The source control at the coordinate is a Portneuf-Marsh Valley Canal diversion/monitoring landmark, not an access permission. American Whitewater describes older exits in this reach but does not establish a current public park landing at the stored point."
+    },
+    {
+      "rank": 257,
+      "site": "Brice Park at Allenwood–Lakewood Road",
+      "decision": "keep-public-access-area-anchor",
+      "routes": [
+        "manasquan-river-hospital-brice"
+      ],
+      "finding": "NJDEP identifies public shore access at Brice Park where canoe/kayak use is possible; its education guide supplies the same coordinate and describes parking and about a 100-foot carry to water. Existing official control already classifies this as an access anchor; no change needed."
+    }
+  ],
+  "reopeningEvidence": {
+    "teton-river-dam-site-teton-forks": "A current land manager or public access authority confirms that the 2750 E river-right landing has lawful public parking and carry, or supplies a designated replacement. Update the coordinate and regenerate/inspect route geometry if the location changes.",
+    "shell-rock-river-heery-woods-renning": "Butler County confirms the exact below-dam ramp coordinate, public approach and carry off Timber Avenue, and that it is safe to launch below the dam. Correct the put-in coordinate and regenerate/inspect route geometry if needed.",
+    "portneuf-river-lava-hot-springs-pvc": "The current land manager confirms public parking, legal river carry and a safe landing at/near the mapped diversion endpoint, separate from the structure. Update the access point and regenerate/inspect geometry if the verified landing differs."
+  }
+}

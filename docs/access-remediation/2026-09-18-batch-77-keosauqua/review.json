@@ -1,0 +1,87 @@
+{
+  "batch": 77,
+  "reviewDate": "2026-09-18",
+  "location": "Keosauqua Boat Ramp, Des Moines River, Iowa",
+  "selectedCoordinate": {
+    "latitude": 40.7291,
+    "longitude": -91.962
+  },
+  "correctedCoordinate": {
+    "latitude": 40.73062147,
+    "longitude": -91.95994375
+  },
+  "routeIds": [
+    "des-moines-river-keosauqua-bentonsport",
+    "des-moines-river-austin-park-keosauqua"
+  ],
+  "decision": "move-to-current-iowa-dnr-keosauqua-ramp-access-anchor",
+  "coordinateMoved": true,
+  "coordinateInterpretation": "Iowa DNR Recreation GIS public boat-ramp site coordinate; access-area anchor, not surveyed wet-toe coordinate.",
+  "accessStatus": "public",
+  "evidence": [
+    {
+      "claim": "The current DNR Recreation GIS Paddling Access Sites layer lists Keosauqua Ramp in Van Buren County as a Boat Ramp, WA-535 / WT-535, at 40.73062147, -91.95994375.",
+      "sourceUrl": "https://programs.iowadnr.gov/geospatial/rest/services/Recreation/Recreation/MapServer/4/query?where=Name%20LIKE%20%27%25Keosauqua%25%27&outFields=Name%2CCounty%2Clat%2Clong%2CWA_id%2CWT_id%2CType&returnGeometry=true&outSR=4326&f=pjson",
+      "sourceType": "Iowa DNR ArcGIS feature query"
+    },
+    {
+      "claim": "The DNR trail guide identifies Keosauqua to Bentonsport as an 8.6-mile reach beginning at the Keosauqua boat ramp near Hotel Manning, and Austin Park to Keosauqua as a 5.8-mile reach.",
+      "sourceUrl": "https://www.iowadnr.gov/media/8889/download?inline=",
+      "sourceType": "Iowa DNR Lower Des Moines River Water Trail guide"
+    },
+    {
+      "claim": "Villages of Van Buren lists Keosauqua among the water trail's public access points and locates the boat ramp across from Hotel Manning.",
+      "sourceUrl": "https://villagesofvanburen.com/explore/des_moines_river_trail",
+      "sourceType": "regional water-trail access page"
+    },
+    {
+      "claim": "The corrected point is 87.5 feet from mapped NHD waterbody and 369.5 feet from the named flowline, with complete hydrography coverage on both route occurrences.",
+      "sourceUrl": "docs/access-remediation/2026-09-18-batch-77-keosauqua/audit-after-public-cache-only.json",
+      "sourceType": "refreshed route-coordinate audit evidence"
+    }
+  ],
+  "targetAuditResults": {
+    "des-moines-river-keosauqua-bentonsport": {
+      "keosauquaPutInSeverity": "review",
+      "sourceIssues": 0
+    },
+    "des-moines-river-austin-park-keosauqua": {
+      "keosauquaTakeOutSeverity": "review",
+      "sourceIssues": 0
+    }
+  },
+  "fullAuditChange": {
+    "public": {
+      "suspiciousBefore": 48,
+      "suspiciousAfter": 47,
+      "endpointCount": 6058,
+      "bySeverity": {
+        "ok": 2046,
+        "review": 3890,
+        "suspicious": 47,
+        "failure": 0,
+        "unknown": 75
+      },
+      "sourceIssues": 271
+    },
+    "fullInventory": {
+      "suspiciousBefore": 101,
+      "suspiciousAfter": 100,
+      "endpointCount": 6641,
+      "bySeverity": {
+        "ok": 2210,
+        "review": 4194,
+        "suspicious": 100,
+        "failure": 51,
+        "unknown": 86
+      },
+      "sourceIssues": 314
+    },
+    "registry": {
+      "canonicalEntries": 4042,
+      "repeatedEntries": 1201,
+      "conflicts": 0,
+      "authoritativeAccessMatches": 1226
+    }
+  }
+}

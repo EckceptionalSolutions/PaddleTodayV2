@@ -861,7 +861,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "ozark-access",
-        "name": "Ozark Campground / river access",
+        "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
         "latitude": 36.062132,
         "longitude": -93.159724,
         "mileFromStart": 21.8,
@@ -888,7 +888,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -899,10 +899,10 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Ozark is a formal NPS campground and the route passes Steel Creek, Kyle's Landing, and Erbie campground support upstream, so this long upper-Buffalo day can be staged around legal campground infrastructure instead of private-bank improvisation.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Ponca and take out at Ozark for a long upper Buffalo day through Steel Creek, Kyle's Landing, and Erbie. Use the direct Pruitt USGS gauge as the lower-corridor low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the take-out. This Ponca-to-Ozark itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
         "Ponca is a busy upper-district access and the gauge sits in the launch corridor. Make a visual low-water and wood check before committing.",
-        "Ozark is a signed NPS campground access, but the gravel road, parking, and beach-like take-out can still be muddy, crowded, or slow after storms and busy weekends.",
+        "NPS maps a River Access symbol separately from the campground, but publishes coordinates only for the campground. The actual landing point and carry remain unresolved.",
         "NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.",
         "This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation."
       ],
@@ -1028,7 +1028,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -1039,7 +1039,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Erbie and Ozark are both formal NPS campgrounds, so this reach works well as a campground-backed day float or a short link inside a larger Buffalo camping itinerary.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Erbie and take out at Ozark for a compact upper Buffalo day below Porch Bluff and Briar Bluff. Use the Pruitt USGS gauge as the nearest downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the take-out. This Erbie-to-Ozark itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
         "Erbie and Ozark are signed NPS campground accesses, but the roads and parking lots can still be muddy, crowded, or slow after storms and during summer weekends.",
         "NPS describes a sandy beach at the Ozark take-out, which can shift with water level and gravel movement. Make a same-day visual landing check.",
@@ -1063,7 +1063,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -1074,7 +1074,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Kyle's Landing and Ozark are both formal NPS campgrounds, so this continuation works well as a campground-to-campground Buffalo day if the group wants overnight support at either end instead of forcing a same-morning shuttle.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Kyle's Landing and take out at Ozark for a longer upper Buffalo continuation through the Erbie corridor. Use the Pruitt USGS gauge as the nearest downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the take-out. This Kyle's Landing-to-Ozark itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
         "Kyle's Landing is a remote upper-district access reached by rough park road. NPS recommends high clearance and four-wheel drive for Kyle's Landing Road.",
         "Ozark is a developed campground access, but the sandy beach and parking rhythm can shift with water, gravel movement, and summer crowding.",
@@ -1098,7 +1098,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -1109,7 +1109,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Steel Creek and Ozark are both formal NPS campgrounds, so this longer continuation can be staged around legal campground infrastructure at either end instead of assuming private-bank camping on a same-day run.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Steel Creek and take out at Ozark for a long upper Buffalo continuation through Kyle's Landing and Erbie. Use the Pruitt USGS gauge as the nearest downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the take-out. This Steel Creek-to-Ozark itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
         "Steel Creek can fill quickly during good water windows, and Ozark can attract swimmers and beach users. Confirm both landings and parking before leaving the shuttle.",
         "This route inherits the rough-road practical constraints from Kyle's Landing and the longer gravel-road shuttle to Ozark.",
@@ -1342,7 +1342,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-ozark-hasty": {
     "putIn": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -1359,9 +1359,9 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Ozark is a formal NPS campground, so this continuation can work as a campground-based day float even though Hasty itself is a simpler rural take-out.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Ozark and take out at Hasty for a longer Buffalo continuation that drops through Pruitt into the popular lower-water fallback section. Use the direct Pruitt USGS gauge as the low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the put-in. This Ozark-to-Hasty itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
-        "Ozark can attract swimmers and beach users, so loading space and parking rhythm may be different from quieter Buffalo accesses.",
+        "The published coordinate is for the campground facility; NPS maps a separate River Access symbol without publishing its coordinates. Do not use the campground pin as the launch point.",
         "Hasty is the sandy river-right take-out across from Chimney Rock Bluff. It is a rural access with limited services; do not assume cell coverage or quick rescue response.",
         "NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.",
         "This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation."
@@ -1377,7 +1377,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
   "buffalo-river-ozark-pruitt": {
     "putIn": {
       "id": "ozark-access",
-      "name": "Ozark Campground / river access",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
       "latitude": 36.062132,
       "longitude": -93.159724
     },
@@ -1394,10 +1394,10 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.",
       "camping": "Ozark is a formal NPS campground and Pruitt is a major developed access, so this short reach works well as an endpoint-campground day float when the group wants a low-mileage Buffalo option near camp.",
       "campingClassification": "endpoint_campground",
-      "summary": "Launch at Ozark and take out at Pruitt for a short upper Buffalo run past riffles, pools, and the natural tunnel corridor. Use the direct Pruitt USGS gauge as the low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      "summary": "The NPS campground map shows a separate Ozark River Access symbol but publishes no coordinate for it; do not navigate to campground GPS as the put-in. This Ozark-to-Pruitt itinerary remains withheld until the landing and carry are verified. Use the Pruitt gauge and NPS high-water guidance when reassessing.",
       "accessCaveats": [
         "NPS says to continue about half a mile past the Highway 7 bridge to reach Pruitt Landing on river left. Do not mistake the bridge area for the signed take-out.",
-        "Ozark can attract swimmers and beach users, so loading space and parking rhythm may be different from quieter Buffalo accesses.",
+        "The published coordinate is for the campground facility; NPS maps a separate River Access symbol without publishing its coordinates. Do not use the campground pin as the launch point.",
         "NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.",
         "This route uses the direct Pruitt gauge with minimum-only scoring. It is not a full ideal-range recommendation."
       ],
@@ -1525,7 +1525,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "highway-278-cossatot-access",
-      "name": "Highway 278 Access / Cossatot State Park corridor",
+      "name": "U.S. 278 Cossatot River access area",
       "latitude": 34.29388,
       "longitude": -94.17704
     },
@@ -1560,7 +1560,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "takeOut": {
       "id": "turner-bend-landing",
-      "name": "Turner Bend landing / Highway 23 bridge",
+      "name": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
       "latitude": 35.671667,
       "longitude": -93.829444
     },
@@ -1575,7 +1575,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
         "Redding Recreation Area is an official Forest Service river access with a rock canoe launch and day-use fees, but road, parking, and flood cleanup conditions can still vary.",
         "Turner Bend is a private-fee landing. Private boaters need current access wristbands, parking permits, or shuttle arrangements; do not assume unpaid or after-hours landing use.",
         "The route uses the USGS Mulberry River near Mulberry stage range published by American Whitewater. Turner Bend also publishes a local staff-gauge ladder, but Paddle Today does not treat that as the live product gauge.",
-        "The take-out coordinate is a practical Highway 23 / Turner Bend bridge corridor anchor. Confirm the signed Turner Bend landing and loading rules before launching."
+        "The take-out coordinate is a generalized Highway 23 / Turner Bend access-area anchor, not the landing toe. Turner Bend identifies the landing as load/unload only and requires private-boater access wristbands and any applicable parking permission; confirm current fees, hours, and loading rules before launching."
       ],
       "watchFor": [
         "Class I-III rapids, wave trains, sharp bends, rocks, ledges, and pushy current when the river is up.",

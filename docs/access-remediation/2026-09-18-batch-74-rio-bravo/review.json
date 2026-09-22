@@ -1,0 +1,51 @@
+{
+  "batch": 74,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Rio Bravo Boulevard northwest-bank access / emergency launch area, Rio Grande Valley State Park, Albuquerque, New Mexico",
+  "affectedRoutes": [
+    "rio-grande-central-rio-bravo",
+    "rio-grande-calabacillas-rio-bravo"
+  ],
+  "decision": "retain-the-published-northwest-bank-access-coordinate-as-a-conditional-launch-area-anchor-during-bridge-replacement",
+  "decisionScope": "The City's 2023 Bosque assessment identifies the northwest Rio Bravo site as an emergency launch/access area with informal parking and trails along Kelsey Road, while separately describing the northeast Poco Loco area as a formal picnic/fishing site. Quiet Waters publishes the exact stored coordinate as the Rio Bravo SW access GPS reference. USACE project documents confirm the bridge replacement includes work on the existing boat ramp, and construction is underway as of September 2026. The exact coordinate is a valid access-area reference, but current availability depends on work-zone, gate and ramp conditions.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496
+    },
+    "publicOccurrences": 2,
+    "suspiciousOccurrences": 1,
+    "suspiciousRoute": "rio-grande-central-rio-bravo",
+    "matchedFlowlineDistanceFeet": 442,
+    "mappedWaterDistanceFeet": 333,
+    "otherOccurrence": {
+      "routeId": "rio-grande-calabacillas-rio-bravo",
+      "severity": "ok",
+      "matchedFlowlineDistanceFeet": 62
+    },
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json",
+      "src/data/routes/new-mexico-albuquerque-rio-grande.ts",
+      "src/data/generated/route-access-registry.json"
+    ],
+    "from": {
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496
+    },
+    "to": {
+      "latitude": 35.0274595846295,
+      "longitude": -106.67462218892496
+    },
+    "movedFeet": 0,
+    "publicOccurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "accessAvailability": "conditional",
+    "controlId": "nm_cabq_rio_bravo_nw_launch_access_anchor_20260918",
+    "rationale": "Added a city-backed control for the northwest-bank emergency launch and matched the published GPS access coordinate. Route directions now distinguish this river access from the northeast Poco Loco picnic/fishing area and require confirmation of gate, ramp and carry access during active bridge replacement. The audit keeps both route occurrences at review pending construction status; no coordinate move was supported."
+  },
+  "remainingUncertainty": "The City and USACE sources verify an access/launch area and ramp but do not provide a surveyed wet-toe coordinate. The bridge replacement began in September 2026 and includes work on the ramp; the reviewed sources do not establish day-to-day public access or the finished post-construction coordinate. Confirm with current City/NMDOT notices before staging, and re-audit after the project changes the area.",
+  "outcome": "One suspicious public occurrence moved to review, and the second shared occurrence moved from okay to review because the access is conditional during construction. Public suspicious endpoints fell from 51 to 50; inventory suspicious endpoints fell from 104 to 103. No route was rejected because the City and federal project records verify the launch/access area."
+}

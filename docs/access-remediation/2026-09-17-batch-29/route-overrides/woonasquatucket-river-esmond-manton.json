@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T01:10:49.523Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 0,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Rhode Island",
+      "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+      "latitude": 41.8202194,
+      "longitude": -71.4469799,
+      "distanceFeetToMappedWater": 519.8537506353589,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "woonasquatucket-river-esmond-manton",
+      "routeName": "Woonasquatucket River",
+      "reach": "Esmond Park to Manton Avenue launch",
+      "state": "Rhode Island",
+      "endpoint": "takeOut",
+      "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+      "latitude": 41.8202194,
+      "longitude": -71.4469799,
+      "matchedRiverName": "Woonasquatucket River",
+      "distanceFeetToMatchedRiver": 547.7021592446299,
+      "nearestMatchedLatitude": 41.818817,
+      "nearestMatchedLongitude": -71.447699,
+      "nearestWaterwayName": "Woonasquatucket River",
+      "distanceFeetToNearestWaterway": 547.7021592446299,
+      "nearestWaterwayLatitude": 41.818817,
+      "nearestWaterwayLongitude": -71.447699,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 519.8537506353589,
+      "nearestWaterbodyLatitude": 41.818935,
+      "nearestWaterbodyLongitude": -71.447808,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 519.8537506353589,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dot.ri.gov/travel/bikeri/woonasquatucket.php",
+      "coordinateEvidenceDetail": "woonasquatucket_manton_aleppo_launch ridot-manton-aleppo-small-boat-launch: RIDOT identifies a small river boat launch where the greenway starts at Aleppo Street after Manton Avenue and lists Aleppo Street among public parking directions. The route coordinate is retained as a local launch-area anchor; RIDOT does not publish a site-level coordinate, so this is not a surveyed waterline.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (woonasquatucket_manton_aleppo_launch ridot-manton-aleppo-small-boat-launch) on Woonasquatucket River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "woonasquatucket-river-esmond-manton",
+      "routeName": "Woonasquatucket River",
+      "reach": "Esmond Park to Manton Avenue launch",
+      "state": "Rhode Island",
+      "endpoint": "putIn",
+      "endpointName": "Esmond Park dam portage / public access-area anchor",
+      "latitude": 41.87905,
+      "longitude": -71.5023667,
+      "matchedRiverName": "Woonasquatucket River",
+      "distanceFeetToMatchedRiver": 23.62028194351218,
+      "nearestMatchedLatitude": 41.87910267014571,
+      "nearestMatchedLongitude": -71.50231612710655,
+      "nearestWaterwayName": "Woonasquatucket River",
+      "distanceFeetToNearestWaterway": 23.62028194351218,
+      "nearestWaterwayLatitude": 41.87910267014571,
+      "nearestWaterwayLongitude": -71.50231612710655,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 3.3516957780365444,
+      "nearestWaterbodyLatitude": 41.87905833672915,
+      "nearestWaterbodyLongitude": -71.50236151456126,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 3.3516957780365444,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://exploreri.org/siteReport.php?siteID=344&src=criteria",
+      "coordinateEvidenceDetail": "ri_esmond_park_portage_access smithfield-esmond-park-portage-access: ExploreRI publishes the Esmond Park Portage coordinate and describes it as a site that can be used as a put-in or take-out but is primarily for portaging the small Esmond dam. The Town of Smithfield confirms the public Esmond Park, river frontage and parking. The coordinate identifies the portage/access site, not the exact wet edge.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ri_esmond_park_portage_access smithfield-esmond-park-portage-access) on Woonasquatucket River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

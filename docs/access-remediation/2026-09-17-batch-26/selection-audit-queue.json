@@ -1,0 +1,5222 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T22:26:17.949Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "routeCount": 2998,
+  "endpointCount": 6642,
+  "bySeverity": {
+    "ok": 2204,
+    "review": 4015,
+    "suspicious": 274,
+    "failure": 61,
+    "unknown": 88
+  },
+  "waterProximitySummary": {
+    "within-100ft": 4939,
+    "within-300ft": 1225,
+    "over-300ft": 325,
+    "over-800ft": 64,
+    "unknown": 89
+  },
+  "accessReviewQueue": [
+    {
+      "state": "Idaho",
+      "name": "Boundary Creek / Saddle Pass access area (legal water entry unverified)",
+      "latitude": 49.005,
+      "longitude": -116.655,
+      "distanceFeetToMappedWater": 5775.533410221341,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boundary-creek-canadian-border-kootenai",
+          "endpoint": "putIn",
+          "endpointName": "Boundary Creek / Saddle Pass access area (legal water entry unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wyoming",
+      "name": "Sandy Beach / Glendo access area (stored gateway pin rejected)",
+      "latitude": 42.50262,
+      "longitude": -105.02732,
+      "distanceFeetToMappedWater": 3741.4005248214885,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "putIn",
+          "endpointName": "Sandy Beach / Glendo access area (stored gateway pin rejected)",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "glendo-reservoir-sandy-beach-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Sandy Beach / Glendo access area (stored gateway pin rejected)",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "MD 136 / Priestford Road take-out area (stored coordinate rejected)",
+      "latitude": 39.64594,
+      "longitude": -76.20495,
+      "distanceFeetToMappedWater": 2664.175678335653,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "deer-creek-sandy-hook-md136",
+          "endpoint": "takeOut",
+          "endpointName": "MD 136 / Priestford Road take-out area (stored coordinate rejected)",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "County Road 4 bridge carry-in",
+      "latitude": 47.429,
+      "longitude": -92.255,
+      "distanceFeetToMappedWater": 2479.6434577734276,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "st-louis-river-county-road-4-95",
+          "endpoint": "putIn",
+          "endpointName": "County Road 4 bridge carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Meadow Road bridge access",
+      "latitude": 43.3755,
+      "longitude": -88.8492,
+      "distanceFeetToMappedWater": 2428.2125006626175,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "beaver-dam-river-county-s-lowell",
+          "endpoint": "accessPoint",
+          "endpointName": "Meadow Road bridge access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Malad Dam below-gate official kayaker put-in",
+      "latitude": 42.8735,
+      "longitude": -114.8765,
+      "distanceFeetToMappedWater": 2402.2229819961585,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "malad-river-dam-snake",
+          "endpoint": "putIn",
+          "endpointName": "Malad Dam below-gate official kayaker put-in",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Fort Niobrara NWR Launch Site near Cornell Bridge",
+      "latitude": 42.893222,
+      "longitude": -100.476967,
+      "distanceFeetToMappedWater": 2324.039255126192,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "niobrara-river-fort-niobrara-smith-falls",
+          "endpoint": "putIn",
+          "endpointName": "Fort Niobrara NWR Launch Site near Cornell Bridge",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Pender Logan Creek canoe access (exact water entry unverified)",
+      "latitude": 42.113332,
+      "longitude": -96.712814,
+      "distanceFeetToMappedWater": 2311.912919950301,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "logan-creek-pender-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Pender Logan Creek canoe access (exact water entry unverified)",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Orchard Creek trailer access",
+      "latitude": 43.578,
+      "longitude": -92.963,
+      "distanceFeetToMappedWater": 2211.2765413890547,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-riverwood-state-line",
+          "endpoint": "accessPoint",
+          "endpointName": "Orchard Creek trailer access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Kendrick first concrete bridge",
+      "latitude": 46.6275,
+      "longitude": -116.641,
+      "distanceFeetToMappedWater": 2174.3911566034617,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "potlatch-river-frog-pond-kendrick",
+          "endpoint": "takeOut",
+          "endpointName": "Kendrick first concrete bridge",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "York Road Gunpowder access",
+      "latitude": 39.60415,
+      "longitude": -76.65625,
+      "distanceFeetToMappedWater": 2141.069412288869,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "York Road Gunpowder access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Mississippi River Overlook Park Carry-in Access",
+      "latitude": 46.3178778,
+      "longitude": -94.2755325,
+      "distanceFeetToMappedWater": 2103.6541124410332,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mississippi-river-fletcher-creek-overlook",
+          "endpoint": "takeOut",
+          "endpointName": "Mississippi River Overlook Park Carry-in Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "mississippi-river-overlook-belle-prairie",
+          "endpoint": "putIn",
+          "endpointName": "Mississippi River Overlook Park Carry-in Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Boulder Creek / Kootenai Confluence Take-Out",
+      "latitude": 48.625465,
+      "longitude": -116.066503,
+      "distanceFeetToMappedWater": 2068.9760321673234,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boulder-creek-gorge",
+          "endpoint": "takeOut",
+          "endpointName": "Boulder Creek / Kootenai Confluence Take-Out",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Wyoming",
+      "name": "Fremont Bay / Boysen State Park access area (exact ramp entry unverified)",
+      "latitude": 43.321348,
+      "longitude": -108.124512,
+      "distanceFeetToMappedWater": 2016.9098259995371,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "endpoint": "putIn",
+          "endpointName": "Fremont Bay / Boysen State Park access area (exact ramp entry unverified)",
+          "severity": "review"
+        },
+        {
+          "routeId": "boysen-reservoir-fremont-bay-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Fremont Bay / Boysen State Park access area (exact ramp entry unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "The Ford at Round Hill Road public access",
+      "latitude": 37.0598922,
+      "longitude": -79.8245495,
+      "distanceFeetToMappedWater": 1542.9719061682201,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackwater-river-wayside-the-ford",
+          "endpoint": "takeOut",
+          "endpointName": "The Ford at Round Hill Road public access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "U.S. 220 Wayside Park public access",
+      "latitude": 37.0534151,
+      "longitude": -79.8709675,
+      "distanceFeetToMappedWater": 1434.8662711138356,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackwater-river-wayside-the-ford",
+          "endpoint": "putIn",
+          "endpointName": "U.S. 220 Wayside Park public access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Moyie Reservoir Boating Take-Out",
+      "latitude": 48.73135,
+      "longitude": -116.1831,
+      "distanceFeetToMappedWater": 1406.2343354217483,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "moyie-river-meadow-creek-reservoir",
+          "endpoint": "takeOut",
+          "endpointName": "Moyie Reservoir Boating Take-Out",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Peakville bridge access",
+      "latitude": 41.945,
+      "longitude": -75.037,
+      "distanceFeetToMappedWater": 1311.9825497229378,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "beaver-kill-cooks-falls-peakville",
+          "endpoint": "takeOut",
+          "endpointName": "Peakville bridge access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Oklahoma",
+      "name": "FR 56000 access near Octavia",
+      "latitude": 34.3133011,
+      "longitude": -94.9421005,
+      "distanceFeetToMappedWater": 1283.3486316027086,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "glover-river-fr56000-glover",
+          "endpoint": "putIn",
+          "endpointName": "FR 56000 access near Octavia",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Riverside State Park public boat launch (water-entry edge)",
+      "latitude": 47.75085068,
+      "longitude": -117.5325623,
+      "distanceFeetToMappedWater": 1203.8371994425254,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-aubrey-white-riverside",
+          "endpoint": "takeOut",
+          "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "spokane-river-plese-flats-riverside",
+          "endpoint": "takeOut",
+          "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "spokane-river-redband-riverside",
+          "endpoint": "takeOut",
+          "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "spokane-river-riverside-nine-mile-dam",
+          "endpoint": "putIn",
+          "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "spokane-river-tj-meenach-riverside",
+          "endpoint": "takeOut",
+          "endpointName": "Riverside State Park public boat launch (water-entry edge)",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Old St. Marie Road Landing",
+      "latitude": 43.8629,
+      "longitude": -89.1129,
+      "distanceFeetToMappedWater": 1201.7695344337403,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-princeton-white-river-locks",
+          "endpoint": "accessPoint",
+          "endpointName": "Old St. Marie Road Landing",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Floodplain Preserve canoe access, Richmond",
+      "latitude": 44.3831,
+      "longitude": -73.0202,
+      "distanceFeetToMappedWater": 1171.0735323433637,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-floodplain",
+          "endpoint": "takeOut",
+          "endpointName": "Floodplain Preserve canoe access, Richmond",
+          "severity": "failure"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-floodplain",
+          "endpoint": "takeOut",
+          "endpointName": "Floodplain Preserve canoe access, Richmond",
+          "severity": "failure"
+        },
+        {
+          "routeId": "winooski-river-jonesville-floodplain",
+          "endpoint": "takeOut",
+          "endpointName": "Floodplain Preserve canoe access, Richmond",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Campbell Cohocton River access area",
+      "latitude": 42.235,
+      "longitude": -77.196,
+      "distanceFeetToMappedWater": 1158.8782931169965,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cohocton-river-bath-campbell",
+          "endpoint": "takeOut",
+          "endpointName": "Campbell Cohocton River access area",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "Laurel Hill State Park Beach Area canoe/kayak launch",
+      "latitude": 40.01023,
+      "longitude": -79.2244,
+      "distanceFeetToMappedWater": 1145.7054085037646,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "laurel-hill-creek-laurel-hill-state-park-kings-covered-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Laurel Hill State Park Beach Area canoe/kayak launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Poche's Bridge official dock (behind Poche's Market)",
+      "latitude": 30.2598241,
+      "longitude": -91.8898799,
+      "distanceFeetToMappedWater": 1101.003332719808,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-poche-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-leonville-poche-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-breaux-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-loreauville",
+          "endpoint": "putIn",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-parks",
+          "endpoint": "putIn",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-st-martinville",
+          "endpoint": "putIn",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "bayou-teche-port-barre-poche-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Poche's Bridge official dock (behind Poche's Market)",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Salmon River Black Hole north-bank access",
+      "latitude": 43.56388,
+      "longitude": -76.13889,
+      "distanceFeetToMappedWater": 1096.1927869318195,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-route-2a-black-hole",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon River Black Hole north-bank access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+      "latitude": 43.8952,
+      "longitude": -74.169,
+      "distanceFeetToMappedWater": 1029.9589560661548,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "accessPoint",
+          "endpointName": "Polaris Bridge Parking Area / Hudson River hand launch carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Cutthroat Trout Campground Take-Out",
+      "latitude": 43.03499,
+      "longitude": -111.85029,
+      "distanceFeetToMappedWater": 1026.7631739209953,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-cutthroat-trail-creek",
+          "endpoint": "putIn",
+          "endpointName": "Cutthroat Trout Campground Put-In",
+          "severity": "failure"
+        },
+        {
+          "routeId": "blackfoot-river-government-dam-cutthroat",
+          "endpoint": "takeOut",
+          "endpointName": "Cutthroat Trout Campground Take-Out",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Birmingham Community Center / Schoepfle Garden river access",
+      "latitude": 41.326667,
+      "longitude": -82.357333,
+      "distanceFeetToMappedWater": 1000.7561019789672,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "vermilion-river-schoepfle-mill-hollow",
+          "endpoint": "putIn",
+          "endpointName": "Birmingham Community Center / Schoepfle Garden river access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Phillips Wharf Environmental Center launch",
+      "latitude": 38.7191111,
+      "longitude": -76.3324222,
+      "distanceFeetToMappedWater": 958.4051434884599,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+          "endpoint": "putIn",
+          "endpointName": "Phillips Wharf Environmental Center launch",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "tilghman-bay-hundred-pwec-back-creek-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Phillips Wharf Environmental Center return",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+          "endpoint": "putIn",
+          "endpointName": "Phillips Wharf Environmental Center launch",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "tilghman-bay-hundred-pwec-front-creek-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Phillips Wharf Environmental Center return",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Loop 230 / Highway 95 Bridge access",
+      "latitude": 30.01,
+      "longitude": -97.16,
+      "distanceFeetToMappedWater": 957.6028469902942,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-lost-pines-riverbend-park",
+          "endpoint": "accessPoint",
+          "endpointName": "Loop 230 / Highway 95 Bridge access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+      "latitude": 42.64666,
+      "longitude": -74.53473,
+      "distanceFeetToMappedWater": 953.3954120270947,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cobleskill-creek-warnerville-central-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Montgomery County Warnerville / SUNY Cobleskill paddling access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Jamestown Falls Hand Launch / Landing",
+      "latitude": 44.3262,
+      "longitude": -74.7226,
+      "distanceFeetToMappedWater": 938.740083263988,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "takeOut",
+          "endpointName": "Jamestown Falls Hand Launch / Landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Jamestown Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Secesh / Loon Creek access",
+      "latitude": 45.1722221374512,
+      "longitude": -115.814163208008,
+      "distanceFeetToMappedWater": 909.488083001656,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "secesh-river-canyon-lower",
+          "endpoint": "putIn",
+          "endpointName": "Secesh / Loon Creek access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Bluemound Road / Wisconsin Avenue Menomonee River access",
+      "latitude": 43.03572,
+      "longitude": -87.96231,
+      "distanceFeetToMappedWater": 909.3467109249387,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "menomonee-river-hoyt-park-bluemound",
+          "endpoint": "takeOut",
+          "endpointName": "Bluemound Road / Wisconsin Avenue Menomonee River access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Cooper Hill Conservation Area hand launch",
+      "latitude": 38.4325614,
+      "longitude": -91.6578519,
+      "distanceFeetToMappedWater": 904.5684463283924,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gasconade-river-pointers-creek-cooper-hill",
+          "endpoint": "takeOut",
+          "endpointName": "Cooper Hill Conservation Area hand launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Stuyvesant Falls Park informal-access candidate (launch unverified)",
+      "latitude": 42.3553185,
+      "longitude": -73.7308328,
+      "distanceFeetToMappedWater": 896.4042484126194,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kinderhook-creek-stuyvesant-falls-stockport",
+          "endpoint": "putIn",
+          "endpointName": "Stuyvesant Falls Park informal-access candidate (launch unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Anderson Ranch Dam Tailwaters Access",
+      "latitude": 43.3589,
+      "longitude": -115.454,
+      "distanceFeetToMappedWater": 872.5800703135191,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-boise-anderson-danskin",
+          "endpoint": "putIn",
+          "endpointName": "Anderson Ranch Dam Tailwaters Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Fir Creek Campground",
+      "latitude": 44.43111,
+      "longitude": -115.29139,
+      "distanceFeetToMappedWater": 842.2749520760252,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bear-valley-creek-fir-confluence",
+          "endpoint": "putIn",
+          "endpointName": "Fir Creek Campground",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+      "latitude": 42.3590012,
+      "longitude": -76.8411026,
+      "distanceFeetToMappedWater": 837.3490124090807,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catharine-creek-wma-marsh-connector",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Catharine Creek WMA south Airport/Rock Cabin Road cartop access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Platte River State Forest Campground river access",
+      "latitude": 44.64546752,
+      "longitude": -85.978332,
+      "distanceFeetToMappedWater": 822.2490291939649,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "platte-river-honor-upper",
+          "endpoint": "putIn",
+          "endpointName": "Platte River State Forest Campground river access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Mayor's Riverfront Park Boat Launch",
+      "latitude": 42.29059,
+      "longitude": -85.56645,
+      "distanceFeetToMappedWater": 821.0391812124865,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kalamazoo-river-comstock-mayors-riverfront",
+          "endpoint": "takeOut",
+          "endpointName": "Mayor's Riverfront Park Boat Launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Powell Campground / Lochsa Public Service Site",
+      "latitude": 46.5123,
+      "longitude": -114.7172,
+      "distanceFeetToMappedWater": 819.5842559586,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "lochsa-powell-white-pine",
+          "endpoint": "putIn",
+          "endpointName": "Powell Campground / Lochsa Public Service Site",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Nichols Landing, Smith Falls State Park",
+      "latitude": 42.887811,
+      "longitude": -100.315761,
+      "distanceFeetToMappedWater": 792.2002006007177,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "niobrara-river-fort-niobrara-smith-falls",
+          "endpoint": "takeOut",
+          "endpointName": "Nichols Landing, Smith Falls State Park",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Kemps Mill Park walk-in Conococheague access",
+      "latitude": 39.62153,
+      "longitude": -77.81077,
+      "distanceFeetToMappedWater": 791.6874553633622,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "conococheague-creek-kemps-mill-williamsport",
+          "endpoint": "putIn",
+          "endpointName": "Kemps Mill Park walk-in Conococheague access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Cedarburg Mill / Rebellion Brewing access",
+      "latitude": 43.2993,
+      "longitude": -87.9845,
+      "distanceFeetToMappedWater": 784.9749754500048,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-creek-cedarburg-mill-cth-t",
+          "endpoint": "putIn",
+          "endpointName": "Cedarburg Mill / Rebellion Brewing access",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Richmond Aqueduct / Montezuma Heritage Park landing",
+      "latitude": 43.010617,
+      "longitude": -76.703828,
+      "distanceFeetToMappedWater": 765.4210128617528,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-mays-point-montezuma-aqueduct",
+          "endpoint": "takeOut",
+          "endpointName": "Richmond Aqueduct / Montezuma Heritage Park landing",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Catoctin Creek Park & Nature Center water access",
+      "latitude": 39.392057,
+      "longitude": -77.564232,
+      "distanceFeetToMappedWater": 751.4247385340918,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catoctin-creek-catoctin-park-lander",
+          "endpoint": "putIn",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        },
+        {
+          "routeId": "catoctin-creek-doubs-meadow-catoctin-park",
+          "endpoint": "takeOut",
+          "endpointName": "Catoctin Creek Park & Nature Center water access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "W. Locust Street Union Bridge access anchor",
+      "latitude": 39.5679572,
+      "longitude": -77.1811811,
+      "distanceFeetToMappedWater": 738.6454963694923,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-pipe-creek-union-bridge-double-pipe-park",
+          "endpoint": "putIn",
+          "endpointName": "W. Locust Street Union Bridge access anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "County Highway K public canoe-access anchor",
+      "latitude": 44.6226,
+      "longitude": -89.4822,
+      "distanceFeetToMappedWater": 738.2657500128345,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "plover-river-hwy-k-jordan-park",
+          "endpoint": "putIn",
+          "endpointName": "County Highway K public canoe-access anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+      "latitude": 44.483638,
+      "longitude": -75.577189,
+      "distanceFeetToMappedWater": 731.315672652531,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Fish Creek WMA Pope Mills / Route 58 access (0.8-mile hand carry)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wyoming",
+      "name": "Lusby Public Access Area",
+      "latitude": 42.598552238,
+      "longitude": -106.614216517,
+      "distanceFeetToMappedWater": 724.3505176018868,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-platte-gray-reef-lusby",
+          "endpoint": "takeOut",
+          "endpointName": "Lusby Public Access Area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Schultz Park / Four Seasons Park",
+      "latitude": 44.35982,
+      "longitude": -91.4165,
+      "distanceFeetToMappedWater": 720.0569544272638,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "trempealeau-river-whitehall-independence",
+          "endpoint": "takeOut",
+          "endpointName": "Schultz Park / Four Seasons Park",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Driscoll Road Landing public canoe/kayak access",
+      "latitude": 43.0363086,
+      "longitude": -73.7935509,
+      "distanceFeetToMappedWater": 700.0961371559227,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kayaderosseras-creek-grays-crossing-driscoll-road",
+          "endpoint": "takeOut",
+          "endpointName": "Driscoll Road Landing public canoe/kayak access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "Waid Park public kayak/canoe launch",
+      "latitude": 36.969965,
+      "longitude": -79.942977,
+      "distanceFeetToMappedWater": 696.5787768334973,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pigg-river-waid-lynch",
+          "endpoint": "putIn",
+          "endpointName": "Waid Park public kayak/canoe launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Oklahoma",
+      "name": "Low-water bridge at Glover",
+      "latitude": 34.1006012,
+      "longitude": -94.9039001,
+      "distanceFeetToMappedWater": 685.474770779393,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "glover-river-fr56000-glover",
+          "endpoint": "takeOut",
+          "endpointName": "Low-water bridge at Glover",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "name": "Givhans Ferry State Park drop-off/access area (launch unverified)",
+      "latitude": 33.0425,
+      "longitude": -80.386944,
+      "distanceFeetToMappedWater": 671.4735632708887,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "edisto-river-givhans-good-hope",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park drop-off/access area (launch unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-givhans-messervy",
+          "endpoint": "putIn",
+          "endpointName": "Givhans Ferry State Park drop-off/access area (launch unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "edisto-river-mars-oldfield-givhans",
+          "endpoint": "takeOut",
+          "endpointName": "Givhans Ferry State Park drop-off/access area (launch unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Kendrick High School endpoint",
+      "latitude": 46.651668548584,
+      "longitude": -116.661666870117,
+      "distanceFeetToMappedWater": 671.0681956878278,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-bear-creek-highway-8-kendrick",
+          "endpoint": "takeOut",
+          "endpointName": "Kendrick High School endpoint",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Illinois",
+      "name": "Woodbine Launch",
+      "latitude": 42.2622717,
+      "longitude": -88.5970327,
+      "distanceFeetToMappedWater": 653.3346433832561,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kishwaukee-river-marengo-siems-hwy23",
+          "endpoint": "putIn",
+          "endpointName": "Woodbine Launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Oak Orchard State Marine Park Lake Ontario launch",
+      "latitude": 43.368237,
+      "longitude": -78.195816,
+      "distanceFeetToMappedWater": 651.6893528018269,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "oak-orchard-creek-medina-lake-ontario",
+          "endpoint": "takeOut",
+          "endpointName": "Oak Orchard State Marine Park Lake Ontario launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+      "latitude": 34.674,
+      "longitude": -111.9412,
+      "distanceFeetToMappedWater": 644.6669470305822,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-89a-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-bignotti-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-black-canyon-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-crossing-newton",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-sheep-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "verde-river-tuzigoot-sheep-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Sheep Crossing RAP access-site anchor (launch edge unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New Hampshire",
+      "name": "Cooks Crossing area (exact public launch unverified)",
+      "latitude": 44.08979,
+      "longitude": -71.20563,
+      "distanceFeetToMappedWater": 642.9294737051542,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saco-river-bartlett-cooks-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Cooks Crossing area (exact public launch unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-davis-park",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing area (exact public launch unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-first-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing area (exact public launch unverified)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "saco-river-cooks-crossing-smith-eastman",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Crossing area (exact public launch unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "New Bethlehem municipal lot (Gumtown Park launch edge unverified)",
+      "latitude": 41.0024,
+      "longitude": -79.3322,
+      "distanceFeetToMappedWater": 639.6593307143046,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "redbank-creek-new-bethlehem-climax",
+          "endpoint": "putIn",
+          "endpointName": "New Bethlehem municipal lot (Gumtown Park launch edge unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Ozark Campground coordinate (separate river-entry point unresolved)",
+      "latitude": 36.062132,
+      "longitude": -93.159724,
+      "distanceFeetToMappedWater": 630.0426804952955,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-erbie-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-kyles-landing-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-hasty",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ozark-pruitt",
+          "endpoint": "putIn",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-ponca-pruitt",
+          "endpoint": "accessPoint",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "buffalo-river-steel-creek-ozark",
+          "endpoint": "takeOut",
+          "endpointName": "Ozark Campground coordinate (separate river-entry point unresolved)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Lehigh Des Moines River access",
+      "latitude": 42.3583,
+      "longitude": -94.0525,
+      "distanceFeetToMappedWater": 623.6351005678189,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "des-moines-river-fort-dodge-lehigh",
+          "endpoint": "takeOut",
+          "endpointName": "Lehigh Des Moines River access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Cooks Falls access / Old Route 17",
+      "latitude": 41.943,
+      "longitude": -74.978,
+      "distanceFeetToMappedWater": 621.1776043691189,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "beaver-kill-cooks-falls-peakville",
+          "endpoint": "putIn",
+          "endpointName": "Cooks Falls access / Old Route 17",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Riverside Park / Urban Ecology Center access area",
+      "latitude": 43.0674,
+      "longitude": -87.89238,
+      "distanceFeetToMappedWater": 621.0944733268402,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "milwaukee-river-riverside-bruce-street",
+          "endpoint": "putIn",
+          "endpointName": "Riverside Park / Urban Ecology Center access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Mays Point Fishing Access above Lock E25",
+      "latitude": 43.0072,
+      "longitude": -76.7426,
+      "distanceFeetToMappedWater": 612.2285188206747,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-mays-point-montezuma-aqueduct",
+          "endpoint": "putIn",
+          "endpointName": "Mays Point Fishing Access above Lock E25",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Canalside Buffalo Commercial Slip / public low dock",
+      "latitude": 42.878298,
+      "longitude": -78.878022,
+      "distanceFeetToMappedWater": 608.5864853056916,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-canalside-red-jacket",
+          "endpoint": "putIn",
+          "endpointName": "Canalside Buffalo Commercial Slip / public low dock",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Monkton Road / Monkton Station Gunpowder access",
+      "latitude": 39.5793956,
+      "longitude": -76.61554,
+      "distanceFeetToMappedWater": 597.6923529769994,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "takeOut",
+          "endpointName": "Monkton Road / Monkton Station Gunpowder access",
+          "severity": "review"
+        },
+        {
+          "routeId": "gunpowder-falls-monkton-phoenix",
+          "endpoint": "putIn",
+          "endpointName": "Monkton Road / Monkton Station Gunpowder access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Pearl Rock access",
+      "latitude": 42.910715,
+      "longitude": -92.543001,
+      "distanceFeetToMappedWater": 597.6595066876326,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-nashua-pearl-rock",
+          "endpoint": "takeOut",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "cedar-river-pearl-rock-north-cedar",
+          "endpoint": "putIn",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Fisherman’s Park fishing access (paddle launch unverified)",
+      "latitude": 43.31718,
+      "longitude": -78.71366,
+      "distanceFeetToMappedWater": 590.5387273075565,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "eighteenmile-creek-burt-newfane",
+          "endpoint": "putIn",
+          "endpointName": "Fisherman’s Park fishing access (paddle launch unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Princeton Jefferson Street / Hiestand Park Landing",
+      "latitude": 43.8512,
+      "longitude": -89.1289,
+      "distanceFeetToMappedWater": 585.4672696890572,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-princeton-locks-city-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Princeton Jefferson Street / Hiestand Park Landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "fox-river-princeton-white-river-locks",
+          "endpoint": "putIn",
+          "endpointName": "Princeton Jefferson Street / Hiestand Park Landing",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Big Fork River, Johnson Public Water Access Site",
+      "latitude": 48.0886283542472,
+      "longitude": -93.68169266740433,
+      "distanceFeetToMappedWater": 576.6940229339015,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-fork-river-highway-6-north-johnson",
+          "endpoint": "takeOut",
+          "endpointName": "Big Fork River, Johnson Public Water Access Site",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "big-fork-river-highway-6-south-johnson",
+          "endpoint": "takeOut",
+          "endpointName": "Big Fork River, Johnson Public Water Access Site",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Johnson Landing carry-in access",
+      "latitude": 48.0886284,
+      "longitude": -93.6816927,
+      "distanceFeetToMappedWater": 576.6755517636727,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-fork-river-johnson-big-falls-east",
+          "endpoint": "putIn",
+          "endpointName": "Johnson Landing carry-in access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Greenvale Park (paddle take-out unverified)",
+      "latitude": 41.67151,
+      "longitude": -73.87866,
+      "distanceFeetToMappedWater": 574.2885480258602,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wappinger-creek-cady-greenvale",
+          "endpoint": "takeOut",
+          "endpointName": "Greenvale Park (paddle take-out unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Casey Road Saranac River canoe carry",
+      "latitude": 44.524872,
+      "longitude": -73.901676,
+      "distanceFeetToMappedWater": 565.6884514632939,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saranac-river-union-falls-casey-road",
+          "endpoint": "takeOut",
+          "endpointName": "Casey Road Saranac River canoe carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Carmans River hand-launch access (300-yard carry)",
+      "latitude": 40.800856,
+      "longitude": -72.881074,
+      "distanceFeetToMappedWater": 559.3678383351338,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "carmans-river-montauk-beaverdam",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Carmans River hand-launch access (300-yard carry)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "North Carolina",
+      "name": "Raven Rock area access (public water entry unverified)",
+      "latitude": 35.4692,
+      "longitude": -78.9095,
+      "distanceFeetToMappedWater": 556.8787484161845,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cape-fear-river-raven-rock-lillington",
+          "endpoint": "putIn",
+          "endpointName": "Raven Rock area access (public water entry unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Schram Park",
+      "latitude": 42.4679,
+      "longitude": -91.4448,
+      "distanceFeetToMappedWater": 556.0653232708084,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-quaker-mill-baileys-ford",
+          "endpoint": "accessPoint",
+          "endpointName": "Schram Park",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "West Virginia",
+      "name": "Baileysville WVDNR public access",
+      "latitude": 37.5891667,
+      "longitude": -81.6791667,
+      "distanceFeetToMappedWater": 554.9384830044953,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-guyandotte-baileysville-rd-bailey-campground",
+          "endpoint": "putIn",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "wv-guyandotte-pineville-baileysville",
+          "endpoint": "takeOut",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Otranto Park below-dam access",
+      "latitude": 43.458242,
+      "longitude": -92.97915,
+      "distanceFeetToMappedWater": 546.656798914158,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-otranto-acorn",
+          "endpoint": "putIn",
+          "endpointName": "Otranto Park below-dam access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Canton Bridge Access / Canton County Park",
+      "latitude": 42.1627901,
+      "longitude": -90.8918068,
+      "distanceFeetToMappedWater": 544.7340742451154,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-canton-royertown",
+          "endpoint": "putIn",
+          "endpointName": "Canton Bridge Access / Canton County Park",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Neal Bridge Take-Out",
+      "latitude": 43.5519,
+      "longitude": -115.737,
+      "distanceFeetToMappedWater": 541.3081785027514,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-boise-danskin-neal",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Bridge Take-Out",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+      "latitude": 42.046229,
+      "longitude": -73.906715,
+      "distanceFeetToMappedWater": 536.4344921575118,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-tivoli-north-bay-loop",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-tivoli-north-bay-loop",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Tivoli Bays Kidd Lane canoe launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Peconic River Canoe Launch / Upper Mills",
+      "latitude": 40.916106,
+      "longitude": -72.701705,
+      "distanceFeetToMappedWater": 533.499674830328,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-forge-pond-upper-mills",
+          "endpoint": "takeOut",
+          "endpointName": "Peconic River Canoe Launch / Upper Mills",
+          "severity": "review"
+        },
+        {
+          "routeId": "peconic-river-upper-mills-weeping-willow",
+          "endpoint": "putIn",
+          "endpointName": "Suffolk County Peconic River Canoe Launch / Upper Mills",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Botna Bend Park / Hancock Water Trail Access",
+      "latitude": 41.39009,
+      "longitude": -95.36811,
+      "distanceFeetToMappedWater": 521.5882275443726,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "west-nishnabotna-river-avoca-hancock",
+          "endpoint": "takeOut",
+          "endpointName": "Botna Bend Park / Hancock Water Trail Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "west-nishnabotna-river-hancock-oakland",
+          "endpoint": "putIn",
+          "endpointName": "Botna Bend Park / Hancock Water Trail Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Rhode Island",
+      "name": "Manton Avenue / Aleppo Street small-boat-launch access area",
+      "latitude": 41.8202194,
+      "longitude": -71.4469799,
+      "distanceFeetToMappedWater": 519.8537506353589,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-cricket-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-manton-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-manton",
+          "endpoint": "takeOut",
+          "endpointName": "Manton Avenue / Aleppo Street small-boat-launch access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+      "latitude": 34.694,
+      "longitude": -111.9616,
+      "distanceFeetToMappedWater": 518.1083594883318,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "verde-river-skidmore-bignotti",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-black-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-black-canyon",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-newton",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-parsons",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-sheep-crossing",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        },
+        {
+          "routeId": "verde-river-skidmore-white",
+          "endpoint": "putIn",
+          "endpointName": "Skidmore Drive RAP access area (river about 150 yards down trail)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Lutsen Ski Area corridor (public paddle access unverified)",
+      "latitude": 47.664625340847806,
+      "longitude": -90.71565087000029,
+      "distanceFeetToMappedWater": 515.714530212559,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "poplar-river-lutsen-seventh-bridge",
+          "endpoint": "putIn",
+          "endpointName": "Lutsen Ski Area corridor (public paddle access unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Montezuma Heritage Park canoe/kayak landing",
+      "latitude": 43.01249,
+      "longitude": -76.71273,
+      "distanceFeetToMappedWater": 509.44114336544584,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-mays-point-montezuma-aqueduct",
+          "endpoint": "accessPoint",
+          "endpointName": "Montezuma Heritage Park canoe/kayak landing",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Utah",
+      "name": "Perception Park riverside campground access area",
+      "latitude": 41.289719,
+      "longitude": -111.640667,
+      "distanceFeetToMappedWater": 501.006793936464,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-ogden-river-willows-magpie",
+          "endpoint": "accessPoint",
+          "endpointName": "Perception Park riverside campground access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Little North Fork Reservoir backwaters take-out",
+      "latitude": 46.90233,
+      "longitude": -115.84746,
+      "distanceFeetToMappedWater": 499.25875059251814,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-north-fork-clearwater-headwaters-reservoir",
+          "endpoint": "takeOut",
+          "endpointName": "Little North Fork Reservoir backwaters take-out",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+      "latitude": 44.0903,
+      "longitude": -87.8439,
+      "distanceFeetToMappedWater": 494.10712699238724,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "manitowoc-river-clark-mills-county-s",
+          "endpoint": "accessPoint",
+          "endpointName": "Lower Cato Falls County Park (difficult carry-in scout/portage access)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Charenton official dock access area (3726 Chitimacha Trail)",
+      "latitude": 29.8842751,
+      "longitude": -91.5348949,
+      "distanceFeetToMappedWater": 491.0694950152614,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-charenton-baldwin",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-charenton-centerville",
+          "endpoint": "putIn",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-jeanerette-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-new-iberia-charenton",
+          "endpoint": "takeOut",
+          "endpointName": "Charenton official dock access area (3726 Chitimacha Trail)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Delaware",
+      "name": "Edward H. McCabe Preserve public floating canoe dock",
+      "latitude": 38.7771,
+      "longitude": -75.2838,
+      "distanceFeetToMappedWater": 488.29896174214093,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "broadkill-river-milton-mccabe",
+          "endpoint": "takeOut",
+          "endpointName": "Edward H. McCabe Preserve public floating canoe dock",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "West Virginia",
+      "name": "Valley Falls State Park river-right check-in / access area",
+      "latitude": 39.38897,
+      "longitude": -80.08733,
+      "distanceFeetToMappedWater": 487.4103253320535,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-tygart-valley-falls-hammond",
+          "endpoint": "putIn",
+          "endpointName": "Valley Falls State Park river-right check-in / access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Holiday Heights public canoe landing / park access area",
+      "latitude": 43.86201,
+      "longitude": -91.20178,
+      "distanceFeetToMappedWater": 487.0181869829171,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "la-crosse-river-veterans-holiday-heights",
+          "endpoint": "takeOut",
+          "endpointName": "Holiday Heights public canoe landing / park access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Illinois",
+      "name": "Wes Block Trail Access",
+      "latitude": 42.330992586134,
+      "longitude": -89.666227460683,
+      "distanceFeetToMappedWater": 481.8981995724994,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pecatonica-river-wes-block-tuttys",
+          "endpoint": "putIn",
+          "endpointName": "Wes Block Trail Access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Gilbert river access",
+      "latitude": 35.987738,
+      "longitude": -92.715563,
+      "distanceFeetToMappedWater": 481.29216814416554,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-tyler-bend-gilbert",
+          "endpoint": "takeOut",
+          "endpointName": "Gilbert river access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Altmar Lower Fly / County Route 52 launch",
+      "latitude": 43.5125,
+      "longitude": -76.004167,
+      "distanceFeetToMappedWater": 479.40161758523084,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-altmar-pineville",
+          "endpoint": "putIn",
+          "endpointName": "Altmar Lower Fly / County Route 52 launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Tower Rock Recreation Site",
+      "latitude": 45.3125,
+      "longitude": -113.905833,
+      "distanceFeetToMappedWater": 479.1652310823716,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-salmon-island-north-fork",
+          "endpoint": "accessPoint",
+          "endpointName": "Tower Rock Recreation Site",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Henrys Lake South Shore Boat Access",
+      "latitude": 44.614582,
+      "longitude": -111.417834,
+      "distanceFeetToMappedWater": 478.4369577385013,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "henrys-lake-south-shore-loop",
+          "endpoint": "putIn",
+          "endpointName": "Henrys Lake South Shore Boat Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "henrys-lake-south-shore-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Henrys Lake South Shore Boat Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "latitude": 47.0234361031,
+      "longitude": -113.306023437,
+      "distanceFeetToMappedWater": 474.34414331350587,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-russell-gates-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-marco-flats",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-roundup",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-scotty-brown",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "putIn",
+          "endpointName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Coeur d'Alene River confluence access",
+      "latitude": 47.5572204589844,
+      "longitude": -116.254997253418,
+      "distanceFeetToMappedWater": 474.24111677331,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-north-fork-coeur-dalene-laverne-mouth",
+          "endpoint": "takeOut",
+          "endpointName": "Coeur d'Alene River confluence access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Louisiana",
+      "name": "Loreauville official dock access area (119 Bridge St)",
+      "latitude": 30.0564348,
+      "longitude": -91.7386437,
+      "distanceFeetToMappedWater": 472.97343360231554,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bayou-teche-arnaudville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-breaux-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-leonville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-charenton",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-jeanerette",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-loreauville-new-iberia",
+          "endpoint": "putIn",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-parks-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-poche-bridge-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "bayou-teche-st-martinville-loreauville",
+          "endpoint": "takeOut",
+          "endpointName": "Loreauville official dock access area (119 Bridge St)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Grandjean Campground Put-In",
+      "latitude": 44.14852,
+      "longitude": -115.15204,
+      "distanceFeetToMappedWater": 472.1370998035766,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-payette-grandjean-deadwood",
+          "endpoint": "putIn",
+          "endpointName": "Grandjean Campground Put-In",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Millertown Bridge Access / Monmouth corridor",
+      "latitude": 42.084,
+      "longitude": -90.762,
+      "distanceFeetToMappedWater": 471.1640152873333,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-monmouth-maquoketa",
+          "endpoint": "putIn",
+          "endpointName": "Millertown Bridge Access / Monmouth corridor",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-indian-confluence-north-river",
+          "endpoint": "putIn",
+          "endpointName": "Outer Gooley Parking Area / Hudson Gorge carry",
+          "severity": "review"
+        },
+        {
+          "routeId": "hudson-river-newcomb-indian-confluence",
+          "endpoint": "takeOut",
+          "endpointName": "Hudson River access above Indian River confluence / Outer Gooley carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "River Meadows Park river access, Jordan Road",
+      "latitude": 48.1797,
+      "longitude": -122.0837,
+      "distanceFeetToMappedWater": 468.7469619576468,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+          "endpoint": "putIn",
+          "endpointName": "River Meadows Park river access, Jordan Road",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "putIn",
+          "endpointName": "River Meadows Park river access, Jordan Road",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Copper Creek Boat Access, NPS Road 213",
+      "latitude": 48.5910748909,
+      "longitude": -121.3779020782,
+      "distanceFeetToMappedWater": 468.7439905257888,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "skagit-river-copper-howard-miller",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skagit-river-copper-marblemount",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skagit-river-goodell-copper",
+          "endpoint": "takeOut",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Noblewood Park cartop launch / Boquet mouth access area",
+      "latitude": 44.3523,
+      "longitude": -73.359958,
+      "distanceFeetToMappedWater": 468.06661547828423,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boquet-river-willsboro-noblewood",
+          "endpoint": "takeOut",
+          "endpointName": "Noblewood Park cartop launch / Boquet mouth access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Sevey Hand Launch access area",
+      "latitude": 44.3071,
+      "longitude": -74.7059,
+      "distanceFeetToMappedWater": 466.7971350185633,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Sevey Hand Launch access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Vergennes Main Street town dock below falls (water-entry edge)",
+      "latitude": 44.1662,
+      "longitude": -73.2518,
+      "distanceFeetToMappedWater": 465.4643625350582,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "otter-creek-quaker-village-vergennes",
+          "endpoint": "takeOut",
+          "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "otter-creek-vergennes-fort-cassin",
+          "endpoint": "putIn",
+          "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+          "severity": "failure"
+        },
+        {
+          "routeId": "otter-creek-weybridge-vergennes",
+          "endpoint": "takeOut",
+          "endpointName": "Vergennes Main Street town dock below falls (water-entry edge)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Turtle Creek Greenway Trail / Milwaukee Road",
+      "latitude": 42.5129469,
+      "longitude": -89.0094751,
+      "distanceFeetToMappedWater": 463.3472312310551,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "turtle-creek-town-of-turtle-milwaukee-road",
+          "endpoint": "takeOut",
+          "endpointName": "Turtle Creek Greenway Trail / Milwaukee Road",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Historic Bridge Park public kayak-launch access area",
+      "latitude": 42.29236,
+      "longitude": -85.11431,
+      "distanceFeetToMappedWater": 462.76915151563435,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "kalamazoo-river-ceresco-historic-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "Historic Bridge Park public kayak-launch access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "North Carolina",
+      "name": "Hammocks Beach State Park mainland kayak-launch area",
+      "latitude": 34.671,
+      "longitude": -77.1429,
+      "distanceFeetToMappedWater": 461.2561742348116,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "putIn",
+          "endpointName": "Hammocks Beach State Park mainland kayak-launch area",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "hammocks-beach-huggins-island-loop",
+          "endpoint": "takeOut",
+          "endpointName": "Hammocks Beach State Park mainland kayak-launch area",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "state": "Arizona",
+      "name": "Dry Canyon boater take-out access area (BLM)",
+      "latitude": 32.8922,
+      "longitude": -109.4921,
+      "distanceFeetToMappedWater": 459.8137917575366,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gila-river-old-safford-dry-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Dry Canyon boater take-out access area (BLM)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Riverside Kayak Park / universal-access dock area",
+      "latitude": 42.186122,
+      "longitude": -86.373262,
+      "distanceFeetToMappedWater": 455.8514585204221,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "paw-paw-river-riverside-graham-avenue",
+          "endpoint": "putIn",
+          "endpointName": "Riverside Kayak Park / universal-access dock area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NPS/DEC Mongaup River Access / Route 97 carry area",
+      "latitude": 41.425313,
+      "longitude": -74.757813,
+      "distanceFeetToMappedWater": 454.0937631701415,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mongaup-river-rio-powerhouse-delaware",
+          "endpoint": "takeOut",
+          "endpointName": "NPS/DEC Mongaup River Access / Route 97 carry area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Eureka Bridge concrete boat-ramp access area",
+      "latitude": 42.0156,
+      "longitude": -94.4384,
+      "distanceFeetToMappedWater": 447.6161355690887,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-eureka-henderson",
+          "endpoint": "putIn",
+          "endpointName": "Eureka Bridge concrete boat-ramp access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Interstate Park east-end canoe-ramp area",
+      "latitude": 43.319134,
+      "longitude": -92.879648,
+      "distanceFeetToMappedWater": 446.6816000209598,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-halvorson-interstate",
+          "endpoint": "takeOut",
+          "endpointName": "Interstate Park east-end canoe-ramp area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "cedar-river-interstate-bennett",
+          "endpoint": "putIn",
+          "endpointName": "Interstate Park east-end canoe-ramp area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+      "latitude": 46.94277,
+      "longitude": -113.59983,
+      "distanceFeetToMappedWater": 446.18729779455,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackfoot-river-roundup-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-russell-gates-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-scotty-brown-whitaker",
+          "endpoint": "takeOut",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-angevine",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-johnsrud",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-k-ross-toole",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-marco-flats",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "blackfoot-river-whitaker-weigh-station",
+          "endpoint": "putIn",
+          "endpointName": "Whitaker Bridge Fishing Access Site (public access-area anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Salmon Island Park public ramp area",
+      "latitude": 45.170721,
+      "longitude": -113.894916,
+      "distanceFeetToMappedWater": 444.5564442928534,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-kilpatrick-salmon-island",
+          "endpoint": "takeOut",
+          "endpointName": "Salmon Island Park public ramp area",
+          "severity": "review"
+        },
+        {
+          "routeId": "salmon-river-salmon-island-north-fork",
+          "endpoint": "putIn",
+          "endpointName": "Salmon Island Park public ramp area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Barber Flat Forest Service station / cabin area (launch unverified)",
+      "latitude": 43.8129514,
+      "longitude": -115.536488,
+      "distanceFeetToMappedWater": 439.22148019016134,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-boise-barber-flat-troutdale",
+          "endpoint": "putIn",
+          "endpointName": "Barber Flat Forest Service station / cabin area (launch unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Columbus hotel parking / Pawnee Park Trail access area",
+      "latitude": 41.4195401,
+      "longitude": -97.3672208,
+      "distanceFeetToMappedWater": 439.1134412178915,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "loup-river-columbus-adm-access",
+          "endpoint": "putIn",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-george-syas-adm-access",
+          "endpoint": "accessPoint",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-george-syas-columbus",
+          "endpoint": "takeOut",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-adm-access",
+          "endpoint": "accessPoint",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "loup-river-monroe-columbus",
+          "endpoint": "takeOut",
+          "endpointName": "Columbus hotel parking / Pawnee Park Trail access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Rhode Island",
+      "name": "Esmond Park below-dam launch / carry area",
+      "latitude": 41.8782,
+      "longitude": -71.4994,
+      "distanceFeetToMappedWater": 438.1849398771325,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "woonasquatucket-river-esmond-cricket",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-manton",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-riverside",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-south-water",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-esmond-waterplace",
+          "endpoint": "putIn",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-georgiaville-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "woonasquatucket-river-whipple-esmond",
+          "endpoint": "takeOut",
+          "endpointName": "Esmond Park below-dam launch / carry area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Sullivan Park public river access / parking area",
+      "latitude": 47.674537,
+      "longitude": -117.197426,
+      "distanceFeetToMappedWater": 436.8128683167188,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-barker-sullivan",
+          "endpoint": "takeOut",
+          "endpointName": "Sullivan Park public river access / parking area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "spokane-river-harvard-sullivan",
+          "endpoint": "takeOut",
+          "endpointName": "Sullivan Park public river access / parking area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Tailwater East campground / public boat-ramp area",
+      "latitude": 41.7249,
+      "longitude": -91.5257,
+      "distanceFeetToMappedWater": 436.7555648933325,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "iowa-river-tailwater-east-sturgis-ferry",
+          "endpoint": "putIn",
+          "endpointName": "Tailwater East campground / public boat-ramp area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "U.S. 278 Cossatot River access area",
+      "latitude": 34.29388,
+      "longitude": -94.17704,
+      "distanceFeetToMappedWater": 435.435121156092,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cossatot-river-ed-banks-highway-278",
+          "endpoint": "takeOut",
+          "endpointName": "U.S. 278 Cossatot River access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Little North Fork Campground / upper bridge",
+      "latitude": 47.06547,
+      "longitude": -115.84813,
+      "distanceFeetToMappedWater": 434.05273885605504,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "little-north-fork-clearwater-headwaters-reservoir",
+          "endpoint": "putIn",
+          "endpointName": "Little North Fork Campground / upper bridge",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Delaware",
+      "name": "Blackbird Creek Reserve canoe/kayak launch",
+      "latitude": 39.390111,
+      "longitude": -75.636328,
+      "distanceFeetToMappedWater": 430.72748301339965,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "blackbird-creek-reserve-the-rocks",
+          "endpoint": "putIn",
+          "endpointName": "Blackbird Creek Reserve canoe/kayak launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+      "latitude": 42.0283,
+      "longitude": -77.1397,
+      "distanceFeetToMappedWater": 429.2461214914157,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "tioga-river-lindley-mulholland",
+          "endpoint": "putIn",
+          "endpointName": "NYS Parks/DEC Tioga River Lindley Road hand launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "FM 973 / Del Valle Bridge",
+      "latitude": 30.21,
+      "longitude": -97.64,
+      "distanceFeetToMappedWater": 428.94242163963463,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "colorado-river-fm973-little-webberville",
+          "endpoint": "putIn",
+          "endpointName": "FM 973 / Del Valle Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "colorado-river-texas-river-school-fm973",
+          "endpoint": "takeOut",
+          "endpointName": "FM 973 / Del Valle Bridge",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Highway 8 Bridge west of Deary",
+      "latitude": 46.783054,
+      "longitude": -116.596947,
+      "distanceFeetToMappedWater": 426.54310740341,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-bear-creek-highway-8-kendrick",
+          "endpoint": "putIn",
+          "endpointName": "Highway 8 Bridge west of Deary",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Soper's Mill Access #235",
+      "latitude": 42.1044299,
+      "longitude": -93.5754935,
+      "distanceFeetToMappedWater": 424.44458158904035,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-skunk-river-lekwa-sopers-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Soper's Mill Access #235",
+          "severity": "review"
+        },
+        {
+          "routeId": "south-skunk-river-sopers-mill-peterson-park",
+          "endpoint": "putIn",
+          "endpointName": "Soper's Mill Access #235",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Spring Creek Campground Access",
+      "latitude": 45.39203,
+      "longitude": -114.25161,
+      "distanceFeetToMappedWater": 422.0930590962819,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-north-fork-corn-creek",
+          "endpoint": "accessPoint",
+          "endpointName": "Spring Creek Campground Access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "East Golden Lake Lane access",
+      "latitude": 45.1348215,
+      "longitude": -93.1471925,
+      "distanceFeetToMappedWater": 420.2935353976761,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "East Golden Lake Lane access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+      "latitude": 42.21972,
+      "longitude": -73.87,
+      "distanceFeetToMappedWater": 414.11802001706064,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catskill-creek-kiwanis-dutchmans",
+          "endpoint": "putIn",
+          "endpointName": "Kiwanis Park / Catskill Middle School Catskill Creek hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Peconic River River Road West hand launch",
+      "latitude": 40.904454,
+      "longitude": -72.769347,
+      "distanceFeetToMappedWater": 409.994156172778,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-river-road-edwards-avenue",
+          "endpoint": "accessPoint",
+          "endpointName": "Peconic River River Road West hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Bolton Canoe Access Area",
+      "latitude": 44.3768,
+      "longitude": -72.8755,
+      "distanceFeetToMappedWater": 409.7028613540117,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "failure"
+        },
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "putIn",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-bolton-canoe",
+          "endpoint": "takeOut",
+          "endpointName": "Bolton Canoe Access Area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Sandy Hook Road / Deer Creek Conservation Area parking access",
+      "latitude": 39.6301765,
+      "longitude": -76.29379,
+      "distanceFeetToMappedWater": 409.62090712441204,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "deer-creek-sandy-hook-md136",
+          "endpoint": "putIn",
+          "endpointName": "Sandy Hook Road / Deer Creek Conservation Area parking access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Inner Harbor Bear Street public launch",
+      "latitude": 43.0611993,
+      "longitude": -76.1701988,
+      "distanceFeetToMappedWater": 409.3650104538896,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "onondaga-creek-meachem-inner-harbor",
+          "endpoint": "takeOut",
+          "endpointName": "Inner Harbor Bear Street public launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "North Nebraska Street Boat Landing",
+      "latitude": 43.45514,
+      "longitude": -88.63936,
+      "distanceFeetToMappedWater": 409.1139524554411,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "horicon-marsh-greenhead-nebraska",
+          "endpoint": "takeOut",
+          "endpointName": "North Nebraska Street Boat Landing",
+          "severity": "unknown"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Moody Falls Trailhead / Raquette River hand launch",
+      "latitude": 44.3125,
+      "longitude": -74.7197,
+      "distanceFeetToMappedWater": 406.9065311723425,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "raquette-river-dead-creek-jamestown",
+          "endpoint": "accessPoint",
+          "endpointName": "Moody Falls Trailhead / Raquette River hand launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "raquette-river-piercefield-parmenter",
+          "endpoint": "accessPoint",
+          "endpointName": "NYSDEC Moody Falls Hand Launch / carry",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Aqua Lane / Rice Lake carry-in",
+      "latitude": 45.1637486,
+      "longitude": -93.1154357,
+      "distanceFeetToMappedWater": 405.64372623779036,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Aqua Lane / Rice Lake carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "Kents Lane Portage Park public Reed Creek access",
+      "latitude": 36.9483187505498,
+      "longitude": -81.0252784830942,
+      "distanceFeetToMappedWater": 404.1205202440736,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "reed-creek-kents-millers-blueway",
+          "endpoint": "putIn",
+          "endpointName": "Kents Lane Portage Park public Reed Creek access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Fish Creek WMA Route 184 hand launch",
+      "latitude": 44.517396,
+      "longitude": -75.526104,
+      "distanceFeetToMappedWater": 403.9183729371126,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fish-creek-wma-route-184-pope-mills",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Fish Creek WMA Route 184 hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Pulltite river access / campground area",
+      "latitude": 37.33505,
+      "longitude": -91.47959,
+      "distanceFeetToMappedWater": 403.3689221413702,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-cedar-grove-pulltite",
+          "endpoint": "takeOut",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "putIn",
+          "endpointName": "Pulltite river access / campground area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Island Bar Recreation Site",
+      "latitude": 45.41583317,
+      "longitude": -116.25944467,
+      "distanceFeetToMappedWater": 402.7001044384707,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-carey-creek-riggins",
+          "endpoint": "accessPoint",
+          "endpointName": "Island Bar Recreation Site",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Outer Gooley Hudson River take-out",
+      "latitude": 43.827301,
+      "longitude": -74.200674,
+      "distanceFeetToMappedWater": 401.2084297575663,
+      "reasons": [
+        "mapped-water-offset",
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-pelon-outer-gooley",
+          "endpoint": "takeOut",
+          "endpointName": "Outer Gooley Hudson River take-out",
+          "severity": "review"
+        },
+        {
+          "routeId": "indian-river-abanakee-dam-outer-gooley",
+          "endpoint": "takeOut",
+          "endpointName": "Outer Gooley Parking Area / Hudson River carry above Indian River confluence",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Reese Avenue canoe launch",
+      "latitude": 44.7687732,
+      "longitude": -90.6041106,
+      "distanceFeetToMappedWater": 400.46631250875123,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "black-river-wayside-reese",
+          "endpoint": "takeOut",
+          "endpointName": "Reese Avenue canoe launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Burwell Riverside Park",
+      "latitude": 41.78900058,
+      "longitude": -99.134,
+      "distanceFeetToMappedWater": 399.91086536447983,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-loup-river-burwell-ord",
+          "endpoint": "putIn",
+          "endpointName": "Burwell Riverside Park",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+      "latitude": 39.26157,
+      "longitude": -84.68773,
+      "distanceFeetToMappedWater": 399.76453503224496,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "great-miami-river-heritage-dravo",
+          "endpoint": "takeOut",
+          "endpointName": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Croton Dam Tailwater Park public boat launch below Croton Dam",
+      "latitude": 43.435561,
+      "longitude": -85.66678,
+      "distanceFeetToMappedWater": 398.35716708396944,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "muskegon-river-croton-dam-thornapple",
+          "endpoint": "putIn",
+          "endpointName": "Croton Dam Tailwater Park public boat launch below Croton Dam",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Riverview / Lions Park Access",
+      "latitude": 42.4285,
+      "longitude": -94.9922,
+      "distanceFeetToMappedWater": 398.2770089143635,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-sac-city-hagge",
+          "endpoint": "putIn",
+          "endpointName": "Riverview / Lions Park Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "north-raccoon-river-vogel-riverview",
+          "endpoint": "takeOut",
+          "endpointName": "Riverview / Lions Park Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Oregon",
+      "name": "Norwood Island paddle-in campsite",
+      "latitude": 44.3829,
+      "longitude": -123.24693,
+      "distanceFeetToMappedWater": 398.11606326029016,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-alton-baker-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-harkens-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-harrisburg-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-harrisburg-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-irish-bend-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-irish-bend-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-marshall-island-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-mccartney-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-mccartney-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-norwood-hyak",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-norwood-michaels",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        },
+        {
+          "routeId": "willamette-river-norwood-peoria",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Sparks Road / Sparks Bank Nature Center access",
+      "latitude": 39.5397,
+      "longitude": -76.6377,
+      "distanceFeetToMappedWater": 398.00916166386367,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-monkton-phoenix",
+          "endpoint": "accessPoint",
+          "endpointName": "Sparks Road / Sparks Bank Nature Center access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Lexington Avenue access",
+      "latitude": 45.1196142,
+      "longitude": -93.1647156,
+      "distanceFeetToMappedWater": 395.9726702675105,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Lexington Avenue access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Georgia",
+      "name": "Paces Mill public launch",
+      "latitude": 33.870198,
+      "longitude": -84.453659,
+      "distanceFeetToMappedWater": 393.9997424459968,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "chattahoochee-river-island-ford-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-south-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-jones-bridge-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-morgan-falls-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-overlook-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-whitewater-creek-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Murtaugh Boating Access",
+      "latitude": 42.49916,
+      "longitude": -114.1475,
+      "distanceFeetToMappedWater": 392.77264267106233,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-murtaugh-bridge-twin-falls",
+          "endpoint": "putIn",
+          "endpointName": "Murtaugh Boating Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Round Spring river access / campground area",
+      "latitude": 37.27996,
+      "longitude": -91.40792,
+      "distanceFeetToMappedWater": 392.07103639493954,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-cedar-grove-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring (middle) river landing",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "Ohiopyle State Park Lower Yough launch",
+      "latitude": 39.866528,
+      "longitude": -79.493395,
+      "distanceFeetToMappedWater": 391.92419538935684,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
+          "endpoint": "putIn",
+          "endpointName": "Ohiopyle State Park Lower Yough launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "First Brook Hand Launch Parking Area",
+      "latitude": 44.3042,
+      "longitude": -74.994,
+      "distanceFeetToMappedWater": 391.09280694579786,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-branch-grass-river-spruce-first-brook",
+          "endpoint": "takeOut",
+          "endpointName": "First Brook Hand Launch Parking Area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Taylors Falls Lion's Park dam portage take-out",
+      "latitude": 45.42645,
+      "longitude": -92.6515,
+      "distanceFeetToMappedWater": 389.7900305631928,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "st-croix-river-wild-river-lions-park",
+          "endpoint": "takeOut",
+          "endpointName": "Taylors Falls Lion's Park dam portage take-out",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Grant Park below-dam relaunch",
+      "latitude": 42.273,
+      "longitude": -94.872,
+      "distanceFeetToMappedWater": 389.27516250039616,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-grant-rainbow-bend",
+          "endpoint": "putIn",
+          "endpointName": "Grant Park below-dam relaunch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Vermont",
+      "name": "Jonesville takeout below Cochran Road Bridge",
+      "latitude": 44.40243,
+      "longitude": -72.99653,
+      "distanceFeetToMappedWater": 388.13413110750713,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "review"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "review"
+        },
+        {
+          "routeId": "winooski-river-jonesville-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Boiceville Supermarket Esopus Creek pullout above Route 28A bridge",
+      "latitude": 42.00685,
+      "longitude": -74.26772,
+      "distanceFeetToMappedWater": 387.42513613083173,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "esopus-creek-phoenicia-boiceville",
+          "endpoint": "takeOut",
+          "endpointName": "Boiceville Supermarket Esopus Creek pullout above Route 28A bridge",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Teton Dam access corridor / carry-in",
+      "latitude": 43.9097213745117,
+      "longitude": -111.538330078125,
+      "distanceFeetToMappedWater": 387.16306651219185,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "teton-river-dam-site-teton-forks",
+          "endpoint": "putIn",
+          "endpointName": "Teton Dam access corridor / carry-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Germania Marsh Dam access",
+      "latitude": 43.8917924,
+      "longitude": -89.2522052,
+      "distanceFeetToMappedWater": 387.0209777900949,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mecan-river-highway-22-germania",
+          "endpoint": "takeOut",
+          "endpointName": "Germania Marsh Dam access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Bell Crossing Fishing Access Site (access anchor)",
+      "latitude": 46.44434,
+      "longitude": -114.12629,
+      "distanceFeetToMappedWater": 386.1188904449564,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bitterroot-river-bell-crossing-chief-looking-glass",
+          "endpoint": "putIn",
+          "endpointName": "Bell Crossing Fishing Access Site (access anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "bitterroot-river-bell-crossing-poker-joe",
+          "endpoint": "putIn",
+          "endpointName": "Bell Crossing Fishing Access Site (access anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "bitterroot-river-tucker-crossing-bell-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Bell Crossing Fishing Access Site (access anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Gardiner Wallkill River launch",
+      "latitude": 41.679,
+      "longitude": -74.152,
+      "distanceFeetToMappedWater": 383.84550175720346,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wallkill-river-gardiner-new-paltz",
+          "endpoint": "putIn",
+          "endpointName": "Gardiner Wallkill River launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "wallkill-river-popp-gardiner",
+          "endpoint": "takeOut",
+          "endpointName": "Gardiner Wallkill River launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Heckscher State Park Field 7 water-access area",
+      "latitude": 40.69953,
+      "longitude": -73.16336,
+      "distanceFeetToMappedWater": 381.8234065558442,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "connetquot-river-great-river-heckscher",
+          "endpoint": "takeOut",
+          "endpointName": "Heckscher State Park Field 7 water-access area",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Woodway Memorial Park",
+      "latitude": 29.7647,
+      "longitude": -95.4569,
+      "distanceFeetToMappedWater": 380.10078724045,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-bayou-west-sam-houston-woodway",
+          "endpoint": "takeOut",
+          "endpointName": "Woodway Memorial Park",
+          "severity": "review"
+        },
+        {
+          "routeId": "buffalo-bayou-woodway-sabine-street",
+          "endpoint": "putIn",
+          "endpointName": "Woodway Memorial Park",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Baker Creek access",
+      "latitude": 43.784896,
+      "longitude": -114.556579,
+      "distanceFeetToMappedWater": 377.5108700621411,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-wood-river-baker-north-fork",
+          "endpoint": "putIn",
+          "endpointName": "Baker Creek access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "North Carolina",
+      "name": "Falls Dam public paddlecraft launch",
+      "latitude": 35.939118,
+      "longitude": -78.577094,
+      "distanceFeetToMappedWater": 377.4991121169638,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "neuse-river-falls-dam-thornton",
+          "endpoint": "putIn",
+          "endpointName": "Falls Dam public paddlecraft launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Arkansas",
+      "name": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
+      "latitude": 35.671667,
+      "longitude": -93.829444,
+      "distanceFeetToMappedWater": 376.5281519562483,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mulberry-river-redding-turner-bend",
+          "endpoint": "takeOut",
+          "endpointName": "Turner Bend private-fee landing (Highway 23 corridor anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Chenango Bridge Route 12A hand launch",
+      "latitude": 42.167396,
+      "longitude": -75.874293,
+      "distanceFeetToMappedWater": 375.7306802782281,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "chenango-river-chenango-bridge-port-dickinson",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Chenango Bridge Route 12A hand launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chenango-river-port-crane-chenango-bridge",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Chenango Bridge Route 12A hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "name": "Neal Shoals Dam public access / 500-foot carry area",
+      "latitude": 34.6653839999791,
+      "longitude": -81.4452990001266,
+      "distanceFeetToMappedWater": 375.2893830425943,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "broad-river-broad-river-landing-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        },
+        {
+          "routeId": "broad-river-daltons-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        },
+        {
+          "routeId": "broad-river-lockhart-neal-shoals",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-sandy",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-shelton",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        },
+        {
+          "routeId": "broad-river-neal-shoals-strother",
+          "endpoint": "putIn",
+          "endpointName": "Neal Shoals Dam public access / 500-foot carry area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "South Dakota",
+      "name": "Farm Field Park kayak and canoe access",
+      "latitude": 43.5028832,
+      "longitude": -96.749131,
+      "distanceFeetToMappedWater": 374.13390042637485,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sioux-river-farm-field-rotary",
+          "endpoint": "putIn",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "skunk-creek-legacy-park-farm-field",
+          "endpoint": "takeOut",
+          "endpointName": "Farm Field Park kayak and canoe access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Rock Springs Firemen's Park canoe landing",
+      "latitude": 43.4779,
+      "longitude": -89.9143,
+      "distanceFeetToMappedWater": 373.9262971388927,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "baraboo-river-rock-springs-north-freedom",
+          "endpoint": "putIn",
+          "endpointName": "Rock Springs Firemen's Park canoe landing",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Fisherman’s parking/access below Kent Falls Powerhouse",
+      "latitude": 44.6814002990723,
+      "longitude": -73.6806030273438,
+      "distanceFeetToMappedWater": 372.5829447103591,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "saranac-river-kent-falls-military-turnpike",
+          "endpoint": "putIn",
+          "endpointName": "Fisherman’s parking/access below Kent Falls Powerhouse",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Shad Landing Area public boat ramp and soft launch",
+      "latitude": 38.13902,
+      "longitude": -75.440431,
+      "distanceFeetToMappedWater": 371.4830555066568,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "corkers-creek-blackwater-canoe-trail",
+          "endpoint": "putIn",
+          "endpointName": "Pocomoke River State Park Shad Landing soft launch",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "corkers-creek-blackwater-canoe-trail",
+          "endpoint": "takeOut",
+          "endpointName": "Pocomoke River State Park Shad Landing soft launch return",
+          "severity": "unknown"
+        },
+        {
+          "routeId": "pocomoke-river-shad-milburn",
+          "endpoint": "putIn",
+          "endpointName": "Shad Landing Area public boat ramp and soft launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "pocomoke-river-snow-hill-shad",
+          "endpoint": "takeOut",
+          "endpointName": "Shad Landing Area public boat ramp and soft launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+      "latitude": 43.8015,
+      "longitude": -74.23,
+      "distanceFeetToMappedWater": 370.1828963875723,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "indian-river-abanakee-dam-outer-gooley",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Rafters Parking Area / Indian River access below Abanakee Dam",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+      "latitude": 43.3996,
+      "longitude": -91.8884,
+      "distanceFeetToMappedWater": 367.1740385361434,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "upper-iowa-river-cattle-creek-malanaphy",
+          "endpoint": "accessPoint",
+          "endpointName": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+          "severity": "review"
+        },
+        {
+          "routeId": "upper-iowa-river-kendallville-bluffton",
+          "endpoint": "takeOut",
+          "endpointName": "Bluffton Fir Stand canoe-access parking area at Bluffton Road/W20",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "San Marcos City Park river access area",
+      "latitude": 29.8859203,
+      "longitude": -97.9344384,
+      "distanceFeetToMappedWater": 366.22030326915876,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "san-marcos-river-city-park-smrr",
+          "endpoint": "putIn",
+          "endpointName": "San Marcos City Park river access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "McKay's Bend Recreation Site",
+      "latitude": 46.4975,
+      "longitude": -116.726944,
+      "distanceFeetToMappedWater": 365.0504952977477,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "clearwater-river-mckays-bend-pink-house",
+          "endpoint": "putIn",
+          "endpointName": "McKay's Bend Recreation Site",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Grace Dam Bridge / Grace Dam Road put-in",
+      "latitude": 42.58694,
+      "longitude": -111.72639,
+      "distanceFeetToMappedWater": 363.3953247897572,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bear-river-black-canyon-grace-powerhouse",
+          "endpoint": "putIn",
+          "endpointName": "Grace Dam Bridge / Grace Dam Road put-in",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Mattituck Creek Waterway Access Site / Naugles Road",
+      "latitude": 41.011552,
+      "longitude": -72.55586,
+      "distanceFeetToMappedWater": 363.3154407498538,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "mattituck-creek-dec-waterway-access-route-48",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Mattituck Creek Waterway Access Site / Naugles Road",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Sunset Park Boat Launch, Kimberly",
+      "latitude": 44.2735557,
+      "longitude": -88.3457597,
+      "distanceFeetToMappedWater": 363.2517188451867,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-sunset-kimberly-lutz-appleton",
+          "endpoint": "putIn",
+          "endpointName": "Sunset Park Boat Launch, Kimberly",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Lenon Mill Park Access",
+      "latitude": 41.6867975,
+      "longitude": -94.3692621,
+      "distanceFeetToMappedWater": 362.7191511270993,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "middle-raccoon-river-lenon-mill-p28",
+          "endpoint": "putIn",
+          "endpointName": "Lenon Mill Park Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Town of Turtle Canoe Launch",
+      "latitude": 42.5507585,
+      "longitude": -88.9925722,
+      "distanceFeetToMappedWater": 361.452897566033,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "turtle-creek-town-of-turtle-milwaukee-road",
+          "endpoint": "putIn",
+          "endpointName": "Town of Turtle Canoe Launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Mason City East Park / Winnebago River corridor",
+      "latitude": 43.1546609,
+      "longitude": -93.1832896,
+      "distanceFeetToMappedWater": 359.0933899640303,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winnebago-river-fertile-mason-city",
+          "endpoint": "takeOut",
+          "endpointName": "Mason City East Park / Winnebago River corridor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "NYSDEC Osgood Pond Hand Launch Site",
+      "latitude": 44.44319,
+      "longitude": -74.23838,
+      "distanceFeetToMappedWater": 358.94030385038394,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "osgood-river-osgood-pond-out-and-back",
+          "endpoint": "putIn",
+          "endpointName": "NYSDEC Osgood Pond Hand Launch Site",
+          "severity": "review"
+        },
+        {
+          "routeId": "osgood-river-osgood-pond-out-and-back",
+          "endpoint": "takeOut",
+          "endpointName": "NYSDEC Osgood Pond Hand Launch Site",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Troutdale Campground riverside access area",
+      "latitude": 43.7162,
+      "longitude": -115.6226,
+      "distanceFeetToMappedWater": 353.4893868548079,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "putIn",
+          "endpointName": "Troutdale Campground riverside access area",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Missouri",
+      "name": "Van Buren Riverfront Park access area",
+      "latitude": 36.9939,
+      "longitude": -91.014,
+      "distanceFeetToMappedWater": 351.0529075109896,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "current-river-van-buren-big-spring",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-van-buren-cataract",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-van-buren-gooseneck",
+          "endpoint": "putIn",
+          "endpointName": "Van Buren Riverfront Park access area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-waymeyer-van-buren",
+          "endpoint": "takeOut",
+          "endpointName": "Van Buren Riverfront Park access area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wyoming",
+      "name": "Deadmans Bar",
+      "latitude": 43.7578839,
+      "longitude": -110.6178224,
+      "distanceFeetToMappedWater": 350.81179428465157,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-deadmans-bar-moose",
+          "endpoint": "putIn",
+          "endpointName": "Deadmans Bar",
+          "severity": "review"
+        },
+        {
+          "routeId": "snake-river-pacific-creek-deadmans-bar",
+          "endpoint": "takeOut",
+          "endpointName": "Deadmans Bar",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Mirabeau Park public small-craft access area (access-area anchor)",
+      "latitude": 47.68201,
+      "longitude": -117.223061,
+      "distanceFeetToMappedWater": 350.6570922114214,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "spokane-river-barker-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public small-craft access area (access-area anchor)",
+          "severity": "review"
+        },
+        {
+          "routeId": "spokane-river-harvard-mirabeau",
+          "endpoint": "takeOut",
+          "endpointName": "Mirabeau Park public small-craft access area (access-area anchor)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "North Dakota",
+      "name": "Chautauqua Park accessible launch",
+      "latitude": 46.939,
+      "longitude": -97.992,
+      "distanceFeetToMappedWater": 350.36919926610074,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sheyenne-river-fish-hatchery-chautauqua",
+          "endpoint": "takeOut",
+          "endpointName": "Chautauqua Park accessible launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Oak Township County Park canoe access",
+      "latitude": 45.60927,
+      "longitude": -94.75344,
+      "distanceFeetToMappedWater": 349.9844673777662,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sauk-river-mill-pond-oak-township",
+          "endpoint": "takeOut",
+          "endpointName": "Oak Township County Park canoe access",
+          "severity": "review"
+        },
+        {
+          "routeId": "sauk-river-oak-township-spring-hill",
+          "endpoint": "putIn",
+          "endpointName": "Oak Township County Park carry-in access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Trego Town Park Landing",
+      "latitude": 45.9106187,
+      "longitude": -91.8238907,
+      "distanceFeetToMappedWater": 345.11641301539936,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "namekagon-river-big-bend-trego",
+          "endpoint": "takeOut",
+          "endpointName": "Trego Town Park Landing",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Heath Canyon / La Linda take-out",
+      "latitude": 29.45025,
+      "longitude": -102.82346,
+      "distanceFeetToMappedWater": 343.10895269739143,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rio-grande-rio-grande-village-heath-canyon",
+          "endpoint": "takeOut",
+          "endpointName": "Heath Canyon / La Linda take-out",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Three Forks Recreation Site Boat Launch",
+      "latitude": 42.545023,
+      "longitude": -117.167067,
+      "distanceFeetToMappedWater": 342.90167099718036,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-fork-owyhee-campground-three-forks",
+          "endpoint": "takeOut",
+          "endpointName": "Three Forks Recreation Site Boat Launch",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "owyhee-river-three-forks-rome",
+          "endpoint": "putIn",
+          "endpointName": "Three Forks Recreation Site Boat Launch",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Creek View Court / Hoffmann Glen alternate access",
+      "latitude": 43.2999,
+      "longitude": -87.9739,
+      "distanceFeetToMappedWater": 342.21331641867476,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-creek-cedarburg-mill-cth-t",
+          "endpoint": "accessPoint",
+          "endpointName": "Creek View Court / Hoffmann Glen alternate access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Riverdale Lane Access",
+      "latitude": 28.67067,
+      "longitude": -97.54198,
+      "distanceFeetToMappedWater": 340.44139859468487,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "san-antonio-river-riverdale-goliad-state-park",
+          "endpoint": "putIn",
+          "endpointName": "Riverdale Lane Access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Sunken Meadow State Park Field 3 Nissequogue launch",
+      "latitude": 40.909309,
+      "longitude": -73.246686,
+      "distanceFeetToMappedWater": 340.3799027060665,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "nissequogue-river-paul-given-state-park",
+          "endpoint": "accessPoint",
+          "endpointName": "Sunken Meadow State Park Field 3 Nissequogue launch",
+          "severity": "failure"
+        }
+      ]
+    },
+    {
+      "state": "Texas",
+      "name": "Guadalupe River State Park paddling access",
+      "latitude": 29.872,
+      "longitude": -98.49,
+      "distanceFeetToMappedWater": 338.8864468148015,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "guadalupe-river-state-park-nichols-landing",
+          "endpoint": "putIn",
+          "endpointName": "Guadalupe River State Park paddling access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Willow Creek Campground access-area anchor",
+      "latitude": 43.6452,
+      "longitude": -115.7517,
+      "distanceFeetToMappedWater": 337.10324796046774,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "boise-river-troutdale-willow",
+          "endpoint": "takeOut",
+          "endpointName": "Willow Creek Campground access-area anchor",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "South Dakota",
+      "name": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+      "latitude": 43.52473773604778,
+      "longitude": -96.60061816019576,
+      "distanceFeetToMappedWater": 335.87139759088586,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "big-sioux-river-highway-42-grandview",
+          "endpoint": "putIn",
+          "endpointName": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+          "severity": "review"
+        },
+        {
+          "routeId": "big-sioux-river-rec-area-south-highway-42",
+          "endpoint": "takeOut",
+          "endpointName": "SD Highway 42 / Mary Jo Wegner Arboretum canoe access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Mill Hollow / Vermilion River Reservation",
+      "latitude": 41.381833,
+      "longitude": -82.3155,
+      "distanceFeetToMappedWater": 335.0734281459599,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "vermilion-river-schoepfle-mill-hollow",
+          "endpoint": "takeOut",
+          "endpointName": "Mill Hollow / Vermilion River Reservation",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Twin Falls Park boat-ramp access-area anchor",
+      "latitude": 42.587805,
+      "longitude": -114.355335,
+      "distanceFeetToMappedWater": 333.0176091669127,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-murtaugh-bridge-twin-falls",
+          "endpoint": "takeOut",
+          "endpointName": "Twin Falls Park boat-ramp access-area anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "2750 E Bridge river-right egress (public landing unverified)",
+      "latitude": 43.9122009277344,
+      "longitude": -111.616302490234,
+      "distanceFeetToMappedWater": 332.983370765923,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "teton-river-dam-site-teton-forks",
+          "endpoint": "takeOut",
+          "endpointName": "2750 E Bridge river-right egress (public landing unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Montana",
+      "name": "Chief Looking Glass FAS access-area anchor",
+      "latitude": 46.66165,
+      "longitude": -114.05355,
+      "distanceFeetToMappedWater": 332.9133676182384,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "bitterroot-river-bell-crossing-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass FAS access-area anchor",
+          "severity": "review"
+        },
+        {
+          "routeId": "bitterroot-river-hannon-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass FAS access-area anchor",
+          "severity": "review"
+        },
+        {
+          "routeId": "bitterroot-river-poker-joe-chief-looking-glass",
+          "endpoint": "takeOut",
+          "endpointName": "Chief Looking Glass FAS access-area anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Heery Woods / Timber Avenue below-dam access (location unverified)",
+      "latitude": 42.7718,
+      "longitude": -92.67323,
+      "distanceFeetToMappedWater": 331.96429490536696,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "shell-rock-river-heery-woods-renning",
+          "endpoint": "putIn",
+          "endpointName": "Heery Woods / Timber Avenue below-dam access (location unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "PVC diversion reach take-out anchor (public landing unverified)",
+      "latitude": 42.6263999938965,
+      "longitude": -112.126998901367,
+      "distanceFeetToMappedWater": 326.4562347316231,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "portneuf-river-lava-hot-springs-pvc",
+          "endpoint": "takeOut",
+          "endpointName": "PVC diversion reach take-out anchor (public landing unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New Jersey",
+      "name": "Brice Park at Allenwood–Lakewood Road",
+      "latitude": 40.13893,
+      "longitude": -74.108585,
+      "distanceFeetToMappedWater": 323.8576201133989,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "manasquan-river-hospital-brice",
+          "endpoint": "takeOut",
+          "endpointName": "Brice Park at Allenwood–Lakewood Road",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Pennsylvania",
+      "name": "Ramcat Launch, Ohiopyle State Park",
+      "latitude": 39.82632,
+      "longitude": -79.37891,
+      "distanceFeetToMappedWater": 323.7098003151944,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "youghiogheny-river-middle-ramcat-ohiopyle",
+          "endpoint": "putIn",
+          "endpointName": "Ramcat Launch, Ohiopyle State Park",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Concrete CCC Bridge access area (public river entry unverified)",
+      "latitude": 44.06972,
+      "longitude": -111.25917,
+      "distanceFeetToMappedWater": 322.3972432107128,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fall-river-concrete-ccc-kirkham",
+          "endpoint": "putIn",
+          "endpointName": "Concrete CCC Bridge access area (public river entry unverified)",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+      "latitude": 42.290382,
+      "longitude": -75.480797,
+      "distanceFeetToMappedWater": 322.1392048932539,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "susquehanna-river-bainbridge-afton",
+          "endpoint": "putIn",
+          "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Auger Falls Heritage Park Put-In",
+      "latitude": 42.6211,
+      "longitude": -114.5131,
+      "distanceFeetToMappedWater": 321.20370046160025,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "snake-river-auger-falls-park",
+          "endpoint": "putIn",
+          "endpointName": "Auger Falls Heritage Park Put-In",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Creekside Park",
+      "latitude": 44.930522365,
+      "longitude": -93.373441764,
+      "distanceFeetToMappedWater": 320.3183542975077,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "minnehaha-creek-grays-bay-longfellow-lagoon",
+          "endpoint": "accessPoint",
+          "endpointName": "Creekside Park",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Bunker Hill Road Gunpowder access",
+      "latitude": 39.60945583472603,
+      "longitude": -76.67235868652139,
+      "distanceFeetToMappedWater": 317.98875704393254,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "accessPoint",
+          "endpointName": "Bunker Hill Road Gunpowder access",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "South Carolina",
+      "name": "Rock Hill River Park canoe/kayak launch access-area anchor",
+      "latitude": 34.95701,
+      "longitude": -80.951471,
+      "distanceFeetToMappedWater": 315.3372255071285,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "catawba-river-fort-mill-rock-hill",
+          "endpoint": "takeOut",
+          "endpointName": "Rock Hill River Park canoe/kayak launch access-area anchor",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "catawba-river-rock-hill-landsford",
+          "endpoint": "putIn",
+          "endpointName": "Rock Hill River Park canoe/kayak launch access-area anchor",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "catawba-river-rock-hill-sc9",
+          "endpoint": "putIn",
+          "endpointName": "Rock Hill River Park canoe/kayak launch access-area anchor",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Germanium carry-in access at Brookview Park",
+      "latitude": 45.2826032,
+      "longitude": -93.4079762,
+      "distanceFeetToMappedWater": 310.15823842561826,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "rum-river-germanium-south-county-park",
+          "endpoint": "putIn",
+          "endpointName": "Germanium carry-in access at Brookview Park",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "rum-river-north-county-germanium",
+          "endpoint": "takeOut",
+          "endpointName": "Germanium carry-in access at Brookview Park",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Frog Pond access",
+      "latitude": 46.655,
+      "longitude": -116.549,
+      "distanceFeetToMappedWater": 309.6254395864586,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "potlatch-river-frog-pond-kendrick",
+          "endpoint": "putIn",
+          "endpointName": "Frog Pond access",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Meadow Creek Campground access (current landing unverified)",
+      "latitude": 48.81987,
+      "longitude": -116.14733,
+      "distanceFeetToMappedWater": 309.4796852318125,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "moyie-river-twin-bridges-meadow-creek",
+          "endpoint": "takeOut",
+          "endpointName": "Meadow Creek Campground access (current landing unverified)",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Idaho",
+      "name": "Johnson Creek Airport access staging point",
+      "latitude": 44.911722,
+      "longitude": -115.485528,
+      "distanceFeetToMappedWater": 306.88409985035264,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "johnson-creek-yellow-pine-airport-gauge",
+          "endpoint": "putIn",
+          "endpointName": "Johnson Creek Airport access staging point",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "Virginia",
+      "name": "Route 710 Alvarado crossing take-out area",
+      "latitude": 36.651001,
+      "longitude": -81.887001,
+      "distanceFeetToMappedWater": 304.80045925405403,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-holston-route58-alvarado",
+          "endpoint": "takeOut",
+          "endpointName": "Route 710 Alvarado crossing take-out area",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Fox River Access at Landing Road south of Berlin",
+      "latitude": 43.9471591,
+      "longitude": -88.9668741,
+      "distanceFeetToMappedWater": 304.79018493959865,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-landing-road-riverside-berlin",
+          "endpoint": "putIn",
+          "endpointName": "Fox River Access at Landing Road south of Berlin",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Heritage Park canoe ramp",
+      "latitude": 39.291548,
+      "longitude": -84.661803,
+      "distanceFeetToMappedWater": 304.06738508978344,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "great-miami-river-heritage-dravo",
+          "endpoint": "putIn",
+          "endpointName": "Heritage Park canoe ramp",
+          "severity": "suspicious"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Peconic River River Road East hand launch",
+      "latitude": 40.904308,
+      "longitude": -72.766228,
+      "distanceFeetToMappedWater": 301.22015899937026,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "peconic-river-river-road-edwards-avenue",
+          "endpoint": "putIn",
+          "endpointName": "Peconic River River Road East hand launch",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "Washington",
+      "name": "Haller Park boat-launch access-area anchor",
+      "latitude": 48.20245,
+      "longitude": -122.12872,
+      "distanceFeetToMappedWater": 300.82957390183424,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "stillaguamish-river-river-meadows-haller",
+          "endpoint": "takeOut",
+          "endpointName": "Haller Park boat-launch access-area anchor",
+          "severity": "review"
+        },
+        {
+          "routeId": "stillaguamish-river-twin-rivers-haller",
+          "endpoint": "takeOut",
+          "endpointName": "Haller Park boat-launch access-area anchor",
+          "severity": "review"
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Eastern Park Kayak Launch, Tonawanda",
+      "latitude": 43.015349,
+      "longitude": -78.867328,
+      "distanceFeetToMappedWater": 300.8125476363385,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "ellicott-creek-park-eastern-park",
+          "endpoint": "takeOut",
+          "endpointName": "Eastern Park Kayak Launch, Tonawanda",
+          "severity": "review"
+        }
+      ]
+    }
+  ]
+}

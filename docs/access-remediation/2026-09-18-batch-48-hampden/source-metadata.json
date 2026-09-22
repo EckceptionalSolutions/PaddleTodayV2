@@ -1,0 +1,39 @@
+{
+  "batch": 48,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "Maine DACF Public Boat Launch inventory — Penobscot River, Hampden (site 19280)",
+      "url": "https://www.maine.gov/dacf/parks/water_activities/boating/public_boat_launches/boat_sites.shtml",
+      "accessEvidence": "The official inventory lists the Penobscot River site in Hampden as a local hard ramp, 50 feet by 200 feet, all-tide, and publishes 44.76540, -68.79690.",
+      "coordinateInterpretation": "Official public launch-site coordinate. The table does not say whether this is the ramp head or the wet toe; keep it as an access-area anchor."
+    },
+    {
+      "title": "Maine DMR Angler's Guide — Hampden / Frankfort",
+      "url": "https://www.maine.gov/dmr/fisheries/recreational/anglers-guide/south-portland-to-blue-hill",
+      "accessEvidence": "Identifies a public boat ramp at Turtle Head Marina off Route 1A in Hampden; describes the ramp as in good condition and serviced by a float.",
+      "interpretation": "Independent confirmation of public boat-ramp access in Hampden; used as corroboration of public access, not as a coordinate for DACF site 19280."
+    },
+    {
+      "title": "Hampden 2024 Comprehensive Plan",
+      "url": "https://www.maine.gov/dacf/municipalplanning/comp_plans/Hampden_2024.pdf",
+      "accessEvidence": "Lists the marina and boat launch at Turtle Head Marina as an existing local recreation asset.",
+      "interpretation": "Official local-planning corroboration; not a coordinate source."
+    },
+    {
+      "title": "Google Maps satellite imagery inspected 2026-09-18",
+      "url": "https://www.google.com/maps/place/44.7654,-68.7969/@44.7654,-68.7969,700m/data=!3m1!1e3",
+      "interpretation": "The coordinate falls within the waterfront marina/launch-site area, but imagery did not establish the exact ramp toe with sufficient confidence for a coordinate move."
+    },
+    {
+      "title": "USGS National Hydrography Dataset flowline, area, and waterbody services",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "distancesFeet": { "matchedFlowline": 461.6256, "mappedWater": 204.3139 },
+      "interpretation": "Distances flag a precision gap but do not disprove an official long-ramp access-site coordinate."
+    }
+  ]
+}

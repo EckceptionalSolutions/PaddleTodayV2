@@ -11,7 +11,8 @@ for (const stale of [false, true]) {
     const generatedAt = stale ? '2020-01-01T00:00:00Z' : new Date().toISOString();
     const routes = [1, 2, 3, 4].map(number => ({ ...fixture.result, generatedAt, score: 95, rating: 'Strong',
       readiness: { status: 'ready', label: 'Ready', reason: 'QA fixture' },
-      river: { ...fixture.result.river, slug: `comparison-${number}`, reach: `Reach ${number} with a descriptive access name`, distanceLabel: `${number * 3} mi` },
+      river: { ...fixture.result.river, slug: `comparison-${number}`, reach: `Reach ${number} with a descriptive access name`, distanceLabel: `${number * 3} mi`,
+        putIn: { ...fixture.result.river.putIn, name: number === 1 ? 'Long public landing name with seasonal parking restrictions and a carry down the hillside to the water. '.repeat(5) : 'Short launch' } },
     }));
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
     await page.route('**/api/river-groups/rice-creek.json', route => route.fulfill({ json: { generatedAt, result: {
@@ -34,6 +35,17 @@ for (const stale of [false, true]) {
     await expect(sheet).toBeInViewport({ ratio: 1 });
     await expect(page.getByRole('heading', { name: 'Your route comparison', exact: true })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Reach 2 with a descriptive access name', exact: true })).toBeAttached();
+    const table = await sheet.getByTestId('route-comparison-table').boundingBox();
+    expect(table!.width).toBeLessThanOrEqual(685);
+    const cells = await Promise.all([0, 1, 2].map(index => sheet.getByTestId(`comparison-put-in-${index}`).boundingBox()));
+    for (const [index, cell] of cells.entries()) {
+      const header = await sheet.getByTestId(`comparison-header-${index}`).boundingBox();
+      expect(cell!.width).toBeCloseTo(190, 0);
+      expect(cell!.x).toBeCloseTo(header!.x, 0);
+      expect(cell!.y).toBeCloseTo(cells[0]!.y, 0);
+      expect(cell!.height).toBeCloseTo(cells[0]!.height, 0);
+    }
+    expect(cells[0]!.height).toBeGreaterThan(100);
     if (stale) await expect(page.getByText('Set a planning location on Today to include approximate drive estimates.', { exact: true })).toBeVisible();
     else {
       await expect(sheet.getByText(/^Drive estimates from Duluth/)).toBeVisible();

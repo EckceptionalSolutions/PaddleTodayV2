@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T21:06:29.966Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "iowa-river-tailwater-east-sturgis-ferry",
+      "routeName": "Iowa River",
+      "reach": "Tailwater East below Coralville Dam to Sturgis Ferry Park",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Sturgis Ferry Park boat ramp",
+      "latitude": 41.64132,
+      "longitude": -91.53877,
+      "matchedRiverName": "Iowa River",
+      "distanceFeetToMatchedRiver": 176.3393176355164,
+      "nearestMatchedLatitude": 41.64127183686656,
+      "nearestMatchedLongitude": -91.53812642175113,
+      "nearestWaterwayName": "Iowa River",
+      "distanceFeetToNearestWaterway": 176.3393176355164,
+      "nearestWaterwayLatitude": 41.64127183686656,
+      "nearestWaterwayLongitude": -91.53812642175113,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 77.28771311319304,
+      "nearestWaterbodyLatitude": 41.641292718956024,
+      "nearestWaterbodyLongitude": -91.53848887569453,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 77.28771311319304,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 77 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "iowa-river-tailwater-east-sturgis-ferry",
+      "routeName": "Iowa River",
+      "reach": "Tailwater East below Coralville Dam to Sturgis Ferry Park",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Tailwater East public concrete boat ramp",
+      "latitude": 41.720904434727316,
+      "longitude": -91.52874403208878,
+      "matchedRiverName": "Iowa River",
+      "distanceFeetToMatchedRiver": 132.792182482073,
+      "nearestMatchedLatitude": 41.7210941371259,
+      "nearestMatchedLongitude": -91.52916024012866,
+      "nearestWaterwayName": "Iowa River",
+      "distanceFeetToNearestWaterway": 132.792182482073,
+      "nearestWaterwayLatitude": 41.7210941371259,
+      "nearestWaterwayLongitude": -91.52916024012866,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 19.240718714939085,
+      "nearestWaterbodyLatitude": 41.720928228081405,
+      "nearestWaterbodyLongitude": -91.52880709347853,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 19.240718714939085,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://services7.arcgis.com/zs4WYlTH7ZX0t6Fs/ArcGIS/rest/services/USACE_Final_Data/FeatureServer/0/query?objectIds=3079&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "ia_usace_tailwater_east_boat_ramp_20260918 843e2204-cc2b-49a9-9bbb-e6cbf789df65: USACE's public Recreation Boat Ramp GIS feature 3079 is named TAILWATER EAST BOAT RAMP, places a one-lane concrete ramp at 41.720904434727316,-91.52874403208878, and identifies the managing Rock Island District. The current Coralville boating page confirms Tailwater East Campground has a boat ramp accessing the Iowa River below the dam. The GIS ramp point replaces the former campground-area pin; it is not a surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_usace_tailwater_east_boat_ramp_20260918 843e2204-cc2b-49a9-9bbb-e6cbf789df65) on Iowa River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "batch": "B94",
+  "sources": [
+    { "title": "West Virginia DNR District 1 Fishing Guide", "url": "https://wvdnr.gov/wp-content/uploads/2021/06/DNR_Wildlife_District1_FishingGuide.pdf", "publisher": "West Virginia Division of Natural Resources", "supports": ["Rowlesburg City Park exact coordinate 39.349,-79.671", "Cheat River access lot", "boat access"] },
+    { "title": "West Virginia public fishing and boating access sites", "url": "https://wvdnr.gov/lands-waters/stream-access-points/", "publisher": "West Virginia Division of Natural Resources", "supports": ["current public boating-access program and access-site rules"] },
+    { "title": "Preston County Parks resources", "url": "https://www.pcparc.org/park-resources.html", "publisher": "Preston County Parks and Recreation Department", "supports": ["Rowlesburg Community Park and Cheat River access"] }
+  ],
+  "sourceQuality": "The exact coordinate and boat-access classification come from WVDNR's District 1 access table; current WVDNR program guidance and county parks information independently confirm the public-access context."
+}

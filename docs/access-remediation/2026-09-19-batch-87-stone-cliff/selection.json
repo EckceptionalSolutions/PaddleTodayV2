@@ -1,0 +1,13 @@
+{
+  "batch": "B87",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-new-mccreery-stone-cliff",
+  "routeName": "New River",
+  "reach": "McCreery River Access to Stone Cliff",
+  "state": "West Virginia",
+  "endpoint": "takeOut",
+  "endpointName": "Stone Cliff River Access",
+  "storedCoordinate": { "latitude": 37.933013, "longitude": -81.063513 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 379.4606962686807, "nearestWaterwayName": "Little Stony Creek", "distanceFeetToMappedWater": 189.33715509841147, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "The WVDNR access table publishes Stone Cliff as New River boat access at 37.9337,-81.0639, and NPS independently lists Stone Cliff as a public New River access near Thurmond; verify the stored off-flowline point as the gorge access-area anchor."
+}

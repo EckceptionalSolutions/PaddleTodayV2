@@ -1,0 +1,32 @@
+{
+  "batch": "2026-09-17-batch-20",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "queueEvidenceMode": "cache-only; rank is prioritization, not current evidence",
+  "sitesReviewed": 10,
+  "uniqueRoutesBefore": 14,
+  "newHolds": ["turtle-creek-town-of-turtle-milwaukee-road"],
+  "eligibleRoutesAfter": 13,
+  "coordinatesMoved": 0,
+  "optionalAccessWaypointsRemoved": 1,
+  "addedAccessAnchorProviders": 3,
+  "reclassifiedProviders": 1,
+  "withheldRoutesAfter": 157,
+  "deletions": 0,
+  "scope": "One physical site was treated once even when several route records share it. Route geometry, generated registry, and cached quality audit were not manually rewritten.",
+  "decisions": [
+    {"rank":225,"site":"Grace Dam Bridge / Grace Dam Road put-in","decision":"keep-access-anchor","routes":["bear-river-black-canyon-grace-powerhouse"]},
+    {"rank":226,"site":"NYSDEC Mattituck Creek Waterway Access Site / Naugles Road","decision":"keep-access-anchor","routes":["mattituck-creek-dec-waterway-access-route-48"]},
+    {"rank":227,"site":"Sunset Park Boat Launch, Kimberly","decision":"keep-access-anchor-and-record-fees","routes":["fox-river-sunset-kimberly-lutz-appleton"]},
+    {"rank":228,"site":"Lenon Mill Park Access","decision":"keep-access-anchor-below-dam","routes":["middle-raccoon-river-lenon-mill-p28"]},
+    {"rank":229,"site":"Town of Turtle Canoe Launch","decision":"hold-pending-resolution-scope","routes":["turtle-creek-town-of-turtle-milwaukee-road"]},
+    {"rank":231,"site":"NYSDEC Osgood Pond Hand Launch Site","decision":"reclassify-access-anchor","routes":["osgood-river-osgood-pond-out-and-back"]},
+    {"rank":232,"site":"Troutdale Campground Put-In","decision":"keep-access-area-anchor-and-clarify-carry","routes":["boise-river-troutdale-willow"]},
+    {"rank":233,"site":"Red’s Twilight on the Erie RV Resort","decision":"remove-unverified-optional-access-waypoint","routes":["erie-canal-bushnells-basin-macedon"]},
+    {"rank":234,"site":"Van Buren Riverfront Park Access","decision":"keep-access-anchor","routes":["current-river-van-buren-big-spring","current-river-van-buren-cataract","current-river-van-buren-gooseneck","current-river-waymeyer-van-buren"]},
+    {"rank":235,"site":"Deadmans Bar","decision":"keep-access-anchor","routes":["snake-river-deadmans-bar-moose","snake-river-pacific-creek-deadmans-bar"]}
+  ],
+  "reopeningEvidence": {
+    "turtle-creek-town-of-turtle-milwaukee-road": "Obtain the full Town Resolution 2026-11, establish whether launch use or paddling is restricted and its effective/end dates, then confirm current public launch access and parking."
+  }
+}

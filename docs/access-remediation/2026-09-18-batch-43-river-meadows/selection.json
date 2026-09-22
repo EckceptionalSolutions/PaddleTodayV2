@@ -1,0 +1,21 @@
+{
+  "batch": 43,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "next shared suspicious public access location after Bolton Canoe Access batch 42",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T17:14:09.861Z (cache-only); 2,752 public routes, 6,062 endpoints, and 104 suspicious endpoints",
+  "selectedLocations": [
+    {
+      "state": "Washington",
+      "name": "River Meadows Park river access, Jordan Road",
+      "storedCoordinate": { "latitude": 48.1797, "longitude": -122.0837 },
+      "suspiciousPublicOccurrences": 2,
+      "routeIds": [
+        "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+        "stillaguamish-river-river-meadows-haller"
+      ],
+      "preReviewFinding": "Both route starts share a 468.7-foot distance to mapped water and a 566.6-foot distance to the matched South Fork Stillaguamish River flowline. Hydrography coverage was complete and no authoritative coordinate control matched the stored point.",
+      "decision": "hold-dependent-routes-until-launch-or-carry-is-georeferenced",
+      "selectionFrozenBeforeResearch": true
+    }
+  ]
+}

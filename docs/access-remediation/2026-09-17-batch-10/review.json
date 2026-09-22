@@ -1,0 +1,181 @@
+{
+  "batch": "2026-09-17-batch-10",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 1,
+  "retainedAccessAnchorCount": 6,
+  "removedUnsupportedAccessMarkerCount": 0,
+  "unverifiedAccessSiteCount": 3,
+  "routesHeldForGeometryRegenerationCount": 3,
+  "uniqueBatchRouteHoldCount": 6,
+  "totalWithheldRouteCountAfterBatch": 145,
+  "decisions": [
+    {
+      "rank": 121,
+      "state": "Utah",
+      "site": "Perception Park Family Campground",
+      "decision": "retained-riverside-campground-access-area-anchor",
+      "coordinate": [41.289719, -111.640667],
+      "coordinateRole": "public campground/riverside access-area anchor; exact paddling launch and water-entry coordinate not published",
+      "routes": ["south-fork-ogden-river-willows-magpie"],
+      "reason": "Recreation.gov places the public campground on the South Fork Ogden and describes river access, tubing, fishing, paved roads and parking. It does not identify a dedicated kayak/canoe launch or wet-edge coordinate. Retain the useful riverside site as an area anchor and state that limitation rather than calling it a water-entry point.",
+      "sources": ["https://www.recreation.gov/camping/campgrounds/232084"],
+      "publicationAction": "Keep the optional intermediate access-area marker with corrected name and note; no coordinate change."
+    },
+    {
+      "rank": 122,
+      "state": "Idaho",
+      "site": "Little North Fork Reservoir backwaters take-out",
+      "decision": "unverified-public-takeout-route-held",
+      "coordinate": [46.90233, -115.84746],
+      "coordinateRole": "candidate endpoint coordinate near Dworshak Reservoir backwaters; public land access, vehicle staging and exact take-out not verified",
+      "routes": ["little-north-fork-clearwater-headwaters-reservoir"],
+      "reason": "American Whitewater and North Idaho Rivers describe a remote take-out bridge and a severe, poorly marked shuttle; Riverfacts supplies the candidate backwaters point. Idaho Fish and Game lists no boat ramp or dock for the Little North Fork water record. No current managing-agency source verifies lawful access, vehicle staging or boat pickup at this coordinate. Keep the endpoint record for follow-up and withhold the route.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/3248/main",
+        "https://www.northidahorivers.com/Clearwater_LNF.htm",
+        "https://idfg.idaho.gov/ifwis/fishingplanner/water/1158767468868",
+        "https://www.fs.usda.gov/sites/nfs/files/r01/idahopanhandle/publication/Final%20EIS%20Appendices%202013.pdf"
+      ],
+      "routeHold": true,
+      "reopeningCondition": "A current land manager confirms lawful public take-out access, vehicle staging or boat pickup, and a coordinate for the intended endpoint."
+    },
+    {
+      "rank": 123,
+      "state": "South Carolina",
+      "site": "Fort Mill River Access below Lake Wylie Dam (water-entry edge)",
+      "resolvedSiteName": "Fort Mill public landing below Lake Wylie Dam",
+      "decision": "corrected-to-current-scdnr-public-access-feature",
+      "oldCoordinate": [35.02243, -81.00291],
+      "coordinate": [35.02171656381242, -81.00404683440097],
+      "coordinateRole": "SCDNR Fort Mill Access Pier public-access feature OBJECTID 739; access-area geometry, not survey-grade wet-edge precision",
+      "routes": [
+        "catawba-river-fort-mill-rock-hill",
+        "catawba-river-fort-mill-landsford",
+        "catawba-river-fort-mill-sc9"
+      ],
+      "reason": "SCDNR's current public water-access feature OBJECTID 739 names Fort Mill Access Pier on the Catawba River, with Active status, Open public access, Duke Energy ownership/maintenance and 15 parking spaces. Its geometry provides a defensible replacement approximately 428 feet from the old stored point. SCDNR's scenic-river page independently describes the public Fort Mill landing, ramp and parking just downstream of Lake Wylie Dam. A similarly named SCDNR boat ramp feature is on Lake Wylie above the dam, so it was not substituted.",
+      "sources": [
+        "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/739?f=pjson",
+        "https://www.dnr.sc.gov/water/river/scenic/catawba.html"
+      ],
+      "publicationAction": "Source coordinates and labels are corrected. Hold all three dependent routes until fresh canonical geometry is generated and inspected; @paddletoday/geo is missing, so current generated route assets still have the old endpoint.",
+      "routeHolds": [
+        "catawba-river-fort-mill-rock-hill",
+        "catawba-river-fort-mill-landsford",
+        "catawba-river-fort-mill-sc9"
+      ]
+    },
+    {
+      "rank": 124,
+      "state": "Wisconsin",
+      "site": "Lower Cato Falls County Park",
+      "decision": "retained-difficult-county-water-trail-access-anchor",
+      "coordinate": [44.0903, -87.8439],
+      "coordinateRole": "public park scout/portage and difficult carry-in access-area anchor; not an easy default launch",
+      "routes": ["manitowoc-river-clark-mills-county-s"],
+      "reason": "Manitowoc County identifies a riverfront park with stair access to the river. The Manitowoc River Watershed water-trail plan lists Lower Cato Falls as a difficult carry-in access site with steep slopes. Retain the location for the documented scout/portage and carry context, and clarify the difficult access; no exact wet-edge coordinate is published.",
+      "sources": [
+        "https://manitowoccountywi.gov/departments/parks/county-parks/lower-cato-falls/",
+        "https://www.manitowoc.org/DocumentCenter/View/31544/Manitowoc-River-Watershed---Water-Trail-Plan"
+      ],
+      "publicationAction": "Keep the site anchor with an explicit difficult-carry and scouting caveat; no coordinate change."
+    },
+    {
+      "rank": 125,
+      "state": "Louisiana",
+      "site": "Charenton official dock (3726 Chitimacha Trail)",
+      "decision": "retained-teche-official-dock-address-anchor",
+      "coordinate": [29.8842751, -91.5348949],
+      "coordinateRole": "official dock address/access-area anchor; exact wet-edge coordinate not published",
+      "routes": [
+        "bayou-teche-charenton-baldwin",
+        "bayou-teche-charenton-centerville",
+        "bayou-teche-jeanerette-charenton",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-new-iberia-charenton"
+      ],
+      "reason": "TECHE Project lists the official Charenton dock at 3726 Chitimacha Trail at mile 91.0. The source confirms site identity and public paddle-trail status by address, but not a surveyed water-entry coordinate. Keep the current access-area point, correct its label, and stop presenting its precision as the dock edge.",
+      "sources": ["https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/"],
+      "publicationAction": "Keep the five routes and retain the coordinate as an address/access-area anchor; no coordinate change."
+    },
+    {
+      "rank": 126,
+      "state": "Delaware",
+      "site": "Edward H. McCabe Preserve public floating canoe dock",
+      "decision": "unverified-exact-dock-coordinate-route-held",
+      "coordinate": [38.7771, -75.2838],
+      "coordinateRole": "approximate river-side anchor; not a published dock coordinate",
+      "routes": ["broadkill-river-milton-mccabe"],
+      "reason": "The Nature Conservancy confirms a public non-motorized floating dock at the end of the roughly two-mile Milton canoe trail and says to find the dock on the river's south side. Its published GPS is for overland trail parking, about a half-mile from the dock; no dock coordinate was found. The stored point is explicitly approximate and cannot support a precise take-out pin, so withhold the route while retaining the record.",
+      "sources": [
+        "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/edward-h-mccabe-preserve/",
+        "https://www.nature.org/content/dam/tnc/nature/en/documents/DE_McCabe-Brochure_PWP.pdf"
+      ],
+      "routeHold": true,
+      "reopeningCondition": "TNC or a defensible manager map/GIS source establishes the dock's location sufficiently to replace the approximate point."
+    },
+    {
+      "rank": 127,
+      "state": "West Virginia",
+      "site": "Valley Falls State Park river-right put-in / superintendent office",
+      "resolvedSiteName": "Valley Falls State Park river-right check-in / access area",
+      "decision": "retained-required-park-checkin-access-area-anchor",
+      "coordinate": [39.38897, -80.08733],
+      "coordinateRole": "required river-right park check-in/access area; not a surveyed water-entry point",
+      "routes": ["wv-tygart-valley-falls-hammond"],
+      "reason": "American Whitewater documents river-right sign-in with Valley Falls State Park personnel as a required step before this expert run. The stored point is intentionally named at the park office/check-in area, which paddlers must visit; the exact river-entry pixel is not published. Rename the marker so it no longer claims that the office coordinate is the wet edge and preserve the sign-in requirement.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+        "https://wvstateparks.com/parks/valley-falls-state-park/activities/"
+      ],
+      "publicationAction": "Keep the required check-in/access-area anchor and park permission requirement; no coordinate change."
+    },
+    {
+      "rank": 128,
+      "state": "Wisconsin",
+      "site": "Holiday Heights Park / Holiday Heights Landing",
+      "decision": "retained-official-city-canoe-launch-area-anchor",
+      "coordinate": [43.86201, -91.20178],
+      "coordinateRole": "public canoe landing/park access-area anchor; not a surveyed water-entry point",
+      "routes": ["la-crosse-river-veterans-holiday-heights"],
+      "reason": "Onalaska's redevelopment plan identifies an accessible canoe launch at public Holiday Heights Park. The city facility listing confirms the public park, and Wisconsin River Trips describes the specific public take-out with parking. The exact wet-edge coordinate is not published, so retain the current area anchor and link the manager evidence.",
+      "sources": [
+        "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf",
+        "https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84",
+        "https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground"
+      ],
+      "publicationAction": "Keep the take-out and retain the current coordinate as an access-area anchor; no coordinate change."
+    },
+    {
+      "rank": 129,
+      "state": "Illinois",
+      "site": "Wes Block Trail Access",
+      "decision": "retained-official-trailhead-boat-launch-access-anchor",
+      "coordinate": [42.330992586134, -89.666227460683],
+      "coordinateRole": "Jane Addams Trailhead / boat-launch access-area anchor; exact wet-edge point not published",
+      "routes": ["pecatonica-river-wes-block-tuttys"],
+      "reason": "The Freeport Park District-managed Jane Addams Trail site lists Wes Block Trail Access at 2636 W Fairview Road with parking, shelter, restroom and a boat launch. It does not publish a launch-edge coordinate. Retain the trailhead coordinate as an access-area anchor and clarify its role; do not snap it to the river centerline.",
+      "sources": ["https://janeaddamstrail.com/"],
+      "publicationAction": "Keep the route and label the coordinate as a trailhead/access-area anchor; no coordinate change."
+    },
+    {
+      "rank": 130,
+      "state": "Arkansas",
+      "site": "Gilbert river access",
+      "decision": "unverified-launch-coordinate-route-held",
+      "coordinate": [35.987738, -92.715563],
+      "coordinateRole": "NPS Gilbert horse-trailhead coordinate; not verified as the river take-out",
+      "routes": ["buffalo-river-tyler-bend-gilbert"],
+      "reason": "NPS confirms Gilbert as a river access and the route's endpoint, but the stored coordinate exactly matches the NPS Getting Around table's Gilbert Horse trailhead entry. NPS separately publishes a different coordinate for Gilbert Primitive camping and warns that GPS is unreliable; neither source provides the exact gravel-bar take-out point. Retain the route record but withhold it until the actual public water-access coordinate is established.",
+      "sources": [
+        "https://www.nps.gov/buff/planyourvisit/getting-around.htm",
+        "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+        "https://www.nps.gov/buff/planyourvisit/camping.htm",
+        "https://www.nps.gov/thingstodo/grinder-s-ferry-to-gilbert.htm"
+      ],
+      "routeHold": true,
+      "reopeningCondition": "An NPS map or current access record identifies the actual Gilbert gravel-bar boat take-out coordinate and approach."
+    }
+  ]
+}

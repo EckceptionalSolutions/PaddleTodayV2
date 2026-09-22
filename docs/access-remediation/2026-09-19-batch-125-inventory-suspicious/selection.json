@@ -1,0 +1,8 @@
+{
+  "batch":"B125",
+  "endpoints":[
+    {"routeId":"cossatot-river-ed-banks-highway-278","endpoint":"takeOut","endpointName":"U.S. 278 Cossatot River access area","state":"Arkansas","latitude":34.29388,"longitude":-94.17704,"distanceFeetToMatchedRiver":435.435121156092,"distanceFeetToMappedWater":678.2791429882055},
+    {"routeId":"blacklick-creek-route-259-saylor-park","endpoint":"putIn","endpointName":"Ghost Town Trail Heshbon access near PA 259 bridge","state":"Pennsylvania","latitude":40.47345,"longitude":-79.09512,"distanceFeetToMatchedRiver":342.72547219953765,"distanceFeetToMappedWater":286.714433663387}
+  ],
+  "selectionReason":"The two remaining unheld inventory-only suspicious endpoints have official park/trailhead and river-run evidence; public audit excludes these route records, so inventory scope is used for verification."
+}

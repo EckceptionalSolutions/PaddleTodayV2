@@ -1,0 +1,11 @@
+{
+  "batch": "B102",
+  "endpoint": "Jack Shuger Memorial Park boat ramp, Moscow",
+  "routeId": "cedar-river-moscow-saulsbury",
+  "sources": [
+    {"url":"https://www.muscatinecountyiowa.gov/conservation/parks/jack_shuger_memorial_park/","publisher":"Muscatine County Conservation","supports":"Current county park page identifies the four-acre park, Cedar River boat ramp, paddling, public hours, and amenities."},
+    {"url":"https://www.muscatinecountyiowa.gov/files/annual_reports/annual_report_fy24_28331.pdf","publisher":"Muscatine County Conservation","supports":"County annual report documents the Jack Shuger boat landing, access management, facilities, and current maintenance."},
+    {"url":"https://muscatinecountyconservation.com/wp-content/uploads/2017/05/area_jackshuger.pdf","publisher":"Muscatine County Conservation","supports":"Official park map labels the Cedar River boat ramp and park layout."}
+  ],
+  "sourceAssessment": "County conservation records directly establish a public Cedar River boat ramp at Jack Shuger Memorial Park. They support an access-area anchor, not an exact wet-toe coordinate."
+}

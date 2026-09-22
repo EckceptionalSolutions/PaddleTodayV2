@@ -1,0 +1,43 @@
+{
+  "batch": 69,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "USDA Forest Service EDW Recreation Opportunities GIS — Highway 142 River Access, recarea 21706",
+      "url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?objectIds=6729&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "Feature objectid 6729 / recarea 21706 identifies Highway 142 River Access on Mark Twain National Forest and publishes coordinates 36.550194,-91.191532, matching all four route occurrences exactly.",
+        "Its description calls the site The Narrows and the final take-out for the Eleven Point National Scenic River, 8.7 miles below Riverton; it lists a single-lane concrete ramp, paved parking, and vault toilet.",
+        "The feature activity is non-motorized boating and its current Forest Service status field is open."
+      ],
+      "limits": "The GIS feature is a managed recreation-site point and does not state that the coordinate is the exact water-edge toe."
+    },
+    {
+      "name": "Missouri Department of Transportation — Route 142 bridge and access project",
+      "url": "https://www.modot.org/projects/route142oregon",
+      "observations": [
+        "MoDOT identifies the east-side Narrows property as the Highway 142 Eleven Point River Access and describes it as a developed site with a single-lane concrete boat ramp and paved parking.",
+        "The project page says the river access and bridge will be temporarily closed during part of planned construction; verify the Forest Service and MoDOT status before travel."
+      ],
+      "limits": "MoDOT corroborates the access area and facilities but does not publish an exact access coordinate or wet-toe location."
+    },
+    {
+      "name": "Missouri Department of Conservation — Eleven Point River access directions",
+      "url": "https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river",
+      "observations": [
+        "MDC lists The Narrows (142) among the lower-river accesses and gives directions from Highway 142."
+      ],
+      "limits": "MDC confirms the named public access and route context, not a precise coordinate."
+    },
+    {
+      "name": "USGS National Hydrography Dataset Large Scale — targeted refreshed route-distance audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "observations": [
+        "The access point is 271–308 feet from matched Eleven Point River flowlines and within 300 feet of mapped water across the targeted reports.",
+        "The selected Cane Bluff-to-Narrows route refresh still reports exceededTransferLimit for its waterbody and route-network queries; the other three route reports have zero source issues."
+      ],
+      "limits": "Incomplete hydrography coverage prevents a full network-proximity conclusion for the Cane Bluff route; access identity is established independently by Forest Service, MoDOT, and MDC sources."
+    }
+  ],
+  "decision": "Keep the Forest Service coordinate and add it as an authoritative access-area anchor. The exact wet toe is not separately verified, and the Cane Bluff route's two NHD queries remain truncated."
+}

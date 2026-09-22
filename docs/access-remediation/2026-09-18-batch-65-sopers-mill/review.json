@@ -1,0 +1,37 @@
+{
+  "batch": 65,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Soper's Mill Access 235, South Skunk River, Story County, Iowa",
+  "affectedRoutes": [
+    "south-skunk-river-lekwa-sopers-mill",
+    "south-skunk-river-sopers-mill-peterson-park"
+  ],
+  "decision": "replace-the-shared-stale-coordinate-with-the-river-identified-Iowa-DNR-feature-218-location",
+  "decisionScope": "Iowa DNR's current public access GIS feature 218 identifies Sopers Mill A, access number 235, in Story County on the South Skunk River. It records the county conservation board as owner and manager, a 10-by-71-foot concrete access, 20 gravel parking stalls, and parking 10 feet from access; its WGS84 point is 42.104244318429394,-93.5729709396775. Iowa DNR's same layer also has nearby feature 1312 (Sopers Mill B) without the Waterbody, County, or State attributes, so this fix anchors specifically to the fully identified A feature. Story County confirms that Soper's Mill South is the public water-trail access and that the route includes access options around a constructed riffle.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 42.1044299, "longitude": -93.5754935 },
+    "publicOccurrences": 2,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 525,
+    "mappedWaterDistanceFeet": 424,
+    "severityByRoute": {
+      "south-skunk-river-sopers-mill-peterson-park": "suspicious",
+      "south-skunk-river-lekwa-sopers-mill": "review"
+    }
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/trip-details/iowa.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": { "latitude": 42.1044299, "longitude": -93.5754935 },
+    "to": { "latitude": 42.104244318429394, "longitude": -93.5729709396775 },
+    "movedFeet": 686,
+    "publicOccurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ia_dnr_story_sopers_mill_access_235_feature_218_20260918",
+    "rationale": "Both route occurrences used the same old coordinate. The official DNR feature point for the fully identified Sopers Mill A site is about 686 feet away, 66 feet from the matched South Skunk flowline, and 29 feet from mapped water. Both endpoints now follow the exact source control and audit as review."
+  },
+  "remainingUncertainty": "The official point maps the county-managed concrete access, not a surveyed wet toe. DNR also records a second nearby feature, Sopers Mill B, for the same access number; use Story County's posted north/south directions and current water-trail signs, and choose the landing around the constructed riffle based on water level and skill.",
+  "outcome": "Two public route occurrences moved to the DNR point for Sopers Mill A. The put-in changed from suspicious to review; the other route's take-out remained review, now with a much smaller mapped-water offset. The corrected point is within 29 feet of mapped water, with no targeted source issues."
+}

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:48:31.680Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "New York",
+      "name": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "hudson-river-indian-confluence-north-river",
+          "endpoint": "putIn",
+          "endpointName": "Outer Gooley Parking Area / Hudson Gorge carry",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "hudson-river-indian-confluence-north-river",
+      "routeName": "Hudson River",
+      "reach": "Indian River confluence / Old Outer Gooley access to North River Take-out",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "latitude": 43.8275,
+      "longitude": -74.2008,
+      "matchedRiverName": "Hudson River",
+      "distanceFeetToMatchedRiver": 572.5531947479362,
+      "nearestMatchedLatitude": 43.82691622415964,
+      "nearestMatchedLongitude": -74.19878066273952,
+      "nearestWaterwayName": "Hudson River",
+      "distanceFeetToNearestWaterway": 572.5531947479362,
+      "nearestWaterwayLatitude": 43.82691622415964,
+      "nearestWaterwayLongitude": -74.19878066273952,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 469.13828433250495,
+      "nearestWaterbodyLatitude": 43.826923,
+      "nearestWaterbodyLongitude": -74.199207,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 469.13828433250495,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "coordinateEvidenceDetail": "hudson_river_newcomb_indian_confluence outer-gooley-hudson-river-takeout: NYSDEC publishes the Town of Newcomb launch, Polaris Bridge parking area and 0.3-mile carry to the hand launch, and Outer Gooley parking area with a 0.1-mile carry to the marked take-out. The stored points are public access/parking anchors; only the Newcomb point is the published launch location. Verify seasonal roads, carries, and the marked landings.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (hudson_river_newcomb_indian_confluence outer-gooley-hudson-river-takeout) on Hudson River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "hudson-river-indian-confluence-north-river",
+      "routeName": "Hudson River",
+      "reach": "Indian River confluence / Old Outer Gooley access to North River Take-out",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "North River Take-out Parking Area / Hudson River take-out",
+      "latitude": 43.7504,
+      "longitude": -74.0587,
+      "matchedRiverName": "Hudson River",
+      "distanceFeetToMatchedRiver": 281.77963817165386,
+      "nearestMatchedLatitude": 43.74990676866302,
+      "nearestMatchedLongitude": -74.05787715259456,
+      "nearestWaterwayName": "Aldous Brook",
+      "distanceFeetToNearestWaterway": 165.19351429665028,
+      "nearestWaterwayLatitude": 43.750809,
+      "nearestWaterwayLongitude": -74.058431,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 201.91104755447085,
+      "nearestWaterbodyLatitude": 43.75015768154284,
+      "nearestWaterbodyLongitude": -74.05801115772282,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 165.19351429665028,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "coordinateEvidenceDetail": "hudson_river_indian_confluence_north_river north-river-hudson-gorge-takeout: NYSDEC identifies the Outer Gooley parking area and 0.1-mile carry to the marked Hudson River access; American Whitewater describes the Old Gooley path as the gorge put-in when a release is not being used. The stored point is the parking/carry anchor, not the water entry. Verify the seasonal road, current carry, access rules, and marked landing.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (hudson_river_indian_confluence_north_river north-river-hudson-gorge-takeout) on Hudson River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

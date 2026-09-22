@@ -65,11 +65,15 @@ const faqItems = [
   },
   {
     question: `How should I check ${group.name} water levels?`,
-    answer: `Start with the route score and gauge notes for the stretch you plan to paddle. This hub includes routes watched with ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}, and each route page explains its own target range or low-water floor.`,
+    answer: scoredRouteCount
+      ? `Check the gauge notes for your stretch and its live score where available. This hub uses ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}. Planning routes have no live score; check their source guidance and current access notices.`
+      : `These planning routes have no live conditions score. Use each route’s gauge notes and source guidance, then check current waterway notices, weather, access, and local conditions before launching.`,
   },
   {
-    question: `Which ${group.name} route is best today?`,
-    answer: `Use the live route cards above to compare today's Paddle Today scores. The best stretch can change with water level, recent trend, weather, access, and route difficulty.`,
+    question: scoredRouteCount ? `Which ${group.name} route is best today?` : `How should I choose a ${group.name} trip?`,
+    answer: scoredRouteCount
+      ? `Compare current scores where available, along with water level, recent trend, weather, access, and route difficulty. Planning-only cards provide trip information without a live paddling recommendation.`
+      : `Compare distance, difficulty, launch access, and shuttle needs. These routes are planning references; verify current conditions with the linked sources before choosing a trip.`,
   },
 ];
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
@@ -127,7 +131,7 @@ const groupStructuredData = [
         </p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Plan a paddle across {group.regions.length} {areaLabel}. Compare distance, difficulty, and today’s conditions before choosing your stretch.
+          Plan a paddle across {group.regions.length} {areaLabel}. {scoredRouteCount ? 'Compare distance, difficulty, and current scores where available before choosing your stretch.' : 'Compare distance, difficulty, and access. These planning routes have no live conditions score.'}
         </p>
 
         <div class="river-group-page__hero-facts" aria-label={`${group.name} trip overview`}>
@@ -183,7 +187,7 @@ const groupStructuredData = [
       <div class="status-banner__body">
         <strong data-group-banner-title>Loading route coverage.</strong>
         <p class="muted" data-group-banner-detail>
-          Pulling scored routes and planning coverage for this river.
+          {scoredRouteCount ? 'Pulling scored routes and planning coverage for this river.' : 'Loading planning routes and trip details for this river.'}
         </p>
       </div>
       <div class="river-group-page__status-actions">
@@ -206,7 +210,7 @@ const groupStructuredData = [
           <h2 class="section-title">Choose a route</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Start with distance, then compare today’s conditions.
+          {scoredRouteCount ? 'Start with distance, then compare current scores where available.' : 'Start with distance, then compare access, difficulty, and shuttle needs.'}
         </p>
       </div>
 
@@ -338,7 +342,7 @@ const groupStructuredData = [
                     </span>
                     <span class="route-choice__score-compact">
                       <strong>--</strong>
-                      <span data-group-initial-score>Loading</span>
+                      <span data-group-initial-score>{route.scoreEligibility === 'planning' ? 'Planning route' : 'Loading'}</span>
                     </span>
                   </button>
                   <a class="river-link river-link--inline route-choice__details-link" href={`/rivers/${route.slug}/`}>
@@ -372,7 +376,7 @@ const groupStructuredData = [
             ) : null}
             <div class="river-route-picker__selected-decision">
               <strong>--</strong>
-              <span>Loading conditions</span>
+              <span>{staticSelectedRoute?.scoreEligibility === 'planning' ? 'Planning only · No live score' : 'Loading conditions'}</span>
             </div>
             {staticSelectedRoute ? (
               <div class="river-route-picker__selected-actions">
@@ -438,7 +442,7 @@ const groupStructuredData = [
         <article class="river-hub-context__item">
           <h3>Route options</h3>
           <p>
-            Compare {group.routeCount} scored {routeLabel} across {regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.
+            Compare {group.routeCount} {routeLabel} ({scoredRouteCount} scored · {planningRouteCount} planning) across {regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.
           </p>
         </article>
         <article class="river-hub-context__item">

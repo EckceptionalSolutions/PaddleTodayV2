@@ -1,0 +1,23 @@
+{
+  "batch": 76,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before point-specific source review.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T23:18:20.996Z; 2,750 public routes, 6,058 endpoints, 49 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "North Carolina",
+    "name": "Horse Shoe Boating Access Area, French Broad River",
+    "storedCoordinate": {
+      "latitude": 35.3293739,
+      "longitude": -82.5747687
+    },
+    "publicCoordinateOccurrences": 2,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "french-broad-blantyre-horse-shoe",
+      "french-broad-horse-shoe-lazy-otter"
+    ],
+    "preReviewFinding": "The Blantyre-to-Horse Shoe route's take-out is 306 feet from the matched named French Broad flowline and 257 feet from mapped water; hydrography coverage is incomplete. The adjacent Horse Shoe-to-Lazy Otter put-in shares the coordinate, is 33 feet from its topology-connected French Broad trace, and classifies okay.",
+    "decision": "verify-the-shared-named-boating-access-area-and-determine-whether-the-route-coordinate-is-an-access-anchor-or-water-entry",
+    "selectionFrozenBeforeResearch": true
+  }
+}

@@ -15,9 +15,10 @@ test('multiple drafts expand, identify their access points and remove only the c
     }
   });
   await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-  await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [] } }));
   await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', route => route.fulfill({ json: fixture }));
   await page.goto('/saved');
+  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
   const resumes = page.getByRole('button', { name: /^Resume trip draft for Rice Creek:/ });
   await expect(resumes).toHaveCount(3);
   const expand = page.getByRole('button', { name: 'Show all 5 trip drafts', exact: true });
@@ -35,6 +36,7 @@ test('multiple drafts expand, identify their access points and remove only the c
   await collapse.press('Enter');
   await expect(resumes).toHaveCount(3);
   await page.reload();
+  await page.getByRole('tab', { name: 'Trips', exact: true }).click();
   await page.getByRole('button', { name: 'Show all 4 trip drafts', exact: true }).click();
   await expect(resumes).toHaveCount(4);
   await expect(page.getByRole('button', { name: 'Resume trip draft for Rice Creek: Launch 5 to Long Lake', exact: true })).toHaveCount(0);

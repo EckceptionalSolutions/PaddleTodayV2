@@ -1,0 +1,38 @@
+{
+  "batch": 66,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "FM 973 / Del Valle Bridge, Colorado River, Travis County, Texas",
+  "affectedRoutes": [
+    "colorado-river-texas-river-school-fm973",
+    "colorado-river-fm973-little-webberville"
+  ],
+  "decision": "replace-the-rounded-LCRA-coordinate-with-its-precise-embedded-map-marker-across-both-shared-route-occurrences",
+  "decisionScope": "LCRA's current Paddle the Colorado guide identifies FM 973 / Del Valle Bridge as a TxDOT-managed public river access on the north side of FM 973, with limited roadside parking and an uneven carry to launch. The official page's embedded map places marker 17275-address at 30.2089962,-97.6382568; its site card rounds the coordinates to 30.21,-97.64. Two public routes share this access. The exact marker improves the access-area pin but does not georeference the water toe.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 30.21, "longitude": -97.64 },
+    "publicOccurrences": 2,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 510.02,
+    "mappedWaterDistanceFeet": 428.94,
+    "severityByRoute": {
+      "colorado-river-texas-river-school-fm973": "review",
+      "colorado-river-fm973-little-webberville": "suspicious"
+    }
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/trip-details/texas.ts",
+      "src/data/routes/texas.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": { "latitude": 30.21, "longitude": -97.64 },
+    "to": { "latitude": 30.2089962, "longitude": -97.6382568 },
+    "movedFeet": 660,
+    "publicOccurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "tx_lcra_fm973_del_valle_access_marker_17275_20260918",
+    "rationale": "The LCRA embedded map provides a seven-decimal marker for the exact named TxDOT access area, resolving the coarse two-decimal card coordinate. Refreshed NHD places the new point 295 feet from the matched Colorado River flowline and 153 feet from mapped water, with no targeted source issues. Both route occurrences now match the official access control and audit as review."
+  },
+  "remainingUncertainty": "LCRA describes a carry over uneven ground from limited roadside parking but does not georeference the final launch/landing point. The new coordinate is the access-area marker, not a surveyed wet toe; users should follow current signs and only use the open access path to the water.",
+  "outcome": "Moved both route occurrences about 660 feet to LCRA's precise access-area map pin. The Colorado River-to-Little Webberville put-in changed from suspicious to review; the Texas River School route's take-out remained review. The updated anchor is within 153 feet of mapped water, with no targeted source issues."
+}

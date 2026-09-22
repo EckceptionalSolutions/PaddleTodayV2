@@ -1,0 +1,59 @@
+{
+  "reviewDate": "2026-09-17",
+  "checks": [
+    {
+      "name": "withheld route generation",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "result": "passed",
+      "details": "Generated src/data/generated/withheld-route-slugs.ts with 75 route slugs. All five newly held route IDs are present."
+    },
+    {
+      "name": "Logan source and occurrence verifier",
+      "command": "node docs/access-remediation/2026-09-17-batch-02/logan-follow-up/verify.mjs",
+      "result": "passed",
+      "details": "Both current state GIS feature IDs match public/open shore-launch attributes, lat/long attributes, and geometry. Route source, Oakland take-out, official controls, source hash and the Pender hold agree."
+    },
+    {
+      "name": "JSON evidence parsing",
+      "command": "Node JSON.parse on official controls, selection.json, and review.json",
+      "result": "passed",
+      "details": "All parsed successfully."
+    },
+    {
+      "name": "route TypeScript typecheck",
+      "command": "npm run typecheck:routes; node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "result": "blocked by workspace dependencies",
+      "details": "npm script cannot find tsc on PATH. Direct TypeScript run fails across the workspace because @paddletoday/api-contract is missing; those missing declarations produce widespread unrelated RiverRouteAccessPoint type errors. No clean route typecheck is claimed."
+    },
+    {
+      "name": "full access-quality audit",
+      "command": "npm run routes:audit:access-quality -- --cache-only; node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --route=logan-creek-pender-oakland --output=docs/access-remediation/2026-09-17-batch-02/logan-follow-up/route-audit.json",
+      "result": "blocked by workspace dependencies",
+      "details": "npm script cannot find tsx on PATH. Direct CLI run fails with ERR_MODULE_NOT_FOUND for @paddletoday/geo. docs/access-point-quality-audit.json remains the 2026-09-17T12:02:46.464Z cache snapshot and was not overwritten."
+    },
+    {
+      "name": "public route geometry regeneration",
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id <changed-still-public-route>",
+      "result": "blocked by workspace dependencies",
+      "details": "Attempts for the West River, Gunpowder Falls and Pecatonica routes all fail before writing with ERR_MODULE_NOT_FOUND for @paddletoday/geo. Their route endpoints did not change; intermediate optional access records were removed. Geometry and catalog assembly were not refreshed."
+    },
+    {
+      "name": "generated access registry refresh",
+      "command": "npm run routes:access-registry:generate -- --audit=docs/access-point-quality-audit.json",
+      "result": "not run",
+      "details": "The full quality report could not be refreshed, so registry generation from its stale cache snapshot would be misleading. Existing generated registry remains a dated snapshot."
+    },
+    {
+      "name": "diff whitespace check",
+      "command": "git diff --check",
+      "result": "workspace line-ending limitation",
+      "details": "The captured working-tree source files use CRLF while the Git blobs use LF; raw diff check reports carriage returns throughout these pre-existing files. Semantic diff was inspected with git diff --ignore-space-at-eol. No source edits were made to normalize unrelated file endings."
+    }
+  ],
+  "limits": [
+    "No route geometry, catalog bundle, full quality report, or generated access registry was refreshed.",
+    "The five route holds are reversible and keep source records in inventory.",
+    "No deployment or catalog-wide publication clearance was performed."
+  ],
+  "workspaceBlocker": "Shared @paddletoday/api-contract and @paddletoday/geo packages are absent from the current workspace; npm .bin links for tsc/tsx are also missing. Existing unrelated package deletions were left untouched."
+}

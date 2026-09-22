@@ -4,7 +4,7 @@ for (const failure of ['incomplete response', 'timeout', 'server error', 'unread
   test(`connection check recovers from ${failure}`, async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem('paddletoday:welcome-completed:v1', '1'));
     await page.route('**/api/**', (route) => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    const initialFeed = page.waitForResponse((response) => response.url().includes('/api/rivers/summary.json'));
+    const initialFeed = page.waitForResponse((response) => response.url().includes('/api/rivers/catalog.json'));
     await page.goto('/more');
     await initialFeed;
     let pending: Route | null = null;

@@ -26,6 +26,17 @@ describe('shared geo primitives', () => {
     expect(result?.coordinates.every((coordinate) => coordinate[1] === 0)).toBe(true);
   });
 
+  it('preserves an explicit same-launch round trip past an intermediate bailout', () => {
+    const line = [[0, 0], [1, 0], [2, 1], [1, 0], [0, 0]];
+    const launch = { longitude: 0, latitude: 0 };
+    for (const points of [[launch, launch], [launch, { longitude: 1, latitude: 0 }, launch]]) {
+      expect(endpointSnappedRiverGeometry([line], points)?.coordinates).toEqual(line);
+    }
+    expect(endpointSnappedRiverGeometry([line], [launch, { longitude: 1, latitude: 0 }])?.coordinates)
+      .toEqual([[0, 0], [1, 0]]);
+    expect(endpointSnappedRiverGeometry([[[0, 0], [1, 0]]], [launch, launch])).toBeNull();
+  });
+
   it('traces connected flowline pieces between exact endpoint projections', () => {
     const result = endpointSnappedRiverNetwork([
       { coordinates: [[0, 0], [1, 0]] },

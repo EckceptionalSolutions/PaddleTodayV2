@@ -1,0 +1,25 @@
+{
+  "batch": "2026-09-17-batch-17",
+  "files": {
+    "src/data/routes/minnesota.ts": {
+      "backupPath": "node_modules/.cache/access-batch-17/backups/src_data_routes_minnesota.ts.before",
+      "bytes": 1723574,
+      "sha256": "3271F92DDE53CEDC69966D04C3344662185259060DB4D643992B5B2E0AA64583"
+    },
+    "src/data/trip-details/minnesota.ts": {
+      "backupPath": "node_modules/.cache/access-batch-17/backups/src_data_trip-details_minnesota.ts.before",
+      "bytes": 755072,
+      "sha256": "D7CB4E61DEDDEECDC26DE1365445D834C4DF92DC4E8F7ED64753A79DFB60E6AB"
+    },
+    "src/data/routes/new-york.ts": {
+      "backupPath": "node_modules/.cache/access-batch-17/backups/src_data_routes_new-york.ts.before",
+      "bytes": 3537738,
+      "sha256": "F8B93E612D638E9ADA915B866E00A26A9A985C4351C130AF6E13EB392566A079"
+    },
+    "src/data/route-access-official-map-controls.json": {
+      "backupPath": "node_modules/.cache/access-batch-17/backups/src_data_route-access-official-map-controls.json.before",
+      "bytes": 1276246,
+      "sha256": "B3D5A1C9AB4D3F83313C3F6E4EE428E33119355357FA563D78D56872E83994D0"
+    }
+  }
+}

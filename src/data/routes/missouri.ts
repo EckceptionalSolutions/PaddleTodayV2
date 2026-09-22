@@ -4576,8 +4576,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public take-out",
         "value": "Greer Crossing Recreation Area",
-        "note": "The current Forest Service Greer Crossing page describes a campground, boat launch, and day-use area at the take-out and publishes coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The current Forest Service destination page confirms a campground, boat launch, and day-use area. The Eleven Point river map publishes the Greer Crossing river-access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Gauge check",
@@ -5637,8 +5637,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public take-out",
         "value": "Greer Crossing Recreation Area",
-        "note": "The Forest Service lists Greer Crossing as open, notes that the boat launch and day-use area sit just off Highway 19, and publishes coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service destination page verifies the open recreation area and launch. The Eleven Point river map publishes the separate Greer Crossing river-access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Gauge check",
@@ -6371,8 +6371,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Greer Crossing Recreation Area",
-        "note": "The Forest Service identifies Greer Crossing as a popular canoe launch with a single-lane concrete boat ramp, water seasonally, toilets, parking, and coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service confirms a single-lane concrete boat ramp, seasonal water, toilets, and parking. Its Eleven Point river map publishes the access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Public take-out",
@@ -6520,8 +6520,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Greer Crossing Recreation Area",
-        "note": "The Forest Service identifies Greer Crossing as a popular canoe launch with a single-lane concrete boat ramp, water seasonally, toilets, parking, and coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service confirms a single-lane concrete boat ramp, seasonal water, toilets, and parking. Its Eleven Point river map publishes the access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Public take-out",
@@ -6670,8 +6670,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Greer Crossing Recreation Area",
-        "note": "The Forest Service lists Greer Crossing as open, with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service confirms Greer Crossing as an open campground and boat-launch area. Its Eleven Point river map publishes the access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Public take-out",
@@ -6818,8 +6818,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Greer Crossing Recreation Area",
-        "note": "The Forest Service lists Greer Crossing as open, with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service confirms Greer Crossing as an open campground and boat-launch area. Its Eleven Point river map publishes the access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Public take-out",
@@ -6973,8 +6973,8 @@ export const missouriRoutes: River[] = [
       {
         "label": "Public put-in",
         "value": "Greer Crossing Recreation Area",
-        "note": "The current Forest Service Greer Crossing page marks the site open with a campground, boat launch, parking, and coordinates 36.79356389, -91.32854167.",
-        "sourceUrl": "https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area"
+        "note": "The Forest Service confirms Greer Crossing as an open campground and boat-launch area. Its Eleven Point river map publishes the access point at 36.793439, -91.331617; this is an access anchor, not a surveyed ramp edge.",
+        "sourceUrl": "https://rms.memberclicks.net/assets/RiverMaps/Eleven%20Point%20River%20Map.pdf"
       },
       {
         "label": "Public take-out",
@@ -8973,6 +8973,12 @@ export const missouriRoutes: River[] = [
         "sourceUrl": "https://mostateparks.com/park/meramec-state-park/boating"
       },
       {
+        "label": "Named boat-launch coordinate",
+        "value": "38.203259, -91.09888",
+        "note": "Missouri State Parks publishes this coordinate on its named Boat Launch - Meramec feature; it is the public launch-area anchor, not a surveyed wet-edge point.",
+        "sourceUrl": "https://mostateparks.com/key-location/boat-launch-meramec"
+      },
+      {
         "label": "Direct gauge",
         "value": "USGS 07014500",
         "note": "USGS operates Meramec River near Sullivan, MO, the live Meramec gauge for this Sullivan-area route corridor.",
@@ -9010,6 +9016,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "Missouri State Parks River Stop Store",
         "url": "https://mostateparks.com/key-location/river-stop-store",
+        "provider": "local"
+      },
+      {
+        "label": "Missouri State Parks Meramec boat launch",
+        "url": "https://mostateparks.com/key-location/boat-launch-meramec",
         "provider": "local"
       },
       {
@@ -9126,8 +9137,8 @@ export const missouriRoutes: River[] = [
       },
       {
         "label": "Coordinate anchors",
-        "value": "38.20379, -91.099735 to 38.2527, -91.0798",
-        "note": "The put-in uses the existing River Stop Store / Meramec State Park launch coordinate anchor. The take-out coordinate comes from a public Sand Ford Access paddling directory entry that cites USGS ScienceBase location data, with MDC supplying the public-access authority.",
+        "value": "38.203259, -91.09888 to 38.2527, -91.0798",
+        "note": "Missouri State Parks publishes the put-in as its named Boat Launch - Meramec feature coordinate; it is an access-area anchor, not a surveyed wet-edge point. The take-out coordinate comes from a public Sand Ford Access paddling directory entry that cites USGS ScienceBase location data, with MDC supplying the public-access authority.",
         "sourceUrl": "https://thepaddlinghub.com/directory/missouri/sand-ford-access-1"
       }
     ],
@@ -9135,6 +9146,11 @@ export const missouriRoutes: River[] = [
       {
         "label": "Missouri State Parks Meramec boating",
         "url": "https://mostateparks.com/park/meramec-state-park/boating",
+        "provider": "local"
+      },
+      {
+        "label": "Missouri State Parks Meramec boat launch",
+        "url": "https://mostateparks.com/key-location/boat-launch-meramec",
         "provider": "local"
       },
       {

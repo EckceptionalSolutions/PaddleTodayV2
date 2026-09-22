@@ -1,0 +1,33 @@
+{
+  "batch": 64,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "NYSDEC Boat Launch Sites feature 636",
+      "url": "https://services6.arcgis.com/DZHaqZm9cxOD4CWM/arcgis/rest/services/Boat_Launch_Sites/FeatureServer/4/query?objectIds=636&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "The feature attributes identify Steuben County, WATERBODY Tioga River, ACCESS_TYP Hand launch, and AGENCY DEC.",
+        "The WGS84 point is 42.02862938890519,-77.13218453514816. The agency's layer metadata states that the service covers hand and trailer launch sites administered by DEC and other entities."
+      ],
+      "limits": "This is a mapped access-site feature and does not survey the exact wet toe."
+    },
+    {
+      "name": "New York State boating launch directory, 2018 booklet",
+      "url": "https://parks.ny.gov/documents/recreation/boating/2018NYSBoatLaunchingSitesBooklet.pdf",
+      "observations": [
+        "The state directory lists a Tioga River hand launch on Lindley Road near the Village of Lindley, with parking for 15 cars.",
+        "It separately lists a Tioga River hand launch at Mulholland Road bridge in Painted Post, with parking for seven cars."
+      ],
+      "limits": "The directory describes the access sites but provides no coordinates."
+    },
+    {
+      "name": "USGS Tioga River at Lindley station 01520500",
+      "url": "https://waterdata.usgs.gov/monitoring-location/01520500/",
+      "observations": [
+        "The direct river gauge is in the Lindley area and provides corroborating geographic context for the named Tioga River access."
+      ],
+      "limits": "The gauge is a measurement station, not a public launch or access-coordinate source."
+    }
+  ],
+  "decision": "Use the NYSDEC hand-launch GIS feature coordinate, corroborated by the state directory's Lindley Road location description. Do not use the nearby gauge as a launch coordinate."
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "src/data/route-access-official-map-controls.json",
+    "sha256": "bd1f23ec337f2ceb1595adef75b10ea8ace266bcd999fbe5e4196ed921a3e8d4"
+  },
+  {
+    "path": "src/data/route-access-review-holds.ts",
+    "sha256": "a24ead2a4fef8d71c1c67c060a0d717310983b2c2b7eefc5a62ccc834a5e06c3"
+  },
+  {
+    "path": "src/data/routes/idaho.ts",
+    "sha256": "8bdb53f8f8d42debb77efdef83e18e2c05ecdf6d3b190c136cef45a4ba7f39a3"
+  },
+  {
+    "path": "src/data/routes/montana-bitterroot.ts",
+    "sha256": "89942e4e8715b7e4044cc327e2f05e1f0e3fab198ee973ca00030c9058f14054"
+  },
+  {
+    "path": "src/data/trip-details/iowa.ts",
+    "sha256": "0738a2332a95ca9a5d61f28b8a4ca35bfc30893609c74a5dd7beb696c611ee1d"
+  }
+]

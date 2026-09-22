@@ -1,0 +1,13 @@
+{
+  "batch": "B94",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-cheat-rowlesburg-preston-foc",
+  "routeName": "Cheat River",
+  "reach": "Rowlesburg City Park to Preston FOC",
+  "state": "West Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Rowlesburg City Park access",
+  "storedCoordinate": { "latitude": 39.349, "longitude": -79.671 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 344.12640715020166, "nearestWaterwayName": "Cheat River", "distanceFeetToMappedWater": 213.8994855226154, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "connected-network" },
+  "selectionReason": "The current WVDNR public-access guidance identifies state-managed fishing and boating access sites, and the District 1 guide publishes Rowlesburg City Park at the exact stored coordinate as a Cheat River lot with boat access. Preston County Parks independently documents Rowlesburg Community Park and Cheat River access. Retain the exact WVDNR coordinate as an authoritative access-area anchor and do not force it onto the NHD flowline."
+}

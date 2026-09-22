@@ -1,0 +1,77 @@
+{
+  "batch": "2026-09-17-batch-20",
+  "decisions": [
+    {
+      "rank": 225,
+      "site": "Grace Dam Bridge / Grace Dam Road put-in",
+      "decision": "keep-access-anchor",
+      "basis": "The route source and existing control describe the PacifiCorp recreation-plan Grace Dam staging facility and hand-launch access below the dam. The stored point remains a facility anchor; verify release-day staging and the powerhouse boundary.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 226,
+      "site": "NYSDEC Mattituck Creek Waterway Access Site / Naugles Road",
+      "decision": "keep-access-anchor",
+      "basis": "NYSDEC and New York State Parks identify the public waterway access at Naugles Road, and the existing coordinate control matches the listed facility. The Route 48 endpoint is permit-governed and distinct.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 227,
+      "site": "Sunset Park Boat Launch, Kimberly",
+      "decision": "keep-access-anchor-and-record-fees",
+      "basis": "Village materials identify a boat/kayak launch at 300 Sunset Park Drive, west entrance. The 2025 guide lists $5 daily or annual fees of $15 resident / $25 non-resident. The stored point is not a published GPS toe, so it remains an access-area anchor; verify fees and parking rules posted for the trip date.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 228,
+      "site": "Lenon Mill Park Access",
+      "decision": "keep-access-anchor-below-dam",
+      "basis": "Guthrie County identifies canoe access and Iowa DNR's water-trail guide confirms the Lenon Mill-to-P-28 section. Existing coordinate is a park/access anchor; use the below-dam access only and do not imply that this GPS is a surveyed launch toe.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 229,
+      "site": "Town of Turtle Canoe Launch",
+      "decision": "hold-pending-resolution-scope",
+      "basis": "The Town's official information page lists Resolution 2026-11, titled Temporary Restrictions of Activities on Turtle Creek, and identifies the Turtle Canoe Launch on South Creek Road as a Town notice-posting location. The public page does not provide resolution text or its scope/effective dates. Since the notice may govern the selected route's waterbody/access, keep the route unavailable until the Town's restriction and current access status are established.",
+      "coordinateAction": "none",
+      "reopeningEvidence": "Review the complete resolution; determine whether paddling, launch use, or the route corridor is covered and when restrictions end; confirm public parking and launch access."
+    },
+    {
+      "rank": 231,
+      "site": "NYSDEC Osgood Pond Hand Launch Site",
+      "decision": "reclassify-access-anchor",
+      "basis": "NYSDEC confirms the hand launch and water access, but the stored route point is an access-area coordinate, not a surveyed waterline toe. A separately published DEC parking coordinate is not substituted for the hand-launch location.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 232,
+      "site": "Troutdale Campground Put-In",
+      "decision": "keep-access-area-anchor-and-clarify-carry",
+      "basis": "Forest Service information describes the campground beside the Middle Fork Boise River and American Whitewater names Troutdale in the access chain, but neither reviewed source establishes an exact public launch toe or a single precise GPS. Three route records have nearby but nonidentical campground-area pins; do not average or snap them to water. Clarify day-use, season, parking, carry, and site-location uncertainty.",
+      "coordinateAction": "none",
+      "followUp": "Resolve the shared campground pin against a current Forest Service recreation map or manager-provided access coordinate before consolidating the three source records."
+    },
+    {
+      "rank": 233,
+      "site": "Red’s Twilight on the Erie RV Resort",
+      "decision": "remove-unverified-optional-access-waypoint",
+      "basis": "The resort's current public accommodation information documents lodging, not paddler launch permission or public canal entry. It was an optional intermediate point; verified route endpoints remain, so remove it from the access-point list and keep only a conditional lodging note.",
+      "coordinateAction": "remove-optional-access-point-record-only"
+    },
+    {
+      "rank": 234,
+      "site": "Van Buren Riverfront Park Access",
+      "decision": "keep-access-anchor",
+      "basis": "MDC confirms the cooperative public park, permits boats subject to posted rules, and its area map depicts the ramp and parking. The stored coordinate identifies the park access area, not a surveyed ramp toe; Watercress campground is a separate boat ramp.",
+      "coordinateAction": "none"
+    },
+    {
+      "rank": 235,
+      "site": "Deadmans Bar",
+      "decision": "keep-access-anchor",
+      "basis": "NPS identifies the canoe/kayak launch and parking and the existing control matches the stored access anchor. Retain permit, AIS inspection, seasonal road, and mandatory Moose take-out caveats.",
+      "coordinateAction": "none"
+    }
+  ]
+}

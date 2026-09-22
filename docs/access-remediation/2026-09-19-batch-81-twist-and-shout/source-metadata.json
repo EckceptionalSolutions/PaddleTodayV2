@@ -1,0 +1,31 @@
+{
+  "batch": 81,
+  "reviewDate": "2026-09-19",
+  "sources": [
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/main",
+      "publisher": "American Whitewater",
+      "sourceDate": "Current reach page accessed 2026-09-19",
+      "role": "Identifies the Valley Falls to Hammond reach, names Twist and Shout as the railroad-bridge take-out, and publishes the exact stored coordinate."
+    },
+    {
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/2453/reports",
+      "publisher": "American Whitewater",
+      "sourceDate": "Historical reports accessed 2026-09-19",
+      "role": "Documents historic gate/access changes at the Valley Falls section, supporting conditional rather than unrestricted access status."
+    },
+    {
+      "url": "https://wvstateparks.com/parks/valley-falls-state-park/activities/",
+      "publisher": "West Virginia State Parks",
+      "sourceDate": "Current page accessed 2026-09-19",
+      "role": "Confirms kayaking is available at Valley Falls and provides current park-access context."
+    },
+    {
+      "url": "docs/access-remediation/2026-09-19-batch-81-twist-and-shout/audit-before-public-cache-only.json",
+      "publisher": "PaddleToday access-point quality audit",
+      "sourceDate": "Frozen selection snapshot generated 2026-09-18T23:53:24.237Z",
+      "role": "Records the original suspicious endpoint and its hydrography distances before source review."
+    }
+  ],
+  "coordinateMethod": "Retain the exact American Whitewater take-out coordinate. Add conditional access semantics because the coordinate identifies the intended whitewater take-out, while current legal land access, parking, carry, and railroad-bridge restrictions require field confirmation."
+}

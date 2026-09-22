@@ -19,7 +19,7 @@ test('Saved search matches local notes and areas while retaining comparison sele
     { slug: 'offline-route', name: 'Hidden Brook', reach: 'Old mill', notes: 'Bring the blue boat', savedAt: generatedAt }]);
   let requests = 0;
   await page.route('**/api/**', route => { requests++; return route.fulfill({ status: 503, json: { error: 'offline' } }); });
-  await page.route('**/api/rivers/summary.json', route => { requests++; return route.fulfill({ json: { generatedAt, rivers: routes } }); });
+  await page.route('**/api/rivers/{summary,explore}.json', route => { requests++; return route.fulfill({ json: { generatedAt, rivers: routes } }); });
   await page.goto('/saved');
   const search = page.getByRole('textbox', { name: 'Search saved routes', exact: true });
   await expect(page.getByRole('button', { name: 'Compare saved routes', exact: true })).toBeVisible();

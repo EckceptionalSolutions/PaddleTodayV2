@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:42:56.631Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "otter-tail-river-phelps-mill-west-lost-lake",
+      "routeName": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Lost Lake",
+      "state": "Minnesota",
+      "endpoint": "takeOut",
+      "endpointName": "West Lost Lake Public Water Access Site",
+      "latitude": 46.3814506,
+      "longitude": -95.8622708,
+      "matchedRiverName": "Otter Tail River",
+      "distanceFeetToMatchedRiver": 1817.6090664883393,
+      "nearestMatchedLatitude": 46.384015,
+      "nearestMatchedLongitude": -95.868463,
+      "nearestWaterwayName": "Otter Tail River",
+      "distanceFeetToNearestWaterway": 1817.6090664883393,
+      "nearestWaterwayLatitude": 46.384015,
+      "nearestWaterwayLongitude": -95.868463,
+      "nearestWaterbodyName": "West Lost Lake",
+      "distanceFeetToNearestWaterbody": 15.064266905427209,
+      "nearestWaterbodyLatitude": 46.381449544930106,
+      "nearestWaterbodyLongitude": -95.86233063760113,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 15.064266905427209,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 15 ft of NHD waterbody West Lost Lake; flowline distance is informational."
+    },
+    {
+      "routeId": "otter-tail-river-phelps-mill-west-lost-lake",
+      "routeName": "Otter Tail River",
+      "reach": "Phelps Mill County Park to West Lost Lake",
+      "state": "Minnesota",
+      "endpoint": "putIn",
+      "endpointName": "Phelps Mill County Park carry-in access",
+      "latitude": 46.3821667,
+      "longitude": -95.8210176,
+      "matchedRiverName": "Otter Tail River",
+      "distanceFeetToMatchedRiver": 521.4238561314969,
+      "nearestMatchedLatitude": 46.380938303085024,
+      "nearestMatchedLongitude": -95.82207675998119,
+      "nearestWaterwayName": "Otter Tail River",
+      "distanceFeetToNearestWaterway": 521.4238561314969,
+      "nearestWaterwayLatitude": 46.380938303085024,
+      "nearestWaterwayLongitude": -95.82207675998119,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 181.39193984350297,
+      "nearestWaterbodyLatitude": 46.38226331224665,
+      "nearestWaterbodyLongitude": -95.82172462507239,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 181.39193984350297,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=objectid%3D2258&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "mn_dnr_phelps_mill_carry_in_access_20260918 mn-dnr-water-access-sites-objectid-2258-was00559: Minnesota DNR's Water Access Sites feature 2258 / WAS00559 identifies Phelps Mill Public Water Access Site, administered by Otter Tail County, as Carry-In with a Natural surface and publishes GPS geometry at 46.3821666505,-95.8210176143. The DNR Otter Tail River water-trail guide identifies the Phelps Mill County Park carry-in access at about river mile 85 and directs paddlers to portage across the park lawn and launch west of the parking area. The existing coordinate matches the state GPS feature; keep it as the public access-area anchor, not a survey of the exact wet toe. Otter Tail County says there is no conventional boat-launch facility, consistent with hand-carry access rather than a trailer ramp.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (mn_dnr_phelps_mill_carry_in_access_20260918 mn-dnr-water-access-sites-objectid-2258-was00559) on Otter Tail River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

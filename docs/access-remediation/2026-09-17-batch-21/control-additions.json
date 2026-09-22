@@ -1,0 +1,90 @@
+{
+  "batch": "2026-09-17-batch-21",
+  "addedProviderCount": 10,
+  "addedProviders": [
+    {
+      "id": "wa_mirabeau_small_craft_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 47.68201,
+      "longitude": -117.223061,
+      "uncertaintyFeet": 350,
+      "sourceUrl": "https://spokanecd.org/blogs/news/spokane-river-restored-access-points"
+    },
+    {
+      "id": "nd_chautauqua_park_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 46.939,
+      "longitude": -97.992,
+      "uncertaintyFeet": 350,
+      "sourceUrl": "https://www.vcparks.com/chautauquapark"
+    },
+    {
+      "id": "mn_oak_township_county_park_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 45.60927,
+      "longitude": -94.75344,
+      "uncertaintyFeet": 350,
+      "sourceUrl": "https://content.civicplus.com/api/assets/3e22f1a4-3d41-4151-9b0a-2b134bde872c"
+    },
+    {
+      "id": "wi_rochester_park_site_center_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 43.72573,
+      "longitude": -87.803695,
+      "uncertaintyFeet": 1000,
+      "sourceUrl": "https://semspub.epa.gov/work/05/701248.pdf"
+    },
+    {
+      "id": "mt_marco_flats_fas_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 46.88969,
+      "longitude": -113.82973,
+      "uncertaintyFeet": 350,
+      "sourceUrl": "https://myfwp.mt.gov/fishMT/fas/39754175"
+    },
+    {
+      "id": "ny_cameron_mills_cr110_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 42.178617,
+      "longitude": -77.363567,
+      "uncertaintyFeet": 250,
+      "sourceUrl": "https://www.ilovethefingerlakes.com/rivers/canisteo.htm"
+    },
+    {
+      "id": "wi_trego_town_park_landing_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 45.9106187,
+      "longitude": -91.8238907,
+      "uncertaintyFeet": 350,
+      "sourceUrl": "https://home.nps.gov/sacn/planyourvisit/maps.htm"
+    },
+    {
+      "id": "tx_heath_canyon_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 29.45025,
+      "longitude": -102.82346,
+      "uncertaintyFeet": 500,
+      "sourceUrl": "https://www.nps.gov/rigr/planyourvisit/lower_cyns.htm"
+    },
+    {
+      "id": "id_three_forks_blm_boat_launch_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 42.545023,
+      "longitude": -117.167067,
+      "uncertaintyFeet": 300,
+      "sourceUrl": "https://www.blm.gov/visit/three-forks"
+    },
+    {
+      "id": "tx_riverdale_lane_access_anchor",
+      "coordinateRole": "authoritative-access-anchor",
+      "latitude": 28.67067,
+      "longitude": -97.54198,
+      "uncertaintyFeet": 500,
+      "sourceUrl": "https://www.sariverauthority.org/parks-trails/"
+    }
+  ],
+  "reclassifiedProviders": [],
+  "notes": [
+    "No coordinate was snapped to mapped water. Park, facility and address coordinates remain access-area anchors unless a source supplies a distinct surveyed water-entry point."
+  ]
+}

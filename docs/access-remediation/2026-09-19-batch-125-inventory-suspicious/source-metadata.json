@@ -1,0 +1,8 @@
+{
+  "batch":"B125",
+  "sources":[
+    {"url":"https://www.arkansasstateparks.com/sites/default/files/2025-10/cossatotriver_2014pibweb.pdf","publisher":"Arkansas State Parks","role":"Cossatot access map","retrieved":"2026-09-19","notes":"Identifies U.S. 278 Access as the lower Cossatot float access/take-out."},
+    {"url":"https://indianacountyparks.org/our-trails/ghost-town-trail/ghost-town-trailheads/","publisher":"Indiana County Parks & Trails","role":"Heshbon trailhead record","retrieved":"2026-09-19","notes":"Identifies Heshbon on Route 259 with parking and seasonal facilities."},
+    {"url":"https://www.americanwhitewater.org/content/River/view/river-detail/1582/reports","publisher":"American Whitewater","role":"Blacklick run and put-in context","retrieved":"2026-09-19","notes":"Identifies the Route 259 to Saylor Park run and the Ghost Town Trail put-in upstream of the bridge."}
+  ]
+}

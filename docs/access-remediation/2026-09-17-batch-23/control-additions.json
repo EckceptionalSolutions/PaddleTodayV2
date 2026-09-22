@@ -1,0 +1,61 @@
+{
+  "batch": "2026-09-17-batch-23",
+  "providers": [
+    {
+      "id": "pa_ohiopyle_ramcat_launch_access_anchor",
+      "name": "Pennsylvania DCNR Ohiopyle State Park Ramcat launch",
+      "state": "Pennsylvania",
+      "sourceUrl": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&Size=3849767&ViewerMode=2&action=PDFStream&chksum=&docID=1737407&docName=OHIO_ParkMap&nativeExt=pdf&overlay=0&revision=2",
+      "sourceType": "official-site-map-derived",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Pennsylvania DCNR’s Ohiopyle State Park map identifies the Ramcat launch area and publishes the route coordinate 39.82632,-79.37891 in the route evidence record. DCNR’s current park guide confirms that the Middle Yough begins at Ramcat and documents the public boating route. Retain this published location as an access-area anchor: its mapped-water offset is about 324 feet, so it is not represented as a surveyed waterline edge.",
+      "controls": [
+        {
+          "featureId": "ohiopyle-ramcat-launch-area",
+          "name": "Ramcat Launch, Ohiopyle State Park",
+          "aliases": [
+            "Ramcat Launch",
+            "Ramcat Launch Area",
+            "Youghiogheny River Middle Yough put-in"
+          ],
+          "waterbody": "Youghiogheny River",
+          "riverMile": null,
+          "latitude": 39.82632,
+          "longitude": -79.37891,
+          "uncertaintyFeet": 324,
+          "matchedRiverDistanceFeet": 324,
+          "coordinateText": "39.82632,-79.37891; official park-map access-area coordinate retained as an anchor, not a surveyed water-entry edge."
+        }
+      ]
+    },
+    {
+      "id": "fl_peacock_slough_river_camp_access_anchor",
+      "name": "Florida State Parks Peacock Slough River Camp GPS anchor",
+      "state": "Florida",
+      "sourceUrl": "https://www.floridastateparks.org/parks-and-trails/peacock-slough-river-camp",
+      "sourceType": "official-coordinate-table",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-access-anchor",
+      "method": "Florida State Parks publishes the river-camp GPS as N 30 6.09, W 83 8.23 and says the camp is on the Suwannee River at river mile 95.8. Conversion gives 30.1015,-83.137167. The state’s general River Camps guidance says river camps are accessed only from the river or, in some cases, hiking trails. This is the camp/access-area anchor; the exact water-side landing is not published, so do not call it a surveyed entry edge.",
+      "controls": [
+        {
+          "featureId": "florida-state-parks-peacock-slough-river-camp",
+          "name": "Peacock Slough River Camp access-area anchor",
+          "aliases": [
+            "Peacock Slough River Camp"
+          ],
+          "waterbody": "Suwannee River",
+          "riverMile": 95.8,
+          "latitude": 30.1015,
+          "longitude": -83.137167,
+          "uncertaintyFeet": 300,
+          "matchedRiverDistanceFeet": 267,
+          "coordinateText": "Florida State Parks GPS N 30 6.09, W 83 8.23 converted to 30.1015,-83.137167; camp access anchor, not a surveyed landing coordinate."
+        }
+      ]
+    }
+  ]
+}

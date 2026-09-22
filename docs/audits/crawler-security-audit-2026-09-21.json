@@ -1,0 +1,214 @@
+{
+  "start": "2026-09-20T20:28:21.316462+00:00",
+  "end": "2026-09-21T20:28:21.316462+00:00",
+  "limitations": "Sampled firewall events, not complete traffic logs. User-agent strings and Google ASN do not authenticate Search crawlers. No request query strings or client IPs collected.",
+  "queries": {
+    "google_asn": {
+      "data": {
+        "viewer": {
+          "zones": [
+            {
+              "firewallEventsAdaptive": [
+                {
+                  "action": "managed_challenge",
+                  "clientAsn": "15169",
+                  "clientRequestPath": "/privacy/",
+                  "datetime": "2026-09-21T15:06:56Z",
+                  "source": "botFight",
+                  "userAgent": "PlayStore-Google"
+                },
+                {
+                  "action": "managed_challenge",
+                  "clientAsn": "15169",
+                  "clientRequestPath": "/privacy/",
+                  "datetime": "2026-09-21T14:33:06Z",
+                  "source": "botFight",
+                  "userAgent": "PlayStore-Google"
+                },
+                {
+                  "action": "managed_challenge",
+                  "clientAsn": "15169",
+                  "clientRequestPath": "/privacy/",
+                  "datetime": "2026-09-21T13:07:03Z",
+                  "source": "botFight",
+                  "userAgent": "PlayStore-Google"
+                },
+                {
+                  "action": "managed_challenge",
+                  "clientAsn": "15169",
+                  "clientRequestPath": "/",
+                  "datetime": "2026-09-21T08:23:43Z",
+                  "source": "botFight",
+                  "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.36 Safari/537.36 PlayStore-Google"
+                },
+                {
+                  "action": "managed_challenge",
+                  "clientAsn": "15169",
+                  "clientRequestPath": "/privacy/",
+                  "datetime": "2026-09-21T07:48:31Z",
+                  "source": "botFight",
+                  "userAgent": "PlayStore-Google"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "errors": null
+    },
+    "googlebot_ua": {
+      "data": {
+        "viewer": {
+          "zones": [
+            {
+              "firewallEventsAdaptive": [
+                {
+                  "action": "block",
+                  "clientAsn": "400810",
+                  "clientRequestPath": "/wp/.env",
+                  "datetime": "2026-09-21T08:28:13Z",
+                  "source": "firewallCustom",
+                  "userAgent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "errors": null
+    },
+    "python_ua": {
+      "data": {
+        "viewer": {
+          "zones": [
+            {
+              "firewallEventsAdaptive": [
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/cedar-river-chain-lakes-ellis-harbor/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/turtle-creek-school-section-east-creek/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/by-river/french-creek/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/mississippi-river-county-road-72-county-line/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/red-lake-river-huot-crookston/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/crow-wing-river-green-oak-lake-placid/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/pine-river-richland-center-canoe-port-1-port-4/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/hay-river-county-ff-highway-25/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/bark-river-bark-river-park-delafield/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/des-moines-river-highway-30-sportsman/",
+                  "datetime": "2026-09-21T20:18:17Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/by-river/erie-canal/",
+                  "datetime": "2026-09-20T22:24:43Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/api/explore-catalog",
+                  "datetime": "2026-09-20T22:24:43Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/search-index.json",
+                  "datetime": "2026-09-20T22:24:43Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/rivers/erie-canal-fairport-bushnells-basin/",
+                  "datetime": "2026-09-20T22:24:43Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                },
+                {
+                  "action": "block",
+                  "clientAsn": "7922",
+                  "clientRequestPath": "/api/river-catalog",
+                  "datetime": "2026-09-20T22:24:43Z",
+                  "source": "bic",
+                  "userAgent": "Python-urllib/3.14"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "errors": null
+    }
+  }
+}

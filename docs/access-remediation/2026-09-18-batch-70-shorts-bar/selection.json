@@ -1,0 +1,24 @@
+{
+  "batch": 70,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:10:52.648Z; 2,750 public routes, 6,058 endpoints, 55 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Idaho",
+    "name": "Shorts Bar Recreation Site, Salmon River",
+    "storedCoordinate": {
+      "latitude": 45.411944,
+      "longitude": -116.302222
+    },
+    "publicCoordinateOccurrences": 3,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "lower-salmon-island-bar-shorts-bar",
+      "lower-salmon-shorts-bar-lucile",
+      "salmon-river-carey-creek-riggins"
+    ],
+    "preReviewFinding": "The selected Carey Creek-to-Riggins route occurrence is about 584 feet from the matched Salmon River flowline and 287 feet from mapped water; its NHD coverage is complete. Two other public route occurrences share the same coordinate.",
+    "decision": "verify-the-shared-Shorts-Bar-access-location-from-official-site-and-river-access-sources-before-changing-the-three-route-shared-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

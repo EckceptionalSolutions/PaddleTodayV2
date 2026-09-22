@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T01:11:01.432Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "woonasquatucket-river-whipple-esmond",
+      "routeName": "Woonasquatucket River",
+      "reach": "Whipple Field to Esmond Park",
+      "state": "Rhode Island",
+      "endpoint": "putIn",
+      "endpointName": "Whipple Field river access",
+      "latitude": 41.8892,
+      "longitude": -71.5006,
+      "matchedRiverName": "Woonasquatucket River",
+      "distanceFeetToMatchedRiver": 161.18487731355467,
+      "nearestMatchedLatitude": 41.88912565805047,
+      "nearestMatchedLongitude": -71.50001496151275,
+      "nearestWaterwayName": "Whipple Brook",
+      "distanceFeetToNearestWaterway": 161.18487731180994,
+      "nearestWaterwayLatitude": 41.889125658050496,
+      "nearestWaterwayLongitude": -71.50001496151275,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 1074.0337722106733,
+      "nearestWaterbodyLatitude": 41.889904,
+      "nearestWaterbodyLongitude": -71.49676,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 161.18487731180994,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is on the connected route network, but the nearest named waterway is Whipple Brook; verify the confluence or tributary access before accepting it."
+    },
+    {
+      "routeId": "woonasquatucket-river-whipple-esmond",
+      "routeName": "Woonasquatucket River",
+      "reach": "Whipple Field to Esmond Park",
+      "state": "Rhode Island",
+      "endpoint": "takeOut",
+      "endpointName": "Esmond Park dam portage / public access-area anchor",
+      "latitude": 41.87905,
+      "longitude": -71.5023667,
+      "matchedRiverName": "Woonasquatucket River",
+      "distanceFeetToMatchedRiver": 23.620281941403462,
+      "nearestMatchedLatitude": 41.879102670145706,
+      "nearestMatchedLongitude": -71.50231612710655,
+      "nearestWaterwayName": "Woonasquatucket River",
+      "distanceFeetToNearestWaterway": 23.62028194351218,
+      "nearestWaterwayLatitude": 41.87910267014571,
+      "nearestWaterwayLongitude": -71.50231612710655,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 3.3516957780365444,
+      "nearestWaterbodyLatitude": 41.87905833672915,
+      "nearestWaterbodyLongitude": -71.50236151456126,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 3.3516957780365444,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://exploreri.org/siteReport.php?siteID=344&src=criteria",
+      "coordinateEvidenceDetail": "ri_esmond_park_portage_access smithfield-esmond-park-portage-access: ExploreRI publishes the Esmond Park Portage coordinate and describes it as a site that can be used as a put-in or take-out but is primarily for portaging the small Esmond dam. The Town of Smithfield confirms the public Esmond Park, river frontage and parking. The coordinate identifies the portage/access site, not the exact wet edge.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ri_esmond_park_portage_access smithfield-esmond-park-portage-access) on Woonasquatucket River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

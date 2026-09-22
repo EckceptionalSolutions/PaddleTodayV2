@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T16:35:46.197Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "all-inventory-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "catawba-river-fort-mill-rock-hill",
+      "routeName": "Catawba River",
+      "reach": "Fort Mill River Access to Rock Hill River Park",
+      "state": "South Carolina",
+      "endpoint": "putIn",
+      "endpointName": "Fort Mill public landing below Lake Wylie Dam",
+      "latitude": 35.02171656381242,
+      "longitude": -81.00404683440097,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 336.48374099647884,
+      "nearestMatchedLatitude": 35.02127627355698,
+      "nearestMatchedLongitude": -81.00305718306714,
+      "nearestWaterwayName": "Catawba River",
+      "distanceFeetToNearestWaterway": 693.031063237745,
+      "nearestWaterwayLatitude": 35.019819,
+      "nearestWaterwayLongitude": -81.00415600000001,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 86.55015656145088,
+      "nearestWaterbodyLatitude": 35.02153127564888,
+      "nearestWaterbodyLongitude": -81.00422775650544,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 86.55015656145088,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 87 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "catawba-river-fort-mill-rock-hill",
+      "routeName": "Catawba River",
+      "reach": "Fort Mill River Access to Rock Hill River Park",
+      "state": "South Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "River Park in Rock Hill (SCDNR paddle launch)",
+      "latitude": 34.95615028378521,
+      "longitude": -80.94933899432193,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 27.00527154119995,
+      "nearestMatchedLatitude": 34.956078181170966,
+      "nearestMatchedLongitude": -80.94931854885242,
+      "nearestWaterwayName": "Manchester Creek",
+      "distanceFeetToNearestWaterway": 27.005287738394838,
+      "nearestWaterwayLatitude": 34.956078162818635,
+      "nearestWaterwayLongitude": -80.94931864520217,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 5.902231237123037,
+      "nearestWaterbodyLatitude": 34.956134571222854,
+      "nearestWaterbodyLongitude": -80.94933429044276,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 5.902231237123037,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-water-entry",
+      "coordinateEvidenceSourceUrl": "https://services.arcgis.com/acgZYxoN5Oj8pDLa/arcgis/rest/services/South_Carolina_Public_Water_Access_PUBLIC_VIEW/FeatureServer/0/936?f=pjson",
+      "coordinateEvidenceDetail": "scdnr_rock_hill_river_park_paddle_launch_20260918 PL103-OBJECTID-936: SCDNR feature PL103 / OBJECTID 936 lists River Park in Rock Hill as an active, open Paddle Launch / Ramp on the Catawba River. SCDNR's Catawba Scenic River page places the carry-in launch at the mouth of Manchester Creek with nearby parking; the City confirms the canoe/kayak launch. The stored coordinate follows official feature geometry at 34.95615028378521,-80.94933899432193 with 75-foot uncertainty. The ramp toe is not field-surveyed.",
+      "severity": "ok",
+      "note": "Stored coordinate matches the exact named authoritative water-entry control (scdnr_rock_hill_river_park_paddle_launch_20260918 PL103-OBJECTID-936) on Catawba River; the 27 ft named-flowline offset reflects incomplete or generalized NHD coverage, not a proposed coordinate move."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "batch": 51,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the next repeated public suspicious group from the latest full audit, then check its identity against the current NPS access listing and coordinate evidence.",
+  "auditSnapshot": "docs/access-remediation/2026-09-18-batch-50-sabine-street/audit-full-public-cache-only.json generated 2026-09-18T19:00:59.129Z; 2,750 public routes, 6,058 endpoints, 86 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New York",
+    "name": "Long Eddy NYSDEC non-motorized launch, Upper Delaware River",
+    "storedCoordinate": { "latitude": 41.823937, "longitude": -75.112437 },
+    "candidateCoordinate": { "latitude": 41.8497, "longitude": -75.1352 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "delaware-river-hancock-callicoon",
+      "delaware-river-lordville-long-eddy"
+    ],
+    "preReviewFinding": "Both occurrences shared the old point, 370.5 feet from matched Delaware River hydrography and 200.8 feet from mapped water. NPS's current access dataset identifies that exact point as Kellams Bridge fishing-only, with no boat ramp, rather than the Long Eddy public launch.",
+    "decision": "correct-the-shared-endpoint-to-the-published-Long-Eddy-access-coordinate-and-record-that-the-NPS-classifies-the-old-coordinate-as-a-separate-fishing-only-site",
+    "selectionFrozenBeforeResearch": true
+  }
+}

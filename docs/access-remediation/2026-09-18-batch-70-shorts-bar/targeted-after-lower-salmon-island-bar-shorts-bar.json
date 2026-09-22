@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:16:00.171Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 1
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "lower-salmon-island-bar-shorts-bar__-116.6022-45.1119--115.9594-45.7158__all-named",
+      "message": "Cache unavailable: No cached response"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "lower-salmon-island-bar-shorts-bar",
+      "routeName": "Lower Salmon River",
+      "reach": "Island Bar to Shorts Bar",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Island Bar Recreation Site",
+      "latitude": 45.415833,
+      "longitude": -116.259444,
+      "matchedRiverName": null,
+      "distanceFeetToMatchedRiver": null,
+      "nearestMatchedLatitude": null,
+      "nearestMatchedLongitude": null,
+      "nearestWaterwayName": null,
+      "distanceFeetToNearestWaterway": null,
+      "nearestWaterwayLatitude": null,
+      "nearestWaterwayLongitude": null,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 402.60339540167587,
+      "nearestWaterbodyLatitude": 45.41651628396399,
+      "nearestWaterbodyLongitude": -116.25820943501859,
+      "endpointOnWaterbody": false,
+      "waterProximity": "unknown",
+      "distanceFeetToMappedWater": 402.60339540167587,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": null,
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.blm.gov/visit/island-bar-recreation-site",
+      "coordinateEvidenceDetail": "id_blm_island_bar_recreation_site blm-island-bar-recreation-site: BLM publishes the Island Bar site coordinate and identifies this undeveloped Lower Salmon recreation site as a frequent put-in with easy river access. Keep the point as a recreation-site/access anchor; it does not identify a surveyed shoreline landing or ramp toe. Verify current site and beach conditions.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_blm_island_bar_recreation_site blm-island-bar-recreation-site) on Salmon River / Lower Salmon River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "lower-salmon-island-bar-shorts-bar",
+      "routeName": "Lower Salmon River",
+      "reach": "Island Bar to Shorts Bar",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "Shorts Bar Recreation Site",
+      "latitude": 45.411944,
+      "longitude": -116.302222,
+      "matchedRiverName": null,
+      "distanceFeetToMatchedRiver": null,
+      "nearestMatchedLatitude": null,
+      "nearestMatchedLongitude": null,
+      "nearestWaterwayName": null,
+      "distanceFeetToNearestWaterway": null,
+      "nearestWaterwayLatitude": null,
+      "nearestWaterwayLongitude": null,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 286.7581309355535,
+      "nearestWaterbodyLatitude": 45.412714,
+      "nearestWaterbodyLongitude": -116.301997,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 286.7581309355535,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": null,
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.blm.gov/visit/shorts-bar-recreation-site",
+      "coordinateEvidenceDetail": "id_blm_shorts_bar_recreation_site_20260918 blm-idaho-shorts-bar-recreation-site: The BLM's current Shorts Bar Recreation Site page identifies the public site as a frequent put-in for the Lower Salmon River, describes easy access to the river, and publishes 45.41194444,-116.3022222, which rounds to the stored route point. The official BLM Lower Salmon boater guide identifies Shorts Bar as a BLM recreation site with toilets, a boat ramp, and campsites; a BLM announcement confirms ramp upgrades at Shorts Bar. This establishes the access facility and the appropriate access-area pin, not a separately surveyed wet toe.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_blm_shorts_bar_recreation_site_20260918 blm-idaho-shorts-bar-recreation-site) on Salmon River / Lower Salmon River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

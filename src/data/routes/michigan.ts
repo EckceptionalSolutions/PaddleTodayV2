@@ -88,7 +88,7 @@ export const michiganRoutes: River[] = [
       "hazards": ["fast_rise", "cold_water", "access_uncertain", "urban_water_quality"],
       "safetyNotes": [
         "Ceresco Green is a public carry-in access with a steep path, steps/grass, large boulders, and drop-off/long-term parking arrangements; confirm the current launch condition before loading boats.",
-        "Historic Bridge Park is a public county park with a kayak launch, parking, restrooms, and other amenities; confirm current park, construction, and water-access notices before arrival.",
+        "Historic Bridge Park has a public kayak/canoe launch and parking. The saved point is a park/access-area anchor from the county park plan, not a surveyed launch edge; follow current signs and check construction notices before arrival.",
         "The 500-3000 cfs RiverScout range is broad community guidance, not a state safety rule. Pair the direct gauge with same-day visual scouting, weather, water temperature, and group skill.",
         "The Kalamazoo watershed has documented legacy contamination and ongoing remediation. Do not drink river water or eat fish unless current Michigan health guidance allows it; follow posted advisories and avoid contact with unusual sheens or debris."
       ],
@@ -122,11 +122,11 @@ export const michiganRoutes: River[] = [
       "seasonNotes": "April through October is the practical paddling season; cold water, storms, rising flow, urban obstructions, and changing access can make conditions unsuitable at any time.",
       "difficulty": "moderate",
       "difficultyNotes": "A moving-water day with public but partly carry-in access, urban bridges, cold-water exposure, and legacy water-quality concerns. It is not a casual beginner float at high or rapidly rising flow.",
-      "confidenceNotes": "Confidence is good for the bounded public water-trail package: Ceresco Green and Historic Bridge Park are named public endpoints with defensible coordinates; the city itinerary documents the two connecting segments and distances; USGS 04105500 is a direct discharge/gage-height station near Battle Creek; and RiverScout supplies a numeric community range. The range remains planning guidance rather than a station-specific safety rule."
+      "confidenceNotes": "Confidence is good for the public water-trail package: Ceresco Green and Historic Bridge Park are named public endpoints; the county plan verifies the Historic Bridge Park launch and parking, while its saved point remains an access-area anchor rather than a surveyed launch edge. The city itinerary documents route segments and distances; USGS 04105500 is a direct gauge, and RiverScout's range remains community planning guidance rather than a safety rule."
     },
     "evidenceNotes": [
       {"label": "Exact route", "value": "Ceresco Green to Historic Bridge Park; about 3.6 mi", "note": "The City of Battle Creek’s Kanoe the Kazoo itinerary lists Ceresco Green to Angler’s Bend at 1.345 miles and Angler’s Bend to Historic Bridge Park at 2.216 miles.", "sourceUrl": "https://battlecreekmi.gov/calendar.aspx?EID=480&PREVIEW=YES"},
-      {"label": "Public endpoints", "value": "Ceresco Green Access Site to Historic Bridge Park", "note": "Michigan Water Trails documents Ceresco Green as public carry-in access; Historic Bridge Park is a county park with a public kayak launch, parking, and restrooms.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5258&ait=av"},
+      {"label": "Public endpoints", "value": "Ceresco Green Access Site to Historic Bridge Park", "note": "Michigan Water Trails documents Ceresco Green as public carry-in access; Calhoun County's 2025–2029 plan documents a public kayak/canoe launch and parking at Historic Bridge Park. The stored point is an access-area anchor, not a surveyed wet edge.", "sourceUrl": "https://cms5.revize.com/revize/calhouncountymi24/Parks/2025-2029%20Park%20Master%20Plan%20FINAL%20with%20maps.pdf"},
       {"label": "Live gauge and threshold", "value": "USGS 04105500; RiverScout 500-3000 cfs optimal estimate", "note": "USGS supplies direct discharge and gage-height telemetry near Battle Creek; RiverScout supplies the numeric community range for planning.", "sourceUrl": "https://riverscout.app/rivers/michigan/kalamazoo-river"},
       {"label": "Safety and route character", "value": "Moving-water water-trail corridor with urban bridges and cold-water exposure", "note": "The official itinerary and water-trail sources document the route segments, access, and public endpoint sequence; current conditions still require same-day scouting.", "sourceUrl": "https://battlecreekmi.gov/calendar.aspx?EID=480&PREVIEW=YES"},
       {"label": "Camping and logistics", "value": "No on-route camping assumed", "note": "Use designated nearby campgrounds or lodging; stage a shuttle and do not infer informal riverbank or park camping.", "sourceUrl": "https://www.michiganwatertrails.org/trail.asp?ait=ov&oid=26"},
@@ -136,6 +136,7 @@ export const michiganRoutes: River[] = [
       {"label": "USGS 04105500 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04105500", "provider": "usgs"},
       {"label": "Ceresco Green access", "url": "https://www.michiganwatertrails.org/location.asp?aid=5258&ait=av", "provider": "local"},
       {"label": "Historic Bridge Park access", "url": "https://www.michiganwatertrails.org/your_adventure.asp?ait=us&pt=42.2974229747021%2C-85.1650500297546", "provider": "local"},
+      {"label": "Calhoun County 2025–2029 Parks Master Plan", "url": "https://cms5.revize.com/revize/calhouncountymi24/Parks/2025-2029%20Park%20Master%20Plan%20FINAL%20with%20maps.pdf", "provider": "local"},
       {"label": "Kanoe the Kazoo segment distances", "url": "https://battlecreekmi.gov/calendar.aspx?EID=480&PREVIEW=YES", "provider": "local"},
       {"label": "Kalamazoo River assessment and water-quality context", "url": "https://kalamazooriver.org/wp-content/uploads/2012/12/DNR-Fisheries-Division-Kalamazoo-River-Assessment-2005.pdf", "provider": "local"},
       {"label": "RiverScout Kalamazoo River", "url": "https://riverscout.app/rivers/michigan/kalamazoo-river", "provider": "local"}
@@ -404,7 +405,7 @@ export const michiganRoutes: River[] = [
     },
     "evidenceNotes": [
       {"label": "Exact route", "value": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park; 2.6 mi", "note": "Michigan Water Trails documents the named public endpoint pair and 2.6-mile distance.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5218&ait=av"},
-      {"label": "Public endpoints", "value": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park", "note": "Both are documented public carry-in/boat-launch sites with parking and access details.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av"},
+      {"label": "Public endpoints", "value": "Comstock Township DNR Boat Launch to Mayor's Riverfront Park", "note": "Michigan Water Trails gives the Mayor's access GPS as 42.29142, -85.56233 and describes a developed carry-in under 50 yards; this replaces the former park-entrance pin and remains an access anchor rather than a surveyed wet edge.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av"},
       {"label": "Live gauge and threshold", "value": "USGS 04106000; RiverScout 500-3000 cfs optimal estimate", "note": "USGS supplies direct live discharge telemetry; RiverScout supplies the numeric community range for planning.", "sourceUrl": "https://riverscout.app/rivers/michigan/kalamazoo-river"},
       {"label": "Safety and route character", "value": "Short urban corridor; current, traffic, cold water, and downstream dam/portage awareness", "note": "Discover Kalamazoo and Michigan Water Trails document the access sequence and downstream dam/portage considerations.", "sourceUrl": "https://www.discoverkalamazoo.com/blog/post/kayaking-in-kalamazoo-county-mi/"},
       {"label": "Camping and logistics", "value": "No on-route camping assumed", "note": "Use designated nearby lodging or campgrounds; do not assume riverbank or park camping.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5219&ait=av"},
@@ -1630,7 +1631,7 @@ export const michiganRoutes: River[] = [
       "riskLevel": "caution",
       "hazards": ["low_water", "strainers", "cold_water", "fast_rise", "access_uncertain"],
       "safetyNotes": [
-        "Riverside Kayak Park and Graham Avenue are named public accesses; verify parking, hours, carry conditions, and closures before launching.",
+        "Riverside Kayak Park and Graham Avenue are named public accesses. Michigan Water Trails gives the Riverside park GPS, not a surveyed dock-edge point; follow the signed universal-access dock and verify the under-50-yard carry, parking, and closures.",
         "The upstream nine-mile section is advanced/expert in local access guidance, with fallen trees and slide-overs; do not treat this as a beginner float.",
         "The six-foot Riverside gauge break is community planning guidance, not an agency-certified safety floor. Same-day visual inspection controls.",
         "The final reach approaches larger open water and the St. Joseph River; avoid the confluence and railroad-trestle area unless separately planned for motorized traffic and current conditions.",
@@ -1660,13 +1661,13 @@ export const michiganRoutes: River[] = [
       "seasonNotes": "Spring through fall is the practical window; storms, cold water, tree fall, and changing access require a same-day call.",
       "difficulty": "moderate",
       "difficultyNotes": "Advanced/expert upstream section with frequent wood and limited intermediate take-outs; competent paddlers only.",
-      "confidenceNotes": "High confidence for the named endpoint pair and approximate reach: Michigan Water Trails and the Southwest Michigan paddle guide document Riverside Kayak Park, Graham Avenue, the 11-mile connection, and hazards; USGS 04102500 is a direct gauge; the six-foot threshold is community guidance, not a safety guarantee."
+      "confidenceNotes": "High confidence for the named endpoint pair and approximate reach: Michigan Water Trails documents Riverside Kayak Park's public dock, parking, carry, and published park GPS, plus Graham Avenue and the 11-mile connection. The Riverside coordinate is a park/access-area anchor, not the dock edge. USGS 04102500 is a direct gauge; the six-foot threshold is community guidance, not a safety guarantee."
     },
-    "putIn": {"id": "riverside-kayak-park", "name": "Riverside Kayak Park public dock and carry-in access", "latitude": 42.186122, "longitude": -86.373262},
+    "putIn": {"id": "riverside-kayak-park", "name": "Riverside Kayak Park / universal-access dock area", "latitude": 42.186122, "longitude": -86.373262},
     "takeOut": {"id": "graham-avenue-water-access", "name": "Graham Avenue public boat launch, Benton Harbor", "latitude": 42.117303, "longitude": -86.468198},
     "evidenceNotes": [
       {"label": "Exact route and endpoints", "value": "Riverside Kayak Park to Graham Avenue; approximately 11 river miles", "note": "Michigan Water Trails identifies Riverside as the put-in and Graham Avenue as the 11-mile take-out; the Southwest Michigan guide lists the same corridor.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5091&ait=av"},
-      {"label": "Public access and coordinates", "value": "Riverside Kayak Park to Graham Avenue public access", "note": "Michigan Water Trails publishes GPS coordinates and access descriptions for both endpoints.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5115&ait=av"},
+      {"label": "Public access and coordinates", "value": "Riverside Kayak Park to Graham Avenue public access", "note": "Michigan Water Trails publishes a park/access-area GPS for Riverside, documents the universal-access dock and a carry under 50 yards, and describes the public endpoints. The GPS is not a surveyed dock edge.", "sourceUrl": "https://www.michiganwatertrails.org/location.asp?aid=5115&ait=av"},
       {"label": "Live gauge and threshold", "value": "USGS 04102500; 6 ft community planning break", "note": "USGS provides direct gauge data and Southwest Michigan Paddling describes the six-foot Riverside break; neither is a safety guarantee.", "sourceUrl": "https://sites.google.com/site/swmipaddling/st-joseph-river-watershed/paw-paw-river"},
       {"label": "Safety and route character", "value": "Advanced/expert wood-obstacle reach with downstream open-water and motorized-traffic caveats", "note": "Michigan Water Trails and the Two Rivers Coalition paddle plan document tree fall, limited take-outs, shuttle needs, and the open-water finish.", "sourceUrl": "https://www.tworiverscoalition.org/downloads/paddleplanriverside_ps1.pdf"},
       {"label": "Camping and logistics", "value": "Day route with designated nearby campgrounds and mandatory shuttle planning", "note": "Use designated Paw Paw River campgrounds or lodging; no informal riverbank camping is assumed.", "sourceUrl": "https://www.michigan.org/property/paw-paw-river-campground-canoes"},
@@ -1676,6 +1677,7 @@ export const michiganRoutes: River[] = [
       {"label": "USGS 04102500 current conditions", "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04102500", "provider": "usgs"},
       {"label": "Paw Paw River Water Trail", "url": "https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=154", "provider": "local"},
       {"label": "Riverside Kayak Park access", "url": "https://www.michiganwatertrails.org/location.asp?aid=5115&ait=av", "provider": "local"},
+      {"label": "Hagar Township 2022–2026 Parks Plan", "url": "https://cms8.revize.com/revize/hagarmi/Documents/Hagar%20Parks%20Plan%202022-2026%20AS%20ADOPTED%20%281%29.pdf", "provider": "local"},
       {"label": "Graham Avenue access", "url": "https://www.michiganwatertrails.org/location.asp?aid=5091&ait=av", "provider": "local"},
       {"label": "Paw Paw River paddle guide and gauge guidance", "url": "https://sites.google.com/site/swmipaddling/st-joseph-river-watershed/paw-paw-river", "provider": "local"},
       {"label": "Two Rivers Coalition paddle plan", "url": "https://www.tworiverscoalition.org/downloads/paddleplanriverside_ps1.pdf", "provider": "local"}

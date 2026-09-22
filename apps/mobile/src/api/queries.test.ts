@@ -3,9 +3,9 @@ import { QueryClient, QueryObserver } from '@tanstack/react-query';
 import type { RiverDetailResponse } from '@paddletoday/api-contract';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { apiClient } from './client';
-import { riverDetailQueryOptions, riverQueryKeys } from './queries';
+import { exploreCatalogQueryOptions, riverDetailQueryOptions, riverQueryKeys } from './queries';
 
-vi.mock('./client', () => ({ apiClient: { getRiverDetail: vi.fn() } }));
+vi.mock('./client', () => ({ apiClient: { getRiverDetail: vi.fn(), getExplore: vi.fn(), getSummary: vi.fn() } }));
 
 const clients: QueryClient[] = [];
 function client() {
@@ -26,6 +26,15 @@ afterEach(() => {
 });
 
 describe('Explore-to-detail request lifecycle', () => {
+  it('shares the full catalog between discovery consumers instead of requesting the score feed', async () => {
+    const catalog = { generatedAt: null, rivers: [{ river: { slug: 'erie-canal-fairport-bushnells-basin', scoreEligibility: 'planning' } }] };
+    vi.mocked(apiClient.getExplore).mockResolvedValue(catalog as Awaited<ReturnType<typeof apiClient.getExplore>>);
+    const queryClient = client();
+    expect(await queryClient.fetchQuery(exploreCatalogQueryOptions())).toEqual(catalog);
+    expect(await queryClient.fetchQuery(exploreCatalogQueryOptions())).toEqual(catalog);
+    expect(apiClient.getExplore).toHaveBeenCalledTimes(1);
+    expect(apiClient.getSummary).not.toHaveBeenCalled();
+  });
   it('joins an in-flight preview request and reuses fresh data on a second visit', async () => {
     const queryClient = client();
     const pending = deferred<RiverDetailResponse>();

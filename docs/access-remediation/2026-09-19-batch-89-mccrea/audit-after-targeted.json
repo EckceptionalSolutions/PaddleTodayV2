@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:35:06.798Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "henrys-fork-upper-coffee-pot-mccrea",
+      "routeName": "Henrys Fork",
+      "reach": "Upper Coffee Pot Campground to McCrea Bridge Campground",
+      "state": "Idaho",
+      "endpoint": "takeOut",
+      "endpointName": "McCrea Bridge Campground Take-Out",
+      "latitude": 44.461326,
+      "longitude": -111.400613,
+      "matchedRiverName": "Henrys Fork",
+      "distanceFeetToMatchedRiver": 352.37572454415323,
+      "nearestMatchedLatitude": 44.460855922984216,
+      "nearestMatchedLongitude": -111.40179523560558,
+      "nearestWaterwayName": "Henrys Fork",
+      "distanceFeetToNearestWaterway": 352.37651772347164,
+      "nearestWaterwayLatitude": 44.46085414042968,
+      "nearestWaterwayLongitude": -111.40179384424201,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 193.91215563006807,
+      "nearestWaterbodyLatitude": 44.46104491322146,
+      "nearestWaterbodyLongitude": -111.40124507685803,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 193.91215563006807,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://henrysfork.org/wp-content/uploads/Henrys-Fork-Angler-Access-Upper-River-Updated.pdf",
+      "coordinateEvidenceDetail": "id_henrysfork_mccrea_bridge_campground_20260919 henrys-fork-mccrea-bridge-campground: The Henrys Fork Angler Access catalog lists McCrea Bridge Campground at 44.46132608,-111.40061335, identifies Caribou-Targhee National Forest ownership, and documents a paved boat ramp and parking. Recreation.gov independently identifies the McCrea Bridge campground, its boat ramp, and seasonal reservoir-access limitation. Retain the stored point as the managed campground/ramp access anchor; the 352-foot connected-network offset reflects the campground facility placement on the reservoir backwater corridor.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (id_henrysfork_mccrea_bridge_campground_20260919 henrys-fork-mccrea-bridge-campground) on Henrys Fork; access is conditional (Confirm current Forest Service/Rec.gov campground status, ramp access, reservoir level, and parking at arrival; Recreation.gov warns that reservoir access from McCrea Bridge can disappear by August as irrigation drawdown lowers water.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "henrys-fork-upper-coffee-pot-mccrea",
+      "routeName": "Henrys Fork",
+      "reach": "Upper Coffee Pot Campground to McCrea Bridge Campground",
+      "state": "Idaho",
+      "endpoint": "putIn",
+      "endpointName": "Upper Coffee Pot Campground Put-In",
+      "latitude": 44.491111,
+      "longitude": -111.366111,
+      "matchedRiverName": "Henrys Fork",
+      "distanceFeetToMatchedRiver": 188.84825692495997,
+      "nearestMatchedLatitude": 44.4915372647477,
+      "nearestMatchedLongitude": -111.36652272165541,
+      "nearestWaterwayName": "Henrys Fork",
+      "distanceFeetToNearestWaterway": 188.84876818996085,
+      "nearestWaterwayLatitude": 44.491537948858046,
+      "nearestWaterwayLongitude": -111.36652132981338,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 101.05918150858231,
+      "nearestWaterbodyLatitude": 44.49134120449884,
+      "nearestWaterbodyLongitude": -111.36632700041501,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 101.05918150858231,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 101 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

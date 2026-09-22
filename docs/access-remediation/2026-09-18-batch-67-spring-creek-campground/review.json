@@ -1,0 +1,42 @@
+{
+  "batch": 67,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Spring Creek Campground Access, Salmon River, Idaho",
+  "affectedRoutes": [
+    "salmon-river-north-fork-corn-creek"
+  ],
+  "decision": "retain-the-route-pin-as-a-public-access-area-location-and-downgrade-to-review; do-not-claim-the-exact-wet-toe",
+  "decisionScope": "The public Forest Service campground and ramp are the same named Spring Creek access area. The Forest Service GIS point is for the campground; Idaho Fish and Game's guide maps the Spring Creek USFS ramp, and American Whitewater describes the ramp as co-located with the campground. Together they support the identity of the public access area, not the exact water-edge coordinate.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 45.39203,
+      "longitude": -114.25161
+    },
+    "publicOccurrences": 1,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 478,
+    "mappedWaterDistanceFeet": 422,
+    "hydrographyCoverageComplete": true
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/routes/idaho.ts",
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 45.39203,
+      "longitude": -114.25161
+    },
+    "to": {
+      "latitude": 45.39203,
+      "longitude": -114.25161
+    },
+    "movedFeet": 0,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "id_usfs_salmon_challis_spring_creek_campground_access_20260918",
+    "rationale": "The route point lies about 660 feet from the official USFS campground marker. American Whitewater explicitly states the Spring Creek ramp is co-located with the campground, and the Idaho Fish and Game guide identifies the Spring Creek USFS ramp. The access-area relationship is supported, but no primary source provides a precise ramp coordinate. The point remains unchanged and is now review-level with exact-toe uncertainty documented.",
+    "matchingEnvelopeFeet": 700
+  },
+  "remainingUncertainty": "The published Forest Service point marks the campground, not the ramp. The 700-foot match envelope represents the documented co-located public access area, not GPS accuracy. The precise launch toe, carry path, and current on-site status remain unverified; confirm the open access and shoreline entry before use.",
+  "outcome": "One suspicious public endpoint moved to review without a coordinate change. The site is supported as a public Spring Creek access area; exact wetted entry is not independently located."
+}

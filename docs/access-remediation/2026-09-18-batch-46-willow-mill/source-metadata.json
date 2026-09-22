@@ -1,0 +1,53 @@
+{
+  "batch": 46,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "Cumberland County Conodoguinet Creek Water Trail Guide — B4 Willow Mill Park",
+      "url": "https://www.cumberlandcountypa.gov/DocumentCenter/View/49065/CCWT-Guide-with-Updated-Table-2024",
+      "publishedCoordinate": { "latitude": 40.2578, "longitude": -77.0426 },
+      "accessEvidence": {
+        "siteName": "Willow Mill Park",
+        "siteId": "B4",
+        "accessTableUpdate": "2023-2024; guide's access point descriptions say updated June 2024",
+        "waterbody": "Conodoguinet Creek",
+        "launchType": "Concrete boat launch",
+        "pathToWater": "Improved ramp, short carry, shallow slope to water",
+        "riverMile": 23.2
+      },
+      "coordinateInterpretation": "Rounded county park access-site point, not georeferenced to the concrete ramp toe"
+    },
+    {
+      "title": "Cumberland County Water Trails page",
+      "url": "https://www.cumberlandcountypa.gov/4907/Cumberland-County-Water-Trails",
+      "accessEvidence": "The county identifies its Conodoguinet guide and says the detailed access table was updated in 2023-2024."
+    },
+    {
+      "title": "Silver Spring Township Willow Mill Park facility page",
+      "url": "https://silverspringrec.recdesk.com/Community/Facility/Detail?facilityId=17",
+      "accessEvidence": "The facility page places a boat launch at the rear of Willow Mill Park and identifies the park at 80 Willow Mill Park Road."
+    },
+    {
+      "title": "USGS National Hydrography Dataset flowline, area, and waterbody services",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "preChangeDistancesFeet": {
+        "matchedFlowline": 318.7868,
+        "mappedWater": 189.7433
+      },
+      "publishedPointDistancesFeet": {
+        "matchedFlowline": 682.1736,
+        "mappedWater": 571.5837
+      },
+      "interpretation": "The county site marker itself is over 300 feet from mapped water. That does not disprove the named launch, but confirms that the coordinate should remain an access-site anchor and that the exact ramp location is still open."
+    },
+    {
+      "title": "Google Maps satellite imagery reviewed for Willow Mill Park",
+      "url": "https://www.google.com/maps/place/40.2578,-77.0426/@40.2578,-77.0426,328m/data=!3m1!1e3",
+      "interpretation": "The county B4 point sits within the park near the memorial/parking area; tree cover prevented a confident assignment of the exact ramp toe from imagery."
+    }
+  ]
+}

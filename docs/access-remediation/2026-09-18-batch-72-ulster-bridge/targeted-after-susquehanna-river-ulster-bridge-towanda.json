@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T22:38:50.759Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "susquehanna-river-ulster-bridge-towanda",
+      "routeName": "Susquehanna River",
+      "reach": "North Branch: Ulster Bridge to Towanda Riverfront Park",
+      "state": "Pennsylvania",
+      "endpoint": "takeOut",
+      "endpointName": "Towanda Riverfront Park ramp",
+      "latitude": 41.768611,
+      "longitude": -76.438611,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 217.27302738257572,
+      "nearestMatchedLatitude": 41.7692064428811,
+      "nearestMatchedLongitude": -76.43859466788892,
+      "nearestWaterwayName": "Susquehanna River",
+      "distanceFeetToNearestWaterway": 550.4780731300658,
+      "nearestWaterwayLatitude": 41.768967,
+      "nearestWaterwayLongitude": -76.440577,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 160.63132558082884,
+      "nearestWaterbodyLatitude": 41.769025,
+      "nearestWaterbodyLongitude": -76.43841,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 160.63132558082884,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 217 ft of a topology-connected NHD river trace that includes Susquehanna River; unnamed downstream stream segments are accepted as part of the same network."
+    },
+    {
+      "routeId": "susquehanna-river-ulster-bridge-towanda",
+      "routeName": "Susquehanna River",
+      "reach": "North Branch: Ulster Bridge to Towanda Riverfront Park",
+      "state": "Pennsylvania",
+      "endpoint": "putIn",
+      "endpointName": "Ulster Bridge Municipal Access (carry-in)",
+      "latitude": 41.849146,
+      "longitude": -76.497242,
+      "matchedRiverName": "Susquehanna River",
+      "distanceFeetToMatchedRiver": 10.192307943310428,
+      "nearestMatchedLatitude": 41.8491739301508,
+      "nearestMatchedLongitude": -76.49724289758582,
+      "nearestWaterwayName": "Cash Creek",
+      "distanceFeetToNearestWaterway": 10.192307943310428,
+      "nearestWaterwayLatitude": 41.8491739301508,
+      "nearestWaterwayLongitude": -76.49724289758582,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 250.6001825344818,
+      "nearestWaterbodyLatitude": 41.848893739449174,
+      "nearestWaterbodyLongitude": -76.4963842744001,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 10.192307943310428,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+      "coordinateEvidenceDetail": "pa_emhr_ulster_bridge_municipal_access_20260918 emhr-2021-ulster-bridge-municipal-access: The 2021 North Branch Susquehanna Water Trail access table names Ulster Bridge Municipal Access at river mile 278.8, river right, carry-in, with 30 parking spaces nearby, and publishes 41.849146,-76.497242. This supersedes a distinct point in the 2008 PFBC Section 1 table at 41.8525,-76.497222, labeled Gravel Private. Use the newer municipal access coordinate. It identifies the managed access area, not a separately surveyed wet-toe point.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (pa_emhr_ulster_bridge_municipal_access_20260918 emhr-2021-ulster-bridge-municipal-access) on Susquehanna River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

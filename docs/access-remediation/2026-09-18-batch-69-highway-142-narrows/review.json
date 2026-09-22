@@ -1,0 +1,44 @@
+{
+  "batch": 69,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Highway 142 River Access / The Narrows, Eleven Point River, Oregon County, Missouri",
+  "affectedRoutes": [
+    "eleven-point-river-cane-bluff-narrows",
+    "eleven-point-river-turner-mill-south-narrows",
+    "eleven-point-river-riverton-narrows",
+    "eleven-point-river-whitten-narrows"
+  ],
+  "decision": "retain-the-stored-coordinate-and-classify-the-shared-site-as-review-using-the-official-Forest-Service-access-marker",
+  "decisionScope": "All four routes already store the coordinate published in the Forest Service recreation record. Forest Service EDW feature objectid 6729 / recarea 21706 identifies the open public Highway 142 access, describes a concrete boat ramp and paved parking, and labels it non-motorized boating. MoDOT independently confirms the east-side Narrows access has a concrete boat ramp and paved parking; MDC lists The Narrows (142) as a lower Eleven Point access. No coordinate correction is warranted. The control identifies the access site, not the precise wet toe.",
+  "preChangeFinding": {
+    "coordinate": {
+      "latitude": 36.550194,
+      "longitude": -91.191532
+    },
+    "publicOccurrences": 4,
+    "suspiciousOccurrences": 1,
+    "matchedFlowlineDistanceFeet": 308,
+    "mappedWaterDistanceFeet": 218,
+    "hydrographyCoverageComplete": false
+  },
+  "change": {
+    "sourceFiles": [
+      "src/data/route-access-official-map-controls.json"
+    ],
+    "from": {
+      "latitude": 36.550194,
+      "longitude": -91.191532
+    },
+    "to": {
+      "latitude": 36.550194,
+      "longitude": -91.191532
+    },
+    "movedFeet": 0,
+    "publicOccurrences": 4,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "mo_usfs_mark_twain_highway_142_narrows_access_20260918",
+    "rationale": "The route coordinate already matches the official Forest Service recreation GIS point exactly. The control resolves the single suspicious occurrence to review; the other three matching route occurrences remain review. Three of four targeted reports have complete hydrography with zero source issues; the Cane Bluff-to-Narrows query still has two NHD transfer-limit failures."
+  },
+  "remainingUncertainty": "The official point represents the managed access site and boat-ramp facility rather than a separately surveyed wet toe. The Cane Bluff route's targeted NHD refresh still reports exceededTransferLimit for both its waterbody and route-network queries; its nearest matched flowline is 308 feet away, while mapped-water proximity is within 300 feet. Keep this route in review and do not treat incomplete network coverage as proof of exact placement. MoDOT also notes future temporary construction closures to the bridge/access; verify current site status before a trip.",
+  "outcome": "One suspicious public occurrence moved to review across a four-route shared access location, with no coordinate move. The public boat-ramp site is verified; the precise water-edge point and one route's full NHD coverage remain unresolved."
+}

@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "path": "src/data/routes/washington-skagit.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__routes__washington-skagit.ts",
+      "sha256": "C82C7677DD14D9E8C70CB34800AE5736D31EFEA9075FD656D3C53714887F5B42",
+      "backupSha256": "C82C7677DD14D9E8C70CB34800AE5736D31EFEA9075FD656D3C53714887F5B42"
+    },
+    {
+      "path": "src/data/routes/new-york.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__routes__new-york.ts",
+      "sha256": "91809F3F34A5A113B110719384FD963FEAAA06125B89EF72E580BAE429179C7E",
+      "backupSha256": "91809F3F34A5A113B110719384FD963FEAAA06125B89EF72E580BAE429179C7E"
+    },
+    {
+      "path": "src/data/trip-details/wisconsin.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__trip-details__wisconsin.ts",
+      "sha256": "245FB3BC5BBB6AA9389F355847BA1623A6C63C585CA70257311AD4460DE18DAF",
+      "backupSha256": "245FB3BC5BBB6AA9389F355847BA1623A6C63C585CA70257311AD4460DE18DAF"
+    },
+    {
+      "path": "src/data/routes/michigan.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__routes__michigan.ts",
+      "sha256": "D368ED8A3D92996A46D05F748ABCC3AC07570679B38C35360A8B1554247E9CAA",
+      "backupSha256": "D368ED8A3D92996A46D05F748ABCC3AC07570679B38C35360A8B1554247E9CAA"
+    },
+    {
+      "path": "src/data/routes/north-carolina.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__routes__north-carolina.ts",
+      "sha256": "1A99F71788B9C809461EA8385FACAA33814E46D5E8E41AA2F93D46F8D9399B5E",
+      "backupSha256": "1A99F71788B9C809461EA8385FACAA33814E46D5E8E41AA2F93D46F8D9399B5E"
+    },
+    {
+      "path": "src/data/routes/arizona-gila-box.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__routes__arizona-gila-box.ts",
+      "sha256": "DB20E3E1A20BD46BF1DAF7A133B107BB72737B290553B77996BAA92ED7A1ACAB",
+      "backupSha256": "DB20E3E1A20BD46BF1DAF7A133B107BB72737B290553B77996BAA92ED7A1ACAB"
+    },
+    {
+      "path": "src/data/trip-details/minnesota.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__trip-details__minnesota.ts",
+      "sha256": "375600B9BE24CE53912347852C3D7F4B26213A9A5FA7D2AAF629C91065617294",
+      "backupSha256": "375600B9BE24CE53912347852C3D7F4B26213A9A5FA7D2AAF629C91065617294"
+    },
+    {
+      "path": "src/data/route-access-review-holds.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__route-access-review-holds.ts",
+      "sha256": "289D88F46C557CCC303A68308785A46F998BD1DDD0112D29088AE4DB0B5A8D9C",
+      "backupSha256": "289D88F46C557CCC303A68308785A46F998BD1DDD0112D29088AE4DB0B5A8D9C"
+    },
+    {
+      "path": "src/data/generated/withheld-route-slugs.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__generated__withheld-route-slugs.ts",
+      "sha256": "98497F66F42333E98DB87568AB9652002759F5ABA8C72E26D5585FA7E32064F7",
+      "backupSha256": "98497F66F42333E98DB87568AB9652002759F5ABA8C72E26D5585FA7E32064F7"
+    },
+    {
+      "path": "src/data/trip-details/michigan.ts",
+      "backupPath": "node_modules\\.cache\\access-batch-12\\before-source\\src__data__trip-details__michigan.ts",
+      "sha256": "8B071F83897E415E2797882C2928D52F90169D80B7C20F20AD0FEFECB9479764",
+      "backupSha256": "8B071F83897E415E2797882C2928D52F90169D80B7C20F20AD0FEFECB9479764"
+    }
+  ]
+}

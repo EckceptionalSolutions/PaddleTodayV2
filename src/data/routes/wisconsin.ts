@@ -2838,7 +2838,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -89.133973,
         "mileFromStart": 3.58,
         "segmentKind": "creek",
-        "note": "Default public city take-out at Princeton Landing / Hiestand Park, supported by WRT and local Princeton launch pages."
+        "note": "Public take-out at the Hiestand Park launch pier; corrected point is the imagery-checked river-entry end with 50-foot uncertainty, not a surveyed coordinate."
       }
     ],
     "evidenceNotes": [
@@ -2967,7 +2967,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -89.133973,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default public city put-in at Princeton Landing / Hiestand Park."
+        "note": "Public put-in at the Hiestand Park launch pier; corrected point is the imagery-checked river-entry end with 50-foot uncertainty, not a surveyed coordinate."
       },
       {
         "id": "old-st-marie-road-landing",
@@ -3132,7 +3132,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -87.803695,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default public put-in in Rochester Park; WRT describes multiple launch options and a short carry from park parking."
+        "note": "EPA publishes 43.725730, -87.803695 as the center of the 710 Hickory Street Rochester Park site; this is a park-area anchor, not a verified river entry. EPA reports portions of the park closed for contaminated-soil cleanup; confirm the launch path, parking and current closure boundary before reopening this route."
       },
       {
         "id": "esslingen-park-sheboygan-river",
@@ -8536,8 +8536,8 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Take-out support",
         "value": "Holiday Heights Park / landing",
-        "note": "Onalaska records Holiday Heights Park as a public city park, while Wisconsin River Trips describes Holiday Heights Landing as a public-access take-out with parking.",
-        "sourceUrl": "https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84"
+        "note": "Onalaska's redevelopment plan identifies an accessible canoe launch at public Holiday Heights Park; Wisconsin River Trips describes Holiday Heights Landing as a public-access take-out with parking. The route coordinate is an access-area anchor, not a surveyed water-entry point.",
+        "sourceUrl": "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf"
       },
       {
         "label": "Hazards",
@@ -8570,6 +8570,11 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Onalaska Holiday Heights Park",
         "url": "https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84",
+        "provider": "local"
+      },
+      {
+        "label": "Onalaska redevelopment plan: Holiday Heights accessible canoe launch",
+        "url": "https://cms3.revize.com/revize/onalaska/Documents/Departments/Planning%20%26%20Inspections/Redevelopment%20Planning%20Activities/Onalaska_Report_SR16_11x17_Reduced-compressed_website.pdf",
         "provider": "local"
       },
       {
@@ -14406,7 +14411,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -87.89480066,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in for the downtown split; WRT documents a long carry to the canoe landing at Riverside Park / Rotary Centennial Arboretum."
+        "note": "Milwaukee County identifies a designated East Bank launch near the Urban Ecology Center. Milwaukee Riverkeeper publishes this canoe launch's GPS and describes a concrete ramp; UEC directs visitors from the parking lot along the path to it. This is the mapped water-entry point, while parking is about 1,000 feet away. Confirm the path and launch condition before unloading."
       },
       {
         "id": "bruce-street-boat-ramp",
@@ -14419,6 +14424,12 @@ export const wisconsinRoutes: River[] = [
       }
     ],
     "evidenceNotes": [
+      {
+        "label": "Riverside Park launch water-entry coordinate",
+        "value": "Milwaukee Riverkeeper Water Trail GPS 43.06739422, -87.89480066",
+        "note": "The water-trail guide identifies Riverside Park as a concrete-ramp launch and publishes its GPS. Milwaukee County independently lists the designated East Bank launch near the Urban Ecology Center; the UEC describes the path from its parking lot to the canoe landing, about 1,000 feet away.",
+        "sourceUrl": "https://milwaukeeriverkeeper.org/wp-content/uploads/2025/02/Milwaukee_WaterTrail_2018_Final-1.pdf"
+      },
       {
         "label": "Route-specific split",
         "value": "Riverside Park to Bruce Street Boat Ramp, 3.9 mi",
@@ -14445,6 +14456,21 @@ export const wisconsinRoutes: River[] = [
       }
     ],
     "sourceLinks": [
+      {
+        "label": "Milwaukee County River Trails / designated launch sites",
+        "url": "https://county.milwaukee.gov/EN/Parks/Explore/Trails/River-Trails",
+        "provider": "milwaukee_county"
+      },
+      {
+        "label": "Urban Ecology Center Riverside Park launch directions",
+        "url": "https://www.urbanecologycenter.org/branches/riverside-park",
+        "provider": "urban_ecology_center"
+      },
+      {
+        "label": "Milwaukee Riverkeeper Urban Water Trail map",
+        "url": "https://milwaukeeriverkeeper.org/wp-content/uploads/2025/02/Milwaukee_WaterTrail_2018_Final-1.pdf",
+        "provider": "milwaukee_riverkeeper"
+      },
       {
         "label": "Wisconsin River Trips Milwaukee River - Downtown",
         "url": "https://www.wisconsinrivertrips.com/segments/milwaukee-river/downtown",
@@ -14948,7 +14974,7 @@ export const wisconsinRoutes: River[] = [
     ],
     "state": "Wisconsin",
     "region": "Central Wisconsin",
-    "summary": "Short lower-Plover run from the County Highway K bridge launch to Jordan Park, with marshy bends, boulder gardens, the Sharonwood Lane access option, and a Jordan Pond finish at a county park campground.",
+    "summary": "Short lower-Plover run from the County Highway K public canoe-access area to Jordan Park, with marshy bends, boulder gardens, the Sharonwood Lane access option, and a Jordan Pond finish at a county park campground.",
     "statusText": "Use the Eau Claire River at Kelly as the same WRT-supported proxy used by the upstream Plover cards. The exact WRT Hwy K trip ran at 200 cfs, and the Stevens Point Area guide frames 130 to 350 cfs as the practical lower-Plover range.",
     "latitude": 44.6226,
     "longitude": -89.4822,
@@ -15001,7 +15027,7 @@ export const wisconsinRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "Hwy K has poor shoulder parking despite a public launch trail; stage vehicles carefully and keep unloading brief.",
+        "Portage County identifies a small county highway right-of-way canoe access at Hwy K; the published description does not give an exact entry coordinate. Confirm lawful parking and carry before unloading.",
         "Scout the former dam / Sharonwood area, boulder gardens, low branches, and any fresh strainers before committing to narrow current.",
         "Take out at Jordan Park / Jordan Pond. Do not continue into the dam/tube section without a separate portage and downstream plan."
       ],
@@ -15010,12 +15036,12 @@ export const wisconsinRoutes: River[] = [
     "accessPoints": [
       {
         "id": "county-highway-k-plover-access",
-        "name": "County Highway K bridge launch",
+        "name": "County Highway K public canoe-access anchor",
         "latitude": 44.6226,
         "longitude": -89.4822,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in; WRT describes a nice launch area by Hwy K but warns parking is poor."
+        "note": "Portage County identifies a small county highway right-of-way canoe access here. This approximate bridge-area coordinate is an access anchor, not a surveyed water-entry point; confirm legal parking and carry."
       },
       {
         "id": "jordan-park-canoe-launch",
@@ -20093,15 +20119,6 @@ export const wisconsinRoutes: River[] = [
         "note": "Default public put-in; Miles Paddled publishes this GPS point and describes the access as low-key but workable."
       },
       {
-        "id": "highway-c-sheboygan-river",
-        "name": "Highway C bridge access",
-        "latitude": 43.7383,
-        "longitude": -87.8341,
-        "mileFromStart": 8,
-        "segmentKind": "creek",
-        "note": "Bridge-corridor reference from the WRT Sheboygan overview; scout before relying on it as an access."
-      },
-      {
         "id": "river-park-sheboygan-falls",
         "name": "River Park canoe ramp",
         "latitude": 43.728306,
@@ -21655,7 +21672,7 @@ export const wisconsinRoutes: River[] = [
       "safetyNotes": [
         "Treat Horlick Park / Rapids Court as the take-out boundary unless you have a separate dam-removal, rapid, and downstream-access plan.",
         "Low water can make the riffles scrape and drag; rising rainwater can make bends, bridges, and wood pushier than the Class I label suggests.",
-        "Expect urban water-quality concerns, private or golf-course banks, cold water, and limited clean bailout points between parks."
+        "Expect urban water-quality concerns, private or golf-course banks, cold water, and limited clean bailout points between parks; Highway 31/Ole Davidson is not an officially designated landing."
       ],
       "reviewStatus": "reviewed"
     },
@@ -21695,15 +21712,6 @@ export const wisconsinRoutes: River[] = [
         "note": "Default put-in from Miles Paddled and the AW reach name; verify park parking and bank footing before unloading."
       },
       {
-        "id": "highway-31-ole-davidson-root",
-        "name": "Highway 31 / Ole Davidson Road Root River access",
-        "latitude": 42.7742,
-        "longitude": -87.8461,
-        "mileFromStart": 4.6,
-        "segmentKind": "creek",
-        "note": "Possible mid-route bailout near the WRT-described boulder-garden section; confirm parking and bank access."
-      },
-      {
         "id": "horlick-park-rapids-court-root",
         "name": "Horlick Park / Rapids Court canoe and kayak launch",
         "latitude": 42.7538,
@@ -21717,7 +21725,7 @@ export const wisconsinRoutes: River[] = [
       {
         "label": "Route and gauge",
         "value": "Five Mile Road to Horlick Dam Pond / USGS 040872342",
-        "note": "American Whitewater lists the reach, Class I difficulty, 7.5-mile length, the W. Eight Mile Road gauge, and a 100-3,000 cfs range on the flow page.",
+        "note": "American Whitewater lists the reach, Class I difficulty, 7.5-mile length, the W. Eight Mile Road gauge, and a 100-3,000 cfs range on the flow page. It describes the Highway 31/Ole Davidson utility pull-off as having no official landing designation, so it is not treated as a public bailout.",
         "sourceUrl": "https://www.americanwhitewater.org/content/River/view/river-detail/5027/main"
       },
       {
@@ -21953,7 +21961,7 @@ export const wisconsinRoutes: River[] = [
       ],
       "safetyNotes": [
         "Launch downstream of Clarks Mills Dam only. Do not run or approach the dam from upstream.",
-        "Scout Lower Cato Falls from Lower Cato Falls County Park and portage if the line is not appropriate for the group.",
+        "Scout Lower Cato Falls from the public park before launching. The park's stair access reaches the river but does not establish a bypass carry; do not launch unless every paddler is prepared to run the rapid safely.",
         "Expect fast current, boulder gardens, strainers, manure-runoff water-quality concerns after rain, private banks, and limited legal bailout choices."
       ],
       "reviewStatus": "reviewed"
@@ -24384,7 +24392,7 @@ export const wisconsinRoutes: River[] = [
         "longitude": -88.3457597,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Fox Cities identifies Sunset Park as a public kayak-accessible boat launch on W Kimberly Ave."
+        "note": "Fox Cities identifies Sunset Park as a public kayak-accessible boat launch on W Kimberly Ave. The Village's 2025 guide places the launch at 300 Sunset Park Drive, west entrance, and lists $5 daily or annual fees of $15 resident / $25 non-resident; verify current posted charges. The stored point is a park/access-area anchor, not a surveyed ramp toe."
       },
       {
         "id": "fox-river-lutz-park-appleton",
@@ -24522,12 +24530,12 @@ export const wisconsinRoutes: River[] = [
     "accessPoints": [
       {
         "id": "fox-river-landing-road-berlin",
-        "name": "Fox River Access at Landing Road south of Berlin",
+        "name": "Fox River Landing Road public access-area anchor",
         "latitude": 43.9471591,
         "longitude": -88.9668741,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Wisconsin DNR's water-access inventory names Fox River access at Landing Road south of Berlin. Coordinates are anchored to the public Landing Road endpoint and should be checked against current landing signage."
+        "note": "Wisconsin DNR’s current water inventory names Fox River access at Landing Road south of Berlin. Retain this as the public road/landing access-area anchor; the inventory does not publish a surveyed water-entry edge, so follow current landing signage and verify the carry."
       },
       {
         "id": "fox-river-riverside-park-berlin",

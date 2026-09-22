@@ -1,0 +1,75 @@
+{
+  "batch": 39,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 2,
+  "endpointOccurrencesCorrected": 6,
+  "uniqueRoutesChanged": 6,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Kentucky",
+      "name": "Leatherwood Branch Park Access",
+      "routeIds": [
+        "kinniconick-creek-leatherwood-branch-mcdowells-creek",
+        "kinniconick-creek-leatherwood-branch-mill-pond-creek",
+        "kinniconick-creek-leatherwood-branch-garrison"
+      ],
+      "decision": "retain-coordinate-and-classify-as-authoritative-access-anchor",
+      "coordinate": { "latitude": 38.5105, "longitude": -83.3274 },
+      "coordinateRole": "authoritative-access-anchor",
+      "uncertaintyFeet": 75,
+      "rationale": "The KDFWR coordinate exactly matches the shared route point. KDFWR labels the site carry-down only with no constructed ramp and says paddlers walk equipment a short distance from parking to the creek; no exact wet-edge coordinate is published.",
+      "postCorrectionAudit": {
+        "siteOccurrences": 3,
+        "suspicious": 0,
+        "mappedWaterDistanceFeet": 186,
+        "matchedFlowlineDistanceFeet": 331,
+        "severity": "review for all 3 as authoritative access-area anchors",
+        "sourceIssues": 0,
+        "unknown": 0
+      },
+      "geometryRegenerated": false,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if KDFWR publishes a ramp-toe coordinate or current high-resolution imagery supports a precise landing point."
+    },
+    {
+      "state": "New Hampshire",
+      "name": "Davis Park, Conway",
+      "routeIds": [
+        "saco-river-first-bridge-davis-park",
+        "saco-river-davis-park-smith-eastman",
+        "saco-river-bartlett-davis-park"
+      ],
+      "decision": "replace-old-directory-pin-with-current-public-water-inventory-site-anchor",
+      "previousCoordinate": { "latitude": 43.982113, "longitude": -71.113689 },
+      "updatedCoordinate": { "latitude": 43.98290003852706, "longitude": -71.11596852920452 },
+      "coordinateRole": "authoritative-access-anchor",
+      "uncertaintyFeet": 150,
+      "rationale": "The UNH GRANIT public-water inventory provides a Town of Conway Davis Park point on the Saco with shorebank access. The Town identifies a canoe launch, but the inventory does not give a surveyed wet-edge coordinate.",
+      "postCorrectionAudit": {
+        "siteOccurrences": 3,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "mappedWaterDistanceFeet": 250,
+        "matchedFlowlineDistanceFeet": 250,
+        "severity": "review for all 3 as authoritative access-area anchors",
+        "sourceIssues": 0
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Refine the point if Conway supplies a surveyed canoe-launch coordinate or imagery clearly identifies the public water-entry edge."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 6,
+    "targetedRouteAuditResults": "All target site occurrences match their named official access controls or mapped-water evidence; no target suspicious, failure, unknown, or source issue remains.",
+    "changedRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

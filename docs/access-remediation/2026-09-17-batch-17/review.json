@@ -1,0 +1,427 @@
+{
+  "batch": "2026-09-17-batch-17",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "physicalSiteCount": 10,
+  "coordinateCorrectedSiteCount": 1,
+  "coordinateCorrectedRouteCount": 5,
+  "retainedCoordinateCount": 9,
+  "rejectedSiteCount": 0,
+  "unverifiedAccessSiteCount": 0,
+  "officialAccessControlAddedCount": 9,
+  "officialAccessControlRoleCorrections": 1,
+  "routesHeldForAccessVerificationCount": 0,
+  "totalWithheldRouteCountAfterBatch": 152,
+  "affectedUnwithheldRouteCount": 23,
+  "newlyWithheldRouteIds": [],
+  "changedPublicRouteGeometryIds": [
+    "sauk-river-eagle-miller-landing",
+    "sauk-river-frogtown-miller-landing",
+    "sauk-river-miller-landing-heims-mill",
+    "sauk-river-miller-landing-knights-of-columbus",
+    "sauk-river-rockville-miller-landing"
+  ],
+  "allMillerCoordinateOccurrencesUpdated": {
+    "routeFileCoordinatePairs": 2,
+    "tripDetailCoordinatePairs": 5,
+    "distinctRoutes": [
+      "sauk-river-eagle-miller-landing",
+      "sauk-river-frogtown-miller-landing",
+      "sauk-river-miller-landing-heims-mill",
+      "sauk-river-miller-landing-knights-of-columbus",
+      "sauk-river-rockville-miller-landing"
+    ],
+    "oldCoordinatePairs": [
+      [
+        45.5504544,
+        -94.2641031
+      ],
+      [
+        45.5517091,
+        -94.2647146
+      ]
+    ],
+    "newCoordinate": [
+      45.55179577632979,
+      -94.26496023134358
+    ]
+  },
+  "decisions": [
+    {
+      "rank": 194,
+      "site": "Lexington Avenue access",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        45.1196142,
+        -93.1647156
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "rice-creek-peltier-to-long-lake",
+          "endpoint": "accessPoint",
+          "endpointName": "Lexington Avenue access",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "rice-creek-peltier-to-long-lake"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.anokacountymn.gov/DocumentCenter/View/10433/Rice-Creek-Water-Trail"
+      ],
+      "finding": "The current County wayfinder map labels Lexington Avenue as an access point on the Rice Creek Water Trail. It publishes no exact coordinate or launch toe, so the point remains an access-area anchor with explicit uncertainty.",
+      "action": "Retain existing road/access-area point; do not snap it to Rice Creek."
+    },
+    {
+      "rank": 195,
+      "site": "Paces Mill public launch",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        33.870198,
+        -84.453659
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "chattahoochee-river-island-ford-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-johnson-ferry-south-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-jones-bridge-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-morgan-falls-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-overlook-park-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        },
+        {
+          "routeId": "chattahoochee-river-whitewater-creek-paces-mill",
+          "endpoint": "takeOut",
+          "endpointName": "Paces Mill public launch",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "chattahoochee-river-island-ford-paces-mill",
+        "chattahoochee-river-johnson-ferry-paces-mill",
+        "chattahoochee-river-johnson-ferry-south-paces-mill",
+        "chattahoochee-river-jones-bridge-paces-mill",
+        "chattahoochee-river-morgan-falls-park-paces-mill",
+        "chattahoochee-river-overlook-park-paces-mill",
+        "chattahoochee-river-whitewater-creek-paces-mill"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.nps.gov/chat/learn/management/superintendents-compendium.htm",
+        "https://www.nps.gov/chat/planyourvisit/boating.htm",
+        "https://www.nps.gov/places/paces-mill-launch-no1.htm"
+      ],
+      "finding": "Current NPS boating guidance and the 2026 compendium confirm Paces Mill as a designated public launch. The NPS page describes launch amenities and common route pairs; no exact GPS ramp-toe coordinate is published.",
+      "action": "Retain Paces Mill facility pin for all seven dependent public routes."
+    },
+    {
+      "rank": 196,
+      "site": "Miller Landing carry-in access",
+      "decision": "fix-coordinate-to-official-dnr-gis",
+      "originalCoordinate": [
+        45.5504544,
+        -94.2641031
+      ],
+      "replacementCoordinate": [
+        45.55179577632979,
+        -94.26496023134358
+      ],
+      "occurrences": [
+        {
+          "routeId": "sauk-river-frogtown-miller-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-miller-landing-heims-mill",
+          "endpoint": "putIn",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-miller-landing-knights-of-columbus",
+          "endpoint": "putIn",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "sauk-river-rockville-miller-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Miller Landing carry-in access",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "sauk-river-frogtown-miller-landing",
+        "sauk-river-miller-landing-heims-mill",
+        "sauk-river-miller-landing-knights-of-columbus",
+        "sauk-river-rockville-miller-landing"
+      ],
+      "additionalDiscoveredRoutes": [
+        "sauk-river-eagle-miller-landing"
+      ],
+      "sourceUrls": [
+        "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/query?where=1%3D1&geometry=-94.2641031%2C45.5504544&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=2000&units=esriSRUnit_Meter&outFields=OBJECTID%2CWATER_ACCESS_SITE_NAME%2CADMINISTRATOR%2CDIRECTIONS%2CBOAT_LAUNCH_METHOD%2CLAUNCH_SURFACE_TYPE%2CUNIQUE_SWAS_ID%2CWATER_TRAIL_RIVER_MILE&outSR=4326&returnGeometry=true&f=json",
+        "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf",
+        "https://www.dnr.state.mn.us/state-water-trails/sauk-river/segments-maps.html",
+        "https://www.stearnscountymn.gov/miller-landing"
+      ],
+      "finding": "DNR GIS feature OBJECTID 2504 / WAS00341 names the Sauk River Miller Landing Public Water Access Site, administrator Stearns County, bank directions and RM 7.6; geometry returns x=-94.26496023134358, y=45.55179577632979. Current DNR Map 2 independently names the right-bank carry-in at RM 7.6. A fifth related trip-detail route used a near-duplicate coordinate, so it was included in the propagation.",
+      "action": "Replace both legacy Miller Landing coordinate variants in every route/trip-detail copy with the DNR WGS84 feature point."
+    },
+    {
+      "rank": 197,
+      "site": "Murtaugh Boating Access",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        42.49916,
+        -114.1475
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "snake-river-murtaugh-bridge-twin-falls",
+          "endpoint": "putIn",
+          "endpointName": "Murtaugh Boating Access",
+          "severity": "suspicious"
+        }
+      ],
+      "publicRoutes": [
+        "snake-river-murtaugh-bridge-twin-falls"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.blm.gov/visit/murtaugh-boating-access"
+      ],
+      "finding": "BLM identifies this site as the Murtaugh Snake River reach put-in and warns the reach is Class V when flows suffice. Its map is dynamic and the page does not publish a point coordinate; the route coordinate is retained as a site anchor rather than called an exact water-entry point.",
+      "action": "Retain the existing Murtaugh point as the BLM put-in site anchor."
+    },
+    {
+      "rank": 198,
+      "site": "Round Spring river access / campground area",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        37.27996,
+        -91.40792
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "current-river-akers-ferry-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-cedar-grove-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring river access / campground area",
+          "severity": "review"
+        },
+        {
+          "routeId": "current-river-pulltite-round-spring",
+          "endpoint": "takeOut",
+          "endpointName": "Round Spring (middle) river landing",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "current-river-akers-ferry-round-spring",
+        "current-river-cedar-grove-round-spring",
+        "current-river-pulltite-round-spring"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm",
+        "https://home.nps.gov/ozar/planyourvisit/park-brochure.htm"
+      ],
+      "finding": "The current NPS compendium lists Round Spring (middle) as a river landing and lists the separate Round Spring Boat Ramp among motorized-vessel launches. Route guidance already directs paddlers to the signed floater landing. The coordinate remains an access/campground-area anchor, not the ramp toe.",
+      "action": "Retain the existing Round Spring area point and keep floater access distinct from the motorized ramp."
+    },
+    {
+      "rank": 199,
+      "site": "Ohiopyle State Park Lower Yough launch",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        39.866528,
+        -79.493395
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "youghiogheny-river-lower-yough-ohiopyle-bruner-run",
+          "endpoint": "putIn",
+          "endpointName": "Ohiopyle State Park Lower Yough launch",
+          "severity": "suspicious"
+        }
+      ],
+      "publicRoutes": [
+        "youghiogheny-river-lower-yough-ohiopyle-bruner-run"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating",
+        "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/maps"
+      ],
+      "finding": "DCNR confirms the Lower Yough begins below Ohiopyle Falls and identifies the put-in as river-right on Ferncliff, reached by trail downstream of the buoy line. It prohibits using the Lower Yough Launch as the over-the-falls takeout. The page does not give an exact coordinate, so the stored point remains a launch-area anchor.",
+      "action": "Retain the Lower Yough launch area point; clarify the legal launch side and route role."
+    },
+    {
+      "rank": 200,
+      "site": "First Brook Hand Launch",
+      "decision": "keep-coordinate-correct-control-role-to-access-anchor",
+      "originalCoordinate": [
+        44.3042,
+        -74.994
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "south-branch-grass-river-spruce-first-brook",
+          "endpoint": "takeOut",
+          "endpointName": "First Brook Hand Launch",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "south-branch-grass-river-spruce-first-brook"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://dec.ny.gov/places/grass-river-complex"
+      ],
+      "finding": "NYSDEC separately names First Brook Hand Launch off Tooley Pond Road and publishes the coordinate for the First Brook Hand Launch Parking Area. The precise entry point/carry is not stated. Public access is verified; the point is an access/parking anchor, not a water-entry coordinate.",
+      "action": "Keep NYSDEC’s published First Brook parking coordinate; change the control role and source-facing label so it is not presented as the exact waterline."
+    },
+    {
+      "rank": 201,
+      "site": "Taylors Falls Lion's Park dam portage take-out",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        45.42645,
+        -92.6515
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "st-croix-river-wild-river-lions-park",
+          "endpoint": "takeOut",
+          "endpointName": "Taylors Falls Lion's Park dam portage take-out",
+          "severity": "review"
+        }
+      ],
+      "publicRoutes": [
+        "st-croix-river-wild-river-lions-park"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://taylorsfallsmn.gov/city-parks/",
+        "https://www.nps.gov/sacn/planyourvisit/upload/Section-8_St-Croix_Highway-8-to-Osceola-Landing_2024_508.pdf"
+      ],
+      "finding": "The City says Lions Park South is on the river bank and has the boat launch; Lions Park North is a separate park. The NPS map directs paddlers to portage right at Taylors Falls Lion’s Park and says there is no public access on the river below the dam. Stored point is the park/portage anchor.",
+      "action": "Retain the upstream-side Lions Park portage takeout anchor; never treat it as a launch below the dam."
+    },
+    {
+      "rank": 202,
+      "site": "Grant Park below-dam relaunch",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        42.273,
+        -94.872
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-grant-rainbow-bend",
+          "endpoint": "putIn",
+          "endpointName": "Grant Park below-dam relaunch",
+          "severity": "suspicious"
+        }
+      ],
+      "publicRoutes": [
+        "north-raccoon-river-grant-rainbow-bend"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.mycountyparks.com/county/sac/Park/Grant-Park",
+        "https://saccity.city/wp-content/uploads/2020/06/Water-Trail-Map-and-Info.pdf",
+        "https://programs.iowadnr.gov/engreal/ProjectLettingList.asp?dteObtainBids=10%2F25%2F2018",
+        "https://www.saccountyiowa.gov/conservation/parks/grant_park/"
+      ],
+      "finding": "The current County park listing confirms a hard-surface boat ramp to the North Raccoon. The water-trail map labels Grant Park Access; Iowa DNR records document construction of a concrete ramp immediately below the fishing riffle. Route pin remains a park/ramp-area anchor, not a surveyed toe; rock-dam portage remains a separate route safety condition.",
+      "action": "Retain Grant Park’s ramp-area point as an anchor."
+    },
+    {
+      "rank": 203,
+      "site": "Jonesville takeout below Cochran Road Bridge",
+      "decision": "keep-coordinate-add-access-anchor-control",
+      "originalCoordinate": [
+        44.40243,
+        -72.99653
+      ],
+      "replacementCoordinate": null,
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-bolton-dam-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "winooski-river-jonesville-floodplain",
+          "endpoint": "putIn",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "suspicious"
+        }
+      ],
+      "publicRoutes": [
+        "winooski-river-bolton-canoe-jonesville",
+        "winooski-river-bolton-dam-jonesville"
+      ],
+      "additionalDiscoveredRoutes": [],
+      "sourceUrls": [
+        "https://www.richmondvt.gov/community/recreation/default-title/river-access"
+      ],
+      "finding": "The Town’s current page says the takeout is just after Cochran Road Bridge on river-left, unload on the shoulder, and park opposite the bridge. It gives no GPS landing coordinate; current access identity is supported, but the waterline and parking are distinct.",
+      "action": "Retain Jonesville’s takeout/bridge-side point as an access anchor, separate from the opposite-side parking location."
+    }
+  ]
+}

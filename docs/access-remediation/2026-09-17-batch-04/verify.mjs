@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+const root = process.cwd();
+const dir = 'docs/access-remediation/2026-09-17-batch-04';
+const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
+const json = (f) => JSON.parse(read(f));
+const selection = json(`${dir}/selection.json`);
+const review = json(`${dir}/review.json`);
+const sources = json(`${dir}/source-metadata.json`);
+const controls = json('src/data/route-access-official-map-controls.json');
+const holds = read('src/data/route-access-review-holds.ts');
+const withheld = read('src/data/generated/withheld-route-slugs.ts');
+assert.equal(selection.sites.length, 10, 'frozen selection must contain ten sites');
+assert.equal(review.sites.length, 10, 'every selected site must have a decision');
+const retrievals = new Map(sources.retrievals.map((item) => [item.id, item]));
+for (const site of review.sites) for (const id of site.sourceIds) assert.ok(retrievals.has(id), `missing source metadata ${id}`);
+for (const source of sources.retrievals) {
+  assert.equal(source.httpStatus, 200, `source retrieval failed: ${source.id}`);
+  const actual = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, source.snapshot))).digest('hex');
+  assert.equal(actual.toUpperCase(), source.sha256.toUpperCase(), `snapshot hash mismatch: ${source.id}`);
+}
+const provider = (id) => { const item = controls.providers.find((candidate) => candidate.id === id); assert.ok(item, `missing provider ${id}`); return item; };
+const fertile = provider('ia_dnr_winnebago_fertile_mill_access_anchor');
+assert.equal(fertile.coordinateRole, 'authoritative-access-anchor');
+assert.equal(fertile.sourceSha256, retrievals.get('ia-fertile-access').sha256);
+assert.deepEqual([fertile.controls[0].latitude, fertile.controls[0].longitude], [43.263450373072416, -93.4209717300344]);
+const iaSnapshot = json(retrievals.get('ia-fertile-access').snapshot);
+assert.equal(iaSnapshot.features[0].attributes.GlobalID, 'ec2df35d-44b5-445b-94e9-e4415d41e108');
+assert.deepEqual([iaSnapshot.features[0].geometry.y, iaSnapshot.features[0].geometry.x], [43.263450373072416, -93.4209717300344]);
+assert.equal((read('src/data/routes/iowa.ts').match(/43\.263450373072416/g) || []).length, 1);
+assert.equal((read('src/data/trip-details/iowa.ts').match(/43\.263450373072416/g) || []).length, 2);
+assert.doesNotMatch(read('src/data/routes/iowa.ts') + read('src/data/trip-details/iowa.ts'), /43\.266|93\.424/);
+const sayre = provider('pa_susquehanna_north_branch_sayre_pfbc');
+assert.equal(sayre.sourceSha256, retrievals.get('north-branch-guide').sha256);
+assert.deepEqual([sayre.controls[0].latitude, sayre.controls[0].longitude], [41.995932, -76.473493]);
+assert.equal((read('src/data/routes/pennsylvania.ts').match(/"latitude": 41\.995932/g) || []).length, 1);
+assert.equal((read('src/data/trip-details/pennsylvania.ts').match(/"latitude": 41\.995932/g) || []).length, 3);
+assert.doesNotMatch(read('src/data/routes/pennsylvania.ts') + read('src/data/trip-details/pennsylvania.ts'), /41\.988333|-76\.611667/);
+assert.match(read('src/data/routes/pennsylvania.ts'), /The older PFBC Section 1 table prints Sayre/);
+for (const id of ['ny_fish_creek_wma_access', 'ny_catharine_creek_wma_marsh_access', 'md_little_pipe_union_bridge_double_pipe', 'wi_portage_plover_hwy_k_canoe_access']) assert.equal(provider(id).coordinateRole, 'authoritative-access-anchor');
+assert.equal(provider('md_little_pipe_union_bridge_double_pipe').sourceSha256, retrievals.get('md-carroll-water-trails').sha256);
+assert.equal(provider('wi_portage_plover_hwy_k_canoe_access').sourceSha256, retrievals.get('wi-portage-parks').sha256);
+assert.match(read('src/data/routes/new-york.ts'), /Stuyvesant Falls Park informal-access candidate \(launch unverified\)/);
+assert.match(holds, /kinderhook-creek-stuyvesant-falls-stockport/);
+assert.match(holds, /winnebago-river-fertile-mason-city/);
+assert.match(holds, /susquehanna-river-sayre-towanda/);
+assert.match(holds, /susquehanna-river-sayre-wysox-township-park/);
+for (const route of ['kinderhook-creek-stuyvesant-falls-stockport','winnebago-river-fertile-mason-city','susquehanna-river-sayre-towanda','susquehanna-river-sayre-wysox-township-park']) assert.ok(withheld.includes(route), `route not withheld: ${route}`);
+assert.equal((withheld.match(/"[^"]+"/g) || []).length, 82, 'withheld route count changed unexpectedly');
+const backups = json(`${dir}/before-file-hashes.json`);
+for (const entry of backups) {
+  const actual = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, entry.backup))).digest('hex');
+  assert.equal(actual.toUpperCase(), entry.sha256.toUpperCase(), `preserved backup hash mismatch: ${entry.path}`);
+}
+console.log(`Batch 04 checks passed: ${review.sites.length} decisions, ${sources.retrievals.length} source snapshots, coordinate copies, anchor roles, 4 route holds, and ${backups.length} immutable source backups.`);

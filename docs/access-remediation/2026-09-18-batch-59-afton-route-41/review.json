@@ -1,0 +1,29 @@
+{
+  "batch": 59,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "NYSDEC Afton Susquehanna River access at Route 41, New York",
+  "affectedRoutes": [
+    "susquehanna-river-bainbridge-afton",
+    "susquehanna-river-afton-nineveh"
+  ],
+  "decision": "retain-the-exact-nysdec-launch-coordinate-as-an-authoritative-access-site-anchor; the precise wet-toe point remains unverified",
+  "decisionScope": "NYSDEC's current Chenango County launch directory publishes 42.228255,-75.523860 for the Susquehanna River at Afton and identifies the site as an unimproved trailer launch with parking for 12 cars and trailers. NYSDEC's Susquehanna River page identifies the Route 41 bridge gravel ramp. The published coordinate matches both route endpoints exactly, so no replacement coordinate is better supported. Because the pages identify the public launch site rather than a surveyed wet toe, I added the official route-scoped access control and preserved the hydrography offset.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 42.228255, "longitude": -75.52386 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 308,
+    "mappedWaterDistanceFeet": 166,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/route-access-official-map-controls.json",
+    "from": { "latitude": 42.228255, "longitude": -75.52386 },
+    "to": { "latitude": 42.228255, "longitude": -75.52386 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "ny_nysdec_afton_route_41_unimproved_launch_anchor_20260918",
+    "rationale": "NYSDEC lists this exact coordinate for its public Susquehanna River launch and locates the gravel ramp at the Route 41 bridge. It does not publish a surveyed water-edge coordinate."
+  },
+  "remainingUncertainty": "Both route endpoints remain about 166 feet from mapped water and 308 feet from the matched Susquehanna River flowline. The state confirms the public ramp and access coordinate, but the exact wet toe and carry are not georeferenced. The separate Bainbridge put-in and Nineveh take-out remain suspicious and were not modified in this batch.",
+  "outcome": "Two suspicious endpoint occurrences moved to review with the mapped-water offset retained. Coordinates and route geometry did not change."
+}

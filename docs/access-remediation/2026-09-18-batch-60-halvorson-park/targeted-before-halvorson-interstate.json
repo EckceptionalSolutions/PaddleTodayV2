@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T20:24:22.164Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 1,
+    "suspicious": 1,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Iowa",
+      "name": "Interstate Park east-end access / portage anchor",
+      "latitude": 43.319134,
+      "longitude": -92.879648,
+      "distanceFeetToMappedWater": 446.6816000209598,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-halvorson-interstate",
+          "endpoint": "takeOut",
+          "endpointName": "Interstate Park east-end access / portage anchor",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "cedar-river-halvorson-interstate",
+      "routeName": "Cedar River",
+      "reach": "Halvorson Park to Interstate Park / Mitchell",
+      "state": "Iowa",
+      "endpoint": "putIn",
+      "endpointName": "Halvorson Park",
+      "latitude": 43.356685,
+      "longitude": -92.925215,
+      "matchedRiverName": "Cedar River",
+      "distanceFeetToMatchedRiver": 324.4335453715174,
+      "nearestMatchedLatitude": 43.356057,
+      "nearestMatchedLongitude": -92.926081,
+      "nearestWaterwayName": "Cedar River",
+      "distanceFeetToNearestWaterway": 324.4335453715174,
+      "nearestWaterwayLatitude": 43.356057,
+      "nearestWaterwayLongitude": -92.926081,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 216.69017991326086,
+      "nearestWaterbodyLatitude": 43.35629865674381,
+      "nearestWaterbodyLongitude": -92.92583548598344,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 216.69017991326086,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "suspicious",
+      "note": "Endpoint is 324 ft from the matched NHD flowline; inspect source map and launch placement."
+    },
+    {
+      "routeId": "cedar-river-halvorson-interstate",
+      "routeName": "Cedar River",
+      "reach": "Halvorson Park to Interstate Park / Mitchell",
+      "state": "Iowa",
+      "endpoint": "takeOut",
+      "endpointName": "Interstate Park east-end access / portage anchor",
+      "latitude": 43.319134,
+      "longitude": -92.879648,
+      "matchedRiverName": "Cedar River",
+      "distanceFeetToMatchedRiver": 534.0049324947411,
+      "nearestMatchedLatitude": 43.31791169041837,
+      "nearestMatchedLongitude": -92.88075490654467,
+      "nearestWaterwayName": "Cedar River",
+      "distanceFeetToNearestWaterway": 534.0049324947411,
+      "nearestWaterwayLatitude": 43.31791169041837,
+      "nearestWaterwayLongitude": -92.88075490654467,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 446.6816000209598,
+      "nearestWaterbodyLatitude": 43.318534,
+      "nearestWaterbodyLongitude": -92.881115,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 446.6816000209598,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://media.rainpos.com/8576/cdo_otranto_janesville_ccccv2.pdf",
+      "coordinateEvidenceDetail": "ia_mitchell_interstate_park_cedar_access mitchell-interstate-park-east-end-access-263: The Cedar River Paddling Trips guide publishes this Interstate Park route endpoint coordinate. Mitchell County Conservation currently identifies public water-trail access point 263 at the park's east end. Iowa DNR distinguishes this park access from the below-dam relaunch and says no developed canoe/kayak launch exists downstream of the dam. Retain as an above-dam park/portage access anchor, not a below-dam water-entry point.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (ia_mitchell_interstate_park_cedar_access mitchell-interstate-park-east-end-access-263) on Cedar River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

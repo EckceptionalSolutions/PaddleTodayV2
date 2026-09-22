@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T03:09:10.558Z",
+  "evidenceMode": "cache-only",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "terrapin-creek-cr8-ellisville",
+      "routeName": "Terrapin Creek",
+      "reach": "Stewart Bridge / County Road 8 to Ellisville outfitter take-out",
+      "state": "Alabama",
+      "endpoint": "takeOut",
+      "endpointName": "Ellisville outfitter take-out water edge",
+      "latitude": 34.065,
+      "longitude": -85.614,
+      "matchedRiverName": "Terrapin Creek",
+      "distanceFeetToMatchedRiver": 324.29515743036416,
+      "nearestMatchedLatitude": 34.06415328227234,
+      "nearestMatchedLongitude": -85.61432672732639,
+      "nearestWaterwayName": "Terrapin Creek",
+      "distanceFeetToNearestWaterway": 324.29515743036416,
+      "nearestWaterwayLatitude": 34.06415328227234,
+      "nearestWaterwayLongitude": -85.61432672732639,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 280.00080493206644,
+      "nearestWaterbodyLatitude": 34.06426844947762,
+      "nearestWaterbodyLongitude": -85.61428027033071,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 280.00080493206644,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.outdooralabama.com/rivers-and-mobile-delta/terrapin-creek",
+      "coordinateEvidenceDetail": "al_outdoor_alabama_ellisville_terrapin_access_20260919 ellisville-terrapin-creek-outfitter-takeout: Outdoor Alabama documents the Terrapin Creek float from County Road 8 to the Highway 9 bridge at Ellisville and notes that downstream access is limited to bridge right-of-ways and may require landowner permission. Alabama Scenic River Trail and Terrapin Outdoor Center materials document outfitter-managed take-outs and shuttles in the Ellisville corridor. Retain the stored point as a conditional outfitter/bridge access-area anchor; the 324-foot named-flowline offset reflects the bridge, road, and shoreline footprint rather than a wrong endpoint.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (al_outdoor_alabama_ellisville_terrapin_access_20260919 ellisville-terrapin-creek-outfitter-takeout) on Terrapin Creek; access is conditional (Confirm current outfitter authorization, parking, carry path, bridge or shoreline access, water level, and any private-property or seasonal restrictions before taking out.), not unrestricted public access. This confirms the managed access area, not the exact water-edge point."
+    },
+    {
+      "routeId": "terrapin-creek-cr8-ellisville",
+      "routeName": "Terrapin Creek",
+      "reach": "Stewart Bridge / County Road 8 to Ellisville outfitter take-out",
+      "state": "Alabama",
+      "endpoint": "putIn",
+      "endpointName": "Stewart Bridge / County Road 8 public boat launch",
+      "latitude": 33.978967,
+      "longitude": -85.601691,
+      "matchedRiverName": "Terrapin Creek",
+      "distanceFeetToMatchedRiver": 10.538510027810903,
+      "nearestMatchedLatitude": 33.978963025816626,
+      "nearestMatchedLongitude": -85.60165649569724,
+      "nearestWaterwayName": "Terrapin Creek",
+      "distanceFeetToNearestWaterway": 10.538510027810903,
+      "nearestWaterwayLatitude": 33.978963025816626,
+      "nearestWaterwayLongitude": -85.60165649569724,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 0,
+      "nearestWaterbodyLatitude": 33.978967,
+      "nearestWaterbodyLongitude": -85.601691,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 0,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 0 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

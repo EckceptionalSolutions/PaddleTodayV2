@@ -23,7 +23,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRiverSummaryQuery } from '../api/queries';
+import { useExploreCatalogQuery, useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { ManualLocationModal } from '../components/manual-location-modal';
 import { AppButton } from '../components/app-button';
@@ -78,6 +78,7 @@ export default function HomeScreen() {
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
+  const searchCatalog = useExploreCatalogQuery(searchOpen);
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
   const [modeSaveError, setModeSaveError] = useState(false);
   const modeChosen = useRef(false);
@@ -85,6 +86,8 @@ export default function HomeScreen() {
   const modeWriteVersion = useRef(0);
 
   const rivers = summaryQuery.data?.rivers ?? [];
+  const searchableRivers = searchCatalog.data?.rivers ?? [];
+  const searchRouteCounts = useMemo(() => buildRouteGroupMeta(searchableRivers), [searchableRivers]);
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
@@ -120,12 +123,12 @@ export default function HomeScreen() {
   const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
   const headlineMode = data[0] ? mode : 'best';
   const knownRouteMatches = useMemo(
-    () => uniqueRoutesByRiver(findKnownRouteMatches(rivers, routeQuery)).slice(0, 10),
-    [rivers, routeQuery]
+    () => uniqueRoutesByRiver(findKnownRouteMatches(searchableRivers, routeQuery)).slice(0, 10),
+    [searchableRivers, routeQuery]
   );
   const supportedStates = useMemo(
-    () => [...new Set(rivers.map((river) => river.river.state))].sort((left, right) => left.localeCompare(right)),
-    [rivers]
+    () => [...new Set(searchableRivers.map((river) => river.river.state))].sort((left, right) => left.localeCompare(right)),
+    [searchableRivers]
   );
   const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
   const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
@@ -268,7 +271,10 @@ export default function HomeScreen() {
         visible={searchOpen}
         query={routeQuery}
         results={knownRouteMatches}
-        routeCounts={routeCounts}
+        routeCounts={searchRouteCounts}
+        loading={searchCatalog.isPending}
+        error={searchCatalog.isError ? 'Route search could not refresh. Try again to check the full catalog.' : undefined}
+        onRetry={() => void searchCatalog.refetch()}
         states={supportedStates}
         topInset={Math.max(insets.top, 0)}
         bottomInset={bottomContentInset}

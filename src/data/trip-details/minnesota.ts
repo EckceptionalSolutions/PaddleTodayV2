@@ -848,7 +848,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -92.8990298
     },
     "takeOut": {
-      "name": "Welch Mill Canoeing, Tubing & Kayaking (Welch)",
+      "name": "Welch Mill private outfitter landing (conditional)",
       "latitude": 44.5679337,
       "longitude": -92.7385579
     },
@@ -856,12 +856,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "distanceLabel": "11.75 mi",
       "estimatedPaddleTime": "About 4 hr to 5 hr 15 min",
       "shuttle": "MilesPaddled describes a bike shuttle using the Cannon Valley Trail. Car shuttle is simplest.",
-      "permits": "No state water-trail permit required. Confirm local parking rules and any Welch Mill landing fee before you go.",
+      "permits": "No state water-trail permit required. Welch has no developed public water access; use Welch Mill's landing only with a current reservation or explicit permission, and confirm operating hours, shuttle plan, parking, and any fee.",
       "camping": "No established camping documented for this segment.",
-      "summary": "Put in at Riverside Park in Cannon Falls and take out at Welch Mill. Confirm access rules and any fees at both endpoints before staging a shuttle.",
+      "summary": "Put in at Riverside Park in Cannon Falls and finish at the conditional Welch Mill outfitter landing. This itinerary depends on a confirmed operator arrangement; it is not a public-access-to-public-access route.",
       "accessCaveats": [
         "Riverside Park has an official canoe launch, but local parking or day-use rules can still change.",
-        "Welch Mill is a private take-out. Confirm landing rules and any take-out fee before leaving a vehicle there."
+        "MN DNR says Welch has no developed public water access. Welch Mill's current service returns its customers to the mill after an upstream shuttle; do not use the landing or park there without a current reservation or explicit permission.",
+        "The stored Welch Mill coordinate is an access-area/business anchor, not a surveyed water-entry point. Confirm the actual landing and carry with the operator on the day of travel."
       ],
       "watchFor": [
         "Wood or debris after storms, especially on outside bends and blind corners.",
@@ -3459,7 +3460,7 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
         "longitude": -93.215040979,
         "mileFromStart": 21.3,
         "segmentKind": "creek",
-        "note": "Official route end before Minnehaha Falls."
+        "note": "Minnehaha Creek Watershed District publishes 44.916125473,-93.215040979 as the Longfellow Gardens parking GPS and marks this as the mandatory final landing before Minnehaha Falls. The saved point is an access-area anchor, not a surveyed dock edge; follow the designated landing and stop before the falls. The prior latitude was about 3.1 miles north."
       }
     ]
   },
@@ -6334,8 +6335,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "otter-tail-river-phelps-mill-west-lost-lake": {
     "putIn": {
-      "id": "otter-tail-river-phelps-mill-public-water-access-site",
-      "name": "Otter Tail River, Phelps Mill Public Water Access Site",
+      "id": "phelps-mill-county-park-carry-in-access",
+      "name": "Phelps Mill County Park carry-in access",
       "latitude": 46.3821667,
       "longitude": -95.8210176
     },
@@ -6354,7 +6355,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch from Phelps Mill County Park and take out at West Lost Lake for DNR Map 2's short Otter Tail section. The route is gentle, but dam-portage context, low-water obstructions, and lake wind still need same-day checks.",
       "accessCaveats": [
-        "Phelps Mill is a county-administered public access below the Phelps Mill dam/portage context; do not run the dam or improvise above-dam launch choices.",
+        "Minnesota DNR lists Phelps Mill as a carry-in access with a natural surface and directs paddlers to portage across the park lawn and launch west of the parking area. Otter Tail County says there is no conventional boat-launch facility, so expect to hand-carry a boat to the river and check current park construction/closure notices.",
+        "Stay clear of the Phelps Mill dam and use only the DNR-described portage and landing; do not improvise an above-dam launch.",
         "West Lost Lake resolves as DNR access WAS02421 at river mile 81.4 with no restroom listed in the public-water-access record.",
         "The Elizabeth gauge is downstream of this short route, so it is a corridor indicator rather than a direct reading at West Lost Lake."
       ],
@@ -6366,13 +6368,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "accessPoints": [
       {
-        "id": "otter-tail-river-phelps-mill-public-water-access-site",
-        "name": "Otter Tail River, Phelps Mill Public Water Access Site",
+        "id": "phelps-mill-county-park-carry-in-access",
+        "name": "Phelps Mill County Park carry-in access",
         "latitude": 46.3821667,
         "longitude": -95.8210176,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in at Phelps Mill County Park and dam/portage area."
+        "note": "Carry-in access: portage across the park lawn and launch west of the parking area; no conventional boat-launch facility is listed by the county."
       },
       {
         "id": "west-lost-lake-public-water-access-site",
@@ -7486,8 +7488,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
   },
   "otter-tail-river-phelps-mill-west-red-river-lake": {
     "putIn": {
-      "id": "otter-tail-river-phelps-mill-public-water-access-site",
-      "name": "Otter Tail River, Phelps Mill Public Water Access Site",
+      "id": "phelps-mill-county-park-carry-in-access",
+      "name": "Phelps Mill County Park carry-in access",
       "latitude": 46.3821667,
       "longitude": -95.8210176
     },
@@ -7506,7 +7508,8 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       "campingClassification": "none",
       "summary": "Launch from Phelps Mill County Park and take out at West Red River Lake for the official 11.8-mile Otter Tail River day trip. The Elizabeth gauge is downstream, so wind, lake conditions, and visual level checks remain part of the decision.",
       "accessCaveats": [
-        "Phelps Mill is a county-administered public access below the Phelps Mill dam/portage context; do not run the dam or improvise above-dam launch choices.",
+        "Minnesota DNR lists Phelps Mill as a carry-in access with a natural surface and directs paddlers to portage across the park lawn and launch west of the parking area. Otter Tail County says there is no conventional boat-launch facility, so expect to hand-carry a boat to the river and check current park construction/closure notices.",
+        "Stay clear of the Phelps Mill dam and use only the DNR-described portage and landing; do not improvise an above-dam launch.",
         "West Lost Lake is the midpoint public access and shorter-route take-out; West Red River Lake resolves as WAS00822 near river mile 73.3 for the longer day.",
         "The Elizabeth gauge is downstream of this route, so it is a corridor indicator rather than a direct reading at West Red River Lake."
       ],
@@ -7518,13 +7521,13 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
     },
     "accessPoints": [
       {
-        "id": "otter-tail-river-phelps-mill-public-water-access-site",
-        "name": "Otter Tail River, Phelps Mill Public Water Access Site",
+        "id": "phelps-mill-county-park-carry-in-access",
+        "name": "Phelps Mill County Park carry-in access",
         "latitude": 46.3821667,
         "longitude": -95.8210176,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default put-in at Phelps Mill County Park and dam/portage area."
+        "note": "Carry-in access: portage across the park lawn and launch west of the parking area; no conventional boat-launch facility is listed by the county."
       },
       {
         "id": "west-lost-lake-public-water-access-site",
@@ -10581,12 +10584,12 @@ export const minnesotaRiverTripDetails: Record<string, RiverTripDetails> = {
       },
       {
         "id": "cannon-welch-mill-access",
-        "name": "Cannon River, Welch Mill access",
+        "name": "Welch Mill private outfitter landing (conditional; not a public bailout)",
         "latitude": 44.5679337,
         "longitude": -92.7385579,
         "mileFromStart": 14.15,
         "segmentKind": "creek",
-        "note": "Approximate intermediate point from the existing Riverside-to-Welch route endpoint; verify current public access, parking, and any private-property restrictions before treating it as a routine bailout."
+        "note": "This is a conditional private outfitter landing, not a public bailout. MN DNR says Welch has no developed public water access; use only with a current reservation or explicit permission, and confirm the landing, carry, and parking with Welch Mill. Do not rely on it as an emergency exit."
       },
       {
         "id": "highway-61-cannon",
@@ -12158,7 +12161,7 @@ Object.assign(minnesotaRiverTripDetails, {
   }),
   'poplar-river-lutsen-seventh-bridge': {
     putIn: {
-      name: 'Lutsen Ski Area carry-in',
+      name: 'Lutsen Ski Area corridor (public paddle access unverified)',
       latitude: 47.664625340847806,
       longitude: -90.71565087000029,
     },
@@ -12176,7 +12179,7 @@ Object.assign(minnesotaRiverTripDetails, {
       campingClassification: 'nearby_basecamp',
       summary: 'A compact expert creek run whose short mileage does not reduce its scouting, rescue, or access demands.',
       accessCaveats: [
-        'The common put-in is a carry from the Lutsen Ski Area corridor; confirm current permission and parking rules.',
+      'Public kayak/canoe access at the Lutsen Ski Area corridor has not been confirmed. Do not use this route until the land manager confirms lawful parking, carry, and water entry.',
         'The take-out is above Seventh Bridge. Verify the exit from land before launching.',
       ],
       watchFor: ["Bielik's Surprise", 'linked boulder gardens', 'wood', 'the mandatory Seventh Bridge exit'],

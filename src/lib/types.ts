@@ -76,6 +76,9 @@ export type SourceProvider =
   | 'wisconsin_river_trips'
   | 'wisconsin_trail_guide'
   | 'nps'
+  | 'milwaukee_county'
+  | 'urban_ecology_center'
+  | 'milwaukee_riverkeeper'
   | 'local'
   | 'manual';
 
@@ -128,6 +131,8 @@ export interface RiverRouteAccessPoint extends RiverAccessPoint {
   id: string;
   mileFromStart: number;
   segmentKind: 'lake' | 'transition' | 'creek';
+  /** Route-shape waypoints are not public launches, landings, or access sites. */
+  accessPointRole?: 'public-access' | 'navigation-waypoint';
   note?: string;
 }
 

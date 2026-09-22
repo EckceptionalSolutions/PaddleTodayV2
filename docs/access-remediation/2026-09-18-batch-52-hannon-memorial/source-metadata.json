@@ -1,0 +1,37 @@
+{
+  "batch": 52,
+  "reviewDate": "2026-09-18",
+  "sources": [
+    {
+      "id": "montana-fwp-fishing-access-site-locations-feature-198",
+      "title": "Montana FWP Fishing Access Site Locations — Hannon Memorial",
+      "url": "https://fwp-gis.mt.gov/arcgis/rest/services/fwplnd/fwpLands/MapServer/1/query?where=NAME%20LIKE%20%27%25Hannon%25%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "provider": "Montana Fish, Wildlife & Parks",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "The layer is a point feature class described as fishing access sites managed by Montana FWP; its display field is NAME.",
+        "The matching feature has OBJECTID 198, NAME Hannon Memorial, BOAT_FAC Hand Launch, CAMPING Yes, PDFMAP ending in 39754135.pdf, WEB_PAGE https://myfwp.mt.gov/fishMT/fas/39754135, and LMS_ID 39754135.",
+        "The feature's geometry in EPSG:4326 is x=-114.14011430662917, y=45.972829569043675, about 4 feet from the coordinate published by the linked FishMT record.",
+        "Feature geometry supports identity and site location; the layer does not label the point as a ramp toe."
+      ],
+      "use": "Primary current managing-agency GIS confirmation that the public Hannon facility is an FWP hand-launch site; not proof of a surveyed water-entry coordinate."
+    },
+    {
+      "id": "montana-fwp-fishmt-hannon-fas-39754135",
+      "title": "Montana FWP FishMT — Hannon Memorial FAS",
+      "url": "https://myfwp.mt.gov/fishMT/fas/39754135",
+      "provider": "Montana Fish, Wildlife & Parks",
+      "retrieved": "2026-09-18",
+      "observations": [
+        "Identifies Hannon Memorial FAS on the Bitterroot River and publishes latitude 45.97282, longitude -114.1401.",
+        "Describes a day-use area with a concrete boat launch and identifies boating as an activity.",
+        "Provides access directions from Rocky Mountain Road and separates the day-use area from the camping area."
+      ],
+      "use": "Primary confirmation of the exact stored site coordinate, Bitterroot identity, public boating use, and launch availability; it does not describe the point as the surveyed launch toe."
+    }
+  ],
+  "auditEvidence": {
+    "before": "audit-before-public-cache-only.json contains both route occurrences at 45.97282,-114.1401; each was suspicious, about 321.6 feet from the matched Bitterroot flowline and 277.7 feet from mapped water.",
+    "after": "Route-specific and full cache-only audits are saved in targeted-after-*.json and audit-after-*.json after adding the route-scoped access anchor."
+  }
+}

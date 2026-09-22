@@ -1,0 +1,20 @@
+{
+  "batch": "B85",
+  "selectedAt": "2026-09-19",
+  "routeId": "wv-greenbrier-talcott-willowwood",
+  "routeName": "Greenbrier River",
+  "reach": "Talcott to Willowwood",
+  "state": "West Virginia",
+  "endpoint": "putIn",
+  "endpointName": "Talcott access",
+  "storedCoordinate": { "latitude": 37.65, "longitude": -80.7511 },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 331.4207,
+    "nearestWaterwayName": "Greenbrier River",
+    "distanceFeetToMappedWater": 179.8653,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "named-flowline"
+  },
+  "selectionReason": "The WVDNR District 4 access table explicitly lists Talcott on the Greenbrier River as a lot and boat access at the stored coordinate; verify the off-flowline point as a public ramp and parking anchor."
+}

@@ -1,0 +1,21 @@
+{
+  "batch": "B97",
+  "routeAudit": {
+    "routeId": "iowa-river-hills-river-junction",
+    "beforeSeverity": "suspicious",
+    "afterSeverity": "review",
+    "beforeDistanceFeetToMatchedRiver": 339.8597857601601,
+    "afterDistanceFeetToMatchedRiver": 339.8597857601601,
+    "mappedWaterDistanceFeet": 238.44158010910525,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0
+  },
+  "fullAuditDelta": {
+    "public": { "beforeSuspicious": 28, "afterSuspicious": 27, "beforeReview": 3909, "afterReview": 3910 },
+    "inventory": { "beforeSuspicious": 81, "afterSuspicious": 80, "beforeReview": 4213, "afterReview": 4214 },
+    "registry": { "beforeAuthoritativeAccessCount": 1242, "afterAuthoritativeAccessCount": 1243, "conflictCount": 0 }
+  },
+  "decision": "Retain the exact Johnson County coordinate as a conditional authoritative access-area anchor. The county documents the boat ramp and water-trail endpoint, while the current closure notice means this access is unavailable until reopened. The 340-foot flowline offset remains review-level facility placement evidence rather than a coordinate error.",
+  "followUp": "Verify county reopening, road/site status, parking, ramp, and water conditions before using River Junction as a take-out."
+}

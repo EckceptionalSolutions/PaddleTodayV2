@@ -1,0 +1,117 @@
+{
+  "reviewedAt": "2026-09-17T13:07:33.056Z",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "sha256": "6700e574d5003341ecd292b80ff1f4242cfe76088ddce4dfa52dbccd1e3119ba",
+    "evidenceMode": "cache-only",
+    "limitation": "Cache-only report predates this batch. Regeneration is blocked by missing @paddletoday/geo; selection was filtered against current generated withholding manifest."
+  },
+  "sources": [
+    {
+      "label": "Boundary Creek access and flow guide",
+      "url": "https://www.northidahorivers.com/Boundary_Creek.htm",
+      "reviewUse": "Approximate border/headwater access only.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Boysen Reservoir facilities",
+      "url": "https://www.usbr.gov/gp/recreation/boyrrec.html",
+      "reviewUse": "Official public reservoir and ramp context.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Boysen map",
+      "url": "https://wyoparks.wyo.gov/index.php/files/310/Boysen/8/Boysen-Map.pdf",
+      "reviewUse": "Fremont Bay and ramps shown schematically; no exact water point.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Glendo State Park",
+      "url": "https://wyoparks.wyo.gov/index.php/places-to-go/glendo",
+      "reviewUse": "Official park page and current ramp/map context.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Glendo Park Map",
+      "url": "https://wyoparks.wyo.gov/index.php/files/453/Glendo/1447/Glendo-Park-Map.pdf",
+      "reviewUse": "Sandy Beach campground is shown, not a ramp.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "High Tor WMA",
+      "url": "https://dec.ny.gov/places/high-tor-wildlife-management-area",
+      "reviewUse": "Parking/trail and launch-area distinctions.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Deer Creek access guide",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/10983/main",
+      "reviewUse": "MD136 gravel area downstream river-right.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "St. Louis River maps",
+      "url": "https://www.dnr.state.mn.us/state-water-trails/st-louis-river/segments-maps.html",
+      "reviewUse": "County Road 4 bridge access and carry.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Logan Creek water-trail map",
+      "url": "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Logan_Creek_River.pdf",
+      "reviewUse": "Pender-to-Oakland corridor and schematic access locations.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Cedar River map",
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/cedar.pdf",
+      "reviewUse": "Orchard Creek access at mile 7.9.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Hereford Area river recreation",
+      "url": "https://dnr.maryland.gov/publiclands/pages/central/gunpowderfalls/hereford-area-river-recreation.aspx",
+      "reviewUse": "York Road difficulty boundary; not a confirmed landing.",
+      "retrievedDate": "2026-09-17"
+    },
+    {
+      "label": "Mineral Point Branch route guide",
+      "url": "https://www.wisconsinrivertrips.com/segments/pecatonica-river/mineral-point-branch/ludden-lake",
+      "reviewUse": "Hwy39 is a possible access lead; current public approach unverified.",
+      "retrievedDate": "2026-09-17"
+    }
+  ],
+  "localEvidence": [
+    {
+      "path": "node_modules\\.cache\\access-batch-02\\boundary.png",
+      "bytes": 2294816,
+      "sha256": "b54b919b85b082a628791cc8b0c37bea4542287f7de9311f52bad686793ddeb5",
+      "role": "Local imagery or official map render; supporting context only. No coordinate was derived from these images for this batch."
+    },
+    {
+      "path": "node_modules\\.cache\\access-batch-02\\boysen-map-page1.png",
+      "bytes": 258399,
+      "sha256": "523e5e06b08e8ac05473c19c4e506b60e9351c7491fd828541866259f6525f5d",
+      "role": "Local imagery or official map render; supporting context only. No coordinate was derived from these images for this batch."
+    },
+    {
+      "path": "node_modules\\.cache\\access-batch-02\\glendo-town.png",
+      "bytes": 1805378,
+      "sha256": "c0ee26d625d8fa88049bafd78a2ec3c0fc7f8f3ef577518731a09045beb508b1",
+      "role": "Local imagery or official map render; supporting context only. No coordinate was derived from these images for this batch."
+    },
+    {
+      "path": "node_modules\\.cache\\access-batch-02\\glendo-park-map-page1.png",
+      "bytes": 561879,
+      "sha256": "18b4fe92991e9163ba2779c861b883098da2602436853e52fa50b0c4ff4dd247",
+      "role": "Local imagery or official map render; supporting context only. No coordinate was derived from these images for this batch."
+    },
+    {
+      "path": "node_modules\\.cache\\access-batch-02\\md136.png",
+      "bytes": 1987742,
+      "sha256": "528b6f73969d4241be4cb8cc67a173f194fa3d719dee2f6c7a6ab5d50f69984a",
+      "role": "Local imagery or official map render; supporting context only. No coordinate was derived from these images for this batch."
+    }
+  ],
+  "followUp": "Nebraska official launch-layer query, raw response and hashes are preserved under logan-follow-up/."
+}

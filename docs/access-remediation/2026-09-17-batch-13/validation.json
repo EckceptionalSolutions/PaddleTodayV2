@@ -1,0 +1,66 @@
+{
+  "batch": "2026-09-17-batch-13",
+  "validatedOn": "2026-09-17",
+  "sourceReview": "passed",
+  "checks": [
+    {
+      "command": "source retrieval and snapshot hash verification",
+      "status": "passed",
+      "result": "24 accepted sources were retrieved and SHA-256 hashed; six 403/404 retrieval failures remain excluded from evidence."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "status": "passed",
+      "result": "Generated 149 unique withheld route slugs, including north-fork-boise-barber-flat-troutdale."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-13/verify.mjs",
+      "status": "passed",
+      "result": "Ten frozen sites and decisions; eight retained access-area anchors; one navigation-waypoint reclassification; one route withheld; 23 unique affected routes; 149 unique withheld slugs; accepted-source and before-edit backup hashes verified; edited TypeScript syntax valid."
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "status": "blocked",
+      "result": "The route-data project cannot resolve @paddletoday/api-contract. This causes repository-wide cascading RiverRouteAccessPoint diagnostics, so the checkout cannot provide a meaningful route-data typecheck result."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-remediation/2026-09-17-batch-13/after-audit.json --cache-only",
+      "status": "blocked",
+      "result": "The fresh audit exits before reading routes because @paddletoday/geo is unavailable. The frozen cache-only queue was used only to choose research targets; no after-audit file was produced."
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "status": "blocked",
+      "result": "Vitest startup fails because @jridgewell/sourcemap-codec is missing from node_modules."
+    },
+    {
+      "command": "npm run routes:geometries:generate -- --reuse-existing; node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --reuse-existing",
+      "status": "blocked",
+      "result": "The npm script cannot find tsx on PATH; invoking the local tsx CLI directly then fails because @paddletoday/geo is unavailable. No generated geometry/catalog file was written. No source coordinates changed in this batch."
+    },
+    {
+      "command": "routes:overview:generate and routes:access-registry:generate",
+      "status": "not-run",
+      "result": "Skipped because a fresh audit and geometry/catalog refresh cannot be completed with the missing packages. Existing served artifacts were inspected for the new hold instead of being regenerated from stale evidence."
+    }
+  ],
+  "servedArtifacts": {
+    "status": "stale-and-not-regenerated",
+    "finding": "The source manifest contains the Barber Flat hold, but the generated registry, Idaho state geometry, route geometry, and explore-map overview still contain north-fork-boise-barber-flat-troutdale. The route is withheld in source; the served catalog is not yet pruned.",
+    "affectedRouteIds": ["north-fork-boise-barber-flat-troutdale"],
+    "affectedFiles": [
+      "src/data/generated/route-access-registry.json",
+      "public/data/canonical-river-geometries/routes/north-fork-boise-barber-flat-troutdale.json",
+      "public/data/canonical-river-geometries/states/idaho.json",
+      "public/data/explore-map-overview.json"
+    ],
+    "action": "After @paddletoday/geo and the project package graph are restored, run a fresh full access audit, regenerate and inspect the Idaho route geometry/state bundle, route catalog, explore-map overview, and access registry. Confirm the held route is absent from served outputs, source inventory still preserves the access record, and the hold remains until legal launch access and fire-safe conditions are confirmed."
+  },
+  "limitations": [
+    "Cached queue ranks and mapped-water distances prioritized research only; no coordinates were snapped to water.",
+    "Eight points remain documented access-area anchors rather than surveyed wet-edge coordinates; exact shoreline coordinates were not published by the reviewed sources.",
+    "No route coordinates changed, so no route-specific corrected geometry was attempted. The new source hold still requires catalog regeneration and absence checks before release.",
+    "Barber Flat remains unverified because public launch rights, a lawful river carry, and current fire-safe access are not established.",
+    "Six failed retrievals are not evidence. Typecheck, fresh audit, tests, and generated artifact rebuild remain incomplete because required packages are missing."
+  ]
+}

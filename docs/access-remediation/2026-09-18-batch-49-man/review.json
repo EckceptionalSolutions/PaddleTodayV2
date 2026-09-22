@@ -1,0 +1,47 @@
+{
+  "batch": 49,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Man public access, Guyandotte River, Logan County, West Virginia",
+  "affectedRoutes": [
+    "wv-guyandotte-wylo-man",
+    "wv-guyandotte-man-earling"
+  ],
+  "decision": "move-the-two-shared-endpoints-to-the-active-WVDNR-GIS-access-point; keep both under review because official sources conflict on longitude and launch type",
+  "decisionScope": "WVDNR's live Fishing and Boating Access Sites GIS returns active ObjectID 489 named Man, in Logan County on the Guyandotte River, owned by WVDNR Wildlife, with Carry Down access. Its point geometry is 37.744100, -81.887894. This matches the named Man endpoint between Water Trail Trips 9 and 10 and satellite imagery places the pin at the river-side access corridor. The current District 5 PDF's Man row lists longitude -81.8979, and the Water Trail description calls the site a concrete ramp while the GIS classifies it Carry Down. The live GIS coordinate is the best current shared site anchor, but this disagreement prevents us from claiming an exact ramp or toe. Both endpoints remain review with that caveat.",
+  "preChangeFinding": {
+    "coordinate": { "latitude": 37.731, "longitude": -81.875 },
+    "occurrences": 2,
+    "matchedFlowlineDistanceFeet": 375.9700,
+    "mappedWaterDistanceFeet": 282.2037,
+    "endpointOnWaterbody": false,
+    "severity": "suspicious"
+  },
+  "change": {
+    "sourceFile": "src/data/routes/west-virginia.ts",
+    "from": { "latitude": 37.731, "longitude": -81.875 },
+    "to": { "latitude": 37.7441, "longitude": -81.887894 },
+    "occurrences": 2,
+    "coordinateRole": "authoritative-access-anchor",
+    "controlId": "wv_dnr_guyandotte_man_access",
+    "rationale": "The live state access GIS exactly identifies the shared named Man access and brings the point onto mapped water and within about 53 feet of the matched Guyandotte flowline. The route source dossier now records the DNR guide and launch-type discrepancies; the exact water-entry point remains unverified."
+  },
+  "postChangeHydrography": {
+    "matchedFlowlineDistanceFeet": 52.5134,
+    "mappedWaterDistanceFeet": 0,
+    "endpointOnWaterbody": true,
+    "interpretation": "The old suspicious offset is corrected to the current official access-site point. The audit correctly keeps it review as an access-area anchor rather than asserting that the GIS pin is a surveyed water-entry toe."
+  },
+  "postChangeAudits": [
+    {
+      "routeId": "wv-guyandotte-wylo-man",
+      "file": "targeted-after-wylo-man.json",
+      "result": "Both endpoints review; Man matches the WVDNR active GIS anchor, is on mapped water, and is 52.5 feet from connected Guyandotte hydrography; source issues 0."
+    },
+    {
+      "routeId": "wv-guyandotte-man-earling",
+      "file": "targeted-after-man-earling.json",
+      "result": "Both endpoints review; Man matches the WVDNR active GIS anchor, is on mapped water, and is 52.5 feet from connected Guyandotte hydrography; source issues 0."
+    }
+  ],
+  "outcome": "Two suspicious public endpoint occurrences moved to review at the state-listed access site. Confirming whether the current entry is a carry-down or ramp and the exact waterline remains open."
+}

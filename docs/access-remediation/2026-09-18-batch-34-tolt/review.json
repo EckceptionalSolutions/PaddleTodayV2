@@ -1,0 +1,55 @@
+{
+  "batch": 34,
+  "reviewDate": "2026-09-18",
+  "reviewType": "shared-suspicious-location-remediation",
+  "selectionFile": "selection.json",
+  "sourceMetadataFile": "source-metadata.json",
+  "decisionCount": 1,
+  "endpointOccurrencesCorrected": 3,
+  "uniqueRoutesChanged": 3,
+  "holdsAdded": 0,
+  "decisions": [
+    {
+      "state": "Washington",
+      "name": "Tolt-MacDonald Park Snoqualmie River boat launch",
+      "routeIds": [
+        "snoqualmie-river-fall-city-tolt",
+        "snoqualmie-river-plum-tolt",
+        "snoqualmie-river-neal-tolt"
+      ],
+      "decision": "correct-to-imagery-derived-public-boat-launch-water-entry",
+      "previousCoordinate": {
+        "latitude": 47.64411,
+        "longitude": -121.924217
+      },
+      "updatedCoordinate": {
+        "latitude": 47.6385904,
+        "longitude": -121.9263098
+      },
+      "coordinateRole": "authoritative-water-entry",
+      "uncertaintyFeet": 50,
+      "rationale": "King County identifies Tolt-MacDonald Park as a public park with a boat launch, and its map identifies the launch facility. The named Snoqualmie River Boat Launch map feature is linked to King County park information; current aerial imagery shows the named ramp at the Snoqualmie River bank. The old point was about 282 feet from mapped water and 393 feet from the matched flowline. The replacement is map-feature/aerial-derived, not a surveyed King County coordinate.",
+      "postCorrectionAudit": {
+        "endpointOccurrences": 3,
+        "suspicious": 0,
+        "failure": 0,
+        "unknown": 0,
+        "sourceIssues": 0,
+        "waterProximity": "within-100ft for all 3",
+        "flowlineDistanceFeet": 120.1,
+        "severity": "review for all 3 because the NHD flowline is generalized at the ramp"
+      },
+      "geometryRegenerated": true,
+      "holdAdded": false,
+      "reopenWhen": "Recheck if King County relocates or closes the boat launch, or publishes a surveyed ramp coordinate."
+    }
+  ],
+  "validation": {
+    "targetedRoutesAudited": 3,
+    "targetedRouteAuditResults": "All three separate route-scoped audit runs reported zero suspicious, failure, unknown, or source-issue results.",
+    "changedRouteGeometryRegenerated": 3,
+    "fullAuditStatus": "completed cache-only 2026-09-18T16:38:12.920Z: 2,752 routes / 6,062 endpoints; 106 suspicious, 0 failures, 78 unknown, 271 source issues; 120 review locations.",
+    "registryStatus": "regenerated from cache-only full audit 2026-09-18T16:38:12.920Z: 4,042 canonical access entries (1,201 repeated entries; 0 conflicts).",
+    "overviewStatus": "regenerated: 2,739 geometry-backed routes; canonical geometry audit passed with 2,739/2,752 routes matched (13 routes remain unmatched); 31,010 points / 1,465,276 bytes."
+  }
+}

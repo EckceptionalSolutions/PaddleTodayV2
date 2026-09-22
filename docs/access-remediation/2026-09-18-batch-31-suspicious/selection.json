@@ -1,0 +1,363 @@
+{
+  "batch": "2026-09-18-batch-31-suspicious",
+  "reviewedAt": "2026-09-18",
+  "auditGeneratedAt": "2026-09-18T11:59:00.434Z",
+  "evidenceMode": "cache-preferred",
+  "selectionRule": "Group suspicious endpoints at exact six-decimal coordinates; rank by greatest distance to any mapped water returned, then number of unique public routes affected, then state. Freeze the first ten physical sites.",
+  "candidates": {
+    "suspiciousEndpointOccurrences": 167,
+    "uniqueCoordinates": 106
+  },
+  "selectedSites": [
+    {
+      "siteNumber": 1,
+      "siteKey": "44.682170,-73.087000",
+      "state": "Vermont",
+      "name": "Arrowhead Mountain Lake public boat ramp, Fairfax (water-entry edge)",
+      "latitude": 44.68217,
+      "longitude": -73.087,
+      "distanceFeetToMappedWater": 791.4047342434901,
+      "routeCount": 1,
+      "routeIds": [
+        "lamoille-river-upper-access-arrowhead"
+      ],
+      "occurrences": [
+        {
+          "routeId": "lamoille-river-upper-access-arrowhead",
+          "endpoint": "takeOut",
+          "endpointName": "Arrowhead Mountain Lake public boat ramp, Fairfax (water-entry edge)",
+          "severity": "suspicious",
+          "matchedRiverName": "Lamoille River",
+          "distanceFeetToMatchedRiver": 791.4047342434901,
+          "nearestWaterwayName": "Lamoille River",
+          "distanceFeetToNearestWaterway": 791.4047342434901,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 1284.2446551928863,
+          "distanceFeetToMappedWater": 791.4047342434901,
+          "hydrographyCoverageComplete": false
+        }
+      ]
+    },
+    {
+      "siteNumber": 2,
+      "siteKey": "42.910715,-92.543001",
+      "state": "Iowa",
+      "name": "Pearl Rock access",
+      "latitude": 42.910715,
+      "longitude": -92.543001,
+      "distanceFeetToMappedWater": 597.6595066876326,
+      "routeCount": 2,
+      "routeIds": [
+        "cedar-river-nashua-pearl-rock",
+        "cedar-river-pearl-rock-north-cedar"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-nashua-pearl-rock",
+          "endpoint": "takeOut",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious",
+          "matchedRiverName": "Cedar River",
+          "distanceFeetToMatchedRiver": 697.3478933517242,
+          "nearestWaterwayName": "Cedar River",
+          "distanceFeetToNearestWaterway": 697.3478933517242,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 597.6595066876326,
+          "distanceFeetToMappedWater": 597.6595066876326,
+          "hydrographyCoverageComplete": true
+        },
+        {
+          "routeId": "cedar-river-pearl-rock-north-cedar",
+          "endpoint": "putIn",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious",
+          "matchedRiverName": "Cedar River",
+          "distanceFeetToMatchedRiver": 697.3478933517242,
+          "nearestWaterwayName": "Cedar River",
+          "distanceFeetToNearestWaterway": 697.3478933517242,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 597.6595066876326,
+          "distanceFeetToMappedWater": 597.6595066876326,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 3,
+      "siteKey": "43.851200,-89.128900",
+      "state": "Wisconsin",
+      "name": "Princeton Jefferson Street / Hiestand Park Landing",
+      "latitude": 43.8512,
+      "longitude": -89.1289,
+      "distanceFeetToMappedWater": 585.4672696890572,
+      "routeCount": 1,
+      "routeIds": [
+        "fox-river-princeton-locks-city-landing"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-princeton-locks-city-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Princeton Jefferson Street / Hiestand Park Landing",
+          "severity": "suspicious",
+          "matchedRiverName": "Fox River",
+          "distanceFeetToMatchedRiver": 629.9943873504161,
+          "nearestWaterwayName": "Fox River",
+          "distanceFeetToNearestWaterway": 629.9943873504161,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 585.4672696890572,
+          "distanceFeetToMappedWater": 585.4672696890572,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 4,
+      "siteKey": "42.467900,-91.444800",
+      "state": "Iowa",
+      "name": "Schram Park",
+      "latitude": 42.4679,
+      "longitude": -91.4448,
+      "distanceFeetToMappedWater": 556.0653232708084,
+      "routeCount": 1,
+      "routeIds": [
+        "maquoketa-river-quaker-mill-baileys-ford"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-quaker-mill-baileys-ford",
+          "endpoint": "accessPoint",
+          "endpointName": "Schram Park",
+          "severity": "suspicious",
+          "matchedRiverName": "Maquoketa River",
+          "distanceFeetToMatchedRiver": 601.7020945070234,
+          "nearestWaterwayName": "Maquoketa River",
+          "distanceFeetToNearestWaterway": 601.7020945070234,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 556.0653232708084,
+          "distanceFeetToMappedWater": 556.0653232708084,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 5,
+      "siteKey": "37.589167,-81.679167",
+      "state": "West Virginia",
+      "name": "Baileysville WVDNR public access",
+      "latitude": 37.5891667,
+      "longitude": -81.6791667,
+      "distanceFeetToMappedWater": 554.9384830044953,
+      "routeCount": 2,
+      "routeIds": [
+        "wv-guyandotte-baileysville-rd-bailey-campground",
+        "wv-guyandotte-pineville-baileysville"
+      ],
+      "occurrences": [
+        {
+          "routeId": "wv-guyandotte-baileysville-rd-bailey-campground",
+          "endpoint": "putIn",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious",
+          "matchedRiverName": "Guyandotte River",
+          "distanceFeetToMatchedRiver": 594.308908902282,
+          "nearestWaterwayName": "Guyandotte River",
+          "distanceFeetToNearestWaterway": 594.308908902282,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 554.9384830044953,
+          "distanceFeetToMappedWater": 554.9384830044953,
+          "hydrographyCoverageComplete": true
+        },
+        {
+          "routeId": "wv-guyandotte-pineville-baileysville",
+          "endpoint": "takeOut",
+          "endpointName": "Baileysville WVDNR public access",
+          "severity": "suspicious",
+          "matchedRiverName": "Guyandotte River",
+          "distanceFeetToMatchedRiver": 594.308908902282,
+          "nearestWaterwayName": "Guyandotte River",
+          "distanceFeetToNearestWaterway": 594.308908902282,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 554.9384830044953,
+          "distanceFeetToMappedWater": 554.9384830044953,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 6,
+      "siteKey": "42.162790,-90.891807",
+      "state": "Iowa",
+      "name": "Canton Bridge Access / Canton County Park",
+      "latitude": 42.1627901,
+      "longitude": -90.8918068,
+      "distanceFeetToMappedWater": 544.7340742451154,
+      "routeCount": 1,
+      "routeIds": [
+        "maquoketa-river-canton-royertown"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-canton-royertown",
+          "endpoint": "putIn",
+          "endpointName": "Canton Bridge Access / Canton County Park",
+          "severity": "suspicious",
+          "matchedRiverName": "Maquoketa River",
+          "distanceFeetToMatchedRiver": 608.8971298384928,
+          "nearestWaterwayName": "Maquoketa River",
+          "distanceFeetToNearestWaterway": 608.8971298384928,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 544.7340742451154,
+          "distanceFeetToMappedWater": 544.7340742451154,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 7,
+      "siteKey": "43.551900,-115.737000",
+      "state": "Idaho",
+      "name": "Neal Bridge Take-Out",
+      "latitude": 43.5519,
+      "longitude": -115.737,
+      "distanceFeetToMappedWater": 541.3081785027514,
+      "routeCount": 1,
+      "routeIds": [
+        "south-fork-boise-danskin-neal"
+      ],
+      "occurrences": [
+        {
+          "routeId": "south-fork-boise-danskin-neal",
+          "endpoint": "takeOut",
+          "endpointName": "Neal Bridge Take-Out",
+          "severity": "suspicious",
+          "matchedRiverName": "South Fork Boise River",
+          "distanceFeetToMatchedRiver": 635.9867961854128,
+          "nearestWaterwayName": "South Fork Boise River",
+          "distanceFeetToNearestWaterway": 635.9867961854128,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 541.3081785027514,
+          "distanceFeetToMappedWater": 541.3081785027514,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 8,
+      "siteKey": "48.591075,-121.377902",
+      "state": "Washington",
+      "name": "Copper Creek Boat Access, NPS Road 213",
+      "latitude": 48.5910748909,
+      "longitude": -121.3779020782,
+      "distanceFeetToMappedWater": 495.59028835817554,
+      "routeCount": 3,
+      "routeIds": [
+        "skagit-river-copper-howard-miller",
+        "skagit-river-copper-marblemount",
+        "skagit-river-goodell-copper"
+      ],
+      "occurrences": [
+        {
+          "routeId": "skagit-river-copper-howard-miller",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious",
+          "matchedRiverName": "Skagit River",
+          "distanceFeetToMatchedRiver": 653.3469827570188,
+          "nearestWaterwayName": "Skagit River",
+          "distanceFeetToNearestWaterway": 653.3469827570188,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 495.59028835817554,
+          "distanceFeetToMappedWater": 495.59028835817554,
+          "hydrographyCoverageComplete": false
+        },
+        {
+          "routeId": "skagit-river-copper-marblemount",
+          "endpoint": "putIn",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious",
+          "matchedRiverName": "Skagit River",
+          "distanceFeetToMatchedRiver": 468.7439905257888,
+          "nearestWaterwayName": "Skagit River",
+          "distanceFeetToNearestWaterway": 653.3469827570188,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 495.59028835817554,
+          "distanceFeetToMappedWater": 468.7439905257888,
+          "hydrographyCoverageComplete": true
+        },
+        {
+          "routeId": "skagit-river-goodell-copper",
+          "endpoint": "takeOut",
+          "endpointName": "Copper Creek Boat Access, NPS Road 213",
+          "severity": "suspicious",
+          "matchedRiverName": "Skagit River",
+          "distanceFeetToMatchedRiver": 468.7439905257888,
+          "nearestWaterwayName": "Skagit River",
+          "distanceFeetToNearestWaterway": 653.3469827570188,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 495.59028835817554,
+          "distanceFeetToMappedWater": 468.7439905257888,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 9,
+      "siteKey": "42.330993,-89.666227",
+      "state": "Illinois",
+      "name": "Wes Block Trail Access",
+      "latitude": 42.330992586134,
+      "longitude": -89.666227460683,
+      "distanceFeetToMappedWater": 481.8981995724994,
+      "routeCount": 1,
+      "routeIds": [
+        "pecatonica-river-wes-block-tuttys"
+      ],
+      "occurrences": [
+        {
+          "routeId": "pecatonica-river-wes-block-tuttys",
+          "endpoint": "putIn",
+          "endpointName": "Wes Block Trail Access",
+          "severity": "suspicious",
+          "matchedRiverName": "Pecatonica River",
+          "distanceFeetToMatchedRiver": 655.1937074797178,
+          "nearestWaterwayName": "Pecatonica River",
+          "distanceFeetToNearestWaterway": 655.1937074797178,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 481.8981995724994,
+          "distanceFeetToMappedWater": 481.8981995724994,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    },
+    {
+      "siteNumber": 10,
+      "siteKey": "42.084000,-90.762000",
+      "state": "Iowa",
+      "name": "Millertown Bridge Access / Monmouth corridor",
+      "latitude": 42.084,
+      "longitude": -90.762,
+      "distanceFeetToMappedWater": 471.1640152873333,
+      "routeCount": 1,
+      "routeIds": [
+        "maquoketa-river-monmouth-maquoketa"
+      ],
+      "occurrences": [
+        {
+          "routeId": "maquoketa-river-monmouth-maquoketa",
+          "endpoint": "putIn",
+          "endpointName": "Millertown Bridge Access / Monmouth corridor",
+          "severity": "suspicious",
+          "matchedRiverName": "Maquoketa River",
+          "distanceFeetToMatchedRiver": 533.733865672379,
+          "nearestWaterwayName": "Maquoketa River",
+          "distanceFeetToNearestWaterway": 533.733865672379,
+          "nearestWaterbodyName": null,
+          "distanceFeetToNearestWaterbody": 471.1640152873333,
+          "distanceFeetToMappedWater": 471.1640152873333,
+          "hydrographyCoverageComplete": true
+        }
+      ]
+    }
+  ]
+}

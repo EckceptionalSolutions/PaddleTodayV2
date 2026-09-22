@@ -1,0 +1,19 @@
+{
+  "batch": 54,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Select the highest-ranked remaining repeated public suspicious site from the latest full public audit, freeze its route occurrences, then compare the access description, current managing-agency record, and imagery.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T19:33:03.494Z; 2,750 public routes, 6,058 endpoints, 80 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Idaho",
+    "name": "Washington Creek Campground access, North Fork Clearwater River",
+    "storedCoordinate": { "latitude": 46.70436, "longitude": -115.55598 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "north-fork-clearwater-weitas-washington",
+      "north-fork-clearwater-washington-quartz"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 370 feet from the matched North Fork Clearwater flowline and 286 feet from mapped water and were classified suspicious.",
+    "decision": "retain-the-public-campground-access-location-as-a-broad-site-anchor; classify the distance as documented-access-anchor-offset; do-not-claim-the-exact-water-entry-toe-is-verified",
+    "selectionFrozenBeforeResearch": true
+  }
+}

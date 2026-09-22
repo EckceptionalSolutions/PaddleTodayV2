@@ -1,0 +1,40 @@
+{
+  "batch": 67,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "USDA Forest Service EDW Recreation Opportunities GIS — Spring Creek Campground, recarea 76086",
+      "url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecreationOpportunities_01/MapServer/0/query?where=RECAREAID%3D76086&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "The Forest Service recreation feature identifies Spring Creek Campground in the Salmon-Challis National Forest and describes five developed sites with additional undeveloped sites on the Wild and Scenic Salmon River.",
+        "The feature description identifies the site as a put-in for a popular ten-mile day-use run. Its published point is 45.3920283,-114.2543230, approximately 660 feet from the route coordinate."
+      ],
+      "limits": "The mapped feature is a campground point, not a survey of the boat ramp, water-edge toe, carry path, or parking entrance."
+    },
+    {
+      "name": "Idaho Fish and Game — Upper Salmon River Steelhead Angling Pocket Guide",
+      "url": "https://idfg.idaho.gov/sites/default/files/upper-salmon-river-steelhead-angling-pocket-guide.pdf",
+      "observations": [
+        "The official corridor map labels Spring Creek and depicts a USFS ramp in this Salmon River access corridor."
+      ],
+      "limits": "The map confirms the named ramp and agency but does not provide a precise coordinate for the launch toe."
+    },
+    {
+      "name": "American Whitewater — Salmon River, North Fork to Corn Creek access guide",
+      "url": "https://www.americanwhitewater.org/content/River/view/river-detail/611/main",
+      "observations": [
+        "The guide lists Spring Creek Campground at river-mile 16.2 and describes Spring Creek Campground Access as a good river ramp co-located with a Forest Service campground, often used for the day trip to Cove Creek."
+      ],
+      "limits": "This independent access guide supports site identity and ramp presence but does not publish the ramp's exact coordinate."
+    },
+    {
+      "name": "USGS National Hydrography Dataset Large Scale — targeted route-distance audit",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "observations": [
+        "The retained route coordinate is about 478 feet from the matched Salmon River flowline and 422 feet from mapped water; NHD coverage is complete with zero source issues."
+      ],
+      "limits": "Hydrography measures mapped-water proximity and does not identify public access or the exact wet toe."
+    }
+  ],
+  "decision": "Retain the named public access-area point as review-level, with explicit uncertainty about the exact shoreline entry; no coordinate correction is supported by the available sources."
+}

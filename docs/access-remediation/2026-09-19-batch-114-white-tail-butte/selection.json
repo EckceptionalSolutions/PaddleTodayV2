@@ -1,0 +1,23 @@
+{
+  "batch": "B114",
+  "selectedAt": "2026-09-19",
+  "routeId": "priest-river-dickensheet-white-tail",
+  "routeName": "Priest River",
+  "reach": "Dickensheet Campground to White Tail Butte Landing",
+  "state": "Idaho",
+  "endpoint": "takeOut",
+  "endpointName": "White Tail Butte Landing",
+  "storedCoordinate": {
+    "latitude": 48.4146,
+    "longitude": -116.92161
+  },
+  "preReview": {
+    "severity": "suspicious",
+    "distanceFeetToMatchedRiver": 344.36418646246807,
+    "nearestWaterwayName": "Priest River",
+    "distanceFeetToMappedWater": 275.4664862045183,
+    "hydrographyCoverageComplete": true,
+    "matchedHydrographyMode": "connected-network"
+  },
+  "selectionReason": "The USFS Priest Lake Ranger District float guide lists White Tail Butte Landing as public access point 3 on the Priest River, with undeveloped parking. The Priest Lake Chamber independently directs visitors to this USFS access-point guidance. Retain the stored point as a conditional landing-area anchor."
+}

@@ -1,0 +1,41 @@
+{
+  "batch": 70,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "observations": [
+        "BLM identifies Shorts Bar as a frequent put-in for the Lower Salmon River and describes easy access to the river.",
+        "The current BLM site page publishes 45.41194444,-116.3022222, matching the stored route point to six decimal places."
+      ],
+      "limits": "The site coordinate identifies the managed recreation area; it is not described as a surveyed wet-toe point.",
+      "name": "Bureau of Land Management — Shorts Bar Recreation Site",
+      "url": "https://www.blm.gov/visit/shorts-bar-recreation-site"
+    },
+    {
+      "observations": [
+        "BLM lists Shorts Bar as a recreation site with boat ramp, campsites, and toilets."
+      ],
+      "limits": "The guide corroborates the public boating facility, not a precise shoreline-entry coordinate.",
+      "name": "BLM Lower Salmon River Boater Guide",
+      "url": "https://www.blm.gov/sites/default/files/documents/files/Media-Center_Public-Room_Idaho_Lower-Salmon-river_BoaterGuide2018.pdf"
+    },
+    {
+      "observations": [
+        "BLM reports boat-launch upgrades at Shorts Bar among Lower Salmon River sites."
+      ],
+      "limits": "This confirms the maintained launch facility and does not provide a more precise access coordinate.",
+      "name": "BLM — Boat launch upgrades along the Lower Salmon",
+      "url": "https://www.blm.gov/press-release/bureau-land-management-completes-boat-launch-upgrades-sites-along-lower-salmon-river"
+    },
+    {
+      "observations": [
+        "Before source-control changes the selected Shorts Bar endpoint was 584 ft from its matched river flowline and 287 ft from mapped water with complete coverage.",
+        "After adding the official BLM control, the selected endpoint is review. The shared routes have one missing/truncated source query in two targeted reports; the Carey Creek-to-Riggins route has no source issue."
+      ],
+      "limits": "Hydrography distances indicate map proximity and do not establish legal access or exact wet-toe placement.",
+      "name": "USGS National Hydrography Dataset Large Scale — targeted cache-only route audits",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6"
+    }
+  ],
+  "decision": "Retain the stored coordinate as the BLM access-area marker. Do not move the point without a surveyed or well-documented wet-toe coordinate."
+}

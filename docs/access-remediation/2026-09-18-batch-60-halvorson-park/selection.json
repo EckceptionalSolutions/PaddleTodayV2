@@ -1,0 +1,19 @@
+{
+  "batch": 60,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Among remaining public suspicious coordinates, group exact repeats, rank repeated groups by occurrence count and mapped-water offset, then freeze the selected route occurrences before researching the outcome.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T20:20:18.619Z; 2,750 public routes, 6,058 endpoints, 68 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "Iowa",
+    "name": "Halvorson Park, Cedar River",
+    "storedCoordinate": { "latitude": 43.356685, "longitude": -92.925215 },
+    "suspiciousPublicOccurrences": 2,
+    "routeIds": [
+      "cedar-river-acorn-halvorson",
+      "cedar-river-halvorson-interstate"
+    ],
+    "preReviewFinding": "Both shared occurrences were about 324 feet from the matched Cedar River flowline and 217 feet from mapped water and were classified suspicious.",
+    "decision": "verify-the-exact-coordinate-and-public-boat-launch-with-the-managing-county-or-state; correct-only-if-a-defensible-water-entry-coordinate-is-published",
+    "selectionFrozenBeforeResearch": true
+  }
+}

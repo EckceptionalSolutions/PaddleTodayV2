@@ -48,13 +48,14 @@ export const nebraskaRoutes: River[] = [
       "reviewStatus": "reviewed"
     },
     "accessPoints": [
-      {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (east side of town)","latitude":42.113332,"longitude":-96.712814,"mileFromStart":0,"segmentKind":"creek","note":"Named by the official Logan Creek water-trail map and local float documentation; coordinate is a practical Pender anchor, not a survey-grade ramp point."},
-      {"id":"bancroft-logan-creek-access","name":"Bancroft - 24th Rd Logan Creek public shore launch","latitude":42.02187581,"longitude":-96.57456907,"mileFromStart":12,"segmentKind":"creek","note":"Public access is described north of Highway 16 on Cuming County Road 24, directly north of Ru-De’s Mini Mart; verify parking and landing conditions."},
-      {"id":"oakland-logan-creek-canoe-access","name":"Oakland City Park Access","latitude":41.82960424,"longitude":-96.48265492,"mileFromStart":32,"segmentKind":"creek","note":"Named by the official water-trail map; coordinate is a practical Oakland access anchor, not a survey-grade ramp point. Confirm the current take-out before launch."}
+      {"id":"pender-logan-creek-canoe-access","name":"Pender Logan Creek canoe access (exact water entry unverified)","latitude":42.113332,"longitude":-96.712814,"mileFromStart":0,"segmentKind":"creek","note":"The official water-trail map identifies the Pender access area, but no current official launch-layer feature or defensible exact water-entry point was found for this coordinate. Retained as rejected evidence; route is held pending verification."},
+      {"id":"bancroft-logan-creek-access","name":"Bancroft - 24th Rd Logan Creek public shore launch","latitude":42.02187581,"longitude":-96.57456907,"mileFromStart":12,"segmentKind":"creek","note":"Nebraska Game and Parks lists this as a public, open county-area shore launch with sand/gravel substrate; the site notes a steep drop from ramp to water. Verify current signs and approach conditions."},
+      {"id":"oakland-logan-creek-canoe-access","name":"Oakland City Park Access","latitude":41.82960424,"longitude":-96.48265492,"mileFromStart":32,"segmentKind":"creek","note":"Nebraska Game and Parks lists this as a public, open city-area shore launch with sand/gravel substrate; the site notes a steep drop from launch to waterline. Verify current signs and approach conditions."}
     ],
     "evidenceNotes": [
       {"label":"Official water-trail corridor","value":"Pender through Bancroft and Lyons to Oakland","note":"Nebraska Game and Parks’ Logan Creek map identifies the corridor, towns, start/end, and canoe access sites.","sourceUrl":"https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_Logan_Creek_River.pdf"},
-      {"label":"Public endpoint access","value":"Pender east-side canoe access and Oakland canoe access","note":"The official map and local public-access documentation identify the endpoints; Bancroft access is documented north of Highway 16 on County Road 24.","sourceUrl":"https://outdoornebraska.gov/parks/explore-trails/water-trails/"},
+      {"label":"Public endpoint access","value":"Pender east-side canoe access and Oakland City Park Access","note":"The official water-trail map identifies the corridor. The current Nebraska Game and Parks launch layer independently identifies Oakland City Park as a public/open shore launch; Pender remains an unlocated access area.","sourceUrl":"https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1"},
+      {"label":"Bancroft public launch","value":"Bancroft - 24th Rd","note":"Nebraska Game and Parks launch layer marks a public/open county-area shore launch with sand/gravel substrate and a steep ramp-to-water drop.","sourceUrl":"https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1"},
       {"label":"Direct live gauge","value":"USGS 06799445 at Wakefield","note":"USGS provides continuous discharge telemetry and station coordinates. The gauge is direct live context, not a guarantee of every reach condition.","sourceUrl":"https://waterdata.usgs.gov/monitoring-location/06799445"},
       {"label":"Flow guidance","value":"55 cfs conservative minimum-only reference","note":"Nebraska DNR Logan Creek hydrology modeling reports a modeled baseflow minimum near 55 cfs. This is a derived conservative reference, not a station-specific paddling certification; no high-water cutoff is claimed.","sourceUrl":"https://dnr.nebraska.gov/groundwater/modeling"},
       {"label":"Camping and logistics","value":"Daylight shuttle; no on-route camping assumed","note":"Use named town endpoints and confirm current parking, access, and any endpoint lodging/camping separately. Do not treat private banks, sandbars, or the stream bed as campsites without permission."},
@@ -738,9 +739,9 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "41.43328221, -97.68464875 to 41.471508, -97.602729",
-        "note": "The George D. Syas coordinate is the public-display NGPC Public Access Atlas anchor for the named WMA fishing access. The Monroe coordinate is the end-of-road public access area manually verified in Google Maps satellite imagery from the official city directions south of Monroe on 370th Avenue, then east to the road end.",
-        "sourceUrl": "https://www.columbusne.us/435/Loup-River-Water-Trail"
+        "value": "41.42442894, -97.6963078 to 41.471508, -97.602729",
+        "note": "The George D. Syas put-in uses NGPC Water Trails Paddlecraft Launch feature OBJECTID 97 (ShoreLaunch=Yes; mapped open, non-designated and unmaintained). The Monroe coordinate is the end-of-road public access area manually verified from the official City directions south of Monroe on 370th Avenue, then east to the road end.",
+        "sourceUrl": "https://services5.arcgis.com/IOshH1zLrIieqrNk/arcgis/rest/services/Paddle_Craft_Launch_View_Layer_for_Public_Web_Map/FeatureServer/1/97"
       },
       {
         "label": "Nebraska access caveat",
@@ -780,7 +781,7 @@ export const nebraskaRoutes: River[] = [
     ],
     "state": "Nebraska",
     "region": "Central Nebraska",
-    "summary": "Managed middle Loup River Water Trail segment from the county access south of Monroe to the hotel-side finish in Columbus. City of Columbus materials describe this as the main 16-mile / 6-to-8-hour float in the public water-trail chain.",
+    "summary": "Managed middle Loup River Water Trail segment from the county access south of Monroe to the Pawnee Park Trail river access. The NGPC-published endpoint coordinate is at the river; hotel parking is separate and about a 250-yard walk up the trail, with current owner permission and construction detours to verify.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
     "latitude": 41.46117475580161,
     "longitude": -97.59934674467611,
@@ -803,7 +804,7 @@ export const nebraskaRoutes: River[] = [
       "safetyNotes": [
         "This is the core long Loup water-trail day. Wind, shallow-channel choices, and fresh wood can matter more than the easy rating suggests.",
         "Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.",
-        "The Columbus finish is a simple hotel-side access with a trail walk, not a marina. Confirm current parking, trail circulation, and riverbank footing before leaving the upstream vehicle."
+        "The coordinate follows NGPC's published Loup River Water Trail end point at the Pawnee Park Trail river access. The hotel parking lot is separate; the trail is about a 250-yard walk from the riverbank, and hotel parking remains subject to current permission and construction detours."
       ],
       "reviewStatus": "reviewed"
     },
@@ -840,8 +841,8 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Public access chain",
-        "value": "Monroe county access to Columbus hotel-side finish",
-        "note": "The City of Columbus says Monroe has designated parking and a trail sign, while Columbus uses the Ramada / Quality Inn parking area plus Pawnee Park Trail access from the riverbank.",
+        "value": "Monroe county access to Columbus Pawnee Park Trail Loup River landing",
+        "note": "The City of Columbus identifies Monroe parking and a trail sign, and describes hotel owners voluntarily allowing use of part of the Columbus parking lot with access via Pawnee Park Trail. Treat the stored point as an access-area anchor, not a wet-edge landing; verify current private-lot permission before parking.",
         "sourceUrl": "https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617"
       },
       {
@@ -858,9 +859,9 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Current access caveat",
-        "value": "Pawnee Park underpass closed since June 9, 2025",
-        "note": "The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify current pedestrian circulation for the hotel-side finish.",
-        "sourceUrl": "https://www.columbusne.us/CivicAlerts.asp?AID=1957"
+        "value": "Current city / bridge construction access notice",
+        "note": "The Nebraska DOT fact sheet says public fishing/kayaking access east of the northbound bridge will be maintained during construction expected to continue through fall 2027. Confirm current city/bridge notices and same-day trail routing; follow posted closures.",
+        "sourceUrl": "https://dot.nebraska.gov/media/awaczehj/cn-31983-columbus-south-bridges-factsheet-eng-final.pdf"
       }
     ],
     "sourceLinks": [
@@ -917,7 +918,7 @@ export const nebraskaRoutes: River[] = [
       "safetyNotes": [
         "This is a long braided-river commitment. Wind, shallow-channel choices, and fresh wood stack up over more than one access segment rather than resetting at Monroe.",
         "Nebraska access rules are strict: the water is public, but banks and stream bed are private unless safety or obstacle portage requires brief contact.",
-        "The Columbus finish is simple rather than marina-like. Confirm current hotel-side parking, trail access, and riverbank footing before leaving the upstream vehicle."
+        "The Columbus coordinate is an access-area anchor for the hotel parking / Pawnee Park Trail approach, not the river landing. The City describes hotel owners' permission to use part of their lot as voluntary; confirm current permission before parking, then check construction access and trail routing."
       ],
       "reviewStatus": "reviewed"
     },
@@ -954,8 +955,8 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Public access chain",
-        "value": "George D. Syas WMA, Monroe county access, Columbus hotel-side finish",
-        "note": "Nebraskaland identifies the George D. Syas fishing access, the county-built Monroe access with parking, and the Quality Inn parking lot plus Pawnee Park Trail walk at Columbus. The City of Columbus repeats the Monroe and Columbus access story.",
+        "value": "George D. Syas WMA, Monroe county access, Columbus Pawnee Park Trail Loup River landing",
+        "note": "Nebraskaland identifies the George D. Syas fishing access and county-built Monroe access. The City describes hotel owners voluntarily allowing use of part of the Columbus parking lot with a Pawnee Park Trail approach; treat the stored point as an access-area anchor, not a river landing, and verify current parking permission.",
         "sourceUrl": "https://www.columbusne.us/CivicAlerts.aspx?AID=1190&ARC=1617"
       },
       {
@@ -972,9 +973,9 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Current access caveat",
-        "value": "Pawnee Park underpass closed since June 9, 2025",
-        "note": "The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify the current pedestrian connection and follow on-site detours for the hotel-side finish.",
-        "sourceUrl": "https://www.columbusne.us/m/newsflash/home/detail/1957"
+        "value": "Verify current Pawnee Park and bridge-construction routing",
+        "note": "The Nebraska DOT fact sheet says public fishing/kayaking access east of the northbound bridge will be maintained during construction expected to continue through fall 2027. Confirm current city/bridge notices and same-day trail routing; follow posted closures.",
+        "sourceUrl": "https://dot.nebraska.gov/media/awaczehj/cn-31983-columbus-south-bridges-factsheet-eng-final.pdf"
       }
     ],
     "sourceLinks": [
@@ -1068,8 +1069,8 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Public access chain",
-        "value": "Monroe county access, Columbus hotel-side finish, ADM access site",
-        "note": "The City of Columbus says Monroe has designated parking and the Columbus finish uses the Ramada / Quality Inn lot plus Pawnee Park Trail, while a separate city announcement says the downstream leased access area lies south of Southeast 9th Street abutting the Loup River.",
+        "value": "Monroe county access, Columbus Pawnee Park Trail Loup River landing, ADM access site",
+        "note": "Nebraska Game and Parks publishes the Columbus water-trail endpoint at 41.418113, -97.367618; the stored point is the river-landing access anchor. The hotel lot is a separate approach about 250 yards away by Pawnee Park Trail, and city reports say hotel owners offered part of the lot for paddler parking. Verify current permission before parking. A separate city announcement identifies the downstream leased ADM access area south of Southeast 9th Street.",
         "sourceUrl": "https://www.columbusne.us/CivicAlerts.aspx?AID=1328"
       },
       {
@@ -1127,7 +1128,7 @@ export const nebraskaRoutes: River[] = [
     ],
     "state": "Nebraska",
     "region": "Central Nebraska",
-    "summary": "Short lower Loup River Water Trail continuation from the Columbus hotel-side access to the newer ADM access site. City of Columbus materials describe this as the final two-to-three-hour float in the managed water-trail chain.",
+    "summary": "Short lower Loup River Water Trail continuation from the Pawnee Park Trail river access to the newer ADM access site. The NGPC-published endpoint coordinate is at the river; hotel parking is separate and about a 250-yard walk up the trail, with current owner permission and construction detours to verify.",
     "statusText": "Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.",
     "latitude": 41.418113,
     "longitude": -97.367618,
@@ -1187,8 +1188,8 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Public access",
-        "value": "Hotel-side Columbus access to leased ADM access area",
-        "note": "The City of Columbus says the Columbus trail access is behind the Ramada / Quality Inn and that the downstream access is a leased recreational area on ADM property in the general area south of Southeast 9th Street abutting the Loup River.",
+        "value": "Columbus river landing to leased ADM access area",
+        "note": "Nebraska Game and Parks publishes the Columbus water-trail endpoint at 41.418113, -97.367618; the stored point is the river-landing access anchor. The hotel lot is a separate approach about 250 yards away by Pawnee Park Trail, and city reports say hotel owners offered part of the lot for paddler parking. Verify current permission before parking. Nebraska DOT says public fishing/kayaking access east of the northbound bridge will be maintained during construction; check current signs. The downstream access is a separate leased area on ADM property south of Southeast 9th Street.",
         "sourceUrl": "https://www.columbusne.us/CivicAlerts.aspx?AID=1328"
       },
       {
@@ -1319,9 +1320,9 @@ export const nebraskaRoutes: River[] = [
       },
       {
         "label": "Current access caveat",
-        "value": "Pawnee Park underpass closed since June 9, 2025",
-        "note": "The City of Columbus says the underpass connecting East and West Pawnee Park closed on June 9, 2025 and will remain closed for the foreseeable future, so paddlers should verify current pedestrian circulation near the Columbus checkpoint and downstream shuttle finish.",
-        "sourceUrl": "https://www.columbusne.us/CivicAlerts.asp?AID=1957"
+        "value": "Verify current Pawnee Park and bridge-construction routing",
+        "note": "The Nebraska DOT fact sheet says public fishing/kayaking access east of the northbound bridge will be maintained during construction expected to continue through fall 2027. Confirm current city/bridge notices and same-day trail routing; follow posted closures.",
+        "sourceUrl": "https://dot.nebraska.gov/media/awaczehj/cn-31983-columbus-south-bridges-factsheet-eng-final.pdf"
       }
     ],
     "sourceLinks": [

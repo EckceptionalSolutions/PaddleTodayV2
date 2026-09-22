@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T17:09:27.896Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 1,
+    "over-300ft": 1,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [
+    {
+      "state": "Vermont",
+      "name": "Jonesville takeout below Cochran Road Bridge",
+      "latitude": 44.40243,
+      "longitude": -72.99653,
+      "distanceFeetToMappedWater": 388.13413110750713,
+      "reasons": [
+        "documented-access-anchor-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "winooski-river-bolton-canoe-jonesville",
+          "endpoint": "takeOut",
+          "endpointName": "Jonesville takeout below Cochran Road Bridge",
+          "severity": "review"
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "routeId": "winooski-river-bolton-canoe-jonesville",
+      "routeName": "Winooski River",
+      "reach": "Bolton Canoe Access Area to Jonesville",
+      "state": "Vermont",
+      "endpoint": "takeOut",
+      "endpointName": "Jonesville takeout below Cochran Road Bridge",
+      "latitude": 44.40243,
+      "longitude": -72.99653,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 480.0165596486878,
+      "nearestMatchedLatitude": 44.40121779078707,
+      "nearestMatchedLongitude": -72.99724617888393,
+      "nearestWaterwayName": "Winooski River",
+      "distanceFeetToNearestWaterway": 480.0165596486878,
+      "nearestWaterwayLatitude": 44.40121779078707,
+      "nearestWaterwayLongitude": -72.99724617888393,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 388.13413110750713,
+      "nearestWaterbodyLatitude": 44.401448,
+      "nearestWaterbodyLongitude": -72.997103,
+      "endpointOnWaterbody": false,
+      "waterProximity": "over-300ft",
+      "distanceFeetToMappedWater": 388.13413110750713,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://www.richmondvt.gov/community/recreation/default-title/river-access",
+      "coordinateEvidenceDetail": "vt_richmond_jonesville_winooski richmond-jonesville-cochran-bridge-takeout: Richmond’s current river-access page identifies the Jonesville takeout just after the Cochran Road Bridge on river-left, says to unload on the shoulder, and directs vehicles to park opposite the bridge. Keep the existing point as a bridge/takeout access anchor; the Town does not publish a GPS coordinate for the landing and shoulder parking is distinct from the water entry.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (vt_richmond_jonesville_winooski richmond-jonesville-cochran-bridge-takeout) on Winooski River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    },
+    {
+      "routeId": "winooski-river-bolton-canoe-jonesville",
+      "routeName": "Winooski River",
+      "reach": "Bolton Canoe Access Area to Jonesville",
+      "state": "Vermont",
+      "endpoint": "putIn",
+      "endpointName": "Bolton Canoe Access Area",
+      "latitude": 44.372557093828576,
+      "longitude": -72.89744466026545,
+      "matchedRiverName": "Winooski River",
+      "distanceFeetToMatchedRiver": 285.1838888317221,
+      "nearestMatchedLatitude": 44.37319589628808,
+      "nearestMatchedLongitude": -72.896814317633,
+      "nearestWaterwayName": "Winooski River",
+      "distanceFeetToNearestWaterway": 285.1838888317221,
+      "nearestWaterwayLatitude": 44.37319589628808,
+      "nearestWaterwayLongitude": -72.896814317633,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 152.25932817205145,
+      "nearestWaterbodyLatitude": 44.37291586718268,
+      "nearestWaterbodyLongitude": -72.89714634682258,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 152.25932817205145,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://anrmaps.vermont.gov/arcgis/rest/services/Open_Data/OPENDATA_ANR_TOURISM_SP_NOCACHE_v2/MapServer/166/query?where=OBJECTID%3D1061&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "coordinateEvidenceDetail": "vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061: Vermont ANR Outdoor Recreation Sites Inventory feature OBJECTID 1061 is labeled CHSP / WINOOSKI RIVER ACCESS AREA (CANOE ACCESS), has public priority 1, boating and water-access flags, names WINOOSKI RIVER, and publishes 20 summer parking spaces. The adopted 2025 Bolton Town Plan says ANR and the Town maintain the Bolton Canoe Access on the Winooski River; Richmond places Bolton Canoe Access about four miles west on River Road from Bolton Dam. The GIS point matches that public site and is retained as an access-area anchor; the exact water-entry toe is not published. Its current mapped-flowline offset is about 285 feet. The former point reverse-geocodes to a Bolton Valley Access Road residence and does not fit the Town's stated access location.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (vt_anr_bolton_winooski_canoe_access_20260918 RECSITES-OBJECTID-1061) on Winooski River; treat the agency parking/carry anchor as on/near-water evidence, but confirm the exact water entry and landing before launch."
+    }
+  ]
+}

@@ -20,7 +20,7 @@ for (const stale of [false, true]) {
       localStorage.setItem('paddletoday:saved-rivers', JSON.stringify(routes.map(route => ({ ...route, savedAt: '2026-09-08T12:00:00Z' }))));
     }, routes.map(route => ({ slug: route.river.slug, name: route.river.name, reach: route.river.reach })));
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { generatedAt, rivers: routes } }));
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { generatedAt, rivers: routes } }));
     let detailRequests = 0;
     await page.route('**/api/rivers/saved-compare-1.json', route => {
       detailRequests++;

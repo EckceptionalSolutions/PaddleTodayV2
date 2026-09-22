@@ -20,6 +20,23 @@ function distanceMiles(left: [number, number], right: [number, number]) {
 }
 
 describe('canonical river geometry asset', () => {
+  it('keeps the Little Falls round trip public, unscored, and west of the downstream dam complex', () => {
+    const route = listRivers().find((river) => river.slug === 'erie-canal-little-falls-lock-e18-return');
+    expect(route).toBeDefined();
+    expect(route?.scoreEligibility).toBe('planning');
+    expect(route?.gaugeSource.kind).toBe('proxy');
+    const feature = routeFeature(route!.slug);
+    const traced = canonicalRiverRouteLineFromFeature(feature, route!.accessPoints!);
+    const coordinates = traced?.geometry.coordinates as [number, number][];
+    const start: [number, number] = [-74.866107, 43.033539];
+    expect(coordinates[0]).toEqual(start);
+    expect(coordinates.at(-1)).toEqual(start);
+    expect(Math.min(...coordinates.map(([longitude]) => longitude))).toBe(-74.9142);
+    expect(Math.max(...coordinates.map(([longitude]) => longitude))).toBe(start[0]);
+    // E18 is only a turnaround landmark, never a selectable landing.
+    expect(route?.accessPoints?.every((point) => !point.name.includes('Lock'))).toBe(true);
+  });
+
   it('contains route-keyed multiline geometry for the Minnesota/St. Croix checks', () => {
     for (const routeId of [
       'minnesota-river-judson-land-of-memories',

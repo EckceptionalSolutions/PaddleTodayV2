@@ -1,0 +1,195 @@
+{
+  "batch": "2026-09-17-batch-11",
+  "reviewedOn": "2026-09-17",
+  "selectionFrozenBeforeResearch": true,
+  "coordinateCorrectedSiteCount": 0,
+  "retainedAccessAnchorCount": 8,
+  "removedUnsupportedAccessMarkerCount": 0,
+  "unverifiedAccessSiteCount": 2,
+  "routesHeldForGeometryRegenerationCount": 0,
+  "uniqueBatchRouteHoldCount": 2,
+  "totalWithheldRouteCountAfterBatch": 147,
+  "decisions": [
+    {
+      "rank": 131,
+      "state": "New York",
+      "site": "Altmar Lower Fly / County Route 52 launch",
+      "decision": "retained-public-drift-launch-area-anchor",
+      "coordinate": [43.5125, -76.004167],
+      "coordinateRole": "NYSDEC-confirmed public launch area above the County Route 52 bridge; stored point represents the launch area, not a surveyed gravel-bar edge",
+      "routes": ["salmon-river-altmar-pineville"],
+      "reason": "NYSDEC identifies the Lower Fly/Altmar access and drift-boat launch upstream of County Route 52. The named public launch is verified, but no manager-published wet-edge GPS was found. Retain the launch-area anchor and keep the existing note about gravel deposition, parking, fishing restrictions, and field confirmation.",
+      "sources": [
+        "https://dec.ny.gov/places/salmon-river",
+        "https://dec.ny.gov/sites/default/files/2024-01/r7lsrrrep.pdf",
+        "https://dec.ny.gov/things-to-do/freshwater-fishing/regulations/great-lakes-tributaries"
+      ],
+      "publicationAction": "Keep the current coordinate and explicitly describe it as a launch-area anchor; no coordinate change."
+    },
+    {
+      "rank": 132,
+      "state": "Idaho",
+      "site": "Tower Rock Recreation Site",
+      "decision": "retained-public-boat-ramp-access-area-anchor",
+      "coordinate": [45.3125, -113.905833],
+      "coordinateRole": "public recreation/boat-ramp site GPS; not a surveyed ramp-edge coordinate",
+      "routes": ["salmon-river-salmon-island-north-fork"],
+      "reason": "The Bureau of Land Management and Idaho Fish and Game identify Tower Rock as public river recreation/boat-ramp access. The route's saved site coordinate is an access-area anchor, not an exact wet-edge measurement. Keep the coordinate and direct paddlers to the signed public landing; do not snap the marker to the nearest mapped water line.",
+      "sources": [
+        "https://www.blm.gov/visit/tower-rock-recreation-site",
+        "https://idfg.idaho.gov/visit/location-idfg-fishing-and-boating-access-sites/22458-fishing-and-boating-access-site-tower",
+        "https://www.recreation.gov/camping/campgrounds/234312"
+      ],
+      "publicationAction": "Keep the access-area GPS and clarify that the signed landing, not the point itself, is the launch."
+    },
+    {
+      "rank": 133,
+      "state": "Idaho",
+      "site": "Henrys Lake South Shore Boat Access",
+      "decision": "retained-blm-undeveloped-ramp-access-area-anchor",
+      "coordinate": [44.614582, -111.417834],
+      "coordinateRole": "BLM boat-access site GPS for the undeveloped ramp; not a surveyed shoreline entry point",
+      "routes": ["henrys-lake-south-shore-loop"],
+      "reason": "BLM confirms a public undeveloped boat ramp and primitive campground at South Shore. The stored coordinate matches the named site, but the source does not publish a ramp-edge survey. Keep the loop and the same-ramp return; clarify the role of the coordinate at launch and landing.",
+      "sources": ["https://www.blm.gov/visit/henrys-lake-boat-access"],
+      "publicationAction": "Keep the coordinate, state that it is the BLM site GPS, and direct users to the marked ramp."
+    },
+    {
+      "rank": 134,
+      "state": "Montana",
+      "site": "Russell Gates Memorial Fishing Access Site (water-entry edge)",
+      "resolvedSiteName": "Russell Gates Memorial Fishing Access Site (public ramp/access area)",
+      "decision": "retained-fwp-public-gravel-ramp-site-gps",
+      "coordinate": [47.0234361031, -113.306023437],
+      "coordinateRole": "Montana FWP Russell Gates site GPS and public gravel-ramp access area; not a surveyed ramp-edge coordinate",
+      "routes": [
+        "blackfoot-river-russell-gates-angevine",
+        "blackfoot-river-russell-gates-johnsrud",
+        "blackfoot-river-russell-gates-k-ross-toole",
+        "blackfoot-river-russell-gates-marco-flats",
+        "blackfoot-river-russell-gates-roundup",
+        "blackfoot-river-russell-gates-scotty-brown",
+        "blackfoot-river-russell-gates-weigh-station",
+        "blackfoot-river-russell-gates-whitaker"
+      ],
+      "reason": "The current Montana FWP site record names Russell Gates Memorial and describes a gravel ramp. The current FWP feature query for LMS_ID 39754195 returns matching site latitude/longitude and a nearby point geometry; its attributes establish the public ramp site but do not locate the exact ramp edge. Keep the published site GPS, remove the inaccurate 'water-entry edge' claim from Russell Gates labels, and preserve the access-area caveat for every dependent route.",
+      "sources": [
+        "https://myfwp.mt.gov/fwpPub/landsMgmt/siteDetail.action?lmsId=39754195",
+        "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0/query?where=LMS_ID%3D39754195&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+        "https://fwp.mt.gov/activities/boating/blackfoot-river"
+      ],
+      "publicationAction": "Keep the official site GPS, rename the coordinate as an access area, and state that the published point is not a surveyed ramp edge."
+    },
+    {
+      "rank": 135,
+      "state": "Idaho",
+      "site": "Coeur d'Alene River confluence access",
+      "decision": "unverified-public-takeout-route-held",
+      "coordinate": [47.5572204589844, -116.254997253418],
+      "coordinateRole": "American Whitewater confluence-area candidate; lawful public access, vehicle staging, and exact landing not verified",
+      "routes": ["little-north-fork-coeur-dalene-laverne-mouth"],
+      "reason": "American Whitewater names a confluence access in the reach, but Idaho Fish and Game's current Little North Fork record lists no boat ramp or dock. The nearby Honeysuckle campground source confirms a campground, not river access or vehicle staging. No current land-manager source reviewed verifies the candidate take-out's legal public approach and landing. Preserve the endpoint record and hold the route.",
+      "sources": [
+        "https://idfg.idaho.gov/ifwis/fishingplanner/water/1162388476102",
+        "https://www.recreation.gov/camping/campgrounds/10311268",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/548/main"
+      ],
+      "routeHold": true,
+      "reopeningCondition": "A current land manager confirms lawful public take-out access, vehicle staging or boat pickup, and a coordinate for the intended endpoint."
+    },
+    {
+      "rank": 136,
+      "state": "Louisiana",
+      "site": "Loreauville official dock (119 Bridge St)",
+      "resolvedSiteName": "Loreauville official dock access area (119 Bridge St)",
+      "decision": "retained-teche-official-dock-address-anchor",
+      "coordinate": [30.0564348, -91.7386437],
+      "coordinateRole": "TECHE Project-confirmed public dock address/access-area geocode; exact water-edge GPS not published",
+      "routes": [
+        "bayou-teche-arnaudville-loreauville",
+        "bayou-teche-breaux-bridge-loreauville",
+        "bayou-teche-leonville-loreauville",
+        "bayou-teche-loreauville-charenton",
+        "bayou-teche-loreauville-jeanerette",
+        "bayou-teche-loreauville-new-iberia",
+        "bayou-teche-parks-loreauville",
+        "bayou-teche-poche-bridge-loreauville",
+        "bayou-teche-st-martinville-loreauville"
+      ],
+      "reason": "TECHE Project lists the official Loreauville dock at 119 Bridge Street next to the Acadian Odyssey Monument. This verifies the public site by address, not a surveyed wet-edge coordinate. Retain the point with an explicit access-area name and route notes that tell paddlers to follow the signed dock path. Also corrected a route note that described the New Iberia take-out while attached to the Loreauville put-in.",
+      "sources": ["https://www.techeproject.org/bayou-teche-paddle-trail/dock-locations/"],
+      "publicationAction": "Keep the coordinate as an address/access-area anchor; clarify its role and correct the mismatched endpoint note."
+    },
+    {
+      "rank": 137,
+      "state": "Idaho",
+      "site": "Grandjean Campground Put-In",
+      "decision": "unverified-day-use-launch-route-held",
+      "coordinate": [44.14852, -115.15204],
+      "coordinateRole": "campground site coordinate; specific lawful day-use boat access and water entry not verified",
+      "routes": ["south-fork-payette-grandjean-deadwood"],
+      "reason": "Recreation.gov identifies the Grandjean campground/campsite, and American Whitewater says there is no specific river-access area for day use at the route start. The reviewed material does not confirm that non-campers may launch there or identify a day-use water-entry point. Do not turn a campground coordinate into a put-in; retain the source record and hold the route until the Forest Service or other current manager verifies lawful day-use access. The Wapiti Creek bridge is a distinct access candidate and was not substituted without reviewing the route continuity.",
+      "sources": [
+        "https://www.americanwhitewater.org/content/River/view/river-detail/593/main",
+        "https://www.recreation.gov/camping/campsites/10165321",
+        "https://www.blm.gov/visit/payette-river-south-fork"
+      ],
+      "routeHold": true,
+      "reopeningCondition": "The Forest Service confirms lawful day-use boat launch access at Grandjean and publishes a defensible water-entry point, or route designers review and approve a different upstream access with a continuous route geometry."
+    },
+    {
+      "rank": 138,
+      "state": "Iowa",
+      "site": "Millertown Bridge Access / Monmouth corridor",
+      "decision": "retained-public-water-trail-access-area-anchor",
+      "coordinate": [42.084, -90.762],
+      "coordinateRole": "Millertown/Monmouth water-trail access corridor; precise public launch and wet-edge coordinate need field confirmation",
+      "routes": ["maquoketa-river-monmouth-maquoketa"],
+      "reason": "Iowa DNR's North Fork and Maquoketa water-trail material documents the public water-trail access chain, and the local access listing identifies the Millertown bridge area north of Monmouth. The saved coordinate is a corridor anchor rather than a DNR-published launch GPS. Keep the route with an instruction to locate the signed public access and verify the bridge-side carry before unloading.",
+      "sources": [
+        "https://www.iowadnr.gov/media/8682/download?inline=",
+        "https://www.iowadnr.gov/places-go/water-trails/brochures",
+        "https://chamber.maquoketachamber.com/list/member/maquoketa-river-water-trail-2599"
+      ],
+      "publicationAction": "Keep the access-area anchor and avoid implying that the coordinate is the exact bridge-side water entry."
+    },
+    {
+      "rank": 139,
+      "state": "New York",
+      "site": "Old Outer Gooley Club Hudson River access / Indian River confluence area",
+      "resolvedSiteName": "Outer Gooley Parking Area / Hudson Gorge carry",
+      "decision": "retained-nysdec-parking-and-carry-area-anchor",
+      "coordinate": [43.8275, -74.2008],
+      "coordinateRole": "NYSDEC-published parking-area coordinate about 0.1 mile from the Hudson River take-out; not a wet-edge coordinate",
+      "routes": [
+        "hudson-river-indian-confluence-north-river",
+        "hudson-river-newcomb-indian-confluence"
+      ],
+      "reason": "NYSDEC publishes the Outer Gooley Parking Area coordinate and states that it is about 0.1 mile from the Hudson River take-out. American Whitewater describes the Old Gooley carry/access behavior. The parking site is public and named, but the available sources do not provide a separate surveyed take-out GPS. Keep the point as a clearly labeled parking/carry anchor and tell users to follow the marked carry and verify the landing; do not present the parking coordinate as the waterline.",
+      "sources": [
+        "https://dec.ny.gov/places/hudson-gorge-wilderness",
+        "https://www.americanwhitewater.org/content/River/view/river-detail/1321/main"
+      ],
+      "publicationAction": "Rename both route markers to the parking/carry area, retain the official parking coordinate, and state the 0.1-mile carry to the take-out."
+    },
+    {
+      "rank": 140,
+      "state": "Washington",
+      "site": "River Meadows Park river access, Jordan Road",
+      "decision": "retained-county-public-park-and-boat-launch-area-anchor",
+      "coordinate": [48.1797, -122.0837],
+      "coordinateRole": "public county park/boat-launch access-area anchor; County sources do not publish an exact launch-edge coordinate",
+      "routes": [
+        "south-fork-stillaguamish-river-river-meadows-twin-rivers",
+        "stillaguamish-river-river-meadows-haller"
+      ],
+      "reason": "Snohomish County's park inventory identifies River Meadows as a South Fork river-access park with a boat launch, parking, camping and restrooms; its current water-access page lists the park as riverfront access. The reviewed county material does not publish the stored point as the launch edge. Retain the route-area anchor, clarify that role, and direct users to the signed launch path and current park gate notices.",
+      "sources": [
+        "https://snohomishcountywa.gov/DocumentCenter/View/23860/Report---Park-Inventory?bidId=",
+        "https://snohomishcountywa.gov/1369/Water-Access",
+        "https://www.snohomishcountywa.gov/Facilities/Facility/Details/River-Meadows-Park-46"
+      ],
+      "publicationAction": "Keep the park access-area anchor and label it as a public boat-launch setting rather than an exact water-entry point."
+    }
+  ]
+}

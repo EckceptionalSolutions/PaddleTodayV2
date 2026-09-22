@@ -1,0 +1,67 @@
+{
+  "batch": 45,
+  "reviewDate": "2026-09-18",
+  "accessLocation": "Rum River lower corridor, Ramsey and Anoka, Minnesota",
+  "affectedRoutes": [
+    "rum-river-north-county-germanium",
+    "rum-river-germanium-south-county-park"
+  ],
+  "decision": "replace-three-suspicious-coordinates-with-current-dnr-public-access-anchors",
+  "decisionScope": "DNR's current statewide access-site GIS independently identifies both public access areas and publishes coordinates. DNR Map 3 ties the sites to the Rum River at river miles 9.0 and 1.9, respectively, and the Anoka County page confirms the South County boat and canoe/kayak launches. Keep both published locations as access-area anchors; do not describe either as a surveyed water-entry toe.",
+  "preChangeFindings": [
+    {
+      "location": "Germanium / Brookview Park",
+      "coordinate": { "latitude": 45.2826032, "longitude": -93.4079762 },
+      "occurrences": 2,
+      "mappedWaterDistanceFeet": 310.1582,
+      "matchedFlowlineDistanceFeet": 386.7477,
+      "severity": "suspicious"
+    },
+    {
+      "location": "Rum River South County Park",
+      "coordinate": { "latitude": 45.2121606, "longitude": -93.3907042 },
+      "occurrences": 1,
+      "matchedFlowlineDistanceFeet": 339,
+      "severity": "suspicious"
+    }
+  ],
+  "changes": [
+    {
+      "sourceFile": "src/data/trip-details/minnesota.ts",
+      "endpoint": "Germanium carry-in access at Brookview Park",
+      "from": { "latitude": 45.2826032, "longitude": -93.4079762 },
+      "to": { "latitude": 45.28228691640213, "longitude": -93.40708402066348 },
+      "evidence": "Minnesota DNR public-water-access feature WAS02989; City of Ramsey manager; carry-in, gravel ramp, river mile 9.0, river right; heads-up-digitized point.",
+      "endpointOccurrences": 2
+    },
+    {
+      "sourceFile": "src/data/trip-details/minnesota.ts",
+      "endpoint": "Rum River South County Park access",
+      "from": { "latitude": 45.2121606, "longitude": -93.3907042 },
+      "to": { "latitude": 45.21387991634394, "longitude": -93.38934999460847 },
+      "evidence": "Minnesota DNR public-water-access feature WAS00289; Anoka County manager; trailer launch, two ramps, river mile 1.9, river right; GPS-collected point.",
+      "endpointOccurrences": 1
+    },
+    {
+      "sourceFile": "src/data/route-access-official-map-controls.json",
+      "scope": "Add route-scoped authoritative access-anchor controls for the two DNR features and the affected route IDs."
+    },
+    {
+      "sourceFile": "src/data/routes/minnesota.ts",
+      "scope": "Document the published anchors, collection method, river-mile context, and remaining distinction between a facility point and exact water entry."
+    }
+  ],
+  "postChangeAudits": [
+    {
+      "routeId": "rum-river-north-county-germanium",
+      "file": "targeted-north-county-germanium.json",
+      "result": "Both endpoints are review; the Germanium endpoint matches authoritative access anchor WAS02989; no source issues."
+    },
+    {
+      "routeId": "rum-river-germanium-south-county-park",
+      "file": "targeted-germanium-south-county.json",
+      "result": "Both endpoints are review; Germanium matches WAS02989 and South County matches WAS00289; no suspicious endpoints or source issues."
+    }
+  ],
+  "outcome": "All three formerly suspicious endpoint occurrences now match current official public-access site coordinates and audit as review. Their launch locations are supported, but exact water-entry placement remains unverified."
+}

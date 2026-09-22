@@ -1,0 +1,42 @@
+{
+  "batch": 57,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Forsyth County Old U.S. 421 River Park facilities page",
+      "url": "https://www.co.forsyth.nc.us/parks/421river/facilities.aspx",
+      "observations": [
+        "The County lists a concrete ramp for river access at the park, along with a 44-space parking lot.",
+        "The same official park record gives the street address 7695 Old Yadkinville Road."
+      ],
+      "limits": "Confirms the public ramp and parking, but the page does not publish a ramp coordinate."
+    },
+    {
+      "name": "North Carolina Wildlife Resources Commission fishing access report",
+      "url": "https://www.ncpaws.org/RsReports/IMAP/FishingAreasPDF.aspx?BoatRamp=0&CanoeAccess=0&FishingPier=0&ShorelineAccess=0&SpeciesGroupID=3&Universal=0&WaterType=1",
+      "observations": [
+        "Lists Old Us Hwy 421 Park on the Yadkin River at 36.1323,-80.4439, exactly matching the shared route coordinate.",
+        "Classifies the location as bank access and canoe access."
+      ],
+      "limits": "The agency coordinate identifies a public canoe/bank access locality; it does not label or georeference the ramp toe."
+    },
+    {
+      "name": "Forsyth County Old U.S. 421 River Park history page",
+      "url": "https://www.co.forsyth.nc.us/parks/421river/history.aspx",
+      "observations": [
+        "Documents the park as part of the County Parks System and says the County acquired it to provide permanent public access to the Yadkin River."
+      ],
+      "limits": "Supports public access identity, not the precise route coordinate."
+    },
+    {
+      "name": "Google Maps satellite imagery at the stored point",
+      "url": "https://www.google.com/maps/place/36.1323,-80.4439/@36.1323,-80.4439,18z/data=!3m1!1e3",
+      "observations": [
+        "The point falls in the park approach/parking area near the county road, with the river edge obscured by vegetation and outside the pin location.",
+        "The image supports a site anchor, not a precise replacement ramp coordinate."
+      ],
+      "limits": "Visual context only; no coordinate was derived from the screenshot."
+    }
+  ],
+  "decision": "Retain the exact North Carolina Wildlife Resources Commission canoe-access coordinate as a public access-site anchor; keep the river-entry toe unresolved."
+}

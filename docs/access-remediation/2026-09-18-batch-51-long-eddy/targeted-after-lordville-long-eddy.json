@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T19:09:13.010Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 1,
+    "within-300ft": 1,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "delaware-river-lordville-long-eddy",
+      "routeName": "Delaware River",
+      "reach": "Lordville NYSDEC access to Long Eddy NYSDEC access",
+      "state": "New York",
+      "endpoint": "putIn",
+      "endpointName": "Lordville NYSDEC hand launch",
+      "latitude": 41.867063,
+      "longitude": -75.263813,
+      "matchedRiverName": "Delaware River",
+      "distanceFeetToMatchedRiver": 198.322051710576,
+      "nearestMatchedLatitude": 41.86729800035753,
+      "nearestMatchedLongitude": -75.26315473961183,
+      "nearestWaterwayName": "Delaware River",
+      "distanceFeetToNearestWaterway": 198.32242580744065,
+      "nearestWaterwayLatitude": 41.86729895333584,
+      "nearestWaterwayLongitude": -75.26315535308646,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 78.18800427162203,
+      "nearestWaterbodyLatitude": 41.86717029545181,
+      "nearestWaterbodyLongitude": -75.2635638646673,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 78.18800427162203,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 78 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "delaware-river-lordville-long-eddy",
+      "routeName": "Delaware River",
+      "reach": "Lordville NYSDEC access to Long Eddy NYSDEC access",
+      "state": "New York",
+      "endpoint": "takeOut",
+      "endpointName": "Long Eddy NYSDEC non-motorized launch",
+      "latitude": 41.8497,
+      "longitude": -75.1352,
+      "matchedRiverName": "Delaware River",
+      "distanceFeetToMatchedRiver": 161.5933547883719,
+      "nearestMatchedLatitude": 41.850002,
+      "nearestMatchedLongitude": -75.135635,
+      "nearestWaterwayName": "Hoolihan Brook",
+      "distanceFeetToNearestWaterway": 161.5933547883719,
+      "nearestWaterwayLatitude": 41.850002,
+      "nearestWaterwayLongitude": -75.135635,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 168.46284050738421,
+      "nearestWaterbodyLatitude": 41.849374582751395,
+      "nearestWaterbodyLongitude": -75.13563982548061,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 161.5933547883719,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://delawareriverwatertrail.org/map_locations/long-eddy/",
+      "coordinateEvidenceDetail": "upper_delaware_long_eddy_access upper-delaware-long-eddy-public-access: The Delaware River Water Trail publishes 41.8497,-75.1352 for the Long Eddy public access at river mile 315.6. NPS's current Long Eddy River Access page confirms the public NY DEC-managed, non-motorized gravel launch at 10 Ferry Street near river mile 315. The NPS public-access dataset separately lists the former route coordinate, 41.823937,-75.112437, as Kellams Bridge at mile 312, fishing-only with no boat ramp. Use the Water Trail point as the Long Eddy access-site anchor; the exact water-entry toe remains unverified.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (upper_delaware_long_eddy_access upper-delaware-long-eddy-public-access) on Delaware River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    }
+  ]
+}

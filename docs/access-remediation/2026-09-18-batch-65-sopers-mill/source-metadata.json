@@ -1,0 +1,43 @@
+{
+  "batch": 65,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "name": "Iowa DNR Water Accesses NEW PUBLIC feature 218 — Sopers Mill A / access 235",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=218&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "Feature 218 is named Sopers Mill A, access number 235, owned and managed by the county conservation board, and locates the access on the South Skunk River in Story County.",
+        "The feature describes a 10-by-71-foot concrete access, 20 gravel parking stalls, and parking 10 feet from access. Its WGS84 geometry is 42.104244318429394,-93.5729709396775.",
+        "Refreshed NHD places the feature point about 66 feet from the matched river flowline and about 29 feet from mapped water."
+      ],
+      "limits": "The point locates the mapped public access surface and does not survey the exact water toe."
+    },
+    {
+      "name": "Iowa DNR Water Accesses NEW PUBLIC feature 1312 — Sopers Mill B / access 235",
+      "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?objectIds=1312&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "observations": [
+        "The live layer also contains Sopers Mill B with access number 235 and a concrete access feature about 214 feet from feature 218."
+      ],
+      "limits": "This record has no populated Waterbody, County, or State fields, so it was not used as the route's named access control."
+    },
+    {
+      "name": "Story County South Skunk River Water Trail access list",
+      "url": "https://storycountyiowa.gov/1496/South-Skunk-River-Water-Trail",
+      "observations": [
+        "Story County lists Soper's Mill Access #235 at 56364 170th Street among its managed public South Skunk River Water Trail accesses.",
+        "Story County identifies the South Skunk as non-meandered and warns that the land adjacent to the water is not county-owned by default."
+      ],
+      "limits": "The county page supplies the public site/address but not a coordinate."
+    },
+    {
+      "name": "Story County Soper's Mill site page and map",
+      "url": "https://www.mycountyparks.com/County/Story/Park/Sopers-Mill",
+      "observations": [
+        "The county page distinguishes Soper's Mill North on the east side of the river from Soper's Mill South at 56364 170th Street, west of the river at 170th Street and 563rd Avenue.",
+        "The site includes concrete river access for canoeing and kayaking."
+      ],
+      "limits": "The page describes the access and nearby features but does not publish the GIS point coordinates."
+    }
+  ],
+  "decision": "Use Iowa DNR feature 218 because it is the named Sopers Mill A point with the access number, South Skunk River, county owner/manager, and surface details populated; retain explicit uncertainty about the nearby B feature and exact landing choice."
+}

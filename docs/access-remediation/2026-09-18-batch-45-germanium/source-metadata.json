@@ -1,0 +1,68 @@
+{
+  "batch": 45,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "title": "Minnesota DNR Public Water Access Sites feature layer — Germanium / Brookview",
+      "url": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer/0/query?where=unique_swas_id%3D%27WAS02989%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "featureId": "WAS02989",
+      "publishedCoordinate": { "latitude": 45.28228691640213, "longitude": -93.40708402066348 },
+      "accessEvidence": {
+        "name": "Rum River, Geranium Public Water Access Site",
+        "administrator": "City of Ramsey",
+        "county": "Anoka",
+        "launchType": "Carry-in",
+        "rampSurface": "Gravel",
+        "parkingSpaces": 5,
+        "riverMile": 9.0,
+        "downstreamRiverbankSide": "R"
+      },
+      "shapeCollectionMethod": "Heads-Up Digitizing",
+      "coordinateRole": "official access-area anchor; not a surveyed water-entry toe"
+    },
+    {
+      "title": "Minnesota DNR Public Water Access Sites feature layer — Rum River South County Park",
+      "url": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/MapServer/0/query?where=unique_swas_id%3D%27WAS00289%27&outFields=*&returnGeometry=true&outSR=4326&f=pjson",
+      "featureId": "WAS00289",
+      "publishedCoordinate": { "latitude": 45.21387991634394, "longitude": -93.38934999460847 },
+      "accessEvidence": {
+        "name": "Rum River, Co Rd 288 Public Water Access Site",
+        "administrator": "Anoka County",
+        "county": "Anoka",
+        "directions": "On MN Highway 47 within Anoka County Fairgrounds.",
+        "launchType": "Trailer Launch",
+        "rampSurface": "Concrete Slab",
+        "numberOfRamps": 2,
+        "downstreamRiverbankSide": "R",
+        "riverMile": 1.9
+      },
+      "shapeCollectionMethod": "Global Positioning System",
+      "coordinateRole": "official access-site anchor; not asserted to be the exact water-entry toe"
+    },
+    {
+      "title": "Minnesota DNR Rum River Map 3",
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/rum3.pdf",
+      "relevantMapContent": [
+        "Germanium carry-in at river mile 9.0",
+        "Rum River South County Park at river mile 1.9 on the right bank, with trailer and carry-in access",
+        "Rum River Dam at river mile 0.8 downstream of South County Park"
+      ],
+      "coordinateForLaunchToe": false,
+      "interpretation": "Confirms route access identity, bank, and river-mile context; map is not a coordinate publication for the ramp or carry-in toe."
+    },
+    {
+      "title": "Anoka County Parks — Rum River South County Park",
+      "url": "https://www.anokacountyparks.com/parks/rum-river-south",
+      "accessEvidence": "Current park page lists a boat launch and canoe/kayak launch and gives the address as 3000 Ferry Street N, Anoka."
+    },
+    {
+      "title": "USGS National Hydrography Dataset flowline, area, and waterbody services",
+      "urls": {
+        "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+        "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+        "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+      },
+      "interpretation": "The offset triggered review but does not disprove either named public access. Both points now match official access controls; each remains review because agency site points do not prove exact water-entry placement."
+    }
+  ]
+}

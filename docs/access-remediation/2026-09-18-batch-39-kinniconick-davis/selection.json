@@ -1,0 +1,37 @@
+{
+  "batch": 39,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "highest-priority repeated suspicious access locations in the refreshed full audit; inspect all public route occurrences for each physical site",
+  "selectedLocations": [
+    {
+      "state": "Kentucky",
+      "name": "Leatherwood Branch Park Access",
+      "auditCoordinate": { "latitude": 38.5105, "longitude": -83.3274 },
+      "endpointOccurrences": 3,
+      "routeIds": [
+        "kinniconick-creek-leatherwood-branch-mcdowells-creek",
+        "kinniconick-creek-leatherwood-branch-mill-pond-creek",
+        "kinniconick-creek-leatherwood-branch-garrison"
+      ],
+      "preReviewFinding": "KDFWR site coordinate was 331 ft from the matched named flowline and 186 ft from mapped water; all three shared starts were suspicious in the full audit.",
+      "decision": "retain-coordinate-and-classify-as-authoritative-access-anchor"
+    },
+    {
+      "state": "New Hampshire",
+      "name": "Davis Park, Conway",
+      "previousCoordinate": { "latitude": 43.982113, "longitude": -71.113689 },
+      "endpointOccurrences": 3,
+      "routeIds": [
+        "saco-river-first-bridge-davis-park",
+        "saco-river-davis-park-smith-eastman",
+        "saco-river-bartlett-davis-park"
+      ],
+      "preReviewFinding": "The older directory point was 309 ft from the matched Saco flowline and 191 ft from mapped water; all three public route occurrences were suspicious.",
+      "decision": "replace-old-directory-pin-with-current-public-water-inventory-site-anchor"
+    }
+  ],
+  "excludedHeldRoute": {
+    "routeId": "saco-river-cooks-crossing-davis-park",
+    "reason": "The route remains withheld for the separate, unverified Cooks Crossing endpoint; it is outside this public-route batch."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "batch": 71,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Group exact shared coordinates in the refreshed public suspicious queue; rank by suspicious occurrence count, then total public occurrences and mapped-water offset, and freeze the candidate before reviewing source evidence.",
+  "auditSnapshot": "docs/access-point-quality-audit.json generated 2026-09-18T22:18:43.985Z; 2,750 public routes, 6,058 endpoints, 54 suspicious endpoints.",
+  "selectedLocation": {
+    "stateOfSite": "New Hampshire",
+    "name": "Contoocook River Canoe Company",
+    "storedCoordinate": {
+      "latitude": 43.25013,
+      "longitude": -71.62135
+    },
+    "publicCoordinateOccurrences": 3,
+    "suspiciousPublicOccurrences": 1,
+    "routeIds": [
+      "contoocook-river-river-road-canoe-company",
+      "contoocook-riverway-park-canoe-company",
+      "contoocook-river-federal-canoe-company"
+    ],
+    "preReviewFinding": "The River Road Boat Launch-to-Canoe Company occurrence is about 390 feet from a topology-connected Contoocook River trace and 284 feet from mapped water. Coverage is complete. Two other route endpoints share the same coordinate and are classified review.",
+    "decision": "verify-the-shared-Contoocook-River-Canoe-Company-location-from-official-business-and-public-access-sources-before-changing-the-three-route-shared-coordinate",
+    "selectionFrozenBeforeResearch": true
+  }
+}

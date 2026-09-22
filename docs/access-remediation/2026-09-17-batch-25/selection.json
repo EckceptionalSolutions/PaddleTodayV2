@@ -1,0 +1,33 @@
+{
+  "reviewDate": "2026-09-17",
+  "reviewType": "supplemental-held-site-review-and-correction",
+  "priorCacheAuditRank": 276,
+  "siteCount": 1,
+  "currentlyPublicDependentRouteCount": 0,
+  "sites": [
+    {
+      "canonicalAccessId": "nebraska--george-d-syas-wma-fishing-access",
+      "name": "George D. Syas WMA fishing access",
+      "state": "Nebraska",
+      "waterbody": "Loup River",
+      "originalCoordinate": {
+        "latitude": 41.43328221,
+        "longitude": -97.68464875
+      },
+      "correctedCoordinate": {
+        "latitude": 41.42442894,
+        "longitude": -97.6963078
+      },
+      "originalCoordinateRole": "authoritative-area-anchor",
+      "correctedCoordinateRole": "authoritative-water-entry",
+      "coordinateDescription": "Former coordinate: representative point for the official WMA property polygon, not a launch coordinate. Corrected coordinate: NGPC Paddlecraft Launch feature OBJECTID 97, explicitly marked ShoreLaunch=Yes.",
+      "dependentRoutes": [
+        "loup-river-george-syas-monroe",
+        "loup-river-george-syas-columbus",
+        "loup-river-george-syas-adm-access"
+      ],
+      "publicationStatusAtSelection": "All three routes were already withheld.",
+      "selectionReason": "Follow up rank 276 from the prior cached audit because its displayed point was explicitly marked area-anchor-only and its route copy called it a launch. NGPC's interactive Water Trails map supplies the missing launch feature. This is a supplemental review, not a replacement for a frozen ten-site selection."
+    }
+  ]
+}

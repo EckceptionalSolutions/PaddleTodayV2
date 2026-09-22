@@ -1,0 +1,318 @@
+{
+  "batch": "2026-09-17-batch-05",
+  "reviewDate": "2026-09-17",
+  "selectionFile": "selection.json",
+  "selectionFrozenBeforeResearch": true,
+  "selectionBasis": "Cached audit queue only; full audit is stale because @paddletoday/geo is unavailable. Every selected site was checked against current or explicitly dated primary/operator evidence.",
+  "selectedPhysicalSiteCount": 10,
+  "coordinateCorrectedSiteCount": 4,
+  "retainedSiteCount": 3,
+  "rejectedOrUnverifiedSiteCount": 3,
+  "uniqueBatchRouteHoldCount": 15,
+  "independentRoutesWithGivhansBailoutTextCorrected": [
+    "edisto-river-mars-oldfield-messervy",
+    "edisto-river-mars-oldfield-good-hope"
+  ],
+  "decisions": [
+    {
+      "rank": 63,
+      "state": "Arkansas",
+      "site": "Steel Creek campground / river access",
+      "decision": "fix",
+      "originalCoordinate": {
+        "latitude": 36.040776,
+        "longitude": -93.344048
+      },
+      "correctedCoordinate": {
+        "latitude": 36.039309,
+        "longitude": -93.336228
+      },
+      "coordinateRole": "mapped water-entry feature; approximately 50 ft uncertainty",
+      "method": "NPS confirms Steel Creek as a public Buffalo River access. The old NPS coordinate describes the campground, not the river entry. OSM slipway node 12544125462 is the specific nearby water-entry feature; rounded to six decimals in route data.",
+      "evidence": [
+        {
+          "url": "https://www.nps.gov/buff/planyourvisit/put-ins.htm",
+          "finding": "NPS names Steel Creek in its public river access ladder and mileage."
+        },
+        {
+          "url": "https://www.openstreetmap.org/node/12544125462",
+          "finding": "Feature is tagged leisure=slipway and access=yes; coordinate source, not the legal-access authority."
+        },
+        {
+          "url": "https://www.nps.gov/buff/planyourvisit/camping.htm",
+          "finding": "NPS campground GPS is a separate facility anchor and must not be used as the water-entry point."
+        }
+      ],
+      "affectedRoutes": [
+        "buffalo-river-ponca-pruitt",
+        "buffalo-river-ponca-steel-creek",
+        "buffalo-river-steel-creek-erbie",
+        "buffalo-river-steel-creek-hasty",
+        "buffalo-river-steel-creek-kyles-landing",
+        "buffalo-river-steel-creek-ozark",
+        "buffalo-river-steel-creek-pruitt"
+      ],
+      "publication": "Seven dependent routes withheld pending canonical geometry and served-catalog regeneration.",
+      "reopenWhen": "Regenerate and inspect each route geometry against the corrected entry, then rebuild the served catalog and verify route endpoints."
+    },
+    {
+      "rank": 64,
+      "state": "Wyoming",
+      "site": "Lusby Public Access Area",
+      "decision": "keep: public access-area anchor",
+      "originalCoordinate": {
+        "latitude": 42.598552238,
+        "longitude": -106.614216517
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "official access-area/map-center anchor; 300 ft uncertainty",
+      "method": "Keep the coordinate as a broad access-area anchor. WGFD confirms the public area, primitive ramp, pedestrian river access, parking and restrooms; its embedded map center does not isolate the exact ramp-water entry. Increase the unjustifiably precise 25 ft uncertainty to 300 ft.",
+      "evidence": [
+        {
+          "url": "https://wgfd.wyo.gov/Public-Access/Public-Access-Areas/north-platte-river-lusby",
+          "finding": "Current manager page identifies the public access and describes separate primitive boat-ramp and pedestrian access."
+        }
+      ],
+      "affectedRoutes": [
+        "north-platte-gray-reef-lusby"
+      ],
+      "publication": "Route remains public as a documented access-area anchor; no coordinate snap applied.",
+      "reopenWhen": "Only replace the anchor if a current WGFD ramp feature or imagery identifies an exact water-entry point."
+    },
+    {
+      "rank": 65,
+      "state": "Idaho",
+      "site": "Riggins City Park Take-Out",
+      "decision": "fix",
+      "originalCoordinate": {
+        "latitude": 45.41777,
+        "longitude": -116.31806
+      },
+      "correctedCoordinate": {
+        "latitude": 45.425561,
+        "longitude": -116.311552
+      },
+      "coordinateRole": "mapped boat-ramp/slipway feature; approximately 50 ft uncertainty",
+      "method": "American Whitewater identifies the City Park boat ramp as the standard Little Salmon take-out near Highway 95 mile 195.7. Riggins City Council records support current city ramp work. OSM node 7560987269 is the named City Park slipway and supplies the feature coordinate; source precision is rounded to six decimals.",
+      "evidence": [
+        {
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/566/main",
+          "finding": "Identifies Riggins City Park as the best/standard public boat-ramp take-out for the Little Salmon run."
+        },
+        {
+          "url": "https://www.openstreetmap.org/node/7560987269",
+          "finding": "Named Riggins City Park Boat Ramp, leisure=slipway; coordinate source."
+        },
+        {
+          "url": "https://www.rigginsidaho.org/media/3706",
+          "finding": "June 2025 council record references boat-ramp project closeout; direct file retrieval returned 403, so browser-extracted source text is recorded without a local file hash."
+        },
+        {
+          "url": "https://www.rigginsidaho.org/media/3271",
+          "finding": "June 2024 council minutes reference the ramp project; direct file retrieval returned 403, so browser-extracted source text is recorded without a local file hash."
+        }
+      ],
+      "affectedRoutes": [
+        "little-salmon-hazard-creek-riggins"
+      ],
+      "publication": "Route withheld pending geometry and catalog regeneration.",
+      "reopenWhen": "Regenerate the reach to the ramp feature, inspect endpoint and river-mile fit, rebuild catalog assets, and then clear the hold."
+    },
+    {
+      "rank": 67,
+      "state": "Iowa",
+      "site": "Wilkinson Pioneer Park canoe/kayak launch",
+      "decision": "fix",
+      "originalCoordinate": {
+        "latitude": 43.1916328,
+        "longitude": -93.0668688
+      },
+      "correctedCoordinate": {
+        "latitude": 43.20224243635123,
+        "longitude": -93.07858426136887
+      },
+      "coordinateRole": "official DNR public-access feature/access-area anchor; 50 ft uncertainty",
+      "method": "Iowa DNR feature OBJECTID 896 / GlobalID 5a010dab-cd81-48be-af79-ad07c89abff7 matches Wilkinson Pioneer Park, Cerro Gordo County, and Shell Rock River. DNR reports 75 ft parking-to-access. County materials independently identify canoe floating there. Use GIS point as an access-area anchor, not a surveyed shoreline entry.",
+      "evidence": [
+        {
+          "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D805%20OR%20OBJECTID%3D896&outFields=%2A&returnGeometry=true&outSR=4326&f=json",
+          "finding": "Current Iowa DNR feature with matching name, county, owner, waterbody, geometry, and 75 ft parking-to-access."
+        },
+        {
+          "url": "https://cerrogordo.gov/conservation/parks/wilkinson_pioneer_park/",
+          "finding": "County confirms canoe-floating and public park use."
+        }
+      ],
+      "affectedRoutes": [
+        "shell-rock-river-strand-wilkinson"
+      ],
+      "publication": "Route withheld pending canonical geometry and served-catalog regeneration.",
+      "reopenWhen": "Regenerate source geometry, inspect endpoint fit on the Shell Rock reach, rebuild the catalog, and verify all endpoint copies."
+    },
+    {
+      "rank": 68,
+      "state": "New York",
+      "site": "Driscoll Road Landing public canoe/kayak access",
+      "decision": "keep: access-area anchor",
+      "originalCoordinate": {
+        "latitude": 43.0363086,
+        "longitude": -73.7935509
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "documented public access-area anchor; 450 ft uncertainty",
+      "method": "The 2026 Saratoga Springs Open Space Plan supports public canoe/kayak access at Driscoll Road, but reviewed sources do not isolate the exact water entry. Keep the existing access-area anchor and its stated uncertainty; do not move it toward hydrography.",
+      "evidence": [
+        {
+          "url": "https://www.saratogaspringsny.gov/DocumentCenter/View/19577/Saratoga-Springs-Open-Space-Plan-04302026-FINAL-compressedpdf",
+          "finding": "Current city plan supports public canoe/kayak access at the landing; no exact entry coordinate was established."
+        }
+      ],
+      "affectedRoutes": [
+        "kayaderosseras-creek-grays-crossing-driscoll-road"
+      ],
+      "publication": "Existing access-area anchor retained; no hold added.",
+      "reopenWhen": "Revisit if the city publishes a feature-specific launch coordinate or current map/imagery resolves the entry."
+    },
+    {
+      "rank": 69,
+      "state": "Virginia",
+      "site": "Waid Park public kayak/canoe launch",
+      "decision": "keep: facility/access-area anchor",
+      "originalCoordinate": {
+        "latitude": 36.969965,
+        "longitude": -79.942977
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "official park/access-area anchor",
+      "method": "Franklin County identifies Waid Park as a public recreation facility with kayak/canoe and river access; the Blueway maps support the access corridor. Existing point is a park/facility anchor, not an exact surveyed water-entry point.",
+      "evidence": [
+        {
+          "url": "https://www.playfranklincounty.com/facilities/facility/details/waidpark-2",
+          "finding": "County facility page confirms park, river access and kayak/canoe launch context."
+        },
+        {
+          "url": "https://www.playfranklincounty.com/200/Blueway-Access-Maps",
+          "finding": "County Blueway materials support the named access in the route chain."
+        }
+      ],
+      "affectedRoutes": [
+        "pigg-river-waid-lynch"
+      ],
+      "publication": "Existing documented facility anchor retained; no hold added.",
+      "reopenWhen": "Revisit only if a current mapped launch feature is needed to distinguish the exact shoreline entry from park staging."
+    },
+    {
+      "rank": 70,
+      "state": "Wyoming",
+      "site": "Lewis River Channel northern shallow section",
+      "decision": "reject: invalid access marker (hazard zone)",
+      "originalCoordinate": {
+        "latitude": 44.324,
+        "longitude": -110.64
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "wade/line hazard, not a landing",
+      "method": "NPS describes the northern channel mile as shallow and rocky where upstream travel can require wading and lining. The route source itself labeled this point not a formal landing. Remove it from accessPoints and retain the safety warning.",
+      "evidence": [
+        {
+          "url": "https://www.nps.gov/yell/planyourvisit/boating.htm",
+          "finding": "Current NPS boating guidance identifies the Lewis River Channel and its operating limits."
+        },
+        {
+          "url": "https://www.nps.gov/yell/planyourvisit/upload/Yellowstone-Boat-Safety-and-Regulations-Booklet.pdf",
+          "finding": "NPS boating booklet describes the northern mile as a wade/line condition, not an access facility."
+        }
+      ],
+      "affectedRoutes": [
+        "lewis-lake-shoshone-channel-wilderness-paddle"
+      ],
+      "publication": "False access marker removed; route held until served catalog is regenerated. Safety guidance remains.",
+      "reopenWhen": "Do not restore as an access point. Add a marker only if a public landing is separately identified."
+    },
+    {
+      "rank": 72,
+      "state": "Iowa",
+      "site": "Middle Raccoon River Access / 248th Trail",
+      "decision": "fix",
+      "originalCoordinate": {
+        "latitude": 41.641,
+        "longitude": -94.321
+      },
+      "correctedCoordinate": {
+        "latitude": 41.64828800521774,
+        "longitude": -94.32664543275781
+      },
+      "coordinateRole": "official DNR concrete public-access feature/access-area anchor; 50 ft uncertainty",
+      "method": "Iowa DNR OBJECTID 805 / GlobalID b2b6566e-9cd3-43a3-8a75-f45f201c03c2 is the Middle Raccoon River Access in Guthrie County, with concrete surface and 10 ft parking-to-access. Guthrie County lists 248th Trail as the intermediate Route A access 3.2 river miles below P-28. This disambiguates it from the separate Cowles terminal.",
+      "evidence": [
+        {
+          "url": "https://services2.arcgis.com/r6iFVcMJeA4kB4GC/arcgis/rest/services/Water_Accesses_NEW_PUBLIC/FeatureServer/0/query?where=OBJECTID%3D805%20OR%20OBJECTID%3D896&outFields=%2A&returnGeometry=true&outSR=4326&f=json",
+          "finding": "Current DNR feature has matching site, county and waterbody; concrete surface, 10 ft parking-to-access, exact geometry."
+        },
+        {
+          "url": "https://www.mycountyparks.com/county/Guthrie/Park/Middle-Raccoon-River-Access",
+          "finding": "County lists 248th Trail in the public Middle Raccoon Route A chain, about 3.2 miles below P-28."
+        }
+      ],
+      "affectedRoutes": [
+        "middle-raccoon-river-p28-cowles"
+      ],
+      "publication": "Route withheld pending canonical geometry and served-catalog regeneration.",
+      "reopenWhen": "Regenerate the route, verify its 3.2-mile intermediate access and both terminals, rebuild the served catalog, then clear the hold."
+    },
+    {
+      "rank": 73,
+      "state": "South Carolina",
+      "site": "Givhans Ferry State Park river access",
+      "decision": "reject: unverified current water entry",
+      "originalCoordinate": {
+        "latitude": 33.0425,
+        "longitude": -80.386944
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "park/drop-off area anchor; exact open public water entry unresolved",
+      "method": "Current South Carolina State Parks page describes a drop-off area and a boat ramp three miles from the park, and warns that cabin-area river stairs remain closed. Keep the old point only as a labeled park-area anchor, do not call it a ramp, hold the three terminal routes, and remove Givhans as a promised intermediate bailout from independent Mars Oldfield routes.",
+      "evidence": [
+        {
+          "url": "https://southcarolinaparks.com/givhans-ferry/things-to-do",
+          "finding": "Current manager page carries the river-stairs closure notice and distinguishes the park drop-off from a boat ramp three miles away."
+        },
+        {
+          "url": "https://www.dnr.sc.gov/water/river/pdf/1998FavoriteSCCanoe-KayakTrails.pdf",
+          "finding": "Historical guide gives general landing context but cannot establish present access or override current closure."
+        }
+      ],
+      "affectedRoutes": [
+        "edisto-river-givhans-good-hope",
+        "edisto-river-givhans-messervy",
+        "edisto-river-mars-oldfield-givhans"
+      ],
+      "publication": "Three routes with Givhans as a terminal are held. Two other routes remain independently valid after Givhans bailout language was removed.",
+      "reopenWhen": "State Parks or another manager confirms the currently open legal launch/carry and the precise route endpoint; then update the coordinate and route text."
+    },
+    {
+      "rank": 74,
+      "state": "Idaho",
+      "site": "Kendrick High School endpoint",
+      "decision": "reject: unverified public access",
+      "originalCoordinate": {
+        "latitude": 46.651668548584,
+        "longitude": -116.661666870117
+      },
+      "correctedCoordinate": null,
+      "coordinateRole": "paddling database/navigation pin only",
+      "method": "American Whitewater/RiverFacts identifies an endpoint coordinate but does not establish lawful public landing, parking or a safe carry at the high-school frontage. No manager-backed replacement was found. Keep the existing record for review and withhold the Class IV–V route; do not substitute a nearby bridge.",
+      "evidence": [
+        {
+          "url": "https://www.americanwhitewater.org/content/River/view/river-detail/114/main",
+          "finding": "Route description and endpoint pin are present; legal access/parking is not established by that point."
+        }
+      ],
+      "affectedRoutes": [
+        "big-bear-creek-highway-8-kendrick"
+      ],
+      "publication": "Route held; coordinate retained as an unverified source record, not public access.",
+      "reopenWhen": "A land manager confirms legal public access, parking and carry, and a precise water-entry coordinate is independently identified."
+    }
+  ]
+}

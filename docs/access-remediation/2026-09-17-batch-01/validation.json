@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-17T12:04:05.737Z",
+  "sites": 10,
+  "fixedSites": 3,
+  "rejectedSites": 7,
+  "checkedTerminals": 42,
+  "checkedCopies": 42,
+  "inventoryRoutesRetained": 39,
+  "affectedRoutesPublic": 7,
+  "affectedRoutesWithheld": 32,
+  "correctedSitesWithin100FeetOfMappedWater": 3
+}

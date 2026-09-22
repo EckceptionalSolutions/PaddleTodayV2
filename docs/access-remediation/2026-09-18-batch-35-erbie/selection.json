@@ -1,0 +1,25 @@
+{
+  "batch": 35,
+  "reviewDate": "2026-09-18",
+  "selectionMethod": "Rank suspicious endpoints by exact shared coordinates; prioritize public access points with NPS-confirmed identity and a visible aerial route to the water.",
+  "auditSource": "docs/access-point-quality-audit.json (full audit before batches 33–35 corrections)",
+  "selectedLocation": {
+    "name": "Erbie Campground / Buffalo River access",
+    "state": "Arkansas",
+    "waterbody": "Buffalo River",
+    "previousCoordinate": { "latitude": 36.070346, "longitude": -93.211886 },
+    "previousDistanceFeetToMatchedFlowline": 306.2,
+    "previousDistanceFeetToMappedWater": 306.8,
+    "publicSuspiciousOccurrences": 3,
+    "allSharedRouteIds": [
+      "buffalo-river-ponca-erbie",
+      "buffalo-river-ponca-pruitt",
+      "buffalo-river-kyles-landing-erbie",
+      "buffalo-river-erbie-ozark",
+      "buffalo-river-erbie-pruitt",
+      "buffalo-river-steel-creek-erbie",
+      "buffalo-river-erbie-hasty"
+    ]
+  },
+  "selectionRationale": "NPS identifies Erbie as a river access but labels the published point as a campground coordinate. Aerial imagery shows the campground approach at the river edge, supporting one shared water-entry correction across the route family."
+}

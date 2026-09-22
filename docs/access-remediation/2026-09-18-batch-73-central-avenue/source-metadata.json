@@ -1,0 +1,51 @@
+{
+  "batch": 73,
+  "retrievedAt": "2026-09-18",
+  "sources": [
+    {
+      "observations": [
+        "Says non-motorized boating is legal on the Albuquerque Rio Grande.",
+        "Identifies limited boating access on the north side of the Central Avenue Bridge on both river banks and notes that boaters walk from parking to the river."
+      ],
+      "name": "City of Albuquerque — Enjoying the Rio Grande",
+      "url": "https://www.cabq.gov/parksandrecreation/open-space/enjoying-the-rio-grande",
+      "limits": "Confirms public boating access in the Central Avenue area but does not give a surveyed landing coordinate or describe the precise carry path."
+    },
+    {
+      "observations": [
+        "Identifies the bosque parking lot at the southwest corner of Central Avenue and the river.",
+        "Describes work on the parking lot/access road and plans to rebuild and improve the river access point for paddle sports."
+      ],
+      "name": "City of Albuquerque — Westside Bosque Improvements Underway (March 28, 2025)",
+      "url": "https://www.cabq.gov/parksandrecreation/news/westside-bosque-improvements-underway",
+      "limits": "The announcement does not publish the landing toe coordinate or confirm the present construction/maintenance state of the ramp."
+    },
+    {
+      "observations": [
+        "Publishes 35.08728077195977,-106.68221819147834 as the Central Avenue Access GPS point after directions to the Sunset SW parking area.",
+        "Says the parking area is managed by MRGCD and Albuquerque Open Space and describes the route from Sunset Road to the parking area."
+      ],
+      "name": "Quiet Waters — Middle Rio Grande public access information",
+      "url": "https://www.quietwaterspaddling.com/middle-rio-grande-public-access-information",
+      "limits": "The coordinate is a parking/access-area pin, not a surveyed river-edge entry point."
+    },
+    {
+      "observations": [
+        "The City GIS Open Space layer returns Rio Grande Valley State Park, with status Open To Public, for a polygon intersecting the access coordinate."
+      ],
+      "name": "City of Albuquerque AGIS — Open Space feature layer",
+      "url": "https://coageo.cabq.gov/cabqgeo/rest/services/agis/Open_Space/FeatureServer/0",
+      "limits": "Confirms the public open-space parcel, not boat launch permission or the water-entry toe; the City boating guidance supplies the boating-access evidence."
+    },
+    {
+      "observations": [
+        "Fresh candidate-centered NHD checks return complete hydrography coverage and no source issues for either affected public route.",
+        "The Central Avenue access-area control classifies both exact-coordinate occurrences as review; the separate Rio Bravo take-out on rio-grande-central-rio-bravo remains suspicious at 442 feet from its matched flowline."
+      ],
+      "name": "USGS National Hydrography Dataset — targeted route audit",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "limits": "Hydrography offsets show distance to generalized mapped flowlines/water polygons, not the surveyed location or current condition of an access ramp."
+    }
+  ],
+  "decision": "Retain the exact public parking/access-area coordinate; do not use it as a claim of exact water entry. Continue to show review status and instruct users to carry to and inspect the current landing."
+}

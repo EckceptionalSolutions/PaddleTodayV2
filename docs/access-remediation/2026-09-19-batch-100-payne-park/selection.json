@@ -1,0 +1,13 @@
+{
+  "batch": "B100",
+  "selectedAt": "2026-09-19",
+  "routeId": "susquehanna-river-bainbridge-afton",
+  "routeName": "Susquehanna River",
+  "reach": "Bainbridge to Afton",
+  "state": "New York",
+  "endpoint": "putIn",
+  "endpointName": "William S. Payne Memorial Park Susquehanna launch, Bainbridge",
+  "storedCoordinate": { "latitude": 42.290382, "longitude": -75.480797 },
+  "preReview": { "severity": "suspicious", "distanceFeetToMatchedRiver": 480.0440691634162, "nearestWaterwayName": "Susquehanna River", "distanceFeetToMappedWater": 322.1392048932539, "hydrographyCoverageComplete": true, "matchedHydrographyMode": "named-flowline" },
+  "selectionReason": "NYSDEC identifies Bainbridge William Payne Park as a Susquehanna River hard-surface ramp downstream of the Route 206 bridge; the Town of Bainbridge confirms boat access to the Susquehanna at Payne Park. Retain the stored point as a conditional public-launch anchor rather than moving it to an inferred wet-toe coordinate."
+}

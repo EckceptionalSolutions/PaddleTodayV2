@@ -1,0 +1,52 @@
+{
+  "reviewDate": "2026-09-17",
+  "batch": 4,
+  "validatedAtUtc": "2026-09-17T14:43Z",
+  "passed": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-withheld-route-slugs.ts",
+      "result": "Generated src/data/generated/withheld-route-slugs.ts with 82 withheld routes."
+    },
+    {
+      "command": "node docs/access-remediation/2026-09-17-batch-04/verify.mjs",
+      "result": "Passed: ten frozen site decisions, sixteen official source snapshot hashes, corrected route/trip-detail copies, provider roles, four holds, and ten preserved source backups."
+    },
+    {
+      "command": "Parse src/data/route-access-official-map-controls.json and the Iowa DNR source snapshot",
+      "result": "Both parse as JSON; Iowa FeatureServer object 275 returns the expected Fertile Mill Park feature and WGS84 geometry."
+    }
+  ],
+  "blocked": [
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/generate-canonical-river-geometries.ts --route-id susquehanna-river-sayre-towanda",
+      "result": "Failed before processing the route: ERR_MODULE_NOT_FOUND for @paddletoday/geo. The same generator dependency blocks Fertile and both Sayre routes."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-route-coordinate-river-distance.ts --output=docs/access-point-quality-audit.json --cache-only",
+      "result": "Failed before audit: ERR_MODULE_NOT_FOUND for @paddletoday/geo. The existing audit cache remains stale and was not overwritten."
+    },
+    {
+      "command": "node node_modules/tsx/dist/cli.mjs scripts/audit-canonical-river-geometries.ts",
+      "result": "Failed before audit: ERR_MODULE_NOT_FOUND for @paddletoday/api-contract."
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit -p tsconfig.route-data.json",
+      "result": "Typecheck failed across the route project because @paddletoday/api-contract is missing; the resulting type errors cascade across route access-point records. npm's typecheck wrapper also cannot find the tsc shim."
+    },
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/access-water-quality.test.ts src/lib/access-registry-status.test.ts src/lib/access-name-match.test.ts",
+      "result": "Vitest could not start because @jridgewell/sourcemap-codec is missing from magic-string's runtime dependencies."
+    }
+  ],
+  "notRun": [
+    "Access-registry generation was not run because a current full quality audit could not be produced; a stale audit must not be presented as the registry's full evidence source.",
+    "Canonical geometry assembly, overview/catalog regeneration, and publication were not run because route geometry generation is blocked. Changed-coordinate routes are held until regenerated geometry is audited."
+  ],
+  "routeHolds": [
+    "kinderhook-creek-stuyvesant-falls-stockport: launch and legal carry unverified",
+    "winnebago-river-fertile-mason-city: source coordinate corrected; geometry/catalog refresh pending",
+    "susquehanna-river-sayre-towanda: source coordinate corrected; geometry/catalog refresh pending",
+    "susquehanna-river-sayre-wysox-township-park: source coordinate corrected; geometry/catalog refresh pending"
+  ],
+  "deployment": "None"
+}

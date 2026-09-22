@@ -1,0 +1,192 @@
+{
+  "batch": "2026-09-17-batch-16",
+  "snapshots": [
+    {
+      "id": "blm-island-bar",
+      "url": "https://www.blm.gov/visit/island-bar-recreation-site",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/blm-island-bar.html",
+      "bytes": 98725,
+      "sha256": "F51FFFD2F27253F0088646A343C3739D29DD84DD8681BACCFAE52EE6926D5B88",
+      "finding": "BLM publishes the stored site coordinate within one foot, calls Island Bar a frequent Lower Salmon put-in, and describes easy river access. The coordinate is a site anchor, not a surveyed waterline."
+    },
+    {
+      "id": "nysdec-hudson-gorge",
+      "url": "https://dec.ny.gov/places/hudson-gorge-wilderness",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/nysdec-hudson-gorge.html",
+      "bytes": 117056,
+      "sha256": "E0017919175491A4CDBF7DC6D5830F4DDB1472BCD049C1F74B42CCCF8984DFB7",
+      "finding": "NYSDEC publishes Outer Gooley parking coordinates and the 0.1-mile carry to the river-side take-out; route controls distinguish these separate points."
+    },
+    {
+      "id": "greenwood-wi-parks",
+      "url": "https://cityofgreenwood.wi.gov/parks/",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/greenwood-wi-parks.html",
+      "bytes": 28185,
+      "sha256": "680BE6ADB58ECC4E1DD57863B1093A220718E1FE0C0A03DBF61A097D3A16ABA7",
+      "finding": "Greenwood confirms canoe access at Clark County Park but does not identify the separate Reese Avenue endpoint used by this route."
+    },
+    {
+      "id": "ngpc-north-loup-planner",
+      "url": "https://outdoornebraska.gov/wp-content/uploads/2023/02/NGPC_Trails_North_Loup_River.pdf",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": false,
+      "httpStatus": 403,
+      "finding": "Direct PDF retrieval returned HTTP 403 and is excluded from local hashed evidence; browser search results show the official planner names Riverside Park as the start.",
+      "sha256": null,
+      "localPath": null,
+      "bytes": null
+    },
+    {
+      "id": "burwell-comp-plan-2024",
+      "url": "https://img1.wsimg.com/blobby/go/0d3b4b4b-78f1-468a-9978-86466a885a40/2024%20Burwell%20Comp%20Plan.pdf",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/burwell-comp-plan-2024.pdf",
+      "bytes": 13378963,
+      "sha256": "C5FDD66676F0525A56FD59C63CFB5C0CBCDE57AD0ECB71BDBC55FD7CBFFB574F",
+      "finding": "Burwell municipal plan places Riverside Park on the west bank of the North Loup near North 8th Street; no surveyed launch coordinate is published."
+    },
+    {
+      "id": "colerain-canoe-ramps",
+      "url": "https://www.colerain.org/225/Canoe-Ramps",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/colerain-canoe-ramps.html",
+      "bytes": 109740,
+      "sha256": "10DBADE724C1B3038B3D38F1F30C03CED170236D183F586C0E486F6A94D284F2",
+      "finding": "Colerain Township identifies the Obergiesing/Dravo facility as one of two Great Miami canoe ramps."
+    },
+    {
+      "id": "colerain-obergiesing-facility",
+      "url": "https://www.colerain.org/Facilities/Facility/Details/Obergiesing-Soccer-Complex-at-Dravo-Park-33",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/colerain-obergiesing-facility.html",
+      "bytes": 106013,
+      "sha256": "EC52B47B710A9BC701A59E877029120C3F9E0D7CF00712CB1B605BA3674ED835",
+      "finding": "Township listing confirms canoe access, parking, address and dawn-to-dusk park hours."
+    },
+    {
+      "id": "michigan-dnr-croton-access",
+      "url": "https://www.michigan.gov/dnr/managing-resources/fisheries/units/c-michigan",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/michigan-dnr-croton-access.html",
+      "bytes": 508094,
+      "sha256": "162BA72AD5603BE825BB814A64DFB89A08E7B5C56F380F4307410BF065575D4E",
+      "finding": "Michigan DNR publishes the stored coordinate for Charles Besemer Muskegon River Park boat access at Croton Dam and describes the paved launch and parking."
+    },
+    {
+      "id": "sac-city-water-trails",
+      "url": "https://saccity.city/nature-trails/",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/sac-city-water-trails.html",
+      "bytes": 143129,
+      "sha256": "6910D01BA52445007E0F15DC6C2A01272BE495DCF1E9521D3DBAFB5000FC66B1",
+      "finding": "Sac City names Riverview as a river access and recommends McDonald Greenbelt to Riverview as a five-mile route."
+    },
+    {
+      "id": "willamette-norwood-island",
+      "url": "https://willamettewatertrail.org/map/norwood-island/",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/willamette-norwood-island.html",
+      "bytes": 48657,
+      "sha256": "6456A7712494062A6163C5A1ACDE6E6B2DC95CB261C6218C3FAF5A067AF71070",
+      "finding": "Water Trail publishes the island coordinates and RM 148.5, manager, mainstem campsite and washed-out back-channel bridge hazard."
+    },
+    {
+      "id": "mn-dnr-spring-hill-access-feature",
+      "url": "https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0/query?where=1%3D1&geometry=-94.776531%2C45.529026&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=1500&units=esriSRUnit_Meter&outFields=OBJECTID%2CWATER_ACCESS_SITE_NAME%2CADMINISTRATOR%2CDIRECTIONS%2CBOAT_LAUNCH_METHOD%2CLAUNCH_SURFACE_TYPE%2CUNIQUE_SWAS_ID%2CWATER_TRAIL_RIVER_MILE&outSR=4326&returnGeometry=true&f=pjson",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/mn-dnr-spring-hill-access-feature.json",
+      "bytes": 1597,
+      "sha256": "52EC145DBB946A82B2E42A2F94791CE62C99E9CD2073238C1F5BAB1441E33476",
+      "finding": "Feature OBJECTID 2500 / WAS00338 returns WGS84 x=-94.775652824582878, y=45.529866726150793; Stearns County, Sauk River RM56.1."
+    },
+    {
+      "id": "mn-dnr-sauk-map-2",
+      "url": "https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/mn-dnr-sauk-map-2.pdf",
+      "bytes": 7367141,
+      "sha256": "4808D804D53BB23911A21D2E3970F0A4B42951245F79A411AA293FB28F422E72",
+      "finding": "Current DNR Map 2 documents two Spring Hill carry-in access points at RM56.2 left and RM56.1 right bank."
+    },
+    {
+      "id": "md-dnr-sparks-bank",
+      "url": "https://dnr.maryland.gov/publiclands/Pages/parkinfo.aspx?parkname=torrey+c.+brown+rail+trail",
+      "retrievedOn": "2026-09-17",
+      "acceptedAsEvidence": true,
+      "httpStatus": 200,
+      "localPath": "node_modules/.cache/access-batch-16/sources/md-dnr-sparks-bank.html",
+      "bytes": 64624,
+      "sha256": "78BC2320C0346D2160A1236F47251A6ED45A911821E1713D3A716D3D7DC8E898",
+      "finding": "Maryland DNR confirms Sparks Bank Nature Center at 1207 Sparks Road, limited parking and sunrise-to-sunset hours."
+    },
+    {
+      "id": "sac-city-access-projects",
+      "url": "https://saccity.city/projects/",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-16/sources/sac-city-access-projects.html",
+      "bytes": 101797,
+      "sha256": "B2CE0EC16CA37008570E6EBA8CC17FAC8722AECDBDDDF34AF8B218C9FBF7A4AA",
+      "acceptedAsEvidence": true,
+      "finding": "Current City project page still says the new Riverview river access is under construction and does not say it is open."
+    },
+    {
+      "id": "sac-city-hometown-pride",
+      "url": "https://saccity.city/hometown-pride/",
+      "httpStatus": 200,
+      "retrievedOn": "2026-09-17",
+      "localPath": "node_modules/.cache/access-batch-16/sources/sac-city-hometown-pride.html",
+      "bytes": 110897,
+      "sha256": "CC25F003FC2DB7F3A3CB4B09AA94DBF991F9B9E2A1BF0B6A4C0779FE91BA0775",
+      "acceptedAsEvidence": true,
+      "finding": "City page describes prior Riverview improvements and river-access clean-up but does not verify the current project completion or public entry."
+    },
+    {
+      "id": "ngpc-water-trails-page",
+      "url": "https://outdoornebraska.gov/parks/explore-trails/water-trails/",
+      "httpStatus": 403,
+      "retrievedOn": "2026-09-17",
+      "localPath": null,
+      "bytes": null,
+      "sha256": null,
+      "acceptedAsEvidence": false,
+      "finding": "Direct retrieval returned HTTP 403; excluded from local evidence. The official site was also checked through browser search."
+    },
+    {
+      "id": "wi-dnr-boat-access-query",
+      "url": "https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_BOAT_BoatAccess_WTM_Ext/MapServer",
+      "httpStatus": 500,
+      "retrievedOn": "2026-09-17",
+      "localPath": null,
+      "bytes": null,
+      "sha256": null,
+      "acceptedAsEvidence": false,
+      "finding": "Official Wisconsin DNR boat-access map query returned HTTP 500, service not started. This failure is not evidence that Reese Avenue is closed or nonexistent."
+    }
+  ]
+}

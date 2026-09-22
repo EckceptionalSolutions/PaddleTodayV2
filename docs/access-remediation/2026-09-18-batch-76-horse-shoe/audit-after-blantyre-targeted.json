@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T23:24:05.624Z",
+  "evidenceMode": "refreshed",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "auditScope": "public-routes",
+  "bySeverity": {
+    "ok": 0,
+    "review": 2,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 0,
+    "within-300ft": 2,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [
+    {
+      "queryKey": "french-broad-blantyre-horse-shoe__-82.6478-35.2742--82.5498-35.3544__route-network-v1",
+      "message": "NHD response is truncated (exceededTransferLimit)"
+    }
+  ],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "french-broad-blantyre-horse-shoe",
+      "routeName": "French Broad River",
+      "reach": "Blantyre Access to Horse Shoe Boating Access Area",
+      "state": "North Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "Horse Shoe Boating Access Area",
+      "latitude": 35.3293739,
+      "longitude": -82.5747687,
+      "matchedRiverName": "French Broad River",
+      "distanceFeetToMatchedRiver": 306.44984226545694,
+      "nearestMatchedLatitude": 35.329112,
+      "nearestMatchedLongitude": -82.575747,
+      "nearestWaterwayName": "French Broad River",
+      "distanceFeetToNearestWaterway": 306.44984226545694,
+      "nearestWaterwayLatitude": 35.329112,
+      "nearestWaterwayLongitude": -82.575747,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 256.8278884816693,
+      "nearestWaterbodyLatitude": 35.32908008698644,
+      "nearestWaterbodyLongitude": -82.5755528562845,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 256.8278884816693,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": "authoritative-access-anchor",
+      "coordinateEvidenceSourceUrl": "https://frenchbroadpaddle.com/en/access-points",
+      "coordinateEvidenceDetail": "nc_french_broad_horse_shoe_baa_access_anchor_20260918 horse-shoe-boating-access-area-mile-41-5: The current French Broad Paddle Trail list identifies Horse Shoe Boating Access Area at mile 41.5, managed by Henderson County, lists it OPEN, and links to a Google Maps place that resolves to the stored route coordinate. NCWRC's access inventory independently names Horse Shoe at 5437 Brevard Road and describes a universally accessible boat ramp/canoe access; its published site coordinate is about 230 feet away and is treated as a facility anchor. Henderson County describes the park as providing parking and a boat put-in. Retain the route coordinate as the mapped public access-area anchor, not a surveyed water-entry toe, and confirm current post-storm conditions before travel.",
+      "severity": "review",
+      "note": "Stored coordinate matches the named authoritative access-area control (nc_french_broad_horse_shoe_baa_access_anchor_20260918 horse-shoe-boating-access-area-mile-41-5) on French Broad River; this confirms the public access site, not the exact water-edge point. Confirm the water-edge location and carry before paddling."
+    },
+    {
+      "routeId": "french-broad-blantyre-horse-shoe",
+      "routeName": "French Broad River",
+      "reach": "Blantyre Access to Horse Shoe Boating Access Area",
+      "state": "North Carolina",
+      "endpoint": "putIn",
+      "endpointName": "Blantyre Access Point",
+      "latitude": 35.2991736,
+      "longitude": -82.6227903,
+      "matchedRiverName": "French Broad River",
+      "distanceFeetToMatchedRiver": 201.16319765403387,
+      "nearestMatchedLatitude": 35.2994279791802,
+      "nearestMatchedLongitude": -82.62338973641255,
+      "nearestWaterwayName": "French Broad River",
+      "distanceFeetToNearestWaterway": 201.16319765403387,
+      "nearestWaterwayLatitude": 35.2994279791802,
+      "nearestWaterwayLongitude": -82.62338973641255,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 160.81917068122206,
+      "nearestWaterbodyLatitude": 35.29934938908663,
+      "nearestWaterbodyLongitude": -82.62328562229375,
+      "endpointOnWaterbody": false,
+      "waterProximity": "within-300ft",
+      "distanceFeetToMappedWater": 160.81917068122206,
+      "hydrographyCoverageComplete": false,
+      "matchedHydrographyMode": "named-flowline",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is 201 ft from the matched NHD flowline; likely an access/parking anchor but worth review."
+    }
+  ]
+}

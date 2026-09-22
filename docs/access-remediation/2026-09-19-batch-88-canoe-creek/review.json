@@ -1,0 +1,13 @@
+{
+  "batch": "B88",
+  "decision": "move-to-authoritative-coordinate",
+  "routeId": "upper-iowa-river-lower-dam-iverson-bridge",
+  "endpoint": "accessPoint",
+  "endpointName": "Canoe Creek Access",
+  "before": { "severity": "suspicious", "coordinate": { "latitude": 43.3673, "longitude": -91.6189 }, "distanceFeetToMatchedRiver": 719.6182039701705, "distanceFeetToMappedWater": 192.72480129520835, "sourceIssues": 0 },
+  "evidence": { "officialDnrPoint": "Iowa DNR Paddling Access Sites OBJECTID 38117 / WA-163 names Canoe Creek Access and publishes 43.367178379845065,-91.61657052093616.", "routeContext": "The Upper Iowa River Paddler's Guide lists Canoe Creek Access at mile 35.8 in the same Lower Dam-to-Iverson reach.", "coordinateFit": "The point moved 619 feet to the Iowa DNR access-site coordinate. After the move it is 100 feet from the named Upper Iowa River flowline and 34 feet from mapped water."
+  },
+  "action": { "coordinateChanged": true, "routeGeometryRegenerated": false, "routeGeometryReason": "This is an intermediate access point; canonical route geometry is generated from put-in/take-out endpoints, so no route line asset depends on this point.", "controlAdded": "ia_iowadnr_canoe_creek_access_wa163_20260919", "accessAvailability": "conditional" },
+  "after": { "severity": "review", "coordinateEvidenceRole": "authoritative-access-anchor", "coordinate": { "latitude": 43.367178379845065, "longitude": -91.61657052093616 }, "distanceFeetToMatchedRiver": 100.33374878628001, "distanceFeetToMappedWater": 33.96746382334267, "sourceIssues": 0 },
+  "aggregateDelta": { "publicSuspicious": { "before": 37, "after": 36 }, "inventorySuspicious": { "before": 90, "after": 89 }, "publicReview": { "before": 3900, "after": 3901 }, "inventoryReview": { "before": 4204, "after": 4205 }, "registryAuthoritativeAccess": { "before": 1234, "after": 1234 } }
+}

@@ -1,0 +1,26 @@
+{
+  "batch": "B98",
+  "routeAudit": {
+    "routeId": "appomattox-river-radcliffe-patton-park",
+    "endpoint": "putIn",
+    "beforeSeverity": "suspicious",
+    "afterSeverity": "review",
+    "beforeDistanceFeetToMatchedRiver": 326.28984987591576,
+    "afterDistanceFeetToMatchedRiver": 326.28984987591576,
+    "mappedWaterDistanceFeet": 245.35628963378082,
+    "coordinateChanged": false,
+    "geometryChanged": false,
+    "sourceIssues": 0,
+    "otherRouteEndpoints": {
+      "takeOutPattonPark": "suspicious",
+      "accessPointFerndale": "review"
+    }
+  },
+  "fullAuditDelta": {
+    "public": { "beforeSuspicious": 27, "afterSuspicious": 26, "beforeReview": 3910, "afterReview": 3911 },
+    "inventory": { "beforeSuspicious": 80, "afterSuspicious": 79, "beforeReview": 4214, "afterReview": 4215 },
+    "registry": { "beforeAuthoritativeAccessCount": 1243, "afterAuthoritativeAccessCount": 1244, "conflictCount": 0 }
+  },
+  "decision": "Retain the stored Radcliffe coordinate as a conditional authoritative county canoe-launch/access-area anchor. The county confirms a public boat slide and parking, but the point is not a surveyed wet-toe coordinate, so the 326-foot flowline offset remains review-level facility placement evidence.",
+  "followUp": "Confirm current park hours, parking, hand-carry slide condition, downstream whitewater/dam hazards, and river level before launching. Continue the separate Patton Park take-out review."
+}

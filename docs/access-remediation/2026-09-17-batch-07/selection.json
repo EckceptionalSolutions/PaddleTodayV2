@@ -1,0 +1,268 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical sites in the cached access-quality queue with at least one route outside the current generated withholding manifest; exclude all sites frozen in batches 01-06 by matching name/location or a 250-foot same-feature tolerance; preserve original queue order.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "The full audit is stale and cannot be regenerated because @paddletoday/geo is missing. Cached ranks prioritize research only; current source checks and the generated withholding manifest were rechecked before freezing."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "priorFrozenSiteCount": 60,
+  "currentWithheldRouteCount": 126,
+  "skippedBeforeSelection": 86,
+  "sites": [
+    {
+      "state": "Iowa",
+      "name": "Lehigh Des Moines River access",
+      "latitude": 42.3583,
+      "longitude": -94.0525,
+      "distanceFeetToMappedWater": 623.6351005678189,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "des-moines-river-fort-dodge-lehigh",
+          "endpoint": "takeOut",
+          "endpointName": "Lehigh Des Moines River access",
+          "severity": "review"
+        }
+      ],
+      "rank": 87
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
+      "latitude": 43.0674,
+      "longitude": -87.89238,
+      "distanceFeetToMappedWater": 621.0944733268402,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "milwaukee-river-riverside-bruce-street",
+          "endpoint": "putIn",
+          "endpointName": "Riverside Park / Milwaukee Rotary Centennial Arboretum landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 89
+    },
+    {
+      "state": "Idaho",
+      "name": "Shotgun Scout / Portage River Left",
+      "latitude": 44.2615,
+      "longitude": -114.817,
+      "distanceFeetToMappedWater": 615.9696610889301,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-rough-creek-yankee-fork",
+          "endpoint": "accessPoint",
+          "endpointName": "Shotgun Scout / Portage River Left",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 90
+    },
+    {
+      "state": "New York",
+      "name": "Canalside Buffalo Commercial Slip / public low dock",
+      "latitude": 42.878298,
+      "longitude": -78.878022,
+      "distanceFeetToMappedWater": 608.5864853056916,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "buffalo-river-canalside-red-jacket",
+          "endpoint": "putIn",
+          "endpointName": "Canalside Buffalo Commercial Slip / public low dock",
+          "severity": "review"
+        }
+      ],
+      "rank": 92
+    },
+    {
+      "state": "Missouri",
+      "name": "Greer Crossing Recreation Area",
+      "latitude": 36.79356389,
+      "longitude": -91.32854167,
+      "distanceFeetToMappedWater": 598.6682798301955,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "eleven-point-river-cane-bluff-greer-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-greer-crossing-narrows",
+          "endpoint": "putIn",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-greer-crossing-riverton",
+          "endpoint": "putIn",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-greer-crossing-turner-mill",
+          "endpoint": "putIn",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-greer-crossing-turner-mill-south",
+          "endpoint": "putIn",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-greer-crossing-whitten",
+          "endpoint": "putIn",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "eleven-point-river-thomasville-greer-crossing",
+          "endpoint": "takeOut",
+          "endpointName": "Greer Crossing Recreation Area",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 93
+    },
+    {
+      "state": "Maryland",
+      "name": "Monkton Road / Monkton Station Gunpowder access",
+      "latitude": 39.5793956,
+      "longitude": -76.61554,
+      "distanceFeetToMappedWater": 597.6923529769994,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-masemore-monkton",
+          "endpoint": "takeOut",
+          "endpointName": "Monkton Road / Monkton Station Gunpowder access",
+          "severity": "review"
+        },
+        {
+          "routeId": "gunpowder-falls-monkton-phoenix",
+          "endpoint": "putIn",
+          "endpointName": "Monkton Road / Monkton Station Gunpowder access",
+          "severity": "review"
+        }
+      ],
+      "rank": 94
+    },
+    {
+      "state": "Iowa",
+      "name": "Pearl Rock access",
+      "latitude": 42.910715,
+      "longitude": -92.543001,
+      "distanceFeetToMappedWater": 597.6595066876326,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-nashua-pearl-rock",
+          "endpoint": "takeOut",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "cedar-river-pearl-rock-north-cedar",
+          "endpoint": "putIn",
+          "endpointName": "Pearl Rock access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 95
+    },
+    {
+      "state": "New York",
+      "name": "Fisherman’s Park / Burt Dam below-dam access area",
+      "latitude": 43.31718,
+      "longitude": -78.71366,
+      "distanceFeetToMappedWater": 590.5387273075565,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "eighteenmile-creek-burt-newfane",
+          "endpoint": "putIn",
+          "endpointName": "Fisherman’s Park / Burt Dam below-dam access area",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 96
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Princeton Jefferson Street / Hiestand Park Landing",
+      "latitude": 43.8512,
+      "longitude": -89.1289,
+      "distanceFeetToMappedWater": 585.4672696890572,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "fox-river-princeton-locks-city-landing",
+          "endpoint": "takeOut",
+          "endpointName": "Princeton Jefferson Street / Hiestand Park Landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "fox-river-princeton-white-river-locks",
+          "endpoint": "putIn",
+          "endpointName": "Princeton Jefferson Street / Hiestand Park Landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 97
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Highway C bridge access",
+      "latitude": 43.7383,
+      "longitude": -87.8341,
+      "distanceFeetToMappedWater": 584.9530273979782,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sheboygan-river-dassow-river-park",
+          "endpoint": "accessPoint",
+          "endpointName": "Highway C bridge access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 98
+    }
+  ]
+}

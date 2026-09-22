@@ -1,0 +1,353 @@
+{
+  "reviewDate": "2026-09-17",
+  "selectionRule": "First ten distinct physical access locations from cached access-quality queue starting at rank 184 that affect at least one route outside the current generated withholding manifest; exclude same-state/name or exact-coordinate sites frozen in batches 01-15; preserve original queue order. The report is stale because @paddletoday/geo is missing. Ranks prioritize research only.",
+  "audit": {
+    "path": "docs/access-point-quality-audit.json",
+    "generatedAt": "2026-09-17T12:02:46.464Z",
+    "evidenceMode": "cache-only",
+    "routeCount": 2998,
+    "staleness": "Cached snapshot; queue ranks only prioritize research. Recheck each site against current sources before any edit."
+  },
+  "priorBatchesExcluded": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "priorFrozenSiteCount": 150,
+  "currentWithheldRouteCount": 149,
+  "queueStartRank": 184,
+  "skippedPriorSiteCount": 0,
+  "skippedHeldQueueEntryCount": 0,
+  "sites": [
+    {
+      "state": "Idaho",
+      "name": "Island Bar Recreation Site",
+      "latitude": 45.41583317,
+      "longitude": -116.25944467,
+      "distanceFeetToMappedWater": 402.7001044384707,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "salmon-river-carey-creek-riggins",
+          "endpoint": "accessPoint",
+          "endpointName": "Island Bar Recreation Site",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 184,
+      "eligibleUnwithheldRoutes": [
+        "salmon-river-carey-creek-riggins"
+      ]
+    },
+    {
+      "state": "New York",
+      "name": "Outer Gooley Hudson River take-out",
+      "latitude": 43.827301,
+      "longitude": -74.200674,
+      "distanceFeetToMappedWater": 401.2084297575663,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "cedar-river-pelon-outer-gooley",
+          "endpoint": "takeOut",
+          "endpointName": "Outer Gooley Hudson River take-out",
+          "severity": "review"
+        },
+        {
+          "routeId": "indian-river-abanakee-dam-outer-gooley",
+          "endpoint": "takeOut",
+          "endpointName": "Outer Gooley Hudson River take-out above Indian River confluence",
+          "severity": "review"
+        }
+      ],
+      "rank": 185,
+      "eligibleUnwithheldRoutes": [
+        "cedar-river-pelon-outer-gooley",
+        "indian-river-abanakee-dam-outer-gooley"
+      ]
+    },
+    {
+      "state": "Wisconsin",
+      "name": "Reese Avenue canoe launch",
+      "latitude": 44.7687732,
+      "longitude": -90.6041106,
+      "distanceFeetToMappedWater": 400.46631250875123,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "black-river-wayside-reese",
+          "endpoint": "takeOut",
+          "endpointName": "Reese Avenue canoe launch",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 186,
+      "eligibleUnwithheldRoutes": [
+        "black-river-wayside-reese"
+      ]
+    },
+    {
+      "state": "Nebraska",
+      "name": "Burwell Riverside Park",
+      "latitude": 41.78900058,
+      "longitude": -99.134,
+      "distanceFeetToMappedWater": 399.91086536447983,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-loup-river-burwell-ord",
+          "endpoint": "putIn",
+          "endpointName": "Burwell Riverside Park",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 187,
+      "eligibleUnwithheldRoutes": [
+        "north-loup-river-burwell-ord"
+      ]
+    },
+    {
+      "state": "Ohio",
+      "name": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+      "latitude": 39.26157,
+      "longitude": -84.68773,
+      "distanceFeetToMappedWater": 399.76453503224496,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "great-miami-river-heritage-dravo",
+          "endpoint": "takeOut",
+          "endpointName": "Obergiesing Soccer Complex at Dravo Park canoe ramp",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 188,
+      "eligibleUnwithheldRoutes": [
+        "great-miami-river-heritage-dravo"
+      ]
+    },
+    {
+      "state": "Michigan",
+      "name": "Croton Dam Tailwater Park public boat launch below Croton Dam",
+      "latitude": 43.435561,
+      "longitude": -85.66678,
+      "distanceFeetToMappedWater": 398.35716708396944,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "muskegon-river-croton-dam-thornapple",
+          "endpoint": "putIn",
+          "endpointName": "Croton Dam Tailwater Park public boat launch below Croton Dam",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 189,
+      "eligibleUnwithheldRoutes": [
+        "muskegon-river-croton-dam-thornapple"
+      ]
+    },
+    {
+      "state": "Iowa",
+      "name": "Riverview / Lions Park Access",
+      "latitude": 42.4285,
+      "longitude": -94.9922,
+      "distanceFeetToMappedWater": 398.2770089143635,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "north-raccoon-river-sac-city-hagge",
+          "endpoint": "putIn",
+          "endpointName": "Riverview / Lions Park Access",
+          "severity": "review"
+        },
+        {
+          "routeId": "north-raccoon-river-vogel-riverview",
+          "endpoint": "takeOut",
+          "endpointName": "Riverview / Lions Park Access",
+          "severity": "review"
+        }
+      ],
+      "rank": 190,
+      "eligibleUnwithheldRoutes": [
+        "north-raccoon-river-sac-city-hagge",
+        "north-raccoon-river-vogel-riverview"
+      ]
+    },
+    {
+      "state": "Oregon",
+      "name": "Norwood Island paddle-in campsite",
+      "latitude": 44.3829,
+      "longitude": -123.24693,
+      "distanceFeetToMappedWater": 398.11606326029016,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "willamette-river-alton-baker-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-harkens-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-harrisburg-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-harrisburg-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-irish-bend-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-irish-bend-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-marshall-island-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-mccartney-norwood",
+          "endpoint": "takeOut",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-mccartney-peoria",
+          "endpoint": "accessPoint",
+          "endpointName": "Norwood Island paddle-in campsite",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-norwood-hyak",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-norwood-michaels",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        },
+        {
+          "routeId": "willamette-river-norwood-peoria",
+          "endpoint": "putIn",
+          "endpointName": "Norwood Island paddle-in landing",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 191,
+      "eligibleUnwithheldRoutes": [
+        "willamette-river-alton-baker-norwood",
+        "willamette-river-harkens-norwood",
+        "willamette-river-harrisburg-norwood",
+        "willamette-river-harrisburg-peoria",
+        "willamette-river-irish-bend-norwood",
+        "willamette-river-irish-bend-peoria",
+        "willamette-river-marshall-island-norwood",
+        "willamette-river-mccartney-norwood",
+        "willamette-river-mccartney-peoria",
+        "willamette-river-norwood-hyak",
+        "willamette-river-norwood-michaels",
+        "willamette-river-norwood-peoria"
+      ]
+    },
+    {
+      "state": "Minnesota",
+      "name": "Spring Hill County Park carry-in access",
+      "latitude": 45.529026,
+      "longitude": -94.776531,
+      "distanceFeetToMappedWater": 398.0200640803417,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "sauk-river-oak-township-spring-hill",
+          "endpoint": "takeOut",
+          "endpointName": "Spring Hill County Park carry-in access",
+          "severity": "review"
+        },
+        {
+          "routeId": "sauk-river-spring-hill-st-martin",
+          "endpoint": "putIn",
+          "endpointName": "Spring Hill County Park carry-in access",
+          "severity": "suspicious"
+        }
+      ],
+      "rank": 192,
+      "eligibleUnwithheldRoutes": [
+        "sauk-river-oak-township-spring-hill",
+        "sauk-river-spring-hill-st-martin"
+      ]
+    },
+    {
+      "state": "Maryland",
+      "name": "Sparks Road / Sparks Bank Nature Center access",
+      "latitude": 39.5397,
+      "longitude": -76.6377,
+      "distanceFeetToMappedWater": 398.00916166386367,
+      "reasons": [
+        "mapped-water-offset"
+      ],
+      "occurrences": [
+        {
+          "routeId": "gunpowder-falls-monkton-phoenix",
+          "endpoint": "accessPoint",
+          "endpointName": "Sparks Road / Sparks Bank Nature Center access",
+          "severity": "review"
+        }
+      ],
+      "rank": 193,
+      "eligibleUnwithheldRoutes": [
+        "gunpowder-falls-monkton-phoenix"
+      ]
+    }
+  ]
+}

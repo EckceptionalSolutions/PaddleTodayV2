@@ -1,0 +1,20 @@
+{
+  "reviewStatus": "complete",
+  "coordinateChanged": true,
+  "routesReleased": 1,
+  "routesWithheld": 2,
+  "unverifiedLaunchPointRetainedAsAreaAnchor": true,
+  "routeGeometryRegenerated": true,
+  "reasonGeometryWasNotRegenerated": null,
+  "checks": {
+    "routeReleaseStatus": "passed; Syas–Monroe removed from manual holds after a single continuous 438-vertex network trace with 193 ft maximum endpoint snap; Syas–Columbus and Syas–ADM remain manually held after disconnected named-flowline fallbacks with 55,652 ft maximum snap",
+    "tripDetailsNoLongerCallAreaPointAnAtlasLaunchCoordinate": "passed; verify.mjs found three corrected notes and no stale atlas-launch claim",
+    "jsonFilesParse": "passed; selection, review, source-metadata, and validation parse successfully",
+    "withheldRouteGeneration": "passed; 180 route slugs generated; Syas–Columbus and Syas–ADM remain included, while Syas–Monroe is released by the documented exception",
+    "changedTypeScriptSyntax": "passed using TypeScript transpileModule on the two edited TypeScript files",
+    "focusedAccessTests": "blocked-at-startup; Vitest cannot import missing @jridgewell/sourcemap-codec from node_modules/magic-string",
+    "routeTypecheck": "blocked by three route-data type errors in src/data/routes/new-york.ts and src/data/trip-details/iowa.ts",
+    "canonicalGeometryAudit": "passed; 2,748 of 2,761 public routes matched, 48 state assets present, 13 routes unmatched",
+    "routeInventoryAndGeometryChecks": "passed using temporary ignored runtime copies of the deleted api-contract and geo workspace packages; working-tree package deletions were left intact"
+  }
+}

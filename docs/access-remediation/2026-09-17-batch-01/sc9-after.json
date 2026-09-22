@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T12:00:12.833Z",
+  "evidenceMode": "cache-preferred",
+  "source": {
+    "name": "USGS National Hydrography Dataset Flowline, Area, and Waterbody - Large Scale",
+    "urls": {
+      "flowline": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "area": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/9",
+      "waterbody": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/12"
+    }
+  },
+  "thresholdsFeet": {
+    "ok": 100,
+    "review": 300,
+    "suspicious": 800
+  },
+  "routeCount": 1,
+  "endpointCount": 2,
+  "bySeverity": {
+    "ok": 1,
+    "review": 1,
+    "suspicious": 0,
+    "failure": 0,
+    "unknown": 0
+  },
+  "waterProximitySummary": {
+    "within-100ft": 2,
+    "within-300ft": 0,
+    "over-300ft": 0,
+    "over-800ft": 0,
+    "unknown": 0
+  },
+  "sourceIssues": [],
+  "accessReviewQueue": [],
+  "endpoints": [
+    {
+      "routeId": "catawba-river-landsford-sc9",
+      "routeName": "Catawba River",
+      "reach": "Landsford Canal State Park to SC 9 Landing",
+      "state": "South Carolina",
+      "endpoint": "putIn",
+      "endpointName": "Landsford Canal State Park upper carry-in access (water-entry edge)",
+      "latitude": 34.79176,
+      "longitude": -80.88081,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 312.47158784368736,
+      "nearestMatchedLatitude": 34.79202552997361,
+      "nearestMatchedLongitude": -80.87981841631304,
+      "nearestWaterwayName": "Catawba River",
+      "distanceFeetToNearestWaterway": 312.47192408852294,
+      "nearestWaterwayLatitude": 34.792026728373074,
+      "nearestWaterwayLongitude": -80.87981889214814,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 28.141995721796448,
+      "nearestWaterbodyLatitude": 34.791805545331144,
+      "nearestWaterbodyLongitude": -80.88073418790717,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 28.141995721796448,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "review",
+      "note": "Endpoint is within 28 ft of NHD waterbody; flowline distance is informational."
+    },
+    {
+      "routeId": "catawba-river-landsford-sc9",
+      "routeName": "Catawba River",
+      "reach": "Landsford Canal State Park to SC 9 Landing",
+      "state": "South Carolina",
+      "endpoint": "takeOut",
+      "endpointName": "SC 9 Catawba public boat landing (water-entry edge)",
+      "latitude": 34.709133,
+      "longitude": -80.866015,
+      "matchedRiverName": "Catawba River",
+      "distanceFeetToMatchedRiver": 99.70895802135041,
+      "nearestMatchedLatitude": 34.70936874670856,
+      "nearestMatchedLongitude": -80.86584677892242,
+      "nearestWaterwayName": "Catawba River",
+      "distanceFeetToNearestWaterway": 284.18400143207646,
+      "nearestWaterwayLatitude": 34.7088821250012,
+      "nearestWaterwayLongitude": -80.8669121102946,
+      "nearestWaterbodyName": null,
+      "distanceFeetToNearestWaterbody": 49.46307196849871,
+      "nearestWaterbodyLatitude": 34.70908434109223,
+      "nearestWaterbodyLongitude": -80.86616894491085,
+      "endpointOnWaterbody": true,
+      "waterProximity": "within-100ft",
+      "distanceFeetToMappedWater": 49.46307196849871,
+      "hydrographyCoverageComplete": true,
+      "matchedHydrographyMode": "connected-network",
+      "coordinateEvidenceRole": null,
+      "coordinateEvidenceSourceUrl": null,
+      "coordinateEvidenceDetail": null,
+      "severity": "ok",
+      "note": "Endpoint is within 49 ft of NHD waterbody; flowline distance is informational."
+    }
+  ]
+}

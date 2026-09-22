@@ -16,7 +16,7 @@ try {
     });
     const page = await context.newPage();
     await page.route('**/api/**', route => route.fulfill({ status: 503, json: {} }));
-    await page.route('**/api/rivers/summary.json', route => route.fulfill({ json: { rivers: [] } }));
+    await page.route('**/api/rivers/{summary,explore}.json', route => route.fulfill({ json: { rivers: [] } }));
     await page.route('**/api/rivers/rice-creek-peltier-to-long-lake.json', route => route.fulfill({ json: fixture }));
     await page.goto(new URL('/river/rice-creek-peltier-to-long-lake', base).href);
     await page.getByText('Access', { exact: true }).click();
