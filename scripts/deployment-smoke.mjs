@@ -12,6 +12,7 @@ const [ready, health, home, summary, weekend] = await Promise.all([
   checkJson('weekend board', '/api/weekend/summary.json', validateWeekend),
 ]);
 await checkSecurityHeaders();
+await checkStatus('account authentication route', '/api/account', 401, 'authentication_required');
 
 const firstSlug = summary?.rivers?.[0]?.river?.slug;
 if (firstSlug) {
@@ -86,6 +87,23 @@ async function checkJson(name, path, validate) {
   } catch (error) {
     record(name, false, errorMessage(error));
     return null;
+  }
+}
+
+async function checkStatus(name, path, expectedStatus, expectedError) {
+  try {
+    const response = await fetchWithTimeout(new URL(path, baseUrl), {
+      headers: { accept: 'application/json', 'cache-control': 'no-cache' },
+    });
+    const payload = parseJson(await response.text());
+    const requestId = response.headers.get('x-request-id');
+    const valid = response.status === expectedStatus &&
+      payload?.error === expectedError &&
+      typeof payload?.requestId === 'string' &&
+      payload.requestId === requestId;
+    record(name, valid, valid ? `HTTP ${expectedStatus}` : `HTTP ${response.status}, error ${payload?.error ?? 'missing'}, request id ${requestId ?? 'missing'}`);
+  } catch (error) {
+    record(name, false, errorMessage(error));
   }
 }
 
