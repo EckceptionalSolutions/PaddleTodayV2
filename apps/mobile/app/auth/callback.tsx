@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import AccountEntryScreen from '../../src/screens/account-entry-screen';
 import AccountUnavailableScreen from '../../src/screens/account-unavailable-screen';
 

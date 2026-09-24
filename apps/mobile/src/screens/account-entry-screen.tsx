@@ -5,13 +5,13 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Alert, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, Image, ImageBackground, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { apiClient } from '../api/client';
 import { AppButton } from '../components/app-button';
 import { WebReady } from '../components/web-ready';
 import { syncAccountBackup } from '../lib/account-backup';
-import { clearGuestImportConsent, grantGuestImportConsent, grantGuestKeepSeparateConsent, hasValidGuestDataChoice } from '../lib/account-local-state';
+import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
@@ -97,7 +97,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       await completeWelcome({ choice: 'account' });
       const token = await user.getIdToken();
       await apiClient.registerAccount(token);
-      const result = await syncAccountBackup(token, user.uid);
+      const result = await syncWithGuestImport(token, user.uid);
       setSyncResult(result.pending ? 'pending' : 'synced');
       setMessage(result.pending
         ? 'You’re signed in. Some saved data is still waiting to sync.'
@@ -105,7 +105,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     } catch {
       setSyncResult('pending');
       setMessage('You’re signed in. Your data is still on this device, but its backup could not finish yet. You can retry from Account & Backup.');
-    } finally { setBusy(false); }
+    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
   async function continueWithoutAccount() {
@@ -124,7 +124,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
 
   async function runGoogleSignIn() {
     if (busy || !googleEnabled || !GOOGLE_WEB_CLIENT_ID) return;
-    if (!await confirmGuestDataChoiceIfNeeded()) return;
+    try { await prepareGuestDataImport(); }
+    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     setBusy(true);
     setMessage('');
     try {
@@ -149,7 +150,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setMessage(code.includes('cancel')
         ? 'Sign-in was canceled. You can try again or continue without an account.'
         : 'Google sign-in could not be completed. Check your connection and try again.');
-    } finally { setBusy(false); }
+    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
   async function sendEmailLink() {
@@ -158,7 +159,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter a valid email address.'); return; }
     if (!LINK_DOMAIN) { setMessage('Email sign-in is not configured for this build.'); return; }
     if (Date.now() < resendAt) { setMessage('Please wait ' + resendSeconds + ' seconds before sending another link.'); return; }
-    if (!await confirmGuestDataChoiceIfNeeded()) return;
+    try { await prepareGuestDataImport(); }
+    catch { setMessage('This phone’s saved data could not be checked. Email sign-in was paused to protect it.'); return; }
     setBusy(true);
     setMessage('');
     setResendAt(Date.now() + EMAIL_COOLDOWN_MS);
@@ -178,6 +180,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       await SecureStore.deleteItemAsync(PENDING_EMAIL_ACTION).catch(() => {});
       await SecureStore.deleteItemAsync(PENDING_EMAIL_RETURN_TO).catch(() => {});
       setResendAt(0);
+      if (!auth().currentUser) await clearGuestImportConsent().catch(() => {});
       setMessage('Could not send a link right now. Check the address and try again shortly.');
     } finally { setBusy(false); }
   }
@@ -212,7 +215,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
         setMessage('Another account is signed in on this device. Open the link where it was requested, or sign out first.');
         return;
       } else {
-        if (!await confirmGuestDataChoiceIfNeeded()) return;
+        await prepareGuestDataImport();
         await signInWithEmailLink(auth(), pendingEmail, url);
       }
       await SecureStore.deleteItemAsync(PENDING_EMAIL);
@@ -225,14 +228,15 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     } catch {
       await clearGuestImportConsent().catch(() => {});
       if (isCurrent()) setMessage('That link could not be used. Request a fresh link and try again.');
-    } finally { emailLinkInProgress.current = false; setBusy(false); }
+    } finally { emailLinkInProgress.current = false; if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
   async function finishCrossDeviceEmailLink() {
     const normalized = email.trim().toLowerCase();
     if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
-    if (!await confirmGuestDataChoiceIfNeeded()) return;
+    try { await prepareGuestDataImport(); }
+    catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     setBusy(true);
     try {
       await signInWithEmailLink(auth(), normalized, emailLinkUrl);
@@ -244,20 +248,20 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       if (user) await finishSuccessfulSignIn(user);
     } catch {
       setMessage('That link could not be used with this email. Request a fresh link and try again.');
-    } finally { setBusy(false); }
+    } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
-  async function confirmGuestDataChoiceIfNeeded() {
-    if (auth().currentUser || await hasValidGuestDataChoice() || !await hasGuestBackupData()) return true;
-    return new Promise<boolean>(resolve => {
-      let settled = false;
-      const finish = (value: boolean) => { if (settled) return; settled = true; resolve(value); };
-      Alert.alert('Use this phone’s saved data?', 'Choose whether to add saved routes, personal notes, and trip plans to your account. Keeping them separate leaves them on this phone and out of the account backup.', [
-        { text: 'Cancel sign-in', style: 'cancel', onPress: () => finish(false) },
-        { text: 'Keep separate', onPress: () => { void grantGuestKeepSeparateConsent().then(() => finish(true), () => finish(false)); } },
-        { text: 'Add to account', onPress: () => { void grantGuestImportConsent().then(() => finish(true), () => finish(false)); } },
-      ], { cancelable: true, onDismiss: () => finish(false) });
-    });
+  async function prepareGuestDataImport() {
+    if (await hasGuestBackupData()) await grantGuestImportConsent();
+  }
+
+  async function syncWithGuestImport(token: string, uid: string) {
+    try { return await syncAccountBackup(token, uid); }
+    catch (error) {
+      if (!(error instanceof Error) || error.message !== 'guest_import_consent_required') throw error;
+      await grantGuestImportConsent();
+      return syncAccountBackup(token, uid);
+    }
   }
 
   const showSignedInResult = Boolean(signedInUid && syncResult);
@@ -311,7 +315,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
           {busy ? <ActivityIndicator accessibilityLabel="Signing in and checking your backup" color={colors.accent} style={styles.spinner} /> : null}
           <View style={styles.privacy}>
             <MaterialCommunityIcons name="shield-check-outline" size={16} color={colors.accent} />
-            <Text style={styles.privacyText}>{isWelcome ? 'Your plans stay on this device until you set up backup.' : 'Only saved routes, notes, and trip plans are backed up.'}</Text>
+            <Text style={styles.privacyText}>Signing in adds this device’s saved routes, notes, and trip plans to your account backup.</Text>
           </View>
         </View>
         {!sessionChecked && process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' ? <View style={styles.sessionGate} accessibilityLabel="Checking your account"><ActivityIndicator color={colors.accent} /></View> : null}
