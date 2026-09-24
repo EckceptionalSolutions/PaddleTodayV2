@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const storage = vi.hoisted(() => ({ getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn(), multiRemove: vi.fn() }));
 vi.mock('@react-native-async-storage/async-storage', () => ({ default: storage }));
-import { completeWelcome, consumeFirstRouteOpenPending, migrateOnboardingStorage, WELCOME_COMPLETED_STORAGE_KEY } from './onboarding';
+import { completeWelcome, consumeFirstRouteOpenPending, consumePendingLaunchTarget, migrateOnboardingStorage, savePendingLaunchTarget, WELCOME_CHOICE_STORAGE_KEY, WELCOME_COMPLETED_STORAGE_KEY } from './onboarding';
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -23,6 +23,28 @@ describe('onboarding storage recovery', () => {
   it('preserves the retry path when actual completion cannot be saved', async () => {
     storage.setItem.mockRejectedValue(new Error('Storage unavailable'));
     await expect(completeWelcome({ trackFirstRouteOpen: true })).rejects.toThrow('Storage unavailable');
+  });
+
+  it('remembers whether a first-run user chose guest access or an account', async () => {
+    await completeWelcome({ choice: 'guest' });
+    expect(storage.setItem).toHaveBeenCalledWith(WELCOME_COMPLETED_STORAGE_KEY, '1');
+    expect(storage.setItem).toHaveBeenCalledWith(WELCOME_CHOICE_STORAGE_KEY, 'guest');
+    storage.setItem.mockClear();
+    await completeWelcome({ choice: 'account' });
+    expect(storage.setItem).toHaveBeenCalledWith(WELCOME_CHOICE_STORAGE_KEY, 'account');
+  });
+
+  it('preserves an internal notification destination until onboarding finishes', async () => {
+    await savePendingLaunchTarget('/river/somewhere');
+    storage.getItem.mockResolvedValue('/river/somewhere');
+    await expect(consumePendingLaunchTarget()).resolves.toBe('/river/somewhere');
+    expect(storage.removeItem).toHaveBeenCalledOnce();
+  });
+
+  it('rejects external or onboarding destinations as pending routes', async () => {
+    await savePendingLaunchTarget('//example.com');
+    await savePendingLaunchTarget('/welcome');
+    expect(storage.setItem).not.toHaveBeenCalled();
   });
 
   it('retries obsolete preference cleanup after a storage failure', async () => {

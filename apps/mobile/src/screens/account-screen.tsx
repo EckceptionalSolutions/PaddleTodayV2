@@ -15,6 +15,7 @@ import * as AppleAuthentication from 'expo-apple-authentication';
 import * as Crypto from 'expo-crypto';
 import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
+import { usePathname, useRouter } from 'expo-router';
 import { WebReady } from '../components/web-ready';
 import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
@@ -40,7 +41,10 @@ export default function AccountScreen() {
 }
 
 function AccountContent() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [user, setUser] = useState<ReturnType<typeof auth>['currentUser']>(null);
+  const [authChecked, setAuthChecked] = useState(false);
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
   const [sentEmail, setSentEmail] = useState('');
@@ -76,14 +80,20 @@ function AccountContent() {
       setCooldownEmail(''); setResendAvailableAt(0);
     }
     lastAuthUid.current = nextUid;
+    setAuthChecked(true);
     setUser(value);
     if (value) {
-      void consumeEmailLink();
-      void inspectPendingDeletion(value).then((pending) => {
-        if (!pending) { resumeAccountBackup(); void backupNow(); }
-      });
-    } else setDeletionPending(false);
-  }), []);
+      if (pathname === '/account') {
+        void consumeEmailLink();
+        void inspectPendingDeletion(value).then((pending) => {
+          if (!pending) { resumeAccountBackup(); void backupNow(); }
+        });
+      }
+    } else {
+      setDeletionPending(false);
+      if (pathname === '/account') router.replace({ pathname: '/sign-in', params: { returnTo: '/account' } } as never);
+    }
+  }), [pathname, router]);
 
   useEffect(() => {
     if (!user) { setConflicts([]); return; }
@@ -91,12 +101,13 @@ function AccountContent() {
   }, [user, backup]);
 
   useEffect(() => {
+    if (pathname !== '/account') return;
     let active = true;
     const consume = (url: string | null) => { if (url) void consumeEmailLink(url, () => active); };
     void Linking.getInitialURL().then(consume);
     const subscription = Linking.addEventListener('url', ({ url }) => consume(url));
     return () => { active = false; subscription.remove(); };
-  }, []);
+  }, [pathname]);
 
   async function consumeEmailLink(explicitUrl?: string, isCurrent = () => true) {
     const url = explicitUrl ?? await Linking.getInitialURL();
@@ -438,6 +449,8 @@ function AccountContent() {
     }
   }
 
+  if (!authChecked) return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.canvas }}><ActivityIndicator color={colors.accent} accessibilityLabel="Checking account" /></View>;
+
   return <ScrollView contentContainerStyle={styles.page}>
     <SectionCard title="Account & backup" subtitle="Keep saved rivers, personal notes, and trip plans when you move to another phone.">
       {user ? <>
@@ -448,6 +461,8 @@ function AccountContent() {
         <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
           placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
         <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
+        {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
+        {emailLinkUrl ? <AppButton label="Finish connecting email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
         <AppButton label="Sync now" busyLabel="Syncing…" busy={busy} onPress={() => void backupNow()} />
         {backup ? <Text style={styles.body}>{backup.routes} routes and {backup.drafts} trip plans backed up. {backup.pending ? 'Changes are waiting to sync. ' : backup.updatedAt ? `Last synced ${new Date(backup.updatedAt).toLocaleString()}. ` : ''}{backup.conflicts ? backup.conflicts + ' changes need review.' : ''}</Text> : null}
         {conflicts.map((conflict) => <View key={conflict.key} style={styles.conflict}>
@@ -463,19 +478,10 @@ function AccountContent() {
         </View>)}
         <AppButton label="Sign out" variant="secondary" disabled={busy} onPress={confirmSignOut} />
         <AppButton label={deletionPending ? 'Finish account deletion' : 'Delete account'} variant="secondary" disabled={busy} onPress={() => void deleteAccount()} />
-      </> : <>
-        <Text style={styles.body}>You can sign in with {GOOGLE_SIGN_IN_ENABLED ? 'Google or an email link' : 'an email link'}. River browsing stays available without an account.</Text>
-        {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' ? <AppButton label="Continue with Apple" busy={busy} onPress={() => void runLogin(signInApple)} /> : null}
-        {GOOGLE_SIGN_IN_ENABLED ? <AppButton label="Continue with Google" busy={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
-        <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
-          placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
-        <AppButton label={resendSeconds > 0 ? `${sentLinkForCurrentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : sentLinkForCurrentEmail ? 'Send another link' : 'Continue with email'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
-        {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
-        {emailLinkUrl ? <AppButton label="Finish signing in with email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
-      </>}
+      </> : <ActivityIndicator accessibilityLabel="Opening sign in" color={colors.accent} />}
       {busy ? <ActivityIndicator color={colors.accent} /> : null}
       {message ? <Text accessibilityLiveRegion="polite" style={styles.message}>{message}</Text> : null}
-      {!user ? <Text style={styles.privacy}>Your account backs up only saved routes, personal notes, and trip plans.</Text> : null}
+      <Text style={styles.privacy}>Your account backs up only saved routes, personal notes, and trip plans.</Text>
     </SectionCard>
   </ScrollView>;
 }

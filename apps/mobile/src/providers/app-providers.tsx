@@ -18,6 +18,7 @@ import { refreshFreshnessClock } from '../hooks/use-freshness-clock';
 import { createConnectivityMonitor } from '../lib/connectivity';
 import { deactivateAccountLocalData, flushAccountBackup, registerAccountBackupAuthProvider } from '../lib/account-backup';
 import { restoreGuestLocalState } from '../lib/account-local-state';
+import { AccountBackupInvitation } from '../components/account-backup-invitation';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
@@ -124,7 +125,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       <AlertPreferencesProvider>
         <AreaNotificationPreferencesProvider>
           <StoredLocationProvider>
-            <SavedRiversProvider>{children}</SavedRiversProvider>
+            <SavedRiversProvider>{children}<AccountBackupInvitation /></SavedRiversProvider>
           </StoredLocationProvider>
         </AreaNotificationPreferencesProvider>
       </AlertPreferencesProvider>

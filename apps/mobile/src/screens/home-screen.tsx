@@ -212,6 +212,7 @@ export default function HomeScreen() {
           routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
           snapshot={snapshot}
           snapshotContext={snapshotContext}
+          onOpenAccount={() => router.push('/account' as never)}
           saved={headline ? isSaved(headline.river.slug) : false}
           onToggleSaved={
             headline
@@ -339,6 +340,7 @@ function BoardHero({
   routeCount,
   snapshot,
   snapshotContext,
+  onOpenAccount,
   saved,
   onToggleSaved,
   onOpen,
@@ -353,6 +355,7 @@ function BoardHero({
   routeCount: number;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
   snapshotContext: string;
+  onOpenAccount: () => void;
   saved: boolean;
   onToggleSaved?: () => void;
   onOpen?: () => void;
@@ -374,8 +377,13 @@ function BoardHero({
               <Text style={styles.appName}>Today</Text>
               <Text style={styles.freshness}>Score, reliability, and drive time</Text>
             </View>
-            <View style={styles.liveBadge}>
-              <Text style={styles.liveBadgeText}>{snapshot.unavailable > 0 && snapshot.paddleable === 0 && snapshot.watch === 0 && snapshot.skip === 0 ? 'Calls unavailable' : `${snapshot.paddleable} routes to paddle`}</Text>
+            <View style={styles.topBarActions}>
+              <View style={styles.liveBadge}>
+                <Text style={styles.liveBadgeText}>{snapshot.unavailable > 0 && snapshot.paddleable === 0 && snapshot.watch === 0 && snapshot.skip === 0 ? 'Calls unavailable' : `${snapshot.paddleable} routes to paddle`}</Text>
+              </View>
+              <Pressable accessibilityRole="button" accessibilityLabel="Account and backup" accessibilityHint="Open your account settings or sign in to back up saved trips." onPress={onOpenAccount} style={styles.accountButton} android_ripple={{ color: 'rgba(255,255,255,0.24)', borderless: true }}>
+                <MaterialCommunityIcons name="account-circle-outline" color={colors.surfaceStrong} size={25} accessible={false} />
+              </Pressable>
             </View>
           </View>
 
@@ -1031,6 +1039,8 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   topBarCopy: { flexGrow: 1, minWidth: 0, maxWidth: '100%' },
+  topBarActions: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
+  accountButton: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22, borderWidth: 1, borderColor: 'rgba(255, 255, 255, 0.68)', backgroundColor: 'rgba(255,255,255,0.14)', overflow: 'hidden' },
   appName: {
     color: colors.surfaceStrong,
     fontSize: 34,

@@ -1,4 +1,5 @@
 import { isRecord, parseJson } from './storage';
+import { requestAccountBackupInvitation } from './account-invitation';
 
 export interface TripDraft {
   launch: string;
@@ -158,6 +159,7 @@ export function createTripDraftSession(storage: DraftStorage, target: TripDraftT
     publish({ saving: true, saveError: false });
     const request = enqueueWrite(storage, key, () => storage.setItem(key, value)).then(() => {
       void import('./account-backup').then(({ requestAccountBackup }) => requestAccountBackup()).catch(() => {});
+      requestAccountBackupInvitation();
       if (revision === savedRevision) publish({ dirty: false, savedAt, saveError: false });
       return true;
     }, () => {
