@@ -128,6 +128,8 @@ function RootLayout() {
           <Stack.Screen name="contribute-photo/[slug]" options={{ title: 'Contribute photos' }} />
           <Stack.Screen name="request-route" options={{ title: 'Request route' }} />
           <Stack.Screen name="notifications" options={{ title: 'Notifications' }} />
+          <Stack.Screen name="account" options={{ title: 'Account & backup' }} />
+          <Stack.Screen name="auth/callback" options={{ title: 'Finish signing in' }} />
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>

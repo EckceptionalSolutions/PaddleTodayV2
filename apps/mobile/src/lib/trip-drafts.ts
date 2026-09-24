@@ -96,7 +96,9 @@ export async function listTripDrafts(storage: DraftStorage & { getAllKeys: () =>
 
 export function removeTripDraft(storage: DraftStorage & { removeItem: (key: string) => Promise<void> }, target: TripDraftTarget) {
   const key = tripDraftKey(target);
-  return enqueueWrite(storage, key, () => storage.removeItem(key));
+  return enqueueWrite(storage, key, () => storage.removeItem(key)).then(() => {
+    void import('./account-backup').then(({ requestAccountBackup }) => requestAccountBackup()).catch(() => {});
+  });
 }
 
 // A session owns one route/access pair. Old saves cannot overwrite a newly opened
@@ -155,6 +157,7 @@ export function createTripDraftSession(storage: DraftStorage, target: TripDraftT
     const value = JSON.stringify({ version: 1, target, draft: state.draft, savedAt });
     publish({ saving: true, saveError: false });
     const request = enqueueWrite(storage, key, () => storage.setItem(key, value)).then(() => {
+      void import('./account-backup').then(({ requestAccountBackup }) => requestAccountBackup()).catch(() => {});
       if (revision === savedRevision) publish({ dirty: false, savedAt, saveError: false });
       return true;
     }, () => {

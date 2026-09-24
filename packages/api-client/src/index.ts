@@ -22,6 +22,8 @@ import type {
   RiverCatalogResponse,
   ExploreCatalogResponse,
   WeekendSummaryResponse,
+  AccountSyncRequest,
+  AccountSyncSnapshot,
 } from '@paddletoday/api-contract';
 
 export class PaddleTodayApiError extends Error {
@@ -46,7 +48,7 @@ export interface RequestOptions {
 
 interface JsonRequestOptions extends RequestOptions {
   body?: unknown;
-  method?: 'GET' | 'POST' | 'PATCH';
+  method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
 }
 
 export interface RiverHistoryRequestOptions extends RequestOptions {
@@ -79,6 +81,15 @@ export interface PaddleTodayApiClient {
     input: CreateRouteContributionRequest,
     options?: RequestOptions
   ): Promise<CreateRouteContributionResponse>;
+  getAccountSync(idToken: string, options?: RequestOptions): Promise<{ requestId: string; snapshot: AccountSyncSnapshot }>;
+  applyAccountSync(idToken: string, input: AccountSyncRequest, options?: RequestOptions): Promise<{
+    requestId: string; snapshot: AccountSyncSnapshot; receipts: import('@paddletoday/api-contract').AccountSyncReceipt[];
+  }>;
+  deleteAccount(idToken: string, options?: RequestOptions): Promise<{ requestId: string; deleted: boolean }>;
+  getAccountDeletion(idToken: string, options?: RequestOptions): Promise<{ requestId: string; deletionRequested: boolean; deletionComplete: boolean }>;
+  registerAccount(idToken: string, options?: RequestOptions): Promise<{
+    requestId: string; uid: string; revision: number; epoch: number;
+  }>;
 }
 
 export function createPaddleTodayApiClient(args: {
@@ -220,6 +231,21 @@ export function createPaddleTodayApiClient(args: {
         `/api/rivers/${encodeURIComponent(slug)}/geometry.json`,
         options
       );
+    },
+    getAccountSync(idToken, options) {
+      return requestJson('/api/account/sync', { ...options, cache: 'no-store', headers: { ...new Headers(options?.headers), authorization: `Bearer ${idToken}` } });
+    },
+    applyAccountSync(idToken, input, options) {
+      return requestJson('/api/account/sync', { ...options, method: 'POST', cache: 'no-store', headers: { ...new Headers(options?.headers), authorization: `Bearer ${idToken}` }, body: input });
+    },
+    deleteAccount(idToken, options) {
+      return requestJson('/api/account', { ...options, method: 'DELETE', cache: 'no-store', headers: { ...new Headers(options?.headers), authorization: `Bearer ${idToken}` } });
+    },
+    getAccountDeletion(idToken, options) {
+      return requestJson('/api/account/deletion', { ...options, cache: 'no-store', headers: { ...new Headers(options?.headers), authorization: `Bearer ${idToken}` } });
+    },
+    registerAccount(idToken, options) {
+      return requestJson('/api/account', { ...options, method: 'POST', cache: 'no-store', headers: { authorization: `Bearer ${idToken}` } });
     },
     createAppFeedback(input, options) {
       return requestJson<CreateAppFeedbackResponse>('/api/feedback', {

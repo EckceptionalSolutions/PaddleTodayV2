@@ -44,6 +44,7 @@ import { handleRiverGeometry } from './routes/river-geometry';
 import { handleRiverTripPack } from './routes/trip-pack';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
+import { accountMethodOptions, accountSyncMethod, handleAccountRoute } from './routes/accounts';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -83,8 +84,16 @@ const server = createServer(async (request, response) => {
 
   try {
     if (request.method === 'OPTIONS') {
+      if (accountSyncMethod(requestUrl.pathname, 'OPTIONS')) return accountMethodOptions(response);
       const optionsResponse = handleOptions(requestUrl.pathname, response);
       if (optionsResponse) return optionsResponse;
+    }
+
+    if (accountSyncMethod(requestUrl.pathname, request.method ?? 'GET')) {
+      return await handleAccountRoute(request, response, requestUrl.pathname, requestId, includeBody);
+    }
+    if (requestUrl.pathname.startsWith('/api/account/')) {
+      return sendJson(response, 404, { requestId, error: 'not_found' }, includeBody, 'no-store');
     }
 
     const writeResponse = await handleWriteRoutes(request, response, requestUrl, requestId, includeBody);
@@ -252,6 +261,10 @@ function handleOptions(pathname: string, response: Parameters<typeof sendEmpty>[
 
   if (pathname === '/api/history/snapshot' || pathname === '/api/snapshots/refresh') {
     return sendCorsOptions(response, 'POST, OPTIONS', 'content-type, accept, authorization, x-history-token');
+  }
+
+  if (pathname === '/api/account' || pathname === '/api/account/sync' || pathname === '/api/account/deletion') {
+    return accountMethodOptions(response);
   }
 
   return null;
