@@ -293,26 +293,25 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
             <View style={styles.emailCard}>
               <Text accessibilityRole="header" style={styles.sectionTitle}>{sentEmail ? 'Check your email' : 'Continue with email'}</Text>
               {sentEmail ? <Text style={styles.emailHelp}>We sent a secure sign-in link to {sentEmail}. Open it on this device to finish signing in.</Text> : null}
-              <TextInput value={email} onChangeText={value => { setEmail(value); setMessage(''); }} autoCapitalize="none" autoComplete="email" keyboardType="email-address" textContentType="emailAddress" placeholder="Email address" accessibilityLabel="Email address" editable={!busy} returnKeyType="done" onSubmitEditing={() => { if (emailLinkUrl) void finishCrossDeviceEmailLink(); else void sendEmailLink(); }} style={styles.input} />
+              <TextInput value={email} onChangeText={value => { setEmail(value); setMessage(''); }} autoCapitalize="none" autoComplete="email" keyboardType="email-address" textContentType="emailAddress" placeholder="you@example.com" placeholderTextColor={colors.textMuted} accessibilityLabel="Email address" editable={!busy} returnKeyType="done" onSubmitEditing={() => { if (emailLinkUrl) void finishCrossDeviceEmailLink(); else void sendEmailLink(); }} style={styles.input} />
               {emailLinkUrl ? <AppButton label="Finish signing in with email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} style={styles.actionButton} /> : <AppButton label={sentEmail ? resendSeconds ? 'Send another link in ' + resendSeconds + 's' : 'Send another link' : 'Email me a sign-in link'} busy={busy} disabled={resendSeconds > 0} onPress={() => void sendEmailLink()} style={styles.actionButton} />}
               {sentEmail ? <Pressable accessibilityRole="button" onPress={() => { setEmail(''); setSentEmail(''); setResendAt(0); setMessage(''); }} style={styles.textAction}><Text style={styles.textActionLabel}>Use a different email</Text></Pressable> : null}
               <Pressable accessibilityRole="button" onPress={() => { setEmailStep(false); setMessage(''); }} style={styles.textAction}><Text style={styles.textActionLabel}>Back to sign-in options</Text></Pressable>
             </View>
           ) : (
             <>
-              <Text style={styles.sectionTitle}>Back up your paddling plans</Text>
+              <Text style={styles.sectionTitle}>{isWelcome ? 'Choose how to start' : 'Choose a sign-in method'}</Text>
               {googleEnabled ? <AppButton label="Continue with Google" icon="google" busy={busy} onPress={() => void runGoogleSignIn()} style={styles.actionButton} /> : null}
               {emailEnabled ? <AppButton label="Continue with email" icon="email-outline" variant="secondary" busy={busy} onPress={() => { setEmailStep(true); setMessage(''); }} style={styles.actionButton} /> : null}
               {!googleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
-              <AppButton label={isWelcome ? 'Continue without an account' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} />
-              {isWelcome ? <Pressable accessibilityRole="button" onPress={() => router.push('/tour' as never)} style={styles.textAction}><Text style={styles.textActionLabel}>Explore the app first</Text></Pressable> : null}
+              <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} />
             </>
           )}
           {message && !showSignedInResult ? <Text accessibilityRole="alert" style={styles.message}>{message}</Text> : null}
           {busy ? <ActivityIndicator accessibilityLabel="Signing in and checking your backup" color={colors.accent} style={styles.spinner} /> : null}
           <View style={styles.privacy}>
             <MaterialCommunityIcons name="shield-check-outline" size={16} color={colors.accent} />
-            <Text style={styles.privacyText}>Only saved routes, personal notes, and trip plans are backed up.</Text>
+            <Text style={styles.privacyText}>{isWelcome ? 'Your plans stay on this device until you set up backup.' : 'Only saved routes, notes, and trip plans are backed up.'}</Text>
           </View>
         </View>
         {!sessionChecked && process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' ? <View style={styles.sessionGate} accessibilityLabel="Checking your account"><ActivityIndicator color={colors.accent} /></View> : null}
