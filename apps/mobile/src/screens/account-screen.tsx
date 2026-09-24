@@ -1,9 +1,7 @@
-import { AccessToken, AuthenticationToken, LoginManager } from 'react-native-fbsdk-next';
 import { GoogleSignin, isCancelledResponse } from '@react-native-google-signin/google-signin';
 import auth, {
   AppleAuthProvider,
   EmailAuthProvider,
-  FacebookAuthProvider,
   GoogleAuthProvider,
   isSignInWithEmailLink,
   onAuthStateChanged,
@@ -35,8 +33,6 @@ const LINK_DOMAIN = process.env.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN?.trim();
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim();
 const GOOGLE_IOS_SIGN_IN_ENABLED = process.env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED === '1';
 const APPLE_SIGN_IN_ENABLED = process.env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1';
-const FACEBOOK_APP_ID = process.env.EXPO_PUBLIC_FACEBOOK_APP_ID?.trim();
-const FACEBOOK_CLIENT_TOKEN = process.env.EXPO_PUBLIC_FACEBOOK_CLIENT_TOKEN?.trim();
 const GOOGLE_SIGN_IN_ENABLED = Boolean(GOOGLE_WEB_CLIENT_ID) && (Platform.OS !== 'ios' || GOOGLE_IOS_SIGN_IN_ENABLED);
 
 export default function AccountScreen() {
@@ -195,31 +191,6 @@ function AccountContent() {
     else await signInWithCredential(auth(), credential);
   }
 
-  async function signInFacebook() {
-    if (!FACEBOOK_APP_ID || !FACEBOOK_CLIENT_TOKEN) throw new Error('Facebook sign-in has not been configured.');
-    if (Platform.OS === 'ios') {
-      const nonce = Crypto.randomUUID();
-      const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email'], 'limited', hashedNonce);
-      if (result.isCancelled) return;
-      const token = await AuthenticationToken.getAuthenticationTokenIOS();
-      if (!token?.authenticationToken) throw new Error('Facebook did not return an authentication token.');
-      const credential = FacebookAuthProvider.credential(token.authenticationToken, nonce);
-      const current = auth().currentUser;
-      if (current) await current.linkWithCredential(credential);
-      else await signInWithCredential(auth(), credential);
-      return;
-    }
-    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-    if (result.isCancelled) return;
-    const token = await AccessToken.getCurrentAccessToken();
-    if (!token?.accessToken) throw new Error('Facebook did not return an access token.');
-    const credential = FacebookAuthProvider.credential(token.accessToken);
-    const current = auth().currentUser;
-    if (current) await current.linkWithCredential(credential);
-    else await signInWithCredential(auth(), credential);
-  }
-
   async function signInApple() {
     if (Platform.OS !== 'ios') throw new Error('Sign in with Apple is available on iPhone and iPad.');
     const nonce = Crypto.randomUUID();
@@ -337,7 +308,6 @@ function AccountContent() {
       }
       await deactivateAccountLocalData();
       await clearAccountLocalData(activeUser.uid);
-      if (providers.includes('facebook.com')) LoginManager.logOut();
       await signOut(auth());
       setDeletionPending(false);
       setMessage('Your account was deleted.');
@@ -390,24 +360,6 @@ function AccountContent() {
       const result = await AppleAuthentication.signInAsync({ requestedScopes: [], nonce: hashedNonce });
       if (!result.identityToken) throw new Error('recent_authentication_required');
       await reauthenticateWithCredential(activeUser, AppleAuthProvider.credential(result.identityToken, nonce));
-      return;
-    }
-    if (providerIds.includes('facebook.com')) {
-      if (Platform.OS === 'ios') {
-        const nonce = Crypto.randomUUID();
-        const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
-        const result = await LoginManager.logInWithPermissions(['public_profile', 'email'], 'limited', hashedNonce);
-        if (result.isCancelled) throw new Error('recent_authentication_required');
-        const limitedToken = await AuthenticationToken.getAuthenticationTokenIOS();
-        if (!limitedToken?.authenticationToken) throw new Error('recent_authentication_required');
-        await reauthenticateWithCredential(activeUser, FacebookAuthProvider.credential(limitedToken.authenticationToken, nonce));
-        return;
-      }
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-      if (result.isCancelled) throw new Error('recent_authentication_required');
-      const token = await AccessToken.getCurrentAccessToken();
-      if (!token?.accessToken) throw new Error('recent_authentication_required');
-      await reauthenticateWithCredential(activeUser, FacebookAuthProvider.credential(token.accessToken));
       return;
     }
     if (providerIds.includes('password')) {
@@ -493,7 +445,6 @@ function AccountContent() {
         <Text style={styles.body}>Connect another sign-in method so you can recover your account if you lose access to one.</Text>
         {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' && !user.providerData.some((item) => item.providerId === 'apple.com') ? <AppButton label="Connect Apple" variant="secondary" disabled={busy} onPress={() => void runLogin(signInApple)} /> : null}
         {GOOGLE_SIGN_IN_ENABLED && !user.providerData.some((item) => item.providerId === 'google.com') ? <AppButton label="Connect Google" variant="secondary" disabled={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
-        {FACEBOOK_APP_ID && FACEBOOK_CLIENT_TOKEN && !user.providerData.some((item) => item.providerId === 'facebook.com') ? <AppButton label="Connect Facebook" variant="secondary" disabled={busy} onPress={() => void runLogin(signInFacebook)} /> : null}
         <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
           placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
         <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
@@ -516,7 +467,6 @@ function AccountContent() {
         <Text style={styles.body}>You can sign in with {GOOGLE_SIGN_IN_ENABLED ? 'Google or an email link' : 'an email link'}. River browsing stays available without an account.</Text>
         {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' ? <AppButton label="Continue with Apple" busy={busy} onPress={() => void runLogin(signInApple)} /> : null}
         {GOOGLE_SIGN_IN_ENABLED ? <AppButton label="Continue with Google" busy={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
-        {FACEBOOK_APP_ID && FACEBOOK_CLIENT_TOKEN ? <AppButton label="Continue with Facebook" variant="secondary" busy={busy} onPress={() => void runLogin(signInFacebook)} /> : null}
         <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
           placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
         <AppButton label={resendSeconds > 0 ? `${sentLinkForCurrentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : sentLinkForCurrentEmail ? 'Send another link' : 'Continue with email'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
