@@ -13,7 +13,6 @@ import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
 import { openFeedbackForm } from '../lib/feedback-controller';
-import { resetWelcome } from '../lib/onboarding';
 import { openExternalUrl } from '../lib/external-links';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
@@ -161,7 +160,7 @@ function SupportContent() {
         <View style={styles.actionList}>
           <ActionRow icon="account-circle-outline" title="Account & backup" body="Sign in to back up saved routes and trip plans." onPress={() => router.push('/account' as never)} />
           <ActionRow icon="bell-outline" title="Notification settings" body="Choose nearby Today and Weekend alerts." onPress={() => router.push('/notifications' as never)} />
-          <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
+          <ActionRow icon="information-outline" title="Take the app tour" body="Review scores, conditions, and route details whenever you like." onPress={() => router.push('/tour' as never)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
           {showReleaseDiagnostics ? (
@@ -380,10 +379,6 @@ function diagnosticTone(state: DiagnosticState) {
   if (state === 'ok') return styles.diagnosticOk;
   if (state === 'error') return styles.diagnosticError;
   return styles.diagnosticIdle;
-}
-
-function replayWelcome(router: ReturnType<typeof useRouter>) {
-  void resetWelcome().catch(() => {}).then(() => router.push('/welcome'));
 }
 
 function openUrl(url: string) {

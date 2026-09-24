@@ -4,6 +4,8 @@ Goal: produce one installable iOS internal build and one installable Android int
 
 This runbook assumes the mobile app is in `apps/mobile` and uses the Expo/EAS config already in the repo.
 
+For quick UI iteration without rebuilding each time, use [Fast Local Mobile Testing](mobile-local-development.md).
+
 ## 1. Local Preflight
 
 Run from the repo root:
