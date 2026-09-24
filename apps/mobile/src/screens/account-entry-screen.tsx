@@ -1,6 +1,5 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GoogleSignin, isCancelledResponse } from '@react-native-google-signin/google-signin';
 import auth, { EmailAuthProvider, GoogleAuthProvider, isSignInWithEmailLink, onAuthStateChanged, sendSignInLinkToEmail, signInWithCredential, signInWithEmailLink } from '@react-native-firebase/auth';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as Linking from 'expo-linking';
@@ -129,6 +128,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
     setBusy(true);
     setMessage('');
     try {
+      const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
       GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID });
       await GoogleSignin.hasPlayServices();
       const result = await GoogleSignin.signIn();

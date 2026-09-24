@@ -1,4 +1,3 @@
-import { GoogleSignin, isCancelledResponse } from '@react-native-google-signin/google-signin';
 import auth, {
   AppleAuthProvider,
   EmailAuthProvider,
@@ -11,8 +10,6 @@ import auth, {
   reauthenticateWithCredential,
   signOut,
 } from '@react-native-firebase/auth';
-import * as AppleAuthentication from 'expo-apple-authentication';
-import * as Crypto from 'expo-crypto';
 import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import { usePathname, useRouter } from 'expo-router';
@@ -190,6 +187,7 @@ function AccountContent() {
   async function signInGoogle() {
     const webClientId = GOOGLE_WEB_CLIENT_ID;
     if (!webClientId) throw new Error('Google sign-in has not been configured.');
+    const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
     GoogleSignin.configure({ webClientId });
     await GoogleSignin.hasPlayServices();
     const result = await GoogleSignin.signIn();
@@ -204,6 +202,8 @@ function AccountContent() {
 
   async function signInApple() {
     if (Platform.OS !== 'ios') throw new Error('Sign in with Apple is available on iPhone and iPad.');
+    const AppleAuthentication = await import('expo-apple-authentication');
+    const Crypto = await import('expo-crypto');
     const nonce = Crypto.randomUUID();
     const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
     const result = await AppleAuthentication.signInAsync({
@@ -300,6 +300,8 @@ function AccountContent() {
       await pauseAccountBackup();
       const providers = activeUser.providerData.map((item) => item.providerId);
       if (providers.includes('apple.com') && Platform.OS === 'ios') {
+        const AppleAuthentication = await import('expo-apple-authentication');
+        const Crypto = await import('expo-crypto');
         const nonce = Crypto.randomUUID();
         const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
         const appleUserId = activeUser.providerData.find((item) => item.providerId === 'apple.com')?.uid;
@@ -356,6 +358,7 @@ function AccountContent() {
     if (providerIds.includes('google.com')) {
       const webClientId = GOOGLE_WEB_CLIENT_ID;
       if (!webClientId) throw new Error('recent_authentication_required');
+      const { GoogleSignin, isCancelledResponse } = await import('@react-native-google-signin/google-signin');
       GoogleSignin.configure({ webClientId });
       await GoogleSignin.hasPlayServices();
       const result = await GoogleSignin.signIn();
@@ -366,6 +369,8 @@ function AccountContent() {
       return;
     }
     if (providerIds.includes('apple.com')) {
+      const AppleAuthentication = await import('expo-apple-authentication');
+      const Crypto = await import('expo-crypto');
       const nonce = Crypto.randomUUID();
       const hashedNonce = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
       const result = await AppleAuthentication.signInAsync({ requestedScopes: [], nonce: hashedNonce });
