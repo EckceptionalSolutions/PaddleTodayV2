@@ -16,8 +16,6 @@ const firebaseIosConfig = './firebase/GoogleService-Info.plist';
 const firebaseAndroidConfig = './firebase/google-services.json';
 const firebaseIosConfigPath = join(__dirname, firebaseIosConfig);
 const firebaseAndroidConfigPath = join(__dirname, firebaseAndroidConfig);
-const facebookAppId = process.env.EXPO_PUBLIC_FACEBOOK_APP_ID?.trim();
-const facebookClientToken = process.env.EXPO_PUBLIC_FACEBOOK_CLIENT_TOKEN?.trim();
 
 if (firebaseDiagnosticsEnabled || firebaseAuthEnabled) {
   const missingFirebaseFiles = [
@@ -74,12 +72,6 @@ module.exports = ({ config }) => {
               ...(firebaseDiagnosticsEnabled ? ['@react-native-firebase/crashlytics'] : []),
             ]
           : []),
-        ...(facebookAppId && facebookClientToken ? [['react-native-fbsdk-next', {
-          appID: facebookAppId,
-          clientToken: facebookClientToken,
-          displayName: 'Paddle Today',
-          scheme: `fb${facebookAppId}`,
-        }]] : []),
       ],
       ios: {
         ...baseConfig.ios,
