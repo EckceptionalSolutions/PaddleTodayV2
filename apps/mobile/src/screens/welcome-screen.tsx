@@ -20,10 +20,6 @@ import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { useRiverSummaryQuery } from '../api/queries';
 import { WebReady } from '../components/web-ready';
 import { AppButton } from '../components/app-button';
-import {
-  completeWelcome,
-  consumePendingLaunchTarget,
-} from '../lib/onboarding';
 import { trackAppEvent } from '../lib/observability';
 import { selectBestNowPicks } from '../lib/ranking';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -66,8 +62,6 @@ function WelcomeContent() {
   const carouselTranslateX = useRef(new Animated.Value(0)).current;
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
-  const [saving, setSaving] = useState(false);
-  const [completionError, setCompletionError] = useState<string | null>(null);
   const rivers = summaryQuery.data?.rivers ?? [];
   const compactLayout = windowHeight < 740;
   const shortLayout = windowHeight < 680;
@@ -155,7 +149,7 @@ function WelcomeContent() {
   );
 
   useEffect(() => {
-    trackAppEvent('welcome_shown', { entry: 'first_run' });
+    trackAppEvent('app_tour_shown', {});
   }, []);
 
   useEffect(() => {
@@ -163,26 +157,9 @@ function WelcomeContent() {
     carouselTranslateX.setValue(-carouselIndexRef.current * slideWidth);
   }, [carouselTranslateX, slideWidth, reducedMotion]);
 
-  async function finishOnboarding() {
-    if (saving) return;
-    setSaving(true);
-    setCompletionError(null);
-    trackAppEvent('welcome_completed', {
-      last_slide_viewed: carouselIndex + 1,
-    });
-    try {
-      await completeWelcome({ choice: 'guest', trackFirstRouteOpen: true });
-      router.replace((await consumePendingLaunchTarget()) ?? '/');
-    } catch {
-      trackAppEvent('welcome_completion_failed', {});
-      setSaving(false);
-      setCompletionError("Couldn't save your progress. Please try again.");
-    }
-  }
-
-  function viewBestPaddles() {
-    trackAppEvent('welcome_best_paddles_tapped', { slide: carouselIndex + 1 });
-    void finishOnboarding();
+  function openPaddleToday() {
+    trackAppEvent('app_tour_open_app_tapped', { slide: carouselIndex + 1 });
+    router.replace('/' as never);
   }
 
   function showCarouselSlide(index: number) {
@@ -252,9 +229,9 @@ function WelcomeContent() {
               compactLayout ? styles.welcomeHeadingCompact : null,
             ]}
           >
-            <Text style={styles.slideEyebrow}>WELCOME</Text>
+            <Text style={styles.slideEyebrow}>APP TOUR</Text>
             <Text accessibilityRole="header" style={[styles.title, compactLayout ? styles.titleCompact : null]}>
-              Welcome to Paddle Today
+              See how PaddleToday works
             </Text>
             <Text style={[styles.body, compactLayout ? styles.bodyCompact : null]}>
               Let's find the best river route near you today.
@@ -552,25 +529,17 @@ function WelcomeContent() {
           </Text>
         </View>
 
-        {completionError ? (
-          <Text accessibilityRole="alert" style={styles.completionError}>
-            {completionError}
-          </Text>
-        ) : null}
-
         <AppButton
-          label="Continue without an account"
-          busy={saving}
-          busyLabel="Opening routes…"
+          label="Open PaddleToday"
           icon="arrow-right"
-          onPress={viewBestPaddles}
+          onPress={openPaddleToday}
           style={[
             styles.primaryButton,
             shortLayout ? styles.primaryButtonShort : null,
           ]}
         />
-        <Pressable accessibilityRole="button" onPress={() => router.replace('/welcome' as never)} style={styles.textAction}>
-          <Text style={styles.textActionLabel}>Back to sign-in choices</Text>
+        <Pressable accessibilityRole="button" onPress={() => router.replace('/more' as never)} style={styles.textAction}>
+          <Text style={styles.textActionLabel}>Back to More</Text>
         </Pressable>
       </View>
     </View>
