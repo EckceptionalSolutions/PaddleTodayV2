@@ -5,6 +5,8 @@ import type { PropsWithChildren } from 'react';
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { trackAppEvent } from '../lib/observability';
 import { isRecord, parseJson } from '../lib/storage';
+import { requestAccountBackup } from '../lib/account-backup';
+import { subscribeSavedRoutesChanged } from '../lib/account-storage-events';
 
 const STORAGE_KEY = 'paddletoday:saved-rivers';
 
@@ -35,6 +37,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   const current = useRef<SavedRiverRecord[]>([]);
   const hydrated = useRef(false);
   const hydrationInFlight = useRef(false);
+  const reloadRequested = useRef(false);
   const [loadError, setLoadError] = useState(false);
   const [retryingLoad, setRetryingLoad] = useState(false);
   const queue = useRef(Promise.resolve());
@@ -51,10 +54,11 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     void hydrateSavedRivers();
+    return subscribeSavedRoutesChanged(() => { void hydrateSavedRivers(); });
   }, []);
 
   async function hydrateSavedRivers() {
-    if (hydrationInFlight.current) return;
+    if (hydrationInFlight.current) { reloadRequested.current = true; return; }
     hydrationInFlight.current = true;
     setRetryingLoad(true);
     try {
@@ -63,8 +67,8 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       if (raw !== null && (!Array.isArray(parsed) || !parsed.every(isSavedRiverRecord))) {
         throw new Error('Saved routes could not be read.');
       }
-      if (Array.isArray(parsed)) {
-        current.current = uniqueSavedRiversBySlug(parsed.filter(isSavedRiverRecord).map((river) => ({
+      if (parsed === null || Array.isArray(parsed)) {
+        current.current = uniqueSavedRiversBySlug((Array.isArray(parsed) ? parsed : []).filter(isSavedRiverRecord).map((river) => ({
           ...river, notes: typeof river.notes === 'string' ? river.notes.slice(0, 2000) : undefined,
         })).sort(sortSavedRiversByRecency));
         setSavedRivers(current.current);
@@ -80,6 +84,10 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       hydrationInFlight.current = false;
       setRetryingLoad(false);
       setIsHydrated(true);
+      if (reloadRequested.current) {
+        reloadRequested.current = false;
+        void hydrateSavedRivers();
+      }
     }
   }
 
@@ -98,6 +106,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
         : buildNextSavedRivers(current.current, river);
       try {
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        requestAccountBackup();
         current.current = next;
         setSavedRivers(next);
         setFeedback(restore ? { message: `${river.name} restored to Saved routes.` } : original
@@ -124,6 +133,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       const next = current.current.map((item) => item.slug === slug ? { ...item, notes: notes.trim() || undefined } : item);
       try {
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        requestAccountBackup();
         current.current = next;
         setSavedRivers(next);
         setFeedback({ message: notes.trim() ? 'Personal note saved.' : 'Personal note removed.' });

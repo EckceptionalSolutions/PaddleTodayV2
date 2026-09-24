@@ -159,6 +159,7 @@ function SupportContent() {
 
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and app help.">
         <View style={styles.actionList}>
+          <ActionRow icon="account-circle-outline" title="Account & backup" body="Sign in to back up saved routes and trip plans." onPress={() => router.push('/account' as never)} />
           <ActionRow icon="bell-outline" title="Notification settings" body="Choose nearby Today and Weekend alerts." onPress={() => router.push('/notifications' as never)} />
           <ActionRow icon="information-outline" title="How PaddleToday works" body="Replay the short guide to scores, conditions, and route details." onPress={() => replayWelcome(router)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />

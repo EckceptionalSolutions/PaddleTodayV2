@@ -168,6 +168,19 @@ export async function putJsonBlob(
   }, options);
 }
 
+export async function deleteBlob(
+  container: BlobContainer,
+  blobName: string,
+  options: { fetchImplementation?: typeof fetch; timeoutMs?: number; retries?: number; retryDelayMs?: number } = {},
+) {
+  const response = await fetchWithRetry(options.fetchImplementation ?? fetch, blobUrl(container, blobName), {
+    method: 'DELETE',
+    headers: { 'x-ms-delete-snapshots': 'include' },
+  }, options);
+  if (response.status === 404) return;
+  if (!response.ok) throw new Error(`Failed to delete account blob ${blobName}: HTTP ${response.status}`);
+}
+
 async function fetchWithRetry(
   fetchImplementation: typeof fetch,
   url: string,

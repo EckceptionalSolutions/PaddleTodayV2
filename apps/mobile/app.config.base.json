@@ -16,6 +16,10 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.paddletoday.mobile",
+      "associatedDomains": [
+        "applinks:paddletoday.com",
+        "applinks:paddletoday-9933a.firebaseapp.com"
+      ],
       "appStoreUrl": "https://apps.apple.com/app/id6769542734",
       "buildNumber": "36",
       "infoPlist": {
@@ -55,6 +59,30 @@
             "BROWSABLE",
             "DEFAULT"
           ]
+        },
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "paddletoday.com",
+              "pathPrefix": "/auth/callback"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        },
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "paddletoday-9933a.firebaseapp.com",
+              "pathPrefix": "/__/auth/links"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
         }
       ]
     },
@@ -84,6 +112,7 @@
             "useFrameworks": "static",
             "forceStaticLinking": [
               "RNFBApp",
+              "RNFBAuth",
               "RNFBAnalytics",
               "RNFBCrashlytics"
             ]

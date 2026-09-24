@@ -6,7 +6,7 @@ import { focusManager, MutationCache, onlineManager, QueryCache, QueryClient } f
 import NetInfo from '@react-native-community/netinfo';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import type { PropsWithChildren } from 'react';
-import { AppState } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import { useEffect, useState } from 'react';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
@@ -16,6 +16,8 @@ import { StoredLocationProvider } from '../hooks/use-stored-location';
 import { QUERY_CACHE_STORAGE_KEY, queryCacheBuster } from '../lib/query-cache';
 import { refreshFreshnessClock } from '../hooks/use-freshness-clock';
 import { createConnectivityMonitor } from '../lib/connectivity';
+import { deactivateAccountLocalData, flushAccountBackup, registerAccountBackupAuthProvider } from '../lib/account-backup';
+import { restoreGuestLocalState } from '../lib/account-local-state';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
@@ -64,12 +66,30 @@ export function AppProviders({ children }: PropsWithChildren) {
   useEffect(() => {
     trackAppEvent('app_opened');
 
+    const authEnabled = process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1';
+    let active = true;
+    let authUnsubscribe: (() => void) | null = null;
+    if (authEnabled && Platform.OS !== 'web') {
+      void import('@react-native-firebase/auth').then(({ getAuth, onAuthStateChanged }) => {
+        if (!active) return;
+        registerAccountBackupAuthProvider(() => {
+          const user = getAuth().currentUser;
+          return user ? { uid: user.uid, getIdToken: () => user.getIdToken() } : null;
+        });
+        authUnsubscribe = onAuthStateChanged(getAuth(), (user) => {
+          if (!user) void deactivateAccountLocalData().then(() => restoreGuestLocalState()).catch(() => {});
+        });
+        void flushAccountBackup();
+      }).catch(() => {});
+    }
+
     const connectivity = createConnectivityMonitor({
       subscribe: listener => NetInfo.addEventListener(listener),
       refresh: () => NetInfo.refresh(),
       onChange: online => {
         onlineManager.setOnline(online);
         if (online) {
+          void flushAccountBackup();
           refreshFreshnessClock();
           void queryClient.refetchQueries({ type: 'active', stale: true });
         }
@@ -77,11 +97,14 @@ export function AppProviders({ children }: PropsWithChildren) {
     });
 
     const subscription = AppState.addEventListener('change', (state) => {
-      if (state === 'active') { refreshFreshnessClock(); void connectivity.refresh(); }
+      if (state === 'active') { refreshFreshnessClock(); void connectivity.refresh(); void flushAccountBackup(); }
       focusManager.setFocused(state === 'active');
     });
+    const accountSyncTimer = setInterval(() => {
+      if (AppState.currentState === 'active') void flushAccountBackup();
+    }, 15_000);
 
-    return () => { subscription.remove(); connectivity.unsubscribe(); };
+    return () => { active = false; authUnsubscribe?.(); clearInterval(accountSyncTimer); registerAccountBackupAuthProvider(null); subscription.remove(); connectivity.unsubscribe(); };
   }, [queryClient]);
 
   return (
