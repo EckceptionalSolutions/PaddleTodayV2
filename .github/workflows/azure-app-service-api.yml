@@ -69,7 +69,7 @@ jobs:
           npm pack ./packages/api-contract --pack-destination deploy-package/vendor
           npm pack ./packages/geo --pack-destination deploy-package/vendor
           npm pack ./packages/trip-pack --pack-destination deploy-package/vendor
-          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, engines: pkg.engines, scripts: { start: 'node_modules/.bin/tsx src/server/bootstrap.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@azure/monitor-opentelemetry': pkg.dependencies['@azure/monitor-opentelemetry'], '@paddletoday/api-contract': 'file:vendor/paddletoday-api-contract-0.1.0.tgz', '@paddletoday/geo': 'file:vendor/paddletoday-geo-0.1.0.tgz', '@paddletoday/trip-pack': 'file:vendor/paddletoday-trip-pack-0.1.0.tgz', sharp: pkg.dependencies.sharp, tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
+          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, engines: pkg.engines, scripts: { start: 'node_modules/.bin/tsx src/server/bootstrap.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@azure/monitor-opentelemetry': pkg.dependencies['@azure/monitor-opentelemetry'], '@paddletoday/api-contract': 'file:vendor/paddletoday-api-contract-0.1.0.tgz', '@paddletoday/geo': 'file:vendor/paddletoday-geo-0.1.0.tgz', '@paddletoday/trip-pack': 'file:vendor/paddletoday-trip-pack-0.1.0.tgz', 'firebase-admin': pkg.dependencies['firebase-admin'], sharp: pkg.dependencies.sharp, tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
           node -e "require('fs').writeFileSync('deploy-package/.deployment', '[config]\nSCM_DO_BUILD_DURING_DEPLOYMENT=true\n');"
           (cd deploy-package && npm install --workspaces=false --omit=dev --ignore-scripts --package-lock-only --no-audit --no-fund && npm ci --workspaces=false --omit=dev --ignore-scripts --no-audit --no-fund)
           test -f deploy-package/node_modules/@paddletoday/api-contract/package.json
@@ -79,22 +79,34 @@ jobs:
 
       - name: Verify packaged API starts
         run: |
+          runtime_dir="$(mktemp -d)"
+          cp -a deploy-package/. "$runtime_dir/"
           (
-            cd deploy-package
+            cd "$runtime_dir"
             node node_modules/tsx/dist/cli.mjs src/server/bootstrap.ts --static dist --port 4322
-          ) > deploy-package-startup.log 2>&1 &
+          ) > "$RUNNER_TEMP/deploy-package-startup.log" 2>&1 &
           api_pid=$!
-          trap 'kill $api_pid 2>/dev/null || true' EXIT
+          trap 'kill $api_pid 2>/dev/null || true; rm -rf "$runtime_dir"' EXIT
 
           for attempt in 1 2 3 4 5; do
             if curl --fail --silent --show-error http://127.0.0.1:4322/api/health > /dev/null; then
-              exit 0
+              break
             fi
             sleep 2
           done
 
-          cat deploy-package-startup.log
-          exit 1
+          if ! curl --fail --silent --show-error http://127.0.0.1:4322/api/health > /dev/null; then
+            cat "$RUNNER_TEMP/deploy-package-startup.log"
+            exit 1
+          fi
+
+          account_status="$(curl --silent --show-error --output "$RUNNER_TEMP/account-route-response.json" --write-out '%{http_code}' http://127.0.0.1:4322/api/account)"
+          if [ "$account_status" != '401' ]; then
+            cat "$RUNNER_TEMP/deploy-package-startup.log"
+            cat "$RUNNER_TEMP/account-route-response.json"
+            echo "Expected the account route to reject an unauthenticated request with HTTP 401; received HTTP $account_status."
+            exit 1
+          fi
 
       - name: Deploy API to Azure App Service
         uses: azure/webapps-deploy@v3
