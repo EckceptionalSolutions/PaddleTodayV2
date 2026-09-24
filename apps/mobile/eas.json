@@ -47,7 +47,9 @@
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "https://paddletoday.com",
         "EXPO_PUBLIC_APP_ENV": "production",
+        "EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED": "1",
         "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "378411608143-0jh8ofr5dl6mns564ktck9iv8997o7ru.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED": "1",
         "EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN": "paddletoday-9933a.firebaseapp.com"
       },
       "ios": {

@@ -33,6 +33,15 @@ export async function clearGuestImportConsent() {
   await AsyncStorage.removeItem(IMPORT_CONSENT_KEY);
 }
 
+export async function hasValidGuestDataChoice() {
+  try {
+    const parsed: unknown = JSON.parse(await AsyncStorage.getItem(IMPORT_CONSENT_KEY) ?? 'null');
+    return typeof parsed === 'object' && parsed !== null && 'expiresAt' in parsed && 'choice' in parsed
+      && typeof parsed.expiresAt === 'number' && parsed.expiresAt > Date.now()
+      && (parsed.choice === 'import' || parsed.choice === 'separate');
+  } catch { return false; }
+}
+
 export async function markGuestMigrationRecoveryAcknowledged(uid: string) {
   const recoveryPrefix = namespacePrefix(MIGRATION_RECOVERY_OWNER_PREFIX + uid);
   const retainedAt = Number(await AsyncStorage.getItem(recoveryPrefix + 'retained-at'));

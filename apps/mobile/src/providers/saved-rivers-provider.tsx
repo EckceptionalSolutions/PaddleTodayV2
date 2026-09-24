@@ -7,6 +7,7 @@ import { trackAppEvent } from '../lib/observability';
 import { isRecord, parseJson } from '../lib/storage';
 import { requestAccountBackup } from '../lib/account-backup';
 import { subscribeSavedRoutesChanged } from '../lib/account-storage-events';
+import { requestAccountBackupInvitation } from '../lib/account-invitation';
 
 const STORAGE_KEY = 'paddletoday:saved-rivers';
 
@@ -109,6 +110,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
         requestAccountBackup();
         current.current = next;
         setSavedRivers(next);
+        if (!original && !restore) requestAccountBackupInvitation();
         setFeedback(restore ? { message: `${river.name} restored to Saved routes.` } : original
           ? { message: `${river.name} removed from Saved routes.`, removed: original }
           : { message: `${river.name} saved.` });
