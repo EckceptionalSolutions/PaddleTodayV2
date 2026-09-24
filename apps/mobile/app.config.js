@@ -10,12 +10,16 @@ const appStoreUrl = (
 ).trim();
 const appEnvironment = process.env.EXPO_PUBLIC_APP_ENV?.trim();
 const firebaseDiagnosticsEnabled = appEnvironment === 'preview' || appEnvironment === 'production';
+const firebaseAuthEnabled = firebaseDiagnosticsEnabled || process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1';
+const appleSignInEnabled = process.env.EXPO_PUBLIC_APPLE_SIGN_IN_ENABLED === '1';
 const firebaseIosConfig = './firebase/GoogleService-Info.plist';
 const firebaseAndroidConfig = './firebase/google-services.json';
 const firebaseIosConfigPath = join(__dirname, firebaseIosConfig);
 const firebaseAndroidConfigPath = join(__dirname, firebaseAndroidConfig);
+const facebookAppId = process.env.EXPO_PUBLIC_FACEBOOK_APP_ID?.trim();
+const facebookClientToken = process.env.EXPO_PUBLIC_FACEBOOK_CLIENT_TOKEN?.trim();
 
-if (firebaseDiagnosticsEnabled) {
+if (firebaseDiagnosticsEnabled || firebaseAuthEnabled) {
   const missingFirebaseFiles = [
     [firebaseIosConfig, firebaseIosConfigPath],
     [firebaseAndroidConfig, firebaseAndroidConfigPath],
@@ -62,21 +66,33 @@ module.exports = ({ config }) => {
       plugins: [
         ...(baseConfig.plugins ?? []),
         '@react-native-community/datetimepicker',
-        ...(firebaseDiagnosticsEnabled
-          ? ['@react-native-firebase/app', '@react-native-firebase/crashlytics']
+        ...(firebaseAuthEnabled
+          ? [
+              '@react-native-firebase/app',
+              '@react-native-firebase/auth',
+              '@react-native-google-signin/google-signin',
+              ...(firebaseDiagnosticsEnabled ? ['@react-native-firebase/crashlytics'] : []),
+            ]
           : []),
+        ...(facebookAppId && facebookClientToken ? [['react-native-fbsdk-next', {
+          appID: facebookAppId,
+          clientToken: facebookClientToken,
+          displayName: 'Paddle Today',
+          scheme: `fb${facebookAppId}`,
+        }]] : []),
       ],
       ios: {
         ...baseConfig.ios,
-        ...(firebaseDiagnosticsEnabled
+        ...(firebaseAuthEnabled
           ? {
               googleServicesFile: firebaseIosConfig,
             }
           : {}),
+        usesAppleSignIn: appleSignInEnabled,
       },
       android: {
         ...baseConfig.android,
-        ...(firebaseDiagnosticsEnabled
+        ...(firebaseAuthEnabled
           ? {
               googleServicesFile: firebaseAndroidConfig,
             }

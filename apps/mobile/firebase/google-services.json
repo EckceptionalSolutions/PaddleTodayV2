@@ -12,7 +12,20 @@
           "package_name": "com.paddletoday.mobile"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "378411608143-4nc97nm6v2uoprm2rfere3p0bk3clv60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paddletoday.mobile",
+            "certificate_hash": "2eeef550eaa291cb90555322b8fa598dc0e6094f"
+          }
+        },
+        {
+          "client_id": "378411608143-0jh8ofr5dl6mns564ktck9iv8997o7ru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAlRMdKJhufWYvVYPs6PekcDvAhyhOFwbQ"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378411608143-0jh8ofr5dl6mns564ktck9iv8997o7ru.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "378411608143-dbulum5ul2vuv8jn8l2oomd4l0pchm59.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.paddletoday.com"
+              }
+            }
+          ]
         }
       }
     }
