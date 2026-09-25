@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "378411608143-t3f9i2n3sd6j6d7hhsrsnf9945mpiqn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paddletoday.mobile",
+            "certificate_hash": "1347d4d9b3112c32fefb328369242f039952749f"
+          }
+        },
+        {
           "client_id": "378411608143-0jh8ofr5dl6mns564ktck9iv8997o7ru.apps.googleusercontent.com",
           "client_type": 3
         }
