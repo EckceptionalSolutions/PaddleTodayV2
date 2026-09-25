@@ -12,12 +12,10 @@ import { AppButton } from '../components/app-button';
 import { WebReady } from '../components/web-ready';
 import { syncAccountBackup } from '../lib/account-backup';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
+import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
-const PENDING_EMAIL = 'paddletoday:auth:pending-email';
-const PENDING_EMAIL_ACTION = 'paddletoday:auth:pending-action';
-const PENDING_EMAIL_RETURN_TO = 'paddletoday:auth:pending-return-to';
 const LINK_DOMAIN = process.env.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN?.trim();
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim();
 const EMAIL_COOLDOWN_MS = 30_000;
