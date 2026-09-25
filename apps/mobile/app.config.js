@@ -68,8 +68,10 @@ module.exports = ({ config }) => {
           ? [
               '@react-native-firebase/app',
               '@react-native-firebase/auth',
+              // The native Crashlytics dependency initializes at process startup in every build.
+              // Its Gradle plugin must generate a build ID even when JS diagnostics are disabled.
+              '@react-native-firebase/crashlytics',
               '@react-native-google-signin/google-signin',
-              ...(firebaseDiagnosticsEnabled ? ['@react-native-firebase/crashlytics'] : []),
             ]
           : []),
       ],

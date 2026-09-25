@@ -1,4 +1,5 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applyMarkerSnapshotFix } from './apply-react-native-maps-android-marker-fix.mjs';
@@ -6,6 +7,7 @@ import { applyMarkerSnapshotFix } from './apply-react-native-maps-android-marker
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const mobileRoot = join(root, 'apps/mobile');
 const checks = [];
+const requireFromScript = createRequire(import.meta.url);
 
 check('apps/mobile/app.config.base.json parses', () => readJson(join(mobileRoot, 'app.config.base.json')));
 check('apps/mobile/eas.json parses', () => readJson(join(mobileRoot, 'eas.json')));
@@ -102,6 +104,23 @@ for (const profile of ['development', 'preview', 'production']) {
   check(`${profile} build uses production API`, () => env.EXPO_PUBLIC_API_BASE_URL === 'https://paddletoday.com');
   check(`${profile} build declares app env`, () => env.EXPO_PUBLIC_APP_ENV === profile);
 }
+
+check('development account build applies the Crashlytics Gradle plugin', () => {
+  const env = easConfig.build?.development?.env ?? {};
+  const previous = Object.fromEntries(Object.keys(env).map((key) => [key, process.env[key]]));
+  try {
+    Object.assign(process.env, env);
+    const configureApp = requireFromScript(join(mobileRoot, 'app.config.js'));
+    const configured = configureApp({ config: appConfig }).expo;
+    return env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1'
+      && configured.plugins?.includes('@react-native-firebase/crashlytics');
+  } finally {
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+});
 
 check('production Android build creates app bundle', () => easConfig.build?.production?.android?.buildType === 'app-bundle');
 check('production build uses explicit native versions', () => easConfig.build?.production?.autoIncrement !== true);
