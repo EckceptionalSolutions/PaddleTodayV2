@@ -13,6 +13,7 @@ import { WebReady } from '../components/web-ready';
 import { syncAccountBackup } from '../lib/account-backup';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
+import { emailLinkDomainOption } from '../lib/email-link-domain';
 import { completeWelcome, consumePendingLaunchTarget } from '../lib/onboarding';
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
@@ -168,7 +169,8 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       await SecureStore.setItemAsync(PENDING_EMAIL_ACTION, 'sign-in');
       await SecureStore.setItemAsync(PENDING_EMAIL_RETURN_TO, returnTo);
       await sendSignInLinkToEmail(auth(), normalized, {
-        url: 'https://paddletoday.com/auth/callback?returnTo=' + encodeURIComponent(returnTo), handleCodeInApp: true, linkDomain: LINK_DOMAIN,
+        url: 'https://paddletoday.com/auth/callback?returnTo=' + encodeURIComponent(returnTo), handleCodeInApp: true,
+        ...emailLinkDomainOption(LINK_DOMAIN),
         iOS: { bundleId: 'com.paddletoday.mobile' },
         android: { packageName: 'com.paddletoday.mobile', installApp: false, minimumVersion: '1' },
       });

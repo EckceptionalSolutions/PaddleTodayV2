@@ -21,6 +21,7 @@ import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pau
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
+import { emailLinkDomainOption } from '../lib/email-link-domain';
 import { colors, spacing } from '../theme/tokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
@@ -240,7 +241,7 @@ function AccountContent() {
       await sendSignInLinkToEmail(auth(), normalized, {
         url: 'https://paddletoday.com/auth/callback',
         handleCodeInApp: true,
-        linkDomain: LINK_DOMAIN,
+        ...emailLinkDomainOption(LINK_DOMAIN),
         iOS: { bundleId: 'com.paddletoday.mobile' },
         android: { packageName: 'com.paddletoday.mobile', installApp: false, minimumVersion: '1' },
       });
@@ -384,7 +385,8 @@ function AccountContent() {
       await SecureStore.setItemAsync(PENDING_EMAIL, pendingEmail);
       await SecureStore.setItemAsync(PENDING_EMAIL_ACTION, 'reauthenticate');
       await sendSignInLinkToEmail(auth(), pendingEmail, {
-        url: 'https://paddletoday.com/auth/callback', handleCodeInApp: true, linkDomain: LINK_DOMAIN,
+        url: 'https://paddletoday.com/auth/callback', handleCodeInApp: true,
+        ...emailLinkDomainOption(LINK_DOMAIN),
         iOS: { bundleId: 'com.paddletoday.mobile' },
         android: { packageName: 'com.paddletoday.mobile', installApp: false, minimumVersion: '1' },
       });
