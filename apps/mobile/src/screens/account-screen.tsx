@@ -20,13 +20,12 @@ import { apiClient } from '../api/client';
 import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
+import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { colors, spacing } from '../theme/tokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-const PENDING_EMAIL = 'paddletoday:auth:pending-email';
-const PENDING_EMAIL_ACTION = 'paddletoday:auth:pending-action';
 const LINK_DOMAIN = process.env.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN?.trim();
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim();
 const GOOGLE_IOS_SIGN_IN_ENABLED = process.env.EXPO_PUBLIC_GOOGLE_IOS_SIGN_IN_ENABLED === '1';
