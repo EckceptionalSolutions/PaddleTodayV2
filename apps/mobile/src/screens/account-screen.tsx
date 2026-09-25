@@ -18,6 +18,7 @@ import { AppButton } from '../components/app-button';
 import { SectionCard } from '../components/section-card';
 import { apiClient } from '../api/client';
 import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
+import { accountBackupFailureMessage } from '../lib/account-backup-errors';
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
@@ -265,7 +266,7 @@ function AccountContent() {
       setConflicts(await listAccountConflicts(auth().currentUser!.uid));
       setMessage(summary.pending ? 'Your backup is continuing in the background.' : 'Your routes and trip plans are backed up.');
     } catch (error) {
-      setMessage('Backup could not finish. Your copies on this device were kept.');
+      setMessage(accountBackupFailureMessage(error));
     } finally { setBusy(false); }
   }
 

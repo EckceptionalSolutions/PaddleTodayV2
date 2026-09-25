@@ -11,6 +11,7 @@ import { apiClient } from '../api/client';
 import { AppButton } from '../components/app-button';
 import { WebReady } from '../components/web-ready';
 import { syncAccountBackup } from '../lib/account-backup';
+import { accountBackupFailureMessage } from '../lib/account-backup-errors';
 import { clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION, PENDING_EMAIL_RETURN_TO } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
@@ -102,9 +103,9 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
       setMessage(result.pending
         ? 'You’re signed in. Some saved data is still waiting to sync.'
         : 'You’re signed in, and your saved routes and trip plans are backed up.');
-    } catch {
+    } catch (error) {
       setSyncResult('pending');
-      setMessage('You’re signed in. Your data is still on this device, but its backup could not finish yet. You can retry from Account & Backup.');
+      setMessage(`You’re signed in. ${accountBackupFailureMessage(error)} You can retry from Account & Backup.`);
     } finally { if (!auth().currentUser) await clearGuestImportConsent().catch(() => {}); setBusy(false); }
   }
 
