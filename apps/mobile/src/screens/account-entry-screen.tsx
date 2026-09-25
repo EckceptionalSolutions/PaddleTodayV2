@@ -34,6 +34,7 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
   const returnTo = safeReturnTo(Array.isArray(params.returnTo) ? params.returnTo[0] : params.returnTo, defaultReturnTo);
+  const isAccountContext = !isWelcome && returnTo === '/account';
   const [email, setEmail] = useState('');
   const [emailStep, setEmailStep] = useState(false);
   const [sentEmail, setSentEmail] = useState('');
@@ -273,25 +274,35 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
   return (
     <KeyboardAvoidingView style={styles.root} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={[styles.scroll, { paddingTop: insets.top + spacing.md, paddingBottom: insets.bottom + spacing.md }]} keyboardShouldPersistTaps="handled">
-        <View style={styles.brand}>
-          <Image source={welcomeLogo} accessible={false} style={styles.logo} resizeMode="contain" />
-          <Text style={styles.brandText}>PaddleToday</Text>
-        </View>
-        <ImageBackground source={welcomeRiverImage} style={[styles.hero, height < 640 && styles.heroCompact]} imageStyle={styles.heroImage}>
-          <View style={styles.heroShade} />
-          <View style={styles.heroCopy}>
-            <Text style={styles.kicker}>{isWelcome ? 'WELCOME TO PADDLETODAY' : 'YOUR PADDLE PLANS, BACKED UP'}</Text>
-            <Text accessibilityRole="header" style={styles.title}>Your next paddle starts here.</Text>
-            <Text style={styles.benefit}>Back up your saved rivers, notes, and trip plans across devices.</Text>
+        {isAccountContext ? <Pressable accessibilityRole="button" accessibilityLabel="Back to More" disabled={busy} onPress={() => router.replace('/more' as never)} style={styles.backToMore}>
+          <MaterialCommunityIcons name="arrow-left" size={24} color={colors.accentDeep} />
+          <Text style={styles.backToMoreText}>More</Text>
+        </Pressable> : null}
+        {isWelcome ? <>
+          <View style={styles.brand}>
+            <Image source={welcomeLogo} accessible={false} style={styles.logo} resizeMode="contain" />
+            <Text style={styles.brandText}>PaddleToday</Text>
           </View>
-        </ImageBackground>
+          <ImageBackground source={welcomeRiverImage} style={[styles.hero, height < 640 && styles.heroCompact]} imageStyle={styles.heroImage}>
+            <View style={styles.heroShade} />
+            <View style={styles.heroCopy}>
+              <Text style={styles.kicker}>WELCOME TO PADDLETODAY</Text>
+              <Text accessibilityRole="header" style={styles.title}>Your next paddle starts here.</Text>
+              <Text style={styles.benefit}>Explore rivers, check conditions, and plan a day on the water.</Text>
+            </View>
+          </ImageBackground>
+        </> : <View style={styles.accountIntro}>
+          <View style={styles.accountIcon}><MaterialCommunityIcons name="account-circle-outline" size={32} color={colors.accentDeep} /></View>
+          <Text accessibilityRole="header" style={styles.accountTitle}>Account & backup</Text>
+          <Text style={styles.accountSubtitle}>Sign in to back up your saved routes, notes, and trip plans across devices.</Text>
+        </View>}
         <View style={styles.actions}>
           {showSignedInResult ? (
             <View style={styles.resultCard} accessibilityLiveRegion="polite">
               <View style={styles.resultIcon}><MaterialCommunityIcons name={syncResult === 'synced' ? 'cloud-check-outline' : 'cloud-sync-outline'} color={colors.accentDeep} size={24} /></View>
               <Text accessibilityRole="header" style={styles.resultTitle}>{resultTitle}</Text>
               <Text style={styles.resultBody}>{message}</Text>
-              <AppButton label="Continue to PaddleToday" icon="arrow-right" onPress={continueAfterSignIn} style={styles.actionButton} />
+              <AppButton label={isAccountContext ? 'Open Account & Backup' : 'Continue to PaddleToday'} icon="arrow-right" onPress={continueAfterSignIn} style={styles.actionButton} />
             </View>
           ) : emailStep ? (
             <View style={styles.emailCard}>
@@ -308,15 +319,15 @@ function AccountEntryContent({ isWelcome, defaultReturnTo }: { isWelcome: boolea
               {googleEnabled ? <AppButton label="Continue with Google" icon="google" busy={busy} onPress={() => void runGoogleSignIn()} style={styles.actionButton} /> : null}
               {emailEnabled ? <AppButton label="Continue with email" icon="email-outline" variant="secondary" busy={busy} onPress={() => { setEmailStep(true); setMessage(''); }} style={styles.actionButton} /> : null}
               {!googleEnabled && !emailEnabled ? <Text style={styles.unavailable}>Account sign-in is unavailable in this build. You can still explore PaddleToday.</Text> : null}
-              <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} />
+              {!isAccountContext ? <AppButton label={isWelcome ? 'Explore PaddleToday' : 'Back to PaddleToday without signing in'} icon="arrow-right" variant="secondary" busy={busy} onPress={() => void continueWithoutAccount()} style={styles.actionButton} /> : null}
             </>
           )}
           {message && !showSignedInResult ? <Text accessibilityRole="alert" style={styles.message}>{message}</Text> : null}
           {busy ? <ActivityIndicator accessibilityLabel="Signing in and checking your backup" color={colors.accent} style={styles.spinner} /> : null}
-          <View style={styles.privacy}>
+          {!isWelcome ? <View style={styles.privacy}>
             <MaterialCommunityIcons name="shield-check-outline" size={16} color={colors.accent} />
             <Text style={styles.privacyText}>Signing in adds this device’s saved routes, notes, and trip plans to your account backup.</Text>
-          </View>
+          </View> : null}
         </View>
         {!sessionChecked && process.env.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1' ? <View style={styles.sessionGate} accessibilityLabel="Checking your account"><ActivityIndicator color={colors.accent} /></View> : null}
       </ScrollView>
@@ -340,6 +351,8 @@ function safeReturnTo(value: string | undefined, fallback: string) {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.canvas },
   scroll: { flexGrow: 1, width: '100%', maxWidth: 520, alignSelf: 'center', paddingHorizontal: spacing.md, gap: spacing.md },
+  backToMore: { minHeight: 44, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: spacing.xs },
+  backToMoreText: { color: colors.accentDeep, fontSize: 16, fontWeight: '700' },
   brand: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.xs },
   logo: { width: 34, height: 34 },
   brandText: { color: colors.accentDeep, fontFamily: Platform.select({ ios: 'Georgia', android: 'serif', default: 'Georgia' }), fontSize: 20, fontWeight: '700' },
@@ -351,6 +364,10 @@ const styles = StyleSheet.create({
   kicker: { color: '#E2EFE7', fontSize: 11, fontWeight: '900', letterSpacing: 1.1 },
   title: { color: '#FFFFFF', fontSize: 34, lineHeight: 40, fontWeight: '900', maxWidth: 400 },
   benefit: { color: '#FFFFFF', fontSize: 16, lineHeight: 23, fontWeight: '600', maxWidth: 420 },
+  accountIntro: { alignItems: 'center', gap: spacing.sm, paddingVertical: spacing.md },
+  accountIcon: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.accentSoft },
+  accountTitle: { ...typography.title, color: colors.text, fontSize: 27, lineHeight: 33, textAlign: 'center' },
+  accountSubtitle: { color: colors.textMuted, fontSize: 15, lineHeight: 22, textAlign: 'center', maxWidth: 360 },
   actions: { gap: spacing.sm, paddingBottom: spacing.sm },
   sectionTitle: { ...typography.title, color: colors.text, fontSize: 20, lineHeight: 26, textAlign: 'center', marginBottom: spacing.xs },
   actionButton: { minHeight: 52, borderRadius: radius.md, width: '100%' },
