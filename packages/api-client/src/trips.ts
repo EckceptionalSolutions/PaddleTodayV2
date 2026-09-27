@@ -1,4 +1,4 @@
-import type { Trip, TripList, TripMutation, LogMutation, PaddleLog, PublicTrip } from '@paddletoday/api-contract';
+import type { Trip, TripList, TripMutation, LogMutation, PaddleLog, PublicTrip, TripRoute } from '@paddletoday/api-contract';
 export class TripApiError extends Error {
   constructor(readonly status: number, readonly code: string, message: string) { super(message); }
 }
@@ -25,7 +25,7 @@ export function createTripsClient(baseUrl: string, getToken: () => Promise<strin
     log: (id: string, value: LogMutation, queueAgeMs?: number) => request<{ log: PaddleLog | null }>(`/api/paddle-logs/${encodeURIComponent(id)}`, 'POST', value, false, queueAgeMs),
     getLog: (id: string) => request<{ log: PaddleLog }>(`/api/paddle-logs/${encodeURIComponent(id)}`),
     view: (id: string, token: string) => request<{ trip: PublicTrip }>('/api/trips/view', 'POST', { id, token }, true),
-    invitation: (id: string, token: string) => request<{ invitation: { title: string; date: string } }>('/api/trips/invitation', 'POST', { id, token }, true),
+    invitation: (id: string, token: string) => request<{ invitation: { title: string; date: string; route: TripRoute } }>('/api/trips/invitation', 'POST', { id, token }, true),
     migrate: () => request<{ migrated: boolean; recovery: Record<string, string> }>('/api/trips/migrate', 'POST', {}),
     export: () => request<{ trips: Trip[]; logs: PaddleLog[]; recovery: Record<string, string> }>('/api/trips/export'),
     uploadPhoto: (logId: string, id: string, data: string, caption: string, queueAgeMs?: number) => request<{ log: PaddleLog }>(`/api/paddle-logs/${logId}/photos/${id}`, 'POST', { data, caption }, false, queueAgeMs),

@@ -7,7 +7,7 @@ import * as Crypto from 'expo-crypto';
 import * as ImagePicker from 'expo-image-picker';
 import { manipulateAsync, SaveFormat } from 'expo-image-manipulator';
 import { createTripsClient, type PendingTripWork } from '@paddletoday/api-client';
-import { newTripPlan, isTripPlan, tripPlan, historicalWaterSuggestion, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverAccessPoint, type ShuttleVehicle } from '@paddletoday/api-contract';
+import { newTripPlan, isTripPlan, tripPlan, historicalWaterSuggestion, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverAccessPoint, type ShuttleVehicle, type TripRoute } from '@paddletoday/api-contract';
 import { tripSession, subscribeTripSession, TRIP_RETURN_KEY } from '../lib/trip-session';
 import { resolveApiBaseUrl, resolveWebUrl } from '../lib/api-base-url';
 import { AppButton } from '../components/app-button';
@@ -36,6 +36,8 @@ export default function TripsScreen() {
   const [vehicleEdit, setVehicleEdit] = useState<{ vehicle: ShuttleVehicle; revision: number } | null>(null);
   const [memberName, setMemberName] = useState('');
   const [publicTrip, setPublicTrip] = useState<TripPlan | null>(null);
+  const [invitePreview, setInvitePreview] = useState<{ title: string; date: string; route: TripRoute } | null>(null);
+  const [inviteError, setInviteError] = useState('');
   const [editorReadyUid, setEditorReadyUid] = useState<string | null>(null);
   const state = repo?.getSnapshot(), trip = state?.trips[selected];
   useEffect(() => subscribeTripSession(() => { setEditing(null); setLog(null); setRecover(null); setVehicleEdit(null); setShareLink(''); setRepo(tripSession()); }), []);
@@ -65,11 +67,24 @@ export default function TripsScreen() {
     const client = createTripsClient(resolveApiBaseUrl(), async () => '');
     void client.view(params.id, params.view).then(v => setPublicTrip(v.trip)).catch(e => setMessage(e.message));
   }, [params.view, params.id]);
+  useEffect(() => {
+    if (!invitation || !params.id) { setInvitePreview(null); setInviteError(''); return; }
+    let active = true;
+    setInvitePreview(null); setInviteError('');
+    const client = createTripsClient(resolveApiBaseUrl(), async () => '');
+    void client.invitation(params.id, invitation).then(result => { if (active) setInvitePreview(result.invitation); })
+      .catch(e => { if (active) { const text = e instanceof Error ? e.message : 'This invitation is unavailable.'; setInvitePreview(null); setInviteError(text); setMessage(text); } });
+    return () => { active = false; };
+  }, [invitation, params.id]);
   const sync = useCallback(async () => {
     if (!repo || AppState.currentState !== 'active') return;
-    try { await repo.sync(); setMessage(repo.getSnapshot().pending.length ? 'Some changes are waiting to sync or need review.' : 'All changes saved.'); }
+    try {
+      await repo.sync();
+      setMessage(repo.getSnapshot().pending.length ? 'Some changes are waiting to sync or need review.'
+        : editing || log || vehicleEdit ? 'Your open editor has not been saved to your trips yet.' : 'All changes saved.');
+    }
     catch (e) { setMessage(e instanceof Error ? e.message : 'Changes are saved on this device.'); }
-  }, [repo]);
+  }, [repo, editing, log, vehicleEdit]);
   useFocusEffect(useCallback(() => {
     void sync(); const timer = setInterval(() => void sync(), 15000);
     const subscription = AppState.addEventListener('change', s => { if (s === 'active') void sync(); });
@@ -100,10 +115,14 @@ export default function TripsScreen() {
   }
   async function addPhotos() {
     if (!repo || !logId) return;
-    const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], allowsMultipleSelection: true, selectionLimit: 10, quality: 0.85 });
+    const existing = repo.getSnapshot().logs[logId]?.photos.length ?? 0;
+    const queued = repo.getSnapshot().pending.filter(p => p.kind === 'photo' && p.id === logId).length;
+    const remaining = Math.max(0, 10 - existing - queued);
+    if (!remaining) throw new Error('This paddle already has 10 saved or queued photos.');
+    const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], allowsMultipleSelection: true, selectionLimit: remaining, quality: 0.85 });
     if (result.canceled) return;
     const session = repo, destination = logId;
-    for (const image of result.assets) {
+    for (const image of result.assets.slice(0, remaining)) {
       if ((image.fileSize || 0) > 10 * 1024 * 1024) throw new Error('Choose photos smaller than 10 MiB.');
       const transformed = await manipulateAsync(image.uri, [{ resize: image.width > image.height ? { width: Math.min(image.width, 1920) } : { height: Math.min(image.height, 1920) } }], { compress: 0.8, format: SaveFormat.JPEG, base64: true });
       if (!transformed.base64) throw new Error('This photo could not be read. Please select it again.');
@@ -127,9 +146,16 @@ export default function TripsScreen() {
     {message ? <Text style={styles.notice} accessibilityLiveRegion="polite">{message}</Text> : null}
     {publicTrip ? <SectionCard title={publicTrip.title} subtitle="Shared trip plan"><Text>{publicTrip.route.name}</Text><Text>{publicTrip.route.putInName} → {publicTrip.route.takeOutName}</Text><Text>{publicTrip.date} {publicTrip.launch} ({publicTrip.timeZone})</Text>{publicTrip.itinerary.map(s => <Text key={s.id}>{s.time} {s.location}: {s.note}</Text>)}</SectionCard> : null}
     {!repo && !params.view ? <SectionCard title="Welcome to PaddleToday" subtitle="Your next paddle starts here."><B label="Sign in" onPress={() => run(signIn)} /><B label="Plan a trip" secondary onPress={() => { setEditing(newTripPlan()); setEditId(''); }} /></SectionCard> : null}
-    {invitation && repo ? <SectionCard title="You’re invited to paddle" subtitle="Joining lets you view and edit the shared itinerary."><B label="Join trip" onPress={() => run(async () => { await command({ type: 'join', token: invitation }); if (repo.getSnapshot().trips[selected]) setInvitation(''); })} /></SectionCard> : null}
+    {invitation && params.id ? <SectionCard title={invitePreview?.title || 'Trip invitation'} subtitle={invitePreview ? 'Joining lets you view and edit the shared itinerary.' : undefined}><Text style={styles.body}>{invitePreview ? `${invitePreview.route.name} · ${invitePreview.date || 'Date to be decided'}` : inviteError || 'Checking this invitation…'}</Text>{invitePreview && state?.trips[selected] ? <Text style={styles.hint}>You already have access to this trip.</Text> : repo && invitePreview ? <B label="Join trip" onPress={() => run(async () => { await command({ type: 'join', token: invitation }); if (repo.getSnapshot().trips[selected]) setInvitation(''); })} /> : !repo && invitePreview ? <Text style={styles.hint}>Sign in below to join this trip.</Text> : null}</SectionCard> : null}
     {state?.pending.length ? <SectionCard title={`${state.pending.length} change(s) waiting`}><B label="Sync now" secondary onPress={() => run(sync)} />{state.pending.filter(p => p.error).map(p => <B key={p.key} label="Review saved change" onPress={() => setRecover(p)} secondary />)}</SectionCard> : null}
-    {recover ? <SectionCard title="Your saved change" subtitle={recover.error}><Text selectable style={styles.hint}>{JSON.stringify(recover.kind === 'photo' ? { photo: recover.photoId, caption: recover.caption } : recover.input, null, 2)}</Text><B label="Share a recovery copy" onPress={() => run(async () => { await Share.share({ message: JSON.stringify(recover.kind === 'photo' ? { photo: recover.photoId } : recover.input, null, 2) }); })} /><B label="Use latest saved version" secondary onPress={() => confirm('Discard this pending change?', async () => { await repo!.discard(recover.key); setRecover(null); })} /><B label="Retry my change" secondary onPress={() => run(async () => { await repo!.retry(recover.key); setRecover(null); })} /><B label="Back" secondary onPress={() => setRecover(null)} /></SectionCard> : null}
+    {recover ? <SectionCard title="Choose which changes to keep" subtitle={recover.error}>
+      <Text style={styles.heading}>Your saved changes</Text><Text selectable style={styles.body}>{recoverySummary(recover)}</Text>
+      <Text style={styles.heading}>Latest account copy</Text><Text selectable style={styles.body}>{recoveryLatestSummary(recover) || 'The saved account copy is unavailable.'}</Text>
+      <B label="Copy my change" secondary onPress={() => run(async () => { await Share.share({ message: recoverySummary(recover) }); })} />
+      <B label={recover.latest && (recover.kind === 'trip' ? 'ownerUid' in recover.latest : 'photos' in recover.latest) ? 'Keep account copy' : 'Remove inaccessible change'} secondary onPress={() => run(async () => { await repo!.keepLatest(recover.key); setRecover(null); })} />
+      {recover.errorStatus === 409 && recover.latest && (recover.kind === 'trip' ? 'ownerUid' in recover.latest && recover.input.command.type !== 'create' : 'photos' in recover.latest) ? <B label={recover.kind === 'photo' ? 'Retry photo upload' : 'Apply my saved changes'} onPress={() => run(async () => { await repo!.retry(recover.key); setRecover(null); })} /> : null}
+      <B label="Back" secondary onPress={() => setRecover(null)} />
+    </SectionCard> : null}
     {editing ? <SectionCard title={editId ? 'Edit trip' : 'Plan your paddle'}>
       <Field label="Trip title" value={editing.title} onChange={title => setEditing({ ...editing, title })} />
       {routeFields(editing.route, route => setEditing({ ...editing, route }))}
@@ -166,7 +192,7 @@ export default function TripsScreen() {
       })} /> : null}
       {(['value', 'unit', 'gaugeName', 'measuredAt', 'source', 'note'] as const).map(key => <Field key={key} label={({ value: 'Level / flow', unit: 'Unit (ft, cfs, m³/s)', gaugeName: 'Gauge / location', measuredAt: 'Measurement date and time', source: 'Source', note: 'Observation notes' })[key]} value={log.water[0]?.[key] || ''} onChange={text => setLog({ ...log, water: [{ ...(log.water[0] || emptyWater()), [key]: text }] })} />)}
       <B label="Save paddle" onPress={() => run(async () => { const id = await repo!.saveLog(log, logId || undefined, logRevision.current); setLogId(id); logRevision.current = repo!.getSnapshot().logs[id]!.revision; await sync(); })} />
-      {logId ? <><Text style={styles.heading}>Photos</Text><B label="Add photos" secondary onPress={() => run(addPhotos)} />{state?.logs[logId]?.photos.map(p => <View key={p.id}><PrivatePhoto repo={repo!} logId={logId} id={p.id} /><B label="Remove photo" secondary onPress={() => confirm('Remove this photo?', async () => { await repo!.client.removePhoto(logId, p.id); await sync(); })} /></View>)}<B label="Delete paddle" secondary onPress={() => confirm('Delete this log and its photos?', async () => { await repo!.deleteLog(logId); setLog(null); await sync(); })} /></> : <Text style={styles.hint}>Save the paddle to add photos.</Text>}
+      {logId ? <><Text style={styles.heading}>Photos · {state?.logs[logId]?.photos.length || 0} saved · {state?.pending.filter(p => p.kind === 'photo' && p.id === logId).length || 0} waiting</Text>{state?.pending.filter(p => p.kind === 'photo' && p.id === logId).map(p => <Text key={p.key} style={styles.hint}>{p.error ? `Upload needs attention: ${p.error}` : 'Photo upload waiting to sync.'}</Text>)}<B label="Add photos" secondary onPress={() => run(addPhotos)} />{state?.logs[logId]?.photos.map(p => <View key={p.id}><PrivatePhoto repo={repo!} logId={logId} id={p.id} /><B label="Remove photo" secondary onPress={() => confirm('Remove this photo?', async () => { await repo!.client.removePhoto(logId, p.id); await sync(); })} /></View>)}<B label="Delete paddle" secondary onPress={() => confirm('Delete this log and its photos?', async () => { await repo!.deleteLog(logId); setLog(null); await sync(); })} /></> : <Text style={styles.hint}>Save the paddle to add photos.</Text>}
       <B label="Back" secondary onPress={() => setLog(null)} />
     </SectionCard> : trip ? <>
       <B label="← All trips" secondary onPress={() => { setSelected(''); setVehicleEdit(null); }} />
@@ -184,7 +210,7 @@ export default function TripsScreen() {
         <B label="Update my name" secondary onPress={() => run(() => command({ type: 'name', name: memberName }))} />
         {trip.members.map(m => <View key={m.uid}><Text style={styles.body}>{m.name} · {m.rsvp} {m.role === 'owner' ? '· Organizer' : ''}</Text>{trip.ownerUid === repo!.uid && m.uid !== repo!.uid ? <><B label={`Remove ${m.name}`} secondary onPress={() => confirm('Remove this paddler?', () => command({ type: 'remove-member', uid: m.uid }))} /><B label={`Make ${m.name} organizer`} secondary onPress={() => confirm('Transfer organizer permissions?', () => command({ type: 'transfer', uid: m.uid }))} /></> : null}</View>)}
         {(['going', 'maybe', 'not-going'] as const).map(rsvp => <B key={rsvp} label={rsvp === 'not-going' ? 'Not going' : rsvp === 'going' ? 'Going' : 'Maybe'} secondary onPress={() => run(() => command({ type: 'rsvp', rsvp }))} />)}
-        {trip.ownerUid === repo!.uid ? <><B label="Invite people" onPress={() => run(() => link('invite'))} /><B label="Share view-only link" secondary onPress={() => run(() => link('view'))} /><Text style={styles.hint}>Anyone with an invitation can join and edit for seven days. View links show only the route, times, and itinerary for 30 days.</Text><B label="Revoke invitation" secondary onPress={() => run(() => command({ type: 'revoke', purpose: 'invite' }))} /><B label="Revoke view link" secondary onPress={() => run(() => command({ type: 'revoke', purpose: 'view' }))} /></> : <B label="Leave trip" secondary onPress={() => confirm('Leave this trip?', () => command({ type: 'remove-member', uid: repo!.uid }))} />}
+        {trip.ownerUid === repo!.uid ? <><B label="Invite people" onPress={() => run(() => link('invite'))} /><B label="Share view-only link" secondary onPress={() => run(() => link('view'))} /><Text style={styles.hint}>Invitations let anyone with the link join and edit for seven days. View links show the route, access points, date, and itinerary for 30 days; paddler names, shuttle details, and personal logs stay private. Creating a new link replaces the previous link of the same type.</Text><B label="Revoke invitation" secondary onPress={() => run(() => command({ type: 'revoke', purpose: 'invite' }))} /><B label="Revoke view link" secondary onPress={() => run(() => command({ type: 'revoke', purpose: 'view' }))} /></> : <B label="Leave trip" secondary onPress={() => confirm('Leave this trip?', () => command({ type: 'remove-member', uid: repo!.uid }))} />}
         {shareLink ? <Text selectable style={styles.hint}>{shareLink}</Text> : null}
       </SectionCard>
       <SectionCard title="Shuttle" subtitle="Shuttle details are visible only to trip members.">
@@ -211,6 +237,32 @@ export default function TripsScreen() {
   </ScrollView>;
 }
 function localDate() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }
+function recoverySummary(item: PendingTripWork) {
+  if (item.kind === 'trip') {
+    const command = item.input.command;
+    if (command.type !== 'plan') return `Your saved action: ${command.type}`;
+    const p = command.plan;
+    return [p.title, p.route.name, `${p.route.putInName || 'Put-in not set'} → ${p.route.takeOutName || 'Take-out not set'}`, p.date || 'No date selected', ...p.itinerary.map(s => `${s.time || 'Time not set'} · ${s.location || 'Meeting place not set'}${s.note ? ` · ${s.note}` : ''}`)].join('\n');
+  }
+  if (item.kind === 'log') {
+    const v = item.input.value;
+    return v ? [v.route.name, v.date, v.notes || 'No personal notes', v.paddleAgain ? `Would paddle again: ${v.paddleAgain}` : '', v.water[0] ? `Water: ${v.water[0].value} ${v.water[0].unit} · ${v.water[0].gaugeName} · ${v.water[0].measuredAt}` : 'No water observation'].filter(Boolean).join('\n') : 'Delete this paddle log';
+  }
+  return `Photo upload${item.caption ? `: ${item.caption}` : ''}`;
+}
+function recoveryLatestSummary(item: PendingTripWork) {
+  if (!item.latest) return '';
+  if (item.kind === 'trip' && 'ownerUid' in item.latest) {
+    const p = tripPlan(item.latest);
+    return [p.title, p.route.name, `${p.route.putInName || 'Put-in not set'} → ${p.route.takeOutName || 'Take-out not set'}`, p.date || 'No date selected', ...p.itinerary.map(s => `${s.time || 'Time not set'} · ${s.location || 'Meeting place not set'}${s.note ? ` · ${s.note}` : ''}`)].join('\n');
+  }
+  if (item.kind !== 'trip' && 'photos' in item.latest) return recoveryLogSummary(item.latest);
+  return '';
+}
+function recoveryLogSummary(value: PaddleLogInput) {
+  const water = value.water[0];
+  return [value.route.name, value.date, value.notes || 'No personal notes', value.paddleAgain ? `Would paddle again: ${value.paddleAgain}` : '', water ? `Water: ${water.value} ${water.unit} · ${water.gaugeName} · ${water.measuredAt}` : 'No water observation'].filter(Boolean).join('\n');
+}
 function Field({ label, value, onChange, placeholder, multiline = false }: { label: string; value: string; onChange: (v: string) => void; placeholder?: string; multiline?: boolean }) {
   return <View style={styles.field}><Text style={styles.label}>{label}</Text><TextInput accessibilityLabel={label} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor={colors.textMuted} multiline={multiline} style={[styles.input, multiline && { minHeight: 100, textAlignVertical: 'top' }]} /></View>;
 }

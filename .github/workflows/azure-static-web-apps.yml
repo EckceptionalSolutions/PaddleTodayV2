@@ -77,6 +77,7 @@ jobs:
       - name: Build app
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
         run: |
+          node scripts/assert-firebase-web-config.mjs
           npx astro build
           cp staticwebapp.config.json dist/staticwebapp.config.json
           node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
@@ -109,6 +110,26 @@ jobs:
       - name: Verify mobile compatibility
         if: github.event_name != 'workflow_dispatch' || inputs.deploy_frontend || inputs.verify_existing_assets
         run: node scripts/static-asset-redirect.mjs verify
+
+      - name: Wait for account, trip API, and private storage before publishing the website
+        if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)
+        env:
+          API_ORIGIN: ${{ vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
+        run: |
+          api_origin="${API_ORIGIN%/}"
+          for attempt in $(seq 1 60); do
+            account_status="$(curl --silent --show-error --max-time 10 --output /dev/null --write-out '%{http_code}' "$api_origin/api/account" || true)"
+            trip_status="$(curl --silent --show-error --max-time 10 --output /dev/null --write-out '%{http_code}' "$api_origin/api/trips" || true)"
+            capabilities="$(curl --silent --show-error --max-time 10 "$api_origin/api/trips/capabilities" || true)"
+            if [ "$account_status" = '401' ] && [ "$trip_status" = '401' ] && printf '%s' "$capabilities" | node -e "let value='';process.stdin.on('data',chunk=>value+=chunk);process.stdin.on('end',()=>{try{const body=JSON.parse(value);process.exit(body.tripApiVersion===1&&body.trips===true&&body.firebaseAuthReady===true&&body.firebaseProjectId===process.env.PUBLIC_FIREBASE_PROJECT_ID&&body.tripStorageReady===true?0:1)}catch{process.exit(1)}})"; then
+              echo 'Account and trip API routes and private storage are ready.'
+              exit 0
+            fi
+            echo "Waiting for compatible API routes (account=$account_status, trips=$trip_status)."
+            sleep 10
+          done
+          echo 'The website was not published because the account and trip API did not become ready.'
+          exit 1
 
       - name: Deploy frontend to Azure Static Web Apps
         if: github.event_name != 'workflow_dispatch' || (inputs.deploy_frontend && !inputs.verify_existing_assets)

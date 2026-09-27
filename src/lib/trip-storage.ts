@@ -14,7 +14,7 @@ interface TripDocument {
 }
 interface LogDocument { kind: 'log'; uid: string; id: string; revision: number; log: PaddleLog | null; receipts: Record<string, string>; uploads?: Record<string, { state: 'pending' | 'ready' | 'removed'; startedAt: string }> }
 interface PhotoDocument { kind: 'photo'; uid: string; logId: string; id: string; data: string; at: string }
-interface UserIndex { kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>; deleting: boolean; migration: Record<string, string> }
+interface UserIndex { kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>; deleting: boolean; deletionComplete?: boolean; migration: Record<string, string> }
 type Document = TripDocument | LogDocument | PhotoDocument | UserIndex;
 export class TripError extends Error {
   constructor(readonly status: number, readonly code: string, message: string) { super(message); }
@@ -26,7 +26,7 @@ const tripKey = (id: string) => `trips/${id}.json`;
 const indexKey = (uid: string) => `trip-index/${hash(uid)}.json`;
 const logKey = (uid: string, id: string) => `logs/${hash(uid)}/${id}.json`;
 const photoKey = (uid: string, log: string, id: string) => `trip-photos/${hash(uid)}/${log}/${id}.json`;
-const emptyIndex = (uid: string): UserIndex => ({ kind: 'trip-index', uid, trips: [], logs: [], photos: {}, deleting: false, migration: {} });
+const emptyIndex = (uid: string): UserIndex => ({ kind: 'trip-index', uid, trips: [], logs: [], photos: {}, deleting: false, deletionComplete: false, migration: {} });
 function receipt(receipts: Record<string, string>, id: string, input: unknown) {
   const digest = hash(JSON.stringify(input));
   if (receipts[id] && receipts[id] !== digest) fail(409, 'operation_reused', 'This operation ID has already been used.');
@@ -320,7 +320,9 @@ export class TripStorage {
   }
   async migrationRecovery(uid: string) { await this.active(uid); return (await this.storage.readJson<UserIndex>(indexKey(uid)))?.migration ?? {}; }
   async deleteAccount(uid: string) {
-    await this.index(uid, v => { v.deleting = true; });
+    const index = await this.storage.readJson<UserIndex>(indexKey(uid));
+    if (index?.deletionComplete) return;
+    await this.index(uid, v => { v.deleting = true; v.deletionComplete = false; });
     // Scan authoritative records too: a crash may have left membership indexes waiting for repair.
     for (const name of await this.storage.listJsonNames('trips/')) {
       await mutateJson({ storage: this.storage, blobName: name, initial: null as TripDocument | null, mutate: doc => {
@@ -340,12 +342,12 @@ export class TripStorage {
     for (const prefix of [`logs/${hash(uid)}/`, `trip-photos/${hash(uid)}/`]) {
       for (const name of await this.storage.listJsonNames(prefix)) await this.storage.deleteJson(name);
     }
-    await this.index(uid, v => { v.trips = []; v.logs = []; v.photos = {}; v.migration = {}; });
+    await this.index(uid, v => { v.trips = []; v.logs = []; v.photos = {}; v.migration = {}; v.deleting = true; v.deletionComplete = true; });
   }
   async maintenance() {
     for (const name of await this.storage.listJsonNames('trip-index/')) {
       const index = await this.storage.readJson<UserIndex>(name);
-      if (index?.deleting) await this.deleteAccount(index.uid);
+      if (index?.deleting && !index.deletionComplete) await this.deleteAccount(index.uid);
     }
     for (const name of await this.storage.listJsonNames('trips/')) {
       const doc = await this.storage.readJson<TripDocument>(name);

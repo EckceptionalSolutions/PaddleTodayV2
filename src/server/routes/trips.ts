@@ -2,7 +2,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { isTripId, isTripMutation, isLogMutation, isTripToken, TRIP_PHOTO_MAX_BYTES } from '@paddletoday/api-contract';
 import { tripStorage, TripError } from '../../lib/trip-storage';
 import { accountSyncStorage } from '../../lib/account-sync-storage';
-import { verifyAccountIdToken } from '../account-auth';
+import { assertFirebaseAuthConfigured, verifyAccountIdToken } from '../account-auth';
 import { readJsonBody, sendJson, sendBinary, sendRequestBodyErrorResponse } from '../http';
 import { getIp } from '../rate-limit';
 import { recordTripRequest } from '../trip-telemetry';
@@ -27,6 +27,17 @@ export async function handleTrips(request: IncomingMessage, response: ServerResp
   try {
     const path = url.pathname.split('/').filter(Boolean);
     const store = tripStorage();
+    if (url.pathname === '/api/trips/capabilities' && request.method === 'GET') {
+      // Validate Firebase's server credential and list a narrow storage prefix
+      // before the web app ships. No user or storage names leave the service.
+      let firebaseAuthReady = false;
+      let firebaseProjectId: string | null = null;
+      try { firebaseProjectId = assertFirebaseAuthConfigured(); firebaseAuthReady = true; }
+      catch (error) { if (process.env.NODE_ENV === 'production') throw error; }
+      if (!allowed('capabilities:' + getIp(request), 60)) return send(429, { error: 'rate_limited' });
+      await store.storage.listJsonNames('trip-capability-probe/');
+      return send(200, { tripApiVersion: 1, trips: true, firebaseAuthReady, firebaseProjectId, tripStorageReady: true });
+    }
     // Tokens are sent in POST bodies, never in URLs logged by the API/CDN.
     if (path[1] === 'trips' && ['view', 'invitation'].includes(path[2] || '') && request.method === 'POST') {
       operation = 'public';

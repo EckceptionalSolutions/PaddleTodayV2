@@ -1,13 +1,21 @@
 import { tripPlan, tripTimeIssue, isTripPlan, isLogInput, type Trip, type TripPlan, type TripMutation, type TripCommand, type PaddleLog, type PaddleLogInput, type LogMutation } from '@paddletoday/api-contract';
 import { TripApiError, type TripsClient } from './trips';
 export interface TripLocalStorage { getItem(key: string): Promise<string | null>; setItem(key: string, value: string): Promise<void>; removeItem?(key: string): Promise<void> }
-export type PendingTripWork = ({ key: string; id: string; kind: 'trip'; input: TripMutation; error?: string }
-  | { key: string; id: string; kind: 'log'; input: LogMutation; error?: string }
-  | { key: string; id: string; kind: 'photo'; photoId: string; parts: number; caption: string; error?: string }) & { queuedAt?: number };
+export type PendingTripWork = ({ key: string; id: string; kind: 'trip'; input: TripMutation; error?: string; errorStatus?: number }
+  | { key: string; id: string; kind: 'log'; input: LogMutation; error?: string; errorStatus?: number }
+  | { key: string; id: string; kind: 'photo'; photoId: string; parts: number; caption: string; error?: string; errorStatus?: number })
+  & { queuedAt?: number; latest?: Trip | PaddleLog | null };
 export interface TripRepositoryState {
   version: 1; uid: string; trips: Record<string, Trip>; logs: Record<string, PaddleLog>;
   pending: PendingTripWork[]; viewed: Record<string, number>; recovery: Record<string, string>; migrated: boolean;
   lastSync: string | null;
+}
+function mergeTripPlan(baseline: TripPlan, saved: TripPlan, latest: TripPlan): TripPlan {
+  const merged = tripPlan(latest);
+  for (const key of Object.keys(saved) as (keyof TripPlan)[]) {
+    if (JSON.stringify(saved[key]) !== JSON.stringify(baseline[key])) Object.assign(merged, { [key]: saved[key] });
+  }
+  return merged;
 }
 /** One durable per-user transaction contains both optimistic state and queued operations. */
 export class TripRepository {
@@ -95,7 +103,107 @@ export class TripRepository {
   private async clearPhoto(p: Extract<PendingTripWork, { kind: 'photo' }>) {
     for (let i = 0; i < p.parts; i++) await this.storage.removeItem?.(`${this.storageKey}:photo:${p.key}:${i}`);
   }
-  async retry(key: string) { await this.change(v => { const p = v.pending.find(p => p.key === key); if (p) delete p.error; }); await this.sync(); }
+  private rebaseTripQueue(items: Extract<PendingTripWork, { kind: 'trip' }>[], latest: Trip) {
+    let current = tripPlan(latest), revision = latest.revision;
+    for (const next of items) {
+      const operationId = this.uuid(), command = next.input.command;
+      if (command.type === 'create') throw new Error('A trip with this saved ID already exists. Copy your plan and create it as a separate trip.');
+      const rebased = command.type === 'plan'
+        ? { ...command, baseline: current, plan: mergeTripPlan(command.baseline, command.plan, current) }
+        : command;
+      next.input = { ...next.input, operationId, baseRevision: revision, command: rebased };
+      if (rebased.type === 'plan') current = rebased.plan;
+      next.key = operationId;
+      delete next.error;
+      delete next.errorStatus;
+      delete next.latest;
+      revision++;
+    }
+  }
+  private rebaseLogQueue(items: Extract<PendingTripWork, { kind: 'log' }>[], latest: PaddleLog) {
+    let revision = latest.revision;
+    for (const next of items) {
+      const operationId = this.uuid();
+      next.input = { ...next.input, operationId, baseRevision: revision++ };
+      next.key = operationId;
+      delete next.error;
+      delete next.errorStatus;
+      delete next.latest;
+    }
+  }
+  async retry(key: string) {
+    const pending = this.state.pending.find(p => p.key === key);
+    if (!pending) return;
+    let latest = pending.latest;
+    if (latest === undefined) {
+      try {
+        latest = pending.kind === 'trip' ? (await this.client.get(pending.id)).trip : (await this.client.getLog(pending.id)).log;
+      } catch { latest = null; }
+    }
+    if (!latest) throw new Error('The saved account copy is unavailable. Copy your change before removing it.');
+    await this.change(v => {
+      const index = v.pending.findIndex(p => p.key === key), item = v.pending[index];
+      if (!item) return;
+      if (item.kind === 'trip') {
+        if (!('ownerUid' in latest)) throw new Error('The latest trip is unavailable. Keep or copy your saved change before removing it.');
+        const queued = v.pending.slice(index).filter((p): p is Extract<PendingTripWork, { kind: 'trip' }> => p.kind === 'trip' && p.id === item.id);
+        this.rebaseTripQueue(queued, latest);
+      } else if (item.kind === 'log') {
+        if (!('photos' in latest)) throw new Error('The latest paddle log is unavailable. Keep or copy your saved change before removing it.');
+        const queued = v.pending.slice(index).filter((p): p is Extract<PendingTripWork, { kind: 'log' }> => p.kind === 'log' && p.id === item.id);
+        this.rebaseLogQueue(queued, latest);
+      } else {
+        // Photo bytes are stored under the original key, and the server uses
+        // photoId as its idempotency identity. Keep both stable for retries.
+        delete item.error;
+        delete item.errorStatus;
+        delete item.latest;
+      }
+    });
+    await this.sync();
+  }
+
+  async keepLatest(key: string) {
+    const pending = this.state.pending.find(p => p.key === key);
+    if (!pending) return;
+    let latest = pending.latest;
+    if (latest === undefined) {
+      try {
+        latest = pending.kind === 'trip' ? (await this.client.get(pending.id)).trip : (await this.client.getLog(pending.id)).log;
+      } catch { latest = null; }
+    }
+    const discardedPhotos: Extract<PendingTripWork, { kind: 'photo' }>[] = [];
+    await this.change(v => {
+      const index = v.pending.findIndex(p => p.key === key), item = v.pending[index];
+      if (!item) return;
+      const later = v.pending.slice(index + 1);
+      v.pending = v.pending.filter(p => p.key !== key);
+      if (item.kind === 'trip') {
+        if (latest && 'ownerUid' in latest) {
+          v.trips[item.id] = latest;
+          this.rebaseTripQueue(later.filter((p): p is Extract<PendingTripWork, { kind: 'trip' }> => p.kind === 'trip' && p.id === item.id), latest);
+        } else {
+          delete v.trips[item.id];
+          v.pending = v.pending.filter(p => p.kind !== 'trip' || p.id !== item.id);
+        }
+      } else if (item.kind === 'log') {
+        if (latest && 'photos' in latest) {
+          v.logs[item.id] = latest;
+          this.rebaseLogQueue(later.filter((p): p is Extract<PendingTripWork, { kind: 'log' }> => p.kind === 'log' && p.id === item.id), latest);
+        } else {
+          delete v.logs[item.id];
+          v.pending = v.pending.filter(p => {
+            if (p.id !== item.id || (p.kind !== 'log' && p.kind !== 'photo')) return true;
+            if (p.kind === 'photo') discardedPhotos.push(p);
+            return false;
+          });
+        }
+      }
+    });
+    if (pending.kind === 'photo') await this.clearPhoto(pending);
+    for (const photo of discardedPhotos) await this.clearPhoto(photo);
+    await this.sync();
+  }
   sync() {
     if (this.disposed) return Promise.resolve();
     if (this.syncing) return this.syncing;
@@ -108,7 +216,9 @@ export class TripRepository {
       const { recovery } = await this.client.migrate();
       if (JSON.stringify(recovery) !== JSON.stringify(this.state.recovery) || !this.state.migrated) await this.change(v => { v.recovery = recovery; v.migrated = true; });
     }
-    for (const pending of [...this.state.pending]) {
+    for (const queued of [...this.state.pending]) {
+      const pending = this.state.pending.find(p => p.key === queued.key);
+      if (!pending) continue;
       if (this.disposed) return;
       if (pending.error || this.state.pending.some(p => p.id === pending.id && p.error &&
         (p.kind === pending.kind && p.kind !== 'photo' || pending.kind === 'photo' && p.kind === 'log'))) continue;
@@ -136,7 +246,13 @@ export class TripRepository {
         if (pending.kind === 'photo') await this.clearPhoto(pending);
       } catch (error) {
         if (error instanceof TripApiError && [400, 403, 404, 409, 410, 413].includes(error.status)) {
-          await this.change(v => { const p = v.pending.find(p => p.key === pending.key); if (p) p.error = error.message;
+          let latest: Trip | PaddleLog | null | undefined;
+          if (error.status === 409) {
+            try {
+              latest = pending.kind === 'trip' ? (await this.client.get(pending.id)).trip : (await this.client.getLog(pending.id)).log;
+            } catch { latest = null; }
+          }
+          await this.change(v => { const p = v.pending.find(p => p.key === pending.key); if (p) { p.error = error.message; p.errorStatus = error.status; if (latest !== undefined) p.latest = latest; }
             if (pending.kind === 'trip' && [403, 404, 410].includes(error.status)) delete v.trips[pending.id];
           });
         } else throw error;

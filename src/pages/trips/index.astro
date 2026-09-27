@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="My trips | PaddleToday" noindex privatePage headerTitle="Make time for the water" headerBlurb="Plan your next paddle. Keep the ones you remember.">
-  <main id="main-content" class="trips-page"><div id="trips-app" aria-live="polite"><p>Loading your trips…</p></div><noscript>Enable JavaScript to sign in and manage trips.</noscript></main>
+  <main id="main-content" class="trips-page"><div id="trips-app"><p role="status">Loading your trips…</p></div><noscript>Enable JavaScript to sign in and manage trips.</noscript></main>
   <script>import '../../scripts/trips-page';</script>
   <link rel="stylesheet" href="/styles/trips.css" />
 </BaseLayout>

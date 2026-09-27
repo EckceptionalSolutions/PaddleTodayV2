@@ -13,6 +13,11 @@ const [ready, health, home, summary, weekend] = await Promise.all([
 ]);
 await checkSecurityHeaders();
 await checkStatus('account authentication route', '/api/account', 401, 'authentication_required');
+await checkStatus('trip authentication route', '/api/trips', 401, 'sign_in_required');
+await checkJson('trip API capabilities and storage', '/api/trips/capabilities', (payload) =>
+  payload.tripApiVersion === 1 && payload.trips === true && payload.firebaseAuthReady === true &&
+    (!process.env.PUBLIC_FIREBASE_PROJECT_ID || payload.firebaseProjectId === process.env.PUBLIC_FIREBASE_PROJECT_ID) && payload.tripStorageReady === true
+    ? pass('version 1, Firebase Admin credential configured, private storage reachable') : fail('trip API, Firebase Admin, or private storage is not ready'));
 
 const firstSlug = summary?.rivers?.[0]?.river?.slug;
 if (firstSlug) {
