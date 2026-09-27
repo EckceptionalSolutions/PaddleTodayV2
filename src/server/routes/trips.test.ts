@@ -16,6 +16,11 @@ beforeAll(async () => {
   const data = new Map<string, { value: unknown; etag: string }>(); let revision = 0;
   const storage: JsonStorage = {
     kind: 'local', async listJsonNames(prefix = '') { return [...data.keys()].filter(k => k.startsWith(prefix)); },
+    async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+      const all = [...data.keys()].filter(k => k.startsWith(prefix) && (!cursor || k > cursor)).sort();
+      const names = all.slice(0, pageSize);
+      return { names, nextCursor: all.length > names.length ? names.at(-1) ?? null : null };
+    },
     async readJson<T>(k: string) { return structuredClone(data.get(k)?.value ?? null) as T | null; },
     async readJsonWithEtag<T>(k: string) { return { value: structuredClone(data.get(k)?.value ?? null) as T | null, etag: data.get(k)?.etag ?? null }; },
     async writeJson(k, v, options) { if (options?.ifMatch && options.ifMatch !== data.get(k)?.etag || options?.ifNoneMatch && data.has(k)) throw new BlobPreconditionError(); data.set(k, { value: structuredClone(v), etag: String(++revision) }); },

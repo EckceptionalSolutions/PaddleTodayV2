@@ -15,7 +15,9 @@ interface TripDocument {
 interface LogDocument { kind: 'log'; uid: string; id: string; revision: number; log: PaddleLog | null; receipts: Record<string, string>; uploads?: Record<string, { state: 'pending' | 'ready' | 'removed'; startedAt: string }> }
 interface PhotoDocument { kind: 'photo'; uid: string; logId: string; id: string; data: string; at: string }
 interface UserIndex { kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>; deleting: boolean; deletionComplete?: boolean; migration: Record<string, string> }
-type Document = TripDocument | LogDocument | PhotoDocument | UserIndex;
+type MaintenancePrefix = 'trip-index/' | 'trips/' | 'logs/';
+interface MaintenanceDocument { kind: 'trip-maintenance'; cursors: Record<MaintenancePrefix, string | null> }
+type Document = TripDocument | LogDocument | PhotoDocument | UserIndex | MaintenanceDocument;
 export class TripError extends Error {
   constructor(readonly status: number, readonly code: string, message: string) { super(message); }
 }
@@ -26,6 +28,9 @@ const tripKey = (id: string) => `trips/${id}.json`;
 const indexKey = (uid: string) => `trip-index/${hash(uid)}.json`;
 const logKey = (uid: string, id: string) => `logs/${hash(uid)}/${id}.json`;
 const photoKey = (uid: string, log: string, id: string) => `trip-photos/${hash(uid)}/${log}/${id}.json`;
+const maintenanceKey = 'maintenance/trip-maintenance.json';
+const maintenancePageSize = 100;
+const emptyMaintenance = (): MaintenanceDocument => ({ kind: 'trip-maintenance', cursors: { 'trip-index/': null, 'trips/': null, 'logs/': null } });
 const emptyIndex = (uid: string): UserIndex => ({ kind: 'trip-index', uid, trips: [], logs: [], photos: {}, deleting: false, deletionComplete: false, migration: {} });
 function receipt(receipts: Record<string, string>, id: string, input: unknown) {
   const digest = hash(JSON.stringify(input));
@@ -345,15 +350,23 @@ export class TripStorage {
     await this.index(uid, v => { v.trips = []; v.logs = []; v.photos = {}; v.migration = {}; v.deleting = true; v.deletionComplete = true; });
   }
   async maintenance() {
-    for (const name of await this.storage.listJsonNames('trip-index/')) {
+    const checkpoint = await this.storage.readJson<MaintenanceDocument>(maintenanceKey) ?? emptyMaintenance();
+    const indexPage = await this.storage.listJsonPage('trip-index/', checkpoint.cursors['trip-index/'], maintenancePageSize);
+    for (const name of indexPage.names) {
       const index = await this.storage.readJson<UserIndex>(name);
       if (index?.deleting && !index.deletionComplete) await this.deleteAccount(index.uid);
     }
-    for (const name of await this.storage.listJsonNames('trips/')) {
+    await this.saveMaintenanceCursor('trip-index/', indexPage.nextCursor);
+
+    const tripPage = await this.storage.listJsonPage('trips/', checkpoint.cursors['trips/'], maintenancePageSize);
+    for (const name of tripPage.names) {
       const doc = await this.storage.readJson<TripDocument>(name);
       if (doc?.pendingIndex.length) await this.repairTrip(doc.trip.id);
     }
-    for (const name of await this.storage.listJsonNames('logs/')) {
+    await this.saveMaintenanceCursor('trips/', tripPage.nextCursor);
+
+    const logPage = await this.storage.listJsonPage('logs/', checkpoint.cursors['logs/'], maintenancePageSize);
+    for (const name of logPage.names) {
       const doc = await mutateJson({ storage: this.storage, blobName: name, initial: null as LogDocument | null, mutate: doc => {
         if (doc?.uploads) for (const upload of Object.values(doc.uploads)) {
           if (upload.state === 'pending' && Date.parse(upload.startedAt) < Date.now() - 86400000) upload.state = 'removed';
@@ -369,15 +382,16 @@ export class TripStorage {
         }
       }
     }
-    for (const name of await this.storage.listJsonNames('trip-photos/')) {
-      const doc = await this.storage.readJson<PhotoDocument>(name);
-      if (!doc || Date.parse(doc.at) > Date.now() - 86400000) continue;
-      const log = await this.storage.readJson<LogDocument>(logKey(doc.uid, doc.logId));
-      if (!log?.log || log.uploads?.[doc.id]?.state === 'removed') {
-        await this.storage.deleteJson(name);
-        await this.index(doc.uid, index => { delete index.photos[`${doc.logId}/${doc.id}`]; });
-      }
-    }
+    await this.saveMaintenanceCursor('logs/', logPage.nextCursor);
+    // Photo uploads reserve a small upload record on their log before writing
+    // photo bytes. Expired/removed reservations above delete their photo blob,
+    // so cleanup can avoid downloading every base64 photo document to inspect it.
+  }
+  private async saveMaintenanceCursor(prefix: MaintenancePrefix, cursor: string | null) {
+    await mutateJson({ storage: this.storage, blobName: maintenanceKey, initial: emptyMaintenance(), mutate: state => {
+      state.cursors[prefix] = cursor;
+      return state;
+    } });
   }
 }
 export function isTripStorageDocument(value: unknown): boolean {
@@ -386,6 +400,7 @@ export function isTripStorageDocument(value: unknown): boolean {
   if (v.kind === 'trip') return !!v.trip && isTripId(v.trip.id) && isTripPlan(v.trip) && Array.isArray(v.trip.members) && !!v.links && !!v.receipts;
   if (v.kind === 'log') return typeof v.uid === 'string' && isTripId(v.id) && (v.log === null || isLogInput(v.log));
   if (v.kind === 'photo') return isTripId(v.id) && typeof v.uid === 'string' && typeof v.data === 'string';
+  if (v.kind === 'trip-maintenance') return !!v.cursors && ['trip-index/', 'trips/', 'logs/'].every(prefix => v.cursors[prefix as MaintenancePrefix] === null || typeof v.cursors[prefix as MaintenancePrefix] === 'string');
   return v.kind === 'trip-index' && typeof v.uid === 'string' && Array.isArray(v.trips) && Array.isArray(v.logs) && !!v.photos;
 }
 let instance: TripStorage | null = null;

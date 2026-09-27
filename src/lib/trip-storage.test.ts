@@ -10,6 +10,11 @@ function memory(): JsonStorage {
   return {
     kind: 'local',
     async listJsonNames(prefix = '') { return [...values.keys()].filter(k => k.startsWith(prefix)); },
+    async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+      const all = [...values.keys()].filter(k => k.startsWith(prefix) && (!cursor || k > cursor)).sort();
+      const names = all.slice(0, pageSize);
+      return { names, nextCursor: all.length > names.length ? names.at(-1) ?? null : null };
+    },
     async readJson<T>(name: string) { return structuredClone(values.get(name)?.value ?? null) as T | null; },
     async readJsonWithEtag<T>(name: string) { const entry = values.get(name); return { value: structuredClone(entry?.value ?? null) as T | null, etag: entry ? String(entry.revision) : null }; },
     async writeJson(name, value, options) { const old = values.get(name); if (options?.ifNoneMatch && old || options?.ifMatch && options.ifMatch !== String(old?.revision)) throw new BlobPreconditionError(); values.set(name, { value: structuredClone(value), revision: (old?.revision ?? 0) + 1 }); },
@@ -145,5 +150,39 @@ describe('private trips and collaborative planning', () => {
     await store.maintenance();
     expect(await store.storage.listJsonNames('logs/')).toEqual([]);
     await expect(store.list('alice')).rejects.toMatchObject({ status: 410 });
+  });
+  it('persists bounded maintenance cursors and advances across pages', async () => {
+    for (let i = 0; i < 101; i += 1) {
+      await store.storage.writeJson(`trip-index/${String(i).padStart(3, '0')}.json`, {
+        kind: 'trip-index', uid: `user-${i}`, trips: [], logs: [], photos: {}, deleting: false, migration: {},
+      });
+    }
+    await store.maintenance();
+    expect(await store.storage.readJson('maintenance/trip-maintenance.json')).toMatchObject({
+      cursors: { 'trip-index/': 'trip-index/099.json' },
+    });
+    await store.maintenance();
+    expect(await store.storage.readJson('maintenance/trip-maintenance.json')).toMatchObject({
+      cursors: { 'trip-index/': null },
+    });
+  });
+  it('cleans expired photo uploads from log metadata without reading photo bytes', async () => {
+    const t = await create(), id = randomUUID();
+    await store.log('alice', t.id, { operationId: randomUUID(), baseRevision: 0, value: {
+      sourceTripId: t.id, route: t.route, date: '2026-10-10', time: '', timeZone: 'UTC', notes: '', paddleAgain: '', water: [],
+    } });
+    const data = (await sharp({ create: { width: 8, height: 8, channels: 3, background: '#234c37' } }).png().toBuffer()).toString('base64');
+    await store.photo('alice', t.id, id, data, 'River');
+    const logKey = (await store.storage.listJsonNames('logs/'))[0]!;
+    const log = await store.storage.readJson<Record<string, unknown>>(logKey);
+    await store.storage.writeJson(logKey, { ...log, uploads: { [id]: { state: 'pending', startedAt: '2000-01-01T00:00:00Z' } } });
+    const readJson = store.storage.readJson.bind(store.storage);
+    store.storage.readJson = async name => {
+      if (name.startsWith('trip-photos/')) throw new Error('maintenance must not download photo payloads');
+      return readJson(name);
+    };
+    await store.maintenance();
+    store.storage.readJson = readJson;
+    await expect(store.readPhoto('alice', t.id, id)).rejects.toMatchObject({ status: 404 });
   });
 });

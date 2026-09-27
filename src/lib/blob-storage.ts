@@ -26,6 +26,7 @@ export interface JsonStorage {
   kind: 'blob' | 'local';
   deleteJson(blobName: string): Promise<void>;
   listJsonNames(prefix?: string): Promise<string[]>;
+  listJsonPage(prefix: string, cursor: string | null, pageSize: number): Promise<{ names: string[]; nextCursor: string | null }>;
   readJson<T>(blobName: string): Promise<T | null>;
   readJsonWithEtag<T>(blobName: string): Promise<{ value: T | null; etag: string | null }>;
   writeJson(blobName: string, value: unknown, options?: { ifMatch?: string; ifNoneMatch?: string }): Promise<void>;
@@ -245,14 +246,23 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
         if (!response.ok && response.status !== 404) throw new Error(`Failed to delete ${options.label}: HTTP ${response.status}`);
       },
       async listJsonNames(prefix = '') {
-        const prefixParam = prefix ? `&prefix=${encodeURIComponent(prefix)}` : '';
-        const query = container.query ? `&${container.query.slice(1)}` : '';
         const names: string[] = [];
-        let marker = '';
+        let cursor: string | null = null;
         do {
+          const page = await this.listJsonPage(prefix, cursor, 5000);
+          names.push(...page.names);
+          cursor = page.nextCursor;
+        } while (cursor);
+        return names;
+      },
+      async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+        const safePageSize = Math.min(5000, positiveInteger(pageSize, 1000));
+        const prefixParam = prefix ? `&prefix=${encodeURIComponent(prefix)}` : '';
+        const markerParam = cursor ? `&marker=${encodeURIComponent(cursor)}` : '';
+        const query = container.query ? `&${container.query.slice(1)}` : '';
         const response = await fetchWithRetry(
           fetchImplementation,
-          `${container.base}?restype=container&comp=list${prefixParam}${query}${marker ? `&marker=${encodeURIComponent(marker)}` : ''}`,
+          `${container.base}?restype=container&comp=list&maxresults=${safePageSize}${prefixParam}${markerParam}${query}`,
           { method: 'GET' },
           options,
         );
@@ -263,12 +273,11 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
           );
         }
         const xml = await response.text();
-        names.push(...[...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
+        const names = [...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
           .map((match) => decodeXml(match[1]))
-          .filter((name) => name.endsWith('.json')));
-        marker = decodeXml(/<NextMarker>([^<]*)<\/NextMarker>/.exec(xml)?.[1] ?? '');
-        } while (marker);
-        return names;
+          .filter((name) => name.endsWith('.json'));
+        const nextCursor = decodeXml(/<NextMarker>([^<]*)<\/NextMarker>/.exec(xml)?.[1] ?? '') || null;
+        return { names, nextCursor };
       },
       async readJsonWithEtag<T>(blobName: string) {
         const response = await fetchWithRetry(
@@ -324,6 +333,18 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
       const prefixRoot = resolve(localRoot, prefix);
       const files = await listLocalJsonFiles(prefixRoot);
       return files.map((filePath) => relative(localRoot, filePath).replaceAll('\\', '/'));
+    },
+    async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+      const safePageSize = positiveInteger(pageSize, 1000);
+      const localRoot = resolve(process.cwd(), options.localDirectory);
+      const prefixRoot = resolve(localRoot, prefix);
+      const files = (await listLocalJsonFiles(prefixRoot))
+        .map((filePath) => relative(localRoot, filePath).replaceAll('\\', '/'))
+        .sort()
+        .filter((name) => name.endsWith('.json') && (!cursor || name > cursor));
+      const names = files.slice(0, safePageSize);
+      const nextCursor = files.length > names.length ? names.at(-1) ?? null : null;
+      return { names, nextCursor };
     },
     async readJsonWithEtag<T>(blobName: string) {
       const filePath = resolve(process.cwd(), options.localDirectory, blobName);
