@@ -71,6 +71,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="trips" options={{ title: 'My trips', tabBarLabel: 'Trips', tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="calendar-check-outline" color={color} size={size} /> }} />
       <Tabs.Screen
         name="more"
         options={{

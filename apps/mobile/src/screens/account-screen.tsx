@@ -21,8 +21,9 @@ import { SectionCard } from '../components/section-card';
 import { apiClient } from '../api/client';
 import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
-import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent, grantGuestKeepSeparateConsent } from '../lib/account-local-state';
+import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { colors, spacing } from '../theme/tokens';
+import { hasPendingTrips, syncTrips } from '../lib/trip-session';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -42,6 +43,7 @@ export default function AccountScreen() {
 function AccountContent() {
   const [user, setUser] = useState<ReturnType<typeof auth>['currentUser']>(null);
   const [email, setEmail] = useState('');
+  const [emailEntryVisible, setEmailEntryVisible] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
   const [sentEmail, setSentEmail] = useState('');
   const [cooldownEmail, setCooldownEmail] = useState('');
@@ -73,6 +75,7 @@ function AccountContent() {
     const nextUid = value?.uid ?? null;
     if (lastAuthUid.current !== nextUid) {
       setBackup(null); setConflicts([]); setMessage(''); setEmail(''); setEmailSent(false); setSentEmail('');
+      setEmailEntryVisible(false);
       setCooldownEmail(''); setResendAvailableAt(0);
     }
     lastAuthUid.current = nextUid;
@@ -107,6 +110,7 @@ function AccountContent() {
         setMessage('Open this link on the device where you requested it to protect the account already signed in here.');
       } else {
         setEmailLinkUrl(url);
+        setEmailEntryVisible(true);
         setMessage('Enter the same email address used to request this link to finish signing in.');
       }
       return;
@@ -128,6 +132,7 @@ function AccountContent() {
         setMessage('Another account is signed in on this phone. Sign out before using this link, or connect this email from the signed-in account.');
         return;
       } else {
+        await prepareGuestDataImport();
         await signInWithEmailLink(auth(), pendingEmail, url);
       }
       await SecureStore.deleteItemAsync(PENDING_EMAIL);
@@ -148,7 +153,7 @@ function AccountContent() {
     const normalized = email.trim().toLowerCase();
     if (!emailLinkUrl || !isSignInWithEmailLink(auth(), emailLinkUrl)) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter the email address used to request this link.'); return; }
-    try { if (await hasGuestBackupData() && !await confirmGuestDataChoice()) return; }
+    try { await prepareGuestDataImport(); }
     catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     setBusy(true);
     try {
@@ -165,7 +170,7 @@ function AccountContent() {
   async function runLogin(action: () => Promise<unknown>) {
     if (Platform.OS === 'web' || busy) return;
     if (!auth().currentUser) {
-      try { if (await hasGuestBackupData() && !await confirmGuestDataChoice()) return; }
+      try { await prepareGuestDataImport(); }
       catch { setMessage('This phone’s saved data could not be checked. Sign-in was paused to protect it.'); return; }
     }
     setBusy(true); setMessage('');
@@ -213,7 +218,7 @@ function AccountContent() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) { setMessage('Enter a valid email address.'); return; }
     if (!LINK_DOMAIN) { setMessage('Email sign-in has not been configured on this build.'); return; }
     if (!auth().currentUser) {
-      try { if (await hasGuestBackupData() && !await confirmGuestDataChoice()) return; }
+      try { await prepareGuestDataImport(); }
       catch { setMessage('This phone’s saved data could not be checked. Email sign-in was paused to protect it.'); return; }
     }
     setBusy(true); setMessage('');
@@ -251,9 +256,7 @@ function AccountContent() {
       setConflicts(await listAccountConflicts(auth().currentUser!.uid));
       setMessage(summary.pending ? 'Your backup is continuing in the background.' : 'Your routes and trip plans are backed up.');
     } catch (error) {
-      setMessage(error instanceof Error && error.message === 'guest_import_cancelled'
-        ? 'Your saved data remains on this phone. No backup was made.'
-        : 'Backup could not finish. Your copies on this device were kept.');
+      setMessage('Backup could not finish. Your copies on this device were kept.');
     } finally { setBusy(false); }
   }
 
@@ -406,15 +409,15 @@ function AccountContent() {
       const summary = await syncWithGuestConsent(token, activeUser.uid);
       if (summary.pending) throw new Error('account_sync_pending');
       if (summary.conflicts) throw new Error('account_conflicts_need_review');
+      await syncTrips();
+      if (hasPendingTrips()) throw new Error('account_sync_pending');
       await pauseAccountBackup();
       await clearAccountLocalData(activeUser.uid);
       await signOut(auth());
       setBackup(null); setMessage('Signed out. Your cloud backup is still available next time you sign in.');
     } catch (error) {
       resumeAccountBackup();
-      setMessage(error instanceof Error && error.message === 'guest_import_cancelled'
-        ? 'Your saved data remains on this phone. Stay signed in to keep using this account.'
-        : error instanceof Error && error.message === 'account_conflicts_need_review'
+      setMessage(error instanceof Error && error.message === 'account_conflicts_need_review'
         ? 'Review the conflicting changes before signing out.' : error instanceof Error && error.message === 'account_sync_pending'
           ? 'Some changes are still waiting to sync. Stay signed in and try again.'
           : 'Your changes could not be backed up. Stay signed in and try again.');
@@ -433,9 +436,13 @@ function AccountContent() {
     try { return await syncAccountBackup(token, uid); }
     catch (error) {
       if (!(error instanceof Error) || error.message !== 'guest_import_consent_required') throw error;
-      if (!await confirmGuestDataChoice()) throw new Error('guest_import_cancelled');
+      await grantGuestImportConsent();
       return syncAccountBackup(token, uid);
     }
+  }
+
+  async function prepareGuestDataImport() {
+    if (await hasGuestBackupData()) await grantGuestImportConsent();
   }
 
   return <ScrollView contentContainerStyle={styles.page}>
@@ -445,9 +452,12 @@ function AccountContent() {
         <Text style={styles.body}>Connect another sign-in method so you can recover your account if you lose access to one.</Text>
         {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' && !user.providerData.some((item) => item.providerId === 'apple.com') ? <AppButton label="Connect Apple" variant="secondary" disabled={busy} onPress={() => void runLogin(signInApple)} /> : null}
         {GOOGLE_SIGN_IN_ENABLED && !user.providerData.some((item) => item.providerId === 'google.com') ? <AppButton label="Connect Google" variant="secondary" disabled={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
-        <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
-          placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
-        <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
+        {!user.providerData.some((item) => item.providerId === 'password') ? emailEntryVisible ? <>
+          <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
+            placeholder="you@example.com" placeholderTextColor={colors.textMuted} accessibilityLabel="Email address" style={styles.input} editable={!busy} />
+          <AppButton label={resendSeconds > 0 ? `${emailSent && normalizedEmail === sentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : 'Connect email with a sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
+          <AppButton label="Back to sign-in options" variant="secondary" disabled={busy} onPress={() => setEmailEntryVisible(false)} />
+        </> : <AppButton label="Connect email with a sign-in link" variant="secondary" busy={busy} onPress={() => { setEmailEntryVisible(true); setMessage(''); }} /> : null}
         <AppButton label="Sync now" busyLabel="Syncing…" busy={busy} onPress={() => void backupNow()} />
         {backup ? <Text style={styles.body}>{backup.routes} routes and {backup.drafts} trip plans backed up. {backup.pending ? 'Changes are waiting to sync. ' : backup.updatedAt ? `Last synced ${new Date(backup.updatedAt).toLocaleString()}. ` : ''}{backup.conflicts ? backup.conflicts + ' changes need review.' : ''}</Text> : null}
         {conflicts.map((conflict) => <View key={conflict.key} style={styles.conflict}>
@@ -467,15 +477,18 @@ function AccountContent() {
         <Text style={styles.body}>You can sign in with {GOOGLE_SIGN_IN_ENABLED ? 'Google or an email link' : 'an email link'}. River browsing stays available without an account.</Text>
         {APPLE_SIGN_IN_ENABLED && Platform.OS === 'ios' ? <AppButton label="Continue with Apple" busy={busy} onPress={() => void runLogin(signInApple)} /> : null}
         {GOOGLE_SIGN_IN_ENABLED ? <AppButton label="Continue with Google" busy={busy} onPress={() => void runLogin(signInGoogle)} /> : null}
-        <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
-          placeholder="Email address" accessibilityLabel="Email address" style={styles.input} editable={!busy} />
-        <AppButton label={resendSeconds > 0 ? `${sentLinkForCurrentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : sentLinkForCurrentEmail ? 'Send another link' : 'Continue with email'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
-        {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
-        {emailLinkUrl ? <AppButton label="Finish signing in with email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
+        {emailEntryVisible ? <>
+          <TextInput value={email} onChangeText={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address"
+            placeholder="you@example.com" placeholderTextColor={colors.textMuted} accessibilityLabel="Email address" style={styles.input} editable={!busy} />
+          <AppButton label={resendSeconds > 0 ? `${sentLinkForCurrentEmail ? 'Send another link' : 'Try again'} in ${resendSeconds}s` : sentLinkForCurrentEmail ? 'Send another link' : 'Send sign-in link'} variant="secondary" busy={busy} disabled={busy || resendSeconds > 0} onPress={() => void sendEmailLink()} />
+          {sentLinkForCurrentEmail && !emailLinkUrl ? <AppButton label="Use a different email" variant="secondary" disabled={busy} onPress={() => { setEmail(''); setEmailSent(false); setSentEmail(''); setMessage('Enter a different address. A new link will be sent to that address.'); }} /> : null}
+          {emailLinkUrl ? <AppButton label="Finish signing in with email" busy={busy} onPress={() => void finishCrossDeviceEmailLink()} /> : null}
+          <AppButton label="Back to sign-in options" variant="secondary" disabled={busy} onPress={() => setEmailEntryVisible(false)} />
+        </> : <AppButton label="Continue with email" variant="secondary" busy={busy} onPress={() => { setEmailEntryVisible(true); setMessage(''); }} />}
       </>}
       {busy ? <ActivityIndicator color={colors.accent} /> : null}
       {message ? <Text accessibilityLiveRegion="polite" style={styles.message}>{message}</Text> : null}
-      {!user ? <Text style={styles.privacy}>Your account backs up only saved routes, personal notes, and trip plans.</Text> : null}
+      {!user ? <Text style={styles.privacy}>When you sign in, this phone’s saved routes, personal notes, and trip plans are added to your account backup.</Text> : null}
     </SectionCard>
   </ScrollView>;
 }
@@ -539,28 +552,4 @@ async function hasGuestBackupData() {
   catch { hasRoutes = Boolean(rawRoutes); }
   return hasRoutes || keys.some((key) => key.startsWith('paddletoday:trip-draft:v1:')
     || key.startsWith('paddletoday:offline-trip:v1:') || key.startsWith('paddletoday:offline-trip-data:v1:'));
-}
-
-function confirmGuestDataChoice() {
-  return new Promise<boolean>((resolve) => {
-    let settled = false;
-    Alert.alert(
-      'Use this phone’s saved data?',
-      'Choose whether to add this phone’s saved routes, personal notes, and trip plans to your account. Keeping them separate leaves them on this phone and out of the account backup.',
-      [
-        { text: 'Cancel sign-in', style: 'cancel', onPress: () => { if (!settled) { settled = true; resolve(false); } } },
-        { text: 'Keep separate', onPress: () => {
-          if (settled) return;
-          settled = true;
-          void grantGuestKeepSeparateConsent().then(() => resolve(true), () => resolve(false));
-        } },
-        { text: 'Add to account', onPress: () => {
-          if (settled) return;
-          settled = true;
-          void grantGuestImportConsent().then(() => resolve(true), () => resolve(false));
-        } },
-      ],
-      { cancelable: true, onDismiss: () => { if (!settled) { settled = true; resolve(false); } } },
-    );
-  });
 }

@@ -19,7 +19,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, '') || '/';
-        return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river']
+        return !['/404', '/404.html', '/admin', '/alerts/unsubscribe', '/favorites', '/request-river', '/trips', '/share', '/account']
           .some((excluded) => pathname === excluded || pathname.startsWith(`${excluded}/`));
       },
     }),

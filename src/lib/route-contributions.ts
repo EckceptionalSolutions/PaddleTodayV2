@@ -597,6 +597,7 @@ function contributionsStorage(): BinaryStorage {
   if (container) {
     return {
       kind: 'blob',
+      deleteJson: jsonStorage.deleteJson,
       readJson: (blobName) => jsonStorage.readJson(blobName),
       readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
       writeJson: jsonStorage.writeJson,
@@ -633,6 +634,7 @@ function contributionsStorage(): BinaryStorage {
 
   return {
     kind: 'local',
+    deleteJson: jsonStorage.deleteJson,
     readJson: (blobName) => jsonStorage.readJson(blobName),
     readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
     writeJson: jsonStorage.writeJson,

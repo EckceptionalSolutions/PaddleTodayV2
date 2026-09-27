@@ -1,0 +1,53 @@
+import { test, expect } from '@playwright/test';
+
+test('a trip can be started without signing in, and email stays collapsed', async ({ page }) => {
+  await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
+  await page.goto('/trips/');
+  await expect(page.getByRole('heading', { name: 'My trips', exact: true })).toBeVisible();
+  await expect(page.getByLabel('Email address')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Continue with email' }).click();
+  await expect(page.getByPlaceholder('you@example.com')).toBeVisible();
+  await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  await page.getByLabel('Trip title', { exact: true }).fill('Saturday paddle');
+  await page.getByLabel('River or location', { exact: true }).fill('Test River');
+  await page.getByLabel('Planned date (optional)', { exact: true }).fill('2026-10-10');
+  await page.getByRole('button', { name: 'Save and sign in' }).click();
+  await expect(page.getByRole('status')).toContainText('Your draft is saved here');
+});
+
+test('a shared link renders read-only live details with no account requirement', async ({ page }) => {
+  const token = 'b'.repeat(64), id = 'test-trip-1234567890';
+  await page.route('**/api/trips/view', route => {
+    expect(route.request().postDataJSON()).toEqual({ id, token });
+    return route.fulfill({ json: { trip: { id, title: 'Saturday paddle', route: { slug: 'test-river', name: 'Test River', putInId: 'upper', putInName: 'Upper landing', takeOutId: 'lower', takeOutName: 'Lower landing' }, date: '2026-10-10', launch: '09:00', expected: '', timeZone: 'America/Chicago', status: 'planned', revision: 3, updatedAt: '2026-10-01T10:00:00Z', itinerary: [{ id: 'stop', time: '08:00', location: 'Boat launch', note: 'Meet here' }] } } });
+  });
+  await page.goto(`/trips/?id=${id}#view=${token}`);
+  await expect(page.getByRole('heading', { name: 'Saturday paddle' })).toBeVisible();
+  await expect(page.getByText('Upper landing → Lower landing')).toBeVisible();
+  await expect(page.getByRole('button', { name: /edit|sign in/i })).toHaveCount(0);
+  await expect(page.locator('meta[name="referrer"]')).toHaveAttribute('content', 'no-referrer');
+  expect(await page.locator('script[src*="umami"]').count()).toBe(0);
+});
+
+test('revoked links show recovery instructions rather than stale trip contents', async ({ page }) => {
+  await page.route('**/api/trips/view', route => route.fulfill({ status: 404, json: { error: 'link_unavailable', message: 'This link has expired or was revoked. Ask the organizer for a new one.' } }));
+  await page.goto('/trips/?id=test-trip-1234567890#view=' + 'c'.repeat(64));
+  await expect(page.locator('#trips-app')).toContainText('Ask the organizer for a new one');
+});
+
+test('an unfinished guest editor survives a page reload', async ({ page }) => {
+  await page.goto('/trips/');
+  await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  await page.getByLabel('Trip title', { exact: true }).fill('Unfinished Saturday paddle');
+  await page.getByLabel('River or location', { exact: true }).fill('Test River');
+  await expect.poll(() => page.evaluate(async () => {
+    return await new Promise<string | null>((resolve, reject) => {
+      const request = indexedDB.open('paddletoday-trips');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => { const db = request.result; const get = db.transaction('state').objectStore('state').get('trip-editor:guest'); get.onsuccess = () => { resolve(get.result ?? null); db.close(); }; get.onerror = () => reject(get.error); };
+    });
+  })).toContain('Unfinished Saturday paddle');
+  await page.reload();
+  await expect(page.getByLabel('Trip title', { exact: true })).toHaveValue('Unfinished Saturday paddle');
+  await expect(page.getByLabel('River or location', { exact: true })).toHaveValue('Test River');
+});

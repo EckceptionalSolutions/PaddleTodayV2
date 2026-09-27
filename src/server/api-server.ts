@@ -45,6 +45,7 @@ import { handleRiverTripPack } from './routes/trip-pack';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
 import { accountMethodOptions, accountSyncMethod, handleAccountRoute } from './routes/accounts';
+import { handleTrips, isTripsPath } from './routes/trips';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -83,6 +84,7 @@ const server = createServer(async (request, response) => {
   });
 
   try {
+    if (isTripsPath(requestUrl.pathname)) return await handleTrips(request, response, requestUrl, requestId, includeBody);
     if (request.method === 'OPTIONS') {
       if (accountSyncMethod(requestUrl.pathname, 'OPTIONS')) return accountMethodOptions(response);
       const optionsResponse = handleOptions(requestUrl.pathname, response);

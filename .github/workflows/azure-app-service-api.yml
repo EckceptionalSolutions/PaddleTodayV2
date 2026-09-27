@@ -54,6 +54,11 @@ jobs:
         run: npm run test:api
 
       - name: Build app
+        env:
+          PUBLIC_FIREBASE_API_KEY: ${{ vars.PUBLIC_FIREBASE_API_KEY }}
+          PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ vars.PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
+          PUBLIC_FIREBASE_APP_ID: ${{ vars.PUBLIC_FIREBASE_APP_ID }}
         run: npm run build:app
 
       - name: Create deploy package
@@ -69,7 +74,7 @@ jobs:
           npm pack ./packages/api-contract --pack-destination deploy-package/vendor
           npm pack ./packages/geo --pack-destination deploy-package/vendor
           npm pack ./packages/trip-pack --pack-destination deploy-package/vendor
-          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, engines: pkg.engines, scripts: { start: 'node_modules/.bin/tsx src/server/bootstrap.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@azure/monitor-opentelemetry': pkg.dependencies['@azure/monitor-opentelemetry'], '@paddletoday/api-contract': 'file:vendor/paddletoday-api-contract-0.1.0.tgz', '@paddletoday/geo': 'file:vendor/paddletoday-geo-0.1.0.tgz', '@paddletoday/trip-pack': 'file:vendor/paddletoday-trip-pack-0.1.0.tgz', sharp: pkg.dependencies.sharp, tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
+          node -e "const fs = require('fs'); const pkg = require('./package.json'); fs.writeFileSync('deploy-package/package.json', JSON.stringify({ name: pkg.name, version: pkg.version, private: true, type: pkg.type, engines: pkg.engines, scripts: { start: 'node_modules/.bin/tsx src/server/bootstrap.ts --static dist' }, dependencies: { '@azure/communication-email': pkg.dependencies['@azure/communication-email'], '@azure/monitor-opentelemetry': pkg.dependencies['@azure/monitor-opentelemetry'], 'firebase-admin': pkg.dependencies['firebase-admin'], '@paddletoday/api-contract': 'file:vendor/paddletoday-api-contract-0.1.0.tgz', '@paddletoday/geo': 'file:vendor/paddletoday-geo-0.1.0.tgz', '@paddletoday/trip-pack': 'file:vendor/paddletoday-trip-pack-0.1.0.tgz', sharp: pkg.dependencies.sharp, tsx: pkg.dependencies.tsx } }, null, 2) + '\n');"
           node -e "require('fs').writeFileSync('deploy-package/.deployment', '[config]\nSCM_DO_BUILD_DURING_DEPLOYMENT=true\n');"
           (cd deploy-package && npm install --workspaces=false --omit=dev --ignore-scripts --package-lock-only --no-audit --no-fund && npm ci --workspaces=false --omit=dev --ignore-scripts --no-audit --no-fund)
           test -f deploy-package/node_modules/@paddletoday/api-contract/package.json
