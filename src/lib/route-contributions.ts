@@ -602,6 +602,7 @@ function contributionsStorage(): BinaryStorage {
       readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
       writeJson: jsonStorage.writeJson,
       listJsonNames: jsonStorage.listJsonNames,
+      listJsonPage: jsonStorage.listJsonPage,
       async readBytes(blobName: string) {
         const response = await fetch(blobUrl(container, blobName), { method: 'GET' });
         if (response.status === 404) return null;
@@ -639,6 +640,7 @@ function contributionsStorage(): BinaryStorage {
     readJsonWithEtag: (blobName) => jsonStorage.readJsonWithEtag(blobName),
     writeJson: jsonStorage.writeJson,
     listJsonNames: jsonStorage.listJsonNames,
+    listJsonPage: jsonStorage.listJsonPage,
     async readBytes(blobName: string) {
       const filePath = localPathFor(blobName);
       try {
