@@ -10,7 +10,7 @@ This is a completion plan, not a proposal to add more features. Apple/Facebook s
 
 Verified during this assessment:
 
-- PR #46 is mergeable and its Operations gate passed. That gate runs typechecking, workspace/unit tests, and a production build. It does not prove real provider sign-in or signed-device journeys.
+- PR #46 at `6a5f1314` passed the Operations gate (typechecks, workspace/unit tests, and production build): [run 36351301910](https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/36351301910). It does not prove real provider sign-in or signed-device journeys.
 - Firebase web registration, public build variables, private trip storage, and the maintenance setting were configured in the preceding work. Both production build workflows now receive the public Firebase variables in the PR.
 - The public site's `/api/health/ready` returns 200; `/api/account` returns the expected unauthenticated 401; `/api/trips` still returns 404. The new trip implementation is not deployed.
 - The local preview at `http://127.0.0.1:4321/trips/` was not listening. Browser automation also failed to initialize. This review therefore does not claim a fresh visual inspection or a successful live sign-in/device rehearsal.
@@ -99,7 +99,7 @@ Primary files: both Azure deployment workflows, deployment configuration/smoke s
 
 **Complete when:** an API or configuration failure blocks website activation; cleanup resumes after interruption without endless completed-deletion scans; operational failures produce a useful alert.
 
-### 6. Prove the release journey and ship — not started for this revision
+### 6. Prove the release journey and ship — CI gate passed; authenticated/device rehearsal remains
 
 Automate focused regressions for stages 1–3 as each fix lands. Add authenticated browser coverage with isolated test identities/storage; do not use a developer's personal production account or data in CI. Keep the existing unit/API authorization and persistence suites.
 
