@@ -122,11 +122,11 @@ function recoveryMarkup() {
     : item.kind === 'log' ? item.input.value ? logSummary(item.input.value) : 'Your saved action: delete this paddle log'
       : `Photo upload${item.caption ? `: ${item.caption}` : ''}`;
   const latest = item.latest
-    ? item.kind === 'trip' && 'ownerUid' in item.latest ? planSummary(tripPlan(item.latest))
+    ? item.kind === 'trip' && 'members' in item.latest ? planSummary(tripPlan(item.latest))
       : item.kind !== 'trip' && 'photos' in item.latest ? logSummary(item.latest) : ''
     : '';
   const label = item.kind === 'photo' ? 'Retry photo upload' : 'Apply my saved changes';
-  const latestAvailable = Boolean(item.latest && (item.kind === 'trip' ? 'ownerUid' in item.latest : 'photos' in item.latest));
+  const latestAvailable = Boolean(item.latest && (item.kind === 'trip' ? 'members' in item.latest : 'photos' in item.latest));
   const canApply = item.errorStatus === 409 && latestAvailable && !(item.kind === 'trip' && item.input.command.type === 'create');
   return `<section class="trip-card"><h2>Choose which changes to keep</h2><p>${esc(item.error)}</p><h3>Your saved changes</h3><p class="trip-recovery">${esc(local)}</p><h3>Latest account copy</h3><p class="trip-recovery">${esc(latest || 'The saved account copy is unavailable.')}</p><div class="trip-actions">${button('copy-recovery', 'Copy my change')}${button('keep-latest', latestAvailable ? 'Keep account copy' : 'Remove inaccessible change', item.key)}${canApply ? button('retry-recovery', label, item.key, true) : ''}${button('close-recovery', 'Back')}</div>${canApply ? '<p>Applying your changes merges only the fields you changed onto the latest saved trip.</p>' : '<p>This saved operation cannot be replayed against the current account copy. Copy it before removing it if you want to keep a reference.</p>'}</section>`;
 }

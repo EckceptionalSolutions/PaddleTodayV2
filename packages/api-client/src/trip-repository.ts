@@ -145,7 +145,7 @@ export class TripRepository {
       const index = v.pending.findIndex(p => p.key === key), item = v.pending[index];
       if (!item) return;
       if (item.kind === 'trip') {
-        if (!('ownerUid' in latest)) throw new Error('The latest trip is unavailable. Keep or copy your saved change before removing it.');
+        if (!('members' in latest)) throw new Error('The latest trip is unavailable. Keep or copy your saved change before removing it.');
         const queued = v.pending.slice(index).filter((p): p is Extract<PendingTripWork, { kind: 'trip' }> => p.kind === 'trip' && p.id === item.id);
         this.rebaseTripQueue(queued, latest);
       } else if (item.kind === 'log') {
@@ -179,7 +179,7 @@ export class TripRepository {
       const later = v.pending.slice(index + 1);
       v.pending = v.pending.filter(p => p.key !== key);
       if (item.kind === 'trip') {
-        if (latest && 'ownerUid' in latest) {
+        if (latest && 'members' in latest) {
           v.trips[item.id] = latest;
           this.rebaseTripQueue(later.filter((p): p is Extract<PendingTripWork, { kind: 'trip' }> => p.kind === 'trip' && p.id === item.id), latest);
         } else {

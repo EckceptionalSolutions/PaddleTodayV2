@@ -152,8 +152,8 @@ export default function TripsScreen() {
       <Text style={styles.heading}>Your saved changes</Text><Text selectable style={styles.body}>{recoverySummary(recover)}</Text>
       <Text style={styles.heading}>Latest account copy</Text><Text selectable style={styles.body}>{recoveryLatestSummary(recover) || 'The saved account copy is unavailable.'}</Text>
       <B label="Copy my change" secondary onPress={() => run(async () => { await Share.share({ message: recoverySummary(recover) }); })} />
-      <B label={recover.latest && (recover.kind === 'trip' ? 'ownerUid' in recover.latest : 'photos' in recover.latest) ? 'Keep account copy' : 'Remove inaccessible change'} secondary onPress={() => run(async () => { await repo!.keepLatest(recover.key); setRecover(null); })} />
-      {recover.errorStatus === 409 && recover.latest && (recover.kind === 'trip' ? 'ownerUid' in recover.latest && recover.input.command.type !== 'create' : 'photos' in recover.latest) ? <B label={recover.kind === 'photo' ? 'Retry photo upload' : 'Apply my saved changes'} onPress={() => run(async () => { await repo!.retry(recover.key); setRecover(null); })} /> : null}
+      <B label={recover.latest && (recover.kind === 'trip' ? 'members' in recover.latest : 'photos' in recover.latest) ? 'Keep account copy' : 'Remove inaccessible change'} secondary onPress={() => run(async () => { await repo!.keepLatest(recover.key); setRecover(null); })} />
+      {recover.errorStatus === 409 && recover.latest && (recover.kind === 'trip' ? 'members' in recover.latest && recover.input.command.type !== 'create' : 'photos' in recover.latest) ? <B label={recover.kind === 'photo' ? 'Retry photo upload' : 'Apply my saved changes'} onPress={() => run(async () => { await repo!.retry(recover.key); setRecover(null); })} /> : null}
       <B label="Back" secondary onPress={() => setRecover(null)} />
     </SectionCard> : null}
     {editing ? <SectionCard title={editId ? 'Edit trip' : 'Plan your paddle'}>
@@ -252,7 +252,7 @@ function recoverySummary(item: PendingTripWork) {
 }
 function recoveryLatestSummary(item: PendingTripWork) {
   if (!item.latest) return '';
-  if (item.kind === 'trip' && 'ownerUid' in item.latest) {
+  if (item.kind === 'trip' && 'members' in item.latest) {
     const p = tripPlan(item.latest);
     return [p.title, p.route.name, `${p.route.putInName || 'Put-in not set'} → ${p.route.takeOutName || 'Take-out not set'}`, p.date || 'No date selected', ...p.itinerary.map(s => `${s.time || 'Time not set'} · ${s.location || 'Meeting place not set'}${s.note ? ` · ${s.note}` : ''}`)].join('\n');
   }
