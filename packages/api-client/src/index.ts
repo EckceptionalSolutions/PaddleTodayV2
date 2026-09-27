@@ -362,3 +362,5 @@ function buildInvalidSuccessBodyMessage(status: number) {
   if (status >= 400) return buildResponseErrorMessage(status);
   return 'PaddleToday could not read the response. Please try again.';
 }
+export * from './trips';
+export * from './trip-repository';

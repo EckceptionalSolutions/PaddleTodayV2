@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Shared trip plan | Paddle Today"
+  description="A route and launch plan shared from PaddleToday."
+  socialTitle="A PaddleToday trip plan"
+  socialDescription="Open a read-only route and launch plan."
+  noindex
+  privatePage
+  headerTitle="A shared trip plan"
+  headerBlurb="Route details to help your group get organized."
+>
+  <main id="main-content" class="shared-trip-page">
+    <article class="shared-trip-card" data-shared-trip hidden>
+      <p class="shared-trip-eyebrow">Shared trip plan</p>
+      <h1 data-route-name></h1>
+      <p class="shared-trip-access" data-access-points></p>
+      <dl class="shared-trip-details">
+        <div>
+          <dt>Planned launch</dt>
+          <dd data-launch-time></dd>
+        </div>
+      </dl>
+      <p class="shared-trip-privacy">Anyone with this link can view these details. The link does not expire or support revocation. It excludes personal notes, group size, boat, shuttle vehicle, and check-in time.</p>
+      <a class="shared-trip-route-link" data-route-link>View route details</a>
+      <p class="shared-trip-safety">Check current conditions, weather, access, and hazards before launching. PaddleToday does not monitor this trip.</p>
+    </article>
+
+    <section class="shared-trip-card shared-trip-error" data-invalid-trip>
+      <p class="shared-trip-eyebrow">Shared trip plan</p>
+      <h1>This trip link is incomplete</h1>
+      <p>The plan details are missing or invalid. Ask the person who shared it to send a new link.</p>
+      <a class="shared-trip-route-link" href="/">Explore routes</a>
+    </section>
+  </main>
+
+  <script>
+    import { decodeSharedTripPlan } from '@paddletoday/api-contract';
+
+    const planText = new URLSearchParams(window.location.hash.slice(1)).get('plan');
+    const plan = decodeSharedTripPlan(planText);
+    const card = document.querySelector<HTMLElement>('[data-shared-trip]');
+    const error = document.querySelector<HTMLElement>('[data-invalid-trip]');
+    if (plan && card && error) {
+      const routeName = card.querySelector<HTMLElement>('[data-route-name]');
+      const accessPoints = card.querySelector<HTMLElement>('[data-access-points]');
+      const launchTime = card.querySelector<HTMLElement>('[data-launch-time]');
+      const routeLink = card.querySelector<HTMLAnchorElement>('[data-route-link]');
+      if (routeName && accessPoints && launchTime && routeLink) {
+        routeName.textContent = plan.routeName;
+        accessPoints.textContent = `${plan.putInName} to ${plan.takeOutName}`;
+        launchTime.textContent = formatLaunchTime(plan.launchLocal, plan.timeZone);
+        const routeUrl = new URL(`/rivers/${plan.routeSlug}/`, window.location.origin);
+        routeUrl.searchParams.set('putin', plan.putInId);
+        routeUrl.searchParams.set('takeout', plan.takeOutId);
+        routeLink.href = routeUrl.toString();
+        card.hidden = false;
+        error.hidden = true;
+      }
+    }
+
+    function formatLaunchTime(value: string, timeZone: string) {
+      const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/.exec(value);
+      if (!match) return value;
+      const [, year, month, day, hour, minute] = match;
+      const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day), 12));
+      const dateText = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(date);
+      const hourNumber = Number(hour);
+      const period = hourNumber < 12 ? 'AM' : 'PM';
+      const hourText = String(hourNumber % 12 || 12);
+      return `${dateText} at ${hourText}:${minute} ${period} (${timeZone})`;
+    }
+  </script>
+
+  <style>
+    .shared-trip-page { width: min(760px, calc(100% - 32px)); margin: clamp(24px, 5vw, 56px) auto; }
+    .shared-trip-card { padding: clamp(22px, 5vw, 38px); border: 1px solid #d5dfd4; border-radius: 22px; background: #fffefa; box-shadow: 0 14px 38px rgb(25 54 43 / 9%); }
+    .shared-trip-card h1 { margin: 0 0 12px; color: #183d31; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.12; }
+    .shared-trip-card p { line-height: 1.55; }
+    .shared-trip-eyebrow { margin: 0 0 10px; color: #557968; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .shared-trip-access { margin: 0; color: #466257; font-size: 1.08rem; font-weight: 700; }
+    .shared-trip-details { margin: 24px 0; padding: 18px 0; border-block: 1px solid #e1e8df; }
+    .shared-trip-details dt { color: #65776d; font-size: .82rem; font-weight: 700; }
+    .shared-trip-details dd { margin: 6px 0 0; color: #183d31; font-size: 1.15rem; font-weight: 800; }
+    .shared-trip-privacy, .shared-trip-safety, .shared-trip-error p { color: #596a61; font-size: .94rem; }
+    .shared-trip-route-link { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; margin-top: 8px; padding: 0 20px; border-radius: 999px; background: #1f5b46; color: white; font-weight: 800; text-decoration: none; }
+    .shared-trip-route-link:hover { background: #174936; }
+    .shared-trip-safety { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid #e1e8df; }
+  </style>
+</BaseLayout>

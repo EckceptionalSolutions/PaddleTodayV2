@@ -19,6 +19,9 @@ import { createConnectivityMonitor } from '../lib/connectivity';
 import { deactivateAccountLocalData, flushAccountBackup, registerAccountBackupAuthProvider } from '../lib/account-backup';
 import { restoreGuestLocalState } from '../lib/account-local-state';
 import { AccountBackupInvitation } from '../components/account-backup-invitation';
+import { activateTripSession, syncTrips, TRIP_RETURN_KEY } from '../lib/trip-session';
+import { router } from 'expo-router';
+import { WELCOME_COMPLETED_STORAGE_KEY } from '../lib/onboarding';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
@@ -78,6 +81,12 @@ export function AppProviders({ children }: PropsWithChildren) {
           return user ? { uid: user.uid, getIdToken: () => user.getIdToken() } : null;
         });
         authUnsubscribe = onAuthStateChanged(getAuth(), (user) => {
+          void activateTripSession(user).then(async () => {
+            if (!user) return;
+            void flushAccountBackup().then(() => syncTrips()).catch(() => {});
+            const target = await AsyncStorage.getItem(TRIP_RETURN_KEY);
+            if (target?.startsWith('/trips?') && await AsyncStorage.getItem(WELCOME_COMPLETED_STORAGE_KEY) === '1') { await AsyncStorage.removeItem(TRIP_RETURN_KEY); router.replace(target as '/trips'); }
+          }).catch(() => {});
           if (!user) void deactivateAccountLocalData().then(() => restoreGuestLocalState()).catch(() => {});
         });
         void flushAccountBackup();
@@ -90,6 +99,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       onChange: online => {
         onlineManager.setOnline(online);
         if (online) {
+          void syncTrips().catch(() => {});
           void flushAccountBackup();
           refreshFreshnessClock();
           void queryClient.refetchQueries({ type: 'active', stale: true });
@@ -102,7 +112,7 @@ export function AppProviders({ children }: PropsWithChildren) {
       focusManager.setFocused(state === 'active');
     });
     const accountSyncTimer = setInterval(() => {
-      if (AppState.currentState === 'active') void flushAccountBackup();
+      if (AppState.currentState === 'active') { void flushAccountBackup(); void syncTrips().catch(() => {}); }
     }, 15_000);
 
     return () => { active = false; authUnsubscribe?.(); clearInterval(accountSyncTimer); registerAccountBackupAuthProvider(null); subscription.remove(); connectivity.unsubscribe(); };

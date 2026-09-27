@@ -6,6 +6,7 @@ type Props = {
   title: string;
   description?: string;
   noindex?: boolean;
+  privatePage?: boolean;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   socialTitle?: string;
   socialDescription?: string;
@@ -24,6 +25,7 @@ const {
   title,
   description = 'Live river scores, confidence, and explanations for paddlers.',
   noindex = false,
+  privatePage = false,
   structuredData,
   socialTitle = title,
   socialDescription = description,
@@ -110,6 +112,7 @@ const appDownloadConfigJson = JSON.stringify({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {privatePage && <meta name="referrer" content="no-referrer" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
@@ -137,7 +140,7 @@ const appDownloadConfigJson = JSON.stringify({
       )
     }
     {
-      import.meta.env.PROD && umamiWebsiteId && <script defer src={umamiScriptSrc} data-website-id={umamiWebsiteId}></script>
+      !privatePage && import.meta.env.PROD && umamiWebsiteId && <script defer src={umamiScriptSrc} data-website-id={umamiWebsiteId}></script>
     }
     <script type="application/ld+json" set:html={structuredDataJson}></script>
     <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
@@ -197,6 +200,7 @@ const appDownloadConfigJson = JSON.stringify({
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
             <nav class="site-header__nav" aria-label="Primary">
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/trips/" aria-current={currentPage === '/trips' ? 'page' : undefined}>My trips</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/" aria-current={currentPage === '/' ? 'page' : undefined}>Today</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/" aria-current={currentPage === '/weekend' ? 'page' : undefined}>Weekend</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/" aria-current={currentPage === '/explore' ? 'page' : undefined}>

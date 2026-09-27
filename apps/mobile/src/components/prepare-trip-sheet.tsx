@@ -3,14 +3,20 @@ import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } fro
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
+import { encodeSharedTripPlan } from '@paddletoday/api-contract';
 import { buildFloatPlanMessage, estimateSegmentDurationMinutes, type TripPlanInput } from '@paddletoday/trip-pack';
-import { resolveApiUrl } from '../lib/api-base-url';
+import { resolveApiUrl, resolveWebUrl } from '../lib/api-base-url';
 import { selectedSegmentDistance } from '../lib/offline-trip-segment';
 import { openExternalUrl } from '../lib/external-links';
 import { useTripDraft } from '../hooks/use-trip-draft';
 import { localTripTime as localInput, parseTripTime as parseLocal } from '../lib/trip-time';
 import { TripTimeField, type TripTimeFieldHandle } from './trip-time-field';
 import { TripDraftNotice } from './trip-draft-notice';
+import { router } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Crypto from 'expo-crypto';
+import { newTripPlan } from '@paddletoday/api-contract';
+import { tripSession, TRIP_RETURN_KEY } from '../lib/trip-session';
 import { PrepareOfflineTrip } from './offline-trip-actions';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -22,7 +28,7 @@ type PrepareTripSheetProps = {
   takeOut?: RiverAccessPoint;
   accessPoints: RiverRouteAccessPoint[];
   onClose: () => void;
-  onAction?: (action: 'gpx' | 'calendar' | 'float_plan') => void;
+  onAction?: (action: 'gpx' | 'calendar' | 'float_plan' | 'trip_share_link') => void;
 };
 
 export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
@@ -51,6 +57,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   const [gpxPending, setGpxPending] = useState(false);
   const [sharePending, setSharePending] = useState(false);
   const [shareFallback, setShareFallback] = useState<string | null>(null);
+  const [shareFallbackType, setShareFallbackType] = useState<'float-plan' | 'trip-link'>('float-plan');
   const shareRequest = useRef<object | null>(null);
   const gpxRequest = useRef<AbortController | null>(null);
   const launchRef = useRef<TripTimeFieldHandle>(null);
@@ -211,6 +218,60 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
         setStatus('Sharing cancelled.');
       } else {
         setStatus('Sharing is unavailable. You can copy the float plan below.');
+        setShareFallbackType('float-plan');
+        setShareFallback(message);
+      }
+    } finally {
+      if (shareRequest.current === request) {
+        shareRequest.current = null;
+        setSharePending(false);
+      }
+    }
+  }
+
+  async function shareTripLink() {
+    if (shareRequest.current || !draftReady) return;
+    if (!putIn?.id || !takeOut?.id) {
+      setStatus('Choose a put-in and take-out before sharing this trip link.');
+      return;
+    }
+    const launchAt = parseLocal(launch);
+    if (!launchAt) {
+      setStatus('Add a valid launch date and time before sharing this trip link.');
+      launchRef.current?.focus();
+      return;
+    }
+    const launchLocal = localInput(launchAt);
+
+    const request = {};
+    shareRequest.current = request;
+    setSharePending(true);
+    setShareFallback(null);
+    setStatus('');
+    let message = '';
+    try {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+      const url = encodeSharedTripPlan({
+        routeSlug: detail.river.slug,
+        routeName: detail.river.name,
+        putInId: putIn.id,
+        putInName: putIn.name,
+        takeOutId: takeOut.id,
+        takeOutName: takeOut.name,
+        launchLocal,
+        timeZone,
+      }, resolveWebUrl('/share/trip/'));
+      message = `Trip plan: ${detail.river.name}\n${putIn.name} to ${takeOut.name}\nLaunch: ${launchLocal} (${timeZone})\n\nOpen the read-only plan: ${url}`;
+      onAction?.('trip_share_link');
+      const result = await Share.share({ title: `Trip plan - ${detail.river.name}`, message });
+      if (shareRequest.current === request) setStatus(result?.action === Share.dismissedAction ? 'Sharing cancelled.' : 'Trip link ready to share.');
+    } catch (error) {
+      if (shareRequest.current !== request) return;
+      if (error instanceof Error && error.name === 'AbortError') setStatus('Sharing cancelled.');
+      else if (!message) setStatus('This trip link could not be prepared. Review the route and access points, then try again.');
+      else {
+        setStatus('Sharing is unavailable. Copy the trip link below.');
+        setShareFallbackType('trip-link');
         setShareFallback(message);
       }
     } finally {
@@ -250,7 +311,7 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
           {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
           {shareFallback ? (
             <TextInput
-              accessibilityLabel="Float plan to copy"
+              accessibilityLabel={shareFallbackType === 'trip-link' ? 'Trip link to copy' : 'Float plan to copy'}
               value={shareFallback}
               editable={false}
               multiline
@@ -262,7 +323,24 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
           <View style={styles.actions}>
             <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
             <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
-            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share float plan" detail="Send the plan to your group" onPress={() => void shareFloatPlan()} primary />
+            <ActionButton disabled={!draftReady || closing || sharePending} pending={sharePending} pendingLabel="Saving trip…" label="Save to My trips" detail="Open across devices, invite friends, and log your paddle" primary onPress={() => {
+              setSharePending(true);
+              void (async () => {
+                const plan = newTripPlan({ slug: detail.river.slug, name: detail.river.name, putInId: putIn?.id || '', putInName: putIn?.name || '', takeOutId: takeOut?.id || '', takeOutName: takeOut?.name || '' });
+                const date = parseLocal(launch);
+                if (date) { const local = localInput(date); plan.date = local.slice(0, 10); plan.launch = local.slice(11, 16); }
+                const end = parseLocal(expected); if (end) plan.expected = localInput(end).slice(11, 16);
+                const repo = tripSession();
+                if (repo) {
+                  const id = await repo.savePlan(plan); onClose(); router.push({ pathname: '/trips', params: { id } }); void repo.sync().catch(() => {});
+                } else {
+                  await AsyncStorage.setItem('paddletoday:trip-guest-draft', JSON.stringify({ id: Crypto.randomUUID(), plan }));
+                  await AsyncStorage.setItem(TRIP_RETURN_KEY, '/trips?'); onClose(); router.push('/account');
+                }
+              })().catch(e => setStatus(e instanceof Error ? e.message : 'Could not save this trip.')).finally(() => setSharePending(false));
+            }} />
+            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share a snapshot" detail="A fixed copy of route, access, and launch time" onPress={() => void shareTripLink()} />
+            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share full float plan" detail="Send timing and group details to your group" onPress={() => void shareFloatPlan()} />
           </View>
           <Text style={styles.footer}>Confirm current gauge, weather, access, hazards, and an offline check-in plan before launching.</Text>
         </ScrollView>

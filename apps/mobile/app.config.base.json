@@ -53,6 +53,11 @@
               "scheme": "https",
               "host": "paddletoday.com",
               "pathPrefix": "/rivers/"
+            },
+            {
+              "scheme": "https",
+              "host": "paddletoday.com",
+              "pathPrefix": "/trips"
             }
           ],
           "category": [

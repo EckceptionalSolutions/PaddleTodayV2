@@ -6,6 +6,7 @@ import {
 import { AccountGoneError, AccountSizeLimitError, AccountStorageUnavailableError, accountSyncStorage, StaleSyncEpochError } from '../../lib/account-sync-storage';
 import { deleteFirebaseUser, FirebaseAuthUnavailableError, firebaseUserExists, verifyAccountIdToken } from '../account-auth';
 import { readJsonBody, sendJson, sendRequestBodyErrorResponse } from '../http';
+import { tripStorage } from '../../lib/trip-storage';
 
 const attempts = new Map<string, { count: number; resetAt: number }>();
 
@@ -29,6 +30,7 @@ export async function handleAccountRoute(
 
     if (pathname === '/api/account/deletion' && request.method === 'GET') {
       const deletionRequested = await storage.isDeleted(token.uid);
+      if (deletionRequested) await tripStorage().deleteAccount(token.uid);
       if (deletionRequested && await firebaseUserExists(token.uid)) {
         await deleteFirebaseUser(token.uid).catch((error: unknown) => {
           if (!(error && typeof error === 'object' && 'code' in error && error.code === 'auth/user-not-found')) throw error;
@@ -87,6 +89,7 @@ export async function handleAccountRoute(
         return sendJson(response, 401, { requestId, error: 'recent_authentication_required' }, includeBody, 'no-store');
       }
       await storage.deleteAccount(token.uid);
+      await tripStorage().deleteAccount(token.uid);
       await deleteFirebaseUser(token.uid).catch((error: unknown) => {
         if (!(error && typeof error === 'object' && 'code' in error && error.code === 'auth/user-not-found')) throw error;
       });

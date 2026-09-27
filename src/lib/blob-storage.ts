@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, unlink } from 'node:fs/promises';
 import { dirname, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
@@ -24,6 +24,7 @@ export interface PutJsonBlobOptions {
 
 export interface JsonStorage {
   kind: 'blob' | 'local';
+  deleteJson(blobName: string): Promise<void>;
   listJsonNames(prefix?: string): Promise<string[]>;
   readJson<T>(blobName: string): Promise<T | null>;
   readJsonWithEtag<T>(blobName: string): Promise<{ value: T | null; etag: string | null }>;
@@ -239,12 +240,19 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
   if (container) {
     return {
       kind: 'blob',
+      async deleteJson(blobName) {
+        const response = await fetchWithRetry(fetchImplementation, blobUrl(container, blobName), { method: 'DELETE' }, options);
+        if (!response.ok && response.status !== 404) throw new Error(`Failed to delete ${options.label}: HTTP ${response.status}`);
+      },
       async listJsonNames(prefix = '') {
         const prefixParam = prefix ? `&prefix=${encodeURIComponent(prefix)}` : '';
         const query = container.query ? `&${container.query.slice(1)}` : '';
+        const names: string[] = [];
+        let marker = '';
+        do {
         const response = await fetchWithRetry(
           fetchImplementation,
-          `${container.base}?restype=container&comp=list${prefixParam}${query}`,
+          `${container.base}?restype=container&comp=list${prefixParam}${query}${marker ? `&marker=${encodeURIComponent(marker)}` : ''}`,
           { method: 'GET' },
           options,
         );
@@ -255,9 +263,12 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
           );
         }
         const xml = await response.text();
-        return [...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
+        names.push(...[...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
           .map((match) => decodeXml(match[1]))
-          .filter((name) => name.endsWith('.json'));
+          .filter((name) => name.endsWith('.json')));
+        marker = decodeXml(/<NextMarker>([^<]*)<\/NextMarker>/.exec(xml)?.[1] ?? '');
+        } while (marker);
+        return names;
       },
       async readJsonWithEtag<T>(blobName: string) {
         const response = await fetchWithRetry(
@@ -304,6 +315,10 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
 
   return {
     kind: 'local',
+    async deleteJson(blobName) {
+      try { await unlink(resolve(process.cwd(), options.localDirectory, blobName)); }
+      catch (error) { if (!(error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT')) throw error; }
+    },
     async listJsonNames(prefix = '') {
       const localRoot = resolve(process.cwd(), options.localDirectory);
       const prefixRoot = resolve(localRoot, prefix);
