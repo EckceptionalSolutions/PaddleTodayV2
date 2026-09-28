@@ -15,6 +15,46 @@ test('a trip can be started without signing in, and email stays collapsed', asyn
   await expect(page.getByRole('status')).toContainText('Your draft is saved here');
 });
 
+test('trip lists expose keyboard-operable tabs and editors offer a clear time-zone selector', async ({ page }) => {
+  await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
+  await page.goto('/trips/');
+  const upcoming = page.getByRole('tab', { name: 'Upcoming' });
+  const past = page.getByRole('tab', { name: 'Past' });
+  await expect(upcoming).toHaveAttribute('aria-selected', 'true');
+  await upcoming.focus();
+  await upcoming.press('ArrowRight');
+  await expect(past).toHaveAttribute('aria-selected', 'true');
+  await expect(past).toBeFocused();
+  await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  const timeZone = page.getByLabel('Trip time zone');
+  await expect(timeZone).toBeVisible();
+  await expect(timeZone.locator('option[value="America/New_York"]')).toHaveText('Eastern Time');
+  await expect(timeZone.locator('option[value="America/Chicago"]')).toHaveText('Central Time');
+  await expect(timeZone.locator('option[value="America/Los_Angeles"]')).toHaveText('Pacific Time');
+  await timeZone.selectOption('America/Chicago');
+});
+
+test('trip plan validation focuses missing details and flags skipped local times', async ({ page }) => {
+  await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
+  await page.goto('/trips/');
+  await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  const save = page.getByRole('button', { name: 'Save and sign in' });
+  const title = page.getByLabel('Trip title', { exact: true });
+  await save.click();
+  await expect(title).toBeFocused();
+  expect(await title.evaluate(element => (element as HTMLInputElement).checkValidity())).toBe(false);
+
+  await title.fill('Spring paddle');
+  await page.getByLabel('River or location', { exact: true }).fill('Test River');
+  await page.getByLabel('Planned date (optional)', { exact: true }).fill('2026-03-08');
+  const launch = page.getByLabel('Launch time (optional)', { exact: true });
+  await launch.fill('02:30');
+  await page.getByLabel('Trip time zone').selectOption('America/Chicago');
+  await save.click();
+  await expect(launch).toBeFocused();
+  expect(await launch.evaluate(element => (element as HTMLInputElement).checkValidity())).toBe(false);
+});
+
 test('a shared link renders read-only live details with no account requirement', async ({ page }) => {
   const token = 'b'.repeat(64), id = 'test-trip-1234567890';
   await page.route('**/api/trips/view', route => {

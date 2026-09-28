@@ -1,7 +1,7 @@
 /// <reference types="astro/client" />
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, EmailAuthProvider, signInWithPopup, linkWithPopup, linkWithCredential, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, signOut, type User } from 'firebase/auth';
 import { createTripsClient, createPaddleTodayApiClient, TripRepository, type PendingTripWork } from '@paddletoday/api-client';
-import { newTripPlan, isTripPlan, tripPlan, historicalWaterSuggestion, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverAccessPoint, type RiverCatalogItem, type ShuttleVehicle, type TripRoute } from '@paddletoday/api-contract';
+import { newTripPlan, isTripPlan, tripPlan, tripTimeIssue, historicalWaterSuggestion, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverAccessPoint, type RiverCatalogItem, type ShuttleVehicle, type TripRoute } from '@paddletoday/api-contract';
 import { tripBrowserStorage as storage } from '../lib/trip-browser-storage';
 import { firebaseWebAuth } from '../lib/firebase-web';
 import { toDataURL } from 'qrcode';
@@ -15,8 +15,18 @@ const getSession = (key: string) => { try { return sessionStorage.getItem(key); 
 const setSession = (key: string, value: string) => { try { sessionStorage.setItem(key, value); } catch { /* Firebase also limits repeated email-link requests. */ } };
 const esc = (v: unknown) => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
 const button = (action: string, label: string, id = '', primary = false) => `<button type="button" data-action="${action}" data-id="${esc(id)}" class="${primary ? 'primary' : ''}">${esc(label)}</button>`;
-const field = (name: string, label: string, value: string, type = 'text', wide = false) => `<label class="${wide ? 'trip-wide' : ''}">${esc(label)}<input name="${name}" type="${type}" value="${esc(value)}" ${name === 'email' ? 'autocomplete="email" placeholder="you@example.com"' : ''}></label>`;
+const tripTab = (name: 'upcoming' | 'past', label: string) => `<button type="button" role="tab" id="trip-tab-${name}" aria-controls="trip-list-panel" aria-selected="${tab === name}" tabindex="${tab === name ? 0 : -1}" data-action="${name}">${label}</button>`;
+const field = (name: string, label: string, value: string, type = 'text', wide = false, required = false) => `<label class="${wide ? 'trip-wide' : ''}">${esc(label)}<input name="${name}" type="${type}" value="${esc(value)}" ${required ? 'required aria-required="true"' : ''} ${name === 'email' ? 'autocomplete="email" placeholder="you@example.com"' : ''}></label>`;
 const area = (name: string, label: string, value: string) => `<label class="trip-wide">${esc(label)}<textarea name="${name}">${esc(value)}</textarea></label>`;
+const commonTimeZones: [string, string][] = [
+  ['America/New_York', 'Eastern Time'], ['America/Chicago', 'Central Time'], ['America/Denver', 'Mountain Time'],
+  ['America/Phoenix', 'Arizona (no daylight saving time)'], ['America/Los_Angeles', 'Pacific Time'],
+  ['America/Anchorage', 'Alaska Time'], ['America/Adak', 'Aleutian Time'], ['Pacific/Honolulu', 'Hawaii Time'], ['UTC', 'UTC'],
+];
+function timeZoneField(value: string) {
+  const zones = commonTimeZones.some(([zone]) => zone === value) ? commonTimeZones : [[value, `${value} (current trip)`] as [string, string], ...commonTimeZones];
+  return `<label>Trip time zone<select name="timeZone">${zones.map(([zone, label]) => `<option value="${esc(zone)}" ${zone === value ? 'selected' : ''}>${esc(label)}</option>`).join('')}</select><span class="trip-muted">Trip times use the time zone at the river.</span></label>`;
+}
 const params = new URLSearchParams(location.search), fragment = new URLSearchParams(location.hash.slice(1));
 let selected = params.get('id') || '', invite = fragment.get('invite') || '', view = fragment.get('view') || '';
 if (invite) setLocal('trip-pending-invite', JSON.stringify({ id: selected, token: invite }));
@@ -42,7 +52,7 @@ const message = (text: string, failed = false) => { notice = text; error = faile
 function routeLabel(c: RiverCatalogItem) { return `${c.river.name} · ${c.river.region || c.river.state} · ${c.river.slug.replaceAll('-', ' ')}`; }
 function routeFields(route: TripPlan['route']) {
   const options = (value: string) => `<option value="">Choose an access point</option>${access.map(a => `<option value="${esc(a.id)}" ${a.id === value ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}`;
-  return `${field('routeName', 'River or location', route.name)}<label>Choose a route (optional)<input name="routeChoice" list="trip-route-catalog" value="${esc(catalog.find(c => c.river.slug === route.slug) ? routeLabel(catalog.find(c => c.river.slug === route.slug)!) : route.name)}" placeholder="Search available routes"><input type="hidden" name="slug" value="${esc(route.slug)}"><datalist id="trip-route-catalog">${catalog.map(c => `<option value="${esc(routeLabel(c))}"></option>`).join('')}</datalist></label>
+  return `${field('routeName', 'River or location', route.name, 'text', false, true)}<label>Choose a route (optional)<input name="routeChoice" list="trip-route-catalog" value="${esc(catalog.find(c => c.river.slug === route.slug) ? routeLabel(catalog.find(c => c.river.slug === route.slug)!) : route.name)}" placeholder="Search available routes"><input type="hidden" name="slug" value="${esc(route.slug)}"><datalist id="trip-route-catalog">${catalog.map(c => `<option value="${esc(routeLabel(c))}"></option>`).join('')}</datalist></label>
     <div class="trip-wide">${button('load-route', 'Load route access points')}</div>
     ${access.length ? `<label>Put-in<select name="putInId">${options(route.putInId)}</select></label><label>Take-out<select name="takeOutId">${options(route.takeOutId)}</select></label>` : `${field('putInName', 'Put-in', route.putInName)}${field('takeOutName', 'Take-out', route.takeOutName)}`}`;
 }
@@ -85,12 +95,14 @@ function listMarkup() {
   const logs = Object.values(state?.logs ?? {}).filter(l => l.route.name.toLowerCase().includes(search.toLowerCase())).sort((a, b) => b.date.localeCompare(a.date));
   const rows = tab === 'upcoming' ? trips.filter(t => t.status === 'planned').map(t => `<article class="trip-card"><span class="trip-badge">${t.date ? esc(t.date) : 'Draft'}</span><h2>${esc(t.title)}</h2><p>${esc(t.route.putInName)} → ${esc(t.route.takeOutName)}</p><p class="trip-muted">${t.members.length > 1 ? `${t.members.length} paddlers` : 'Your trip'}${(state?.viewed[t.id] ?? 0) < t.revision ? ' · Updated since your last visit' : ''}</p>${button('open', 'Open trip', t.id, true)}</article>`)
     : logs.map(l => `<article class="trip-card"><p class="trip-eyebrow">${esc(l.date)}</p><h2>${esc(l.route.name)}</h2><p>${esc(l.notes.slice(0, 160))}</p><p class="trip-muted">${l.paddleAgain === 'yes' ? 'Would paddle again' : l.paddleAgain === 'no' ? 'Would choose another route' : ''}</p>${button('edit-log', 'Open paddle log', l.id)} ${button('again-log', 'Plan again', l.id)}</article>`);
-  return `<div class="trip-toolbar"><h1>My trips</h1><div class="trip-actions">${button('new', 'Plan a trip', '', true)}${user ? button('new-log', 'Add past paddle') : ''}</div></div><div class="trip-tabs">${button('upcoming', 'Upcoming')}${button('past', 'Past')}</div><label>Find a trip <input class="trip-search" name="search" value="${esc(search)}" placeholder="River or trip name"></label><div class="trip-grid" style="margin-top:20px">${rows.join('') || `<div class="trip-card trip-empty"><h2>${tab === 'past' ? 'Remember your time on the water' : 'Where will you paddle next?'}</h2><p>${tab === 'past' ? 'Add a paddle to start your personal log.' : 'Choose a route, make a plan, and invite your paddling partners.'}</p></div>`}</div>
-    ${tab === 'past' ? trips.filter(t => t.status !== 'planned').map(t => `<article class="trip-card"><h3>${esc(t.title)} · ${esc(t.status)}</h3>${button('open', 'Open plan', t.id)} ${button('log-trip', 'Log my paddle', t.id)}</article>`).join('') : ''}`;
+  return `<div class="trip-toolbar"><h1>My trips</h1><div class="trip-actions">${button('new', 'Plan a trip', '', true)}${user ? button('new-log', 'Add past paddle') : ''}</div></div>
+    <div class="trip-tabs" role="tablist" aria-label="Trip lists">${tripTab('upcoming', 'Upcoming')}${tripTab('past', 'Past')}</div>
+    <section id="trip-list-panel" role="tabpanel" aria-labelledby="trip-tab-${tab}" tabindex="0"><label>Find a trip <input class="trip-search" name="search" value="${esc(search)}" placeholder="River or trip name"></label><div class="trip-grid" style="margin-top:20px">${rows.join('') || `<div class="trip-card trip-empty"><h2>${tab === 'past' ? 'Remember your time on the water' : 'Where will you paddle next?'}</h2><p>${tab === 'past' ? 'Add a paddle to start your personal log.' : 'Choose a route, make a plan, and invite your paddling partners.'}</p></div>`}</div>
+    ${tab === 'past' ? trips.filter(t => t.status !== 'planned').map(t => `<article class="trip-card"><h3>${esc(t.title)} · ${esc(t.status)}</h3>${button('open', 'Open plan', t.id)} ${button('log-trip', 'Log my paddle', t.id)}</article>`).join('') : ''}</section>`;
 }
 function planMarkup() {
   const p = editing!;
-  return `<section class="trip-editor"><p class="trip-eyebrow">${editingId ? 'Edit trip' : 'New trip'}</p><h1>Plan your paddle</h1><form data-plan><div class="trip-fields">${field('title', 'Trip title', p.title, 'text', true)}${routeFields(p.route)}${field('date', 'Planned date (optional)', p.date, 'date')}${field('launch', 'Launch time (optional)', p.launch, 'time')}${field('expected', 'Expected return (optional)', p.expected, 'time')}${field('timeZone', 'Trip time zone', p.timeZone)}
+  return `<section class="trip-editor"><p class="trip-eyebrow">${editingId ? 'Edit trip' : 'New trip'}</p><h1>Plan your paddle</h1><form data-plan><div class="trip-fields">${field('title', 'Trip title', p.title, 'text', true, true)}${routeFields(p.route)}${field('date', 'Planned date (optional)', p.date, 'date')}${field('launch', 'Launch time (optional)', p.launch, 'time')}${field('expected', 'Expected return (optional)', p.expected, 'time')}${timeZoneField(p.timeZone)}
     </div><h2>Shared itinerary</h2><p class="trip-muted">These stops are visible to trip members and anyone with a view link.</p>${p.itinerary.map((s, i) => `<div class="trip-stop trip-fields">${field(`stop-time-${i}`, 'Time', s.time, 'time')}${field(`stop-location-${i}`, 'Meeting place', s.location)}${area(`stop-note-${i}`, 'Details', s.note)}${button('remove-stop', 'Remove stop', String(i))}</div>`).join('')}<div class="trip-actions">${button('add-stop', 'Add meeting stop')}${button('save-plan', user ? 'Save trip' : 'Save and sign in', '', true)}${button('cancel-edit', 'Back')}</div></form></section>`;
 }
 function detailMarkup(t: Trip) {
@@ -111,7 +123,7 @@ function logMarkup() {
   const l = logEdit!, water = l.water[0], savedPhotos = clientState()?.logs[logId]?.photos ?? [];
   const queuedPhotos = clientState()?.pending.filter(p => p.kind === 'photo' && p.id === logId) ?? [];
   const remainingPhotos = Math.max(0, 10 - savedPhotos.length - queuedPhotos.length);
-  return `<section class="trip-editor"><p class="trip-eyebrow">Private paddling log</p><h1>${logId ? 'Your paddle' : 'Remember this paddle'}</h1><p>Your notes and photos are only visible to you.</p><div class="trip-fields">${routeFields(l.route)}${field('logDate', 'Date paddled', l.date, 'date')}${field('logTime', 'Launch time (optional)', l.time, 'time')}${field('timeZone', 'Time zone', l.timeZone)}<label>Would paddle again<select name="paddleAgain">${[['','Not decided'],['yes','Yes'],['no','No'],['unsure','Unsure']].map(([v, label]) => `<option value="${v}" ${v === l.paddleAgain ? 'selected' : ''}>${label}</option>`).join('')}</select></label>${area('notes', 'Notes', l.notes)}
+  return `<section class="trip-editor"><p class="trip-eyebrow">Private paddling log</p><h1>${logId ? 'Your paddle' : 'Remember this paddle'}</h1><p>Your notes and photos are only visible to you.</p><div class="trip-fields">${routeFields(l.route)}${field('logDate', 'Date paddled', l.date, 'date', false, true)}${field('logTime', 'Launch time (optional)', l.time, 'time')}${timeZoneField(l.timeZone)}<label>Would paddle again<select name="paddleAgain">${[['','Not decided'],['yes','Yes'],['no','No'],['unsure','Unsure']].map(([v, label]) => `<option value="${v}" ${v === l.paddleAgain ? 'selected' : ''}>${label}</option>`).join('')}</select></label>${area('notes', 'Notes', l.notes)}
     ${field('level', 'Water level / flow (optional)', water?.value || '')}${field('unit', 'Unit (e.g. ft, cfs, m³/s)', water?.unit || '')}${field('gauge', 'Gauge / observation location', water?.gaugeName || '')}${field('measuredAt', 'Measurement date and time', water?.measuredAt || '')}${field('source', 'Source (e.g. personal observation, USGS)', water?.source || '')}</div>${button('water-history', 'Find a recorded water reading')}<p class="trip-muted">Record what you observed on this paddle. A current reading is not a historical reading.</p><div class="trip-actions">${button('save-log', 'Save paddle', '', true)}${button('cancel-log', 'Back')}${logId ? button('delete-log', 'Delete paddle') : ''}</div>
     ${logId ? `<h2>Photos</h2><p class="trip-muted">${savedPhotos.length} saved · ${queuedPhotos.length} waiting · ${remainingPhotos} slot(s) available. Each photo can be up to 10 MiB.</p>${queuedPhotos.map(p => `<p class="trip-muted">${p.error ? `Upload needs attention: ${esc(p.error)} ${button('recover', 'Review photo', p.key)}` : 'Photo upload waiting to sync.'}</p>`).join('')}<input type="file" data-photos accept="image/*" multiple ${remainingPhotos ? '' : 'disabled'} aria-label="Add paddle photos" ${remainingPhotos ? `data-limit="${remainingPhotos}"` : ''}><div class="trip-photo-grid">${savedPhotos.map(p => `<figure><img data-photo="${p.id}" alt="${esc(p.caption || 'Photo from this paddle')}"><figcaption>${esc(p.caption)}</figcaption>${button('remove-photo', 'Remove photo', p.id)}</figure>`).join('')}</div>` : '<p>Save the paddle to add photos.</p>'}</section>`;
 }
@@ -150,6 +162,17 @@ function capturePlan() {
   if (!editing) return;
   editing = { ...editing, title: value('title'), route: readRoute(editing.route), date: value('date'), launch: value('launch'), expected: value('expected'), timeZone: value('timeZone'),
     itinerary: editing.itinerary.map((s, i) => ({ ...s, time: value(`stop-time-${i}`), location: value(`stop-location-${i}`), note: value(`stop-note-${i}`) })) };
+}
+function validatePlanFields() {
+  const form = root.querySelector<HTMLFormElement>('form[data-plan]');
+  if (!form) return false;
+  const input = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null;
+  const date = input('date'), launch = input('launch'), expected = input('expected'), zone = input('timeZone');
+  if (!date || !launch || !expected || !zone) return false;
+  date.setCustomValidity(launch.value && !date.value ? 'Choose a date when you set a launch time.' : '');
+  launch.setCustomValidity(tripTimeIssue(date.value, launch.value, zone.value) ?? '');
+  expected.setCustomValidity(tripTimeIssue(date.value, expected.value, zone.value) ?? '');
+  return form.reportValidity();
 }
 function captureLog() {
   if (!logEdit) return;
@@ -254,6 +277,7 @@ async function run(action: string, id: string) {
   if (action === 'save-plan') {
     capturePlan();
     if (editorTimer) clearTimeout(editorTimer);
+    if (!validatePlanFields()) { preserveEditorAfterAction = true; return; }
     if (!isTripPlan(editing)) throw new Error('Enter a title and location, and check your date, time, and time zone.');
     if (!repo) { await storage.setItem('trip-guest-draft', JSON.stringify({ id: uuid(), plan: editing })); await storage.removeItem('trip-editor:guest'); editing = null; notice = 'Your draft is saved here. Sign in to continue.'; return; }
     selected = await repo.savePlan(editing!, editingId || undefined, editingId ? editingBaseline : undefined); editing = null; await storage.removeItem('trip-editor:' + repo.uid); await sync(); return;
@@ -310,11 +334,32 @@ async function run(action: string, id: string) {
   if (command && t) { await repo!.command(selected, command, action === 'vehicle' ? vehicleEdit?.revision : undefined); vehicleEdit = null; await sync(); }
 }
 async function commandName() { await repo!.command(selected, { type: 'name', name: value('memberName') }); await sync(); }
+let preserveEditorAfterAction = false;
 root.addEventListener('click', event => {
   const target = (event.target as Element).closest<HTMLButtonElement>('[data-action]');
   if (!target || busy) return;
+  const restoreTabFocus = target.getAttribute('role') === 'tab';
   busy = true; notice = ''; error = false;
-  void run(target.dataset.action!, target.dataset.id || '').catch(e => { notice = authMessage(e); error = true; }).finally(() => { busy = false; render(); });
+  void run(target.dataset.action!, target.dataset.id || '').catch(e => { notice = authMessage(e); error = true; }).finally(() => {
+    busy = false;
+    if (preserveEditorAfterAction) preserveEditorAfterAction = false;
+    else render();
+    if (restoreTabFocus) root.querySelector<HTMLButtonElement>('[role="tab"][aria-selected="true"]')?.focus();
+  });
+});
+root.addEventListener('keydown', event => {
+  const current = (event.target as Element).closest<HTMLButtonElement>('[role="tab"]');
+  if (!current) return;
+  const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+  const index = tabs.indexOf(current);
+  const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length
+    : event.key === 'ArrowLeft' ? (index - 1 + tabs.length) % tabs.length
+      : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : -1;
+  if (next < 0 || !tabs[next]) return;
+  event.preventDefault();
+  tab = tabs[next]!.dataset.action as typeof tab;
+  render();
+  root.querySelector<HTMLButtonElement>('[role="tab"][aria-selected="true"]')?.focus();
 });
 root.addEventListener('submit', e => e.preventDefault());
 let editorTimer: ReturnType<typeof setTimeout> | null = null;
