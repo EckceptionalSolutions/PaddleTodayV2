@@ -32,6 +32,14 @@ test('account and trip pages stay inside the shared content width without nested
   }
 });
 
+test('account and trip pages bust cached page-specific styles after releases', async ({ page }) => {
+  for (const path of ['/account/', '/account/web/', '/trips/']) {
+    await page.goto(path);
+    await expect(page.locator('link[rel="stylesheet"][href*="/styles/trips.css"]'))
+      .toHaveAttribute('href', /\?v=20260928-account-trips-ux/);
+  }
+});
+
 test('email sign-in reveals its field before starting authentication', async ({ page }) => {
   await page.goto('/account/');
   await page.getByRole('button', { name: 'Continue with email' }).click();
