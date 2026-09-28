@@ -177,6 +177,29 @@ const routeSeoDescription = isPlanningRoute
   ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
   : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
 const routeIntro = river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;
+const accessSafetyReviewValue = river.evidenceNotes.find(
+  (note) => note.label.toLowerCase() === 'access and safety review',
+)?.value;
+const accessSafetyReviewDateLabel = (() => {
+  if (!accessSafetyReviewValue || !/^\d{4}-\d{2}-\d{2}$/.test(accessSafetyReviewValue)) {
+    return null;
+  }
+
+  const reviewDate = new Date(`${accessSafetyReviewValue}T00:00:00Z`);
+  if (
+    Number.isNaN(reviewDate.getTime()) ||
+    reviewDate.toISOString().slice(0, 10) !== accessSafetyReviewValue
+  ) {
+    return null;
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(reviewDate);
+})();
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = isPlanningRoute
   ? routeSeoDescription
@@ -372,6 +395,11 @@ const routeFaqStructuredData = {
             <h1 class="river-detail__title">{river.name}</h1>
             <p class="river-detail__reach">{river.reach}</p>
             <p class="route-seo-intro">{routeIntro}</p>
+            {accessSafetyReviewDateLabel ? (
+              <p class="muted" style="margin: 0.55rem 0 0;">
+                Access and safety sources last checked {accessSafetyReviewDateLabel}.
+              </p>
+            ) : null}
           </div>
         </div>
 

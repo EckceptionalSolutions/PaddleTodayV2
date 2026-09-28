@@ -11,7 +11,7 @@ const aboutStructuredData = {
   "@id": `${aboutUrl}#about-page`,
   name: "About Paddle Today",
   description:
-    "Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution.",
+    "Learn how Paddle Today selects routes, separates live scores from planning-only listings, uses river and weather sources, and explains safety limits.",
   url: aboutUrl,
   isPartOf: {
     "@id": websiteId,
@@ -24,7 +24,7 @@ const aboutStructuredData = {
 
 <BaseLayout
   title="About Paddle Today | How Route Scores Work"
-  description="Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution."
+  description="Learn how Paddle Today selects routes, separates live scores from planning-only listings, uses river and weather sources, and explains safety limits."
   structuredData={aboutStructuredData}
 >
   <section class="info-hero">
@@ -36,15 +36,15 @@ const aboutStructuredData = {
       and river notes.
     </p>
     <p class="muted">
-      River and route coverage starts in the Midwest and focuses first on the
-      routes with the strongest gauge stories, clearest access info, and most
-      trustworthy source material. Currently this consists of popular routes in
-      Minnesota, Wisconsin, and Iowa, with more rivers added as the data quality
-      supports it.
+      Route coverage now spans the contiguous 48 states, though the depth of
+      information varies by river. The state directory shows which routes have
+      live-score support and which are planning-only references.
     </p>
     <p class="muted">
-      This project is new and still changing quickly, with direction shaped by
-      community feedback.
+      Paddle Today is built and maintained by Jeff Eckerson. Route pages link
+      the gauge, weather, and access sources used so paddlers can verify details
+      with the agencies and local sources responsible for them. Feedback helps
+      identify information that needs review.
     </p>
     <div class="info-hero__actions">
       <a class="river-link river-link--inline" href="/contact/">Provide feedback</a>
@@ -120,16 +120,25 @@ const aboutStructuredData = {
       <p class="eyebrow">Coverage</p>
       <h2>Adding new routes</h2>
       <p class="muted about-coverage-card__intro">
-        Not every river makes sense for the site yet. To keep the
-        recommendations trustworthy, I only add routes that meet three basic
-        requirements:
+        A route can be useful to plan without having enough evidence for a
+        same-day score. Paddle Today labels those two kinds of listings
+        separately:
       </p>
       <ul class="compact-list about-coverage-card__list">
         <li>
-          A reliable <strong>live gauge</strong> from USGS, MN DNR, or an equivalent official source
+          <strong>Live-scored routes</strong> need a suitable direct gauge and
+          route-specific water-level guidance from a reliable source.
         </li>
-        <li>Known usable/preferred water levels</li>
-        <li>Clear put-in and take-out coordinates</li>
+        <li>
+          <strong>Planning-only routes</strong> may be listed when route and
+          access information has been reviewed, even if a suitable gauge or
+          defensible scoring range is unavailable. They do not receive a live
+          route score.
+        </li>
+        <li>
+          High-consequence whitewater routes (Class IV or harder) remain
+          planning-only under the current scoring policy.
+        </li>
       </ul>
     </article>
   </section>
@@ -153,16 +162,23 @@ const aboutStructuredData = {
 
   <section class="info-panel">
     <p class="eyebrow">Data Sources</p>
-    <h2>Most of the site runs on public data and route-specific knowledge.</h2>
+    <h2>Sources vary by route and are linked on each route page.</h2>
     <ul class="compact-list">
-      <li><strong>USGS Water Data and MN DNR River Levels</strong> (live gauges, with trends where the source provides samples)</li>
+      <li><strong>USGS and state or regional water agencies</strong> (live gauges, water levels, and interpretation guidance where available)</li>
       <li>
         <strong>National Weather Service</strong> (forecasts, wind, temps, storm risk)
       </li>
-      <li><strong>State DNR pages</strong> (Minnesota, Wisconsin, Iowa)</li>
-      <li><strong>Local trip reports and paddling references</strong></li>
-      <li><strong>OpenStreetMap and similar</strong> for access context</li>
+      <li><strong>State and local parks, water-trail agencies, and land managers</strong> (access, notices, and route logistics)</li>
+      <li><strong>Local trip reports and paddling references</strong> (route context)</li>
+      <li><strong>OpenStreetMap and other mapped sources</strong> (access context)</li>
     </ul>
+    <p class="muted">
+      Some route pages include an access and safety source-check date in the
+      trip notes. It records when the linked guide or manager pages were
+      checked; it does not confirm that an access point is open today. When a
+      page has no date, Paddle Today does not publish a review date for it.
+      Always check current notices with the responsible agency before launch.
+    </p>
   </section>
 
   <section class="info-panel">
