@@ -12,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   headerTitle="A shared trip plan"
   headerBlurb="Route details to help your group get organized."
 >
-  <main id="main-content" class="shared-trip-page">
+  <div class="shared-trip-page">
     <article class="shared-trip-card" data-shared-trip hidden>
       <p class="shared-trip-eyebrow">Shared trip plan</p>
       <h1 data-route-name></h1>
@@ -34,7 +34,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>The plan details are missing or invalid. Ask the person who shared it to send a new link.</p>
       <a class="shared-trip-route-link" href="/">Explore routes</a>
     </section>
-  </main>
+  </div>
 
   <script>
     import { decodeSharedTripPlan } from '@paddletoday/api-contract';
@@ -75,18 +75,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </script>
 
   <style>
-    .shared-trip-page { width: min(760px, calc(100% - 32px)); margin: clamp(24px, 5vw, 56px) auto; }
-    .shared-trip-card { padding: clamp(22px, 5vw, 38px); border: 1px solid #d5dfd4; border-radius: 22px; background: #fffefa; box-shadow: 0 14px 38px rgb(25 54 43 / 9%); }
-    .shared-trip-card h1 { margin: 0 0 12px; color: #183d31; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.12; }
+    .shared-trip-page { width: 100%; margin: 0 0 3rem; }
+    .shared-trip-card { padding: clamp(22px, 5vw, 38px); border: 1px solid var(--border-strong); border-radius: var(--radius); color: var(--ink); background: var(--panel); box-shadow: var(--shadow-soft); }
+    .shared-trip-card h1 { margin: 0 0 12px; color: var(--ink); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.12; }
     .shared-trip-card p { line-height: 1.55; }
-    .shared-trip-eyebrow { margin: 0 0 10px; color: #557968; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .shared-trip-access { margin: 0; color: #466257; font-size: 1.08rem; font-weight: 700; }
-    .shared-trip-details { margin: 24px 0; padding: 18px 0; border-block: 1px solid #e1e8df; }
-    .shared-trip-details dt { color: #65776d; font-size: .82rem; font-weight: 700; }
-    .shared-trip-details dd { margin: 6px 0 0; color: #183d31; font-size: 1.15rem; font-weight: 800; }
-    .shared-trip-privacy, .shared-trip-safety, .shared-trip-error p { color: #596a61; font-size: .94rem; }
-    .shared-trip-route-link { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; margin-top: 8px; padding: 0 20px; border-radius: 999px; background: #1f5b46; color: white; font-weight: 800; text-decoration: none; }
-    .shared-trip-route-link:hover { background: #174936; }
-    .shared-trip-safety { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid #e1e8df; }
+    .shared-trip-eyebrow { margin: 0 0 10px; color: var(--river-deep); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .shared-trip-access { margin: 0; color: var(--ink-soft); font-size: 1.08rem; font-weight: 700; }
+    .shared-trip-details { margin: 24px 0; padding: 18px 0; border-block: 1px solid var(--border-strong); }
+    .shared-trip-details dt { color: var(--muted); font-size: .82rem; font-weight: 700; }
+    .shared-trip-details dd { margin: 6px 0 0; color: var(--ink); font-size: 1.15rem; font-weight: 800; }
+    .shared-trip-privacy, .shared-trip-safety, .shared-trip-error p { color: var(--muted); font-size: .94rem; }
+    .shared-trip-route-link { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; margin-top: 8px; padding: 0 20px; border-radius: 999px; background: var(--river-deep); color: white; font-weight: 800; text-decoration: none; }
+    .shared-trip-route-link:hover { background: var(--river); }
+    .shared-trip-safety { margin: 22px 0 0; padding-top: 18px; border-top: 1px solid var(--border-strong); }
   </style>
 </BaseLayout>

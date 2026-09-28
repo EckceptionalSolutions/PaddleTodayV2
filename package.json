@@ -133,6 +133,7 @@
   "dependencies": {
     "@azure/communication-email": "^1.1.0",
     "@azure/monitor-opentelemetry": "^1.19.0",
+    "@firebase/app": "^0.16.2",
     "@paddletoday/api-client": "^0.1.0",
     "@paddletoday/geo": "*",
     "@paddletoday/trip-pack": "^0.1.0",

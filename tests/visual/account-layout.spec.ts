@@ -1,0 +1,58 @@
+import { test, expect } from '@playwright/test';
+
+const sharedPages = ['/', '/account/', '/trips/', '/share/trip/'];
+
+test('home, account, trips, and shared-trip pages use the same visible primary navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const path of sharedPages) {
+    await page.goto(path);
+    await expect(page.locator('main#main-content')).toHaveCount(1);
+    const nav = page.locator('header.site-header nav[aria-label="Primary"]');
+    await expect(nav).toBeVisible();
+    const tripLink = nav.getByRole('link', { name: 'My trips', exact: true });
+    const accountLink = nav.getByRole('link', { name: 'Account', exact: true });
+    await expect(tripLink).toBeVisible();
+    await expect(accountLink).toBeVisible();
+    expect(await Promise.all([tripLink, accountLink].map(link => link.evaluate(element => {
+      const linkRect = element.getBoundingClientRect();
+      const navRect = element.closest('nav')!.getBoundingClientRect();
+      return linkRect.left >= navRect.left && linkRect.right <= navRect.right;
+    })))).toEqual([true, true]);
+  }
+});
+
+test('account and trip pages stay inside the shared content width without nested main landmarks', async ({ page }) => {
+  for (const path of ['/account/', '/trips/']) {
+    await page.goto(path);
+    await expect(page.locator('main#main-content')).toHaveCount(1);
+    const widths = await page.locator('main#main-content, .trips-page').evaluateAll(elements =>
+      elements.map(element => element.getBoundingClientRect().width),
+    );
+    expect(widths[1]).toBeCloseTo(widths[0], 0);
+  }
+});
+
+test('email sign-in reveals its field before starting authentication', async ({ page }) => {
+  await page.goto('/account/');
+  await page.getByRole('button', { name: 'Continue with email' }).click();
+  await expect(page.getByPlaceholder('you@example.com')).toBeVisible();
+});
+
+test('email sign-in sends a link request', async ({ page }) => {
+  await page.route('**/identitytoolkit.googleapis.com/v1/accounts:sendOobCode**', route =>
+    route.fulfill({ json: { email: 'paddler@example.com' } }),
+  );
+  await page.goto('/account/');
+  await page.getByRole('button', { name: 'Continue with email' }).click();
+  await page.getByPlaceholder('you@example.com').fill('paddler@example.com');
+  await page.getByRole('button', { name: 'Send sign-in link' }).click();
+  await expect(page.getByRole('status')).toContainText('Check your email for the sign-in link');
+});
+
+test('Google sign-in opens its Firebase provider window', async ({ page }) => {
+  await page.goto('/account/');
+  const popupPromise = page.waitForEvent('popup');
+  await page.getByRole('button', { name: 'Continue with Google' }).click();
+  const popup = await popupPromise;
+  await popup.close();
+});

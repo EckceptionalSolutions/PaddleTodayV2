@@ -1,4 +1,7 @@
 /// <reference types="astro/client" />
+// Keep @firebase/app as a direct dependency in sync with `firebase`: Auth's
+// peer dependency can otherwise resolve an older app/component registry under
+// npm workspaces, leaving getAuth unable to find its registered component.
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
