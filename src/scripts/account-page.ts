@@ -20,7 +20,10 @@ const providers = (user: User) => user.providerData.map(p => p.providerId === 'g
 let auth: ReturnType<typeof firebaseWebAuth> | null = null;
 let user: User | null = null, busy = false, notice = '', failed = false, pendingEmail = '', emailEntryShown = false, emailLinkExpired = false, deletionReady = false, deletionComplete = false;
 try { auth = firebaseWebAuth(); }
-catch { render('Website sign-in is not configured yet.'); }
+catch (error) {
+  console.error('PaddleToday web sign-in could not initialize.', error);
+  render('Sign-in could not start. Refresh the page and try again.');
+}
 
 function render(startupError?: string) {
   if (!root) return;
@@ -142,9 +145,13 @@ root.addEventListener('click', event => {
   const submittedEmail = root.querySelector<HTMLInputElement>('[name="email"]')?.value || '';
   busy = true; notice = ''; failed = false; render();
   void (async () => {
+    if (action === 'show-email') {
+      emailEntryShown = true;
+      pendingEmail = getLocal('web-account-email') || '';
+      return;
+    }
     if (!auth) throw new Error('Website sign-in is not configured yet.');
     if (action === 'google') await signInWithPopup(auth, new GoogleAuthProvider());
-    if (action === 'show-email') { emailEntryShown = true; pendingEmail = getLocal('web-account-email') || ''; }
     if (action === 'send-link') { pendingEmail = submittedEmail.trim(); await sendEmailLink(user ? 'link' : 'sign-in', submittedEmail); }
     if (action === 'complete-email') await finishEmailLink(submittedEmail);
     if (action === 'link-google' && user) await linkWithPopup(user, new GoogleAuthProvider());
