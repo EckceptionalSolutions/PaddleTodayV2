@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+test('web-first privacy copy keeps saved-route sync claims disabled by default', async ({ page }) => {
+  await page.goto('/privacy/');
+  await expect(page.locator('li').filter({ hasText: 'routes and notes saved on this website stay in that browser' })).toBeVisible();
+});
+
 test('a trip can be started without signing in, and email stays collapsed', async ({ page }) => {
   await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
   await page.goto('/trips/');

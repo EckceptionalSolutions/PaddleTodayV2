@@ -31,6 +31,17 @@ Use Firebase's web app configuration for project `paddletoday-9933a`:
 
 The Azure deployment workflow forwards these repository variables into the website build. A rebuild is necessary after changing them. For local Astro development, use an ignored `.env.local` file with the four values. Do not copy `FIREBASE_SERVICE_ACCOUNT_JSON` into any `PUBLIC_*` variable. The production backend's `/api/account` endpoint now returns the expected 401 without a token. The production `/api/trips` endpoint still returns 404 until this code is deployed.
 
+### Web-first rollout flags
+
+The website build accepts two optional GitHub repository variables. Both default to `0` (off), including local builds where they are unset:
+
+| Variable | `0` behavior | When to set to `1` |
+| --- | --- | --- |
+| `PUBLIC_FEATURE_TRIP_APP_HANDOFF` | Hides the trip detail's “Open on phone” control and QR handoff. Normal trip sharing and view links remain available. | After a signed mobile release supports `/trips` app links and the handoff has been verified. |
+| `PUBLIC_FEATURE_SAVED_ROUTE_SYNC_CLAIM` | Privacy copy says mobile-backed saved routes sync through an account while website-saved routes remain in that browser. | Only after website saved-route sync is actually implemented and tested; this flag changes the claim, not the storage behavior. |
+
+Change the GitHub repository variable and run the **Paddle Today Frontend** workflow with `deploy_frontend` enabled to rebuild and publish the flag state. Do not enable the saved-route-sync claim by itself as a substitute for implementing sync.
+
 Confirm Google and email-link auth are enabled and the website origin is authorized in Firebase. Web email links return to `/account/web/`; mobile's existing `/auth/callback` remains separate. Test Google account collision recovery and same-device/cross-device email completion against the real configured project. A recipient can reopen the original invitation after signing in on a different browser/device.
 
 ### API and storage

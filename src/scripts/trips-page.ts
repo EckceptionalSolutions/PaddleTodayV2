@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider, EmailAuthProvider, sig
 import { createTripsClient, createPaddleTodayApiClient, TripRepository, type PendingTripWork } from '@paddletoday/api-client';
 import { newTripPlan, isTripPlan, tripPlan, tripTimeIssue, historicalWaterSuggestion, type Trip, type TripPlan, type PaddleLogInput, type TripCommand, type RiverAccessPoint, type RiverCatalogItem, type ShuttleVehicle, type TripRoute } from '@paddletoday/api-contract';
 import { tripBrowserStorage as storage } from '../lib/trip-browser-storage';
+import { webFeatureFlags } from '../lib/web-feature-flags';
 import { firebaseWebAuth } from '../lib/firebase-web';
 import { toDataURL } from 'qrcode';
 
@@ -109,7 +110,7 @@ function detailMarkup(t: Trip) {
   const owner = t.ownerUid === user?.uid, state = clientState()!;
   const assigned = new Set(t.shuttle.flatMap(v => [v.driverUid, ...v.passengers]));
   const missing = t.members.filter(m => m.rsvp === 'going' && !assigned.has(m.uid)).length;
-  return `<section class="trip-card">${button('home', '← My trips')}<p class="trip-eyebrow">${esc(t.status)} · ${esc(t.date || 'Date to be decided')}</p><h1>${esc(t.title)}</h1><p>${esc(t.route.name)} · ${esc(t.route.putInName)} → ${esc(t.route.takeOutName)}</p><p>${esc(t.launch || 'Launch time to be decided')} ${esc(t.timeZone)}${t.expected ? ` · Return ${esc(t.expected)}` : ''}</p><div class="trip-actions">${button('edit', 'Edit trip', t.id, true)}${button('phone', 'Open on phone')}${button('log-trip', 'Log this paddle', t.id)}${button('again', 'Plan again', t.id)}${t.route.slug ? `<a class="trip-button" href="/rivers/${esc(t.route.slug)}/">Route & current conditions</a>` : ''}</div>
+  return `<section class="trip-card">${button('home', '← My trips')}<p class="trip-eyebrow">${esc(t.status)} · ${esc(t.date || 'Date to be decided')}</p><h1>${esc(t.title)}</h1><p>${esc(t.route.name)} · ${esc(t.route.putInName)} → ${esc(t.route.takeOutName)}</p><p>${esc(t.launch || 'Launch time to be decided')} ${esc(t.timeZone)}${t.expected ? ` · Return ${esc(t.expected)}` : ''}</p><div class="trip-actions">${button('edit', 'Edit trip', t.id, true)}${webFeatureFlags.tripAppHandoff ? button('phone', 'Open on phone') : ''}${button('log-trip', 'Log this paddle', t.id)}${button('again', 'Plan again', t.id)}${t.route.slug ? `<a class="trip-button" href="/rivers/${esc(t.route.slug)}/">Route & current conditions</a>` : ''}</div>
     <h2>Itinerary</h2>${t.itinerary.map(s => `<p><strong>${esc(s.time)} ${esc(s.location)}</strong><br>${esc(s.note)}</p>`).join('') || '<p>No meeting stops yet.</p>'}
     <h2>Paddling partners</h2><div class="trip-fields">${field('memberName', 'My name for this trip', t.members.find(m => m.uid === user?.uid)?.name || '')}</div>${button('member-name', 'Update my name')}${t.members.map(m => `<p>${esc(m.name)} · ${esc(m.rsvp)} ${m.role === 'owner' ? '· Organizer' : ''}${owner && m.uid !== user?.uid ? button('remove-member', 'Remove', m.uid) + button('transfer', 'Make organizer', m.uid) : ''}</p>`).join('')}<div class="trip-actions">${button('rsvp', 'Going', 'going')}${button('rsvp', 'Maybe', 'maybe')}${button('rsvp', 'Not going', 'not-going')}</div>
     ${owner ? `<div class="trip-actions">${button('invite', 'Invite people')}${button('share', 'Share view-only link')}${button('revoke-invite', 'Revoke invitation')}${button('revoke-view', 'Revoke view link')}</div>` : button('leave', 'Leave trip')}
@@ -284,7 +285,10 @@ async function run(action: string, id: string) {
   }
   if (action === 'join') { await repo!.command(selected, { type: 'join', token: invite }); await sync(); if (clientState()?.trips[selected]) { invite = ''; history.replaceState(null, '', `/trips/?id=${selected}`); } return; }
   if (action === 'refresh') { await sync(); return; }
-  if (action === 'phone') { linkPurpose = 'phone'; link = `${location.origin}/trips/?id=${selected}`; return; }
+  if (action === 'phone') {
+    if (!webFeatureFlags.tripAppHandoff) return;
+    linkPurpose = 'phone'; link = `${location.origin}/trips/?id=${selected}`; return;
+  }
   if (action === 'close-link') { link = ''; linkPurpose = ''; return; }
   if (action === 'copy') { await navigator.clipboard.writeText(link); notice = 'Link copied.'; return; }
   if (action === 'invite' || action === 'share') {
