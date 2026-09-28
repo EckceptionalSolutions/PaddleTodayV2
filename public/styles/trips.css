@@ -102,6 +102,16 @@
 .trip-search { max-width: 340px; }
 .trips-page [hidden] { display: none !important; }
 
+.trip-auth-methods {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-strong);
+}
+.trip-auth-methods summary { color: var(--river-deep); cursor: pointer; font-weight: 700; }
+.trip-auth-methods summary span { margin-left: 0.375rem; color: var(--muted); font-size: 0.75rem; font-weight: 500; }
+.trip-auth-methods > p { max-width: 70ch; }
+.trip-auth-methods .trip-fields { margin-top: 1rem; }
+
 @media (max-width: 600px) {
   .trip-fields { grid-template-columns: 1fr; }
   .trip-wide { grid-column: auto; }
