@@ -108,9 +108,24 @@ describe('blob storage primitives', () => {
       'route-requests/two&three.json',
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://example.com/container?restype=container&comp=list&prefix=route-requests%2F&sig=x',
+      'https://example.com/container?restype=container&comp=list&maxresults=5000&prefix=route-requests%2F&sig=x',
       expect.objectContaining({ method: 'GET' }),
     );
+  });
+
+  it('supports bounded Azure blob-list pages with resumable markers', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('<EnumerationResults><Blobs><Blob><Name>logs/a.json</Name></Blob></Blobs><NextMarker>opaque&amp;cursor</NextMarker></EnumerationResults>'))
+      .mockResolvedValueOnce(new Response('<EnumerationResults><Blobs><Blob><Name>logs/b.json</Name></Blob></Blobs><NextMarker></NextMarker></EnumerationResults>'));
+    const storage = createJsonStorage({
+      containerSasUrl: 'https://example.com/container?sig=x', localDirectory: '.unused',
+      label: 'test', validate: () => true, fetchImplementation: fetchMock as typeof fetch,
+    });
+    const first = await storage.listJsonPage('logs/', null, 1);
+    expect(first).toEqual({ names: ['logs/a.json'], nextCursor: 'opaque&cursor' });
+    const second = await storage.listJsonPage('logs/', first.nextCursor, 1);
+    expect(second).toEqual({ names: ['logs/b.json'], nextCursor: null });
+    expect(fetchMock.mock.calls[1]?.[0]).toBe('https://example.com/container?restype=container&comp=list&maxresults=1&prefix=logs%2F&marker=opaque%26cursor&sig=x');
   });
 
   it('serializes same-process JSON mutations for one blob key', async () => {
@@ -167,6 +182,7 @@ describe('blob storage primitives', () => {
     const storage: JsonStorage = {
       kind: 'local',
       listJsonNames: async () => [],
+      listJsonPage: async () => ({ names: [], nextCursor: null }),
       readJson: async () => current,
       readJsonWithEtag: async () => ({ value: { ...current }, etag }),
       writeJson: async (_blobName, value, options = {}) => {

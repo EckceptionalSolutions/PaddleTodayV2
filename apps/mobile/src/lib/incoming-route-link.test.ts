@@ -2,6 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { incomingRouteLink } from './incoming-route-link';
 
 describe('incoming route links', () => {
+  it('carries trip IDs and invite fragments into the native trip screen', () => {
+    const token = 'a'.repeat(64);
+    expect(incomingRouteLink(`https://paddletoday.com/trips/?id=test-trip-1234567890#invite=${token}`)).toBe(`/trips?id=test-trip-1234567890&invite=${token}`);
+    expect(incomingRouteLink('https://paddletoday.com/trips/?id=../bad#view=short')).toBe('/trips?');
+  });
   it.each(['https://paddletoday.com/rivers/rice-creek/', '/rivers/rice-creek'])('maps %s to the native route', path => {
     expect(incomingRouteLink(path)).toBe('/river/rice-creek');
   });

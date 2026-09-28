@@ -320,6 +320,7 @@ const routeFaqStructuredData = {
   bodyClass="page-route-detail"
 >
   <RouteAppHandoff slug={river.slug} />
+  <p class="route-plan-account"><a href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}`}>Plan a trip on this route →</a></p>
   <article
     class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
     data-river-detail

@@ -6,6 +6,8 @@
         "appID": "F73XS8FMPL.com.paddletoday.mobile",
         "paths": [
           "/rivers/*",
+          "/trips/*",
+          "/trips",
           "/auth/callback"
         ]
       }

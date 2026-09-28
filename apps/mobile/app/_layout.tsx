@@ -100,6 +100,11 @@ function RootLayout() {
         return;
       }
       setOnboardingChecked(true);
+      if (completed === '1' && pathname === '/') {
+        void AsyncStorage.getItem('paddletoday:trip-return').then(async target => {
+          if (active && target?.startsWith('/trips?')) { await AsyncStorage.removeItem('paddletoday:trip-return'); router.replace(target as '/trips'); }
+        });
+      }
     }).catch(() => {
       if (active) {
         setOnboardingChecked(true);
@@ -167,6 +172,7 @@ function RootLayout() {
           <Stack.Screen name="request-route" options={{ title: 'Request route' }} />
           <Stack.Screen name="notifications" options={{ title: 'Notifications' }} />
           <Stack.Screen name="account" options={{ title: 'Account & backup' }} />
+          <Stack.Screen name="trips/index" options={{ title: 'My trips' }} />
           <Stack.Screen name="auth/callback" options={{ title: 'Finish signing in' }} />
           <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
           <Stack.Screen name="terms" options={{ title: 'Terms' }} />

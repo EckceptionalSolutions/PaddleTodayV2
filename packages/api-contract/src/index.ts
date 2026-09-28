@@ -980,3 +980,5 @@ export interface RiverCatalogResponse {
   rivers: RiverCatalogItem[];
 }
 export * from './account-sync';
+export * from './shared-trip-plan';
+export * from './trips';

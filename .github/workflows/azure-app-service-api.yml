@@ -54,7 +54,14 @@ jobs:
         run: npm run test:api
 
       - name: Build app
-        run: npm run build:app
+        env:
+          PUBLIC_FIREBASE_API_KEY: ${{ vars.PUBLIC_FIREBASE_API_KEY }}
+          PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ vars.PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
+          PUBLIC_FIREBASE_APP_ID: ${{ vars.PUBLIC_FIREBASE_APP_ID }}
+        run: |
+          node scripts/assert-firebase-web-config.mjs
+          npm run build:app
 
       - name: Create deploy package
         run: |
@@ -108,6 +115,23 @@ jobs:
             exit 1
           fi
 
+          trip_status="$(curl --silent --show-error --output "$RUNNER_TEMP/trip-route-response.json" --write-out '%{http_code}' http://127.0.0.1:4322/api/trips)"
+          if [ "$trip_status" != '401' ]; then
+            cat "$RUNNER_TEMP/deploy-package-startup.log"
+            cat "$RUNNER_TEMP/trip-route-response.json"
+            echo "Expected the trip route to reject an unauthenticated request with HTTP 401; received HTTP $trip_status."
+            exit 1
+          fi
+
+          capability_status="$(curl --silent --show-error --output "$RUNNER_TEMP/trip-capabilities.json" --write-out '%{http_code}' http://127.0.0.1:4322/api/trips/capabilities)"
+          if [ "$capability_status" != '200' ]; then
+            cat "$RUNNER_TEMP/deploy-package-startup.log"
+            cat "$RUNNER_TEMP/trip-capabilities.json"
+            echo "Expected trip API capability and storage verification to return HTTP 200; received HTTP $capability_status."
+            exit 1
+          fi
+          node -e "const c=require('$RUNNER_TEMP/trip-capabilities.json'); if(c.tripApiVersion!==1||c.trips!==true||c.tripStorageReady!==true) throw new Error('Trip API or storage check failed');"
+
       - name: Deploy API to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
@@ -137,4 +161,5 @@ jobs:
         env:
           DEPLOYMENT_BASE_URL: ${{ secrets.AZURE_WEBAPP_URL || vars.API_ORIGIN || 'https://paddletodayapi-h7efgxcfg9h7gne9.centralus-01.azurewebsites.net' }}
           DEPLOYMENT_SMOKE_TIMEOUT_MS: '180000'
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
         run: npm run deployment:smoke

@@ -6,6 +6,7 @@ import {
 import { AccountGoneError, AccountSizeLimitError, AccountStorageUnavailableError, accountSyncStorage, StaleSyncEpochError } from '../../lib/account-sync-storage';
 import { deleteFirebaseUser, FirebaseAuthUnavailableError, firebaseUserExists, verifyAccountIdToken } from '../account-auth';
 import { readJsonBody, sendJson, sendRequestBodyErrorResponse } from '../http';
+import { tripStorage } from '../../lib/trip-storage';
 
 const attempts = new Map<string, { count: number; resetAt: number }>();
 
@@ -29,13 +30,7 @@ export async function handleAccountRoute(
 
     if (pathname === '/api/account/deletion' && request.method === 'GET') {
       const deletionRequested = await storage.isDeleted(token.uid);
-      if (deletionRequested && await firebaseUserExists(token.uid)) {
-        await deleteFirebaseUser(token.uid).catch((error: unknown) => {
-          if (!(error && typeof error === 'object' && 'code' in error && error.code === 'auth/user-not-found')) throw error;
-        });
-      }
-      const deletionComplete = deletionRequested && !(await firebaseUserExists(token.uid));
-      if (deletionComplete) await storage.completeDeletion(token.uid);
+      const deletionComplete = deletionRequested ? await progressAccountDeletion(token.uid, storage) : false;
       return sendJson(response, 200, { requestId, deletionRequested, deletionComplete }, includeBody, 'no-store');
     }
 
@@ -87,11 +82,8 @@ export async function handleAccountRoute(
         return sendJson(response, 401, { requestId, error: 'recent_authentication_required' }, includeBody, 'no-store');
       }
       await storage.deleteAccount(token.uid);
-      await deleteFirebaseUser(token.uid).catch((error: unknown) => {
-        if (!(error && typeof error === 'object' && 'code' in error && error.code === 'auth/user-not-found')) throw error;
-      });
-      await storage.completeDeletion(token.uid);
-      return sendJson(response, 200, { requestId, deleted: true }, includeBody, 'no-store');
+      const deletionComplete = await progressAccountDeletion(token.uid, storage);
+      return sendJson(response, deletionComplete ? 200 : 202, { requestId, deletionRequested: true, deletionComplete, deleted: deletionComplete }, includeBody, 'no-store');
     }
     return sendJson(response, 405, { requestId, error: 'method_not_allowed' }, includeBody, 'no-store');
   } catch (error) {
@@ -105,6 +97,17 @@ export async function handleAccountRoute(
     console.error('Account operation failed.', { requestId, error: error instanceof Error ? error.name : 'unknown' });
     return sendJson(response, 503, { requestId, error: 'account_operation_failed' }, includeBody, 'no-store');
   }
+}
+
+async function progressAccountDeletion(uid: string, storage: ReturnType<typeof accountSyncStorage>) {
+  const tripDataDeleted = await tripStorage().deleteAccount(uid);
+  if (!tripDataDeleted) return false;
+  await deleteFirebaseUser(uid).catch((error: unknown) => {
+    if (!(error && typeof error === 'object' && 'code' in error && error.code === 'auth/user-not-found')) throw error;
+  });
+  const deletionComplete = !(await firebaseUserExists(uid));
+  if (deletionComplete) await storage.completeDeletion(uid);
+  return deletionComplete;
 }
 
 function rateLimit(uid: string) {

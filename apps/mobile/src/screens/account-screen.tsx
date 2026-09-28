@@ -23,6 +23,7 @@ import { notifySavedRoutesChanged } from '../lib/account-storage-events';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
+import { hasPendingTrips, syncTrips } from '../lib/trip-session';
 import { colors, spacing } from '../theme/tokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useRef, useState } from 'react';
@@ -425,6 +426,8 @@ function AccountContent() {
       const summary = await syncWithGuestConsent(token, activeUser.uid);
       if (summary.pending) throw new Error('account_sync_pending');
       if (summary.conflicts) throw new Error('account_conflicts_need_review');
+      await syncTrips();
+      if (hasPendingTrips()) throw new Error('account_sync_pending');
       await pauseAccountBackup();
       await clearAccountLocalData(activeUser.uid);
       await signOut(auth());

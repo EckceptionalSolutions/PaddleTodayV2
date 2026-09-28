@@ -1,4 +1,4 @@
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, unlink } from 'node:fs/promises';
 import { dirname, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
@@ -24,7 +24,9 @@ export interface PutJsonBlobOptions {
 
 export interface JsonStorage {
   kind: 'blob' | 'local';
+  deleteJson(blobName: string): Promise<void>;
   listJsonNames(prefix?: string): Promise<string[]>;
+  listJsonPage(prefix: string, cursor: string | null, pageSize: number): Promise<{ names: string[]; nextCursor: string | null }>;
   readJson<T>(blobName: string): Promise<T | null>;
   readJsonWithEtag<T>(blobName: string): Promise<{ value: T | null; etag: string | null }>;
   writeJson(blobName: string, value: unknown, options?: { ifMatch?: string; ifNoneMatch?: string }): Promise<void>;
@@ -239,12 +241,28 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
   if (container) {
     return {
       kind: 'blob',
+      async deleteJson(blobName) {
+        const response = await fetchWithRetry(fetchImplementation, blobUrl(container, blobName), { method: 'DELETE' }, options);
+        if (!response.ok && response.status !== 404) throw new Error(`Failed to delete ${options.label}: HTTP ${response.status}`);
+      },
       async listJsonNames(prefix = '') {
+        const names: string[] = [];
+        let cursor: string | null = null;
+        do {
+          const page = await this.listJsonPage(prefix, cursor, 5000);
+          names.push(...page.names);
+          cursor = page.nextCursor;
+        } while (cursor);
+        return names;
+      },
+      async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+        const safePageSize = Math.min(5000, positiveInteger(pageSize, 1000));
         const prefixParam = prefix ? `&prefix=${encodeURIComponent(prefix)}` : '';
+        const markerParam = cursor ? `&marker=${encodeURIComponent(cursor)}` : '';
         const query = container.query ? `&${container.query.slice(1)}` : '';
         const response = await fetchWithRetry(
           fetchImplementation,
-          `${container.base}?restype=container&comp=list${prefixParam}${query}`,
+          `${container.base}?restype=container&comp=list&maxresults=${safePageSize}${prefixParam}${markerParam}${query}`,
           { method: 'GET' },
           options,
         );
@@ -255,9 +273,11 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
           );
         }
         const xml = await response.text();
-        return [...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
+        const names = [...xml.matchAll(/<Name>([^<]+)<\/Name>/g)]
           .map((match) => decodeXml(match[1]))
           .filter((name) => name.endsWith('.json'));
+        const nextCursor = decodeXml(/<NextMarker>([^<]*)<\/NextMarker>/.exec(xml)?.[1] ?? '') || null;
+        return { names, nextCursor };
       },
       async readJsonWithEtag<T>(blobName: string) {
         const response = await fetchWithRetry(
@@ -304,11 +324,27 @@ export function createJsonStorage(options: CreateJsonStorageOptions): JsonStorag
 
   return {
     kind: 'local',
+    async deleteJson(blobName) {
+      try { await unlink(resolve(process.cwd(), options.localDirectory, blobName)); }
+      catch (error) { if (!(error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT')) throw error; }
+    },
     async listJsonNames(prefix = '') {
       const localRoot = resolve(process.cwd(), options.localDirectory);
       const prefixRoot = resolve(localRoot, prefix);
       const files = await listLocalJsonFiles(prefixRoot);
       return files.map((filePath) => relative(localRoot, filePath).replaceAll('\\', '/'));
+    },
+    async listJsonPage(prefix = '', cursor = null, pageSize = 100) {
+      const safePageSize = positiveInteger(pageSize, 1000);
+      const localRoot = resolve(process.cwd(), options.localDirectory);
+      const prefixRoot = resolve(localRoot, prefix);
+      const files = (await listLocalJsonFiles(prefixRoot))
+        .map((filePath) => relative(localRoot, filePath).replaceAll('\\', '/'))
+        .sort()
+        .filter((name) => name.endsWith('.json') && (!cursor || name > cursor));
+      const names = files.slice(0, safePageSize);
+      const nextCursor = files.length > names.length ? names.at(-1) ?? null : null;
+      return { names, nextCursor };
     },
     async readJsonWithEtag<T>(blobName: string) {
       const filePath = resolve(process.cwd(), options.localDirectory, blobName);
