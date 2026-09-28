@@ -85,7 +85,9 @@ export interface PaddleTodayApiClient {
   applyAccountSync(idToken: string, input: AccountSyncRequest, options?: RequestOptions): Promise<{
     requestId: string; snapshot: AccountSyncSnapshot; receipts: import('@paddletoday/api-contract').AccountSyncReceipt[];
   }>;
-  deleteAccount(idToken: string, options?: RequestOptions): Promise<{ requestId: string; deleted: boolean }>;
+  deleteAccount(idToken: string, options?: RequestOptions): Promise<{
+    requestId: string; deletionRequested: boolean; deletionComplete: boolean; deleted: boolean;
+  }>;
   getAccountDeletion(idToken: string, options?: RequestOptions): Promise<{ requestId: string; deletionRequested: boolean; deletionComplete: boolean }>;
   registerAccount(idToken: string, options?: RequestOptions): Promise<{
     requestId: string; uid: string; revision: number; epoch: number;

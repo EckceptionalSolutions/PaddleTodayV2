@@ -102,11 +102,19 @@ async function deleteAccount() {
   if (!webAuth || !currentUser) throw new Error('Sign in again before deleting your account.');
   const uid = currentUser.uid;
   const token = await currentUser.getIdToken(true);
-  try { await api.deleteAccount(token); }
+  let status: Awaited<ReturnType<typeof api.deleteAccount>>;
+  try { status = await api.deleteAccount(token); }
   catch (deleteError) {
-    const status = await api.getAccountDeletion(token);
-    if (!status.deletionRequested) throw deleteError;
-    if (!status.deletionComplete) await api.deleteAccount(token);
+    const recovery = await api.getAccountDeletion(token).catch(() => { throw deleteError; });
+    if (!recovery.deletionRequested) throw deleteError;
+    status = { ...recovery, deleted: recovery.deletionComplete };
+  }
+  while (!status.deletionComplete) {
+    notice = 'Removing your account data…'; failed = false; render();
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const freshToken = webAuth.currentUser ? await webAuth.currentUser.getIdToken(true) : token;
+    status = await api.getAccountDeletion(freshToken).then(value => ({ ...value, deleted: value.deletionComplete }));
+    if (!status.deletionRequested) throw new Error('Account deletion could not be resumed. Contact support before signing in again.');
   }
   let localCleanupFailed = false;
   try { await tripBrowserStorage.clearAccount(uid); } catch { localCleanupFailed = true; }

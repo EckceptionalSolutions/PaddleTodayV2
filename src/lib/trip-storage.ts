@@ -14,7 +14,12 @@ interface TripDocument {
 }
 interface LogDocument { kind: 'log'; uid: string; id: string; revision: number; log: PaddleLog | null; receipts: Record<string, string>; uploads?: Record<string, { state: 'pending' | 'ready' | 'removed'; startedAt: string }> }
 interface PhotoDocument { kind: 'photo'; uid: string; logId: string; id: string; data: string; at: string }
-interface UserIndex { kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>; deleting: boolean; deletionComplete?: boolean; migration: Record<string, string> }
+type DeletionStage = 'trips' | 'logs' | 'photos' | 'complete';
+interface DeletionProgress { stage: DeletionStage; cursor: string | null }
+interface UserIndex {
+  kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>;
+  deleting: boolean; deletionComplete?: boolean; deletionProgress?: DeletionProgress; migration: Record<string, string>;
+}
 type MaintenancePrefix = 'trip-index/' | 'trips/' | 'logs/';
 interface MaintenanceDocument { kind: 'trip-maintenance'; cursors: Record<MaintenancePrefix, string | null> }
 type Document = TripDocument | LogDocument | PhotoDocument | UserIndex | MaintenanceDocument;
@@ -324,30 +329,62 @@ export class TripStorage {
     }
   }
   async migrationRecovery(uid: string) { await this.active(uid); return (await this.storage.readJson<UserIndex>(indexKey(uid)))?.migration ?? {}; }
-  async deleteAccount(uid: string) {
-    const index = await this.storage.readJson<UserIndex>(indexKey(uid));
-    if (index?.deletionComplete) return;
-    await this.index(uid, v => { v.deleting = true; v.deletionComplete = false; });
-    // Scan authoritative records too: a crash may have left membership indexes waiting for repair.
-    for (const name of await this.storage.listJsonNames('trips/')) {
-      await mutateJson({ storage: this.storage, blobName: name, initial: null as TripDocument | null, mutate: doc => {
-        if (!doc) return doc;
-        if (doc.trip.ownerUid !== uid && !doc.trip.members.some(m => m.uid === uid) && doc.trip.updatedBy !== uid && !doc.trip.activity.some(a => a.actor === uid)) return doc;
-        if (doc.trip.ownerUid === uid) { doc.deleted = true; doc.links = {}; }
-        doc.pendingIndex = [...new Set([...doc.pendingIndex, ...doc.trip.members.map(m => m.uid)])];
-        doc.trip.members = doc.trip.members.filter(m => m.uid !== uid);
-        doc.trip.shuttle = doc.trip.shuttle.filter(v => v.driverUid !== uid).map(v => ({ ...v, passengers: v.passengers.filter(p => p !== uid) }));
-        doc.trip.activity = doc.trip.activity.map(a => ({ ...a, actor: a.actor === uid ? 'Deleted paddler' : a.actor }));
-        if (doc.trip.updatedBy === uid) doc.trip.updatedBy = 'Deleted paddler';
-        if (doc.deleted) { doc.trip = { ...doc.trip, ...tripPlan({ title: 'Removed trip', route: { slug: '', name: 'Removed route', putInId: '', putInName: '', takeOutId: '', takeOutName: '' }, date: '', launch: '', expected: '', timeZone: 'UTC', itinerary: [] }), ownerUid: '', members: [], shuttle: [], activity: [] }; }
-        doc.trip.revision += 1;
-        return doc;
-      } });
+  async deleteAccount(uid: string, maxRecords = 25): Promise<boolean> {
+    const batchSize = Number.isInteger(maxRecords) ? Math.max(1, Math.min(25, maxRecords)) : 25;
+    await this.index(uid, value => {
+      value.deleting = true;
+      value.deletionComplete = Boolean(value.deletionComplete);
+      if (!value.deletionComplete) value.deletionProgress ??= { stage: 'trips', cursor: null };
+    });
+
+    let processed = 0;
+    while (processed < batchSize) {
+      const index = await this.storage.readJson<UserIndex>(indexKey(uid)) ?? emptyIndex(uid);
+      if (index.deletionComplete) return true;
+      const progress = index.deletionProgress ?? { stage: 'trips', cursor: null };
+      if (progress.stage === 'complete') return true;
+      const prefix = progress.stage === 'trips' ? 'trips/'
+        : progress.stage === 'logs' ? `logs/${hash(uid)}/` : `trip-photos/${hash(uid)}/`;
+      const page = await this.storage.listJsonPage(prefix, progress.cursor, Math.min(25, batchSize - processed));
+
+      if (progress.stage === 'trips') {
+        for (const name of page.names) {
+          await mutateJson({ storage: this.storage, blobName: name, initial: null as TripDocument | null, mutate: doc => {
+            if (!doc) return doc;
+            if (doc.trip.ownerUid !== uid && !doc.trip.members.some(m => m.uid === uid) && doc.trip.updatedBy !== uid && !doc.trip.activity.some(a => a.actor === uid)) return doc;
+            if (doc.trip.ownerUid === uid) { doc.deleted = true; doc.links = {}; }
+            doc.pendingIndex = [...new Set([...doc.pendingIndex, ...doc.trip.members.map(m => m.uid)])];
+            doc.trip.members = doc.trip.members.filter(m => m.uid !== uid);
+            doc.trip.shuttle = doc.trip.shuttle.filter(v => v.driverUid !== uid).map(v => ({ ...v, passengers: v.passengers.filter(p => p !== uid) }));
+            doc.trip.activity = doc.trip.activity.map(a => ({ ...a, actor: a.actor === uid ? 'Deleted paddler' : a.actor }));
+            if (doc.trip.updatedBy === uid) doc.trip.updatedBy = 'Deleted paddler';
+            if (doc.deleted) { doc.trip = { ...doc.trip, ...tripPlan({ title: 'Removed trip', route: { slug: '', name: 'Removed route', putInId: '', putInName: '', takeOutId: '', takeOutName: '' }, date: '', launch: '', expected: '', timeZone: 'UTC', itinerary: [] }), ownerUid: '', members: [], shuttle: [], activity: [] }; }
+            doc.trip.revision += 1;
+            return doc;
+          } });
+        }
+      } else {
+        for (const name of page.names) await this.storage.deleteJson(name);
+      }
+      processed += page.names.length;
+
+      const nextProgress: DeletionProgress = page.nextCursor
+        ? { stage: progress.stage, cursor: page.nextCursor }
+        : progress.stage === 'trips' ? { stage: 'logs', cursor: null }
+        : progress.stage === 'logs' ? { stage: 'photos', cursor: null }
+        : { stage: 'complete', cursor: null };
+      await this.index(uid, value => {
+        const current = value.deletionProgress ?? { stage: 'trips', cursor: null };
+        if (!value.deleting || value.deletionComplete || current.stage !== progress.stage || current.cursor !== progress.cursor) return;
+        value.deletionProgress = nextProgress;
+        if (nextProgress.stage === 'complete') {
+          value.trips = []; value.logs = []; value.photos = {}; value.migration = {};
+          value.deletionComplete = true;
+        }
+      });
+      if (page.names.length === 0 && page.nextCursor) continue;
     }
-    for (const prefix of [`logs/${hash(uid)}/`, `trip-photos/${hash(uid)}/`]) {
-      for (const name of await this.storage.listJsonNames(prefix)) await this.storage.deleteJson(name);
-    }
-    await this.index(uid, v => { v.trips = []; v.logs = []; v.photos = {}; v.migration = {}; v.deleting = true; v.deletionComplete = true; });
+    return Boolean((await this.storage.readJson<UserIndex>(indexKey(uid)))?.deletionComplete);
   }
   async maintenance() {
     const checkpoint = await this.storage.readJson<MaintenanceDocument>(maintenanceKey) ?? emptyMaintenance();
@@ -401,7 +438,11 @@ export function isTripStorageDocument(value: unknown): boolean {
   if (v.kind === 'log') return typeof v.uid === 'string' && isTripId(v.id) && (v.log === null || isLogInput(v.log));
   if (v.kind === 'photo') return isTripId(v.id) && typeof v.uid === 'string' && typeof v.data === 'string';
   if (v.kind === 'trip-maintenance') return !!v.cursors && ['trip-index/', 'trips/', 'logs/'].every(prefix => v.cursors[prefix as MaintenancePrefix] === null || typeof v.cursors[prefix as MaintenancePrefix] === 'string');
-  return v.kind === 'trip-index' && typeof v.uid === 'string' && Array.isArray(v.trips) && Array.isArray(v.logs) && !!v.photos;
+  if (v.kind === 'trip-index') return typeof v.uid === 'string' && Array.isArray(v.trips) && Array.isArray(v.logs) && !!v.photos
+    && (v.deletionProgress === undefined || (!!v.deletionProgress
+      && ['trips', 'logs', 'photos', 'complete'].includes(v.deletionProgress.stage)
+      && (v.deletionProgress.cursor === null || typeof v.deletionProgress.cursor === 'string')));
+  return false;
 }
 let instance: TripStorage | null = null;
 export function tripStorage() {

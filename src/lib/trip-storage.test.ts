@@ -151,6 +151,19 @@ describe('private trips and collaborative planning', () => {
     expect(await store.storage.listJsonNames('logs/')).toEqual([]);
     await expect(store.list('alice')).rejects.toMatchObject({ status: 410 });
   });
+  it('continues account deletion through durable bounded trip pages', async () => {
+    const first = await create(), second = await create();
+    let complete = await store.deleteAccount('alice', 1);
+    expect(complete).toBe(false);
+    const tripDocs = await Promise.all((await store.storage.listJsonNames('trips/')).map(name => store.storage.readJson<{ trip: Trip; deleted: boolean }>(name)));
+    expect(tripDocs.filter(doc => doc?.deleted)).toHaveLength(1);
+    expect(tripDocs.filter(doc => !doc?.deleted)).toHaveLength(1);
+    for (let attempt = 0; attempt < 10 && !complete; attempt += 1) complete = await store.deleteAccount('alice', 1);
+    expect(complete).toBe(true);
+    expect((await store.storage.readJson<{ deletionComplete?: boolean }>((await store.storage.listJsonNames('trip-index/'))[0]!))?.deletionComplete).toBe(true);
+    const deletedTrips = await Promise.all((await store.storage.listJsonNames('trips/')).map(name => store.storage.readJson<{ deleted: boolean }>(name)));
+    expect(deletedTrips.every(doc => doc?.deleted)).toBe(true);
+  });
   it('persists bounded maintenance cursors and advances across pages', async () => {
     for (let i = 0; i < 101; i += 1) {
       await store.storage.writeJson(`trip-index/${String(i).padStart(3, '0')}.json`, {
