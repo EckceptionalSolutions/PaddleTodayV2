@@ -18,7 +18,7 @@ const button = (action: string, label: string, primary = false) => `<button type
 const emailField = (email = '') => `<label class="trip-wide">Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(email)}"></label>`;
 const providers = (user: User) => user.providerData.map(p => p.providerId === 'google.com' ? 'Google' : p.providerId === 'password' ? 'Email link' : p.providerId).join(', ') || 'No sign-in method found';
 let auth: ReturnType<typeof firebaseWebAuth> | null = null;
-let user: User | null = null, busy = false, notice = '', failed = false, pendingEmail = '', emailEntryShown = false, emailLinkExpired = false, deletionReady = false, deletionComplete = false;
+let user: User | null = null, busy = false, notice = '', failed = false, pendingEmail = '', emailEntryShown = false, emailLinkExpired = false, emailConnectionExpanded = false, deletionReady = false, deletionComplete = false;
 try { auth = firebaseWebAuth(); }
 catch (error) {
   console.error('PaddleToday web sign-in could not initialize.', error);
@@ -31,10 +31,13 @@ function render(startupError?: string) {
   const emailCallback = Boolean(auth && isSignInWithEmailLink(auth, location.href));
   root.innerHTML = `<div class="trip-notice ${failed ? 'error' : ''}" role="status" ${notice ? '' : 'hidden'}>${esc(notice)}</div>
     ${deletionComplete ? '<section class="trip-card"><h1>Your account was deleted</h1><p>Your active account data has been removed.</p></section>' : user ? `<section class="trip-card"><p class="trip-eyebrow">Account</p><h1>${esc(user.displayName || user.email || 'Your account')}</h1><p>Connected sign-in methods: ${esc(providers(user))}</p><div class="trip-actions"><a class="trip-button" href="/trips/">Open My trips</a>${button('export', 'Export my trips')}${!user.providerData.some(p => p.providerId === GoogleAuthProvider.PROVIDER_ID) ? button('link-google', 'Connect Google') : ''}${button('sign-out', 'Sign out')}</div>
-      ${!user.providerData.some(p => p.providerId === EmailAuthProvider.PROVIDER_ID) ? `<h2>Connect email</h2><div class="trip-fields">${emailField(pendingEmail || user.email || '')}</div><div class="trip-actions">${emailCallback && !emailLinkExpired ? button('complete-email', 'Finish email link', true) : button('send-link', 'Send link to connect email', true)}</div>` : ''}
+      ${!user.providerData.some(p => p.providerId === EmailAuthProvider.PROVIDER_ID) ? `<details class="trip-auth-methods" data-email-link-options ${emailConnectionExpanded ? 'open' : ''}><summary>Add another sign-in method <span>Optional</span></summary><p>Google will keep working. Add an email link as another way to sign in to this account; you can use the same address.</p><div class="trip-fields">${emailField(pendingEmail || user.email || '')}</div><div class="trip-actions">${emailCallback && !emailLinkExpired ? button('complete-email', 'Finish email sign-in', true) : button('send-link', 'Send email sign-in link', true)}</div></details>` : ''}
       <hr><h2>Delete account</h2><p>This removes your account, saved routes and notes backed up to it, trips you own, personal paddle logs, and photos. Copies stored only in this browser are not automatically removed. Trips owned by someone else remain with that organizer. This action cannot be undone.</p>${deletionReady ? '<p>Identity verified. Confirm deletion to continue.</p>' : ''}${button('delete', deletionReady ? 'Confirm delete account' : 'Continue to delete account')}</section>`
       : `<section class="trip-auth"><p class="trip-eyebrow">Welcome to PaddleToday</p><h1>Manage your account</h1><div class="trip-actions">${button('google', 'Continue with Google', true)}${!emailEntryShown ? button('show-email', 'Continue with email') : ''}</div>${emailEntryShown || pendingEmail || emailCallback ? `<div class="trip-fields">${emailField(pendingEmail)}</div><div class="trip-actions">${emailCallback && !emailLinkExpired ? button('complete-email', 'Finish email sign-in', true) : button('send-link', 'Send sign-in link', true)}</div>` : ''}</section>`}
     ${busy ? '<p role="status">Please wait…</p>' : ''}`;
+  root.querySelector<HTMLDetailsElement>('[data-email-link-options]')?.addEventListener('toggle', event => {
+    emailConnectionExpanded = (event.currentTarget as HTMLDetailsElement).open;
+  });
   root.querySelectorAll<HTMLButtonElement>('button[data-action]').forEach(value => { value.disabled = busy; });
 }
 
