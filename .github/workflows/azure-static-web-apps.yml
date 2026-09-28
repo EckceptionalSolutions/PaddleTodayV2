@@ -80,7 +80,7 @@ jobs:
           node scripts/assert-firebase-web-config.mjs
           npx astro build
           cp staticwebapp.config.json dist/staticwebapp.config.json
-          node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload') throw new Error('Static Web Apps security headers are not configured');"
+          node -e "const c = require('./dist/staticwebapp.config.json'); const h = c.globalHeaders || {}; if (h['Strict-Transport-Security'] !== 'max-age=31536000; includeSubDomains; preload' || h['Permissions-Policy'] !== 'geolocation=(self), microphone=(), camera=()') throw new Error('Static Web Apps security headers are not configured');"
 
       - name: Audit built search indexability
         if: github.event_name != 'workflow_dispatch' || !inputs.verify_existing_assets
