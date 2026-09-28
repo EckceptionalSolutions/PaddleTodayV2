@@ -16,7 +16,7 @@ const getSession = (key: string) => { try { return sessionStorage.getItem(key); 
 const setSession = (key: string, value: string) => { try { sessionStorage.setItem(key, value); } catch { /* Firebase also limits repeated email-link requests. */ } };
 const esc = (v: unknown) => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
 const button = (action: string, label: string, id = '', primary = false) => `<button type="button" data-action="${action}" data-id="${esc(id)}" class="${primary ? 'primary' : ''}">${esc(label)}</button>`;
-const tripTab = (name: 'upcoming' | 'past', label: string) => `<button type="button" role="tab" id="trip-tab-${name}" aria-controls="trip-list-panel" aria-selected="${tab === name}" tabindex="${tab === name ? 0 : -1}" data-action="${name}">${label}</button>`;
+const tripTab = (name: 'upcoming' | 'past', label: string, count: number) => `<button type="button" role="tab" id="trip-tab-${name}" aria-controls="trip-list-panel" aria-selected="${tab === name}" tabindex="${tab === name ? 0 : -1}" data-action="${name}"><span>${label}</span><span class="trip-tab-count" aria-label="${count} ${label.toLowerCase()}">${count}</span></button>`;
 const field = (name: string, label: string, value: string, type = 'text', wide = false, required = false) => `<label class="${wide ? 'trip-wide' : ''}">${esc(label)}<input name="${name}" type="${type}" value="${esc(value)}" ${required ? 'required aria-required="true"' : ''} ${name === 'email' ? 'autocomplete="email" placeholder="you@example.com"' : ''}></label>`;
 const area = (name: string, label: string, value: string) => `<label class="trip-wide">${esc(label)}<textarea name="${name}">${esc(value)}</textarea></label>`;
 const commonTimeZones: [string, string][] = [
@@ -35,6 +35,7 @@ if (!invite && selected && location.pathname === '/account/web/') {
   try { const pending = JSON.parse(getLocal('trip-pending-invite') || 'null'); if (pending?.id === selected) invite = pending.token; } catch { /* An original invite can be reopened. */ }
 }
 let user: User | null = null, repo: TripRepository | null = null, unsubscribe: (() => void) | null = null;
+let authStateInitialized = false;
 let tab: 'upcoming' | 'past' = 'upcoming', notice = '', error = false, busy = false, emailShown = false, linkEmail = false, emailCallbackDetected = false, pendingEmail = '';
 let editing: TripPlan | null = null, editingId = '', logEdit: PaddleLogInput | null = null, logId = '';
 let editingBaseline: TripPlan | undefined;
@@ -62,9 +63,9 @@ function render() {
   const state = clientState(), trip = state?.trips[selected];
   const alreadyJoined = Boolean(user && trip);
   root.innerHTML = `<div data-trip-status role="status" class="trip-notice ${error ? 'error' : ''}" ${notice ? '' : 'hidden'}>${esc(notice)}</div>
-    ${user ? `<div class="trip-toolbar"><span>${esc(user.displayName || user.email || 'Your account')}</span><div class="trip-actions">${button('account', 'Account settings')}${button('refresh', 'Refresh')}${button('export', 'Export my trips')}${!user.providerData.some(p => p.providerId === GoogleAuthProvider.PROVIDER_ID) ? button('link-google', 'Connect Google') : ''}${!user.providerData.some(p => p.providerId === EmailAuthProvider.PROVIDER_ID) ? button('link-email', 'Connect email') : ''}${button('sign-out', 'Sign out')}</div></div>` : ''}
+    ${user ? `<div class="trip-session-bar"><span class="trip-session-bar__identity"><span class="trip-session-bar__dot" aria-hidden="true"></span>Signed in as <strong>${esc(user.displayName || user.email || 'your account')}</strong></span><div class="trip-actions"><a class="trip-button" href="/account/">Account settings</a>${button('refresh', 'Refresh trips')}</div></div>` : ''}
     ${invite ? `<section class="trip-card"><h2>${invitePreview ? esc(invitePreview.title) : 'Trip invitation'}</h2><p>${invitePreview ? `${esc(invitePreview.route.name)} · ${esc(invitePreview.date || 'Date to be decided')}` : esc(inviteError || 'Checking this invitation…')}</p>${invitePreview ? `<p>Join this trip to see the itinerary, respond, and coordinate with your group.</p>${alreadyJoined ? '<p>You already have access to this trip.</p>' : user ? button('join', 'Join trip', '', true) : '<p>Sign in below to join.</p>'}` : ''}</section>` : ''}
-    ${!user && !editing ? authMarkup() : ''}
+    ${!user && !editing && !emailShown ? authMarkup() : ''}
     ${emailShown ? emailLinkMarkup() : ''}
     ${state?.pending.length ? `<p class="trip-notice">${state.pending.length} change(s) waiting to sync.${state.pending.filter(p => p.error).map(p => `<br>${esc(p.error)} ${button('recover', 'Review saved change', p.key)}`).join('')}</p>` : ''}
     ${recovery ? recoveryMarkup() : editing ? planMarkup() : logEdit ? logMarkup() : trip ? detailMarkup(trip) : listMarkup()}
@@ -76,7 +77,7 @@ function render() {
   if (logEdit) void loadPhotos();
 }
 function authMarkup() {
-  return `<section class="trip-auth"><p class="trip-eyebrow">Welcome to PaddleToday</p><h2>Your next paddle starts here</h2><div class="trip-actions">${button('google', 'Continue with Google', '', true)}${!emailShown ? button('email', 'Continue with email') : ''}</div><p class="trip-muted">You can also start a trip before signing in.</p></section>`;
+  return `<aside class="trip-signin-prompt"><div><p class="trip-eyebrow">Your account</p><p><strong>Sign in to see trips saved to your account.</strong><span>You can also plan a trip as a guest.</span></p></div><div class="trip-actions">${button('google', 'Continue with Google', '', true)}${button('email', 'Continue with email')}</div></aside>`;
 }
 function emailLinkMarkup() {
   return `<section class="trip-card"><h2>${linkEmail ? 'Connect email to your account' : 'Continue with email'}</h2><div class="trip-fields">${field('email', 'Email address', pendingEmail || getLocal('trip-email') || (linkEmail ? user?.email || '' : ''), 'email', true)}</div><div class="trip-actions">${button('send-email', linkEmail ? 'Send link to connect email' : 'Send sign-in link', '', true)}${emailCallbackDetected ? button('complete-email', 'Finish email sign-in') : ''}${button('cancel-email', 'Cancel')}</div></section>`;
@@ -92,14 +93,37 @@ function authMessage(value: unknown) {
 }
 function listMarkup() {
   const state = clientState();
-  const trips = Object.values(state?.trips ?? {}).filter(t => t.title.toLowerCase().includes(search.toLowerCase())).sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999'));
-  const logs = Object.values(state?.logs ?? {}).filter(l => l.route.name.toLowerCase().includes(search.toLowerCase())).sort((a, b) => b.date.localeCompare(a.date));
-  const rows = tab === 'upcoming' ? trips.filter(t => t.status === 'planned').map(t => `<article class="trip-card"><span class="trip-badge">${t.date ? esc(t.date) : 'Draft'}</span><h2>${esc(t.title)}</h2><p>${esc(t.route.putInName)} → ${esc(t.route.takeOutName)}</p><p class="trip-muted">${t.members.length > 1 ? `${t.members.length} paddlers` : 'Your trip'}${(state?.viewed[t.id] ?? 0) < t.revision ? ' · Updated since your last visit' : ''}</p>${button('open', 'Open trip', t.id, true)}</article>`)
-    : logs.map(l => `<article class="trip-card"><p class="trip-eyebrow">${esc(l.date)}</p><h2>${esc(l.route.name)}</h2><p>${esc(l.notes.slice(0, 160))}</p><p class="trip-muted">${l.paddleAgain === 'yes' ? 'Would paddle again' : l.paddleAgain === 'no' ? 'Would choose another route' : ''}</p>${button('edit-log', 'Open paddle log', l.id)} ${button('again-log', 'Plan again', l.id)}</article>`);
-  return `<div class="trip-toolbar"><h1>My trips</h1><div class="trip-actions">${button('new', 'Plan a trip', '', true)}${user ? button('new-log', 'Add past paddle') : ''}</div></div>
-    <div class="trip-tabs" role="tablist" aria-label="Trip lists">${tripTab('upcoming', 'Upcoming')}${tripTab('past', 'Past')}</div>
-    <section id="trip-list-panel" role="tabpanel" aria-labelledby="trip-tab-${tab}" tabindex="0"><label>Find a trip <input class="trip-search" name="search" value="${esc(search)}" placeholder="River or trip name"></label><div class="trip-grid" style="margin-top:20px">${rows.join('') || `<div class="trip-card trip-empty"><h2>${tab === 'past' ? 'Remember your time on the water' : 'Where will you paddle next?'}</h2><p>${tab === 'past' ? 'Add a paddle to start your personal log.' : 'Choose a route, make a plan, and invite your paddling partners.'}</p></div>`}</div>
-    ${tab === 'past' ? trips.filter(t => t.status !== 'planned').map(t => `<article class="trip-card"><h3>${esc(t.title)} · ${esc(t.status)}</h3>${button('open', 'Open plan', t.id)} ${button('log-trip', 'Log my paddle', t.id)}</article>`).join('') : ''}</section>`;
+  const query = search.trim().toLocaleLowerCase();
+  const includesQuery = (values: Array<string | undefined>) => !query || values.some(value => value?.toLocaleLowerCase().includes(query));
+  const allTrips = Object.values(state?.trips ?? {});
+  const allLogs = Object.values(state?.logs ?? {});
+  const sortUpcoming = (a: Trip, b: Trip) => (a.date || '9999').localeCompare(b.date || '9999');
+  const sortPast = (a: Trip, b: Trip) => (b.date || '').localeCompare(a.date || '');
+  const planned = allTrips.filter(t => t.status === 'planned').sort(sortUpcoming);
+  const completed = allTrips.filter(t => t.status !== 'planned').sort(sortPast);
+  const upcoming = planned.filter(t => includesQuery([t.title, t.route.name, t.route.putInName, t.route.takeOutName]));
+  const pastPlans = completed.filter(t => includesQuery([t.title, t.route.name, t.route.putInName, t.route.takeOutName]));
+  const logs = allLogs.filter(l => includesQuery([l.route.name, l.route.putInName, l.route.takeOutName, l.notes])).sort((a, b) => b.date.localeCompare(a.date));
+  const pastCount = completed.length + allLogs.length;
+  const planCard = (t: Trip, past = false) => `<article class="trip-card trip-list-card"><div class="trip-list-card__meta"><span class="trip-badge">${past ? esc(t.status) : t.date ? `<time datetime="${esc(t.date)}">${esc(t.date)}</time>` : 'Draft'}</span><span class="trip-muted">${t.members.length > 1 ? `${t.members.length} paddlers` : 'Your trip'}</span></div><h3>${esc(t.title)}</h3><p class="trip-list-card__route">${esc(t.route.name)}${t.route.putInName || t.route.takeOutName ? ` · ${esc(t.route.putInName || 'Put-in TBD')} → ${esc(t.route.takeOutName || 'Take-out TBD')}` : ''}</p>${!past && (state?.viewed[t.id] ?? 0) < t.revision ? '<p class="trip-list-card__update">Updated since your last visit</p>' : ''}<div class="trip-actions">${button('open', past ? 'Open plan' : 'View trip', t.id, true)}${past ? button('log-trip', 'Log this paddle', t.id) : ''}</div></article>`;
+  const logCard = (l: PaddleLogInput & { id: string }) => `<article class="trip-card trip-list-card"><div class="trip-list-card__meta"><span class="trip-badge"><time datetime="${esc(l.date)}">${esc(l.date)}</time></span>${l.paddleAgain ? `<span class="trip-muted">${l.paddleAgain === 'yes' ? 'Would paddle again' : l.paddleAgain === 'no' ? 'Would choose another route' : 'Maybe another time'}</span>` : ''}</div><h3>${esc(l.route.name || 'Paddle log')}</h3><p class="trip-list-card__route">${esc(l.route.putInName)}${l.route.putInName || l.route.takeOutName ? ' → ' : ''}${esc(l.route.takeOutName)}</p>${l.notes ? `<p>${esc(l.notes.slice(0, 160))}${l.notes.length > 160 ? '…' : ''}</p>` : ''}<div class="trip-actions">${button('edit-log', 'Open paddle log', l.id)}${button('again-log', 'Plan this route again', l.id, true)}</div></article>`;
+  const upcomingBody = upcoming.length ? `<div class="trip-grid">${upcoming.map(t => planCard(t)).join('')}</div>` : '';
+  const pastBody = [
+    pastPlans.length ? `<section class="trip-list-group"><h2>Completed plans</h2><div class="trip-grid">${pastPlans.map(t => planCard(t, true)).join('')}</div></section>` : '',
+    logs.length ? `<section class="trip-list-group"><h2>Paddling log</h2><div class="trip-grid">${logs.map(l => logCard(l)).join('')}</div></section>` : '',
+  ].filter(Boolean).join('');
+  const searchAvailable = allTrips.length + allLogs.length > 0;
+  const emptyState = query
+    ? `<div class="trip-card trip-empty"><h2>No trips found</h2><p>Nothing matches “${esc(search.trim())}”. Try another river or trip name.</p>${button('clear-search', 'Clear search')}</div>`
+      : tab === 'upcoming'
+      ? `<div class="trip-card trip-empty"><p class="trip-eyebrow">Upcoming</p><h2>Ready for your next paddle?</h2><p>Your trip plans will appear here. Start one whenever you’re ready.</p></div>`
+      : `<div class="trip-card trip-empty"><p class="trip-eyebrow">Past</p><h2>Your time on the water, remembered</h2><p>Completed plans and paddles you log will appear here.</p>${user ? button('new-log', 'Add a past paddle', '', true) : ''}</div>`;
+  const content = tab === 'upcoming' ? upcomingBody : pastBody;
+  const visibleRows = tab === 'upcoming' ? upcoming.length : pastPlans.length + logs.length;
+  return `<header class="trip-page-heading"><div><p class="trip-eyebrow">Your paddles</p><h1>My trips</h1><p>Plan a paddle, bring your group together, and keep a record of days on the water.</p></div><div class="trip-actions">${button('new', 'Plan a trip', '', true)}${user ? button('new-log', 'Log a paddle') : ''}</div></header>
+    <div class="trip-tabs" role="tablist" aria-label="Trip lists">${tripTab('upcoming', 'Upcoming', planned.length)}${tripTab('past', 'Past', pastCount)}</div>
+    ${searchAvailable ? `<label class="trip-search-field"><span>Search trips</span><input class="trip-search" type="search" name="search" value="${esc(search)}" placeholder="River, trip, or access point"></label>` : ''}
+    <section id="trip-list-panel" class="trip-list-panel" role="tabpanel" aria-labelledby="trip-tab-${tab}" tabindex="0" aria-live="polite">${visibleRows ? content : emptyState}</section>`;
 }
 function planMarkup() {
   const p = editing!;
@@ -110,15 +134,18 @@ function detailMarkup(t: Trip) {
   const owner = t.ownerUid === user?.uid, state = clientState()!;
   const assigned = new Set(t.shuttle.flatMap(v => [v.driverUid, ...v.passengers]));
   const missing = t.members.filter(m => m.rsvp === 'going' && !assigned.has(m.uid)).length;
-  return `<section class="trip-card">${button('home', '← My trips')}<p class="trip-eyebrow">${esc(t.status)} · ${esc(t.date || 'Date to be decided')}</p><h1>${esc(t.title)}</h1><p>${esc(t.route.name)} · ${esc(t.route.putInName)} → ${esc(t.route.takeOutName)}</p><p>${esc(t.launch || 'Launch time to be decided')} ${esc(t.timeZone)}${t.expected ? ` · Return ${esc(t.expected)}` : ''}</p><div class="trip-actions">${button('edit', 'Edit trip', t.id, true)}${webFeatureFlags.tripAppHandoff ? button('phone', 'Open on phone') : ''}${button('log-trip', 'Log this paddle', t.id)}${button('again', 'Plan again', t.id)}${t.route.slug ? `<a class="trip-button" href="/rivers/${esc(t.route.slug)}/">Route & current conditions</a>` : ''}</div>
-    <h2>Itinerary</h2>${t.itinerary.map(s => `<p><strong>${esc(s.time)} ${esc(s.location)}</strong><br>${esc(s.note)}</p>`).join('') || '<p>No meeting stops yet.</p>'}
-    <h2>Paddling partners</h2><div class="trip-fields">${field('memberName', 'My name for this trip', t.members.find(m => m.uid === user?.uid)?.name || '')}</div>${button('member-name', 'Update my name')}${t.members.map(m => `<p>${esc(m.name)} · ${esc(m.rsvp)} ${m.role === 'owner' ? '· Organizer' : ''}${owner && m.uid !== user?.uid ? button('remove-member', 'Remove', m.uid) + button('transfer', 'Make organizer', m.uid) : ''}</p>`).join('')}<div class="trip-actions">${button('rsvp', 'Going', 'going')}${button('rsvp', 'Maybe', 'maybe')}${button('rsvp', 'Not going', 'not-going')}</div>
-    ${owner ? `<div class="trip-actions">${button('invite', 'Invite people')}${button('share', 'Share view-only link')}${button('revoke-invite', 'Revoke invitation')}${button('revoke-view', 'Revoke view link')}</div>` : button('leave', 'Leave trip')}
-    <h2>Shuttle ${missing ? `<span class="trip-badge">${missing} still need a ride</span>` : ''}</h2><p class="trip-muted">Shuttle details are visible only to trip members.</p>${t.shuttle.map(v => `<article class="trip-card"><h3>${esc(v.label)}</h3><p>Driver: ${esc(t.members.find(m => m.uid === v.driverUid)?.name)} · ${v.passengers.length}/${v.seats} passenger seats filled</p><p>${esc(v.meeting)} ${esc(v.time)} · Car stays at ${esc(v.parkedAt)}</p><p>${esc(v.note)}</p><p>${v.passengers.map(p => esc(t.members.find(m => m.uid === p)?.name)).join(', ')}</p>${button('seat', v.passengers.includes(user!.uid) ? 'Leave this ride' : 'Take a seat', v.passengers.includes(user!.uid) ? '' : v.id)}${owner || v.driverUid === user?.uid ? button('edit-vehicle', 'Edit vehicle', v.id) + button('remove-vehicle', 'Remove vehicle', v.id) : ''}</article>`).join('')}
-    <details data-vehicle-editor ${vehicleEdit ? 'open' : ''}><summary>${vehicleEdit ? 'Edit shuttle vehicle' : 'Add my shuttle vehicle'}</summary><div class="trip-fields">${field('vehicleLabel', 'Vehicle label', vehicleEdit ? String(vehicleEdit.vehicle.label) : '')}${field('seats', 'Passenger seats', vehicleEdit ? String(vehicleEdit.vehicle.seats) : '3', 'number')}${field('meeting', 'Meet at', vehicleEdit ? String(vehicleEdit.vehicle.meeting) : '')}${field('meetingTime', 'Meeting time', vehicleEdit ? String(vehicleEdit.vehicle.time) : '', 'time')}${field('parkedAt', 'Car will stay at', vehicleEdit ? String(vehicleEdit.vehicle.parkedAt) : '')}${area('vehicleNote', 'Shuttle notes', vehicleEdit ? String(vehicleEdit.vehicle.note) : '')}</div>${button('vehicle', vehicleEdit ? 'Save vehicle' : 'Add vehicle')}${vehicleEdit ? button('cancel-vehicle', 'Cancel edit') : ''}</details>
-    <h2>Recent changes</h2>${t.activity.slice(-5).reverse().map(a => `<p class="trip-muted">${esc(t.members.find(m => m.uid === a.actor)?.name || 'Paddler')} · ${esc(a.action)} · ${esc(new Date(a.at).toLocaleString())}</p>`).join('')}
-    ${state.recovery[t.id] ? `<details><summary>Original draft details · review time zone</summary><p>Your old draft did not record a time zone. Confirm it in Edit trip. Original private details are retained here.</p><pre class="trip-recovery">${esc(state.recovery[t.id])}</pre></details>` : ''}
-    ${owner ? `<div class="trip-actions">${button('complete', 'Mark plan completed')}${button('cancel-trip', 'Cancel trip')}${button('delete', 'Delete trip')}</div>` : ''}<p class="trip-muted">Review current conditions before launching. PaddleToday does not monitor your trip.</p></section>`;
+  const currentMember = t.members.find(m => m.uid === user?.uid);
+  const rsvpChoices: Array<['going' | 'maybe' | 'not-going', string]> = [['going', 'Going'], ['maybe', 'Maybe'], ['not-going', 'Can’t make it']];
+  const recentActivity = t.activity.slice(-5).reverse();
+  return `<div class="trip-detail">
+    <header class="trip-detail__hero"><div>${button('home', '← My trips')}<p class="trip-eyebrow">${esc(t.status)} · ${esc(t.date || 'Date to be decided')}</p><h1>${esc(t.title)}</h1><p class="trip-detail__route">${esc(t.route.name)}${t.route.putInName || t.route.takeOutName ? ` · ${esc(t.route.putInName || 'Put-in TBD')} → ${esc(t.route.takeOutName || 'Take-out TBD')}` : ''}</p><p class="trip-muted">${esc(t.launch || 'Launch time to be decided')} · ${esc(t.timeZone)}${t.expected ? ` · Return by ${esc(t.expected)}` : ''}</p></div><div class="trip-actions trip-detail__primary-actions">${button('edit', 'Edit trip', t.id, true)}${webFeatureFlags.tripAppHandoff ? button('phone', 'Open on phone') : ''}${button('log-trip', 'Log this paddle', t.id)}${t.route.slug ? `<a class="trip-button" href="/rivers/${esc(t.route.slug)}/">Route conditions</a>` : ''}</div></header>
+    <section class="trip-detail-section"><header class="trip-detail-section__heading"><div><p class="trip-eyebrow">The plan</p><h2>Itinerary</h2></div></header>${t.itinerary.length ? `<ol class="trip-itinerary">${t.itinerary.map(s => `<li><time>${esc(s.time || 'Time TBD')}</time><div><strong>${esc(s.location || 'Meeting place to be decided')}</strong>${s.note ? `<p>${esc(s.note)}</p>` : ''}</div></li>`).join('')}</ol>` : '<p class="trip-muted">No meeting stops yet. Add a stop when you know where to meet.</p>'}</section>
+    <section class="trip-detail-section"><header class="trip-detail-section__heading"><div><p class="trip-eyebrow">The group</p><h2>Paddling partners</h2></div><span class="trip-badge">${t.members.length} ${t.members.length === 1 ? 'paddler' : 'paddlers'}</span></header><div class="trip-member-name"><div class="trip-fields">${field('memberName', 'My name for this trip', currentMember?.name || '')}</div>${button('member-name', 'Update my name')}</div><ul class="trip-member-list">${t.members.map(m => `<li><div><strong>${esc(m.name)}</strong><span>${esc(m.rsvp)}${m.role === 'owner' ? ' · Organizer' : ''}</span></div>${owner && m.uid !== user?.uid ? `<div class="trip-actions">${button('transfer', 'Make organizer', m.uid)}${button('remove-member', 'Remove', m.uid)}</div>` : ''}</li>`).join('')}</ul><div class="trip-actions trip-rsvp-actions" aria-label="Your response">${rsvpChoices.map(([value, label]) => `<button type="button" data-action="rsvp" data-id="${value}" aria-pressed="${currentMember?.rsvp === value}" class="${currentMember?.rsvp === value ? 'primary' : ''}">${label}</button>`).join('')}</div>${owner ? `<div class="trip-actions trip-share-actions">${button('invite', 'Invite people', '', true)}${button('share', 'Share view-only link')}${button('revoke-invite', 'Revoke invitation')}${button('revoke-view', 'Revoke view link')}</div>` : button('leave', 'Leave trip')}</section>
+    <section class="trip-detail-section"><header class="trip-detail-section__heading"><div><p class="trip-eyebrow">Getting there</p><h2>Shuttle</h2></div>${missing ? `<span class="trip-badge">${missing} ${missing === 1 ? 'paddler needs' : 'paddlers need'} a ride</span>` : ''}</header><p class="trip-muted">Shuttle details are visible only to trip members.</p>${t.shuttle.length ? `<div class="trip-shuttle-list">${t.shuttle.map(v => `<article class="trip-shuttle-card"><h3>${esc(v.label)}</h3><p><strong>Driver</strong> ${esc(t.members.find(m => m.uid === v.driverUid)?.name || 'Not set')} · ${v.passengers.length}/${v.seats} passenger seats filled</p><p><strong>Meet</strong> ${esc(v.meeting || 'Location TBD')} · ${esc(v.time || 'Time TBD')}</p><p><strong>Car stays at</strong> ${esc(v.parkedAt || 'Location TBD')}</p>${v.note ? `<p>${esc(v.note)}</p>` : ''}${v.passengers.length ? `<p class="trip-muted">Passengers: ${v.passengers.map(p => esc(t.members.find(m => m.uid === p)?.name || 'Paddler')).join(', ')}</p>` : ''}<div class="trip-actions">${button('seat', v.passengers.includes(user!.uid) ? 'Leave this ride' : 'Take a seat', v.passengers.includes(user!.uid) ? '' : v.id, !v.passengers.includes(user!.uid))}${owner || v.driverUid === user?.uid ? button('edit-vehicle', 'Edit vehicle', v.id) + button('remove-vehicle', 'Remove vehicle', v.id) : ''}</div></article>`).join('')}</div>` : '<p class="trip-empty-inline">No shuttle rides have been arranged yet.</p>'}<details class="trip-vehicle-editor" data-vehicle-editor ${vehicleEdit ? 'open' : ''}><summary>${vehicleEdit ? 'Edit shuttle vehicle' : 'Offer a shuttle ride'}</summary><div class="trip-fields">${field('vehicleLabel', 'Vehicle label', vehicleEdit ? String(vehicleEdit.vehicle.label) : '')}${field('seats', 'Passenger seats', vehicleEdit ? String(vehicleEdit.vehicle.seats) : '3', 'number')}${field('meeting', 'Meet at', vehicleEdit ? String(vehicleEdit.vehicle.meeting) : '')}${field('meetingTime', 'Meeting time', vehicleEdit ? String(vehicleEdit.vehicle.time) : '', 'time')}${field('parkedAt', 'Car will stay at', vehicleEdit ? String(vehicleEdit.vehicle.parkedAt) : '')}${area('vehicleNote', 'Shuttle notes', vehicleEdit ? String(vehicleEdit.vehicle.note) : '')}</div><div class="trip-actions">${button('vehicle', vehicleEdit ? 'Save vehicle' : 'Add ride', '', true)}${vehicleEdit ? button('cancel-vehicle', 'Cancel edit') : ''}</div></details></section>
+    ${recentActivity.length ? `<details class="trip-detail-section trip-activity"><summary><span><span class="trip-eyebrow">History</span><strong>Recent changes</strong></span><span class="trip-badge">${recentActivity.length}</span></summary><ul>${recentActivity.map(a => `<li><span>${esc(t.members.find(m => m.uid === a.actor)?.name || 'Paddler')} · ${esc(a.action)}</span><time>${esc(new Date(a.at).toLocaleString())}</time></li>`).join('')}</ul></details>` : ''}
+    ${state.recovery[t.id] ? `<details class="trip-detail-section"><summary>Original draft details · review time zone</summary><p>Your old draft did not record a time zone. Confirm it in Edit trip. Original private details are retained here.</p><pre class="trip-recovery">${esc(state.recovery[t.id])}</pre></details>` : ''}
+    ${owner ? `<section class="trip-detail-section trip-detail-section--danger"><h2>Organizer actions</h2><p class="trip-muted">These changes affect everyone on this trip.</p><div class="trip-actions">${button('complete', 'Mark plan completed')}${button('cancel-trip', 'Cancel trip')}${button('delete', 'Delete trip')}</div></section>` : ''}<p class="trip-safety-note">Review current conditions before launching. PaddleToday does not monitor your trip.</p>
+  </div>`;
 }
 function logMarkup() {
   const l = logEdit!, water = l.water[0], savedPhotos = clientState()?.logs[logId]?.photos ?? [];
@@ -173,7 +200,9 @@ function validatePlanFields() {
   date.setCustomValidity(launch.value && !date.value ? 'Choose a date when you set a launch time.' : '');
   launch.setCustomValidity(tripTimeIssue(date.value, launch.value, zone.value) ?? '');
   expected.setCustomValidity(tripTimeIssue(date.value, expected.value, zone.value) ?? '');
-  return form.reportValidity();
+  const valid = form.reportValidity();
+  if (!valid) form.querySelector<HTMLElement>(':invalid')?.focus();
+  return valid;
 }
 function captureLog() {
   if (!logEdit) return;
@@ -261,6 +290,7 @@ async function run(action: string, id: string) {
   if (action === 'new') { selected = ''; editingId = ''; editing = newTripPlan(); access = []; return; }
   if (action === 'home') { vehicleEdit = null; selected = ''; history.replaceState(null, '', '/trips/'); return; }
   if (action === 'upcoming' || action === 'past') { tab = action; return; }
+  if (action === 'clear-search') { search = ''; return; }
   if (action === 'open') { selected = id; history.replaceState(null, '', `/trips/?id=${id}`); await repo?.markViewed(id); return; }
   if (action === 'edit') { editingId = id; editing = tripPlan(clientState()!.trips[id]!); editingBaseline = structuredClone(editing); access = []; return; }
   if (action === 'cancel-edit') { editing = null; return; }
@@ -367,7 +397,19 @@ root.addEventListener('keydown', event => {
 });
 root.addEventListener('submit', e => e.preventDefault());
 let editorTimer: ReturnType<typeof setTimeout> | null = null;
-root.addEventListener('input', () => {
+root.addEventListener('input', event => {
+  const target = event.target;
+  if (target instanceof HTMLInputElement && target.name === 'search') {
+    const selectionStart = target.selectionStart, selectionEnd = target.selectionEnd, selectionDirection = target.selectionDirection;
+    search = target.value;
+    render();
+    const replacement = root.querySelector<HTMLInputElement>('[name="search"]');
+    replacement?.focus();
+    if (replacement && selectionStart !== null && selectionEnd !== null) {
+      try { replacement.setSelectionRange(selectionStart, selectionEnd, selectionDirection || undefined); } catch { /* Some browsers restrict selection on search inputs. */ }
+    }
+    return;
+  }
   if (!editing && !logEdit) return;
   notice = 'Unsaved edits are kept in this editor. Save to add them to My trips.'; error = false;
   const status = root.querySelector<HTMLElement>('[data-trip-status]');
@@ -383,7 +425,6 @@ root.addEventListener('input', () => {
 });
 root.addEventListener('change', event => {
   const input = event.target as HTMLInputElement;
-  if (input.name === 'search') { search = input.value; render(); }
   if (input.matches('[data-photos]') && input.files && repo) {
     captureLog();
     const current = repo, destination = logId;
@@ -467,10 +508,23 @@ async function start() {
   onAuthStateChanged(auth, async next => {
     if (next && repo?.uid === next.uid) { user = next; if (!editing && !logEdit) render(); return; }
     const wasSignedIn = Boolean(user);
+    const initialAuthState = !authStateInitialized;
+    authStateInitialized = true;
     unsubscribe?.();
-    const previous = repo; repo = null; user = next; vehicleEdit = null; editing = null; logEdit = null; recovery = null; link = '';
+    const previous = repo; repo = null; user = next; vehicleEdit = null; recovery = null; link = '';
     if (previous) { await previous.settle().catch(() => {}); previous.dispose(); }
-    if (!next) { if (wasSignedIn) { try { await restoreGuestEditor(); } catch { notice = 'Browser storage is unavailable. Guest drafts cannot be restored on this device.'; error = true; } } if (params.get('route')) editing = newTripPlan({ slug: params.get('route')!, name: params.get('name') || params.get('route')! }); render(); return; }
+    if (!next) {
+      logEdit = null;
+      if (wasSignedIn) {
+        editing = null;
+        try { await restoreGuestEditor(); } catch { notice = 'Browser storage is unavailable. Guest drafts cannot be restored on this device.'; error = true; }
+      } else if (!initialAuthState) {
+        editing = null;
+      }
+      if (params.get('route')) editing = newTripPlan({ slug: params.get('route')!, name: params.get('name') || params.get('route')! });
+      render(); return;
+    }
+    editing = null; logEdit = null;
     const session = next.uid, boundApi = createTripsClient(location.origin, async () => {
       if (auth?.currentUser?.uid !== session) throw new Error('This account session has ended.');
       return next.getIdToken();

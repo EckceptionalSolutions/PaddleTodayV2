@@ -2,7 +2,8 @@ import { test, expect } from '@playwright/test';
 
 test('web-first privacy copy keeps saved-route sync claims disabled by default', async ({ page }) => {
   await page.goto('/privacy/');
-  await expect(page.locator('li').filter({ hasText: 'routes and notes saved on this website stay in that browser' })).toBeVisible();
+  const accountPurpose = page.locator('li').filter({ hasText: 'If you create an account' });
+  await expect(accountPurpose).toContainText('routes and notes saved on this website stay in that browser');
 });
 
 test('a trip can be started without signing in, and email stays collapsed', async ({ page }) => {
@@ -10,6 +11,7 @@ test('a trip can be started without signing in, and email stays collapsed', asyn
   await page.goto('/trips/');
   await expect(page.getByRole('heading', { name: 'My trips', exact: true })).toBeVisible();
   await expect(page.getByLabel('Email address')).toHaveCount(0);
+  await expect(page.getByLabel('Search trips')).toHaveCount(0);
   await page.getByRole('button', { name: 'Continue with email' }).click();
   await expect(page.getByPlaceholder('you@example.com')).toBeVisible();
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
@@ -26,6 +28,9 @@ test('trip lists expose keyboard-operable tabs and editors offer a clear time-zo
   const upcoming = page.getByRole('tab', { name: 'Upcoming' });
   const past = page.getByRole('tab', { name: 'Past' });
   await expect(upcoming).toHaveAttribute('aria-selected', 'true');
+  const selectedBackground = await upcoming.evaluate(element => getComputedStyle(element).backgroundColor);
+  const unselectedBackground = await past.evaluate(element => getComputedStyle(element).backgroundColor);
+  expect(selectedBackground).not.toBe(unselectedBackground);
   await upcoming.focus();
   await upcoming.press('ArrowRight');
   await expect(past).toHaveAttribute('aria-selected', 'true');
@@ -45,9 +50,10 @@ test('trip plan validation focuses missing details and flags skipped local times
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
   const save = page.getByRole('button', { name: 'Save and sign in' });
   const title = page.getByLabel('Trip title', { exact: true });
+  const route = page.getByLabel('River or location', { exact: true });
   await save.click();
-  await expect(title).toBeFocused();
-  expect(await title.evaluate(element => (element as HTMLInputElement).checkValidity())).toBe(false);
+  await expect(route).toBeFocused();
+  expect(await route.evaluate(element => (element as HTMLInputElement).checkValidity())).toBe(false);
 
   await title.fill('Spring paddle');
   await page.getByLabel('River or location', { exact: true }).fill('Test River');
@@ -85,13 +91,17 @@ test('an unfinished guest editor survives a page reload', async ({ page }) => {
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
   await page.getByLabel('Trip title', { exact: true }).fill('Unfinished Saturday paddle');
   await page.getByLabel('River or location', { exact: true }).fill('Test River');
-  await expect.poll(() => page.evaluate(async () => {
+  const readGuestEditor = () => page.evaluate(async () => {
     return await new Promise<string | null>((resolve, reject) => {
       const request = indexedDB.open('paddletoday-trips');
       request.onerror = () => reject(request.error);
       request.onsuccess = () => { const db = request.result; const get = db.transaction('state').objectStore('state').get('trip-editor:guest'); get.onsuccess = () => { resolve(get.result ?? null); db.close(); }; get.onerror = () => reject(get.error); };
     });
-  })).toContain('Unfinished Saturday paddle');
+  });
+  await expect.poll(async () => {
+    const value = await readGuestEditor();
+    return Boolean(value?.includes('Unfinished Saturday paddle') && value.includes('Test River'));
+  }).toBe(true);
   await page.reload();
   await expect(page.getByLabel('Trip title', { exact: true })).toHaveValue('Unfinished Saturday paddle');
   await expect(page.getByLabel('River or location', { exact: true })).toHaveValue('Test River');

@@ -26,7 +26,7 @@ let searchBackground = [];
 
 const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
 const APP_DOWNLOAD_DISMISS_DAYS = 30;
-const APP_DOWNLOAD_EXCLUDED_PATHS = ['/admin/', '/privacy/', '/terms/'];
+const APP_DOWNLOAD_EXCLUDED_PATHS = ['/account/', '/admin/', '/privacy/', '/terms/', '/trips/'];
 
 function isRouteDetailPath(path) {
   return /^\/rivers\/[^/]+\/?$/.test(path);

@@ -16,6 +16,13 @@ test('the first available store action is primary on every platform', async ({ p
   }
 });
 
+test('the app prompt stays out of private account and trip flows', async ({ page }) => {
+  for (const path of ['/account/', '/account/web/', '/trips/']) {
+    await page.goto(path);
+    await expect(page.locator('[data-app-download-prompt]')).toBeHidden();
+  }
+});
+
 test('phone footer remains reachable above the app prompt and dismissal persists', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
