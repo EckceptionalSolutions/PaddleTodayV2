@@ -1,18 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WebAccountFeaturesPaused from '../../components/WebAccountFeaturesPaused.astro';
+import { webFeatureFlags } from '../../lib/web-feature-flags';
 ---
 
 <BaseLayout
-  title="Shared trip plan | Paddle Today"
+  title={webFeatureFlags.webAccountExperience ? "Shared trip plan | Paddle Today" : "Paddle Today"}
   description="A route and launch plan shared from PaddleToday."
   socialTitle="A PaddleToday trip plan"
   socialDescription="Open a read-only route and launch plan."
   noindex
   privatePage
-  headerTitle="A shared trip plan"
-  headerBlurb="Route details to help your group get organized."
+  headerTitle={webFeatureFlags.webAccountExperience ? "A shared trip plan" : "Find the best paddle near you today"}
+  headerBlurb={webFeatureFlags.webAccountExperience ? "Route details to help your group get organized." : "Live score, water level, and weather."}
 >
-  <div class="shared-trip-page">
+  {webFeatureFlags.webAccountExperience ? <div class="shared-trip-page" id="shared-trip-page">
     <article class="shared-trip-card" data-shared-trip hidden>
       <p class="shared-trip-eyebrow">Shared trip plan</p>
       <h1 data-route-name></h1>
@@ -34,43 +36,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p>The plan details are missing or invalid. Ask the person who shared it to send a new link.</p>
       <a class="shared-trip-route-link" href="/">Explore routes</a>
     </section>
-  </div>
+  </div> : <WebAccountFeaturesPaused />}
 
   <script>
-    import { decodeSharedTripPlan } from '@paddletoday/api-contract';
-
-    const planText = new URLSearchParams(window.location.hash.slice(1)).get('plan');
-    const plan = decodeSharedTripPlan(planText);
-    const card = document.querySelector<HTMLElement>('[data-shared-trip]');
-    const error = document.querySelector<HTMLElement>('[data-invalid-trip]');
-    if (plan && card && error) {
-      const routeName = card.querySelector<HTMLElement>('[data-route-name]');
-      const accessPoints = card.querySelector<HTMLElement>('[data-access-points]');
-      const launchTime = card.querySelector<HTMLElement>('[data-launch-time]');
-      const routeLink = card.querySelector<HTMLAnchorElement>('[data-route-link]');
-      if (routeName && accessPoints && launchTime && routeLink) {
-        routeName.textContent = plan.routeName;
-        accessPoints.textContent = `${plan.putInName} to ${plan.takeOutName}`;
-        launchTime.textContent = formatLaunchTime(plan.launchLocal, plan.timeZone);
-        const routeUrl = new URL(`/rivers/${plan.routeSlug}/`, window.location.origin);
-        routeUrl.searchParams.set('putin', plan.putInId);
-        routeUrl.searchParams.set('takeout', plan.takeOutId);
-        routeLink.href = routeUrl.toString();
-        card.hidden = false;
-        error.hidden = true;
+    if (document.getElementById('shared-trip-page')) {
+      const { decodeSharedTripPlan } = await import('@paddletoday/api-contract');
+      const planText = new URLSearchParams(window.location.hash.slice(1)).get('plan');
+      const plan = decodeSharedTripPlan(planText);
+      const card = document.querySelector<HTMLElement>('[data-shared-trip]');
+      const error = document.querySelector<HTMLElement>('[data-invalid-trip]');
+      if (plan && card && error) {
+        const routeName = card.querySelector<HTMLElement>('[data-route-name]');
+        const accessPoints = card.querySelector<HTMLElement>('[data-access-points]');
+        const launchTime = card.querySelector<HTMLElement>('[data-launch-time]');
+        const routeLink = card.querySelector<HTMLAnchorElement>('[data-route-link]');
+        if (routeName && accessPoints && launchTime && routeLink) {
+          routeName.textContent = plan.routeName;
+          accessPoints.textContent = `${plan.putInName} to ${plan.takeOutName}`;
+          launchTime.textContent = formatLaunchTime(plan.launchLocal, plan.timeZone);
+          const routeUrl = new URL(`/rivers/${plan.routeSlug}/`, window.location.origin);
+          routeUrl.searchParams.set('putin', plan.putInId);
+          routeUrl.searchParams.set('takeout', plan.takeOutId);
+          routeLink.href = routeUrl.toString();
+          card.hidden = false;
+          error.hidden = true;
+        }
       }
-    }
 
-    function formatLaunchTime(value: string, timeZone: string) {
-      const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/.exec(value);
-      if (!match) return value;
-      const [, year, month, day, hour, minute] = match;
-      const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day), 12));
-      const dateText = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(date);
-      const hourNumber = Number(hour);
-      const period = hourNumber < 12 ? 'AM' : 'PM';
-      const hourText = String(hourNumber % 12 || 12);
-      return `${dateText} at ${hourText}:${minute} ${period} (${timeZone})`;
+      function formatLaunchTime(value: string, timeZone: string) {
+        const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})$/.exec(value);
+        if (!match) return value;
+        const [, year, month, day, hour, minute] = match;
+        const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day), 12));
+        const dateText = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(date);
+        const hourNumber = Number(hour);
+        const period = hourNumber < 12 ? 'AM' : 'PM';
+        const hourText = String(hourNumber % 12 || 12);
+        return `${dateText} at ${hourText}:${minute} ${period} (${timeZone})`;
+      }
     }
   </script>
 

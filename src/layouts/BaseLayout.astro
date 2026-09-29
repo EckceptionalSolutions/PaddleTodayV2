@@ -1,6 +1,7 @@
 ---
 import FeatureIcon from '../components/FeatureIcon.astro';
 import { listRiverStateGroups } from '../lib/rivers';
+import { webFeatureFlags } from '../lib/web-feature-flags';
 
 type Props = {
   title: string;
@@ -200,8 +201,8 @@ const appDownloadConfigJson = JSON.stringify({
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
             <nav class="site-header__nav" aria-label="Primary">
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/trips/" aria-current={currentPage === '/trips' ? 'page' : undefined}>My trips</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/account/" aria-current={currentPage === '/account' ? 'page' : undefined}>Account</a>
+              {webFeatureFlags.webAccountExperience && <a class="site-header__nav-link site-header__nav-link--primary" href="/trips/" aria-current={currentPage === '/trips' ? 'page' : undefined}>My trips</a>}
+              {webFeatureFlags.webAccountExperience && <a class="site-header__nav-link site-header__nav-link--primary" href="/account/" aria-current={currentPage === '/account' ? 'page' : undefined}>Account</a>}
               <a class="site-header__nav-link site-header__nav-link--primary" href="/" aria-current={currentPage === '/' ? 'page' : undefined}>Today</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/" aria-current={currentPage === '/weekend' ? 'page' : undefined}>Weekend</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/" aria-current={currentPage === '/explore' ? 'page' : undefined}>

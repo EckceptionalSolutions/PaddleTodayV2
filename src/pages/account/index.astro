@@ -1,8 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WebAccountFeaturesPaused from '../../components/WebAccountFeaturesPaused.astro';
+import { webFeatureFlags } from '../../lib/web-feature-flags';
 ---
-<BaseLayout title="Account | PaddleToday" noindex privatePage headerTitle="Account" headerBlurb="Manage your PaddleToday account.">
-  <div class="trips-page"><div id="account-app"><p role="status">Loading account…</p></div></div>
-  <script>import '../../scripts/account-page';</script>
-  <link rel="stylesheet" href="/styles/trips.css?v=20260928-account-trips-ux" />
+<BaseLayout
+  title={webFeatureFlags.webAccountExperience ? 'Account | PaddleToday' : 'PaddleToday'}
+  noindex
+  privatePage
+  headerTitle={webFeatureFlags.webAccountExperience ? 'Account' : 'Find the best paddle near you today'}
+  headerBlurb={webFeatureFlags.webAccountExperience ? 'Manage your PaddleToday account.' : 'Live score, water level, and weather.'}
+>
+  <div class="trips-page">
+    {webFeatureFlags.webAccountExperience ? <div id="account-app"><p role="status">Loading account…</p></div> : <WebAccountFeaturesPaused />}
+  </div>
+  {webFeatureFlags.webAccountExperience && <link rel="stylesheet" href="/styles/trips.css?v=20260928-account-trips-ux" />}
+  <script>
+    if (document.getElementById('account-app')) await import('../../scripts/account-page');
+  </script>
 </BaseLayout>
