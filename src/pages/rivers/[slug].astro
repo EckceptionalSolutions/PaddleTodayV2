@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { staticAssetUrl } from '../../lib/static-asset-url.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
+import { webFeatureFlags } from '../../lib/web-feature-flags';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
@@ -320,7 +321,7 @@ const routeFaqStructuredData = {
   bodyClass="page-route-detail"
 >
   <RouteAppHandoff slug={river.slug} />
-  <p class="route-plan-account"><a href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}`}>Plan a trip on this route →</a></p>
+  {webFeatureFlags.webAccountExperience && <p class="route-plan-account"><a href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}`}>Plan a trip on this route →</a></p>}
   <article
     class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
     data-river-detail
