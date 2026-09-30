@@ -37,6 +37,7 @@ env:
   AZURE_CONTAINER_REGISTRY: paddletodayjobs
   AZURE_CONTAINER_APPS_ENVIRONMENT: paddletoday-jobs
   AZURE_CONTAINER_APPS_JOB: paddletoday-river-snapshots
+  AZURE_STORAGE_ACCOUNT: paddletoday
   IMAGE_NAME: paddletoday/snapshot-worker
   PROVISION_SNAPSHOT_MONITORING: ${{ inputs.provision_monitoring && 'true' || 'false' }}
 
@@ -73,6 +74,7 @@ jobs:
             --parameters \
               containerRegistryName="$AZURE_CONTAINER_REGISTRY" \
               containerAppsEnvironmentName="$AZURE_CONTAINER_APPS_ENVIRONMENT" \
+              storageAccountName="$AZURE_STORAGE_ACCOUNT" \
             --output none
 
       - name: Validate worker deployment permissions before building

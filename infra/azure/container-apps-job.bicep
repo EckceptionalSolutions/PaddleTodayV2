@@ -32,7 +32,7 @@ param snapshotAlertEmail string = 'hello@paddletoday.com'
 param provisionMonitoring bool = true
 
 @description('UTC cron schedule. Azure Container Apps Jobs use five-field cron expressions.')
-param cronExpression string = '7,37 * * * *'
+param cronExpression string = '7 * * * *'
 
 @description('CPU cores allocated to the worker replica.')
 param cpu int = 1

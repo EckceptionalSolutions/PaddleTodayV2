@@ -9,6 +9,9 @@ param containerRegistryName string = 'paddletodayjobs'
 @description('Container Apps environment that hosts the scheduled worker job.')
 param containerAppsEnvironmentName string = 'paddletoday-jobs'
 
+@description('Existing Storage Account that holds PaddleToday snapshots and history.')
+param storageAccountName string = 'paddletoday'
+
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-07-01' = {
   name: containerRegistryName
   location: location
@@ -30,6 +33,46 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
     }
     sku: {
       name: 'PerGB2018'
+    }
+  }
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
+  name: storageAccountName
+}
+
+resource storageLifecyclePolicy 'Microsoft.Storage/storageAccounts/managementPolicies@2023-05-01' = {
+  name: 'default'
+  parent: storageAccount
+  properties: {
+    policy: {
+      rules: [
+        {
+          name: 'cool-and-expire-hourly-history'
+          type: 'Lifecycle'
+          enabled: true
+          definition: {
+            filters: {
+              blobTypes: [
+                'blockBlob'
+              ]
+              prefixMatch: [
+                'river-history/hourly/'
+              ]
+            }
+            actions: {
+              baseBlob: {
+                tierToCool: {
+                  daysAfterModificationGreaterThan: 2
+                }
+                delete: {
+                  daysAfterModificationGreaterThan: 180
+                }
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

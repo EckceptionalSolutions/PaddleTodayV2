@@ -315,7 +315,7 @@ const automationRegistry = [
   { id: 'paddletoday-blocker-resolution-planner', name: 'PaddleToday Blocker Resolution Planner', schedule: 'Daily at 07:00', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-operations-dossier-refresh', name: 'PaddleToday Operations Dossier Refresh', schedule: 'Daily at 06:00', status: 'enabled', owner: 'orchestrator' },
   { id: 'paddletoday-operations-metrics-refresh', name: 'PaddleToday Operations Metrics Refresh', schedule: 'Daily at 06:15', status: 'enabled', owner: 'product-analysis' },
-  { id: 'river-snapshots', name: 'River snapshots', schedule: 'Every 30 minutes', status: 'enabled', owner: 'operations' },
+  { id: 'river-snapshots', name: 'River snapshots', schedule: 'Hourly', status: 'enabled', owner: 'operations' },
   { id: 'river-alerts', name: 'River alerts', schedule: 'Twice hourly', status: 'enabled', owner: 'operations' },
   { id: 'history-snapshots', name: 'History snapshots', schedule: 'Hourly', status: 'enabled', owner: 'operations' },
   { id: 'weekly-product-report', name: 'Weekly product report', schedule: 'Wednesday weekly', status: 'enabled', owner: 'product-analysis' },

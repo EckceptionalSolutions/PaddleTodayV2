@@ -1,6 +1,11 @@
 # Azure optimization implementation plan
 
-Created: 2026-09-21. Status: implementation in progress; code changes are ready for review, and production rollout remains pending deployment.
+## 2026-09-30 follow-up
+
+- The scheduled snapshot worker now runs hourly at minute 7 instead of twice per hour.
+- The storage account now manages hourly-history lifecycle: transition to Cool after two days and delete after 180 days. The rule excludes daily summaries, current snapshots, user data, alerts, requests, and web assets. See [the lifecycle runbook](azure-storage-lifecycle.md).
+
+Created: 2026-09-21. Status: original rollout complete; the 2026-09-30 schedule and lifecycle follow-up is deployed.
 
 ## Implementation status — 2026-09-21
 
