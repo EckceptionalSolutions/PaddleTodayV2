@@ -26,6 +26,7 @@ export function getStaticPaths() {
 
 const { river } = Astro.props;
 const isPlanningRoute = river.scoreEligibility === 'planning';
+const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
 const thresholdConfidenceLabel = buildSourceStrengthViewModel(
   river.profile.thresholdSourceStrength,
@@ -171,13 +172,19 @@ const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const tripGpxHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.gpx?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const tripIcsHref = `/api/rivers/${encodeURIComponent(river.slug)}/trip.ics?putin=${encodeURIComponent(putIn?.id ?? '')}&takeout=${encodeURIComponent(takeOut?.id ?? '')}`;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
-const routeSeoTitle = isPlanningRoute
-  ? `${river.name}: ${river.reach}, ${river.state} | Paddle Route`
-  : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`;
-const routeSeoDescription = isPlanningRoute
-  ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
-  : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
-const routeIntro = river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;
+const routeSeoTitle = isLittleMiamiKelleyMilford
+  ? 'Little Miami River: Kelley to Milford, Ohio | Water Levels & Access'
+  : isPlanningRoute
+    ? `${river.name}: ${river.reach}, ${river.state} | Paddle Route`
+    : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`;
+const routeSeoDescription = isLittleMiamiKelleyMilford
+  ? `Plan the 4.9-mile Little Miami River run from Kelley Nature Preserve to Jim Terrell Park near Milford, Ohio. Check the USGS Milford gauge, preferred 5.50–7.50 ft range, access and hazards.`
+  : isPlanningRoute
+    ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
+    : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
+const routeIntro = isLittleMiamiKelleyMilford
+  ? `This 4.9-mile route follows the Little Miami River from Kelley Nature Preserve to Jim Terrell Park near Milford, Ohio. It is listed as moderate and includes Class I–II features, low-head-dam remnants, strainers, and cold-water hazards.`
+  : river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;
 const accessSafetyReviewValue = river.evidenceNotes.find(
   (note) => note.label.toLowerCase() === 'access and safety review',
 )?.value;
@@ -258,13 +265,17 @@ const routeAccessAnswer =
   putIn?.name && takeOut?.name
     ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`
     : `This route covers ${river.reach}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`;
+const routeFaqSubject = isLittleMiamiKelleyMilford
+  ? 'Kelley-to-Milford route on the Little Miami River'
+  : `${river.reach} route on the ${river.name}`;
 const waterLevelAnswer = isPlanningRoute
   ? `This planning route has no verified scoring range or live route score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
   : isMinimumOnlyRoute
   ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
   : `Paddle Today watches ${river.gaugeSource.siteName} and treats ${targetBandValue} as the target band for this route, with weather and recent trend included in the final score.`;
-const beginnerAnswer =
-  isPlanningRoute
+const beginnerAnswer = isLittleMiamiKelleyMilford
+  ? `Paddle Today lists this route as moderate and notes Class I–II play features, low-head-dam remnants, strainers, and cold-water hazards. Review current levels and the hazard notes against your group's experience and equipment before launching.`
+  : isPlanningRoute
     ? `This is listed as a ${river.profile.difficulty} route. Review the difficulty notes, hazards and current access conditions against your group's skills. No live score assesses this trip.`
     : river.profile.difficulty === 'easy'
     ? `This is listed as an easy route, but conditions still matter. Check today's score, water level, weather, and access notes before you go.`
@@ -273,15 +284,15 @@ const beginnerAnswer =
       : `This is listed as a hard route. Treat the live score as a planning aid, then confirm conditions, hazards, access, and group skill before launching.`;
 const faqItems = [
   {
-    question: `What water level is good for paddling ${river.name}?`,
+    question: `What water level is best for the ${routeFaqSubject}?`,
     answer: waterLevelAnswer,
   },
   {
-    question: `Where does this ${river.name} route start and end?`,
+    question: `Where does the ${routeFaqSubject} start and end?`,
     answer: routeAccessAnswer,
   },
   {
-    question: `Is this ${river.name} route good for beginners?`,
+    question: `Is the ${routeFaqSubject} suitable for beginners?`,
     answer: beginnerAnswer,
   },
 ];
@@ -394,7 +405,9 @@ const routeFaqStructuredData = {
         <div class="river-detail__hero-top">
           <div class="river-detail__hero-title-block">
             <p class="eyebrow">{river.state} | {river.region}</p>
-            <h1 class="river-detail__title">{river.name}</h1>
+            <h1 class="river-detail__title">
+              {isLittleMiamiKelleyMilford ? `${river.name}: Kelley to Milford` : river.name}
+            </h1>
             <p class="river-detail__reach">{river.reach}</p>
             <p class="route-seo-intro">{routeIntro}</p>
             {accessSafetyReviewDateLabel ? (
@@ -439,6 +452,24 @@ const routeFaqStructuredData = {
               <strong>{shuttleHeadline}</strong>
             </div>
           </section>
+
+          {isLittleMiamiKelleyMilford ? (
+            <aside class="river-detail__gauge-note" aria-label="Little Miami River water level guide">
+              <p class="river-detail__gauge-note-label">Water levels · Milford gauge guide</p>
+              <p class="river-detail__gauge-note-summary">
+                Preferred range: {targetBandValue} · Low-water floor: {lowThresholdValue} · High-water ceiling: {highThresholdValue}
+              </p>
+              <p>
+                American Whitewater describes this as a Class I–II play reach. Levels above {highThresholdValue} can become sketchy or flood-prone; verify the current gauge and hazards before launching.
+              </p>
+              <p>
+                <a href={river.profile.thresholdSource.url} target="_blank" rel="noreferrer">American Whitewater level guidance</a>
+                {river.gaugeSource.detailUrl ? (
+                  <> · <a href={river.gaugeSource.detailUrl} target="_blank" rel="noreferrer">USGS Milford gauge</a></>
+                ) : null}
+              </p>
+            </aside>
+          ) : null}
 
         </div>
 
@@ -903,7 +934,7 @@ const routeFaqStructuredData = {
 
     <section class="river-detail__chapter-head river-detail__chapter-head--conditions" aria-label="Conditions chapter">
       <p class="eyebrow section-label">Conditions</p>
-      <h2 class="river-detail__chapter-title">Gauge history and hourly forecast</h2>
+      <h2 class="river-detail__chapter-title">Water levels, gauge history, and hourly forecast</h2>
       <p class="muted river-detail__chapter-copy">
           {isPlanningRoute ? 'Use the gauge context and hourly forecast to verify local conditions before launching.' : 'The top card is the quick read. This lower section keeps the longer gauge trend, gauge context, and hourly forecast together.'}
       </p>
@@ -1027,60 +1058,74 @@ const routeFaqStructuredData = {
                       <strong data-field="current-gauge-value">--</strong>
                       <span data-field="current-gauge-observed">Checking timestamp</span>
                     </div>
-                    <div class="gauge-current-panel__interpretation">
-                      <span>DNR interpretation</span>
-                      <strong data-field="current-gauge-interpretation">Unavailable</strong>
-                    </div>
+                    {gaugeDisplay.interpretationLabel ? (
+                      <div class="gauge-current-panel__interpretation">
+                        <span>{gaugeDisplay.interpretationLabel}</span>
+                        <strong data-field="current-gauge-interpretation">Unavailable</strong>
+                      </div>
+                    ) : null}
                   </div>
                   <div class="gauge-current-panel__meta">
                     <div>
                       <span>Paddle Today band</span>
                       <strong data-field="current-gauge-band">Checking</strong>
                     </div>
-                    <div data-current-gauge-interpretation-ranges hidden>
-                      <span>Official DNR ranges</span>
-                      <ul class="gauge-current-panel__range-list" data-current-gauge-range-list></ul>
-                    </div>
+                    {gaugeDisplay.interpretationLabel ? (
+                      <div data-current-gauge-interpretation-ranges hidden>
+                        <span>Official {gaugeDisplay.shortLabel} ranges</span>
+                        <ul class="gauge-current-panel__range-list" data-current-gauge-range-list></ul>
+                      </div>
+                    ) : null}
                   </div>
-                  <p class="gauge-current-panel__note">
-                    MN DNR provides the current paddling level here, but not chart-ready recent samples.
-                  </p>
-                  <figure class="gauge-current-panel__hydrograph" data-current-gauge-hydrograph-figure hidden>
-                    <div class="gauge-current-panel__hydrograph-head">
-                      <strong>Official MN DNR hydrograph</strong>
-                      <span>7 days</span>
-                    </div>
-                    <img
-                      alt="Official MN DNR seven-day river level hydrograph"
-                      loading="lazy"
-                      decoding="async"
-                      data-current-gauge-hydrograph-image
-                    />
-                    <figcaption>
-                      Displayed from MN DNR. Paddle Today does not turn this image into trend samples.
-                    </figcaption>
-                  </figure>
+                  {!gaugeDisplay.supportsRecentSamples ? (
+                    <p class="gauge-current-panel__note">
+                      {gaugeDisplay.supportsHydrograph
+                        ? `${gaugeDisplay.readingSourceLabel} provides a current paddling-level interpretation; Paddle Today does not turn the source hydrograph image into trend samples.`
+                        : `Recent chart samples are not available from ${gaugeDisplay.readingSourceLabel}.`}
+                    </p>
+                  ) : null}
+                  {gaugeDisplay.supportsHydrograph ? (
+                    <figure class="gauge-current-panel__hydrograph" data-current-gauge-hydrograph-figure hidden>
+                      <div class="gauge-current-panel__hydrograph-head">
+                        <strong>Official {gaugeDisplay.shortLabel} hydrograph</strong>
+                        <span>7 days</span>
+                      </div>
+                      <img
+                        alt={`Official ${gaugeDisplay.shortLabel} seven-day river level hydrograph`}
+                        loading="lazy"
+                        decoding="async"
+                        data-current-gauge-hydrograph-image
+                      />
+                      <figcaption>
+                        Displayed from {gaugeDisplay.readingSourceLabel}. Paddle Today does not turn this image into trend samples.
+                      </figcaption>
+                    </figure>
+                  ) : null}
                   <div class="gauge-current-panel__links">
-                    <a
-                      class="river-link river-link--inline gauge-current-panel__link"
-                      href="#"
-                      target="_blank"
-                      rel="noreferrer"
-                      data-current-gauge-hydrograph
-                      hidden
-                    >
-                      Open DNR hydrograph
-                    </a>
-                    <a
-                      class="river-link river-link--inline gauge-current-panel__link"
-                      href="#"
-                      target="_blank"
-                      rel="noreferrer"
-                      data-current-gauge-detail
-                      hidden
-                    >
-                      Open DNR gauge detail
-                    </a>
+                    {gaugeDisplay.supportsHydrograph ? (
+                      <a
+                        class="river-link river-link--inline gauge-current-panel__link"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                        data-current-gauge-hydrograph
+                        hidden
+                      >
+                        Open {gaugeDisplay.shortLabel} hydrograph
+                      </a>
+                    ) : null}
+                    {river.gaugeSource.detailUrl ? (
+                      <a
+                        class="river-link river-link--inline gauge-current-panel__link"
+                        href={river.gaugeSource.detailUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-current-gauge-detail
+                        hidden
+                      >
+                        Open {gaugeDisplay.shortLabel} gauge detail
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -2315,7 +2360,9 @@ const routeFaqStructuredData = {
           <FeatureIcon name="compass" size={16} />
           Quick answers
         </p>
-        <h2 class="river-detail__chapter-title" id="route-faq-title">{river.name} paddling FAQ</h2>
+        <h2 class="river-detail__chapter-title" id="route-faq-title">
+          {isLittleMiamiKelleyMilford ? 'Kelley-to-Milford paddling FAQ' : `${river.name} paddling FAQ`}
+        </h2>
       </div>
 
       <div class="route-faq__list">
