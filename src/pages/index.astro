@@ -26,9 +26,9 @@ const homepageStructuredData = [
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${homeUrl}#collection`,
-    name: "Best Rivers to Paddle Today",
+    name: "River Levels, Paddling Routes, and Conditions",
     description:
-      "Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.",
+      "Find the best paddle near you today. Compare the latest available river levels, weather, and route details, then enter a city or ZIP to find nearby options.",
     url: homeUrl,
     isPartOf: {
       "@id": websiteId,
@@ -41,17 +41,24 @@ const homepageStructuredData = [
 ---
 
 <BaseLayout
-  title="Paddle Today | Best Rivers to Paddle Today"
-  socialTitle="PaddleToday | Find the best paddle near you today"
-  socialDescription="Find the best paddle near you today with river conditions, weather, and local routes."
-  description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
+  title="River Levels, Paddling Routes & Conditions | Paddle Today"
+  socialTitle="Find the Best Paddle Near You Today | Paddle Today"
+  socialDescription="Find the best paddle near you today. Compare the latest available river levels, weather, and route details, then enter a city or ZIP to find nearby options."
+  description="Find the best paddle near you today. Compare the latest available river levels, weather, and route details, then enter a city or ZIP to find nearby options."
   structuredData={homepageStructuredData}
 >
   <section class="home-hero hero">
     <div class="home-hero__intro">
       <div class="home-hero__copy">
         <p class="hero__kicker">Paddle Today</p>
-        <h1 data-home-headline>Find the best paddle near you today</h1>
+        <h1 data-home-headline>
+          Find the best paddle near you today
+        </h1>
+        <p class="hero__lede">
+          Compare the latest available river levels, weather, access details,
+          and route information. Enter a city or ZIP to find nearby paddling
+          options and sort them by drive time.
+        </p>
         <p class="home-hero__freshness" data-home-freshness-wrap hidden>
           <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>
           <span class="site-header__freshness-item site-header__freshness-item--updated" data-home-freshness>
@@ -84,7 +91,7 @@ const homepageStructuredData = [
               class="home-location-bar__helper"
               data-home-location-sort-summary
             >
-              Enter your location to see nearby picks and drive times.
+              See nearby routes and drive times based on your location.
             </p>
           </div>
         </button>
@@ -718,44 +725,76 @@ const homepageStructuredData = [
     </div>
   </section>
 
-  <section class="home-hero__trust home-hero__trust--support home-hero__trust--below-fold" aria-label="How Paddle Today helps">
-    <article class="home-hero__trust-item">
-      <span class="home-hero__trust-icon" aria-hidden="true">
-        <FeatureIcon name="gauge" size={16} />
-      </span>
-      <div>
-        <p class="home-hero__trust-title">Live river reads</p>
-        <p class="home-hero__trust-copy">Each pick uses the latest gauge and weather.</p>
+  <section class="home-overview" aria-label="Paddling route information">
+    <section class="home-method" aria-labelledby="home-method-title">
+      <div class="section-head section-head--stacked home-method__head">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title" id="home-method-title">
+            How route recommendations work
+          </h2>
+        </div>
+        <p class="muted section-head__note">
+          For routes with supported scores, Paddle Today compares gauge readings
+          and recent trends with weather and route-specific guidance. Gauge and
+          weather providers update on different schedules, and some planning
+          routes have no live score. Check linked source times, weather alerts,
+          access notices, and local conditions before launching. Scores are
+          planning aids, not safety advice.
+        </p>
       </div>
-    </article>
-    <article class="home-hero__trust-item">
-      <span class="home-hero__trust-icon" aria-hidden="true">
-        <FeatureIcon name="car" size={16} />
-      </span>
-      <div>
-        <p class="home-hero__trust-title">Drive-time picks</p>
-        <p class="home-hero__trust-copy">Add a location any time to sort by real drive time.</p>
-      </div>
-    </article>
-    <article class="home-hero__trust-item">
-      <span class="home-hero__trust-icon" aria-hidden="true">
-        <FeatureIcon name="clock" size={16} />
-      </span>
-      <div>
-        <p class="home-hero__trust-title">Match your day</p>
-        <p class="home-hero__trust-copy">Filter by difficulty and paddle time.</p>
-      </div>
-    </article>
-  </section>
 
-  <section class="home-overview" aria-label="Board overview">
+      <div class="home-method__items">
+        <article class="home-hero__trust-item home-method__item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="gauge" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">
+              River and weather conditions
+            </p>
+            <p class="home-hero__trust-copy">
+              Compare gauge readings and weather for scored routes.
+            </p>
+          </div>
+        </article>
+        <article class="home-hero__trust-item home-method__item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="car" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">Nearby routes</p>
+            <p class="home-hero__trust-copy">
+              Add a city or ZIP to sort options by drive time.
+            </p>
+          </div>
+        </article>
+        <article class="home-hero__trust-item home-method__item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="clock" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">Match your trip</p>
+            <p class="home-hero__trust-copy">
+              Filter routes by distance, difficulty, and paddle time.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="home-state-strip" aria-labelledby="home-state-strip-title">
       <div class="home-state-strip__head">
         <div>
           <p class="eyebrow">Browse by state</p>
-          <h2 class="home-state-strip__title" id="home-state-strip-title">State paddle route pages</h2>
+          <h2 class="home-state-strip__title" id="home-state-strip-title">
+            Paddling routes by state
+          </h2>
         </div>
-        <a class="river-link river-link--inline river-link--ghost" href="/states/">View all states</a>
+        <a
+          class="river-link river-link--inline river-link--ghost"
+          href="/states/">Browse all state route guides</a
+        >
       </div>
       <div class="home-state-strip__grid">
         {stateGroups.map((state) => (
@@ -765,6 +804,18 @@ const homepageStructuredData = [
           </a>
         ))}
       </div>
+    </section>
+
+    <section class="home-board-inline" aria-label="Featured river route guide">
+      <p class="home-board-inline__copy">
+        Explore a detailed Little Miami River route from Kelley Nature Preserve
+        to Jim Terrell Park near Milford, Ohio.
+      </p>
+      <a
+        class="river-link river-link--inline river-link--ghost"
+        href="/rivers/little-miami-river-kelley-milford/"
+        >Little Miami River: Kelley to Milford route details</a
+      >
     </section>
 
     <section class="home-board-inline" aria-label="Route requests">
