@@ -1425,7 +1425,8 @@ for (const [select, onChange] of [
   });
 }
 
-function updatePickerControls(visibleCount, totalCount) {
+function updatePickerControls(routes, totalCount) {
+  const visibleCount = routes.length;
   for (const button of distanceFilterButtons) {
     if (!(button instanceof HTMLButtonElement)) continue;
     const active = button.dataset.groupDistanceFilter === distanceFilter;
@@ -1503,7 +1504,7 @@ function renderPicker({ fitMap = false, focusSelected = false } = {}) {
   }
   renderRouteList(routes);
   renderSelectedSummary(routes.find((route) => route.slug === selectedSlug) || routes[0]);
-  updatePickerControls(routes.length, currentResult.routes.length);
+  updatePickerControls(routes, currentResult.routes.length);
   renderGroupMap(routes, { preserveViewport: !fitMap, focusSelected });
   syncPickerUrl();
 }
@@ -1522,7 +1523,7 @@ function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelec
   const routes = visiblePickerRoutes(currentResult.routes);
   renderRouteList(routes);
   renderSelectedSummary(selectedRoute);
-  updatePickerControls(routes.length, currentResult.routes.length);
+  updatePickerControls(routes, currentResult.routes.length);
   renderGroupMap(routes, { preserveViewport: !focusMap, focusSelected: focusMap });
   if (reveal) {
     setMobileView(reveal);
