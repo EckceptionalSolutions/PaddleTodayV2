@@ -674,6 +674,25 @@ function boundsForRouteFeatures(maplibregl, routes) {
   return hasBounds ? bounds : null;
 }
 
+function syncSelectedRouteLayerFilters() {
+  if (
+    !mapRuntime
+    || typeof mapRuntime.getLayer !== 'function'
+    || typeof mapRuntime.setFilter !== 'function'
+  ) return;
+  const slugFilter = ['==', ['get', 'slug'], selectedSlug || ''];
+  const layerFilters = [
+    ['river-group-trip-line-halo', slugFilter],
+    ['river-group-trip-line-selected', ['all', slugFilter, ['!=', ['get', 'routeStatus'], 'planning']]],
+    ['river-group-trip-line-selected-planning', ['all', slugFilter, ['==', ['get', 'routeStatus'], 'planning']]],
+    ['river-group-trip-distance-selected', slugFilter],
+  ];
+
+  for (const [layerId, filter] of layerFilters) {
+    if (mapRuntime.getLayer(layerId)) mapRuntime.setFilter(layerId, filter);
+  }
+}
+
 function syncRouteLayers(routes) {
   if (!mapRuntime) return;
   const sourceId = 'river-group-trip-lines';
@@ -784,6 +803,7 @@ function syncRouteLayers(routes) {
       },
     }],
   });
+  syncSelectedRouteLayerFilters();
 
   if (!mapsWithRouteLayerEvents.has(mapRuntime)) {
     mapsWithRouteLayerEvents.add(mapRuntime);
@@ -1515,6 +1535,7 @@ function selectPickerRoute(slug, { focusMap = true, reveal = null, scrollToSelec
   const selectedRoute = currentResult.routes.find((route) => route.slug === slug);
   if (!selectedRoute) return;
   selectedSlug = slug;
+  syncSelectedRouteLayerFilters();
   if (!routeMatchesDistanceFilter(selectedRoute)) distanceFilter = 'all';
   if (!routeMatchesRegionFilter(selectedRoute)) regionFilter = 'all';
   if (!routeMatchesDifficultyFilter(selectedRoute)) difficultyFilter = 'all';
