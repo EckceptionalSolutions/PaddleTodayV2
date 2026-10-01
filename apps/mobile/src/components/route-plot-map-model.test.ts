@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 vi.mock('react-native', () => ({ Platform: { OS: 'web', select: (options: Record<string, unknown>) => options.web ?? options.default } }));
 import { legendItemsForPoints, nativeMarkerLabelsForPoint, toneForRating } from './route-plot-map-model';
+import { routeGroupMarkerDetails } from '../lib/map-decision';
 
 describe('native map accessibility', () => {
   const point = {
@@ -30,6 +31,14 @@ describe('native map accessibility', () => {
     expect(nativeMarkerLabelsForPoint(point, true, 'ios')).toEqual({
       title: 'Wisconsin River', description: 'Selected, Sauk City to Arena, weekend score 64',
     });
+  });
+  it('identifies grouped reaches at wider zoom levels', () => {
+    const details = routeGroupMarkerDetails('Little Hole to Indian Crossing', 1, 'Watch closely, score 64');
+    expect(details).toBe('1 route, Little Hole to Indian Crossing, Watch closely, score 64');
+    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Northeastern Utah', markerAccessibilityLabel: details }, true, 'android').title)
+      .toBe('Northeastern Utah, Selected, 1 route, Little Hole to Indian Crossing, Watch closely, score 64');
+    expect(routeGroupMarkerDetails('Sauk City to Arena', 3, 'Watch, score 60'))
+      .toBe('3 routes, including Sauk City to Arena, Watch, score 60');
   });
 });
 

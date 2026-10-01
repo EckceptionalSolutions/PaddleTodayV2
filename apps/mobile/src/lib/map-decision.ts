@@ -20,3 +20,6 @@ export function routeDecisionPresentation(route: {
 
 // Maps and route previews share the same public-call gate.
 export const mapDecision = routeDecisionPresentation;
+export function routeGroupMarkerDetails(reach: string, routeCount: number, description: string) {
+  return `${routeCount} ${routeCount === 1 ? 'route' : 'routes'}, ${routeCount > 1 ? 'including ' : ''}${reach}, ${description}`;
+}

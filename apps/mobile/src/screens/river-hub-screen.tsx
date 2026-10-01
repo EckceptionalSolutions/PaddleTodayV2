@@ -29,7 +29,7 @@ import { StatusPill } from '../components/status-pill';
 import { callForDecision, normalizeApiText } from '../lib/format';
 import { resolveApiUrl } from '../lib/api-base-url';
 import { photoForRiver } from '../lib/route-photos';
-import { mapDecision } from '../lib/map-decision';
+import { mapDecision, routeGroupMarkerDetails } from '../lib/map-decision';
 import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import {
@@ -755,7 +755,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
       score: decision.score,
       rating: decision.rating,
       markerLabel: decision.markerLabel,
-      markerAccessibilityLabel: `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}, ${decision.description}`,
+      markerAccessibilityLabel: routeGroupMarkerDetails(route.river.reach, group.routes.length, decision.description),
       routeCount: group.routes.length,
       spanSegments,
       meta: [
