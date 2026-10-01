@@ -1,6 +1,37 @@
 import { describe, expect, it, vi } from 'vitest';
 vi.mock('react-native', () => ({ Platform: { OS: 'web', select: (options: Record<string, unknown>) => options.web ?? options.default } }));
-import { legendItemsForPoints, toneForRating } from './route-plot-map-model';
+import { legendItemsForPoints, nativeMarkerLabelsForPoint, toneForRating } from './route-plot-map-model';
+
+describe('native map accessibility', () => {
+  const point = {
+    id: 'reach-one', label: 'Wisconsin River', latitude: 43, longitude: -89,
+    score: 64, markerAccessibilityLabel: 'Sauk City to Arena, weekend score 64',
+  };
+  it('puts reach identity and score in the Android SDK title', () => {
+    expect(nativeMarkerLabelsForPoint(point, false, 'android')).toEqual({
+      title: 'Wisconsin River, Sauk City to Arena, weekend score 64', description: undefined,
+    });
+    const other = { ...point, id: 'reach-two', markerAccessibilityLabel: 'Arena to Spring Green, weekend score 64' };
+    expect(nativeMarkerLabelsForPoint(other, false, 'android').title)
+      .not.toBe(nativeMarkerLabelsForPoint(point, false, 'android').title);
+  });
+  it('updates the native spoken label when selection changes', () => {
+    expect(nativeMarkerLabelsForPoint(point, true, 'android').title)
+      .toBe('Wisconsin River, Selected, Sauk City to Arena, weekend score 64');
+    expect(nativeMarkerLabelsForPoint(point, false, 'android').title).not.toContain('Selected');
+  });
+  it('includes cluster details and access pin identity without duplicating names', () => {
+    expect(nativeMarkerLabelsForPoint({ ...point, label: '3 locations', markerAccessibilityLabel: '3 locations. Zoom in to explore these locations' }, false, 'android').title)
+      .toContain('Zoom in to explore these locations');
+    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Hinman Island Park', markerAccessibilityLabel: 'Hinman Island Park, Put-in' }, true, 'android').title)
+      .toBe('Hinman Island Park, Selected, Put-in');
+  });
+  it('retains the separate title and description on iOS', () => {
+    expect(nativeMarkerLabelsForPoint(point, true, 'ios')).toEqual({
+      title: 'Wisconsin River', description: 'Selected, Sauk City to Arena, weekend score 64',
+    });
+  });
+});
 
 describe('map forecast age presentation', () => {
   it('does not label an expired favorable forecast as Paddle or Skip', () => {

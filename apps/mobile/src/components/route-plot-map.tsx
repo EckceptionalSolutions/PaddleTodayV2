@@ -11,6 +11,7 @@ import {
   markerTextForPoint,
   markerDescriptionForPoint,
   markerAccessibilityLabelForPoint,
+  nativeMarkerLabelsForPoint,
   projectPoint,
   projectPointNumber,
   routeSpanSegments,
@@ -392,8 +393,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 <Marker
                   key={point.id}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                  title={point.label}
-                  description={markerDescriptionForPoint(point, selected)}
+                  {...nativeMarkerLabelsForPoint(point, selected, Platform.OS)}
                   accessible
                   accessibilityRole="button"
                   accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
@@ -402,7 +402,9 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                   zIndex={selected ? 10 : 1}
                   pinColor={pinColor}
                   tracksViewChanges={false}
-                />
+                >
+                  <AndroidMarkerCallout point={point} selected={selected} />
+                </Marker>
               );
             }
 
@@ -556,8 +558,7 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
   return (
     <Marker
       coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-      title={point.label}
-      description={markerDescriptionForPoint(point, selected)}
+      {...nativeMarkerLabelsForPoint(point, selected, Platform.OS)}
       onPress={() => onSelect(point)}
       zIndex={selected ? 10 : showScore ? 3 : 1}
       anchor={{ x: 0.5, y: 0.5 }}
@@ -582,9 +583,24 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
           {showScore ? <Text style={styles.nativeMarkerText} allowFontScaling={false} numberOfLines={1} adjustsFontSizeToFit>{markerTextForPoint(point)}</Text> : null}
         </View>
       </View>
+      <AndroidMarkerCallout point={point} selected={selected} />
     </Marker>
   );
 });
+
+function AndroidMarkerCallout({ point, selected }: { point: RoutePlotPoint; selected: boolean }) {
+  if (Platform.OS !== 'android') return null;
+  const Callout = getNativeMaps()!.Callout;
+  const description = markerDescriptionForPoint(point, selected);
+  return (
+    <Callout>
+      <View style={styles.nativeCallout}>
+        <Text style={styles.nativeCalloutTitle}>{point.label}</Text>
+        {description ? <Text style={styles.nativeCalloutDescription}>{description}</Text> : null}
+      </View>
+    </Callout>
+  );
+}
 
 function getNativeMaps(): typeof import('react-native-maps') | null {
   if (Platform.OS === 'web') {
@@ -770,6 +786,9 @@ function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
 }
 
 const styles = StyleSheet.create({
+  nativeCallout: { width: 240, padding: spacing.xs, gap: spacing.xs },
+  nativeCalloutTitle: { color: colors.text, fontSize: 14, fontWeight: '700' },
+  nativeCalloutDescription: { color: colors.text, fontSize: 12 },
   clusterBackdrop: { flex: 1, justifyContent: 'center', padding: spacing.xl, backgroundColor: 'rgba(0,0,0,0.4)' },
   clusterSheet: { maxHeight: '75%', padding: spacing.lg, borderRadius: radius.lg, backgroundColor: colors.surfaceStrong },
   clusterChoice: { minHeight: 48, justifyContent: 'center', paddingVertical: spacing.sm, borderBottomWidth: 1, borderBottomColor: colors.border },
