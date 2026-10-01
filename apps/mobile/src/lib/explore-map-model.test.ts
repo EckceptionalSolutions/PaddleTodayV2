@@ -36,6 +36,8 @@ describe('Explore map grouping', () => {
     const points = buildExploreMapPoints(routes.slice(0, 1), counts, routes);
     expect(points.map((point) => point.routeSlugs)).toEqual([['a', 'b'], ['c']]);
     expect(points.map((point) => point.routeSlug)).toEqual(['a', 'c']);
+    expect(points[0].markerAccessibilityLabel).toContain('2 routes, including a');
+    expect(points[1].markerAccessibilityLabel).toContain('1 route, c');
   });
 
   it('preserves selected route identity when switching from zones to individual markers', () => {

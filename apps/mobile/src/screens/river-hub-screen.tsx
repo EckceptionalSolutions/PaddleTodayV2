@@ -22,6 +22,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { routeGroupMarkerDetails } from '../lib/map-decision';
 import { QualityPill, decisionColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -755,7 +756,7 @@ function routeMapPoints(routes: RiverDetailApiResult[], zoomLevel = 5): RoutePlo
       score: decision.score,
       rating: decision.rating,
       markerLabel: decision.markerLabel,
-      markerAccessibilityLabel: `${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}, ${decision.description}`,
+      markerAccessibilityLabel: routeGroupMarkerDetails(route.river.reach, group.routes.length, decision.description),
       routeCount: group.routes.length,
       spanSegments,
       meta: [

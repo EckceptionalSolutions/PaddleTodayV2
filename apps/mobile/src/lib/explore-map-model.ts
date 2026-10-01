@@ -2,7 +2,7 @@ import type { RiverSummaryApiItem, RouteSegment, RouteSegmentSummary } from '@pa
 import type { RoutePlotPoint } from '../components/route-plot-map-model';
 import { coverageAnchorForRoute, coverageCenter, groupRoutesByConditionScore } from './river-coverage';
 import { riverGroupKeyForRoute, routeGroupMetaForRoute } from './route-groups';
-import { mapDecision } from './map-decision';
+import { mapDecision, routeGroupMarkerDetails } from './map-decision';
 
 export interface ExploreRiver extends RiverSummaryApiItem {
   distanceMiles: number | null;
@@ -84,7 +84,7 @@ export function buildExploreMapPoints(
         score: decision.score,
         rating: decision.rating,
         markerLabel: decision.markerLabel,
-        markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, ${decision.description}, ${group.routes.length} ${group.routes.length === 1 ? 'route' : 'routes'}`,
+        markerAccessibilityLabel: `${group.regions.join(', ') || 'condition zone'}, ${routeGroupMarkerDetails(representative.river.reach, group.routes.length, decision.description)}`,
         routeCount,
         spanSegments,
         meta: [
