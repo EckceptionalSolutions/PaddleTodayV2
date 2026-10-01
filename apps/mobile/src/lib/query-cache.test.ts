@@ -12,7 +12,7 @@ describe('mobile query cache versioning', () => {
 
   it('remains deterministic when native version metadata is unavailable', () => {
     expect(queryCacheBuster(null, undefined)).toBe(
-      'paddletoday-mobile:schema-1:unknown:unknown'
+      'paddletoday-mobile:schema-2:unknown:unknown'
     );
   });
 });
