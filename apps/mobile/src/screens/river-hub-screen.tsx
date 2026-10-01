@@ -22,7 +22,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverGeometryQuery, useRiverGroupQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
-import { routeGroupMarkerDetails } from '../lib/map-decision';
 import { QualityPill, decisionColors } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -30,7 +29,7 @@ import { StatusPill } from '../components/status-pill';
 import { callForDecision, normalizeApiText } from '../lib/format';
 import { resolveApiUrl } from '../lib/api-base-url';
 import { photoForRiver } from '../lib/route-photos';
-import { mapDecision } from '../lib/map-decision';
+import { mapDecision, routeGroupMarkerDetails } from '../lib/map-decision';
 import { routePreviewFactLine } from '../lib/route-facts';
 import { endpointSnappedRouteCoordinates } from '../lib/river-geometry';
 import {
