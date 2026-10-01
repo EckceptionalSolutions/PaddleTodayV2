@@ -8,34 +8,36 @@ describe('native map accessibility', () => {
     id: 'reach-one', label: 'Wisconsin River', latitude: 43, longitude: -89,
     score: 64, markerAccessibilityLabel: 'Sauk City to Arena, weekend score 64',
   };
-  it('puts reach identity and score in the Android SDK title', () => {
+  it('keeps a short visual heading and passes complete reach and score to the native bridge', () => {
     expect(nativeMarkerLabelsForPoint(point, false, 'android')).toEqual({
-      title: 'Wisconsin River, Sauk City to Arena, weekend score 64', description: undefined,
+      title: 'Wisconsin River', description: 'Sauk City to Arena, weekend score 64',
+      accessibilityLabel: 'Wisconsin River, Sauk City to Arena, weekend score 64',
     });
     const other = { ...point, id: 'reach-two', markerAccessibilityLabel: 'Arena to Spring Green, weekend score 64' };
-    expect(nativeMarkerLabelsForPoint(other, false, 'android').title)
-      .not.toBe(nativeMarkerLabelsForPoint(point, false, 'android').title);
+    expect(nativeMarkerLabelsForPoint(other, false, 'android').accessibilityLabel)
+      .not.toBe(nativeMarkerLabelsForPoint(point, false, 'android').accessibilityLabel);
   });
   it('updates the native spoken label when selection changes', () => {
-    expect(nativeMarkerLabelsForPoint(point, true, 'android').title)
+    expect(nativeMarkerLabelsForPoint(point, true, 'android').accessibilityLabel)
       .toBe('Wisconsin River, Selected, Sauk City to Arena, weekend score 64');
-    expect(nativeMarkerLabelsForPoint(point, false, 'android').title).not.toContain('Selected');
+    expect(nativeMarkerLabelsForPoint(point, false, 'android').accessibilityLabel).not.toContain('Selected');
   });
   it('includes cluster details and access pin identity without duplicating names', () => {
-    expect(nativeMarkerLabelsForPoint({ ...point, label: '3 locations', markerAccessibilityLabel: '3 locations. Zoom in to explore these locations' }, false, 'android').title)
+    expect(nativeMarkerLabelsForPoint({ ...point, label: '3 locations', markerAccessibilityLabel: '3 locations. Zoom in to explore these locations' }, false, 'android').accessibilityLabel)
       .toContain('Zoom in to explore these locations');
-    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Hinman Island Park', markerAccessibilityLabel: 'Hinman Island Park, Put-in' }, true, 'android').title)
+    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Hinman Island Park', markerAccessibilityLabel: 'Hinman Island Park, Put-in' }, true, 'android').accessibilityLabel)
       .toBe('Hinman Island Park, Selected, Put-in');
   });
   it('retains the separate title and description on iOS', () => {
     expect(nativeMarkerLabelsForPoint(point, true, 'ios')).toEqual({
       title: 'Wisconsin River', description: 'Selected, Sauk City to Arena, weekend score 64',
+      accessibilityLabel: 'Wisconsin River, Selected, Sauk City to Arena, weekend score 64',
     });
   });
   it('identifies grouped reaches at wider zoom levels', () => {
     const details = routeGroupMarkerDetails('Little Hole to Indian Crossing', 1, 'Watch closely, score 64');
     expect(details).toBe('1 route, Little Hole to Indian Crossing, Watch closely, score 64');
-    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Northeastern Utah', markerAccessibilityLabel: details }, true, 'android').title)
+    expect(nativeMarkerLabelsForPoint({ ...point, label: 'Northeastern Utah', markerAccessibilityLabel: details }, true, 'android').accessibilityLabel)
       .toBe('Northeastern Utah, Selected, 1 route, Little Hole to Indian Crossing, Watch closely, score 64');
     expect(routeGroupMarkerDetails('Sauk City to Arena', 3, 'Watch, score 60'))
       .toBe('3 routes, including Sauk City to Arena, Watch, score 60');

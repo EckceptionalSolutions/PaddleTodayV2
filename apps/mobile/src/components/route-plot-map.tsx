@@ -395,7 +395,6 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                   {...nativeMarkerLabelsForPoint(point, selected, Platform.OS)}
                   accessible
                   accessibilityRole="button"
-                  accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
                   accessibilityState={{ selected, disabled: !interactive }}
                   onPress={() => selectPoint(point)}
                   zIndex={selected ? 10 : 1}
@@ -443,7 +442,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           </View>
         </Modal>
 
-        {showAllControl && interactive ? <ShowAllButton onPress={focusAll} /> : null}
+        {showAllControl && interactive ? <ShowAllButton onPress={focusAll} mapHeight={height} /> : null}
         {showFooter ? (
           <MapFooter
             points={visiblePoints}
@@ -522,7 +521,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
       </View>
 
-      {showAllControl && interactive ? <ShowAllButton onPress={focusAll} /> : null}
+      {showAllControl && interactive ? <ShowAllButton onPress={focusAll} mapHeight={height} /> : null}
       {showFooter ? (
         <MapFooter
           points={visiblePoints}
@@ -563,7 +562,6 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
       tracksViewChanges={tracking}
       accessible
       accessibilityRole="button"
-      accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
       accessibilityState={{ selected }}
     >
       <View style={styles.nativeMarkerFrame} collapsable={false}
@@ -592,10 +590,10 @@ function getNativeMaps(): typeof import('react-native-maps') | null {
   return require<typeof import('react-native-maps')>('react-native-maps');
 }
 
-function ShowAllButton({ onPress }: { onPress: () => void }) {
+function ShowAllButton({ onPress, mapHeight }: { onPress: () => void; mapHeight: number }) {
   return (
     <Pressable
-      style={styles.showAllButton}
+      style={[styles.showAllButton, { top: Math.max(spacing.sm, mapHeight - spacing.sm - 48) }]}
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel="Show all routes on map"
@@ -1015,7 +1013,8 @@ const styles = StyleSheet.create({
   },
   showAllButton: {
     position: 'absolute',
-    top: spacing.sm,
+    minHeight: 48,
+    justifyContent: 'center',
     right: spacing.sm,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,

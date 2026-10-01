@@ -49,6 +49,7 @@ apps/mobile/*.tsbuildinfo
 !/scripts/apply-react-native-maps-ios-subview-fix.mjs
 !/scripts/apply-react-native-maps-ios-ready-callback-fix.mjs
 !/scripts/apply-react-native-maps-android-marker-fix.mjs
+!/scripts/apply-react-native-maps-android-accessibility-fix.mjs
 /src/
 /tests/
 /MOBILE_UI_TODO.md

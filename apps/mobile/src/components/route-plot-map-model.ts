@@ -64,12 +64,10 @@ export function markerAccessibilityLabelForPoint(point: RoutePlotPoint, selected
   return [point.label, markerDescriptionForPoint(point, selected)].filter(Boolean).join(', ');
 }
 
-export function nativeMarkerLabelsForPoint(point: RoutePlotPoint, selected: boolean, platform: string) {
-  // Google Maps exposes virtual accessibility nodes from the native title on
-  // Android, ignoring React Native's accessibilityLabel and selected state.
-  return platform === 'android'
-    ? { title: markerAccessibilityLabelForPoint(point, selected), description: undefined }
-    : { title: point.label, description: markerDescriptionForPoint(point, selected) };
+export function nativeMarkerLabelsForPoint(point: RoutePlotPoint, selected: boolean, _platform: string) {
+  // The Android bridge binds accessibilityLabel to the SDK's native title and
+  // renders the short visual title and description with wrapping native views.
+  return { title: point.label, description: markerDescriptionForPoint(point, selected), accessibilityLabel: markerAccessibilityLabelForPoint(point, selected) };
 }
 
 export function getBounds(
