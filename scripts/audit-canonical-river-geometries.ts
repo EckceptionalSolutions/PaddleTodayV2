@@ -26,6 +26,9 @@ const MAX_ROUTE_BYTES = 512 * 1024;
 // route geometry or weakening the per-route 512 KiB guard.
 const MAX_ROUTE_TOTAL_BYTES = 40 * 1024 * 1024;
 const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {
+  'comal-river-hinman-island-last-public-exit': [
+    { latitude: 29.7084, longitude: -98.1242, maxFeet: 500, label: 'City-linked Hinman Island Park navigation anchor' },
+  ],
   'rice-creek-peltier-to-long-lake': [
     { latitude: 45.1637486, longitude: -93.1154357, maxFeet: 500, label: 'Aqua Lane northern lake-chain exit' },
   ],
