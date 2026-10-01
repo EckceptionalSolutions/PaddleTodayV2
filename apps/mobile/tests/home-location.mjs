@@ -14,8 +14,9 @@ try {
     ] } }));
     await page.goto(new URL('/', process.argv[2] ?? 'http://127.0.0.1:4391').href);
     await expect(page.getByText('Within 100 mi of Circle Pines, MN', { exact: true })).toBeVisible();
-    const badge = page.getByText(/\d+ routes to paddle/, { exact: true });
-    const bounds = await badge.boundingBox();
+    await expect(page.getByText(/\d+ routes to paddle/, { exact: true })).toHaveCount(0);
+    const paddleCount = page.getByRole('button', { name: /^\d+ Paddle routes$/ });
+    const bounds = await paddleCount.boundingBox();
     expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
     await page.screenshot({ path: `apps/mobile/.expo/mobile-home-location-after-${width}.png` });
     const change = page.getByRole('button', { name: 'Change planning location', exact: true });
@@ -31,7 +32,7 @@ try {
     await change.click();
     await page.getByRole('button', { name: 'Close location search', exact: true }).click();
     await expect(input).toBeHidden();
-    console.log(`PASS ${width}px: hero badge fits, existing location remains changeable, manual change persists, reopen/cancel works`);
+    console.log(`PASS ${width}px: hero stays focused, paddle count remains in summary, location remains changeable and persistent`);
     await context.close();
   }
 } finally { await browser.close(); }
