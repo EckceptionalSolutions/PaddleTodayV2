@@ -87,7 +87,8 @@ export default function SavedScreen() {
   const [activeTab, setActiveTabState] = useState<SavedTab>(() => savedTabSession);
   const setActiveTab = (tab: SavedTab) => { savedTabSession = tab; setActiveTabState(tab); };
   useEffect(() => {
-    if (requestedTab === 'alerts' || requestedTab === 'routes' || requestedTab === 'trips') setActiveTab(requestedTab);
+    if (requestedTab === 'offline') setActiveTab('trips');
+    else if (requestedTab === 'alerts' || requestedTab === 'routes' || requestedTab === 'trips') setActiveTab(requestedTab);
   }, [requestedTab]);
   const [notesRiver, setNotesRiver] = useState<SavedRiverRecord | null>(null);
 
@@ -275,11 +276,14 @@ export default function SavedScreen() {
         dataUpdatedAt={summaryQuery.dataUpdatedAt}
         onRetry={() => void summaryQuery.refetch()}
       />
-      <Text accessibilityRole="header" style={styles.title}>Saved routes</Text>
+      <Text accessibilityRole="header" style={styles.title}>{activeTab === 'trips' ? 'Offline' : 'Alerts'}</Text>
       <Text style={styles.subtitle}>
-        A status board for rivers you check often.
+        {activeTab === 'trips' ? 'Route packets and preparation drafts saved on this device.' : 'Condition alerts for routes and nearby paddling.'}
       </Text>
       <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
+      {activeTab === 'trips' ? <SectionCard title="Offline downloads and local drafts" subtitle="Downloaded route packets and preparation drafts saved on this device. Personal plans and paddle logs are in My trips.">
+        <AppButton label="Open My trips" variant="secondary" onPress={() => router.push('/trips')} />
+      </SectionCard> : null}
       {activeTab === 'trips' ? <SavedOfflineTrips /> : null}
       {activeTab === 'trips' ? <SavedTripDrafts routeNames={Object.fromEntries([...savedRivers.map(river => [river.slug, river.name]), ...rivers.map(river => [river.river.slug, river.river.name])])}
         onResume={record => router.push({ pathname: '/river/[slug]', params: { slug: record.target.routeSlug,
@@ -377,14 +381,14 @@ function SavedTabs({
   return (
     <View accessibilityRole="tablist" accessibilityLabel="Saved route sections" style={styles.tabs}>
       <SavedTabButton
-        keyboardProps={tabKeyboardProps(0, activeTab === 'routes', 2, (index) => onChange(index === 0 ? 'routes' : 'alerts'))}
+        keyboardProps={tabKeyboardProps(0, activeTab === 'routes', 3, (index) => onChange(index === 0 ? 'routes' : index === 1 ? 'alerts' : 'trips'))}
         icon="bookmark-outline"
         label="Saved routes"
         active={activeTab === 'routes'}
         onPress={() => onChange('routes')}
       />
       <SavedTabButton
-        keyboardProps={tabKeyboardProps(1, activeTab === 'alerts', 2, (index) => onChange(index === 0 ? 'routes' : 'alerts'))}
+        keyboardProps={tabKeyboardProps(1, activeTab === 'alerts', 3, (index) => onChange(index === 0 ? 'routes' : index === 1 ? 'alerts' : 'trips'))}
         icon="bell-outline"
         label="Alerts"
         active={activeTab === 'alerts'}
@@ -393,7 +397,7 @@ function SavedTabs({
       <SavedTabButton
         keyboardProps={tabKeyboardProps(2, activeTab === 'trips', 3, (index) => onChange(index === 0 ? 'routes' : index === 1 ? 'alerts' : 'trips'))}
         icon="briefcase-outline"
-        label="Trips"
+        label="Offline"
         active={activeTab === 'trips'}
         onPress={() => onChange('trips')}
       />

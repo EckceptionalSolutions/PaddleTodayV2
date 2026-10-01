@@ -1,3 +1,5 @@
+import { compactPaddleTime } from '../lib/route-facts';
+import { refreshDeviceConnectivity, useOnlineStatus } from '../hooks/use-online-status';
 import { AlertSetupSheet } from '../components/alert-setup-sheet';
 import { FormExitGuard } from '../components/form-exit-guard';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
@@ -124,7 +126,7 @@ type GaugeBandVisualModel = {
 export default function RiverDetailScreen() {
   const reducedMotion = useReducedMotion();
   const { width: windowWidth } = useWindowDimensions();
-  const compactHeader = windowWidth < 360;
+  const compactHeader = windowWidth < 480;
   const params = useLocalSearchParams<{
     slug?: string | string[];
     putin?: string | string[];
@@ -148,6 +150,14 @@ export default function RiverDetailScreen() {
       ? 'Recommended from River Hub'
       : null;
   const detailQuery = useRiverDetailQuery(slug);
+  const online = useOnlineStatus();
+  async function refreshRouteConditions() {
+    try {
+      if (await refreshDeviceConnectivity()) await detailQuery.refetch({ cancelRefetch: false });
+    } catch {
+      // Keep the offline state visible if the device reachability check fails.
+    }
+  }
   const createAlertMutation = useCreateRiverAlertMutation();
   const createContributionMutation = useCreateRouteContributionMutation();
   const { email: storedEmail, setEmail, recordRouteAlert } = useAlertPreferences();
@@ -345,6 +355,17 @@ export default function RiverDetailScreen() {
     );
   }
 
+  if (!detail && (!online || detailQuery.fetchStatus === 'paused')) {
+    return (
+      <AppErrorState
+        title="This route is not saved on this device"
+        body="Connect to load this route and its conditions. This page will retry when your connection returns."
+        actionLabel="Check connection"
+        onRetry={() => void refreshRouteConditions()}
+      />
+    );
+  }
+
   if (detailQuery.isPending && !detail) {
     return (
       <RouteDetailLoadingState river={summaryRoute?.river} bottomInset={bottomContentInset} />
@@ -370,7 +391,7 @@ export default function RiverDetailScreen() {
         body="Check your connection, then try again."
         detail={resolveApiUrl(`/api/rivers/${slug}.json`)}
         retrying={detailQuery.isFetching}
-        onRetry={() => detailQuery.refetch()}
+        onRetry={() => void refreshRouteConditions()}
       />
     );
   }
@@ -695,7 +716,7 @@ export default function RiverDetailScreen() {
             tintColor={colors.accent}
             refreshing={detailQuery.isRefetching || historyQuery.isRefetching || communityQuery.isRefetching}
             onRefresh={() => Promise.all([
-              detailQuery.refetch(),
+              refreshRouteConditions(),
               ...(activeSection === 'More' ? [historyQuery.refetch()] : []),
               ...(activeSection === 'Reports' ? [communityQuery.refetch()] : []),
             ])}
@@ -710,7 +731,7 @@ export default function RiverDetailScreen() {
           dataUpdatedAt={detailQuery.dataUpdatedAt}
           label="Showing the last available route details. Check current conditions before launching."
           actionLabel="Retry route details"
-          onRetry={() => void detailQuery.refetch()}
+          onRetry={() => void refreshRouteConditions()}
         />
         <RoutePhotoCard
           river={detail.river}
@@ -739,7 +760,7 @@ export default function RiverDetailScreen() {
             )}
             <View style={styles.heroCopy}>
               <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
-                <View style={styles.heroTitleCopy}>
+                <View style={[styles.heroTitleCopy, compactHeader ? styles.heroTitleCopyCompact : null]}>
                   <Text style={styles.kicker}>{detail.river.name}</Text>
                   <Text accessibilityRole="header" testID="route-detail-title" style={styles.title}>{detail.river.reach}</Text>
                 </View>
@@ -882,7 +903,7 @@ export default function RiverDetailScreen() {
                     detail={normalizeApiText(effectiveLiveData.weather.detail)}
                     tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                   />
-                  <WeatherDecisionCard view={weatherView} refreshing={detailQuery.isFetching} onRefresh={() => void detailQuery.refetch({ cancelRefetch: false })} />
+                  <WeatherDecisionCard view={weatherView} refreshing={detailQuery.isFetching} onRefresh={() => void refreshRouteConditions()} />
                 </View>
                 <GaugeSourceActions detail={detail} />
               </SectionCard>
@@ -1267,7 +1288,7 @@ function RouteDetailLoadingState({ river, bottomInset }: {
   bottomInset: number;
 }) {
   const router = useRouter();
-  const compactHeader = useWindowDimensions().width < 360;
+  const compactHeader = useWindowDimensions().width < 480;
   const actionCount = river?.scoreEligibility === 'planning' ? 2 : 3;
   return (
     <SafeAreaView edges={['bottom']} style={styles.screenSafeArea}>
@@ -1282,7 +1303,7 @@ function RouteDetailLoadingState({ river, bottomInset }: {
             <View style={styles.heroScore}><ActivityIndicator color={colors.accent} /></View>
             <View style={styles.heroCopy}>
               <View style={[styles.heroTitleRow, compactHeader ? styles.heroTitleRowCompact : null]}>
-                <View style={styles.heroTitleCopy}>
+                <View style={[styles.heroTitleCopy, compactHeader ? styles.heroTitleCopyCompact : null]}>
                   <Text style={styles.kicker}>{river?.name ?? 'Route conditions'}</Text>
                   <Text accessibilityRole="header" testID="route-detail-title" style={styles.title}>{river?.reach ?? 'Loading route'}</Text>
                 </View>
@@ -1400,22 +1421,6 @@ function buildRouteShareMessage(
   ];
 
   return lines.filter(Boolean).join('\n');
-}
-
-function compactPaddleTime(value: string) {
-  if (!value) return null;
-  const compact = value
-    .replace(/^About\s+/i, '')
-    .replace(/roughly\s+/i, '')
-    .replace(/\s+depending.*$/i, '')
-    .replace(/\s+longer.*$/i, '')
-    .replace(/\s+hr\b/gi, 'h')
-    .replace(/\s+min\b/gi, 'm')
-    .replace(/\s+to\s+/gi, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
-
-  return compact;
 }
 
 function compactHeroPaddleTime(value: string) {
@@ -1745,9 +1750,11 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
       {safetyModel.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
           {safetyModel.hazards.map((hazard) => (
-            <View key={hazard.key} style={[styles.safetyChip, caution ? styles.safetyChipCaution : null]}>
-              <Text style={[styles.safetyChipText, caution ? styles.safetyChipTextCaution : null]}>{hazard.label}</Text>
-              </View>
+            <Text key={hazard.key} style={[
+              styles.safetyChip, styles.safetyChipText,
+              caution ? styles.safetyChipCaution : null,
+              caution ? styles.safetyChipTextCaution : null,
+            ]}>{hazard.label}</Text>
           ))}
         </View>
       ) : null}
@@ -1778,6 +1785,7 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
           </View>
         ))}
       </View>
+      {detail.river.estimatedPaddleTime ? <Text style={styles.aboutRouteText}>Paddle time: {normalizeApiText(detail.river.estimatedPaddleTime)}</Text> : null}
     </SectionCard>
   );
 }
@@ -1924,37 +1932,53 @@ function OutlookRows({ outlooks, isStale }: { outlooks: RiverOutlook[]; isStale:
 }
 
 function HourlyWeatherStrip({ view }: { view: ReturnType<typeof currentWeatherView> }) {
+  const { fontScale } = useWindowDimensions();
+  const [expandedTime, setExpandedTime] = useState<string | null>(null);
   const points = (view.weather?.todayHourly ?? []).slice(0, 10);
+  const expanded = points.find(point => point.time === expandedTime);
 
   if (points.length === 0) {
     return <Text style={styles.emptyText}>Hourly weather is unavailable right now.</Text>;
   }
 
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.weatherStrip}>
-      {points.map((point, index) => (
-        <View
-          key={`${point.time}-${index}`}
-          style={[
+    <View style={{ gap: spacing.sm }}>
+      <ScrollView horizontal showsHorizontalScrollIndicator contentContainerStyle={styles.weatherStrip}>
+        {points.map((point, index) => (
+          <View key={`${point.time}-${index}`} style={[
             styles.weatherCard,
+            { width: 148 * Math.max(1, fontScale) },
             index === 0 && !view.reference ? styles.weatherCardCurrent : null,
-          ]}
-        >
-          <Text style={styles.weatherHour}>{weatherHourLabel(point.time, view.reference, view.now)}</Text>
-          <Text style={styles.weatherTemp}>{formatTemperature(point.temperatureF, '--')}</Text>
-          <Text style={styles.weatherCondition}>
-            {normalizeApiText(point.conditionLabel || 'Mixed')}
-          </Text>
-          <Text style={styles.weatherMeta}>
-            {typeof point.precipProbability === 'number' && Number.isFinite(point.precipProbability) ? `${formatPercent(point.precipProbability)} rain` : 'Rain chance unavailable'}
-          </Text>
-          <Text style={styles.weatherMeta}>
-            {typeof point.windMph === 'number' && Number.isFinite(point.windMph) ? `${Math.round(point.windMph)} mph wind` : 'Wind unavailable'}
-          </Text>
-        </View>
-      ))}
-    </ScrollView>
+          ]}>
+            <Text style={styles.weatherHour}>{weatherHourLabel(point.time, view.reference, view.now)}</Text>
+            <Text style={styles.weatherTemp}>{formatTemperature(point.temperatureF, '--')}</Text>
+            <Text style={styles.weatherCondition} accessibilityLabel={normalizeApiText(point.conditionLabel || 'Mixed')} textBreakStrategy="simple">
+              {compactWeatherDescription(point.conditionLabel || 'Mixed')}
+            </Text>
+            <Text style={styles.weatherMeta}>
+              {typeof point.precipProbability === 'number' && Number.isFinite(point.precipProbability) ? `${formatPercent(point.precipProbability)} rain` : 'Rain chance unavailable'}
+            </Text>
+            <Text style={styles.weatherMeta}>
+              {typeof point.windMph === 'number' && Number.isFinite(point.windMph) ? `${Math.round(point.windMph)} mph wind` : 'Wind unavailable'}
+            </Text>
+            <AppButton label={expandedTime === point.time ? 'Hide details' : 'Details'} variant="secondary" expanded={expandedTime === point.time} style={{ minHeight: 48 }}
+              accessibilityLabel={`${expandedTime === point.time ? 'Hide' : 'Show'} full forecast for ${weatherHourLabel(point.time, view.reference, view.now)}`}
+              onPress={() => setExpandedTime(current => current === point.time ? null : point.time)} />
+          </View>
+        ))}
+      </ScrollView>
+      {expanded ? <Text style={styles.aboutRouteText} accessibilityLiveRegion="polite">
+        {weatherHourLabel(expanded.time, view.reference, view.now)}: {normalizeApiText(expanded.conditionLabel || 'Mixed')}
+      </Text> : null}
+    </View>
   );
+}
+
+function compactWeatherDescription(value: string) {
+  const text = normalizeApiText(value).toLowerCase()
+    .replace(/\bthunderstorms\b/g, 'storms')
+    .replace(/\band\b/g, '+');
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 function WeatherDecisionCard({ view, refreshing, onRefresh }: { view: ReturnType<typeof currentWeatherView>; refreshing: boolean; onRefresh: () => void }) {
@@ -2066,6 +2090,8 @@ function PlanningStatusCard({ detail, referenceWeather }: { detail: RiverDetailA
 }
 
 function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
+  const chartRef = useRef<ScrollView>(null);
+  const { fontScale } = useWindowDimensions();
   const unit = detail.gauge?.unit ?? detail.river.gaugeSource.unit;
   const samples = (detail.gauge?.recentSamples ?? []).slice(-10);
 
@@ -2095,13 +2121,16 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
         />
       </View>
 
-      <View style={styles.gaugeChart}>
+      <Text style={styles.gaugeChartHint}>Swipe to view readings. Times are shown in local time.</Text>
+      <ScrollView horizontal ref={chartRef} contentContainerStyle={styles.gaugeChart}
+        onContentSizeChange={() => chartRef.current?.scrollToEnd({ animated: false })}>
         {samples.map((sample, index) => {
           const normalized = (sample.value - min) / span;
           const height = 26 + normalized * 96;
           const isLatest = index === samples.length - 1;
           return (
-            <View key={`${sample.observedAt}-${index}`} style={styles.gaugeColumn}>
+            <View key={`${sample.observedAt}-${index}`} style={[styles.gaugeColumn, { width: Math.ceil(72 * fontScale) }]}
+              accessible accessibilityLabel={`${new Date(sample.observedAt).toLocaleString('en-US')}, ${formatGaugeValue(sample.value, unit)}${isLatest ? ', latest reading' : ''}`}>
               <Text style={[styles.gaugeValue, isLatest ? styles.gaugeValueLatest : null]}>
                 {compactGaugeSample(sample.value, unit)}
               </Text>
@@ -2114,11 +2143,11 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
                   ]}
                 />
               </View>
-              <Text style={styles.gaugeTime}>{formatShortTime(sample.observedAt)}</Text>
+              <Text style={styles.gaugeTime} numberOfLines={1}>{formatShortTime(sample.observedAt)}</Text>
             </View>
           );
         })}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -2161,7 +2190,6 @@ function HeroIconButton({
       disabled={pending}
       aria-busy={pending}
       accessibilityState={{ disabled: pending, busy: pending }}
-      hitSlop={10}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel}
       android_ripple={{ color: colors.canvasMuted, borderless: true }}
@@ -2225,9 +2253,10 @@ function AccessCard({
       </Text>
       {url ? (
         <Pressable
+          style={styles.accessMapButton}
           onPress={() => void openExternalUrl(url, 'Map link')}
           accessibilityRole="button"
-          accessibilityLabel="Open access point in maps"
+          accessibilityLabel={`Open ${point?.name ?? 'access point'} in maps`}
         >
           <Text style={styles.linkText}>Open in maps</Text>
         </Pressable>
@@ -2295,6 +2324,7 @@ function AccessPlanner({
         {selectedPutIn.note || selectedTakeOut.note ? ` - ${selectedPutIn.note ?? selectedTakeOut.note}` : ''}
       </Text>
       <Text style={styles.accessPlannerRoute}>Full route: {detail.river.distanceLabel || 'distance not tracked'}.</Text>
+      {detail.river.estimatedPaddleTime ? <Text style={styles.accessPlannerRoute}>Full-route paddle time: {normalizeApiText(detail.river.estimatedPaddleTime)}</Text> : null}
     </View>
   );
 }
@@ -2309,15 +2339,18 @@ function AccessMetrics({
   paddleTime?: string;
 }) {
   return (
+    <>
     <View style={styles.accessMeta}>
       <MetricPill label="Distance" value={distanceLabel} />
-      <MetricPill label="Paddle time" value={paddleTime || detail.river.estimatedPaddleTime || 'Not tracked'} />
+      <MetricPill label="Paddle time" value={compactPaddleTime(paddleTime || detail.river.estimatedPaddleTime) || 'Not tracked'} />
       <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
       <MetricPill
         label="Camping"
         value={buildRiverDetailLogisticsViewModel(detail.river.logistics).compactCamping}
       />
     </View>
+    {paddleTime ? <Text style={styles.accessPlannerRoute}>Selected paddle time: {normalizeApiText(paddleTime)}</Text> : null}
+    </>
   );
 }
 
@@ -2605,12 +2638,15 @@ function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualMode
   }
 
   const idealSpan = Math.max(idealMax - idealMin, 1);
-  const lowEdge = typeof tooLow === 'number' && tooLow < idealMin ? tooLow : idealMin - idealSpan * 0.75;
+  const nonnegativeDischarge = unit === 'cfs';
+  const inferredLow = typeof tooLow === 'number' && tooLow < idealMin ? tooLow : idealMin - idealSpan * 0.75;
+  const lowEdge = nonnegativeDischarge ? Math.max(0, inferredLow) : inferredLow;
   const highEdge = typeof tooHigh === 'number' && tooHigh > idealMax ? tooHigh : idealMax + idealSpan * 0.75;
   const rawMin = Math.min(lowEdge, idealMin, gauge.current);
   const rawMax = Math.max(highEdge, idealMax, gauge.current);
   const domainSpan = Math.max(rawMax - rawMin, 1);
-  const domainMin = rawMin - domainSpan * 0.05;
+  const paddedMin = rawMin - domainSpan * 0.05;
+  const domainMin = nonnegativeDischarge ? Math.max(0, paddedMin) : paddedMin;
   const domainMax = rawMax + domainSpan * 0.05;
   const domain = Math.max(domainMax - domainMin, 1);
   const percent = (value: number) => clampToRange(((value - domainMin) / domain) * 100, 0, 100);
@@ -2821,6 +2857,10 @@ const styles = StyleSheet.create({
     minWidth: 0,
     gap: 4,
   },
+  heroTitleCopyCompact: {
+    flex: 0,
+    width: '100%',
+  },
   heroActions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -2828,9 +2868,9 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   heroIconButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.surface,
@@ -3450,6 +3490,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FBE9E4',
   },
   safetyHeader: {
+    minHeight: 48,
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
@@ -3485,6 +3526,8 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   safetyChip: {
+    maxWidth: '100%',
+    flexShrink: 0,
     alignSelf: 'flex-start',
     borderRadius: 999,
     borderWidth: 1,
@@ -3792,6 +3835,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
   },
+  accessMapButton: {
+    minHeight: 48,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+  },
   accessMeta: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -4018,7 +4066,7 @@ const styles = StyleSheet.create({
     paddingRight: spacing.sm,
   },
   weatherCard: {
-    width: 102,
+    width: 148,
     backgroundColor: colors.surface,
     borderRadius: radius.md,
     padding: spacing.md,
@@ -4181,6 +4229,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   gaugeChart: {
+    minWidth: '100%',
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
@@ -4188,7 +4237,7 @@ const styles = StyleSheet.create({
     minHeight: 150,
   },
   gaugeColumn: {
-    flex: 1,
+    flexShrink: 0,
     alignItems: 'center',
     gap: 8,
   },
@@ -4219,6 +4268,11 @@ const styles = StyleSheet.create({
   gaugeTime: {
     color: colors.textMuted,
     fontSize: 11,
+  },
+  gaugeChartHint: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   emptyText: {
     color: colors.textMuted,

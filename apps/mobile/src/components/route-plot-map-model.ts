@@ -53,6 +53,17 @@ export function markerTextForPoint(point: RoutePlotPoint) {
   return point.markerLabel ?? (typeof point.score === 'number' ? String(point.score) : '');
 }
 
+export function markerDescriptionForPoint(point: RoutePlotPoint, selected: boolean) {
+  let conditions = point.markerAccessibilityLabel
+    ?? [typeof point.score === 'number' ? `Score ${point.score}` : '', point.rating, point.meta].filter(Boolean).join(', ');
+  if (conditions.startsWith(`${point.label}, `)) conditions = conditions.slice(point.label.length + 2);
+  return [selected ? 'Selected' : '', conditions].filter(Boolean).join(', ');
+}
+
+export function markerAccessibilityLabelForPoint(point: RoutePlotPoint, selected: boolean) {
+  return [point.label, markerDescriptionForPoint(point, selected)].filter(Boolean).join(', ');
+}
+
 export function getBounds(
   points: RoutePlotPoint[],
   userLocation?: { latitude: number; longitude: number } | null,

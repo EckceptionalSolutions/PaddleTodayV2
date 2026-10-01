@@ -1,7 +1,7 @@
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import type { RiverDetailApiResult, RiverRouteAccessPoint, RiverAccessPoint } from '@paddletoday/api-contract';
 import { encodeSharedTripPlan } from '@paddletoday/api-contract';
 import { buildFloatPlanMessage, estimateSegmentDurationMinutes, type TripPlanInput } from '@paddletoday/trip-pack';
@@ -32,7 +32,6 @@ type PrepareTripSheetProps = {
 };
 
 export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn, takeOut, accessPoints, onClose, onAction }: PrepareTripSheetProps) {
-  const insets = useSafeAreaInsets();
   const reducedMotion = useReducedMotion();
   const distanceMiles = selectedDistance(accessPoints, putIn, takeOut, detail);
   const estimated = distanceMiles ? estimateSegmentDurationMinutes(detail.river.distanceLabel, detail.river.estimatedPaddleTime, distanceMiles) : null;
@@ -283,68 +282,73 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
   }
 
   return (
-    <Modal visible={visible} animationType={reducedMotion ? "none" : "slide"} presentationStyle="pageSheet" onRequestClose={() => void closeSheet()}>
-      <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <View style={styles.header}>
-          <View style={styles.headerCopy}><Text style={styles.kicker}>Prepare trip</Text><Text style={styles.title}>{detail.river.name}</Text><Text style={styles.subtitle}>{putIn?.name ?? 'Put-in'} to {takeOut?.name ?? 'take-out'} · {distanceMiles ? `${distanceMiles.toFixed(1)} mi` : 'distance unknown'}</Text></View>
-          <Pressable onPress={() => void closeSheet()} disabled={closing} accessibilityState={{ disabled: closing, busy: closing }} style={styles.closeButton} accessibilityRole="button" accessibilityLabel="Close prepare trip"><Text style={styles.close}>Close</Text></Pressable>
-        </View>
-        <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Math.max(spacing.lg, insets.bottom) }]} keyboardShouldPersistTaps="handled">
-          <TripDraftNotice state={draftState} session={draftSession} defaults={defaults} locked={closing || sharePending || calendarPending}
-            onClose={onClose} onReset={() => { setStatus(''); setShareFallback(null); }} />
-          {visible && offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
-            ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
-          <Text style={styles.sectionTitle}>Timing</Text>
-          <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('launch')} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('expected')} label="Expected take-out" manualLabel="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChange={setExpected} />
-          <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('checkIn')} label="Check-in time" manualLabel="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChange={setCheckIn} optional />
-          <Text style={styles.estimate}>{estimated ? `Planning estimate: ${estimated.min}–${estimated.max} minutes on the water, before shuttle or staging time.` : 'Planning estimate unavailable; confirm timing with the group.'}</Text>
-          <Text style={styles.sectionTitle}>Group details</Text>
-          <Field editable={draftReady && !sharePending && !closing} error={errorFor('groupSize')} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
-          <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
-          <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
-          <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
-          {visible && !offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
-            ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
-          {validationError && !('field' in validationError) ? <Text accessibilityLiveRegion="polite" style={styles.status}>{validationError.message}</Text> : null}
-          {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
-          {shareFallback ? (
-            <TextInput
-              accessibilityLabel={shareFallbackType === 'trip-link' ? 'Trip link to copy' : 'Float plan to copy'}
-              value={shareFallback}
-              editable={false}
-              multiline
-              autoFocus
-              selectTextOnFocus
-              style={[styles.input, styles.multiline, { minHeight: 180, maxHeight: 240 }]}
-            />
-          ) : null}
-          <View style={styles.actions}>
-            <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
-            <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
-            <ActionButton disabled={!draftReady || closing || sharePending} pending={sharePending} pendingLabel="Saving trip…" label="Save to My trips" detail="Open across devices, invite friends, and log your paddle" primary onPress={() => {
-              setSharePending(true);
-              void (async () => {
-                const plan = newTripPlan({ slug: detail.river.slug, name: detail.river.name, putInId: putIn?.id || '', putInName: putIn?.name || '', takeOutId: takeOut?.id || '', takeOutName: takeOut?.name || '' });
-                const date = parseLocal(launch);
-                if (date) { const local = localInput(date); plan.date = local.slice(0, 10); plan.launch = local.slice(11, 16); }
-                const end = parseLocal(expected); if (end) plan.expected = localInput(end).slice(11, 16);
-                const repo = tripSession();
-                if (repo) {
-                  const id = await repo.savePlan(plan); onClose(); router.push({ pathname: '/trips', params: { id } }); void repo.sync().catch(() => {});
-                } else {
-                  await AsyncStorage.setItem('paddletoday:trip-guest-draft', JSON.stringify({ id: Crypto.randomUUID(), plan }));
-                  await AsyncStorage.setItem(TRIP_RETURN_KEY, '/trips?'); onClose(); router.push('/account');
-                }
-              })().catch(e => setStatus(e instanceof Error ? e.message : 'Could not save this trip.')).finally(() => setSharePending(false));
-            }} />
-            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share a snapshot" detail="A fixed copy of route, access, and launch time" onPress={() => void shareTripLink()} />
-            <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share full float plan" detail="Send timing and group details to your group" onPress={() => void shareFloatPlan()} />
-          </View>
-          <Text style={styles.footer}>Confirm current gauge, weather, access, hazards, and an offline check-in plan before launching.</Text>
-        </ScrollView>
-      </KeyboardAvoidingView>
+    <Modal visible={visible} animationType={reducedMotion ? "none" : "slide"} presentationStyle="pageSheet"
+      statusBarTranslucent navigationBarTranslucent onRequestClose={() => void closeSheet()}>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.screen}>
+          <KeyboardAvoidingView style={styles.screen} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <View style={styles.header}>
+              <View style={styles.headerCopy}><Text style={styles.kicker}>Prepare trip</Text><Text style={styles.title}>{detail.river.name}</Text><Text style={styles.subtitle}>{putIn?.name ?? 'Put-in'} to {takeOut?.name ?? 'take-out'} · {distanceMiles ? `${distanceMiles.toFixed(1)} mi` : 'distance unknown'}</Text></View>
+              <Pressable onPress={() => void closeSheet()} disabled={closing} accessibilityState={{ disabled: closing, busy: closing }} style={styles.closeButton} accessibilityRole="button" accessibilityLabel="Close prepare trip"><Text style={styles.close}>Close</Text></Pressable>
+            </View>
+            <ScrollView style={styles.scroll} contentContainerStyle={styles.content} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+              <TripDraftNotice state={draftState} session={draftSession} defaults={defaults} locked={closing || sharePending || calendarPending}
+                onClose={onClose} onReset={() => { setStatus(''); setShareFallback(null); }} />
+              {visible && offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
+                ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
+              <Text style={styles.sectionTitle}>Timing</Text>
+              <Text style={styles.help}>Use local time. Shared with your calendar and group; PaddleToday does not monitor the trip.</Text>
+              <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('launch')} label="Launch" manualLabel="Launch (YYYY-MM-DD HH:MM)" inputRef={launchRef} value={launch} onChange={setLaunch} />
+              <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('expected')} label="Expected take-out" manualLabel="Expected take-out (YYYY-MM-DD HH:MM)" inputRef={expectedRef} value={expected} onChange={setExpected} />
+              <TripTimeField editable={visible && draftReady && !sharePending && !calendarPending && !closing} error={errorFor('checkIn')} label="Check-in time" manualLabel="Check-in time (optional)" inputRef={checkInRef} value={checkIn} onChange={setCheckIn} optional />
+              <Text style={styles.estimate}>{estimated ? `Planning estimate: ${estimated.min}–${estimated.max} minutes on the water, before shuttle or staging time.` : 'Planning estimate unavailable; confirm timing with the group.'}</Text>
+              <Text style={styles.sectionTitle}>Group details</Text>
+              <Field editable={draftReady && !sharePending && !closing} error={errorFor('groupSize')} label="Group size (optional)" inputRef={groupSizeRef} value={groupSize} onChangeText={setGroupSize} keyboardType="number-pad" />
+              <Field editable={draftReady && !sharePending && !closing} label="Boat / gear (optional)" value={boat} onChangeText={setBoat} />
+              <Field editable={draftReady && !sharePending && !closing} label="Vehicle / shuttle (optional)" value={vehicle} onChangeText={setVehicle} />
+              <Field editable={draftReady && !sharePending && !closing} label="Note for your group (optional)" value={note} onChangeText={setNote} multiline />
+              {visible && !offlineFirst ? <PrepareOfflineTrip detail={detail} putIn={putIn} takeOut={takeOut} draft={draftState.draft}
+                ready={draftReady && !closing && !sharePending && !calendarPending} saveDraft={draftSession.save} registerCancellation={registerOfflineCancellation} /> : null}
+              {validationError && !('field' in validationError) ? <Text accessibilityLiveRegion="polite" style={styles.status}>{validationError.message}</Text> : null}
+              {status ? <Text accessibilityLiveRegion="polite" style={styles.status}>{status}</Text> : null}
+              {shareFallback ? (
+                <TextInput
+                  accessibilityLabel={shareFallbackType === 'trip-link' ? 'Trip link to copy' : 'Float plan to copy'}
+                  value={shareFallback}
+                  editable={false}
+                  multiline
+                  autoFocus
+                  selectTextOnFocus
+                  style={[styles.input, styles.multiline, { minHeight: 180, maxHeight: 240 }]}
+                />
+              ) : null}
+              <View style={styles.actions}>
+                <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
+                <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
+                <ActionButton disabled={!draftReady || closing || sharePending} pending={sharePending} pendingLabel="Saving trip…" label="Save to My trips" detail="Open across devices, invite friends, and log your paddle" primary onPress={() => {
+                  setSharePending(true);
+                  void (async () => {
+                    const plan = newTripPlan({ slug: detail.river.slug, name: detail.river.name, putInId: putIn?.id || '', putInName: putIn?.name || '', takeOutId: takeOut?.id || '', takeOutName: takeOut?.name || '' });
+                    const date = parseLocal(launch);
+                    if (date) { const local = localInput(date); plan.date = local.slice(0, 10); plan.launch = local.slice(11, 16); }
+                    const end = parseLocal(expected); if (end) plan.expected = localInput(end).slice(11, 16);
+                    const repo = tripSession();
+                    if (repo) {
+                      const id = await repo.savePlan(plan); onClose(); router.push({ pathname: '/trips', params: { id } }); void repo.sync().catch(() => {});
+                    } else {
+                      await AsyncStorage.setItem('paddletoday:trip-guest-draft', JSON.stringify({ id: Crypto.randomUUID(), plan }));
+                      await AsyncStorage.setItem(TRIP_RETURN_KEY, '/trips?'); onClose(); router.push('/account');
+                    }
+                  })().catch(e => setStatus(e instanceof Error ? e.message : 'Could not save this trip.')).finally(() => setSharePending(false));
+                }} />
+                <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share a snapshot" detail="A fixed copy of route, access, and launch time" onPress={() => void shareTripLink()} />
+                <ActionButton disabled={!draftReady || closing} pending={sharePending} pendingLabel="Opening share sheet…" label="Share full float plan" detail="Send timing and group details to your group" onPress={() => void shareFloatPlan()} />
+              </View>
+              <Text style={styles.footer}>Confirm current gauge, weather, access, hazards, and an offline check-in plan before launching.</Text>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </Modal>
   );
 }
@@ -386,6 +390,7 @@ function validate(plan: TripPlanInput, checkIn: string) {
 function hasCoordinates(point: RiverAccessPoint): point is RiverAccessPoint & { latitude: number; longitude: number } { return Number.isFinite(point.latitude) && Number.isFinite(point.longitude); }
 
 const styles = StyleSheet.create({
-  closeButton: { minHeight: 44, minWidth: 44, alignItems: 'center', justifyContent: 'center' },
+  closeButton: { minHeight: 48, minWidth: 48, alignItems: 'center', justifyContent: 'center' },
+  scroll: { flex: 1 },
   screen: { flex: 1, backgroundColor: colors.canvas }, header: { width: '100%', maxWidth: 640, alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', padding: spacing.lg, borderBottomWidth: 1, borderBottomColor: colors.border, backgroundColor: colors.surface }, headerCopy: { flex: 1, gap: 3 }, kicker: { color: colors.accent, fontSize: 11, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 }, title: { color: colors.text, fontSize: 22, fontWeight: '900' }, subtitle: { color: colors.textMuted, fontSize: 12 }, close: { color: colors.accent, fontWeight: '900', padding: spacing.xs }, content: { width: '100%', maxWidth: 640, alignSelf: 'center', padding: spacing.lg, gap: spacing.sm, paddingBottom: spacing.xl * 2 }, sectionTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: spacing.sm }, help: { color: colors.textMuted, fontSize: 12, lineHeight: 17 }, field: { gap: 4 }, label: { color: colors.textMuted, fontSize: 11, fontWeight: '800' }, input: { minHeight: 44, borderRadius: radius.sm, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceStrong, paddingHorizontal: spacing.sm, color: colors.text, fontSize: 14 }, multiline: { minHeight: 72, paddingTop: spacing.sm, textAlignVertical: 'top' }, estimate: { color: colors.accentDeep, backgroundColor: colors.accentSoft, borderRadius: radius.sm, padding: spacing.sm, fontSize: 12, lineHeight: 17 }, status: { color: colors.noGo, fontSize: 12, fontWeight: '800' }, actions: { gap: spacing.sm, marginTop: spacing.sm }, actionButton: { borderRadius: radius.md, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, padding: spacing.md, gap: 3 }, actionButtonPrimary: { backgroundColor: colors.accent, borderColor: colors.accent }, actionLabel: { color: colors.text, fontSize: 14, fontWeight: '900' }, actionLabelPrimary: { color: colors.surfaceStrong }, actionDetail: { color: colors.textMuted, fontSize: 12 }, actionDetailPrimary: { color: colors.accentSoft }, footer: { color: colors.textMuted, fontSize: 11, lineHeight: 16, marginTop: spacing.sm },
 });

@@ -266,7 +266,9 @@ async function main() {
     for (const [endpoint, point] of points) {
       if (!validPoint(point)) continue;
       const nameGroupKey = `${normalize(route.state)}:${normalize(point.name)}`;
-      const auditMatches = auditsByRouteAndName.get(`${route.id}:${normalize(point.name)}`) ?? [];
+      // Evidence collected for a previous coordinate cannot verify a corrected point.
+      const auditMatches = (auditsByRouteAndName.get(`${route.id}:${normalize(point.name)}`) ?? [])
+        .filter(entry => coordinateKey(entry) === coordinateKey(point));
       const exactAudit = auditMatches.find((entry) => entry.endpoint === endpoint) ?? auditMatches[0] ?? null;
       const occurrence: Occurrence = {
         routeId: route.id,

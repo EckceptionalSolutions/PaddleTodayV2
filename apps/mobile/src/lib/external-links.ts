@@ -1,4 +1,5 @@
-import { Alert, Linking } from 'react-native';
+import Constants from 'expo-constants';
+import { Alert, Linking, Platform } from 'react-native';
 
 export async function openExternalUrl(url: string, label = 'Link') {
   try {
@@ -22,4 +23,18 @@ export async function openDeviceSettings() {
     Alert.alert('Settings unavailable', 'Open your device settings and choose PaddleToday to manage permissions.');
     return false;
   }
+}
+
+/** Open Android notification controls directly; App info is the fallback. */
+export async function openNotificationSettings() {
+  const appPackage = Constants.expoConfig?.android?.package;
+  if (Platform.OS === 'android' && appPackage) {
+    try {
+      await Linking.sendIntent('android.settings.APP_NOTIFICATION_SETTINGS', [
+        { key: 'android.provider.extra.APP_PACKAGE', value: appPackage },
+      ]);
+      return true;
+    } catch { /* Older devices may only offer App info. */ }
+  }
+  return openDeviceSettings();
 }

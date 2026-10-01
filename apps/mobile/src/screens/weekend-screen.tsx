@@ -8,7 +8,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Platform, Pressable, RefreshControl, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState, AppRefreshNotice } from '../components/app-state';
@@ -18,6 +18,8 @@ import { WeekendRiverCard } from '../components/weekend-river-card';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { requestFailureMessage } from '../lib/request-failure';
 import { distanceMiles, distancePenalty, estimateTravelMinutes, formatTravelTime, type StoredLocation } from '../lib/location';
+import { compactPaddleTime } from '../lib/route-facts';
+import { normalizeApiText } from '../lib/format';
 import { androidBottomInset } from '../lib/safe-area';
 import { radioKeyboardProps, tabKeyboardProps } from '../lib/selection-keyboard';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
@@ -61,6 +63,7 @@ export default function WeekendScreen() {
   const isStale = weekendQuery.data?.snapshotStatus === 'stale';
   const { location, status, requestLocation, clearLocation, searchLocations, selectPlanningLocation, cancelLocationRequest } = useStoredLocation();
   const [locationSearchOpen, setLocationSearchOpen] = useState(false);
+  const [mapInteractive, setMapInteractive] = useState(false);
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
   const [distanceSaveError, setDistanceSaveError] = useState(false);
@@ -229,9 +232,10 @@ export default function WeekendScreen() {
             <Text style={styles.heroFreshness}>{isStale ? 'Previous forecast counts' : location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast included' : 'No Paddle plan'}</Text>
           </View>
 
+          <Text style={styles.heroFreshness}>Forecast totals · {inRangeRivers.length} routes {location && distanceLimit !== null ? 'within your selected range' : 'nationwide'}. The shortlist below contains selected options.</Text>
           <View style={styles.snapshotRow}>
             <SnapshotStat label="Paddle" value={inRangeRivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').length} tone={styles.snapshotStrong} />
-            <SnapshotStat label="Watch" value={nearbyWatch.length + watchList.length} tone={styles.snapshotWatch} />
+            <SnapshotStat label="Watch" value={inRangeRivers.filter((river) => river.weekend.rating === 'Fair').length} tone={styles.snapshotWatch} />
             <SnapshotStat label="Skip" value={inRangeRivers.filter((river) => river.weekend.rating === 'No-go').length} tone={styles.snapshotNoGo} />
           </View>
 
@@ -248,9 +252,10 @@ export default function WeekendScreen() {
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
                 {weekendFacts(featured).map((fact) => (
-                  <Text key={fact} style={styles.featuredFact} numberOfLines={1}>{fact}</Text>
+                  <Text key={fact} style={styles.featuredFact}>{fact}</Text>
                 ))}
               </View>
+              {featured.river.estimatedPaddleTime ? <Text style={styles.featuredSummary}>Paddle time: {normalizeApiText(featured.river.estimatedPaddleTime)}</Text> : null}
               <Text style={styles.featuredSummary}>
                 {expandedPicks.length > 0
                   ? 'No Paddle routes are inside your selected range. This is the best option after expanding the drive.'
@@ -265,6 +270,8 @@ export default function WeekendScreen() {
         </View>
       </View>
 
+      <AppButton label="Browse all routes in Explore" variant="secondary" onPress={() => router.push('/explore')} />
+      <Text style={styles.planLanesHint}>Explore includes the broader route list with current conditions.</Text>
       {!location && hasWeekendPlan ? (
         <WeekendPlanLanes
           totalRoutes={allWeekendRoutes.length}
@@ -279,17 +286,22 @@ export default function WeekendScreen() {
       {weekendMapPoints.length > 0 ? (
         <SectionCard
           title={isStale ? 'Saved forecast on the map' : 'Weekend routes on the map'}
-          subtitle={isStale ? 'Scores are from the previous forecast. Tap a route to review its details.' : `Showing all ${weekendMapPoints.length} ${weekendFilter === 'all' ? 'weekend routes below' : `${weekendFilterLabel(weekendFilter)} routes`}. Tap a score to open the route.`}
+          subtitle={`${weekendMapPoints.length} shortlisted ${weekendFilter === 'all' ? 'weekend' : weekendFilterLabel(weekendFilter)} routes.${isStale ? ' Scores are from the previous forecast.' : ''}`}
         >
-          <View style={styles.mapFrame}>
+          <AppButton label={mapInteractive ? 'Done with map' : 'Explore map'} variant="secondary" expanded={mapInteractive} style={{ minHeight: 48 }} onPress={() => setMapInteractive(current => !current)} />
+          <Text style={styles.planLanesHint}>{mapInteractive ? 'Pan or zoom the map, or tap a score to open a route. Choose Done with map to resume page scrolling over the map.' : 'Scroll the page normally. Choose Explore map to pan, zoom, or select a route.'}</Text>
+          <View style={styles.mapFrame} pointerEvents={mapInteractive ? 'auto' : 'none'}
+            accessibilityElementsHidden={!mapInteractive} importantForAccessibility={mapInteractive ? 'auto' : 'no-hide-descendants'}>
             <RoutePlotMap
               points={weekendMapPoints}
+              interactive={mapInteractive}
+              showAllControl={mapInteractive && Platform.OS !== 'web'}
               backgroundSpanSegments={weekendMapSpans}
               height={270}
               showFooter={false}
               fitToAllOnReady
               fullBleed
-              onSelectPoint={(point) => router.push({ pathname: '/river/[slug]', params: { slug: point.id } })}
+              onSelectPoint={(point) => { setMapInteractive(false); router.push({ pathname: '/river/[slug]', params: { slug: point.id } }); }}
             />
           </View>
         </SectionCard>
@@ -546,7 +558,8 @@ function WeekendFilters({
       <View style={styles.filterDivider} />
 
       <View style={styles.filterSection}>
-        <Text style={styles.filterLabel}>Route type</Text>
+        <Text style={styles.filterLabel}>Shortlist route type</Text>
+        <Text style={styles.planLanesHint}>Counts cover selected routes below, a subset of the forecast totals.</Text>
         <View style={styles.routeTypeRow} accessibilityRole="tablist" accessibilityLabel="Weekend route type">
           <RouteTypeChip index={0} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="All" value={totalRoutes} active={selectedRouteType === 'all'} onPress={() => onSelectRouteType('all')} />
           <RouteTypeChip index={1} onSelectIndex={(next) => onSelectRouteType(weekendFilterOrder[next])} label="Day trips" value={dayTrips} active={selectedRouteType === 'day-trips'} onPress={() => onSelectRouteType('day-trips')} />
@@ -610,8 +623,8 @@ function WeekendPlanLanes({
 }) {
   return (
     <View style={styles.planLanes}>
-      <Text style={styles.planLanesTitle}>Filter weekend routes</Text>
-      <Text style={styles.planLanesHint}>Choose what you want to see first.</Text>
+      <Text style={styles.planLanesTitle}>Shortlisted weekend routes</Text>
+      <Text style={styles.planLanesHint}>Counts cover the selected shortlist below, a subset of the forecast totals.</Text>
       <View style={styles.planLaneGrid} accessibilityRole="tablist" accessibilityLabel="Weekend route type">
         <PlanLane index={0} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="All" value={totalRoutes} active={selected === 'all'} onPress={() => onSelect('all')} />
         <PlanLane index={1} onSelectIndex={(next) => onSelect(weekendFilterOrder[next])} label="Day trips" value={dayTrips} active={selected === 'day-trips'} onPress={() => onSelect('day-trips')} />
@@ -798,7 +811,7 @@ function weekendFacts(river: WeekendSummaryApiItem) {
   return [
     route.travelLabel || null,
     river.river.distanceLabel || null,
-    river.river.estimatedPaddleTime || null,
+    compactPaddleTime(river.river.estimatedPaddleTime) || null,
     `${capitalize(river.river.difficulty)} difficulty`,
     campingFact(river),
   ].filter(Boolean) as string[];
@@ -1152,6 +1165,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   featuredFact: {
+    maxWidth: '100%',
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
     color: colors.text,

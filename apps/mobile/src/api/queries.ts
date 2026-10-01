@@ -15,6 +15,7 @@ import type {
 import { queryOptions, useMutation, useQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useFreshnessClock } from '../hooks/use-freshness-clock';
+import { useOnlineStatus } from '../hooks/use-online-status';
 import { currentDetailSnapshot, currentExploreSnapshot, currentGroupSnapshot, currentSummarySnapshot, currentWeekendSnapshot } from '../lib/cached-snapshot';
 import { apiClient } from './client';
 import { requireConfirmedAreaSubscription, requireSavedAlert, requireStoredSubmission } from '../lib/submission-results';
@@ -41,11 +42,12 @@ export function useRiverCatalogQuery() {
 
 export function useRiverSummaryQuery(enabled = true) {
   const now = useFreshnessClock();
+  const online = useOnlineStatus();
   return useQuery({
     queryKey: riverQueryKeys.summary,
     enabled,
     queryFn: ({ signal }) => apiClient.getSummary({ signal }),
-    select: useCallback((response: RiverSummaryResponse) => currentSummarySnapshot(dedupeRiverSummaryResponse(response), now), [now]),
+    select: useCallback((response: RiverSummaryResponse) => currentSummarySnapshot(dedupeRiverSummaryResponse(response), now, online), [now, online]),
     retry: false,
     staleTime: 5 * 60 * 1000,
   });
@@ -62,10 +64,11 @@ export function exploreCatalogQueryOptions() {
 
 export function useExploreCatalogQuery(enabled = true) {
   const now = useFreshnessClock();
+  const online = useOnlineStatus();
   return useQuery({
     ...exploreCatalogQueryOptions(),
     enabled,
-    select: useCallback((response: Awaited<ReturnType<typeof apiClient.getExplore>>) => currentExploreSnapshot(response, now), [now]),
+    select: useCallback((response: Awaited<ReturnType<typeof apiClient.getExplore>>) => currentExploreSnapshot(response, now, online), [now, online]),
   });
 }
 
@@ -85,7 +88,8 @@ export function riverDetailQueryOptions(slug: string) {
 
 export function useRiverDetailQuery(slug: string) {
   const now = useFreshnessClock();
-  return useQuery({ ...riverDetailQueryOptions(slug), select: useCallback((response: Parameters<typeof currentDetailSnapshot>[0]) => currentDetailSnapshot(response, now), [now]) });
+  const online = useOnlineStatus();
+  return useQuery({ ...riverDetailQueryOptions(slug), select: useCallback((response: Parameters<typeof currentDetailSnapshot>[0]) => currentDetailSnapshot(response, now, online), [now, online]) });
 }
 
 export function riverGroupQueryOptions(riverId: string) {
@@ -100,8 +104,9 @@ export function riverGroupQueryOptions(riverId: string) {
 
 export function useRiverGroupQuery(riverId: string, enabled = true) {
   const now = useFreshnessClock();
+  const online = useOnlineStatus();
   return useQuery({ ...riverGroupQueryOptions(riverId), enabled: enabled && Boolean(riverId),
-    select: useCallback((response: Parameters<typeof currentGroupSnapshot>[0]) => currentGroupSnapshot(response, now), [now]) });
+    select: useCallback((response: Parameters<typeof currentGroupSnapshot>[0]) => currentGroupSnapshot(response, now, online), [now, online]) });
 }
 
 export function useRiverHistoryQuery(slug: string, days = 7, enabled = true) {
@@ -115,10 +120,11 @@ export function useRiverHistoryQuery(slug: string, days = 7, enabled = true) {
 
 export function useWeekendSummaryQuery() {
   const now = useFreshnessClock();
+  const online = useOnlineStatus();
   return useQuery({
     queryKey: riverQueryKeys.weekend,
     queryFn: ({ signal }) => apiClient.getWeekendSummary({ signal }),
-    select: useCallback((response: WeekendSummaryResponse) => currentWeekendSnapshot(dedupeWeekendSummaryResponse(response), now), [now]),
+    select: useCallback((response: WeekendSummaryResponse) => currentWeekendSnapshot(dedupeWeekendSummaryResponse(response), now, online), [now, online]),
     staleTime: 15 * 60 * 1000,
   });
 }

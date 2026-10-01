@@ -4,6 +4,7 @@ const mocks = vi.hoisted(() => ({
   logEvent: vi.fn(), recordError: vi.fn(), recordFeedbackUsageEvent: vi.fn(),
 }));
 vi.mock('@react-native-async-storage/async-storage', () => ({ default: {} }));
+vi.mock('expo-file-system/legacy', () => ({ cacheDirectory: 'cache/' }));
 vi.mock('expo-constants', () => ({
   default: { executionEnvironment: 'standalone', expoConfig: { version: 'qa' } },
   ExecutionEnvironment: { StoreClient: 'storeClient' },

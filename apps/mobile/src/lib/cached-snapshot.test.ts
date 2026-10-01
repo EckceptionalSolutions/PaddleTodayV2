@@ -20,6 +20,25 @@ function summary(): RiverSummaryResponse {
 }
 
 describe('display freshness of cached snapshots', () => {
+  it('immediately marks a fresh cached route offline without changing its stored response', () => {
+    const source = detail();
+    const result = currentDetailSnapshot(source, capturedAt, false);
+    expect(result.result.liveData.overall).toBe('offline');
+    expect(result.result.readiness.status).toBe('withheld');
+    expect(result.result.liveData.summary).toContain('You are offline');
+    expect(source.result.readiness.status).toBe('ready');
+  });
+  it('recomputes observation age as time passes without fetching another snapshot', () => {
+    const source = detail();
+    source.result.gauge = { ...source.result.gauge!, observedAt: new Date(capturedAt - 77 * 60_000).toISOString() };
+    source.result.liveData = { ...source.result.liveData, gauge: { ...source.result.liveData.gauge, state: 'live', ageMinutes: 23, detail: 'Gauge reading is 23m old.' } };
+    const first = currentDetailSnapshot(source, capturedAt);
+    const later = currentDetailSnapshot(source, capturedAt + 60_000);
+    expect(first.result.liveData.gauge.ageMinutes).toBe(77);
+    expect(first.result.liveData.gauge.detail).toContain('1h 17m old');
+    expect(later.result.liveData.gauge.ageMinutes).toBe(78);
+    expect(source.result.liveData.gauge.ageMinutes).toBe(23);
+  });
   it('keeps planning discovery available without inventing fresh conditions when the score snapshot is missing', () => {
     const scored = summary().rivers[0];
     const planning = { ...scored, river: { ...scored.river, scoreEligibility: 'planning' as const },

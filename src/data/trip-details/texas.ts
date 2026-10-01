@@ -624,8 +624,8 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
     "putIn": {
       "id": "hinman-island-park",
       "name": "Hinman Island Park",
-      "latitude": 29.7011,
-      "longitude": -98.1067
+      "latitude": 29.7084,
+      "longitude": -98.1242
     },
     "takeOut": {
       "id": "last-public-exit-comal",
@@ -658,11 +658,11 @@ export const texasRiverTripDetails: Record<string, RiverTripDetails> = {
       {
         "id": "hinman-island-park",
         "name": "Hinman Island Park",
-        "latitude": 29.7011,
-        "longitude": -98.1067,
+        "latitude": 29.7084,
+        "longitude": -98.1242,
         "mileFromStart": 0,
         "segmentKind": "creek",
-        "note": "Default National Recreation Trails upstream start and city-managed Comal River access area."
+        "note": "City-linked Hinman Island Park map pin for navigation to the upstream access area; this park-area anchor is not a verified water-entry point. Confirm the posted launch location on arrival."
       },
       {
         "id": "last-public-exit-comal",

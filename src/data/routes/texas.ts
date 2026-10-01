@@ -1565,8 +1565,8 @@ export const texasRoutes: River[] = [
     "routeType": "whitewater",
     "summary": "Short New Braunfels urban water-trail run from Hinman Island Park to the Last Public Exit. The City and National Recreation Trails identify the public access corridor and recreation rules, while the Comal River at New Braunfels USGS gauge gives a direct same-river flow check.",
     "statusText": "Use the Comal River at New Braunfels gauge. The City lists 100-500 cfs as open for all recreation, 500-600 cfs as extreme caution with questionable activities, and 600 cfs or above as a temporary closure trigger.",
-    "latitude": 29.7011,
-    "longitude": -98.1067,
+    "latitude": 29.7084,
+    "longitude": -98.1242,
     "gaugeSource": {
       "id": "usgs-08169000",
       "provider": "usgs",
@@ -1646,9 +1646,9 @@ export const texasRoutes: River[] = [
       },
       {
         "label": "Endpoint coordinates",
-        "value": "29.7011, -98.1067 to 29.7046, -98.1161",
-        "note": "Floating Texas publishes the Hinman Island Park access coordinate. Landa River Trips and Comal River Cam place the Last Public Exit at S Union Avenue / W Lincoln Street, which was resolved with the Census public address geocoder as a street-access anchor.",
-        "sourceUrl": "https://landarivertrips.com/comal-river-tubing-faq-new-braunfels/"
+        "value": "29.7084, -98.1242 to 29.7046, -98.1161",
+        "note": "The City's Comal River Parking page links the Hinman Island Park map pin at 29.7084, -98.1242. This is a park-area navigation anchor, not a verified water-entry point. The Last Public Exit remains the S Union Avenue / W Lincoln Street street-access anchor.",
+        "sourceUrl": "https://www.newbraunfels.gov/4211/Comal-River-Parking"
       },
       {
         "label": "Safety and access",

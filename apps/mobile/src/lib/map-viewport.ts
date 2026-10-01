@@ -44,11 +44,13 @@ export function mapViewportPoints(
     // Membership IDs prevent a recycled native marker from animating to an
     // unrelated cluster when the grid changes on zoom.
     const id = `cluster:${members.map((point) => point.id).sort().join('|')}`;
+    const names = [...new Set(members.map(point => point.label))];
+    const locations = names.slice(0, 3).join(', ') + (names.length > 3 ? `, and ${names.length - 3} more` : '');
     return {
       id,
       label: `${members.length} map locations`,
       markerLabel: `${members.length}+`,
-      markerAccessibilityLabel: 'Zoom in to explore these locations',
+      markerAccessibilityLabel: `${locations}. Zoom in to explore these locations`,
       latitude: members.reduce((sum, point) => sum + point.latitude, 0) / members.length,
       longitude: normalizeLongitude(members.reduce((sum, point) => sum + longitudeNear(point.longitude, region.longitude), 0) / members.length),
       members,

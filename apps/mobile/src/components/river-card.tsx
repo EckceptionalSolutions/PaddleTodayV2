@@ -3,7 +3,7 @@ import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native
 import { normalizeApiText } from '../lib/format';
 import { routeDecisionPresentation } from '../lib/map-decision';
 import { useRoutePhoto } from '../hooks/use-route-photo';
-import { routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
+import { compactPaddleTime, routeDecisionLine, routePreviewFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { QualityPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
@@ -76,10 +76,11 @@ export function RiverCard({
 
       <View style={styles.factRow}>
         {facts.slice(0, 3).map((fact) => (
-          <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
+          <Text key={fact} style={styles.factChip}>{fact}</Text>
         ))}
       </View>
 
+      {river.river.estimatedPaddleTime && compactPaddleTime(river.river.estimatedPaddleTime) !== normalizeApiText(river.river.estimatedPaddleTime) ? <Text style={styles.explanation}>Paddle time: {normalizeApiText(river.river.estimatedPaddleTime)}</Text> : null}
       {changes?.length ? (
         <View style={styles.changeNotice}>
           <Text style={styles.changeTitle}>Since your last visit</Text>

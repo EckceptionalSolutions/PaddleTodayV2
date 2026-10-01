@@ -9,7 +9,7 @@ import { AreaNotificationCard } from '../components/area-notification-card';
 import { ManualLocationModal } from '../components/manual-location-modal';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { androidBottomInset } from '../lib/safe-area';
-import { openDeviceSettings } from '../lib/external-links';
+import { openNotificationSettings } from '../lib/external-links';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function NotificationSettingsScreen() {
@@ -115,7 +115,7 @@ function NotificationSettingsContent() {
 
       <Pressable
         style={styles.systemSettingsRow}
-        onPress={() => void openDeviceSettings()}
+        onPress={() => void openNotificationSettings()}
         accessibilityRole="button"
         accessibilityLabel="Open device notification settings"
       >
@@ -124,7 +124,7 @@ function NotificationSettingsContent() {
         </View>
         <View style={styles.systemSettingsCopy}>
           <Text style={styles.systemSettingsTitle}>Device notification settings</Text>
-          <Text style={styles.systemSettingsBody}>Manage system permission, sounds, and delivery.</Text>
+          <Text style={styles.systemSettingsBody}>Manage permissions, sounds, and delivery. If App info opens, choose Notifications.</Text>
         </View>
         <MaterialCommunityIcons name="open-in-new" color={colors.textMuted} size={18} />
       </Pressable>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T20:46:45.249Z",
+  "generatedAt": "2026-10-01T14:40:01.468Z",
   "auditGeneratedAt": "2026-09-20T13:11:01.443Z",
   "summary": {
     "entryCount": 4081,
@@ -9,7 +9,7 @@
     "derivedWaterEntryCount": 2278,
     "authoritativeAccessCount": 1266,
     "authoritativeWaterEntryCount": 499,
-    "areaAnchorOnlyCount": 0,
+    "areaAnchorOnlyCount": 1,
     "authoritativeAccessMismatchCount": 0
   },
   "entries": [
@@ -357354,36 +357354,49 @@
         "hinman-island-park"
       ],
       "storedAccessCoordinate": {
-        "latitude": 29.7011,
-        "longitude": -98.1067
+        "latitude": 29.7084,
+        "longitude": -98.1242
       },
-      "accessCoordinate": {
-        "latitude": 29.7011,
-        "longitude": -98.1067
-      },
-      "accessCoordinateSource": "stored-route-consensus",
+      "accessCoordinate": null,
+      "accessCoordinateSource": "official-area-anchor-not-access",
       "authoritativeAccess": null,
       "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAreaAnchor": {
+        "provider": "new_braunfels_hinman_island_park_20261001",
+        "featureId": "hinman-island-park-city-map-pin",
+        "name": "Hinman Island Park",
+        "officialName": "City of New Braunfels Hinman Island Park map pin",
+        "aliases": [
+          "Hinman Island Park"
+        ],
+        "latitude": 29.7084,
+        "longitude": -98.1242,
+        "sourceUrl": "https://www.newbraunfels.gov/4211/Comal-River-Parking",
+        "waterbody": "Comal River",
+        "coordinateRole": "authoritative-area-anchor",
+        "uncertaintyFeet": 150,
+        "parkingToAccessFeet": null,
+        "distanceFromStoredFeet": 0
+      },
+      "storedCoordinateIsAreaAnchor": true,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "area-anchor-only",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
       "coordinateVariants": [
         {
-          "key": "29.70110,-98.10670",
+          "key": "29.70840,-98.12420",
           "coordinate": {
-            "latitude": 29.7011,
-            "longitude": -98.1067
+            "latitude": 29.7084,
+            "longitude": -98.1242
           },
           "occurrenceCount": 2,
           "routeCount": 1,
@@ -357400,11 +357413,11 @@
           "endpoint": "accessPoint",
           "sourceId": "hinman-island-park",
           "name": "Hinman Island Park",
-          "latitude": 29.7011,
-          "longitude": -98.1067,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 2531.392317407114,
-          "endpointOnWaterbody": true,
+          "latitude": 29.7084,
+          "longitude": -98.1242,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -357414,11 +357427,11 @@
           "endpoint": "putIn",
           "sourceId": "hinman-island-park",
           "name": "Hinman Island Park",
-          "latitude": 29.7011,
-          "longitude": -98.1067,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 2531.392317407114,
-          "endpointOnWaterbody": true,
+          "latitude": 29.7084,
+          "longitude": -98.1242,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]

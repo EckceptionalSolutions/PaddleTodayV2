@@ -1,3 +1,4 @@
+import { compactPaddleTime } from '../lib/route-facts';
 import { signedPoints, type ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { router } from 'expo-router';
@@ -89,7 +90,7 @@ function WelcomeContent() {
     : 'Access details on route page';
   const previewFacts = [
     { label: 'DISTANCE', value: previewRoute?.river.distanceLabel ?? '8.4 mi' },
-    { label: 'PADDLE TIME', value: previewRoute?.river.estimatedPaddleTime ?? 'Day paddle' },
+    { label: 'PADDLE TIME', value: compactPaddleTime(previewRoute?.river.estimatedPaddleTime) || 'Day paddle' },
     {
       label: 'DIFFICULTY',
       value: previewRoute?.river.difficulty
@@ -284,10 +285,11 @@ function WelcomeContent() {
                 {previewFacts.map((fact) => (
                   <View key={fact.label} style={styles.routeFact}>
                     <Text style={styles.routeFactLabel}>{fact.label}</Text>
-                    <Text style={styles.routeFactValue} numberOfLines={1}>{fact.value}</Text>
+                    <Text style={styles.routeFactValue}>{fact.value}</Text>
                   </View>
                 ))}
               </View>
+              {previewRoute?.river.estimatedPaddleTime ? <Text style={styles.paddleTimeNote}>Paddle time: {previewRoute.river.estimatedPaddleTime}</Text> : null}
               <View style={styles.routeInfoGrid}>
                 <View style={styles.routeInfoPill}>
                   <MaterialCommunityIcons name="waves" size={11} color={colors.accent} />
@@ -303,12 +305,6 @@ function WelcomeContent() {
             </View>
           </View>
 
-          {!shortLayout ? (
-            <View style={styles.welcomeSwipeCue}>
-              <MaterialCommunityIcons name="gesture-swipe-horizontal" size={17} color={colors.textMuted} />
-              <Text style={styles.welcomeSwipeCueText}>Swipe to see how Paddle Today works</Text>
-            </View>
-          ) : null}
         </ScrollView>
 
         <ScrollView style={[styles.slide, { width: slideWidth }]} contentContainerStyle={styles.slideContent}
@@ -484,6 +480,12 @@ function WelcomeContent() {
       </View>
 
       <View style={styles.carouselFooter}>
+        {carouselIndex === 0 ? (
+          <View style={styles.welcomeSwipeCue} {...carouselPanResponder.panHandlers}>
+            <MaterialCommunityIcons name="gesture-swipe-horizontal" size={17} color={colors.textMuted} accessible={false} />
+            <Text style={styles.welcomeSwipeCueText}>Swipe to see how Paddle Today works</Text>
+          </View>
+        ) : null}
         <View style={[styles.paginationRow, narrowLayout ? styles.paginationRowNarrow : null]}>
           <Text
             numberOfLines={1}
@@ -690,6 +692,7 @@ const styles = StyleSheet.create({
   routeScoreKicker: { color: colors.accent, fontSize: 9, lineHeight: 12, fontWeight: '900', letterSpacing: 0.6 },
   routeScoreTitle: { color: colors.text, fontSize: 15, lineHeight: 19, fontWeight: '900', marginTop: 2 },
   routeScoreMeta: { color: colors.textMuted, fontSize: 10.5, lineHeight: 14, fontWeight: '700', marginTop: 1 },
+  paddleTimeNote: { color: colors.textMuted, fontSize: 12, lineHeight: 17, marginTop: spacing.sm },
   routeFactGrid: { flexDirection: 'row', gap: 5, marginTop: 6 },
   routeFact: { flex: 1, minWidth: 0, paddingVertical: 5, paddingHorizontal: 6, borderRadius: radius.sm, backgroundColor: colors.surfaceStrong },
   routeFactLabel: { color: colors.textMuted, fontSize: 7.5, lineHeight: 10, fontWeight: '900', letterSpacing: 0.4 },
@@ -731,9 +734,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 6,
-    marginTop: spacing.md,
+    minHeight: 24,
+    paddingVertical: 2,
   },
   welcomeSwipeCueText: {
+    flexShrink: 1,
+    textAlign: 'center',
     color: colors.textMuted,
     fontSize: 10,
     lineHeight: 14,
@@ -868,7 +874,7 @@ const styles = StyleSheet.create({
   featureCopy: { flex: 1, minWidth: 0 },
   featureTitle: { color: colors.text, fontSize: 14, lineHeight: 18, fontWeight: '900' },
   featureLabel: { color: colors.textMuted, fontSize: 12, lineHeight: 17, marginTop: 2 },
-  carouselFooter: { gap: spacing.sm, paddingTop: spacing.sm },
+  carouselFooter: { flexShrink: 0, gap: spacing.sm, paddingTop: spacing.sm },
   paginationRow: {
     minHeight: 24,
     flexDirection: 'row',

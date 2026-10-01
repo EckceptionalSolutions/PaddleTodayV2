@@ -17,6 +17,8 @@ import { openExternalUrl } from '../lib/external-links';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { androidBottomInset } from '../lib/safe-area';
 import { colors, radius, spacing } from '../theme/tokens';
+import { useAccountStatus } from '../hooks/use-account-status';
+import { accountSupportSubtitle } from '../lib/account-status';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
@@ -34,6 +36,7 @@ export default function SupportScreen() {
 
 function SupportContent() {
   const router = useRouter();
+  const account = useAccountStatus();
   const insets = useSafeAreaInsets();
   const bottomContentInset = androidBottomInset(insets.bottom);
   const summaryQuery = useRiverCatalogQuery();
@@ -52,7 +55,8 @@ function SupportContent() {
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const supportedStates = useMemo(() => supportedRiverStates(rivers), [rivers]);
   const activeSupportedState = supportedStates.find((state) => state.state === selectedSupportedState) ?? supportedStates[0] ?? null;
-  const showReleaseDiagnostics = observabilityStatus().environment !== 'production';
+  const diagnostics = observabilityStatus();
+  const showReleaseDiagnostics = diagnostics.environment !== 'production';
 
   useEffect(() => {
     if (!activeSupportedState || selectedSupportedState === activeSupportedState.state) {
@@ -158,7 +162,7 @@ function SupportContent() {
 
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and app help.">
         <View style={styles.actionList}>
-          <ActionRow icon="account-circle-outline" title="Account & backup" body="Sign in to back up saved routes and trip plans." onPress={() => router.push('/account' as never)} />
+          <ActionRow icon="account-circle-outline" title="Account & backup" body={accountSupportSubtitle(account)} onPress={() => router.push('/account' as never)} />
           <ActionRow icon="bell-outline" title="Notification settings" body="Choose nearby Today and Weekend alerts." onPress={() => router.push('/notifications' as never)} />
           <ActionRow icon="information-outline" title="Take the app tour" body="Review scores, conditions, and route details whenever you like." onPress={() => router.push('/tour' as never)} />
           <ActionRow icon="message-text-outline" title="Send feedback" body="Share an idea, issue, or missing feature." onPress={openManualFeedback} />
@@ -285,14 +289,16 @@ function SupportContent() {
       </SectionCard>
 
       {showReleaseDiagnostics ? (
-        <SectionCard title="Observability" subtitle="Release diagnostics are not configured yet.">
+        <SectionCard title="Observability" subtitle={diagnostics.enabled
+          ? 'Release diagnostics are enabled for this build.'
+          : 'Release diagnostics are not enabled for this build.'}>
         <View style={styles.observabilityCard}>
           <Text style={styles.observabilityLabel}>Status</Text>
           <Text style={styles.observabilityValue}>
-            {observabilityStatus().enabled ? 'Enabled' : 'Not configured'}
+            {diagnostics.enabled ? 'Enabled' : 'Not configured'}
           </Text>
           <Text style={styles.observabilityMeta}>
-            {observabilityStatus().environment} · {observabilityStatus().release}
+            {diagnostics.environment} · {diagnostics.release}
           </Text>
         </View>
         </SectionCard>

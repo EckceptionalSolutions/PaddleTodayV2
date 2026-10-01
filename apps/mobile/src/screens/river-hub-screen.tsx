@@ -1,3 +1,4 @@
+import { refreshDeviceConnectivity, useOnlineStatus } from '../hooks/use-online-status';
 import { AppButton } from '../components/app-button';
 import { RouteComparisonSheet } from '../components/route-comparison-sheet';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -97,6 +98,14 @@ function RiverHubContent({ riverId }: { riverId: string }) {
     writeRiverHubSession({ riverId, slugs: comparison.slugs, sort: sortMode, distance: distanceFilter, difficulty: difficultyFilter, region: regionFilter });
   }, [riverId, comparison.slugs, sortMode, distanceFilter, difficultyFilter, regionFilter]);
   const groupQuery = useRiverGroupQuery(riverId);
+  const online = useOnlineStatus();
+  async function refreshRouteConditions() {
+    try {
+      if (await refreshDeviceConnectivity()) await groupQuery.refetch({ cancelRefetch: false });
+    } catch {
+      // Keep the offline state visible if the device reachability check fails.
+    }
+  }
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const result = groupQuery.data?.result ?? null;
   const allRoutes = result?.routes ?? [];
@@ -180,6 +189,17 @@ function RiverHubContent({ riverId }: { riverId: string }) {
     );
   }
 
+  if (!result && (!online || groupQuery.fetchStatus === 'paused')) {
+    return (
+      <AppErrorState
+        title="This river hub is not saved on this device"
+        body="Connect to load the routes on this river. This page will retry when your connection returns."
+        actionLabel="Check connection"
+        onRetry={() => void refreshRouteConditions()}
+      />
+    );
+  }
+
   if (groupQuery.isPending && !result) {
     return (
       <AppLoadingState title="Loading river hub" body="Comparing the routes on this river." />
@@ -205,7 +225,7 @@ function RiverHubContent({ riverId }: { riverId: string }) {
         body="Couldn't load the routes on this river."
         actionLabel="Retry"
         retrying={groupQuery.isFetching}
-        onRetry={() => void groupQuery.refetch()}
+        onRetry={() => void refreshRouteConditions()}
       />
     );
   }
@@ -327,7 +347,7 @@ function RiverHubContent({ riverId }: { riverId: string }) {
           <RefreshControl
             tintColor={colors.accent}
             refreshing={groupQuery.isRefetching}
-            onRefresh={() => groupQuery.refetch()}
+            onRefresh={() => void refreshRouteConditions()}
           />
         }
         ListHeaderComponent={
@@ -339,7 +359,7 @@ function RiverHubContent({ riverId }: { riverId: string }) {
               dataUpdatedAt={groupQuery.dataUpdatedAt}
               label="Showing the last available routes on this river."
               actionLabel="Retry river hub"
-              onRetry={() => void groupQuery.refetch()}
+              onRetry={() => void refreshRouteConditions()}
             />
             <View style={styles.hero}>
               <ImageBackground
@@ -593,8 +613,8 @@ function RouteChoiceCard({
         icon={compared ? 'check' : 'plus'} variant="secondary" disabled={!compared && comparisonFull} onPress={onToggleComparison} /> : null}
       <View style={styles.routeFooter}>
         <Pressable
+          style={styles.whyButtonTarget}
           onPress={route.river.scoreEligibility === 'planning' ? onOpen : onToggleExpanded}
-          hitSlop={8}
           accessibilityRole="button"
           accessibilityLabel={`${route.river.scoreEligibility === 'planning' ? 'View planning details' : 'Score details'}: ${route.river.reach}`}
           accessibilityState={route.river.scoreEligibility === 'planning' ? undefined : { expanded }}
@@ -1349,6 +1369,12 @@ const styles = StyleSheet.create({
     color: colors.accent,
     fontSize: 12,
     fontWeight: '900',
+  },
+  whyButtonTarget: {
+    minHeight: 48,
+    minWidth: 48,
+    justifyContent: 'center',
+    paddingVertical: spacing.sm,
   },
   scoreBreakdownPanel: {
     borderRadius: radius.md,

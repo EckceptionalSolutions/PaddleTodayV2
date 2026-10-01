@@ -2,7 +2,7 @@ import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { formatRouteSegmentLabel, routeSegmentSummary } from '@paddletoday/api-contract';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { callForRating, normalizeApiText } from '../lib/format';
-import { routePreviewFactItems } from '../lib/route-facts';
+import { compactPaddleTime, routePreviewFactItems } from '../lib/route-facts';
 import { useRoutePhoto } from '../hooks/use-route-photo';
 import { colors, radius, spacing } from '../theme/tokens';
 import { QualityPill } from './rating-pill';
@@ -79,10 +79,11 @@ export function WeekendRiverCard({
 
       <View style={styles.metaRow}>
         {weekendFactItems(river, travelLabel).map((fact) => (
-          <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
+          <Text key={fact} style={styles.factChip}>{fact}</Text>
         ))}
       </View>
 
+      {river.river.estimatedPaddleTime && compactPaddleTime(river.river.estimatedPaddleTime) !== normalizeApiText(river.river.estimatedPaddleTime) ? <Text style={styles.paddleTimeNote}>Paddle time: {normalizeApiText(river.river.estimatedPaddleTime)}</Text> : null}
       {riskExplanation ? (
         <View style={[styles.riskPanel, !isStale && riskToneStyle(river)]}>
           <Text style={styles.riskLabel}>{isStale ? 'Previous outlook' : planRiskLabel(river)}</Text>
@@ -100,6 +101,7 @@ export function WeekendRiverCard({
 }
 
 const styles = StyleSheet.create({
+  paddleTimeNote: { paddingHorizontal: spacing.md, color: colors.textMuted, fontSize: 13, lineHeight: 19 },
   illustrativeLabel: { color: colors.textMuted, fontSize: 11, paddingHorizontal: spacing.md },
   savedScore: { backgroundColor: colors.canvasMuted },
   savedScoreText: { color: colors.textMuted },
@@ -201,6 +203,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
   },
   factChip: {
+    maxWidth: '100%',
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
     color: colors.text,
