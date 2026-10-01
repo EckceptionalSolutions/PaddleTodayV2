@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applyMarkerSnapshotFix } from './apply-react-native-maps-android-marker-fix.mjs';
+import { applyMarkerAccessibilityFix, applyMarkerManagerAccessibilityFix } from './apply-react-native-maps-android-accessibility-fix.mjs';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const mobileRoot = join(root, 'apps/mobile');
@@ -67,6 +68,7 @@ check('EAS archive includes React Native native fix installers', () =>
     '!/scripts/apply-react-native-maps-ios-subview-fix.mjs',
     '!/scripts/apply-react-native-maps-ios-ready-callback-fix.mjs',
     '!/scripts/apply-react-native-maps-android-marker-fix.mjs',
+    '!/scripts/apply-react-native-maps-android-accessibility-fix.mjs',
   ])
 );
 checkFile('Android marker snapshot fix installer', join(root, 'scripts/apply-react-native-maps-android-marker-fix.mjs'));
@@ -74,6 +76,14 @@ check('Android marker snapshot fix runs during install', () => readJson(join(roo
 check('Android marker snapshot fix is installed', () => {
   const source = readFileSync(join(root, 'node_modules/react-native-maps/android/src/main/java/com/rnmaps/maps/MapMarker.java'), 'utf8').replace(/\r\n/g, '\n');
   return applyMarkerSnapshotFix(source) === source;
+});
+checkFile('Android map accessibility fix installer', join(root, 'scripts/apply-react-native-maps-android-accessibility-fix.mjs'));
+check('Android map accessibility fix runs during install', () => readJson(join(root, 'package.json')).scripts?.postinstall?.includes('node scripts/apply-react-native-maps-android-accessibility-fix.mjs'));
+check('Android map accessibility bridge is installed', () => {
+  const directory = join(root, 'node_modules/react-native-maps/android/src/main/java/com/rnmaps/maps');
+  const marker = readFileSync(join(directory, 'MapMarker.java'), 'utf8').replace(/\r\n/g, '\n');
+  const manager = readFileSync(join(directory, 'MapMarkerManager.java'), 'utf8').replace(/\r\n/g, '\n');
+  return applyMarkerAccessibilityFix(marker) === marker && applyMarkerManagerAccessibilityFix(manager) === manager;
 });
 check('React Native Android drawing-order fix is installed', () =>
   fileIncludes(
