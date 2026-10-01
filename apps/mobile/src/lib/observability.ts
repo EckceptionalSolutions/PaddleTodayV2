@@ -1,10 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants, { ExecutionEnvironment } from 'expo-constants';
+import * as Files from 'expo-file-system/legacy';
 import { Component, createElement, type ComponentType, type ErrorInfo, type PropsWithChildren, type ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { recordFeedbackUsageEvent } from './feedback-usage';
 import { colors, radius, spacing } from '../theme/tokens';
-import { QUERY_CACHE_STORAGE_KEY } from './query-cache';
+import { QUERY_CACHE_FILE_NAME, QUERY_CACHE_STORAGE_KEY } from './query-cache';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
 type FirebaseBridge = {
@@ -97,6 +98,9 @@ class RenderErrorBoundary extends Component<
     this.setState({ recovering: true });
     try {
       await AsyncStorage.removeItem(QUERY_CACHE_STORAGE_KEY);
+      if (Files.cacheDirectory) {
+        await Files.deleteAsync(Files.cacheDirectory + QUERY_CACHE_FILE_NAME, { idempotent: true });
+      }
     } catch (error) {
       captureAppException(error, { name: 'render_error_cache_reset' });
     } finally {

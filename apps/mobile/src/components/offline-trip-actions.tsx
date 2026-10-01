@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
@@ -143,7 +144,7 @@ export function SavedOfflineTrips() {
   useFocusEffect(useCallback(() => { void refresh(); return () => { epoch.current++; }; }, [refresh]));
   return <SectionCard title="Offline trips" subtitle="Open downloaded trip plans without a connection. Current conditions are unavailable in saved copies.">
     {loading ? <Text style={styles.body}>Loading offline trips…</Text> : null}
-    {!loading && !records.length && !error ? <Text style={styles.body}>Open a route, choose your landings, then use Prepare trip → Download offline trip.</Text> : null}
+    {!loading && !records.length && !error ? <><Text style={styles.body}>Open a route, choose your landings, then use Prepare trip → Download offline trip.</Text><AppButton label="Find a route" onPress={() => router.push('/explore')} /></> : null}
     {error ? <><Text accessibilityLiveRegion="polite" style={styles.body}>{error}</Text><AppButton label="Retry offline trips" busy={loading} variant="secondary" onPress={() => void refresh()} /></> : null}
     {records.map(packet => {
       const draft = draftsByTarget.get(offlineTripId(packet.target));

@@ -1,4 +1,4 @@
-import type { RiverDetailApiResult, RiverSummaryApiItem, WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import { parsePaddleTimeHours, type RiverDetailApiResult, type RiverSummaryApiItem, type WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { normalizeApiText } from './format';
 import { formatTravelTime } from './location';
 
@@ -40,7 +40,7 @@ export function routePreviewFactItems(river: FactRiver, options: RoutePreviewFac
     options.driveDistanceLabel,
   ].filter(Boolean) as string[];
 
-  return uniqueFacts(facts).slice(0, maxItems);
+  return uniqueFacts(facts.map(fact => fact === river.estimatedPaddleTime ? compactPaddleTime(fact) : fact)).slice(0, maxItems);
 }
 
 export function routePreviewFactLine(river: FactRiver, options: RoutePreviewFactOptions = {}) {
@@ -86,4 +86,18 @@ function uniqueFacts(facts: string[]) {
     seen.add(key);
     return true;
   });
+}
+
+/** Keep the duration small enough for a chip; render the original explanation nearby. */
+export function compactPaddleTime(value: string | null | undefined): string {
+  const text = normalizeApiText(value);
+  const range = parsePaddleTimeHours(text);
+  if (!range) return text;
+  const duration = (hours: number) => {
+    const minutes = Math.round(hours * 60);
+    const wholeHours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    return wholeHours ? `${wholeHours}h${remainingMinutes ? ` ${remainingMinutes}m` : ''}` : `${minutes}m`;
+  };
+  return range.min === range.max ? duration(range.min) : `${duration(range.min)}–${duration(range.max)}`;
 }

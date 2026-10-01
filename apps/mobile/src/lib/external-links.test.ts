@@ -2,14 +2,29 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const native = vi.hoisted(() => ({
   Alert: { alert: vi.fn() },
-  Linking: { canOpenURL: vi.fn(), openURL: vi.fn(), openSettings: vi.fn() },
+  Platform: { OS: 'android' },
+  Linking: { canOpenURL: vi.fn(), openURL: vi.fn(), openSettings: vi.fn(), sendIntent: vi.fn() },
 }));
 vi.mock('react-native', () => native);
-import { openDeviceSettings, openExternalUrl } from './external-links';
+vi.mock('expo-constants', () => ({ default: { expoConfig: { android: { package: 'com.paddletoday.mobile' } } } }));
+import { openDeviceSettings, openExternalUrl, openNotificationSettings } from './external-links';
 
 beforeEach(() => vi.resetAllMocks());
 
 describe('external actions', () => {
+  it('opens the app notification settings directly on Android', async () => {
+    expect(await openNotificationSettings()).toBe(true);
+    expect(native.Linking.sendIntent).toHaveBeenCalledWith('android.settings.APP_NOTIFICATION_SETTINGS', [
+      { key: 'android.provider.extra.APP_PACKAGE', value: 'com.paddletoday.mobile' },
+    ]);
+    expect(native.Linking.openSettings).not.toHaveBeenCalled();
+  });
+
+  it('falls back to App info when notification settings are unavailable', async () => {
+    native.Linking.sendIntent.mockRejectedValue(new Error('Unsupported'));
+    expect(await openNotificationSettings()).toBe(true);
+    expect(native.Linking.openSettings).toHaveBeenCalledOnce();
+  });
   it('explains when no email application is available', async () => {
     native.Linking.canOpenURL.mockResolvedValue(false);
     expect(await openExternalUrl('mailto:hello@example.com', 'Email')).toBe(false);

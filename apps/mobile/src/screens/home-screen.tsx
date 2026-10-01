@@ -1017,7 +1017,8 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     justifyContent: 'space-between',
     padding: spacing.md,
-    backgroundColor: 'rgba(15, 25, 22, 0.34)',
+    // Keeps the faintest hero text above 5:1 even over a white photo.
+    backgroundColor: 'rgba(15, 25, 22, 0.72)',
   },
   heroOverlayEmpty: {
     minHeight: 110,

@@ -6,6 +6,7 @@ import { notifySavedRoutesChanged } from './account-storage-events';
 import { activateAccountLocalState, deactivateAccountLocalState, markGuestMigrationRecoveryAcknowledged } from './account-local-state';
 import { listTripDrafts, tripDraftKey } from './trip-drafts';
 import { apiClient } from '../api/client';
+import { setAccountBackupStatus } from './account-status';
 
 export const SAVED_ROUTES_KEY = 'paddletoday:saved-rivers';
 const pendingKey = (uid: string) => 'paddletoday:account-pending:' + uid;
@@ -37,6 +38,7 @@ export function requestAccountBackup() {
   if (Platform.OS === 'web' || backupPaused) return;
   const user = currentUserProvider?.() ?? null;
   if (!user) return;
+  setAccountBackupStatus(user.uid, 'pending');
   void AsyncStorage.setItem(pendingKey(user.uid), '1').catch(() => {});
   if (pendingTimer) clearTimeout(pendingTimer);
   pendingTimer = setTimeout(() => { pendingTimer = null; void flushAccountBackup(); }, 900);
@@ -54,7 +56,7 @@ export async function flushAccountBackup(): Promise<AccountBackupSummary | null>
     if (summary.pending) await AsyncStorage.setItem(pendingKey(user.uid), '1');
     else await AsyncStorage.removeItem(pendingKey(user.uid));
     return summary;
-  })().catch(() => null).finally(() => { running = null; });
+  })().catch(() => { setAccountBackupStatus(user.uid, 'attention'); return null; }).finally(() => { running = null; });
   return running;
 }
 
@@ -64,7 +66,10 @@ export async function hasPendingAccountBackup(uid: string) {
 
 export function syncAccountBackup(idToken: string, uid: string): Promise<AccountBackupSummary> {
   if (backupPaused) return Promise.reject(new Error('Account backup is paused.'));
-  const next = syncQueue.then(() => syncAccountBackupNow(idToken, uid));
+  const next = syncQueue.then(() => syncAccountBackupNow(idToken, uid)).then(summary => {
+    setAccountBackupStatus(uid, summary.conflicts ? 'attention' : summary.pending ? 'pending' : 'complete');
+    return summary;
+  }, error => { setAccountBackupStatus(uid, 'attention'); throw error; });
   syncQueue = next.then(() => undefined, () => undefined);
   return next;
 }
@@ -72,6 +77,8 @@ export function syncAccountBackup(idToken: string, uid: string): Promise<Account
 export async function pauseAccountBackup() {
   backupPaused = true;
   await syncQueue;
+  const user = currentUserProvider?.();
+  if (user) setAccountBackupStatus(user.uid, 'paused');
 }
 
 export function deactivateAccountLocalData() {

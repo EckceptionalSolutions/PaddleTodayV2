@@ -6,6 +6,7 @@ import { apiClient } from './client';
 import { exploreCatalogQueryOptions, riverDetailQueryOptions, riverQueryKeys } from './queries';
 
 vi.mock('./client', () => ({ apiClient: { getRiverDetail: vi.fn(), getExplore: vi.fn(), getSummary: vi.fn() } }));
+vi.mock('../hooks/use-online-status', () => ({ useOnlineStatus: () => true }));
 
 const clients: QueryClient[] = [];
 function client() {

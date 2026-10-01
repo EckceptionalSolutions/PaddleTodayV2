@@ -142,6 +142,8 @@ export default function TripsScreen() {
   </>;
   return <ScrollView contentContainerStyle={styles.page} keyboardShouldPersistTaps="handled">
     <Text style={styles.title}>My trips</Text>
+    <Text style={styles.hint}>Your personal trip plans and paddle logs.</Text>
+    {!editing && !selected ? <B label="Open offline downloads and local drafts" secondary onPress={() => router.push({ pathname: '/saved', params: { tab: 'offline' } })} /> : null}
     {state?.lastSync ? <Text style={styles.hint}>Last synced {new Date(state.lastSync).toLocaleString()}</Text> : null}
     {message ? <Text style={styles.notice} accessibilityLiveRegion="polite">{message}</Text> : null}
     {publicTrip ? <SectionCard title={publicTrip.title} subtitle="Shared trip plan"><Text>{publicTrip.route.name}</Text><Text>{publicTrip.route.putInName} → {publicTrip.route.takeOutName}</Text><Text>{publicTrip.date} {publicTrip.launch} ({publicTrip.timeZone})</Text>{publicTrip.itinerary.map(s => <Text key={s.id}>{s.time} {s.location}: {s.note}</Text>)}</SectionCard> : null}

@@ -20,14 +20,23 @@ export function createConnectivityMonitor({
   onChange: (online: boolean) => void;
 }) {
   let latest: boolean | undefined;
+  let revision = 0;
+  let disposed = false;
   const apply = (state: ConnectivityState) => {
+    if (disposed) return;
     const online = connectionIsUsable(state);
     if (online === latest) return;
     latest = online;
     onChange(online);
   };
-  const unsubscribe = subscribe(apply);
-  const refreshState = () => refresh().then(apply).catch(() => {});
+  const stop = subscribe(state => { revision++; apply(state); });
+  const refreshState = () => {
+    const startedAt = ++revision;
+    return refresh().then(state => {
+      // A delayed fetch must not overwrite a newer network event or refresh.
+      if (startedAt === revision) apply(state);
+    }).catch(() => {});
+  };
   void refreshState();
-  return { unsubscribe, refresh: refreshState };
+  return { unsubscribe: () => { disposed = true; stop(); }, refresh: refreshState };
 }

@@ -7,6 +7,7 @@ import {
   getBounds,
   isFinitePoint,
   markerTextForPoint,
+  markerAccessibilityLabelForPoint,
   projectPoint,
   projectPointNumber,
   routeSpanSegments,
@@ -42,6 +43,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height?: number;
   showFooter?: boolean;
   showAllControl?: boolean;
+  interactive?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
@@ -66,6 +68,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height = 290,
   showFooter = true,
   showAllControl = false,
+  interactive = true,
   fullBleed = false,
   refitOnPointChanges = true,
   dimUnselectedMarkers = true,
@@ -147,10 +150,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 projectPoint(point.latitude, point.longitude, bounds),
                 { zIndex: selected ? 10 : showScore ? 3 : 1 },
               ]}
+              disabled={!interactive}
               onPress={() => onSelectPoint?.(point)}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel={`${point.label}${point.markerAccessibilityLabel ? `, ${point.markerAccessibilityLabel}` : point.score ? `, score ${point.score}` : ''}`}
+              accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
+              accessibilityState={{ selected, disabled: !interactive }}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
               <View
@@ -173,7 +178,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
       </View>
 
-      {showAllControl ? <ShowAllButton onPress={() => undefined} /> : null}
+      {showAllControl && interactive ? <ShowAllButton onPress={() => undefined} /> : null}
       {showFooter ? (
         <MapFooter
           points={visiblePoints}

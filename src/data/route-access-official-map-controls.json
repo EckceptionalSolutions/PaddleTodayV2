@@ -29372,6 +29372,34 @@
           "coordinateText": "Indiana County and American Whitewater identify the Heshbon trailhead/bridge corridor as the route put-in area. Retain the stored point as the managed trailhead/access-area anchor rather than an inferred wet-toe point."
         }
       ]
+    },
+    {
+      "id": "new_braunfels_hinman_island_park_20261001",
+      "name": "City of New Braunfels Hinman Island Park map pin",
+      "state": "Texas",
+      "sourceUrl": "https://www.newbraunfels.gov/4211/Comal-River-Parking",
+      "sourceType": "official-city-linked-place-map",
+      "sourceDocumentDate": null,
+      "sourceSha256": null,
+      "coordinateRole": "authoritative-area-anchor",
+      "method": "The City Comal River Parking page links https://maps.app.goo.gl/9csjZvjQMDVrxMSZA, whose destination place pin is 29.7084, -98.1242. Retain this as the named park-area navigation anchor; it does not establish an exact water-entry point.",
+      "controls": [
+        {
+          "featureId": "hinman-island-park-city-map-pin",
+          "routeIds": [
+            "comal-river-hinman-island-last-public-exit"
+          ],
+          "name": "Hinman Island Park",
+          "aliases": [
+            "Hinman Island Park"
+          ],
+          "waterbody": "Comal River",
+          "latitude": 29.7084,
+          "longitude": -98.1242,
+          "uncertaintyFeet": 150,
+          "coordinateText": "City-linked park place pin. Confirm the posted launch and carry path on arrival."
+        }
+      ]
     }
   ]
 }

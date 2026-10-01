@@ -2,6 +2,8 @@ import { AlertPreferencesNotice } from '../components/alert-preferences-notice';
 import { FormExitGuard } from '../components/form-exit-guard';
 import { useReducedMotion } from '../hooks/use-reduced-motion';
 import { CharacterCount } from '../components/character-count';
+import { AppButton } from '../components/app-button';
+import { openDeviceSettings } from '../lib/external-links';
 import { submissionFailureMessage } from '../lib/submission-results';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams } from 'expo-router';
@@ -53,6 +55,8 @@ export default function ContributePhotoScreen() {
   const pickerInFlight = useRef(false);
   const [submitting, setSubmitting] = useState(false);
   const [pickingPhotos, setPickingPhotos] = useState(false);
+  const [photoStatus, setPhotoStatus] = useState('');
+  const [blockedPermission, setBlockedPermission] = useState<'camera' | 'library' | null>(null);
   const formPanelOffset = useRef(0);
   const inputOffsets = useRef<Record<string, number>>({});
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
@@ -117,21 +121,24 @@ export default function ContributePhotoScreen() {
     if (pickerInFlight.current || submissionInFlight.current) return;
     const remainingSlots = ROUTE_REPORT_MAX_PHOTOS - photos.length;
     if (remainingSlots <= 0) {
-      setStatus(`You can attach up to ${ROUTE_REPORT_MAX_PHOTOS} photos.`);
+      setPhotoStatus(`You can attach up to ${ROUTE_REPORT_MAX_PHOTOS} photos.`);
       return;
     }
 
     pickerInFlight.current = true;
     setPickingPhotos(true);
+    setPhotoStatus('');
+    setBlockedPermission(null);
     try {
       const permission = source === 'camera'
         ? await ImagePicker.requestCameraPermissionsAsync()
         : await ImagePicker.requestMediaLibraryPermissionsAsync();
 
       if (!permission.granted) {
-        setStatus(source === 'camera'
+        setPhotoStatus(source === 'camera'
           ? 'Camera access is off. You can still choose photos from your library.'
           : 'Photo library access is off. You can still take a new photo if camera access is enabled.');
+        if (!permission.canAskAgain) setBlockedPermission(source);
         return;
       }
 
@@ -156,12 +163,12 @@ export default function ContributePhotoScreen() {
 
       if (selected.length > 0) {
         setPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
-        setStatus(skipped > 0 ? 'Some photos could not be added.' : 'Photo added.');
+        setPhotoStatus(skipped > 0 ? 'Some photos could not be added.' : 'Photo added.');
       } else if (skipped > 0) {
-        setStatus('Those photos could not be added.');
+        setPhotoStatus('Those photos could not be added.');
       }
     } catch {
-      setStatus(source === 'camera' ? 'The camera could not be opened.' : 'Photos could not be opened.');
+      setPhotoStatus(source === 'camera' ? 'The camera could not be opened.' : 'Photos could not be opened.');
     } finally {
       pickerInFlight.current = false;
       setPickingPhotos(false);
@@ -235,6 +242,8 @@ export default function ContributePhotoScreen() {
       });
       setStatus('Thank you. Your photos were sent for review.');
       setPhotos([]);
+      setPhotoStatus('');
+      setBlockedPermission(null);
       setCaption('');
       setName('');
       setEmailDraft(contributorEmail);
@@ -309,6 +318,15 @@ export default function ContributePhotoScreen() {
               </Pressable>
             </View>
 
+            {photoStatus ? <Text accessibilityLiveRegion="polite" role="status" style={styles.photoStatus}>{photoStatus}</Text> : null}
+            {blockedPermission ? (
+              <View style={styles.permissionRecovery}>
+                <Text style={styles.body}>Enable {blockedPermission === 'camera' ? 'camera' : 'photo library'} access in app settings, then try again.</Text>
+                <AppButton label="Open app settings" variant="secondary" icon="cog-outline"
+                  disabled={pickingPhotos || submitting} style={{ minHeight: 48 }} onPress={() => void openDeviceSettings()} />
+              </View>
+            ) : null}
+            {validation === 'photos' && validationErrors.photos ? <Text style={styles.fieldError} accessibilityLiveRegion="polite">{validationErrors.photos}</Text> : null}
             <Text style={styles.photoCount}>{photos.length}/{ROUTE_REPORT_MAX_PHOTOS} attached</Text>
             {photos.length > 0 ? (
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.photoStrip}>
@@ -517,7 +535,7 @@ const styles = StyleSheet.create({
   },
   sourceButton: {
     flex: 1,
-    minHeight: 44,
+    minHeight: 48,
     borderRadius: radius.pill,
     backgroundColor: colors.accent,
     alignItems: 'center',
@@ -532,7 +550,7 @@ const styles = StyleSheet.create({
   },
   sourceButtonSecondary: {
     flex: 1,
-    minHeight: 44,
+    minHeight: 48,
     borderRadius: radius.pill,
     backgroundColor: colors.surfaceStrong,
     borderWidth: 1,
@@ -554,6 +572,14 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     fontWeight: '800',
+  },
+  photoStatus: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  permissionRecovery: {
+    gap: spacing.sm,
   },
   photoStrip: {
     gap: spacing.sm,

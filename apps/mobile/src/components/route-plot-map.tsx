@@ -9,6 +9,8 @@ import {
   getBounds,
   isFinitePoint,
   markerTextForPoint,
+  markerDescriptionForPoint,
+  markerAccessibilityLabelForPoint,
   projectPoint,
   projectPointNumber,
   routeSpanSegments,
@@ -50,6 +52,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height?: number;
   showFooter?: boolean;
   showAllControl?: boolean;
+  interactive?: boolean;
   fullBleed?: boolean;
   markerMode?: 'score' | 'pin';
   fitToAllOnReady?: boolean;
@@ -77,6 +80,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height = 290,
   showFooter = true,
   showAllControl = false,
+  interactive = true,
   fullBleed = false,
   markerMode = 'score',
   fitToAllOnReady = false,
@@ -169,6 +173,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   }
 
   function selectPoint(point: RoutePlotPoint) {
+    if (!interactive) return;
     if (isMapCluster(point)) {
       if (regionDelta.longitudeDelta <= 0.005) setClusterChoices(point.members);
       else mapRef.current?.animateToRegion?.(clusterFocusRegion(point, regionDelta), 260);
@@ -305,13 +310,18 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
       <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]} onLayout={(event) => setMapWidth(event.nativeEvent.layout.width)}>
         <MapView
           ref={mapRef}
+          pointerEvents={interactive ? 'auto' : 'none'}
+          accessibilityElementsHidden={!interactive}
+          importantForAccessibility={interactive ? 'auto' : 'no-hide-descendants'}
+          scrollEnabled={interactive}
+          zoomEnabled={interactive}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
           onMapReady={onReady}
           moveOnMarkerPress={false}
           // Region-based screen placement assumes a north-up, flat map.
-          rotateEnabled={!declutterScores}
-          pitchEnabled={!declutterScores}
+          rotateEnabled={interactive && !declutterScores}
+          pitchEnabled={interactive && !declutterScores}
           onRegionChangeComplete={(region) => {
             onViewportChange?.(region);
             onZoomLevelChange?.(Math.log2(360 / Math.max(region.longitudeDelta, 0.0001)));
@@ -337,9 +347,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             <Marker
               coordinate={{ latitude: nativeUserLocation.latitude, longitude: nativeUserLocation.longitude }}
               title={nativeUserLocation.label ?? 'Current location'}
+              accessibilityLabel={nativeUserLocation.label ?? 'Current location'}
+              accessible
               zIndex={999}
             >
-              <View style={styles.nativeUserMarker}>
+              <View style={styles.nativeUserMarker} accessible={false} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
                 <View style={styles.nativeUserMarkerDot} />
               </View>
             </Marker>
@@ -380,6 +392,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 <Marker
                   key={point.id}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+                  title={point.label}
+                  description={markerDescriptionForPoint(point, selected)}
+                  accessible
+                  accessibilityRole="button"
+                  accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
+                  accessibilityState={{ selected, disabled: !interactive }}
                   onPress={() => selectPoint(point)}
                   zIndex={selected ? 10 : 1}
                   pinColor={pinColor}
@@ -413,7 +431,10 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 data={clusterChoices ?? []}
                 keyExtractor={(point) => point.id}
                 renderItem={({ item }) => (
-                  <Pressable style={styles.clusterChoice} accessibilityRole="button" onPress={() => { setClusterChoices(null); selectPoint(item); }}>
+                  <Pressable style={styles.clusterChoice} accessibilityRole="button"
+                    accessibilityLabel={markerAccessibilityLabelForPoint(item, item.id === selectedId)}
+                    accessibilityState={{ selected: item.id === selectedId }}
+                    onPress={() => { setClusterChoices(null); selectPoint(item); }}>
                     <Text style={styles.footerTitle}>{item.label}</Text>
                     <Text style={styles.footerMeta}>{item.markerAccessibilityLabel ?? item.meta}</Text>
                   </Pressable>
@@ -423,7 +444,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           </View>
         </Modal>
 
-        {showAllControl ? <ShowAllButton onPress={focusAll} /> : null}
+        {showAllControl && interactive ? <ShowAllButton onPress={focusAll} /> : null}
         {showFooter ? (
           <MapFooter
             points={visiblePoints}
@@ -474,10 +495,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 styles.markerTarget,
                 projectPoint(point.latitude, point.longitude, bounds),
               ]}
+              disabled={!interactive}
               onPress={() => selectPoint(point)}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel={`${point.label}${point.markerAccessibilityLabel ? `, ${point.markerAccessibilityLabel}` : point.score ? `, score ${point.score}` : ''}`}
+              accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
+              accessibilityState={{ selected, disabled: !interactive }}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
               <View
@@ -500,7 +523,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
       </View>
 
-      {showAllControl ? <ShowAllButton onPress={focusAll} /> : null}
+      {showAllControl && interactive ? <ShowAllButton onPress={focusAll} /> : null}
       {showFooter ? (
         <MapFooter
           points={visiblePoints}
@@ -533,14 +556,20 @@ const NativeScoreMarker = memo(function NativeScoreMarker({
   return (
     <Marker
       coordinate={{ latitude: point.latitude, longitude: point.longitude }}
+      title={point.label}
+      description={markerDescriptionForPoint(point, selected)}
       onPress={() => onSelect(point)}
       zIndex={selected ? 10 : showScore ? 3 : 1}
       anchor={{ x: 0.5, y: 0.5 }}
       centerOffset={{ x: 0, y: 0 }}
       tracksViewChanges={tracking}
-      accessibilityLabel={point.label + ', ' + (point.markerAccessibilityLabel ?? markerTextForPoint(point))}
+      accessible
+      accessibilityRole="button"
+      accessibilityLabel={markerAccessibilityLabelForPoint(point, selected)}
+      accessibilityState={{ selected }}
     >
-      <View style={styles.nativeMarkerFrame} collapsable={false}>
+      <View style={styles.nativeMarkerFrame} collapsable={false}
+        accessible={false} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
         <View style={[
           styles.nativeMarker,
           showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,

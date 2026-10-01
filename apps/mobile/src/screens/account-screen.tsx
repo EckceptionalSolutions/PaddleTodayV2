@@ -20,6 +20,7 @@ import { apiClient } from '../api/client';
 import { accountOutboxKey, deactivateAccountLocalData, listAccountConflicts, pauseAccountBackup, resolveAccountConflict, resumeAccountBackup, syncAccountBackup, type AccountBackupSummary, type AccountConflict } from '../lib/account-backup';
 import { accountBackupFailureMessage } from '../lib/account-backup-errors';
 import { notifySavedRoutesChanged } from '../lib/account-storage-events';
+import { setAccountBackupStatus } from '../lib/account-status';
 import { clearAccountLocalOwner, clearGuestImportConsent, grantGuestImportConsent } from '../lib/account-local-state';
 import { PENDING_EMAIL, PENDING_EMAIL_ACTION } from '../lib/auth-secure-store-keys';
 import { emailLinkDomainOption } from '../lib/email-link-domain';
@@ -257,17 +258,19 @@ function AccountContent() {
   }
 
   async function backupNow() {
-    if (!auth().currentUser || busy || deletionPending) return;
+    const backupUser = auth().currentUser;
+    if (!backupUser || busy || deletionPending) return;
     setBusy(true); setMessage('');
     try {
-      const token = await auth().currentUser!.getIdToken();
+      const token = await backupUser.getIdToken();
       await apiClient.registerAccount(token);
-      const summary = await syncWithGuestConsent(token, auth().currentUser!.uid);
+      const summary = await syncWithGuestConsent(token, backupUser.uid);
       setBackup(summary);
-      setConflicts(await listAccountConflicts(auth().currentUser!.uid));
+      setConflicts(await listAccountConflicts(backupUser.uid));
       setMessage(summary.pending ? 'Your backup is continuing in the background.' : 'Your routes and trip plans are backed up.');
     } catch (error) {
       setMessage(accountBackupFailureMessage(error));
+      setAccountBackupStatus(backupUser.uid, 'attention');
     } finally { setBusy(false); }
   }
 

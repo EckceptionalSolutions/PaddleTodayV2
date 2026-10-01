@@ -31,7 +31,6 @@ export function SaveToggleButton({
       <Pressable
         style={[styles.compactButton, primary ? styles.compactButtonPrimary : null, saved ? styles.compactButtonSaved : null]}
         onPress={handlePress}
-        hitSlop={10}
         accessibilityRole="button"
         accessibilityLabel={`${saved ? 'Remove saved route' : 'Save route'}: ${routeLabel}`}
         accessibilityHint={saved ? 'Removes this route from Saved routes.' : 'Adds this route to Saved routes.'}
@@ -92,9 +91,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   compactButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.surface,
