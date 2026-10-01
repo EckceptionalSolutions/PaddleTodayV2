@@ -32,10 +32,22 @@ export function applyMarkerAccessibilityFix(input) {
     return markerAccessibilityLabel == null || markerAccessibilityLabel.isEmpty() ? title : markerAccessibilityLabel;
   }
 
+  private String getMarkerAccessibilitySnippet() {
+    // Google Maps appends the SDK snippet to native focus events. The complete
+    // accessibility title already contains these details; keep the visual copy below.
+    return markerAccessibilityLabel == null || markerAccessibilityLabel.isEmpty() ? snippet : null;
+  }
+
   public void setMarkerAccessibilityLabel(String label) {
     markerAccessibilityLabel = label;
-    if (markerOptions != null) markerOptions.title(getMarkerAccessibilityTitle());
-    if (marker != null) marker.setTitle(getMarkerAccessibilityTitle());
+    if (markerOptions != null) {
+      markerOptions.title(getMarkerAccessibilityTitle());
+      markerOptions.snippet(getMarkerAccessibilitySnippet());
+    }
+    if (marker != null) {
+      marker.setTitle(getMarkerAccessibilityTitle());
+      marker.setSnippet(getMarkerAccessibilitySnippet());
+    }
     refreshNativeInfoWindow();
   }
 
@@ -51,12 +63,13 @@ export function applyMarkerAccessibilityFix(input) {
   }`, `  public void setSnippet(String snippet) {
     this.snippet = snippet;
     if (marker != null) {
-      marker.setSnippet(snippet);
+      marker.setSnippet(getMarkerAccessibilitySnippet());
     }
     update(false);
     refreshNativeInfoWindow();
   }`],
     ['    options.title(title);', '    options.title(getMarkerAccessibilityTitle());'],
+    ['    options.snippet(snippet);', '    options.snippet(getMarkerAccessibilitySnippet());'],
     [`  public View getInfoContents() {
     if (this.calloutView == null) return null;`, `  public View getInfoContents() {
     if (this.calloutView == null) return createNativeInfoContents();`],
