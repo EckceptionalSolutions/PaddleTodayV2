@@ -63,7 +63,7 @@ export function PrepareOfflineTrip({ detail, putIn, takeOut, draft, ready, saveD
     finally { if (request.current === controller) { request.current = null; setBusy(false); } }
   }
   const draftFreshness = packet ? compareOfflineTripDraftValues(packet, draft) : null;
-  return <SectionCard title="Prepare for offline use" subtitle="Save your selected landings, route outline, timing, notes, and a dated conditions snapshot. Background maps and live updates are not included. Reopen it from Saved → Trips.">
+  return <SectionCard title="Prepare for offline use" subtitle="Save your selected landings, route outline, timing, notes, and a dated conditions snapshot. Background maps and live updates are not included. Reopen it from Saved → Offline.">
     {packet ? <OfflinePacketCard packet={packet} freshness={draftFreshness ?? undefined} disabled={busy || loading} onRemoved={() => setPacket(null)} onUpdated={setPacket} /> : null}
     {message ? <Text accessibilityLiveRegion="polite" style={styles.body}>{message}</Text> : null}
     {packet && draftFreshness?.state === 'differs' ? <AppButton label="Update offline copy" variant="secondary" busy={busy} busyLabel="Updating offline copy…"
