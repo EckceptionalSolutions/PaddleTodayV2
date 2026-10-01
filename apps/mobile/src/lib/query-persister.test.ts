@@ -16,7 +16,11 @@ import { QUERY_CACHE_FILE_NAME, QUERY_CACHE_STORAGE_KEY } from './query-cache';
 function client(queries: { key: string; timestamp: number; data?: string }[]): PersistedClient {
   return { timestamp: 1, buster: 'test', clientState: { mutations: [], queries: queries.map((query, index) => ({
     queryKey: [query.key, index], queryHash: String(index),
-    state: { status: 'success', dataUpdatedAt: query.timestamp, data: query.data ?? 'small' },
+    state: {
+      status: 'success', dataUpdatedAt: query.timestamp, data: query.data ?? 'small', dataUpdateCount: 1,
+      error: null, errorUpdateCount: 0, errorUpdatedAt: 0, fetchFailureCount: 0,
+      fetchFailureReason: null, fetchMeta: null, isInvalidated: false, fetchStatus: 'idle',
+    },
   })) } } as PersistedClient;
 }
 beforeEach(() => { vi.resetAllMocks(); vi.useFakeTimers(); });
