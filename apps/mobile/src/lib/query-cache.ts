@@ -1,6 +1,6 @@
 export const QUERY_CACHE_STORAGE_KEY = 'paddletoday-mobile-query-cache';
 
-const QUERY_CACHE_SCHEMA_VERSION = 1;
+const QUERY_CACHE_SCHEMA_VERSION = 2;
 
 export function queryCacheBuster(
   appVersion: string | null | undefined,
