@@ -18,6 +18,7 @@ const marker = `import android.widget.LinearLayout;
     update(false);
   }
     options.title(title);
+    options.snippet(snippet);
   public View getInfoContents() {
     if (this.calloutView == null) return null;
   }
@@ -31,7 +32,7 @@ describe('Android map native accessibility bridge', () => {
     expect(applyMarkerManagerAccessibilityFix(manager)).toContain('view.setMarkerAccessibilityLabel(accessibilityLabel);');
     const source = applyMarkerAccessibilityFix(marker);
     expect(source).toContain('options.title(getMarkerAccessibilityTitle());');
-    expect(source).toContain('if (marker != null) marker.setTitle(getMarkerAccessibilityTitle());');
+    expect(source).toContain('marker.setTitle(getMarkerAccessibilityTitle());');
     expect(source).toContain('markerAccessibilityLabel == null || markerAccessibilityLabel.isEmpty() ? title : markerAccessibilityLabel');
   });
   it('keeps visible headings separate and wraps all details without Fabric measurement', () => {
@@ -42,6 +43,13 @@ describe('Android map native accessibility bridge', () => {
     expect(source).toContain('details.setSingleLine(false);');
     expect(source).toContain('details.setMaxWidth(maxWidth);');
     expect(source).toContain('return createNativeInfoContents();');
+  });
+  it('does not repeat visible details in native focus events', () => {
+    const source = applyMarkerAccessibilityFix(marker);
+    expect(source).toContain('options.snippet(getMarkerAccessibilitySnippet());');
+    expect(source).toContain('marker.setSnippet(getMarkerAccessibilitySnippet());');
+    expect(source).toContain('markerAccessibilityLabel == null || markerAccessibilityLabel.isEmpty() ? snippet : null');
+    expect(source).toContain('details.setText(snippet);');
   });
   it('refreshes open callouts after selected metadata changes', () => {
     const source = applyMarkerAccessibilityFix(marker);
