@@ -1682,6 +1682,10 @@ html body.page-route-detail [data-river-detail] .river-detail__content > [data-d
   order: 2;
 }
 
+html body.page-route-detail [data-river-detail] .river-detail__content > .app-download-prompt--inline {
+  order: 2;
+}
+
 html body.page-route-detail [data-river-detail] .river-detail__content > .river-detail__chapter-head--conditions {
   order: 8;
 }

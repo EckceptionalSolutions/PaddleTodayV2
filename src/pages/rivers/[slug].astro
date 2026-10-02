@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { staticAssetUrl } from '../../lib/static-asset-url.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
+import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
@@ -931,6 +932,8 @@ const routeFaqStructuredData = {
         </button>
       </div>
     </section>
+
+    <RouteAppDownload riverName={river.name} />
 
     <section class="river-detail__chapter-head river-detail__chapter-head--conditions" aria-label="Conditions chapter">
       <p class="eyebrow section-label">Conditions</p>

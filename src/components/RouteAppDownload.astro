@@ -1,0 +1,26 @@
+---
+import { appStoreUrl, playStoreUrl } from '../lib/app-store-links';
+const { riverName } = Astro.props as { riverName: string };
+---
+<aside
+  class="app-download-prompt app-download-prompt--inline"
+  data-app-download-prompt
+  data-app-download-inline
+  data-app-download-source="route-detail"
+  aria-labelledby="route-app-download-title"
+>
+  <button class="app-download-prompt__dismiss" type="button" data-app-download-dismiss aria-label="Dismiss app download suggestion">×</button>
+  <div class="app-download-prompt__icon" aria-hidden="true">
+    <img src="/brand/paddle-today-logo-transparent-512.png" alt="" width="44" height="44" loading="lazy" />
+  </div>
+  <div class="app-download-prompt__copy">
+    <div class="app-download-prompt__headline">
+      <h2 id="route-app-download-title">Keep {riverName} handy</h2>
+    </div>
+    <p>Save this route in PaddleToday and check its conditions before your next paddle.</p>
+  </div>
+  <div class="app-download-prompt__actions" aria-label="Get PaddleToday">
+    {appStoreUrl && <a class="app-download-prompt__cta" href={appStoreUrl} data-app-download-link="ios" data-analytics-event="Open app download" data-analytics-platform="ios" data-analytics-source="route-detail" rel="noopener">Get the iPhone app</a>}
+    {playStoreUrl && <a class="app-download-prompt__cta app-download-prompt__cta--secondary" href={playStoreUrl} data-app-download-link="android" data-analytics-event="Open app download" data-analytics-platform="android" data-analytics-source="route-detail" rel="noopener">Get the Android app</a>}
+  </div>
+</aside>

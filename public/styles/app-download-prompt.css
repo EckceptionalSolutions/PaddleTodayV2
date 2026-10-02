@@ -80,6 +80,14 @@
   line-height: 1.12;
 }
 
+.app-download-prompt__headline h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
 .app-download-prompt__copy p {
   margin: 0;
   color: var(--muted);
@@ -220,19 +228,19 @@
     right: 0.25rem;
   }
 
-  html:has(.app-download-prompt:not([hidden])) {
+  html:has(.app-download-prompt:not(.app-download-prompt--inline):not([hidden])) {
     scroll-padding-bottom: calc(var(--app-prompt-height, 0px) + 1.5rem + env(safe-area-inset-bottom));
   }
 
-  html body:has(.app-download-prompt:not([hidden])) .page-shell {
+  html body:has(.app-download-prompt:not(.app-download-prompt--inline):not([hidden])) .page-shell {
     padding-bottom: calc(var(--app-prompt-height, 0px) + 3rem + env(safe-area-inset-bottom));
   }
 
-  html body:has(.app-download-prompt:not([hidden])) .action-feedback {
+  html body:has(.app-download-prompt:not(.app-download-prompt--inline):not([hidden])) .action-feedback {
     bottom: calc(var(--app-prompt-height, 0px) + 1.5rem + env(safe-area-inset-bottom));
   }
 
-  body:has(:is(input:not([type]), input[type="text"], input[type="search"], input[type="email"], textarea):focus) .app-download-prompt {
+  body:has(:is(input:not([type]), input[type="text"], input[type="search"], input[type="email"], textarea):focus) .app-download-prompt:not(.app-download-prompt--inline) {
     visibility: hidden;
   }
 }
@@ -240,5 +248,45 @@
 @media (max-width: 540px) {
   .app-download-prompt__cta {
     padding-inline: 0.62rem;
+  }
+}
+
+/* Route pages keep the invitation in the reading flow, below the quick read. */
+.app-download-prompt--inline {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1.1rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  border-radius: 18px;
+  background: var(--panel, #fffcf8);
+  box-shadow: none;
+}
+
+.app-download-prompt--inline .app-download-prompt__copy {
+  padding-right: 2.5rem;
+}
+
+.app-download-prompt--inline .app-download-prompt__actions {
+  grid-column: 1 / -1;
+  gap: .6rem;
+}
+
+.app-download-prompt--inline .app-download-prompt__dismiss {
+  top: .35rem;
+  right: .35rem;
+  transform: none;
+}
+
+@media (max-width: 540px) {
+  .app-download-prompt--inline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-download-prompt--inline .app-download-prompt__icon {
+    display: none;
   }
 }
