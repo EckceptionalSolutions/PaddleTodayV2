@@ -1,5 +1,6 @@
 ---
 import FeatureIcon from '../components/FeatureIcon.astro';
+import { appleAppId, appStoreUrl, playStoreUrl } from '../lib/app-store-links';
 import { listRiverStateGroups } from '../lib/rivers';
 import { webFeatureFlags } from '../lib/web-feature-flags';
 
@@ -96,11 +97,8 @@ const pageClass = [generatedPageClass, bodyClass].filter(Boolean).join(' ');
 const umamiWebsiteId =
   import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || 'ce97ebc3-44ba-4c12-898e-666c904bc6b6';
 const umamiScriptSrc = import.meta.env.PUBLIC_UMAMI_SCRIPT_SRC || 'https://cloud.umami.is/script.js';
-const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20260821-route-visuals';
-const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '6769542734';
-const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || (appleAppId ? `https://apps.apple.com/app/id${appleAppId}` : '');
-const playStoreUrl =
-  import.meta.env.PUBLIC_PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=com.paddletoday.mobile';
+const assetVersion = import.meta.env.PUBLIC_ASSET_VERSION || '20261002-route-app-download';
+const routeDetailPage = pageClass.split(/\s+/).includes('page-route-detail');
 const appDownloadConfigJson = JSON.stringify({
   appStoreUrl,
   playStoreUrl,
@@ -232,7 +230,7 @@ const appDownloadConfigJson = JSON.stringify({
         <slot />
       </main>
 
-      <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
+      {!privatePage && !routeDetailPage && <aside class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
         <button
           class="app-download-prompt__dismiss"
           type="button"
@@ -276,7 +274,7 @@ const appDownloadConfigJson = JSON.stringify({
             Android app
           </a>
         </div>
-      </aside>
+      </aside>}
 
       <footer class="site-footer">
         <nav class="site-footer__nav" aria-label="Footer">

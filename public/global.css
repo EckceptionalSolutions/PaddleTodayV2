@@ -1,6 +1,6 @@
 @import url("/styles/warnings.css");
 @import url("/styles/semantic-tokens.css");
-@import url("/styles/app-download-prompt.css");
+@import url("/styles/app-download-prompt.css?v=20261002-route-app-download");
 @import url("/styles/map-markers.css");
 
 /* Important rules in this layer preserve hidden state over layout overrides. */

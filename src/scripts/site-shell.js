@@ -28,10 +28,6 @@ const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
 const APP_DOWNLOAD_DISMISS_DAYS = 30;
 const APP_DOWNLOAD_EXCLUDED_PATHS = ['/account/', '/admin/', '/privacy/', '/terms/', '/trips/'];
 
-function isRouteDetailPath(path) {
-  return /^\/rivers\/[^/]+\/?$/.test(path);
-}
-
 function renderFavoritesNav() {
   if (!(favoritesLink instanceof HTMLAnchorElement)) {
     return;
@@ -438,6 +434,7 @@ function dismissAppPrompt() {
   trackEvent('Dismiss app download', {
     path: window.location.pathname,
     platform: appDownloadPrompt instanceof HTMLElement ? appDownloadPrompt.dataset.platform : undefined,
+    source: appDownloadPrompt instanceof HTMLElement ? appDownloadPrompt.dataset.appDownloadSource || 'site-prompt' : undefined,
   });
 }
 
@@ -447,14 +444,17 @@ function bindAppDownloadPrompt() {
   }
 
   const path = window.location.pathname;
+  const inline = appDownloadPrompt.hasAttribute('data-app-download-inline');
   if (
-    isRouteDetailPath(path) ||
+    (inline && new URL(window.location.href).searchParams.get('openApp') === '1') ||
     APP_DOWNLOAD_EXCLUDED_PATHS.some((excludedPath) => path === excludedPath || path.startsWith(excludedPath))
   ) {
+    appDownloadPrompt.hidden = true;
     return;
   }
 
   if (appPromptDismissed()) {
+    appDownloadPrompt.hidden = true;
     return;
   }
 
@@ -486,26 +486,42 @@ function bindAppDownloadPrompt() {
     link.classList.toggle('app-download-prompt__cta--secondary', enabledPlatforms.length > 0);
     link.dataset.analyticsLabel = linkPlatform;
     link.dataset.analyticsPlatform = linkPlatform;
+    link.dataset.analyticsSource = appDownloadPrompt.dataset.appDownloadSource || 'site-prompt';
     enabledPlatforms.push(linkPlatform);
   }
 
   if (enabledPlatforms.length === 0) {
+    appDownloadPrompt.hidden = true;
     return;
   }
 
   appDownloadPrompt.dataset.platform = platform || 'desktop';
   appDownloadPrompt.hidden = false;
-  const syncPromptClearance = () => {
-    const height = appDownloadPrompt.hidden ? 0 : Math.ceil(appDownloadPrompt.getBoundingClientRect().height);
-    document.documentElement.style.setProperty('--app-prompt-height', `${height}px`);
-  };
-  syncPromptClearance();
-  new ResizeObserver(syncPromptClearance).observe(appDownloadPrompt);
-  trackEvent('View app download', {
+  if (!inline) {
+    const syncPromptClearance = () => {
+      const height = appDownloadPrompt.hidden ? 0 : Math.ceil(appDownloadPrompt.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--app-prompt-height', `${height}px`);
+    };
+    syncPromptClearance();
+    new ResizeObserver(syncPromptClearance).observe(appDownloadPrompt);
+  }
+  const trackPromptView = () => trackEvent('View app download', {
     path,
     platform: platform || 'desktop',
     available_platforms: enabledPlatforms.join(','),
+    source: appDownloadPrompt.dataset.appDownloadSource || 'site-prompt',
   });
+  if (inline && typeof IntersectionObserver === 'function') {
+    const viewObserver = new IntersectionObserver((entries) => {
+      if (entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.25)) {
+        trackPromptView();
+        viewObserver.disconnect();
+      }
+    }, { threshold: 0.25 });
+    viewObserver.observe(appDownloadPrompt);
+  } else {
+    trackPromptView();
+  }
 
   if (appDownloadDismiss instanceof HTMLButtonElement) {
     appDownloadDismiss.addEventListener('click', dismissAppPrompt);
