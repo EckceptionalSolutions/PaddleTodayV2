@@ -71,9 +71,9 @@ export default function TripsScreen() {
     catch (e) { setMessage(e instanceof Error ? e.message : 'Changes are saved on this device.'); }
   }, [repo]);
   useFocusEffect(useCallback(() => {
-    void sync(); const timer = setInterval(() => void sync(), 15000);
+    void sync();
     const subscription = AppState.addEventListener('change', s => { if (s === 'active') void sync(); });
-    return () => { clearInterval(timer); subscription.remove(); };
+    return () => { subscription.remove(); };
   }, [sync]));
   const run = (action: () => Promise<void>) => {
     if (busy) return;

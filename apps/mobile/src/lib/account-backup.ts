@@ -49,7 +49,6 @@ export async function flushAccountBackup(): Promise<AccountBackupSummary | null>
   if (!user) return null;
   running = (async () => {
     const token = await user.getIdToken();
-    await apiClient.registerAccount(token);
     const summary = await syncAccountBackup(token, user.uid);
     if (summary.pending) await AsyncStorage.setItem(pendingKey(user.uid), '1');
     else await AsyncStorage.removeItem(pendingKey(user.uid));

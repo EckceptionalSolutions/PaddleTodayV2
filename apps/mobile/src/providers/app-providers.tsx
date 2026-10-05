@@ -107,14 +107,15 @@ export function AppProviders({ children }: PropsWithChildren) {
     });
 
     const subscription = AppState.addEventListener('change', (state) => {
-      if (state === 'active') { refreshFreshnessClock(); void connectivity.refresh(); void flushAccountBackup(); }
+      if (state === 'active') {
+        refreshFreshnessClock();
+        void connectivity.refresh();
+        void flushAccountBackup();
+        void syncTrips().catch(() => {});
+      }
       focusManager.setFocused(state === 'active');
     });
-    const accountSyncTimer = setInterval(() => {
-      if (AppState.currentState === 'active') { void flushAccountBackup(); void syncTrips().catch(() => {}); }
-    }, 15_000);
-
-    return () => { active = false; authUnsubscribe?.(); clearInterval(accountSyncTimer); registerAccountBackupAuthProvider(null); subscription.remove(); connectivity.unsubscribe(); };
+    return () => { active = false; authUnsubscribe?.(); registerAccountBackupAuthProvider(null); subscription.remove(); connectivity.unsubscribe(); };
   }, [queryClient]);
 
   return (
