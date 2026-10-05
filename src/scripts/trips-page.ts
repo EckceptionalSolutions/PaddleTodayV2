@@ -556,5 +556,4 @@ async function start() {
 }
 window.addEventListener('online', () => void sync());
 document.addEventListener('visibilitychange', () => { if (!document.hidden) void sync(); });
-setInterval(() => { if (!busy) void sync(); }, 15000);
 void start().catch(e => message(e instanceof Error ? e.message : 'Could not open your trips.', true));
