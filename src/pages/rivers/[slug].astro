@@ -178,11 +178,25 @@ const routeSeoTitle = isLittleMiamiKelleyMilford
   : isPlanningRoute
     ? `${river.name}: ${river.reach}, ${river.state} | Paddle Route`
     : `${river.name}: ${river.reach}, ${river.state} | Paddle Conditions`;
+const seoDescriptionSuffix = isPlanningRoute
+  ? ' Planning only; verify water and access.'
+  : ' Check current water, weather, and access.';
+const seoDescriptionCoreLimit = 155 - seoDescriptionSuffix.length;
+const normalizedRouteSummary = (river.summary || '').replace(/\s+/g, ' ').trim();
+const routeSummaryExcerpt = (() => {
+  if (normalizedRouteSummary.length <= seoDescriptionCoreLimit) return normalizedRouteSummary;
+  const excerpt = normalizedRouteSummary.slice(0, seoDescriptionCoreLimit - 1);
+  const lastWordBoundary = excerpt.lastIndexOf(' ');
+  const end = lastWordBoundary >= seoDescriptionCoreLimit * 0.65 ? lastWordBoundary : excerpt.length;
+  return `${excerpt.slice(0, end).trimEnd()}…`;
+})();
 const routeSeoDescription = isLittleMiamiKelleyMilford
-  ? `Plan the 4.9-mile Little Miami River run from Kelley Nature Preserve to Jim Terrell Park near Milford, Ohio. Check the USGS Milford gauge, preferred 5.50–7.50 ft range, access and hazards.`
-  : isPlanningRoute
-    ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
-    : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
+  ? `Little Miami: 4.9 miles from Kelley Nature Preserve to Jim Terrell Park. Check the USGS Milford gauge, 5.5–7.5 ft best-play band, access and hazards.`
+  : routeSummaryExcerpt
+    ? `${routeSummaryExcerpt}${seoDescriptionSuffix}`
+    : isPlanningRoute
+      ? `Plan ${river.reach} on ${river.name} with route distance, difficulty, access details and source links. Planning only; no live route score.`
+      : `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
 const routeIntro = isLittleMiamiKelleyMilford
   ? `This 4.9-mile route follows the Little Miami River from Kelley Nature Preserve to Jim Terrell Park near Milford, Ohio. It is listed as moderate and includes Class I–II features, low-head-dam remnants, strainers, and cold-water hazards.`
   : river.summary || `Plan ${river.reach} on ${river.name} in ${river.state}, with access details, gauge context, and route guidance.`;
@@ -407,9 +421,9 @@ const routeFaqStructuredData = {
           <div class="river-detail__hero-title-block">
             <p class="eyebrow">{river.state} | {river.region}</p>
             <h1 class="river-detail__title">
-              {isLittleMiamiKelleyMilford ? `${river.name}: Kelley to Milford` : river.name}
+              <span>{river.name}</span>
+              <span class="river-detail__reach">{river.reach}</span>
             </h1>
-            <p class="river-detail__reach">{river.reach}</p>
             <p class="route-seo-intro">{routeIntro}</p>
             {accessSafetyReviewDateLabel ? (
               <p class="muted" style="margin: 0.55rem 0 0;">
@@ -969,6 +983,7 @@ const routeFaqStructuredData = {
             <summary>Gauge context</summary>
             <p>{isPlanningRoute ? `This route uses ${river.gaugeSource.siteName} as a proxy gauge. It is a regional signal, not a measurement of this reach. Verify local water and hazards before launching.` : river.statusText}</p>
           </details>
+          <p class="muted">New to reading stage or flow? <a class="river-link river-link--inline river-link--ghost" href="/guides/how-to-read-a-river-gauge-for-paddling/">Read the paddler's gauge guide</a>.</p>
         </aside>
 
         <div class="river-why-panel__visuals">

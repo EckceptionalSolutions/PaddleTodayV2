@@ -28,7 +28,7 @@ export function buildCompactMaineRoute(spec: CompactMaineRouteSpec): River {
     ...spec,
     routeType: spec.routeType ?? 'recreational',
     risk: spec.risk ?? 'caution',
-    summary: spec.summary ?? `${spec.distance}-mile planning itinerary on the ${spec.name}, linking documented Maine public or managed access points.`,
+    summary: spec.summary ?? `${spec.name} planning route, about ${spec.distance} miles from ${spec.putIn.name} to ${spec.takeOut.name}; ${spec.time}. Confirm endpoint access and current water before launch.`,
     status: spec.status ?? `Planning-only. The endpoints are documented in Maine's public access inventory; confirm access, water level, weather, hazards, and local closures before launch. The linked USGS station is ${spec.gaugeKind === 'direct' ? 'direct corridor context' : 'same-river or basin proxy context'} only.`,
     seasonNotes: spec.seasonNotes ?? 'Late spring through early fall is the practical window; cold water, storms, changing flow, and shoulder-season daylight remain material.',
     difficultyNotes: spec.difficultyNotes ?? 'Moving-water or open-water route requiring a complete float plan, conservative turnaround, and confirmed launch and take-out conditions.',

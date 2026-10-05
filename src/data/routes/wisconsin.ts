@@ -13269,9 +13269,10 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "Run this only when recent rain or spring flow brings the Prairie proxy near the 150 cfs reference level and a same-day visual check confirms the Pine still has enough water. WRT notes the Pine can fall quickly after rain and nearby gauges are rough proxies only.",
       "difficulty": "hard",
       "difficultyNotes": "This is a short but consequential whitewater gorge with Class I-II rapids, two Class III features, few eddies, steep walls, cold water, and limited rescue options.",
-      "confidenceNotes": "Confidence is moderate-good: WRT documents the Pine River Park / Center Road to County W route, public access context, 2.5-mile distance, hazards, and rough gauge proxies; Miles Paddled corroborates endpoint GPS points, Prairie gauge level, and the route character. The threshold is minimum-only because no official Pine gauge or reliable upper cutoff exists."
+    "confidenceNotes": "Confidence is moderate-good: WRT documents the Pine River Park / Center Road to County W route, public access context, 2.5-mile distance, hazards, and rough gauge proxies; Miles Paddled corroborates endpoint GPS points, Prairie gauge level, and the route character. The threshold is minimum-only because no official Pine gauge or reliable upper cutoff exists."
     },
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [

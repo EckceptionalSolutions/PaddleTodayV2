@@ -671,10 +671,11 @@ export const minnesotaRoutes: River[] = [
     ],
     "state": "Minnesota",
     "region": "Northern Minnesota",
-    "summary": "MN DNR's recommended Big Fork Map 2 day trip from Johnson Landing to Big Falls. It is a full northern river day with a direct official gauge and a mandatory take-out before the Class IV falls.",
-    "statusText": "The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and slower travel; above 6.0 ft, faster current and the Big Falls take-out become too consequential for a general recommendation.",
+    "summary": "Plan the Minnesota DNR's recommended 14.5-mile, roughly eight-hour trip from Johnson Landing to Big Falls East. Grunwald can shorten the day; Big Falls East is the mandatory river-left take-out before Class IV falls. This is a planning-only route without a live launch score.",
+    "statusText": "The Minnesota DNR's Big Falls gauge bands are reference guidance, not a safe-launch guarantee. Take out on river left at Big Falls East before the mandatory Class IV falls, and verify current gauge conditions, closures, access, weather, and group skill before launch.",
     "latitude": 48.088628,
     "longitude": -93.681693,
+    "scoreEligibility": "planning",
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -725,12 +726,12 @@ export const minnesotaRoutes: River[] = [
       "seasonNotes": "DNR says Big Fork levels usually peak in late April and fall during summer, while heavy summer or autumn rain can raise the river quickly and change the take-out approach.",
       "difficulty": "moderate",
       "difficultyNotes": "This is a full-day northern river with mostly easier current, but the length, remote feel, and mandatory take-out above Big Falls make it more serious than a casual forest float.",
-      "confidenceNotes": "Confidence is high: MN DNR recommends this exact 14.5-mile Johnson Landing to Big Falls East trip, the direct Big Falls gauge sits at the finish corridor with official interpretation bands, and the public-water-access dataset resolves Johnson, Grunwald, and Big Falls East cleanly. The main reason the route stays guarded is not missing evidence; it is the real consequence of missing the take-out above Big Falls."
+      "confidenceNotes": "Confidence is high: MN DNR recommends this exact 14.5-mile Johnson Landing to Big Falls East trip, the direct Big Falls gauge sits at the finish corridor with official interpretation bands, and the public-water-access dataset resolves Johnson, Grunwald, and Big Falls East cleanly. The route remains planning-only because missing the mandatory take-out above Class IV Big Falls has serious consequences."
     },
     "evidenceNotes": [
       {
-        "label": "Direct live gauge",
-        "value": "Big Falls gauge 2.89 ft",
+        "label": "Historical direct-gauge reading",
+        "value": "Big Falls gauge 2.89 ft on June 25, 2026",
         "note": "The official MN DNR river-level dataset reported 2.89 ft at 2026-06-25 02:00 PM for Big Fork River at Big Falls, confirming the same-day direct gauge path used for this route.",
         "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
@@ -17589,11 +17590,12 @@ export const minnesotaRoutes: River[] = [
     "reach": "Toivola to County Road 29",
     "state": "Minnesota",
     "region": "Duluth Area",
-    "summary": "Middle St. Louis connector from Toivola to the County Road 29 carry-in access, using the downstream Floodwood interpreted DNR gauge and official Map 1/2 access and campsite context.",
+    "summary": "Paddle 15.7 miles from the Toivola carry-in to County Road 29 on a remote St. Louis River reach with steady current and occasional shallow rapids. The Floodwood gauge is downstream of the take-out, so check local depth at both accesses; below DNR's 24.4-foot scrapable threshold, expect dragging and exposed rock. DNR maps a watercraft campsite near river mile 90.8; confirm current rules before planning an overnight.",
     "statusText": "Use the Floodwood DNR gauge as a downstream same-corridor proxy: 28 to 37 ft is the official medium band. Below 24.4 ft is scrapable, and above 42 ft is very high.",
     "latitude": 47.1672586,
     "longitude": -92.7792689,
     "routeType": "whitewater",
+    "scoreEligibility": "planning",
     "safetyProfile": {
       "riskLevel": "advanced",
       "hazards": [
@@ -17605,7 +17607,7 @@ export const minnesotaRoutes: River[] = [
         "private_banks"
       ],
       "safetyNotes": [
-        "The Floodwood gauge was below the official scrapable floor during this run; expect shallow riffles, dragging, and exposed rock until levels recover.",
+        "When the downstream Floodwood gauge is below DNR's 24.4-foot scrapable threshold, expect shallow riffles, dragging, and exposed rock; check local depth at both accesses.",
         "DNR Map 1 and Map 2 place this as a remote bridge-to-access connector with watercraft campsite context, wooded banks, and limited simple exits.",
         "Do not extend past County Road 29 toward Floodwood unless the separate downstream route, daylight, and gauge caveats are accepted."
       ],
