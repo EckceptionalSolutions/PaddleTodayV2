@@ -1,7 +1,7 @@
 import { createHash, timingSafeEqual } from 'node:crypto';
 import sharp from 'sharp';
 import {
-  TRIP_MEMBER_LIMIT, TRIP_PHOTO_LIMIT, TRIP_PHOTO_MAX_BYTES, isTripId, isTripToken, isTripPlan, isLogInput, tripPlan,
+  TRIP_MEMBER_LIMIT, TRIP_PHOTO_LIMIT, TRIP_PHOTO_MAX_BYTES, isTripId, isTripToken, isTripPlan, isLogInput, tripPlan, publicTripPlan,
   type Trip, type TripPlan, type TripMutation, type LogMutation, type PaddleLog, type TripList, type PublicTrip,
   type SyncedTripDraft,
 } from '@paddletoday/api-contract';
@@ -77,7 +77,7 @@ export class TripStorage {
   async publicView(id: string, token: string): Promise<PublicTrip> {
     const doc = await this.storage.readJson<TripDocument>(tripKey(id));
     checkLink(doc, 'view', token);
-    return { ...tripPlan(doc!.trip), id, revision: doc!.trip.revision, status: doc!.trip.status, updatedAt: doc!.trip.updatedAt };
+    return { ...publicTripPlan(doc!.trip), id, revision: doc!.trip.revision, status: doc!.trip.status, updatedAt: doc!.trip.updatedAt };
   }
   async invitation(id: string, token: string) {
     const doc = await this.storage.readJson<TripDocument>(tripKey(id));
@@ -218,7 +218,6 @@ export class TripStorage {
   }
   async log(uid: string, id: string, mutation: LogMutation) {
     await this.active(uid);
-    if (mutation.value?.sourceTripId && id !== mutation.value.sourceTripId) fail(400, 'source_identity', 'Use the trip ID for its personal log.');
     const doc = await mutateJson({ storage: this.storage, blobName: logKey(uid, id),
       initial: { kind: 'log', uid, id, revision: 0, log: null, receipts: {} } as LogDocument,
       mutate: async doc => {
@@ -234,6 +233,7 @@ export class TripStorage {
         doc.log = mutation.value ? { sourceTripId: mutation.value.sourceTripId, route: tripPlan({ title: '', route: mutation.value.route, date: '', launch: '', expected: '', timeZone: 'UTC', itinerary: [] }).route,
           date: mutation.value.date, time: mutation.value.time, timeZone: mutation.value.timeZone, notes: mutation.value.notes,
           paddleAgain: mutation.value.paddleAgain, water: mutation.value.water.map(w => ({ gaugeId: w.gaugeId, gaugeName: w.gaugeName, value: w.value, unit: w.unit, measuredAt: w.measuredAt, source: w.source, note: w.note })),
+          ...(mutation.value.track ? { track: { ...mutation.value.track } } : {}),
           id, ownerUid: uid, revision: doc.revision, updatedAt: stamp(), photos: doc.log?.photos ?? [] } : null;
         remember(doc.receipts, mutation.operationId, seen.digest); return doc;
       } });

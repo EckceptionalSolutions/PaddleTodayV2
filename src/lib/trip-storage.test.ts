@@ -32,6 +32,32 @@ async function join(trip: Trip) {
 }
 beforeEach(() => { store = new TripStorage(memory()); });
 describe('private trips and collaborative planning', () => {
+  it('stores distinct recordings on the same trip and keeps legacy trip-ID logs', async () => {
+    const t = await join(await create());
+    const input: PaddleLogInput = { sourceTripId: t.id, route: t.route, date: '2026-10-05', time: '', timeZone: t.timeZone, notes: 'Private recording', paddleAgain: '', water: [],
+      track: { startedAt: '2026-10-05T16:00:00Z', endedAt: '2026-10-05T16:02:00Z', elapsedSeconds: 120, distanceMeters: 20, polylines: ['_p~iF~ps|U_ulLnnqC'] } };
+    const first = randomUUID(), second = randomUUID();
+    const op = { operationId: randomUUID(), baseRevision: 0, value: input };
+    await store.log('bob', first, op);
+    await store.log('bob', first, op);
+    await store.log('bob', second, { ...op, operationId: randomUUID() });
+    await store.log('bob', t.id, { ...op, operationId: randomUUID() });
+    expect((await store.list('bob')).logs.map(log => log.id).sort()).toEqual([first, second, t.id].sort());
+    expect((await store.getLog('bob', first)).track).toEqual(input.track);
+    await expect(store.getLog('alice', first)).rejects.toMatchObject({ status: 404 });
+    await expect(store.log('outsider', randomUUID(), { ...op, operationId: randomUUID() })).rejects.toMatchObject({ status: 404 });
+    await expect(store.log('bob', first, { operationId: randomUUID(), baseRevision: 1, value: { ...input, sourceTripId: null } })).rejects.toMatchObject({ status: 400 });
+  });
+  it('retains group preparation through create, edit, and list', async () => {
+    const preparation = { checkInLocal: '', groupSize: 2, boatDescription: 'Canoes', vehicleDescription: 'Blue car', note: 'Bring water' };
+    let t = (await store.mutate('alice', 'Alice', randomUUID(), mutation(null, { type: 'create', plan: { ...plan(), preparation } })))!;
+    expect((await store.get('alice', t.id)).preparation).toEqual(preparation);
+    t = (await store.mutate('alice', 'Alice', t.id, mutation(t, { type: 'plan', baseline: tripPlan(t), plan: { ...tripPlan(t), preparation: { ...preparation, groupSize: 3 } } })))!;
+    expect((await store.list('alice')).trips[0]?.preparation?.groupSize).toBe(3);
+    const token = 'c'.repeat(64);
+    t = (await store.mutate('alice', 'Alice', t.id, mutation(t, { type: 'link', purpose: 'view', token })))!;
+    expect(await store.publicView(t.id, token)).not.toHaveProperty('preparation');
+  });
   it('keeps repeated outings distinct and retries create idempotently', async () => {
     const first = await create(), second = await create();
     expect((await store.list('alice')).trips.map(t => t.id).sort()).toEqual([first.id, second.id].sort());
