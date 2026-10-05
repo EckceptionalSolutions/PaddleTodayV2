@@ -263,7 +263,6 @@ function AccountContent() {
     setBusy(true); setMessage('');
     try {
       const token = await backupUser.getIdToken();
-      await apiClient.registerAccount(token);
       const summary = await syncWithGuestConsent(token, backupUser.uid);
       setBackup(summary);
       setConflicts(await listAccountConflicts(backupUser.uid));
@@ -425,7 +424,6 @@ function AccountContent() {
     setBusy(true);
     try {
       const token = await activeUser.getIdToken();
-      await apiClient.registerAccount(token);
       const summary = await syncWithGuestConsent(token, activeUser.uid);
       if (summary.pending) throw new Error('account_sync_pending');
       if (summary.conflicts) throw new Error('account_conflicts_need_review');
