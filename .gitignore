@@ -24,6 +24,7 @@ tmp_*.png
 codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
+.firebase/
 .local
 /deploy-package/
 docs/route-coordinate-review-geometries/
