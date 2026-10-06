@@ -18,6 +18,13 @@ if (config.navigationFallback) errors.push('Static pages must not fall back to t
 if (config.responseOverrides?.['404']?.statusCode !== 404 || config.responseOverrides?.['404']?.rewrite !== '/404.html') {
   errors.push('Azure must serve the branded 404 page with HTTP 404.');
 }
+const routePatterns = new Map<string, string>();
+for (const rule of config.routes || []) {
+  const pattern = rule.route === '/' ? '/' : rule.route.replace(/\/$/, '');
+  const previous = routePatterns.get(pattern);
+  if (previous) errors.push(`Duplicate static route pattern: ${previous} and ${rule.route}`);
+  else routePatterns.set(pattern, rule.route);
+}
 const redirects = new Map<string, string>((config.routes || []).filter((r: any) => r.redirect).map((r: any) => [r.route.replace(/\/$/, ''), r.redirect]));
 const sitemapFiles = locs(await readFile(join(root, 'sitemap-index.xml'), 'utf8'));
 const urls: string[] = [];
@@ -53,6 +60,15 @@ for (const value of urls) {
     if (target.pathname === '/request-river/' && target.search) errors.push(`Crawlable form prefill on ${url.pathname}`);
     if (target.pathname.startsWith('/rivers/')) routeLinks.set(target.pathname, url.pathname);
   }
+}
+for (const rule of config.routes || []) {
+  if (!rule.redirect) continue;
+  const target = new URL(rule.redirect, origin);
+  if (target.origin !== origin) continue;
+  const pathname = target.pathname.endsWith('/') ? target.pathname : `${target.pathname}/`;
+  if (!paths.has(pathname)) errors.push(`Static redirect target is not in the sitemap: ${rule.route} -> ${rule.redirect}`);
+  try { await access(fileFor(pathname)); }
+  catch { errors.push(`Static redirect target is missing from the build: ${rule.route} -> ${rule.redirect}`); }
 }
 for (const [title, pages] of titles) {
   if (pages.length > 1) warnings.push(`Shared title (${pages.length} pages): ${title}: ${pages.join(', ')}`);

@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const guideUrl = new URL('/guides/minnehaha-creek-paddling/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${guideUrl}#article`,
+  headline: 'Paddle Minnehaha Creek: Flow Levels and Route Sections',
+  description: 'Plan Minnehaha Creek by checking the Hiawatha gauge, choosing a creek section, and using MCWD’s designated landing map.',
+  mainEntityOfPage: guideUrl,
+  isPartOf: { '@id': websiteId },
+  author: { '@id': organizationId },
+  publisher: { '@id': organizationId },
+};
+---
+
+<BaseLayout
+  title="Paddle Minnehaha Creek: Flow Levels, Sections & Planning | Paddle Today"
+  description="Plan a Minnehaha Creek paddle with MCWD’s 75–150 cfs Hiawatha gauge range, three official route sections, landing guidance, and hazards."
+  structuredData={structuredData}
+>
+  <article class="guide-article">
+    <section class="guide-hero guide-hero--flagship">
+      <div class="guide-hero__copy">
+        <p class="hero__kicker">Twin Cities water trail</p>
+        <h1>How to Paddle Minnehaha Creek</h1>
+        <p class="guide-hero__lede">
+          Minnehaha Creek runs from Gray’s Bay on Lake Minnetonka through west metro communities to Longfellow Lagoon in Minneapolis. The watershed district divides it into three practical stretches and bases its paddling guidance on the Hiawatha Avenue flow gauge.
+        </p>
+        <p>
+          <a class="river-link river-link--inline" href="https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/" target="_blank" rel="noreferrer">
+            Open MCWD’s paddling map and landing descriptions
+          </a>
+          <a class="river-link river-link--inline river-link--ghost" href="/guides/">All Paddle Today guides</a>
+        </p>
+      </div>
+      <aside class="guide-hero__note">
+        <p class="eyebrow">Start with the gauge</p>
+        <p>MCWD’s preferred range is 75–150 cfs at Hiawatha Avenue. It warns that flow can change quickly after rain and does not recommend paddling above 150 cfs.</p>
+      </aside>
+    </section>
+
+    <section class="guide-section guide-explainer" aria-labelledby="minnehaha-flow-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Before choosing a stretch</p>
+          <h2 class="section-title" id="minnehaha-flow-title">Use Minnehaha Creek’s own flow range</h2>
+        </div>
+        <p class="muted section-head__note">
+          The Minnehaha Creek Watershed District (MCWD) recommends checking the Hiawatha Avenue gauge because the creek’s flow can shift quickly with rain and stormwater runoff.
+        </p>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <span class="guide-explainer__icon">&lt;75</span>
+          <h3>Below 75 cfs</h3>
+          <p>MCWD labels this range poor for paddling. Shallow sections may require scraping or portaging; its upper stretch is the section most likely to retain enough water in low conditions.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <span class="guide-explainer__icon">75–150</span>
+          <h3>75 to 150 cfs</h3>
+          <p>MCWD’s preferred paddling window at the Hiawatha Avenue gauge. The number is a creek-specific planning range, not a promise that every landing or feature is suitable.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <span class="guide-explainer__icon">&gt;150</span>
+          <h3>Above 150 cfs</h3>
+          <p>MCWD labels this range dangerous and does not recommend paddling. Recheck the gauge and weather close to launch, especially after rainfall.</p>
+        </article>
+      </div>
+      <p class="muted">
+        See <a href="https://minnehahacreek.org/explore/water-levels/" target="_blank" rel="noreferrer">MCWD’s current water-level page</a> and its <a href="https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/" target="_blank" rel="noreferrer">Minnehaha Creek paddling guidance</a> for the current reading and source details.
+      </p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="minnehaha-sections-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Choose a manageable reach</p>
+          <h2 class="section-title" id="minnehaha-sections-title">Three stretches from Gray’s Bay to Longfellow Lagoon</h2>
+        </div>
+        <p class="muted section-head__note">
+          MCWD’s time estimates are rough and vary with conditions and paddling pace. Use its map and route description to choose designated put-ins and take-outs.
+        </p>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <p class="eyebrow">Upper · about 2–3 hours</p>
+          <h3>Gray’s Bay to Target–Knollwood</h3>
+          <p>This reach passes through mostly undeveloped wetlands and natural areas. MCWD describes it as the stretch most likely to have enough water during low conditions, while its overall gauge table still classifies flows below 75 cfs as poor.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <p class="eyebrow">Middle · about 2–3 hours</p>
+          <h3>Target–Knollwood to Pamela Park</h3>
+          <p>The creek becomes more urban as it passes Hopkins and St. Louis Park. MCWD highlights the restored Minnehaha Creek Preserve and its connection to the Minnehaha Creek Greenway.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <p class="eyebrow">Lower · about 2–3 hours</p>
+          <h3>Pamela Park to Longfellow Lagoon</h3>
+          <p>This Minneapolis stretch follows trails and parkways. MCWD identifies Longfellow Lagoon as the final landing before Minnehaha Falls; plan to take out there rather than paddle toward the falls.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section guide-explainer" aria-labelledby="minnehaha-access-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Access and hazards</p>
+          <h2 class="section-title" id="minnehaha-access-title">Use designated landings and scout ahead</h2>
+        </div>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <h3>Confirm each landing</h3>
+          <p>MCWD asks paddlers to land only at the designated sites in its route description. Its mileage runs upstream from Longfellow Lagoon. Check its current <a href="https://experience.arcgis.com/experience/82525d873320490c8e11013d5f231deb" target="_blank" rel="noreferrer">paddling map</a> before selecting a put-in or take-out, and respect private property along the creek.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Expect urban obstacles</h3>
+          <p>MCWD tells paddlers to watch for overhanging trees, rocks, low bridges, and rapids, and to portage around challenging sections. Conditions and downed trees can change; the district says it cannot inspect and clear obstacles daily.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Carry a properly fitted life jacket</h3>
+          <p>MCWD’s safety guidance says to wear a life jacket and notes the requirement for one per person on board. Check the forecast, tell someone your plan, and carry water, a phone, and basic first aid supplies.</p>
+        </article>
+      </div>
+      <p class="muted">
+        This page is a planning overview, not a substitute for MCWD’s landing map, latest flow reading, or on-water hazard assessment. For broader Minnesota route ideas, see <a href="/guides/best-minnesota-paddle-trips/">Best Minnesota Paddle Trips</a> and the <a href="/states/minnesota/">Minnesota route directory</a>.
+      </p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="minnehaha-sources-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Primary sources</p>
+          <h2 class="section-title" id="minnehaha-sources-title">Check the latest guidance before you go</h2>
+        </div>
+      </div>
+      <ul>
+        <li><a href="https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/" target="_blank" rel="noreferrer">MCWD: Paddle Minnehaha Creek</a> — route sections, flow bands, time estimates, designated landings, and safety notes.</li>
+        <li><a href="https://minnehahacreek.org/explore/water-levels/" target="_blank" rel="noreferrer">MCWD: Water Levels</a> — current watershed readings and paddling flow guidance.</li>
+        <li><a href="https://www.dnr.state.mn.us/watertrails/paddling_safety.html" target="_blank" rel="noreferrer">Minnesota DNR: Paddling Safety</a> — statewide paddling safety guidance.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
