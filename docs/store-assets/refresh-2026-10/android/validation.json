@@ -1,0 +1,118 @@
+{
+  "status": "rendered-from-native-captures-awaiting-listing-review",
+  "generatedAt": "2026-10-02T18:46:42.354Z",
+  "app": {
+    "package": "com.paddletoday.mobile",
+    "version": "1.1.3",
+    "versionCode": 27,
+    "installation": "sideloaded; Play binary identity not verified"
+  },
+  "device": {
+    "model": "Samsung Galaxy A14 (SM-A146U1)",
+    "captureSize": "1080x1920",
+    "captureDensity": 400,
+    "restoredSize": "1080x2408",
+    "restoredDensity": 450
+  },
+  "policyReference": "https://support.google.com/googleplay/android-developer/answer/9866151?hl=en",
+  "policyCheckedAt": "2026-10-02",
+  "taglineRegionPercent": 15.3125,
+  "images": [
+    {
+      "file": "upload/android-01-today.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 802126,
+      "sha256": "d3d5ff72eb0d5da9f7684e2ea8b6b2090f5e6c685fbc30e5ef7091e0fbaea619",
+      "source": "raw/android-01-today.png",
+      "sourceSha256": "fd58ec195983f6175bed0a1bd3b9ee0601ea2f6f52af34e5259710af0cb942ef",
+      "capturedAt": "2026-10-02T18:31:14.731Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "Today shows an American River route, a condition score, trip length, and nearby options.",
+      "note": "Public planning city: Sacramento, California. American River, Watt Avenue to Howe Avenue, native score 94."
+    },
+    {
+      "file": "upload/android-02-conditions.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 228881,
+      "sha256": "8e8ee17dc6ba8acae3b998a79570c189a7c00aabd7cc4a46ec8fab3e6dc95766",
+      "source": "raw/android-02-conditions.png",
+      "sourceSha256": "398909bec69c383e4e625bf5814c43e7e7c5a13c4a3469fd218e91cb6f59e4b5",
+      "capturedAt": "2026-10-02T18:32:11.485Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "American River detail explains its score, weather, and route cautions.",
+      "note": "Same route and score as Today. Native weather, caution labels, and score explanation retained."
+    },
+    {
+      "file": "upload/android-03-explore.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 636546,
+      "sha256": "e3f286a8ba3ac9c6d03c0cc96defad08cc1727196b5353f8f79449d4bf3830e9",
+      "source": "raw/android-03-explore.png",
+      "sourceSha256": "49b813aaf4b0c994c01ddf999adf0230717cfc7649ff53afc09ff0e93fa17cbd",
+      "capturedAt": "2026-10-02T18:40:08.137Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "Explore shows Sacramento area routes on a map and a selected American River route card.",
+      "note": "California filter; 50 routes across 3 rivers. Selected Harrington to Howe route, native score 94."
+    },
+    {
+      "file": "upload/android-04-access.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 390908,
+      "sha256": "80d8bb484e0816cca80771045bd9d7c3916aa61f182e6d0f30385deddb9d40d7",
+      "source": "raw/android-04-access.png",
+      "sourceSha256": "25259475fc6a388cfafa204559169bd0a5a17ab930c2682594b7091ea80472c8",
+      "capturedAt": "2026-10-02T18:33:52.903Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "Access map shows Watt Avenue and Howe Avenue launch points, distance, and estimated paddle time.",
+      "note": "Both native map markers, launch selectors, distance, estimated time, and Google attribution visible."
+    },
+    {
+      "file": "upload/android-05-weekend.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 985589,
+      "sha256": "5c63e064b6dff79d95b6eab690812545c7c223f4dd8f92701213e15dcc81031f",
+      "source": "raw/android-05-weekend.png",
+      "sourceSha256": "94bdb2b7b2cdc6f4369845c90c90989853634ce4173ca1eba36b6c3acc6ee63b",
+      "capturedAt": "2026-10-02T18:41:54.296Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "Weekend shows a Des Moines River trip with an October 3–4 forecast and planning cautions.",
+      "note": "Nationwide shortlist. Des Moines River weekend score 92; forecast caution and October 3–4 dates preserved."
+    },
+    {
+      "file": "upload/android-06-saved.png",
+      "width": 1080,
+      "height": 1920,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 597409,
+      "sha256": "db199e882d6e3eb2a09c9a02d7afc070cff37a534d5b7043d762c2afba209aac",
+      "source": "raw/android-06-saved.png",
+      "sourceSha256": "50c76d5087b2778d380656b400e8d565ecd1e7724b2e6d2d46be62c154e241f9",
+      "capturedAt": "2026-10-02T18:42:33.174Z",
+      "fullNativeCapturePreserved": true,
+      "alt": "Saved routes shows three favorites, their call counts, and a Des Moines River condition summary.",
+      "note": "Three saved routes; Des Moines current score 87 differs from its weekend score 92. No personal notes shown."
+    },
+    {
+      "file": "upload/feature-graphic.png",
+      "width": 1024,
+      "height": 500,
+      "format": "24-bit RGB PNG; no alpha",
+      "bytes": 732998,
+      "sha256": "26f80c0c0b2facbf70a419ea06193fe7bed52504e510a3add1080c2a4a94431e",
+      "source": "public/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg",
+      "sourceSha256": "7385a8ea3a208b3cce571bff7b2b881c902f48f0e32f85475b6d9f05fa6967bd",
+      "fullNativeCapturePreserved": false,
+      "alt": "River scenery with the message: Find your next river day. Conditions explained. Trips made easier."
+    }
+  ]
+}

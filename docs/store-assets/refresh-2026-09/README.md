@@ -1,5 +1,7 @@
 # September store refresh
 
+October 2 update: [six fresh Android screenshots and a rebuilt feature graphic](../refresh-2026-10/android/README.md) are available. Use that package for the Android refresh; this package retains the Apple drafts awaiting fresh device captures.
+
 ## Review
 
 Open [index.html](index.html) for the full gallery and per-image capture notes. [preview.png](preview.png) shows the first three iPhone layouts together.
