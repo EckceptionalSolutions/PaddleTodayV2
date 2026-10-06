@@ -129,7 +129,8 @@
     "tokens:check": "node scripts/sync-design-tokens.mjs --check",
     "styles:check": "node scripts/check-public-css.mjs",
     "dry:check": "node scripts/check-dry-invariants.mjs",
-    "operations:lower-48-expansion-50": "tsx scripts/report-lower-48-expansion-50.ts"
+    "operations:lower-48-expansion-50": "tsx scripts/report-lower-48-expansion-50.ts",
+    "api:local": "tsx scripts/local-api.ts --port 4322"
   },
   "dependencies": {
     "@azure/communication-email": "^1.1.0",
