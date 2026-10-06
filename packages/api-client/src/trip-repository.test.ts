@@ -21,6 +21,62 @@ function fixture() {
   return { make, values, storage, api, remote };
 }
 describe('trip offline persistence', () => {
+  it('shows and persists vehicle additions, edits, and removal while sync is unavailable', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const id = 'trip-id-1234567890';
+    await repo.savePlan(newTripPlan({ name: 'River' }), id); await repo.sync();
+    const vehicle = { id: 'vehicle-id-1234567890', driverUid: 'alice', label: 'Blue car', meeting: 'Bridge', time: '', parkedAt: '', note: '', seats: 0, passengers: [] };
+    vi.mocked(f.api.mutate).mockRejectedValue(new Error('Offline'));
+    await repo.command(id, { type: 'vehicle', vehicle });
+    await expect(repo.sync()).rejects.toThrow('Offline');
+    const restored = f.make(); await restored.load();
+    expect(restored.getSnapshot().trips[id]?.shuttle).toEqual([vehicle]);
+    await restored.command(id, { type: 'vehicle', vehicle: { ...vehicle, meeting: 'Lower landing' } });
+    expect(restored.getSnapshot().trips[id]?.shuttle).toEqual([{ ...vehicle, meeting: 'Lower landing' }]);
+    await restored.command(id, { type: 'remove-vehicle', vehicleId: vehicle.id });
+    expect(restored.getSnapshot().trips[id]?.shuttle).toEqual([]);
+    expect(restored.getSnapshot().pending.filter(p => p.kind === 'trip').map(p => p.input.baseRevision)).toEqual([1, 2, 3]);
+  });
+  it('keeps group details when an older service acknowledges but drops them, then retries with a fresh baseline', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const id = 'trip-id-1234567890', plan = newTripPlan({ name: 'River' });
+    plan.preparation!.groupSize = 2; plan.preparation!.note = 'Bring water';
+    const apply = f.api.mutate;
+    vi.mocked(f.api.mutate).mockImplementationOnce(async (tripId, input, age) => {
+      const result = await apply(tripId, input, age);
+      delete result.trip!.preparation; return result;
+    });
+    await repo.savePlan(plan, id);
+    const original = repo.getSnapshot().pending[0]!;
+    await repo.sync();
+    expect(repo.getSnapshot().trips[id]?.preparation).toEqual(plan.preparation);
+    expect(repo.getSnapshot().pending[0]?.error).toContain('Group details did not sync');
+    const restored = f.make(); await restored.load();
+    const retry = restored.getSnapshot().pending[0]!;
+    expect(retry.key).not.toBe(original.key);
+    expect(retry.kind === 'trip' && retry.input).toMatchObject({ baseRevision: 1, command: { type: 'plan', baseline: { title: plan.title } } });
+    await restored.retry(retry.key);
+    expect(restored.getSnapshot().pending).toEqual([]);
+    expect(restored.getSnapshot().trips[id]?.preparation).toEqual(plan.preparation);
+  });
+  it('does not lose a GPS track when an older service drops its metadata', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const value = { sourceTripId: null, route: newTripPlan({ name: 'River' }).route, date: '2026-10-05', time: '', timeZone: 'UTC', notes: '', paddleAgain: '' as const, water: [],
+      track: { startedAt: '2026-10-05T16:00:00Z', endedAt: '2026-10-05T16:02:00Z', elapsedSeconds: 120, distanceMeters: 20, polylines: ['_p~iF~ps|U_ulLnnqC'] } };
+    const id = 'paddle-log-1234567890';
+    const remote = { ...value, id, ownerUid: 'alice', revision: 1, updatedAt: '', photos: [] };
+    delete (remote as Partial<typeof remote>).track;
+    f.api.log = vi.fn(async () => ({ log: remote }));
+    await repo.saveLog(value, id); await repo.sync();
+    expect(repo.getSnapshot().logs[id]?.track).toEqual(value.track);
+    expect(repo.getSnapshot().pending[0]?.error).toContain('GPS track did not sync');
+    const restored = f.make(); await restored.load();
+    f.api.log = vi.fn(async () => ({ log: { ...remote, track: value.track, revision: 2 } }));
+    f.api.list = vi.fn(async () => ({ trips: [], logs: [{ ...remote, track: value.track, revision: 2 }], nextCursor: null }));
+    await restored.retry(restored.getSnapshot().pending[0]!.key);
+    expect(restored.getSnapshot().pending).toEqual([]);
+    expect(restored.getSnapshot().logs[id]?.track).toEqual(value.track);
+  });
   it('persists the plan and outbox together and restores them after restart', async () => {
     const f = fixture(), first = f.make(); await first.load();
     await first.savePlan(newTripPlan({ name: 'River' }), 'trip-id-1234567890');

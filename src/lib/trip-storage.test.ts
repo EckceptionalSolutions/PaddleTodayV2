@@ -44,6 +44,29 @@ describe('private trips and collaborative planning', () => {
     await expect(store.get('bob', t.id)).rejects.toMatchObject({ status: 404 });
     expect((await store.list('bob')).trips).toEqual([]);
   });
+  it('retains member preparation without exposing it through view-only links', async () => {
+    const id = randomUUID(), prepared = plan();
+    prepared.preparation!.note = 'Private group details';
+    let t = (await store.mutate('alice', 'Alice', id, mutation(null, { type: 'create', plan: prepared })))!;
+    const baseline = tripPlan(t);
+    t = (await store.mutate('alice', 'Alice', id, mutation(t, { type: 'plan', baseline, plan: { ...baseline, date: '2026-10-11' } })))!;
+    expect(t.preparation?.note).toBe('Private group details');
+    const token = 'c'.repeat(64);
+    await store.mutate('alice', 'Alice', id, mutation(t, { type: 'link', purpose: 'view', token }));
+    expect(await store.publicView(id, token)).not.toHaveProperty('preparation');
+  });
+  it('stores multiple private GPS recaps linked to one trip', async () => {
+    const t = await join(await create());
+    const track = { startedAt: '2026-10-05T12:00:00Z', endedAt: '2026-10-05T13:00:00Z', elapsedSeconds: 3600, distanceMeters: 1000, polylines: ['????'] };
+    const value: PaddleLogInput = { sourceTripId: t.id, route: t.route, date: '2026-10-05', time: '', timeZone: 'UTC', notes: 'Private recap', paddleAgain: 'yes', water: [], track };
+    const ids = [randomUUID(), randomUUID()];
+    for (const id of ids) {
+      await store.log('bob', id, { operationId: randomUUID(), baseRevision: 0, value });
+      expect((await store.getLog('bob', id)).track).toEqual(track);
+      await expect(store.getLog('alice', id)).rejects.toMatchObject({ status: 404 });
+    }
+    expect((await store.list('bob')).logs.map(log => log.id).sort()).toEqual(ids.sort());
+  });
   it('links show only the public projection and revoke immediately', async () => {
     let t = await create(); const token = 'b'.repeat(64);
     t = (await store.mutate('alice', 'Alice', t.id, mutation(t, { type: 'link', purpose: 'view', token })))!;

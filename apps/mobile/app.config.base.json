@@ -101,13 +101,16 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "PaddleToday uses your location to highlight nearby paddling options."
+          "locationWhenInUsePermission": "PaddleToday uses your location to show nearby paddling options and to record a route only while you choose to record a paddle.",
+          "locationAlwaysAndWhenInUsePermission": "PaddleToday records your route only during a paddle you start, including while your screen is locked. Recording stops when you pause or finish.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "PaddleToday lets you attach route photos when you choose to submit paddling reports."
+          "photosPermission": "PaddleToday lets you choose photos for your private paddle recap or a route report."
         }
       ],
       [

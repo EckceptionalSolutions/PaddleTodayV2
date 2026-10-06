@@ -269,3 +269,30 @@
   .trip-activity li { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
   .trip-activity time { text-align: left; }
 }
+
+/* My Trips library and overview refinements. */
+.trip-featured-plan { border-top: 4px solid var(--river); }
+.trip-featured-plan .trip-list-card__meta { margin-bottom: 1rem; }
+.trip-featured-plan .trip-eyebrow { margin: 0; }
+.trip-featured-heading { display: flex; align-items: flex-start; gap: 1.2rem; }
+.trip-featured-heading > div { min-width: 0; flex: 1; }
+.trip-featured-heading h2 { margin: 0 0 .5rem; overflow-wrap: anywhere; }
+.trip-featured-heading p { margin: .35rem 0; }
+.trip-date-tile { flex: 0 0 4.5rem; display: grid; justify-items: center; padding: .65rem .4rem; border-radius: var(--radius-sm); background: var(--panel-muted); color: var(--river-deep); }
+.trip-date-tile span { font-size: .8rem; text-transform: uppercase; }
+.trip-date-tile strong { font-size: 2rem; line-height: 1.2; }
+.trip-featured-plan > .trip-actions { justify-content: flex-end; }
+.trip-access-facts { margin: 1rem 0; padding: .75rem 1rem; background: var(--panel-muted); border-radius: var(--radius-sm); }
+.trip-access-facts p { display: flex; align-items: baseline; gap: .75rem; margin: .4rem 0; }
+.trip-access-facts span { flex: 0 0 4.5em; font-size: .85rem; color: var(--muted); }
+.trip-access-facts strong { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+.trip-summary-facts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1.2rem 0 .5rem; padding: 1rem; background: var(--panel-muted); border-radius: var(--radius-sm); }
+.trip-summary-facts dt { margin-bottom: .3rem; font-size: .75rem; text-transform: uppercase; color: var(--muted); font-weight: 650; }
+.trip-summary-facts dd { margin: 0; font-weight: 650; overflow-wrap: anywhere; }
+.trip-detail-section { padding-block: 1.25rem; }
+.trip-list-card__meta { flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .trip-featured-heading { gap: .8rem; }
+  .trip-date-tile { flex-basis: 3.7rem; }
+  .trip-access-facts { padding-inline: .75rem; }
+}

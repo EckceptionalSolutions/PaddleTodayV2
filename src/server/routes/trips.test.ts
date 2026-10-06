@@ -69,4 +69,13 @@ describe('trip HTTP authorization boundary', () => {
     expect(response.status).toBe(400);
     expect((await request(`/api/trips/${id}`, 'test-alice', { data: 'x'.repeat(65000) })).status).toBe(413);
   });
+  it('accepts a bounded GPS recap with JSON-escaped track data and rejects oversized logs', async () => {
+    const id = randomUUID();
+    const value = { sourceTripId: null, route: newTripPlan({ name: 'Private river' }).route, date: '2026-10-05', time: '', timeZone: 'UTC', notes: '', paddleAgain: '', water: [],
+      track: { startedAt: '2026-10-05T12:00:00Z', endedAt: '2026-10-05T13:00:00Z', elapsedSeconds: 3600, distanceMeters: 1000, polylines: ['\\'.repeat(48000)] } };
+    const response = await request(`/api/paddle-logs/${id}`, 'test-alice', { operationId: randomUUID(), baseRevision: 0, value });
+    expect(response.status).toBe(200);
+    expect((await response.json()).log.track.polylines).toEqual(value.track.polylines);
+    expect((await request(`/api/paddle-logs/${id}`, 'test-alice', { data: 'x'.repeat(129000) })).status).toBe(413);
+  });
 });

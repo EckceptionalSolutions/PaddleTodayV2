@@ -25,8 +25,8 @@ test('a trip can be started without signing in, and email stays collapsed', asyn
 test('trip lists expose keyboard-operable tabs and editors offer a clear time-zone selector', async ({ page }) => {
   await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
   await page.goto('/trips/');
-  const upcoming = page.getByRole('tab', { name: 'Upcoming' });
-  const past = page.getByRole('tab', { name: 'Past' });
+  const upcoming = page.getByRole('tab', { name: 'Plans' });
+  const past = page.getByRole('tab', { name: 'History' });
   await expect(upcoming).toHaveAttribute('aria-selected', 'true');
   const selectedBackground = await upcoming.evaluate(element => getComputedStyle(element).backgroundColor);
   const unselectedBackground = await past.evaluate(element => getComputedStyle(element).backgroundColor);

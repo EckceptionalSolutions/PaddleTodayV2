@@ -4,15 +4,16 @@ import { ActivityIndicator, Pressable, StyleSheet, Text, type StyleProp, type Vi
 import { colors, radius, spacing, typography } from '../theme/tokens';
 
 export function AppButton({ label, accessibilityLabel = label, hint, onPress, disabled = false, busy = false, expanded,
-  busyLabel = label, variant = 'primary', icon, style }: {
+  busyLabel = label, variant = 'primary', icon, style, selected }: {
   label: string; accessibilityLabel?: string; hint?: string; onPress: () => void;
   disabled?: boolean; busy?: boolean; expanded?: boolean; busyLabel?: string; variant?: 'primary' | 'secondary';
+  selected?: boolean;
   icon?: ComponentProps<typeof MaterialCommunityIcons>['name']; style?: StyleProp<ViewStyle>;
 }) {
   const inactive = disabled || busy;
   const foreground = variant === 'primary' ? colors.surfaceStrong : colors.accentDeep;
   return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel} accessibilityHint={hint}
-    accessibilityState={{ disabled: inactive, busy, expanded }} aria-expanded={expanded} aria-busy={busy} disabled={inactive} onPress={onPress}
+    accessibilityState={{ disabled: inactive, busy, expanded, selected }} aria-expanded={expanded} aria-busy={busy} disabled={inactive} onPress={onPress}
     style={({ pressed }) => [styles.button, variant === 'secondary' ? styles.secondary : styles.primary,
       pressed && !inactive ? styles.pressed : null, inactive ? styles.disabled : null, style]}>
     {busy ? <ActivityIndicator color={foreground} size="small" accessibilityElementsHidden importantForAccessibility="no" />

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-05",
+  "scope": "Visual organization and usability of My Trips in Android and web",
+  "changes": [
+    "Quieter Android header; primary actions above Plans/History and an on-demand searchable library",
+    "Compact next-paddle card with a date tile and individually readable access points",
+    "Schedule and main actions before the route map in the Android trip overview",
+    "Grouped secondary overview actions; long access names wrap; redundant route names omitted",
+    "Web library navigation, featured plan, access labels, and responsive spacing refined"
+  ],
+  "checks": {
+    "mobileTypecheck": "passed",
+    "runtimeTypecheck": "passed",
+    "mobileFocusedTests": 24,
+    "browserTests": 40,
+    "browserProjects": ["desktop-chromium", "mobile-android"],
+    "webBuild": "passed",
+    "webVisualInspection": "Plans, overview, and History at 320, 390, and 1280px; no horizontal overflow",
+    "nativeInspection": "Dashboard, History, search/no results, trip overview, secondary controls, cold reopen, and 130% text size",
+    "diffWhitespace": "passed"
+  },
+  "androidPreview": {
+    "path": "artifacts/android/paddletoday-trips-visual-20261005.apk",
+    "sha256": "6a71cf8b475c45a0181d669220f5e4f15a54425a05e6ea6e2c64f3ef488d937f",
+    "installedHashMatches": true,
+    "signing": "Existing configured certificate verified against source APK",
+    "nativeRuntime": "Existing preview runtime with updated bundled JavaScript and assets"
+  },
+  "preservation": {
+    "baselinePlans": 1,
+    "baselineHistory": 1,
+    "existingPlanAndRecap": "Retained; no plan, log, photo, or sharing mutations made during this visual review",
+    "textScaleRestored": 1.0,
+    "temporaryKeystoreRemoved": true,
+    "temporaryDeviceCaptureFilesRemoved": true,
+    "ownedPreviewServersStopped": true,
+    "finalPhoneScreen": "My Trips dashboard"
+  },
+  "evidenceDirectory": "artifacts/my-trips-visual",
+  "deployment": "Android preview installed. Web source verified locally; no website or store publication."
+}

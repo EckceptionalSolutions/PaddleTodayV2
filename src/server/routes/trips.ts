@@ -80,7 +80,7 @@ export async function handleTrips(request: IncomingMessage, response: ServerResp
     if (path[1] === 'paddle-logs') {
       if (path.length === 3 && request.method === 'GET') return send(200, { log: await store.getLog(user.uid, id) });
       if (path.length === 3 && request.method === 'POST') {
-        const body = await readJsonBody(request, 64000);
+        const body = await readJsonBody(request, 128000);
         if (!isLogMutation(body)) return send(400, { error: 'invalid_log', message: 'Check the location, date, and log fields.' });
         return send(200, { log: await store.log(user.uid, id, body) });
       }

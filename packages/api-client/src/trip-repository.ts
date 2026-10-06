@@ -72,6 +72,11 @@ export class TripRepository {
       if (command.type === 'create') v.trips[id] = { ...tripPlan(command.plan), id, ownerUid: this.uid, members: [{ uid: this.uid, name: 'You', role: 'owner', rsvp: 'going' }], shuttle: [], revision: 1, status: 'planned', updatedAt: new Date().toISOString(), updatedBy: this.uid, activity: [] };
       if (current && command.type === 'plan') v.trips[id] = { ...current, ...tripPlan(command.plan), revision: current.revision + 1 };
       if (current && command.type === 'status') v.trips[id] = { ...current, status: command.status, revision: current.revision + 1 };
+      if (current && command.type === 'vehicle') v.trips[id] = { ...current,
+        shuttle: [...current.shuttle.filter(vehicle => vehicle.id !== command.vehicle.id), { ...command.vehicle, passengers: [...command.vehicle.passengers] }],
+        revision: current.revision + 1 };
+      if (current && command.type === 'remove-vehicle') v.trips[id] = { ...current,
+        shuttle: current.shuttle.filter(vehicle => vehicle.id !== command.vehicleId), revision: current.revision + 1 };
       if (command.type === 'delete') delete v.trips[id];
     });
   }
@@ -227,6 +232,39 @@ export class TripRepository {
         const age = pending.queuedAt ? Date.now() - pending.queuedAt : 0;
         if (pending.kind === 'trip') trip = (await this.client.mutate(pending.id, pending.input, age)).trip;
         if (pending.kind === 'log') log = (await this.client.log(pending.id, pending.input, age)).log;
+        // Older services may acknowledge a plan while silently dropping newer fields.
+        // Retain the local details and prepare a fresh, rebased operation for Retry.
+        if (pending.kind === 'trip' && trip && (pending.input.command.type === 'create' || pending.input.command.type === 'plan')) {
+          const preparation = pending.input.command.plan.preparation;
+          if (preparation && Object.values(preparation).some(value => value !== '' && value !== null && value !== undefined)
+            && JSON.stringify(preparation) !== JSON.stringify(trip.preparation)) {
+            const latest = trip;
+            await this.change(v => {
+              const p = v.pending.find(p => p.key === pending.key);
+              if (!p || p.kind !== 'trip') return;
+              const operationId = this.uuid(), plan = { ...tripPlan(latest), preparation };
+              p.key = operationId; p.queuedAt = Date.now();
+              p.input = { operationId, baseRevision: latest.revision, command: { type: 'plan', baseline: tripPlan(latest), plan } };
+              p.latest = latest;
+              p.error = 'Group details did not sync. They are saved on this device. Retry after the trip service is updated.';
+              if (!v.pending.some(other => other.id === p.id && other.key !== p.key)) v.trips[p.id] = { ...latest, ...plan, revision: latest.revision + 1 };
+            });
+            continue;
+          }
+        }
+        if (pending.kind === 'log' && pending.input.value?.track && log && !log.track) {
+          const latest = log;
+          await this.change(v => {
+            const p = v.pending.find(p => p.key === pending.key);
+            if (!p || p.kind !== 'log' || !p.input.value) return;
+            const operationId = this.uuid();
+            p.key = operationId; p.queuedAt = Date.now();
+            p.input = { ...p.input, operationId, baseRevision: latest.revision };
+            p.latest = latest;
+            p.error = 'The GPS track did not sync. It is saved on this device. Retry after the trip service is updated.';
+          });
+          continue;
+        }
         if (pending.kind === 'photo') {
           const chunks: string[] = [];
           for (let i = 0; i < pending.parts; i++) {
