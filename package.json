@@ -27,6 +27,7 @@
     "typecheck:gallery": "tsc --noEmit -p tsconfig.gallery.json",
     "typecheck:runtime": "tsc --noEmit -p tsconfig.runtime.json",
     "routes:audit": "tsx scripts/audit-route-data.ts",
+    "seo:indexability:audit": "node scripts/audit-built-search-indexability.mjs",
     "routes:audit:coordinates": "tsx scripts/audit-route-coordinate-river-distance.ts",
     "routes:access-registry:generate": "tsx scripts/generate-route-access-registry.ts",
     "routes:withholding:generate": "tsx scripts/generate-withheld-route-slugs.ts",
