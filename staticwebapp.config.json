@@ -14,6 +14,26 @@
       }
     },
     {
+      "route": "/rivers/mohawk-river-lock-9-freemans-bridge",
+      "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/mohawk-river-lock-9-freemans-bridge/",
+      "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/barren-river-tailwater-vpa-3",
+      "redirect": "/rivers/barren-river-tailwater-martinsville/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/barren-river-tailwater-vpa-3/",
+      "redirect": "/rivers/barren-river-tailwater-martinsville/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/st-croix-river-taylors-falls-osceola",
       "redirect": "/rivers/st-croix-river-interstate-osceola/",
       "statusCode": 301

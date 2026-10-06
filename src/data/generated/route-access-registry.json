@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-01T14:40:01.468Z",
+  "generatedAt": "2026-10-06T01:48:45.989Z",
   "auditGeneratedAt": "2026-09-20T13:11:01.443Z",
   "summary": {
     "entryCount": 4081,
     "repeatedEntryCount": 1222,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 2278,
+    "derivedWaterEntryCount": 2277,
     "authoritativeAccessCount": 1266,
     "authoritativeWaterEntryCount": 499,
     "areaAnchorOnlyCount": 1,
@@ -258703,8 +258703,7 @@
         "Freeman's Bridge public Mohawk River launch, Glenville"
       ],
       "sourceIds": [
-        "mohawk-river-freemans-bridge-lock-7-freemans",
-        "mohawk-river-lock-9-freemans-bridge-freemans"
+        "mohawk-river-freemans-bridge-lock-7-freemans"
       ],
       "storedAccessCoordinate": {
         "latitude": 42.831196,
@@ -258721,19 +258720,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 42.831196,
-        "longitude": -73.930698
-      },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 4,
-      "routeCount": 2,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "42.83120,-73.93070",
@@ -258741,11 +258737,10 @@
             "latitude": 42.831196,
             "longitude": -73.930698
           },
-          "occurrenceCount": 4,
-          "routeCount": 2,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "mohawk-river-freemans-bridge-lock-7",
-            "mohawk-river-lock-9-freemans-bridge"
+            "mohawk-river-freemans-bridge-lock-7"
           ]
         }
       ],
@@ -258775,34 +258770,6 @@
           "longitude": -73.930698,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 408.3305613882216,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
-        },
-        {
-          "routeId": "mohawk-river-lock-9-freemans-bridge",
-          "routeName": "Mohawk River",
-          "state": "New York",
-          "endpoint": "accessPoint",
-          "sourceId": "mohawk-river-lock-9-freemans-bridge-freemans",
-          "name": "Freeman's Bridge public Mohawk River launch, Glenville",
-          "latitude": 42.831196,
-          "longitude": -73.930698,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 408.3315432181057,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
-        },
-        {
-          "routeId": "mohawk-river-lock-9-freemans-bridge",
-          "routeName": "Mohawk River",
-          "state": "New York",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Freeman's Bridge public Mohawk River launch, Glenville",
-          "latitude": 42.831196,
-          "longitude": -73.930698,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 408.3315432181057,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": "authoritative-water-entry"
         }
@@ -270333,7 +270300,7 @@
         "Lock 9 State Canal Park public hand launch, Rotterdam Junction"
       ],
       "sourceIds": [
-        "mohawk-river-lock-9-freemans-bridge-lock-9"
+        "erie-canal-rotterdam-junction-freemans-bridge-lock-e9"
       ],
       "storedAccessCoordinate": {
         "latitude": 42.879641,
@@ -270351,9 +270318,9 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "unverified",
@@ -270370,38 +270337,38 @@
           "occurrenceCount": 2,
           "routeCount": 1,
           "routes": [
-            "mohawk-river-lock-9-freemans-bridge"
+            "erie-canal-rotterdam-junction-freemans-bridge"
           ]
         }
       ],
       "occurrences": [
         {
-          "routeId": "mohawk-river-lock-9-freemans-bridge",
-          "routeName": "Mohawk River",
+          "routeId": "erie-canal-rotterdam-junction-freemans-bridge",
+          "routeName": "Erie Canal / Mohawk River",
           "state": "New York",
           "endpoint": "accessPoint",
-          "sourceId": "mohawk-river-lock-9-freemans-bridge-lock-9",
+          "sourceId": "erie-canal-rotterdam-junction-freemans-bridge-lock-e9",
           "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
           "latitude": 42.879641,
           "longitude": -74.042129,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 381.75524292018184,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         },
         {
-          "routeId": "mohawk-river-lock-9-freemans-bridge",
-          "routeName": "Mohawk River",
+          "routeId": "erie-canal-rotterdam-junction-freemans-bridge",
+          "routeName": "Erie Canal / Mohawk River",
           "state": "New York",
           "endpoint": "putIn",
           "sourceId": null,
           "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
           "latitude": 42.879641,
           "longitude": -74.042129,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 381.75524292018184,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": "authoritative-water-entry"
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
         }
       ]
     },
@@ -273907,8 +273874,7 @@
         "Lock E9, Rotterdam Junction upper approach"
       ],
       "sourceIds": [
-        "erie-canal-amsterdam-rotterdam-junction-lock-e9",
-        "erie-canal-rotterdam-junction-freemans-bridge-lock-e9"
+        "erie-canal-amsterdam-rotterdam-junction-lock-e9"
       ],
       "storedAccessCoordinate": {
         "latitude": 42.87973,
@@ -273955,15 +273921,15 @@
         "latitude": 42.87973,
         "longitude": -74.04247
       },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "authoritative-water-entry",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 4,
-      "routeCount": 2,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "42.87973,-74.04247",
@@ -273971,11 +273937,10 @@
             "latitude": 42.87973,
             "longitude": -74.04247
           },
-          "occurrenceCount": 4,
-          "routeCount": 2,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "erie-canal-amsterdam-rotterdam-junction",
-            "erie-canal-rotterdam-junction-freemans-bridge"
+            "erie-canal-amsterdam-rotterdam-junction"
           ]
         }
       ],
@@ -273999,34 +273964,6 @@
           "routeName": "Erie Canal / Mohawk River",
           "state": "New York",
           "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Lock E9, Rotterdam Junction upper approach",
-          "latitude": 42.87973,
-          "longitude": -74.04247,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "erie-canal-rotterdam-junction-freemans-bridge",
-          "routeName": "Erie Canal / Mohawk River",
-          "state": "New York",
-          "endpoint": "accessPoint",
-          "sourceId": "erie-canal-rotterdam-junction-freemans-bridge-lock-e9",
-          "name": "Lock E9, Rotterdam Junction upper approach",
-          "latitude": 42.87973,
-          "longitude": -74.04247,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "erie-canal-rotterdam-junction-freemans-bridge",
-          "routeName": "Erie Canal / Mohawk River",
-          "state": "New York",
-          "endpoint": "putIn",
           "sourceId": null,
           "name": "Lock E9, Rotterdam Junction upper approach",
           "latitude": 42.87973,

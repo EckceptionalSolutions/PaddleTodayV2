@@ -1951,7 +1951,6 @@ const routeOrder = [
   "batten-kill-greenwich-schuylerville",
   "allegheny-river-allegany-olean",
   "allegheny-river-olean-portville",
-  "mohawk-river-lock-9-freemans-bridge",
   "mohawk-river-freemans-bridge-lock-7",
   "west-branch-delaware-river-airport-hale-eddy",
   "delaware-river-balls-eddy-hancock",

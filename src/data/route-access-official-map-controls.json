@@ -2607,22 +2607,24 @@
       "sourceDocumentDate": null,
       "sourceSha256": null,
       "coordinateRole": "authoritative-water-entry",
-      "method": "The official Erie Canalway Section 27 stewardship inventory and Little Falls-to-Albany guide identify Lock E9 upper, Mabee Farm, Rotterdam Kiwanis Park, Maalwyck Park, Lock E8 Scotia, Scotia Village Docks/Freedom Park, Gateway Landing/Rotary Park, and Freeman’s Bridge as the corridor’s access and control chain. Stored points require current confirmation of municipal, DEC, seasonal, and private launch rules, parking and carry conditions, movable-dam, island-channel, water-ski, railroad, bridge, and Section 28 boundary conditions.",
+      "method": "The official Erie Canalway Section 27 stewardship inventory and Little Falls-to-Albany guide identify Lock E9 upper, Mabee Farm, Rotterdam Kiwanis Park, Maalwyck Park, Lock E8 Scotia, Scotia Village Docks/Freedom Park, Gateway Landing/Rotary Park, and Freeman’s Bridge as the corridor’s access and control chain. NYSDEC independently lists Lock 9 State Canal Park and Freeman’s Bridge as public launch areas. Stored points require current confirmation of municipal, DEC, seasonal, and private launch rules, parking and carry conditions, movable-dam, island-channel, water-ski, railroad, bridge, and Section 28 boundary conditions.",
       "controls": [
         {
           "featureId": "erie-canal-rotterdam-junction-freemans-bridge-lock-e9",
-          "name": "Lock E9, Rotterdam Junction upper approach",
+          "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
           "aliases": [
+            "Lock 9 State Canal Park",
+            "Lock 9 public hand launch",
             "Lock E9 upper",
             "Rotterdam Junction upper launch",
             "E Mile 29.08"
           ],
           "waterbody": "Erie Canal / Mohawk River",
-          "latitude": 42.87973,
-          "longitude": -74.04247,
+          "latitude": 42.879641,
+          "longitude": -74.042129,
           "riverMile": 0,
           "uncertaintyFeet": 200,
-          "coordinateText": "Erie Canalway guide coordinate for the E9 upper gravel beach, portable toilet, and parking context"
+          "coordinateText": "NYSDEC coordinate for the public Lock 9 State Canal Park hand launch; verify the carry, water entry, hours, and navigation status"
         },
         {
           "featureId": "erie-canal-rotterdam-junction-freemans-bridge-mabee",
