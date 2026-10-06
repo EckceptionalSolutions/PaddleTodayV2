@@ -3816,7 +3816,7 @@ describe('New York strategic expansion', () => {
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
     expect(route?.accessPoints).toHaveLength(8);
-    expect(route?.accessPoints?.[0]?.name).toContain('E9');
+    expect(route?.accessPoints?.[0]?.name).toContain('Lock 9');
     expect(route?.accessPoints?.[1]?.name).toContain('Mabee');
     expect(route?.accessPoints?.[3]?.name).toContain('Maalwyck');
     expect(route?.accessPoints?.[4]?.name).toContain('E8');

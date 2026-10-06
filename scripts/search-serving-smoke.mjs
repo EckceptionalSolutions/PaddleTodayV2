@@ -24,6 +24,7 @@ for (const [path, expected, redirect] of cases) {
   try {
     const response = await readPage(`${origin}${path}?search-serving-check=${nonce}`);
     const html = response.html;
+    const location = response.location ? new URL(response.location, origin).pathname : undefined;
     const canonical = [...html.matchAll(/<link\b[^>]*>/gi)]
       .find(([tag]) => /\brel=["']canonical["']/i.test(tag))?.[0]
       .match(/\bhref=["']([^"']*)["']/i)?.[1];

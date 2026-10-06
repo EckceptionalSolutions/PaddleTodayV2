@@ -54,12 +54,27 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/by-river/jump-river",
+      "redirect": "/rivers/jump-river-wayside-park-sheldon/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/minnehaha-creek-grays-bay-knollwood",
       "redirect": "/guides/minnehaha-creek-paddling/",
       "statusCode": 301
     },
     {
       "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/by-river/minnehaha-creek",
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/by-river/minnehaha-creek/",
       "redirect": "/guides/minnehaha-creek-paddling/",
       "statusCode": 301
     },
