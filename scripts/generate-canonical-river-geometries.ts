@@ -3666,8 +3666,7 @@ async function main() {
   let curatedFeatures = [
     ...existingFeatures.filter((feature) =>
       !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
-      &&
-      !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)
+      && (reuseExisting || !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId))
       // Reuse mode preserves reviewed assets; a route-scoped refresh preserves
       // every existing asset except the requested route. Full generation
       // rebuilds endpoint-bounded routes so traces follow current coordinates.

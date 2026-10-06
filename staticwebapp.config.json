@@ -69,6 +69,16 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/by-river/minnehaha-creek",
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/by-river/minnehaha-creek/",
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/clinton-river-budd-shadyside",
       "redirect": "/rivers/by-river/clinton-river/",
       "statusCode": 301

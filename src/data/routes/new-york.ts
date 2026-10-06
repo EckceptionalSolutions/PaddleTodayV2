@@ -14698,7 +14698,7 @@ export const newYorkRoutes: River[] = [
     region: 'Madison County / Chittenango',
     pageUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10880/main',
     pageMapUrl: 'https://chittenango.gov/',
-    summary: 'A 6.8-mile Chittenango Creek whitewater route from the bridge below Chittenango Falls to the Village of Chittenango’s Recognition Park kayak launch. American Whitewater documents 5.3 river miles from the below-falls start to its village-side endpoint; continuing to Recognition Park adds about 1.5 miles. American Whitewater rates the reach Class II(III), describes a fast boulder garden that eases downstream, and warns about trees. The village advertises the Recognition Park kayak launch and bathrooms; confirm park hours, current landing, and local rules before the trip.',
+    summary: 'A 6.8-mile Chittenango Creek float runs from the below-falls bridge to Recognition Park’s kayak launch. American Whitewater documents 5.3 river miles to its village-side endpoint; the final 1.5 miles continue to Recognition Park. Its Class II(III) notes describe a fast boulder garden that eases downstream and warn about trees. The village lists the park launch and restrooms; check current hours, landing access, and local rules before the trip.',
     statusText: 'Class II(III) creek run below the two 60-foot Chittenango Falls. Launch only from a confirmed legal below-falls access, inspect the first boulder garden and trees, and finish at Recognition Park before dark. Do not approach or run the falls from above, and do not use an unmarked bridge shoulder or private bank for staging.',
     latitude: 43.0582894,
     longitude: -75.8646858,
