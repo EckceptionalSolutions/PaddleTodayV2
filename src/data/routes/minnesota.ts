@@ -11143,7 +11143,7 @@ export const minnesotaRoutes: River[] = [
     "reach": "Peltier Lake to Long Lake",
     "state": "Minnesota",
     "region": "Twin Cities North Metro",
-    "summary": "Lake-and-creek water trail where the official water-level band and wind across the lake chain matter more than raw mileage.",
+    "summary": "Plan the 15.2-mile Peltier Lake-to-Long Lake trail (about 5–7 hours) in Rice Creek's official 6.30–7.90 ft passable band. The first seven miles cross five lakes, so check wind, intermediate exits, possible culvert portages, and the marked fish-barrier portage when signs and buoys are present.",
     "statusText": "Treat this as in play only when Rice Creek is inside the official 6.30 to 7.90 ft passable band and wind on the lake section looks manageable.",
     "latitude": 45.17511691636344,
     "longitude": -93.06912355748237,

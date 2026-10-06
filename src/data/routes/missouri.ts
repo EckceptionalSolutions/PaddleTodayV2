@@ -11308,7 +11308,7 @@ export const missouriRoutes: River[] = [
     ],
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Short Big River day between two MDC public accesses west of De Soto. MDC confirms the access spacing, and the Richwoods gauge sits in the route corridor with route-specific local navigability bands.",
+    "summary": "Float 5.4 miles from Mammoth to Merrill Horse near De Soto; check Richwoods flow and trend before launch. Allow 2–3.5 hours. Community guidance (not an MDC paddling band) flags scraping below about 100 cfs, a caution zone above about 800 cfs, and no general recommendation above 1,200 cfs.",
     "statusText": "Use the Big River near Richwoods gauge. The practical float window is roughly 100 to 800 cfs; below 100 cfs, expect scraping, and above 1,200 cfs this section is too high for a general recommendation.",
     "latitude": 38.121076,
     "longitude": -90.676055,

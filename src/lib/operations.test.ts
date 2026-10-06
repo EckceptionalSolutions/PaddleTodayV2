@@ -12,7 +12,7 @@ describe('operations snapshot', () => {
   it('keeps planning routes out of scored saturation counts', () => {
     const snapshot = getOperationsSnapshot();
     const minnesota = snapshot.states.find((state) => state.id === 'MN');
-    expect(minnesota).toMatchObject({ scored: 138, planning: 120, legacySaturation: 'provisionally_saturated' });
+    expect(minnesota).toMatchObject({ scored: 137, planning: 121, legacySaturation: 'provisionally_saturated' });
     expect(minnesota?.saturation).toBe('saturated');
     expect(minnesota?.discoveryComplete).toBe(true);
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
