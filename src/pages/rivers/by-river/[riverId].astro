@@ -486,6 +486,46 @@ const groupStructuredData = [
         </article>
       </div>
 
+      {group.riverId === 'woonasquatucket-river-rhode-island' ? (
+        <div class="river-hub-context__source-guide" aria-labelledby="woonasquatucket-providence-access-title">
+          <div class="river-group-page__section-head">
+            <div>
+              <p class="eyebrow section-label">Providence paddle access</p>
+              <h3 class="section-title" id="woonasquatucket-providence-access-title">Separate the new Kinsley launch from the listed route endpoints</h3>
+            </div>
+            <p class="muted river-group-page__section-note">
+              WRWC documented the launch in 2026; confirm tide, event closures, and current access before choosing a lower-river trip.
+            </p>
+          </div>
+
+          <p>
+            The Woonasquatucket River Watershed Council says the Kinsley Avenue Boat Launch beside Farm Fresh Rhode Island opened with the Kinsley Avenue and Promenade Street Greenway project. WRWC's first documented downtown paddle from that launch went toward downtown on a rising tide. Those updates do not specify a fixed take-out or route distance, so use Kinsley as a current access reference rather than assuming it is an endpoint on one of the catalog routes below.
+          </p>
+
+          <div class="river-hub-context__grid">
+            <article class="river-hub-context__item">
+              <h3>Riverside Park to Waterplace Park · about 2.3 mi</h3>
+              <p>WRWC confirms a canoe and kayak launch at Riverside Park and describes Waterplace Park as about 2.3 river miles away. The route page keeps that separate, fixed endpoint pair.</p>
+              <a href="/rivers/woonasquatucket-river-riverside-waterplace/">Review Riverside Park to Waterplace Park</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Waterplace Park to South Water Street</h3>
+              <p>This listed route continues to the tidal landing. Check the tide, downtown event closures, boat traffic, and current water-quality notices before using it as a take-out.</p>
+              <a href="/rivers/woonasquatucket-river-waterplace-south-water/">Review Waterplace Park to South Water Street</a>
+            </article>
+            <article class="river-hub-context__item">
+              <h3>Manton Avenue to Waterplace Park</h3>
+              <p>This longer listed pair crosses the urban corridor and Riverside structure. Inspect the portage and water conditions; do not treat the newer Kinsley launch as an intermediate access without confirming its current approach and rules.</p>
+              <a href="/rivers/woonasquatucket-river-manton-waterplace/">Review Manton Avenue to Waterplace Park</a>
+            </article>
+          </div>
+
+          <p>
+            See WRWC's <a href="https://wrwc.org/wrwc-launches-the-downtown-paddle-season/" target="_blank" rel="noopener noreferrer">2026 Kinsley Avenue launch update</a> and <a href="https://wrwc.org/events/woonasquatucket-river-greenway-project-ribbon-cutting/" target="_blank" rel="noopener noreferrer">Greenway project completion notice</a>. WRWC separately lists the <a href="https://wrwc.org/what-we-do/greenway/parks/riverside-park/" target="_blank" rel="noopener noreferrer">Riverside Park canoe and kayak launch</a>. Confirm exact water entry, take-out, tide, and posted closures before departure.
+          </p>
+        </div>
+      ) : null}
+
       {group.riverId === 'willimantic-river-connecticut' ? (
         <div class="river-hub-context__source-guide" aria-labelledby="willimantic-water-trail-title">
           <div class="river-group-page__section-head">
