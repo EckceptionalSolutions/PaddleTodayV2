@@ -109,7 +109,7 @@ import {
 } from './board-card-markup.js';
 import { createBoardPreferenceStorage } from './board-preference-storage.js';
 import { loadCanonicalRiverRouteLine } from '../lib/canonical-river-geometries.js';
-import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
+import { createRoutePhotoPreviewController } from './route-photo-preview.js';
 import {
   coverageCenterForRoutes,
   groupRoutesByConditionScore,
@@ -1329,12 +1329,23 @@ function supportingReasonList(item, nearbyReady) {
   return Array.from(new Set(reasons)).slice(0, 2);
 }
 
+const featuredPhotoController = createRoutePhotoPreviewController();
+
+featuredGalleryImage?.addEventListener('error', () => {
+  featuredGalleryImage.hidden = true;
+  featuredGalleryImage.removeAttribute('src');
+  featuredGallery?.classList.add('route-photo-preview--placeholder');
+  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = false;
+  if (featuredGalleryPlaceholder instanceof HTMLElement) featuredGalleryPlaceholder.hidden = true;
+});
+
 function updateFeaturedGallery(item) {
   if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
     return;
   }
 
   const river = item?.cardRoute?.river;
+  featuredPhotoController.cancel();
   if (!river?.slug) {
     featuredGallery.hidden = true;
     featuredGalleryImage.removeAttribute('src');
@@ -1345,17 +1356,22 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
-  if (photo.isPlaceholder) featuredGalleryImage.removeAttribute('src');
-  else featuredGalleryImage.src = photo.src;
-  featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
-  if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = photo.sourceKind !== 'river';
-  }
-  featuredGalleryImage.hidden = photo.isPlaceholder;
-  featuredGallery.classList.toggle('route-photo-preview--placeholder', photo.isPlaceholder);
-  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !photo.isPlaceholder;
+  featuredGalleryImage.removeAttribute('src');
+  featuredGalleryImage.hidden = true;
+  featuredGalleryImage.alt = '';
+  featuredGallery.classList.add('route-photo-preview--placeholder');
+  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = false;
+  if (featuredGalleryPlaceholder instanceof HTMLElement) featuredGalleryPlaceholder.hidden = true;
+  void featuredPhotoController.update(river.slug, photo => {
+    const placeholder = !photo || photo.isPlaceholder;
+    if (!placeholder) featuredGalleryImage.src = photo.src;
+    featuredGalleryImage.alt = photo?.alt || `${river.name} route photo`;
+    if (featuredGalleryPlaceholder instanceof HTMLElement) featuredGalleryPlaceholder.hidden = photo?.sourceKind !== 'river';
+    featuredGalleryImage.hidden = placeholder;
+    featuredGallery.classList.toggle('route-photo-preview--placeholder', placeholder);
+    if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !placeholder;
+  });
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
   }

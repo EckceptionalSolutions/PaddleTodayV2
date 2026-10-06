@@ -41,6 +41,7 @@ import {
 import { handleRiverAlertCreate, handleRiverAlertUnsubscribe } from './routes/alerts';
 import { handleAreaNotificationCreate, handleAreaNotificationPatch } from './routes/area-notifications';
 import { handleRiverGeometry } from './routes/river-geometry';
+import { handleRoutePhotoPreview } from './routes/route-photo-preview';
 import { handleRiverTripPack } from './routes/trip-pack';
 import { handleHistorySnapshot, handleRiverSnapshotRefresh } from './routes/snapshots';
 import { decodeRouteRequestStorageKeyParam } from '../lib/route-request-storage-key';
@@ -150,6 +151,11 @@ const server = createServer(async (request, response) => {
         includeBody,
         decodeURIComponent(historyMatch[1] || '')
       );
+    }
+
+    const photoPreviewMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/preview-photo\.json$/);
+    if (photoPreviewMatch) {
+      return handleRoutePhotoPreview(response, requestId, includeBody, decodeURIComponent(photoPreviewMatch[1] || ''));
     }
 
     const geometryMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/geometry\.json$/);

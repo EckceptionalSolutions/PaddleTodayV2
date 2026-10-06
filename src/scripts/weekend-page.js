@@ -1,4 +1,4 @@
-import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
+import { createRoutePhotoPreviewController } from './route-photo-preview.js';
 import {
   bindMarkerPopup,
   captureMapResultFocus,
@@ -717,12 +717,15 @@ featuredGalleryImage?.addEventListener('error', () => {
   if (featuredGalleryPlaceholder) featuredGalleryPlaceholder.hidden = true;
 });
 
+const featuredPhotoController = createRoutePhotoPreviewController();
+
 function updateFeaturedGallery(item) {
   if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
     return;
   }
 
   const river = item?.river;
+  featuredPhotoController.cancel();
   if (!river?.slug) {
     featuredGallery.hidden = true;
     featuredGalleryImage.removeAttribute('src');
@@ -733,17 +736,22 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
-  if (photo.isPlaceholder) featuredGalleryImage.removeAttribute('src');
-  else featuredGalleryImage.src = photo.src;
-  featuredGalleryImage.hidden = photo.isPlaceholder;
-  featuredGallery.classList.toggle('route-photo-preview--placeholder', photo.isPlaceholder);
-  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !photo.isPlaceholder;
-  featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
-  if (featuredGalleryPlaceholder instanceof HTMLElement) {
-    featuredGalleryPlaceholder.hidden = photo.sourceKind !== 'river';
-  }
+  featuredGalleryImage.removeAttribute('src');
+  featuredGalleryImage.hidden = true;
+  featuredGalleryImage.alt = '';
+  featuredGallery.classList.add('route-photo-preview--placeholder');
+  if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = false;
+  if (featuredGalleryPlaceholder instanceof HTMLElement) featuredGalleryPlaceholder.hidden = true;
+  void featuredPhotoController.update(river.slug, photo => {
+    const placeholder = !photo || photo.isPlaceholder;
+    if (!placeholder) featuredGalleryImage.src = photo.src;
+    featuredGalleryImage.alt = photo?.alt || `${river.name} route photo`;
+    if (featuredGalleryPlaceholder instanceof HTMLElement) featuredGalleryPlaceholder.hidden = photo?.sourceKind !== 'river';
+    featuredGalleryImage.hidden = placeholder;
+    featuredGallery.classList.toggle('route-photo-preview--placeholder', placeholder);
+    if (featuredGalleryFallback instanceof HTMLElement) featuredGalleryFallback.hidden = !placeholder;
+  });
   if (featuredGalleryContribute instanceof HTMLAnchorElement) {
     featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
   }
