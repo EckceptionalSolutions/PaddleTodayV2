@@ -168,7 +168,7 @@ for (const path of ['/', '/explore/']) {
     const release = await holdMapBackgroundTiles(page);
     await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
     await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual' })));
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: summaryFixture }));
     try {
       await page.goto(path);
       const view = page.locator('[data-summary-map-mobile-view="map"]');
@@ -217,14 +217,14 @@ test.describe('product polish interactions', () => {
   test.beforeEach(async ({ page }) => {
     await installMapLibreHarness(page);
     await page.addInitScript(() => localStorage.setItem('paddleTodayAppPromptDismissedAt', String(Date.now())));
-    await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: summaryFixture }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: summaryFixture }));
   });
 
   for (const [path, control] of [['/', 'button'], ['/explore/', 'button'], ['/weekend/', 'button'], ['/weekend/', 'link']]) {
     test(`automatic refresh keeps ${control} focus in the map results on ${path}`, async ({ page }) => {
       test.skip(path === '/explore/' && (page.viewportSize()?.width ?? 1280) > 760, 'Desktop Explore uses its card grid.');
       let refreshed = false;
-      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : '**/api/rivers/summary.json*', route => {
+      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : /\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => {
         const payload: any = structuredClone(path === '/weekend/' ? weekendFixture : summaryFixture);
         if (refreshed) for (const item of payload.rivers) {
           if (item.weekend) item.weekend.score++;
@@ -270,7 +270,7 @@ test.describe('product polish interactions', () => {
   for (const [path, control] of [['/', 'button'], ['/weekend/', 'button'], ['/weekend/', 'link']]) {
     test(`removed ${control} results retain keyboard position on ${path}`, async ({ page }) => {
       let updated = false;
-      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : '**/api/rivers/summary.json*', route => {
+      await page.route(path === '/weekend/' ? '**/api/weekend/summary.json*' : /\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => {
         const payload: any = structuredClone(path === '/weekend/' ? weekendFixture : summaryFixture);
         if (updated) payload.rivers.shift();
         return route.fulfill({ json: payload });
@@ -398,7 +398,7 @@ test.describe('product polish interactions', () => {
       await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({
         latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual',
       })));
-      await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: fixture }));
+      await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: fixture }));
       await page.goto(path);
       const weather = path === '/' ? page.locator('[data-featured-weather]') : page.locator('.card-weather-badge:visible').first();
       await expect(weather).toBeVisible();
@@ -425,7 +425,7 @@ test.describe('product polish interactions', () => {
   });
 
   test('home condition-zone popups retain route actions and keyboard selection', async ({ page }) => {
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: groupedHomeFixture() }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: groupedHomeFixture() }));
     await page.goto('/');
     await page.locator('[data-summary-map]').scrollIntoViewIfNeeded();
     const marker = page.locator('[data-summary-map] .score-map-marker--condition-zone').filter({ hasText: '87' });
@@ -482,7 +482,7 @@ test.describe('product polish interactions', () => {
   test('home score markers are usable before slow river geometry arrives', async ({ page }) => {
     let release!: () => void;
     const geometryPending = new Promise<void>(resolve => { release = resolve; });
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: groupedHomeFixture() }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: groupedHomeFixture() }));
     await page.route('**/data/canonical-river-geometries/routes/*.json', async route => {
       await geometryPending;
       await route.fulfill({ status: 404, json: {} });
@@ -750,7 +750,7 @@ test.describe('product polish interactions', () => {
   });
 
   test('home recommendations can recover from a failed initial load', async ({ page }) => {
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ status: 503, json: { error: 'offline' } }));
     await page.goto('/');
     const banner = page.locator('[data-board-fetch-banner]');
     await expect(banner).toBeVisible();
@@ -758,7 +758,7 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-home-freshness]').first()).toHaveText('Latest refresh unavailable.');
     await expect(page.locator('.summary-map-shell--home')).toBeHidden();
     await expect(page.locator('[data-home-route-mix]')).toBeHidden();
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: summaryFixture }));
     await page.getByRole('button', { name: 'Refresh board', exact: true }).click();
     await expect(banner).toBeHidden();
     await expect(page.locator('[data-home-freshness]').first()).not.toHaveText('Latest refresh unavailable.');
@@ -768,7 +768,7 @@ test.describe('product polish interactions', () => {
   });
 
   test('Explore replaces failed placeholders with a working retry action', async ({ page }) => {
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ status: 503, json: { error: 'offline' } }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ status: 503, json: { error: 'offline' } }));
     await page.goto('/explore/');
     await expect(page.locator('[data-board-fetch-banner]')).toBeVisible();
     await expect(page.locator('.explore-workspace__body')).toBeHidden();
@@ -776,7 +776,7 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-location-input]')).toBeVisible();
     const retry = page.getByRole('button', { name: 'Refresh data', exact: true });
     await expect(retry).toBeVisible();
-    await page.route('**/api/rivers/summary.json*', route => route.fulfill({ json: summaryFixture }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: summaryFixture }));
     await retry.click();
     await expect(page.locator('[data-board-fetch-banner]')).toBeHidden();
     await expect(page.locator('.explore-workspace__body')).toBeVisible();
@@ -815,13 +815,33 @@ test.describe('product polish interactions', () => {
   test('a route without photos has a neutral preview and a contribution link', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'desktop-chromium', 'The home gallery is only displayed on desktop.');
     const route = summaryItem({ riverId: 'photo-test', slug: 'photo-test-route', name: 'Photo test river', reach: 'Upper landing to Lower landing', latitude: 45.75, longitude: -93.65, score: 88, rating: 'Strong' });
-    await page.route('**/api/rivers/summary.json*', (request) => request.fulfill({ json: { ...summaryFixture, riverCount: 1, rivers: [route] } }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (request) => request.fulfill({ json: { ...summaryFixture, riverCount: 1, rivers: [route] } }));
     await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual' })));
     await page.goto('/');
     await expect(page.locator('[data-featured-gallery-fallback]')).toBeVisible();
     await expect(page.locator('[data-featured-gallery-image]')).not.toHaveAttribute('src');
     await expect(page.locator('[data-featured-gallery-contribute]')).toHaveAttribute('href', '/contribute/?riverSlug=photo-test-route');
     await page.locator('[data-featured-gallery]').screenshot({ path: test.info().outputPath('neutral-photo-preview.png') });
+  });
+
+  test('Home loads a small photo preview and reuses it after reload without another request', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop-chromium', 'The home gallery is only displayed on desktop.');
+    await page.addInitScript(() => localStorage.setItem('paddletoday:user-location', JSON.stringify({ latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual' })));
+    let requests = 0;
+    await page.route('**/api/rivers/*/preview-photo.json', route => { requests++; return route.continue(); });
+    await page.goto('/');
+    const photo = page.locator('[data-featured-gallery-image]');
+    await expect(photo).toBeVisible();
+    await expect(photo).toHaveAttribute('src', /gallery\//);
+    const source = await photo.getAttribute('src');
+    await expect.poll(() => requests).toBe(1);
+    await page.reload();
+    await expect(photo).toBeVisible();
+    await expect(photo).toHaveAttribute('src', source!);
+    expect(requests).toBe(1);
+    await photo.dispatchEvent('error');
+    await expect(photo).toBeHidden();
+    await expect(page.locator('[data-featured-gallery-fallback]')).toBeVisible();
   });
 
   test('collapsed filters can be removed by keyboard and stay removed after reload', async ({ page }) => {
@@ -982,7 +1002,7 @@ test.describe('product polish interactions', () => {
     river.score += 8;
     river.summary.gaugeNow = '700 cfs';
     river.readiness = { status: 'verify', label: 'Verify', reason: 'Check the takeout.' };
-    await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: changed }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: changed }));
     await page.reload();
     const notice = page.locator('[data-field="favorite-changes"]');
     await expect(notice).toContainText('Score +8');
@@ -1001,7 +1021,7 @@ test.describe('product polish interactions', () => {
     await page.goto('/favorites/');
     await expect.poll(() => page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'))).toContain('snake-river');
     const before = await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'));
-    await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ status: 503, json: { error: 'Offline' } }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ status: 503, json: { error: 'Offline' } }));
     await page.reload();
     await expect(page.locator('.favorites-card')).toBeVisible();
     await expect(page.locator('[data-field="favorite-changes"]')).not.toBeVisible();
@@ -1010,7 +1030,7 @@ test.describe('product polish interactions', () => {
     stale.snapshotStatus = 'stale';
     stale.rivers[1].generatedAt = '2026-07-29T12:00:00Z';
     stale.rivers[1].score += 8;
-    await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: stale }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: stale }));
     await page.reload();
     await expect(page.locator('[data-field="favorite-score"]')).toHaveText(String(stale.rivers[1].score));
     await expect(page.locator('[data-field="favorite-changes"]')).not.toBeVisible();
@@ -1118,7 +1138,7 @@ test.describe('product polish interactions', () => {
       riverId: `return-river-${index}`, slug: `return-route-${index}`, name: `Return river ${String(index).padStart(2, '0')}`,
       reach: 'Upper landing to Lower landing', latitude: 45.5 + index * .005, longitude: -93.5, score: 88, rating: 'Strong',
     }));
-    await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: { ...summaryFixture, rivers, riverCount: 30 } }));
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: { ...summaryFixture, rivers, riverCount: 30 } }));
     await page.route('**/rivers/return-route-*/', (route) => route.fulfill({ contentType: 'text/html', body: '<h1>Route detail</h1>' }));
     await page.goto('/explore/?searchVersion=1&sort=a-z');
     const mobile = (page.viewportSize()?.width ?? 1280) <= 760;
@@ -1247,7 +1267,7 @@ test('Home fits nearby picks after a cached refresh and when opening more picks'
       }
     };
   }, payload);
-  await page.route('**/api/rivers/summary.json*', (route) => route.fulfill({ json: payload }));
+  await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ json: payload }));
   await page.route('**/data/canonical-river-geometries/**', (route) => route.fulfill({ status: 404, body: '' }));
   await page.goto('/');
   await expect.poll(() => page.evaluate(() => typeof (window as any).openLazySummaryMap)).toBe('function');
@@ -1334,7 +1354,7 @@ test.describe('shared web map interaction contract', () => {
       'The cross-surface contract runs once in desktop Chromium.'
     );
     await installMapLibreHarness(page);
-    await page.route('**/api/rivers/summary.json*', async (route) => {
+    await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, async (route) => {
       await route.fulfill({ json: summaryFixture });
     });
     await page.route('**/api/weekend/summary.json*', async (route) => {

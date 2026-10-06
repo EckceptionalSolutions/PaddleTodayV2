@@ -9,6 +9,9 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
   title="Paddle Today | Saved routes"
   description="Check your saved routes and condition alerts in Paddle Today."
   noindex={true}
+  privatePage
+  headerTitle="Paddle Today"
+  headerBlurb="Your time on the water"
 >
   <section class="decision-section favorites-page" data-favorites-page>
     <div class="section-head section-head--stacked favorites-page__head">
@@ -21,9 +24,7 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
       <button class="filter-chip" type="button" data-favorites-refresh>Refresh calls</button>
     </div>
 
-    <p class="favorites-page__device-note muted">
-      Saved routes are stored in this browser. Route alerts are configured separately when you want condition notifications.
-    </p>
+    <section class="saved-account-panel" data-saved-account aria-label="Saved routes sync"></section>
 
     <section class="summary-map-shell favorites-page__map-shell" data-favorites-map-shell hidden>
       <div class="summary-map-copy favorites-page__map-copy">
@@ -63,15 +64,14 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
       </div>
     </section>
 
-    <div class="favorites-page__empty decision-placeholder" data-favorites-empty hidden>
+    <div class="favorites-page__empty decision-placeholder" data-favorites-empty>
       <span class="favorites-page__empty-icon" aria-hidden="true"><FeatureIcon name="map" size={28} /></span>
       <h2 class="favorites-page__empty-title">No saved routes yet.</h2>
       <p class="muted favorites-page__empty-copy">
-        Save a route from a route page or route card and it will show up here.
+        Save a route while you explore and it will be ready when you want to plan.
       </p>
       <div class="favorites-page__empty-actions">
-        <a class="river-link river-link--inline" href="/explore/">Browse routes</a>
-        <a class="river-link river-link--inline river-link--ghost" href="/">Find today's best pick</a>
+        <a class="river-link river-link--inline" href="/explore/">Explore routes</a>
       </div>
     </div>
 
@@ -128,6 +128,7 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
         <button class="filter-chip filter-chip--quiet" type="button" data-favorite-notes>Add personal note</button>
       </div>
 
+      <a class="river-link river-link--wide" data-favorite-plan href="/trips/">Plan this route</a>
       <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>
     </article>
   </template>
@@ -135,7 +136,7 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
   <dialog class="favorite-notes-dialog" data-favorite-notes-dialog aria-labelledby="favorite-notes-title" aria-describedby="favorite-notes-help">
     <form>
       <h2 id="favorite-notes-title" data-notes-title>Personal notes</h2>
-      <p class="muted" id="favorite-notes-help">Only stored in this browser. Add parking, shuttle, or launch reminders.</p>
+      <p class="muted" id="favorite-notes-help">Private to you. Account notes sync across your devices; guest notes stay in this browser. Add parking, shuttle, or launch reminders.</p>
       <label for="favorite-notes-input">Your note</label>
       <textarea id="favorite-notes-input" rows="6" maxlength="2000" placeholder="Parking, shuttle arrangements, preferred launch…"></textarea>
       <p class="muted">Up to 2,000 characters. Clear the note and save to remove it.</p>
@@ -149,5 +150,6 @@ import MapScoreLegendItems from '../components/MapScoreLegendItems.astro';
 
   <script>
     import '../scripts/favorites-page.js';
+    import '../scripts/saved-routes-account';
   </script>
 </BaseLayout>

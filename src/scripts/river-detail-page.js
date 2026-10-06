@@ -4624,6 +4624,20 @@ function renderWeatherVisual(weather) {
 function syncTripPackLinks() {
   const start = activeAccessContext.putIn;
   const end = activeAccessContext.takeOut;
+  for (const planLink of root.querySelectorAll('[data-plan-account]')) {
+    if (!(planLink instanceof HTMLAnchorElement)) continue;
+    const planUrl = new URL('/trips/', location.origin);
+    planUrl.searchParams.set('route', slug);
+    planUrl.searchParams.set('name', riverContext.name || root.dataset.riverName || '');
+    if (start?.id) planUrl.searchParams.set('putin', start.id);
+    if (end?.id) planUrl.searchParams.set('takeout', end.id);
+    const context = new URLSearchParams(location.search);
+    for (const key of ['date', 'launch', 'expected', 'timeZone']) {
+      const value = context.get(key);
+      if (value && value.length <= 100) planUrl.searchParams.set(key, value);
+    }
+    planLink.href = planUrl.href;
+  }
   if (!start || !end) return;
 
   const apiBase = window.location.origin;

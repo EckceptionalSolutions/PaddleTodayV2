@@ -1,4 +1,4 @@
-import { readFavorites, updateFavoriteNotes } from './favorites-store.js';
+import { readFavorites, updateFavoriteNotes, savedRoutesScope, savedRoutesSession } from './favorites-store.js';
 import { showActionFeedback } from './action-feedback.js';
 
 export function bindFavoriteNotes() {
@@ -8,14 +8,15 @@ export function bindFavoriteNotes() {
   const title = dialog?.querySelector('[data-notes-title]');
   const status = dialog?.querySelector('[data-notes-status]');
   if (!(dialog instanceof HTMLDialogElement) || !(input instanceof HTMLTextAreaElement) || !form) return;
-  let slug = '';
+  let slug = '', scope = '', original = '';
+  window.addEventListener('paddletoday:favorites-scope-change', () => { if (scope !== savedRoutesScope()) { dialog.close(); input.value = ''; slug = ''; } });
   document.addEventListener('click', (event) => {
     const button = event.target instanceof Element ? event.target.closest('[data-favorite-notes]') : null;
     if (!(button instanceof HTMLButtonElement)) return;
     event.preventDefault();
     const favorite = readFavorites().find((item) => item.slug === button.dataset.favoriteNotes);
     if (!favorite) return;
-    slug = favorite.slug;
+    slug = favorite.slug; scope = savedRoutesScope(); original = favorite.notes || '';
     input.value = favorite.notes || '';
     title.textContent = `Notes for ${favorite.name || 'this route'}`;
     status.textContent = '';
@@ -31,13 +32,13 @@ export function bindFavoriteNotes() {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     try {
+      if (scope !== savedRoutesScope()) throw new Error('Your account changed. Reopen the note for this account.');
+      if ((readFavorites().find(item => item.slug === slug)?.notes || '') !== original) throw new Error('This note changed while you were editing. Copy your draft, reopen the note, and review both versions.');
       updateFavoriteNotes(slug, input.value);
       dialog.close();
-      showActionFeedback(input.value.trim() ? 'Personal note saved.' : 'Personal note removed.');
+      showActionFeedback(input.value.trim() ? savedRoutesSession().mode === 'account' ? 'Personal note saved on this device; account sync pending.' : 'Personal note saved on this device.' : 'Personal note removed.');
     } catch (error) {
-      status.textContent = readFavorites().some((item) => item.slug === slug)
-        ? 'Could not save your note. Check browser storage and try again. Your draft is still here.'
-        : error.message;
+      status.textContent = error.message || 'Could not save your note. Your draft is still here.';
     }
   });
 }

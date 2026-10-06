@@ -333,7 +333,6 @@ const routeFaqStructuredData = {
   bodyClass="page-route-detail"
 >
   <RouteAppHandoff slug={river.slug} />
-  {webFeatureFlags.webAccountExperience && <p class="route-plan-account"><a href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}`}>Plan a trip on this route →</a></p>}
   <article
     class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
     data-river-detail
@@ -435,6 +434,7 @@ const routeFaqStructuredData = {
             </div>
           </div>
 
+          {webFeatureFlags.webAccountExperience && <p><a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a></p>}
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>

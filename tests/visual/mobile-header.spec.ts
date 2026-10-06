@@ -32,14 +32,13 @@ test.describe('mobile shared header', () => {
       await page.waitForSelector('.site-header');
 
       const navLinks = page.locator('.site-header__nav-link');
-      await expect(navLinks).toHaveCount(4);
+      await expect(navLinks).toHaveCount(3);
       await expect(page.locator('.site-header__nav-link[href="/"]')).toBeVisible();
       await expect(page.locator('.site-header__nav-link[href="/weekend/"]')).toBeVisible();
       await expect(page.locator('.site-header__nav-link[href="/explore/"]')).toBeVisible();
-      await expect(page.locator('[data-site-favorites-link]')).toBeVisible();
-      await expect(page.locator('[data-site-favorites-link]')).toHaveAccessibleName(/^Saved routes/);
+      await expect(page.getByRole('button', { name: 'Open account menu' })).toBeVisible();
       await expect(page.locator('.site-header__search')).toContainText('Search Routes');
-      await expect(page.locator('.site-header__action')).toBeVisible();
+      await expect(page.locator('.account-menu__trigger')).toBeVisible();
 
       const navChrome = await page.locator('.site-header__nav').evaluate((node) => {
         const style = window.getComputedStyle(node);
@@ -62,7 +61,7 @@ test.describe('mobile shared header', () => {
     test(`navigation fits without overlap at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 844 });
       await page.goto('/');
-      await expect(page.locator('[data-site-favorites-link]')).toBeVisible();
+      await expect(page.locator('.account-menu__trigger')).toBeVisible();
       const layout = await page.locator('.site-header').evaluate((header) => {
         const bounds = (selector: string) => {
           const rect = header.querySelector(selector)!.getBoundingClientRect();
@@ -71,7 +70,7 @@ test.describe('mobile shared header', () => {
         return {
           search: bounds('.site-header__search'),
           nav: bounds('.site-header__nav'),
-          request: bounds('.site-header__action'),
+          request: bounds('.account-menu__trigger'),
           links: [...header.querySelectorAll('.site-header__nav-link')].map((link) => {
             const r = link.getBoundingClientRect();
             return { x: r.x, right: r.right };

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WebAccountFeaturesPaused from '../../components/WebAccountFeaturesPaused.astro';
+import { webFeatureFlags } from '../../lib/web-feature-flags';
+---
+<BaseLayout title="Settings | Paddle Today" noindex privatePage headerTitle="Your time on the water" headerBlurb="A little planning. More paddling.">
+  <section class="trips-page settings-page">{webFeatureFlags.webAccountExperience ? <div id="trips-app" data-page="settings" aria-busy="true"><p role="status">Loading settings…</p></div> : <WebAccountFeaturesPaused />}<noscript>Enable JavaScript to manage your account.</noscript></section>
+  <script>if (document.getElementById('trips-app')) await import('../../scripts/trips-page');</script>
+  <link rel="stylesheet" href="/styles/trips.css" />
+</BaseLayout>

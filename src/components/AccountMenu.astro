@@ -1,0 +1,26 @@
+---
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+<div class="account-menu" data-account-menu>
+  <button class="account-menu__trigger" type="button" aria-expanded="false" aria-controls="account-popover" aria-label="Open account menu" data-account-trigger>
+    <span class="account-menu__avatar" data-account-avatar aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21v-2a7.5 7.5 0 0 1 15 0v2"/></svg>
+    </span>
+    <span class="account-menu__label" data-account-label>Account</span>
+    <span aria-hidden="true">⌄</span>
+  </button>
+  <div class="account-menu__popover" id="account-popover" hidden>
+    <p class="account-menu__identity" data-account-identity>Your Paddle Today</p>
+    <a href="/account/web/" data-account-sign-in>Sign in</a>
+    <nav aria-label="Your account">
+      <a href="/trips/" aria-current={current === '/trips' ? 'page' : undefined}>My trips <span>Plans &amp; past paddles</span></a>
+      <a href="/favorites/" aria-current={current === '/favorites' ? 'page' : undefined}>Saved routes <span>Your next possibilities</span></a>
+      <a href="/account/settings/" aria-current={current === '/account/settings' ? 'page' : undefined}>Settings</a>
+    </nav>
+    <button type="button" data-account-sign-out hidden>Sign out</button>
+    <p class="account-menu__status" role="status" data-account-status hidden></p>
+  </div>
+</div>
+<script>
+  import '../scripts/account-menu';
+</script>
