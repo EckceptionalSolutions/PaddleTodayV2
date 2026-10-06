@@ -17,6 +17,8 @@ tmp-*.zip
 tmp_*.png
 !tmp-summary.json
 *.bak
+*.aab
+*.apk
 .codex-*-pass.png
 .mobile-visual-qa/
 codex_sandbox_test.txt
