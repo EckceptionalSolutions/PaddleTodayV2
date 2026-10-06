@@ -19,17 +19,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/mohawk-river-lock-9-freemans-bridge/",
-      "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/barren-river-tailwater-vpa-3",
-      "redirect": "/rivers/barren-river-tailwater-martinsville/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/barren-river-tailwater-vpa-3/",
       "redirect": "/rivers/barren-river-tailwater-martinsville/",
       "statusCode": 301
     },
@@ -39,17 +29,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/by-river/jump-river/",
-      "redirect": "/rivers/jump-river-wayside-park-sheldon/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/juniata-river-newport-green-valley",
-      "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/juniata-river-newport-green-valley/",
       "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
       "statusCode": 301
     },
@@ -80,12 +60,12 @@
     },
     {
       "route": "/rivers/minnehaha-creek-grays-bay-knollwood",
-      "redirect": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon/",
+      "redirect": "/guides/minnehaha-creek-paddling/",
       "statusCode": 301
     },
     {
       "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
-      "redirect": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon/",
+      "redirect": "/guides/minnehaha-creek-paddling/",
       "statusCode": 301
     }
   ],
