@@ -3,8 +3,12 @@ import { staticRoutePatternErrors } from './static-route-rules';
 
 const redirect = { route: '/rivers/retired', redirect: '/guides/current/', statusCode: 301 };
 
-it('allows explicit slash variants with the same redirect and status', () => {
-  expect(staticRoutePatternErrors([redirect, { ...redirect, route: redirect.route + '/' }])).toEqual([]);
+it('rejects explicit slash variants even when redirect and status agree', () => {
+  expect(staticRoutePatternErrors([redirect, { ...redirect, route: redirect.route + '/' }])).toHaveLength(1);
+});
+
+it('allows distinct route patterns to share a destination', () => {
+  expect(staticRoutePatternErrors([redirect, { ...redirect, route: '/rivers/another-retired' }])).toEqual([]);
 });
 
 it('rejects duplicate literal paths even with identical destinations', () => {
