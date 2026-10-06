@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-06",
+  "node": "v24.14.0",
+  "fixture": "Local current catalog; no live provider calls; microbenchmarks do not predict production latency",
+  "publicRoutes": 2814,
+  "scoredRoutes": 1750,
+  "cache": {
+    "fixture": "Current scored route keys; sequential zero-I/O loaders; two sweeps within five minute TTL",
+    "lookupsPerSweep": 3500,
+    "uniqueKeys": 1732,
+    "before": {
+      "firstSweepLoads": 1759,
+      "secondSweepLoads": 1759
+    },
+    "after": {
+      "firstSweepLoads": 1732,
+      "secondSweepLoads": 0
+    },
+    "limits": {
+      "gauge": 612,
+      "weather": 2040
+    },
+    "stats": {
+      "entries": 1732,
+      "inflight": 0,
+      "namespaces": {
+        "gauge": {
+          "entries": 612,
+          "inflight": 0
+        },
+        "weather": {
+          "entries": 1120,
+          "inflight": 0
+        }
+      },
+      "hits": 5268,
+      "misses": 1732,
+      "staleHits": 0,
+      "loadErrors": 0
+    }
+  },
+  "explore": {
+    "before": {
+      "minMs": 30.329200000000128,
+      "medianMs": 35.83979999999997,
+      "maxMs": 38.40740000000005
+    },
+    "after": {
+      "minMs": 0.0001999999999497959,
+      "medianMs": 0.0003000000001520675,
+      "maxMs": 0.07150000000001455
+    }
+  },
+  "serialization": {
+    "fixture": "Current public catalog with unavailable synthetic conditions; warm repeated response bodies",
+    "before": {
+      "minMs": 22.080900000000156,
+      "medianMs": 24.155700000000024,
+      "maxMs": 29.57680000000005
+    },
+    "after": {
+      "minMs": 0.8206000000000131,
+      "medianMs": 0.9053000000001248,
+      "maxMs": 1.1930999999999585
+    },
+    "identicalBytes": true
+  },
+  "compression": {
+    "before": {
+      "minMs": 46.48999999999978,
+      "medianMs": 49.61460000000034,
+      "maxMs": 51.583700000000135
+    },
+    "after": {
+      "medianMs": 39.21060000000011
+    },
+    "beforeBytes": 608685,
+    "afterBytes": 664948,
+    "beforeLevel": 6,
+    "afterLevel": 4
+  },
+  "wire": {
+    "fixture": "Eight loopback HTTP responses in two batches of four; raw gzip bodies consumed, no client JSON parsing",
+    "before": {
+      "requests": 8,
+      "concurrency": 4,
+      "elapsedMs": 752.2236000000003,
+      "p95ResponseMs": 377.36479999999983,
+      "maxEventLoopDelayMs": 373.030911
+    },
+    "after": {
+      "requests": 8,
+      "concurrency": 4,
+      "elapsedMs": 188.1522,
+      "p95ResponseMs": 88.5681999999997,
+      "maxEventLoopDelayMs": 13.099007
+    }
+  },
+  "search": {
+    "records": 3491,
+    "preparation": {
+      "minMs": 19.047399999999925,
+      "medianMs": 21.465300000000298,
+      "maxMs": 25.17360000000008
+    },
+    "queries": [
+      {
+        "query": "",
+        "before": {
+          "minMs": 0.08680000000003929,
+          "medianMs": 0.11229999999977736,
+          "maxMs": 0.46649999999999636
+        },
+        "after": {
+          "minMs": 0.11759999999958382,
+          "medianMs": 0.1683999999995649,
+          "maxMs": 0.389299999999821
+        },
+        "identicalResults": true
+      },
+      {
+        "query": "river",
+        "before": {
+          "minMs": 19.356199999999717,
+          "medianMs": 20.530099999999948,
+          "maxMs": 23.448100000000068
+        },
+        "after": {
+          "minMs": 0.8414000000002488,
+          "medianMs": 1.0053000000002612,
+          "maxMs": 1.5635999999999513
+        },
+        "identicalResults": true
+      },
+      {
+        "query": "rice creek",
+        "before": {
+          "minMs": 15.287600000000111,
+          "medianMs": 16.772699999999986,
+          "maxMs": 20.33300000000054
+        },
+        "after": {
+          "minMs": 1.0255999999999403,
+          "medianMs": 1.2021999999997206,
+          "maxMs": 1.4068000000006577
+        },
+        "identicalResults": true
+      },
+      {
+        "query": "susquehanna",
+        "before": {
+          "minMs": 16.229600000000573,
+          "medianMs": 19.680500000000393,
+          "maxMs": 22.712999999999738
+        },
+        "after": {
+          "minMs": 0.73700000000008,
+          "medianMs": 0.8051999999997861,
+          "maxMs": 1.685699999999997
+        },
+        "identicalResults": true
+      },
+      {
+        "query": "Rivière",
+        "before": {
+          "minMs": 19.174799999999777,
+          "medianMs": 21.400299999999334,
+          "maxMs": 25.240500000000793
+        },
+        "after": {
+          "minMs": 0.9471999999996115,
+          "medianMs": 0.9705000000003565,
+          "maxMs": 1.5561999999999898
+        },
+        "identicalResults": true
+      }
+    ]
+  },
+  "jsonResponseStats": {
+    "serializedEntries": 2,
+    "serializedBytes": 7883711,
+    "serializedHits": 36,
+    "serializedMisses": 2,
+    "compression": {
+      "active": 0,
+      "queued": 0,
+      "retainedBytes": 0,
+      "fallbacks": 0
+    }
+  }
+}

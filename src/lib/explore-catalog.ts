@@ -5,6 +5,19 @@ import { isScoreEligible } from '../data/route-publication';
 import { scoreRiverCondition } from './scoring';
 import { serializeSummaryResult } from './api-contract';
 
+/** Route metadata is fixed until deployment; replace derived envelopes whenever the score array changes. */
+export function createExploreCatalogBuilder(routes: River[]) {
+  let lastScores: RiverSummaryApiItem[] | undefined;
+  let catalog: ReturnType<typeof buildExploreCatalog>;
+  return (scores: RiverSummaryApiItem[]) => {
+    if (scores !== lastScores) {
+      catalog = buildExploreCatalog(routes, scores);
+      lastScores = scores;
+    }
+    return catalog;
+  };
+}
+
 /** Discovery is catalog-led: a missing score must never remove a public route. */
 export function buildExploreCatalog(routes: River[], scores: RiverSummaryApiItem[]) {
   const bySlug = new Map(scores.map(item => [item.river.slug, item]));

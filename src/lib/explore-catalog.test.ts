@@ -1,11 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import { listRivers, listScoredRivers } from './rivers';
-import { buildExploreCatalog } from './explore-catalog';
+import { buildExploreCatalog, createExploreCatalogBuilder } from './explore-catalog';
 import { isScoreEligible } from '../data/route-publication';
 import { serializeSummaryResult } from './api-contract';
 import { scoreRiverCondition } from './scoring';
 
 describe('catalog-led Explore', () => {
+  it('reuses an unchanged generation and rebuilds stale and replacement envelopes', () => {
+    const route = listScoredRivers()[0];
+    const build = createExploreCatalogBuilder([route]);
+    const item = serializeSummaryResult(scoreRiverCondition({ river: route, gauge: null, weather: null }));
+    const fresh = [{ ...item, score: 85, readiness: { status: 'ready' as const, label: 'Ready' as const, reason: 'Current' } }];
+    const first = build(fresh);
+    expect(build(fresh)).toBe(first);
+    const stale = [{ ...fresh[0], readiness: { status: 'withheld' as const, label: 'Withheld' as const, reason: 'Stale' } }];
+    expect(build(stale)).not.toBe(first);
+    expect(build(stale).rivers[0].readiness.status).toBe('withheld');
+    const replacement = [{ ...item, score: 55 }];
+    expect(build(replacement).rivers[0].score).toBe(55);
+  });
   it('keeps every published route and state discoverable with no snapshot', () => {
     const routes = listRivers();
     const result = buildExploreCatalog(routes, []);

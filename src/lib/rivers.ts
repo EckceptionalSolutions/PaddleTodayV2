@@ -4,6 +4,7 @@ import { riverTripDetails } from '../data/river-trip-details';
 import { classifyCamping } from './camping-classification';
 import { scoreRiverCondition } from './scoring';
 import { remember } from './server-cache';
+import { upstreamCacheLimit } from './upstream-cache-policy';
 import { fetchGaugeReading } from './gauges';
 import { fetchWeatherSnapshot } from './weather';
 import { mapWithConcurrency } from './async-concurrency';
@@ -23,6 +24,18 @@ export const WITHHELD_ROUTE_SLUGS = new Set<string>(coordinateWithheldRouteSlugs
 
 const inferredRiverIdsBySlug = buildInferredRiverIds();
 let routeIndexes: RouteIndexes | null = null;
+let upstreamCacheLimits: { gauge: number; weather: number } | null = null;
+
+export function getUpstreamCacheLimits() {
+  if (!upstreamCacheLimits) {
+    const routes = listRivers();
+    upstreamCacheLimits = {
+      gauge: upstreamCacheLimit(new Set(routes.filter(isScoreEligible).map(gaugeCacheKey)).size, process.env.CANOE_GAUGE_CACHE_MAX_ENTRIES),
+      weather: upstreamCacheLimit(new Set(routes.map(route => `${route.latitude}:${route.longitude}`)).size, process.env.CANOE_WEATHER_CACHE_MAX_ENTRIES),
+    };
+  }
+  return upstreamCacheLimits;
+}
 
 export interface RiverGroup {
   riverId: string;
@@ -202,6 +215,8 @@ async function scoreRiver(river: River): Promise<RiverScoreResult> {
 async function getCachedGaugeReading(river: River) {
   return remember({
     key: gaugeCacheKey(river),
+    namespace: 'gauge',
+    maxEntries: getUpstreamCacheLimits().gauge,
     ttlMs: GAUGE_CACHE_TTL_MS,
     staleWhileErrorMs: STALE_WHILE_ERROR_MS,
     load: () => fetchGaugeReadingWithFallback(river),
@@ -233,6 +248,8 @@ async function getCachedWeatherSnapshot(river: River) {
     // Route sections can share a forecast coordinate. Key by location rather
     // than slug so a refresh does not request identical weather repeatedly.
     key: `weather:${river.latitude}:${river.longitude}`,
+    namespace: 'weather',
+    maxEntries: getUpstreamCacheLimits().weather,
     ttlMs: WEATHER_CACHE_TTL_MS,
     staleWhileErrorMs: STALE_WHILE_ERROR_MS,
     load: () => fetchWeatherSnapshot(river.latitude, river.longitude),
