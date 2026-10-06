@@ -55,13 +55,13 @@
     },
     {
       "route": "/rivers/minnehaha-creek-grays-bay-knollwood",
-      "redirect": "/states/minnesota/",
-      "statusCode": 302
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
     },
     {
       "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
-      "redirect": "/states/minnesota/",
-      "statusCode": 302
+      "redirect": "/guides/minnehaha-creek-paddling/",
+      "statusCode": 301
     },
     {
       "route": "/rivers/juniata-river-newport-green-valley",

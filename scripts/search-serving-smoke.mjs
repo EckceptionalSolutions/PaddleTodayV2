@@ -10,6 +10,13 @@ const cases = [
   ['/rivers/little-miami-river-kelley-milford/', 200],
   ['/rivers/pine-river-lincoln-pine-river-park-county-w/', 200],
   ['/rivers/juniata-river-newport-green-valley/', 301, '/rivers/juniata-river-greenwood-amity-hall/'],
+  ['/rivers/juniata-river-greenwood-amity-hall/', 200],
+  ['/rivers/barren-river-tailwater-vpa-3/', 301, '/rivers/barren-river-tailwater-martinsville/'],
+  ['/rivers/barren-river-tailwater-vpa-3', 301, '/rivers/barren-river-tailwater-martinsville/'],
+  ['/rivers/barren-river-tailwater-martinsville/', 200],
+  ['/rivers/minnehaha-creek-grays-bay-knollwood/', 301, '/guides/minnehaha-creek-paddling/'],
+  ['/rivers/minnehaha-creek-grays-bay-knollwood', 301, '/guides/minnehaha-creek-paddling/'],
+  ['/guides/minnehaha-creek-paddling/', 200],
   [`/rivers/search-check-missing-${nonce}/`, 404],
 ];
 let failures = 0;
