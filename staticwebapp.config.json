@@ -34,6 +34,26 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/by-river/jump-river",
+      "redirect": "/rivers/jump-river-wayside-park-sheldon/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/by-river/jump-river/",
+      "redirect": "/rivers/jump-river-wayside-park-sheldon/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-newport-green-valley",
+      "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/juniata-river-newport-green-valley/",
+      "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/st-croix-river-taylors-falls-osceola",
       "redirect": "/rivers/st-croix-river-interstate-osceola/",
       "statusCode": 301
