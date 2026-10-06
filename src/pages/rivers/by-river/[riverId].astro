@@ -46,6 +46,18 @@ const distanceRangeLabel = routeDistanceMiles.length > 0
 const staticRoutes = [...group.routes].sort((left, right) =>
   left.region.localeCompare(right.region) || left.reach.localeCompare(right.reach)
 );
+const blackCreekSegments = group.riverId === 'black-creek-mississippi'
+  ? [
+      { slug: 'black-creek-churchwell-big-creek', label: 'Churchwell Road to Big Creek', distance: 'about 6 mi' },
+      { slug: 'black-creek-big-creek-old-highway-49', label: 'Big Creek to Old Highway 49', distance: 'about 5 mi' },
+      { slug: 'black-creek-old-highway-49-moodys', label: 'Old Highway 49 to Moody’s Landing', distance: 'about 7.2 mi' },
+      { slug: 'black-creek-moodys-janice', label: 'Moody’s Landing to Janice', distance: 'about 10.5 mi' },
+      { slug: 'black-creek-janice-cypress', label: 'Janice to Cypress Creek', distance: 'about 6 mi' },
+      { slug: 'black-creek-cypress-fairley', label: 'Cypress Creek to Fairley Bridge', distance: 'about 5.7 mi' },
+    ]
+      .map((segment) => ({ ...segment, route: group.routes.find((route) => route.slug === segment.slug) }))
+      .filter((segment) => segment.route)
+  : [];
 const staticSelectedRoute = staticRoutes[0];
 const heroPhoto = getRiverGroupHeroPhoto(group.riverId, group.routes);
 const shortTimeLabel = (value) => {
@@ -181,6 +193,25 @@ const groupStructuredData = [
         </figure>
       ) : null}
     </section>
+
+    {blackCreekSegments.length > 0 ? (
+      <section class="river-group-page__panel" aria-labelledby="black-creek-access-sequence-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Documented river sections</p>
+            <h2 class="section-title" id="black-creek-access-sequence-title">Black Creek landing sequence</h2>
+          </div>
+        </div>
+        <p>
+          Seven Rivers Canoe Club documents a chain of launch and take-out options from Churchwell Road through Big Creek, Old Highway 49, Ashe Nursery Road, Moody Landing, Janice and Cypress Creek to Fairley Bridge. These adjacent trips follow its published reach distances. Longer trips in the picker combine those sections, so their mileage and travel time are approximate; check water level, wood, daylight, landing access and Forest Service notices before launch. See the <a href="https://www.sevenriverscanoe.com/black-creek" rel="noopener">Black Creek access and trip guide</a> for its landing notes.
+        </p>
+        <ul>
+          {blackCreekSegments.map((segment) => segment.route ? (
+            <li><a href={`/rivers/${segment.route.slug}/`}>{segment.label}</a> — {segment.distance}</li>
+          ) : null)}
+        </ul>
+      </section>
+    ) : null}
 
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route calls</div>

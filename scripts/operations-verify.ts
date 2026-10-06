@@ -51,6 +51,7 @@ const testChecks: Array<[string, string]> = [
   ['workspace tests', 'test:workspaces'],
   // Type checking already ran above; keep the standalone build command unchanged.
   ['production build', 'build:app'],
+  ['built sitemap and route indexability audit', 'seo:indexability:audit'],
 ];
 const testResults = testChecks.map(([label, command]) => ({ label, passed: run(command, []) }));
 evidence.tests = {

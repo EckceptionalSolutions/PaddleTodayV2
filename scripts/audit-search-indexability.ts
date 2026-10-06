@@ -8,9 +8,10 @@ const origin = new URL(process.env.SITE_URL || process.env.PUBLIC_SITE_URL || 'h
 const errors: string[] = [];
 const warnings: string[] = [];
 const decode = (text: string) => text.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+const normalizedText = (text: string) => decode(text.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim().toLowerCase();
 const locs = (xml: string) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decode(match[1]));
 const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${name}\\b[^>]*>`, 'gi'))].map((match) => match[0]);
-const attr = (tag: string, name: string) => decode(tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`, 'i'))?.[1] || '');
+const attr = (tag: string, name: string) => decode(tag.match(new RegExp(`\\b${name}=("|')(.*?)\\1`, 'i'))?.[2] || '');
 const fileFor = (pathname: string) => join(root, pathname.endsWith('/') ? `${pathname}index.html` : pathname);
 const utilityPaths = ['/admin/', '/admin/operations/', '/alerts/unsubscribe/', '/favorites/', '/request-river/'];
 const config = JSON.parse(await readFile(join(root, 'staticwebapp.config.json'), 'utf8'));
@@ -28,6 +29,8 @@ for (const sitemap of sitemapFiles) {
 }
 const paths = new Set<string>();
 const titles = new Map<string, string[]>();
+const routeHeadings = new Map<string, string[]>();
+const routeDescriptions = new Map<string, string[]>();
 const routeLinks = new Map<string, Set<string>>();
 for (const value of urls) {
   const url = new URL(value);
@@ -45,6 +48,17 @@ for (const value of urls) {
   const title = decode(html.match(/<title>([^<]*)<\/title>/i)?.[1] || '');
   if (!title) errors.push(`Missing title: ${value}`);
   titles.set(title, [...(titles.get(title) || []), url.pathname]);
+  if (/^\/rivers\/[^/]+\/$/.test(url.pathname)) {
+    const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)].map((match) => normalizedText(match[1]));
+    if (headings.length !== 1 || !headings[0]) errors.push(`Route page must have exactly one nonempty H1: ${value}`);
+    else routeHeadings.set(headings[0], [...(routeHeadings.get(headings[0]) || []), url.pathname]);
+
+    const descriptions = tags(html, 'meta')
+      .filter((tag) => attr(tag, 'name') === 'description')
+      .map((tag) => normalizedText(attr(tag, 'content')));
+    if (descriptions.length !== 1 || !descriptions[0]) errors.push(`Route page must have exactly one nonempty meta description: ${value}`);
+    else routeDescriptions.set(descriptions[0], [...(routeDescriptions.get(descriptions[0]) || []), url.pathname]);
+  }
   for (const tag of tags(html, 'a')) {
     const href = attr(tag, 'href');
     if (!href) continue;
@@ -63,6 +77,14 @@ for (const value of urls) {
 for (const [title, pages] of titles) {
   if (pages.length > 1) warnings.push(`Shared title (${pages.length} pages): ${title}: ${pages.join(', ')}`);
 }
+const duplicateRouteHeadings = [...routeHeadings]
+  .filter(([, pages]) => pages.length > 1)
+  .map(([text, pages]) => ({ text, pages }));
+const duplicateRouteDescriptions = [...routeDescriptions]
+  .filter(([, pages]) => pages.length > 1)
+  .map(([text, pages]) => ({ text, pages }));
+for (const { text, pages } of duplicateRouteHeadings) warnings.push(`Shared route H1 (${pages.length} pages): ${text}: ${pages.join(', ')}`);
+for (const { text, pages } of duplicateRouteDescriptions) warnings.push(`Shared route description (${pages.length} pages): ${text}: ${pages.join(', ')}`);
 const routes = listRivers();
 const routePaths = routes.map((route) => `/rivers/${route.slug}/`);
 const expected = [
@@ -70,6 +92,12 @@ const expected = [
   ...listRiverGroups().filter((group) => group.routeCount > 1).map((group) => `/rivers/by-river/${group.riverId}/`),
 ];
 for (const pathname of expected) if (!paths.has(pathname)) errors.push(`Published route/hub absent from sitemap: ${pathname}`);
+const unlinkedPublicPages = expected.filter((pathname) =>
+  ![...(routeLinks.get(pathname) || [])].some((source) => source !== pathname),
+);
+for (const pathname of unlinkedPublicPages) {
+  errors.push(`Public route/hub has no incoming internal link from another sitemap page: ${pathname}`);
+}
 for (const [pathname, sources] of routeLinks) {
   const destination = redirects.get(pathname.replace(/\/$/, '')) || pathname;
   const normalized = destination.endsWith('/') ? destination : `${destination}/`;
@@ -121,6 +149,12 @@ const report = {
     sampleRoutesWithNoInternalInlinks: unlinkedRoutePaths.slice(0, 50),
     sampleRoutesWithoutStateOrRiverHubInlinks: routesWithoutDirectoryInlinks.slice(0, 50),
   },
+  internallyLinkedPublicPages: expected.length - unlinkedPublicPages.length,
+  unlinkedPublicPages,
+  uniqueRouteH1s: routeHeadings.size,
+  uniqueRouteDescriptions: routeDescriptions.size,
+  duplicateRouteHeadings,
+  duplicateRouteDescriptions,
   sampleStatus,
   errors,
   warnings,
