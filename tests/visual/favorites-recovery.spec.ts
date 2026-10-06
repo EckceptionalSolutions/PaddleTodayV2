@@ -215,7 +215,8 @@ test('clearing browser data in another tab refreshes the saved list', async ({ p
     await otherTab.evaluate(() => localStorage.clear());
     await expect(page.locator('[data-favorites-empty]')).toBeVisible();
     await expect(page.locator('[data-favorites-grid]')).toBeHidden();
-    await expect(page.locator('[data-favorites-summary]')).toHaveText('No routes saved on this device yet.');
+    await expect(page.locator('[data-favorites-empty] h2')).toHaveText('No saved routes yet.');
+    await expect(page.locator('[data-favorites-summary]')).toBeHidden();
   } finally {
     await otherTab.close();
   }

@@ -12441,7 +12441,7 @@ export const iowaRoutes: River[] = [
     "state": "Iowa",
     "region": "Central Iowa",
     "summary": "Short first split of the protected Middle Raccoon water trail below Panora, with a below-dam launch, clear water, riffles, sweepers, and endpoint camping at Lenon Mill.",
-    "statusText": "Use the Middle Raccoon River at Panora gauge. Treat 400 cfs as the conservative floor for a pleasant ride; today the river is well below that, so expect scraping, dragging, and exposed riffles.",
+    "statusText": "Use the Middle Raccoon River at Panora gauge. Treat about 400 cfs as the conservative floor for a pleasant ride; below it, expect scraping, dragging, and exposed riffles. Check the live flow and trend before launch.",
     "latitude": 41.6868,
     "longitude": -94.3693,
     "safetyProfile": {
@@ -12552,7 +12552,7 @@ export const iowaRoutes: River[] = [
     "state": "Iowa",
     "region": "Central Iowa",
     "summary": "Middle split of the protected Panora-area Middle Raccoon water trail, linking the P-28 bridge ramp to Cowles through riffles, sandstone bluffs, boulders, and public-land bends.",
-    "statusText": "Use the Middle Raccoon River at Panora gauge. Treat 400 cfs as the conservative floor and 600 cfs as a documented excellent trip-day level; today is much lower, so expect scraping and slow progress.",
+    "statusText": "Use the Middle Raccoon River at Panora gauge. Treat 400 cfs as the conservative floor and 600 cfs as a documented excellent trip-day level; below 400 cfs, expect scraping and slow progress. Check the live flow and trend before launch.",
     "latitude": 41.6675,
     "longitude": -94.3569,
     "safetyProfile": {

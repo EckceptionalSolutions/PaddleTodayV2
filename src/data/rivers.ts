@@ -1078,7 +1078,6 @@ const routeOrder = [
   "susquehanna-river-hornbrook-towanda",
   "susquehanna-river-towanda-laceyville",
   "susquehanna-river-laceyville-west-falls",
-  "susquehanna-river-canal-park-wetlands",
   "susquehanna-river-canal-park-test-track",
   "susquehanna-river-test-track-danville",
   "susquehanna-river-pfbc-danville-wrays",

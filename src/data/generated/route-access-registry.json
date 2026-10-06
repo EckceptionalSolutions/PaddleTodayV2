@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-06T01:48:45.989Z",
-  "auditGeneratedAt": "2026-09-20T13:11:01.443Z",
+  "generatedAt": "2026-10-06T17:59:00.733Z",
+  "auditGeneratedAt": "2026-09-22T14:58:34.632Z",
   "summary": {
-    "entryCount": 4081,
-    "repeatedEntryCount": 1222,
+    "entryCount": 4087,
+    "repeatedEntryCount": 1220,
     "conflictCount": 0,
     "distinctLocationNameCount": 3,
-    "derivedWaterEntryCount": 2277,
+    "derivedWaterEntryCount": 2283,
     "authoritativeAccessCount": 1266,
     "authoritativeWaterEntryCount": 499,
     "areaAnchorOnlyCount": 1,
@@ -19311,10 +19311,10 @@
           "name": "BLM Catamount Bridge Boat Launch",
           "latitude": 39.89047,
           "longitude": -106.83205,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 125.20227721764428,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "upper-colorado-two-bridges-catamount",
@@ -19325,10 +19325,10 @@
           "name": "BLM Catamount Bridge Boat Launch",
           "latitude": 39.89047,
           "longitude": -106.83205,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 125.20227721764428,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     },
@@ -19445,10 +19445,10 @@
           "name": "BLM Pumphouse Recreation Area Boat Ramp",
           "latitude": 39.98727778,
           "longitude": -106.50846667,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 79.7274319291185,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "upper-colorado-pumphouse-radium",
@@ -19459,10 +19459,10 @@
           "name": "BLM Pumphouse Recreation Area Boat Ramp",
           "latitude": 39.98727778,
           "longitude": -106.50846667,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 79.7274319291185,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "upper-colorado-pumphouse-state-bridge",
@@ -19555,9 +19555,9 @@
           "name": "BLM Radium Recreation Area boat ramp",
           "latitude": 39.95136,
           "longitude": -106.55598,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 460.3277650147873,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -19569,9 +19569,9 @@
           "name": "BLM Radium Recreation Area boat ramp",
           "latitude": 39.95136,
           "longitude": -106.55598,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 460.3277650147873,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -19583,9 +19583,9 @@
           "name": "BLM Radium Recreation Area boat ramp",
           "latitude": 39.95136,
           "longitude": -106.55598,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 460.3277650147873,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -19597,9 +19597,9 @@
           "name": "BLM Radium Recreation Area boat ramp",
           "latitude": 39.95136,
           "longitude": -106.55598,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 460.3277650147873,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -20039,10 +20039,10 @@
           "name": "BLM State Bridge Recreation Site boat launch",
           "latitude": 39.856779,
           "longitude": -106.648539,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 98.48326136689177,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "upper-colorado-state-bridge-two-bridges",
@@ -20053,10 +20053,10 @@
           "name": "BLM State Bridge Recreation Site boat launch",
           "latitude": 39.856779,
           "longitude": -106.648539,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 98.48326136689177,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     },
@@ -20086,13 +20086,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 39.890978,
+        "longitude": -106.704113
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -20121,9 +20124,9 @@
           "name": "BLM Two Bridges River Access boat ramp",
           "latitude": 39.890978,
           "longitude": -106.704113,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 81.98404314306084,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -20135,9 +20138,9 @@
           "name": "BLM Two Bridges River Access boat ramp",
           "latitude": 39.890978,
           "longitude": -106.704113,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 81.98404314306084,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -20149,9 +20152,9 @@
           "name": "BLM Two Bridges River Access boat ramp",
           "latitude": 39.890978,
           "longitude": -106.704113,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 81.98415089282811,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -20163,9 +20166,9 @@
           "name": "BLM Two Bridges River Access boat ramp",
           "latitude": 39.890978,
           "longitude": -106.704113,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 81.98415089282811,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -21041,9 +21044,9 @@
           "name": "Chukar Boat Launch",
           "latitude": 38.62281,
           "longitude": -107.8318,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -21055,9 +21058,9 @@
           "name": "Chukar Boat Launch",
           "latitude": 38.62281,
           "longitude": -107.8318,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -22027,7 +22030,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -22060,9 +22063,9 @@
           "name": "Duffy Mountain boat ramp",
           "latitude": 40.4192778,
           "longitude": -107.8695,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 210.0025707718032,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -22074,9 +22077,9 @@
           "name": "Duffy Mountain boat ramp",
           "latitude": 40.4192778,
           "longitude": -107.8695,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 210.0025707718032,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -23139,9 +23142,9 @@
           "name": "Gunnison Forks Day-Use Recreation Site",
           "latitude": 38.78475,
           "longitude": -107.83655,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -23153,9 +23156,9 @@
           "name": "Gunnison Forks Day-Use Recreation Site",
           "latitude": 38.78475,
           "longitude": -107.83655,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -23382,9 +23385,9 @@
           "name": "Hayden Pump Station boat ramp",
           "latitude": 40.4879929,
           "longitude": -107.1606119,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -23396,9 +23399,9 @@
           "name": "Hayden Pump Station boat ramp",
           "latitude": 40.4879929,
           "longitude": -107.1606119,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -23809,9 +23812,9 @@
           "name": "Juniper Canyon boat ramp",
           "latitude": 40.4766667,
           "longitude": -107.9652222,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 357.6250612680384,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -23823,9 +23826,9 @@
           "name": "Juniper Canyon boat ramp",
           "latitude": 40.4766667,
           "longitude": -107.9652222,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 357.6250612680384,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -23837,9 +23840,9 @@
           "name": "Juniper Canyon boat ramp",
           "latitude": 40.4766667,
           "longitude": -107.9652222,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -23851,9 +23854,9 @@
           "name": "Juniper Canyon boat ramp",
           "latitude": 40.4766667,
           "longitude": -107.9652222,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -24049,9 +24052,9 @@
           "name": "Loudy Simpson Park boat ramp",
           "latitude": 40.4961291,
           "longitude": -107.5578321,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -24063,9 +24066,9 @@
           "name": "Loudy Simpson Park boat ramp",
           "latitude": 40.4961291,
           "longitude": -107.5578321,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -24077,9 +24080,9 @@
           "name": "Loudy Simpson Park boat ramp",
           "latitude": 40.4961291,
           "longitude": -107.5578321,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -24091,9 +24094,9 @@
           "name": "Loudy Simpson Park boat ramp",
           "latitude": 40.4961291,
           "longitude": -107.5578321,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -24157,9 +24160,9 @@
           "name": "Maybell Bridge boat ramp",
           "latitude": 40.5013658,
           "longitude": -108.032923,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -24171,9 +24174,9 @@
           "name": "Maybell Bridge boat ramp",
           "latitude": 40.5013658,
           "longitude": -108.032923,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -24991,9 +24994,9 @@
           "name": "Rancho Del Rio fee river access",
           "latitude": 39.8941534,
           "longitude": -106.6075353,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 370.6428703980216,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -25005,9 +25008,9 @@
           "name": "Rancho Del Rio fee river access",
           "latitude": 39.8941534,
           "longitude": -106.6075353,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 370.6428703980216,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -26379,9 +26382,9 @@
           "name": "South Beach / Yampa Project Pump Station boat ramp",
           "latitude": 40.4796656,
           "longitude": -107.6162596,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -26393,9 +26396,9 @@
           "name": "South Beach / Yampa Project Pump Station boat ramp",
           "latitude": 40.4796656,
           "longitude": -107.6162596,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -26589,9 +26592,9 @@
           "name": "State Wildlife Area (Dorsey) boat ramp",
           "latitude": 40.5175631,
           "longitude": -107.3990594,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -26603,9 +26606,9 @@
           "name": "State Wildlife Area (Dorsey) boat ramp",
           "latitude": 40.5175631,
           "longitude": -107.3990594,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -27481,9 +27484,9 @@
           "name": "Yampa River State Park Headquarters boat ramp",
           "latitude": 40.4907151,
           "longitude": -107.3126886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -27495,9 +27498,9 @@
           "name": "Yampa River State Park Headquarters boat ramp",
           "latitude": 40.4907151,
           "longitude": -107.3126886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -27509,9 +27512,9 @@
           "name": "Yampa River State Park Headquarters boat ramp",
           "latitude": 40.4907151,
           "longitude": -107.3126886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -27523,9 +27526,9 @@
           "name": "Yampa River State Park Headquarters boat ramp",
           "latitude": 40.4907151,
           "longitude": -107.3126886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -27589,9 +27592,9 @@
           "name": "Yampa Valley Golf Course boat ramp",
           "latitude": 40.4969673,
           "longitude": -107.5218658,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -27603,9 +27606,9 @@
           "name": "Yampa Valley Golf Course boat ramp",
           "latitude": 40.4969673,
           "longitude": -107.5218658,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -47917,8 +47920,7 @@
         "Banks River Access"
       ],
       "sourceIds": [
-        "payette-river-banks-beehive-bend-1-banks-river-access",
-        "south-fork-payette-deer-creek-banks-2-banks-river-access"
+        "payette-river-banks-beehive-bend-1-banks-river-access"
       ],
       "storedAccessCoordinate": {
         "latitude": 44.08438,
@@ -47939,15 +47941,15 @@
         "latitude": 44.08438,
         "longitude": -116.1165
       },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 4,
-      "routeCount": 2,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "44.08438,-116.11650",
@@ -47955,11 +47957,10 @@
             "latitude": 44.08438,
             "longitude": -116.1165
           },
-          "occurrenceCount": 4,
-          "routeCount": 2,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "payette-river-banks-beehive-bend",
-            "south-fork-payette-deer-creek-banks"
+            "payette-river-banks-beehive-bend"
           ]
         }
       ],
@@ -47991,19 +47992,71 @@
           "distanceFeetToMatchedRiver": 50.72584254431141,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "idaho--banks-river-access-at-the-confluence",
+      "state": "Idaho",
+      "name": "Banks River Access at the confluence",
+      "aliases": [
+        "Banks River Access at the confluence"
+      ],
+      "sourceIds": [
+        "south-fork-payette-deer-creek-banks-2-banks-river-access-at-the-confluence"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 44.081922,
+        "longitude": -116.125363
+      },
+      "accessCoordinate": {
+        "latitude": 44.081922,
+        "longitude": -116.125363
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "44.08192,-116.12536",
+          "coordinate": {
+            "latitude": 44.081922,
+            "longitude": -116.125363
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "south-fork-payette-deer-creek-banks"
+          ]
+        }
+      ],
+      "occurrences": [
         {
           "routeId": "south-fork-payette-deer-creek-banks",
           "routeName": "South Fork Payette River",
           "state": "Idaho",
           "endpoint": "accessPoint",
-          "sourceId": "south-fork-payette-deer-creek-banks-2-banks-river-access",
-          "name": "Banks River Access",
-          "latitude": 44.08438,
-          "longitude": -116.1165,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 31153.041120204816,
-          "endpointOnWaterbody": true,
+          "sourceId": "south-fork-payette-deer-creek-banks-2-banks-river-access-at-the-confluence",
+          "name": "Banks River Access at the confluence",
+          "latitude": 44.081922,
+          "longitude": -116.125363,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -48012,12 +48065,12 @@
           "state": "Idaho",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Banks River Access",
-          "latitude": 44.08438,
-          "longitude": -116.1165,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 31153.041120204816,
-          "endpointOnWaterbody": true,
+          "name": "Banks River Access at the confluence",
+          "latitude": 44.081922,
+          "longitude": -116.125363,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -124160,15 +124213,15 @@
       ]
     },
     {
-      "id": "maine--greenbush-public-access",
+      "id": "maine--greenbush-boat-launch",
       "state": "Maine",
-      "name": "Greenbush public access",
+      "name": "Greenbush Boat Launch",
       "aliases": [
-        "Greenbush public access"
+        "Greenbush Boat Launch"
       ],
       "sourceIds": [
-        "penobscot-river-greenbush-winn-put-in",
-        "penobscot-river-medway-greenbush-take-out"
+        "penobscot-river-medway-greenbush-take-out",
+        "penobscot-river-winn-greenbush-take-out"
       ],
       "storedAccessCoordinate": {
         "latitude": 45.05796,
@@ -124185,16 +124238,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.05796,
-        "longitude": -68.65611
-      },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -124208,52 +124258,24 @@
           "occurrenceCount": 4,
           "routeCount": 2,
           "routes": [
-            "penobscot-river-greenbush-winn",
-            "penobscot-river-medway-greenbush"
+            "penobscot-river-medway-greenbush",
+            "penobscot-river-winn-greenbush"
           ]
         }
       ],
       "occurrences": [
-        {
-          "routeId": "penobscot-river-greenbush-winn",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "accessPoint",
-          "sourceId": "penobscot-river-greenbush-winn-put-in",
-          "name": "Greenbush public access",
-          "latitude": 45.05796,
-          "longitude": -68.65611,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1352.044819297158,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "penobscot-river-greenbush-winn",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Greenbush public access",
-          "latitude": 45.05796,
-          "longitude": -68.65611,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1352.044819297158,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
         {
           "routeId": "penobscot-river-medway-greenbush",
           "routeName": "Penobscot River",
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "penobscot-river-medway-greenbush-take-out",
-          "name": "Greenbush public access",
+          "name": "Greenbush Boat Launch",
           "latitude": 45.05796,
           "longitude": -68.65611,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1352.044819297158,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -124262,12 +124284,40 @@
           "state": "Maine",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Greenbush public access",
+          "name": "Greenbush Boat Launch",
           "latitude": 45.05796,
           "longitude": -68.65611,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1352.044819297158,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-winn-greenbush",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "accessPoint",
+          "sourceId": "penobscot-river-winn-greenbush-take-out",
+          "name": "Greenbush Boat Launch",
+          "latitude": 45.05796,
+          "longitude": -68.65611,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-winn-greenbush",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Greenbush Boat Launch",
+          "latitude": 45.05796,
+          "longitude": -68.65611,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -124885,22 +124935,23 @@
       ]
     },
     {
-      "id": "maine--howland-penobscot-access",
+      "id": "maine--howland-boat-launch-at-tannery-park",
       "state": "Maine",
-      "name": "Howland Penobscot access",
+      "name": "Howland Boat Launch at Tannery Park",
       "aliases": [
-        "Howland Penobscot access"
+        "Howland Boat Launch at Tannery Park"
       ],
       "sourceIds": [
-        "penobscot-river-howland-passadumkeag-put-in"
+        "penobscot-river-howland-passadumkeag-put-in",
+        "penobscot-river-lincoln-howland-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
+        "latitude": 45.236493,
+        "longitude": -68.653777
       },
       "accessCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
+        "latitude": 45.236493,
+        "longitude": -68.653777
       },
       "accessCoordinateSource": "stored-route-consensus",
       "authoritativeAccess": null,
@@ -124909,30 +124960,28 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
-      },
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
-          "key": "45.25522,-68.64895",
+          "key": "45.23649,-68.65378",
           "coordinate": {
-            "latitude": 45.25522,
-            "longitude": -68.64895
+            "latitude": 45.236493,
+            "longitude": -68.653777
           },
-          "occurrenceCount": 2,
-          "routeCount": 1,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "penobscot-river-howland-passadumkeag"
+            "penobscot-river-howland-passadumkeag",
+            "penobscot-river-lincoln-howland"
           ]
         }
       ],
@@ -124943,12 +124992,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "penobscot-river-howland-passadumkeag-put-in",
-          "name": "Howland Penobscot access",
-          "latitude": 45.25522,
-          "longitude": -68.64895,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 62.7573400862073,
-          "endpointOnWaterbody": true,
+          "name": "Howland Boat Launch at Tannery Park",
+          "latitude": 45.236493,
+          "longitude": -68.653777,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -124957,12 +125006,40 @@
           "state": "Maine",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Howland Penobscot access",
-          "latitude": 45.25522,
-          "longitude": -68.64895,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 62.7573400862073,
-          "endpointOnWaterbody": true,
+          "name": "Howland Boat Launch at Tannery Park",
+          "latitude": 45.236493,
+          "longitude": -68.653777,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-lincoln-howland",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "accessPoint",
+          "sourceId": "penobscot-river-lincoln-howland-take-out",
+          "name": "Howland Boat Launch at Tannery Park",
+          "latitude": 45.236493,
+          "longitude": -68.653777,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-lincoln-howland",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Howland Boat Launch at Tannery Park",
+          "latitude": 45.236493,
+          "longitude": -68.653777,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -125042,89 +125119,6 @@
           "longitude": -68.65844,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 302.58320114747426,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        }
-      ]
-    },
-    {
-      "id": "maine--howland-public-access",
-      "state": "Maine",
-      "name": "Howland public access",
-      "aliases": [
-        "Howland public access"
-      ],
-      "sourceIds": [
-        "penobscot-river-lincoln-howland-take-out"
-      ],
-      "storedAccessCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
-      },
-      "accessCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
-      },
-      "accessCoordinateSource": "stored-route-consensus",
-      "authoritativeAccess": null,
-      "authoritativeFacilityAnchor": null,
-      "authoritativeAreaAnchor": null,
-      "storedCoordinateIsAreaAnchor": false,
-      "authoritativeAccessIdentityMismatch": false,
-      "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.25522,
-        "longitude": -68.64895
-      },
-      "waterEntryConsensusRouteCount": 1,
-      "waterEntryExactOnRiver": true,
-      "waterEntryWaterbodyConfirmed": true,
-      "authoritativeResolvesDistinctLocation": false,
-      "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
-      "maximumSeparationFeet": 0,
-      "occurrenceCount": 2,
-      "routeCount": 1,
-      "coordinateVariants": [
-        {
-          "key": "45.25522,-68.64895",
-          "coordinate": {
-            "latitude": 45.25522,
-            "longitude": -68.64895
-          },
-          "occurrenceCount": 2,
-          "routeCount": 1,
-          "routes": [
-            "penobscot-river-lincoln-howland"
-          ]
-        }
-      ],
-      "occurrences": [
-        {
-          "routeId": "penobscot-river-lincoln-howland",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "accessPoint",
-          "sourceId": "penobscot-river-lincoln-howland-take-out",
-          "name": "Howland public access",
-          "latitude": 45.25522,
-          "longitude": -68.64895,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 62.7573400862073,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "penobscot-river-lincoln-howland",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Howland public access",
-          "latitude": 45.25522,
-          "longitude": -68.64895,
-          "auditSeverity": "ok",
-          "distanceFeetToMatchedRiver": 62.7573400862073,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         }
@@ -125575,6 +125569,116 @@
       ]
     },
     {
+      "id": "maine--lincoln-boat-launch",
+      "state": "Maine",
+      "name": "Lincoln Boat Launch",
+      "aliases": [
+        "Lincoln Boat Launch"
+      ],
+      "sourceIds": [
+        "penobscot-river-lincoln-howland-put-in",
+        "penobscot-river-winn-lincoln-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 45.34172,
+        "longitude": -68.56991
+      },
+      "accessCoordinate": {
+        "latitude": 45.34172,
+        "longitude": -68.56991
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": false,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "45.34172,-68.56991",
+          "coordinate": {
+            "latitude": 45.34172,
+            "longitude": -68.56991
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "penobscot-river-lincoln-howland",
+            "penobscot-river-winn-lincoln"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "penobscot-river-lincoln-howland",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "accessPoint",
+          "sourceId": "penobscot-river-lincoln-howland-put-in",
+          "name": "Lincoln Boat Launch",
+          "latitude": 45.34172,
+          "longitude": -68.56991,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-lincoln-howland",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Lincoln Boat Launch",
+          "latitude": 45.34172,
+          "longitude": -68.56991,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-winn-lincoln",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "accessPoint",
+          "sourceId": "penobscot-river-winn-lincoln-take-out",
+          "name": "Lincoln Boat Launch",
+          "latitude": 45.34172,
+          "longitude": -68.56991,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "penobscot-river-winn-lincoln",
+          "routeName": "Penobscot River",
+          "state": "Maine",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Lincoln Boat Launch",
+          "latitude": 45.34172,
+          "longitude": -68.56991,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "maine--lincoln-public-access",
       "state": "Maine",
       "name": "Lincoln public access",
@@ -125582,10 +125686,8 @@
         "Lincoln public access"
       ],
       "sourceIds": [
-        "penobscot-river-lincoln-howland-put-in",
         "penobscot-river-lincoln-passadumkeag-put-in",
-        "penobscot-river-medway-lincoln-take-out",
-        "penobscot-river-winn-lincoln-take-out"
+        "penobscot-river-medway-lincoln-take-out"
       ],
       "storedAccessCoordinate": {
         "latitude": 45.34172,
@@ -125606,15 +125708,15 @@
         "latitude": 45.34172,
         "longitude": -68.56991
       },
-      "waterEntryConsensusRouteCount": 4,
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 8,
-      "routeCount": 4,
+      "occurrenceCount": 4,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "45.34172,-68.56991",
@@ -125622,45 +125724,15 @@
             "latitude": 45.34172,
             "longitude": -68.56991
           },
-          "occurrenceCount": 8,
-          "routeCount": 4,
+          "occurrenceCount": 4,
+          "routeCount": 2,
           "routes": [
-            "penobscot-river-lincoln-howland",
             "penobscot-river-lincoln-passadumkeag",
-            "penobscot-river-medway-lincoln",
-            "penobscot-river-winn-lincoln"
+            "penobscot-river-medway-lincoln"
           ]
         }
       ],
       "occurrences": [
-        {
-          "routeId": "penobscot-river-lincoln-howland",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "accessPoint",
-          "sourceId": "penobscot-river-lincoln-howland-put-in",
-          "name": "Lincoln public access",
-          "latitude": 45.34172,
-          "longitude": -68.56991,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 365.4362341037399,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "penobscot-river-lincoln-howland",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "putIn",
-          "sourceId": null,
-          "name": "Lincoln public access",
-          "latitude": 45.34172,
-          "longitude": -68.56991,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 365.4362341037399,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
         {
           "routeId": "penobscot-river-lincoln-passadumkeag",
           "routeName": "Penobscot River",
@@ -125705,34 +125777,6 @@
         },
         {
           "routeId": "penobscot-river-medway-lincoln",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Lincoln public access",
-          "latitude": 45.34172,
-          "longitude": -68.56991,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 2687.6773742357655,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "penobscot-river-winn-lincoln",
-          "routeName": "Penobscot River",
-          "state": "Maine",
-          "endpoint": "accessPoint",
-          "sourceId": "penobscot-river-winn-lincoln-take-out",
-          "name": "Lincoln public access",
-          "latitude": 45.34172,
-          "longitude": -68.56991,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 2687.6773742357655,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "penobscot-river-winn-lincoln",
           "routeName": "Penobscot River",
           "state": "Maine",
           "endpoint": "takeOut",
@@ -126310,23 +126354,21 @@
       ]
     },
     {
-      "id": "maine--medway-public-access",
+      "id": "maine--medway-boat-launch",
       "state": "Maine",
-      "name": "Medway public access",
+      "name": "Medway Boat Launch",
       "aliases": [
-        "Medway public access"
+        "Medway Boat Launch"
       ],
       "sourceIds": [
-        "penobscot-river-medway-greenbush-put-in",
-        "penobscot-river-medway-lincoln-put-in",
-        "penobscot-river-t3r11-medway-take-out"
+        "penobscot-river-medway-greenbush-put-in"
       ],
       "storedAccessCoordinate": {
-        "latitude": 45.61482999999999,
+        "latitude": 45.61483,
         "longitude": -68.53906
       },
       "accessCoordinate": {
-        "latitude": 45.61482999999999,
+        "latitude": 45.61483,
         "longitude": -68.53906
       },
       "accessCoordinateSource": "stored-route-consensus",
@@ -126336,32 +126378,27 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.61482999999999,
-        "longitude": -68.53906
-      },
-      "waterEntryConsensusRouteCount": 3,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "45.61483,-68.53906",
           "coordinate": {
-            "latitude": 45.61482999999999,
+            "latitude": 45.61483,
             "longitude": -68.53906
           },
-          "occurrenceCount": 6,
-          "routeCount": 3,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "penobscot-river-medway-greenbush",
-            "penobscot-river-medway-lincoln",
-            "penobscot-river-t3r11-medway"
+            "penobscot-river-medway-greenbush"
           ]
         }
       ],
@@ -126372,12 +126409,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "penobscot-river-medway-greenbush-put-in",
-          "name": "Medway public access",
+          "name": "Medway Boat Launch",
           "latitude": 45.61483,
           "longitude": -68.53906,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 215.13909440801368,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -126386,14 +126423,71 @@
           "state": "Maine",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Medway public access",
+          "name": "Medway Boat Launch",
           "latitude": 45.61483,
           "longitude": -68.53906,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 215.13909440801368,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "maine--medway-public-access",
+      "state": "Maine",
+      "name": "Medway public access",
+      "aliases": [
+        "Medway public access"
+      ],
+      "sourceIds": [
+        "penobscot-river-medway-lincoln-put-in",
+        "penobscot-river-t3r11-medway-take-out"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 45.61483,
+        "longitude": -68.53906
+      },
+      "accessCoordinate": {
+        "latitude": 45.61483,
+        "longitude": -68.53906
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 45.61483,
+        "longitude": -68.53906
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "45.61483,-68.53906",
+          "coordinate": {
+            "latitude": 45.61483,
+            "longitude": -68.53906
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "penobscot-river-medway-lincoln",
+            "penobscot-river-t3r11-medway"
+          ]
+        }
+      ],
+      "occurrences": [
         {
           "routeId": "penobscot-river-medway-lincoln",
           "routeName": "Penobscot River",
@@ -127288,23 +127382,21 @@
       ]
     },
     {
-      "id": "maine--passadumkeag-public-access",
+      "id": "maine--passadumkeag-boat-launch",
       "state": "Maine",
-      "name": "Passadumkeag public access",
+      "name": "Passadumkeag Boat Launch",
       "aliases": [
-        "Passadumkeag public access"
+        "Passadumkeag Boat Launch"
       ],
       "sourceIds": [
-        "penobscot-river-howland-passadumkeag-take-out",
-        "penobscot-river-lincoln-passadumkeag-take-out",
-        "penobscot-river-passadumkeag-milford-put-in"
+        "penobscot-river-howland-passadumkeag-take-out"
       ],
       "storedAccessCoordinate": {
-        "latitude": 45.18585000000001,
+        "latitude": 45.18585,
         "longitude": -68.61671
       },
       "accessCoordinate": {
-        "latitude": 45.18585000000001,
+        "latitude": 45.18585,
         "longitude": -68.61671
       },
       "accessCoordinateSource": "stored-route-consensus",
@@ -127314,32 +127406,27 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.18585000000001,
-        "longitude": -68.61671
-      },
-      "waterEntryConsensusRouteCount": 3,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 6,
-      "routeCount": 3,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "45.18585,-68.61671",
           "coordinate": {
-            "latitude": 45.18585000000001,
+            "latitude": 45.18585,
             "longitude": -68.61671
           },
-          "occurrenceCount": 6,
-          "routeCount": 3,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "penobscot-river-howland-passadumkeag",
-            "penobscot-river-lincoln-passadumkeag",
-            "penobscot-river-passadumkeag-milford"
+            "penobscot-river-howland-passadumkeag"
           ]
         }
       ],
@@ -127350,12 +127437,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "penobscot-river-howland-passadumkeag-take-out",
-          "name": "Passadumkeag public access",
+          "name": "Passadumkeag Boat Launch",
           "latitude": 45.18585,
           "longitude": -68.61671,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 270.7338715473272,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -127364,14 +127451,71 @@
           "state": "Maine",
           "endpoint": "takeOut",
           "sourceId": null,
-          "name": "Passadumkeag public access",
+          "name": "Passadumkeag Boat Launch",
           "latitude": 45.18585,
           "longitude": -68.61671,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 270.7338715473272,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
-        },
+        }
+      ]
+    },
+    {
+      "id": "maine--passadumkeag-public-access",
+      "state": "Maine",
+      "name": "Passadumkeag public access",
+      "aliases": [
+        "Passadumkeag public access"
+      ],
+      "sourceIds": [
+        "penobscot-river-lincoln-passadumkeag-take-out",
+        "penobscot-river-passadumkeag-milford-put-in"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 45.18585,
+        "longitude": -68.61671
+      },
+      "accessCoordinate": {
+        "latitude": 45.18585,
+        "longitude": -68.61671
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": {
+        "latitude": 45.18585,
+        "longitude": -68.61671
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "derived-consensus",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 4,
+      "routeCount": 2,
+      "coordinateVariants": [
+        {
+          "key": "45.18585,-68.61671",
+          "coordinate": {
+            "latitude": 45.18585,
+            "longitude": -68.61671
+          },
+          "occurrenceCount": 4,
+          "routeCount": 2,
+          "routes": [
+            "penobscot-river-lincoln-passadumkeag",
+            "penobscot-river-passadumkeag-milford"
+          ]
+        }
+      ],
+      "occurrences": [
         {
           "routeId": "penobscot-river-lincoln-passadumkeag",
           "routeName": "Penobscot River",
@@ -130941,14 +131085,14 @@
       ]
     },
     {
-      "id": "maine--winn-public-access",
+      "id": "maine--winn-boat-launch",
       "state": "Maine",
-      "name": "Winn public access",
+      "name": "Winn Boat Launch",
       "aliases": [
-        "Winn public access"
+        "Winn Boat Launch"
       ],
       "sourceIds": [
-        "penobscot-river-greenbush-winn-take-out",
+        "penobscot-river-winn-greenbush-put-in",
         "penobscot-river-winn-lincoln-put-in"
       ],
       "storedAccessCoordinate": {
@@ -130966,16 +131110,13 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": {
-        "latitude": 45.46761,
-        "longitude": -68.39326
-      },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 0,
       "waterEntryExactOnRiver": false,
-      "waterEntryWaterbodyConfirmed": true,
+      "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -130989,38 +131130,38 @@
           "occurrenceCount": 4,
           "routeCount": 2,
           "routes": [
-            "penobscot-river-greenbush-winn",
+            "penobscot-river-winn-greenbush",
             "penobscot-river-winn-lincoln"
           ]
         }
       ],
       "occurrences": [
         {
-          "routeId": "penobscot-river-greenbush-winn",
+          "routeId": "penobscot-river-winn-greenbush",
           "routeName": "Penobscot River",
           "state": "Maine",
           "endpoint": "accessPoint",
-          "sourceId": "penobscot-river-greenbush-winn-take-out",
-          "name": "Winn public access",
+          "sourceId": "penobscot-river-winn-greenbush-put-in",
+          "name": "Winn Boat Launch",
           "latitude": 45.46761,
           "longitude": -68.39326,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1202.4589822042385,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
-          "routeId": "penobscot-river-greenbush-winn",
+          "routeId": "penobscot-river-winn-greenbush",
           "routeName": "Penobscot River",
           "state": "Maine",
-          "endpoint": "takeOut",
+          "endpoint": "putIn",
           "sourceId": null,
-          "name": "Winn public access",
+          "name": "Winn Boat Launch",
           "latitude": 45.46761,
           "longitude": -68.39326,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1202.4589822042385,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -131029,12 +131170,12 @@
           "state": "Maine",
           "endpoint": "accessPoint",
           "sourceId": "penobscot-river-winn-lincoln-put-in",
-          "name": "Winn public access",
+          "name": "Winn Boat Launch",
           "latitude": 45.46761,
           "longitude": -68.39326,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1202.4589822042385,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         },
         {
@@ -131043,12 +131184,12 @@
           "state": "Maine",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Winn public access",
+          "name": "Winn Boat Launch",
           "latitude": 45.46761,
           "longitude": -68.39326,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 1202.4589822042385,
-          "endpointOnWaterbody": true,
+          "auditSeverity": null,
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": null,
           "coordinateEvidenceRole": null
         }
       ]
@@ -269819,6 +269960,72 @@
       ]
     },
     {
+      "id": "new-york--little-falls-launch-riverside-industrial-parkway",
+      "state": "New York",
+      "name": "Little Falls Launch, Riverside Industrial Parkway",
+      "aliases": [
+        "Little Falls Launch, Riverside Industrial Parkway"
+      ],
+      "sourceIds": [
+        "erie-canal-little-falls-lock-e18-return-bailout"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.025583,
+        "longitude": -74.882083
+      },
+      "accessCoordinate": {
+        "latitude": 43.025583,
+        "longitude": -74.882083
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 1,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.02558,-74.88208",
+          "coordinate": {
+            "latitude": 43.025583,
+            "longitude": -74.882083
+          },
+          "occurrenceCount": 1,
+          "routeCount": 1,
+          "routes": [
+            "erie-canal-little-falls-lock-e18-return"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-little-falls-lock-e18-return",
+          "routeName": "Erie Canal / Mohawk River",
+          "state": "New York",
+          "endpoint": "accessPoint",
+          "sourceId": "erie-canal-little-falls-lock-e18-return-bailout",
+          "name": "Little Falls Launch, Riverside Industrial Parkway",
+          "latitude": 43.025583,
+          "longitude": -74.882083,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "new-york--little-falls-rotary-park-mohawk-river-barge-canal-launch",
       "state": "New York",
       "name": "Little Falls Rotary Park Mohawk River/Barge Canal launch",
@@ -270293,11 +270500,11 @@
       ]
     },
     {
-      "id": "new-york--lock-9-state-canal-park-public-hand-launch-rotterdam-junction",
+      "id": "new-york--lock-9-state-canal-park-lock-e9-upper-approach-public-hand-launch",
       "state": "New York",
-      "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
+      "name": "Lock 9 State Canal Park / Lock E9 upper approach public hand launch",
       "aliases": [
-        "Lock 9 State Canal Park public hand launch, Rotterdam Junction"
+        "Lock 9 State Canal Park / Lock E9 upper approach public hand launch"
       ],
       "sourceIds": [
         "erie-canal-rotterdam-junction-freemans-bridge-lock-e9"
@@ -270348,7 +270555,7 @@
           "state": "New York",
           "endpoint": "accessPoint",
           "sourceId": "erie-canal-rotterdam-junction-freemans-bridge-lock-e9",
-          "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
+          "name": "Lock 9 State Canal Park / Lock E9 upper approach public hand launch",
           "latitude": 42.879641,
           "longitude": -74.042129,
           "auditSeverity": null,
@@ -270362,7 +270569,7 @@
           "state": "New York",
           "endpoint": "putIn",
           "sourceId": null,
-          "name": "Lock 9 State Canal Park public hand launch, Rotterdam Junction",
+          "name": "Lock 9 State Canal Park / Lock E9 upper approach public hand launch",
           "latitude": 42.879641,
           "longitude": -74.042129,
           "auditSeverity": null,
@@ -304443,6 +304650,166 @@
       ]
     },
     {
+      "id": "new-york--rotary-park-public-boat-ramp-same-launch-return",
+      "state": "New York",
+      "name": "Rotary Park public boat ramp — same-launch return",
+      "aliases": [
+        "Rotary Park public boat ramp — same-launch return"
+      ],
+      "sourceIds": [
+        "erie-canal-little-falls-lock-e18-return-finish"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.033539,
+        "longitude": -74.866107
+      },
+      "accessCoordinate": {
+        "latitude": 43.033539,
+        "longitude": -74.866107
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.03354,-74.86611",
+          "coordinate": {
+            "latitude": 43.033539,
+            "longitude": -74.866107
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "erie-canal-little-falls-lock-e18-return"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-little-falls-lock-e18-return",
+          "routeName": "Erie Canal / Mohawk River",
+          "state": "New York",
+          "endpoint": "accessPoint",
+          "sourceId": "erie-canal-little-falls-lock-e18-return-finish",
+          "name": "Rotary Park public boat ramp — same-launch return",
+          "latitude": 43.033539,
+          "longitude": -74.866107,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "erie-canal-little-falls-lock-e18-return",
+          "routeName": "Erie Canal / Mohawk River",
+          "state": "New York",
+          "endpoint": "takeOut",
+          "sourceId": null,
+          "name": "Rotary Park public boat ramp — same-launch return",
+          "latitude": 43.033539,
+          "longitude": -74.866107,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
+      "id": "new-york--rotary-park-public-boat-ramp-little-falls",
+      "state": "New York",
+      "name": "Rotary Park public boat ramp, Little Falls",
+      "aliases": [
+        "Rotary Park public boat ramp, Little Falls"
+      ],
+      "sourceIds": [
+        "erie-canal-little-falls-lock-e18-return-launch"
+      ],
+      "storedAccessCoordinate": {
+        "latitude": 43.033539,
+        "longitude": -74.866107
+      },
+      "accessCoordinate": {
+        "latitude": 43.033539,
+        "longitude": -74.866107
+      },
+      "accessCoordinateSource": "stored-route-consensus",
+      "authoritativeAccess": null,
+      "authoritativeFacilityAnchor": null,
+      "authoritativeAreaAnchor": null,
+      "storedCoordinateIsAreaAnchor": false,
+      "authoritativeAccessIdentityMismatch": false,
+      "authoritativeAccessMismatchFeet": null,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": false,
+      "waterEntryWaterbodyConfirmed": true,
+      "authoritativeResolvesDistinctLocation": false,
+      "coordinateStatus": "consistent",
+      "verificationStatus": "unverified",
+      "maximumSeparationFeet": 0,
+      "occurrenceCount": 2,
+      "routeCount": 1,
+      "coordinateVariants": [
+        {
+          "key": "43.03354,-74.86611",
+          "coordinate": {
+            "latitude": 43.033539,
+            "longitude": -74.866107
+          },
+          "occurrenceCount": 2,
+          "routeCount": 1,
+          "routes": [
+            "erie-canal-little-falls-lock-e18-return"
+          ]
+        }
+      ],
+      "occurrences": [
+        {
+          "routeId": "erie-canal-little-falls-lock-e18-return",
+          "routeName": "Erie Canal / Mohawk River",
+          "state": "New York",
+          "endpoint": "accessPoint",
+          "sourceId": "erie-canal-little-falls-lock-e18-return-launch",
+          "name": "Rotary Park public boat ramp, Little Falls",
+          "latitude": 43.033539,
+          "longitude": -74.866107,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        },
+        {
+          "routeId": "erie-canal-little-falls-lock-e18-return",
+          "routeName": "Erie Canal / Mohawk River",
+          "state": "New York",
+          "endpoint": "putIn",
+          "sourceId": null,
+          "name": "Rotary Park public boat ramp, Little Falls",
+          "latitude": 43.033539,
+          "longitude": -74.866107,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": null,
+          "endpointOnWaterbody": true,
+          "coordinateEvidenceRole": null
+        }
+      ]
+    },
+    {
       "id": "new-york--rotterdam-kiwanis-park-and-boat-ramp",
       "state": "New York",
       "name": "Rotterdam Kiwanis Park and Boat Ramp",
@@ -318255,9 +318622,9 @@
           "name": "Anderson Point Park canoe launch",
           "latitude": 35.772287,
           "longitude": -78.54305,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -318269,9 +318636,9 @@
           "name": "Anderson Point Park canoe launch",
           "latitude": 35.772287,
           "longitude": -78.54305,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -318791,9 +319158,9 @@
           "name": "Buffaloe Road canoe launch",
           "latitude": 35.847706,
           "longitude": -78.530812,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -318805,9 +319172,9 @@
           "name": "Buffaloe Road canoe launch",
           "latitude": 35.847706,
           "longitude": -78.530812,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -318819,9 +319186,9 @@
           "name": "Buffaloe Road canoe launch",
           "latitude": 35.847706,
           "longitude": -78.530812,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -318833,9 +319200,9 @@
           "name": "Buffaloe Road canoe launch",
           "latitude": 35.847706,
           "longitude": -78.530812,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -321576,7 +321943,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -321609,9 +321976,9 @@
           "name": "N.C. 88 Bridge Public Canoe Access",
           "latitude": 36.3947,
           "longitude": -81.407,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 208.18234338256775,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -321623,9 +321990,9 @@
           "name": "N.C. 88 Bridge Public Canoe Access",
           "latitude": 36.3947,
           "longitude": -81.407,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 208.18234338256775,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -322012,9 +322379,9 @@
           "name": "New River State Park Alleghany Paddle-In Access",
           "latitude": 36.554608,
           "longitude": -81.324092,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 301.58995672663735,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -322026,9 +322393,9 @@
           "name": "New River State Park Alleghany Paddle-In Access",
           "latitude": 36.554608,
           "longitude": -81.324092,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "suspicious",
+          "distanceFeetToMatchedRiver": 301.58995672663735,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -322139,13 +322506,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryCoordinate": {
+        "latitude": 36.5278,
+        "longitude": -81.3374
+      },
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -322174,9 +322544,9 @@
           "name": "New River State Park Kings Creek Access",
           "latitude": 36.5278,
           "longitude": -81.3374,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 179.06846675383784,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -322188,9 +322558,9 @@
           "name": "New River State Park Kings Creek Access",
           "latitude": 36.5278,
           "longitude": -81.3374,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 179.06846675383784,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -322393,7 +322763,7 @@
         "latitude": 36.4165,
         "longitude": -81.387
       },
-      "waterEntryConsensusRouteCount": 3,
+      "waterEntryConsensusRouteCount": 4,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
@@ -322457,10 +322827,10 @@
           "name": "New River State Park Wagoner Access",
           "latitude": 36.4165,
           "longitude": -81.387,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 132.93383980657853,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
           "routeId": "new-river-nc88-wagoner",
@@ -322471,10 +322841,10 @@
           "name": "New River State Park Wagoner Access",
           "latitude": 36.4165,
           "longitude": -81.387,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 132.93383980657853,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-water-entry"
         },
         {
           "routeId": "new-river-todd-wagoner",
@@ -323221,7 +323591,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -323255,9 +323625,9 @@
           "name": "River Bend Park kayak launch",
           "latitude": 35.8603603,
           "longitude": -78.527847,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -323269,9 +323639,9 @@
           "name": "River Bend Park kayak launch",
           "latitude": 35.8603603,
           "longitude": -78.527847,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -323283,9 +323653,9 @@
           "name": "River Bend Park kayak launch",
           "latitude": 35.8603603,
           "longitude": -78.527847,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.68740808671168,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -323297,9 +323667,9 @@
           "name": "River Bend Park kayak launch",
           "latitude": 35.8603603,
           "longitude": -78.527847,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 242.68740808671168,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -324147,13 +324517,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 1,
+      "waterEntryCoordinate": {
+        "latitude": 35.90224,
+        "longitude": -78.54063
+      },
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 3,
       "routeCount": 2,
@@ -324196,9 +324569,9 @@
           "name": "Thornton Road Boat Launch",
           "latitude": 35.90224,
           "longitude": -78.54063,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 172.19203405567498,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -324210,9 +324583,9 @@
           "name": "Thornton Road Boat Launch",
           "latitude": 35.90224,
           "longitude": -78.54063,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 172.19203405567498,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -333069,19 +333442,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": 598,
-      "waterEntryCoordinate": {
-        "latitude": 41.22,
-        "longitude": -76.018611
-      },
-      "waterEntryConsensusRouteCount": 2,
+      "waterEntryCoordinate": null,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "derived-consensus",
+      "verificationStatus": "unverified",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 3,
-      "routeCount": 2,
+      "occurrenceCount": 2,
+      "routeCount": 1,
       "coordinateVariants": [
         {
           "key": "41.22000,-76.01861",
@@ -333089,11 +333459,10 @@
             "latitude": 41.22,
             "longitude": -76.018611
           },
-          "occurrenceCount": 3,
-          "routeCount": 2,
+          "occurrenceCount": 2,
+          "routeCount": 1,
           "routes": [
-            "susquehanna-river-canal-park-test-track",
-            "susquehanna-river-canal-park-wetlands"
+            "susquehanna-river-canal-park-test-track"
           ]
         }
       ],
@@ -333118,20 +333487,6 @@
           "state": "Pennsylvania",
           "endpoint": "putIn",
           "sourceId": "canal-park",
-          "name": "Canal Park access",
-          "latitude": 41.22,
-          "longitude": -76.018611,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 118.32846652080191,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "susquehanna-river-canal-park-wetlands",
-          "routeName": "Susquehanna River",
-          "state": "Pennsylvania",
-          "endpoint": "putIn",
-          "sourceId": null,
           "name": "Canal Park access",
           "latitude": 41.22,
           "longitude": -76.018611,
@@ -339426,15 +339781,15 @@
         "latitude": 41.09095819224127,
         "longitude": -76.1309336974967
       },
-      "waterEntryConsensusRouteCount": 3,
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": true,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
       "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
-      "occurrenceCount": 3,
-      "routeCount": 3,
+      "occurrenceCount": 2,
+      "routeCount": 2,
       "coordinateVariants": [
         {
           "key": "41.09096,-76.13093",
@@ -339442,11 +339797,10 @@
             "latitude": 41.09095819224127,
             "longitude": -76.1309336974967
           },
-          "occurrenceCount": 3,
-          "routeCount": 3,
+          "occurrenceCount": 2,
+          "routeCount": 2,
           "routes": [
             "susquehanna-river-canal-park-test-track",
-            "susquehanna-river-canal-park-wetlands",
             "susquehanna-river-wetlands-bloomsburg"
           ]
         }
@@ -339463,20 +339817,6 @@
           "longitude": -76.1309336974967,
           "auditSeverity": "review",
           "distanceFeetToMatchedRiver": 394.06570417061226,
-          "endpointOnWaterbody": true,
-          "coordinateEvidenceRole": null
-        },
-        {
-          "routeId": "susquehanna-river-canal-park-wetlands",
-          "routeName": "Susquehanna River",
-          "state": "Pennsylvania",
-          "endpoint": "takeOut",
-          "sourceId": null,
-          "name": "Wetlands Nature Area access",
-          "latitude": 41.09095819224127,
-          "longitude": -76.1309336974967,
-          "auditSeverity": "review",
-          "distanceFeetToMatchedRiver": 394.06553525590397,
           "endpointOnWaterbody": true,
           "coordinateEvidenceRole": null
         },
@@ -370434,10 +370774,10 @@
           "name": "Bassett River Access / North Bassett Canoe Access",
           "latitude": 36.76992,
           "longitude": -80.00147,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 158.90504855839214,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "smith-river-philpott-bassett",
@@ -370448,10 +370788,10 @@
           "name": "Bassett River Access / North Bassett Canoe Access",
           "latitude": 36.76992,
           "longitude": -80.00147,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 158.90504855839214,
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     },
@@ -371505,7 +371845,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -371539,9 +371879,9 @@
           "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
           "latitude": 37.282902,
           "longitude": -80.065399,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -371553,9 +371893,9 @@
           "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
           "latitude": 37.282902,
           "longitude": -80.065399,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -371567,9 +371907,9 @@
           "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
           "latitude": 37.282902,
           "longitude": -80.065399,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 115.85265472665533,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -371581,9 +371921,9 @@
           "name": "Cardinal Criminal Justice Academy canoe/kayak ramp",
           "latitude": 37.282902,
           "longitude": -80.065399,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 115.85265472665533,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -371987,9 +372327,9 @@
           "name": "Doe Run River Access",
           "latitude": 36.6695026,
           "longitude": -79.8867143,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -372001,9 +372341,9 @@
           "name": "Doe Run River Access",
           "latitude": 36.6695026,
           "longitude": -79.8867143,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -372654,9 +372994,9 @@
           "name": "Eddy Avenue canoe/kayak ramp",
           "latitude": 37.281898,
           "longitude": -80.059303,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -372668,9 +373008,9 @@
           "name": "Eddy Avenue canoe/kayak ramp",
           "latitude": 37.281898,
           "longitude": -80.059303,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -372682,9 +373022,9 @@
           "name": "Eddy Avenue canoe/kayak ramp",
           "latitude": 37.281898,
           "longitude": -80.059303,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -372696,9 +373036,9 @@
           "name": "Eddy Avenue canoe/kayak ramp",
           "latitude": 37.281898,
           "longitude": -80.059303,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -372762,9 +373102,9 @@
           "name": "Evans Tract Cowpasture River Access",
           "latitude": 37.7939,
           "longitude": -79.7583,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -372776,9 +373116,9 @@
           "name": "Evans Tract Cowpasture River Access",
           "latitude": 37.7939,
           "longitude": -79.7583,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -372990,9 +373330,9 @@
           "name": "Fieldale River Access",
           "latitude": 36.6909,
           "longitude": -79.9328,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373004,9 +373344,9 @@
           "name": "Fieldale River Access",
           "latitude": 36.6909,
           "longitude": -79.9328,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373018,9 +373358,9 @@
           "name": "Fieldale River Access",
           "latitude": 36.6909,
           "longitude": -79.9328,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373032,9 +373372,9 @@
           "name": "Fieldale River Access",
           "latitude": 36.6909,
           "longitude": -79.9328,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -373064,13 +373404,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 37.7779722,
+        "longitude": -79.9894833
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -373098,9 +373441,9 @@
           "name": "Fort Young Park Jackson River Boat Ramp",
           "latitude": 37.7779722,
           "longitude": -79.9894833,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 20.028100399981227,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373112,9 +373455,9 @@
           "name": "Fort Young Park Jackson River Boat Ramp",
           "latitude": 37.7779722,
           "longitude": -79.9894833,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 20.028100399981227,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -373225,13 +373568,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 36.6502639,
+        "longitude": -79.8605262
+      },
+      "waterEntryConsensusRouteCount": 2,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -373260,9 +373606,9 @@
           "name": "Frith Drive River Access",
           "latitude": 36.6502639,
           "longitude": -79.8605262,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 90.10720019046741,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373274,9 +373620,9 @@
           "name": "Frith Drive River Access",
           "latitude": 36.6502639,
           "longitude": -79.8605262,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 90.10720019046741,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373288,9 +373634,9 @@
           "name": "Frith Drive River Access",
           "latitude": 36.6502639,
           "longitude": -79.8605262,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 90.10737181495706,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373302,9 +373648,9 @@
           "name": "Frith Drive River Access",
           "latitude": 36.6502639,
           "longitude": -79.8605262,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 90.10737181495706,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -373711,13 +374057,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 37.2757,
+        "longitude": -80.113602
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -373746,9 +374095,9 @@
           "name": "Green Hill Park public access",
           "latitude": 37.2757,
           "longitude": -80.113602,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373760,9 +374109,9 @@
           "name": "Green Hill Park public access",
           "latitude": 37.2757,
           "longitude": -80.113602,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373774,9 +374123,9 @@
           "name": "Green Hill Park public access",
           "latitude": 37.2757,
           "longitude": -80.113602,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 73.0249065474058,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -373788,9 +374137,9 @@
           "name": "Green Hill Park public access",
           "latitude": 37.2757,
           "longitude": -80.113602,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 73.0249065474058,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -373986,13 +374335,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 37.8687028,
+        "longitude": -79.9893444
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -374020,9 +374372,9 @@
           "name": "Indian Draft Jackson River Boat Landing",
           "latitude": 37.8687028,
           "longitude": -79.9893444,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.28041109797134,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -374034,9 +374386,9 @@
           "name": "Indian Draft Jackson River Boat Landing",
           "latitude": 37.8687028,
           "longitude": -79.9893444,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 71.28041109797134,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -374066,13 +374418,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 37.8182222,
+        "longitude": -79.98725
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 2,
       "routeCount": 1,
@@ -374100,9 +374455,9 @@
           "name": "Interstate Park Jackson River Access",
           "latitude": 37.8182222,
           "longitude": -79.98725,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 62.12760257595352,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -374114,9 +374469,9 @@
           "name": "Interstate Park Jackson River Access",
           "latitude": 37.8182222,
           "longitude": -79.98725,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 62.12760257595352,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -374902,13 +375257,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 36.6134323,
+        "longitude": -79.8235886
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -374937,9 +375295,9 @@
           "name": "Marrowbone Creek River Access",
           "latitude": 36.6134323,
           "longitude": -79.8235886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -374951,9 +375309,9 @@
           "name": "Marrowbone Creek River Access",
           "latitude": 36.6134323,
           "longitude": -79.8235886,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -374965,9 +375323,9 @@
           "name": "Marrowbone Creek River Access",
           "latitude": 36.6134323,
           "longitude": -79.8235886,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.14401042907832,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -374979,9 +375337,9 @@
           "name": "Marrowbone Creek River Access",
           "latitude": 36.6134323,
           "longitude": -79.8235886,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 76.14401042907832,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -375327,9 +375685,9 @@
           "name": "Mitchell Bridge River Access",
           "latitude": 36.5978174,
           "longitude": -79.7827387,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -375341,9 +375699,9 @@
           "name": "Mitchell Bridge River Access",
           "latitude": 36.5978174,
           "longitude": -79.7827387,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -376190,7 +376548,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -376223,9 +376581,9 @@
           "name": "Philpott Dam Tailrace Access",
           "latitude": 36.780576,
           "longitude": -80.025937,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 159.41535335504858,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -376237,9 +376595,9 @@
           "name": "Philpott Dam Tailrace Access",
           "latitude": 36.780576,
           "longitude": -80.025937,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 159.41535335504858,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -377331,9 +377689,9 @@
           "name": "Salem Rotary Park canoe/kayak ramp",
           "latitude": 37.2677,
           "longitude": -80.036201,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377345,9 +377703,9 @@
           "name": "Salem Rotary Park canoe/kayak ramp",
           "latitude": 37.2677,
           "longitude": -80.036201,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -377563,9 +377921,9 @@
           "name": "Sharon Park Cowpasture River Access",
           "latitude": 37.8184167,
           "longitude": -79.7408556,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377577,9 +377935,9 @@
           "name": "Sharon Park Cowpasture River Access",
           "latitude": 37.8184167,
           "longitude": -79.7408556,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -377610,13 +377968,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryCoordinate": {
+        "latitude": 36.6383425,
+        "longitude": -79.8258697
+      },
+      "waterEntryConsensusRouteCount": 2,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -377645,9 +378006,9 @@
           "name": "Smith River Sports Complex River Access",
           "latitude": 36.6383425,
           "longitude": -79.8258697,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.12824877638063,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377659,9 +378020,9 @@
           "name": "Smith River Sports Complex River Access",
           "latitude": 36.6383425,
           "longitude": -79.8258697,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.12824877638063,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377673,9 +378034,9 @@
           "name": "Smith River Sports Complex River Access",
           "latitude": 36.6383425,
           "longitude": -79.8258697,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.12824877638063,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377687,9 +378048,9 @@
           "name": "Smith River Sports Complex River Access",
           "latitude": 36.6383425,
           "longitude": -79.8258697,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 116.12824877638063,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -377720,7 +378081,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -377753,9 +378114,9 @@
           "name": "South Martinsville River Access",
           "latitude": 36.660071,
           "longitude": -79.879664,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 127.22400457290013,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377767,9 +378128,9 @@
           "name": "South Martinsville River Access",
           "latitude": 36.660071,
           "longitude": -79.879664,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 127.22400457290013,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -377800,7 +378161,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -377833,9 +378194,9 @@
           "name": "Teddy J. Dressler Wayside Park Jackson River Ramp",
           "latitude": 37.75765,
           "longitude": -79.9869528,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 279.4079518269971,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -377847,9 +378208,9 @@
           "name": "Teddy J. Dressler Wayside Park Jackson River Ramp",
           "latitude": 37.75765,
           "longitude": -79.9869528,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 279.4079518269971,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -378205,10 +378566,10 @@
           "name": "The Great Road River Access",
           "latitude": 36.7272223,
           "longitude": -79.9487802,
-          "auditSeverity": null,
+          "auditSeverity": "review",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         },
         {
           "routeId": "smith-river-great-road-fieldale",
@@ -378219,10 +378580,10 @@
           "name": "The Great Road River Access",
           "latitude": 36.7272223,
           "longitude": -79.9487802,
-          "auditSeverity": null,
+          "auditSeverity": "review",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
-          "coordinateEvidenceRole": null
+          "endpointOnWaterbody": false,
+          "coordinateEvidenceRole": "authoritative-access-anchor"
         }
       ]
     },
@@ -378677,7 +379038,7 @@
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
       "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
+      "waterEntryConsensusRouteCount": 1,
       "waterEntryExactOnRiver": false,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
@@ -378710,9 +379071,9 @@
           "name": "Wayside Park public access",
           "latitude": 37.2477,
           "longitude": -80.175102,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 150.87327606760078,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -378724,9 +379085,9 @@
           "name": "Wayside Park public access",
           "latitude": 37.2477,
           "longitude": -80.175102,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "review",
+          "distanceFeetToMatchedRiver": 150.87327606760078,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]
@@ -378955,13 +379316,16 @@
       "storedCoordinateIsAreaAnchor": false,
       "authoritativeAccessIdentityMismatch": false,
       "authoritativeAccessMismatchFeet": null,
-      "waterEntryCoordinate": null,
-      "waterEntryConsensusRouteCount": 0,
-      "waterEntryExactOnRiver": false,
+      "waterEntryCoordinate": {
+        "latitude": 37.2864,
+        "longitude": -80.076897
+      },
+      "waterEntryConsensusRouteCount": 1,
+      "waterEntryExactOnRiver": true,
       "waterEntryWaterbodyConfirmed": false,
       "authoritativeResolvesDistinctLocation": false,
       "coordinateStatus": "consistent",
-      "verificationStatus": "unverified",
+      "verificationStatus": "derived-consensus",
       "maximumSeparationFeet": 0,
       "occurrenceCount": 4,
       "routeCount": 2,
@@ -378990,9 +379354,9 @@
           "name": "West Riverside Drive canoe/kayak ramp",
           "latitude": 37.2864,
           "longitude": -80.076897,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -379004,9 +379368,9 @@
           "name": "West Riverside Drive canoe/kayak ramp",
           "latitude": 37.2864,
           "longitude": -80.076897,
-          "auditSeverity": null,
+          "auditSeverity": "unknown",
           "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -379018,9 +379382,9 @@
           "name": "West Riverside Drive canoe/kayak ramp",
           "latitude": 37.2864,
           "longitude": -80.076897,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 70.26893187519681,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         },
         {
@@ -379032,9 +379396,9 @@
           "name": "West Riverside Drive canoe/kayak ramp",
           "latitude": 37.2864,
           "longitude": -80.076897,
-          "auditSeverity": null,
-          "distanceFeetToMatchedRiver": null,
-          "endpointOnWaterbody": null,
+          "auditSeverity": "ok",
+          "distanceFeetToMatchedRiver": 70.26893187519681,
+          "endpointOnWaterbody": false,
           "coordinateEvidenceRole": null
         }
       ]

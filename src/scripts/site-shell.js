@@ -1,4 +1,4 @@
-import { normalizeSearchText } from '@paddletoday/api-contract';
+import { prepareSearchIndex, findSearchMatches } from './site-search.js';
 import { favoriteCount, subscribeFavorites } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
 
@@ -28,6 +28,7 @@ const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
 const APP_DOWNLOAD_DISMISS_DAYS = 30;
 const APP_DOWNLOAD_EXCLUDED_PATHS = ['/account/', '/admin/', '/privacy/', '/terms/', '/trips/'];
 
+
 function renderFavoritesNav() {
   if (!(favoritesLink instanceof HTMLAnchorElement)) {
     return;
@@ -50,23 +51,9 @@ function escapeHtml(value) {
     .replaceAll("'", '&#39;');
 }
 
-function normalizeText(value) {
-  return normalizeSearchText(String(value || ''))
-    .replace(/[^a-z0-9\s]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function tokenize(value) {
-  return normalizeText(value)
-    .split(' ')
-    .map((token) => token.trim())
-    .filter(Boolean);
-}
-
 function parseSearchIndexPayload(payload) {
   if (!Array.isArray(payload)) throw new Error('Invalid search index.');
-  searchIndex = payload;
+  searchIndex = prepareSearchIndex(payload);
   searchIndexLoaded = true;
   searchIndexError = false;
 }
@@ -125,52 +112,8 @@ async function loadSearchIndex() {
   await searchIndexPromise;
 }
 
-function defaultSearchResults() {
-  const rivers = searchIndex.filter((item) => item.kind === 'river').slice(0, 6);
-  const routes = searchIndex.filter((item) => item.kind === 'route').slice(0, 4);
-  return [...rivers, ...routes];
-}
-
 function searchMatches(query) {
-  const terms = tokenize(query);
-  if (terms.length === 0) {
-    return defaultSearchResults();
-  }
-
-  return searchIndex
-    .map((item) => {
-      const haystack = normalizeText(item.searchText || `${item.title} ${item.subtitle} ${item.meta}`);
-      let score = 0;
-
-      for (const term of terms) {
-        if (!haystack.includes(term)) {
-          return null;
-        }
-
-        score += 2;
-        if (normalizeText(item.title).startsWith(term)) {
-          score += 4;
-        }
-        if (normalizeText(item.subtitle || '').includes(term)) {
-          score += 1;
-        }
-      }
-
-      if (item.kind === 'river') {
-        score += 0.5;
-      }
-
-      return { item, score };
-    })
-    .filter(Boolean)
-    .sort((left, right) => {
-      if (right.score !== left.score) {
-        return right.score - left.score;
-      }
-      return left.item.title.localeCompare(right.item.title);
-    })
-    .slice(0, 10)
-    .map((entry) => entry.item);
+  return findSearchMatches(searchIndex, query);
 }
 
 function resultMarkup(item) {

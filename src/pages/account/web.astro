@@ -11,10 +11,11 @@ import { webFeatureFlags } from '../../lib/web-feature-flags';
   headerBlurb={webFeatureFlags.webAccountExperience ? 'Your next paddle starts here.' : 'Live score, water level, and weather.'}
 >
   <div class="trips-page">
-    {webFeatureFlags.webAccountExperience ? <div id="trips-app" aria-live="polite"><p role="status">Completing sign-in…</p></div> : <WebAccountFeaturesPaused />}
+    {webFeatureFlags.webAccountExperience ? <div id="trips-app" aria-busy="true"><p role="status">Completing sign-in…</p></div> : <WebAccountFeaturesPaused />}
   </div>
-  {webFeatureFlags.webAccountExperience && <link rel="stylesheet" href="/styles/trips.css?v=20260928-account-trips-ux" />}
+  {webFeatureFlags.webAccountExperience && <link rel="stylesheet" href="/styles/trips.css?v=20261006-account" />}
   <script>
     if (document.getElementById('trips-app')) await import('../../scripts/trips-page');
   </script>
+
 </BaseLayout>

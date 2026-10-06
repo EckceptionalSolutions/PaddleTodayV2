@@ -15,6 +15,7 @@
     "api": "tsx src/server/bootstrap.ts --port 4322",
     "api:watch": "tsx watch src/server/bootstrap.ts --port 4322",
     "deps:graph": "node scripts/madge.mjs",
+    "package:api": "node scripts/package-api.mjs",
     "deps:unused": "node scripts/knip.mjs",
     "deps:check": "npm run deps:graph && npm run deps:unused",
     "dev": "astro dev",
@@ -26,6 +27,7 @@
     "typecheck:gallery": "tsc --noEmit -p tsconfig.gallery.json",
     "typecheck:runtime": "tsc --noEmit -p tsconfig.runtime.json",
     "routes:audit": "tsx scripts/audit-route-data.ts",
+    "seo:indexability:audit": "node scripts/audit-built-search-indexability.mjs",
     "routes:audit:coordinates": "tsx scripts/audit-route-coordinate-river-distance.ts",
     "routes:access-registry:generate": "tsx scripts/generate-route-access-registry.ts",
     "routes:withholding:generate": "tsx scripts/generate-withheld-route-slugs.ts",
@@ -39,7 +41,7 @@
     "routes:audit:coordinates:authoritative-evidence": "tsx scripts/gather-route-access-authoritative-evidence.ts",
     "routes:audit:coordinates:candidate-hydrography": "tsx scripts/gather-route-candidate-hydrography-evidence.ts",
     "routes:audit:coordinates:workflow": "npm run routes:audit:coordinates && npm run routes:access-registry:generate && npm run routes:geometries:review-generate && npm run routes:audit:coordinates:suggestions && npm run routes:audit:coordinates:osm-evidence && npm run routes:audit:coordinates:authoritative-evidence && npm run routes:access-registry:generate && npm run routes:audit:coordinates:suggestions && npm run routes:audit:coordinates:candidate-hydrography && npm run routes:audit:coordinates:suggestions && npm run routes:audit:coordinates:auto-apply && npm run routes:audit:coordinates && npm run routes:access-registry:generate && npm run routes:geometries:review-generate && npm run routes:audit:coordinates:auto-validate && npm run routes:audit:coordinates:suggestions && npm run routes:audit:coordinates:candidate-hydrography && npm run routes:audit:coordinates:suggestions && npm run routes:withholding:generate && npm run routes:geometries:generate && npm run routes:geometries:audit && npm run routes:audit:coordinates:visual && npm run routes:audit:coordinates:status",
-    "routes:geometries:generate": "tsx scripts/generate-canonical-river-geometries.ts",
+    "routes:geometries:generate": "tsx scripts/generate-canonical-river-geometries.ts --retain-legacy-assets",
     "routes:overview:generate": "tsx scripts/generate-explore-map-overview.ts",
     "routes:geometries:review-generate": "tsx scripts/generate-canonical-river-geometries.ts --review-all",
     "routes:geometries:audit": "tsx scripts/audit-canonical-river-geometries.ts",
@@ -128,7 +130,8 @@
     "tokens:check": "node scripts/sync-design-tokens.mjs --check",
     "styles:check": "node scripts/check-public-css.mjs",
     "dry:check": "node scripts/check-dry-invariants.mjs",
-    "operations:lower-48-expansion-50": "tsx scripts/report-lower-48-expansion-50.ts"
+    "operations:lower-48-expansion-50": "tsx scripts/report-lower-48-expansion-50.ts",
+    "api:local": "tsx scripts/local-api.ts --port 4322"
   },
   "dependencies": {
     "@azure/communication-email": "^1.1.0",
@@ -148,6 +151,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@playwright/test": "^1.61.1",
     "eas-cli": "^18.13.0",
+    "esbuild": "^0.28.1",
     "knip": "^5.0.0",
     "madge": "^8.0.0",
     "postcss": "8.5.23",

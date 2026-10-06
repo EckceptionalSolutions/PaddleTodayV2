@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-06",
+  "scope": "Application files before dependency installation; vendor tarballs, manifests and lockfiles excluded. Original copy policy applied to current non-ignored worktree files.",
+  "before": {
+    "bytes": 615975156,
+    "sourceGroups": {
+      "src/": {
+        "files": 613,
+        "bytes": 42446513
+      },
+      "packages/": {
+        "files": 61,
+        "bytes": 240140
+      },
+      "docs/operations/": {
+        "files": 214,
+        "bytes": 42630061
+      },
+      "automations/route-control-plane/": {
+        "files": 12,
+        "bytes": 180828
+      }
+    },
+    "static": {
+      "files": 6561,
+      "bytes": 530477614
+    }
+  },
+  "after": {
+    "bytes": 338733503,
+    "compiledBytes": 19493953,
+    "runtimeResources": [
+      {
+        "path": "docs/operations/state-registry.json",
+        "originalBytes": 4157,
+        "packagedBytes": 3458,
+        "sha256": "97666a0b4394b3444413e8929bf16c8aad803dd5ccf55ecd87c1e9fc0a90c69f"
+      },
+      {
+        "path": "docs/operations/tasks.json",
+        "originalBytes": 4351234,
+        "packagedBytes": 3718980,
+        "sha256": "0be2347cd669c41be539278e198b843442d75dd2a9f341778a72b9a023845df1"
+      },
+      {
+        "path": "docs/operations/runs.json",
+        "originalBytes": 12556773,
+        "packagedBytes": 9929600,
+        "sha256": "c1d6d6d0e5a4f7c25b07ce1a1aba8a9dc344455d65c1bd03ea32a4d60232ee54"
+      },
+      {
+        "path": "docs/operations/gauge-inventory.json",
+        "originalBytes": 2132205,
+        "packagedBytes": 1486417,
+        "sha256": "440313658e4ccec3c6b31fd195e8a9d765e576717ad530a8d95780c07ca91231"
+      },
+      {
+        "path": "docs/operations/gauge-review-ledger.json",
+        "originalBytes": 14229755,
+        "packagedBytes": 13171977,
+        "sha256": "6a31a73705a7fe7bb7cda9241881c0d0190eeaae965e37768125ec94c452c2f1"
+      },
+      {
+        "path": "automations/route-control-plane/state.json",
+        "originalBytes": 90980,
+        "packagedBytes": 75246,
+        "sha256": "ea86a418d177aa826f2cbd481da06a3cc5ba51b5d49760b3b37ccfed988121e4"
+      },
+      {
+        "path": "docs/operations/overlap-review-queue.json",
+        "originalBytes": 69808,
+        "packagedBytes": 57587,
+        "sha256": "4ae461aeb855202fa97576177192ae16efa37a517f1b8a2223a59a7cf93978f4"
+      },
+      {
+        "path": "docs/operations/route-opportunity-queue.json",
+        "originalBytes": 9269,
+        "packagedBytes": 8148,
+        "sha256": "04afcfc66d86ba6cc931334b23976a24fc6ecc15d800da25fc9edcf6b332c9e1"
+      }
+    ],
+    "static": {
+      "files": 6562,
+      "bytes": 290788137
+    },
+    "staticCompression": {
+      "files": 3263,
+      "sourceBytes": 303302948,
+      "compressedBytes": 63102678
+    }
+  },
+  "bytesSaved": 277241653,
+  "percentSaved": 45.00857709917119,
+  "installedPackageRecords": 401,
+  "versionsAbsentFromRootLock": [],
+  "preserved": [
+    "complete static fallback",
+    "all gallery and geometry assets",
+    "runtime admin resources",
+    "root dependency overrides",
+    "locked external dependency versions"
+  ],
+  "packageVerificationLog": ".local/efficiency-audit/api-package-verification.log"
+}

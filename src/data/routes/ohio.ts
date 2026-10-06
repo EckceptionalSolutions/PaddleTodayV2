@@ -1150,7 +1150,7 @@ export const ohioRoutes: River[] = [
       ],
       "seasonNotes": "Spring and rain-refreshed periods are best for the AW play levels. Summer recreational floating may still occur below the app target, but this route score is calibrated to the Kelley-to-Milford Class I-II feature guidance rather than livery-style low-water floating.",
       "difficulty": "moderate",
-      "difficultyNotes": "Mostly easy moving water, but the AW route includes Boathouse Rapid, old low-head-dam remnants, small holes, ledges, rock gardens, and pushier water above the preferred range.",
+      "difficultyNotes": "American Whitewater rates the reach Class I-II overall. PaddleToday's separate advanced risk label reflects Boathouse Rapid and old low-head-dam remnants, small holes and ledges, and pushier water above the preferred range.",
       "confidenceNotes": "Confidence is good for a guarded community-threshold add. AW documents the exact Kelley Nature Preserve to Jim Terrell Park run, the direct Milford gauge, a detailed stage ladder, and feature-level hazards. ODNR publishes both access points with coordinates on the Little Miami Scenic River map, and Clermont County Parks confirms Kelley has canoe/kayak access."
     },
     "evidenceNotes": [

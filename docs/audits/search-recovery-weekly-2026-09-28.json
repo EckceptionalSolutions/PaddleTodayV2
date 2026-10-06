@@ -1,0 +1,350 @@
+{
+  "observedAt": "2026-09-28T15:02:43.269056+00:00",
+  "gscAccess": "Signed out; no new performance/indexing data available",
+  "pages": [
+    {
+      "path": "/",
+      "result": "200|https://paddletoday.com/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/little-miami-river-kelley-milford/",
+      "result": "200|https://paddletoday.com/rivers/little-miami-river-kelley-milford/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/little-miami-river-kelley-milford/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/namekagon-river-big-bend-trego/",
+      "result": "200|https://paddletoday.com/rivers/namekagon-river-big-bend-trego/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/namekagon-river-big-bend-trego/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/milwaukee-river-west-bend-quaas-creek/",
+      "result": "200|https://paddletoday.com/rivers/milwaukee-river-west-bend-quaas-creek/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/milwaukee-river-west-bend-quaas-creek/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/ouachita-river-remmel-whitewater-park/",
+      "result": "200|https://paddletoday.com/rivers/ouachita-river-remmel-whitewater-park/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/ouachita-river-remmel-whitewater-park/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/namekagon-river-county-k-whispering-pines/",
+      "result": "200|https://paddletoday.com/rivers/namekagon-river-county-k-whispering-pines/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/namekagon-river-county-k-whispering-pines/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/big-river-mammoth-merrill-horse/",
+      "result": "200|https://paddletoday.com/rivers/big-river-mammoth-merrill-horse/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/big-river-mammoth-merrill-horse/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/st-croix-river-sand-creek-highway-70/",
+      "result": "200|https://paddletoday.com/rivers/st-croix-river-sand-creek-highway-70/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/st-croix-river-sand-creek-highway-70/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+      "result": "404|https://paddletoday.com/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/404/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"noindex, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/james-river-hl-kerr-ralph-cox/",
+      "result": "200|https://paddletoday.com/rivers/james-river-hl-kerr-ralph-cox/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/james-river-hl-kerr-ralph-cox/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "result": "200|https://paddletoday.com/rivers/cedar-river-chain-lakes-ellis-harbor/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/cedar-river-chain-lakes-ellis-harbor/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/american-river-harrington-watt/",
+      "result": "200|https://paddletoday.com/rivers/american-river-harrington-watt/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/rivers/american-river-harrington-watt/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"index, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/pine-river-lincoln-pine-river-park-county-w/",
+      "result": "404|https://paddletoday.com/rivers/pine-river-lincoln-pine-river-park-county-w/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/404/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"noindex, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/rivers/search-monitor-missing-20260928/",
+      "result": "404|https://paddletoday.com/rivers/search-monitor-missing-20260928/|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": "https://paddletoday.com/404/",
+      "robotsMeta": [
+        "<meta name=\"robots\" content=\"noindex, follow\">"
+      ],
+      "bodyExcerpt": null
+    },
+    {
+      "path": "/robots.txt",
+      "result": "200|https://paddletoday.com/robots.txt|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": null,
+      "robotsMeta": [],
+      "bodyExcerpt": "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /alerts/unsubscribe/\n\nSitemap: https://paddletoda"
+    },
+    {
+      "path": "/sitemap-index.xml",
+      "result": "200|https://paddletoday.com/sitemap-index.xml|0",
+      "curlExit": 0,
+      "error": "",
+      "canonical": null,
+      "robotsMeta": [],
+      "bodyExcerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0"
+    }
+  ],
+  "certificates": [
+    {
+      "host": "paddletoday.com",
+      "valid": true,
+      "notBefore": "Aug 10 19:16:46 2026 GMT",
+      "notAfter": "Nov  8 20:12:10 2026 GMT",
+      "SAN": [
+        [
+          "DNS",
+          "paddletoday.com"
+        ],
+        [
+          "DNS",
+          "*.paddletoday.com"
+        ]
+      ],
+      "issuer": [
+        [
+          [
+            "countryName",
+            "US"
+          ]
+        ],
+        [
+          [
+            "organizationName",
+            "Google Trust Services"
+          ]
+        ],
+        [
+          [
+            "commonName",
+            "WE1"
+          ]
+        ]
+      ]
+    },
+    {
+      "host": "www.paddletoday.com",
+      "valid": true,
+      "notBefore": "Sep 21 00:00:00 2026 GMT",
+      "notAfter": "Mar 21 23:59:59 2027 GMT",
+      "SAN": [
+        [
+          "DNS",
+          "www.paddletoday.com"
+        ]
+      ],
+      "issuer": [
+        [
+          [
+            "countryName",
+            "US"
+          ]
+        ],
+        [
+          [
+            "organizationName",
+            "DigiCert Inc"
+          ]
+        ],
+        [
+          [
+            "organizationalUnitName",
+            "www.digicert.com"
+          ]
+        ],
+        [
+          [
+            "commonName",
+            "GeoTrust TLS RSA CA G1"
+          ]
+        ]
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "url": "https://www.paddletoday.com/",
+      "exit": 0,
+      "headers": "HTTP/1.1 301 Moved Permanently\nContent-Length: 0\nDate: Mon, 28 Sep 2026 15:02:41 GMT\nLocation: https://paddletoday.com/\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\nX-Content-Type-Options: nosniff\nReferrer-Policy: strict-origin-when-cross-origin\npermissions-policy: geolocation=(), microphone=(), camera=()\n\n",
+      "error": ""
+    },
+    {
+      "url": "https://www.paddletoday.com/rivers/little-miami-river-kelley-milford/?monitor=20260928",
+      "exit": 0,
+      "headers": "HTTP/1.1 301 Moved Permanently\nContent-Length: 0\nDate: Mon, 28 Sep 2026 15:02:40 GMT\nLocation: https://paddletoday.com/rivers/little-miami-river-kelley-milford/?monitor=20260928\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\nX-Content-Type-Options: nosniff\nReferrer-Policy: strict-origin-when-cross-origin\npermissions-policy: geolocation=(), microphone=(), camera=()\n\n",
+      "error": ""
+    },
+    {
+      "url": "http://paddletoday.com/",
+      "exit": 0,
+      "headers": "HTTP/1.1 301 Moved Permanently\nDate: Mon, 28 Sep 2026 15:02:41 GMT\nContent-Type: text/html; charset=UTF-8\nTransfer-Encoding: chunked\nConnection: keep-alive\nLocation: https://paddletoday.com/\nReport-To: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ZD9H0NJbAmT6v4m48b%2BYc1P8CxRu7zzOLyMkM4rKXQfKLg5Pfi9oWMhxgZt0tTljhMpuvFPZzffaUYy8UpcMGn9NgEKf7A%2Fzi8rLS6VXIwtqTiqnKM%2Fbb6DwJtyO6V6f0XYteGVG1U8vOJQnhu8%3D\"}]}\nNel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nServer: cloudflare\nCF-RAY: a423a1702b3c140a-ORD\nalt-svc: h3=\":443\"; ma=86400\n\n",
+      "error": ""
+    }
+  ],
+  "performance": {
+    "status": "unavailable",
+    "latestCompleteDate": null,
+    "provisionalPeriods": {
+      "current": [
+        "2026-09-20",
+        "2026-09-26"
+      ],
+      "previous": [
+        "2026-09-13",
+        "2026-09-19"
+      ]
+    },
+    "periodNote": "Candidate windows only; latest finalized date cannot be confirmed while signed out. Recalculate after access restored.",
+    "totals": null,
+    "cohort": [
+      {
+        "path": "/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/little-miami-river-kelley-milford/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/namekagon-river-big-bend-trego/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/milwaukee-river-west-bend-quaas-creek/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/ouachita-river-remmel-whitewater-park/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/namekagon-river-county-k-whispering-pines/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/big-river-mammoth-merrill-horse/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/st-croix-river-sand-creek-highway-70/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/youghiogheny-river-lower-yough-ohiopyle-bruner-run/",
+        "current": null,
+        "previous": null
+      },
+      {
+        "path": "/rivers/james-river-hl-kerr-ralph-cox/",
+        "current": null,
+        "previous": null
+      }
+    ]
+  },
+  "indexing": {
+    "status": "unavailable",
+    "canonicalValidationOutcome": null,
+    "latestCrawls": null,
+    "googleSelectedCanonicals": null
+  },
+  "notificationReason": "Search Console session signed out; user sign-in required",
+  "noProgressComparisonCompleted": false
+}

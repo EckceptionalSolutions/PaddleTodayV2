@@ -1573,7 +1573,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "The standard shuttle is about 3.5 miles. Wisconsin River Trips says it works especially well as a short bike-and-paddle combo using city trails, but a simple car shuttle is easier for most groups.",
       "permits": "No route-specific paddling permit is known. Follow posted city park, trail, and parking rules at the Washington Street dam area and Quaas Creek Park.",
       "camping": "No on-route camping is documented for this short urban day trip. Treat it as a day paddle.",
-      "summary": "Launch south of the Washington Street dam in West Bend and finish at Quaas Creek Park. This is a short but lively Milwaukee River run with downtown riffles, a restored-prairie middle stretch, and a cleaner route-specific gauge story than most upper-Milwaukee prospects.",
+      "summary": "Put in below Washington Street Dam and paddle 3.9 miles downstream to Quaas Creek Park in West Bend. Allow about 1.5–2.5 hours. Expect downtown riffles and quicker current; at the railroad-bridge island, stay in the north channel to avoid strainers. USGS 04086600 near Cedarburg is downstream, and its low-water walking guidance describes the shallow stretch above Riverside Park, so use the community gauge ladder as broad context for the full run.",
       "accessCaveats": [
         "The put-in is a public launch area below the dam rather than a large formal boat ramp, so scout the shoreline and current before unloading.",
         "Quaas Creek Park has multiple access points; Wisconsin River Trips used the south access, which involves a longer carry but cleaner official parking.",
@@ -2732,7 +2732,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Follow Wisconsin boating/PFD rules and posted access, campground, and parking instructions.",
       "camping": "Wisconsin Trail Guide describes frequent lower-Black sandbar or beach camping, but this should be treated as conditional river camping. Confirm current water levels, weather, land ownership, and one-night-use expectations before planning an overnight.",
       "campingClassification": "sandbar_or_gravel_bar",
-      "summary": "Launch at Irving and finish at Melrose for the popular lower-Black sandbar and bluff segment. It is mostly quietwater with riffles, but the distance, island channels, and private-bank limits require a real shuttle plan.",
+      "summary": "Launch at David Hansen Memorial Landing in Irving and finish at Melrose Landing for 11.8 miles of mostly quiet water and riffles. Wisconsin Trail Guide estimates about five hours; expect sandy beaches at medium and lower flows and tall bluffs. At low water, forks around the large islands may require walking. Treat the guide's 200–3,000 cfs Black River Falls range as community guidance from an upstream gauge, not a safety guarantee; use named public landings and keep private campground access out of the plan unless it is explicitly allowed.",
       "accessCaveats": [
         "Use the named Irving and Melrose landings; Lost Falls Campground and other private landings are not default public stops.",
         "Low water can force wading or boat dragging around islands, while high water covers sandbars and increases strainer consequences.",
@@ -4955,7 +4955,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "estimatedPaddleTime": "About 2 hr to 3 hr depending on wood, portages, and clarity stops",
       "shuttle": "Stage the take-out at the South White River Road DNR pull-off, then drive or bike back to Cottonville Avenue. The source reports a short 2.4-mile bike shuttle with little ascent.",
       "permits": "No route-specific paddling permit is known. Use the DNR parking/pull-off areas, follow Wisconsin boating and PFD rules, and obey posted fishery-area or road-access signs.",
-      "camping": "Treat this as a day trip. No legal on-route campsite was confirmed on the West Branch or lower White River corridor during this run.",
+      "camping": "Treat this as a day trip. Treat this as a day trip unless a legal on-route campsite is independently confirmed; check current rules for any endpoint campground or access.",
       "campingClassification": "none",
       "summary": "Launch from the Cottonville Avenue DNR lot and take out at the South White River Road DNR pull-off for the cleaner West Branch White River option. Use the Chaffee Creek proxy cautiously and be ready for small-stream wood and low-bridge portages.",
       "accessCaveats": [
@@ -5070,7 +5070,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the public bridge / park accesses, follow Wisconsin boating and PFD rules, and obey Portage County park and campground rules.",
       "camping": "Jordan Park has a campground and facilities at the take-out, making this a possible base-camp day route. No on-route riverbank camping is assumed between Hwy K and Jordan Park.",
       "campingClassification": "endpoint_campground",
-      "summary": "Use the County Highway K public canoe-access area and finish at Jordan Park after the Sharonwood / boulder-garden corridor and Jordan Pond. The Kelly proxy was below the selected low-water floor during this run, so expect scraping until flows improve.",
+      "summary": "Use the County Highway K public canoe-access area and finish at Jordan Park after the Sharonwood / boulder-garden corridor and Jordan Pond. If the Kelly proxy is below about 130 cfs, expect scraping; compare its live reading with local depth before launch.",
       "accessCaveats": [
         "Portage County describes a small county highway right-of-way canoe access at Hwy K. Confirm legal parking and carry, and do not block the road or private drives.",
         "Sharonwood Lane is an intermediate access option, but the normal plan continues to Jordan Park.",
@@ -5176,7 +5176,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the AW-listed access points only where parking is legal, follow Wisconsin boating/PFD rules, and respect any posted local road or landowner restrictions.",
       "camping": "Treat Rib Dells as a day-only whitewater run. No legal on-route campsite is documented, and the remote access roads are not a camping plan.",
       "campingClassification": "none",
-      "summary": "Run the Big Rib Rib Dells from Highway 64 to the Greiner / Silver Fox take-out when the AW-selected Prairie River proxy is in range. The current reading was below the AW floor, so this card ships with a low-water warning.",
+      "summary": "Run the Big Rib Dells from Highway 64 to the Greiner / Silver Fox take-out when the Prairie River proxy is within American Whitewater’s 300–1,000 cfs range. Scout the Class II bedrock dells and take-out before launching.",
       "accessCaveats": [
         "The take-out road can be rough after rain or thaw; verify it before launching.",
         "AW access points are the basis for the route. Keep parking tight and avoid private or logging-road conflicts.",
@@ -5335,7 +5335,7 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use legal street parking, follow Wisconsin boating and PFD rules, and keep dam portages short and leave-no-trace where Wisconsin portage law crosses private banks.",
       "camping": "Day route only. No on-route public campsite is documented in the downtown Cedarburg corridor, and private banks are not part of the route plan.",
       "campingClassification": "none",
-      "summary": "Launch by Cedarburg Mill / Rebellion Brewing and run the short AW Cedar Creek reach to CTH T, portaging Columbia Mills Dam and Nail Factory Dam. The direct Cedar Creek gauge was below AW runnable guidance during this run.",
+      "summary": "Launch by Cedarburg Mill / Rebellion Brewing and run the short American Whitewater Cedar Creek reach to CTH T, portaging Columbia Mills Dam and Nail Factory Dam. American Whitewater recommends 100–1,200 cfs at the direct Cedarburg gauge; check live flow and portage conditions.",
       "accessCaveats": [
         "Launch is a careful rockwork / creekside access by the Cedarburg Mill area; it is not a developed boat ramp.",
         "Columbia Mills Dam and Nail Factory Dam require mandatory portages with private-bank constraints. Keep carries legal, brief, and respectful.",
@@ -6708,20 +6708,21 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -91.98117
     },
     "logistics": {
-      "distanceLabel": "About 11.0 mi",
-      "estimatedPaddleTime": "About 3 hr to 5 hr, longer with low water, fishing, or campsite stops",
+      "distanceLabel": "9.9 mi per NPS (WRT trip log: 11.0 mi)",
+      "estimatedPaddleTime": "About 3 hr to 6 hr (NPS guidance; conditions and pace vary)",
       "shuttle": "Stage Whispering Pines Landing first, then return to County Road K Landing below the Trego Dam corridor. Verify both Riverway landings before launching because this is a secluded lower Namekagon reach with limited exits.",
       "permits": "No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.",
-      "camping": "WTG says the broader County K-to-Fritz N4 segment has fourteen Riverway canoe campsites, and the lower Namekagon-to-Riverside reach has extensive designated campsite support. Use only signed first-come Riverway campsites and follow NPS limits.",
+      "camping": "NPS lists eight campsites (two group sites) along the County K-to-Whispering Pine trip. WTG's fourteen-site count covers the broader County K-to-Fritz N4 segment, so not all fourteen sites are on this shorter route. Sites are designated and first-come; follow current NPS rules and do not camp on unmarked banks or islands.",
       "campingClassification": "on_route_campsite",
-      "summary": "Launch below Trego at County Road K and paddle to Whispering Pines for a secluded lower Namekagon day. The route has mostly easy current, several Class I riffles, wooded banks, islands, and strong Riverway camping context.",
+      "summary": "This NPS-listed 9.9-mile day trip runs from County Road K to Whispering Pine through mostly calm water and a few short Class I riffles. Islands and bends make the reach feel secluded; back channels can be blocked by debris or vegetation. Eight designated campsites (two group) are listed for this stretch, and the Leisure Lake trail is near river mile 29.3 on river left.",
       "accessCaveats": [
         "Start at County Road K Landing below the Trego Dam/flowage corridor. Do not fold the upstream dam portage into this card.",
         "Whispering Pines is the default exit. Howell, Fritz, McDowell, and Riverside are separate downstream planning choices.",
+        "NPS and WTG describe this recommended day trip as 9.9 miles; a 2024 WRT trip log records 11.0 miles for the same named endpoints. Allow for route and distance-measurement variation.",
         "Riverway camps are first-come and designated only; do not assume private banks, islands, or sandbars are legal overnight stops."
       ],
       "watchFor": [
-        "Shallow riffles below the 155 cfs floor, island-channel splits, overhanging trees, sweepers, and strainers.",
+        "NPS says unusually low rainfall can cause occasional scraping; the 155 cfs reading in one WRT trip log is not a published minimum. Watch shallow riffles, blocked island back channels, overhanging trees, sweepers, and strainers.",
         "Remote shoreline with limited intermediate exits and slower rescue response.",
         "Cold water, post-rain rises, ticks, poison ivy, and private or restricted banks outside signed Riverway sites."
       ]
@@ -6834,11 +6835,11 @@ export const wisconsinRiverTripDetails: Record<string, RiverTripDetails> = {
     "logistics": {
       "distanceLabel": "About 5.2 mi",
       "estimatedPaddleTime": "About 2 hr to 3.5 hr, longer with low water, fishing, or campsite stops",
-      "shuttle": "Stage Big Bend Landing first, then return to Springbrook Landing. This short card intentionally stops above the already-live Big-Bend-to-Trego route.",
+      "shuttle": "Stage a vehicle at Big Bend Landing / POW Road, then drive back to Springbrook Landing for the put-in. Earl Park and Trego are downstream access choices if you plan a longer trip.",
       "permits": "No route-specific paddling permit is known for private boats. Follow Wisconsin boating/PFD rules and St. Croix National Scenic Riverway rules, including no glass and designated-campsite-only camping.",
       "camping": "WTG lists designated Riverway campsites in the broader Springbrook-to-Trego N3 corridor. Treat camping as signed, first-come Riverway sites only; do not use private banks, islands, or sandbars by default.",
       "campingClassification": "on_route_campsite",
-      "summary": "A short scenic Namekagon link from Springbrook to Big Bend, with light rapids, grassy islands, wooded banks, and easy public Riverway access at both ends.",
+      "summary": "Plan the 5.2-mile Springbrook-to-Big Bend float in about 2–3.5 hours. Expect mostly quiet water with light Class I riffles, shallow grassy island channels, and wooded banks. The Leonards gauge is an upstream proxy, so treat 150 cfs only as a conservative corridor floor. Use the signed public Riverway landings and campsites.",
       "accessCaveats": [
         "Springbrook is the intended put-in; launching upstream overlaps the Stinnett-to-Springbrook rapid connector.",
         "Big Bend is the planned take-out. Earl Park and Trego are downstream alternatives covered by the existing Big-Bend-to-Trego card.",

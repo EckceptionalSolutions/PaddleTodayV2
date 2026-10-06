@@ -141,6 +141,8 @@ export interface StoredSnapshotReadOptions {
 }
 
 type StoredSnapshot<T> = T & StoredSnapshotMetadata;
+const normalizedSummaries = new WeakMap<RiverSummarySnapshot, Partial<Record<StoredSnapshotStatus, RiverSummaryApiItem[]>>>();
+const normalizedWeekends = new WeakMap<WeekendSummarySnapshot, Partial<Record<StoredSnapshotStatus, WeekendSummaryApiItem[]>>>();
 
 export async function captureRiverSnapshots(args: {
   results: RiverScoreResult[];
@@ -189,10 +191,12 @@ export async function getStoredRiverSummarySnapshot(
     return null;
   }
 
-  const rivers = snapshot.rivers
+  const versions = normalizedSummaries.get(snapshot) ?? {};
+  const rivers = versions[metadata.snapshotStatus] ??= snapshot.rivers
     .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
     .map(normalizeSummarySnapshotItem)
     .map((item) => metadata.snapshotStatus === 'stale' ? markSummarySnapshotItemStale(item) : item);
+  normalizedSummaries.set(snapshot, versions);
 
   return {
     ...snapshot,
@@ -257,10 +261,12 @@ export async function getStoredWeekendSummarySnapshot(
     return null;
   }
 
-  const rivers = snapshot.rivers
+  const versions = normalizedWeekends.get(snapshot) ?? {};
+  const rivers = versions[metadata.snapshotStatus] ??= snapshot.rivers
     .filter((item) => Boolean(getRiverBySlug(item.river.slug)))
     .map(normalizeWeekendSnapshotItem)
     .map((item) => metadata.snapshotStatus === 'stale' ? markWeekendSnapshotItemStale(item) : item);
+  normalizedWeekends.set(snapshot, versions);
 
   return {
     ...snapshot,
@@ -814,6 +820,7 @@ async function readCachedSnapshot<T>(key: string, load: () => Promise<T | null>)
   const ttlMs = positiveInteger(process.env.RIVER_SNAPSHOT_READ_CACHE_TTL_MS, DEFAULT_SNAPSHOT_READ_CACHE_TTL_MS);
   return remember({
     key: `snapshot:${key}`,
+    namespace: 'snapshot',
     ttlMs,
     staleWhileErrorMs: ttlMs * 3,
     maxEntries: SNAPSHOT_READ_CACHE_MAX_ENTRIES,

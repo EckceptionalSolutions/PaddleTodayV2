@@ -5,6 +5,8 @@
 - Build the static app with `npm run build`.
 - Azure Static Web Apps serves the public frontend and proxies `/api/*` to the linked App Service.
 - The App Service package also contains `dist/` and serves the built app plus `/api` from one Node process with `npm run start`. This makes the backend origin independently smoke-testable and provides a one-origin fallback without changing browser API paths.
+- `npm run package:api` compiles the reachable server code to `deploy-package/server.mjs`, copies the eight declared operations/control-plane JSON resources, and retains the complete static fallback. HTML pages are stored as lossless gzip files with an inventory; the server streams gzip directly or decompresses for clients requesting identity. Gallery and geometry files remain available.
+- The API workflow installs the packaged production dependencies once, verifies the isolated runtime and every static resource, and deploys that prepared directory. Its packaged `npm start` runs `server.mjs`; the root development startup continues to run the TypeScript source. `api-package-manifest.json` records inputs, dependency versions, resource hashes, and byte counts.
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
@@ -37,6 +39,7 @@ The scheduled river-snapshot job evaluates the same telemetry in the process tha
 
 - `/api/rivers/summary.json` returns a lean summary envelope for the homepage, not the full scoring object for every river.
 - `/api/rivers/:slug.json` returns a slimmer detail envelope that keeps live scoring data but drops static editorial fields already baked into the HTML.
+- `/api/rivers/:slug/preview-photo.json` returns the featured photo and its attribution without shipping the entire gallery catalog to browser boards. Deploy this endpoint before releasing the updated home/weekend scripts. Previously cached previews work offline for seven days; an uncached or unavailable photo leaves the board's neutral image fallback.
 - Every JSON response includes a `requestId`, and the same value is sent in the `x-request-id` response header.
 - Request logs now include the request ID so browser/API failures can be matched to server logs quickly.
 - Manual history and river-snapshot refresh endpoints fail closed in production unless `HISTORY_SNAPSHOT_TOKEN` or `SNAPSHOT_REFRESH_TOKEN` is configured.
@@ -61,6 +64,8 @@ The application limiter is a bounded, process-local abuse backstop. Multi-instan
 The API deployment package and snapshot worker use committed lockfiles and `npm ci`; the API startup command assumes dependencies were installed during deployment. Run `npm run snapshots:capacity` against a captured summary before release to record payload headroom against the 4 MiB summary budget.
 
 Contribution uploads are decoded, resized, re-encoded as JPEG, and metadata-stripped before they can become public derivatives. Apply the retention windows and deletion procedure in [`contribution-retention-policy.md`](contribution-retention-policy.md) before enabling long-term production retention.
+
+Private paddle-log photos now store JPEG bytes under `trip-photo-bytes/` in the existing private trip container and Hot tier. The authorized log/index retains metadata and byte quotas; existing `trip-photos/*.json` objects remain supported. The HTTP upload and offline queue formats are unchanged. Deploy compatible readers to all API instances and retain a compatible rollback build before enabling new-format uploads. This change does not migrate existing objects or alter cloud retention.
 
 An authenticated administrator can remove a contribution with `DELETE /api/admin/route-contributions/{submissionId}`; the handler removes the submission index entry, source files, and any approved community derivatives.
 

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-05",
+  "scope": "Second visual and usability pass on My Trips",
+  "changes": [
+    "Compact unfinished-draft notice with separate accessible Resume and confirmed Discard controls",
+    "Featured plan includes year, weekday, labeled access points, and unread-update badge",
+    "Access-label column scales with the Android text-size setting",
+    "History cards lead with date and route, followed by smaller media and private-recap metadata",
+    "Secondary trip-overview actions use compact grouped rows",
+    "Library tab changes return to the top; search toggle describes its current action",
+    "Deep-linked My Trips screen avoids duplicating the native header title",
+    "Web overview presents schedule facts and access points in distinct labeled groups"
+  ],
+  "checks": {
+    "mobileTypecheck": "passed after final text-size adjustment",
+    "runtimeTypecheck": "passed",
+    "mobileFocusedTests": 24,
+    "browserTests": 40,
+    "browserProjects": ["desktop-chromium", "mobile-android"],
+    "webBuild": "passed",
+    "webVisualInspection": "Plans, overview, and History at 320, 390, and 1280px; no horizontal overflow",
+    "nativeInspection": "Dashboard, History, compact overview controls, canceling draft-discard confirmation, tab scroll reset, deep-linked header, cold reopen, and 130% text size",
+    "nativeErrorLog": "No ReactNativeJS or AndroidRuntime errors for final cold-launch process",
+    "diffWhitespace": "passed"
+  },
+  "androidPreview": {
+    "path": "artifacts/android/paddletoday-trips-visual-pass2-20261005.apk",
+    "sha256": "e830097096073b7d53485e69d7f2f16dd657362e3ee6aad266fe2fa066bc81e9",
+    "installedHashMatches": true,
+    "signing": "Existing configured certificate verified against source APK",
+    "nativeRuntime": "Existing preview runtime with updated bundled JavaScript and assets"
+  },
+  "preservation": {
+    "baselinePlans": 1,
+    "baselineHistory": 1,
+    "baselineDrafts": 1,
+    "existingData": "Plan, recap, photos, and unfinished draft retained; no content or sharing mutations made",
+    "textScaleRestored": 1.0,
+    "temporaryKeystoreRemoved": true,
+    "temporaryDeviceCaptureFilesRemoved": true,
+    "ownedPreviewServersStopped": true,
+    "finalPhoneScreen": "My Trips dashboard"
+  },
+  "evidenceDirectory": "artifacts/my-trips-visual",
+  "deployment": "Updated Android preview installed. Web source verified locally; no website or store publication."
+}

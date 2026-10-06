@@ -1,0 +1,13 @@
+{
+  "capturedAt": "2026-10-02",
+  "app": {"package": "com.paddletoday.mobile", "version": "1.1.3", "versionCode": 27, "installation": "sideloaded; Play binary identity not verified"},
+  "device": {"model": "Samsung Galaxy A14 (SM-A146U1)", "captureSize": "1080x1920", "captureDensity": 400, "restoredSize": "1080x2408", "restoredDensity": 450},
+  "panels": [
+    {"id": "01-today", "headline": ["Choose where to", "paddle today."], "theme": "forest", "alt": "Today shows an American River route, a condition score, trip length, and nearby options.", "note": "Public planning city: Sacramento, California. American River, Watt Avenue to Howe Avenue, native score 94."},
+    {"id": "02-conditions", "headline": ["Understand the", "river conditions."], "theme": "cream", "alt": "American River detail explains its score, weather, and route cautions.", "note": "Same route and score as Today. Native weather, caution labels, and score explanation retained."},
+    {"id": "03-explore", "headline": ["Find your next", "river trip."], "theme": "forest", "alt": "Explore shows Sacramento area routes on a map and a selected American River route card.", "note": "California filter; 50 routes across 3 rivers. Selected Harrington to Howe route, native score 94."},
+    {"id": "04-access", "headline": ["Plan your put-in", "and take-out."], "theme": "cream", "alt": "Access map shows Watt Avenue and Howe Avenue launch points, distance, and estimated paddle time.", "note": "Both native map markers, launch selectors, distance, estimated time, and Google attribution visible."},
+    {"id": "05-weekend", "headline": ["Make a plan for", "the weekend."], "theme": "forest", "alt": "Weekend shows a Des Moines River trip with an October 3–4 forecast and planning cautions.", "note": "Nationwide shortlist. Des Moines River weekend score 92; forecast caution and October 3–4 dates preserved."},
+    {"id": "06-saved", "headline": ["Keep your favorite", "rivers close."], "theme": "cream", "alt": "Saved routes shows three favorites, their call counts, and a Des Moines River condition summary.", "note": "Three saved routes; Des Moines current score 87 differs from its weekend score 92. No personal notes shown."}
+  ]
+}

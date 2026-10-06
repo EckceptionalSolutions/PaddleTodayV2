@@ -2,6 +2,13 @@
 
 Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
+## 2026-10-05 Search Console catalog follow-up
+
+- The July 3 consolidation record explicitly folded `susquehanna-river-canal-park-wetlands` into the Canal Park–Test Track corridor planner because Wetlands Nature Area remains an intermediate access on that planner. A July 16 restore pass later reintroduced the subset slug while restoring other Section 3 routes; that restore overlooked the earlier consolidation decision.
+- The parent planner's access ladder still includes Wetlands Nature Area at approximately river mile 166, so it can represent the Canal Park–Wetlands 14-mile trip as a shorter segment of the longer planner.
+- Search Console's stored inspection for the subset page called it an alternate with a proper canonical but reported the homepage as Google's selected canonical. The October 5 live test now fetches successfully, allows crawling/indexing, and reports the subset page's own URL as its user-declared canonical; Google has not selected a canonical because the page is not indexed.
+- Re-consolidated the subset into `susquehanna-river-canal-park-test-track`, removed its live route/trip-detail/order/family/map entries, and added 301 redirects for both slash forms. This source correction needs release before production behavior or the sitemap changes.
+
 ## Current Inventory
 
 - 2026-06-25 14:45 America/Chicago / 2026-06-25 19:45 UTC: Redundancy cleanup collapsed the recent French Creek permutations into four canonical live routes with intermediate public `accessPoints`: `french-creek-union-city-dam-cambridge-springs`, `french-creek-conneautee-bicentennial-park`, `french-creek-wilson-chutes-utica`, and `french-creek-utica-franklin`. The shorter and overlapping French Creek slugs remain documented historically in the ledger and run notes, but they are no longer live route slugs in `src/data/rivers.ts` or `src/data/river-trip-details.ts`.

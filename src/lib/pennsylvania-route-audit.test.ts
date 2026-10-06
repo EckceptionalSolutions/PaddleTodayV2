@@ -7,7 +7,12 @@ describe('Pennsylvania route completeness', () => {
   it('keeps every Pennsylvania route usable, documented, and illustrated', () => {
     const routes = listAllRiversForAudit().filter((route) => route.state === 'Pennsylvania');
 
-    expect(routes).toHaveLength(63);
+    // October's reviewed consolidation keeps the Wetlands segment available
+    // in the parent access planner rather than restoring its duplicate card.
+    expect(routes).toHaveLength(62);
+    expect(routes.some(route => route.id === 'susquehanna-river-canal-park-wetlands')).toBe(false);
+    expect(routes.find(route => route.id === 'susquehanna-river-canal-park-test-track')?.accessPoints
+      .some(point => point.name.includes('Wetlands'))).toBe(true);
 
     for (const route of routes) {
       const details = riverTripDetails[route.id];

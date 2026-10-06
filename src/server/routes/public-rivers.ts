@@ -22,12 +22,17 @@ import { getAllRiverScores, getRiverBySlug, getRiverGroupById, getRiverGroupScor
 import { getCacheStats } from '../../lib/server-cache';
 import { parseQueryNumber } from '../request-parsers';
 import { resolveStaticFile } from '../static-route';
-import { buildExploreCatalog } from '../../lib/explore-catalog';
+import { createExploreCatalogBuilder } from '../../lib/explore-catalog';
+import { getJsonResponseStats } from '../json-response';
+import { getGeometryCacheStats } from './river-geometry';
 
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
 const LIVE_SUMMARY_CACHE_CONTROL = 'public, max-age=60, s-maxage=180, stale-while-revalidate=600';
 const ROUTE_DETAIL_CACHE_CONTROL = 'public, max-age=120, s-maxage=600, stale-while-revalidate=1800';
 const ROUTE_HISTORY_CACHE_CONTROL = 'public, max-age=300, s-maxage=900, stale-while-revalidate=3600';
+let exploreBuilder: ReturnType<typeof createExploreCatalogBuilder> | undefined;
+let catalogRivers: Array<{ river: Pick<ReturnType<typeof listRivers>[number], 'slug' | 'riverId' | 'name' | 'state' | 'region'> }> | undefined;
+const EMPTY_SCORES: Parameters<ReturnType<typeof createExploreCatalogBuilder>>[0] = [];
 
 export function handleHealth(
   response: ServerResponse,
@@ -44,6 +49,8 @@ export function handleHealth(
     riverCount: listRivers().length,
     cache: getCacheStats(),
     upstream: getUpstreamTelemetry(),
+    jsonResponses: getJsonResponseStats(),
+    geometryCache: getGeometryCacheStats(),
   }, includeBody, 'no-store');
 }
 
@@ -69,15 +76,16 @@ export function handleReady(
 }
 
 export function handleRiverCatalog(response: ServerResponse, requestId: string, includeBody: boolean) {
-  const rivers = listRivers().map(({ slug, riverId, name, state, region }) => ({
+  const rivers = catalogRivers ??= listRivers().map(({ slug, riverId, name, state, region }) => ({
     river: { slug, riverId, name, state, region },
   }));
-  return sendJson(response, 200, { requestId, rivers }, includeBody, ROUTE_DETAIL_CACHE_CONTROL);
+  return sendJson(response, 200, { requestId, rivers }, includeBody, ROUTE_DETAIL_CACHE_CONTROL, {}, { immutableFields: ['rivers'] });
 }
 
 export async function handleExploreCatalog(response: ServerResponse, requestId: string, includeBody: boolean) {
   const snapshot = await getStoredRiverSummarySnapshot({ allowStale: true }).catch(() => null);
-  const catalog = buildExploreCatalog(listRivers(), snapshot?.rivers ?? []);
+  exploreBuilder ??= createExploreCatalogBuilder(listRivers());
+  const catalog = exploreBuilder(snapshot?.rivers ?? EMPTY_SCORES);
   return sendJson(response, 200, {
     requestId,
     generatedAt: snapshot?.generatedAt ?? null,
@@ -85,7 +93,7 @@ export async function handleExploreCatalog(response: ServerResponse, requestId: 
     riverCount: catalog.rivers.length,
     snapshotCatalog: snapshot?.catalog ?? null,
     ...catalog,
-  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
+  }, includeBody, LIVE_SUMMARY_CACHE_CONTROL, {}, { immutableFields: ['rivers', 'coverage'] });
 }
 
 export async function handleRiverSummary(response: ServerResponse, requestId: string, includeBody: boolean) {
@@ -98,7 +106,7 @@ export async function handleRiverSummary(response: ServerResponse, requestId: st
       snapshotAgeSeconds: snapshot.snapshotAgeSeconds,
       riverCount: snapshot.riverCount,
       rivers: snapshot.rivers,
-    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
+    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL, {}, { immutableFields: ['rivers'] });
   }
 
   const generatedAt = new Date().toISOString();
@@ -128,7 +136,7 @@ export async function handleWeekendSummary(response: ServerResponse, requestId: 
       riverCount: snapshot.riverCount,
       withheldCount: snapshot.withheldCount,
       rivers: snapshot.rivers,
-    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL);
+    }, includeBody, LIVE_SUMMARY_CACHE_CONTROL, {}, { immutableFields: ['rivers'] });
   }
 
   const generatedAt = new Date().toISOString();

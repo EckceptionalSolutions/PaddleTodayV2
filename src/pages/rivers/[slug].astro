@@ -4,6 +4,7 @@ import { staticAssetUrl } from '../../lib/static-asset-url.js';
 import RouteAppHandoff from '../../components/RouteAppHandoff.astro';
 import RouteAppDownload from '../../components/RouteAppDownload.astro';
 import { webFeatureFlags } from '../../lib/web-feature-flags';
+
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import GaugeBand from '../../components/GaugeBand.astro';
 import WeatherDayStrip from '../../components/WeatherDayStrip.astro';
@@ -28,6 +29,34 @@ export function getStaticPaths() {
 const { river } = Astro.props;
 const isPlanningRoute = river.scoreEligibility === 'planning';
 const isLittleMiamiKelleyMilford = river.slug === 'little-miami-river-kelley-milford';
+// Dated route evidence is a review snapshot; do not present it as live telemetry.
+const routeReviewDate = (text: string) =>
+  text.match(/\b20\d{2}-\d{2}-\d{2}\b/)?.[0] ??
+  text.match(
+    /\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2},?\s+20\d{2}\b/i,
+  )?.[0];
+const isRecordedGaugeCheck = (note: { label: string; value: string; note?: string }) => {
+  if (note.label === 'Current gauge check' || note.label === 'Historical gauge snapshot') return true;
+
+  const evidenceText = `${note.value} ${note.note ?? ''}`;
+  const hasRecordedDate = Boolean(routeReviewDate(evidenceText));
+  const hasMeasuredReading = /\b\d[\d,]*(?:\.\d+)?\s*(?:cfs|ft|cms)\b/i.test(evidenceText);
+
+  return /gauge|flow|stage/i.test(note.label) && hasRecordedDate && hasMeasuredReading;
+};
+const evidenceNoteLabel = (note: { label: string; value: string; note?: string }) => {
+  if (!isRecordedGaugeCheck(note)) return note.label;
+  const evidenceText = `${note.value} ${note.note ?? ''}`;
+  const capturedDate = routeReviewDate(evidenceText);
+  return capturedDate
+    ? `Gauge check during route review · ${capturedDate}`
+    : 'Gauge check recorded during route review';
+};
+const evidenceNoteDetail = (note: { label: string; value: string; note?: string }) =>
+  isRecordedGaugeCheck(note)
+    ? 'This static check records gauge data observed during route review; it is not live telemetry. Check the current gauge and local conditions before paddling.'
+    : note.note;
+
 const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
 const thresholdConfidenceLabel = buildSourceStrengthViewModel(
   river.profile.thresholdSourceStrength,
@@ -118,6 +147,28 @@ const reportChangeEmail = `mailto:routes@paddletoday.com?subject=${encodeURIComp
 )}`;
 const hasAccessPlanner = (river.accessPoints?.length ?? 0) > 2;
 const accessPlannerPointsJson = JSON.stringify(river.accessPoints ?? []);
+const defaultAccessPoints = river.accessPoints ?? [];
+const defaultAccessPutIn = defaultAccessPoints[0];
+const defaultAccessTakeOut = defaultAccessPoints[defaultAccessPoints.length - 1];
+const defaultAccessRawDistance =
+  defaultAccessPutIn && defaultAccessTakeOut
+    ? defaultAccessTakeOut.mileFromStart - defaultAccessPutIn.mileFromStart
+    : Number.NaN;
+const defaultAccessDistance = Number.isFinite(defaultAccessRawDistance)
+  ? Math.max(0.1, Number(defaultAccessRawDistance.toFixed(1)))
+  : null;
+const defaultAccessShape =
+  defaultAccessPutIn?.segmentKind === 'lake' && defaultAccessTakeOut?.segmentKind === 'lake'
+    ? 'Lake chain'
+    : defaultAccessPutIn?.segmentKind === 'creek' && defaultAccessTakeOut?.segmentKind === 'creek'
+      ? 'Creek-focused'
+      : defaultAccessPutIn && defaultAccessTakeOut
+        ? 'Mixed access'
+        : 'Check route details';
+const defaultAccessSummary =
+  defaultAccessPutIn && defaultAccessTakeOut && defaultAccessDistance !== null
+    ? `${defaultAccessPutIn.name} to ${defaultAccessTakeOut.name} is about ${defaultAccessDistance.toFixed(1)} mi. Use the planner to compare shorter access pairs.`
+    : 'Select a put-in and take-out to compare shorter access pairs.';
 const allRoutes = listRivers();
 const siblingRoutes = allRoutes
   .filter((candidate) => candidate.riverId === river.riverId && candidate.slug !== river.slug)
@@ -184,7 +235,9 @@ const seoDescriptionSuffix = isPlanningRoute
 const seoDescriptionCoreLimit = 155 - seoDescriptionSuffix.length;
 const normalizedRouteSummary = (river.summary || '').replace(/\s+/g, ' ').trim();
 const routeSummaryExcerpt = (() => {
+  if (!normalizedRouteSummary) return '';
   if (normalizedRouteSummary.length <= seoDescriptionCoreLimit) return normalizedRouteSummary;
+
   const excerpt = normalizedRouteSummary.slice(0, seoDescriptionCoreLimit - 1);
   const lastWordBoundary = excerpt.lastIndexOf(' ');
   const end = lastWordBoundary >= seoDescriptionCoreLimit * 0.65 ? lastWordBoundary : excerpt.length;
@@ -223,6 +276,7 @@ const accessSafetyReviewDateLabel = (() => {
     timeZone: 'UTC',
   }).format(reviewDate);
 })();
+
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = isPlanningRoute
   ? routeSeoDescription
@@ -276,7 +330,7 @@ const breadcrumbItems = [
         },
       ]),
 ];
-const routeDistancePhrase = logistics?.distanceLabel?.trim().replace(/^(About|Approximately)\b/i, (qualifier) => qualifier.toLowerCase());
+const routeDistancePhrase = logistics?.distanceLabel?.trim().replace(/^About\b/i, 'about');
 const routeAccessAnswer =
   putIn?.name && takeOut?.name
     ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${routeDistancePhrase ? `, ${routeDistancePhrase} on the water` : ''}.`
@@ -284,6 +338,7 @@ const routeAccessAnswer =
 const routeFaqSubject = isLittleMiamiKelleyMilford
   ? 'Kelley-to-Milford route on the Little Miami River'
   : `${river.reach} route on the ${river.name}`;
+
 const waterLevelAnswer = isPlanningRoute
   ? `This planning route has no verified scoring range or live route score. Review the linked water-level sources, current access notices and route-specific hazards before travel.`
   : isMinimumOnlyRoute
@@ -293,6 +348,7 @@ const beginnerAnswer = isLittleMiamiKelleyMilford
   ? `Paddle Today lists this route as moderate and notes Class I–II play features, low-head-dam remnants, strainers, and cold-water hazards. Review current levels and the hazard notes against your group's experience and equipment before launching.`
   : isPlanningRoute
     ? `This is listed as a ${river.profile.difficulty} route. Review the difficulty notes, hazards and current access conditions against your group's skills. No live score assesses this trip.`
+
     : river.profile.difficulty === 'easy'
     ? `This is listed as an easy route, but conditions still matter. Check today's score, water level, weather, and access notes before you go.`
     : river.profile.difficulty === 'moderate'
@@ -348,7 +404,7 @@ const routeFaqStructuredData = {
   bodyClass="page-route-detail"
 >
   <RouteAppHandoff slug={river.slug} />
-  {webFeatureFlags.webAccountExperience && <p class="route-plan-account"><a href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}`}>Plan a trip on this route →</a></p>}
+
   <article
     class:list={["river-detail", isPlanningRoute && "river-detail--planning"]}
     data-river-detail
@@ -425,6 +481,7 @@ const routeFaqStructuredData = {
               <span>{river.name}</span>
               <span class="river-detail__reach">{river.reach}</span>
             </h1>
+
             <p class="route-seo-intro">{routeIntro}</p>
             {accessSafetyReviewDateLabel ? (
               <p class="muted" style="margin: 0.55rem 0 0;">
@@ -450,6 +507,7 @@ const routeFaqStructuredData = {
             </div>
           </div>
 
+          {webFeatureFlags.webAccountExperience && <p><a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a></p>}
           <section class="route-overview-trip-fit" aria-label="Trip facts">
             <div>
               <span>Distance</span>
@@ -1420,24 +1478,26 @@ const routeFaqStructuredData = {
           <div class="river-detail__quick-grid river-detail__quick-grid--compact river-access-planner__metrics">
             <article class="snapshot-card">
               <span class="snapshot-card__label">On-water distance</span>
-              <strong data-access-distance>{logistics?.distanceLabel ?? '15.2 mi'}</strong>
-              <small data-access-shape>Lake to creek</small>
+              <strong data-access-distance>
+                {defaultAccessDistance !== null
+                  ? `${defaultAccessDistance.toFixed(1)} mi`
+                  : logistics?.distanceLabel ?? 'Check source'}
+              </strong>
+              <small data-access-shape>{defaultAccessShape}</small>
             </article>
             <article class="snapshot-card">
               <span class="snapshot-card__label">On-water time</span>
-              <strong data-access-time>About 5 to 7 hr</strong>
+              <strong data-access-time>{typicalTimeHeadline}</strong>
               <small data-access-stage>Full route option</small>
             </article>
             <article class="snapshot-card">
               <span class="snapshot-card__label">Shuttle</span>
-              <strong data-access-shuttle>Self-shuttle</strong>
+              <strong data-access-shuttle>{shuttleHeadline ?? 'Check shuttle details'}</strong>
               <small data-access-note>Choose a shorter in/out pair for a shorter day.</small>
             </article>
           </div>
 
-          <p class="muted river-access-planner__summary" data-access-summary>
-            Peltier Lake to Long Lake is the full route. Shorter access pairs are useful when wind, time, or group energy changes the plan.
-          </p>
+          <p class="muted river-access-planner__summary" data-access-summary>{defaultAccessSummary}</p>
 
           <script type="application/json" data-access-points set:html={accessPlannerPointsJson}></script>
         </section>
@@ -1448,10 +1508,11 @@ const routeFaqStructuredData = {
         <div>
           <p class="eyebrow section-label">Prepare this trip</p>
           <h3 class="river-subtitle river-subtitle--compact">Take the plan with you</h3>
-          <p class="muted">Download the canonical route, add a calendar hold, or send a simple float plan to your group.</p>
+          <p class="muted">Save your selected route as a trip, choose a day, and bring your paddling partners along. You can also download the route or share a quick float plan.</p>
         </div>
         <div class="detail-map__links">
-          <a class="river-link river-link--inline river-link--primary" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>
+          <a class="river-link river-link--inline river-link--primary" data-plan-account href={`/trips/?route=${encodeURIComponent(river.slug)}&name=${encodeURIComponent(river.name)}&putin=${encodeURIComponent(river.putIn?.id || '')}&takeout=${encodeURIComponent(river.takeOut?.id || '')}`}>Plan this route</a>
+          <a class="river-link river-link--inline" href={tripGpxHref} data-trip-gpx data-analytics-event="Export GPX">Download GPX</a>
           <a class="river-link river-link--inline" href={tripIcsHref} data-trip-ics data-analytics-event="Export calendar">Add to calendar</a>
           <button class="river-inline-button" type="button" data-trip-share data-analytics-event="Share float plan">Share float plan</button>
         </div>
@@ -1864,10 +1925,12 @@ const routeFaqStructuredData = {
             {river.evidenceNotes.map((note) => (
               <li class="factor-item impact-neutral">
                 <div class="factor-item__head">
-                  <span class="factor-item__label">{note.label}</span>
+                  <span class="factor-item__label">{evidenceNoteLabel(note)}</span>
                   <span class="factor-item__value">{note.value}</span>
                 </div>
-                {note.note ? <p class="muted" style="margin: 0.55rem 0 0;">{note.note}</p> : null}
+                {evidenceNoteDetail(note) ? (
+                  <p class="muted" style="margin: 0.55rem 0 0;">{evidenceNoteDetail(note)}</p>
+                ) : null}
                 {note.sourceUrl && /^https?:\/\//i.test(note.sourceUrl) ? (
                   <p style="margin: 0.55rem 0 0;">
                     <a href={note.sourceUrl} target="_blank" rel="noreferrer">

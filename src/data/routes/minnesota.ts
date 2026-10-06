@@ -11358,7 +11358,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Wadena Area",
     "summary": "Official MN DNR Map 1 day trip through Huntersville State Forest from Huntersville North to Mary Brown, using public water-access endpoints, primitive campground context, and the downstream Nimrod interpreted gauge as a conservative same-corridor signal.",
-    "statusText": "Use the Nimrod DNR gauge as a downstream same-water-trail proxy: 400 to 800 cfs is medium, below 300 cfs is scrapable, and above 1,100 cfs is very high. The current reading is below the scrapable floor.",
+    "statusText": "Use the Nimrod DNR gauge as a downstream same-water-trail proxy: 400–800 cfs is medium, below 300 cfs is scrapable, and above 1,100 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 46.77839539490564,
     "longitude": -94.89298138194548,
     "gaugeSource": {
@@ -14810,7 +14810,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Wadena Area",
     "summary": "Official MN DNR Crow Wing Map 2 day trip from Little White Dog through the lower county-park corridor to Cottingham, with public Wadena County accesses, mapped campsites, and the interpreted Nimrod gauge just upstream.",
-    "statusText": "Use the Nimrod gauge conservatively: 400 to 800 cfs is the official medium band, below 300 cfs is scrapable, and above 1,100 cfs is very high. The current DNR feed was below the low-water floor during this run.",
+    "statusText": "Use the Nimrod gauge conservatively: 400 to 800 cfs is the official medium band, below 300 cfs is scrapable, and above 1,100 cfs is very high. Compare the live DNR reading and trend with these thresholds before launch.",
     "latitude": 46.5869849,
     "longitude": -94.8226157,
     "safetyProfile": {
@@ -17669,9 +17669,9 @@ export const minnesotaRoutes: River[] = [
         "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
-        "label": "Current gauge check",
+        "label": "Historical gauge snapshot",
         "value": "23.26 ft at 2026-07-22 10:45 PM",
-        "note": "The current MN DNR feed placed Floodwood below the official scrapable floor during this run, so this route should score as too low today.",
+        "note": "Historical reading from July 22, 2026; use the live DNR gauge link for current conditions.",
         "sourceUrl": "https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json"
       },
       {
@@ -18194,7 +18194,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Mississippi Headwaters",
     "summary": "Official MN DNR Mississippi headwaters one-way from Schoolcraft State Park to Sylvan Municipal Park, extending past the #10 access through the Pokegama reservoir and Grand Rapids dam corridor with direct Days High Landing gauge support.",
-    "statusText": "Use the Days High Landing DNR gauge: 1,273.8 to 1,274.5 ft is the official medium band. Below 1,272.9 ft is scrapable, and above 1,275 ft is very high; the current reading is in the low band.",
+    "statusText": "Use the Days High Landing DNR gauge: 1,273.8–1,274.5 ft is the official medium band. Below 1,272.9 ft is scrapable, and above 1,275 ft is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 47.225074,
     "longitude": -93.8021304,
     "gaugeSource": {
@@ -20152,7 +20152,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Mississippi Headwaters",
     "summary": "Long Map 5 connector from Aitkin Campground to the Highway 6 public access, filling the gap between existing Aitkin and Brainerd-area Mississippi cards with a direct Aitkin DNR gauge.",
-    "statusText": "Use the Aitkin DNR gauge at the put-in: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high; the current reading is below the medium band.",
+    "statusText": "Use the Aitkin DNR gauge at the put-in: 1,500–6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 46.5423989,
     "longitude": -93.713071,
     "gaugeSource": {
@@ -20655,7 +20655,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Brainerd Lakes Area",
     "summary": "Official MN DNR / Mississippi Headwaters Board day route from the Highway 6 access to Trommald, filling the public-access gap above Brainerd with source-backed ramps and a downstream interpreted DNR gauge.",
-    "statusText": "Use the Brainerd DNR gauge as a downstream corridor proxy: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; the current reading is in the low band.",
+    "statusText": "Use the Brainerd DNR gauge as a downstream corridor proxy: 1,800–7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 46.5435051,
     "longitude": -93.9564174,
     "gaugeSource": {
@@ -20778,7 +20778,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Brainerd Lakes Area",
     "summary": "Mississippi Headwaters Board / DNR-linked Brainerd day route from Kiwanis Park to Crow Wing State Park, with city and state-park endpoints, Brainerd interpreted gauge support, and broad-river wind/wake caveats.",
-    "statusText": "Use the Brainerd DNR gauge as a near-upstream corridor check: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; the current reading is in the low band.",
+    "statusText": "Use the Brainerd DNR gauge as a near-upstream corridor check: 1,800–7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 46.3465461,
     "longitude": -94.2072231,
     "gaugeSource": {
@@ -20901,7 +20901,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Central Minnesota",
     "summary": "Official MN DNR central-Mississippi day trip from Royalton Sportsman's Club to Mississippi River County Park / Stearns County Park, with a direct interpreted Royalton gauge and on-route campsite context.",
-    "statusText": "Use the direct Royalton DNR gauge: 3,000 to 9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high; the current reading is in the low band.",
+    "statusText": "Use the direct Royalton DNR gauge: 3,000–9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 45.8297201,
     "longitude": -94.3506845,
     "gaugeSource": {
@@ -21035,7 +21035,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Brainerd Lakes Area",
     "summary": "Long official MN DNR Map 6 Mississippi one-way from Baxter's Overlook Park carry-in to Belle Prairie County Park, using the Brainerd DNR gauge as a same-corridor interpreted proxy and emphasizing Camp Ripley/public-bank limits.",
-    "statusText": "Use the Brainerd DNR gauge as the corridor check: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; the current reading is below the scrapable floor.",
+    "statusText": "Use the Brainerd DNR gauge as the corridor check: 1,800–7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 46.3178778,
     "longitude": -94.2755325,
     "gaugeSource": {
@@ -21175,7 +21175,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Central Minnesota",
     "summary": "Official MN DNR longer Map 7 Mississippi one-way from Royalton Sportsman's Club to the Sartell public access, extending past Stearns County Park and Walleye Road while ending above Sartell Dam.",
-    "statusText": "Use the direct Royalton DNR gauge: 3,000 to 9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high; the current reading is below the scrapable floor.",
+    "statusText": "Use the direct Royalton DNR gauge: 3,000–9,000 cfs is the official medium band. Below 2,000 cfs is scrapable, and above 12,000 cfs is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 45.8297201,
     "longitude": -94.3506845,
     "gaugeSource": {
@@ -21321,7 +21321,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Southeast Minnesota",
     "summary": "Official Zumbro River Map 2 connector from Hammond Village Park to Theilman, using the current Zumbro Falls DNR gauge and ending at the existing lower-Zumbro route start.",
-    "statusText": "Use the Zumbro Falls DNR gauge: 7.0 to 9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high; the current reading is in the low band.",
+    "statusText": "Use the Zumbro Falls DNR gauge: 7.0–9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 44.2212366,
     "longitude": -92.3690609,
     "gaugeSource": {
@@ -21560,7 +21560,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Northwest Minnesota",
     "summary": "Long lower Red Lake River day from Huot Park to Crookston Central Park, staying above Crookston constructed rapids while using the nearby official Crookston DNR gauge.",
-    "statusText": "Use the Crookston DNR gauge as a near-downstream proxy: 5 to 8 ft is the official medium band. Below 3 ft is scrapable, and above 12 ft is very high; the current reading is in the low band.",
+    "statusText": "Use the Crookston DNR gauge as a near-downstream proxy: 5–8 ft is the official medium band. Below 3 ft is scrapable, and above 12 ft is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 47.8610626,
     "longitude": -96.4249999,
     "gaugeSource": {
@@ -23352,7 +23352,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Southeast Minnesota",
     "summary": "Official MN DNR Map 2 Zumbro day trip from Zumbro Falls to Hammond, filling the missing split above the existing Hammond-to-Theilman route with the direct Zumbro Falls DNR gauge.",
-    "statusText": "Use the Zumbro Falls DNR gauge: 7.0 to 9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high; the current reading is in the low band.",
+    "statusText": "Use the Zumbro Falls DNR gauge: 7.0–9.0 ft is the official medium band. Below 5.2 ft is scrapable, and above 10.5 ft is very high. Check the live reading and trend against these limits before launch.",
     "latitude": 44.27977688739134,
     "longitude": -92.42343276302006,
     "gaugeSource": {
@@ -23471,7 +23471,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Central Minnesota",
     "summary": "Official MN DNR Map 6 day trip past islands and wooded shoreline from Fort Ripley to Fletcher Creek, using the Brainerd interpreted gauge as an upstream same-corridor proxy.",
-    "statusText": "Use the Brainerd DNR gauge as an upstream corridor proxy: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high; today is low but above scrapable.",
+    "statusText": "Use the Brainerd DNR gauge as an upstream corridor proxy: 1,800 to 7,000 cfs is the official medium band. Below 908 cfs is scrapable, and above 10,000 cfs is very high. Compare the live reading and trend with these bands before launch.",
     "latitude": 46.1794922958068,
     "longitude": -94.36486833176791,
     "gaugeSource": {
@@ -23618,7 +23618,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Mississippi Headwaters",
     "summary": "Official MN DNR Map 4 day trip from Sandy Lake Recreation Area to Wold's Ferry, with a mile of Sandy River lead-in, Scott's Rapid campsite context, and conservative Aitkin-gauge scoring.",
-    "statusText": "Use the Aitkin DNR gauge as a downstream same-map proxy: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high; today is below scrapable.",
+    "statusText": "Use the Aitkin DNR gauge as a downstream same-map proxy: 1,500 to 6,000 cfs is the official medium band. Below 712 cfs is scrapable, and above 8,000 cfs is very high. Compare the live reading and trend with these bands before launch.",
     "latitude": 46.78631874695744,
     "longitude": -93.32156252290518,
     "gaugeSource": {
@@ -28409,7 +28409,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "Central Minnesota",
     "summary": "DNR-recommended upper Sauk day from Oak Township County Park to Spring Hill County Park, with watercraft-campsite endpoints, wooded lowland bends, and official St. Martin DNR gauge bands.",
-    "statusText": "Use the St. Martin DNR gauge as a downstream same-map check. The official medium band is 15 to 17 ft; below 14 ft is scrapable, and above 20 ft is very high. Current readings below medium can mean slow, shallow, weedy travel.",
+    "statusText": "Use the St. Martin DNR gauge as a downstream same-map check. The official medium band is 15 to 17 ft; below 14 ft is scrapable, and above 20 ft is very high. Readings below the medium band can mean slow, shallow, weedy travel; compare the live stage and trend before launch.",
     "latitude": 45.60927,
     "longitude": -94.75344,
     "safetyProfile": {
@@ -30163,7 +30163,7 @@ export const minnesotaRoutes: River[] = [
     "state": "Minnesota",
     "region": "East Central Minnesota",
     "summary": "Middle Snake River connector from Mora to the Canary Road access, filling the public-access gap above the existing Canary-to-Cross-Lake card with the direct Mora DNR gauge at the put-in.",
-    "statusText": "Use the Mora DNR gauge at launch: 3.0 to 5.0 ft is medium, below 2.0 ft is scrapable, and above 6.5 ft is very high. The current reading is below the official floor, so expect dragging until water recovers.",
+    "statusText": "Use the Mora DNR gauge at launch: 3.0–5.0 ft is medium, below 2.0 ft is scrapable, and above 6.5 ft is very high. Below the 2.0 ft floor, expect dragging; check the live reading and trend before launch.",
     "latitude": 45.88230816510179,
     "longitude": -93.30997169539015,
     "gaugeSource": {

@@ -4,6 +4,7 @@ import {
   subscribeFavorites,
   toggleFavorite,
   readFavorites,
+  savedRoutesSession,
   restoreFavorite,
 } from './favorites-store.js';
 import { trackEvent } from './analytics.js';
@@ -118,11 +119,11 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
     let saved;
     try {
       saved = toggleFavorite(favorite);
-    } catch {
-      showActionFeedback('Could not update Saved routes. Browser storage is unavailable.');
+    } catch (error) {
+      showActionFeedback('Could not update Saved routes. ' + (error instanceof SyntaxError ? 'Stored routes could not be read. Your list was kept.' : error.message || 'Browser storage is unavailable.'));
       return;
     }
-    showActionFeedback(saved ? `${favorite.name || 'Route'} saved.` : `${favorite.name || 'Route'} removed from Saved routes.`, {
+    showActionFeedback(saved ? `${favorite.name || 'Route'} ${savedRoutesSession().mode === 'account' ? 'saved on this device; account sync pending.' : 'saved on this device.'}` : `${favorite.name || 'Route'} removed from Saved routes.`, {
       undo: !saved && original ? () => restoreFavorite(original) : undefined,
       returnFocus: () => button.isConnected ? button : Array.from(document.querySelectorAll(FAVORITE_BUTTON_SELECTOR))
         .find((candidate) => candidate.dataset.favoriteSlug === favorite.slug),

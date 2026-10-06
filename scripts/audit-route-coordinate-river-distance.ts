@@ -288,7 +288,6 @@ const acceptedAccessAnchorWaterbodyFeet: Record<string, number> = {
   'pine-river-norway-pine-river-1': 2500,
   // The North Branch Susquehanna trail guide identifies Wetlands Nature Area
   // Access at river mile 166 near Bloomsburg.
-  'susquehanna-river-canal-park-wetlands': 2200,
   'susquehanna-river-wetlands-bloomsburg': 2200,
   // Minnesota DNR's Rum River State Water Trail and Ramsey/Anoka park pages
   // identify Rum River Central Regional Park as a canoe/boat access.

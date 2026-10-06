@@ -1,18 +1,47 @@
-import { createReadStream, existsSync, statSync } from 'node:fs';
+import { createReadStream, existsSync, statSync, readFileSync } from 'node:fs';
 import { extname, resolve, sep } from 'node:path';
 import type { ServerResponse } from 'node:http';
 import { pipeline } from 'node:stream';
-import { securityHeaders } from './http';
+import { createGunzip } from 'node:zlib';
+import { acceptsGzipEncoding, acceptsIdentityEncoding, securityHeaders } from './http';
 
 const PUBLIC_ASSET_EXTENSIONS = new Set(['.css', '.js', '.json', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff2', '.ico']);
 
-export function sendStatic(response: ServerResponse, filePath: string, includeBody = true, statusCode = 200) {
+export type CompressedStaticFile = { sourceBytes: number };
+
+/** The deployment packager emits this bounded, trusted inventory; ordinary local builds omit it. */
+export function loadStaticCompressionManifest(rootDir: string | null): Map<string, CompressedStaticFile> {
+  const result = new Map<string, CompressedStaticFile>();
+  if (!rootDir) return result;
+  const file = resolve(rootDir, '.static-compression.json');
+  if (!existsSync(file)) {
+    if (existsSync(resolve(rootDir, 'index.html.gz'))) throw new Error('Compressed static pages require an inventory');
+    return result;
+  }
+  const manifest = JSON.parse(readFileSync(file, 'utf8')) as Record<string, CompressedStaticFile>;
+  for (const [path, entry] of Object.entries(manifest)) {
+    const target = safeResolve(rootDir, '/' + path);
+    if (!path.endsWith('.html.gz') || !target || !Number.isSafeInteger(entry.sourceBytes) || entry.sourceBytes < 0) throw new Error('Invalid static compression inventory');
+    result.set(target, entry);
+  }
+  return result;
+}
+
+export function sendStatic(response: ServerResponse, filePath: string, includeBody = true, statusCode = 200, compressed?: CompressedStaticFile) {
   const stats = statSync(filePath);
+  const encoding = String(response.req?.headers['accept-encoding'] ?? '');
+  const gzip = compressed && acceptsGzipEncoding(encoding);
+  if (compressed && !gzip && !acceptsIdentityEncoding(encoding)) {
+    response.writeHead(406, { ...securityHeaders(response), 'content-length': 0, 'cache-control': 'no-store', vary: 'Accept-Encoding' });
+    response.end(); return response;
+  }
+  const logicalPath = compressed ? filePath.slice(0, -3) : filePath;
   response.writeHead(statusCode, {
     ...securityHeaders(response),
-    'content-type': contentTypeFor(filePath),
-    'cache-control': statusCode === 200 ? cacheControlFor(filePath) : 'no-store',
-    'content-length': stats.size,
+    'content-type': contentTypeFor(logicalPath),
+    'cache-control': statusCode === 200 ? cacheControlFor(logicalPath) : 'no-store',
+    'content-length': compressed && !gzip ? compressed.sourceBytes : stats.size,
+    ...(compressed ? { vary: 'Accept-Encoding', ...(gzip ? { 'content-encoding': 'gzip' } : {}) } : {}),
     'access-control-allow-origin': '*',
   });
 
@@ -23,11 +52,13 @@ export function sendStatic(response: ServerResponse, filePath: string, includeBo
 
   // Close both streams on read failure or client disconnect. Plain pipe leaves
   // read errors unhandled and can continue reading after a client has gone away.
-  pipeline(createReadStream(filePath), response, (error) => {
+  const complete = (error: NodeJS.ErrnoException | null) => {
     if (error && (error as NodeJS.ErrnoException).code !== 'ERR_STREAM_PREMATURE_CLOSE') {
       console.warn('Static file transfer failed.', { filePath, error: error.message });
     }
-  });
+  };
+  if (compressed && !gzip) pipeline(createReadStream(filePath), createGunzip(), response, complete);
+  else pipeline(createReadStream(filePath), response, complete);
   return response;
 }
 
@@ -42,6 +73,7 @@ export function resolveStaticFile(pathname: string, rootDir: string): string | n
     if (filePath && existsSync(filePath) && statSync(filePath).isFile()) {
       return filePath;
     }
+    if (filePath?.endsWith('.html') && existsSync(`${filePath}.gz`) && statSync(`${filePath}.gz`).isFile()) return `${filePath}.gz`;
   }
 
   return null;

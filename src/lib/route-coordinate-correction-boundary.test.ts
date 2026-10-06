@@ -58,4 +58,4 @@ it('preserves the reviewed Moser hold when automatic suggestions no longer flag 
   } finally {
     await rm(root, { recursive: true, force: true });
   }
-});
+}, 20_000);

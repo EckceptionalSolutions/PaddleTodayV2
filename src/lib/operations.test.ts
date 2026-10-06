@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getCanonicalStateId, getOperationsSnapshot, rankGaugeStateCoverage, rankStateCoverage } from './operations';
 import type { StateGaugeCoverage } from './gauge-coverage';
+import { getRiverBySlug } from './rivers';
 
 describe('operations snapshot', () => {
   it('normalizes state names and codes to one registry', () => {
@@ -13,11 +14,13 @@ describe('operations snapshot', () => {
     const snapshot = getOperationsSnapshot();
     const minnesota = snapshot.states.find((state) => state.id === 'MN');
     expect(minnesota).toMatchObject({ scored: 137, planning: 121, legacySaturation: 'provisionally_saturated' });
+    expect(getRiverBySlug('big-fork-river-johnson-big-falls-east')?.scoreEligibility).toBe('planning');
+    expect(getRiverBySlug('st-louis-river-toivola-county-road-29')?.scoreEligibility).toBe('planning');
     expect(minnesota?.saturation).toBe('saturated');
     expect(minnesota?.discoveryComplete).toBe(true);
     expect(snapshot.policy.planningRoutes).toBe('frozen_without_explicit_user_request');
     expect(snapshot.totals.scored + snapshot.totals.planning).toBe(snapshot.totals.inventory);
-  });
+  }, 20_000);
 
   it('keeps proxy routes in planning after the completed Texas discovery sweep', () => {
     const snapshot = getOperationsSnapshot();

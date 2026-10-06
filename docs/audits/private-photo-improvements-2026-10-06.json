@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-06",
+  "node": "v24.14.0",
+  "storage": [
+    {
+      "label": "small",
+      "width": 640,
+      "height": 480,
+      "jpegBytes": 195092,
+      "legacyJsonBytes": 260293,
+      "bytesSaved": 65201,
+      "percentSaved": 25.04907930678121
+    },
+    {
+      "label": "large",
+      "width": 1920,
+      "height": 1080,
+      "jpegBytes": 1318276,
+      "legacyJsonBytes": 1757873,
+      "bytesSaved": 439597,
+      "percentSaved": 25.007324192362024
+    }
+  ],
+  "reads": {
+    "legacy": {
+      "reads": 40,
+      "elapsedMsIncludingExplicitGc": 158.99560000000002,
+      "startingRss": 45142016,
+      "sampledMaxRss": 62365696,
+      "processPeakRss": 62435328
+    },
+    "binary": {
+      "reads": 40,
+      "elapsedMsIncludingExplicitGc": 77.6318,
+      "startingRss": 45318144,
+      "sampledMaxRss": 48590848,
+      "processPeakRss": 48594944
+    }
+  },
+  "limits": "Deterministic noise JPEG fixtures; isolated local read/parse/decode workers with explicit GC before each of 40 reads. OS process peak RSS and sampled RSS are observations, not production request peaks. Excludes authentication, HTTP, upload preprocessing and mobile queue storage. Existing JSON photos are read compatibly and are not bulk migrated."
+}

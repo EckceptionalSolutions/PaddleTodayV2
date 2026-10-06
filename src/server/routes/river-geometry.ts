@@ -1,21 +1,15 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import type { ServerResponse } from 'node:http';
 import { sendJson } from '../http';
+import { GeometryCache, type CanonicalGeometryFeature } from './geometry-cache';
 
-type CanonicalGeometryFeature = {
-  properties?: {
-    routeId?: string;
-    state?: string;
-    source?: string;
-  };
-  geometry?: {
-    type?: string;
-    coordinates?: unknown;
-  };
-};
+const geometryCache = new GeometryCache(readRouteGeometry);
+let assetInventory: { slugs: Set<string>; expiresAt: number } | undefined;
+let inventoryPromise: Promise<Set<string>> | undefined;
+const INVENTORY_TTL_MS = 60 * 1000;
 
-const geometryPromises = new Map<string, Promise<CanonicalGeometryFeature | null>>();
+export function getGeometryCacheStats() { return geometryCache.stats(); }
 
 export async function handleRiverGeometry(
   response: ServerResponse,
@@ -43,41 +37,38 @@ export async function handleRiverGeometry(
 }
 
 export async function loadRouteGeometry(slug: string) {
-  if (!/^[a-z0-9-]+$/.test(slug)) return null;
-  const existing = geometryPromises.get(slug);
-  if (existing) return existing;
-
-  const geometryPromise = readFirstRouteGeometry(slug)
-    .then((raw) => JSON.parse(raw) as CanonicalGeometryFeature)
-    .catch((error: NodeJS.ErrnoException) => {
-      if (error.code === 'ENOENT') return null;
-      throw error;
-    });
-  geometryPromises.set(slug, geometryPromise);
-  try {
-    return await geometryPromise;
-  } catch (error) {
-    geometryPromises.delete(slug);
-    throw error;
-  }
+  return geometryCache.load(slug);
 }
 
-async function readFirstRouteGeometry(slug: string) {
-  const candidates = [
-    resolve(process.cwd(), 'dist', 'data', 'canonical-river-geometries', 'routes', `${slug}.json`),
-    resolve(process.cwd(), 'public', 'data', 'canonical-river-geometries', 'routes', `${slug}.json`),
-  ];
-  let lastError: NodeJS.ErrnoException | null = null;
-  for (const candidate of candidates) {
+function geometryDirectories() {
+  return ['dist', 'public'].map(root => resolve(process.cwd(), root, 'data', 'canonical-river-geometries', 'routes'));
+}
+
+/** The deployed file inventory includes retained route assets needed by older clients. */
+async function getAssetInventory() {
+  if (assetInventory && assetInventory.expiresAt > Date.now()) return assetInventory.slugs;
+  inventoryPromise ??= Promise.all(geometryDirectories().map(async directory => {
+    try { return await readdir(directory); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []; throw error; }
+  })).then(directories => {
+    const slugs = new Set(directories.flat().filter(name => /^[a-z0-9-]+\.json$/.test(name)).map(name => name.slice(0, -5)));
+    assetInventory = { slugs, expiresAt: Date.now() + INVENTORY_TTL_MS };
+    return slugs;
+  }).finally(() => { inventoryPromise = undefined; });
+  return inventoryPromise;
+}
+
+async function readRouteGeometry(slug: string) {
+  if (!(await getAssetInventory()).has(slug)) return null;
+  for (const directory of geometryDirectories()) {
     try {
-      return await readFile(candidate, 'utf8');
+      return await readFile(resolve(directory, `${slug}.json`), 'utf8');
     } catch (error) {
       const fileError = error as NodeJS.ErrnoException;
       if (fileError.code !== 'ENOENT') throw error;
-      lastError = fileError;
     }
   }
-  throw lastError ?? Object.assign(new Error(`Geometry not found for ${slug}.`), { code: 'ENOENT' });
+  return null;
 }
 
 function isSupportedGeometry(

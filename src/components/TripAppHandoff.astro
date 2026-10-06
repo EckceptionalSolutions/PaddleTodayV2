@@ -1,0 +1,21 @@
+<section class="trip-handoff" data-trip-app-handoff hidden aria-labelledby="trip-handoff-title">
+  <p class="trip-eyebrow">Your plan, on your phone</p>
+  <h2 id="trip-handoff-title">Open your saved trip</h2>
+  <p>Use the same Paddle Today account to see this trip. This link does not invite another person or give them access.</p>
+  <div class="trip-actions">
+    <a class="trip-button primary" data-open-native-trip href="/trips/">Open Paddle Today app</a>
+    <a class="trip-button" data-continue-trip href="/trips/">Continue in this browser</a>
+  </div>
+  <p class="trip-muted">If the app doesn’t open, continue here. Your saved plan also works in your phone’s browser.</p>
+</section>
+<script>
+  import { isTripId } from '@paddletoday/api-contract';
+  const url = new URL(location.href), id = url.searchParams.get('id');
+  const panel = document.querySelector<HTMLElement>('[data-trip-app-handoff]');
+  if (panel && url.searchParams.get('openApp') === '1' && isTripId(id)) {
+    panel.querySelector<HTMLAnchorElement>('[data-open-native-trip]')!.href = `paddletoday://trips?id=${encodeURIComponent(id!)}`;
+    url.searchParams.delete('openApp');
+    panel.querySelector<HTMLAnchorElement>('[data-continue-trip]')!.href = url.href;
+    panel.hidden = false;
+  }
+</script>

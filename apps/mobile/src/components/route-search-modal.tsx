@@ -27,6 +27,7 @@ export function RouteSearchModal({
   loading = false,
   error,
   onRetry,
+  onCreateCustom,
 }: {
   visible: boolean;
   query: string;
@@ -44,6 +45,8 @@ export function RouteSearchModal({
   loading?: boolean;
   error?: string;
   onRetry?: () => void;
+  /** Trip editors select a catalog route or create a private custom route. */
+  onCreateCustom?: () => void;
 }) {
   const reducedMotion = useReducedMotion();
   const inputRef = useRef<TextInput>(null);
@@ -85,7 +88,7 @@ export function RouteSearchModal({
                   return;
                 }
 
-                onExplore();
+                if (!onCreateCustom) onExplore();
               }}
               style={styles.searchModalInput}
             />
@@ -141,7 +144,7 @@ export function RouteSearchModal({
                 {results.map((river) => {
                   const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
                   return (
-                    <Pressable accessibilityRole="button" accessibilityLabel={`View ${river.river.name}: ${river.river.reach}`} key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
+                    <Pressable accessibilityRole="button" accessibilityLabel={`${onCreateCustom ? 'Choose' : 'View'} ${river.river.name}: ${river.river.reach}`} key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
                       <View style={[styles.knownSearchScore, searchScoreTone(river).score]}>
                         <Text style={[styles.knownSearchScoreText, searchScoreTone(river).text]}>{routeDecisionPresentation(river).score ?? '—'}</Text>
                       </View>
@@ -170,12 +173,12 @@ export function RouteSearchModal({
             ) : (
               <View style={styles.knownSearchEmpty}>
                 <Text style={styles.knownSearchEmptyTitle}>No route found</Text>
-                <Text style={styles.searchModalEmptyText}>Open Explore to browse all rivers.</Text>
-                <AppButton label="Open Explore map" variant="secondary" onPress={onExplore} />
-                <AppButton label="Request a Route" onPress={onRequestRoute} />
+                <Text style={styles.searchModalEmptyText}>{onCreateCustom ? 'Try another name or create a custom route for this paddle.' : 'Open Explore to browse all rivers.'}</Text>
+                {onCreateCustom ? null : <><AppButton label="Open Explore map" variant="secondary" onPress={onExplore} /><AppButton label="Request a Route" onPress={onRequestRoute} /></>}
               </View>
             )}
           </ScrollView>
+          {onCreateCustom ? <AppButton label="Create a custom route" icon="pencil-outline" variant="secondary" onPress={onCreateCustom} /> : null}
         </View>
       </KeyboardAvoidingView>
     </Modal>

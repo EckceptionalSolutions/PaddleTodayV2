@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-06",
+  "root": ".local/efficiency-audit/build",
+  "description": "Transitive static ESM script dependencies from built page script tags; gzip level six per file. Images and runtime requests excluded.",
+  "galleryChunks": [],
+  "pages": {
+    "index.html": {
+      "files": [
+        "AccountMenu.astro_astro_type_script_index_0_lang.DBQ_nSlt.js",
+        "BaseLayout.astro_astro_type_script_index_0_lang.w6Za-I8y.js",
+        "analytics.CJ2I21QF.js",
+        "favorites-store.CJGMm6DK.js",
+        "index.astro_astro_type_script_index_0_lang.CV95Ef8b.js",
+        "preload-helper.CxFQXtKk.js",
+        "search-text.zYCkFkrN.js",
+        "src.BSELtQXt.js",
+        "src.DGpKGeUF.js",
+        "trips.AX5cg1Mz.js",
+        "web-account-session.DwOtbzGL.js",
+        "web-saved-routes.JV_6uFlh.js"
+      ],
+      "bytes": 178184,
+      "gzipBytes": 55690
+    },
+    "weekend/index.html": {
+      "files": [
+        "AccountMenu.astro_astro_type_script_index_0_lang.DBQ_nSlt.js",
+        "BaseLayout.astro_astro_type_script_index_0_lang.w6Za-I8y.js",
+        "analytics.CJ2I21QF.js",
+        "board-location-service.CLkDOhla.js",
+        "browser-api-client.jEjhYh5q.js",
+        "canonical-river-geometries.Ca4daB7F.js",
+        "client-cache.B-Pb0yKI.js",
+        "favorites-store.CJGMm6DK.js",
+        "favorites-ui.BSWcmxBP.js",
+        "location.BuEex6jy.js",
+        "map-runtime.CAT67Mmx.js",
+        "preload-helper.CxFQXtKk.js",
+        "request-guard.omt9lRxx.js",
+        "route-photo-preview.BHHfUbPN.js",
+        "search-text.zYCkFkrN.js",
+        "src.BSELtQXt.js",
+        "src.DGpKGeUF.js",
+        "trips.AX5cg1Mz.js",
+        "ui-taxonomy.Z1GmPqOY.js",
+        "web-account-session.DwOtbzGL.js",
+        "web-saved-routes.JV_6uFlh.js",
+        "weekend.astro_astro_type_script_index_0_lang.DbgGGVfe.js"
+      ],
+      "bytes": 259846,
+      "gzipBytes": 83665
+    }
+  }
+}

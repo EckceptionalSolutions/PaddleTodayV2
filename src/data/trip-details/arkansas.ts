@@ -1605,7 +1605,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "shuttle": "Stage the take-out at Ouachita River Whitewater Park, 904 Riverview Drive in Malvern, then drive back toward the Remmel Dam access. Entergy says the floating entrance is a boat ramp near the dam through the gate just past the operations entrance at 170 Remmel Dam Road, and its safety page also lists Ouachita River Access Below Remmel Dam at 489 McGuire Road. Follow current signs, gates, parking marks, and any Entergy access changes on arrival.",
       "permits": "No route-specific private paddling permit is known for normal private use, but this is a dam-release corridor with posted access rules. Follow Entergy signs, Arkansas boating and PFD rules, no-glass and litter rules, park rules at the Whitewater Park, and any current release or closure notices.",
       "camping": "Treat this as a daylight day trip. Entergy closes the Remmel Dam tailrace gate nightly and has specifically acted against unauthorized camping below the dam because water can rise rapidly during storms or operations.",
-      "summary": "Launch below Remmel Dam and take out at Ouachita River Whitewater Park for the standard Rockport / Malvern float. Use the Remmel Dam USGS gauge, Entergy release guidance, and same-day weather before launching, and make an active left-bank take-out plan before Rockport Ledge and the I-30 bridge.",
+      "summary": "Launch below Remmel Dam and take out at Ouachita River Whitewater Park for the 5.9-mile Rockport / Malvern float, typically three to four hours on a recreational release. Check Entergy's current release schedule and same-day weather before launching. Move left as I-30 comes into view and plan the take-out before Rockport Ledge and fast current make a return ferry difficult.",
       "accessCaveats": [
         "The put-in coordinate is a practical Remmel Dam gauge/access-area anchor, not a survey-grade boat-ramp point. Use Entergy signs and the posted gate/parking layout to find the active launch.",
         "The Remmel Dam gate closes nightly at 10 p.m.; retrieve vehicles before the gate closes and do not depend on overnight access.",
@@ -1645,7 +1645,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Tony Kelly Ford is a simple public river access with no developed campground support in the reviewed source set.",
         "Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.",
-        "The current Benton gauge reading during this run sat near the low end of the general paddle band, so expect more scraping and slower shoals than on stronger flow days.",
+        "Below about 3.5 ft at Benton, expect more dragging; near the lower end of AGFC's 3.6–5.0 ft paddle window, plan for slower shoals. Check the live gauge and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor."
       ],
       "watchFor": [
@@ -1676,11 +1676,11 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific private paddling permit is known. Follow Arkansas boating and PFD rules, use the named public accesses only, and respect posted city, county, and state-line regulations if your group also plans to continue into Oklahoma.",
       "camping": "Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe plus Illinois River RV and Campground as nearby trip-support options, but this 8.1-mile segment is normally paddled as a day trip between public accesses.",
       "campingClassification": "nearby_basecamp",
-      "summary": "Launch at Chamber Springs Access and take out at Siloam Springs Kayak Park for the upstream Arkansas segment of the Upper Illinois River Water Trail. The direct Siloam Springs gauge gives the corridor decision point, but the current reading during this run was far above the broad audience flow band.",
+      "summary": "Launch at Chamber Springs Access and take out at Siloam Springs Kayak Park for the upstream Arkansas segment of the Upper Illinois River Water Trail. Use the direct gauge against AGFC's 200–1,000 cfs broad-audience window; the kayak-park finish needs care.",
       "accessCaveats": [
         "Much of the Illinois River corridor passes private land marked by fences, signs, or purple paint. Stay on the water and use only the named public accesses.",
         "The Siloam Springs Kayak Park take-out includes Class II+ features; less-experienced paddlers should scout the finish and carry around if needed.",
-        "The current gauge reading during this run was above the experienced-only threshold, so treat the source package as route evidence rather than as a same-day go recommendation.",
+        "Above 1,000 cfs, AGFC classifies the river as experienced-only; verify the live Siloam Springs reading and the take-out features before launch.",
         "Nearby campgrounds and outfitters can support a weekend, but they are not on-route campsites and should not be implied as mid-float camping."
       ],
       "watchFor": [
@@ -1714,7 +1714,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch from Siloam Springs Kayak Park and take out at WOKA Whitewater Park for the lower Upper Illinois Water Trail segment. This is a guarded route because both endpoints include whitewater-park features even though most of the in-between mileage is gentler current.",
       "accessCaveats": [
         "Both endpoints are public parks, but both also include Class II+ features that paddlers may need to carry around.",
-        "The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.",
+        "Stay within AGFC's broad 200–1,000 cfs window; above 1,000 cfs, AGFC recommends the river only for experienced floaters. Confirm the live gauge before launch.",
         "Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.",
         "This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching."
       ],
@@ -1785,7 +1785,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Peeler Bend is a simple public access with limited developed support in the reviewed source set.",
         "Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.",
-        "The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.",
+        "Below about 3.5 ft at Benton, expect more dragging and slower shoals; above about 5.0 ft, AGFC treats this water as experienced-only. Check the live gauge before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor."
       ],
       "watchFor": [
@@ -1924,7 +1924,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Chamber Springs Access and take out at WOKA Whitewater Park for the full Upper Illinois Water Trail route. This is a guarded long route because it passes one Class II+ kayak park mid-route and finishes at another in Oklahoma.",
       "accessCaveats": [
         "The route is source-backed and public at both ends, but it is long enough that the group should inspect the midpoint kayak park and final WOKA take-out before committing.",
-        "The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.",
+        "Stay within AGFC's broad 200–1,000 cfs window; above 1,000 cfs, AGFC recommends the river only for experienced floaters. Confirm the live gauge before launch.",
         "Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.",
         "This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching."
       ],
@@ -1959,7 +1959,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Lower Pyatt Access and use Snow, Mark Oliver, or Kelley's Slab as the selected take-out for the Crooked Creek access-planner corridor. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Lower Pyatt, Snow, Mark Oliver, and Kelley's Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was inside AGFC's moderate band, but the creek can rise or muddy quickly after storms.",
+        "AGFC's moderate band at Kelly Crossing is 12–12.5 ft. The creek can rise or muddy quickly after storms, so compare the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.",
         "Scout Kelley's Slab before committing to the full downstream finish when the creek is up, dirty, or unfamiliar."
       ],
@@ -2031,7 +2031,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Lower Pyatt Access and take out at Snow Access for the first official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Lower Pyatt and Snow are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        "Below about 12 ft at Kelly Crossing, expect more dragging and slower riffles. Crooked Creek can rise quickly after storms; check the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek."
       ],
       "watchFor": [
@@ -2064,7 +2064,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Lower Pyatt Access and take out at Mark Oliver Access for a longer upper-middle Crooked Creek continuation. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Lower Pyatt, Snow, and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        "Below about 12 ft at Kelly Crossing, expect more dragging and slower riffles. Crooked Creek can rise quickly after storms; check the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek."
       ],
       "watchFor": [
@@ -2126,7 +2126,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Snow Access and take out at Mark Oliver Access for the middle official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Snow and Mark Oliver are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        "Below about 12 ft at Kelly Crossing, expect more dragging and slower riffles. Crooked Creek can rise quickly after storms; check the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek."
       ],
       "watchFor": [
@@ -2159,7 +2159,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Mark Oliver Access and take out at Kelley's Slab for the lower middle official Crooked Creek segment. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Mark Oliver and Kelley's Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        "Below about 12 ft at Kelly Crossing, expect more dragging and slower riffles. Crooked Creek can rise quickly after storms; check the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.",
         "Scout Kelley's Slab before committing to the final take-out when the creek is up, dirty, or unfamiliar."
       ],
@@ -2193,7 +2193,7 @@ export const arkansasRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Snow Access and take out at Kelley's Slab Access for a longer lower-middle Crooked Creek continuation. This is a rain-sensitive Ozark creek float keyed to the Kelly Crossing gauge rather than to a broad flatwater assumption.",
       "accessCaveats": [
         "Snow, Mark Oliver, and Kelley's Slab are named public AGFC Crooked Creek Water Trail accesses with simple rural launches rather than full-service park ramps.",
-        "The current Kelly Crossing gauge reading during this run was below AGFC's moderate band, so expect more scraping and slower riffles than the best Crooked Creek days.",
+        "Below about 12 ft at Kelly Crossing, expect more dragging and slower riffles. Crooked Creek can rise quickly after storms; check the live stage and trend before launch.",
         "Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property along the creek.",
         "Scout Kelley's Slab before committing to the final take-out when the creek is up, dirty, or unfamiliar."
       ],

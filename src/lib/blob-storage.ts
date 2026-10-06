@@ -183,12 +183,13 @@ export async function deleteBlob(
   if (!response.ok) throw new Error(`Failed to delete account blob ${blobName}: HTTP ${response.status}`);
 }
 
-async function fetchWithRetry(
+export async function fetchWithRetry<T = Response>(
   fetchImplementation: typeof fetch,
   url: string,
   init: RequestInit,
   options: Pick<CreateJsonStorageOptions, 'timeoutMs' | 'retries' | 'retryDelayMs'>,
-) {
+  consume?: (response: Response) => Promise<T>,
+): Promise<T> {
   const timeoutMs = positiveInteger(options.timeoutMs, DEFAULT_BLOB_TIMEOUT_MS);
   const attempts = positiveInteger(options.retries, DEFAULT_BLOB_ATTEMPTS);
   const retryDelayMs = positiveInteger(options.retryDelayMs, DEFAULT_BLOB_RETRY_DELAY_MS);
@@ -204,8 +205,17 @@ async function fetchWithRetry(
         signal: controller.signal,
       });
       if (!shouldRetryResponse(response.status) || attempt === attempts) {
-        return response;
+        if (!consume) return response as unknown as T;
+        // Binary reads/listings must remain bounded through body consumption.
+        return await Promise.race([
+          consume(response),
+          new Promise<never>((_, reject) => {
+            if (controller.signal.aborted) reject(new Error('Blob response timed out.'));
+            else controller.signal.addEventListener('abort', () => reject(new Error('Blob response timed out.')), { once: true });
+          }),
+        ]);
       }
+      await response.body?.cancel();
     } catch (error) {
       lastError = error;
       if (attempt === attempts) {

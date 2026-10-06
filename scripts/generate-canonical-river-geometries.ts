@@ -44,6 +44,9 @@ const reviewMode = process.argv.includes('--review-all');
 // Explicitly retain reviewed route assets when assembling a small new batch.
 // Omit this flag whenever existing route coordinates or trace inputs changed.
 const reuseExisting = process.argv.includes('--reuse-existing');
+// Old mobile releases can still request route-scoped assets after a catalog
+// consolidation. Retain those files when refreshing the current manifest.
+const retainLegacyAssets = process.argv.includes('--retain-legacy-assets');
 const routeIdArgIndex = process.argv.indexOf('--route-id');
 const requestedRouteId = routeIdArgIndex >= 0 ? process.argv[routeIdArgIndex + 1] : null;
 const cacheDir = path.join(root, 'node_modules', '.cache', 'route-coordinate-river-audit');
@@ -3532,7 +3535,7 @@ async function fetchNhdFeatures(route: River, bounds: NonNullable<ReturnType<typ
     returnGeometry: 'true',
     geometryPrecision: '6',
   });
-  const response = await fetch(`https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query?${params}`);
+  const response = await fetch(`https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query?${params}`, { signal: AbortSignal.timeout(30_000) });
   if (!response.ok) return [];
   const text = await response.text();
   await mkdir(cacheDir, { recursive: true });
@@ -3947,6 +3950,8 @@ async function main() {
     curatedRouteCount: features.filter((feature) => feature.properties.traceMode === 'curated-access-fallback').length,
     unmatchedRouteIds,
     routeDataFingerprint: sourceFingerprint,
+    catalogRouteDataFingerprint: sourceFingerprint,
+    coverageMode: 'generated',
   };
 
   await mkdir(stateOutputDir, { recursive: true });
@@ -3999,7 +4004,7 @@ async function main() {
   const expectedRouteFiles = new Set(features.map((feature) => `${feature.properties.routeId}.json`));
   await Promise.all(
     (await readdir(routeOutputDir))
-      .filter((fileName) => fileName.endsWith('.json') && !expectedRouteFiles.has(fileName))
+      .filter((fileName) => !retainLegacyAssets && fileName.endsWith('.json') && !expectedRouteFiles.has(fileName))
       .map(async (fileName) => {
         try {
           await unlink(path.join(routeOutputDir, fileName));

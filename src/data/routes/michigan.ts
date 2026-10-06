@@ -1293,7 +1293,7 @@ export const michiganRoutes: River[] = [
     "state": "Michigan",
     "region": "Southeast Michigan",
     "summary": "Very short Mount Clemens lower Clinton link from Shadyside Park to the Neil Dempsey launch at MacArthur Park. The CRWC map and Mount Clemens parks page still support both public endpoints, and this works as a cautious extension below the beginner Budd-to-Shadyside segment.",
-    "statusText": "Use the Clinton River at Sterling Heights as a conservative downstream proxy. CRWC flags low water around 8 ft and high water around 10 ft. Check current stage, discharge, and trend before launching; conditions at this gauge may differ from this lower Mount Clemens reach.",
+    "statusText": "Use the Clinton River at Sterling Heights gauge as a conservative downstream proxy. CRWC warns of low water at 8.0 ft and high water at 10.0 ft. Below 8 ft, expect slow water and shallow lines; inspect landings and compare the live gauge trend with CRWC's guidance before launch.",
     "latitude": 42.582529,
     "longitude": -82.880104,
     "gaugeSource": {

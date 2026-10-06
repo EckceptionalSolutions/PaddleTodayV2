@@ -1,7 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { rivers } from '../src/data/rivers';
+import { publicRivers } from '../src/data/rivers';
 import { riverTripDetails } from '../src/data/river-trip-details';
+import { coordinateWithheldRouteSlugs } from '../src/data/generated/withheld-route-slugs';
 import type { River, RiverAccessPoint } from '../src/lib/types';
 
 type Point = { latitude: number; longitude: number };
@@ -318,15 +319,18 @@ function analyzePair(a: AuditRoute, b: AuditRoute, findings: Finding[]) {
   if (isIntentionalAlternative(a, b)) return;
 
   const endpointMatches = endpointDistances(a, b).filter((entry) => entry.miles <= endpointMatchMi);
+  const matchedEndpointPairs = new Set(endpointMatches.map((entry) => entry.label));
+  const forwardDuplicate = matchedEndpointPairs.has('start-start') && matchedEndpointPairs.has('end-end');
+  const reversedDuplicate = matchedEndpointPairs.has('start-end') && matchedEndpointPairs.has('end-start');
   const sharedEndpoints = endpointDistances(a, b).filter((entry) => entry.miles <= sharedEndpointMi);
 
-  if (endpointMatches.length >= 2) {
+  if (forwardDuplicate || reversedDuplicate) {
     addFinding(findings, {
       type: 'duplicate_or_reversed',
       severity: 95,
       a,
       b,
-      detail: `${endpointMatches.length} endpoint pairs are within ${endpointMatchMi} mi`,
+      detail: `${forwardDuplicate ? 'both corresponding' : 'both reversed'} endpoints are within ${endpointMatchMi} mi`,
     });
     return;
   }
@@ -624,7 +628,11 @@ async function writeReports(routes: AuditRoute[], findings: Finding[]) {
 }
 
 async function main() {
-  const auditRoutes = rivers.map(buildRoute).filter((route): route is AuditRoute => route !== null);
+  const withheldSlugs = new Set(coordinateWithheldRouteSlugs);
+  const auditRoutes = publicRivers
+    .filter((route) => !withheldSlugs.has(route.slug))
+    .map(buildRoute)
+    .filter((route): route is AuditRoute => route !== null);
   const findings: Finding[] = [];
 
   for (let left = 0; left < auditRoutes.length; left += 1) {

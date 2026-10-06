@@ -1,0 +1,17 @@
+.account-menu { position: relative; margin-left: 10px; padding-left: 16px; border-left: 1px solid var(--border); flex: 0 0 auto; }
+.account-menu__trigger { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.account-menu__avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-strong); color: var(--river-deep); font-weight: 700; }
+.account-menu__popover { position: absolute; top: calc(100% + 12px); right: 0; z-index: 2000; width: min(288px, calc(100vw - 40px)); padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-card); background: #fffdf9; box-shadow: var(--shadow); text-align: left; }
+.account-menu__identity { margin: 4px 10px 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.account-menu__popover :is(a, button) { display: block; width: 100%; box-sizing: border-box; min-height: 44px; padding: 10px 12px; border: 0; border-radius: 8px; text-align: left; font: inherit; font-size: 14px; text-decoration: none; background: transparent; color: var(--ink); cursor: pointer; }
+.account-menu__popover :is(a, button):hover { background: var(--bg); }
+.account-menu__popover a span { display: block; margin-top: 3px; font-size: 12px; color: var(--muted); }
+.account-menu__popover a[aria-current] span { color: inherit; }
+.account-menu__status { padding: 0 10px; font-size: 13px; color: var(--ink-soft); }
+@media (max-width: 760px) {
+  html body .site-header .account-menu { grid-column: 3; grid-row: 1; margin-left: 0; padding-left: 4px; border: 0; }
+  .account-menu__label { display: none; }
+}
+
+/* Keep the open utility menu above animated page sections and maps. */
+html body .site-header:has(.account-menu__trigger[aria-expanded="true"]) { position: relative; z-index: 2100; }

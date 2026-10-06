@@ -3685,7 +3685,7 @@ export const kentuckyRoutes: River[] = [
     ],
     "state": "Kentucky",
     "region": "Louisville Metro",
-    "summary": "Extended lower-Parklands Floyds Fork float linking Fisherville to Cliffside. KDFWR documents the lower public route pieces and both endpoint access records, while the lower-corridor PDF keeps Mary's Island, bluff, and strainer context explicit.",
+    "summary": "About 13 miles on lower Floyds Fork: bedrock shoals, strainers, braids, and Mary's Island's left-channel split.",
     "statusText": "Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and older Parklands/KDFWR guidance treats 35 to 500 cfs as the broader recreation range. Below that expect scraping and slow braid choices; above that expect faster current and fewer forgiving recovery spots.",
     "latitude": 38.1887,
     "longitude": -85.4779,
@@ -3740,7 +3740,7 @@ export const kentuckyRoutes: River[] = [
       "seasonNotes": "This longer lower-Parklands route is most realistic in spring through fall. Low summer flows extend the day with shoal scraping and bedrock drag points, while storm runoff can quickly make the lower bends and chutes more forceful.",
       "difficulty": "moderate",
       "difficultyNotes": "This remains Class I+ moving water with route-reading responsibility, not a casual urban float. The lower PDF and Parklands guidance keep the braid choices, strainers, wood, and quick water-level changes explicit enough for a moderate rating.",
-      "confidenceNotes": "Confidence is high for a conservative add: KDFWR names Fisherville to Cane Run at 4.2 miles and Cane Run to Seaton Valley at 3.1 miles, while the lower Floyds Fork PDF names Seaton Valley to Broad Run Valley at 3.5 miles and Broad Run Valley to Cliffside at 2.5 miles, supporting a 13.3-mile public Fisherville-to-Cliffside route. KDFWR provides source-backed coordinates for both endpoints, ties the corridor to direct USGS 03298000, and publishes official Fisherville low/good/high bands. Same-day USGS Water Services values were available during this run."
+      "confidenceNotes": "Confidence is high for the public access chain and direct USGS 03298000 gauge, but route mileage is approximate: KDFWR's current access-mileage table totals 12.8 miles while The Parklands lists 13.3 miles for Fisherville to Cliffside. KDFWR provides source-backed endpoint records and publishes the official Fisherville low/good/high bands."
     },
     "evidenceNotes": [
       {
@@ -3756,10 +3756,10 @@ export const kentuckyRoutes: River[] = [
         "sourceUrl": "https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx"
       },
       {
-        "label": "Chained public route segment",
-        "value": "Fisherville Canoe Access to Cliffside Paddling Access, 13.3 miles",
-        "note": "KDFWR lists Fisherville Canoe Access to Cane Run Canoe Access as 4.2 miles and Cane Run Canoe Access to Seaton Valley Paddling Access as 3.1 miles, while the lower Floyds Fork PDF lists Seaton Valley Paddling Access to Broad Run Valley Paddling Access as 3.5 miles and Broad Run Valley Paddling Access to Cliffside Paddling Access as 2.5 miles, supporting a 13.3-mile public Fisherville-to-Cliffside float.",
-        "sourceUrl": "https://fw.ky.gov/More/Documents/KAsummer16floydsfork.pdf"
+        "label": "Agency route-mile estimates",
+        "value": "About 12.8 miles (KDFWR) to 13.3 miles (The Parklands)",
+        "note": "The current KDFWR page's segment mileages sum to 12.8 miles; The Parklands lists 13.3 miles across the same Fisherville-to-Cliffside access chain. Treat this as an approximately 13-mile route.",
+        "sourceUrl": "https://fw.ky.gov/Fish/Pages/floyds-fork.aspx"
       },
       {
         "label": "Put-in access",
@@ -3774,9 +3774,9 @@ export const kentuckyRoutes: River[] = [
         "sourceUrl": "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1143"
       },
       {
-        "label": "Live-gauge support",
-        "value": "USGS 03298000 at 43.6 cfs / 1.02 ft",
-        "note": "USGS current conditions showed same-day values of 43.6 cfs and 1.02 ft at 2026-07-06 07:20 EDT for Floyds Fork at Fisherville during this run, below the official good-band floor.",
+        "label": "Historical gauge snapshot",
+        "value": "USGS 03298000 at 43.6 cfs / 1.02 ft on 2026-07-06",
+        "note": "Historical USGS reading from July 6, 2026, below the official good-band floor at that time. Recheck live telemetry and local conditions before launch.",
         "sourceUrl": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all"
       },
       {
@@ -10473,7 +10473,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Eastern Kentucky",
     "summary": "Short lower-Manchester Goose Creek connector from Jacks / Bowling Branch Bridge Access to Dump Hollow Ford. KDFWR's access-mileage table supports this 3.0-mile public route by combining the exact Jacks-to-Tobacco and Tobacco-to-Dump segments against the direct Manchester gauge.",
-    "statusText": "Use the Goose Creek at Manchester gauge. KDFWR describes 175 to 514 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Check both current readings and their trend before launching; values near or outside either limit call for extra caution on this short connector.",
+    "statusText": "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs or 7.4 to 8.5 ft as good for boating and fishing. If discharge and stage disagree or stage is below 7.4 ft, treat the reading as marginal rather than assuming the route is in-band; compare the live gauge and trend before launch.",
     "latitude": 37.2052,
     "longitude": -83.7372,
     "safetyProfile": {
@@ -11025,7 +11025,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Eastern Kentucky",
     "summary": "Long lower South Fork Kentucky River continuation from Rocky Branch Road Access to Fish Creek Boat Ramp. Current KDFWR guidance still supports this chained public reach with the Booneville gauge and a paved downstream finish north of Booneville.",
-    "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 994 cfs and 6.15 ft, above the official good band, so expect faster current and less forgiving muddy landings over a long downstream commitment.",
+    "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350–900 cfs or 4.8–6.0 ft as good for boating and fishing. Above those ranges, expect faster current and less forgiving muddy landings over this long downstream commitment. Compare the live readings and trends with KDFWR's bands before launch.",
     "latitude": 37.3206,
      "longitude": -83.6648,
      "safetyProfile": {
@@ -11159,7 +11159,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Eastern Kentucky",
     "summary": "Long middle-to-lower South Fork continuation from Rocky Branch Road Access to Kay Wood Road Access. Current KDFWR guidance still supports this exact chained public float, but the Booneville gauge sat above the official good band during this run.",
-    "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Same-day USGS values during this run were 1050 cfs and 6.24 ft, above the official good band, so expect faster current and less forgiving muddy landings.",
+    "statusText": "Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350–900 cfs or 4.8–6.0 ft as good for boating and fishing. Above those ranges, expect faster current and less forgiving muddy landings. Compare the live readings and trends with KDFWR's bands before launch.",
     "latitude": 37.3206,
      "longitude": -83.6648,
      "safetyProfile": {
@@ -12168,7 +12168,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "South-Central Kentucky",
     "summary": "Short Green County Green River segment from Russell Ford back to Greensburg. KDFWR documents the 2.3-mile public-access route, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
-    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect exposed shoals and muddier landings, while above that the current and park approach deserve more caution.",
+    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0–1.75 ft as good for boating and fishing. Below 1.0 ft, expect exposed shoals and muddier landings; above 1.75 ft, the current and park approach deserve more caution. Compare the live stage and trend with KDFWR's band before launch.",
     "latitude": 37.2738,
     "longitude": -85.4784,
     "gaugeSource": {
@@ -12472,7 +12472,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "South-Central Kentucky",
     "summary": "Longer Upper Green River float from Russell Ford Access to Glenview Road Carrydown. KDFWR's official Pool 6 mileage table supports this 18-mile public route by chaining the Russell Ford, American Legion, Greensburg, and Glenview access sequence against the direct Greensburg USGS gauge.",
-    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect slower shoals and more dragging, while above that the broader current and private-bank corridor deserve more caution.",
+    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0–1.75 ft as good for boating and fishing. Below 1.0 ft, expect slower shoals and more dragging; above 1.75 ft, the broader current and private-bank corridor deserve more caution. Compare the live stage and trend with KDFWR's band before launch.",
     "latitude": 37.2738,
     "longitude": -85.4784,
     "safetyProfile": {
@@ -12910,7 +12910,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "South-Central Kentucky",
     "summary": "Long upper Green River continuation from Greensburg City Ramp to Lynn Camp Creek Ramp. KDFWR supports this 32.9-mile public route by combining the official Greensburg-to-Glenview and Glenview-to-Lynn-Camp segments against the direct Greensburg USGS gauge.",
-    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.63 ft; below that expect a slower all-day grind, while above that the broad current, private banks, and steep Lynn Camp finish deserve more caution.",
+    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0–1.75 ft as good for boating and fishing. Below 1.0 ft, expect a slower all-day grind; above 1.75 ft, broad current, private banks, and the steep Lynn Camp finish deserve more caution. Compare the live stage and trend with KDFWR's band before launch.",
     "latitude": 37.2581,
     "longitude": -85.5057,
     "gaugeSource": {
@@ -13052,7 +13052,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "South-Central Kentucky",
     "summary": "Upper Green continuation from American Legion Park Ramp to Glenview Road Carrydown. KDFWR's Pool 6 mileage table supports this 15.7-mile public route by chaining the exact American Legion-to-Greensburg and Greensburg-to-Glenview segments against the direct Greensburg USGS gauge.",
-    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Today the gauge is in-band at 1.64 ft; below that expect slower shoals and more dragging, while above that the broad current and private-bank Glenview finish deserve more caution.",
+    "statusText": "Use the Green River at Greensburg gauge. KDFWR rates 1.0–1.75 ft as good for boating and fishing. Below 1.0 ft, expect slower shoals and more dragging; above 1.75 ft, broad current and the private-bank Glenview corridor deserve more caution. Compare the live stage and trend with KDFWR's band before launch.",
     "latitude": 37.2441,
     "longitude": -85.4795,
     "safetyProfile": {
@@ -15065,7 +15065,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Hart County / Mammoth Cave",
     "summary": "Long Green River float from Munfordville-Stovall Park Ramp into Mammoth Cave at Dennison Ferry. KDFWR still publishes this exact 21-mile public segment, keeps the endpoint access rules current, and ties the corridor to the direct Munfordville USGS gauge.",
-    "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Today the river is well above band at 1670 cfs, so expect a faster, more consequential broad-river day with extra caution at the park carry-down finish.",
+    "statusText": "Use the Green River at Munfordville gauge. KDFWR rates 300–600 cfs as good for boating and fishing. Above 600 cfs, expect faster current and a more consequential broad-river day, especially at the park carry-down finish. Compare the live discharge and trend with KDFWR's band before launch.",
     "latitude": 37.2663,
     "longitude": -85.8892,
     "gaugeSource": {
@@ -16060,7 +16060,7 @@ export const kentuckyRoutes: River[] = [
     "state": "Kentucky",
     "region": "Daniel Boone Country",
     "routeType": "whitewater",
-    "summary": "Canonical full upstream-of-the-falls Cumberland combination from Redbird Ramp to the public Cumberland Falls carrydown. Current KDFWR guidance and the current route map support the exact 16.6-mile distance by chaining Redbird to Long Bottom, Long Bottom to Thunderstruck, and Thunderstruck to Cumberland Falls under one direct Williamsburg gauge, and this slug now carries the intermediate public access planner instead of preserving every chain permutation.",
+    "summary": "Plan the full 16.6-mile Cumberland run from Redbird Ramp to Cumberland Falls Carrydown. Public accesses at Long Bottom and Thunderstruck divide it into three sections of 9.0, 2.5, and 5.1 miles, with shorter launch-to-take-out combinations available. The final take-out above the falls is mandatory.",
     "statusText": "Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only. Missing the right-bank take-out above Cumberland Falls is not acceptable.",
     "latitude": 36.7621,
     "longitude": -84.2216,

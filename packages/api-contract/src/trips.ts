@@ -8,6 +8,15 @@ export interface TripRoute {
   takeOutName: string;
 }
 export interface ItineraryStop { id: string; time: string; location: string; note: string }
+/** Details shared with trip members, kept out of public view-only links. */
+export interface TripPreparation {
+  /** Local wall-clock value (YYYY-MM-DD HH:MM), interpreted using TripPlan.timeZone. */
+  checkInLocal: string;
+  groupSize: number | null;
+  boatDescription: string;
+  vehicleDescription: string;
+  note: string;
+}
 export interface TripPlan {
   title: string;
   route: TripRoute;
@@ -16,6 +25,7 @@ export interface TripPlan {
   expected: string;
   timeZone: string;
   itinerary: ItineraryStop[];
+  preparation?: TripPreparation;
 }
 export interface TripMember { uid: string; name: string; role: 'owner' | 'participant'; rsvp: 'going' | 'maybe' | 'not-going' }
 export interface ShuttleVehicle {
@@ -32,9 +42,17 @@ export interface WaterObservation {
   gaugeId: string; gaugeName: string; value: string; unit: string;
   measuredAt: string; source: string; note: string;
 }
+/** Private GPS summary. The encoded path is only returned with the owner's paddle log. */
+export interface PaddleTrack {
+  startedAt: string;
+  endedAt: string;
+  elapsedSeconds: number;
+  distanceMeters: number;
+  polylines: string[];
+}
 export interface PaddleLogInput {
   sourceTripId: string | null; route: TripRoute; date: string; time: string; timeZone: string;
-  notes: string; paddleAgain: 'yes' | 'no' | 'unsure' | ''; water: WaterObservation[];
+  notes: string; paddleAgain: 'yes' | 'no' | 'unsure' | ''; water: WaterObservation[]; track?: PaddleTrack;
 }
 export interface TripPhoto { id: string; caption: string; bytes: number; width: number; height: number }
 export interface PaddleLog extends PaddleLogInput {
@@ -58,7 +76,7 @@ export type TripCommand =
 export interface TripMutation { operationId: string; baseRevision: number; command: TripCommand }
 export interface LogMutation { operationId: string; baseRevision: number; value: PaddleLogInput | null }
 export interface TripList { trips: Trip[]; logs: PaddleLog[]; nextCursor: string | null }
-export interface PublicTrip extends TripPlan { id: string; revision: number; status: Trip['status']; updatedAt: string }
+export interface PublicTrip extends Omit<TripPlan, 'preparation'> { id: string; revision: number; status: Trip['status']; updatedAt: string }
 export const TRIP_PHOTO_MAX_BYTES = 10 * 1024 * 1024;
 export const TRIP_PHOTO_LIMIT = 10;
 export const TRIP_MEMBER_LIMIT = 20;
@@ -101,12 +119,26 @@ export function isTripPlan(v: unknown): v is TripPlan {
     && validTripDate(v.date) && validTripTime(v.launch) && validTripTime(v.expected) && validTimeZone(v.timeZone)
     && (!v.launch || !!v.date) && !tripTimeIssue(v.date, v.launch, v.timeZone) && !tripTimeIssue(v.date, v.expected, v.timeZone) && Array.isArray(v.itinerary) && v.itinerary.length <= 30
     && new Set(v.itinerary.map(s => s?.id)).size === v.itinerary.length
-    && v.itinerary.every(s => rec(s) && isTripId(s.id) && validTripTime(s.time) && text(s.location, 300) && text(s.note, 2000));
+    && v.itinerary.every(s => rec(s) && isTripId(s.id) && validTripTime(s.time) && text(s.location, 300) && text(s.note, 2000))
+    && (v.preparation === undefined || (rec(v.preparation)
+      && (v.preparation.checkInLocal === undefined || v.preparation.checkInLocal === '' || (text(v.preparation.checkInLocal, 16)
+        && /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(v.preparation.checkInLocal)
+        && validTripDate(v.preparation.checkInLocal.slice(0, 10), false) && validTripTime(v.preparation.checkInLocal.slice(11, 16))
+        && !tripTimeIssue(v.preparation.checkInLocal.slice(0, 10), v.preparation.checkInLocal.slice(11, 16), v.timeZone)))
+      && (v.preparation.groupSize === null || (Number.isInteger(v.preparation.groupSize) && Number(v.preparation.groupSize) >= 1 && Number(v.preparation.groupSize) <= 100))
+      && text(v.preparation.boatDescription, 200) && text(v.preparation.vehicleDescription, 300) && text(v.preparation.note, 2000)));
 }
 export function isLogInput(v: unknown): v is PaddleLogInput {
   return rec(v) && (v.sourceTripId === null || isTripId(v.sourceTripId)) && isTripRoute(v.route)
     && validTripDate(v.date, false) && validTripTime(v.time) && validTimeZone(v.timeZone)
     && text(v.notes, 10000) && ['', 'yes', 'no', 'unsure'].includes(String(v.paddleAgain))
+    && (v.track === undefined || (rec(v.track) && typeof v.track.startedAt === 'string' && Number.isFinite(Date.parse(v.track.startedAt))
+      && typeof v.track.endedAt === 'string' && Number.isFinite(Date.parse(v.track.endedAt)) && Date.parse(v.track.endedAt) >= Date.parse(v.track.startedAt)
+      && Number.isInteger(v.track.elapsedSeconds) && Number(v.track.elapsedSeconds) >= 0 && Number(v.track.elapsedSeconds) <= 172800
+      && Number.isFinite(v.track.distanceMeters) && Number(v.track.distanceMeters) >= 0 && Number(v.track.distanceMeters) <= 1000000
+      && Array.isArray(v.track.polylines) && v.track.polylines.length >= 1 && v.track.polylines.length <= 100
+      && v.track.polylines.every(path => text(path, 48000) && /^[\x3f-\x7e]+$/.test(path))
+      && v.track.polylines.reduce((sum, path) => sum + (typeof path === 'string' ? path.length : 48001), 0) <= 48000))
     && Array.isArray(v.water) && v.water.length <= 10 && v.water.every(w => rec(w)
       && ['gaugeId', 'gaugeName', 'value', 'unit', 'measuredAt', 'source'].every(k => text(w[k], 240)) && text(w.note, 2000));
 }
@@ -145,11 +177,20 @@ export function isLogMutation(v: unknown): v is LogMutation {
 export function tripPlan(v: TripPlan): TripPlan {
   return { title: v.title, route: { slug: v.route.slug, name: v.route.name, putInId: v.route.putInId, putInName: v.route.putInName,
     takeOutId: v.route.takeOutId, takeOutName: v.route.takeOutName }, date: v.date, launch: v.launch, expected: v.expected,
-    timeZone: v.timeZone, itinerary: v.itinerary.map(s => ({ id: s.id, time: s.time, location: s.location, note: s.note })) };
+    timeZone: v.timeZone, itinerary: v.itinerary.map(s => ({ id: s.id, time: s.time, location: s.location, note: s.note })),
+    ...(v.preparation ? { preparation: { checkInLocal: v.preparation.checkInLocal || '', groupSize: v.preparation.groupSize, boatDescription: v.preparation.boatDescription,
+      vehicleDescription: v.preparation.vehicleDescription, note: v.preparation.note } } : {}) };
 }
 export function newTripPlan(route?: Partial<TripRoute>): TripPlan {
   return { title: route?.name || 'New paddle', route: { slug: '', name: '', putInId: '', putInName: '', takeOutId: '', takeOutName: '', ...route },
-    date: '', launch: '', expected: '', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', itinerary: [] };
+    date: '', launch: '', expected: '', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', itinerary: [],
+    preparation: { checkInLocal: '', groupSize: null, boatDescription: '', vehicleDescription: '', note: '' } };
+}
+/** Project only the route and schedule fields shown on a public view-only link. */
+export function publicTripPlan(v: TripPlan): Omit<TripPlan, 'preparation'> {
+  const value = tripPlan(v);
+  delete value.preparation;
+  return value;
 }
 /** A captured reading is offered for review, never silently recorded as an observation. */
 export function historicalWaterSuggestion(history: import('./index').RiverHistoryApiResult, date: string, timeZone: string): WaterObservation | null {

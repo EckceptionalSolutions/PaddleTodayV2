@@ -44,6 +44,12 @@ check('Firebase Android config matches app package', () => {
     (client) => client.client_info?.android_client_info?.package_name === appConfig.android?.package
   );
 });
+check('Firebase Android config includes a certificate-backed Google OAuth client', () => {
+  const firebaseConfig = readJson(join(mobileRoot, 'firebase/google-services.json'));
+  return firebaseConfig.client?.some((client) => client.oauth_client?.some(
+    (oauthClient) => oauthClient.client_type === 1 && Boolean(oauthClient.android_info?.certificate_hash)
+  ));
+});
 check('Firebase iOS config matches bundle identifier', () => {
   const plist = readFileSync(join(mobileRoot, 'firebase/GoogleService-Info.plist'), 'utf8');
   return plistValue(plist, 'BUNDLE_ID') === appConfig.ios?.bundleIdentifier;
@@ -134,6 +140,16 @@ check('development account build applies the Crashlytics Gradle plugin', () => {
 
 check('production Android build creates app bundle', () => easConfig.build?.production?.android?.buildType === 'app-bundle');
 check('production build uses explicit native versions', () => easConfig.build?.production?.autoIncrement !== true);
+check('production native account sign-in is enabled', () => easConfig.build?.production?.env?.EXPO_PUBLIC_ACCOUNT_AUTH_ENABLED === '1');
+check('production Google sign-in client is configured', () => Boolean(easConfig.build?.production?.env?.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID));
+check('production Google client matches Firebase native config', () => {
+  const firebaseConfig = readJson(join(mobileRoot, 'firebase/google-services.json'));
+  const webClientId = easConfig.build?.production?.env?.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID;
+  return firebaseConfig.client?.some((client) => client.oauth_client?.some(
+    (oauthClient) => oauthClient.client_type === 3 && oauthClient.client_id === webClientId
+  ));
+});
+check('production email-link domain is configured', () => Boolean(easConfig.build?.production?.env?.EXPO_PUBLIC_FIREBASE_AUTH_LINK_DOMAIN));
 
 for (const file of [
   'docs/mobile-store-release-checklist.md',

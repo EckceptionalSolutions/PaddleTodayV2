@@ -366,3 +366,4 @@ function buildInvalidSuccessBodyMessage(status: number) {
 }
 export * from './trips';
 export * from './trip-repository';
+export * from './trip-dashboard';

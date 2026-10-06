@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-06",
+  "routes": 2814,
+  "description": "One featured-photo JSON response per public route, fixed 36-character request ID. Actual gzip negotiation applies only to eligible bodies; image downloads excluded.",
+  "bytes": {
+    "min": 392,
+    "median": 578,
+    "p95": 691,
+    "max": 837
+  },
+  "gzipBytes": {
+    "min": 250,
+    "median": 351,
+    "p95": 418,
+    "max": 552
+  }
+}

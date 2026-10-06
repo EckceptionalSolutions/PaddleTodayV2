@@ -6,6 +6,7 @@ import { newYorkRoutes } from '../data/routes/new-york';
 describe('New York strategic expansion', () => {
   it('publishes more than one bounded New York route', () => {
     expect(newYorkRoutes.length).toBe(302);
+    expect(newYorkRoutes.some(route => route.id === 'mohawk-river-lock-9-freemans-bridge')).toBe(false);
     expect(newYorkRoutes.map((route) => route.id)).toEqual([
       'erie-canal-little-falls-lock-e18-return',
       'susquehanna-river-sidney-bainbridge',
@@ -339,9 +340,9 @@ describe('New York strategic expansion', () => {
   });
 
   it('publishes the Schenectady Mohawk public-launch sections with direct gauge context', () => {
-    for (const [id, riverId, start, finish, gauge, accessCount, finishIndex] of [
-      ['erie-canal-rotterdam-junction-freemans-bridge', 'erie-canal', 'Lock 9', 'Freeman', '01354330', 8, 7],
-      ['mohawk-river-freemans-bridge-lock-7', 'mohawk-river', 'Freeman', 'Lock 7', '01354500', 2, 1],
+    for (const [id, riverId, start, finish, gauge, accessCount, evidenceLabel] of [
+      ['erie-canal-rotterdam-junction-freemans-bridge', 'erie-canal', 'Lock 9', 'Freeman', '01354330', 8, 'Access-chain evidence'],
+      ['mohawk-river-freemans-bridge-lock-7', 'mohawk-river', "Freeman's Bridge", 'Lock 7', '01354500', 2, 'Current public endpoint chain'],
     ] as const) {
       const route = newYorkRoutes.find((candidate) => candidate.id === id);
 
@@ -354,10 +355,10 @@ describe('New York strategic expansion', () => {
       expect(route?.profile.idealMin).toBeUndefined();
       expect(route?.accessPoints).toHaveLength(accessCount);
       expect(route?.accessPoints?.[0]?.name).toContain(start);
-      expect(route?.accessPoints?.[finishIndex]?.name).toContain(finish);
+      expect(route?.accessPoints?.at(-1)?.name).toContain(finish);
       expect(route?.logistics?.campingClassification).toBe('nearby_basecamp');
       expect(route?.safetyProfile?.hazards).toEqual(expect.arrayContaining(['dam', 'mandatory_takeout', 'urban_water_quality']));
-      expect(route?.evidenceNotes.some((item) => item.label === 'Current public endpoint chain')).toBe(true);
+      expect(route?.evidenceNotes.some((item) => item.label === evidenceLabel)).toBe(true);
       expect(route?.evidenceNotes.some((item) => item.label === 'Direct live gauge')).toBe(true);
       expect(getRoutePreviewPhoto(route!)).not.toMatchObject({ isPlaceholder: true });
       expect(publicRivers.some((candidate) => candidate.slug === route?.slug)).toBe(true);
@@ -2091,6 +2092,7 @@ describe('New York strategic expansion', () => {
     expect(route?.safetyProfile?.riskLevel).toBe('caution');
     expect(route?.gaugeSource.kind).toBe('proxy');
     expect(route?.gaugeSource.siteId).toBe('04237496');
+    expect(route?.evidenceNotes.some(item => item.label === 'Seneca River proxy gauge')).toBe(true);
     expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();
@@ -3809,6 +3811,7 @@ describe('New York strategic expansion', () => {
 
     expect(route?.gaugeSource.kind).toBe('direct');
     expect(route?.gaugeSource.siteId).toBe('01354330');
+    expect(route?.evidenceNotes.some(item => item.label === 'Direct but regulated stage gauge')).toBe(true);
     expect(route?.scoreEligibility).toBe('planning');
     expect(route?.profile.thresholdModel).toBe('minimum-only');
     expect(route?.profile.tooLow).toBeUndefined();

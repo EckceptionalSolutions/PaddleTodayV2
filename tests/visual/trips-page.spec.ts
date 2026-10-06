@@ -11,31 +11,39 @@ test('a trip can be started without signing in, and email stays collapsed', asyn
   await page.goto('/trips/');
   await expect(page.getByRole('heading', { name: 'My trips', exact: true })).toBeVisible();
   await expect(page.getByLabel('Email address')).toHaveCount(0);
-  await expect(page.getByLabel('Search trips')).toHaveCount(0);
-  await page.getByRole('button', { name: 'Continue with email' }).click();
-  await expect(page.getByPlaceholder('you@example.com')).toBeVisible();
+  await expect(page.locator('#trips-app')).toHaveAttribute('aria-busy', 'false');
+  if (await page.getByRole('button', { name: 'Continue with email' }).count()) {
+    await page.getByRole('button', { name: 'Continue with email' }).click();
+    await expect(page.getByPlaceholder('you@example.com')).toBeVisible();
+  } else {
+    await expect(page.getByText('Website sign-in is currently unavailable.', { exact: false })).toBeVisible();
+  }
+
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  if (!await page.getByLabel('Trip title', { exact: true }).isVisible()) await page.getByText('More details', { exact: true }).click();
   await page.getByLabel('Trip title', { exact: true }).fill('Saturday paddle');
   await page.getByLabel('River or location', { exact: true }).fill('Test River');
   await page.getByLabel('Planned date (optional)', { exact: true }).fill('2026-10-10');
-  await page.getByRole('button', { name: 'Save and sign in' }).click();
-  await expect(page.getByRole('status')).toContainText('Your draft is saved here');
+  await page.getByRole('button', { name: /Save and sign in|Save draft on this device/ }).click();
+  await expect(page.getByRole('status')).toContainText('Your draft is saved');
 });
 
 test('trip lists expose keyboard-operable tabs and editors offer a clear time-zone selector', async ({ page }) => {
   await page.route('**/api/rivers/catalog.json', route => route.fulfill({ json: { rivers: [] } }));
   await page.goto('/trips/');
-  const upcoming = page.getByRole('tab', { name: 'Upcoming' });
-  const past = page.getByRole('tab', { name: 'Past' });
+  const upcoming = page.getByRole('tab', { name: 'Plans' });
+  const past = page.getByRole('tab', { name: 'History' });
   await expect(upcoming).toHaveAttribute('aria-selected', 'true');
   const selectedBackground = await upcoming.evaluate(element => getComputedStyle(element).backgroundColor);
   const unselectedBackground = await past.evaluate(element => getComputedStyle(element).backgroundColor);
   expect(selectedBackground).not.toBe(unselectedBackground);
+  await expect(upcoming).toBeEnabled();
   await upcoming.focus();
   await upcoming.press('ArrowRight');
   await expect(past).toHaveAttribute('aria-selected', 'true');
   await expect(past).toBeFocused();
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  await page.getByText('More details', { exact: true }).click();
   const timeZone = page.getByLabel('Trip time zone');
   await expect(timeZone).toBeVisible();
   await expect(timeZone.locator('option[value="America/New_York"]')).toHaveText('Eastern Time');
@@ -55,6 +63,7 @@ test('trip plan validation focuses missing details and flags skipped local times
   await expect(route).toBeFocused();
   expect(await route.evaluate(element => (element as HTMLInputElement).checkValidity())).toBe(false);
 
+  await page.getByText('More details', { exact: true }).click();
   await title.fill('Spring paddle');
   await page.getByLabel('River or location', { exact: true }).fill('Test River');
   await page.getByLabel('Planned date (optional)', { exact: true }).fill('2026-03-08');
@@ -89,6 +98,7 @@ test('revoked links show recovery instructions rather than stale trip contents',
 test('an unfinished guest editor survives a page reload', async ({ page }) => {
   await page.goto('/trips/');
   await page.getByRole('button', { name: 'Plan a trip', exact: true }).click();
+  if (!await page.getByLabel('Trip title', { exact: true }).isVisible()) await page.getByText('More details', { exact: true }).click();
   await page.getByLabel('Trip title', { exact: true }).fill('Unfinished Saturday paddle');
   await page.getByLabel('River or location', { exact: true }).fill('Test River');
   const readGuestEditor = () => page.evaluate(async () => {

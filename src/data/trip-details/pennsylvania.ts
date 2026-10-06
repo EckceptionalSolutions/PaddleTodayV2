@@ -420,39 +420,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       }
     ]
   },
-  "susquehanna-river-canal-park-wetlands": {
-    "putIn": {
-      "name": "Canal Park access",
-      "latitude": 41.22,
-      "longitude": -76.018611
-    },
-    "takeOut": {
-      "name": "Wetlands Nature Area access",
-      "latitude": 41.09095819224127,
-      "longitude": -76.1309336974967
-    },
-    "logistics": {
-      "distanceLabel": "About 14 mi",
-      "estimatedPaddleTime": "About 5 hr to 7 hr in ordinary conditions, longer with headwind, lower-water line picking, or extra care around the early rapid and the primitive Wetlands finish",
-      "shuttle": "Stage the take-out at Wetlands Nature Area first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change the practical landing feel.",
-      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.",
-      "camping": "Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.",
-      "campingClassification": "none",
-      "summary": "Launch at Canal Park and take out at Wetlands Nature Area for a full upper Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the mile-180 rapid your first same-day hazard check.",
-      "accessCaveats": [
-        "PFBC Section 3 publishes both Canal Park and Wetlands Nature Area coordinates directly in the official access table.",
-        "Canal Park is a primitive access on a gravel path and Wetlands is a primitive river-right finish. Confirm same-day footing, parking, and bank angle at both ends before leaving vehicles.",
-        "This route has more committed mileage than the shorter Section 3 slugs. Once you leave the Nanticoke corridor, broad-river wind and a thin exit network can matter more than the flat profile suggests.",
-        "Stay with the named public accesses rather than using islands or private banks as casual substitutes."
-      ],
-      "watchFor": [
-        "A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.",
-        "Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and more technical around shallow bars and inside lines.",
-        "Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.",
-        "Headwind, thunderstorms, floating wood, private shorelines, and muddy footing at the primitive Wetlands finish after a long exposed day."
-      ]
-    }
-  },
+
   "susquehanna-river-canal-park-test-track": {
     "putIn": {
       "id": "canal-park",
@@ -785,7 +753,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Simpson Park and take out at Lower Allen Community Park for a short-to-medium Yellow Breeches day. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scraping or slower lines when it sits below the recommended 1.4-foot floor.",
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so low-water dragging is a real possibility.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect low-water scraping and possible dragging; check the live stage and trend before launch.",
         "The county currently warns of a full blockage above B7 and recommends B6 as the downstream finish there. Treat this route as a self-contained upper-middle segment rather than a casual continuation downstream.",
         "Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use."
       ],
@@ -819,7 +787,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.12 feet at 2026-07-14 00:45 EDT, so expect scrape-prone shallows and possible dragging.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect scrape-prone shallows and possible dragging; check the live stage and trend before launch.",
         "The current county advisory flags a full blockage above B7 farther downstream, so do not assume a safe continuation beyond the intended take-out."
       ],
       "watchFor": [
@@ -852,7 +820,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so expect scrape-prone shallows.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect scrape-prone shallows; check the live stage and trend before launch.",
         "The current county advisory flags a full blockage above B7 farther downstream, so do not assume a safe continuation beyond the intended take-out."
       ],
       "watchFor": [
@@ -885,7 +853,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county currently warns that a large fallen tree and logjam completely block the creek upstream of Slate Hill Road and specifically recommends B6 Yellow Breeches Park to avoid the hazard.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.38 feet at 2026-07-10 08:13 EDT, so low-water scraping is likely.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect low-water scraping; check the live stage and trend before launch.",
         "Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use."
       ],
       "watchFor": [
@@ -918,7 +886,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.26 feet at 2026-07-10 23:45 EDT, so expect repeated scraping and slower travel.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect repeated scraping and slower travel; check the live stage and trend before launch.",
         "The current county advisory flags a full blockage above B7 farther downstream, so do not assume a safe continuation beyond the intended take-out."
       ],
       "watchFor": [
@@ -951,7 +919,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county currently warns that a large fallen tree and logjam completely block the creek upstream of Slate Hill Road and specifically recommends B6 Yellow Breeches Park to avoid the hazard.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.26 feet at 2026-07-10 23:45 EDT, so low-water scraping is likely.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect low-water scraping; check the live stage and trend before launch.",
         "Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use."
       ],
       "watchFor": [
@@ -984,7 +952,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county story map says the public may access the creek for boating at the bridge at Old Forge Road at Liberty Forge while following posted access rules; the route passes that bridge before continuing to B6.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.26 feet at 2026-07-10 23:45 EDT, so expect scrape-prone shallows and slower travel.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, expect scrape-prone shallows and slower travel; check the live stage and trend before launch.",
         "The county currently warns of a full blockage near B7 and specifically recommends B6 Yellow Breeches Park as the safer downstream finish."
       ],
       "watchFor": [
@@ -1016,7 +984,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Simpson Park and take out at McCormick Park for the shortest current Yellow Breeches public segment. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scrape-prone shallow water when it sits below the 1.4-foot recommendation.",
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so scraping is likely despite the short mileage.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, scraping is likely despite the short mileage; check the live stage and trend before launch.",
         "Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use."
       ],
       "watchFor": [
@@ -1047,7 +1015,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at McCormick Park and take out at Lower Allen Community Park for a short-to-medium Yellow Breeches day. Use the Camp Hill gauge as the county-endorsed same-creek proxy and expect scraping or slower lines when it sits below the recommended 1.4-foot floor.",
       "accessCaveats": [
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so low-water dragging is a real possibility.",
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, low-water dragging is possible; check the live stage and trend before launch.",
         "The current county advisory flags a full blockage above B7 farther downstream, so treat this route as a self-contained middle segment rather than a casual continuation.",
         "Trail use is limited to daylight hours and the county asks paddlers to respect private property not designated for public use."
       ],
@@ -1082,7 +1050,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
         "Cumberland County still publishes both endpoints as official Yellow Breeches access points with exact coordinates on the county story map.",
         "The county story map says the public may access the creek for boating at the Old Forge Road bridge at Liberty Forge and should follow posted access rules; it also asks paddlers to limit parking to individuals and small groups only.",
         "The county currently warns that a large fallen tree and logjam completely block the creek upstream of Slate Hill Road and specifically recommends B6 Yellow Breeches Park to avoid the hazard.",
-        "The county recommends boating when the Camp Hill gauge reads about 1.4 to 2.0 feet. This route was reviewed when the proxy gauge was 1.25 feet at 2026-07-11 00:45 EDT, so low-water scraping is likely."
+        "Use the Camp Hill proxy against Cumberland County's 1.4–2.0 ft boating range. Below 1.4 ft, low-water scraping is likely; check the live stage and trend before launch."
       ],
       "watchFor": [
         "Scraping, shallow lines, and slower travel when the Camp Hill gauge is near or below 1.4 ft.",
@@ -1114,7 +1082,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County's B4 coordinate is the Willow Mill park-access anchor; follow park signs to the concrete ramp at the rear. The exact ramp toe is not georeferenced. Good Hope uses the PFBC-verified access-area point, not a surveyed wet edge.",
         "Willow Mill is an improved concrete ramp with parking and portable toilets, while Good Hope is a shallower PFBC launch with matting and more limited parking.",
-        "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect low-water scraping rather than a generous margin."
+        "Cumberland County recommends boating above 1.7 ft at Hogestown. Near or below that floor, expect low-water scraping rather than a generous margin; check the live stage and trend before launch."
       ],
       "watchFor": [
         "Dragging and shallow bridge or riffle lines when the Hogestown gauge is near the 1.7 ft floor.",
@@ -1146,7 +1114,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County's B4 coordinate is the Willow Mill park-access anchor; follow park signs to the concrete ramp at the rear. The exact ramp toe is not georeferenced.",
         "Vincent DiFilippo is listed as a concrete launch, while Acri Meadow is a municipal park with an unimproved launch area and steeper slope to the water.",
-        "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so expect a slower low-water day if you go near the floor."
+        "Cumberland County recommends boating above 1.7 ft at Hogestown. Near or below that floor, expect a slower low-water day; check the live stage and trend before launch."
       ],
       "watchFor": [
         "Dragging, shallow bends, and slower travel when the Hogestown gauge is near or below 1.7 ft.",
@@ -1178,7 +1146,7 @@ export const pennsylvaniaRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Cumberland County lists both endpoints as public launches. Good Hope's marker uses the PFBC-verified access-area point; the exact wet edge is not surveyed.",
         "Willow Mill is an improved concrete launch with parking, while Acri Meadow is a more basic municipal-park finish with an unimproved slope to the water.",
-        "The county says boating should be above 1.7 ft at Hogestown. This route was reviewed when the direct gauge was only 1.71 ft at 2026-07-06 19:30 EDT, so the app treats it as a marginal low-water full day rather than a routine green-light recommendation."
+        "Cumberland County recommends boating above 1.7 ft at Hogestown. Near or below that floor, expect low-water scraping and treat this longer float cautiously; check the live stage and trend before launch."
       ],
       "watchFor": [
         "Repeated scraping, shallow bridge lines, and slow mileage whenever the Hogestown gauge is near the 1.7 ft floor.",

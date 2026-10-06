@@ -235,7 +235,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.",
         "Seaton Valley is a KDFWR carry-down access in Turkey Run Park with shoreline access and no camping listed.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat just above the discharge floor but below the official stage floor, so expect more scraping and slower shoals than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals that often require walking at low water.",
@@ -375,7 +375,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Creekside is a KDFWR carry-down access near the Egg Lawn with no listed camping and limited parking detail.",
         "Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.",
         "The Parklands says Floyds Fork levels rise and fall quickly and instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals, root wads, and wood that can require dragging at lower flows.",
@@ -410,7 +410,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities beyond the access itself.",
         "Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The same-day Fisherville gauge reading during this run sat inside the official good band, but Floyds Fork still rises and falls quickly after rain."
+        "Within KDFWR's Fisherville good band, Floyds Fork can still rise quickly after rain. Compare the live reading and trend, and check for new wood before launching."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals, bedrock shelves, and longer stretches where low water can force dragging.",
@@ -480,7 +480,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.",
         "Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat just above the discharge floor but below the official stage floor, so expect more scraping and slower shoals than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.",
@@ -550,7 +550,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.",
         "Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.",
         "The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and visible current at the launch.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow riffles, braided chutes, and gravel bars that can require dragging at lower flows.",
@@ -620,7 +620,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Seaton Valley is a KDFWR carry-down site in Turkey Run Park with shoreline access and no listed camping.",
         "Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands says to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.",
@@ -725,7 +725,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.",
         "Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and visible current at the launch.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow riffles, braided chutes, gravel bars, and long stretches where low water can force dragging.",
@@ -760,7 +760,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.",
         "Broad Run Valley is a KDFWR carry-down access with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat just below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals, waves, and faster current through bends and bridge pinch points.",
@@ -785,17 +785,17 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "longitude": -85.552
     },
     "logistics": {
-      "distanceLabel": "About 13.3 mi",
+      "distanceLabel": "About 12.8-13.3 mi; agency estimates differ",
       "estimatedPaddleTime": "About 6 hr to 8 hr, longer with low water, scouting, or fishing",
       "shuttle": "Stage the take-out at Cliffside Paddling Access in Broad Run Park, then drive back to Fisherville Canoe Access on Old Taylorsville Road. Inspect both carry-downs before launching because the Parklands corridor uses marked landings instead of broad public beaches.",
       "permits": "No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.",
       "camping": "Treat this as a long lower-Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.",
-      "summary": "Launch at Fisherville Canoe Access and take out 13.3 miles downstream at Cliffside Paddling Access for an extended lower-Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the lower-route guidance adds the signed Cane Run side-channel area, Mary's Island, bedrock shelves, wood, and marked-landings-only discipline.",
+      "summary": "Launch at Fisherville and finish at Cliffside after an approximately 13-mile, 6-8-hour lower-Parklands day. KDFWR and Parklands mileage totals differ slightly. Watch for bedrock shoals, braids, strainers, and Mary's Island's left-channel choice; use only marked landings.",
       "accessCaveats": [
         "Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.",
         "Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests."
+        "When Fisherville is below KDFWR's good range of 50 cfs or 1.3 ft, expect more shoal scraping and slower travel. Check the live gauge and local water before launching."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals, bedrock shelves, waves, and faster current through bends and bridge pinch points.",
@@ -830,7 +830,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities beyond the access itself.",
         "Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The same-day Fisherville gauge reading during this run sat inside the official good band, but Floyds Fork still rises and falls quickly after rain."
+        "Within KDFWR's Fisherville good band, Floyds Fork can still rise quickly after rain. Compare the live reading and trend, and check for new wood before launching."
       ],
       "watchFor": [
         "Class I+ moving water with shallow gravel shoals, bedrock shelves, waves, and long stretches where low water can force dragging.",
@@ -865,7 +865,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.",
         "Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands instructs paddlers to use marked landings only and not to take out on private property.",
-        "The current Fisherville gauge reading during this run sat just below the official cfs and stage good-band floors, so expect more scraping and slower shoals than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water, shallow bedrock rapids, and braid choices around islands and chutes.",
@@ -900,7 +900,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.",
         "Cliffside is a KDFWR carry-down site in Broad Run Park with year-round limited-hours shoreline access and no listed camping.",
         "The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking recent rain, gauge trend, and visible current at the launch.",
-        "The current Fisherville gauge reading during this run sat below the official cfs and stage good-band floors, so expect more scraping and a slower day than the mileage alone suggests."
+        "Use Fisherville against KDFWR's 50–300 cfs / 1.3–2.5 ft good band. Below the range, expect shoal scraping and slower travel; check live flow, stage, and trend."
       ],
       "watchFor": [
         "Class I+ moving water with shallow riffles, braided chutes, gravel bars, and long stretches where low water can force dragging.",
@@ -970,7 +970,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.",
         "Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.",
-        "The current Pikeville gauge reading was below the official good discharge band during this run, though the stage was just above the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.",
+        "KDFWR's Pikeville good range is 800–1,400 cfs or 7.4–8.5 ft. If discharge and stage disagree, treat conditions as marginal; lower levels can expose gravel and mussel-shell shoals. Check both live values and the trend.",
         "Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points."
       ],
       "watchFor": [
@@ -1005,7 +1005,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.",
         "Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.",
-        "The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.",
+        "KDFWR's Pikeville good range is 800–1,400 cfs or 7.4–8.5 ft. If discharge and stage disagree, treat conditions as marginal; lower levels can expose gravel and mussel-shell shoals. Check both live values and the trend.",
         "Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points."
       ],
       "watchFor": [
@@ -1040,7 +1040,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Cedar Creek is a KDFWR carry-down access under the KY 1384 bridge with unpaved parking and no amenities.",
         "Thompson Road is a KDFWR single-lane ramp with year-round availability, but land around the ramp is private or thickly vegetated; land at the signed access rather than spreading onto nearby banks.",
         "KDFWR notes bank and wade fishing are limited at these sites because surrounding land is private, steep, rocky, or heavily vegetated. Stay with the documented public ramps and do not assume private-bank stops are allowed.",
-        "The app uses USGS 03209500 as the direct gauge. The official USGS inventory page was stale during review, so same-day live confirmation came from RiverApp text that says it imports this station from USGS Water Services."
+        "Check the current USGS 03209500 reading and compare it with KDFWR's good Pikeville band of 800 to 1,400 cfs (7.4 to 8.5 ft) before launch."
       ],
       "watchFor": [
         "Woody debris, root wads, strainers, and bridge approaches, especially after storms or release changes.",
@@ -1075,7 +1075,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.",
         "Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.",
-        "The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.",
+        "KDFWR's Pikeville good range is 800–1,400 cfs or 7.4–8.5 ft. If discharge and stage disagree, treat conditions as marginal; lower levels can expose gravel and mussel-shell shoals. Check both live values and the trend.",
         "Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points."
       ],
       "watchFor": [
@@ -1110,7 +1110,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.",
         "Thompson Road is a KDFWR single-lane ramp with year-round availability, but nearby banks are private or thickly vegetated; land at the signed access rather than spreading onto nearby banks.",
-        "The current Pikeville gauge reading was below the official good discharge band during this run, though the stage just touched the official 7.4 ft floor. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise further.",
+        "KDFWR's Pikeville good range is 800–1,400 cfs or 7.4–8.5 ft. If discharge and stage disagree, treat conditions as marginal; lower levels can expose gravel and mussel-shell shoals. Check both live values and the trend.",
         "KDFWR limits bank and wade fishing at these sites because surrounding land is private, steep, rocky, or heavily vegetated. Stay with the documented public ramps."
       ],
       "watchFor": [
@@ -1145,7 +1145,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.",
         "Thompson Road is a KDFWR single-lane ramp with year-round availability and a larger parking area, but the surrounding banks remain private or heavily vegetated.",
-        "The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and a longer day than the mileage suggests until levels rise.",
+        "Below KDFWR's Pikeville good range of 800–1,400 cfs or 7.4–8.5 ft, expect slower current and shallower shoals; check both live values and their trend.",
         "Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points."
       ],
       "watchFor": [
@@ -1218,7 +1218,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Prestonsburg Ramp is a paved public River Park launch with year-round availability, but it sits in an active town setting. Scout parking and ramp traffic before committing to the shuttle.",
         "Airport Ramp is the downstream public KDFWR take-out near the Paintsville-Prestonsburg-Combs Air Field. Stay with the signed ramp and parking area rather than informal banks.",
-        "The current Prestonsburg gauge reading was below the official good band during this run. Expect slower pools, shallower shoals, and more patience than the broad-river appearance suggests until levels rise.",
+        "Below KDFWR's Prestonsburg good range of 800–1,500 cfs or 3.5–5.0 ft, expect slower pools, shallower shoals, or dragging; check the live reading and trend.",
         "KDFWR does not document an overnight plan at either endpoint, so do not assume camping or private-bank stopping rights along the corridor."
       ],
       "watchFor": [
@@ -1253,7 +1253,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Airport Ramp is a paved public launch with unpaved parking and no camping listed. Inspect the lot and shoreline before leaving vehicles.",
         "Levisa Fork Boat Ramp is a paved public Paintsville-area take-out with nearby town services, but KDFWR does not document it as a campground or overnight paddle endpoint.",
-        "The current Prestonsburg gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more dragging than the wider lower-river profile might suggest.",
+        "Below KDFWR's Prestonsburg good range of 800–1,500 cfs or 3.5–5.0 ft, expect slower pools, shallower shoals, or dragging; check the live reading and trend.",
         "Stay with the named public accesses and do not assume open stopping rights on private banks or side properties along the corridor."
       ],
       "watchFor": [
@@ -1287,7 +1287,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Prestonsburg Ramp and take out about 16.3 miles downstream at Levisa Fork Boat Ramp for the full lower-Levisa continuation. KDFWR still uses the Prestonsburg gauge and rates 800 to 1,500 cfs, or 3.5 to 5.0 ft, as the good boating band.",
       "accessCaveats": [
         "Prestonsburg Ramp and Levisa Fork Boat Ramp are both developed public launches, but this longer route still has only one clean intermediate public ramp at Airport if the day is going slower than planned.",
-        "The current Prestonsburg gauge reading was below the official good band during this run. Expect a slower and more tiring day than the mileage alone suggests until levels rise into band.",
+        "Below KDFWR's Prestonsburg good range of 800–1,500 cfs or 3.5–5.0 ft, expect slower pools, shallower shoals, or dragging; check the live reading and trend.",
         "KDFWR does not document a route-camping plan for these lower-Levisa accesses. Do not assume legal private-bank overnight stops along the corridor.",
         "This is a full-day lower-river shuttle rather than a casual town float. Check weather, daylight, and heat exposure before committing."
       ],
@@ -1323,7 +1323,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
         "Elkhorn Creek VPA #3 is private property opened through KDFWR; continuing access depends on users following posted rules, daylight-hours limits, and boundary markers.",
         "The American Whitewater / Elkhorn Acres take-out is a carry-down boating access with no bank or wade fishing; use the signed parking and do not spread onto neighboring private land.",
         "KDFWR lists some nearby Elkhorn access sites as bank/wade-only with boats prohibited. Use only the named VPA #3 and American Whitewater access pair for this route.",
-        "The current app uses USGS 03289500 as the direct gauge. The local workspace could not fetch USGS Water Services during review, so same-day live confirmation came from RiverApp text that says it imports USGS Water Services data."
+        "Check the current USGS 03289500 reading against KDFWR's good Frankfort band of 100 to 600 cfs (2.5 to 4.0 ft) before launch; flow and wood can change quickly after rain."
       ],
       "watchFor": [
         "Class II ledges, wave trains, pushy bends, and occasional Class III moves in the Elkhorn Gorge.",
@@ -1494,7 +1494,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Watts is a paved bridge-side launch with unpaved parking rather than a fully serviced park ramp, so inspect footing and vehicle placement before committing to the shuttle.",
         "Hazard City Ramp is the planned take-out directly upstream from a low-head dam. Know the landing, exit left cleanly, and do not drift below the city ramp while regrouping.",
-        "The Hazard gauge read slightly below the official band during this run, so expect slower current and more scrape-prone riffles than the ideal KDFWR day."
+        "When the Hazard stage is below KDFWR's 4.25 ft good-range floor, expect slower current and scrape-prone riffles. Check the live stage and trend before committing to the full trip."
       ],
       "watchFor": [
         "Shallow riffles and dragging once the Hazard stage falls below 4.25 ft.",
@@ -1527,7 +1527,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "The Hazard City launch is directly upstream from a low-head dam. Launch efficiently, stay out of boil-affected water, and do not drift back toward the dam while organizing gear.",
         "Perry County Park is the clean public take-out with parking, restrooms, and family facilities. Do not assume steep or private banks elsewhere are legal exit spots.",
-        "The Hazard gauge was slightly below the official good band during this run, so expect slower current and occasional scrape-prone shallows rather than ideal push."
+        "Below KDFWR's 4.25 ft lower limit at Hazard, expect slower current and occasional scrape-prone shallows. Check the live stage and trend before launch."
       ],
       "watchFor": [
         "Fast rises after rain, muddy current, and fresh wood moving into outside bends.",
@@ -1589,7 +1589,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use the KDFWR-listed public launches, follow Kentucky boating and PFD rules, and obey any posted local parking or boat-ramp instructions.",
       "camping": "Treat this as a very long day float, not an assumed overnight. No general public river-camping program is documented on this corridor, and most banks away from the named public accesses should be treated as private.",
       "campingClassification": "none",
-      "summary": "Launch at Roy Spencer Ramp and finish 34.0 miles downstream at Beattyville for the lower North Fork Kentucky River marathon day. KDFWR gives the Jackson gauge a good band of 200 to 500 cfs, or 1.6 to 2.5 ft, and the same-day USGS reading landed inside that band during this run.",
+      "summary": "Launch at Roy Spencer Ramp and finish 34.0 miles downstream at Beattyville for the lower North Fork Kentucky River marathon day. KDFWR's Jackson good band is 200–500 cfs or 1.6–2.5 ft; check the live gauge, trend, and weather before this long commitment.",
       "accessCaveats": [
         "Roy Spencer is a smaller bridge-area launch with a limited paved lot and simpler landing than the downstream finish. Inspect it before the shuttle commitment feels locked in.",
         "Beattyville is the intended finish near the confluence area. Do not casually continue downstream toward the main Kentucky River corridor or the downstream lock-and-dam pool.",
@@ -1646,7 +1646,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Watts is a simpler bridge-side launch with unpaved parking rather than a full park facility, so confirm footing and vehicle placement before leaving the shuttle car downstream.",
         "Hazard City Ramp is the only clearly developed midpoint. It can work as a bailout, but do not miss the main route line while approaching the city corridor and its dam-adjacent riverfront context.",
-        "The Hazard gauge sat slightly below the official 4.25 to 5.0 ft band during this run, so expect slower current and more scrape-prone riffles than on an ideal day."
+        "Below KDFWR's 4.25 ft lower limit at Hazard, expect slower current and scrape-prone riffles. Check the live stage and trend before launch."
       ],
       "watchFor": [
         "Shallow riffles and dragging once the Hazard stage falls below 4.25 ft.",
@@ -1708,7 +1708,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "The Blue Water Trails page says the river braids considerably near the start, and low water can mean dragging through shallow bars before the deeper Terry pool begins.",
         "The take-out is on river left above Terry Dam. KDFWR warns that a low-head dam sits 2.5 miles downstream of the ramp, so do not drift past the named take-out.",
-        "The same-day Cynthiana and Hayes gauge readings were above the official good bands during this run, so the route ships with honest high-water caution rather than ideal-family-flow framing."
+        "Compare the Cynthiana and Hayes readings with their KDFWR good bands; above the published ranges, current and dam approaches may be less forgiving."
       ],
       "watchFor": [
         "Braided shallows, downed wood, and low-water dragging early in the route.",
@@ -2743,7 +2743,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Both endpoints are simple carry-down bridge or ford-side accesses with limited unpaved parking and no amenities.",
         "This split starts below the Rawlings / Stinson access so it avoids the upstream low-head-dam warning attached to that Manchester ramp.",
-        "The route was reviewed when the direct Manchester gauge was 191 cfs and 7.32 ft at 2026-07-14 00:45 EDT, which is just above the KDFWR good-flow floor and still vulnerable to scrape-prone shallow bars.",
+        "KDFWR's Manchester guidance starts its good range at 175 cfs and 7.4 ft. If flow and stage disagree, treat conditions as marginal and expect shallow bars; check the live gauge and trend.",
         "Dump Hollow is a ford-side access. Inspect the landing and vehicle approach before launching because mud, washouts, or local traffic can change the easiest finish."
       ],
       "watchFor": [
@@ -2919,7 +2919,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Rocky Branch is a carry-down-only gravel access with limited parking and no developed amenities.",
         "Fish Creek is a free single-lane paved ramp with gravel parking and no listed amenities or camping.",
-        "The current Booneville gauge reading was above the official good band during this run, so expect faster current, muddier landings, and a longer day than the official mileage alone suggests.",
+        "Above KDFWR's 900 cfs or 6.0 ft upper good-band limit at Booneville, expect faster current and less forgiving muddy landings on this long route; compare live readings and trends before launch.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -3018,7 +3018,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Rocky Branch is a gravel-and-dirt canoe and kayak access with limited parking and no amenities.",
         "Kay Wood is a carry-down-only access with roadside-style unpaved parking and no amenities.",
-        "The current Booneville gauge reading was above the official good band during this run, so expect faster current, muddier landings, and a longer day than the mileage alone suggests.",
+        "Above KDFWR's 900 cfs or 6.0 ft upper good-band limit at Booneville, expect faster current and less forgiving muddy landings on this long route; compare live readings and trends before launch.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -3542,7 +3542,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "permits": "No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and stay off private banks between the endpoints.",
       "camping": "Treat this as a day route. KDFWR does not document camping or normal overnight support at Roachville Ford or American Legion Park.",
       "campingClassification": "none",
-      "summary": "Launch at Roachville Ford and finish at American Legion Park for a longer Upper Green split into the Greensburg corridor. Use the Greensburg gauge and expect more scraping whenever the stage sits near or below KDFWR's 1.0 to 1.75 ft good band.",
+      "summary": "Launch at Roachville Ford and finish at American Legion Park Ramp for the 8.9-mile Upper Green trip. Russell Ford is an early bailout if shoals and islands slow the route. Plan about 3–5 hours; check the live Greensburg stage and trend, weather, and the muddy carry-down take-out.",
       "accessCaveats": [
         "Roachville Ford is a low-water gravel ford with limited roadside parking and no services. Be ready for muddy footing and brief carry or drag moves at lower water.",
         "Russell Ford sits on the corridor as the clearest early bailout if the islands and chutes are slower than planned.",
@@ -4751,7 +4751,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Leatherwood Branch and McDowells Creek are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.",
         "This route includes the Puncheon / Pipe Lick intermediate segment even though the middle stop is not treated here as a primary endpoint with source-backed coordinates.",
-        "The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone shoals and a slower day than the mileage alone suggests.",
+        "KDFWR's Kinniconick bands at the Tygarts proxy are 2.5–3.5 ft and 50–130 cfs. If stage and flow disagree, treat conditions as marginal; expect scrape-prone shoals and check local depth.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -4805,7 +4805,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Leatherwood Branch and Mill Pond are public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.",
         "This route passes the Puncheon / Pipe Lick and McDowells Creek chain before the Mill Pond finish, so missing daylight or underestimating low-water speed can create a much longer day than expected.",
-        "The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone shoals and slower progress.",
+        "KDFWR's Kinniconick bands at the Tygarts proxy are 2.5–3.5 ft and 50–130 cfs. If stage and flow disagree, treat conditions as marginal; expect scrape-prone shoals and check local depth.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -4868,7 +4868,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "McDowells Creek and Mill Pond are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.",
         "This is a short route, not a stillwater park loop. Wood, shoals, and muddy banks can still turn a quick float into a boat-handling exercise when the creek is low or rising.",
-        "The current proxy gauge sat inside the official good band during this run, so the route ships as runnable rather than scrape-framed.",
+        "KDFWR's Tygarts proxy bands are 2.5–3.5 ft and 50–130 cfs. Compare both live values; the proxy alone cannot confirm local depth along Kinniconick.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -4921,7 +4921,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "summary": "Launch at Mill Pond Creek Access and take out about 2.7 miles downstream at Garrison Ramp for a short lower Kinniconick Creek float. KDFWR says to use the Tygarts Creek gauge as the Kinniconick proxy, with a good band of 2.5 to 3.5 ft or 50 to 130 cfs.",
       "accessCaveats": [
         "Mill Pond and Garrison are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.",
-        "The current proxy gauge sat inside the official good band during this run, so the route ships as runnable rather than scrape-framed.",
+        "KDFWR's Tygarts proxy bands are 2.5–3.5 ft and 50–130 cfs. Compare both live values; the proxy alone cannot confirm local depth along Kinniconick.",
         "Garrison is the intended public finish. Land at the named ramp rather than drifting past town in search of a more informal exit.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
@@ -4976,7 +4976,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "McDowells Creek and Garrison are both public KDFWR accesses, but neither is documented as a campground or service-heavy overnight facility.",
         "Mill Pond Creek is the intermediate public access in the middle of this route; it is useful as a bailout or split point rather than something to ignore.",
-        "The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone riffles and more boat handling around shoals.",
+        "KDFWR's Kinniconick bands at the Tygarts proxy are 2.5–3.5 ft and 50–130 cfs. If stage and flow disagree, treat conditions as marginal; expect scrape-prone shoals and check local depth.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [
@@ -5039,7 +5039,7 @@ export const kentuckyRiverTripDetails: Record<string, RiverTripDetails> = {
       "accessCaveats": [
         "Leatherwood Branch and Garrison are both public KDFWR accesses, but neither is documented as a campground or overnight facility.",
         "McDowells Creek and Mill Pond Creek are the only intermediate public split points late in the route. Have them marked before launching rather than treating the day as one blind push.",
-        "The proxy gauge stage sat inside the official good band during this run, but the same official reading showed discharge below the cfs floor, so expect scrape-prone riffles and a longer day than the map mileage alone suggests.",
+        "KDFWR's Kinniconick bands at the Tygarts proxy are 2.5–3.5 ft and 50–130 cfs. If stage and flow disagree, treat conditions as marginal; expect scrape-prone shoals and check local depth.",
         "Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points."
       ],
       "watchFor": [

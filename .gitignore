@@ -17,12 +17,16 @@ tmp-*.zip
 tmp_*.png
 !tmp-summary.json
 *.bak
+*.aab
+*.apk
 .codex-*-pass.png
 .mobile-visual-qa/
 codex_sandbox_test.txt
 Thumbs.db
 .DS_Store
+.firebase/
 .local
+/deploy-package/
 docs/route-coordinate-review-geometries/
 automations/route-control-plane/.lock
 automations/route-control-plane/current-work-order.json

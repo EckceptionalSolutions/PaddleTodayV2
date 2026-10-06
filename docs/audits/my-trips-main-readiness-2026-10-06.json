@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-06",
+  "scope": "My Trips organization, visuals, and required dependencies only",
+  "baseCommit": "830fb5fa",
+  "integration": {
+    "checkout": "Isolated checkout of latest origin/main",
+    "preserved": ["Main sign-in and invitation handling", "Main sync-conflict queue rebasing", "Existing photo limits and account-session handling"],
+    "requiredDependencies": ["Native trip components and draft/route helpers", "Private GPS recording and recap storage", "Member-only preparation and shared note preservation", "Durable local shuttle updates and retryable sync metadata", "Shared date-aware library selection"],
+    "excluded": ["Unrelated account rollout", "Route catalog and generated geometry work", "Performance and deployment packaging work", "Android version and release changes", "Operations reports"]
+  },
+  "validation": {
+    "npmTest": "passed",
+    "unitAndWorkspaceTests": 1587,
+    "browserTests": 18,
+    "browserProjects": ["desktop-chromium", "mobile-android"],
+    "mobileAndApiClientTypecheckAfterSharedHelperExtraction": "passed",
+    "sharedDashboardFocusedTests": "passed",
+    "finalWebBuild": "passed, 3260 pages",
+    "visualWidths": [320, 390, 1280],
+    "visualScreens": ["Plans", "Trip overview", "History"],
+    "horizontalOverflow": false,
+    "privacyAndStorage": "Member preparation excluded from public links; multiple owner-private GPS logs round-trip; escaped track payload stays bounded; existing trip-operation limit retained",
+    "nativePreviewEvidence": "Previous physical Android visual audits retained; integration type-checked against latest main",
+    "evidenceDirectory": "artifacts/my-trips-visual",
+    "diffWhitespace": "passed"
+  },
+  "originalCheckout": "All pre-existing staged and unstaged work preserved"
+}

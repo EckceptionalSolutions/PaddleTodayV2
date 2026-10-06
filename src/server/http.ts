@@ -1,5 +1,5 @@
 import { type IncomingMessage, type ServerResponse } from 'node:http';
-import { gzipSync } from 'node:zlib';
+import { jsonCompression, serializeJsonResponse, type JsonResponseOptions } from './json-response';
 
 const DEFAULT_JSON_BODY_LIMIT_BYTES = 1 * 1024 * 1024;
 const JSON_COMPRESSION_THRESHOLD_BYTES = 1024;
@@ -26,31 +26,47 @@ export function sendJson(
   payload: unknown,
   includeBody = true,
   cacheControl = 'public, max-age=30, stale-while-revalidate=120',
-  extraHeaders: Record<string, string> = {}
+  extraHeaders: Record<string, string> = {},
+  options: JsonResponseOptions = {},
 ) {
-  const body = JSON.stringify(payload);
-  const bodyBuffer = Buffer.from(body);
-  const acceptsGzip = acceptsGzipEncoding(String(response.req?.headers['accept-encoding'] ?? ''));
-  const compressedBody = acceptsGzip && bodyBuffer.length >= JSON_COMPRESSION_THRESHOLD_BYTES
-    ? gzipSync(bodyBuffer)
-    : null;
-  const responseBody = compressedBody ?? bodyBuffer;
-  response.writeHead(status, {
-    ...securityHeaders(response),
-    'content-type': 'application/json; charset=utf-8',
-    'cache-control': cacheControl,
-    'content-length': responseBody.length,
-    ...(bodyBuffer.length >= JSON_COMPRESSION_THRESHOLD_BYTES ? { vary: 'Accept-Encoding' } : {}),
-    ...(compressedBody ? { 'content-encoding': 'gzip' } : {}),
-    'x-request-id': requestIdFromPayload(payload),
-    'access-control-allow-origin': '*',
-    ...extraHeaders,
-  });
-  response.end(includeBody ? responseBody : undefined);
+  const bodyBuffer = serializeJsonResponse(payload, options);
+  const encoding = String(response.req?.headers['accept-encoding'] ?? '');
+  const acceptsGzip = acceptsGzipEncoding(encoding);
+  const acceptsIdentity = acceptsIdentityEncoding(encoding);
+  if (!acceptsGzip && !acceptsIdentity) {
+    return sendEmpty(response, 406, { vary: 'Accept-Encoding', 'cache-control': 'no-store', 'content-length': '0', 'x-request-id': requestIdFromPayload(payload) });
+  }
+  const finish = (compressedBody: Buffer | null) => {
+    if (response.destroyed) return;
+    if (!compressedBody && !acceptsIdentity) {
+      // When the bounded queue is full, don't send a representation explicitly rejected by the client.
+      sendEmpty(response, 503, { vary: 'Accept-Encoding', 'cache-control': 'no-store', 'retry-after': '1', 'content-length': '0', 'x-request-id': requestIdFromPayload(payload) });
+      return;
+    }
+    const responseBody = compressedBody ?? bodyBuffer;
+    response.writeHead(status, {
+      ...securityHeaders(response),
+      'content-type': 'application/json; charset=utf-8',
+      'cache-control': cacheControl,
+      'content-length': responseBody.length,
+      vary: 'Accept-Encoding',
+      ...(compressedBody ? { 'content-encoding': 'gzip' } : {}),
+      'x-request-id': requestIdFromPayload(payload),
+      'access-control-allow-origin': '*',
+      ...extraHeaders,
+    });
+    response.end(includeBody ? responseBody : undefined);
+  };
+  if (acceptsGzip && (bodyBuffer.length >= JSON_COMPRESSION_THRESHOLD_BYTES || !acceptsIdentity)) {
+    // Keep the response return contract used by route dispatch; zlib completion owns the eventual send.
+    void jsonCompression.compress(bodyBuffer).then(finish).catch(error => {
+      response.destroy(error instanceof Error ? error : new Error(String(error)));
+    });
+  } else finish(null);
   return response;
 }
 
-function acceptsGzipEncoding(header: string): boolean {
+export function acceptsGzipEncoding(header: string): boolean {
   let wildcard = false;
   for (const entry of header.split(',')) {
     const [rawName, ...parameters] = entry.trim().toLowerCase().split(';');
@@ -60,6 +76,21 @@ function acceptsGzipEncoding(header: string): boolean {
     const quality = qualityParameter === undefined ? 1 : Number(qualityParameter.split('=')[1]?.trim());
     const accepted = Number.isFinite(quality) && quality > 0 && quality <= 1;
     if (name === 'gzip') return accepted;
+    wildcard = accepted;
+  }
+  return wildcard;
+}
+
+export function acceptsIdentityEncoding(header: string): boolean {
+  let wildcard = true;
+  for (const entry of header.split(',')) {
+    const [rawName, ...parameters] = entry.trim().toLowerCase().split(';');
+    const name = rawName.trim();
+    if (name !== 'identity' && name !== '*') continue;
+    const parameter = parameters.map(part => part.trim()).find(part => /^q\s*=/.test(part));
+    const quality = parameter === undefined ? 1 : Number(parameter.split('=')[1]?.trim());
+    const accepted = Number.isFinite(quality) && quality > 0 && quality <= 1;
+    if (name === 'identity') return accepted;
     wildcard = accepted;
   }
   return wildcard;

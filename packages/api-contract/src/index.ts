@@ -982,3 +982,4 @@ export interface RiverCatalogResponse {
 export * from './account-sync';
 export * from './shared-trip-plan';
 export * from './trips';
+export * from './trip-notes';

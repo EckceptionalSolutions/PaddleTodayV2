@@ -11,27 +11,37 @@ type CacheOptions<T> = {
   load: () => Promise<T>;
   maxEntries?: number;
   maxEntriesPrefix?: string;
+  namespace?: string;
 };
 
-const globalCache = globalThis as typeof globalThis & {
-  __canoeAdventuresCache?: Map<string, CacheEntry<unknown>>;
-  __canoeAdventuresInflight?: Map<string, Promise<unknown>>;
+type CacheBucket = {
+  cache: Map<string, CacheEntry<unknown>>;
+  inflight: Map<string, Promise<unknown>>;
+  generation: number;
 };
-
-const cache = globalCache.__canoeAdventuresCache ??= new Map<string, CacheEntry<unknown>>();
-const inflight = globalCache.__canoeAdventuresInflight ??= new Map<string, Promise<unknown>>();
+const globalCache = globalThis as typeof globalThis & { __canoeCacheBuckets?: Map<string, CacheBucket> };
+const buckets = globalCache.__canoeCacheBuckets ??= new Map<string, CacheBucket>();
 let cacheHits = 0;
 let cacheMisses = 0;
 let staleHits = 0;
 let loadErrors = 0;
 
 export async function remember<T>(options: CacheOptions<T>): Promise<T> {
+  const namespace = options.namespace ?? options.maxEntriesPrefix ?? 'default';
+  let bucket = buckets.get(namespace);
+  if (!bucket) {
+    bucket = { cache: new Map(), inflight: new Map(), generation: 0 };
+    buckets.set(namespace, bucket);
+  }
+  const { cache, inflight } = bucket;
   const now = Date.now();
   const staleWhileErrorMs = options.staleWhileErrorMs ?? options.ttlMs * 3;
   const cached = cache.get(options.key) as CacheEntry<T> | undefined;
 
   if (cached && cached.expiresAt > now) {
     cacheHits += 1;
+    cache.delete(options.key);
+    cache.set(options.key, cached);
     return cached.value;
   }
 
@@ -42,15 +52,19 @@ export async function remember<T>(options: CacheOptions<T>): Promise<T> {
     return inFlight;
   }
 
+  const generation = bucket.generation;
   const loading = options
     .load()
     .then((value) => {
+      if (bucket.generation !== generation) return value;
+      const loadedAt = Date.now();
+      cache.delete(options.key);
       cache.set(options.key, {
         value,
-        expiresAt: now + options.ttlMs,
-        staleUntil: now + options.ttlMs + staleWhileErrorMs,
+        expiresAt: loadedAt + options.ttlMs,
+        staleUntil: loadedAt + options.ttlMs + staleWhileErrorMs,
       });
-      pruneCache(options.maxEntries ?? 256, now, options.maxEntriesPrefix);
+      pruneCache(cache, options.maxEntries ?? 256, loadedAt);
       return value;
     })
     .catch((error) => {
@@ -63,7 +77,7 @@ export async function remember<T>(options: CacheOptions<T>): Promise<T> {
       throw error;
     })
     .finally(() => {
-      inflight.delete(options.key);
+      if (inflight.get(options.key) === loading) inflight.delete(options.key);
     });
 
   inflight.set(options.key, loading);
@@ -72,33 +86,39 @@ export async function remember<T>(options: CacheOptions<T>): Promise<T> {
 
 /** Remove one cached value or a group of values before a published generation is read. */
 export function forgetCache(keyOrPrefix: string, options: { prefix?: boolean } = {}) {
-  if (!options.prefix) {
-    cache.delete(keyOrPrefix);
-    return;
-  }
-
-  for (const key of cache.keys()) {
-    if (key.startsWith(keyOrPrefix)) cache.delete(key);
+  for (const bucket of buckets.values()) {
+    const matches = (key: string) => options.prefix ? key.startsWith(keyOrPrefix) : key === keyOrPrefix;
+    let changed = false;
+    for (const key of bucket.cache.keys()) {
+      if (matches(key)) { bucket.cache.delete(key); changed = true; }
+    }
+    for (const key of bucket.inflight.keys()) {
+      if (matches(key)) { bucket.inflight.delete(key); changed = true; }
+    }
+    if (changed) bucket.generation++;
   }
 }
 
-function pruneCache(maxEntries: number, now: number, prefix?: string) {
+function pruneCache(cache: Map<string, CacheEntry<unknown>>, maxEntries: number, now: number) {
   for (const [key, entry] of cache) {
-    if ((!prefix || key.startsWith(prefix)) && entry.staleUntil <= now) cache.delete(key);
+    if (entry.staleUntil <= now) cache.delete(key);
   }
-
-  const keys = () => [...cache.keys()].filter((key) => !prefix || key.startsWith(prefix));
-  while (keys().length > maxEntries) {
-    const oldestKey = keys()[0];
-    if (!oldestKey) break;
+  const limit = Number.isFinite(maxEntries) ? Math.max(1, Math.floor(maxEntries)) : 256;
+  while (cache.size > limit) {
+    const oldestKey = cache.keys().next().value;
+    if (oldestKey === undefined) break;
     cache.delete(oldestKey);
   }
 }
 
 export function getCacheStats() {
+  const namespaces = Object.fromEntries([...buckets].map(([name, bucket]) => [name, {
+    entries: bucket.cache.size, inflight: bucket.inflight.size,
+  }]));
   return {
-    entries: cache.size,
-    inflight: inflight.size,
+    entries: Object.values(namespaces).reduce((sum, value) => sum + value.entries, 0),
+    inflight: Object.values(namespaces).reduce((sum, value) => sum + value.inflight, 0),
+    namespaces,
     hits: cacheHits,
     misses: cacheMisses,
     staleHits,

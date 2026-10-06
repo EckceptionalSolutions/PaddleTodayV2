@@ -883,7 +883,7 @@ export const indianaRoutes: River[] = [
     "state": "Indiana",
     "region": "Northeast Indiana",
     "summary": "Longer Wells County Wabash day from Linn Grove Park to White Bridge Picnic Area. The river is still broad-audience at ordinary levels, but the local stage window stays strict at 1.5 to 3 ft.",
-    "statusText": "Wells County Trails identifies 1.5 to 3.0 ft as the ideal kayaking stage on the Wabash at Bluffton. Check the live gauge and trend before launching; below the published band, this longer Linn Grove to White Bridge run may be shallow and slow, while higher water can increase current and debris.",
+    "statusText": "Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below 1.5 ft, expect shallow dragging and slower progress on this longer run. Compare the live gauge reading and trend with that range before departure.",
     "latitude": 40.645752,
      "longitude": -85.031219,
      "safetyProfile": {
@@ -999,7 +999,7 @@ export const indianaRoutes: River[] = [
     "state": "Indiana",
     "region": "Northeast Indiana",
     "summary": "Mid-length Wells County Wabash route from Vera Cruz Paddlesports Launch into Bluffton at Kehoe Park. Use the Bluffton stage gauge and stay inside the same local 1.5 to 3 ft kayaking band.",
-    "statusText": "Wells County Trails identifies 1.5 to 3.0 ft as the ideal kayaking stage on the Wabash at Bluffton. Check the live gauge and trend before launching; below the published band, expect shallow dragging, while higher water can increase current and debris along the Vera Cruz to Kehoe Park reach.",
+    "statusText": "Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below 1.5 ft, expect shallow dragging rather than a clean green-light. Compare the live gauge reading and trend with that range before departure.",
     "latitude": 40.69890779,
      "longitude": -85.0828222,
      "safetyProfile": {
@@ -1120,7 +1120,7 @@ export const indianaRoutes: River[] = [
     "state": "Indiana",
     "region": "Northeast Indiana",
     "summary": "Mid-length Wells County Wabash link from Vera Cruz Paddlesports Launch into Bluffton at the public east-end Hale Street access. Use the Bluffton stage gauge and keep the same conservative 1.5 to 3 ft posture.",
-    "statusText": "Wells County Trails identifies 1.5 to 3.0 ft as the ideal kayaking stage on the Wabash at Bluffton. Check the live gauge and trend before launching; below the published band, expect shallow dragging, while higher water can increase current and debris on this Vera Cruz to Hale Street route.",
+    "statusText": "Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below 1.5 ft, expect scraping and slower lines instead of a clean easy-day call. Compare the live gauge reading and trend with that range before departure.",
     "latitude": 40.69890779,
     "longitude": -85.0828222,
     "gaugeSource": {

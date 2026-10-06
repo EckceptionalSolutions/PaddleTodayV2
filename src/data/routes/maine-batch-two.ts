@@ -2,10 +2,10 @@ import type { River } from '../../lib/types';
 import { allagashGuideUrl, allagashImage, boatingSitesUrl, buildMaineRoute, type MaineRouteSpec } from './maine';
 
 const penobscotGuideUrl = 'https://www.maine.gov/dacf/parksearch/PropertyGuides/PDF_GUIDE/prc-seboomook-guide.pdf';
-const penobscotTrailTripsUrl = 'https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/';
-const penobscotTrailAccessUrl = 'https://www.penobscotriverpaddlingtrail.org/index.php/campsites-and-access-points/';
-const penobscotConditionsUrl = 'https://www.maine.gov/dacf/parks/water_activities/prc-river-conditions.shtml';
 const penobscotLowerBranchPlanUrl = 'https://www.maine.gov/dacf/lupc/plans_maps_data/resourceplans/prp011.html';
+const penobscotConditionsUrl = 'https://www.maine.gov/dacf/parks/water_activities/prc-river-conditions.shtml';
+const penobscotTrailAccessUrl = 'https://www.penobscotriverpaddlingtrail.org/index.php/campsites-and-access-points/';
+const penobscotTrailTripsUrl = 'https://www.penobscotriverpaddlingtrail.org/index.php/elementor-1142/';
 const usgsUrl = (siteId: string) => `https://waterdata.usgs.gov/monitoring-location/USGS-${siteId}/`;
 const usgsCurrentUrl = (siteId: string) => `https://waterdata.usgs.gov/nwis/uv/?referred_module=sw&site_no=${siteId}`;
 
@@ -28,11 +28,16 @@ export function buildCompactMaineRoute(spec: CompactMaineRouteSpec): River {
   const routeUrl = spec.routeUrl ?? boatingSitesUrl;
   const routeSourceLabel = spec.routeSourceLabel ?? 'Maine DACF public boat-launch inventory';
   const imageUrl = spec.imageUrl ?? allagashImage;
+  const routeSummary = spec.summary ?? (
+    spec.putIn.name === spec.takeOut.name
+      ? `${spec.distance}-mile ${spec.name} planning loop (${spec.reach}) from ${spec.putIn.name}. Confirm current access, water, and weather before launch.`
+      : `${spec.distance}-mile ${spec.name} planning route from ${spec.putIn.name} to ${spec.takeOut.name}. Confirm current access, water, and weather before launch.`
+  );
   return buildMaineRoute({
     ...spec,
     routeType: spec.routeType ?? 'recreational',
     risk: spec.risk ?? 'caution',
-    summary: spec.summary ?? `${spec.name} planning route, about ${spec.distance} miles from ${spec.putIn.name} to ${spec.takeOut.name}; ${spec.time}. Confirm endpoint access and current water before launch.`,
+    summary: routeSummary,
     status: spec.status ?? `Planning-only. The endpoints are documented in Maine's public access inventory; confirm access, water level, weather, hazards, and local closures before launch. The linked USGS station is ${spec.gaugeKind === 'direct' ? 'direct corridor context' : 'same-river or basin proxy context'} only.`,
     seasonNotes: spec.seasonNotes ?? 'Late spring through early fall is the practical window; cold water, storms, changing flow, and shoulder-season daylight remain material.',
     difficultyNotes: spec.difficultyNotes ?? 'Moving-water or open-water route requiring a complete float plan, conservative turnaround, and confirmed launch and take-out conditions.',
