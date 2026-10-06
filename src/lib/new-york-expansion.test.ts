@@ -5,7 +5,7 @@ import { newYorkRoutes } from '../data/routes/new-york';
 
 describe('New York strategic expansion', () => {
   it('publishes more than one bounded New York route', () => {
-    expect(newYorkRoutes.length).toBe(303);
+    expect(newYorkRoutes.length).toBe(302);
     expect(newYorkRoutes.map((route) => route.id)).toEqual([
       'erie-canal-little-falls-lock-e18-return',
       'susquehanna-river-sidney-bainbridge',
@@ -340,8 +340,8 @@ describe('New York strategic expansion', () => {
 
   it('publishes the Schenectady Mohawk public-launch sections with direct gauge context', () => {
     for (const [id, riverId, start, finish, gauge, accessCount, finishIndex] of [
-      ['erie-canal-rotterdam-junction-freemans-bridge', 'erie-canal', 'Lock 9', "Freeman's Bridge", '01354330', 8, 7],
-      ['mohawk-river-freemans-bridge-lock-7', 'mohawk-river', "Freeman's Bridge", 'Lock 7', '01354500', 2, 1],
+      ['erie-canal-rotterdam-junction-freemans-bridge', 'erie-canal', 'Lock 9', 'Freeman', '01354330', 8, 7],
+      ['mohawk-river-freemans-bridge-lock-7', 'mohawk-river', 'Freeman', 'Lock 7', '01354500', 2, 1],
     ] as const) {
       const route = newYorkRoutes.find((candidate) => candidate.id === id);
 
@@ -693,7 +693,7 @@ describe('New York strategic expansion', () => {
   it('publishes the upper Chenango Sherburne to North Norwich section with current public launches', () => {
     const route = newYorkRoutes.find((candidate) => candidate.id === 'chenango-river-sherburne-north-norwich');
 
-    expect(newYorkRoutes.length).toBe(303);
+    expect(newYorkRoutes.length).toBe(302);
     expect(route?.riverId).toBe('chenango-river');
     expect(route?.routeType).toBe('recreational');
     expect(route?.gaugeSource.kind).toBe('direct');
