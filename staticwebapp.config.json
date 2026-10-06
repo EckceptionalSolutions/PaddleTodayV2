@@ -19,17 +19,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/susquehanna-river-canal-park-wetlands/",
-      "redirect": "/rivers/susquehanna-river-canal-park-test-track/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/mohawk-river-lock-9-freemans-bridge",
-      "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/mohawk-river-lock-9-freemans-bridge/",
       "redirect": "/rivers/erie-canal-rotterdam-junction-freemans-bridge/",
       "statusCode": 301
     },
@@ -39,17 +29,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/penobscot-river-greenbush-winn/",
-      "redirect": "/rivers/penobscot-river-winn-greenbush/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/st-croix-river-taylors-falls-osceola",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-croix-river-taylors-falls-osceola/",
       "redirect": "/rivers/st-croix-river-interstate-osceola/",
       "statusCode": 301
     },
@@ -59,17 +39,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/st-croix-river-taylors-falls-to-osceola/",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/st-croix-river-taylors-falls-to-osceola-landing",
-      "redirect": "/rivers/st-croix-river-interstate-osceola/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/st-croix-river-taylors-falls-to-osceola-landing/",
       "redirect": "/rivers/st-croix-river-interstate-osceola/",
       "statusCode": 301
     },
@@ -79,17 +49,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/snake-river-rush-city-bridgeview-park/",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/snake-river-rush-city-to-bridgeview-park",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/snake-river-rush-city-to-bridgeview-park/",
       "redirect": "/rivers/snake-river-county-road-3-mora/",
       "statusCode": 301
     },
@@ -99,17 +59,7 @@
       "statusCode": 302
     },
     {
-      "route": "/rivers/minnehaha-creek-grays-bay-knollwood/",
-      "redirect": "/states/minnesota/",
-      "statusCode": 302
-    },
-    {
       "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
-      "redirect": "/states/minnesota/",
-      "statusCode": 302
-    },
-    {
-      "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood/",
       "redirect": "/states/minnesota/",
       "statusCode": 302
     },
@@ -119,17 +69,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/juniata-river-newport-green-valley/",
-      "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/barren-river-tailwater-vpa-3",
-      "redirect": "/rivers/barren-river-tailwater-martinsville/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/barren-river-tailwater-vpa-3/",
       "redirect": "/rivers/barren-river-tailwater-martinsville/",
       "statusCode": 301
     }
