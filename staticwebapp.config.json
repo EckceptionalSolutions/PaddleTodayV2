@@ -64,6 +64,16 @@
       "statusCode": 301
     },
     {
+      "route": "/rivers/clinton-river-budd-shadyside",
+      "redirect": "/rivers/by-river/clinton-river/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/clinton-river-budd-macarthur",
+      "redirect": "/rivers/by-river/clinton-river/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/juniata-river-newport-green-valley",
       "redirect": "/rivers/juniata-river-greenwood-amity-hall/",
       "statusCode": 301
