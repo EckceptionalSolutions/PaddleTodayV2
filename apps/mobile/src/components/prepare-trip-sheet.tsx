@@ -326,9 +326,21 @@ export function PrepareTripSheet({ visible, offlineFirst = false, detail, putIn,
                 <ActionButton disabled={!draftReady || closing} pending={calendarPending} pendingLabel="Checking calendar…" label="Add to calendar" detail="Save launch and take-out times" onPress={() => void exportCalendar()} />
                 <ActionButton disabled={!draftReady || closing} pending={gpxPending} label="Download GPX" detail="Track your selected route in a map app" onPress={() => void exportGpx()} />
                 <ActionButton disabled={!draftReady || closing || sharePending} pending={sharePending} pendingLabel="Saving trip…" label="Save to My trips" detail="Open across devices, invite friends, and log your paddle" primary onPress={() => {
+                  if (!validation.ok) { setValidationAttempted(true); return; }
                   setSharePending(true);
                   void (async () => {
-                    const plan = newTripPlan({ slug: detail.river.slug, name: detail.river.name, putInId: putIn?.id || '', putInName: putIn?.name || '', takeOutId: takeOut?.id || '', takeOutName: takeOut?.name || '' });
+                    const routeName = detail.river.reach && detail.river.reach.toLocaleLowerCase() !== detail.river.name.toLocaleLowerCase()
+                      ? `${detail.river.name} · ${detail.river.reach}` : detail.river.name;
+                    const plan = newTripPlan({ slug: detail.river.slug, name: routeName, putInId: putIn?.id || '', putInName: putIn?.name || '', takeOutId: takeOut?.id || '', takeOutName: takeOut?.name || '' });
+                    const checkInDate = parseLocal(checkIn);
+                    plan.preparation = {
+                      checkInLocal: checkInDate ? localInput(checkInDate) : '',
+                      groupSize: groupSize.trim() ? Number(groupSize) : null,
+                      boatDescription: boat.trim(),
+                      vehicleDescription: vehicle.trim(),
+                      note: note.trim(),
+                    };
+
                     const date = parseLocal(launch);
                     if (date) { const local = localInput(date); plan.date = local.slice(0, 10); plan.launch = local.slice(11, 16); }
                     const end = parseLocal(expected); if (end) plan.expected = localInput(end).slice(11, 16);

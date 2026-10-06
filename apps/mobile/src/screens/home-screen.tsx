@@ -153,13 +153,17 @@ export default function HomeScreen() {
     });
   }
 
-  if (summaryQuery.isPending && !summaryQuery.data) {
+  if (status === 'loading') {
+    return <AppLoadingState title="Checking your starting point" body="Looking for a saved location for Today." />;
+  }
+
+  if (location && summaryQuery.isPending && !summaryQuery.data) {
     return (
       <AppLoadingState title="Loading today’s routes" body="Checking river conditions." />
     );
   }
 
-  if (summaryQuery.isError && !summaryQuery.data) {
+  if (location && summaryQuery.isError && !summaryQuery.data) {
     return (
       <AppErrorState
         title="Today’s routes did not load"
@@ -199,73 +203,109 @@ export default function HomeScreen() {
     >
       <View style={styles.headerStack}>
         <LocationStorageNotice />
-        <AppRefreshNotice
-          isError={summaryQuery.isRefetchError}
-          isStale={summaryQuery.data?.snapshotStatus === 'stale'}
-          dataUpdatedAt={summaryQuery.dataUpdatedAt}
-          retrying={summaryQuery.isFetching}
-          onRetry={() => void summaryQuery.refetch()}
-        />
-        <BoardHero
-          mode={headlineMode}
-          headline={headline}
-          routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
-          snapshot={snapshot}
-          snapshotContext={snapshotContext}
-          saved={headline ? isSaved(headline.river.slug) : false}
-          onToggleSaved={
-            headline
-              ? () => void toggleSavedRiver(toSavedRiver(headline))
-              : undefined
-          }
-          onOpen={
-            headline
-              ? () => openBoardRoute(headline)
-              : undefined
-          }
-          onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
-          hasLocation={Boolean(location)}
-          locationStatus={status}
-          onUseLocation={() => void requestLocation()}
-          onSetLocation={() => setLocationSearchOpen(true)}
-        />
-        {locationOutOfRange ? (
-          <OutOfRangeState
-            locationLabel={location?.label ?? 'your area'}
-            onRequestRoute={() => router.push('/request-route')}
-            onBrowseRoutes={() => router.push('/explore')}
-          />
-        ) : (
-          <RiverCarousel
-            mode={mode}
-            rivers={data.slice(0, 10)}
-            routeCounts={routeCounts}
-            isSaved={isSaved}
-            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-            onOpen={openBoardRoute}
-            emptyState={<EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />}
-          >
-            {modeTabs}
-          </RiverCarousel>
-        )}
-        {zeroReady ? (
-          <ZeroReadyActions
-            watchCount={snapshot.watch}
-            unavailableCount={snapshot.unavailable}
-            onWeekend={() => router.push('/weekend')}
-            onExplore={() => openExploreIntent(snapshot.watch > 0 ? 'watch' : snapshot.unavailable > 0 ? 'no-call' : 'skip')}
+        {location ? (
+          <AppRefreshNotice
+            isError={summaryQuery.isRefetchError}
+            isStale={summaryQuery.data?.snapshotStatus === 'stale'}
+            dataUpdatedAt={summaryQuery.dataUpdatedAt}
+            retrying={summaryQuery.isFetching}
+            onRetry={() => void summaryQuery.refetch()}
           />
         ) : null}
-        <ExploreActionStrip
-          hasLocation={Boolean(location)}
-          locationStatus={status}
-          onUseLocation={requestLocation}
-          onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
-          onOpenIntent={openExploreIntent}
-        />
-        <KnownRouteSearch
-          onOpen={() => setSearchOpen(true)}
-        />
+        {location ? <>
+          <BoardHero
+            mode={headlineMode}
+            headline={headline}
+            routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
+            snapshot={snapshot}
+            snapshotContext={snapshotContext}
+            saved={headline ? isSaved(headline.river.slug) : false}
+            onToggleSaved={
+              headline
+                ? () => void toggleSavedRiver(toSavedRiver(headline))
+                : undefined
+            }
+            onOpen={
+              headline
+                ? () => openBoardRoute(headline)
+                : undefined
+            }
+            onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
+            onSetLocation={() => setLocationSearchOpen(true)}
+          />
+          {locationOutOfRange ? (
+            <OutOfRangeState
+              locationLabel={location.label}
+              onRequestRoute={() => router.push('/request-route')}
+              onBrowseRoutes={() => router.push('/explore')}
+            />
+          ) : (
+            <RiverCarousel
+              mode={mode}
+              rivers={data.slice(0, 10)}
+              routeCounts={routeCounts}
+              isSaved={isSaved}
+              onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+              onOpen={openBoardRoute}
+              emptyState={<EmptyMode mode={mode} hasLocation locationStatus={status} />}
+            >
+              {modeTabs}
+            </RiverCarousel>
+          )}
+          {zeroReady ? (
+            <ZeroReadyActions
+              watchCount={snapshot.watch}
+              unavailableCount={snapshot.unavailable}
+              onWeekend={() => router.push('/weekend')}
+              onExplore={() => openExploreIntent(snapshot.watch > 0 ? 'watch' : snapshot.unavailable > 0 ? 'no-call' : 'skip')}
+            />
+          ) : null}
+          <ExploreActionStrip
+            hasLocation
+            locationStatus={status}
+            onUseLocation={requestLocation}
+            onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
+            onOpenIntent={openExploreIntent}
+          />
+          <KnownRouteSearch onOpen={() => setSearchOpen(true)} />
+        </> : <>
+          <FirstLocationSetup
+            status={status}
+            onUseLocation={() => void requestLocation()}
+            onChooseLocation={() => setLocationSearchOpen(true)}
+            onBrowseRoutes={() => router.push('/explore')}
+          />
+          <View
+            style={styles.lockedTodayPreview}
+            accessible
+            accessibilityLabel="Today preview. Set a location to reveal routes near you."
+          >
+            <View
+              style={styles.lockedTodayBackdrop}
+              pointerEvents="none"
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+            >
+              <BoardHero
+                mode={headlineMode}
+                headline={headline}
+                routeCount={headline ? routeGroupMetaForRoute(headline, routeCounts).routeCount : 1}
+                snapshot={snapshot}
+                snapshotContext="Choose a location to see routes near you"
+                saved={false}
+                onOpenStatus={() => {}}
+                onSetLocation={() => {}}
+              />
+            </View>
+            <View pointerEvents="none" style={styles.lockedTodayVeil}>
+              <View style={styles.lockedTodayMessage}>
+                <MaterialCommunityIcons name="lock-outline" color={colors.accentDeep} size={22} />
+                <Text style={styles.lockedTodayTitle}>Today</Text>
+                <Text style={styles.lockedTodayCopy}>Set a location to reveal routes near you.</Text>
+              </View>
+            </View>
+          </View>
+        </>}
       </View>
       <RouteSearchModal
         visible={searchOpen}
@@ -343,9 +383,6 @@ function BoardHero({
   onToggleSaved,
   onOpen,
   onOpenStatus,
-  hasLocation,
-  locationStatus,
-  onUseLocation,
   onSetLocation,
 }: {
   mode: BoardMode;
@@ -357,13 +394,10 @@ function BoardHero({
   onToggleSaved?: () => void;
   onOpen?: () => void;
   onOpenStatus: (intent: ExploreIntentId) => void;
-  hasLocation: boolean;
-  locationStatus: string;
-  onUseLocation: () => void;
   onSetLocation: () => void;
 }) {
   const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
-  const requestingLocation = locationStatus === 'requesting';
+
   const callsUnavailable = snapshot.unavailable > 0
     && snapshot.paddleable === 0
     && snapshot.watch === 0
@@ -390,7 +424,7 @@ function BoardHero({
                 {onToggleSaved ? <SaveToggleButton routeSlug={headline.river.slug} routeLabel={`${headline.river.name}: ${headline.river.reach}`} compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>{routeDecisionPresentation(headline).call === 'unavailable' ? 'Route details to review' : hasLocation ? headlineLabelForMode(mode, headline) : 'Best across all routes'}</Text>
+                <Text style={styles.headlineKicker}>{routeDecisionPresentation(headline).call === 'unavailable' ? 'Route details to review' : headlineLabelForMode(mode, headline)}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={2}>
                   {routeCount > 1
@@ -406,41 +440,10 @@ function BoardHero({
         </View>
       </ImageBackground>
 
-      {!hasLocation ? (
-        <View style={styles.heroLocationPrompt}>
-          <View style={styles.heroLocationIcon}>
-            <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accentDeep} size={22} />
-          </View>
-          <View style={styles.heroLocationCopy}>
-            <Text style={styles.heroLocationTitle}>Find the best paddles near you</Text>
-            <Text style={styles.heroLocationPromptText}>
-              {locationStatus === 'denied'
-                ? 'Location access is off, so this recommendation covers every route.'
-                : 'Set a starting point to rank routes and counts within 100 miles.'}
-            </Text>
-            <View style={styles.heroLocationActions}>
-              <AppButton
-                label="Use my location"
-                busy={requestingLocation}
-                busyLabel="Finding you…"
-                icon="crosshairs-gps"
-                onPress={onUseLocation}
-              />
-              <AppButton
-                label="City or ZIP"
-                variant="secondary"
-                onPress={onSetLocation}
-                accessibilityLabel="Set city or ZIP code"
-              />
-            </View>
-          </View>
-        </View>
-      ) : null}
-
       <View style={styles.snapshotSummary}>
         <View style={styles.snapshotContextRow}>
           <Text style={styles.snapshotContext}>{snapshotContext}</Text>
-          {hasLocation ? <AppButton label="Change" accessibilityLabel="Change planning location" variant="secondary" onPress={onSetLocation} /> : null}
+          <AppButton label="Change" accessibilityLabel="Change planning location" variant="secondary" onPress={onSetLocation} />
         </View>
         {callsUnavailable ? <Text style={styles.snapshotUnavailable}>Calls unavailable</Text> : null}
         <View style={styles.snapshotRow}>
@@ -449,6 +452,54 @@ function BoardHero({
           <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
+    </View>
+  );
+}
+
+function FirstLocationSetup({
+  status,
+  onUseLocation,
+  onChooseLocation,
+  onBrowseRoutes,
+}: {
+  status: string;
+  onUseLocation: () => void;
+  onChooseLocation: () => void;
+  onBrowseRoutes: () => void;
+}) {
+  const supportingCopy = status === 'denied'
+    ? 'Location access is off. Choose a city or ZIP to set your starting point.'
+    : status === 'error'
+      ? 'We couldn’t get your current location. Choose a city or ZIP instead.'
+      : 'Choose a starting point to see river recommendations near you.';
+
+  return (
+    <View style={styles.locationSetup}>
+      <View style={styles.locationSetupIcon}>
+        <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accentDeep} size={30} />
+      </View>
+      <View style={styles.locationSetupCopy}>
+        <Text style={styles.locationSetupEyebrow}>Make Today yours</Text>
+        <Text accessibilityRole="header" style={styles.locationSetupTitle}>Where do you want to paddle?</Text>
+        <Text style={styles.locationSetupBody}>{supportingCopy} Today will use it to rank routes within 100 miles.</Text>
+      </View>
+      <AppButton
+        label="Use my location"
+        busy={status === 'requesting'}
+        busyLabel="Finding you…"
+        icon="crosshairs-gps"
+        onPress={onUseLocation}
+        style={styles.locationSetupButton}
+      />
+      <AppButton
+        label="Choose a city or ZIP"
+        variant="secondary"
+        onPress={onChooseLocation}
+        style={styles.locationSetupButton}
+      />
+      <Pressable accessibilityRole="button" onPress={onBrowseRoutes} style={styles.locationSetupBrowse}>
+        <Text style={styles.locationSetupBrowseText}>Browse all routes without setting a location</Text>
+      </Pressable>
     </View>
   );
 }
@@ -1001,6 +1052,101 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     gap: spacing.md,
   },
+  locationSetup: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    gap: spacing.md,
+  },
+  locationSetupIcon: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: '#E0EFE9',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  locationSetupCopy: {
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  locationSetupEyebrow: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+  },
+  locationSetupTitle: {
+    color: colors.text,
+    fontSize: 25,
+    lineHeight: 30,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  locationSetupBody: {
+    color: colors.textMuted,
+    fontSize: 14,
+    lineHeight: 21,
+    textAlign: 'center',
+  },
+  locationSetupButton: {
+    alignSelf: 'stretch',
+  },
+  locationSetupBrowse: {
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+  },
+  locationSetupBrowseText: {
+    color: colors.accentDeep,
+    fontSize: 13,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
+  lockedTodayPreview: {
+    height: 220,
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.canvasMuted,
+  },
+  lockedTodayBackdrop: {
+    opacity: 0.28,
+  },
+  lockedTodayVeil: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: spacing.md,
+    backgroundColor: 'rgba(247, 249, 247, 0.82)',
+  },
+  lockedTodayMessage: {
+    alignItems: 'center',
+    gap: spacing.xs,
+    maxWidth: 260,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+  },
+  lockedTodayTitle: {
+    color: colors.text,
+    fontSize: 19,
+    fontWeight: '900',
+  },
+  lockedTodayCopy: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+    textAlign: 'center',
+  },
   heroImage: {
     minHeight: 310,
     backgroundColor: colors.accentDeep,
@@ -1370,46 +1516,6 @@ const styles = StyleSheet.create({
     color: colors.accentDeep,
     fontSize: 13,
     fontWeight: '900',
-  },
-  heroLocationPrompt: {
-    marginHorizontal: spacing.md,
-    padding: spacing.md,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: '#BFD6CC',
-    backgroundColor: colors.accentSoft,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-  },
-  heroLocationIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.surfaceStrong,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  heroLocationCopy: {
-    flex: 1,
-    gap: 5,
-  },
-  heroLocationTitle: {
-    color: colors.accentDeep,
-    fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '900',
-  },
-  heroLocationPromptText: {
-    color: colors.text,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  heroLocationActions: {
-    marginTop: 5,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
   },
   imageScoreLabel: {
     color: colors.accentDeep,
