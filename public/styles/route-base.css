@@ -222,8 +222,11 @@
 }
 
 .river-detail__reach {
+  display: block;
   margin: 0.18rem 0 0;
   color: var(--ink-soft);
+  font-size: 0.58em;
+  line-height: 1.2;
 }
 
 .river-detail--great .river-call-panel {
