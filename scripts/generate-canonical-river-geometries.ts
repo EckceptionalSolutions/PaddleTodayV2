@@ -3654,9 +3654,9 @@ async function main() {
   // Prefer a fresh connected NHD route for Russell Gates–Marco Flats when it
   // is available. Keep the reviewed access-anchor line as a fallback for
   // network outages or disconnected hydrography responses.
-  const networkPreferredCuratedRouteIds = new Set([
-    'blackfoot-river-russell-gates-marco-flats',
-  ]);
+  const networkPreferredCuratedRouteIds = new Set(
+    reuseExisting ? [] : ['blackfoot-river-russell-gates-marco-flats'],
+  );
   const networkPreferredCuratedFallbacks = builtInCuratedFeatures.filter((feature) =>
     networkPreferredCuratedRouteIds.has(feature.properties.routeId),
   );
@@ -3665,13 +3665,12 @@ async function main() {
       !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
       &&
       !builtInCuratedFeatures.some((curated) => curated.properties.routeId === feature.properties.routeId)
-      // A route-scoped refresh must preserve every existing asset except the
-      // requested route. Full generation still rebuilds endpoint-bounded
-      // routes so their traces follow current source coordinates.
+      // Reuse mode preserves reviewed assets; a route-scoped refresh preserves
+      // every existing asset except the requested route. Full generation
+      // rebuilds endpoint-bounded routes so traces follow current coordinates.
       && (requestedRouteId
         ? feature.properties.routeId !== requestedRouteId
-        : !(endpointBoundedNamedRoutes.has(feature.properties.routeId)
-          || (feature.properties.source === 'USGS NHD Flowline' && feature.properties.routeId === requestedRouteId)))),
+        : reuseExisting || !endpointBoundedNamedRoutes.has(feature.properties.routeId))),
     ...builtInCuratedFeatures.filter((feature) =>
       !networkPreferredCuratedRouteIds.has(feature.properties.routeId),
     ),
