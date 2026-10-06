@@ -276,10 +276,11 @@ const breadcrumbItems = [
         },
       ]),
 ];
+const routeDistancePhrase = logistics?.distanceLabel?.trim().replace(/^(About|Approximately)\b/i, (qualifier) => qualifier.toLowerCase());
 const routeAccessAnswer =
   putIn?.name && takeOut?.name
-    ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`
-    : `This route covers ${river.reach}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`;
+    ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${routeDistancePhrase ? `, ${routeDistancePhrase} on the water` : ''}.`
+    : `This route covers ${river.reach}${routeDistancePhrase ? `, ${routeDistancePhrase} on the water` : ''}.`;
 const routeFaqSubject = isLittleMiamiKelleyMilford
   ? 'Kelley-to-Milford route on the Little Miami River'
   : `${river.reach} route on the ${river.name}`;

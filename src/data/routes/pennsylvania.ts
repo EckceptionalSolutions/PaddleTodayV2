@@ -3530,7 +3530,7 @@ export const pennsylvaniaRoutes: River[] = [
     ],
     "state": "Pennsylvania",
     "region": "Lower Juniata",
-    "summary": "Lower Juniata planner corridor from Greenwood through Newport, Howe Township, and Green Valley to Amity Hall PFBC, using the Newport gauge model.",
+    "summary": "Paddle the 14-mile lower Juniata from Greenwood to Amity Hall; Newport, Howe Township, and Green Valley offer shorter floats. PFBC recommends at least 3.5 ft at Newport; watch for low bars, slow pools, fresh wood, and headwinds on open bends.",
     "statusText": "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
     "latitude": 40.530278,
     "longitude": -77.141944,

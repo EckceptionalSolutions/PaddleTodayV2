@@ -2165,7 +2165,7 @@ export const iowaRoutes: River[] = [
     "reach": "Bentonsport Boat Ramp to Bonaparte Boat Ramp",
     "state": "Iowa",
     "region": "Southeast Iowa",
-    "summary": "Short Lower Des Moines River water-trail segment from historic Bentonsport to Bonaparte, with public riverfront parks, riffles around old lock-and-dam remnants, geode bars, and a nearby Keosauqua gauge.",
+    "summary": "Paddle 3.6–5 miles from Bentonsport to Bonaparte; plan 1.5–2.5 hours for riffles, rock bars, and geode stops. Use the Keosauqua gauge to plan for shallow water or stronger current around old lock-and-dam remnants.",
     "statusText": "Use the Des Moines River at Keosauqua gauge. Treat roughly 3,500 cfs as the preferred low-water exploring level, expect walking at 700 to 800 cfs or less, and avoid claiming a normal trip above about 6,000 cfs because the rock bars go under.",
     "latitude": 40.72454,
     "longitude": -91.85125,

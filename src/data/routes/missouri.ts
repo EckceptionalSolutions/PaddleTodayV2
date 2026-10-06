@@ -9042,7 +9042,7 @@ export const missouriRoutes: River[] = [
     "reach": "Meramec State Park to Sand Ford Access",
     "state": "Missouri",
     "region": "Missouri Ozarks",
-    "summary": "Public Meramec day float from the Meramec State Park river launch to MDC Sand Ford Access near Stanton. This links two managed access areas in the Sullivan corridor, using the live Sullivan gauge as a conservative low-water check.",
+    "summary": "About 7 river miles from Meramec State Park's River Stop Store launch to MDC Sand Ford Access near Stanton. MDC places Sand Ford beside Meramec Caverns and about 12 river miles below Sappington Bridge; the park float is listed at 5 miles below Sappington, so this route length is derived, not surveyed. The public canoe launch near River Stop Store is open during park hours; the separate campground gravel launch is for camping patrons. Use USGS 07014500 near Sullivan as a conservative low-water check, and verify both landings and rising-water conditions before staging.",
     "statusText": "Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and a longer day. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.",
     "latitude": 38.203259,
     "longitude": -91.09888,

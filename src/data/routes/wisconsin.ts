@@ -19660,8 +19660,8 @@ export const wisconsinRoutes: River[] = [
     "reach": "David Hansen Memorial Landing / Irving to Melrose Landing",
     "state": "Wisconsin",
     "region": "West Central Wisconsin",
-    "summary": "Popular lower-Black sandbar and bluff segment from Irving to Melrose, using Wisconsin Trail Guide BK3 GPX endpoints and the direct Black River Falls gauge.",
-    "statusText": "Use the Black River Falls gauge. Wisconsin Trail Guide lists 200 cfs as the suggested minimum and 3,000 cfs as the suggested maximum for BK3; low water can force wading around islands, while high water covers sandbars and raises strainer consequences.",
+    "summary": "Float 11.8 miles from Irving to Melrose on the lower Black. Plan about five hours; shallow island channels may require walking at low water. Expect quiet water, riffles, sandy beaches in medium and lower flows, and tall bluffs. Wisconsin Trail Guide's 200–3,000 cfs Black River Falls range is community guidance, not an official safety band; that gauge is upstream of Irving, so check current flow and use the named public landings rather than private campground access.",
+    "statusText": "USGS 053813595 at Black River Falls is upstream of Irving, so treat it as the Wisconsin Trail Guide's BK3 community gauge reference, not an on-route reading. The guide suggests 200 cfs minimum and 3,000 cfs maximum. Near the low end, shallow forks around the large islands may require pushing or walking; high water can cover beaches and increase strainer risk. These are not official safe-flow limits. Check current flow, weather, and access before launch.",
     "latitude": 44.18761,
     "longitude": -90.89892,
     "safetyProfile": {
@@ -19714,7 +19714,7 @@ export const wisconsinRoutes: River[] = [
       "seasonNotes": "Spring through fall is the normal window. Medium and lower levels expose the beaches that define the route, while late-summer lows can strand boats in sandy island channels.",
       "difficulty": "easy",
       "difficultyNotes": "Easy quietwater and riffles, but the nearly 12-mile distance, island-channel decisions, private-bank limits, and high-water strainers call for a planned shuttle and daylight margin.",
-      "confidenceNotes": "Confidence is good for a conservative lower-Black add: Wisconsin Trail Guide documents BK3 from Irving to Melrose with GPX waypoints, mileage, riffle character, sandbar camping context, and a 200-3,000 cfs Black River Falls gauge range; Wisconsin River Trips and Miles Paddled corroborate the Irving-to-Melrose route family and lower-Black hazards; Wisconsin DNR documents Melrose access; and USGS Water Services returned current direct Black River Falls data during this run."
+      "confidenceNotes": "Wisconsin Trail Guide documents BK3 from Irving to the DNR Melrose landing at 11.8 miles, estimates about five hours, describes quietwater, riffles, sandbars and shallow island channels, and ties its suggested 200–3,000 cfs limits to USGS 053813595. The USGS station is at Black River Falls upstream of Irving, so its reading is regional route context rather than a measurement inside this reach. Thresholds are community suggestions, not an official DNR paddling band or safety guarantee."
     },
     "evidenceNotes": [
       {
