@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const guideUrl = new URL('/guides/how-to-read-a-river-gauge-for-paddling/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${guideUrl}#article`,
+  headline: 'How to Read a River Gauge for Paddling',
+  description: 'Match a river gauge to your route, understand stage versus discharge, and read local ranges with trends, releases, and hazards.',
+  mainEntityOfPage: guideUrl,
+  isPartOf: { '@id': websiteId },
+  author: { '@id': organizationId },
+  publisher: { '@id': organizationId },
+};
+---
+
+<BaseLayout
+  title="How to Read a River Gauge for Paddling | Paddle Today"
+  description="Learn how to match a river gauge to your route, understand stage versus flow, and use local levels with trends, dam releases, and hazards."
+  structuredData={structuredData}
+>
+  <article class="guide-article">
+    <section class="guide-hero guide-hero--flagship">
+      <div class="guide-hero__copy">
+        <p class="hero__kicker">Paddling conditions guide</p>
+        <h1>How to Read a River Gauge for Paddling</h1>
+        <p class="guide-hero__lede">
+          A gauge is a measurement at one place on a river. To use it for a trip, match the station and unit to your route, then read the value alongside its local source, trend, releases, and hazards.
+        </p>
+        <p>
+          <a class="river-link river-link--inline river-link--ghost" href="/guides/">All Paddle Today guides</a>
+        </p>
+      </div>
+      <aside class="guide-hero__note">
+        <p class="eyebrow">The short version</p>
+        <p>A number in a route's preferred band is planning context, not a safety guarantee. Do not transfer that number to another gauge or river.</p>
+      </aside>
+    </section>
+
+    <section class="guide-section guide-explainer" aria-labelledby="gauge-match-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">1 · Match the station</p>
+          <h2 class="section-title" id="gauge-match-title">Check which stretch the gauge actually measures</h2>
+        </div>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <h3>Route-matched gauge</h3>
+          <p>The route's reading and paddling range are tied to this station by route-specific evidence. The sensor may sit upstream or downstream; it still measures conditions at one point, not every rapid, side channel, or take-out.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Proxy gauge</h3>
+          <p>The station is upstream, downstream, or on a nearby branch. Tributaries, dams, diversions, and distance can change what reaches your route. Treat a proxy as regional context and check local sources before relying on a narrow cutoff.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Find the threshold's source</h3>
+          <p>A gauge can provide a strong live measurement while a paddling range comes from a separate river guide, park, outfitter, or paddlers' observations. Check what reach and station that range was written for.</p>
+        </article>
+      </div>
+      <p class="muted">
+        Paddle Today's route pages label proxy readings and identify the source behind a range where available. For example, the <a href="/rivers/namekagon-river-county-k-whispering-pines/">County K–Whispering Pines route</a> uses the Leonards gauge as a corridor check, while its route notes keep the local trip observation separate.
+      </p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="gauge-units-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">2 · Read the unit</p>
+          <h2 class="section-title" id="gauge-units-title">Stage and discharge describe different things</h2>
+        </div>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <h3>Stage or gage height · often feet</h3>
+          <p>Stage is the water surface relative to a datum chosen for that station. It is not a general measurement of river depth. A reading of 5 feet at one gauge has no direct meaning at another gauge with a different datum and channel.</p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Discharge or flow · often cubic feet per second</h3>
+          <p>Discharge estimates the volume of water passing the station over time. It is not the current speed beside your boat. Local channel shape, gradient, obstructions, and releases still determine how a reach feels.</p>
+        </article>
+      </div>
+      <p class="muted">
+        USGS explains that stage is converted to discharge using a station-specific rating curve; channel changes, vegetation, debris, or ice can alter that relationship. See <a href="https://www.usgs.gov/faqs/how-a-rating-curve-used-convert-gage-height-streamflow">how USGS converts gage height to streamflow</a> and <a href="https://www.usgs.gov/faqs/what-does-term-stream-stage-mean">what stream stage means</a>.
+      </p>
+    </section>
+
+    <section class="guide-section guide-explainer" aria-labelledby="gauge-check-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">3 · Make a trip decision</p>
+          <h2 class="section-title" id="gauge-check-title">Use this five-part check before you launch</h2>
+        </div>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item"><span class="guide-explainer__icon">1</span><h3>Choose the exact route</h3><p>Confirm put-in, take-out, and any dam, portage, or branch that changes the reach.</p></article>
+        <article class="guide-explainer__item"><span class="guide-explainer__icon">2</span><h3>Match the gauge</h3><p>Note its name, location, unit, latest observation time, and whether it is direct or a proxy.</p></article>
+        <article class="guide-explainer__item"><span class="guide-explainer__icon">3</span><h3>Read the local range</h3><p>Is it a minimum-only mark, preferred window, or upper cutoff? Does the source describe kayaking, whitewater play, tubing, or a managed release?</p></article>
+        <article class="guide-explainer__item"><span class="guide-explainer__icon">4</span><h3>Check the trend</h3><p>Look at recent change, rain, snowmelt, and dam notices. Rising water can alter conditions after the gauge observation.</p></article>
+        <article class="guide-explainer__item"><span class="guide-explainer__icon">5</span><h3>Recheck hazards and your group</h3><p>Match moving water, cold, strainers, dam features, take-out current, skill, and equipment to the people going.</p></article>
+      </div>
+      <p class="muted">
+        Real-time USGS readings are provisional and can be revised. USGS cautions readers not to use a provisional value alone for personal-safety decisions; see its <a href="https://water.usgs.gov/data/provisional.html">provisional-data statement</a>.
+      </p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="examples-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Examples from tracked routes</p>
+          <h2 class="section-title" id="examples-title">Why the river and source matter</h2>
+        </div>
+      </div>
+      <div class="guide-explainer__grid">
+        <article class="guide-explainer__item">
+          <h3>Lower American River: direct gauge, community range</h3>
+          <p>The Harrington–Watt route uses the <a href="https://waterdata.usgs.gov/monitoring-location/USGS-11446500/">USGS Fair Oaks station</a>, with its 1,400–3,100 cfs planning band tied to <a href="https://www.wildernessportal.com/routes/american-lower-american">local route guidance</a>, not published by USGS. California's <a href="https://dbw.parks.ca.gov/?page_id=29488">boating guide</a> separately warns paddlers to scout named rapids and respect the Nimbus Dam exclusion.</p>
+          <p><a class="river-link river-link--inline" href="/rivers/american-river-harrington-watt/">See the Harrington–Watt route, gauge, and sources</a></p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Little Miami River: best-play is not a safety rating</h3>
+          <p><a href="https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600">American Whitewater's 5.5–7.5 ft Milford band</a> describes its best-play range. It does not certify every paddler or condition as safe; the route also has Boathouse Rapid and old low-head-dam remnants.</p>
+          <p><a class="river-link river-link--inline" href="/rivers/little-miami-river-kelley-milford/">See the Kelley–Milford route and hazard notes</a></p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Ouachita River: check the dam operator too</h3>
+          <p>The Remmel Dam route depends on releases. Its page combines the USGS station with American Whitewater and <a href="https://www.entergy.com/blog/great-day-for-float/">Entergy's float and release guidance</a>; the gauge reading alone does not tell you whether a release, take-out current, or access rule makes the trip appropriate.</p>
+          <p><a class="river-link river-link--inline" href="/rivers/ouachita-river-remmel-whitewater-park/">See the Remmel Dam route, release notes, and sources</a></p>
+        </article>
+        <article class="guide-explainer__item">
+          <h3>Meramec River: separate the reading from its threshold</h3>
+          <p>The State Park–Sand Ford route uses direct <a href="https://waterdata.usgs.gov/monitoring-location/USGS-07014500/">USGS 07014500 near Sullivan</a> as a conservative low-water check. The 200 cfs floor comes from <a href="https://rivers.moherp.org/gauge/?gauge=07014500&amp;hours=0">local river guidance</a>, not USGS or the park. The roughly 7-mile length is also an estimate derived from <a href="https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf">MDC's access distances</a>. Keep the live reading, the paddling interpretation, and route-distance evidence distinct.</p>
+          <p><a class="river-link river-link--inline" href="/rivers/meramec-river-state-park-sand-ford/">See the State Park–Sand Ford route and gauge context</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section route-faq" aria-labelledby="gauge-faq-title">
+      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+        <p class="eyebrow section-label">Quick answers</p>
+        <h2 class="river-detail__chapter-title" id="gauge-faq-title">River gauge questions</h2>
+      </div>
+      <div class="route-faq__list">
+        <details class="river-accordion route-faq__item" open>
+          <summary class="river-accordion__summary"><span><strong>Does a gauge height tell me the river's depth?</strong></span></summary>
+          <div class="river-accordion__body"><p class="muted">No. Gage height is measured from a station-specific datum, not from a universal river bottom. Use a route-specific depth or level guide if one exists.</p></div>
+        </details>
+        <details class="river-accordion route-faq__item">
+          <summary class="river-accordion__summary"><span><strong>Can I use the same number at another gauge on the river?</strong></span></summary>
+          <div class="river-accordion__body"><p class="muted">No. Stage and discharge ranges belong to a particular station and reach. A nearby station can be a useful proxy, but tributaries, dams, and channel differences can change conditions.</p></div>
+        </details>
+        <details class="river-accordion route-faq__item">
+          <summary class="river-accordion__summary"><span><strong>Does “ideal” or “best play” mean safe?</strong></span></summary>
+          <div class="river-accordion__body"><p class="muted">No. Those labels describe a source's preferred water range for a stated activity. They do not account for every rapid, hazard, skill level, temperature, access change, or same-day rise.</p></div>
+        </details>
+      </div>
+      <p class="muted">Use the route page's primary sources and same-day local notices. When the gauge, trend, access, or your group's ability is uncertain, choose a more conservative route or wait.</p>
+    </section>
+  </article>
+</BaseLayout>
