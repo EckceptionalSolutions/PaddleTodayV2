@@ -3672,7 +3672,10 @@ async function main() {
         ? feature.properties.routeId !== requestedRouteId
         : reuseExisting || !endpointBoundedNamedRoutes.has(feature.properties.routeId))),
     ...builtInCuratedFeatures.filter((feature) =>
-      !networkPreferredCuratedRouteIds.has(feature.properties.routeId),
+      !networkPreferredCuratedRouteIds.has(feature.properties.routeId)
+      && !(reuseExisting && existingFeatures.some(
+        (existing) => existing.properties.routeId === feature.properties.routeId,
+      )),
     ),
   ];
   let matchedRoutes = 0;
