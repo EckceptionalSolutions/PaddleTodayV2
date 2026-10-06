@@ -2,6 +2,7 @@ import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getAuth, type DecodedIdToken } from 'firebase-admin/auth';
 
 let app: ReturnType<typeof initializeApp> | null = null;
+let localApp: ReturnType<typeof initializeApp> | null = null;
 function firebaseAuthApp() {
   if (app) return app;
   const configured = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim();
@@ -26,13 +27,23 @@ export function assertFirebaseAuthConfigured() {
 export async function verifyAccountIdToken(authorization: string | undefined, options: { allowRevoked?: boolean } = {}): Promise<DecodedIdToken | null> {
   const match = authorization?.match(/^Bearer\s+([A-Za-z0-9._~-]{40,8192})$/i);
   if (!match) return null;
-  if (!process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim()) {
+  const configured = process.env.FIREBASE_SERVICE_ACCOUNT_JSON?.trim();
+  let authApp: ReturnType<typeof initializeApp>;
+  if (!configured) {
     if (process.env.NODE_ENV === 'production') throw new FirebaseAuthUnavailableError();
-    return null;
+    const projectId = process.env.PUBLIC_FIREBASE_PROJECT_ID?.trim();
+    if (!projectId) return null;
+    // Signature verification needs public certificates only. Keep this app
+    // separate from the privileged app used for production and user deletion.
+    const name = 'paddletoday-local-account-auth';
+    localApp ??= getApps().find(value => value.name === name)
+      ?? initializeApp({ projectId }, name);
+    authApp = localApp;
+  } else {
+    authApp = firebaseAuthApp();
   }
-  const authApp = firebaseAuthApp();
   try {
-    const token = await getAuth(authApp).verifyIdToken(match[1]!, !options.allowRevoked);
+    const token = await getAuth(authApp).verifyIdToken(match[1]!, configured ? !options.allowRevoked : false);
     return token.uid && token.aud === authApp.options.projectId ? token : null;
   } catch {
     return null;

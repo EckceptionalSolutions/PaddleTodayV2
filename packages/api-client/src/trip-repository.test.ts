@@ -77,6 +77,49 @@ describe('trip offline persistence', () => {
     expect(restored.getSnapshot().pending).toEqual([]);
     expect(restored.getSnapshot().logs[id]?.track).toEqual(value.track);
   });
+  it('durably replaces a reviewed conflict using the latest baseline and a new operation ID', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const id = 'trip-id-1234567890', plan = newTripPlan({ name: 'River' });
+    await repo.savePlan(plan, id); await repo.sync();
+    const latest = structuredClone(repo.getSnapshot().trips[id]!);
+    await repo.savePlan({ ...plan, title: 'Local title' }, id);
+    vi.mocked(f.api.mutate).mockRejectedValueOnce(new TripApiError(409, 'trip_conflict', 'Review both versions'));
+    await repo.sync();
+    const pending = repo.getSnapshot().pending[0]!;
+    latest.revision = 10; latest.date = '2026-10-10';
+    await repo.resolveReview(pending.key, latest, { ...plan, date: latest.date, title: 'Reviewed title' });
+    const restored = f.make(); await restored.load();
+    const replaced = restored.getSnapshot().pending[0]!;
+    expect(replaced.key).not.toBe(pending.key);
+    expect(replaced.error).toBeUndefined();
+    expect(replaced.kind === 'trip' && replaced.input).toMatchObject({ baseRevision: 10, command: { type: 'plan', baseline: { date: latest.date }, plan: { title: 'Reviewed title', date: latest.date } } });
+  });
+  it('retains the original conflict when the reviewed replacement cannot be stored', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    await repo.savePlan(newTripPlan({ name: 'River' }), 'trip-id-1234567890');
+    const before = structuredClone(repo.getSnapshot());
+    f.storage.setItem = async () => { throw new Error('disk full'); };
+    await expect(repo.resolveReview(before.pending[0]!.key, before.trips['trip-id-1234567890']!, newTripPlan({ name: 'Changed' }))).rejects.toThrow('disk full');
+    expect(repo.getSnapshot()).toEqual(before);
+  });
+  it('rebases reviewed private notes without replacing their photo metadata', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const id = 'paddle-log-1234567890';
+    const value = { sourceTripId: null, route: newTripPlan({ name: 'River' }).route, date: '2026-10-10', time: '', timeZone: 'America/Chicago', notes: 'Local notes', paddleAgain: '' as const, water: [] };
+    await repo.saveLog(value, id);
+    const latest = { ...repo.getSnapshot().logs[id]!, revision: 7, notes: 'Remote notes', photos: [{ id: 'photo-id', caption: 'River', bytes: 100, width: 10, height: 10 }] };
+    await repo.resolveReview(repo.getSnapshot().pending[0]!.key, latest, value);
+    expect(repo.getSnapshot().logs[id]?.photos).toEqual(latest.photos);
+    expect(repo.getSnapshot().pending[0]).toMatchObject({ kind: 'log', input: { baseRevision: 7, value: { notes: 'Local notes' } } });
+  });
+  it('does not silently replace additional queued edits for the same item', async () => {
+    const f = fixture(), repo = f.make(); await repo.load();
+    const id = 'trip-id-1234567890', plan = newTripPlan({ name: 'River' });
+    await repo.savePlan(plan, id); await repo.savePlan({ ...plan, title: 'Later edit' }, id);
+    const before = structuredClone(repo.getSnapshot());
+    await expect(repo.resolveReview(before.pending[0]!.key, before.trips[id]!, plan)).rejects.toThrow('additional saved changes');
+    expect(repo.getSnapshot()).toEqual(before);
+  });
   it('persists the plan and outbox together and restores them after restart', async () => {
     const f = fixture(), first = f.make(); await first.load();
     await first.savePlan(newTripPlan({ name: 'River' }), 'trip-id-1234567890');

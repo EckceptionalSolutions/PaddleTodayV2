@@ -2,7 +2,7 @@ import { savedRouteSnapshot, savedRouteChanges, parseSavedRouteSnapshots, advanc
 import { bindFavoriteNotes } from './favorite-notes.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
-import { readFavorites, readFavoritesStatus, subscribeFavorites } from './favorites-store.js';
+import { readFavorites, readFavoritesStatus, subscribeFavorites, savedRoutesScope } from './favorites-store.js';
 import {
   clearMapMarkers,
   createMapStatusController,
@@ -22,10 +22,15 @@ import { buildRouteSegments, formatRouteSegmentLabel, routeSegmentSummary } from
 import { callLabelForDecision, ratingToneKey } from '@paddletoday/api-contract';
 import { getBrowserApiClient } from './browser-api-client.js';
 
-const CHANGES_KEY = 'paddletoday:saved-route-changes:v1';
+let CHANGES_KEY = 'paddletoday:saved-route-changes:v1:' + savedRoutesScope();
 let previousVisit;
 try { previousVisit = parseSavedRouteSnapshots(localStorage.getItem(CHANGES_KEY)); } catch { previousVisit = {}; }
-const nextVisit = { ...previousVisit };
+let nextVisit = { ...previousVisit };
+window.addEventListener('paddletoday:favorites-scope-change', () => {
+  CHANGES_KEY = 'paddletoday:saved-route-changes:v1:' + savedRoutesScope();
+  try { previousVisit = parseSavedRouteSnapshots(localStorage.getItem(CHANGES_KEY)); } catch { previousVisit = {}; }
+  nextVisit = { ...previousVisit };
+});
 let hasFreshSummary = false;
 
 function recordSavedRouteVisit(results) {
@@ -315,7 +320,7 @@ async function renderFavoritesMap(results = latestResults) {
   if (totalFavorites === 0) {
     favoritesMapShell.hidden = true;
     favoritesMapStatusController.empty();
-    favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route on this device.';
+    favoritesMapCopy.textContent = 'Your saved-route map appears once you save a route.';
     favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers);
     favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime);
     return;
@@ -338,7 +343,7 @@ async function renderFavoritesMap(results = latestResults) {
   favoritesMapCopy.textContent =
     hiddenCount > 0
       ? `${mappable.length} saved routes are on the current board. ${hiddenCount} saved ${hiddenCount === 1 ? 'route is' : 'routes are'} not in the latest snapshot.`
-      : 'All saved routes on this device are shown on the current board map.';
+      : 'All saved routes are shown on the current board map.';
 
   // Notes and other local card edits do not change the map's route data.
   if (favoritesMapRuntime && results === renderedMapResults && locations === renderedMapLocations) {
@@ -486,6 +491,8 @@ function renderFavoriteCard(favorite, current) {
   notesButton.textContent = favorite.notes ? 'Edit personal note' : 'Add personal note';
   notesButton.setAttribute('aria-label', `${notesButton.textContent}: ${favorite.name || 'Route'}`);
 
+  const plan = card.querySelector('[data-favorite-plan]');
+  if (plan) { const source = new URL(favorite.url || '/', location.origin); const query = new URLSearchParams({ route: favorite.slug, name: favorite.name || '' }); for (const key of ['putin', 'takeout']) if (source.searchParams.get(key)) query.set(key, source.searchParams.get(key)); plan.href = '/trips/?' + query; }
   const linkHref = favorite.url || `/rivers/${encodeURIComponent(favorite.slug)}/`;
   const titleLink = card.querySelector('[data-field="favorite-title-link"]');
   if (titleLink instanceof HTMLAnchorElement) {
@@ -615,7 +622,8 @@ function updateSummaryLine(favorites) {
   }
 
   if (favorites.length === 0) {
-    summary.textContent = 'No routes saved on this device yet.';
+    summary.textContent = '';
+    summary.hidden = true;
     if (refreshButton instanceof HTMLButtonElement) refreshButton.hidden = true;
     return;
   }
@@ -632,6 +640,7 @@ function updateSummaryLine(favorites) {
     : loadFailed ? 'Could not refresh. Your saved routes are still here.'
     : !hasFreshSummary && lastFetchedAt ? 'Showing last available calls' : '';
   summary.textContent = [countLabel, freshness, stateLabel].filter(Boolean).join(' • ');
+  summary.hidden = false;
 }
 
 function renderFavorites(results = latestResults) {
@@ -641,6 +650,12 @@ function renderFavorites(results = latestResults) {
 
   const stored = readFavoritesStatus();
   storageLoadFailed = stored.hasError;
+  if (stored.loading || (stored.accountError && !stored.favorites.length)) {
+    grid.replaceChildren(); grid.hidden = true; empty.hidden = true;
+    favoritesMapRenderVersion += 1; favoritesMapMarkers = clearMapMarkers(favoritesMapMarkers); favoritesMapRuntime = destroyMapRuntime(favoritesMapRuntime); favoritesMapShell.hidden = true;
+    summary.textContent = stored.loading ? 'Loading your saved routes…' : 'Account routes could not be loaded. Retry below; your saves have not been removed.';
+    return;
+  }
   const favorites = stored.favorites;
   updateSummaryLine(favorites);
   if (storageLoadFailed) {

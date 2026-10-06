@@ -9,6 +9,12 @@ const websiteId = new URL('/#website', siteUrl).href;
 const stateGroups = listRiverStateGroups();
 const guideLinks = [
   {
+    href: '/guides/how-to-read-a-river-gauge-for-paddling/',
+    title: 'How to Read a River Gauge for Paddling',
+    description: 'Match a gauge to your route, understand stage versus discharge, and read local ranges alongside trends, dam releases, and hazards.',
+    label: 'Field guide',
+  },
+  {
     href: '/guides/best-minnesota-paddle-trips/',
     title: 'Best Minnesota Paddle Trips',
     description: 'Weekend routes, long day trips, canoe-camping ideas, and beginner-friendly paddles with live scores where available.',
@@ -32,7 +38,7 @@ const structuredData = {
   '@type': 'CollectionPage',
   '@id': `${guidesUrl}#collection`,
   name: 'Paddle Today Guides',
-  description: 'Paddle Today guides for planning Midwest paddle trips with route links, live water-level context, weather, and source-backed route notes.',
+  description: 'Paddle Today paddling guides with source-backed trip planning, route links, live water-level context, and practical gauge-reading advice.',
   url: guidesUrl,
   isPartOf: {
     '@id': websiteId,
@@ -45,7 +51,7 @@ const structuredData = {
 
 <BaseLayout
   title="Paddling Guides | Paddle Today"
-  description="Browse Paddle Today guides for Midwest paddle trips, weekend route ideas, state route coverage, live water-level context, and source-backed planning notes."
+  description="Browse Paddle Today paddling guides for route planning, weekend ideas, water-level context, and practical advice for reading river gauges."
   structuredData={structuredData}
 >
   <section class="guide-hero guide-hero--flagship guide-hero--index">
@@ -53,7 +59,7 @@ const structuredData = {
       <p class="hero__kicker">Guides</p>
       <h1>Paddling Guides</h1>
       <p class="guide-hero__lede">
-        Plan route ideas first, then open the route pages for current water levels, weather, scores, access notes, and source confidence.
+        Learn how to read water levels, plan route ideas, then open route pages for current conditions, access notes, and source confidence.
       </p>
     </div>
     <aside class="guide-hero__note">

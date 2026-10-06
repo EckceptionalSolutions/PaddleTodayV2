@@ -209,6 +209,23 @@ export class TripRepository {
     for (const photo of discardedPhotos) await this.clearPhoto(photo);
     await this.sync();
   }
+  /** Replace one reviewed conflict atomically; a failed durable write keeps the original. */
+  async resolveReview(key: string, latest: Trip | PaddleLog, value: TripPlan | PaddleLogInput) {
+    await this.change(v => {
+      const pending = v.pending.find(p => p.key === key);
+      if (!pending || pending.id !== latest.id) throw new Error('This saved change is no longer available. Reopen the review.');
+      if (v.pending.some(p => p.key !== key && p.id === pending.id && p.kind === pending.kind)) throw new Error('There are additional saved changes for this item. Keep a recovery copy and review those changes before replacing this version.');
+      const operationId = this.uuid();
+      if (pending.kind === 'trip' && 'members' in latest && isTripPlan(value) && ['plan', 'create'].includes(pending.input.command.type)) {
+        pending.input = { operationId, baseRevision: latest.revision, command: { type: 'plan', plan: tripPlan(value), baseline: tripPlan(latest) } };
+        v.trips[pending.id] = { ...latest, ...tripPlan(value), revision: latest.revision + 1 };
+      } else if (pending.kind === 'log' && 'photos' in latest && isLogInput(value) && pending.input.value) {
+        pending.input = { operationId, baseRevision: latest.revision, value };
+        v.logs[pending.id] = { ...latest, ...value, revision: latest.revision + 1 };
+      } else throw new Error('This change cannot be merged here. Keep a recovery copy or use the latest saved version.');
+      pending.key = operationId; pending.queuedAt = Date.now(); delete pending.error; delete pending.errorStatus; delete pending.latest;
+    });
+  }
   sync() {
     if (this.disposed) return Promise.resolve();
     if (this.syncing) return this.syncing;

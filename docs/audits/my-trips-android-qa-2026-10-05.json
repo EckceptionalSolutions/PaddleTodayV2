@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-05",
+  "device": "Samsung Galaxy A14 SM-A146U1",
+  "installedPreview": "artifacts/android/paddletoday-trips-simple-20261005.apk",
+  "environment": "Physical Android phone, signed-in existing account, live production trip API",
+  "releaseReady": false,
+  "verifiedOnPhone": [
+    "Create a custom-route trip and save its read-only overview",
+    "Edit title, planned date, launch time, and route using catalog search",
+    "Choose and edit access points, including a manual access-point name",
+    "Show an unknown-access explanation without a misleading route distance",
+    "Open current route conditions and return to the trip",
+    "Change own trip-specific display name and RSVP",
+    "Initially tested vehicle and seat editing; the follow-up removes seat counts and assignments and verifies vehicle/meeting create, edit, reopen, and remove",
+    "Generate view and invitation links, open native share sheets without sending, revoke both links",
+    "Create, edit, save, and display a shared itinerary stop",
+    "Create and edit a private paddle recap, retain notes and would-paddle-again choice",
+    "Upload only a synthetic QA photo, reopen it in recap and History, cancel removal, then remove it",
+    "Save and display a manual water observation and its source",
+    "Start GPS with precise one-time permission, pause, confirm the timer stays frozen, resume",
+    "Lock and unlock the phone while recording remains active",
+    "Force-stop and reopen with the recording already paused; recover recording controls and elapsed time",
+    "Cancel Finish confirmation, then finish; retain the track locally when production sync rejects it",
+    "Plan again with the existing route and a fresh unspecified schedule",
+    "Restore an unfinished draft after force-stop and cold start; resume and discard it",
+    "Search for a matching trip and a nonmatching name",
+    "Complete, cancel, and reopen the QA plan; find its recap in History",
+    "Cancel deletion confirmations, then delete the QA paddle and trip",
+    "Open Offline downloads and local drafts and return to My trips",
+    "Retest keyboard avoidance on low custom-route and group fields in the updated preview",
+    "Retest that a future trip defaults to today with an empty launch time when logging a past paddle",
+    "Retest that route validation clears when changing the route",
+    "Retest that missing group details remain local with an explicit pending sync error"
+  ],
+  "findings": [
+    {
+      "severity": "fixed_in_production",
+      "issue": "Production API acknowledges plan saves but drops preparation fields including group size and group notes",
+      "status": "Production API retains preparation. Android retry, cold reopen, and group-size/notes round trip passed."
+    },
+    {
+      "severity": "fixed_in_production",
+      "issue": "Record another paddle uses a new log ID, but the API requires a linked log ID to equal the trip ID",
+      "status": "Deployed e36f7f70. Two distinct GPS recaps linked to the same trip synced and reopened with private track maps/statistics."
+    },
+    {
+      "severity": "fixed_in_preview",
+      "issue": "Keyboard can obscure form inputs",
+      "status": "Main trip forms and access-point modal now use keyboard avoidance; low custom-route field scrolls above the keyboard on the phone."
+    },
+    {
+      "severity": "fixed_in_preview",
+      "issue": "Past paddle inherits a future trip date and launch time",
+      "status": "Defaults to trip-local today and empty launch time for a future plan; past plan dates remain reusable."
+    },
+    {
+      "severity": "fixed_in_preview",
+      "issue": "Route validation remains visible after changing the route",
+      "status": "Clear route-specific validation on route changes; a custom route now uses the correct Choose app route label."
+    },
+    {
+      "severity": "fixed_in_preview",
+      "issue": "Finishing a recording claims the track synced privately even when sync failed",
+      "status": "Explicitly says the track is saved on this device and has not synced when pending work remains."
+    },
+    {
+      "severity": "fixed_in_preview",
+      "issue": "Sync recovery displays a large raw JSON payload and generic confirmation labels",
+      "status": "Readable recovery fields and explicit keep/retry/discard controls verified on phone. Vehicle saves also clear old notices."
+    }
+  ],
+  "automatedChecks": {
+    "mobileFocusedTestsPassed": 24,
+    "apiClientRepositoryTestsPassed": 12,
+    "apiAndStorageTestsPassed": 22,
+    "mobileTypecheck": "passed",
+    "apiClientTypecheck": "passed",
+    "apkSignature": "verified against existing signing certificate",
+    "finalAppProcessFatalExceptions": 0,
+    "finalAppProcessJavaScriptExceptions": 0
+  },
+  "coverageLimits": [
+    "Stationary recording checks controls and persistence, not distance accuracy during a real paddle",
+    "No second account was used on the phone, so invitation acceptance, concurrent edits, and ownership transfer were not tested end to end",
+    "No share sheet recipient was selected and no messages were sent",
+    "Existing sign-in session was preserved; fresh Google/email sign-in and account switching were not exercised",
+    "Offline-download navigation was checked, but downloading and airplane-mode packet operation were outside this My Trips walkthrough",
+    "iOS and native accessibility text scaling were not tested"
+  ],
+  "cleanup": {
+    "originalTrip": "Rice Creek · Peltier Lake to Long Lake, Oct 6, 2026; unchanged",
+    "finalCounts": {
+      "plans": 1,
+      "history": 0
+    },
+    "qaTripDeleted": true,
+    "qaRecapDeleted": true,
+    "qaPhotoRemovedFromRecapAndPhoneDownloads": true,
+    "qaDraftsAndPendingTrackRemoved": true,
+    "qaShareLinksRevoked": true,
+    "locationPermissions": "Fine and coarse location denied again, matching original grant state",
+    "notificationsPermission": "Original granted state preserved",
+    "temporarySigningKeystore": "removed"
+  },
+  "initialPreview": "artifacts/android/paddletoday-trips-qa-fixes-20261005.apk",
+  "followUp": {
+    "date": "2026-10-05",
+    "simplifiedShuttle": "Removed seat counts, seat selection, passenger assignments, and ride-capacity summaries from Android and web UI. Retained vehicles/drivers and optional meeting, parking, and notes.",
+    "syncRecovery": "Readable saved fields, private track statistics without coordinates, contextual review labels, Retry sync, Keep changes and close, and explicit discard confirmation. Retry retains unresolved work.",
+    "recordingRecovery": "Android task registration survives a force-stop. Cold process recovery now stops stale registration and pauses the saved track. Resume requests expired location permission again. Interruption time is excluded after the last saved location. A live checkpoint also retains stationary recording time while the app is open.",
+    "localVehicleUpdates": "Vehicle additions, edits, and removals are durable and visible locally while sync is unavailable.",
+    "checks": {
+      "mobileFocusedTests": 33,
+      "apiClientRepositoryTests": 13,
+      "apiContractTests": 65,
+      "apiRuntimeTests": 1021,
+      "mobileTypecheck": "passed",
+      "apiClientTypecheck": "passed",
+      "browserCoordinationTests": {
+        "androidLayout": 4,
+        "desktop": 4
+      },
+      "apkSignature": "verified",
+      "apkSha256": "246e947ca7ee1038998f76925e546380d8e0c71cc995d4e275395778206ec0cd"
+    },
+    "productionApi": {
+      "commit": "e36f7f70",
+      "run": "https://github.com/EckceptionalSolutions/PaddleTodayV2/actions/runs/37358070106",
+      "pullRequest": "https://github.com/EckceptionalSolutions/PaddleTodayV2/pull/68",
+      "status": "Deployed successfully; Azure restart activated the new runtime at 2026-10-05T19:13:12.236Z. Phone round trips passed.",
+      "baseline": "3348e0cf4b58355f4e16d0e3eb6fde3fd777dfa9",
+      "activationNote": "Workflow completed before the old live process was replaced; explicit app restart was necessary. Verified source, fresh readiness timestamp, and actual phone operations."
+    },
+    "phoneRoundTrip": {
+      "recoveryFieldsReadable": true,
+      "retryRetainsUnresolvedDetails": true,
+      "keepAndDiscardCancelPreserveTrack": true,
+      "expiredLocationPermissionRequestedOnResume": true,
+      "activeForceStopRecovery": true,
+      "beforeStopSeconds": 35,
+      "recoveredSeconds": 34,
+      "interruptionGapExcluded": true,
+      "savedRecordingsOnSameQaTrip": 2,
+      "productionSync": "passed",
+      "awaitingSync": [],
+      "nativePreviewInstalled": true,
+      "groupSizeAndNotesAfterColdStart": true,
+      "bothPrivateGpsTracksAfterColdStart": true,
+      "vehicleCreateEditReopenRemove": true,
+      "seatFieldsAndAssignmentControlsAbsent": true,
+      "legacyVehicleConflict": "Reviewed readable saved details, discarded the conflicted queued vehicle, and re-added it against the latest revision. No other changes were discarded.",
+      "finalNoticeFixInstalled": true
+    },
+    "cleanup": {
+      "qaTripDeleted": true,
+      "qaRecapsDeleted": 2,
+      "qaVehicleRemoved": true,
+      "finalCounts": {
+        "plans": 1,
+        "history": 0
+      },
+      "pendingChanges": 0,
+      "drafts": 0,
+      "activeRecording": false,
+      "originalTripUnchanged": true,
+      "locationPermissions": "Fine and coarse denied, matching baseline",
+      "notificationsPermission": "Granted state preserved",
+      "temporarySigningKeystore": "removed",
+      "testPreviewInstalled": true
+    }
+  },
+  "releaseReadinessNote": "Production sync blockers are fixed and verified on Android. Preview is installed; full release readiness still needs a real paddle GPS check, two-account checks, and integration of PR 68 before subsequent main API deployments.",
+  "latestPreview": {
+    "path": "C:/Users/Yerff/source/repos/PaddleTodayV2/artifacts/android/paddletoday-trips-simplified-20261005.apk",
+    "sha256": "079859d7404fb2382e1e358ecba8f1f32536c6752a2e8b5b4901815f6d8fbc8a",
+    "audit": "docs/audits/my-trips-simplification-2026-10-05.json",
+    "note": "Historical checks and build hashes above describe the earlier QA passes. This follow-up is the currently installed preview."
+  }
+}

@@ -41,10 +41,10 @@ const privacyStructuredData = {
     <p class="eyebrow">Information</p>
     <h2>What we collect</h2>
     <ul class="compact-list">
-      <li>Approximate or precise location only when you grant permission, so nearby routes and drive-aware recommendations can be shown. If you opt in to nearby phone alerts, your selected planning location and alert range are also stored so we can match route conditions to your area.</li>
+      <li>Approximate or precise location only when you grant permission, so nearby routes and drive-aware recommendations can be shown. In the mobile app, if you sign in and explicitly start GPS recording for a paddle, precise location is recorded until you pause or finish and is saved with your private paddle recap. If recording is interrupted while the app is closed, the saved portion is marked paused when you reopen the app; you can then resume or finish it. If you opt in to nearby phone alerts, your selected planning location and alert range are also stored so we can match route conditions to your area.</li>
       <li>Saved rivers, alert preferences, and app settings that help personalize your experience.</li>
       <li>If you create an account, your Firebase account identifier and the identity information returned by your sign-in provider. {savedRouteWebSyncAvailable ? 'Saved routes, personal route notes, trip plans, and shared-trip membership can sync between the website and mobile app.' : webAccountFeaturesAvailable ? 'Saved routes and personal route notes backed up from the mobile app are stored with your account; routes and notes saved on this website stay in that browser. Trip plans and shared-trip membership can sync between the website and mobile app.' : 'Mobile saved routes and personal route notes you choose to sync, plus trip plans and shared-trip membership, are associated with your account and available in the mobile app. Website saved routes stay in that browser; website account and trip features are temporarily unavailable.'}</li>
-      <li>Personal paddle logs may include the route and date, water observations, notes, and photos you choose to add. Logs and photos are private to your account. Shared trips may include the route, access points, dates, itinerary, member names and responses, and shuttle arrangements.</li>
+      <li>Personal paddle logs may include the route and date, water observations, notes, photos, and GPS tracks you choose to record. Logs, photos, and GPS tracks are private to your account. Shared trips may include the route, access points, dates, itinerary, member names and responses, and shuttle arrangements.</li>
       <li>App feedback, optional feedback reply emails, route requests, route reports, photos, corrections, and email messages that you choose to submit.</li>
       <li>Basic technical information such as device, browser, request logs, and error diagnostics used to keep the service reliable.</li>
     </ul>
@@ -56,6 +56,7 @@ const privacyStructuredData = {
     <ul class="compact-list">
       <li>To rank nearby paddling options, show route context, and deliver requested alerts.</li>
       <li>{savedRouteWebSyncAvailable ? 'To restore the saved routes, notes, and trip plans you choose to sync across devices.' : webAccountFeaturesAvailable ? 'To restore mobile saved routes and notes, and trip plans, that you choose to sync; routes and notes saved on this website stay in that browser.' : 'To restore mobile saved routes and notes, and trip plans and shared-trip membership associated with your account in the mobile app; website saved routes stay in that browser.'}</li>
+      <li>To save the private paddle recaps, photos, and GPS tracks that you choose to sync with your account. These are not shown in shared trip plans or view links.</li>
       <li>To review app feedback and respond to support requests, route updates, and submitted trip reports.</li>
       <li>To diagnose bugs, improve route data, and understand which parts of the service need work.</li>
       <li>To protect the service from abuse, spam, and security issues.</li>
@@ -69,7 +70,7 @@ const privacyStructuredData = {
       <li>You can deny or revoke location permission in your browser or device settings.</li>
       <li>You can remove saved rivers and alert preferences in the app where those controls are available. Website saved routes stay in that browser. Nearby alert subscriptions can be turned off at any time.</li>
       <li>You can ask us to review, correct, or delete information you submitted by emailing <a href="mailto:hello@paddletoday.com">hello@paddletoday.com</a>.</li>
-      <li>You can delete your account from Account &amp; backup in the mobile app after verifying your sign-in again. If you cannot access the app, see <a href="/account/delete/">account deletion help</a>. Deletion removes saved routes and notes backed up to your account, trips you own, your personal logs and photos, and your memberships in other trips. Copies stored only in a browser are not automatically removed. Trips owned by other paddlers and their personal logs remain. Any restricted recovery copies follow the hosting provider's retention schedule.</li>
+      <li>You can delete your account from Account &amp; backup in the mobile app after verifying your sign-in again. If you cannot access the app, see <a href="/account/delete/">account deletion help</a>. Deletion removes saved routes and notes backed up to your account, trips you own, your personal logs, photos, and GPS tracks, and your memberships in other trips. Copies stored only in a browser are not automatically removed. Trips owned by other paddlers and their personal logs remain. Any restricted recovery copies follow the hosting provider's retention schedule.</li>
     </ul>
   </section>
 

@@ -19,7 +19,7 @@ test('route warning tooltip stays inside tablet layouts', async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await warning.focus();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
-    await expect(page.locator('.site-header__action')).toBeVisible();
+    await expect(page.locator('.account-menu__trigger')).toBeVisible();
     const tooltip = await warning.evaluate(element => {
       const style = getComputedStyle(element, '::after');
       return { right: style.right, opacity: style.opacity };
@@ -221,3 +221,17 @@ for (const [label, expectedMinutes] of [['30 to 90 minutes', 150], ['2 hr 30 min
     expect(duration).toBe(expectedMinutes);
   });
 }
+
+test('route planning action follows selected access and explicit date context', async ({ page }) => {
+  await page.goto('/rivers/rice-creek-peltier-to-long-lake/?date=2026-10-10#access-plan');
+  await page.locator('.river-access-planner-disclosure > summary').click();
+  await page.locator('[data-access-putin]').selectOption('baldwin-lake');
+  await page.locator('[data-access-takeout]').selectOption('old-highway-8');
+  const links = page.locator('[data-plan-account]');
+  await expect(links).toHaveCount(2);
+  for (const link of await links.all()) {
+    await expect(link).toHaveAttribute('href', /putin=baldwin-lake/);
+    await expect(link).toHaveAttribute('href', /takeout=old-highway-8/);
+    await expect(link).toHaveAttribute('href', /date=2026-10-10/);
+  }
+});

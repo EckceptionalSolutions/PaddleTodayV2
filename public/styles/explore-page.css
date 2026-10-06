@@ -420,6 +420,10 @@ html body.page-explore .score-filter__options {
 
 html body.page-explore .score-filter__option {
   min-height: 2rem;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
   padding: 0.32rem 0.62rem;
   border: 1px solid rgba(20, 69, 83, 0.11);
   border-radius: 999px;
@@ -428,7 +432,7 @@ html body.page-explore .score-filter__option {
   font: inherit;
   font-size: 0.72rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.3;
   cursor: pointer;
   transition:
     border-color 140ms ease,
@@ -926,6 +930,11 @@ html body.page-explore .explore-location-field .home-location-bar--embedded {
 }
 html body.page-explore .explore-area-fields :is(select, input, button) {
   min-height: 44px;
+}
+html body.page-explore .explore-area-fields :is(select, input) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 html body.page-explore .explore-location-field .home-location-bar--embedded :is(input, button) {
   min-height: 44px;

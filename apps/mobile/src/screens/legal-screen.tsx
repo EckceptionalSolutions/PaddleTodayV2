@@ -19,17 +19,17 @@ const legalCopy = {
       {
         title: 'Information we use',
         body:
-          'The app may use your approximate or precise location when you choose location-aware route sorting. Feedback, route requests, support emails, alerts, and community submissions may include the contact details and notes you provide.',
+          'The app may use your approximate or precise location when you choose location-aware route sorting. If you sign in and explicitly start GPS recording for a paddle, precise location is recorded until you pause or finish. The resulting route, time, and distance are saved with your private paddle recap. Feedback, route requests, support emails, alerts, and community submissions may include the contact details and notes you provide.',
       },
       {
         title: 'How it is used',
         body:
-          'Location is used to estimate drive-aware route recommendations. Submitted feedback, route, alert, support, and report details are used to operate PaddleToday, improve the app and route data, and respond when needed.',
+          'Location is used to estimate drive-aware route recommendations and, only during a paddle recording you start, to create a route for your private recap. On Android, an ongoing recording shows a notification; on iPhone, location access may continue in the background so recording can continue while the screen is locked. Submitted feedback, route, alert, support, and report details are used to operate PaddleToday, improve the app and route data, and respond when needed.',
       },
       {
         title: 'Planning data on your device',
         body:
-          'Saved routes, personal route notes, trip drafts, and recent-route shortcuts are stored on your device. You can remove notes and drafts in Saved, and use Clear history under Recently viewed to remove recent-route shortcuts. The recent list does not sync to an account. Trip sharing and exports include the plan details you choose to share.',
+          'Saved routes, personal route notes, trip drafts, paddle recaps, photos, and GPS tracks are stored on your device and, when saved while signed in, synced to your account. Paddle recaps, photos, and GPS tracks remain private to your account; they are not included in shared trip plans or view links. You can remove notes and drafts in Saved, and use Clear history under Recently viewed to remove recent-route shortcuts. The recent list does not sync to an account. Trip sharing and exports include the plan details you choose to share.',
       },
       {
         title: 'Diagnostics',

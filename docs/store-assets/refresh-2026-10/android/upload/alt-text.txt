@@ -1,0 +1,20 @@
+android-01-today.png
+Today shows an American River route, a condition score, trip length, and nearby options.
+
+android-02-conditions.png
+American River detail explains its score, weather, and route cautions.
+
+android-03-explore.png
+Explore shows Sacramento area routes on a map and a selected American River route card.
+
+android-04-access.png
+Access map shows Watt Avenue and Howe Avenue launch points, distance, and estimated paddle time.
+
+android-05-weekend.png
+Weekend shows a Des Moines River trip with an October 3–4 forecast and planning cautions.
+
+android-06-saved.png
+Saved routes shows three favorites, their call counts, and a Des Moines River condition summary.
+
+feature-graphic.png
+River scenery with the message: Find your next river day. Conditions explained. Trips made easier.

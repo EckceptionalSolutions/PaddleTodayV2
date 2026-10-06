@@ -84,7 +84,6 @@ jobs:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: deploy-package
-          startup-command: 'npm start'
 
       - name: Wait for deployment readiness
         env:

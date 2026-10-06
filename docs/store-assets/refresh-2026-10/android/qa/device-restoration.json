@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-02",
+  "physicalDisplaySize": "1080x2408",
+  "physicalDisplayDensity": 450,
+  "displayOverridesRemoved": true,
+  "sysuiDemoAllowed": 0,
+  "sysuiTunerDemoOn": 0,
+  "publicPlanningCityCleared": true,
+  "explore": {"view": "List", "call": "Any call", "difficulty": "Hard", "state": "All states"},
+  "finalAppScreen": "Today",
+  "temporarySavedRoutes": [
+    "American River: Watt Avenue BTAF to Howe Avenue BLF",
+    "Des Moines River: Hydro-electric Park to South River District Access"
+  ],
+  "temporarySavedRoutesRemoval": "Removal succeeded briefly in the UI, but both routes returned after refresh. Reproduced from Saved and route detail. Entries remain alongside the original favorite.",
+  "storePublished": false,
+  "sourceCodeChanged": false
+}

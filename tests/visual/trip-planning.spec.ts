@@ -1,0 +1,43 @@
+import { test, expect } from '@playwright/test';
+const river = { slug: 'test-river', name: 'Test River', putIn: { id: 'upper', name: 'Upper landing' }, takeOut: { id: 'lower', name: 'Lower landing' }, accessPoints: [{ id: 'upper', name: 'Upper landing' }, { id: 'middle', name: 'Middle landing' }, { id: 'lower', name: 'Lower landing' }] };
+test('route choices hydrate automatically and survive draft reload', async ({ page }) => {
+  await page.route('**/api/rivers/catalog.json', r => r.fulfill({ json: { rivers: [] } }));
+  await page.route('**/api/rivers/test-river.json', r => r.fulfill({ json: { result: { river, generatedAt: new Date().toISOString() } } }));
+  await page.goto('/trips/?route=test-river&putin=middle&takeout=lower&date=2026-10-10');
+  await expect(page.locator('#trips-app')).toHaveAttribute('aria-busy', 'false');
+  await expect(page.locator('.trip-route-summary')).toContainText('Middle landing → Lower landing');
+  await expect(page.getByLabel('Planned date (optional)', { exact: true })).toHaveValue('2026-10-10');
+  await expect(page.getByLabel('Launch time (optional)', { exact: true })).not.toBeVisible();
+  await page.screenshot({ path: test.info().outputPath('route-plan-overview.png'), fullPage: true });
+  if (!await page.getByLabel('Trip title', { exact: true }).isVisible()) await page.getByText('More details', { exact: true }).click();
+  await page.getByLabel('Trip title', { exact: true }).fill('Paddle with friends');
+  await page.getByText('Add stops', { exact: true }).click();
+  await page.getByRole('button', { name: 'Add meeting stop', exact: true }).click();
+  await page.getByLabel('Meeting place', { exact: true }).fill('Cafe');
+  await page.getByRole('button', { name: /Save and sign in|Save draft on this device/ }).click();
+  await expect(page.getByRole('status')).toContainText('Your draft is saved');
+  await page.goto('/trips/');
+  await page.getByRole('button', { name: 'Continue draft' }).click();
+  await expect(page.getByLabel('Trip title', { exact: true })).toHaveValue('Paddle with friends');
+  await expect(page.getByLabel('Meeting place', { exact: true })).toHaveValue('Cafe');
+  await expect(page.locator('.trip-route-summary')).toContainText('Middle landing → Lower landing');
+  await page.getByText('Change route or access points', { exact: true }).click();
+  await expect(page.getByRole('combobox', { name: 'Put-in', exact: true })).toHaveValue('middle');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: test.info().outputPath('route-plan.png'), fullPage: true });
+});
+test('failed route load keeps access IDs and can be retried', async ({ page }) => {
+  await page.route('**/api/rivers/test-river.json', r => r.fulfill({ status: 503, json: { error: 'offline' } }));
+  await page.goto('/trips/?route=test-river&name=Test%20River&putin=middle&takeout=lower');
+  await page.getByText('Change route or access points', { exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Retry route details' })).toBeVisible();
+  await page.route('**/api/rivers/test-river.json', r => r.fulfill({ json: { result: { river } } }));
+  await page.getByRole('button', { name: 'Retry route details' }).click();
+  await expect(page.getByRole('combobox', { name: 'Put-in', exact: true })).toHaveValue('middle');
+});
+test('phone landing offers native app and browser fallback without sharing permission', async ({ page }) => {
+  await page.goto('/trips/?id=trip-test-0000000001&openApp=1');
+  await expect(page.getByRole('link', { name: 'Open Paddle Today app' })).toHaveAttribute('href', 'paddletoday://trips?id=trip-test-0000000001');
+  await expect(page.getByRole('link', { name: 'Continue in this browser' })).toHaveAttribute('href', /\/trips\/\?id=trip-test-0000000001$/);
+  await expect(page.locator('[data-trip-app-handoff]')).toContainText('does not invite');
+});

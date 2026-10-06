@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-22T01:01:14.802Z",
+  "generatedAt": "2026-10-06T01:01:41.370Z",
   "scope": "metadata-and-package freshness; live gauge freshness remains provider-runtime data",
   "totals": {
-    "routesReviewed": 3030,
-    "findings": 1095,
+    "routesReviewed": 3028,
+    "findings": 1094,
     "high": 0
   },
   "findings": [
@@ -5490,16 +5490,6 @@
       "severity": "medium"
     },
     {
-      "slug": "susquehanna-river-canal-park-wetlands",
-      "state": "Pennsylvania",
-      "scored": true,
-      "issues": [
-        "camping-status-missing",
-        "endpoint-package-incomplete"
-      ],
-      "severity": "medium"
-    },
-    {
       "slug": "susquehanna-river-canal-park-test-track",
       "state": "Pennsylvania",
       "scored": true,
@@ -10499,7 +10489,7 @@
     {
       "slug": "big-fork-river-highway-6-north-big-falls-east",
       "state": "Minnesota",
-      "scored": true,
+      "scored": false,
       "issues": [
         "camping-status-missing",
         "endpoint-package-incomplete"
