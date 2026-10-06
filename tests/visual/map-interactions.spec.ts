@@ -376,9 +376,10 @@ test.describe('product polish interactions', () => {
       latitude: 45.75, longitude: -93.65, label: 'Milaca, MN', source: 'manual',
     })));
     await page.goto('/explore/');
+    await page.locator('[data-filter-scope]').selectOption('nearby');
     await expect(page.locator('[data-location-clear]')).toBeVisible();
     await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
-    await page.locator('[data-explore-advanced] > summary').click();
+    await page.locator('[data-explore-refine] > summary').click();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
     await expect.poll(() => page.locator('.board-filters__group--location').evaluate(panel => panel.scrollWidth - panel.clientWidth)).toBeLessThanOrEqual(1);
     for (const button of await page.locator('.score-filter__option').all()) {
@@ -773,7 +774,7 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-board-fetch-banner]')).toBeVisible();
     await expect(page.locator('.explore-workspace__body')).toBeHidden();
     await expect(page.locator('.board-filters__group--controls')).toBeHidden();
-    await expect(page.locator('[data-location-input]')).toBeVisible();
+    await expect(page.locator('[data-location-input]')).toBeHidden();
     const retry = page.getByRole('button', { name: 'Refresh data', exact: true });
     await expect(retry).toBeVisible();
     await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, route => route.fulfill({ json: summaryFixture }));
@@ -781,9 +782,10 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-board-fetch-banner]')).toBeHidden();
     await expect(page.locator('.explore-workspace__body')).toBeVisible();
     await expect(page.locator('[data-filter-search]')).toBeEnabled();
-    await page.locator('.board-filters__advanced-header').click();
-    await expect(page.locator('.explore-filter-label')).toHaveCount(7);
-    await expect(page.getByRole('combobox', { name: 'Filter by state', exact: true })).toBeVisible();
+    await page.locator('[data-filter-scope]').selectOption('state');
+    await expect(page.getByRole('combobox', { name: 'State', exact: true })).toBeVisible();
+    await page.locator('[data-explore-refine] > summary').click();
+    await expect(page.getByRole('combobox', { name: 'Filter by difficulty', exact: true })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
 
@@ -846,12 +848,15 @@ test.describe('product polish interactions', () => {
 
   test('collapsed filters can be removed by keyboard and stay removed after reload', async ({ page }) => {
     await page.goto('/explore/');
-    const advanced = page.locator('[data-explore-advanced]');
+    const advanced = page.locator('[data-explore-refine]');
     await expect(advanced).not.toHaveAttribute('open');
-    await advanced.locator('summary').click();
+    await advanced.locator(':scope > summary').click();
+    await page.locator('[data-filter-scope]').selectOption('state');
     await page.locator('[data-filter-state]').selectOption('Minnesota');
     await page.locator('[data-filter-difficulty]').selectOption('easy');
-    await advanced.locator('summary').click();
+    await page.locator('[data-filter-route-type]').selectOption('non-whitewater');
+    await page.locator('[data-filter-rating-button=""]').click();
+    await advanced.locator(':scope > summary').click();
     const removeState = page.getByRole('button', { name: 'Remove Minnesota filter', exact: true });
     await removeState.focus();
     await removeState.press('Enter');
@@ -860,16 +865,18 @@ test.describe('product polish interactions', () => {
     await expect(page.locator('[data-filter-difficulty]')).toHaveValue('easy');
     await expect(page.locator('[data-filter-pills] button:focus')).toHaveCount(1);
     await page.reload();
-    await expect(advanced).not.toHaveAttribute('open');
+    await expect(advanced).toHaveAttribute('open');
+    await advanced.locator(':scope > summary').click();
     await expect(page.getByRole('button', { name: 'Remove Easy filter', exact: true })).toBeVisible();
     await expect(removeState).toHaveCount(0);
     await page.getByRole('button', { name: 'Remove Non-whitewater filter', exact: true }).click();
     await expect(page.locator('[data-filter-route-type]')).toHaveValue('all');
-    await page.getByRole('button', { name: 'Remove Paddle routes filter', exact: true }).click();
+    await page.getByRole('button', { name: 'Remove Paddle today filter', exact: true }).click();
     await expect(page.locator('[data-filter-rating]')).toHaveValue('all');
     await expect(page.locator('[data-explore-results-count]')).not.toContainText('Updating');
+    await advanced.locator(':scope > summary').click();
     await page.locator('[data-filter-rating-button=""]').click();
-    await expect(page.getByRole('button', { name: 'Remove Paddle routes filter', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Remove Paddle today filter', exact: true })).toBeVisible();
     await expect(page.locator('.river-grid--explore-list .river-card')).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.screenshot({ path: test.info().outputPath('explore-polish.png'), fullPage: true });
@@ -936,6 +943,7 @@ test.describe('product polish interactions', () => {
         { name: 'Old city', admin1: 'Wisconsin', country: 'United States' },
       ] } }));
       await page.goto(path);
+      if (path === '/explore/') await page.locator('[data-filter-scope]').selectOption('nearby');
       await expect(page.locator('[data-location-use]').first()).toHaveAttribute('data-location-bound', 'true');
       await page.locator('[data-location-use]').first().click();
       const input = page.locator('[data-location-input]');
@@ -994,7 +1002,7 @@ test.describe('product polish interactions', () => {
   test('saved changes compare visits and survive card rerenders', async ({ page }) => {
     await page.addInitScript((value) => localStorage.setItem('paddletoday:favorites:v1', JSON.stringify(value)), favoriteSeed);
     await page.goto('/favorites/');
-    await expect.poll(() => page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'))).toContain('snake-river');
+    await expect.poll(() => page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1:guest'))).toContain('snake-river');
     await expect(page.locator('[data-field="favorite-changes"]')).not.toBeVisible();
     const changed = structuredClone(summaryFixture);
     const river = changed.rivers[1];
@@ -1019,13 +1027,13 @@ test.describe('product polish interactions', () => {
   test('failed and stale saved responses preserve the previous visit baseline', async ({ page }) => {
     await page.addInitScript((value) => localStorage.setItem('paddletoday:favorites:v1', JSON.stringify(value)), favoriteSeed);
     await page.goto('/favorites/');
-    await expect.poll(() => page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'))).toContain('snake-river');
-    const before = await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'));
+    await expect.poll(() => page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1:guest'))).toContain('snake-river');
+    const before = await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1:guest'));
     await page.route(/\/api\/rivers\/(?:summary|explore)\.json(?:\?|$)/, (route) => route.fulfill({ status: 503, json: { error: 'Offline' } }));
     await page.reload();
     await expect(page.locator('.favorites-card')).toBeVisible();
     await expect(page.locator('[data-field="favorite-changes"]')).not.toBeVisible();
-    expect(await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'))).toBe(before);
+    expect(await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1:guest'))).toBe(before);
     const stale = structuredClone(summaryFixture);
     stale.snapshotStatus = 'stale';
     stale.rivers[1].generatedAt = '2026-07-29T12:00:00Z';
@@ -1034,7 +1042,7 @@ test.describe('product polish interactions', () => {
     await page.reload();
     await expect(page.locator('[data-field="favorite-score"]')).toHaveText(String(stale.rivers[1].score));
     await expect(page.locator('[data-field="favorite-changes"]')).not.toBeVisible();
-    expect(await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1'))).toBe(before);
+    expect(await page.evaluate(() => localStorage.getItem('paddletoday:saved-route-changes:v1:guest'))).toBe(before);
   });
 
   test('route facts stay visible while condition details expand without navigation', async ({ page }) => {
@@ -1487,7 +1495,7 @@ test.describe('shared web map interaction contract', () => {
     });
   });
 
-  test('Explore reveals all scores and reset restores the default map set', async ({ page }) => {
+  test('Explore narrows scores and trip reset restores all conditions', async ({ page }) => {
     await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
     const map = page.locator('[data-summary-map]');
     await expect(map).toHaveClass(/maplibregl-map/, {
@@ -1495,22 +1503,26 @@ test.describe('shared web map interaction contract', () => {
     });
 
     const results = page.locator('[data-summary-map-item]');
-    await expect(results).toHaveCount(1, { timeout: 20_000 });
+    await expect(results).toHaveCount(2, { timeout: 20_000 });
+    await page.locator('[data-explore-refine] > summary').click();
+    await page.locator('[data-filter-rating-button=""]').click();
+    await expect(results).toHaveCount(1);
 
-    await page.locator('[data-filter-rating]').selectOption('all');
+    await page.locator('[data-filter-rating-button="all"]').click();
     await expect(results).toHaveCount(2);
     await expect(page.locator('[data-filter-rating]')).toHaveValue('all');
 
     await page.locator('[data-explore-reset]').click();
-    await expect(page.locator('[data-filter-rating]')).toHaveValue('');
-    await expect(results).toHaveCount(1);
-    await expect(page.locator('[data-summary-map] button.score-map-marker')).toHaveCount(1);
+    await expect(page.locator('[data-filter-rating]')).toHaveValue('all');
+    await expect(results).toHaveCount(2);
+    await expect(page.locator('[data-summary-map] button.score-map-marker')).toHaveCount(2);
   });
 
-  test('Explore restores saved filters after reload and reset clears them', async ({ page }) => {
+  test('Explore restores filters and distinguishes trip reset from browsing all routes', async ({ page }) => {
     await page.goto('/explore/', { waitUntil: 'domcontentloaded' });
 
-    await page.locator('[data-explore-advanced] > summary').click();
+    await page.locator('[data-explore-refine] > summary').click();
+    await page.locator('[data-filter-scope]').selectOption('state');
     await page.locator('[data-filter-search]').fill('Rice Creek');
     await page.locator('[data-filter-state]').selectOption('Minnesota');
     await page.locator('[data-filter-difficulty]').selectOption('easy');
@@ -1526,11 +1538,16 @@ test.describe('shared web map interaction contract', () => {
 
     await page.locator('[data-explore-reset]').click();
     await page.reload({ waitUntil: 'domcontentloaded' });
-    await expect(page.locator('[data-filter-search]')).toHaveValue('');
-    await expect(page.locator('[data-filter-state]')).toHaveValue('');
+    await expect(page.locator('[data-filter-search]')).toHaveValue('Rice Creek');
+    await expect(page.locator('[data-filter-state]')).toHaveValue('Minnesota');
     await expect(page.locator('[data-filter-difficulty]')).toHaveValue('');
     await expect(page.locator('[data-filter-camping]')).toHaveValue('');
     await expect(page.locator('[data-filter-paddle-time]')).toHaveValue('');
+    await page.locator('[data-explore-preset="all-routes"]').click();
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('[data-filter-search]')).toHaveValue('');
+    await expect(page.locator('[data-filter-state]')).toHaveValue('');
+    await expect(page.locator('[data-filter-scope]')).toHaveValue('anywhere');
   });
 
   test('Explore refresh preserves the current map viewport', async ({ page }) => {
@@ -1555,7 +1572,7 @@ test.describe('shared web map interaction contract', () => {
     const initialFitCount = await summaryFitCount();
 
     const refreshResponse = page.waitForResponse((response) =>
-      response.url().includes('/api/rivers/summary')
+      response.url().includes('/api/rivers/explore')
       && response.request().method() === 'GET'
     );
     await page.locator('[data-board-refresh]').click();
@@ -1586,6 +1603,7 @@ test.describe('shared web map interaction contract', () => {
       });
       await page.goto(surface.path, { waitUntil: 'domcontentloaded' });
 
+      if (surface.name === 'Explore') await page.locator('[data-filter-scope]').selectOption('nearby');
       const input = page.locator('[data-location-input]');
       await input.fill('Milaca');
       await input.press('Enter');

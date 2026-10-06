@@ -38,7 +38,7 @@ export function bindFavoriteNotes() {
       dialog.close();
       showActionFeedback(input.value.trim() ? savedRoutesSession().mode === 'account' ? 'Personal note saved on this device; account sync pending.' : 'Personal note saved on this device.' : 'Personal note removed.');
     } catch (error) {
-      status.textContent = error.message || 'Could not save your note. Your draft is still here.';
+      status.textContent = `${error.message || 'Could not save your note.'} Your draft is still here.`;
     }
   });
 }
