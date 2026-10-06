@@ -6,21 +6,22 @@ import {
   type SyncedTripDraft,
 } from '@paddletoday/api-contract';
 import { createJsonStorage, mutateJson, type JsonStorage } from './blob-storage';
+import { createBinaryStorage, type BinaryStorage } from './binary-storage';
 
 interface TripDocument {
   kind: 'trip'; trip: Trip; deleted: boolean; receipts: Record<string, string>;
   links: Partial<Record<'view' | 'invite', { hash: string; expires: string }>>;
   pendingIndex: string[];
 }
-interface LogDocument { kind: 'log'; uid: string; id: string; revision: number; log: PaddleLog | null; receipts: Record<string, string>; uploads?: Record<string, { state: 'pending' | 'ready' | 'removed'; startedAt: string }> }
+interface LogDocument { kind: 'log'; uid: string; id: string; revision: number; log: PaddleLog | null; receipts: Record<string, string>; uploads?: Record<string, { state: 'pending' | 'ready' | 'removed'; startedAt: string; digest?: string }> }
 interface PhotoDocument { kind: 'photo'; uid: string; logId: string; id: string; data: string; at: string }
-type DeletionStage = 'trips' | 'logs' | 'photos' | 'complete';
+type DeletionStage = 'trips' | 'logs' | 'photos' | 'photo-bytes' | 'complete';
 interface DeletionProgress { stage: DeletionStage; cursor: string | null }
 interface UserIndex {
   kind: 'trip-index'; uid: string; trips: string[]; logs: string[]; photos: Record<string, number>;
   deleting: boolean; deletionComplete?: boolean; deletionProgress?: DeletionProgress; migration: Record<string, string>;
 }
-type MaintenancePrefix = 'trip-index/' | 'trips/' | 'logs/';
+type MaintenancePrefix = 'trip-index/' | 'trips/' | 'logs/' | 'trip-photo-bytes/';
 interface MaintenanceDocument { kind: 'trip-maintenance'; cursors: Record<MaintenancePrefix, string | null> }
 type Document = TripDocument | LogDocument | PhotoDocument | UserIndex | MaintenanceDocument;
 export class TripError extends Error {
@@ -33,9 +34,10 @@ const tripKey = (id: string) => `trips/${id}.json`;
 const indexKey = (uid: string) => `trip-index/${hash(uid)}.json`;
 const logKey = (uid: string, id: string) => `logs/${hash(uid)}/${id}.json`;
 const photoKey = (uid: string, log: string, id: string) => `trip-photos/${hash(uid)}/${log}/${id}.json`;
+const photoBytesKey = (uid: string, log: string, id: string) => `trip-photo-bytes/${hash(uid)}/${log}/${id}.jpg`;
 const maintenanceKey = 'maintenance/trip-maintenance.json';
 const maintenancePageSize = 100;
-const emptyMaintenance = (): MaintenanceDocument => ({ kind: 'trip-maintenance', cursors: { 'trip-index/': null, 'trips/': null, 'logs/': null } });
+const emptyMaintenance = (): MaintenanceDocument => ({ kind: 'trip-maintenance', cursors: { 'trip-index/': null, 'trips/': null, 'logs/': null, 'trip-photo-bytes/': null } });
 const emptyIndex = (uid: string): UserIndex => ({ kind: 'trip-index', uid, trips: [], logs: [], photos: {}, deleting: false, deletionComplete: false, migration: {} });
 function receipt(receipts: Record<string, string>, id: string, input: unknown) {
   const digest = hash(JSON.stringify(input));
@@ -58,7 +60,7 @@ function checkLink(doc: TripDocument | null, purpose: 'view' | 'invite', token: 
   }
 }
 export class TripStorage {
-  constructor(readonly storage: JsonStorage) {}
+  constructor(readonly storage: JsonStorage, readonly binary: BinaryStorage) {}
   private async active(uid: string) {
     if ((await this.storage.readJson<UserIndex>(indexKey(uid)))?.deleting) fail(410, 'account_deleted', 'This account is being deleted.');
   }
@@ -243,16 +245,24 @@ export class TripStorage {
   }
   async photo(uid: string, logId: string, id: string, base64: string, caption: string) {
     await this.active(uid); await this.getLog(uid, logId);
+    if (!isTripId(id)) fail(400, 'invalid_photo_id', 'Choose a valid photo ID.');
     if (base64.length > Math.ceil(TRIP_PHOTO_MAX_BYTES / 3) * 4 || !/^[A-Za-z0-9+/]*={0,2}$/.test(base64)) fail(413, 'photo_limit', 'Choose an image smaller than 10 MiB.');
     const input = Buffer.from(base64, 'base64');
     if (input.length > TRIP_PHOTO_MAX_BYTES) fail(413, 'photo_limit', 'Choose an image smaller than 10 MiB.');
+    const digest = createHash('sha256').update(input).digest('hex');
     const reservation = await mutateJson({ storage: this.storage, blobName: logKey(uid, logId), initial: null as LogDocument | null, mutate: doc => {
       if (!doc?.log) fail(404, 'log_unavailable', 'This log is unavailable.');
       doc!.uploads ??= {};
       if (doc!.uploads[id]?.state === 'removed') fail(410, 'photo_removed', 'This upload was removed or expired. Select the photo again to upload a new copy.');
+      if (!doc!.uploads[id] && doc!.log!.photos.some(photo => photo.id === id)) doc!.uploads[id] = { state: 'ready', startedAt: stamp() };
       if (!doc!.uploads[id]) {
         if (doc!.log!.photos.length + Object.values(doc!.uploads).filter(u => u.state === 'pending').length >= TRIP_PHOTO_LIMIT) fail(413, 'photo_limit', 'A paddle log can have up to 10 photos, including queued uploads.');
-        doc!.uploads[id] = { state: 'pending', startedAt: stamp() };
+        doc!.uploads[id] = { state: 'pending', startedAt: stamp(), digest };
+      }
+      const upload = doc!.uploads[id]!;
+      if (upload.state === 'pending') {
+        if (upload.digest && upload.digest !== digest) fail(409, 'photo_id_reused', 'This photo ID belongs to another upload. Select the photo again.');
+        upload.digest = digest;
       }
       return doc;
     } });
@@ -272,24 +282,36 @@ export class TripStorage {
       if (total + data.length > 100 * 1024 * 1024) fail(413, 'photo_quota', 'Your photo storage is full. Remove a photo before adding another.');
       index.photos[quotaKey] = data.length;
     });
-    const name = photoKey(uid, logId, id);
-    await this.storage.writeJson(name, { kind: 'photo', uid, logId, id, data: data.toString('base64'), at: stamp() } satisfies PhotoDocument);
-    await mutateJson({ storage: this.storage, blobName: logKey(uid, logId), initial: null as LogDocument | null, mutate: async doc => {
-      await this.active(uid);
-      if (!doc?.log) fail(404, 'log_unavailable', 'This log was removed.');
-      if (doc!.uploads?.[id]?.state === 'removed') fail(410, 'photo_removed', 'This photo was removed while the upload was in progress.');
-      if (doc!.log!.photos.length >= TRIP_PHOTO_LIMIT && !doc!.log!.photos.some(p => p.id === id)) fail(413, 'photo_limit', 'A paddle log can have up to 10 photos.');
-      doc!.log!.photos = [...doc!.log!.photos.filter(p => p.id !== id), { id, caption: caption.slice(0, 300), bytes: data.length, width, height }];
-      doc!.uploads![id]!.state = 'ready';
-      return doc;
-    } });
+    await this.binary.write(photoBytesKey(uid, logId, id), data);
+    try {
+      await mutateJson({ storage: this.storage, blobName: logKey(uid, logId), initial: null as LogDocument | null, mutate: async doc => {
+        await this.active(uid);
+        if (!doc?.log) fail(404, 'log_unavailable', 'This log was removed.');
+        if (doc!.uploads?.[id]?.state === 'removed') fail(410, 'photo_removed', 'This photo was removed while the upload was in progress.');
+        if (doc!.log!.photos.length >= TRIP_PHOTO_LIMIT && !doc!.log!.photos.some(p => p.id === id)) fail(413, 'photo_limit', 'A paddle log can have up to 10 photos.');
+        doc!.log!.photos = [...doc!.log!.photos.filter(p => p.id !== id), { id, caption: caption.slice(0, 300), bytes: data.length, width, height }];
+        doc!.uploads![id]!.state = 'ready';
+        return doc;
+      } });
+    } catch (error) {
+      // A delete can finish before an in-flight PUT does. Its tombstone is
+      // authoritative: remove the late object and quota charge immediately.
+      // Transient failures retain the reservation for offline retries/maintenance.
+      if (error instanceof TripError && (error.status === 404 || error.status === 410)) {
+        await this.binary.delete(photoBytesKey(uid, logId, id));
+        await this.index(uid, index => { delete index.photos[quotaKey]; });
+      }
+      throw error;
+    }
     return this.getLog(uid, logId);
   }
   async readPhoto(uid: string, logId: string, id: string) {
     const log = await this.getLog(uid, logId);
     if (!log.photos.some(p => p.id === id)) fail(404, 'photo_unavailable', 'Photo unavailable.');
+    const bytes = await this.binary.read(photoBytesKey(uid, logId, id));
+    if (bytes) return bytes;
     const doc = await this.storage.readJson<PhotoDocument>(photoKey(uid, logId, id));
-    if (!doc) fail(404, 'photo_unavailable', 'Photo unavailable.');
+    if (!doc || doc.uid !== uid || doc.logId !== logId || doc.id !== id) fail(404, 'photo_unavailable', 'Photo unavailable.');
     return Buffer.from(doc!.data, 'base64');
   }
   async removePhoto(uid: string, logId: string, id: string) {
@@ -300,10 +322,12 @@ export class TripStorage {
       doc!.uploads ??= {}; doc!.uploads[id] = { state: 'removed', startedAt: stamp() };
       return doc;
     } });
+    await this.binary.delete(photoBytesKey(uid, logId, id));
     await this.storage.deleteJson(photoKey(uid, logId, id));
     await this.index(uid, index => { delete index.photos[`${logId}/${id}`]; });
   }
   private async deleteLogPhotos(uid: string, id: string) {
+    for (const entry of await this.binary.list(`trip-photo-bytes/${hash(uid)}/${id}/`)) await this.binary.delete(entry.name);
     for (const name of await this.storage.listJsonNames(`trip-photos/${hash(uid)}/${id}/`)) await this.storage.deleteJson(name);
     await this.index(uid, index => { for (const key of Object.keys(index.photos)) if (key.startsWith(id + '/')) delete index.photos[key]; });
   }
@@ -344,8 +368,12 @@ export class TripStorage {
       const progress = index.deletionProgress ?? { stage: 'trips', cursor: null };
       if (progress.stage === 'complete') return true;
       const prefix = progress.stage === 'trips' ? 'trips/'
-        : progress.stage === 'logs' ? `logs/${hash(uid)}/` : `trip-photos/${hash(uid)}/`;
-      const page = await this.storage.listJsonPage(prefix, progress.cursor, Math.min(25, batchSize - processed));
+        : progress.stage === 'logs' ? `logs/${hash(uid)}/`
+        : progress.stage === 'photos' ? `trip-photos/${hash(uid)}/` : `trip-photo-bytes/${hash(uid)}/`;
+      const limit = Math.min(25, batchSize - processed);
+      const binaryPage = progress.stage === 'photo-bytes' ? await this.binary.listPage(prefix, progress.cursor, limit) : null;
+      const page = binaryPage ? { names: binaryPage.entries.map(entry => entry.name), nextCursor: binaryPage.nextCursor }
+        : await this.storage.listJsonPage(prefix, progress.cursor, limit);
 
       if (progress.stage === 'trips') {
         for (const name of page.names) {
@@ -364,7 +392,10 @@ export class TripStorage {
           } });
         }
       } else {
-        for (const name of page.names) await this.storage.deleteJson(name);
+        for (const name of page.names) {
+          if (binaryPage) await this.binary.delete(name);
+          else await this.storage.deleteJson(name);
+        }
       }
       processed += page.names.length;
 
@@ -372,6 +403,7 @@ export class TripStorage {
         ? { stage: progress.stage, cursor: page.nextCursor }
         : progress.stage === 'trips' ? { stage: 'logs', cursor: null }
         : progress.stage === 'logs' ? { stage: 'photos', cursor: null }
+        : progress.stage === 'photos' ? { stage: 'photo-bytes', cursor: null }
         : { stage: 'complete', cursor: null };
       await this.index(uid, value => {
         const current = value.deletionProgress ?? { stage: 'trips', cursor: null };
@@ -414,12 +446,30 @@ export class TripStorage {
         await this.index(doc.uid, index => { if (!index.deleting && !index.logs.includes(doc.id)) index.logs.push(doc.id); });
         if (!doc.log) await this.deleteLogPhotos(doc.uid, doc.id);
         for (const [id, upload] of Object.entries(doc.uploads ?? {})) if (upload.state === 'removed') {
+          await this.binary.delete(photoBytesKey(doc.uid, doc.id, id));
           await this.storage.deleteJson(photoKey(doc.uid, doc.id, id));
           await this.index(doc.uid, index => { delete index.photos[`${doc.id}/${id}`]; });
         }
       }
     }
     await this.saveMaintenanceCursor('logs/', logPage.nextCursor);
+    // Bounded inventory pages recover late writes and interrupted finalization
+    // without loading photo payloads or scanning the whole container each run.
+    const photoPage = await this.binary.listPage('trip-photo-bytes/', checkpoint.cursors['trip-photo-bytes/'] ?? null, maintenancePageSize);
+    for (const entry of photoPage.entries) {
+      if (Date.parse(entry.modifiedAt) > Date.now() - 86400000) continue;
+      const match = /^trip-photo-bytes\/([a-f0-9]{64})\/([^/]+)\/([^/]+)\.jpg$/.exec(entry.name);
+      if (!match || !isTripId(match[2]) || !isTripId(match[3])) continue;
+      const [, ownerHash, logId, id] = match;
+      const doc = await this.storage.readJson<LogDocument>(`logs/${ownerHash}/${logId}.json`);
+      const upload = doc?.uploads?.[id!];
+      if (doc?.log && upload?.state !== 'removed' && (doc.log.photos.some(photo => photo.id === id)
+        || (upload?.state === 'pending' && Date.parse(upload.startedAt) > Date.now() - 86400000))) continue;
+      await this.binary.delete(entry.name);
+      const index = await this.storage.readJson<UserIndex>(`trip-index/${ownerHash}.json`);
+      if (index && hash(index.uid) === ownerHash) await this.index(index.uid, value => { delete value.photos[`${logId}/${id}`]; });
+    }
+    await this.saveMaintenanceCursor('trip-photo-bytes/', photoPage.nextCursor);
     // Photo uploads reserve a small upload record on their log before writing
     // photo bytes. Expired/removed reservations above delete their photo blob,
     // so cleanup can avoid downloading every base64 photo document to inspect it.
@@ -437,10 +487,11 @@ export function isTripStorageDocument(value: unknown): boolean {
   if (v.kind === 'trip') return !!v.trip && isTripId(v.trip.id) && isTripPlan(v.trip) && Array.isArray(v.trip.members) && !!v.links && !!v.receipts;
   if (v.kind === 'log') return typeof v.uid === 'string' && isTripId(v.id) && (v.log === null || isLogInput(v.log));
   if (v.kind === 'photo') return isTripId(v.id) && typeof v.uid === 'string' && typeof v.data === 'string';
-  if (v.kind === 'trip-maintenance') return !!v.cursors && ['trip-index/', 'trips/', 'logs/'].every(prefix => v.cursors[prefix as MaintenancePrefix] === null || typeof v.cursors[prefix as MaintenancePrefix] === 'string');
+  if (v.kind === 'trip-maintenance') return !!v.cursors && ['trip-index/', 'trips/', 'logs/'].every(prefix => v.cursors[prefix as MaintenancePrefix] === null || typeof v.cursors[prefix as MaintenancePrefix] === 'string')
+    && (v.cursors['trip-photo-bytes/'] === undefined || v.cursors['trip-photo-bytes/'] === null || typeof v.cursors['trip-photo-bytes/'] === 'string');
   if (v.kind === 'trip-index') return typeof v.uid === 'string' && Array.isArray(v.trips) && Array.isArray(v.logs) && !!v.photos
     && (v.deletionProgress === undefined || (!!v.deletionProgress
-      && ['trips', 'logs', 'photos', 'complete'].includes(v.deletionProgress.stage)
+      && ['trips', 'logs', 'photos', 'photo-bytes', 'complete'].includes(v.deletionProgress.stage)
       && (v.deletionProgress.cursor === null || typeof v.deletionProgress.cursor === 'string')));
   return false;
 }
@@ -453,6 +504,7 @@ export function tripStorage() {
     const url = new URL(sas);
     if (url.protocol !== 'https:' || !url.searchParams.has('sig') || !['r', 'w', 'c', 'd', 'l'].every(p => url.searchParams.get('sp')?.includes(p))) throw new TripError(503, 'trip_storage_unavailable', 'Trip storage permissions are not configured.');
   }
-  instance = new TripStorage(createJsonStorage({ containerSasUrl: sas, localDirectory: '.local/trip-data', validate: isTripStorageDocument, label: 'private trip data', space: 0, accessTier: 'Hot' }));
+  const options = { containerSasUrl: sas, localDirectory: '.local/trip-data', label: 'private trip data', accessTier: 'Hot' as const };
+  instance = new TripStorage(createJsonStorage({ ...options, validate: isTripStorageDocument, space: 0 }), createBinaryStorage(options));
   return instance;
 }

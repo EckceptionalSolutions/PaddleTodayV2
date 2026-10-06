@@ -4,6 +4,7 @@ import sharp from 'sharp';
 import { newTripPlan, tripPlan, type TripMutation, type TripCommand, type Trip, type PaddleLogInput } from '@paddletoday/api-contract';
 import { TripStorage } from './trip-storage';
 import { BlobPreconditionError, type JsonStorage } from './blob-storage';
+import { memoryBinaryStorage } from './binary-storage.test-fixture';
 
 function memory(): JsonStorage {
   const values = new Map<string, { value: unknown; revision: number }>();
@@ -30,8 +31,47 @@ async function join(trip: Trip) {
   const t = (await store.mutate('alice', 'Alice', trip.id, mutation(trip, { type: 'link', purpose: 'invite', token })))!;
   return (await store.mutate('bob', 'Bob', t.id, mutation(null, { type: 'join', token })))!;
 }
-beforeEach(() => { store = new TripStorage(memory()); });
+beforeEach(() => { store = new TripStorage(memory(), memoryBinaryStorage()); });
 describe('private trips and collaborative planning', () => {
+  it('stores distinct recordings on the same trip and keeps legacy trip-ID logs', async () => {
+    const t = await join(await create());
+    const input: PaddleLogInput = { sourceTripId: t.id, route: t.route, date: '2026-10-05', time: '', timeZone: t.timeZone, notes: 'Private recording', paddleAgain: '', water: [],
+      track: { startedAt: '2026-10-05T16:00:00Z', endedAt: '2026-10-05T16:02:00Z', elapsedSeconds: 120, distanceMeters: 20, polylines: ['_p~iF~ps|U_ulLnnqC'] } };
+    const first = randomUUID(), second = randomUUID();
+    const op = { operationId: randomUUID(), baseRevision: 0, value: input };
+    await store.log('bob', first, op);
+    await store.log('bob', first, op);
+    await store.log('bob', second, { ...op, operationId: randomUUID() });
+    await store.log('bob', t.id, { ...op, operationId: randomUUID() });
+    expect((await store.list('bob')).logs.map(log => log.id).sort()).toEqual([first, second, t.id].sort());
+    expect((await store.getLog('bob', first)).track).toEqual(input.track);
+    await expect(store.getLog('alice', first)).rejects.toMatchObject({ status: 404 });
+    await expect(store.log('outsider', randomUUID(), { ...op, operationId: randomUUID() })).rejects.toMatchObject({ status: 404 });
+    await expect(store.log('bob', first, { operationId: randomUUID(), baseRevision: 1, value: { ...input, sourceTripId: null } })).rejects.toMatchObject({ status: 400 });
+  });
+  it('retains group preparation through create, edit, and list', async () => {
+    const preparation = { checkInLocal: '', groupSize: 2, boatDescription: 'Canoes', vehicleDescription: 'Blue car', note: 'Bring water' };
+    let t = (await store.mutate('alice', 'Alice', randomUUID(), mutation(null, { type: 'create', plan: { ...plan(), preparation } })))!;
+    expect((await store.get('alice', t.id)).preparation).toEqual(preparation);
+    t = (await store.mutate('alice', 'Alice', t.id, mutation(t, { type: 'plan', baseline: tripPlan(t), plan: { ...tripPlan(t), preparation: { ...preparation, groupSize: 3 } } })))!;
+    expect((await store.list('alice')).trips[0]?.preparation?.groupSize).toBe(3);
+  });
+  it('coordinates two accounts while keeping their paddle memories separate', async () => {
+    let t = await join(await create());
+    t = (await store.mutate('bob', 'Bob', t.id, mutation(t, { type: 'rsvp', rsvp: 'going' })))!;
+    const vehicleId = randomUUID();
+    t = (await store.mutate('alice', 'Alice', t.id, mutation(t, { type: 'vehicle', vehicle: { id: vehicleId, driverUid: 'alice', seats: 1, passengers: [], label: 'Blue car', meeting: 'Take-out', time: '08:00', parkedAt: 'Put-in', note: '' } })))!;
+    t = (await store.mutate('bob', 'Bob', t.id, mutation(t, { type: 'seat', vehicleId })))!;
+    expect((await store.get('alice', t.id)).shuttle[0]?.passengers).toEqual(['bob']);
+    expect((await store.get('bob', t.id)).members.find(m => m.uid === 'bob')?.rsvp).toBe('going');
+    const input: PaddleLogInput = { sourceTripId: t.id, route: t.route, date: t.date, time: t.launch, timeZone: t.timeZone, notes: 'Only Bob sees this', paddleAgain: 'yes', water: [] };
+    await store.log('bob', t.id, { operationId: randomUUID(), baseRevision: 0, value: input });
+    expect((await store.list('alice')).logs).toEqual([]);
+    expect((await store.list('bob')).logs[0]?.notes).toBe(input.notes);
+    const repeated = await create();
+    expect(repeated.id).not.toBe(t.id);
+    expect((await store.getLog('bob', t.id)).notes).toBe(input.notes);
+  });
   it('keeps repeated outings distinct and retries create idempotently', async () => {
     const first = await create(), second = await create();
     expect((await store.list('alice')).trips.map(t => t.id).sort()).toEqual([first.id, second.id].sort());

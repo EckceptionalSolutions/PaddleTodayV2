@@ -1,9 +1,11 @@
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import { createServer, type Server } from 'node:http';
 import { randomUUID } from 'node:crypto';
+import sharp from 'sharp';
 import { newTripPlan, type Trip } from '@paddletoday/api-contract';
 import { TripStorage } from '../../lib/trip-storage';
 import { BlobPreconditionError, type JsonStorage } from '../../lib/blob-storage';
+import { memoryBinaryStorage } from '../../lib/binary-storage.test-fixture';
 import { handleTrips } from './trips';
 
 vi.mock('../account-auth', () => ({ verifyAccountIdToken: async (header: string) => header === 'Bearer test-alice' ? { uid: 'alice', name: 'Alice' } : header === 'Bearer test-bob' ? { uid: 'bob', name: 'Bob' } : null }));
@@ -26,7 +28,7 @@ beforeAll(async () => {
     async writeJson(k, v, options) { if (options?.ifMatch && options.ifMatch !== data.get(k)?.etag || options?.ifNoneMatch && data.has(k)) throw new BlobPreconditionError(); data.set(k, { value: structuredClone(v), etag: String(++revision) }); },
     async deleteJson(k) { data.delete(k); },
   };
-  holder.store = new TripStorage(storage);
+  holder.store = new TripStorage(storage, memoryBinaryStorage());
   server = createServer((request, response) => { void handleTrips(request, response, new URL(request.url!, 'http://localhost'), randomUUID(), true); });
   await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
   const address = server.address(); origin = `http://127.0.0.1:${typeof address === 'object' ? address!.port : 0}`;
@@ -41,6 +43,21 @@ async function create() {
   expect(response.status).toBe(200); return (await response.json()).trip as Trip;
 }
 describe('trip HTTP authorization boundary', () => {
+  it('accepts the existing queued-photo upload contract and privately serves binary JPEGs', async () => {
+    const id = randomUUID(), photoId = randomUUID();
+    const value = { sourceTripId: null, route: newTripPlan({ name: 'Private river' }).route, date: '2026-10-06', time: '', timeZone: 'UTC', notes: '', paddleAgain: '', water: [] };
+    expect((await request(`/api/paddle-logs/${id}`, 'test-alice', { operationId: randomUUID(), baseRevision: 0, value })).status).toBe(200);
+    const data = (await sharp({ create: { width: 8, height: 8, channels: 3, background: '#234c37' } }).png().toBuffer()).toString('base64');
+    const path = `/api/paddle-logs/${id}/photos/${photoId}`;
+    const upload = await request(path, 'test-alice', { data, caption: 'Private' });
+    expect(upload.status).toBe(200); expect((await upload.json()).log.photos).toHaveLength(1);
+    const photo = await request(path);
+    expect(photo.status).toBe(200); expect(photo.headers.get('content-type')).toBe('image/jpeg');
+    expect(photo.headers.get('cache-control')).toBe('no-store');
+    const bytes = Buffer.from(await photo.arrayBuffer()); expect((await sharp(bytes).metadata()).format).toBe('jpeg');
+    expect((await request(path, 'test-bob')).status).toBe(404);
+    expect((await request(path, 'invalid')).status).toBe(401);
+  });
   it('requires authentication and marks private responses no-store', async () => {
     const response = await request('/api/trips', 'invalid'); expect(response.status).toBe(401);
     expect(response.headers.get('cache-control')).toBe('no-store');
