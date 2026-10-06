@@ -21,10 +21,10 @@ const MAX_ROUTE_BYTES = 512 * 1024;
 // threshold-route expansion. The 32 MiB ceiling is intentionally separate
 // from the 31 MiB state-bundle ceiling because route assets are lazy-loaded.
 // The route-scoped catalog is intentionally lazy-loaded and is growing with
-// the scored lower-48 expansion. Keep a bounded 40 MiB aggregate ceiling for
-// the Housatonic, Nevada, and New Mexico goal batches without removing reviewed
-// route geometry or weakening the per-route 512 KiB guard.
-const MAX_ROUTE_TOTAL_BYTES = 40 * 1024 * 1024;
+// the scored lower-48 expansion. Keep a bounded 41 MiB aggregate ceiling so
+// reviewed route additions fit without removing route geometry or weakening
+// the per-route 512 KiB guard.
+const MAX_ROUTE_TOTAL_BYTES = 41 * 1024 * 1024;
 const requiredRouteControlPoints: Record<string, Array<{ latitude: number; longitude: number; maxFeet: number; label: string }>> = {
   'comal-river-hinman-island-last-public-exit': [
     { latitude: 29.7084, longitude: -98.1242, maxFeet: 500, label: 'City-linked Hinman Island Park navigation anchor' },
