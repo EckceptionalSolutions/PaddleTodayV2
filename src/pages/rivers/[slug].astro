@@ -239,9 +239,17 @@ const routeSummaryExcerpt = (() => {
   if (normalizedRouteSummary.length <= seoDescriptionCoreLimit) return normalizedRouteSummary;
 
   const excerpt = normalizedRouteSummary.slice(0, seoDescriptionCoreLimit - 1);
+  const lastSentenceBoundary = [...excerpt.matchAll(/(?<!\b[A-Z])[.!?](?=\s+[A-Z]|$)/g)].at(-1)?.index;
+  if (
+    lastSentenceBoundary !== undefined &&
+    lastSentenceBoundary + 1 >= seoDescriptionCoreLimit * 0.65
+  ) {
+    return excerpt.slice(0, lastSentenceBoundary + 1).trimEnd();
+  }
+
   const lastWordBoundary = excerpt.lastIndexOf(' ');
   const end = lastWordBoundary >= seoDescriptionCoreLimit * 0.65 ? lastWordBoundary : excerpt.length;
-  return `${excerpt.slice(0, end).trimEnd()}…`;
+  return `${excerpt.slice(0, end).trimEnd().replace(/[.!?;:,]+$/, '')}…`;
 })();
 const routeSeoDescription = isLittleMiamiKelleyMilford
   ? `Little Miami: 4.9 miles from Kelley Nature Preserve to Jim Terrell Park. Check the USGS Milford gauge, 5.5–7.5 ft best-play band, access and hazards.`
